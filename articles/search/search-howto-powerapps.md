@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751068"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918047"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Samouczek: wykonywanie zapytania dotyczącego indeksu Wyszukiwanie poznawcze z poziomu aplikacji zaawansowanych
 
 Skorzystaj z szybkiego środowiska tworzenia aplikacji dla aplikacji zaawansowanych, aby utworzyć niestandardową aplikację do przeszukiwanej zawartości w usłudze Azure Wyszukiwanie poznawcze.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Nawiązywanie połączenia z usługą Azure Wyszukiwanie poznawcze
@@ -248,9 +248,9 @@ W tym kroku utworzysz aplikację, korzystając z pola wyszukiwania, przycisku wy
 
     :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
@@ -261,5 +261,4 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 Aplikacje zaawansowane umożliwiają szybkie tworzenie aplikacji niestandardowych. Teraz, gdy wiesz już, jak nawiązać połączenie z indeksem wyszukiwania, Dowiedz się więcej na temat tworzenia bogatego środowiska wizualizacji w niestandardowej aplikacji zaawansowanej.
 
 > [!div class="nextstepaction"]
-> [Katalog uczenia aplikacji zaawansowanych](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Katalog uczenia aplikacji zaawansowanych](/powerapps/learning-catalog/get-started)

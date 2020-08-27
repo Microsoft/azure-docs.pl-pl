@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760553"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918897"
 ---
 # <a name="what-is-a-keyword"></a>Co to jest słowo kluczowe?
 
@@ -25,7 +26,7 @@ Słowo kluczowe jest słowem lub krótką frazą umożliwiającą produktowi akt
 
 Za pomocą funkcji dostosowywania, wydajności i integracji niestandardowego słowa kluczowego można dostosować aktywację głosu, aby najlepiej odpowiadała potrzebom użytkownika i użytkownikom.
 
-| Cechy | Opis |
+| Cecha | Opis |
 |----------|----------|
 | Dostosowywanie słowa kluczowego | Jako rozszerzenie marki, słowo kluczowe wzmacnia udział, który został skompilowany przez klientów. Portal niestandardowych słów kluczowych w programie Speech Studio umożliwia określenie dowolnego wyrazu lub krótkiej frazy, która najlepiej reprezentuje swoją markę. Możesz dodatkowo personalizować słowo kluczowe, wybierając odpowiednie wymowy, które będą honorowane przez wygenerowany model słów kluczowych.
 | Weryfikacja słowa kluczowego | Gdy słowo kluczowe o wysokim poziomie pewności jest wykrywane lokalnie, dźwięk jest wysyłany do chmury w celu dalszej weryfikacji, że użytkownik wypowiedział słowo kluczowe. Weryfikacja słowa kluczowego stanowi dodatkową warstwę zabezpieczeń, skracając wpływ nieprawidłowego wykrywania lokalnego i ochrony prywatności użytkowników.

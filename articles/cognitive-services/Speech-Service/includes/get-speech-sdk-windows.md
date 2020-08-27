@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 138a9ef9d483ca0d460bab7185d646669650f83e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81400037"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944475"
 ---
 :::row:::
     :::column span="3":::
@@ -27,9 +28,9 @@ ms.locfileid: "81400037"
 
 Zestaw Speech SDK w systemie Windows wymaga <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ pakietu redystrybucyjnego dla programu <span class="docon docon-navigate-external x-hidden-focus"></span> Visual Studio 2019</a> w systemie.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Zainstaluj dla architektury x86<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Zainstaluj dla x64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Zainstaluj dla ARMx64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Zainstaluj dla architektury x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Zainstaluj dla x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Zainstaluj dla ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ### <a name="c"></a>C#
 
@@ -39,7 +40,7 @@ W przypadku danych wejściowych mikrofonu należy zainstalować biblioteki platf
 
 Wymagane pliki zestawu Speech SDK można wdrożyć w tym samym katalogu, w którym znajduje się aplikacja. Dzięki temu aplikacja może bezpośrednio uzyskiwać dostęp do bibliotek. Upewnij się, że wybrano poprawną wersję (x86/x64) zgodną z aplikacją.
 
-| Nazwa                                            | Funkcja                                             |
+| Name (Nazwa)                                            | Funkcja                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | Podstawowy zestaw SDK wymagany do wdrożenia natywnego i zarządzanego |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Wymagane do wdrożenia zarządzanego                      |
@@ -48,7 +49,7 @@ Wymagane pliki zestawu Speech SDK można wdrożyć w tym samym katalogu, w któr
 > Począwszy od wersji 1.3.0 plik `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (dostarczony w poprzednich wersjach) nie jest już wymagany. Ta funkcja jest teraz zintegrowana z podstawowym zestawem SDK.
 
 > [!IMPORTANT]
-> W przypadku projektu C# aplikacji Windows Forms (.NET Framework) Upewnij się, że biblioteki są uwzględnione w ustawieniach wdrażania projektu. Możesz to sprawdzić w sekcji `Properties -> Publish Section`. Kliknij `Application Files` przycisk i Znajdź odpowiednie biblioteki z listy rozwijanej. Upewnij się, że wartość jest ustawiona `Included`na. Program Visual Studio uwzględni plik, gdy projekt jest publikowany/wdrażany.
+> W przypadku projektu C# aplikacji Windows Forms (.NET Framework) Upewnij się, że biblioteki są uwzględnione w ustawieniach wdrażania projektu. Możesz to sprawdzić w sekcji `Properties -> Publish Section` . Kliknij `Application Files` przycisk i Znajdź odpowiednie biblioteki z listy rozwijanej. Upewnij się, że wartość jest ustawiona na `Included` . Program Visual Studio uwzględni plik, gdy projekt jest publikowany/wdrażany.
 
 ### <a name="c"></a>C++
 

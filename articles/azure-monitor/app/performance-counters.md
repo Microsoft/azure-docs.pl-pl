@@ -3,12 +3,13 @@ title: Liczniki wydajności w Application Insights | Microsoft Docs
 description: Monitoruj system i niestandardowe liczniki wydajności .NET w Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4da8aef69b6a83c17fa8a20a80b2c485378e0aef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322520"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918523"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Liczniki wydajności systemu w Application Insights
 
@@ -59,11 +60,11 @@ Jeśli żądany licznik wydajności nie znajduje się na liście metryk, można 
 > [!NOTE]
 > Aplikacje ASP.NET Core nie są dostępne `ApplicationInsights.config` , a w związku z tym powyższa metoda jest nieprawidłowa dla aplikacji ASP.NET Core.
 
-Można przechwycić zarówno liczniki standardowe, jak i te, które zostały zaimplementowane. `\Objects\Processes`jest przykładem licznika standardowego, który jest dostępny we wszystkich systemach Windows. `\Sales(photo)\# Items Sold`to przykład niestandardowego licznika, który może być zaimplementowany w usłudze sieci Web.
+Można przechwycić zarówno liczniki standardowe, jak i te, które zostały zaimplementowane. `\Objects\Processes` jest przykładem licznika standardowego, który jest dostępny we wszystkich systemach Windows. `\Sales(photo)\# Items Sold` to przykład niestandardowego licznika, który może być zaimplementowany w usłudze sieci Web.
 
 Format jest `\Category(instance)\Counter"` lub dla kategorii, które nie mają wystąpień `\Category\Counter` .
 
-`ReportAs`jest wymagany w przypadku nazw liczników niezgodnych `[a-zA-Z()/-_ \.]+` -czyli zawierających znaki, które nie należą do następujących zestawów: litery, nawiasy okrągłe, ukośnik, łącznik, podkreślenie, spacja i kropka.
+`ReportAs` jest wymagany w przypadku nazw liczników niezgodnych `[a-zA-Z()/-_ \.]+` -czyli zawierających znaki, które nie należą do następujących zestawów: litery, nawiasy okrągłe, ukośnik, łącznik, podkreślenie, spacja i kropka.
 
 Jeśli określisz wystąpienie, będzie ono zbierane jako wymiar "CounterInstanceName" raportowanej metryki.
 

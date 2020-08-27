@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 9f9ebff77f54d86c3c4ed45fb5190de1900934e9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: cb931d0b9c3dd4d3fa0fa69f69f5f90fc37ea8f6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207229"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929197"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optyczne rozpoznawanie znaków (OCR)
 
@@ -141,7 +141,7 @@ Operacja odczytu obsługuje obecnie Wyodrębnianie tekstu odręcznego wyłączni
 [Interfejs API REST do odczytu 3. x](./QuickStarts/CSharp-hand-text.md) jest preferowaną opcją dla większości klientów ze względu na łatwość integracji i szybką produktywność z usługi Box. Platforma Azure i usługa przetwarzanie obrazów obsługują skalowanie, wydajność, bezpieczeństwo danych i wymagania dotyczące zgodności podczas skoncentrowania się na potrzebach klientów.
 
 ### <a name="use-containers-for-on-premise-deployment"></a>Używanie kontenerów do wdrożenia lokalnego
-[Kontener platformy docker 2,0 (wersja zapoznawcza)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) umożliwia wdrażanie nowych funkcji OCR w środowisku lokalnym. Kontenery doskonale nadaje się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
+[Kontener platformy docker 2,0 (wersja zapoznawcza)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) umożliwia wdrażanie nowych funkcji OCR w środowisku lokalnym. Kontenery doskonale nadają się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi.
 
 ## <a name="read-ocr-examples"></a>Przeczytaj przykłady OCR
 

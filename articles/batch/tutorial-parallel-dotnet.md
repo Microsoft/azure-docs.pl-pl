@@ -4,13 +4,13 @@ description: Samouczek — Równoległe transkodowanie plików multimedialnych p
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.custom: mvc
-ms.openlocfilehash: afa660a7138f3b69b2a6f7c478550095f357e29b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: f57354a6eb52b3439cf298f66b706f53d101371e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062593"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930234"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API .NET
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Przejdź do katalogu, który zawiera plik rozwiązania programu Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Na przykład:
+Otwórz plik rozwiązania w programie Visual Studio i zaktualizuj ciągi poświadczeń w pliku `Program.cs`, wprowadzając wartości uzyskane dla kont. Przykład:
 
 ```csharp
 // Batch account credentials
@@ -241,7 +241,7 @@ job.PoolInformation = new PoolInformation { PoolId = PoolId };
 await job.CommitAsync();
 ```
 
-### <a name="create-tasks"></a>Tworzenie zadań podrzędnych
+### <a name="create-tasks"></a>Tworzenie zadań
 
 Przykładowa aplikacja tworzy zadania podrzędne w ramach zadania, wywołując metodę `AddTasksAsync`, co powoduje utworzenie listy obiektów [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Każdy obiekt `CloudTask` uruchamia narzędzie ffmpeg w celu przetworzenia wejściowego obiektu `ResourceFile` za pomocą właściwości [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Narzędzie ffmpeg zostało już zainstalowane na wszystkich węzłach podczas tworzenia puli. Tutaj wiersz polecenia jest używany do uruchomienia narzędzia ffmpeg w celu przekonwertowania każdego z plików wejściowych w formacie MP4 (wideo) na format MP3 (audio).
 

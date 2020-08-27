@@ -3,13 +3,13 @@ title: Zasugerowane pytania w usłudze Active Learning — QnA Maker
 description: Popraw jakość bazy wiedzy dzięki aktywnej uczeniu. Przeglądanie, akceptowanie lub odrzucanie, Dodawanie bez usuwania lub zmieniania istniejących pytań.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fc7aebc3df2d14c78230d112e3e807d8d98fb047
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9bed80ac8c80fb4cecf06b979e0403e34645db01
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406983"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919135"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Akceptuj zasugerowane pytania w bazie wiedzy
 
@@ -132,8 +132,8 @@ Content-Type: application/json
 |--|--|--|--|
 |Parametr trasy adresu URL|Identyfikator bazy wiedzy|ciąg|Identyfikator GUID bazy wiedzy.|
 |Niestandardowa poddomena|Nazwa zasobu QnAMaker|ciąg|Nazwa zasobu jest używana jako niestandardowa poddomena dla QnA Maker. Jest on dostępny na stronie Ustawienia po opublikowaniu bazy wiedzy. Jest on wyświetlany jako `host` .|
-|Nagłówek|Content-Type|ciąg|Typ nośnika treści wysyłanej do interfejsu API. Wartość domyślna to:`application/json`|
-|Nagłówek|Autoryzacja|ciąg|Klucz punktu końcowego (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Header|Content-Type|ciąg|Typ nośnika treści wysyłanej do interfejsu API. Wartość domyślna to: `application/json`|
+|Header|Autoryzacja|ciąg|Klucz punktu końcowego (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Opublikuj treść|Obiekt JSON|JSON|Opinie szkoleniowe|
 
 Treść JSON ma kilka ustawień:

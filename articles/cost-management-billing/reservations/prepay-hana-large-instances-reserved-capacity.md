@@ -4,15 +4,16 @@ description: Najważniejsze rzeczy, które trzeba wiedzieć przed zakupem rezerw
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: cefb6b2cb2908b9c7311df745417686b52241bab
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 44f7ce657ea9341779e15f6e4817e8fae1515e47
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286567"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685973"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Zaoszczędź na dużych wystąpieniach platformy SAP HANA dzięki rezerwacji platformy Azure
 

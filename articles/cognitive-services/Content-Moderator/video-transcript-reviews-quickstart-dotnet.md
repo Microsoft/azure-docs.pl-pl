@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f2d0ddae8a9bd8054c740402b8beb3bb0bccfa9f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73744379"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919220"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Tworzenie przeglądów transkrypcji wideo przy użyciu platformy .NET
 
@@ -80,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Dodawanie właściwości prywatnych
 
-Dodaj następujące właściwości prywatne do przestrzeni nazw **VideoTranscriptReviews**, **programu**klasy. Zaktualizuj pola `AzureEndpoint` i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
+Dodaj następujące właściwości prywatne do przestrzeni nazw **VideoTranscriptReviews**, **programu**klasy. Zaktualizuj `AzureEndpoint` pola i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
 
 ```csharp
 namespace VideoReviews
@@ -144,7 +145,7 @@ Utwórz recenzję wideo za pomocą **ContentModeratorClient. Reviews. CreateVide
 **CreateVideoReviews** ma następujące wymagane parametry:
 1. Ciąg zawierający typ MIME, który powinien mieć wartość "Application/JSON". 
 1. Nazwa zespołu Content Moderator.
-1. Obiekt **>\<IList CreateVideoReviewsBodyItem** . Każdy obiekt **CreateVideoReviewsBodyItem** reprezentuje przegląd wideo. Ten przewodnik Szybki Start tworzy jeden przegląd w danym momencie.
+1. Obiekt **IList \<CreateVideoReviewsBodyItem> ** . Każdy obiekt **CreateVideoReviewsBodyItem** reprezentuje przegląd wideo. Ten przewodnik Szybki Start tworzy jeden przegląd w danym momencie.
 
 **CreateVideoReviewsBodyItem** ma kilka właściwości. Należy ustawić co najmniej następujące właściwości:
 - **Zawartość**. Adres URL filmu wideo, który ma zostać sprawdzony.
@@ -152,7 +153,7 @@ Utwórz recenzję wideo za pomocą **ContentModeratorClient. Reviews. CreateVide
 - **Stan**. Ustaw wartość na "unopublikowałd". Jeśli go nie ustawisz, zostanie on ustawiony jako "Oczekujący", co oznacza, że przegląd wideo jest publikowany i oczekuje na weryfikację przez człowieka. Po opublikowaniu recenzji wideo nie można już dodawać do niej ramek wideo, transkrypcji ani moderowania transkrypcji.
 
 > [!NOTE]
-> **CreateVideoReviews** zwraca ciąg IList\<>. Każdy z tych ciągów zawiera identyfikator dla recenzji wideo. Identyfikatory te są identyfikatorami GUID i nie są takie same jak wartość właściwości **identyfikatorze** .
+> **CreateVideoReviews** zwraca element IList \<string> . Każdy z tych ciągów zawiera identyfikator dla recenzji wideo. Identyfikatory te są identyfikatorami GUID i nie są takie same jak wartość właściwości **identyfikatorze** .
 
 Dodaj następującą definicję metody do VideoReviews przestrzeni nazw, programu klasy.
 
@@ -234,15 +235,15 @@ Oprócz dodawania transkrypcji do przeglądu wideo, można również dodać wyni
 1. Ciąg zawierający typ MIME, który powinien mieć wartość "Application/JSON". 
 1. Nazwa zespołu Content Moderator.
 1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews**.
-1. > IList\<TranscriptModerationBodyItem. **TranscriptModerationBodyItem** ma następujące właściwości:
-1. **Warunki**. > IList\<TranscriptModerationBodyItemTermsItem. **TranscriptModerationBodyItemTermsItem** ma następujące właściwości:
+1. Element IList \<TranscriptModerationBodyItem> . **TranscriptModerationBodyItem** ma następujące właściwości:
+1. **Warunki**. Element IList \<TranscriptModerationBodyItemTermsItem> . **TranscriptModerationBodyItemTermsItem** ma następujące właściwości:
 1. **Indeks**. Indeks warunku liczony od zera.
 1. **Termin**. Ciąg, który zawiera termin.
 1. **Sygnatura czasowa**. Ciąg zawierający w sekundach czas w transkrypcji, w którym znajdują się warunki.
 
 Transkrypcja musi być w formacie WebVTT. Aby uzyskać więcej informacji, zobacz [WebVTT: format danych wideo w sieci Web](https://www.w3.org/TR/webvtt1/).
 
-Dodaj następującą definicję metody do VideoTranscriptReviews przestrzeni nazw, programu klasy. Ta metoda przesyła transkrypcję do metody **ContentModeratorClient. Textłagodzenie. ScreenText** . Tłumaczy również wynik na elementy IList\<TranscriptModerationBodyItem> i przesyła do **AddVideoTranscriptModerationResult**.
+Dodaj następującą definicję metody do VideoTranscriptReviews przestrzeni nazw, programu klasy. Ta metoda przesyła transkrypcję do metody **ContentModeratorClient. Textłagodzenie. ScreenText** . Ponadto tłumaczy wynik na IList \<TranscriptModerationBodyItem> i przesyła do **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -366,7 +367,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Przejdź do przeglądu transkrypcji wideo
 
-Przejdź do przeglądu transkrypcji wideo w narzędziu Content moderator recenzja na ekranie **Przegląd**>**Video**>**transkrypcji** wideo.
+Przejdź do przeglądu transkrypcji wideo w narzędziu Content moderator recenzja na ekranie **Przegląd** > **Video** > **transkrypcji** wideo.
 
 Zobaczysz następujące funkcje:
 - Dwa wiersze dodanego transkrypcji

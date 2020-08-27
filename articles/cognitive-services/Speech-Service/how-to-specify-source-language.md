@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 10a07e00d451b5e23f49bbb3b0d358057c629b8c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 3d761bbad4cb2cd2cdd1c34459f25c811bb41c7e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406677"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918693"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Określ język źródłowy dla zamiany mowy na tekst
 
@@ -48,7 +48,7 @@ var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioC
 ```
 
 >[!Note]
-> `SpeechRecognitionLanguage`i `EndpointId` metody Set są przestarzałe z `SpeechConfig` klasy w języku C#. Korzystanie z tych metod nie jest odradzane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
+> `SpeechRecognitionLanguage` i `EndpointId` metody Set są przestarzałe z `SpeechConfig` klasy w języku C#. Korzystanie z tych metod nie jest odradzane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -78,7 +78,7 @@ auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfi
 ```
 
 >[!Note]
-> `SetSpeechRecognitionLanguage`i `SetEndpointId` są przestarzałymi metodami z `SpeechConfig` klasy w językach C++ i Java. Korzystanie z tych metod nie jest odradzane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
+> `SetSpeechRecognitionLanguage` i `SetEndpointId` są przestarzałymi metodami z `SpeechConfig` klasy w językach C++ i Java. Korzystanie z tych metod nie jest odradzane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -107,7 +107,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 ```
 
 >[!Note]
-> `setSpeechRecognitionLanguage`i `setEndpointId` są przestarzałymi metodami z `SpeechConfig` klasy w językach C++ i Java. Korzystanie z tych metod nie jest odradzane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
+> `setSpeechRecognitionLanguage` i `setEndpointId` są przestarzałymi metodami z `SpeechConfig` klasy w językach C++ i Java. Korzystanie z tych metod nie jest odradzane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -139,7 +139,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 ```
 
 >[!Note]
-> `speech_recognition_language`i `endpoint_id` właściwości są przestarzałe z `SpeechConfig` klasy w języku Python. Użycie tych właściwości jest niezalecane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
+> `speech_recognition_language` i `endpoint_id` właściwości są przestarzałe z `SpeechConfig` klasy w języku Python. Użycie tych właściwości jest niezalecane i nie powinno być używane podczas konstruowania `SpeechRecognizer` .
 
 ::: zone-end
 
@@ -195,7 +195,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 ```
 
 >[!Note]
-> `speechRecognitionLanguage`i `endpointId` właściwości są przestarzałe z `SPXSpeechConfiguration` klasy w zamierzeniu-C. Użycie tych właściwości jest niezalecane i nie powinno być używane podczas konstruowania `SPXSpeechRecognizer` .
+> `speechRecognitionLanguage` i `endpointId` właściwości są przestarzałe z `SPXSpeechConfiguration` klasy w zamierzeniu-C. Użycie tych właściwości jest niezalecane i nie powinno być używane podczas konstruowania `SPXSpeechRecognizer` .
 
 ::: zone-end
 

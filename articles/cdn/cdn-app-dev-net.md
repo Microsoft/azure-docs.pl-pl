@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.custom: has-adal-ref
-ms.openlocfilehash: 9f891327a60d5438369c56dd858bfcefff182cdf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: a812704c42a4da5ddf89fe6c5ba0c9a684047f75
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049341"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919492"
 ---
 # <a name="get-started-with-the-azure-cdn-library-for-net"></a>Wprowadzenie do biblioteki Azure CDN dla platformy .NET
 > [!div class="op_single_selector"]
@@ -156,7 +156,7 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
 
 Teraz, gdy podstawowa struktura naszego programu jest zapisywana, należy utworzyć metody wywoływane przez `Main` metodę.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 Zanim będziemy mogli korzystać z biblioteki zarządzania Azure CDN, musimy uwierzytelnić naszą nazwę główną usługi i uzyskać token uwierzytelniania.  Ta metoda używa biblioteki ADAL do pobrania tokenu.
 
 ```csharp

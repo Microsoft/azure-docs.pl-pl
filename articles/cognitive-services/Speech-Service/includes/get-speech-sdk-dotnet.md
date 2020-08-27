@@ -4,16 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 49a38c06e3a6105ad12133268b83ea73bcea2fc4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bbcc60070a05155a6143d3f1ff4689d44de7b3c7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399894"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944375"
 ---
 :::row:::
     :::column span="3":::
-        Zestaw SDK mowy dla platformy .NET jest dostępny jako pakiet NuGet i implementuje .NET Standard 2,0. Aby uzyskać więcej informacji, zobacz <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices <span class="docon docon-navigate-external x-hidden-focus"> </span>. Speech </a>.
+        Zestaw SDK mowy dla platformy .NET jest dostępny jako pakiet NuGet i implementuje .NET Standard 2,0. Aby uzyskać więcej informacji, zobacz <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices <span class="docon docon-navigate-external x-hidden-focus"></span> . Speech </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -37,6 +38,6 @@ Zestaw SDK mowy dla platformy .NET można zainstalować z **Menedżera pakietów
 Install-Package Microsoft.CognitiveServices.Speech
 ```
 
-#### <a name="additional-resources"></a>Dodatkowe zasoby
+#### <a name="additional-resources"></a>Zasoby dodatkowe
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">.NET Core, .NET Framework, Unity, platformy UWP i Xamarin szybkiego startu C# — kod źródłowy<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">.NET Core, .NET Framework, Unity, platformy UWP i Xamarin szybkiego startu C# — kod źródłowy <span class="docon docon-navigate-external x-hidden-focus"></span></a>

@@ -2,7 +2,7 @@
 title: 'Szybki Start: Tworzenie profilu wysokiej dostępności aplikacji — Azure PowerShell platformy Azure Traffic Manager'
 description: W tym artykule szybki start opisano sposób tworzenia profilu Traffic Manager w celu utworzenia aplikacji sieci Web o wysokiej dostępności.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 mnager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2019
-ms.author: rohink
-ms.openlocfilehash: 0ab7392b4fa6e248d51392706fedaed156344a99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 08/25/2020
+ms.author: duau
+ms.openlocfilehash: f3ecdfb03a6e6d1aab355edf7c370b29240e0543
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76934815"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929520"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Szybki Start: Tworzenie profilu Traffic Manager dla aplikacji sieci Web o wysokiej dostępności przy użyciu Azure PowerShell
 
@@ -147,7 +147,7 @@ Skopiuj wartość **RelativeDnsName** . Nazwa DNS profilu Traffic Manager to *ht
 3. Skopiuj nazwę DNS profilu Traffic Manager (*http://<* relativednsname *>. trafficmanager.NET*), aby wyświetlić witrynę internetową w nowej sesji przeglądarki sieci Web.
 4. Sprawdź, czy aplikacja internetowa jest nadal dostępna.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy wszystko będzie gotowe, Usuń grupy zasobów, aplikacje sieci Web i wszystkie powiązane zasoby za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

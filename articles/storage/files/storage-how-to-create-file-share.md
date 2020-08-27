@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525653"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930676"
 ---
 # <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
 Aby utworzyć udział plików platformy Azure, musisz odpowiedzieć na trzy pytania dotyczące sposobu ich używania:
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> Możliwość ustawiania i zmieniania warstw za pośrednictwem programu PowerShell znajduje się w module Podgląd AZ. Storage PowerShell. Te polecenia cmdlet lub ich dane wyjściowe mogą ulec zmianie przed udostępnieniem w ogólnie dostępnym module AZ. Storage PowerShell, dlatego należy utworzyć skrypty z tym zagadnieniem.
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 Funkcja tworzenia lub przenoszenia udziału plików do określonej warstwy jest dostępna w najnowszej aktualizacji interfejsu wiersza polecenia platformy Azure. Aktualizowanie interfejsu wiersza polecenia platformy Azure jest specyficzne dla używanego dystrybucji systemu operacyjnego/Linux. Aby uzyskać instrukcje dotyczące aktualizowania interfejsu wiersza polecenia platformy Azure w systemie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> Możliwość ustawienia warstwy z `--access-tier` parametrem jest dostępna w wersji zapoznawczej w najnowszym pakiecie interfejsu wiersza polecenia platformy Azure. To polecenie lub jego dane wyjściowe mogą ulec zmianie przed oznaczeniem ich jako ogólnie dostępne, dlatego należy utworzyć skrypty z tym zagadnieniem.
+
 ---
 
 ## <a name="next-steps"></a>Następne kroki

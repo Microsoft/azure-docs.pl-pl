@@ -2,16 +2,17 @@
 title: Zarządzanie użyciem i kosztami dla usługi Azure Application Insights | Microsoft Docs
 description: Zarządzanie woluminami telemetrii i monitorowanie kosztów w Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309685"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930489"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -79,7 +80,7 @@ Aby dowiedzieć się więcej na temat woluminów danych, wybierz **metryki** dla
 
 ### <a name="queries-to-understand-data-volume-details"></a>Zapytania, aby zrozumieć szczegóły ilości danych
 
-Istnieją dwa podejścia do badania woluminów danych dla Application Insights. Pierwsze używa zagregowanych informacji w `systemEvents` tabeli, a druga używa `_BilledSize` właściwości, która jest dostępna dla każdego pozyskanego zdarzenia. `systemEvents`nie będzie zawierać informacji o rozmiarze danych w przypadku [aplikacji opartych na obszarze roboczym](#data-volume-for-workspace-based-application-insights-resources).
+Istnieją dwa podejścia do badania woluminów danych dla Application Insights. Pierwsze używa zagregowanych informacji w `systemEvents` tabeli, a druga używa `_BilledSize` właściwości, która jest dostępna dla każdego pozyskanego zdarzenia. `systemEvents` nie będzie zawierać informacji o rozmiarze danych w przypadku [aplikacji opartych na obszarze roboczym](#data-volume-for-workspace-based-application-insights-resources).
 
 #### <a name="using-aggregated-data-volume-information"></a>Korzystanie z zagregowanych informacji o woluminie danych
 
@@ -215,7 +216,7 @@ Przejrzyj Application Insights użycie i szacowane koszty, aby zrozumieć trend 
 
 ### <a name="set-the-daily-cap"></a>Ustaw limit dzienny
 
-Aby zmienić dzienny limit, w sekcji **Konfigurowanie** zasobu Application Insights, na stronie **użycie i szacowane koszty** wybierz pozycję **dzienny limit**.
+Aby zmienić dzienny limit, w sekcji **Konfigurowanie** zasobu Application Insights, na stronie **użycie i szacowane koszty** wybierz pozycję  **dzienny limit**.
 
 ![Dostosuj dzienny limit ilości danych telemetrycznych](./media/pricing/pricing-003.png)
 
@@ -239,7 +240,7 @@ Istnieje kilka rodzajów próbkowania.
 * [Próbkowanie adaptacyjne](./sampling.md) jest wartością domyślną dla zestawu SDK ASP.NET. Próbkowanie adaptacyjne automatycznie dostosowuje się do ilości danych telemetrycznych wysyłanych przez aplikację. Działa automatycznie w zestawie SDK w aplikacji sieci Web, dzięki czemu ruch telemetrii w sieci jest zmniejszany. 
 * *Próbkowanie* do pozyskiwania jest alternatywą, która działa w punkcie, w którym dane telemetryczne z aplikacji stają się usługą Application Insights. Pobieranie próbek nie ma wpływu na ilość danych telemetrycznych wysyłanych z aplikacji, ale zmniejsza wolumin, który jest zachowywany przez usługę. Możesz użyć próbkowania pozyskiwania, aby zmniejszyć przydział, który jest używany przez dane telemetryczne z przeglądarek i innych zestawów SDK.
 
-Aby ustawić próbkowanie pozyskiwania, przejdź do okienka **Cennik** :
+Aby ustawić próbkowanie pozyskiwania, przejdź do okienka  **Cennik** :
 
 ![W okienku przydział i Cennik wybierz kafelek przykłady, a następnie wybierz ułamek próbkowania](./media/pricing/pricing-004.png)
 
@@ -279,7 +280,7 @@ Wysyłanie danych do Application Insights może spowodować naliczenie opłat za
 
 ## <a name="disable-daily-cap-e-mails"></a>Wyłącz dzienne wiadomości e-mail
 
-Aby wyłączyć dzienne wiadomości e-mail z limitem ilości, w sekcji **Konfiguracja** zasobu Application Insights, w okienku **użycie i szacowane koszty** wybierz pozycję **dzienny limit**. Istnieją ustawienia do wysyłania wiadomości e-mail po osiągnięciu limitu, a także czas osiągnięcia dodanego poziomu ostrzegawczego. Jeśli chcesz wyłączyć wszystkie wiadomości e-mail dotyczące woluminów dziennych, usuń zaznaczenie obu pól.
+Aby wyłączyć dzienne wiadomości e-mail z limitem ilości, w sekcji **Konfiguracja** zasobu Application Insights, w okienku **użycie i szacowane koszty** wybierz pozycję  **dzienny limit**. Istnieją ustawienia do wysyłania wiadomości e-mail po osiągnięciu limitu, a także czas osiągnięcia dodanego poziomu ostrzegawczego. Jeśli chcesz wyłączyć wszystkie wiadomości e-mail dotyczące woluminów dziennych, usuń zaznaczenie obu pól.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Warstwa cenowa starszej wersji przedsiębiorstwa (na węzeł)
 

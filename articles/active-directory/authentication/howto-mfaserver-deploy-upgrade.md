@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 455df5d2bf6003dd06a11f93d3e0d70ab9e11ee2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054004"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919526"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Upgrade to the latest Azure Multi-Factor Authentication Server (Uaktualnianie do najnowszej wersji serwera Azure Multi-Factor Authentication)
 
@@ -25,7 +25,11 @@ Ten artykuł przeprowadzi Cię przez proces uaktualniania serwera usługi Azure 
 Jeśli uaktualniasz program z wersji v6. x lub starszej do wersji 7. x lub nowszej, wszystkie składniki zmieniają się z .NET 2,0 na .NET 4,5. Wszystkie składniki wymagają również Microsoft Visual C++ 2015 redystrybucyjnej aktualizacji 1 lub nowszej. Instalator serwera usługi MFA instaluje zarówno wersje x86, jak i x64 tych składników, jeśli nie są one jeszcze zainstalowane. Jeśli portal użytkowników i usługa sieci Web aplikacji mobilnej działają na oddzielnych serwerach, należy zainstalować te pakiety przed uaktualnieniem tych składników. Najnowszą aktualizację pakietu redystrybucyjnego Microsoft Visual C++ 2015 można znaleźć w [Centrum pobierania Microsoft](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać opartych na chmurze Multi-Factor Authentication platformy Azure.
+>
+> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca 2019, mogą pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
 
 Kroki uaktualniania w skrócie:
 

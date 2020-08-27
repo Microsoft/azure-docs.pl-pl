@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
-ms.openlocfilehash: 41ebcb7b44ea88af06a30a611960fd8bb0ceddee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402219"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918795"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Jak rozpoznać intencje z mowy przy użyciu zestawu Speech SDK dla języka C #
 
@@ -52,7 +53,7 @@ LUIS używa trzech rodzajów kluczy:
 | --------- | ----------------------------------------------------- |
 | Tworzenie | Umożliwia programowe tworzenie i modyfikowanie aplikacji LUIS |
 | Starter (początkowy)   | Umożliwia testowanie aplikacji LUIS przy użyciu tylko tekstu   |
-| Endpoint  | Autoryzuje dostęp do określonej aplikacji LUIS            |
+| Punkt końcowy  | Autoryzuje dostęp do określonej aplikacji LUIS            |
 
 W tym przewodniku potrzebny jest typ klucza punktu końcowego. W tym przewodniku użyto przykładowej aplikacji LUIS Automation, którą można utworzyć, korzystając z przewodnika Szybki Start dla [aplikacji do automatyzacji domowej](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Jeśli utworzono własną aplikację LUIS, można jej użyć zamiast niej.
 
@@ -102,7 +103,7 @@ Następnie Dodaj kod do projektu.
    }
    ```
 
-1. Utwórz pustą metodę `RecognizeIntentAsync()`asynchroniczną, jak pokazano poniżej:
+1. Utwórz pustą metodę asynchroniczną `RecognizeIntentAsync()` , jak pokazano poniżej:
 
    ```csharp
    static async Task RecognizeIntentAsync()
@@ -128,7 +129,7 @@ Poniższe sekcje zawierają omówienie kodu.
 
 ## <a name="create-an-intent-recognizer"></a>Tworzenie aparatu rozpoznawania intencji
 
-Najpierw należy utworzyć konfigurację mowy z poziomu klucza i regionu punktu końcowego LUIS. Konfiguracje mowy umożliwiają tworzenie aparatów rozpoznawania dla różnych funkcji zestawu Speech SDK. Konfiguracja mowy ma wiele sposobów na określenie subskrypcji, której chcesz użyć; w tym miejscu używamy `FromSubscription`, który pobiera klucz subskrypcji i region.
+Najpierw należy utworzyć konfigurację mowy z poziomu klucza i regionu punktu końcowego LUIS. Konfiguracje mowy umożliwiają tworzenie aparatów rozpoznawania dla różnych funkcji zestawu Speech SDK. Konfiguracja mowy ma wiele sposobów na określenie subskrypcji, której chcesz użyć; w tym miejscu używamy `FromSubscription` , który pobiera klucz subskrypcji i region.
 
 > [!NOTE]
 > Użyj klucza i regionu subskrypcji LUIS, a nie subskrypcji usługi mowy.
@@ -139,7 +140,7 @@ Następnie utwórz aparat rozpoznawania mowy przy użyciu elementu `new IntentRe
 
 Teraz zaimportuj model z aplikacji usługi LUIS przy użyciu elementu `LanguageUnderstandingModel.FromAppId()` i dodaj intencje usługi LUIS, które chcesz rozpoznawać za pośrednictwem metody `AddIntent()` aparatu rozpoznawania. Te dwa kroki zwiększają dokładność rozpoznawania mowy, wskazując słowa, których użytkownik prawdopodobnie użyje w swoich żądaniach. Nie musisz dodawać wszystkich intencji aplikacji, jeśli nie chcesz ich rozpoznać w aplikacji.
 
-Aby dodać intencje, należy podać trzy argumenty: model LUIS (który został utworzony i nosi nazwę `model`), Nazwa celu i Identyfikator celu. Różnica między identyfikatorem i nazwą jest następująca.
+Aby dodać intencje, należy podać trzy argumenty: model LUIS (który został utworzony i nosi `model` nazwę), Nazwa celu i Identyfikator celu. Różnica między identyfikatorem i nazwą jest następująca.
 
 | `AddIntent()`&nbsp;argument | Przeznaczenie |
 | --------------------------- | ------- |
@@ -162,9 +163,9 @@ Po utworzeniu aparatu rozpoznawania i dodaniu intencji można rozpocząć rozpoz
 | Tryb rozpoznawania | Metody do wywołania | Wynik |
 | ---------------- | --------------- | ------ |
 | Pojedyncze | `RecognizeOnceAsync()` | Zwraca rozpoznaną intencję, jeśli istnieje, po jednej wypowiedzi. |
-| Ciągłe | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Rozpoznaje wiele wyrażenia długości; emituje zdarzenia (na przykład) `IntermediateResultReceived`, gdy wyniki są dostępne. |
+| Ciągłe | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Rozpoznaje wiele wyrażenia długości; emituje zdarzenia (na przykład `IntermediateResultReceived` ), gdy wyniki są dostępne. |
 
-Aplikacja używa trybu pojedynczego zrzutu i dlatego wywołuje `RecognizeOnceAsync()` metodę rozpoczęcia rozpoznawania. Wynik to obiekt `IntentRecognitionResult` zawierający informacje o rozpoznanej intencji. Odpowiedź JSON LUIS można wyodrębnić przy użyciu następującego wyrażenia:
+Aplikacja używa trybu pojedynczego zrzutu i dlatego wywołuje metodę `RecognizeOnceAsync()` rozpoczęcia rozpoznawania. Wynik to obiekt `IntentRecognitionResult` zawierający informacje o rozpoznanej intencji. Odpowiedź JSON LUIS można wyodrębnić przy użyciu następującego wyrażenia:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
@@ -176,11 +177,11 @@ Aplikacja nie analizuje wyniku JSON. Wyświetla tekst JSON tylko w oknie konsoli
 
 ## <a name="specify-recognition-language"></a>Określanie języka na potrzeby rozpoznawania
 
-Domyślnie usługa LUIS rozpoznaje intencje w języku angielskim (Stany Zjednoczone) (`en-us`). Przypisanie kodu ustawień regionalnych do właściwości `SpeechRecognitionLanguage` konfiguracji mowy umożliwia rozpoznawanie intencji w innych językach. Na przykład Dodaj `config.SpeechRecognitionLanguage = "de-de";` do naszej aplikacji przed utworzeniem aparatu rozpoznawania, aby rozpoznawać intencje w języku niemieckim. Aby uzyskać więcej informacji, zobacz [Luis Language Support](../LUIS/luis-language-support.md#languages-supported).
+Domyślnie usługa LUIS rozpoznaje intencje w języku angielskim (Stany Zjednoczone) (`en-us`). Przypisanie kodu ustawień regionalnych do właściwości `SpeechRecognitionLanguage` konfiguracji mowy umożliwia rozpoznawanie intencji w innych językach. Na przykład Dodaj do `config.SpeechRecognitionLanguage = "de-de";` naszej aplikacji przed utworzeniem aparatu rozpoznawania, aby rozpoznawać intencje w języku niemieckim. Aby uzyskać więcej informacji, zobacz [Luis Language Support](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Ciągłe rozpoznawanie z pliku
 
-Poniższy kod ilustruje dwie dodatkowe możliwości funkcji rozpoznawania intencji, które korzystają z zestawu SDK rozpoznawania mowy. Pierwsza z nich, wspomniana wcześniej, to rozpoznawanie ciągłe, w przypadku którego aparat rozpoznawania emituje zdarzenia, gdy wyniki są dostępne. Te zdarzenia mogą być następnie przetwarzane przez udostępnione programy obsługi zdarzeń. W przypadku ciągłego rozpoznawania należy wywołać `StartContinuousRecognitionAsync()` metodę aparatu rozpoznawania, aby rozpocząć rozpoznawanie zamiast. `RecognizeOnceAsync()`
+Poniższy kod ilustruje dwie dodatkowe możliwości funkcji rozpoznawania intencji, które korzystają z zestawu SDK rozpoznawania mowy. Pierwsza z nich, wspomniana wcześniej, to rozpoznawanie ciągłe, w przypadku którego aparat rozpoznawania emituje zdarzenia, gdy wyniki są dostępne. Te zdarzenia mogą być następnie przetwarzane przez udostępnione programy obsługi zdarzeń. W przypadku ciągłego rozpoznawania należy wywołać metodę aparatu rozpoznawania, `StartContinuousRecognitionAsync()` Aby rozpocząć rozpoznawanie zamiast `RecognizeOnceAsync()` .
 
 Inna możliwość to odczytywanie dźwięku zawierającego mowę w celu przetworzenia z pliku WAV. Implementacja obejmuje utworzenie konfiguracji audio, która może być używana podczas tworzenia aparatu rozpoznawania intencji. Plik musi być plikiem jednokanałowym (mono) z częstotliwością próbkowania wynoszącą 16 kHz.
 

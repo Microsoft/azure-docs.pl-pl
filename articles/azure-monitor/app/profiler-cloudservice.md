@@ -2,16 +2,17 @@
 title: Profilowanie na żywo w usłudze Azure Cloud Services przy użyciu Application Insights | Microsoft Docs
 description: Włącz Application Insights Profiler dla Cloud Services platformy Azure.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8119477a69771c67db1f1e59c082d5d0d611214b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 69a9ba316a1fda14a2e85d4d981321d4b2f9f289
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305860"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930319"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilowanie na żywo Cloud Services platformy Azure z Application Insights
 
@@ -63,7 +64,7 @@ Application Insights Profiler jest instalowany z rozszerzeniem Diagnostyka Azure
     > * Klucz, który jest używany przez ujścia ApplicationInsights. 
     > * Klucz, który jest używany przez ujścia ApplicationInsightsProfiler. 
     >
-    > Rzeczywistą wartość klucza Instrumentacji używaną przez ujścia można znaleźć `ApplicationInsights` w elemencie *ServiceConfiguration. \* cscfg* — pliki. 
+    > Rzeczywistą wartość klucza Instrumentacji używaną przez ujścia można znaleźć `ApplicationInsights` w elemencie     *ServiceConfiguration. \* cscfg* — pliki. 
     > Po wydaniu zestawu SDK dla programu Visual Studio 15,5 Azure, tylko klucze instrumentacji, które są używane przez aplikację i ujścia ApplicationInsightsProfiler, muszą być zgodne ze sobą.
 
 1. Wdróż usługę przy użyciu nowej konfiguracji diagnostyki, a Application Insights Profiler jest skonfigurowana do uruchamiania w usłudze.

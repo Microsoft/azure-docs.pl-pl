@@ -1,40 +1,43 @@
 ---
 title: Tworzenie udziału plików platformy Azure w warstwie Premium
-description: W tym artykule dowiesz się, jak utworzyć udział plików platformy Azure w warstwie Premium przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+description: Dowiedz się, jak utworzyć udział plików platformy Azure w warstwie Premium przy użyciu modułu Azure Portal, Azure PowerShell module lub interfejsu wiersza polecenia platformy Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2019
+ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adeb1635489441b30c15fee69922e3abef0a53f9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 27bedb2a5d9f95632141ce332773e0f4f9c696d5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903820"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930642"
 ---
-# <a name="how-to-create-an-premium-azure-file-share"></a>Jak utworzyć udział plików platformy Azure w warstwie Premium
+# <a name="how-to-create-an-azure-premium-file-share"></a>Jak utworzyć udział plików platformy Azure w warstwie Premium
+
 Udziały plików w warstwie Premium są oferowane na nośnikach magazynowania SSD i są przydatne w przypadku obciążeń intensywnie korzystających z operacji we/wy, w tym hostingu baz danych i obliczeń o wysokiej wydajności (HPC). Udziały plików w warstwie Premium są hostowane w specjalnym rodzaju koncie magazynu o nazwie konto FileStorage. Udziały plików w warstwie Premium są przeznaczone dla aplikacji o wysokiej wydajności i skalowania w przedsiębiorstwie, zapewniając spójne małe opóźnienia, duże liczby operacji we/wy i duże przepływność.
 
-W tym artykule opisano sposób tworzenia nowego typu konta przy użyciu [Azure Portal](https://portal.azure.com/), Azure PowerShell i interfejsu wiersza polecenia platformy Azure.
+W tym artykule opisano sposób tworzenia nowego typu konta przy użyciu [Azure Portal](https://portal.azure.com/), Azure PowerShell module i interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uzyskać dostęp do zasobów platformy Azure, w tym udziałów plików Premium platformy Azure, musisz mieć subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+- Jeśli zamierzasz korzystać z interfejsu wiersza polecenia platformy Azure, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Jeśli zamierzasz użyć modułu Azure PowerShell, [Zainstaluj najnowszą wersję](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
 
-## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Tworzenie udziału plików w warstwie Premium przy użyciu Azure Portal
+## <a name="create-a-filestorage-storage-account"></a>Utwórz konto magazynu FileStorage
 
-### <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+Każde konto magazynu musi należeć do grupy zasobów platformy Azure. Grupa zasobów to logiczny kontener przeznaczony do grupowania usług platformy Azure. Podczas tworzenia konta magazynu masz możliwość utworzenia nowej grupy zasobów lub użycia istniejącej grupy zasobów. Udziały plików w warstwie Premium wymagają konta FileStorage.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-storage-account"></a>Utwórz konto magazynu FileStorage
-
 Teraz możesz przystąpić do utworzenia konta magazynu.
-
-Każde konto magazynu musi należeć do grupy zasobów platformy Azure. Grupa zasobów to logiczny kontener przeznaczony do grupowania usług platformy Azure. Podczas tworzenia konta magazynu masz możliwość utworzenia nowej grupy zasobów lub użycia istniejącej grupy zasobów. W tym artykule pokazano, jak utworzyć nową grupę zasobów.
 
 1. W Azure Portal wybierz pozycję **konta magazynu** w menu po lewej stronie.
 
@@ -56,46 +59,13 @@ Każde konto magazynu musi należeć do grupy zasobów platformy Azure. Grupa za
     ![Jak utworzyć konto magazynu dla udziału plików w warstwie Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Wybierz pozycję **Przejrzyj i utwórz**, aby przejrzeć ustawienia konta magazynu i utworzyć konto.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Po utworzeniu zasobu konta magazynu przejdź do niego.
 
-### <a name="create-a-premium-file-share"></a>Tworzenie udziału plików w warstwie Premium
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-1. W menu po lewej stronie konta magazynu przewiń do sekcji **Usługa plików** , a następnie wybierz pozycję **pliki**.
-1. Wybierz pozycję **udział plików** , aby utworzyć udział plików w warstwie Premium.
-1. Wprowadź nazwę i żądany przydział udziału plików, a następnie wybierz pozycję **Utwórz**.
-
-> [!NOTE]
-> Rozmiar udostępnianych udziałów jest określany na podstawie przydziału udziału, a udziały plików są rozliczane zgodnie z zainicjowaną ilością. więcej informacji można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/storage/files/) .
-
-   ![Tworzenie udziału plików w warstwie Premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
-
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
-
-Jeśli chcesz wyczyścić zasoby utworzone w tym artykule, możesz po prostu usunąć grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego konta magazynu oraz innych zasobów skojarzonych z tą grupą zasobów.
-
-## <a name="create-a-premium-file-share-using-powershell"></a>Tworzenie udziału plików w warstwie Premium przy użyciu programu PowerShell
-
-### <a name="create-an-account-using-powershell"></a>Tworzenie konta przy użyciu programu PowerShell
-
-Najpierw zainstaluj najnowszą wersję modułu [PowerShellGet](/powershell/scripting/gallery/installing-psget).
-
-Następnie Uaktualnij moduł programu PowerShell, zaloguj się do subskrypcji platformy Azure, Utwórz grupę zasobów, a następnie utwórz konto magazynu.
-
-### <a name="upgrade-your-powershell-module"></a>Uaktualnianie modułu programu PowerShell
-
-Aby móc korzystać z udziału plików w warstwie Premium z poziomu programu PowerShell, musisz zainstalować moduł AZ. Storage w wersji 1.4.0 lub najnowszy moduł AZ. Storage.
-
-Rozpocznij od otwarcia sesji programu PowerShell z podwyższonym poziomem uprawnień.
-
-Zainstaluj moduł AZ. Storage:
-
-```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
-```
-
-### <a name="sign-in-to-your-azure-subscription"></a>Zaloguj się do subskrypcji platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Użyj polecenia `Connect-AzAccount`, a następnie postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
 
@@ -123,32 +93,11 @@ Aby utworzyć konto magazynu FileStorage z poziomu programu PowerShell, użyj po
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
 ```
 
-### <a name="create-a-premium-file-share"></a>Tworzenie udziału plików w warstwie Premium
-
-Teraz, gdy masz już konto FileStorage, możesz utworzyć udział plików w warstwie Premium. Użyj polecenia cmdlet [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) , aby go utworzyć.
-
-> [!NOTE]
-> Rozmiar udostępnianych udziałów jest określany na podstawie przydziału udziału, a udziały plików są rozliczane zgodnie z zainicjowaną ilością. więcej informacji można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/storage/files/) .
-
-```powershell
-New-AzStorageShare `
-   -Name myshare `
-   -Context $storageAcct.Context
-```
-
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
-
-Aby usunąć grupę zasobów i skojarzone z nią zasoby, w tym nowe konto magazynu, użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
-
-```powershell
-Remove-AzResourceGroup -Name $resourceGroup
-```
-
-## <a name="create-a-premium-file-share-using-azure-cli"></a>Tworzenie udziału plików w warstwie Premium przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby rozpocząć Azure Cloud Shell, zaloguj się do [Azure Portal](https://portal.azure.com).
 
-Jeśli chcesz zalogować się do lokalnej instalacji interfejsu wiersza polecenia, najpierw upewnij się, że masz najnowszą wersję, a następnie uruchom polecenie logowania:
+Jeśli chcesz zalogować się do lokalnej instalacji interfejsu wiersza polecenia, upewnij się, że masz najnowszą wersję, a następnie zaloguj się:
 
 ```azurecli
 az login
@@ -187,13 +136,42 @@ STORAGEKEY=$(az storage account keys list \
     --account-name $STORAGEACCT \
     --query "[0].value" | tr -d '"')
 ```
+---
 
-### <a name="create-a-premium-file-share"></a>Tworzenie udziału plików w warstwie Premium
+## <a name="create-a-premium-file-share"></a>Tworzenie udziału plików w warstwie Premium
 
-Teraz, gdy masz już konto FileStorage, możesz utworzyć udział plików w warstwie Premium. Użyj polecenia [AZ Storage Share Create](/cli/azure/storage/share) , aby go utworzyć.
+Po utworzeniu konta FileStorage można utworzyć udział plików w warstwie Premium w ramach tego konta magazynu.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. W menu po lewej stronie konta magazynu przewiń do sekcji **Usługa plików** , a następnie wybierz pozycję **pliki**.
+1. Wybierz pozycję **udział plików** , aby utworzyć udział plików w warstwie Premium.
+1. Wprowadź nazwę i żądany przydział udziału plików, a następnie wybierz pozycję **Utwórz**.
 
 > [!NOTE]
-> Rozmiar udostępnianych udziałów jest określany na podstawie przydziału udziału, a udziały plików są rozliczane zgodnie z zainicjowaną ilością. więcej informacji można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/storage/files/) .
+> Rozmiar udostępnianych udziałów jest określany przez przydział udziału, a udziały plików są rozliczane zgodnie z przydziałem. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/storage/files/).
+
+   ![Tworzenie udziału plików w warstwie Premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Aby utworzyć udział plików w warstwie Premium przy użyciu modułu Azure PowerShell, należy użyć polecenia cmdlet [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) .
+
+> [!NOTE]
+> Rozmiar udostępnianych udziałów jest określany przez przydział udziału, a udziały plików są rozliczane zgodnie z przydziałem. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/storage/files/).
+
+```powershell
+New-AzStorageShare `
+   -Name myshare `
+   -Context $storageAcct.Context
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Aby utworzyć udział plików w warstwie Premium za pomocą interfejsu wiersza polecenia platformy Azure, użyj polecenie [AZ Storage Share Create](/cli/azure/storage/share) .
+
+> [!NOTE]
+> Rozmiar udostępnianych udziałów jest określany przez przydział udziału, a udziały plików są rozliczane zgodnie z przydziałem. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ```azurecli-interactive
 az storage share create \
@@ -201,14 +179,34 @@ az storage share create \
     --account-key $STORAGEKEY \
     --name "myshare" 
 ```
+---
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Jeśli chcesz wyczyścić zasoby utworzone w tym artykule, Usuń grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego konta magazynu oraz innych zasobów skojarzonych z tą grupą zasobów.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Jeśli chcesz wyczyścić zasoby utworzone w tym artykule, Usuń grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego konta magazynu oraz innych zasobów skojarzonych z tą grupą zasobów.
+
+Aby usunąć grupę zasobów i skojarzone z nią zasoby, w tym nowe konto magazynu, użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
+
+```powershell
+Remove-AzResourceGroup -Name $resourceGroup
+```
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Jeśli chcesz wyczyścić zasoby utworzone w tym artykule, Usuń grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego konta magazynu oraz innych zasobów skojarzonych z tą grupą zasobów.
 
 Aby usunąć grupę zasobów i skojarzone z nią zasoby, w tym nowe konto magazynu, użyj polecenia [az group delete](/cli/azure/group).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041752"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929446"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Generowanie i przechowywanie kluczy SSH w Azure Portal
 
@@ -28,7 +28,7 @@ Aby uzyskać szczegółowe informacje na temat tworzenia i używania kluczy SSH 
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
 
-1. W górnej części strony wpisz *SSH* , aby wyszukać. W obszarze **Marketplace*wybierz pozycję **klucze SSH**.
+1. W górnej części strony wpisz *SSH* , aby wyszukać. W obszarze **Marketplace**wybierz pozycję **klucze SSH**.
 
 1. Na stronie **klucz SSH** wybierz pozycję **Utwórz**.
 
@@ -61,7 +61,7 @@ Na komputerze lokalnym Otwórz wiersz polecenia programu PowerShell i wpisz:
 ssh -i <path to the .pem file> username@<ipaddress of the VM>
 ```
 
-Na przykład wpisz:`ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
+Na przykład wpisz: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 
 ## <a name="upload-an-ssh-key"></a>Przekazywanie klucza SSH
@@ -89,6 +89,20 @@ Możesz również przekazać publiczny klucz SSH do przechowywania na platformie
 1. Po zakończeniu walidacji wybierz pozycję **Utwórz**. 
 
 Po przekazaniu klucza można go użyć podczas tworzenia maszyny wirtualnej.
+
+## <a name="list-keys"></a>Klucze list
+
+Klucze SSH utworzone w portalu są przechowywane jako zasoby, dzięki czemu można filtrować widok zasobów, aby wyświetlić wszystkie z nich.
+
+1. W portalu wybierz pozycję **wszystkie zasoby**.
+1. W obszarze Filtry wybierz opcję **Typ**, usuń zaznaczenie opcji **Zaznacz wszystko** , aby wyczyścić listę.
+1. W filtrze wpisz **SSH** , a następnie wybierz pozycję **klucz SSH**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Zrzut ekranu przedstawiający sposób filtrowania listy w celu wyświetlenia wszystkich kluczy SSH.":::
+
+## <a name="get-the-public-key"></a>Pobierz klucz publiczny
+
+Jeśli potrzebujesz klucza publicznego, możesz łatwo skopiować go ze strony portalu dla klucza. Po prostu Utwórz listę kluczy (przy użyciu procesu w ostatniej sekcji), a następnie wybierz klucz z listy. Zostanie otwarta strona klucza, a następnie można kliknąć ikonę **Kopiuj do schowka** obok klawisza, aby skopiować.
 
 ## <a name="next-steps"></a>Następne kroki
 
