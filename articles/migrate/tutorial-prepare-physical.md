@@ -4,12 +4,12 @@ description: Dowiedz się, jak przygotować się do oceny/migracji serwerów fiz
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420791"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927378"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Przygotowanie do oceny i migracji serwerów fizycznych na platformę Azure
 
@@ -17,7 +17,7 @@ W tym artykule opisano sposób przygotowania do oceny lokalnych serwerów fizycz
 
 [Azure Migrate](./migrate-services-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm. 
 
-Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać serwery fizyczne przy użyciu Azure Migrate. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać serwery fizyczne przy użyciu Azure Migrate. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure. Skonfiguruj uprawnienia dla konta i zasobów platformy Azure do pracy z Azure Migrate.
@@ -40,6 +40,7 @@ Skonfiguruj platformę Azure do pracy z Azure Migrate.
 **Tworzenie projektu Azure Migrate** | Twoje konto platformy Azure wymaga uprawnień współautora lub właściciela do utworzenia projektu. 
 **Zarejestruj dostawców zasobów (tylko Ocena)** | Azure Migrate używa uproszczonego urządzenia Azure Migrate do odnajdywania i oceniania maszyn przy użyciu Azure Migrate: Ocena serwera.<br/><br/> Podczas rejestracji urządzenia dostawcy zasobów są rejestrowani z subskrypcją wybraną w urządzeniu. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Do zarejestrowania dostawców zasobów należy mieć rolę współautor lub właściciela w ramach subskrypcji.
 **Tworzenie aplikacji usługi Azure AD (tylko Ocena)** | Podczas rejestrowania urządzenia Azure Migrate tworzy aplikację Azure Active Directory (Azure AD), która jest używana do komunikacji między agentami działającymi na urządzeniu i odpowiednimi usługami działającymi na platformie Azure. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Musisz mieć uprawnienia do tworzenia aplikacji usługi Azure AD (dostępnych w roli Deweloper aplikacji).
+**Tworzenie magazynu kluczy** | Key Vault jest tworzony w ramach rejestracji urządzenia i służy do zarządzania certyfikatem pobranym na urządzeniu podczas jego konfiguracji.<br/><br/>Aby umożliwić Azure Migrate tworzenia Key Vault, konto platformy Azure musi mieć uprawnienia współautora w grupie zasobów, w której znajduje się projekt Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu 

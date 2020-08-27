@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: dacfeeff06d58a084d4313ca50b51f262cf61381
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553084"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917979"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Skonfiguruj połączenie z kontem usługi Azure Storage przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
@@ -68,7 +68,7 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="3---create-the-data-source"></a>3 — Tworzenie źródła danych
 
-[Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z konta magazynu przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z konta magazynu przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
 
 W przypadku indeksowania z konta magazynu źródło danych musi mieć następujące wymagane właściwości:
 
@@ -83,7 +83,7 @@ W przypadku indeksowania z konta magazynu źródło danych musi mieć następuj�
         * *ResourceId =/subscriptions/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.Storage/storageAccounts/**nazwy konta magazynu**/;*
 * **kontener** określa nazwę kontenera lub tabeli na koncie magazynu. Domyślnie można pobrać wszystkie obiekty blob w kontenerze. Jeśli chcesz tylko indeksować obiekty blob w konkretnym katalogu wirtualnym, możesz określić ten katalog przy użyciu opcjonalnego parametru **zapytania** .
 
-Przykład sposobu tworzenia obiektu źródła danych obiektu BLOB przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Przykład sposobu tworzenia obiektu źródła danych obiektu BLOB przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -118,7 +118,7 @@ Oto jak utworzyć indeks z polem z możliwością wyszukiwania, `content` Aby pr
     }
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](/rest/api/searchservice/create-index)
 
 ### <a name="5---create-the-indexer"></a>5 — Tworzenie indeksatora
 
@@ -143,7 +143,7 @@ Przykładowa definicja indeksatora dla indeksatora obiektu BLOB:
 
 Ten indeksator będzie uruchamiany co dwie godziny (interwał harmonogramu jest ustawiony na wartość "PT2H"). Aby uruchomić indeksator co 30 minut, ustaw interwał na wartość "PT30M". Najkrótszy obsługiwany interwał to 5 minut. Harmonogram jest opcjonalny — w przypadku pominięcia, indeksator jest uruchamiany tylko raz, gdy zostanie utworzony. Można jednak uruchomić indeksator na żądanie w dowolnym momencie.   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](/rest/api/searchservice/create-indexer).
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 

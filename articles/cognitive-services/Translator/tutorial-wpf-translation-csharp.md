@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 70550b61354c23889836b48be6f09475569ecd52
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ef5384abd63dcd9aeb4789dc4955f4b80068d330
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589660"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921243"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
@@ -37,11 +38,11 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Ta lista zawiera usługi Cognitive Services używane w tym samouczku. Użyj linku, aby przejrzeć dokumentację interfejsu API dla każdej funkcji.
 
-| Usługa | Cechy | Opis |
+| Usługa | Cecha | Opis |
 |---------|---------|-------------|
 | Translator | [Pobieranie języków](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
 | Translator | [Przetłumacz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Tłumaczenie tekstu na więcej niż 70 języków. |
-| Translator | [Wykrywanie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
+| Translator | [Powinny](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
 | Sprawdzanie pisowni Bing | [Sprawdzanie pisowni](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Popraw błędy pisowni w celu zwiększenia dokładności tłumaczenia. |
 
 ## <a name="prerequisites"></a>Wymagania wstępne

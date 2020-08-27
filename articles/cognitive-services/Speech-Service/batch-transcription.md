@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: wolfma
-ms.openlocfilehash: b30a314977755b94bdcfdf7526d1b9ae61fcf100
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5be3b4ce5d89a15009f2b9b31183400890dbefb5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689749"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918948"
 ---
 # <a name="how-to-use-batch-transcription"></a>Jak korzystać z transkrypcji partii
 
@@ -62,7 +63,7 @@ Interfejs API transkrypcji usługi Batch obsługuje następujące formaty:
 W przypadku strumieni stereofonicznych audio lewy i prawy są dzielone podczas transkrypcji. Tworzony jest plik wynikowy JSON dla każdego kanału.
 Aby utworzyć uporządkowaną końcową transkrypcję, użyj sygnatur czasowych wygenerowanych na wypowiedź.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Parametry konfiguracji są podane jako dane JSON (co najmniej jeden z pojedynczych plików):
 
@@ -172,7 +173,7 @@ Użyj tych opcjonalnych właściwości, aby skonfigurować transkrypcję:
       Opcjonalny adres URL z [sygnaturą dostępu współdzielonego usługi](../../storage/common/storage-sas-overview.md) do zapisywalnego kontenera na platformie Azure. Wynik jest przechowywany w tym kontenerze. Jeśli nie zostanie określony, firma Microsoft zapisuje wyniki w kontenerze magazynu zarządzanym przez firmę Microsoft. Gdy transkrypcja zostanie usunięta przez wywołanie [usuwania transkrypcji](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), dane wynikowe również zostaną usunięte.
 :::row-end:::
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Transkrypcja usługi Batch może odczytywać dźwięk z publicznego, widocznego w Internecie identyfikatora URI i może odczytywać zapisy audio i zapisu przy użyciu identyfikatora URI sygnatury dostępu współdzielonego z [usługą Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 

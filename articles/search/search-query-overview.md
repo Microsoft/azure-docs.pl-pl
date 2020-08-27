@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130810"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928840"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Typy i kompozycje zapytań w usłudze Azure Wyszukiwanie poznawcze
 
 Na platformie Azure Wyszukiwanie poznawcze zapytanie jest pełną specyfikacją operacji rundy. Na żądanie istnieją parametry, które dostarczają instrukcje wykonania dla aparatu, a także parametry, które kształtują zwrot z powrotem. Nieokreślony ( `search=*` ), bez kryteriów dopasowania i przy użyciu parametrów wartości null lub domyślnych, zapytanie jest wykonywane dla wszystkich pól, które można przeszukiwać jako operacje wyszukiwania pełnotekstowego, zwracając nieoceniony zestaw wyników w dowolnej kolejności.
 
-Poniższy przykład to zapytanie reprezentatywne skonstruowane w [interfejsie API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Ten przykład wskazuje na [indeks demonstracyjny hoteli](search-get-started-portal.md) i zawiera wspólne parametry, dzięki czemu można uzyskać pomysł dotyczący wyglądu zapytania.
+Poniższy przykład to zapytanie reprezentatywne skonstruowane w [interfejsie API REST](/rest/api/searchservice/search-documents). Ten przykład wskazuje na [indeks demonstracyjny hoteli](search-get-started-portal.md) i zawiera wspólne parametry, dzięki czemu można uzyskać pomysł dotyczący wyglądu zapytania.
 
 ```
 {
@@ -55,7 +55,7 @@ Na platformie Azure Wyszukiwanie poznawcze wykonywanie zapytania jest zawsze w o
 
 Przed zapisaniem dowolnego kodu można użyć narzędzi zapytania, aby poznać składnię i eksperymentować z innymi parametrami. Najszybszym podejściem jest wbudowane narzędzie portalu, [Eksplorator wyszukiwania](search-explorer.md).
 
-Jeśli wykonano ten [Przewodnik Szybki Start, aby utworzyć indeks demonstracyjny hoteli](search-get-started-portal.md), można wkleić ten ciąg zapytania do paska wyszukiwania Eksploratora, aby uruchomić pierwsze zapytanie:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
+Jeśli wykonano ten [Przewodnik Szybki Start, aby utworzyć indeks demonstracyjny hoteli](search-get-started-portal.md), można wkleić ten ciąg zapytania do paska wyszukiwania Eksploratora, aby uruchomić pierwsze zapytanie: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Jak operacje zapytań są włączane przez indeks
 
@@ -65,7 +65,7 @@ Atrybuty indeksu w polu ustawiają dozwolone operacje — czy pole można *wyszu
 
 ![Definicja indeksu dla przykładu hotelu](./media/search-query-overview/hotel-sample-index-definition.png "Definicja indeksu dla przykładu hotelu")
 
-Powyższy zrzut ekranu jest częściową listą atrybutów indeksu dla przykładu hoteli. Cały schemat indeksu można wyświetlić w portalu. Aby uzyskać więcej informacji na temat atrybutów indeksu, zobacz [create index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Powyższy zrzut ekranu jest częściową listą atrybutów indeksu dla przykładu hoteli. Cały schemat indeksu można wyświetlić w portalu. Aby uzyskać więcej informacji na temat atrybutów indeksu, zobacz [create index REST API](/rest/api/searchservice/create-index).
 
 > [!Note]
 > Niektóre funkcje zapytań są włączone na poziomie indeksu, a nie na podstawie poszczególnych pól. Te możliwości obejmują: [mapy synonimów](search-synonyms.md), [Niestandardowe analizatory](index-add-custom-analyzers.md), [konstrukcje sugerujące (dla autouzupełniania i sugerowanych zapytań)](index-add-suggesters.md), [logika oceniania dla wyników rankingu](index-add-scoring-profiles.md).
@@ -76,13 +76,13 @@ Zapytania są zawsze kierowane w pojedynczym indeksie. Nie można przyłączyć 
 
 Wymagane elementy w żądaniu zapytania obejmują następujące składniki:
 
-+ Punkt końcowy usługi i kolekcja dokumentów indeksu, wyrażone jako adres URL zawierający stałe i zdefiniowane przez użytkownika składniki:**`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
-+ **`api-version`**(Tylko REST) jest konieczne, ponieważ wiele wersji interfejsu API jest dostępnych przez cały czas. 
++ Punkt końcowy usługi i kolekcja dokumentów indeksu, wyrażone jako adres URL zawierający stałe i zdefiniowane przez użytkownika składniki: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
++ **`api-version`** (Tylko REST) jest konieczne, ponieważ wiele wersji interfejsu API jest dostępnych przez cały czas. 
 + **`api-key`**, zapytanie lub klucz API-Key, uwierzytelnia żądanie do usługi.
 + **`queryType`**— prosta lub pełna, która może zostać pominięta, jeśli używasz wbudowanej domyślnej składni prostej.
 + **`search`** lub **`filter`** zawiera kryteria dopasowania, które można określić, jeśli chcesz przeprowadzić puste wyszukiwanie. Oba typy zapytań są omówione w sekcji prostego analizatora, ale nawet zapytania zaawansowane wymagają parametru wyszukiwania do przekazywania złożonych wyrażeń zapytania.
 
-Wszystkie inne parametry wyszukiwania są opcjonalne. Aby zapoznać się z pełną listą atrybutów, zobacz [create index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Aby lepiej poznać, jak parametry są używane podczas przetwarzania, zobacz [jak wyszukiwanie pełnotekstowe działa na platformie Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md).
+Wszystkie inne parametry wyszukiwania są opcjonalne. Aby zapoznać się z pełną listą atrybutów, zobacz [create index (REST)](/rest/api/searchservice/create-index). Aby lepiej poznać, jak parametry są używane podczas przetwarzania, zobacz [jak wyszukiwanie pełnotekstowe działa na platformie Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md).
 
 ## <a name="choose-apis-and-tools"></a>Wybierz interfejsy API i narzędzia
 
@@ -92,8 +92,8 @@ W poniższej tabeli przedstawiono interfejsy API i oparte na narzędziach podej�
 |-------------|-------------|
 | [Eksplorator wyszukiwania (portal)](search-explorer.md) | Udostępnia pasek wyszukiwania i opcje dotyczące opcji indeks i wersja interfejsu API. Wyniki są zwracane jako dokumenty JSON. Zalecane do eksploracji, testowania i weryfikacji. <br/>[Dowiedz się więcej.](search-get-started-portal.md#query-index) | 
 | [Ogłoś lub inne narzędzia REST](search-get-started-postman.md) | Narzędzia do testowania sieci Web to doskonały wybór w zakresie opracowywania wywołań REST. Interfejs API REST obsługuje wszystkie możliwe operacje na platformie Azure Wyszukiwanie poznawcze. W tym artykule dowiesz się, jak skonfigurować nagłówek i treść żądania HTTP w celu wysyłania żądań do usługi Azure Wyszukiwanie poznawcze.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient, który może służyć do wykonywania zapytań względem indeksu Wyszukiwanie poznawcze platformy Azure.  <br/>[Dowiedz się więcej.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Wyszukaj dokumenty (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Pobieranie lub OGŁASZAnie metod na indeksie przy użyciu parametrów zapytania dla dodatkowych danych wejściowych.  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient, który może służyć do wykonywania zapytań względem indeksu Wyszukiwanie poznawcze platformy Azure.  <br/>[Dowiedz się więcej.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Wyszukaj dokumenty (interfejs API REST)](/rest/api/searchservice/search-documents) | Pobieranie lub OGŁASZAnie metod na indeksie przy użyciu parametrów zapytania dla dodatkowych danych wejściowych.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Wybierz parser: prosty | szczegółowe
 
@@ -123,7 +123,7 @@ Usługa Azure Wyszukiwanie poznawcze obsługuje szeroką gamę typów zapytań.
 |------------|--------|-------------------------------|
 | Wyszukiwanie tekstu w dowolnym formacie | Parametry wyszukiwania i parser| Wyszukiwanie pełnotekstowe skanuje jeden lub więcej terminów we wszystkich polach z *możliwością wyszukiwania* w indeksie i działa w taki sposób, aby aparat wyszukiwania, taki jak Google lub Bing, mógł działać. Przykład we wprowadzeniu jest wyszukiwaniem pełnotekstowym.<br/><br/>Wyszukiwanie pełnotekstowe jest poddawana analizie leksykalnej przy użyciu standardowego analizatora Lucene (domyślnie) w przypadku małych i średnich wyrazów, Usuń słowa Stop podobne do "". Wartość domyślną można zastąpić [analizatorami w językach innych niż angielski](index-add-language-analyzers.md#language-analyzer-list) lub [wyspecjalizowanymi analizatorami niezależny od](index-add-custom-analyzers.md#AnalyzerTable) , które modyfikują analizę leksykalną. Przykładem jest [słowo kluczowe](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) , które traktuje całą zawartość pola jako pojedynczy token. Jest to przydatne w przypadku danych, takich jak kody ZIP, identyfikatory i nazwy produktów. | 
 | Wyszukiwanie filtrowane | [Wyrażenie filtru OData](query-odata-filter-orderby-syntax.md) i każdy parser | Zapytania filtrujące obliczają wyrażenie logiczne dla wszystkich pól z możliwością *filtrowania* w indeksie. W przeciwieństwie do wyszukiwania, zapytanie filtru dopasowuje dokładną zawartość pola, w tym uwzględnianie wielkości liter w polach ciągów. Inną różnicą jest to, że zapytania filtru są wyrażane w składni protokołu OData. <br/>[Przykład wyrażenia filtru](search-query-simple-examples.md#example-3-filter-queries) |
-| Wyszukiwanie geograficzne | [Typ EDM. geographyPoint względem](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) w polu, wyrażenie filtru i parser | Współrzędne przechowywane w polu z obiektem EDM. geographyPoint względem są używane dla kontrolek wyszukiwania "Znajdź w pobliżu" lub "mapowania". <br/>[Przykład wyszukiwania geograficznego](search-query-simple-examples.md#example-5-geo-search)|
+| Wyszukiwanie geograficzne | [Typ EDM. geographyPoint względem](/rest/api/searchservice/supported-data-types) w polu, wyrażenie filtru i parser | Współrzędne przechowywane w polu z obiektem EDM. geographyPoint względem są używane dla kontrolek wyszukiwania "Znajdź w pobliżu" lub "mapowania". <br/>[Przykład wyszukiwania geograficznego](search-query-simple-examples.md#example-5-geo-search)|
 | Wyszukiwanie zakresu | wyrażenie filtru i prosty parser | Na platformie Azure Wyszukiwanie poznawcze zapytania zakresu są kompilowane przy użyciu parametru filtru. <br/>[Przykład filtru zakresu](search-query-simple-examples.md#example-4-range-filters) | 
 | [Wyszukiwanie polowe](query-lucene-syntax.md#bkmk_fields) | Parametr wyszukiwania i pełny analizator składni | Utwórz złożone wyrażenie zapytania określające jedno pole. <br/>[Przykład wyszukiwania w polu](search-query-lucene-examples.md#example-2-fielded-search) |
 | [Wyszukiwanie rozmyte](query-lucene-syntax.md#bkmk_fuzzy) | Parametr wyszukiwania i pełny analizator składni | Dopasowuje się do warunków mających podobną konstrukcję lub pisownię. <br/>[Przykład wyszukiwania rozmytego](search-query-lucene-examples.md#example-3-fuzzy-search) |
@@ -165,9 +165,9 @@ Jeśli chcesz, aby usługa Azure Wyszukiwanie poznawcze zwracała wyniki uporzą
 ### <a name="hit-highlighting"></a>Wyróżnianie trafień
 Na platformie Azure Wyszukiwanie poznawcze naciskanie dokładnej części wyników wyszukiwania, które pasują do zapytania wyszukiwania, jest łatwe przy użyciu **`highlight`** **`highlightPreTag`** parametrów, i **`highlightPostTag`** . Możesz określić, które pola z *możliwością wyszukiwania* mają być wyróżnione dopasowanym tekstem, a także określić dokładne znaczniki ciągu do dołączenia do początku i końca dopasowanego tekstu zwracanego przez usługę Azure wyszukiwanie poznawcze.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze (architektura analizy zapytań)](search-lucene-query-architecture.md)
 + [Eksplorator wyszukiwania](search-explorer.md)
-+ [Jak wykonywać zapytania w programie .NET](search-query-dotnet.md)
-+ [Jak wykonywać zapytania w usłudze REST](search-create-index-rest-api.md)
++ [Jak wykonywać zapytania w programie .NET](./search-get-started-dotnet.md)
++ [Jak wykonywać zapytania w usłudze REST](./search-get-started-powershell.md)

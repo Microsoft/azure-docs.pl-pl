@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488209"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929792"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Szybki Start: korzystanie z Eksploratora wyszukiwania do uruchamiania zapytań w portalu
 
 **Eksplorator wyszukiwania** to wbudowane narzędzie do tworzenia zapytań służące do uruchamiania zapytań w odniesieniu do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. To narzędzie ułatwia naukę składni zapytań, testowanie zapytania lub wyrażenia filtru lub potwierdzenie odświeżania danych przez sprawdzenie, czy nowa zawartość istnieje w indeksie.
 
-Ten przewodnik Szybki Start używa istniejącego indeksu do zademonstrowania Eksploratora wyszukiwania. Żądania są formułowane przy użyciu [interfejsu API REST wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/)z odpowiedziami zwracanymi jako dokumenty JSON.
+Ten przewodnik Szybki Start używa istniejącego indeksu do zademonstrowania Eksploratora wyszukiwania. Żądania są formułowane przy użyciu [interfejsu API REST wyszukiwania](/rest/api/searchservice/)z odpowiedziami zwracanymi jako dokumenty JSON.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -133,7 +133,7 @@ Dodaj [**$OrderBy**](search-query-odata-orderby.md) , aby sortować wyniki wedł
 
    ![Wyrażenie OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Zmiana kolejności sortowania")
 
-Wyrażenia **$Filter** i **$OrderBy** są konstrukcjami OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
+Wyrażenia **$Filter** i **$OrderBy** są konstrukcjami OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
 
 <a name="start-search-explorer"></a>
 
@@ -147,11 +147,11 @@ W tym przewodniku szybki start użyto **Eksploratora wyszukiwania** do wykonywan
 
 + Zapytania o dowolnej postaci, podobne do tego, co można wprowadzać w komercyjnej przeglądarce internetowej, są przydatne do testowania środowiska użytkownika końcowego. Na przykład przy założeniu wbudowanego przykładowego indeksu realestate można wprowadzić wartość "Seattle apartamentach jeziora Waszyngton", a następnie użyć kombinacji klawiszy Ctrl-F, aby znaleźć warunki w wynikach wyszukiwania. 
 
-+ Wyrażenia zapytań i filtrów są łączone w składni obsługiwanej przez usługę Azure Wyszukiwanie poznawcze. Wartość domyślna to [prosta składnia](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ale opcjonalnie można użyć [pełnych Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) dla bardziej zaawansowanych zapytań. [Wyrażenia filtru](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) są składnią OData.
++ Wyrażenia zapytań i filtrów są łączone w składni obsługiwanej przez usługę Azure Wyszukiwanie poznawcze. Wartość domyślna to [prosta składnia](/rest/api/searchservice/simple-query-syntax-in-azure-search), ale opcjonalnie można użyć [pełnych Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) dla bardziej zaawansowanych zapytań. [Wyrażenia filtru](/rest/api/searchservice/odata-expression-syntax-for-azure-search) są składnią OData.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
@@ -159,7 +159,7 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o strukturach i składni zapytań, użyj programu Poster lub równoważnego narzędzia do tworzenia wyrażeń zapytania, które wykorzystują więcej części interfejsu API. [Interfejs API REST usługi Search](https://docs.microsoft.com/rest/api/searchservice/) jest szczególnie przydatny do uczenia się i eksploracji.
+Aby dowiedzieć się więcej o strukturach i składni zapytań, użyj programu Poster lub równoważnego narzędzia do tworzenia wyrażeń zapytania, które wykorzystują więcej części interfejsu API. [Interfejs API REST usługi Search](/rest/api/searchservice/) jest szczególnie przydatny do uczenia się i eksploracji.
 
 > [!div class="nextstepaction"]
 > [Tworzenie podstawowego zapytania w programie Poster](search-query-simple-examples.md)

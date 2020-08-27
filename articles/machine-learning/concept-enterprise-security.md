@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366931"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918591"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -91,7 +91,7 @@ Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz [zarząd
 | Zasób | Uprawnienia |
 | ----- | ----- |
 | Workspace | Współautor |
-| Konto magazynu | Współautor danych obiektu blob magazynu |
+| Konto magazynu | Współautor danych obiektu blob usługi Storage |
 | Magazyn kluczy | Dostęp do wszystkich kluczy, wpisów tajnych, certyfikatów |
 | Azure Container Registry | Współautor |
 | Grupa zasobów, która zawiera obszar roboczy | Współautor |
@@ -119,19 +119,14 @@ Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszar
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
 > [!IMPORTANT]
-> Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. 
+> Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. `hbi_workspace`Flagę można ustawić tylko podczas tworzenia obszaru roboczego. Nie można go zmienić dla istniejącego obszaru roboczego.
 
-`hbi_workspace`Flaga kontroluje ilość danych zbieranych przez firmę Microsoft do celów diagnostycznych i umożliwia dodatkowe szyfrowanie w środowiskach zarządzanych przez firmę Microsoft. Ponadto włącza następujące akcje:
+`hbi_workspace`Flaga kontroluje ilość [danych zbieranych przez firmę Microsoft do celów diagnostycznych](#microsoft-collected-data) i umożliwia [dodatkowe szyfrowanie w środowiskach zarządzanych przez firmę Microsoft](../security/fundamentals/encryption-atrest.md). Ponadto włącza następujące akcje:
 
 * Program uruchamia szyfrowanie lokalnego dysku magazynującego w klastrze obliczeniowym Azure Machine Learning, pod warunkiem że nie utworzono żadnych wcześniejszych klastrów w tej subskrypcji. W przeciwnym razie musisz zgłosić bilet pomocy technicznej, aby umożliwić szyfrowanie dysku magazynującego klastrów obliczeniowych 
 * Oczyszcza lokalny dysk tymczasowy między przebiegami.
 * Bezpieczne przekazanie poświadczeń dla konta magazynu, rejestru kontenerów i konta SSH z warstwy wykonywania do klastrów obliczeniowych przy użyciu magazynu kluczy
 * Włącza filtrowanie adresów IP, aby upewnić się, że źródłowe pule usługi Batch nie mogą być wywoływane przez żadną zewnętrzną usługę inną niż AzureMachineLearningService
-
-> [!WARNING]
-> `hbi_workspace`Flagę można ustawić tylko podczas tworzenia obszaru roboczego. Nie można go zmienić dla istniejącego obszaru roboczego.
-
-Aby uzyskać więcej informacji na temat sposobu, w jaki szyfrowanie w spoczynku działa na platformie Azure, zobacz [szyfrowanie danych platformy Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 
@@ -204,7 +199,7 @@ Aby uzyskać więcej informacji na temat tworzenia i używania konfiguracji wdro
 
 * [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) — odwołanie
 * [Gdzie i jak wdrażać modele](how-to-deploy-and-where.md)
-* [Wdróż model do Azure Container Instances](how-to-deploy-azure-container-instance.md)
+* [Wdrażanie modelu w usłudze Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
 Aby uzyskać więcej informacji na temat używania klucza zarządzanego przez klienta z usługą ACI, zobacz [szyfrowanie danych za pomocą klucza zarządzanego przez klienta](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
@@ -227,7 +222,7 @@ Każda maszyna wirtualna ma także lokalny dysk tymczasowy dla operacji systemu 
 
 Azure Databricks można używać w potokach Azure Machine Learning. Domyślnie system plików dataDBFSs używany przez Azure Databricks jest szyfrowany przy użyciu klucza zarządzanego przez firmę Microsoft. Aby skonfigurować Azure Databricks do korzystania z kluczy zarządzanych przez klienta, zobacz [Konfigurowanie kluczy zarządzanych przez klienta na domyślnym (głównym) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
 
-### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
+### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
 
 Azure Machine Learning używa protokołu TLS do zabezpieczania komunikacji wewnętrznej między różnymi mikrousługami Azure Machine Learning. Cały dostęp do usługi Azure Storage odbywa się również za pośrednictwem bezpiecznego kanału.
 
@@ -325,7 +320,7 @@ Skojarzona z obszarem roboczym Azure Machine Learning to katalogi (eksperymenty)
 
 [![Przepływ pracy migawek kodu](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot.png#lightbox)
 
-### <a name="training"></a>Szkolenie
+### <a name="training"></a>Szkolenia
 
 Na poniższym diagramie przedstawiono przepływ pracy szkoleniowej.
 

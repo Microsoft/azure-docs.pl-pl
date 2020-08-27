@@ -3,14 +3,14 @@ title: 'Szybki Start: Tworzenie i używanie pętli szkoleniowej z zestawem SDK �
 description: Ten przewodnik Szybki Start przedstawia sposób tworzenia bazy wiedzy i zarządzania nią przy użyciu zestawu SDK klienta.
 ms.topic: quickstart
 ms.date: 07/30/2020
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 76504da214a3777dba7b2356bea160e86999bb45
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 466146f6876feb9d0a84be85c2ddeaebb17ac2ff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207553"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928069"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Szybki Start: Biblioteka kliencka personalizacji
 

@@ -520,17 +520,11 @@
           href: speech-container-faq.md
 - name: Zestaw SDK rozpoznawania mowy
   items:
-    - name: Omówienie
-      items:
-        - name: Informacje o zestawie SDK usługi Mowa
-          href: speech-sdk.md
-        - name: Dostępność scenariusza
-          href: scenario-availability.md
-    - name: Szybki start
-      items:
-        - name: Konfigurowanie zestawu SDK usługi Mowa
-          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-          href: quickstarts/setup-platform.md
+    - name: Omówienie zestawu SDK usługi Mowa
+      href: speech-sdk.md
+    - name: Konfigurowanie zestawu SDK usługi Mowa
+      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+      href: quickstarts/setup-platform.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Włącz rejestrowanie

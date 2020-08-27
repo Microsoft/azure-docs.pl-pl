@@ -3,13 +3,13 @@ title: Wdróż pakiety aplikacji w węzłach obliczeniowych
 description: Funkcja pakietów aplikacji programu Azure Batch umożliwia łatwe zarządzanie wieloma aplikacjami i wersjami do zainstalowania w węzłach obliczeniowych usługi Batch.
 ms.topic: how-to
 ms.date: 04/26/2019
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: 8d0ab6227e232728818afbbc58ca6521d9a417df
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147216"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922008"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -170,17 +170,17 @@ Aby zaktualizować lub usunąć istniejący pakiet aplikacji, Otwórz szczegół
 
 ![Aktualizowanie lub usuwanie pakietu w Azure Portal][7]
 
-**Aktualizacja**
+**Aktualizowanie**
 
 Po kliknięciu przycisku **Aktualizuj**zostanie wyświetlony **pakiet aktualizacji** okna. To okno jest podobne do okna **nowego pakietu aplikacji** , ale tylko pole wyboru pakietu jest włączone, co pozwala na określenie nowego pliku zip do przekazania.
 
 ![Blok aktualizacji pakietu w Azure Portal][11]
 
-**Usuwanie**
+**Usuń**
 
 Po kliknięciu przycisku **Usuń**zostanie wyświetlona prośba o potwierdzenie usunięcia wersji pakietu, a usługa Batch usunie pakiet z usługi Azure Storage. Jeśli usuniesz domyślną wersję aplikacji, **domyślne ustawienie wersji** zostanie usunięte dla aplikacji.
 
-![Usuń aplikację][12]
+![Usuń aplikację ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalowanie aplikacji w węzłach obliczeniowych
 Teraz, gdy wiesz już, jak zarządzać pakietami aplikacji przy użyciu Azure Portal, możemy omówić sposób wdrażania ich w węzłach obliczeniowych i uruchamiania ich przy użyciu zadań wsadowych.
@@ -248,14 +248,14 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Na przykład:
+W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Przykład:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`i `version` to wartości, które odpowiadają wersji aplikacji i pakietu określonej do wdrożenia. Na przykład jeśli określono, że w węzłach systemu Windows zostanie zainstalowana wersja 2,7 programu Application *Blend* , wiersze poleceń zadań użyją tej zmiennej środowiskowej, aby uzyskać dostęp do swoich plików:
+`APPLICATIONID` i `version` to wartości, które odpowiadają wersji aplikacji i pakietu określonej do wdrożenia. Na przykład jeśli określono, że w węzłach systemu Windows zostanie zainstalowana wersja 2,7 programu Application *Blend* , wiersze poleceń zadań użyją tej zmiennej środowiskowej, aby uzyskać dostęp do swoich plików:
 
 ```
 Windows:

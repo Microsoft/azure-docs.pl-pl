@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db2017a3bb1a8910049527796f422227b741b960
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562347"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923198"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uaktualnianie do Azure Search .NET SDK wersja 9
 
-W przypadku korzystania z wersji 7,0-Preview lub starszej [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 9.
+W przypadku korzystania z wersji 7,0-Preview lub starszej [Azure Search .NET SDK](/dotnet/api/overview/azure/search)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 9.
 
 > [!NOTE]
 > Jeśli chcesz użyć wersji 8,0-Preview, aby oszacować funkcje, które nie są jeszcze ogólnie dostępne, możesz również wykonać instrukcje przedstawione w tym artykule, aby uaktualnić program do wersji 8,0 — wersja zapoznawcza z wcześniejszych wersji.
@@ -106,12 +106,12 @@ Został utworzony Konstruktor bez parametrów `Field` `internal` . Od teraz do, 
 
 W wersji 7,0 — wersja zapoznawcza i wcześniejsze, różne klasy, które hermetyzują grupy dokumentów, zostały podzielone na hierarchie klas równoległych:
 
-  -  `DocumentSearchResult`i `DocumentSearchResult<T>` dziedziczone z`DocumentSearchResultBase`
-  -  `DocumentSuggestResult`i `DocumentSuggestResult<T>` dziedziczone z`DocumentSuggestResultBase`
-  -  `IndexAction`i `IndexAction<T>` dziedziczone z`IndexActionBase`
-  -  `IndexBatch`i `IndexBatch<T>` dziedziczone z`IndexBatchBase`
-  -  `SearchResult`i `SearchResult<T>` dziedziczone z`SearchResultBase`
-  -  `SuggestResult`i `SuggestResult<T>` dziedziczone z`SuggestResultBase`
+  -  `DocumentSearchResult` i `DocumentSearchResult<T>` dziedziczone z `DocumentSearchResultBase`
+  -  `DocumentSuggestResult` i `DocumentSuggestResult<T>` dziedziczone z `DocumentSuggestResultBase`
+  -  `IndexAction` i `IndexAction<T>` dziedziczone z `IndexActionBase`
+  -  `IndexBatch` i `IndexBatch<T>` dziedziczone z `IndexBatchBase`
+  -  `SearchResult` i `SearchResult<T>` dziedziczone z `SearchResultBase`
+  -  `SuggestResult` i `SuggestResult<T>` dziedziczone z `SuggestResultBase`
 
 Typy pochodne bez parametru typu ogólnego zostały przeznaczone do użycia w scenariuszach "dynamicznie wpisanych" i założono użycie tego `Document` typu.
 

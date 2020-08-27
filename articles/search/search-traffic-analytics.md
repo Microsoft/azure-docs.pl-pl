@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ab32a2ccb4c7eb79309798c2b53d326723ad6ea
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2a65d31bd7cde0a1f456212a19c06f6b940ce602
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420077"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922739"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Zbieraj dane telemetryczne dla analizy ruchu wyszukiwania
 
 Analiza ruchu wyszukiwania jest wzorcem do zbierania danych telemetrycznych dotyczących interakcji użytkowników z aplikacją Wyszukiwanie poznawcze platformy Azure, takich jak zdarzenia inicjowane przez użytkownika i dane wejściowe z klawiatury. Korzystając z tych informacji, można określić efektywność rozwiązania wyszukiwania, w tym popularne terminy wyszukiwania, częstotliwość kliknięć i dane wejściowe zapytania, które zwracają zero wyników.
 
-Ten wzorzec przyjmuje zależność od [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) (funkcji [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/)) do zbierania danych użytkownika. Należy dodać instrumentację do kodu klienta, zgodnie z opisem w tym artykule. Na koniec konieczne będzie przeanalizowanie danych przy użyciu mechanizmu raportowania. Zalecamy Power BI, ale możesz użyć pulpitu nawigacyjnego aplikacji lub dowolnego narzędzia, które nawiązuje połączenie z Application Insights.
+Ten wzorzec przyjmuje zależność od [Application Insights](../azure-monitor/app/app-insights-overview.md) (funkcji [Azure monitor](../azure-monitor/index.yml)) do zbierania danych użytkownika. Należy dodać instrumentację do kodu klienta, zgodnie z opisem w tym artykule. Na koniec konieczne będzie przeanalizowanie danych przy użyciu mechanizmu raportowania. Zalecamy Power BI, ale możesz użyć pulpitu nawigacyjnego aplikacji lub dowolnego narzędzia, które nawiązuje połączenie z Application Insights.
 
 > [!NOTE]
 > Wzorzec opisany w tym artykule dotyczy zaawansowanych scenariuszy i strumienia kliknięć danych generowanych przez kod dodawany do klienta. W przeciwieństwie do tego dzienniki usługi są łatwe w konfiguracji, udostępniają szereg metryk i mogą być wykonywane w portalu bez konieczności wykonywania kodu. Włączenie rejestrowania jest zalecane w przypadku wszystkich scenariuszy. Aby uzyskać więcej informacji, zobacz [zbieranie i analizowanie danych dziennika](search-monitor-logs.md).
@@ -43,9 +43,9 @@ Na stronie [portalu](https://portal.azure.com) usługi Azure wyszukiwanie poznaw
 
 ## <a name="1---set-up-application-insights"></a>1 — Skonfiguruj Application Insights
 
-Wybierz istniejący zasób Application Insights lub [Utwórz go](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) , jeśli jeszcze go nie masz. Jeśli używasz strony Analiza ruchu wyszukiwania, możesz skopiować klucz instrumentacji, której aplikacja musi połączyć się z Application Insights.
+Wybierz istniejący zasób Application Insights lub [Utwórz go](../azure-monitor/app/create-new-resource.md) , jeśli jeszcze go nie masz. Jeśli używasz strony Analiza ruchu wyszukiwania, możesz skopiować klucz instrumentacji, której aplikacja musi połączyć się z Application Insights.
 
-Gdy masz zasób Application Insights, możesz wykonać [instrukcje dotyczące obsługiwanych języków i platform](https://docs.microsoft.com/azure/azure-monitor/app/platforms) , aby zarejestrować aplikację. Rejestracja to po prostu dodanie klucza Instrumentacji z Application Insights do kodu, który konfiguruje skojarzenie. Klucz można znaleźć w portalu lub na stronie wyszukiwania Analiza ruchu w przypadku wybrania istniejącego zasobu.
+Gdy masz zasób Application Insights, możesz wykonać [instrukcje dotyczące obsługiwanych języków i platform](../azure-monitor/app/platforms.md) , aby zarejestrować aplikację. Rejestracja to po prostu dodanie klucza Instrumentacji z Application Insights do kodu, który konfiguruje skojarzenie. Klucz można znaleźć w portalu lub na stronie wyszukiwania Analiza ruchu w przypadku wybrania istniejącego zasobu.
 
 Skrót, który działa dla niektórych typów projektów programu Visual Studio, jest uwzględniony w poniższych krokach. Tworzy zasób i rejestruje aplikację w zaledwie kilka kliknięć.
 
@@ -55,7 +55,7 @@ Skrót, który działa dla niektórych typów projektów programu Visual Studio,
 
 1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **Zarejestruj**.
 
-W tym momencie aplikacja jest skonfigurowana do monitorowania aplikacji, co oznacza, że wszystkie obciążenia stron są śledzone przy użyciu metryk domyślnych. Aby uzyskać więcej informacji o poprzednich krokach, zobacz [Włączanie telemetrii po stronie serwera Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
+W tym momencie aplikacja jest skonfigurowana do monitorowania aplikacji, co oznacza, że wszystkie obciążenia stron są śledzone przy użyciu metryk domyślnych. Aby uzyskać więcej informacji o poprzednich krokach, zobacz [Włączanie telemetrii po stronie serwera Application Insights](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a name="2---add-instrumentation"></a>2 — Dodawanie Instrumentacji
 
@@ -63,11 +63,11 @@ Ten krok to miejsce, w którym można tworzyć własne aplikacje do wyszukiwania
 
 ### <a name="step-1-create-a-telemetry-client"></a>Krok 1. Tworzenie klienta telemetrii
 
-Utwórz obiekt, który wysyła zdarzenia do Application Insights. Możesz dodać instrumentację do kodu aplikacji po stronie serwera lub kodu po stronie klienta uruchomionego w przeglądarce, wyrażoną tutaj jako warianty języka C# i JavaScript (dla innych języków, zobacz kompletną listę [obsługiwanych platform i struktur](https://docs.microsoft.com/azure/application-insights/app-insights-platforms). Wybierz podejście, które zapewnia odpowiednią głębokość informacji.
+Utwórz obiekt, który wysyła zdarzenia do Application Insights. Możesz dodać instrumentację do kodu aplikacji po stronie serwera lub kodu po stronie klienta uruchomionego w przeglądarce, wyrażoną tutaj jako warianty języka C# i JavaScript (dla innych języków, zobacz kompletną listę [obsługiwanych platform i struktur](../azure-monitor/app/platforms.md). Wybierz podejście, które zapewnia odpowiednią głębokość informacji.
 
 Dane telemetryczne po stronie serwera przechwytuje metryki w warstwie aplikacji, na przykład w aplikacjach uruchamianych jako usługa sieci Web w chmurze lub jako aplikacja lokalna w sieci firmowej. Dane telemetryczne po stronie serwera przechwytują zdarzenia wyszukiwania i klikania, położenie dokumentu w wynikach oraz informacje o zapytaniu, ale gromadzenie danych będzie ograniczone do dowolnych informacji dostępnych w tej warstwie.
 
-Na kliencie może być dodatkowy kod, który manipuluje danymi wejściowymi zapytania, dodaje nawigację lub zawiera kontekst (na przykład zapytania inicjowane ze strony głównej zamiast strony produktu). W przypadku opisywania rozwiązania można wybrać instrumentację po stronie klienta, aby dane telemetryczne odzwierciedlały dodatkowe szczegóły. Informacje o tym, jak zbierane są dodatkowe szczegóły, wykraczają poza zakres tego wzorca, ale można przeglądać [Application Insights dla stron sieci Web](https://docs.microsoft.com/azure/azure-monitor/app/javascript#explore-browserclient-side-data) , aby uzyskać więcej kierunku. 
+Na kliencie może być dodatkowy kod, który manipuluje danymi wejściowymi zapytania, dodaje nawigację lub zawiera kontekst (na przykład zapytania inicjowane ze strony głównej zamiast strony produktu). W przypadku opisywania rozwiązania można wybrać instrumentację po stronie klienta, aby dane telemetryczne odzwierciedlały dodatkowe szczegóły. Informacje o tym, jak zbierane są dodatkowe szczegóły, wykraczają poza zakres tego wzorca, ale można przeglądać [Application Insights dla stron sieci Web](../azure-monitor/app/javascript.md#explore-browserclient-side-data) , aby uzyskać więcej kierunku. 
 
 **Korzystanie z języka C#**
 
@@ -238,6 +238,6 @@ Poniższy zrzut ekranu pokazuje, jak wygląda wbudowany raport, jeśli użyto ws
 
 Instrumentacja aplikacji wyszukiwania pozwala uzyskać zaawansowane i szczegółowe dane dotyczące usługi wyszukiwania.
 
-Więcej informacji na temat [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/application-insights/) , aby dowiedzieć się więcej o różnych warstwach usług.
+Więcej informacji na temat [Application Insights](../azure-monitor/app/app-insights-overview.md) można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/application-insights/) , aby dowiedzieć się więcej o różnych warstwach usług.
 
-Dowiedz się więcej na temat tworzenia niezwykłych raportów. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started) .
+Dowiedz się więcej na temat tworzenia niezwykłych raportów. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do Power BI Desktop](/power-bi/fundamentals/desktop-getting-started) .

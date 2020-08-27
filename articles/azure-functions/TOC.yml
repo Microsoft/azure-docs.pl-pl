@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Opracowywanie podstawowych narzędzi
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: Tworzenie funkcji
           items:
             - name: Wyzwalacz HTTP

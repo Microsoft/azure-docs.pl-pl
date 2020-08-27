@@ -3,12 +3,12 @@ title: Tworzenie dedykowanego klastra Event Hubs przy użyciu Azure Portal
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć klaster usługi Azure Event Hubs przy użyciu Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: cb657619e16f7be1d633bab61625026a40a378b8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2759d1e25519b69311c369f3f58239cc0889a9a7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323094"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927769"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Szybki Start: tworzenie dedykowanego klastra Event Hubs przy użyciu Azure Portal 
 Klastry Event Hubs oferują wdrożenia z jedną dzierżawą dla klientów z najbardziej wymaganymi potrzebami przesyłania strumieniowego. Ta oferta ma gwarantowaną umowę SLA na 99,99% i jest dostępna tylko w naszej dedykowanej warstwie cenowej. [Klaster Event Hubs](event-hubs-dedicated-overview.md) może odbierać miliony zdarzeń na sekundę z gwarantowaną pojemnością i drugim opóźnieniem. Przestrzenie nazw i centra zdarzeń utworzone w ramach klastra obejmują wszystkie funkcje standardowej oferty i wiele innych, ale bez ograniczeń związanych z transferem danych przychodzących. Oferta dedykowana obejmuje również popularne funkcje [przechwytywania Event Hubs](event-hubs-capture-overview.md) bez dodatkowych kosztów, co pozwala na automatyczne tworzenie partii i rejestrowanie strumieni danych na [platformie Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) lub [Azure Data Lake Storage generacji 1](../data-lake-store/data-lake-store-overview.md).
@@ -100,9 +100,9 @@ Jeśli chcesz zmienić rozmiar klastra po utworzeniu lub jeśli preferowany regi
 W tym artykule opisano tworzenie klastra Event Hubs. Aby uzyskać instrukcje krok po kroku dotyczące wysyłania i odbierania zdarzeń z centrum zdarzeń oraz przechwytywania zdarzeń do usługi Azure Storage lub Azure Data Lake Store, zobacz następujące samouczki:
 
 - Wysyłanie i odbieranie zdarzeń 
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 - [Włączanie przechwytywania Event Hubs przy użyciu Azure Portal](event-hubs-capture-enable-through-portal.md)
 - [Użyj usługi Azure Event Hubs dla Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
