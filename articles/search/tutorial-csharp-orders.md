@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a9564576715c32f8bcc871d10fae50f139aacdb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420638"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932155"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Samouczek: kolejność wyników wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -22,7 +22,7 @@ W górę do tego momentu w naszej serii samouczków wyniki są zwracane i wyświ
 
 Aby można było łatwo porównać zwracanych wyników, ten projekt jest kompilowany do nieskończonego projektu przewijania utworzonego w [samouczku języka C#: wyniki wyszukiwania stronicowanie — Samouczek platformy Azure wyszukiwanie poznawcze](tutorial-csharp-paging.md) .
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Kolejność wyników na podstawie jednej właściwości
 > * Kolejność wyników na podstawie wielu właściwości
@@ -115,7 +115,7 @@ Nie ma potrzeby modyfikowania żadnego z modeli, aby umożliwić Określanie kol
     ```
 
     >[!Tip]
-    >Przeglądarki zwykle buforują pliki CSS i mogą prowadzić do używanego starego pliku CSS, a zmiany zostały zignorowane. Dobrym sposobem jest dodanie ciągu zapytania z parametrem Version do linku. Na przykład:
+    >Przeglądarki zwykle buforują pliki CSS i mogą prowadzić do używanego starego pliku CSS, a zmiany zostały zignorowane. Dobrym sposobem jest dodanie ciągu zapytania z parametrem Version do linku. Przykład:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
@@ -462,8 +462,8 @@ Aby wyświetlić wyniki na podstawie odległości geograficznej, wymagane jest w
 
 4. Teraz musisz powiązać te koncepcje ze sobą. Jednak te fragmenty kodu są tak długo, jak w naszym samouczku, utworzenie aplikacji opartej na mapie jest pozostawione jako ćwiczenie dla czytnika. Aby to zrobić, należy rozważyć wprowadzenie nazwy miasta z promieniem lub znalezienie punktu na mapie, a następnie wybranie promienia. Aby dokładniej zbadać te opcje, zobacz następujące zasoby:
 
-* [Dokumentacja usługi Azure Maps](https://docs.microsoft.com/azure/azure-maps/)
-* [Znajdź adres przy użyciu usługi wyszukiwania Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Dokumentacja usługi Azure Maps](../azure-maps/index.yml)
+* [Znajdź adres przy użyciu usługi wyszukiwania Azure Maps](../azure-maps/how-to-search-for-address.md)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Zamów wyniki w oparciu o profil oceniania
 
@@ -959,7 +959,7 @@ Przyjrzyjmy się trzem przykładom profilów oceniania i Rozważmy, jak każdy _
 
 ### <a name="resources"></a>Zasoby
 
-Aby uzyskać więcej informacji, zobacz następujące [Dodawanie profilów oceniania do indeksu wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Aby uzyskać więcej informacji, zobacz następujące [Dodawanie profilów oceniania do indeksu wyszukiwanie poznawcze platformy Azure](/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Wnioski
 
@@ -975,4 +975,4 @@ Rozważmy następujący wnioski z tego projektu:
 
 Ta seria samouczków języka C# została ukończona — należy uzyskać cenne informacje dotyczące interfejsów API Wyszukiwanie poznawcze platformy Azure.
 
-Aby uzyskać więcej informacji i samouczków, należy rozważyć przeglądanie [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)lub innych samouczków w [dokumentacji usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/).
+Aby uzyskać więcej informacji i samouczków, należy rozważyć przeglądanie [Microsoft Learn](/learn/browse/?products=azure)lub innych samouczków w [dokumentacji usługi Azure wyszukiwanie poznawcze](./index.yml).

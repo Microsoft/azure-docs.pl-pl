@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 8809dcf58a0baad60ba567980f1e0193138aad19
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c7d574bf172a792c59e4b00ea9ad0366ad1f17ad
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496438"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922858"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Jak utworzyć indeks dla wielu języków w usłudze Azure Wyszukiwanie poznawcze
 
@@ -67,4 +67,4 @@ Czasami język agenta wystawiającego zapytanie nie jest znany, w takim przypadk
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jesteś deweloperem platformy .NET, pamiętaj, że możesz skonfigurować analizatory języka przy użyciu [zestawu Azure wyszukiwanie poznawcze .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) i właściwości [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) . 
+Jeśli jesteś deweloperem platformy .NET, pamiętaj, że możesz skonfigurować analizatory języka przy użyciu [zestawu Azure wyszukiwanie poznawcze .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) i właściwości [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) .

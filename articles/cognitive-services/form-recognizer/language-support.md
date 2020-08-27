@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 182cf54f58b4fbb8b80fb4ff9d7c1a9c1e353470
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1554722308675a44a9c144059cc9886996fa3166
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723915"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918438"
 ---
 # <a name="language-support-for-form-recognizer"></a>Obsługa języków dla aparatu rozpoznawania formularzy
 
@@ -24,13 +24,13 @@ W tym artykule wymieniono Języki ludzkie obsługiwane przez usługę aparat roz
 
 |Język| Kod języka | Aparat rozpoznawania formularzy v 2.0 | Aparat rozpoznawania w wersji 2.1 2.0 — publiczna wersja zapoznawcza *|
 |:-----|:----:|:-----:|:---:|:---:|
-|Chiński uproszczony | `zh-Hans`| | ✔ |
+|Chiński (uproszczony) | `zh-Hans`| | ✔ |
 |Niderlandzki | `nl` | |✔ |
-|Angielski | `en` |✔ |
+|Angielski (wydrukowany & napisany ręcznie) | `en` |✔ |
 |Francuski | `fr` | |✔ |
-|niemiecki | `de` | |✔ |
+|Niemiecki | `de` | |✔ |
 |Włoski | `it` | |✔ |
 |Portugalski | `pt` | |✔ |
 |Hiszpański | `es` | |✔ |
 
-* Wersja zapoznawcza aparatu rozpoznawania w wersji 2.1 2.0 obsługuje te języki dla `Analyze Layout` i `Train Custom Model` (_uczenie się z etykietami_ i _uczeniem bez etykiet_). `Analyze Receipt` i `Analyze Business Card` są obsługiwane tylko w języku angielskim.
+* Wersja zapoznawcza aparatu rozpoznawania w wersji 2.1 2.0 obsługuje te języki układu i niestandardowego. Wstępnie wbudowana karta reciept i wstępnie zbudowaną kartę buisness są obsługiwane tylko w języku angielskim.

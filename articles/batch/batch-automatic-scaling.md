@@ -3,13 +3,13 @@ title: Automatyczne skalowanie węzłów obliczeniowych w puli Azure Batch
 description: Włącz automatyczne skalowanie w puli w chmurze, aby dynamicznie dostosować liczbę węzłów obliczeniowych w puli.
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 0309a5665cf9338340a21f4c8d0eb5bc3c848a04
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
+ms.openlocfilehash: e3e7a354e015ffa8a6164de59edcf572ab773319
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387476"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932325"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Utwórz automatyczną formułę skalowania węzłów obliczeniowych w puli usługi Batch
 
@@ -214,7 +214,7 @@ Możesz użyć tych wstępnie zdefiniowanych **funkcji** podczas definiowania fo
 | Time (ciąg dateTime = "") |sygnatura czasowa |Zwraca sygnaturę czasową bieżącego czasu, jeśli nie są spełnione żadne parametry lub sygnaturę czasową ciągu dateTime, jeśli jest zakończony. Obsługiwane formaty dateTime to W3C-DTF i RFC 1123. |
 | Val (doubleVec v, podwójne i) |double |Zwraca wartość elementu, który znajduje się w lokalizacji i w wektorze v, z indeksem początkowym równym zero. |
 
-Niektóre funkcje, które są opisane w poprzedniej tabeli, mogą akceptować listę jako argument. Rozdzielana przecinkami lista jest dowolną kombinacją wartości *Double* i *doubleVec*. Na przykład:
+Niektóre funkcje, które są opisane w poprzedniej tabeli, mogą akceptować listę jako argument. Rozdzielana przecinkami lista jest dowolną kombinacją wartości *Double* i *doubleVec*. Przykład:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -283,7 +283,7 @@ Poniższe metody mogą służyć do uzyskiwania przykładowych danych dotyczący
 
 | Metoda | Opis |
 | --- | --- |
-| Getsample () |`GetSample()`Metoda zwraca wektor próbek danych.<br/><br/>Przykładem jest 30-sekundowa ilość danych metryk. Innymi słowy, próbki są uzyskiwane co 30 sekund. Jak pokazano poniżej, występuje opóźnienie między pobieraniem próbki a udostępnieniem jej w formule. W związku z tym nie wszystkie próbki dla danego okresu mogą być dostępne do oceny przez formułę.<ul><li>`doubleVec GetSample(double count)`: Określa liczbę próbek do pobrania z najnowszych próbek, które zostały zebrane. `GetSample(1)`Zwraca ostatni dostępny przykład. W przypadku metryk takich jak `$CPUPercent` `GetSample(1)` nie należy używać, ponieważ nie można wiedzieć, *kiedy* przykład został zebrany. Może to być Najnowsza wersja, lub z powodu problemów z systemem, może być ona znacznie starsza. W takich przypadkach lepiej jest używać przedziału czasowego, jak pokazano poniżej.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Określa przedział czasu na potrzeby zbierania przykładowych danych. Opcjonalnie określa również procent próbek, które muszą być dostępne w żądanym przedziale czasowym. Przykładowo `$CPUPercent.GetSample(TimeInterval_Minute * 10)` zwróci 20 próbek, jeśli wszystkie próbki w ciągu ostatnich 10 minut są obecne w `CPUPercent` historii. Jeśli Ostatnia minuta historii była niedostępna, zwracane są tylko 18 próbek. W takim przypadku `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` może się nie powieść, ponieważ dostępne są tylko 90 procent próbek, ale to `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` się powiedzie.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Określa ramy czasowe do zbierania danych, zarówno czas rozpoczęcia, jak i godzinę zakończenia. Jak wspomniano powyżej, występuje opóźnienie między pobieraniem próbki a udostępnieniem jej w formule. Należy wziąć pod uwagę to opóźnienie przy użyciu `GetSample` metody. Zobacz `GetSamplePercent` poniżej. |
+| Getsample () |`GetSample()`Metoda zwraca wektor próbek danych.<br/><br/>Przykładem jest 30-sekundowa ilość danych metryk. Innymi słowy, próbki są uzyskiwane co 30 sekund. Jak pokazano poniżej, występuje opóźnienie między pobieraniem próbki a udostępnieniem jej w formule. W związku z tym nie wszystkie próbki dla danego okresu mogą być dostępne do oceny przez formułę.<ul><li>`doubleVec GetSample(double count)`: Określa liczbę próbek do pobrania z najnowszych próbek, które zostały zebrane. `GetSample(1)` Zwraca ostatni dostępny przykład. W przypadku metryk takich jak `$CPUPercent` `GetSample(1)` nie należy używać, ponieważ nie można wiedzieć, *kiedy* przykład został zebrany. Może to być Najnowsza wersja, lub z powodu problemów z systemem, może być ona znacznie starsza. W takich przypadkach lepiej jest używać przedziału czasowego, jak pokazano poniżej.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Określa przedział czasu na potrzeby zbierania przykładowych danych. Opcjonalnie określa również procent próbek, które muszą być dostępne w żądanym przedziale czasowym. Przykładowo `$CPUPercent.GetSample(TimeInterval_Minute * 10)` zwróci 20 próbek, jeśli wszystkie próbki w ciągu ostatnich 10 minut są obecne w `CPUPercent` historii. Jeśli Ostatnia minuta historii była niedostępna, zwracane są tylko 18 próbek. W takim przypadku `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` może się nie powieść, ponieważ dostępne są tylko 90 procent próbek, ale to `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` się powiedzie.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Określa ramy czasowe do zbierania danych, zarówno czas rozpoczęcia, jak i godzinę zakończenia. Jak wspomniano powyżej, występuje opóźnienie między pobieraniem próbki a udostępnieniem jej w formule. Należy wziąć pod uwagę to opóźnienie przy użyciu `GetSample` metody. Zobacz `GetSamplePercent` poniżej. |
 | GetSamplePeriod() |Zwraca okres próbkowania, które zostały wykonane w historycznym zestawie danych przykładowych. |
 | Count () |Zwraca łączną liczbę próbek w historii metryk. |
 | HistoryBeginTime() |Zwraca sygnaturę czasową najstarszego dostępnego przykładu danych dla metryki. |
@@ -309,7 +309,7 @@ Aby to zrobić, użyj funkcji `GetSample(interval look-back start, interval look
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Gdy powyższy wiersz jest oceniany przez partię, zwraca zakres próbek jako wektor wartości. Na przykład:
+Gdy powyższy wiersz jest oceniany przez partię, zwraca zakres próbek jako wektor wartości. Przykład:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -473,7 +473,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Włącz Skalowanie automatyczne w istniejącej puli
 
-Każdy zestaw SDK w usłudze Batch umożliwia włączenie automatycznego skalowania. Na przykład:
+Każdy zestaw SDK w usłudze Batch umożliwia włączenie automatycznego skalowania. Przykład:
 
 - [BatchClient. PoolOperations. EnableAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync) (Batch .NET)
 - [Włącz automatyczne skalowanie w puli](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (interfejs API REST)
@@ -667,7 +667,7 @@ $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
 
-`$curTime`można dostosować w celu odzwierciedlenia lokalnej strefy czasowej przez dodanie `time()` do produktu `TimeZoneInterval_Hour` i przesunięcia czasu UTC. Na przykład użyj `$curTime = time() + (-6 * TimeInterval_Hour);` terminu górski czas letni (zestawu MDT). Należy pamiętać, że przesunięcie powinno być dostosowane na początku i na końcu czasu letniego (jeśli dotyczy).
+`$curTime` można dostosować w celu odzwierciedlenia lokalnej strefy czasowej przez dodanie `time()` do produktu `TimeZoneInterval_Hour` i przesunięcia czasu UTC. Na przykład użyj `$curTime = time() + (-6 * TimeInterval_Hour);` terminu górski czas letni (zestawu MDT). Należy pamiętać, że przesunięcie powinno być dostosowane na początku i na końcu czasu letniego (jeśli dotyczy).
 
 ### <a name="example-2-task-based-adjustment"></a>Przykład 2: korekta oparta na zadaniach
 
