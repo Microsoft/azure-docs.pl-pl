@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 375929a983c5dfea01a88fb64fd5ab19bf105c0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 944257c93e00dca77507f26db15f7bf45fbb387e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383634"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936422"
 ---
 # <a name="connection-strings"></a>Parametry połączeń
 
@@ -56,19 +56,19 @@ Połączenie ma maksymalną obsługiwaną długość wynoszącą 4096 znaków.
 
 #### <a name="key-value-pairs"></a>Pary klucz-wartość
 
-Parametry połączenia składają się z listy ustawień reprezentowanych jako pary klucz-wartość oddzielone średnikami:`key1=value1;key2=value2;key3=value3`
+Parametry połączenia składają się z listy ustawień reprezentowanych jako pary klucz-wartość oddzielone średnikami: `key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>Składnia
 
-- `InstrumentationKey`(np.: 00000000-0000-0000-0000-000000000000)  Ciąg połączenia jest polem **wymaganym** .
-- `Authorization`(np.: iKey) (To ustawienie jest opcjonalne, ponieważ dzisiaj obsługujemy tylko autoryzację iKey).
-- `EndpointSuffix`(np.: applicationinsights.azure.cn) Ustawienie sufiksu punktu końcowego spowoduje nawiązanie połączenia z zestawem SDK z chmurą platformy Azure. Zestaw SDK będzie gromadzić pozostałe punkty końcowe dla poszczególnych usług.
+- `InstrumentationKey` (np.: 00000000-0000-0000-0000-000000000000)  Ciąg połączenia jest polem **wymaganym** .
+- `Authorization` (np.: iKey) (To ustawienie jest opcjonalne, ponieważ dzisiaj obsługujemy tylko autoryzację iKey).
+- `EndpointSuffix` (np.: applicationinsights.azure.cn) Ustawienie sufiksu punktu końcowego spowoduje nawiązanie połączenia z zestawem SDK z chmurą platformy Azure. Zestaw SDK będzie gromadzić pozostałe punkty końcowe dla poszczególnych usług.
 - Jawne punkty końcowe.
   Każdą usługę można jawnie przesłaniać w parametrach połączenia.
-   - `IngestionEndpoint`(np.: `https://dc.applicationinsights.azure.com` )
-   - `LiveEndpoint`(np.: `https://live.applicationinsights.azure.com` )
-   - `ProfilerEndpoint`(np.: `https://profiler.applicationinsights.azure.com` )
-   - `SnapshotEndpoint`(np.: `https://snapshot.applicationinsights.azure.com` )
+   - `IngestionEndpoint` (np.: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint` (np.: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint` (np.: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint` (np.: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>Schemat punktu końcowego
 
@@ -83,15 +83,15 @@ Oto lista prawidłowych sufiksów
 - applicationinsights.us
 
 
-Zobacz również:https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+Zobacz również: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
 
 
 ##### <a name="valid-prefixes"></a>Prawidłowe prefiksy
 
 - Pozyskiwanie danych [telemetrycznych](./app-insights-overview.md):`dc`
-- [Metryki na żywo](./live-stream.md):`live`
-- [Profiler](./profiler-overview.md):`profiler`
-- [Migawka](./snapshot-debugger.md):`snapshot`
+- [Metryki na żywo](./live-stream.md): `live`
+- [Profiler](./profiler-overview.md): `profiler`
+- [Migawka](./snapshot-debugger.md): `snapshot`
 
 
 
@@ -107,10 +107,10 @@ W tym przykładzie ustawiono tylko klucz Instrumentacji.
 - Domyślna wartość schematu autoryzacji to "iKey" 
 - Klucz Instrumentacji: 00000000-0000-0000-0000-000000000000
 - Identyfikatory URI usługi regionalnej są oparte na [ustawieniach domyślnych zestawu SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) i łączą się z publiczną globalną platformą Azure:
-   - Pozyskiwania`https://dc.services.visualstudio.com/`
-   - Metryki na żywo:`https://rt.services.visualstudio.com/`
-   - Profilera`https://agent.azureserviceprofiler.net/`
-   - Oknie`https://agent.azureserviceprofiler.net/`
+   - Pozyskiwania `https://dc.services.visualstudio.com/`
+   - Metryki na żywo: `https://rt.services.visualstudio.com/`
+   - Profilera `https://agent.azureserviceprofiler.net/`
+   - Oknie `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -123,10 +123,10 @@ W tym przykładzie parametry połączenia określają sufiks punktu końcowego, 
 - Domyślna wartość schematu autoryzacji to "iKey" 
 - Klucz Instrumentacji: 00000000-0000-0000-0000-000000000000
 - Identyfikatory URI usługi regionalnej są oparte na podanym sufiksie punktu końcowego: 
-   - Pozyskiwania`https://dc.ai.contoso.com`
-   - Metryki na żywo:`https://live.ai.contoso.com`
-   - Profilera`https://profiler.ai.contoso.com`
-   - Oknie`https://snapshot.ai.contoso.com`  
+   - Pozyskiwania `https://dc.ai.contoso.com`
+   - Metryki na żywo: `https://live.ai.contoso.com`
+   - Profilera `https://profiler.ai.contoso.com`
+   - Oknie `https://snapshot.ai.contoso.com`  
 
 
 
@@ -139,10 +139,10 @@ W tym przykładzie parametry połączenia określają jawne zastąpienia dla ka�
 - Domyślna wartość schematu autoryzacji to "iKey" 
 - Klucz Instrumentacji: 00000000-0000-0000-0000-000000000000
 - Identyfikatory URI usługi regionalnej są oparte na wartościach jawnego zastąpienia: 
-   - Pozyskiwania`https://custom.com:111/`
-   - Metryki na żywo:`https://custom.com:222/`
-   - Profilera`https://custom.com:333/`
-   - Oknie`https://custom.com:444/`  
+   - Pozyskiwania `https://custom.com:111/`
+   - Metryki na żywo: `https://custom.com:222/`
+   - Profilera `https://custom.com:333/`
+   - Oknie `https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Jak ustawić parametry połączenia
@@ -160,11 +160,11 @@ Parametry połączenia można ustawić za pomocą kodu, zmiennej środowiskowej 
 
 ### <a name="environment-variable"></a>Zmienna środowiskowa
 
-- Parametry połączenia:`APPLICATIONINSIGHTS_CONNECTION_STRING`
+- Parametry połączenia: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 # <a name="netnetcore"></a>[.NET/. Core](#tab/net)
 
-TelemetryConfiguration. ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetryConfiguration. ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
 Zestaw .NET jawnie ustawiony:
 ```csharp

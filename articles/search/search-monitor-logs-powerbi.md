@@ -7,15 +7,15 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: d529e4e4b79f0c34eb8f95b028cca730b316d5f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2caf4c66cdbb11ed42c4131ef1584c372ec10332
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060310"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935113"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Wizualizuj dzienniki i metryki usługi Azure Wyszukiwanie poznawcze przy użyciu Power BI
-Usługa [azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-what-is-azure-search) umożliwia przechowywanie dzienników operacji i metryk usług dotyczących usługi wyszukiwania na koncie usługi Azure Storage. Ta strona zawiera instrukcje dotyczące sposobu wizualizacji tych informacji za pomocą aplikacji Power BI Template. Aplikacja zapewnia szczegółowe informacje o usłudze wyszukiwania, w tym informacje na temat wyszukiwania, indeksowania, operacji i metryk usług.
+Usługa [azure wyszukiwanie poznawcze](./search-what-is-azure-search.md) umożliwia przechowywanie dzienników operacji i metryk usług dotyczących usługi wyszukiwania na koncie usługi Azure Storage. Ta strona zawiera instrukcje dotyczące sposobu wizualizacji tych informacji za pomocą aplikacji Power BI Template. Aplikacja zapewnia szczegółowe informacje o usłudze wyszukiwania, w tym informacje na temat wyszukiwania, indeksowania, operacji i metryk usług.
 
 Możesz znaleźć szablon Power BI App **Wyszukiwanie poznawcze Azure: Analizuj dzienniki i metryki** w [witrynie Power BI Apps Marketplace](https://appsource.microsoft.com/marketplace/apps).
 
@@ -23,7 +23,7 @@ Możesz znaleźć szablon Power BI App **Wyszukiwanie poznawcze Azure: Analizuj 
 
 1. Włącz rejestrowanie metryk i zasobów dla usługi wyszukiwania:
 
-    1. Utwórz lub Zidentyfikuj istniejące [konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) , na którym można archiwizować dzienniki
+    1. Utwórz lub Zidentyfikuj istniejące [konto usługi Azure Storage](../storage/common/storage-account-create.md) , na którym można archiwizować dzienniki
     1. Przejdź do usługi Azure Wyszukiwanie poznawcze w Azure Portal
     1. W sekcji monitorowanie w lewej kolumnie Wybierz pozycję **Ustawienia diagnostyczne** .
 
@@ -98,8 +98,8 @@ Jeśli okaże się, że dane nie są widoczne, wykonaj następujące kroki rozwi
 1. Sprawdź, czy zestaw danych nadal jest odświeżany. Wskaźnik stanu odświeżania jest przedstawiony w kroku 8 powyżej. Jeśli nadal trwa odświeżanie, poczekaj na zakończenie odświeżania, aby otworzyć i odświeżyć raport.
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o usłudze Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/)
+[Dowiedz się więcej o usłudze Azure Wyszukiwanie poznawcze](./index.yml)
 
-[Co to jest usługa Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[Co to jest usługa Power BI?](/power-bi/fundamentals/power-bi-overview)
 
-[Podstawowe pojęcia dla projektantów w usłudze Power BI](https://docs.microsoft.com/power-bi/service-basic-concepts)
+[Podstawowe pojęcia dla projektantów w usłudze Power BI](/power-bi/service-basic-concepts)

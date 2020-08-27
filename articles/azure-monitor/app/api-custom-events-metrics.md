@@ -3,13 +3,13 @@ title: Application Insights API dla niestandardowych zdarzeń i metryk | Microso
 description: Wstaw kilka wierszy kodu z urządzenia lub aplikacji klasycznej, strony sieci Web lub usługi, aby śledzić użycie i diagnozować problemy.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 430ec96006ed8f564ea5bbd0a28beca858ebe1ab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366876"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936575"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -41,7 +41,7 @@ Jeśli nie masz jeszcze odwołania do Application Insights SDK:
   * [Projekt ASP.NET](./asp-net.md)
   * [Projekt ASP.NET Core](./asp-net-core.md)
   * [Projekt Java](./java-get-started.md)
-  * [ProjektNode.js](./nodejs.md)
+  * [ ProjektNode.js](./nodejs.md)
   * [Język JavaScript na każdej stronie sieci Web](./javascript.md) 
 * W kodzie urządzenia lub serwera sieci Web należy uwzględnić następujące:
 
@@ -59,7 +59,7 @@ Pobierz wystąpienie `TelemetryClient` (z wyjątkiem języka JavaScript w strona
 
 W przypadku aplikacji [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) i [innych niż http/Worker dla aplikacji platformy .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) zaleca się uzyskanie wystąpienia `TelemetryClient` z kontenera iniekcji zależności zgodnie z opisem w odpowiedniej dokumentacji.
 
-Jeśli używasz AzureFunctions v2 + lub Azure WebJobs v3 +-wykonaj następujące czynności:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+Jeśli używasz AzureFunctions v2 + lub Azure WebJobs v3 +-wykonaj następujące czynności: https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
 *C#*
 
@@ -204,8 +204,8 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 Dane telemetryczne są dostępne w `customMetrics` tabeli w [Application Insights Analytics](../log-query/log-query-overview.md). Każdy wiersz reprezentuje wywołanie `trackMetric(..)` w aplikacji.
 
-* `valueSum`-Suma pomiarów. Aby uzyskać wartość średnią, Podziel przez `valueCount` .
-* `valueCount`-Liczba pomiarów, które zostały zagregowane w tym `trackMetric(..)` wywołaniu.
+* `valueSum` -Suma pomiarów. Aby uzyskać wartość średnią, Podziel przez `valueCount` .
+* `valueCount` -Liczba pomiarów, które zostały zagregowane w tym `trackMetric(..)` wywołaniu.
 
 ## <a name="page-views"></a>Wyświetlenia stron
 
@@ -437,7 +437,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-Większość ważnych informacji stosu jest już wyodrębnionych do oddzielnych zmiennych, ale można ściągnąć `details` strukturę, aby uzyskać więcej. Ponieważ ta struktura jest dynamiczna, należy rzutować wynik na oczekiwany typ. Na przykład:
+Większość ważnych informacji stosu jest już wyodrębnionych do oddzielnych zmiennych, ale można ściągnąć `details` strukturę, aby uzyskać więcej. Ponieważ ta struktura jest dynamiczna, należy rzutować wynik na oczekiwany typ. Przykład:
 
 ```kusto
 exceptions
@@ -500,7 +500,7 @@ Można wyszukiwać zawartość wiadomości, ale (w przeciwieństwie do wartości
 Limit rozmiaru `message` jest znacznie wyższy niż limit właściwości.
 Zaletą TrackTrace jest możliwość umieszczania stosunkowo długich danych w komunikacie. Na przykład możesz kodować dane POST w tym miejscu.  
 
-Ponadto do wiadomości można dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Na przykład:
+Ponadto do wiadomości można dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Przykład:
 
 *C#*
 
@@ -825,7 +825,7 @@ Zwróć uwagę, że:
 * W przypadku wyodrębnienia wartości z formatu JSON customDimensions lub customMeasurements jest on typu dynamicznego i dlatego należy go rzutować `tostring` lub `todouble` .
 * Aby wziąć pod uwagę możliwość [próbkowania](./sampling.md), należy użyć `sum(itemCount)` , nie `count()` .
 
-## <a name="timing-events"></a><a name="timed"></a>Zdarzenia chronometrażu
+## <a name="timing-events"></a><a name="timed"></a> Zdarzenia chronometrażu
 
 Czasami chcesz utworzyć wykres, jak długo trwa wykonywanie akcji. Na przykład możesz chcieć wiedzieć, jak długo użytkownicy mogą rozważyć wybór w grze. W tym celu można użyć parametru pomiaru.
 
@@ -972,7 +972,7 @@ applicationInsights.setup()
     .start();
 ```
 
-Aby wyłączyć te moduły zbierające po zainicjowaniu, użyj obiektu konfiguracji:`applicationInsights.Configuration.setAutoCollectRequests(false)`
+Aby wyłączyć te moduły zbierające po zainicjowaniu, użyj obiektu konfiguracji: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="developer-mode"></a><a name="debug"></a>Tryb dewelopera
 
@@ -1001,7 +1001,7 @@ applicationInsights.setup("ikey")
 applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
-## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a>Ustawianie klucza Instrumentacji dla wybranej niestandardowej telemetrii
+## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a> Ustawianie klucza Instrumentacji dla wybranej niestandardowej telemetrii
 
 *C#*
 
@@ -1011,7 +1011,7 @@ telemetry.InstrumentationKey = "---my key---";
 // ...
 ```
 
-## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Dynamiczny klucz Instrumentacji
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Dynamiczny klucz Instrumentacji
 
 Aby uniknąć mieszania danych telemetrycznych ze środowiska deweloperskiego, testowego i produkcyjnego, można [utworzyć oddzielne zasoby Application Insights](./create-new-resource.md) i zmienić ich klucze, w zależności od środowiska.
 
@@ -1063,7 +1063,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient ma Właściwość kontekstu, która zawiera wartości, które są wysyłane wraz ze wszystkimi danymi telemetrii. Są one zazwyczaj ustawiane przez standardowe moduły telemetrii, ale można je również ustawić samodzielnie. Na przykład:
+TelemetryClient ma Właściwość kontekstu, która zawiera wartości, które są wysyłane wraz ze wszystkimi danymi telemetrii. Są one zazwyczaj ustawiane przez standardowe moduły telemetrii, ale można je również ustawić samodzielnie. Przykład:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

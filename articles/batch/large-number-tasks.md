@@ -3,13 +3,13 @@ title: Przesyłanie dużej liczby zadań
 description: Jak efektywnie przesłać bardzo dużą liczbę zadań w pojedynczym Azure Batch zadania
 ms.topic: how-to
 ms.date: 08/24/2018
-ms.custom: devx-track-python
-ms.openlocfilehash: 317cd3514bfa5641c163e82fb8ac17465cb02079
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 0442be6f0c56aecc401ac4322c565a9ef999df63
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848761"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936898"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Przesyłanie dużej liczby zadań do zadania wsadowego
 
@@ -54,7 +54,7 @@ Dodanie dużej kolekcji zadań do zadania może zająć trochę czasu — na prz
 
 Poniższe fragmenty kodu w języku C# pokazują ustawienia do skonfigurowania podczas dodawania dużej liczby zadań przy użyciu interfejsu API usługi Batch platformy .NET.
 
-Aby zwiększyć przepływność zadań, należy zwiększyć wartość właściwości [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Na przykład:
+Aby zwiększyć przepływność zadań, należy zwiększyć wartość właściwości [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Przykład:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -64,7 +64,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Dodaj kolekcję zadań do zadania przy użyciu odpowiedniego przeciążenia metody [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) lub [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) . Na przykład:
+) . Przykład:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -135,7 +135,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-Utwórz kolekcję zadań do dodania do zadania. Na przykład:
+Utwórz kolekcję zadań do dodania do zadania. Przykład:
 
 
 ```python

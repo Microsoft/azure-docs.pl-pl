@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560380"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936167"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Debugowanie sesji na platformie Azure Wyszukiwanie poznawcze
 
@@ -95,4 +95,4 @@ Debuguj sesisons pracy ze wszystkimi ogólnie dostępnymi źródłami danych AMD
 Teraz, gdy zrozumiesz elementy sesji debugowania, wypróbuj samouczek, aby poznać praktyczne środowisko pracy.
 
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący funkcji eksplorowania sesji debugowania](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+> [Samouczek dotyczący funkcji eksplorowania sesji debugowania](./cognitive-search-tutorial-debug-sessions.md)

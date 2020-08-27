@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565301"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924371"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Szybki Start: Tworzenie sklepu z bazami danych Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -31,7 +31,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
 + Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
-+ Konto usługi Azure Storage z [magazynem obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/).
++ Konto usługi Azure Storage z [magazynem obiektów BLOB](../storage/blobs/index.yml).
 
 > [!NOTE]
 > Ten przewodnik Szybki Start używa również [usługi Azure Cognitive Services dla systemu](https://azure.microsoft.com/services/cognitive-services/) AI. Ze względu na to, że obciążenie jest małe, Cognitive Services jest wybierana w tle, aby można było bezpłatnie przetwarzać do 20 transakcji. Oznacza to, że można wykonać to ćwiczenie bez konieczności tworzenia dodatkowego zasobu Cognitive Services.
@@ -42,7 +42,7 @@ W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Stora
 
 1. [Pobierz HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Te dane to dane z przeglądu hotelu zapisane w pliku CSV (pochodzące z Kaggle.com) i zawierają 19 opinii klientów na temat pojedynczego hotelu. 
 
-1. [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) w ramach bieżącej subskrypcji. Będziesz używać usługi Azure Storage do importowania nieprzetworzonej zawartości oraz magazynu wiedzy, który jest wynikiem końcowym.
+1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) w ramach bieżącej subskrypcji. Będziesz używać usługi Azure Storage do importowania nieprzetworzonej zawartości oraz magazynu wiedzy, który jest wynikiem końcowym.
 
    + Wybierz typ konta **StorageV2 (ogólnego przeznaczenia w wersji 2)** .
 
@@ -56,13 +56,13 @@ W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Stora
 
     ![Tworzenie kontenera obiektów blob platformy Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Tworzenie kontenera obiektów blob platformy Azure")
 
-1. Przed zamknięciem stron magazynu obiektów BLOB Użyj linku w okienku nawigacji po lewej stronie, aby otworzyć stronę **klawisze dostępu** . Pobierz parametry połączenia, aby pobrać dane z magazynu obiektów BLOB. Parametry połączenia wyglądają podobnie do poniższego przykładu:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Przed zamknięciem stron magazynu obiektów BLOB Użyj linku w okienku nawigacji po lewej stronie, aby otworzyć stronę **klawisze dostępu** . Pobierz parametry połączenia, aby pobrać dane z magazynu obiektów BLOB. Parametry połączenia wyglądają podobnie do poniższego przykładu: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 Teraz można przystąpić do przenoszenia kreatora **importu danych** .
 
 ## <a name="run-the-import-data-wizard"></a>Uruchom Kreatora importowania danych
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
 1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby utworzyć magazyn wiedzy w czterech krokach.
 
@@ -111,7 +111,7 @@ W tym kroku kreatora utworzysz zestawu umiejętności z wzbogacaniem umiejętno�
 
 1. Wybierz następujące **projekcje tabeli platformy Azure**:
     + **Dokumenty**
-    + **Pages**
+    + **Strony**
     + **Kluczowe frazy**
 
 1. Wprowadź **Parametry połączenia konta magazynu** zapisane w poprzednim kroku.

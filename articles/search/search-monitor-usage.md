@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806815"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935011"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitoruj operacje i działania Wyszukiwanie poznawcze platformy Azure
 
@@ -59,7 +59,7 @@ Korzystając z następujących interfejsów API, można pobrać te same informac
 
 ### <a name="activity-logs-and-service-health"></a>Dzienniki aktywności i kondycja usługi
 
-Na stronie [**Dziennik aktywności**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) w portalu zbierane są informacje z Azure Resource Manager i raportów o zmianach w kondycji usługi. Dziennik aktywności można monitorować pod kątem krytycznych, błędów i ostrzeżeń związanych z kondycją usługi.
+Na stronie [**Dziennik aktywności**](../azure-monitor/platform/activity-log.md#view-the-activity-log) w portalu zbierane są informacje z Azure Resource Manager i raportów o zmianach w kondycji usługi. Dziennik aktywności można monitorować pod kątem krytycznych, błędów i ostrzeżeń związanych z kondycją usługi.
 
 Typowe wpisy obejmują odwołania do kluczy interfejsu API — ogólne powiadomienia informacyjne, takie jak *Pobieranie klucza administratora* i *Uzyskiwanie kluczy zapytań*. Te działania wskazują żądania, które zostały wykonane przy użyciu klucza administratora (Tworzenie lub usuwanie obiektów) lub klucza zapytania, ale nie wyświetlają samego żądania. Aby uzyskać informacje dotyczące tego ziarna, należy skonfigurować rejestrowanie diagnostyczne.
 
@@ -75,13 +75,13 @@ Poniższa ilustracja dotyczy bezpłatnej usługi, która jest ograniczona do 3 o
  "Stan użycia względem limitów warstwy")
 
 > [!NOTE]
-> Alerty powiązane z magazynem nie są obecnie dostępne; Użycie magazynu nie jest agregowane lub zarejestrowane w tabeli **AzureMetrics** w Azure monitor. Aby uzyskać alerty magazynu, należy [utworzyć niestandardowe rozwiązanie](../azure-monitor/insights/solutions-creating.md) , które emituje powiadomienia związane z zasobami, gdzie kod sprawdza rozmiar magazynu i obsługuje odpowiedź.
+> Alerty powiązane z magazynem nie są obecnie dostępne; Użycie magazynu nie jest agregowane lub zarejestrowane w tabeli **AzureMetrics** w Azure monitor. Aby uzyskać alerty magazynu, należy [utworzyć niestandardowe rozwiązanie](../azure-monitor/insights/solutions.md) , które emituje powiadomienia związane z zasobami, gdzie kod sprawdza rozmiar magazynu i obsługuje odpowiedź.
 
 <a name="add-azure-monitor"></a>
 
 ## <a name="add-on-monitoring-with-azure-monitor"></a>Monitorowanie dodatków za pomocą Azure Monitor
 
-Wiele usług, w tym Azure Wyszukiwanie poznawcze, integrują się z [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) w celu uzyskania dodatkowych alertów, metryk i danych diagnostycznych rejestrowania. 
+Wiele usług, w tym Azure Wyszukiwanie poznawcze, integrują się z [Azure monitor](../azure-monitor/index.yml) w celu uzyskania dodatkowych alertów, metryk i danych diagnostycznych rejestrowania. 
 
 [Włącz rejestrowanie diagnostyczne](search-monitor-logs.md) dla usługi Search, jeśli chcesz kontrolować zbieranie i przechowywanie danych. Zarejestrowane zdarzenia przechwycone przez Azure Monitor są przechowywane w tabeli **AzureDiagnostics** i składają się z danych operacyjnych związanych z zapytaniami i indeksami.
 
@@ -107,4 +107,4 @@ Nie ma możliwości rejestrowania tych informacji niezależnie od ciągu zapytan
 Fluency z Azure Monitor jest niezbędne do nadzoru dowolnej usługi platformy Azure, w tym takich zasobów jak Azure Wyszukiwanie poznawcze. Jeśli nie znasz Azure Monitor, poświęć trochę czasu na zapoznanie się z artykułami dotyczącymi zasobów. Oprócz samouczków, w tym miejscu warto zacząć od artykułu.
 
 > [!div class="nextstepaction"]
-> [Monitorowanie zasobów platformy Azure za pomocą Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Monitorowanie zasobów platformy Azure za pomocą usługi Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)

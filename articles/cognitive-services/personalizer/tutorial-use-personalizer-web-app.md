@@ -3,18 +3,19 @@ title: Korzystanie z aplikacji sieci Web — Personalizacja
 description: Dostosuj aplikację sieci Web w języku C# przy użyciu pętli personalizacji, aby zapewnić użytkownikowi poprawną zawartość na podstawie akcji (z funkcjami) i funkcji kontekstu.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446368"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935623"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Samouczek: Dodawanie personalizacji do aplikacji sieci Web platformy .NET
 
 Dostosuj aplikację sieci Web w języku C# przy użyciu pętli personalizacji, aby zapewnić użytkownikowi poprawną zawartość na podstawie akcji (z funkcjami) i funkcji kontekstu.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -152,7 +153,7 @@ private string GetUsersTastePreference()
 ## <a name="how-does-the-web-app-use-personalizer"></a>Jak aplikacja sieci Web używa personalizacji?
 
 Aplikacja sieci Web używa personalizacji, aby wybrać najlepszą akcję z listy dostępnych opcji żywności. Robi to, wysyłając następujące informacje z każdym wywołaniem interfejsu API rangi:
-* **Akcje** z ich funkcjami, takimi jak `taste` i`spiceLevel`
+* **Akcje** z ich funkcjami, takimi jak `taste` i `spiceLevel`
 * funkcje **kontekstu** , takie jak `time` dzień, `taste` preferencja użytkownika i informacje o agencie użytkownika przeglądarki oraz funkcje kontekstu
 * **akcje do wykluczenia** , takie jak sok
 * **EventID**, który różni się dla każdego wywołania interfejsu API rangi.
@@ -248,7 +249,7 @@ Zainstaluj następujące oprogramowanie:
 Kompiluj i uruchamiaj HttpRequestFeaturesExample przy użyciu jednej z następujących metod:
 
 * Visual Studio 2019: naciśnij klawisz **F5**
-* Interfejs wiersza polecenia platformy .NET Core: `dotnet build` następnie`dotnet run`
+* Interfejs wiersza polecenia platformy .NET Core: `dotnet build` następnie `dotnet run`
 
 Za pośrednictwem przeglądarki sieci Web można wysłać żądanie rangi i żądanie nagrody oraz zobaczyć ich odpowiedzi, a także funkcje żądania HTTP wyodrębnione ze środowiska.
 
@@ -579,7 +580,7 @@ Dodatkowe ustawienia do odtworzenia przy użyciu programu obejmują:
 * Procent eksploracji
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Oczyść następujące zasoby:
 

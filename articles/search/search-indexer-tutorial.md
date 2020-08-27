@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 28aadb60703f32e486ed2de3e44b23758c57d3ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86045454"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935130"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Samouczek: indeksowanie danych usługi Azure SQL przy użyciu zestawu .NET SDK
 
 Skonfiguruj [indeksator](search-indexer-overview.md) , aby wyodrębnić dane możliwe do przeszukania z Azure SQL Database, wysyłając je do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. 
 
-Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
+Ten samouczek używa języka C# i [zestawu SDK platformy .NET](/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Utwórz źródło danych łączące się z Azure SQL Database
@@ -144,7 +144,7 @@ Schemat może również obejmować inne elementy, w tym profile oceniania na pot
 
 Program główny zawiera logikę tworzenia klienta, indeksu, źródła danych i indeksatora. Kod sprawdza i usuwa istniejące zasoby o tej samej nazwie, przy założeniu, że ten program może być uruchamiany wiele razy.
 
-Obiekt źródła danych jest skonfigurowany przy użyciu ustawień, które są specyficzne dla Azure SQL Database zasobów, w tym [częściowe lub przyrostowe indeksowanie](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) w celu użycia wbudowanych [funkcji wykrywania zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) w usłudze Azure SQL. Baza danych hoteli demonstracyjna w usłudze Azure SQL zawiera kolumnę "Usuwanie trwałe" o nazwie **IsDeleted**. Gdy ta kolumna ma wartość true w bazie danych, indeksator usuwa odpowiedni dokument z indeksu Wyszukiwanie poznawcze platformy Azure.
+Obiekt źródła danych jest skonfigurowany przy użyciu ustawień, które są specyficzne dla Azure SQL Database zasobów, w tym [częściowe lub przyrostowe indeksowanie](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) w celu użycia wbudowanych [funkcji wykrywania zmian](/sql/relational-databases/track-changes/about-change-tracking-sql-server) w usłudze Azure SQL. Baza danych hoteli demonstracyjna w usłudze Azure SQL zawiera kolumnę "Usuwanie trwałe" o nazwie **IsDeleted**. Gdy ta kolumna ma wartość true w bazie danych, indeksator usuwa odpowiedni dokument z indeksu Wyszukiwanie poznawcze platformy Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -242,9 +242,9 @@ Przykładowy kod dla tego samouczka sprawdza istniejące obiekty i usuwa je, aby
 
 Możesz również użyć portalu, aby usunąć indeksy, indeksatory i źródła danych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

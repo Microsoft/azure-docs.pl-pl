@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b95880c8cdda67f895615f9a3ba8daf3ab5e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506009"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935892"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w programie PowerShell przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)]()
+> * [C#](./search-get-started-dotnet.md)
 > * [Poster (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > 
 
-W tym artykule omówiono proces tworzenia, ładowania i wykonywania zapytań dotyczących indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu programu PowerShell i [interfejsów API REST platformy azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/). W tym artykule wyjaśniono, jak uruchomić polecenia programu PowerShell interaktywnie. Alternatywnie można [pobrać i uruchomić skrypt programu PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) , który wykonuje te same operacje.
+W tym artykule omówiono proces tworzenia, ładowania i wykonywania zapytań dotyczących indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu programu PowerShell i [interfejsów API REST platformy azure wyszukiwanie poznawcze](/rest/api/searchservice/). W tym artykule wyjaśniono, jak uruchomić polecenia programu PowerShell interaktywnie. Alternatywnie można [pobrać i uruchomić skrypt programu PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) , który wykonuje te same operacje.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Ten przewodnik Szybki Start wymaga następujących usług i narzędzi. 
 
-+ Program [PowerShell 5,1 lub nowszy](https://github.com/PowerShell/PowerShell)przy użyciu polecenia [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) dla kroków sekwencyjnych i interaktywnych.
++ Program [PowerShell 5,1 lub nowszy](https://github.com/PowerShell/PowerShell)przy użyciu polecenia [Invoke-RestMethod](/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) dla kroków sekwencyjnych i interaktywnych.
 
 + [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
@@ -85,7 +85,7 @@ Wszystkie żądania wymagają klucza API dla każdego żądania wysyłanego do u
 
 ## <a name="1---create-an-index"></a>1 — Tworzenie indeksu
 
-Jeśli nie korzystasz z portalu, musi istnieć indeks usługi, aby można było załadować dane. Ten krok umożliwia zdefiniowanie indeksu i wypchnięcie go do usługi. Dla tego kroku jest używany [interfejs API Rest tworzenia indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Jeśli nie korzystasz z portalu, musi istnieć indeks usługi, aby można było załadować dane. Ten krok umożliwia zdefiniowanie indeksu i wypchnięcie go do usługi. Dla tego kroku jest używany [interfejs API Rest tworzenia indeksu](/rest/api/searchservice/create-index) .
 
 Wymagane elementy indeksu obejmują nazwę i kolekcję pól. Kolekcja Fields definiuje strukturę *dokumentu*. Każde pole ma nazwę, typ i atrybuty, które określają, w jaki sposób jest używany (na przykład czy umożliwia wyszukiwanie pełnotekstowe, filtrowanie lub pobieranie w wynikach wyszukiwania). W indeksie należy wyznaczyć jedno z pól typu `Edm.String` jako *klucz* dla tożsamości dokumentu.
 
@@ -179,7 +179,7 @@ Ten indeks ma nazwę "Hotele-Szybki Start" i zawiera definicje pól widoczne pon
 
 ## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu URL Twojego indeksu. Interfejs API REST dla tego zadania to [Dodawanie, aktualizowanie lub usuwanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu URL Twojego indeksu. Interfejs API REST dla tego zadania to [Dodawanie, aktualizowanie lub usuwanie dokumentów](/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Wklej ten przykład do programu PowerShell, aby utworzyć obiekt **$Body** zawierający dokumenty, które chcesz przekazać. 
 
@@ -281,7 +281,7 @@ Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Wyniki powinny wyglądać podobnie do poniższego przykładu. Powinien zostać wyświetlony [kod stanu 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Wyniki powinny wyglądać podobnie do poniższego przykładu. Powinien zostać wyświetlony [kod stanu 201](/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
@@ -317,7 +317,7 @@ Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu 
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-W tym kroku przedstawiono sposób wykonywania zapytań względem indeksu przy użyciu [interfejsu API dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+W tym kroku przedstawiono sposób wykonywania zapytań względem indeksu przy użyciu [interfejsu API dokumentów wyszukiwania](/rest/api/searchservice/search-documents).
 
 Upewnij się, że w $urls wyszukiwania są używane pojedyncze cudzysłowy. Ciągi zapytań zawierają **$** znaki i można pominąć ich wyprowadzanie, jeśli cały ciąg jest ujęty w apostrofy.
 
@@ -391,7 +391,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 

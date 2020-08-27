@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260988"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935776"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Częściowe wyszukiwanie warunków i wzorce ze znakami specjalnymi (symbol wieloznaczny, wyrażenie regularne, wzorce)
 
@@ -51,7 +51,7 @@ Jeśli chcesz wyszukać fragmenty lub wzorce lub znaki specjalne, możesz zastą
 + Kompiluj i Testuj indeks
 
 > [!TIP]
-> Ocenianie analizatorów jest procesem iteracyjnym wymagającym częstych rekompilacji indeksów. Ten krok można ułatwić przy użyciu programu Poster, interfejsów API REST do [tworzenia indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index), [usuwania indeksu](https://docs.microsoft.com/rest/api/searchservice/delete-index),[ładowania dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)i [wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents). W przypadku dokumentów załadunkowych treść żądania powinna zawierać mały reprezentatywny zestaw danych, który ma zostać przetestowany (na przykład pole z numerami telefonów lub kodami produktów). Za pomocą tych interfejsów API w tej samej kolekcji ogłoszeń można szybko wykonać te kroki.
+> Ocenianie analizatorów jest procesem iteracyjnym wymagającym częstych rekompilacji indeksów. Ten krok można ułatwić przy użyciu programu Poster, interfejsów API REST do [tworzenia indeksu](/rest/api/searchservice/create-index), [usuwania indeksu](/rest/api/searchservice/delete-index),[ładowania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents)i [wyszukiwania dokumentów](/rest/api/searchservice/search-documents). W przypadku dokumentów załadunkowych treść żądania powinna zawierać mały reprezentatywny zestaw danych, który ma zostać przetestowany (na przykład pole z numerami telefonów lub kodami produktów). Za pomocą tych interfejsów API w tej samej kolekcji ogłoszeń można szybko wykonać te kroki.
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Duplikowanie pól dla różnych scenariuszy
 
@@ -85,7 +85,7 @@ W przypadku wybrania analizatora, który tworzy tokeny całodzienne, typowe są 
 | [odstępu](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Oddziela tylko odstępy. Warunki, które zawierają łączniki lub inne znaki, są traktowane jako pojedynczy token. |
 | [Analizator niestandardowy](index-add-custom-analyzers.md) | Rekomendowane Utworzenie analizatora niestandardowego pozwala określić zarówno tokenizatora, jak i filtr tokenu. Poprzednie analizatory muszą być używane jako-is. Analizator niestandardowy umożliwia wybranie filtrów tokenizatory i tokenów, które mają być używane. <br><br>Zalecaną kombinacją jest [słowo kluczowe tokenizatora](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) z [filtrem tokenu o niższym przypadku](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). We wstępnie zdefiniowanym [analizatorze słów kluczowych](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) nie jest rozróżniana wielkość liter, co może spowodować niepowodzenie zapytań. Analizator niestandardowy zapewnia mechanizm dodawania do filtru tokenów małych liter. |
 
-Jeśli używasz narzędzia testowego interfejsu API sieci Web, takiego jak Poster, możesz dodać [wywołanie REST analizatora testu](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) , aby przeprowadzić inspekcję danych wyjściowych z tokenami.
+Jeśli używasz narzędzia testowego interfejsu API sieci Web, takiego jak Poster, możesz dodać [wywołanie REST analizatora testu](/rest/api/searchservice/test-analyzer) , aby przeprowadzić inspekcję danych wyjściowych z tokenami.
 
 Do pracy z programem musi być wypełniony indeks. Uwzględniając istniejący indeks i pole zawierające łączniki lub częściowe warunki, możesz wypróbować różne analizatory, aby zobaczyć, jakie tokeny są emitowane.  
 
@@ -160,7 +160,7 @@ Bez względu na to, czy oceniasz analizatory, czy przenosisz się do przodu przy
 
 Wbudowane lub wstępnie zdefiniowane analizatory mogą być określone przez nazwę we `analyzer` właściwości definicji pola i nie jest wymagana żadna dodatkowa konfiguracja w indeksie. W poniższym przykładzie pokazano, jak ustawić `whitespace` Analizator dla pola. 
 
-Aby uzyskać więcej scenariuszy i dowiedzieć się więcej na temat innych wbudowanych analizatorów, zobacz [Lista wstępnie zdefiniowanych analizatorów](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Aby uzyskać więcej scenariuszy i dowiedzieć się więcej na temat innych wbudowanych analizatorów, zobacz [Lista wstępnie zdefiniowanych analizatorów](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -222,19 +222,19 @@ Po zdefiniowaniu indeksu z analizatorami i definicjami pól, które obsługują 
 
 W poprzednich sekcjach objaśniono logikę. W tej części przedstawiono kroki poszczególnych interfejsów API, które należy wywołać podczas testowania rozwiązania. Jak wspomniano wcześniej, jeśli używasz interaktywnego narzędzia do testowania sieci Web, takiego jak program Poster, możesz szybko wykonać te zadania.
 
-+ [Usuń indeks](https://docs.microsoft.com/rest/api/searchservice/delete-index) usuwa istniejący indeks o tej samej nazwie, aby można go było utworzyć ponownie.
++ [Usuń indeks](/rest/api/searchservice/delete-index) usuwa istniejący indeks o tej samej nazwie, aby można go było utworzyć ponownie.
 
-+ [Create index](https://docs.microsoft.com/rest/api/searchservice/create-index) tworzy strukturę indeksu w usłudze wyszukiwania, w tym definicje analizatora i pola ze specyfikacją analizatora.
++ [Create index](/rest/api/searchservice/create-index) tworzy strukturę indeksu w usłudze wyszukiwania, w tym definicje analizatora i pola ze specyfikacją analizatora.
 
-+ [Załaduj dokumenty](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importuje dokumenty mające taką samą strukturę jak indeks, a także zawartość do przeszukania. Po wykonaniu tego kroku indeks jest gotowy do zbadania lub przetestowania.
++ [Załaduj dokumenty](/rest/api/searchservice/addupdate-or-delete-documents) importuje dokumenty mające taką samą strukturę jak indeks, a także zawartość do przeszukania. Po wykonaniu tego kroku indeks jest gotowy do zbadania lub przetestowania.
 
-+ [Analizator testów](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) został wprowadzony w [Wybierz Analizator](#choose-an-analyzer). Przetestuj niektóre ciągi w indeksie przy użyciu różnych analizatorów, aby zrozumieć, w jaki sposób są tokeny.
++ [Analizator testów](/rest/api/searchservice/test-analyzer) został wprowadzony w [Wybierz Analizator](#choose-an-analyzer). Przetestuj niektóre ciągi w indeksie przy użyciu różnych analizatorów, aby zrozumieć, w jaki sposób są tokeny.
 
-+ W obszarze [Wyszukaj dokumenty](https://docs.microsoft.com/rest/api/searchservice/search-documents) objaśniono, jak utworzyć żądanie zapytania przy użyciu [prostej składni](query-simple-syntax.md) lub [pełnej składni](query-lucene-syntax.md) wyrażeń w przypadku symboli wieloznacznych i regularnych.
++ W obszarze [Wyszukaj dokumenty](/rest/api/searchservice/search-documents) objaśniono, jak utworzyć żądanie zapytania przy użyciu [prostej składni](query-simple-syntax.md) lub [pełnej składni](query-lucene-syntax.md) wyrażeń w przypadku symboli wieloznacznych i regularnych.
 
   W przypadku zapytań częściowych warunkowych, takich jak zapytanie "3-6214" aby znaleźć dopasowanie w "+ 1 (425) 703-6214", można użyć prostej składni: `search=3-6214&queryType=simple` .
 
-  W przypadku zapytań wrostkowe i sufiksów, takich jak zapytania "num" lub "numeric", aby znaleźć dopasowanie dla "alfanumeryczne", użyj pełnej składni "Lucene" i wyrażenia regularnego:`search=/.*num.*/&queryType=full`
+  W przypadku zapytań wrostkowe i sufiksów, takich jak zapytania "num" lub "numeric", aby znaleźć dopasowanie dla "alfanumeryczne", użyj pełnej składni "Lucene" i wyrażenia regularnego: `search=/.*num.*/&queryType=full`
 
 ## <a name="tune-query-performance"></a>Dostosowywanie wydajności zapytań
 
@@ -287,5 +287,5 @@ W tym artykule wyjaśniono, jak analizatory przyczyniają się do problemów z k
 
 + [Analizatory języków](search-language-support.md)
 + [Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze](search-analyzers.md)
-+ [Analizowanie interfejsu API tekstu (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [Analizowanie interfejsu API tekstu (REST)](/rest/api/searchservice/test-analyzer)
 + [Jak działa wyszukiwanie pełnotekstowe (architektura zapytania)](search-lucene-query-architecture.md)

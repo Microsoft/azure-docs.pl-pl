@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 548d324a67b1bbee4741724faf2cf27ec6c3c3c1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84754614"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925434"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -85,7 +86,7 @@ Widok Projekt został zaktualizowany, aby pokazać interfejs użytkownika aplika
 
 1. W **Eksplorator rozwiązań**Otwórz plik źródłowy związany z kodem `MainPage.xaml.cs` . (Jest ono pogrupowane w `MainPage.xaml` .) Zastąp zawartość tego pliku następującym poniżej, co obejmuje następujące elementy:
 
-- `using`instrukcje dla `Speech` i `Speech.Dialog` przestrzeni nazw
+- `using` instrukcje dla `Speech` i `Speech.Dialog` przestrzeni nazw
 - Prosta implementacja zapewniająca dostęp do mikrofonu przy użyciu sieci przewodowej do procedury obsługi przycisku
 - Podstawowe pomocnicy interfejsu użytkownika do prezentowania komunikatów i błędów w aplikacji
 - Punkt wyładunkowy dla ścieżki kodu inicjującego, który zostanie zapełniony później

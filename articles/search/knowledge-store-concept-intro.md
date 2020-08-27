@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230778"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924303"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Magazyn wiedzy na platformie Azure Wyszukiwanie poznawcze
 
@@ -21,7 +21,7 @@ Sklep z bazami informacji to funkcja platformy Azure Wyszukiwanie poznawcze, kt�
 
 Jeśli w przeszłości korzystasz z umiejętności poznawczych, już wiesz, że *umiejętności* przenieść dokument przez sekwencję wzbogacania. Wynikiem może być indeks wyszukiwania lub projekcje w sklepie z bazami danych. Dwa dane wyjściowe, indeks wyszukiwania i magazyn wiedzy są produktami tego samego potoku; pochodzące z tych samych danych wejściowych, ale wynikające z danych wyjściowych, które są strukturalne, przechowywane i używane na różne sposoby.
 
-Fizycznie magazyn wiedzy to [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), Azure Table Storage, Azure Blob Storage lub oba te elementy. Wszystkie narzędzia i procesy, które mogą łączyć się z usługą Azure Storage, mogą zużywać zawartość sklepu z bazami wiedzy.
+Fizycznie magazyn wiedzy to [Azure Storage](../storage/common/storage-account-overview.md), Azure Table Storage, Azure Blob Storage lub oba te elementy. Wszystkie narzędzia i procesy, które mogą łączyć się z usługą Azure Storage, mogą zużywać zawartość sklepu z bazami wiedzy.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -39,7 +39,7 @@ Wyliczane są korzyści z używania sklepu z bazami danych:
 
 + Korzystaj z ulepszonych dokumentów w [narzędziach do analizy i raportowania](#tools-and-apps) innych niż wyszukiwanie. Power BI z Power Query jest atrakcyjnym wyborem, ale dowolne narzędzie lub aplikacja, która może łączyć się z usługą Azure Storage, może pobierać z utworzonego przez siebie magazynu wiedzy.
 
-+ Uściślij potok indeksowania AI podczas debugowania kroków i definicji zestawu umiejętności. Magazyn wiedzy przedstawia produkt definicji zestawu umiejętności w potoku indeksowania systemu AI. Możesz użyć tych wyników, aby zaprojektować lepszy zestawu umiejętności, ponieważ można zobaczyć dokładnie, jak wyglądają wzbogacenia. Możesz użyć [Eksplorator usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) w usłudze Azure Storage, aby wyświetlić zawartość sklepu z bazami wiedzy.
++ Uściślij potok indeksowania AI podczas debugowania kroków i definicji zestawu umiejętności. Magazyn wiedzy przedstawia produkt definicji zestawu umiejętności w potoku indeksowania systemu AI. Możesz użyć tych wyników, aby zaprojektować lepszy zestawu umiejętności, ponieważ można zobaczyć dokładnie, jak wyglądają wzbogacenia. Możesz użyć [Eksplorator usługi Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) w usłudze Azure Storage, aby wyświetlić zawartość sklepu z bazami wiedzy.
 
 + Kształtowanie danych w nowych formularzach. Zmiana kształtu jest skodyfikowana w umiejętności, ale punkt jest, że zestawu umiejętności może teraz zapewnić tę możliwość. [Umiejętność kształtowania](cognitive-search-skill-shaper.md) w usłudze Azure wyszukiwanie poznawcze została rozszerzona w celu uwzględnienia tego zadania. Zmiana kształtu pozwala zdefiniować projekcję, która jest wyrównana do zamierzonego użycia danych przy zachowaniu relacji.
 
@@ -84,7 +84,7 @@ Istnieje jednak możliwość utworzenia wielu zestawów `table` - `object` - `fi
 
 ## <a name="requirements"></a>Wymagania 
 
-[Usługa Azure Storage](https://docs.microsoft.com/azure/storage/) jest wymagana. Zapewnia magazyn fizyczny. Można użyć usługi BLOB Storage, magazynu tabel lub obu. Magazyn obiektów BLOB jest używany w nienaruszonych dokumentach, zazwyczaj gdy dane wyjściowe przechodzą do procesów podrzędnych. Magazyn tabel jest przeznaczony dla wycinków ulepszonych dokumentów, często używanych na potrzeby analizy i raportowania.
+[Usługa Azure Storage](../storage/index.yml) jest wymagana. Zapewnia magazyn fizyczny. Można użyć usługi BLOB Storage, magazynu tabel lub obu. Magazyn obiektów BLOB jest używany w nienaruszonych dokumentach, zazwyczaj gdy dane wyjściowe przechodzą do procesów podrzędnych. Magazyn tabel jest przeznaczony dla wycinków ulepszonych dokumentów, często używanych na potrzeby analizy i raportowania.
 
 [Zestawu umiejętności](cognitive-search-working-with-skillsets.md) jest wymagany. Zawiera `knowledgeStore` definicję i określa strukturę i kompozycję wzbogaconego dokumentu. Nie można utworzyć sklepu z wiedzą przy użyciu pustej zestawu umiejętności. Musisz mieć co najmniej jedną umiejętność w zestawu umiejętności.
 
@@ -130,16 +130,16 @@ Po wprowadzeniu wzbogaceń do magazynu dowolne narzędzie lub technologia, któr
 
 + [Power BI](knowledge-store-connect-power-bi.md) na potrzeby raportowania i analizy. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) dalsze manipulowanie.
++ [Azure Data Factory](../data-factory/index.yml) dalsze manipulowanie.
 
 <a name="kstore-rest-api"></a>
 
-## <a name="api-reference"></a>Odwołanie API
+## <a name="api-reference"></a>Dokumentacja interfejsu API
 
-Wersja interfejsu API REST `2020-06-30` zapewnia magazyn wiedzy przez dodatkowe definicje w witrynie umiejętności. Oprócz odwołania, aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API, zobacz artykuł [Tworzenie sklepu merytorycznego korzystającego z programu Poster](knowledge-store-create-rest.md) .
+Wersja interfejsu API REST `2020-06-30` zapewnia magazyn wiedzy przez dodatkowe definicje w witrynie umiejętności. Oprócz odwołania, aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API, zobacz artykuł  [Tworzenie sklepu merytorycznego korzystającego z programu Poster](knowledge-store-create-rest.md) .
 
-+ [Create zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Update zestawu umiejętności (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
++ [Create zestawu umiejętności (API-Version = 2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Update zestawu umiejętności (API-Version = 2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Następne kroki

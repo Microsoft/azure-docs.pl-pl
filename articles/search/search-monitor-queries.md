@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552524"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935079"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorowanie żądań zapytań w usłudze Azure Wyszukiwanie poznawcze
 
@@ -41,7 +41,7 @@ Często zapytania są wykonywane w milisekundach, dlatego w metrykach są wyświ
 | Średnia | Średnia liczba sekund w ciągu minuty, w trakcie której wystąpiło wykonywanie zapytania.|
 | Liczba | Liczba metryk emitowanych do dziennika w ramach interwału jednej minuty. |
 | Maksimum | Najwyższa liczba zapytań wyszukiwania na sekundę zarejestrowanych w ciągu minuty. |
-| Minimalne | Najmniejsza liczba zapytań wyszukiwania na sekundę zarejestrowanych w ciągu minuty.  |
+| Minimum | Najmniejsza liczba zapytań wyszukiwania na sekundę zarejestrowanych w ciągu minuty.  |
 | Suma | Suma wszystkich zapytań wykonanych w ciągu minuty.  |
 
 Na przykład w ciągu jednej minuty może istnieć wzorzec podobny do tego: jedna sekunda wysokiego obciążenia, która jest maksymalną wartością dla SearchQueriesPerSecond, a następnie 58 sekund średniego obciążenia, a wreszcie jedna sekunda z tylko jednym zapytaniem, co jest minimalne.
@@ -59,7 +59,7 @@ Wydajność zapytań w całej usłudze jest mierzona jako opóźnienie wyszukiwa
 | Średnia | Średni czas trwania zapytania w milisekundach. | 
 | Liczba | Liczba metryk emitowanych do dziennika w ramach interwału jednej minuty. |
 | Maksimum | Najdłuższy uruchomiony zapytanie w przykładzie. | 
-| Minimalne | Najkrótsze uruchomione zapytanie w przykładzie.  | 
+| Minimum | Najkrótsze uruchomione zapytanie w przykładzie.  | 
 | Łącznie | Łączny czas wykonywania wszystkich zapytań w przykładzie, wykonywanych w interwale (jedna minuta).  |
 
 Rozważmy następujący przykład metryk **opóźnienia wyszukiwania** : 86 zapytania były próbkowane z średnim czasem trwania 23,26 milisekund. Co najmniej 0 wskazuje, że niektóre zapytania zostały usunięte. Długotrwałe wykonanie zapytania trwało 1000 milisekund. Łączny czas wykonywania wynosił 2 sekundy.
@@ -87,7 +87,7 @@ Aby potwierdzić ograniczone zapytania, użyj metryki **zapytań wyszukiwania z 
 | Średnia | Procent zapytań porzuconych w interwale. |
 | Liczba | Liczba metryk emitowanych do dziennika w ramach interwału jednej minuty. |
 | Maksimum | Procent zapytań porzuconych w interwale.|
-| Minimalne | Procent zapytań porzuconych w interwale. |
+| Minimum | Procent zapytań porzuconych w interwale. |
 | Łącznie | Procent zapytań porzuconych w interwale. |
 
 W przypadku **kwerend wyszukiwania z ograniczeniami wartość procentowa**, minimum, maksimum, średnia i suma — wszystkie mają tę samą wartość: procent zapytań wyszukiwania, które zostały ograniczone, od łącznej liczby zapytań wyszukiwania w ciągu jednej minuty.
@@ -100,7 +100,7 @@ Na poniższym zrzucie ekranu pierwszy numer jest liczbą (lub liczbą metryk wys
 
 Aby uzyskać szybki przegląd z bieżącymi numerami, na karcie **monitorowanie** na stronie Przegląd usługi są wyświetlane trzy metryki (**opóźnienie wyszukiwania**, **zapytania wyszukiwania na sekundę (za jednostkę wyszukiwania)**, **procent kwerend wyszukiwania ograniczonego**, wyrażone w godzinach, dni i tygodnie, z możliwością zmiany typu agregacji.
 
-W celu uzyskania bardziej szczegółowej eksploracji Otwórz Eksploratora metryk z menu **monitorowanie** , tak aby można było warstwować, powiększać i wizualizować dane w celu eksplorowania trendów i anomalii. Dowiedz się więcej o Eksploratorze metryk, wykonując ten [samouczek na temat tworzenia wykresu metryk](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+W celu uzyskania bardziej szczegółowej eksploracji Otwórz Eksploratora metryk z menu **monitorowanie** , tak aby można było warstwować, powiększać i wizualizować dane w celu eksplorowania trendów i anomalii. Dowiedz się więcej o Eksploratorze metryk, wykonując ten [samouczek na temat tworzenia wykresu metryk](../azure-monitor/learn/tutorial-metrics-explorer.md).
 
 1. W sekcji monitorowanie wybierz pozycję **metryki** , aby otworzyć Eksploratora metryk z zakresem ustawionym na usługę wyszukiwania.
 

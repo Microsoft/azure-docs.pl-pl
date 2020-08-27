@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9f6a5ebc4f3242181196bd40b62f7522d025b84
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564442"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924981"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Dołącz zasób Cognitive Services do zestawu umiejętności na platformie Azure Wyszukiwanie poznawcze 
 
@@ -37,7 +37,7 @@ Usługa Azure Wyszukiwanie poznawcze ma zależność od Cognitive Services, w ty
 
 ## <a name="same-region-requirement"></a>Wymóg tego samego regionu
 
-Firma Microsoft wymaga, aby usługa Azure Wyszukiwanie poznawcze i usługa Azure Cognitive Services istniały w tym samym regionie. W przeciwnym razie zostanie wyświetlony komunikat w czasie wykonywania:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Firma Microsoft wymaga, aby usługa Azure Wyszukiwanie poznawcze i usługa Azure Cognitive Services istniały w tym samym regionie. W przeciwnym razie zostanie wyświetlony komunikat w czasie wykonywania: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 Nie ma możliwości przenoszenia usługi między regionami. Jeśli zostanie wyświetlony ten błąd, należy utworzyć nowy zasób Cognitive Services w tym samym regionie co usługa Azure Wyszukiwanie poznawcze.
 
@@ -170,5 +170,5 @@ Wszystkie te informacje są umieszczane w artykule o $57,00 do pobierania 1 000 
 ## <a name="next-steps"></a>Następne kroki
 + [Strona cennika usługi Azure Wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
-+ [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Utwórz zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset)
 + [Jak zmapować wzbogacone pola](cognitive-search-output-field-mapping.md)

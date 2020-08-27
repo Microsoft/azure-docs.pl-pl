@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a8f956a692fd857fc864ca0132acc85d9942bbd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021334"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891814"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
@@ -51,9 +51,9 @@ Stały zestaw Stanów, które mogą zostać zastąpione, to:
 
 W związku z tym każdy stan może być ustawiony na jeden z:
 
-* `ForceOn`-stan jest włączony dla wszystkich siatek w tym węźle i poniżej niego
-* `ForceOff`-stan jest wyłączony dla wszystkich siatek w i poniżej tego węzła
-* `InheritFromParent`-Ten składnik przesłonięcia nie ma wpływ na stan.
+* `ForceOn` -stan jest włączony dla wszystkich siatek w tym węźle i poniżej niego
+* `ForceOff` -stan jest wyłączony dla wszystkich siatek w i poniżej tego węzła
+* `InheritFromParent` -Ten składnik przesłonięcia nie ma wpływ na stan.
 
 Stany można zmienić bezpośrednio lub za pomocą `SetState` funkcji:
 
@@ -74,9 +74,9 @@ component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollisi
 ApiHandle<HierarchicalStateOverrideComponent> component = ...;
 
 // set one state directly
-component->HiddenState(HierarchicalEnableState::ForceOn);
+component->SetHiddenState(HierarchicalEnableState::ForceOn);
 
-// set a state with the SetState function
+// or: set a state with the SetState function
 component->SetState(HierarchicalStates::SeeThrough, HierarchicalEnableState::InheritFromParent);
 
 // set multiple states at once with the SetState function

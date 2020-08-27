@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
-ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056826"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934586"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -155,7 +156,7 @@ Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 
 Przeniesienie fragmentaryczne ( `Transfer-Encoding: chunked` ) może pomóc w zmniejszeniu opóźnienia rozpoznawania. Dzięki temu usługa mowy może rozpocząć przetwarzanie pliku audio podczas jego przesyłania. Interfejs API REST nie zapewnia wyników częściowych ani pośrednich.
 
-Ten przykładowy kod pokazuje, jak wysyłać audio w fragmentach. Tylko pierwszy fragment powinien zawierać nagłówek pliku dźwiękowego. `request`jest `HttpWebRequest` obiektem połączonym z odpowiednim punktem końcowym Rest. `audioFile`jest ścieżką do pliku audio na dysku.
+Ten przykładowy kod pokazuje, jak wysyłać audio w fragmentach. Tylko pierwszy fragment powinien zawierać nagłówek pliku dźwiękowego. `request` jest `HttpWebRequest` obiektem połączonym z odpowiednim punktem końcowym Rest. `audioFile` jest ścieżką do pliku audio na dysku.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);

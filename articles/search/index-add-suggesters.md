@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 2a0798ee923624aef9f29c1e9cc30f38b55770a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7918f83d5328c0bf75461d564f3833167c6195e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565324"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924558"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Utwórz sugestię umożliwiającą włączenie autouzupełniania i sugerowanych wyników w zapytaniu
 
@@ -25,7 +25,7 @@ Poniższy zrzut ekranu przedstawiający [Tworzenie pierwszej aplikacji w języku
 
 Tych funkcji można używać osobno lub razem. Aby zaimplementować te zachowania w usłudze Azure Wyszukiwanie poznawcze, istnieje indeks i składnik zapytania. 
 
-+ W indeksie Dodaj sugestię do indeksu. Możesz użyć portalu, [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-index)lub [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Pozostała część tego artykułu koncentruje się na tworzeniu sugestii.
++ W indeksie Dodaj sugestię do indeksu. Możesz użyć portalu, [interfejsu API REST](/rest/api/searchservice/create-index)lub [zestawu .NET SDK](/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Pozostała część tego artykułu koncentruje się na tworzeniu sugestii.
 
 + W żądaniu zapytania Zadzwoń do jednego z [interfejsów API wymienionych poniżej](#how-to-use-a-suggester).
 
@@ -37,7 +37,7 @@ Program sugerowany jest wewnętrzną strukturą danych, która obsługuje zachow
 
 ## <a name="define-a-suggester"></a>Definiowanie sugestii
 
-Aby utworzyć sugestię, należy dodać jeden do [schematu indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) i [ustawić każdą właściwość](#property-reference). Najlepszym terminem tworzenia sugestii jest określenie pola, które będzie z niego korzystać.
+Aby utworzyć sugestię, należy dodać jeden do [schematu indeksu](/rest/api/searchservice/create-index) i [ustawić każdą właściwość](#property-reference). Najlepszym terminem tworzenia sugestii jest określenie pola, które będzie z niego korzystać.
 
 + Używaj tylko pól ciągów
 
@@ -57,7 +57,7 @@ Aby zaspokoić zarówno środowiska typu "wyszukiwanie jako dane", Dodaj wszystk
 
 Wybór analizatora decyduje o tym, w jaki sposób pola są tokenami, a następnie prefiksem. Na przykład w przypadku ciągu z łącznikiem, takiego jak "kontekstowe", użycie analizatora języka spowoduje, że te kombinacje tokenu: "kontekst", "poufne", "kontekstowe". Czy użyto standardowego analizatora Lucene, ciąg podzielony na nie istnieje. 
 
-Podczas oceniania analizatorów należy rozważyć użycie [interfejsu API analizy tekstu](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) do wglądu w sposób, w jaki warunki są tokenami, a następnie prefiksem. Po skompilowaniu indeksu można wypróbować różne analizatory w ciągu, aby wyświetlić dane wyjściowe tokenu.
+Podczas oceniania analizatorów należy rozważyć użycie [interfejsu API analizy tekstu](/rest/api/searchservice/test-analyzer) do wglądu w sposób, w jaki warunki są tokenami, a następnie prefiksem. Po skompilowaniu indeksu można wypróbować różne analizatory w ciągu, aby wyświetlić dane wyjściowe tokenu.
 
 Pola używające [analizatorów niestandardowych](index-add-custom-analyzers.md) lub [wstępnie zdefiniowanych analizatorów](index-add-custom-analyzers.md#predefined-analyzers-reference) (z wyjątkiem standardowych Lucene) są jawnie niedozwolone, aby zapobiec słabym rezultatom.
 
@@ -72,7 +72,7 @@ Jeśli spróbujesz utworzyć sugestię przy użyciu istniejących pól, interfej
 
 ## <a name="create-using-rest"></a>Tworzenie przy użyciu REST
 
-W interfejsie API REST Dodaj sugestie za pomocą pozycji [Utwórz indeks](https://docs.microsoft.com/rest/api/searchservice/create-index) lub [Aktualizuj indeks](https://docs.microsoft.com/rest/api/searchservice/update-index). 
+W interfejsie API REST Dodaj sugestie za pomocą pozycji [Utwórz indeks](/rest/api/searchservice/create-index) lub [Aktualizuj indeks](/rest/api/searchservice/update-index). 
 
   ```json
   {
@@ -110,7 +110,7 @@ W interfejsie API REST Dodaj sugestie za pomocą pozycji [Utwórz indeks](https:
 
 ## <a name="create-using-net"></a>Tworzenie przy użyciu platformy .NET
 
-W języku C# Zdefiniuj [obiekt sugerujący](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters`jest kolekcją, ale może przyjmować tylko jeden element. 
+W języku C# Zdefiniuj [obiekt sugerujący](/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` jest kolekcją, ale może przyjmować tylko jeden element. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,7 +137,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |Nazwa sugestii.|
 |`searchMode`  |Strategia używana do wyszukiwania fraz kandydatów. Jedynym obsługiwanym trybem jest `analyzingInfixMatching` , który jest obecnie zgodny na początku okresu.|
-|`sourceFields`|Lista co najmniej jednego pola, które jest źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i `Collection(Edm.String)` . Jeśli analizator jest określony w polu, musi to być nazwany Analizator z [tej listy](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (nie Analizator niestandardowy).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
+|`sourceFields`|Lista co najmniej jednego pola, które jest źródłem zawartości dla sugestii. Pola muszą być typu `Edm.String` i `Collection(Edm.String)` . Jeśli analizator jest określony w polu, musi to być nazwany Analizator z [tej listy](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (nie Analizator niestandardowy).<p/> Najlepszym rozwiązaniem jest określenie tylko tych pól, które nadają się do oczekiwanej i odpowiedniej odpowiedzi, niezależnie od tego, czy jest to kompletny ciąg na pasku wyszukiwania, czy na liście rozwijanej.<p/>Nazwa hotelu jest dobrym kandydatem, ponieważ ma dokładnooć. Pełne pola, takie jak opisy i komentarze, są zbyt gęste. Podobnie powtarzające się pola, takie jak kategorie i Tagi, są mniej efektywne. W przykładach zawieramy "kategorię" Mimo to, aby pokazać, że można uwzględnić wiele pól. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -145,10 +145,10 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 W zapytaniu jest używany element sugerujący. Po utworzeniu sugestii Wywołaj jeden z następujących interfejsów API dla środowiska wyszukiwania w trakcie wpisywania:
 
-+ [Sugestie interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
-+ [Autouzupełnianie interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync, Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [AutocompleteWithHttpMessagesAsync, Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Sugestie interfejsu API REST](/rest/api/searchservice/suggestions) 
++ [Autouzupełnianie interfejsu API REST](/rest/api/searchservice/autocomplete) 
++ [SuggestWithHttpMessagesAsync, Metoda](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [AutocompleteWithHttpMessagesAsync, Metoda](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
 W aplikacji wyszukiwania kod klienta powinien korzystać z biblioteki, takiej jak [Funkcja autouzupełniania interfejsu użytkownika jQuery](https://jqueryui.com/autocomplete/) , aby zebrać częściowe zapytanie i zapewnić dopasowanie. Aby uzyskać więcej informacji na temat tego zadania, zobacz [Dodawanie funkcji Autouzupełnianie lub sugerowanych wyników do kodu klienta](search-autocomplete-tutorial.md).
 
@@ -173,4 +173,4 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 Zalecamy, aby dowiedzieć się więcej o tym, jak formułowane są żądania.
 
 > [!div class="nextstepaction"]
-> [Dodawanie funkcji Autouzupełnianie i sugestii do kodu klienta](search-autocomplete-tutorial.md) 
+> [Dodawanie funkcji Autouzupełnianie i sugestii do kodu klienta](search-autocomplete-tutorial.md)

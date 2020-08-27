@@ -10,11 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 58e0d916f876af916bc8db32c93af5029641878d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: caac9d99f9b42c191f406af5239eebb4d2b2a32f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102886"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925572"
 ---
 Możesz wyświetlić lub pobrać wszystkie <a href="https://aka.ms/speech/github-csharp">przykłady w języku C# zestawu Speech SDK</a> w witrynie GitHub. 

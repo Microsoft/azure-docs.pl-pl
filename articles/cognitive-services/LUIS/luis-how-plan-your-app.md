@@ -3,12 +3,12 @@ title: Planowanie aplikacji — LUIS
 description: Zaplanuj odpowiednie intencje i jednostki dotyczące aplikacji, a następnie utwórz plany aplikacji w Language Understanding Intelligent Services (LUIS).
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 8141e2a47e2a550a5dba50bc22117649c0bd04e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340236"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892919"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planowanie schematu aplikacji LUIS przy użyciu domeny podmiotu i wyodrębniania danych
 
@@ -64,7 +64,7 @@ Rozważmy następujące dwa wyrażenia długości, które bardzo blisko rozważa
 
 Zamiast korzystać z dwóch osobnych intencji, należy utworzyć jedno przeznaczenie przy użyciu `FlightAction` jednostki uczenia maszynowego. Jednostka uczenia maszynowego powinna wyodrębnić szczegóły akcji zarówno dla żądania planowania, jak i anulowania, jak również lokalizacji źródłowej lub docelowej.
 
-`FlightAction`Jednostka byłaby strukturalna w następującym suedo-schemacie jednostki uczenia maszynowego i podjednostek:
+`FlightAction`Jednostka byłaby strukturalna w następującym pseudo-schemacie jednostki uczenia maszynowego i podjednostek:
 
 * FlightAction
     * Akcja

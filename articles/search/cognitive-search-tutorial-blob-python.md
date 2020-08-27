@@ -10,18 +10,18 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dfa105b7af146086da6b72dd55f6fe679832f44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845055"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936031"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języków Python i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
 Jeśli w usłudze Azure Blob Storage znajduje się tekst lub obrazy bez struktury, [potok wzbogacenia AI](cognitive-search-concept-intro.md) może wyodrębnić informacje i utworzyć nową zawartość, która jest przydatna w przypadku wyszukiwania pełnotekstowego lub scenariuszy wyszukiwania w bazie wiedzy. Mimo że potok może przetwarzać obrazy, ten samouczek w języku Python koncentruje się na tekście, stosowaniu wykrywania języka i przetwarzania języka naturalnego w celu utworzenia nowych pól, których można użyć w zapytaniach, aspektach i filtrach.
 
-Ten samouczek używa języka Python i [interfejsów API REST wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/) do wykonywania następujących zadań:
+Ten samouczek używa języka Python i [interfejsów API REST wyszukiwania](/rest/api/searchservice/) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Zacznij od całego dokumentu (tekst bez struktury), takiego jak PDF, HTML, DOCX i PPTX, w usłudze Azure Blob Storage.
@@ -163,7 +163,7 @@ W przypadku usługi Azure Wyszukiwanie poznawcze przetwarzanie AI odbywa się po
 
 ### <a name="step-1-create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 
-[Obiekt źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) dostarcza parametry połączenia z kontenerem obiektów BLOB zawierającym pliki.
+[Obiekt źródła danych](/rest/api/searchservice/create-data-source) dostarcza parametry połączenia z kontenerem obiektów BLOB zawierającym pliki.
 
 W poniższym skrypcie Zastąp symbol zastępczy obiektu-BLOB-RESOURCE-CONNECTION-String parametrami połączenia dla obiektu BLOB utworzonego w poprzednim kroku. Zamień tekst zastępczy dla kontenera. Następnie uruchom skrypt, aby utworzyć źródło danych o nazwie `cogsrch-py-datasource` .
 
@@ -375,11 +375,11 @@ print(r.status_code)
 
 Żądanie powinno zwrócić kod stanu 201 potwierdzenie sukcesu.
 
-Aby dowiedzieć się więcej na temat definiowania indeksu, zobacz [create index (Azure wyszukiwanie POZNAWCZE REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Aby dowiedzieć się więcej na temat definiowania indeksu, zobacz [create index (Azure wyszukiwanie POZNAWCZE REST API)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Krok 4. Tworzenie i uruchamianie indeksatora
 
-[Indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer) steruje potokiem. Trzy składniki, które zostały utworzone w tym przypadku (Źródło danych, zestawu umiejętności, indeks), są danymi wejściowymi indeksatora. Tworzenie indeksatora na platformie Azure Wyszukiwanie poznawcze to zdarzenie, które umieszcza cały potok w ruchu. 
+[Indeksator](/rest/api/searchservice/create-indexer) steruje potokiem. Trzy składniki, które zostały utworzone w tym przypadku (Źródło danych, zestawu umiejętności, indeks), są danymi wejściowymi indeksatora. Tworzenie indeksatora na platformie Azure Wyszukiwanie poznawcze to zdarzenie, które umieszcza cały potok w ruchu. 
 
 Aby powiązać te obiekty ze sobą w indeksatorze, należy zdefiniować mapowania pól.
 
@@ -512,7 +512,7 @@ Wyniki powinny wyglądać podobnie do poniższego przykładu. Zrzut ekranu przed
 
 Powtórz dla dodatkowych pól: `content` , `languageCode` , `keyPhrases` i `organizations` w tym ćwiczeniu. Istnieje możliwość zwrócenia wielu pól za pomocą elementu `$select` używającego listy wartości rozdzielonych przecinkami.
 
-W zależności od złożoności i długości ciągu zapytania można użyć metody GET lub POST. Aby uzyskać więcej informacji, zobacz [Odpytywanie przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+W zależności od złożoności i długości ciągu zapytania można użyć metody GET lub POST. Aby uzyskać więcej informacji, zobacz [Odpytywanie przy użyciu interfejsu API REST](/rest/api/searchservice/search-documents).
 
 <a name="reset"></a>
 
@@ -543,7 +543,7 @@ Wprowadzono [wbudowane umiejętności](cognitive-search-predefined-skills.md) , 
 
 Wreszcie zawiesz się, jak przetestować wyniki i zresetować system pod kątem dalszych iteracji. Omówiono proces, w ramach którego odpytanie indeksu powoduje zwrócenie danych wyjściowych utworzonych przez wzbogacony potok indeksowania. W tej wersji jest dostępny mechanizm wyświetlania wewnętrznych konstrukcji (wzbogaconych dokumentów utworzonych przez system). Zawarto również informacje na temat sprawdzania stanu indeksatora oraz obiektów, które należy usunąć przed ponownym uruchomieniem potoku.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 

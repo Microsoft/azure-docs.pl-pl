@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b257eb833f6c270f2f1b79b2cccd247c8a2d42
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 69367da8a732f383222836442406a495bf82a0db
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797665"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892596"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Tworzenie grupy podstawowej i dodawanie członków przy użyciu usługi Azure Active Directory
 Grupę podstawową można utworzyć przy użyciu portalu usługi Azure Active Directory (Azure AD). Na potrzeby tego artykułu grupa podstawowa jest dodawana do pojedynczego zasobu przez właściciela zasobu (administratora) i zawiera określonych członków (pracowników), którzy potrzebują dostępu do tego zasobu. Aby uzyskać informacje o bardziej złożonych scenariuszach, w tym dynamicznym członkostwie i tworzeniu reguł, zobacz [dokumentację zarządzania użytkownikami w usłudze Azure Active Directory](../users-groups-roles/index.yml).
@@ -28,7 +28,7 @@ Istnieje kilka typów grup i członkostw. Poniższe informacje wyjaśniają każ
 
 ### <a name="group-types"></a>Typy grup:
 - **Bezpieczeństwo**. Używany do zarządzania dostępem członków i komputerów do udostępnionych zasobów dla grupy użytkowników. Na przykład można utworzyć grupę zabezpieczeń dla konkretnych zasad zabezpieczeń. W ten sposób można jednocześnie udzielić zestawu uprawnień wszystkim członkom zamiast udzielania uprawnień każdemu członkowi osobno. Grupa zabezpieczeń może zawierać użytkowników, urządzenia, grupy i jednostki usługi jako swoich członków i użytkowników oraz ich jednostki usługi. Aby uzyskać więcej informacji na temat zarządzania dostępem do zasobów, zobacz [Zarządzanie dostępem do zasobów przy użyciu grup usługi Azure Active Directory](active-directory-manage-groups.md).
-- **Pakiet Office 365**. Zapewnia możliwości współpracy przez udostępnienie członkom współużytkowanej skrzynki pocztowej, kalendarza, plików, witryny programu SharePoint i innych. Ta opcja umożliwia także udzielenie dostępu do grupy osobom spoza organizacji. Grupa Office 365 może mieć tylko użytkowników jako członków. Zarówno użytkownicy, jak i podmioty usługi mogą być właścicielami grupy Office 365. Aby uzyskać więcej informacji na temat grup usługi Office 365, zobacz [Więcej informacji na temat grup usługi Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+- **Microsoft 365**. Zapewnia możliwości współpracy przez udostępnienie członkom współużytkowanej skrzynki pocztowej, kalendarza, plików, witryny programu SharePoint i innych. Ta opcja umożliwia także udzielenie dostępu do grupy osobom spoza organizacji. Grupa Microsoft 365 może mieć tylko użytkowników jako członków. Zarówno użytkownicy, jak i podmioty usługi mogą być właścicielami grupy Microsoft 365. Aby uzyskać więcej informacji na temat grup pakietu Office 365, zobacz [informacje na temat grup Microsoft 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### <a name="membership-types"></a>Typy członkostwa:
 - **Pisywany.** Umożliwia dodanie do grupy określonych użytkowników z unikatowymi uprawnieniami. Na potrzeby tego artykułu użyjemy tej opcji.
@@ -63,7 +63,7 @@ Istnieje możliwość jednoczesnego utworzenia grupy podstawowej i dodania czło
 
 1. Wybierz wstępnie zdefiniowany **Typ członkostwa (wymagane).** Aby uzyskać więcej informacji na temat typów członkostwa, zobacz [typy grup i członkostw](#membership-types).
 
-1. Wybierz przycisk **Utwórz**. Grupa zostanie utworzona i będzie gotowa na dodanie członków.
+1. Wybierz pozycję **Utwórz**. Grupa zostanie utworzona i będzie gotowa na dodanie członków.
 
 1. Wybierz obszar **Elementy członkowskie** na stronie **Grupy**, a następnie rozpocznij wyszukiwanie członków do dodania do tej grupy na stronie **Wybieranie elementów członkowskich**.
 
@@ -77,7 +77,7 @@ Istnieje możliwość jednoczesnego utworzenia grupy podstawowej i dodania czło
 
 ## <a name="turn-on-or-off-group-welcome-email"></a>Włącz lub Wyłącz powitalną wiadomość e-mail
 
-Po utworzeniu nowej grupy pakietu Office 365, niezależnie od tego, czy jest to dynamiczny czy statyczny, powiadomienie powitalne jest wysyłane do wszystkich użytkowników, którzy są dodawani do grupy. Po zmianie atrybutów użytkownika lub urządzenia wszystkie reguły grupy dynamicznej w organizacji są przetwarzane pod kątem potencjalnych zmian członkostwa. Dodani użytkownicy otrzymują również powiadomienie powitalne. To zachowanie można wyłączyć w programie [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Po utworzeniu nowej grupy Microsoft 365, niezależnie od tego, czy jest to dynamiczny czy statyczny, powiadomienie powitalne jest wysyłane do wszystkich użytkowników, którzy są dodawani do grupy. Po zmianie atrybutów użytkownika lub urządzenia wszystkie reguły grupy dynamicznej w organizacji są przetwarzane pod kątem potencjalnych zmian członkostwa. Dodani użytkownicy otrzymują również powiadomienie powitalne. To zachowanie można wyłączyć w programie [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Następne kroki
 

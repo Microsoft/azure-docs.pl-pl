@@ -3,14 +3,14 @@ title: Korzystanie z usługi Azure AD w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać usługi Azure AD w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661065"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937000"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integracja Azure Active Directory zarządzanej przez AKS
 
@@ -37,17 +37,19 @@ Integracja Azure Active Directory zarządzanej przez AKS jest dostępna w region
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej
-* Polecenia kubectl z minimalną wersją [1,18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
+* Interfejs wiersza polecenia platformy Azure w wersji 2.11.0 lub nowszej
+* Polecenia kubectl z minimalną wersją [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) lub [kubelogin](https://github.com/Azure/kubelogin)
+* Jeśli używasz [Helm](https://github.com/helm/helm), minimalna wersja Helm 3,3.
 
 > [!Important]
-> Musisz użyć polecenia kubectl z minimalną wersją 1,18
+> Musisz użyć polecenia kubectl z minimalną wersją 1.18.1 lub kubelogin. Jeśli nie używasz poprawnej wersji, zobaczysz problemy z uwierzytelnianiem.
 
-Aby zainstalować polecenia kubectl, użyj następujących poleceń:
+Aby zainstalować polecenia kubectl i kubelogin, użyj następujących poleceń:
 
 ```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
+kubelogin --version
 ```
 
 Użyj [tych instrukcji](https://kubernetes.io/docs/tasks/tools/install-kubectl/) dla innych systemów operacyjnych.

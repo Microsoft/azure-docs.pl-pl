@@ -3,12 +3,12 @@ title: Przywracanie stanu systemu do systemu Windows Server
 description: Objaśnienie krok po kroku dotyczące przywracania stanu systemu Windows Server z kopii zapasowej na platformie Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1adf20b08a5c7f93108b3af5077afae9555f2219
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827107"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892545"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
 

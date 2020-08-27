@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą 
 description: Ten artykuł zawiera procedury tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych przy użyciu programu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: dc135e74564d4104c61ffef6f1403eddc08586be
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823968"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892817"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą Azure Backup Server
 
@@ -149,7 +149,7 @@ Gdy możesz odzyskać kopię zapasową maszyny wirtualnej, użyj Kreatora odzysk
     - Jeśli sieć jest skonfigurowana, wybierz pozycję **Włącz odzyskiwanie na podstawie sieci SAN z użyciem migawek sprzętowych**.
     - Wybierz pozycję **Wyślij wiadomość e-mail po zakończeniu odzyskiwania**, a następnie wprowadź adresy e-mail, jeśli chcesz, aby powiadomienia e-mail były wysyłane po zakończeniu procesu odzyskiwania.
 
-6. Na ekranie Podsumowanie upewnij się, że wszystkie szczegóły są poprawne. Jeśli szczegóły nie są poprawne lub chcesz wprowadzić zmiany, kliknij przycisk **Wstecz**. Jeśli ustawienia są poprawne, kliknij przycisk **Odzyskaj**, aby rozpocząć proces odzyskiwania.
+6. Na ekranie Podsumowanie upewnij się, że wszystkie szczegóły są poprawne. Jeśli szczegóły nie są poprawne lub chcesz wprowadzić zmiany, kliknij przycisk **Wstecz**. Jeśli ustawienia są zadowalające, kliknij przycisk **Odzyskaj** , aby rozpocząć proces odzyskiwania.
 
 7. Ekran **Stan odzyskiwania** zawiera informacje o zadaniu odzyskiwania.
 

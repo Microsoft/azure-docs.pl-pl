@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146185"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934926"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
 W tym artykule wyjaśniono, jak uzyskać odpowiedź na zapytanie, która powraca do łącznej liczby pasujących dokumentów, wyników z podziałem na strony, posortowanych wyników oraz warunków wyróżnionych trafień.
 
-Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) w interfejsie API REST lub w [klasie DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) w zestawie .NET SDK.
+Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](/rest/api/searchservice/Search-Documents) w interfejsie API REST lub w [klasie DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) w zestawie .NET SDK.
 
 ## <a name="result-composition"></a>Kompozycja wyniku
 
@@ -47,9 +47,9 @@ Aby zwrócić inną liczbę pasujących dokumentów, Dodaj `$top` Parametry i `$
 
 + Dodaj, `$count=true` Aby uzyskać licznik łącznej liczby pasujących dokumentów w indeksie.
 
-+ Zwróć pierwszy zestaw 15 pasujących dokumentów oraz liczbę wszystkich dopasowań:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
++ Zwróć pierwszy zestaw 15 pasujących dokumentów oraz liczbę wszystkich dopasowań: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Zwróć drugi zestaw, pomijając pierwsze 15, aby uzyskać następny 15: `$top=15&$skip=15` . Wykonaj te same czynności dla trzeciego zestawu 15:`$top=15&$skip=30`
++ Zwróć drugi zestaw, pomijając pierwsze 15, aby uzyskać następny 15: `$top=15&$skip=15` . Wykonaj te same czynności dla trzeciego zestawu 15: `$top=15&$skip=30`
 
 Wyniki zapytań z podziałem na strony nie są gwarantowane w przypadku zmiany podstawowego indeksu. Stronicowanie zmienia wartość `$skip` dla każdej strony, ale każde zapytanie jest niezależne i działa w bieżącym widoku danych, tak jak istnieje w indeksie w czasie zapytania (innymi słowy, nie istnieje buforowanie ani migawka wyników, na przykład te znajdujące się w bazie danych ogólnego przeznaczenia).
  
@@ -98,7 +98,7 @@ Inną opcją jest użycie [niestandardowego profilu oceniania](index-add-scoring
 
 ## <a name="hit-highlighting"></a>Wyróżnianie trafień
 
-Podświetlanie trafień odnosi się do formatowania tekstu (takiego jak pogrubienie lub żółtych świateł) stosowanych do dopasowywania warunków w wyniku, co ułatwia dopasowanie. Instrukcje wyróżniania trafień są dostępne w [żądaniu zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Podświetlanie trafień odnosi się do formatowania tekstu (takiego jak pogrubienie lub żółtych świateł) stosowanych do dopasowywania warunków w wyniku, co ułatwia dopasowanie. Instrukcje wyróżniania trafień są dostępne w [żądaniu zapytania](/rest/api/searchservice/search-documents). 
 
 Aby włączyć podświetlanie trafień, Dodaj, `highlight=[comma-delimited list of string fields]` Aby określić, które pola będą używać wyróżniania. Wyróżnianie jest przydatne w przypadku dłuższych pól zawartości, takich jak pole opisu, gdzie dopasowanie nie jest od razu oczywiste. Tylko definicje pól, które są przypisywane jako **kryterium wyszukiwania** , kwalifikują się do wyróżniania trafień.
 

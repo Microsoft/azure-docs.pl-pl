@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083563"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935317"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Azure Portal
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ W tym samouczku użyjemy wbudowanego przykładowego zestawu danych, który możn
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Krok 1 — Uruchomienie Kreatora importowania danych i utworzenie źródła danych
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
 1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby utworzyć i wypełnić indeks wyszukiwania.
 
@@ -140,7 +140,7 @@ Aby dobrze zaznajomić się z elementami, które można i których nie można ed
 
 Indeks wyszukiwania powinien być teraz gotowy do wykonywania względem niego zapytań za pomocą wbudowanej strony zapytań, noszącej nazwę [**Eksplorator wyszukiwania**](search-explorer.md). Zawiera ona pole wyszukiwania, umożliwiające testowanie dowolnych ciągów zapytań.
 
-**Eksplorator wyszukiwania** jest przystosowany tylko do obsługi [żądań interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), ale akceptuje zarówno [prostą składnię zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), jak i składnię [pełnego analizatora zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), a także wszystkie parametry wyszukiwania dostępne w ramach operacji [interfejsu API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
+**Eksplorator wyszukiwania** jest przystosowany tylko do obsługi [żądań interfejsu API REST](/rest/api/searchservice/search-documents), ale akceptuje zarówno [prostą składnię zapytań](/rest/api/searchservice/simple-query-syntax-in-azure-search), jak i składnię [pełnego analizatora zapytań Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), a także wszystkie parametry wyszukiwania dostępne w ramach operacji [interfejsu API REST wyszukiwania dokumentów](/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > Poniższe kroki przedstawiono na stronie 6m08s na temat wideo z [omówieniem usługi Azure wyszukiwanie poznawcze](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -150,7 +150,7 @@ Indeks wyszukiwania powinien być teraz gotowy do wykonywania względem niego za
 
    ![Polecenie Eksploratora wyszukiwania](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. Z listy rozwijanej **indeks** wybierz pozycję *Hotele-przykład — indeks*. Kliknij listę rozwijaną **wersja interfejsu API** , aby zobaczyć, które interfejsy API REST są dostępne. W przypadku zapytań poniżej Użyj ogólnie dostępnej wersji (2020-06-30).
+2. Z listy rozwijanej **indeks** wybierz pozycję  *Hotele-przykład — indeks*. Kliknij listę rozwijaną **wersja interfejsu API** , aby zobaczyć, które interfejsy API REST są dostępne. W przypadku zapytań poniżej Użyj ogólnie dostępnej wersji (2020-06-30).
 
    ![Polecenia indeksu i interfejsu API](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -188,7 +188,7 @@ Można wprowadzać terminy i frazy (podobnie jak w wyszukiwaniu Bing lub Google)
 
 * Parametr **$filter** zwraca wyniki spełniające podane kryteria. W takim przypadku oceny są większe niż 4.
 
-* Składnia filtru to konstrukcja OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
+* Składnia filtru to konstrukcja OData. Aby uzyskać więcej informacji, zobacz [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Tworzenie aspektu zapytania
 
@@ -207,7 +207,7 @@ Filtry aspektów są uwzględniane w żądaniach wyszukiwania. Korzystając z pa
 
 * Aspekty mogą być tworzone tylko na podstawie pól z możliwością filtrowania. W wynikach mogą być zwracane tylko pola z możliwością pobierania.
 
-* Pole *Rating* ma wartość zmiennoprzecinkową o podwójnej precyzji, a grupowanie będzie precyzyjne. Aby uzyskać więcej informacji na temat grupowania według interwału (na przykład "3 gwiazdki Rating", "4 gwiazdki Rating" itp.), zobacz [jak zaimplementować nawigację aspektową w usłudze Azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Pole *Rating* ma wartość zmiennoprzecinkową o podwójnej precyzji, a grupowanie będzie precyzyjne. Aby uzyskać więcej informacji na temat grupowania według interwału (na przykład "3 gwiazdki Rating", "4 gwiazdki Rating" itp.), zobacz [jak zaimplementować nawigację aspektową w usłudze Azure wyszukiwanie poznawcze](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Wyróżnianie wyników wyszukiwania
@@ -240,11 +240,11 @@ Gdy parametr **queryType** jest nieokreślony, używany jest domyślny prosty an
 
 Wyszukiwanie rozmyte i wyszukiwanie z użyciem symboli wieloznacznych ma wpływ na wyniki wyszukiwania. W przypadku tych formatów zapytań nie jest wykonywana analiza lingwistyczna. Przed użyciem wyszukiwania rozmytego i wieloznacznego Sprawdź, [w jaki sposób wyszukiwanie pełnotekstowe działa na platformie Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md#stage-2-lexical-analysis) i poszukaj sekcji dotyczącej wyjątków w analizie leksykalnej.
 
-Aby uzyskać więcej informacji na temat scenariuszy zapytań włączonych przez analizator pełnych zapytań, zobacz [składnia zapytań Lucene w usłudze Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Aby uzyskać więcej informacji na temat scenariuszy zapytań włączonych przez analizator pełnych zapytań, zobacz [składnia zapytań Lucene w usłudze Azure wyszukiwanie poznawcze](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="try-geospatial-search"></a><a name="geo-search"></a> Testowanie wyszukiwania geoprzestrzennego
 
- Wyszukiwanie geoprzestrzenne jest obsługiwane za pośrednictwem [typu danych edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) względem pola zawierającego współrzędne. Wyszukiwanie geograficzne jest rodzajem filtru określonego w artykule [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
+ Wyszukiwanie geoprzestrzenne jest obsługiwane za pośrednictwem [typu danych edm.GeographyPoint](/rest/api/searchservice/supported-data-types) względem pola zawierającego współrzędne. Wyszukiwanie geograficzne jest rodzajem filtru określonego w artykule [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Składnia filtrowania OData).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Przykład (filtry współrzędnych geograficznych): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -256,7 +256,7 @@ Wyszukiwanie geoprzestrzenne jest przydatne, jeśli aplikacja wyszukiwania ma fu
 
 Ten samouczek zapewnia szybkie wprowadzenie do usługi Azure Wyszukiwanie poznawcze przy użyciu Azure Portal.
 
-Opisano tworzenie indeksu wyszukiwania przy użyciu kreatora **Importowanie danych**. Zostały przedstawione [indeksatory](search-indexer-overview.md), a także podstawowy przepływ pracy projektowania indeksu, w tym [obsługiwane modyfikacje opublikowanego indeksu](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Opisano tworzenie indeksu wyszukiwania przy użyciu kreatora **Importowanie danych**. Zostały przedstawione [indeksatory](search-indexer-overview.md), a także podstawowy przepływ pracy projektowania indeksu, w tym [obsługiwane modyfikacje opublikowanego indeksu](/rest/api/searchservice/update-index).
 
 Przy użyciu **Eksploratora wyszukiwania** w witrynie Azure Portal przedstawiono podstawową składnię zapytań w ramach praktycznych przykładów kluczowych możliwości, takich jak filtry, wyróżnianie trafień, wyszukiwanie rozmyte i wyszukiwanie geograficzne.
 
@@ -264,7 +264,7 @@ Przedstawiono również sposób znajdowania indeksów, indeksatorów i źródeł
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
@@ -280,4 +280,4 @@ Użyj Kreatora portalu do wygenerowania gotowej do użycia aplikacji sieci Web, 
 Chcesz zoptymalizować i zapisać wydatki na chmurę?
 
 > [!div class="nextstepaction"]
-> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

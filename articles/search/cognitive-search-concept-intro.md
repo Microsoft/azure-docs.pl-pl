@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319052"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935504"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Wzbogacanie AI na platformie Azure Wyszukiwanie poznawcze
 
@@ -29,7 +29,7 @@ Wbudowane umiejętności należą do następujących kategorii:
 
 ![Diagram potoku wzbogacania](./media/cognitive-search-intro/cogsearch-architecture.png "Przegląd potoku wzbogacania")
 
-Wbudowane umiejętności na platformie Azure Wyszukiwanie poznawcze opierają się na wstępnie szkolonych modelach uczenia maszynowego w interfejsy API usług Cognitive Services: [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) i [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Możesz dołączyć zasób Cognitive Services, jeśli chcesz korzystać z tych zasobów podczas przetwarzania zawartości.
+Wbudowane umiejętności na platformie Azure Wyszukiwanie poznawcze opierają się na wstępnie szkolonych modelach uczenia maszynowego w interfejsy API usług Cognitive Services: [Przetwarzanie obrazów](../cognitive-services/computer-vision/index.yml) i [Analiza tekstu](../cognitive-services/text-analytics/overview.md). Możesz dołączyć zasób Cognitive Services, jeśli chcesz korzystać z tych zasobów podczas przetwarzania zawartości.
 
 Przetwarzanie języka naturalnego i obrazu jest stosowane w fazie pozyskiwania danych, a wyniki stają się częścią kompozycji dokumentu w indeksie wyszukiwania na platformie Azure Wyszukiwanie poznawcze. Dane są źródłem danych jako zestaw danych platformy Azure, a następnie wypychane za pośrednictwem potoku indeksowania przy użyciu zależnych [umiejętności](cognitive-search-predefined-skills.md) , które są potrzebne.  
 
@@ -57,9 +57,9 @@ Ponadto możesz rozważyć dodanie niestandardowej umiejętności, jeśli masz k
 
 ### <a name="more-about-custom-skills"></a>Więcej informacji na temat umiejętności niestandardowych
 
-Umiejętności niestandardowe mogą obsługiwać bardziej złożone scenariusze, takie jak rozpoznawanie formularzy lub wykrywanie jednostek niestandardowych przy użyciu udostępnianego modelu i zawijania w [niestandardowym interfejsie sieci Web](cognitive-search-custom-skill-interface.md). Kilka przykładów umiejętności niestandardowych obejmuje [aparat rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/overview), integrację [interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)i [niestandardowego rozpoznawania jednostek](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Umiejętności niestandardowe mogą obsługiwać bardziej złożone scenariusze, takie jak rozpoznawanie formularzy lub wykrywanie jednostek niestandardowych przy użyciu udostępnianego modelu i zawijania w [niestandardowym interfejsie sieci Web](cognitive-search-custom-skill-interface.md). Kilka przykładów umiejętności niestandardowych obejmuje [aparat rozpoznawania formularzy](../cognitive-services/form-recognizer/overview.md), integrację [interfejs API wyszukiwania jednostek Bing](./cognitive-search-create-custom-skill-example.md)i [niestandardowego rozpoznawania jednostek](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-## <a name="steps-in-an-enrichment-pipeline"></a>Kroki potoku wzbogacania<a name="enrichment-steps"></a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Kroki potoku wzbogacania <a name="enrichment-steps"></a>
 
 Potok wzbogacania jest oparty na [*indeksatorach*](search-indexer-overview.md). Indeksatory wypełniają indeks na podstawie mapowań pola do pola między indeksem a źródłem danych na potrzeby łamania dokumentów. Umiejętności, które są teraz dołączone do indeksatorów, przechwytuje i wzbogacają dokumenty zależnie od zdefiniowanych zestawu umiejętności. Po indeksowaniu możesz uzyskać dostęp do zawartości za pośrednictwem żądań wyszukiwania przez wszystkie [typy zapytań obsługiwane przez usługę Azure wyszukiwanie poznawcze](search-query-overview.md).  Jeśli jesteś nowym indeksatorem, ta sekcja przeprowadzi Cię przez kroki.
 
@@ -83,7 +83,7 @@ Wewnętrznie potok generuje kolekcję ulepszonych dokumentów. Można zdecydowa�
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Dodaj element knowledgeStore, aby zapisać wzbogacenia
 
-[Interfejs API REST usługi Search — wersja = 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) rozszerza umiejętności z `knowledgeStore` definicją, która zapewnia połączenie z usługą Azure Storage i projekcje opisujące sposób przechowywania wzbogacania. Jest to uzupełnienie indeksu. W standardowym potoku AI, wzbogacone dokumenty są nietrwałe, używane tylko podczas indeksowania, a następnie odrzucane. W sklepie merytorycznym chronione dokumenty są zachowywane. Aby uzyskać więcej informacji, zobacz artykuł [sklep z bazami](knowledge-store-concept-intro.md)danych.
+[Interfejs API REST usługi Search — wersja = 2020-06-30](/rest/api/searchservice/) rozszerza umiejętności z `knowledgeStore` definicją, która zapewnia połączenie z usługą Azure Storage i projekcje opisujące sposób przechowywania wzbogacania. Jest to uzupełnienie indeksu. W standardowym potoku AI, wzbogacone dokumenty są nietrwałe, używane tylko podczas indeksowania, a następnie odrzucane. W sklepie merytorycznym chronione dokumenty są zachowywane. Aby uzyskać więcej informacji, zobacz artykuł [sklep z bazami](knowledge-store-concept-intro.md)danych.
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Krok 3. Wyszukiwanie indeksu i dostępu opartego na zapytaniach
 
@@ -99,13 +99,13 @@ Indeksy są generowane na podstawie schematu indeksu, który definiuje pola, atr
 
 1. Podzbiór danych źródłowych platformy Azure do reprezentatywnej próbki. Indeksowanie odbywa się w czasie, w którym rozpoczyna się od małego, reprezentatywnego zestawu danych, a następnie kompiluje się przyrostowo wraz z oczekiwaniami.
 
-1. Utwórz [obiekt źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) w usłudze Azure wyszukiwanie poznawcze, aby podać parametry połączenia na potrzeby pobierania danych.
+1. Utwórz [obiekt źródła danych](/rest/api/searchservice/create-data-source) w usłudze Azure wyszukiwanie poznawcze, aby podać parametry połączenia na potrzeby pobierania danych.
 
-1. Utwórz [zestawu umiejętności](https://docs.microsoft.com/rest/api/searchservice/create-skillset) z procedurami wzbogacania.
+1. Utwórz [zestawu umiejętności](/rest/api/searchservice/create-skillset) z procedurami wzbogacania.
 
-1. Zdefiniuj [schemat indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index). Kolekcja *Fields* zawiera pola z danych źródłowych. Należy również utworzyć zastępcze dodatkowe pola, aby przechowywać wygenerowane wartości dla zawartości utworzonej podczas wzbogacania.
+1. Zdefiniuj [schemat indeksu](/rest/api/searchservice/create-index). Kolekcja *Fields* zawiera pola z danych źródłowych. Należy również utworzyć zastępcze dodatkowe pola, aby przechowywać wygenerowane wartości dla zawartości utworzonej podczas wzbogacania.
 
-1. Zdefiniuj [indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer) odwołujący się do źródła danych, zestawu umiejętności i indeksu.
+1. Zdefiniuj [indeksator](/rest/api/searchservice/create-indexer) odwołujący się do źródła danych, zestawu umiejętności i indeksu.
 
 1. W obszarze indeksatora Dodaj *outputFieldMappings*. Ta sekcja mapuje dane wyjściowe z zestawu umiejętności (w kroku 3) do pól danych wejściowych w schemacie indeksu (w kroku 4).
 

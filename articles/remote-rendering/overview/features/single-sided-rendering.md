@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aff636adff48a8882c152eab398a96a8d28f84e0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022764"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892749"
 ---
-# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided":::dawania
+# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: dawania
 
 Większość renderowania korzysta z [odtwarzania z tyłu](https://en.wikipedia.org/wiki/Back-face_culling) , aby zwiększyć wydajność. Jeśli jednak siatki są obcinane jako otwarte z [płaszczyznami wycinania](cut-planes.md), użytkownicy często będą oglądać z tyłu trójkątów. Jeśli te trójkąty są odrzucane, wynik nie wygląda na przekonujący.
 
@@ -27,7 +27,7 @@ Ustawienie * :::no-loc text="single-sided"::: renderowania* pozwala dostosować 
 
 :::no-loc text="single-sided":::Ustawienie renderowania ma wpływ tylko na siatki, które zostały [przekonwertowane](../../how-tos/conversion/configure-model-conversion.md) przy użyciu `opaqueMaterialDefaultSidedness` opcji ustawionej na `SingleSided` . Domyślnie ta opcja jest ustawiona na `DoubleSided` .
 
-## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided":::ustawienie renderowania
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided"::: ustawienie renderowania
 
 Istnieją trzy różne tryby:
 
@@ -55,13 +55,13 @@ void ChangeSingleSidedRendering(AzureSession session)
 ```cpp
 void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 {
-    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+    ApiHandle<SingleSidedSettings> settings = session->Actions()->GetSingleSidedSettings();
 
     // Single-sided geometry is rendered as is
-    settings->Mode(SingleSidedMode::Normal);
+    settings->SetMode(SingleSidedMode::Normal);
 
     // Single-sided geometry is always rendered double-sided
-    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
+    settings->SetMode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
 

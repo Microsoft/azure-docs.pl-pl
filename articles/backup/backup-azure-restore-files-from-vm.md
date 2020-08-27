@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ac121195ba46389798acc7f099829fde96da72e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827141"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892579"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -169,7 +169,7 @@ Pierwsza kolumna (WA) przedstawia wolumin fizyczny, kolejne kolumny przedstawiaj
 
 ###### <a name="duplicate-volume-groups"></a>Zduplikowane grupy woluminów
 
-Istnieją scenariusze, w których nazwy grup woluminów mogą mieć 2 UUID po uruchomieniu skryptu. Oznacza to, że nazwy grup woluminów na komputerze, na którym skrypt jest wykonywany i w kopii zapasowej maszyny wirtualnej są takie same. Następnie należy zmienić nazwy grup woluminów maszyn wirtualnych z kopią zapasową. Zapoznaj się z poniższym przykładem.
+Istnieją scenariusze, w których nazwy grup woluminów mogą mieć 2 UUID po uruchomieniu skryptu. Oznacza to, że nazwy grup woluminów na komputerze, na którym skrypt jest wykonywany, i w kopii zapasowej maszyny wirtualnej są takie same. Następnie należy zmienić nazwy grup woluminów maszyn wirtualnych z kopią zapasową. Zapoznaj się z poniższym przykładem.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -285,7 +285,7 @@ W systemie Linux system operacyjny komputera służącego do przywracania plikó
 | openSUSE | 42,2 i więcej |
 
 > [!NOTE]
-> Znaleźliśmy pewne problemy z uruchamianiem skryptu odzyskiwania plików na maszynach z systemem operacyjnym SLES 12 SP4 i badamy z zespołem SLES.
+> Znaleźliśmy problemy z uruchamianiem skryptu odzyskiwania plików na maszynach z systemem operacyjnym SLES 12 SP4 i badamy z zespołem SLES.
 > Obecnie uruchomienie skryptu odzyskiwania plików działa na komputerach z SLES 12 SP2 i wersjami systemu operacyjnego z dodatkiem SP3.
 >
 

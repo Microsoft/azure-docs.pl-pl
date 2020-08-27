@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 5b3df38e8feef2a7b9bbc090e11a669164010f32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213198"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924490"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Podobieństwo i ocenianie na platformie Azure Wyszukiwanie poznawcze
 
@@ -21,11 +21,11 @@ Ocenianie odnosi się do obliczenia wyniku wyszukiwania dla każdego elementu zw
 
 Domyślnie górne 50 są zwracane w odpowiedzi, ale można użyć parametru **$Top** , aby zwrócić mniejszą lub większą liczbę elementów (maksymalnie 1000 w ramach jednej odpowiedzi) i **$Skip** , aby uzyskać następny zestaw wyników.
 
-Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych danych i zapytania. Usługa Azure Wyszukiwanie poznawcze wyszukuje dokumenty pasujące do wyszukiwanych terminów (niektóre lub wszystkie, w zależności od opcji [searchmode](https://docs.microsoft.com/rest/api/searchservice/search-documents#searchmodeany--all-optional)), preferując dokumenty zawierające wiele wystąpień wyszukiwanego terminu. Wynik wyszukiwania jest nawet wyższy, jeśli termin jest rzadki w indeksie danych, ale jest często używany w dokumencie. Podstawą tego podejścia do obliczania istotności jest znana wartość *TF-IDF lub* Term częstotliwość odwracania dokumentu.
+Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych danych i zapytania. Usługa Azure Wyszukiwanie poznawcze wyszukuje dokumenty pasujące do wyszukiwanych terminów (niektóre lub wszystkie, w zależności od opcji [searchmode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)), preferując dokumenty zawierające wiele wystąpień wyszukiwanego terminu. Wynik wyszukiwania jest nawet wyższy, jeśli termin jest rzadki w indeksie danych, ale jest często używany w dokumencie. Podstawą tego podejścia do obliczania istotności jest znana wartość *TF-IDF lub* Term częstotliwość odwracania dokumentu.
 
 Wartości wyniku wyszukiwania można powtarzać w zestawie wyników. Gdy wiele trafień ma ten sam wynik wyszukiwania, kolejność tych samych elementów oceny nie jest zdefiniowana i nie jest stabilna. Uruchom ponownie zapytanie i możesz zobaczyć pozycje zmiany położenia, zwłaszcza jeśli używasz bezpłatnej usługi lub płatnej usługi z wieloma replikami. W przypadku dwóch elementów o identycznym wyniku nie ma gwarancji, która jest wyświetlana w pierwszej kolejności.
 
-Jeśli chcesz przerwać powiązanie między powtarzanymi wynikami, możesz dodać klauzulę **$OrderBy** do pierwszej kolejności według wyniku, a następnie zamówić według innego pola do sortowania (na przykład `$orderby=search.score() desc,Rating desc` ). Aby uzyskać więcej informacji, zobacz [$OrderBy](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
+Jeśli chcesz przerwać powiązanie między powtarzanymi wynikami, możesz dodać klauzulę **$OrderBy** do pierwszej kolejności według wyniku, a następnie zamówić według innego pola do sortowania (na przykład `$orderby=search.score() desc,Rating desc` ). Aby uzyskać więcej informacji, zobacz [$OrderBy](./search-query-odata-orderby.md).
 
 > [!NOTE]
 > A `@search.score = 1.00` wskazuje zestaw wyników z niewskaźnikiem oceny lub bez rangi. Wynik jest jednolity dla wszystkich wyników. Wyniki nieoceniane pojawiają się, gdy formularz kwerendy jest wyszukiwaniem rozmytym, symbolami wieloznacznymi lub kwerendami regularnymi lub wyrażeniem **$Filter** . 
@@ -44,7 +44,7 @@ W celu zapewnienia skalowalności usługa Azure Wyszukiwanie poznawcze dystrybuu
 
 Domyślnie wynik dokumentu jest obliczany na podstawie właściwości statystycznych danych *w fragmentu*. Takie podejście zwykle nie jest problemem w przypadku dużych korpus danych i zapewnia lepszą wydajność niż Obliczanie wyniku w oparciu o informacje we wszystkich fragmentówach. Wspomniane przy użyciu tej optymalizacji wydajności mogą spowodować, że dwa bardzo podobne dokumenty (lub nawet identyczne dokumenty) kończą się z różnymi wynikami istotności, jeśli zakończą się one w różnych fragmentówach.
 
-Jeśli wolisz obliczyć wynik na podstawie właściwości statystycznych we wszystkich fragmentów, możesz to zrobić przez dodanie *scoringStatistics = Global* jako [parametru zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents) (lub dodać *"scoringStatistics": "Global"* jako parametr treści [żądania zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
+Jeśli wolisz obliczyć wynik na podstawie właściwości statystycznych we wszystkich fragmentów, możesz to zrobić przez dodanie *scoringStatistics = Global* jako [parametru zapytania](/rest/api/searchservice/search-documents) (lub dodać *"scoringStatistics": "Global"* jako parametr treści [żądania zapytania](/rest/api/searchservice/search-documents)).
 
 ```http
 GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
@@ -77,7 +77,7 @@ Poniższy segment wideo szybko przekazuje do wyjaśnień dotyczących algorytmó
 
 ## <a name="featuresmode-parameter-preview"></a>Features — parametr (wersja zapoznawcza)
 
-Żądania [przeszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) mają nowy parametr [Features](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) , który może dostarczyć dodatkowych informacji na temat istotności na poziomie pola. W `@searchScore` przypadku obliczenia wartości dla dokumentu (w zależności od tego dokumentu w kontekście tego zapytania) można uzyskać informacje dotyczące poszczególnych pól, które zostały przedstawione w `@search.features` strukturze. Struktura zawiera wszystkie pola używane w zapytaniu (określone pola za pomocą **searchFields** w zapytaniach lub wszystkie pola, które są przypisywane do **wyszukiwania** w indeksie). Dla każdego pola uzyskuje się następujące wartości:
+Żądania [przeszukiwania dokumentów](/rest/api/searchservice/preview-api/search-documents) mają nowy parametr [Features](/rest/api/searchservice/preview-api/search-documents#featuresmode) , który może dostarczyć dodatkowych informacji na temat istotności na poziomie pola. W `@searchScore` przypadku obliczenia wartości dla dokumentu (w zależności od tego dokumentu w kontekście tego zapytania) można uzyskać informacje dotyczące poszczególnych pól, które zostały przedstawione w `@search.features` strukturze. Struktura zawiera wszystkie pola używane w zapytaniu (określone pola za pomocą **searchFields** w zapytaniach lub wszystkie pola, które są przypisywane do **wyszukiwania** w indeksie). Dla każdego pola uzyskuje się następujące wartości:
 
 + Liczba unikatowych tokenów znalezionych w polu
 + Wynik podobieństwa lub miara podobieństwa zawartości pola, względem terminu zapytania
@@ -107,6 +107,6 @@ Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceni
 
 ## <a name="see-also"></a>Zobacz też
 
- [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/) [profilów oceniania](index-add-scoring-profiles.md)   
- [Interfejs API dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents)   
- [Azure Wyszukiwanie poznawcze .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+ [Dokumentacja interfejsu API REST](/rest/api/searchservice/) [profilów oceniania](index-add-scoring-profiles.md)   
+ [Interfejs API dokumentów wyszukiwania](/rest/api/searchservice/search-documents)   
+ [Azure Wyszukiwanie poznawcze .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)

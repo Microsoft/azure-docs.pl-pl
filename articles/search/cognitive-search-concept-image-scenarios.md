@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f1e19fd41b4d98cb401582cd86232d8ada25733
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76838262"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935521"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Jak przetwarzać i wyodrębniać informacje z obrazów w scenariuszach wzbogacania AI
 
@@ -42,7 +42,7 @@ Ustaw parametr **analizymode** na `json` (Aby indeksować każdy obiekt BLOB jak
 
 Domyślnie 2000 pikseli dla znormalizowanych obrazów Maksymalna szerokość i wysokość opiera się na maksymalnym rozmiarze obsługiwanym przez [umiejętność OCR](cognitive-search-skill-ocr.md) i [umiejętności analizy obrazu](cognitive-search-skill-image-analysis.md). [Umiejętność OCR](cognitive-search-skill-ocr.md) obsługuje maksymalną szerokość i wysokość 4200 dla języków innych niż angielski i 10000 w języku angielskim.  W przypadku zwiększenia maksymalnych limitów przetwarzanie może zakończyć się niepowodzeniem w przypadku większych obrazów, w zależności od definicji zestawu umiejętności i języka dokumentów. 
 
-ImageAction można określić w [definicji indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer) w następujący sposób:
+ImageAction można określić w [definicji indeksatora](/rest/api/searchservice/create-indexer) w następujący sposób:
 
 ```json
 {
@@ -64,7 +64,7 @@ Gdy *imageAction* jest ustawiona na wartość inną niż "none", nowe pole *norm
 |--------------------|-----------------------------------------|
 | dane               | Zakodowany ciąg BASE64 standardowego obrazu w formacie JPEG.   |
 | szerokość              | Szerokość znormalizowanego obrazu w pikselach. |
-| height             | Wysokość znormalizowanego obrazu (w pikselach). |
+| wysokość             | Wysokość znormalizowanego obrazu (w pikselach). |
 | originalWidth      | Oryginalna Szerokość obrazu przed normalizacją. |
 | originalHeight      | Oryginalna wysokość obrazu przed normalizacją. |
 | rotationFromOriginal |  Obrót w prawo w stopniach, które wystąpiły w celu utworzenia znormalizowanego obrazu. Wartość z przedziału od 0 stopni do 360 stopni. Ten krok odczytuje metadane z obrazu wygenerowanego przez aparat lub skaner. Zwykle jest to wielokrotność 90 stopni. |
@@ -213,8 +213,8 @@ Jako pomocnik, jeśli konieczne jest przekształcenie znormalizowanych współrz
         }
 ```
 
-## <a name="see-also"></a>Zobacz także
-+ [Utwórz indeksator (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+## <a name="see-also"></a>Zobacz też
++ [Utwórz indeksator (REST)](/rest/api/searchservice/create-indexer)
 + [Umiejętność analizy obrazów](cognitive-search-skill-image-analysis.md)
 + [Umiejętność OCR](cognitive-search-skill-ocr.md)
 + [Umiejętność scalania tekstu](cognitive-search-skill-textmerger.md)
