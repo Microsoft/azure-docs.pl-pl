@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 3368a42248e084476eb27318abbcd1ca9fbfdacf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853238"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927548"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Tworzenie & korzystania ze środowisk oprogramowania w programie Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -242,7 +242,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
-Warto najpierw skompilować obrazy lokalnie przy użyciu [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metody. Ustawienie parametru opcjonalnego `pushImageToWorkspaceAcr = True` spowoduje wypychanie obrazu do rejestru kontenerów obszaru roboczego usługi Azure ml. 
+Warto najpierw skompilować obrazy lokalnie przy użyciu [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metody. Aby skompilować obraz platformy Docker, ustaw opcjonalny parametr `useDocker=True` . Aby wypchnąć otrzymany obraz do rejestru kontenerów obszaru roboczego platformy Azure, ustaw polecenie `pushImageToWorkspaceAcr=True` .
+
+```python
+build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=True)
+```
 
 > [!WARNING]
 >  Zmiana kolejności zależności lub kanałów w środowisku spowoduje nowe środowisko i będzie wymagało nowej kompilacji obrazu. Ponadto wywoływanie `build()` metody dla istniejącego obrazu spowoduje zaktualizowanie jego zależności, jeśli są dostępne nowe wersje. 

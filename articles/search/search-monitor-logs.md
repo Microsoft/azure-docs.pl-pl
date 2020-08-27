@@ -8,26 +8,26 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611615"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935062"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Zbieranie i analizowanie danych dziennika dla usługi Azure Wyszukiwanie poznawcze
 
 Dzienniki diagnostyczne lub operacyjne zapewniają wgląd w szczegółowe operacje na platformie Azure Wyszukiwanie poznawcze i są przydatne do monitorowania procesów usług i obciążeń. Wewnętrznie niektóre informacje o systemie znajdują się w zapleczu przez krótki czas, co jest wystarczające do zbadania i analizy, jeśli zostanie umieszczony bilet pomocy technicznej. Jeśli jednak chcesz mieć własny kierunek danych operacyjnych, należy skonfigurować ustawienie diagnostyczne, aby określić, gdzie zbierane są informacje o rejestrowaniu.
 
-Rejestrowanie diagnostyczne jest włączane w ramach integracji z [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Rejestrowanie diagnostyczne jest włączane w ramach integracji z [Azure monitor](../azure-monitor/index.yml). 
 
 Podczas konfigurowania rejestrowania diagnostycznego zostanie wyświetlony monit o określenie mechanizmu magazynu. W poniższej tabeli przedstawiono opcje zbierania i utrwalania danych.
 
 | Zasób | Sposób użycia |
 |----------|----------|
-| [Wysyłanie do obszaru roboczego usługi Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Zdarzenia i metryki są wysyłane do obszaru roboczego Log Analytics, w którym można wykonywać zapytania w portalu w celu zwrócenia szczegółowych informacji. Aby zapoznać się z wprowadzeniem, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archiwizowanie przy użyciu magazynu obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Zdarzenia i metryki są archiwizowane w kontenerze obiektów blob i przechowywane w plikach JSON. Dzienniki mogą być bardzo szczegółowe (przez godzinę/minutę), przydatne do przeszukiwania konkretnego zdarzenia, ale nie dla badania otwartego. Użyj edytora JSON, aby wyświetlić Nieprzetworzony plik dziennika lub Power BI do agregowania i wizualizacji danych dziennika.|
-| [Przesyłanie strumieniowe do centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/) | Zdarzenia i metryki są przesyłane strumieniowo do usługi Event Hubs platformy Azure. Wybierz tę opcję jako alternatywną usługę zbierania danych dla bardzo dużych dzienników. |
+| [Wysyłanie do obszaru roboczego usługi Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Zdarzenia i metryki są wysyłane do obszaru roboczego Log Analytics, w którym można wykonywać zapytania w portalu w celu zwrócenia szczegółowych informacji. Aby zapoznać się z wprowadzeniem, zobacz Rozpoczynanie [pracy z dziennikami Azure monitor](../azure-monitor/log-query/get-started-portal.md) |
+| [Archiwizowanie przy użyciu magazynu obiektów BLOB](../storage/blobs/storage-blobs-overview.md) | Zdarzenia i metryki są archiwizowane w kontenerze obiektów blob i przechowywane w plikach JSON. Dzienniki mogą być bardzo szczegółowe (przez godzinę/minutę), przydatne do przeszukiwania konkretnego zdarzenia, ale nie dla badania otwartego. Użyj edytora JSON, aby wyświetlić Nieprzetworzony plik dziennika lub Power BI do agregowania i wizualizacji danych dziennika.|
+| [Przesyłanie strumieniowe do centrum zdarzeń](../event-hubs/index.yml) | Zdarzenia i metryki są przesyłane strumieniowo do usługi Event Hubs platformy Azure. Wybierz tę opcję jako alternatywną usługę zbierania danych dla bardzo dużych dzienników. |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ Utwórz zasoby z wyprzedzeniem, aby można było wybrać co najmniej jeden podcz
 
 + [Tworzenie obszaru roboczego usługi log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Tworzenie konta magazynu](../storage/common/storage-quickstart-create-account.md)
++ [Tworzenie konta magazynu](../storage/common/storage-account-create.md)
 
 + [Tworzenie centrum zdarzeń](../event-hubs/event-hubs-create.md)
 
@@ -122,9 +122,9 @@ Zarejestrowane zdarzenia przechwycone przez Azure Monitor obejmują te związane
 
 | OperationName | Opis |
 |---------------|-------------|
-| Servicestatystyka | Ta operacja to rutynowe wywołanie [pobierania statystyk usługi](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), wywoływane bezpośrednio lub niejawnie, aby wypełnić stronę omówienia portalu po jej załadowaniu lub odświeżeniu. |
+| Servicestatystyka | Ta operacja to rutynowe wywołanie [pobierania statystyk usługi](/rest/api/searchservice/get-service-statistics), wywoływane bezpośrednio lub niejawnie, aby wypełnić stronę omówienia portalu po jej załadowaniu lub odświeżeniu. |
 | Zapytanie. Search |  Zażądaj zapytań względem indeksu, aby uzyskać informacje na temat zarejestrowanych zapytań, zobacz temat [monitorowanie zapytań](search-monitor-queries.md) .|
-| Indeksowanie. index  | Ta operacja jest wywołaniem do [dodawania, aktualizowania lub usuwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indeksowanie. index  | Ta operacja jest wywołaniem do [dodawania, aktualizowania lub usuwania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents). |
 | zwiększa. Prototyp | Jest to indeks utworzony przez Kreatora importu danych. |
 | Indeksatory. Utwórz | Utwórz indeksator jawnie lub niejawnie za pomocą Kreatora importu danych. |
 | Indeksatory. Get | Zwraca nazwę indeksatora za każdym razem, gdy indeksator jest uruchomiony. |

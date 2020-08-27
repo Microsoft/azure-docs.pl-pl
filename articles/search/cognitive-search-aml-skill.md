@@ -8,19 +8,19 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 598a8383350cae98d61b8ab74f7687161d3d33e8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245297"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924715"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>AML umiejętność w potoku wzbogacenia Wyszukiwanie poznawcze platformy Azure
 
 > [!IMPORTANT] 
 > Ta umiejętność jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Obecnie nie ma obsługi zestawu SDK platformy .NET.
 
-Umiejętność **AML** umożliwia zwiększenie wzbogacenia AI przy użyciu modelu niestandardowego [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AML). Gdy model AML zostanie [przeszkolony i wdrożony](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workflow), umiejętność **AML** integruje ją w wzbogacanie AI.
+Umiejętność **AML** umożliwia zwiększenie wzbogacenia AI przy użyciu modelu niestandardowego [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (AML). Gdy model AML zostanie [przeszkolony i wdrożony](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), umiejętność **AML** integruje ją w wzbogacanie AI.
 
 Podobnie jak w przypadku umiejętności wbudowanych, umiejętność **AML** ma dane wejściowe i wyjściowe. Dane wejściowe są wysyłane do wdrożonej usługi AML jako obiekt JSON, który wyprowadza ładunek JSON jako odpowiedź wraz z kodem stanu sukcesu. Oczekiwane jest, że odpowiedź będzie miała dane wyjściowe określone przez umiejętność **AML** . Jakakolwiek inna odpowiedź jest traktowana jako błąd i nie są wykonywane żadne wzbogacania.
 
@@ -31,9 +31,9 @@ Podobnie jak w przypadku umiejętności wbudowanych, umiejętność **AML** ma d
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Obszar roboczy AML](https://docs.microsoft.com/azure/machine-learning/concept-workspace)
-* [Obiekt docelowy obliczeń usługi Azure Kubernetes Service AML](https://docs.microsoft.com/azure/machine-learning/concept-compute-target) w tym obszarze roboczym ze [wdrożonym modelem](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
-  * [Element docelowy obliczeń powinien mieć włączony protokół SSL](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service#deploy-on-aks-and-field-programmable-gate-array-fpga). Usługa Azure Wyszukiwanie poznawcze zezwala tylko na dostęp do punktów końcowych **https**
+* [Obszar roboczy AML](../machine-learning/concept-workspace.md)
+* [Obiekt docelowy obliczeń usługi Azure Kubernetes Service AML](../machine-learning/concept-compute-target.md) w tym obszarze roboczym ze [wdrożonym modelem](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
+  * [Element docelowy obliczeń powinien mieć włączony protokół SSL](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Usługa Azure Wyszukiwanie poznawcze zezwala tylko na dostęp do punktów końcowych **https**
   * Nie można używać certyfikatów z podpisem własnym.
 
 ## <a name="odatatype"></a>@odata.type  
@@ -45,8 +45,8 @@ W nazwach parametrów jest rozróżniana wielkość liter. Które parametry wybr
 
 | Nazwa parametru | Opis |
 |--------------------|-------------|
-| `uri` | (Wymagane w przypadku [braku uwierzytelniania lub uwierzytelniania klucza](#WhatSkillParametersToUse)) [Identyfikator URI oceniania usługi AML](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service) , do której zostanie wysłany ładunek _JSON_ . Dozwolony jest tylko schemat **https** URI. |
-| `key` | (Wymagane na potrzeby [uwierzytelniania klucza](#WhatSkillParametersToUse)) [Klucz usługi AML](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service#authentication-with-keys). |
+| `uri` | (Wymagane w przypadku [braku uwierzytelniania lub uwierzytelniania klucza](#WhatSkillParametersToUse)) [Identyfikator URI oceniania usługi AML](../machine-learning/how-to-consume-web-service.md) , do której zostanie wysłany ładunek _JSON_ . Dozwolony jest tylko schemat **https** URI. |
+| `key` | (Wymagane na potrzeby [uwierzytelniania klucza](#WhatSkillParametersToUse)) [Klucz usługi AML](../machine-learning/how-to-consume-web-service.md#authentication-with-keys). |
 | `resourceId` | (Wymagane na potrzeby [uwierzytelniania tokenu](#WhatSkillParametersToUse)). Identyfikator zasobu Azure Resource Manager usługi AML. Powinien być w formacie subskrypcje/{GUID}/resourceGroups/{Resource-Group-Name}/Microsoft. MachineLearningServices/Workspaces/{Workspace-Name}/Services/{service_name}. |
 | `region` | (Opcjonalne dla [uwierzytelniania tokenu](#WhatSkillParametersToUse)). [Region](https://azure.microsoft.com/global-infrastructure/regions/) , w którym jest wdrożona usługa AML. |
 | `timeout` | Obowiązkowe Gdy ta wartość jest określona, wskazuje limit czasu dla klienta http wykonującego wywołanie interfejsu API. Musi być sformatowana jako wartość XSD "dayTimeDuration" (ograniczony podzbiór wartości [Duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Na przykład `PT60S` przez 60 sekund. Jeśli nie zostanie ustawiona, zostanie wybrana wartość domyślna wynosząca 30 sekund. Limit czasu można ustawić na maksymalnie 230 sekund i co najmniej 1 sekundę. |
@@ -58,9 +58,9 @@ W nazwach parametrów jest rozróżniana wielkość liter. Które parametry wybr
 
 Które parametry umiejętności AML są wymagane, zależy od tego, jakiego uwierzytelniania używa Usługa AML (jeśli istnieje). Usługi AML Services oferują trzy opcje uwierzytelniania:
 
-* [Uwierzytelnianie oparte na kluczach](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication-for-web-service-deployment). Do uwierzytelniania żądań oceniania z poziomu umiejętności AML jest dostarczany klucz statyczny
+* [Uwierzytelnianie oparte na kluczach](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). Do uwierzytelniania żądań oceniania z poziomu umiejętności AML jest dostarczany klucz statyczny
   * Użyj _identyfikatora URI_ i parametrów _klucza_
-* [Uwierzytelnianie oparte na tokenach](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication). Usługa AML jest [wdrażana przy użyciu uwierzytelniania opartego na tokenach](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service#authentication-with-tokens). [Zarządzana tożsamość](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) usługi Wyszukiwanie poznawcze platformy Azure ma przyznane [rolę czytelnik](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles) w obszarze roboczym usługi AML. Umiejętność AML używa zarządzanej tożsamości usługi Azure Wyszukiwanie poznawcze do uwierzytelniania w usłudze AML, bez konieczności używania kluczy statycznych.
+* [Uwierzytelnianie oparte na tokenach](../machine-learning/concept-enterprise-security.md#authentication). Usługa AML jest [wdrażana przy użyciu uwierzytelniania opartego na tokenach](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). [Zarządzana tożsamość](../active-directory/managed-identities-azure-resources/overview.md) usługi Wyszukiwanie poznawcze platformy Azure ma przyznane [rolę czytelnik](../machine-learning/how-to-assign-roles.md) w obszarze roboczym usługi AML. Umiejętność AML używa zarządzanej tożsamości usługi Azure Wyszukiwanie poznawcze do uwierzytelniania w usłudze AML, bez konieczności używania kluczy statycznych.
   * Użyj parametru _ResourceID_ .
   * Jeśli usługa Wyszukiwanie poznawcze platformy Azure znajduje się w innym regionie niż obszar roboczy AML, użyj parametru _region_ , aby ustawić region, w którym została wdrożona usługa AML.
 * Brak uwierzytelniania. Do korzystania z usługi AML nie jest wymagane uwierzytelnianie
@@ -168,7 +168,7 @@ Oprócz AML jest niedostępna lub nie można wysyłać kodów stanu o nieprawid�
 
 W przypadku gdy usługa AML jest niedostępna lub zwraca błąd HTTP, w historii wykonywania indeksatora zostanie dodany przyjazny błąd ze wszystkimi dostępnymi szczegółami dotyczącymi błędu HTTP.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
-+ [Rozwiązywanie problemów z usługą AML](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment)
++ [Rozwiązywanie problemów z usługą AML](../machine-learning/how-to-troubleshoot-deployment.md)

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566013"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924167"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Jak kształtować i eksportować wzbogacania
 
@@ -206,7 +206,7 @@ Projekcja do tabel w usłudze Azure Storage jest przydatna do raportowania i ana
 Skompilujmy pulpit nawigacyjny, aby wizualizować kluczowe frazy wyodrębnione z dokumentów jako chmurę programu Word. Aby utworzyć odpowiednią strukturę danych, Dodaj umiejętność kształtowania do zestawu umiejętności w celu utworzenia niestandardowego kształtu zawierającego szczegóły dotyczące określonego dokumentu oraz kluczowe frazy. Kształt niestandardowy zostanie wywołany `pbiShape` w `document` węźle głównym.
 
 > [!NOTE] 
-> Projekcje tabeli są tabelami usługi Azure Storage, które podlegają limitom magazynu narzuconym przez usługę Azure Storage. Aby uzyskać więcej informacji, zobacz [limity magazynu tabel](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Warto wiedzieć, że rozmiar jednostki nie może przekroczyć 1 MB, a jedna właściwość nie może być większa niż 64 KB. Te ograniczenia sprawiają, że tabele są dobrym rozwiązaniem do przechowywania dużej liczby małych jednostek.
+> Projekcje tabeli są tabelami usługi Azure Storage, które podlegają limitom magazynu narzuconym przez usługę Azure Storage. Aby uzyskać więcej informacji, zobacz [limity magazynu tabel](/rest/api/storageservices/understanding-the-table-service-data-model). Warto wiedzieć, że rozmiar jednostki nie może przekroczyć 1 MB, a jedna właściwość nie może być większa niż 64 KB. Te ograniczenia sprawiają, że tabele są dobrym rozwiązaniem do przechowywania dużej liczby małych jednostek.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Tworzenie niestandardowego kształtu przy użyciu umiejętności kształtu
 
@@ -677,4 +677,3 @@ Aby zapoznać się z omówieniem projekcji, Dowiedz się więcej o możliwościa
 
 > [!div class="nextstepaction"]
 > [Projekcje w sklepie merytorycznym](knowledge-store-projection-overview.md)
-

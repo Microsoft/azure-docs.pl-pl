@@ -3,12 +3,12 @@ title: Ustaw zakres odnajdowania maszyn wirtualnych VMware z Azure Migrate
 description: Opisuje sposób ustawiania zakresu odnajdywania na potrzeby oceny i migracji maszyn wirtualnych VMware przy użyciu Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: e53eb0d01df2152aeced2901335f75879885fd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770394"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919730"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Ustaw zakres odnajdowania dla maszyn wirtualnych VMware
 
@@ -60,4 +60,4 @@ Konfiguracja kontroli dostępu opartej na rolach zapewnia, że odpowiednie konto
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Skonfiguruj urządzenie](how-to-set-up-appliance-vmware.md)i [Rozpocznij odnajdywanie ciągłe](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
+[Konfigurowanie urządzenia](how-to-set-up-appliance-vmware.md)

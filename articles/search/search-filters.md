@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7f2eb7cff5d8fe77a56117a0be57f0edb86889a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75932acb740eeff6f95180cf2eaa332ad0f5fb6a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562303"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923079"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtry na platformie Azure Wyszukiwanie poznawcze 
 
@@ -47,9 +47,9 @@ Przykładowe scenariusze obejmują:
 
 Jeśli chcesz zawęzić efekt wyszukiwania, filtry nie są jedynym wyborem. Te alternatywy mogą być lepiej dopasowane, w zależności od celu:
 
- + `searchFields`parametr zapytania Pegs wyszukiwanie do określonych pól. Na przykład jeśli indeks zawiera oddzielne pola dla opisów języka angielskiego i hiszpańskiego, można użyć searchFields, aby określić, które pola będą używane do wyszukiwania pełnotekstowego. 
+ + `searchFields` parametr zapytania Pegs wyszukiwanie do określonych pól. Na przykład jeśli indeks zawiera oddzielne pola dla opisów języka angielskiego i hiszpańskiego, można użyć searchFields, aby określić, które pola będą używane do wyszukiwania pełnotekstowego. 
 
-+ `$select`parametr służy do określania, które pola mają być uwzględnione w zestawie wyników, efektywnie przycinania odpowiedzi przed wysłaniem jej do aplikacji wywołującej. Ten parametr nie ogranicza zapytania ani nie zmniejsza kolekcji dokumentów, ale jeśli celem jest mniejsza odpowiedź, ten parametr jest opcją do uwzględnienia. 
++ `$select` parametr służy do określania, które pola mają być uwzględnione w zestawie wyników, efektywnie przycinania odpowiedzi przed wysłaniem jej do aplikacji wywołującej. Ten parametr nie ogranicza zapytania ani nie zmniejsza kolekcji dokumentów, ale jeśli celem jest mniejsza odpowiedź, ten parametr jest opcją do uwzględnienia. 
 
 Aby uzyskać więcej informacji na temat każdego z parametrów, zobacz [Wyszukiwanie dokumentów > żądanie > parametry zapytania](/rest/api/searchservice/search-documents#query-parameters).
 
@@ -61,7 +61,7 @@ W czasie zapytania Analizator filtru akceptuje kryteria jako dane wejściowe, ko
 Filtrowanie odbywa się wspólnie z wyszukiwaniem, co umożliwia kwalifikowanie dokumentów do uwzględnienia w przetwarzaniu podrzędnym na potrzeby pobierania dokumentów i oceny znaczenia. W przypadku sparowania z wyszukiwanym ciągiem filtr efektywnie zmniejsza zestaw odwołań dla kolejnej operacji wyszukiwania. W przypadku użycia samodzielne (na przykład gdy ciąg zapytania jest pusty, gdzie `search=*` ), kryteria filtru są jedynymi danymi wejściowymi. 
 
 ## <a name="defining-filters"></a>Definiowanie filtrów
-Filtry są wyrażeniami OData, przegubowo wykorzystując [podzbiór składni protokołu OData w wersji v4 obsługiwanej w usłudze Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Filtry są wyrażeniami OData, przegubowo wykorzystując [podzbiór składni protokołu OData w wersji v4 obsługiwanej w usłudze Azure wyszukiwanie poznawcze](/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Można określić jeden filtr dla każdej operacji **wyszukiwania** , ale filtr może zawierać wiele pól, wiele kryteriów, a jeśli używana jest funkcja **IsMatch** , wiele wyrażeń wyszukiwania pełnotekstowego. W wieloczęściowym wyrażeniu filtru można określić predykaty w dowolnej kolejności (z zastrzeżeniem reguł pierwszeństwa operatora). Jeśli spróbujesz zmienić rozmieszczenie predykatów w określonej sekwencji, nie ma znaczącego zwiększenia wydajności.
 
@@ -95,7 +95,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>Filtrowanie wzorców użycia
 
-Poniższe przykłady ilustrują kilka wzorców użycia dla scenariuszy filtrowania. Aby uzyskać więcej sugestii, zobacz [przykłady składni wyrażeń OData >](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+Poniższe przykłady ilustrują kilka wzorców użycia dla scenariuszy filtrowania. Aby uzyskać więcej sugestii, zobacz [przykłady składni wyrażeń OData >](./search-query-odata-filter.md#examples).
 
 + Autonomiczna **$Filter**bez ciągu zapytania, przydatna, gdy wyrażenie filtru jest w stanie w pełni kwalifikować dokumenty. Bez ciągu zapytania nie ma żadnej leksykalnej ani analizy językowej, nie oceniania ani klasyfikacji. Zwróć uwagę, że ciąg wyszukiwania jest tylko gwiazdką, co oznacza, że pasuje do wszystkich dokumentów.
 
@@ -135,9 +135,9 @@ Zapoznaj się z następującymi artykułami, aby uzyskać kompleksowe wskazówki
 
 ## <a name="field-requirements-for-filtering"></a>Wymagania dotyczące pól dla filtrowania
 
-W interfejsie API REST filtrowanie jest domyślnie *włączone* w przypadku pól prostych. Pola z możliwością filtrowania zwiększają rozmiar indeksu; Upewnij się `"filterable": false` , że ustawiono pola, które nie są planowane do użycia w filtrze. Aby uzyskać więcej informacji na temat ustawień definicji pól, zobacz [create index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+W interfejsie API REST filtrowanie jest domyślnie *włączone* w przypadku pól prostych. Pola z możliwością filtrowania zwiększają rozmiar indeksu; Upewnij się `"filterable": false` , że ustawiono pola, które nie są planowane do użycia w filtrze. Aby uzyskać więcej informacji na temat ustawień definicji pól, zobacz [create index](/rest/api/searchservice/create-index).
 
-W zestawie SDK platformy .NET filtr jest domyślnie *wyłączony* . Można ustawić pole jako możliwe do filtrowania, ustawiając [Właściwość IsFiltered](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) obiektu [pola](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) na `true` . Można to również zrobić deklaratywnie przy użyciu [atrybutu IsFiltered](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). W poniższym przykładzie atrybut jest ustawiany we `BaseRate` właściwości klasy modelu, która jest mapowana na definicję indeksu.
+W zestawie SDK platformy .NET filtr jest domyślnie *wyłączony* . Można ustawić pole jako możliwe do filtrowania, ustawiając [Właściwość IsFiltered](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) obiektu [pola](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) na `true` . Można to również zrobić deklaratywnie przy użyciu [atrybutu IsFiltered](/dotnet/api/microsoft.azure.search.isfilterableattribute). W poniższym przykładzie atrybut jest ustawiany we `BaseRate` właściwości klasy modelu, która jest mapowana na definicję indeksu.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -193,12 +193,12 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Aby obejść więcej przykładów, zobacz [składnia wyrażenia filtru OData > przykłady](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+Aby obejść więcej przykładów, zobacz [składnia wyrażenia filtru OData > przykłady](./search-query-odata-filter.md#examples).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-+ [Prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Obsługiwane typy danych](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)
++ [Interfejs API REST wyszukiwania dokumentów](/rest/api/searchservice/search-documents)
++ [Prosta składnia zapytań](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Składnia zapytań Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Obsługiwane typy danych](/rest/api/searchservice/supported-data-types)

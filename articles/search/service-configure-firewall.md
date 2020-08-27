@@ -8,21 +8,21 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 699715e1188616c2d6bda47016ec1ea7b05cef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125598"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932801"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Konfigurowanie zapory IP dla usługi Azure Wyszukiwanie poznawcze
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje reguły adresów IP na potrzeby obsługi zapory przychodzącej. Ten model zapewnia dodatkową warstwę zabezpieczeń usługi wyszukiwania podobną do reguł adresów IP, które znajdują się w grupie zabezpieczeń sieci wirtualnej platformy Azure. Za pomocą tych reguł IP można skonfigurować usługę wyszukiwania jako dostępną tylko z zatwierdzonego zestawu maszyn i/lub usług w chmurze. Dostęp do danych przechowywanych w usłudze wyszukiwania z tych zatwierdzonych zestawów maszyn i usług nadal będzie wymagał, aby obiekt wywołujący mógł przedstawić prawidłowy token autoryzacji.
 
 > [!Important]
-> Reguły adresów IP w usłudze Azure Wyszukiwanie poznawcze można skonfigurować przy użyciu Azure Portal lub [interfejsu API REST zarządzania w wersji 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/).
+> Reguły adresów IP w usłudze Azure Wyszukiwanie poznawcze można skonfigurować przy użyciu Azure Portal lub [interfejsu API REST zarządzania w wersji 2020-03-13](/rest/api/searchmanagement/).
 
-## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a>Konfigurowanie zapory IP przy użyciu Azure Portal
+## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Konfigurowanie zapory IP przy użyciu Azure Portal
 
 Aby ustawić zasady kontroli dostępu IP w Azure Portal, przejdź do strony usługi Wyszukiwanie poznawcze platformy Azure i wybierz pozycję **Sieć** w menu nawigacji. Łączność sieciową punktu końcowego musi być **publiczna**. Jeśli łączność jest ustawiona na **prywatną**, dostęp do usługi wyszukiwania można uzyskać tylko za pośrednictwem prywatnego punktu końcowego.
 

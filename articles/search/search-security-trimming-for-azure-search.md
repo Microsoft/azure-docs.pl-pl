@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496421"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928527"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtry zabezpieczeń do przycinania wyników na platformie Azure Wyszukiwanie poznawcze
 
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak wykonać filtrowanie zabezpieczeń, wykonując nast
 > [!div class="checklist"]
 > * Utwórz pole, które zawiera identyfikatory podmiotu zabezpieczeń 
 > * Wypchnij lub zaktualizuj istniejące dokumenty z odpowiednimi identyfikatorami podmiotu zabezpieczeń
-> * Wydaj żądanie `search.in` Search`filter`
+> * Wydaj żądanie `search.in` Search `filter`
 
 >[!NOTE]
 > Proces pobierania identyfikatorów podmiotu zabezpieczeń nie został uwzględniony w tym dokumencie. Należy uzyskać od dostawcy usługi tożsamości.
@@ -109,13 +109,13 @@ Jeśli musisz zaktualizować istniejący dokument z listą grup, możesz użyć 
 }
 ```
 
-Aby uzyskać szczegółowe informacje na temat dodawania lub aktualizowania dokumentów, można odczytać [Edytowanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Aby uzyskać szczegółowe informacje na temat dodawania lub aktualizowania dokumentów, można odczytać [Edytowanie dokumentów](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Zastosuj filtr zabezpieczeń
 
 Aby można było przyciąć dokumenty na podstawie `group_ids` dostępu, należy wydać zapytanie wyszukiwania z `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtrem, gdzie "group_id1, group_id2,..." są grupami, do których należy wystawca żądania wyszukiwania.
 Ten filtr dopasowuje wszystkie dokumenty, dla których `group_ids` pole zawiera jeden z podanego identyfikatorów.
-Aby uzyskać szczegółowe informacje na temat wyszukiwania dokumentów przy użyciu usługi Azure Wyszukiwanie poznawcze, można odczytywać [dokumenty wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Aby uzyskać szczegółowe informacje na temat wyszukiwania dokumentów przy użyciu usługi Azure Wyszukiwanie poznawcze, można odczytywać [dokumenty wyszukiwania](/rest/api/searchservice/search-documents).
 Należy zauważyć, że w tym przykładzie pokazano, jak przeszukiwać dokumenty przy użyciu żądania POST.
 
 Wydaj żądanie HTTP POST:
@@ -152,11 +152,11 @@ Należy pobrać dokumenty z powrotem, gdzie `group_ids` zawiera "group_id1" lub 
  ]
 }
 ```
-## <a name="conclusion"></a>Wniosek
+## <a name="conclusion"></a>Podsumowanie
 
 W ten sposób można filtrować wyniki w oparciu o tożsamość użytkownika i funkcję Wyszukiwanie poznawcze platformy Azure `search.in()` . Za pomocą tej funkcji można przekazać identyfikatory zasad dla użytkownika żądającego, aby dopasować je do identyfikatorów podmiotu zabezpieczeń skojarzonych z każdym dokumentem docelowym. Gdy żądanie wyszukiwania jest obsługiwane, `search.in` Funkcja filtruje wyniki wyszukiwania, dla których żaden z podmiotów zabezpieczeń użytkownika nie ma dostępu do odczytu. Identyfikatory podmiotów mogą reprezentować elementy, takie jak grupy zabezpieczeń, role, a nawet własna tożsamość użytkownika.
  
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Active Directory kontroli dostępu opartej na tożsamościach przy użyciu filtrów Wyszukiwanie poznawcze platformy Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)

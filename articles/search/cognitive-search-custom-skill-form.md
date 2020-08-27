@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321310"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935436"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Utwórz niestandardową umiejętność aparatu rozpoznawania formularzy
 
@@ -28,20 +28,20 @@ Na tym przykładzie usługi Azure Wyszukiwanie poznawcze zestawu umiejętności 
 
 [!INCLUDE [create resource](../cognitive-services/form-recognizer/includes/create-resource.md)]
 
-## <a name="train-your-model"></a>Trenowanie modelu
+## <a name="train-your-model"></a>Szkolenie modelu
 
-Przed rozpoczęciem korzystania z tej umiejętności należy przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu formularzy wejściowych. Postępuj zgodnie z [przewodnikiem Szybki Start](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) , aby dowiedzieć się, jak szkolić model. Możesz użyć przykładowych formularzy dostarczonych w tym przewodniku szybki start lub można użyć własnych danych. Po przeszkoleniu modelu skopiuj jego wartość identyfikatora do bezpiecznej lokalizacji.
+Przed rozpoczęciem korzystania z tej umiejętności należy przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu formularzy wejściowych. Postępuj zgodnie z [przewodnikiem Szybki Start](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) , aby dowiedzieć się, jak szkolić model. Możesz użyć przykładowych formularzy dostarczonych w tym przewodniku szybki start lub można użyć własnych danych. Po przeszkoleniu modelu skopiuj jego wartość identyfikatora do bezpiecznej lokalizacji.
 
 ## <a name="set-up-the-custom-skill"></a>Skonfiguruj niestandardową umiejętność
 
 W tym samouczku jest stosowany projekt [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) w repozytorium GitHub [umiejętności zarządzania](https://github.com/Azure-Samples/azure-search-power-skills) w witrynie Azure Search. Sklonuj to repozytorium na komputerze lokalnym i przejdź do **elementu Vision/AnalyzeForm/** , aby uzyskać dostęp do projektu. Następnie otwórz _AnalyzeForm. csproj_ w programie Visual Studio. Ten projekt tworzy zasób funkcji platformy Azure, który spełnia [niestandardowy interfejs umiejętności](cognitive-search-custom-skill-interface.md) i może służyć do wzbogacania wyszukiwanie poznawcze platformy Azure. Przyjmuje dokumenty formularza jako dane wejściowe i wyprowadza (jako tekst) pary klucz/wartość, które określisz.
 
 Najpierw Dodaj zmienne środowiskowe na poziomie projektu. Znajdź projekt **AnalyzeForm** w lewym okienku, kliknij go prawym przyciskiem myszy, a następnie wybierz polecenie **Właściwości**. W oknie **Właściwości** kliknij kartę **debugowanie** , a następnie znajdź pole **zmienne środowiskowe** . Kliknij przycisk **Dodaj** , aby dodać następujące zmienne:
-* `FORMS_RECOGNIZER_ENDPOINT_URL`wartość ustawiona na adres URL punktu końcowego.
-* `FORMS_RECOGNIZER_API_KEY`wartość ustawiona na klucz subskrypcji.
-* `FORMS_RECOGNIZER_MODEL_ID`z wartością ustawioną na identyfikator przeszkolonego modelu.
-* `FORMS_RECOGNIZER_RETRY_DELAY`wartość ustawiona na 1000. Ta wartość to czas (w milisekundach) oczekiwania programu przed ponowieniem próby wykonania zapytania.
-* `FORMS_RECOGNIZER_MAX_ATTEMPTS`wartość ustawiona na 100. Ta wartość jest tym, ile razy program wyśle zapytanie do usługi podczas próby uzyskania pomyślnej odpowiedzi.
+* `FORMS_RECOGNIZER_ENDPOINT_URL` wartość ustawiona na adres URL punktu końcowego.
+* `FORMS_RECOGNIZER_API_KEY` wartość ustawiona na klucz subskrypcji.
+* `FORMS_RECOGNIZER_MODEL_ID` z wartością ustawioną na identyfikator przeszkolonego modelu.
+* `FORMS_RECOGNIZER_RETRY_DELAY` wartość ustawiona na 1000. Ta wartość to czas (w milisekundach) oczekiwania programu przed ponowieniem próby wykonania zapytania.
+* `FORMS_RECOGNIZER_MAX_ATTEMPTS` wartość ustawiona na 100. Ta wartość jest tym, ile razy program wyśle zapytanie do usługi podczas próby uzyskania pomyślnej odpowiedzi.
 
 Następnie otwórz _AnalyzeForm.cs_ i Znajdź `fieldMappings` zmienną, która odwołuje się *field-mappings.js* pliku. Ten plik (oraz zmienna odwołująca się do niego) definiuje listę kluczy, które mają zostać wyodrębnione z formularzy, oraz etykietę niestandardową dla każdego klucza. Na przykład wartość `{ "Address:", "address" }, { "Invoice For:", "recipient" }` oznacza, że skrypt będzie zapisywał tylko wartości dla wykrytych `Address:` i `Invoice For:` pól, a następnie oznaczy te wartości odpowiednio znakami `"address"` i `"recipient"` .
 
@@ -87,7 +87,7 @@ Jeśli chcesz analizować dokument zdalny, który nie znajduje się w usłudze A
 > [!NOTE]
 > Gdy umiejętność jest zintegrowana z zestawu umiejętności, adres URL i token będą udostępniane przez Wyszukiwanie poznawcze.
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Powinna zostać wyświetlona odpowiedź podobna do poniższego przykładu:
 
@@ -167,5 +167,5 @@ W tym przewodniku utworzono niestandardową umiejętność z usługi rozpoznawan
 * [Azure Search umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Dodaj niestandardową umiejętność do potoku wzbogacania AI](cognitive-search-custom-skill-interface.md)
 * [Definiowanie zestawu umiejętności](cognitive-search-defining-skillset.md)
-* [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+* [Utwórz zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset)
 * [Mapuj wzbogacone pola](cognitive-search-output-field-mapping.md)

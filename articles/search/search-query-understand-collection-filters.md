@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 861e011c4bd368a274998859170e78cf444400a8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206167"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932920"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Informacje o filtrach kolekcji OData na platformie Azure Wyszukiwanie poznawcze
 
@@ -88,14 +88,14 @@ Przyczyną jest to, że `Rooms/Type` odnosi się do wszystkich przeanalizowanych
 
 Jak `Rooms/Type` są przechowywane na potrzeby wyszukiwania pełnotekstowego:
 
-| Termin w`Rooms/Type` | Identyfikatory dokumentów |
+| Termin w `Rooms/Type` | Identyfikatory dokumentów |
 | --- | --- |
 | Deluxe | 1, 2 |
 | Standardowa | 1 |
 
 Jak `Rooms/Description` są przechowywane na potrzeby wyszukiwania pełnotekstowego:
 
-| Termin w`Rooms/Description` | Identyfikatory dokumentów |
+| Termin w `Rooms/Description` | Identyfikatory dokumentów |
 | --- | --- |
 | courtyard | 2 |
 | city | 1 |
@@ -142,7 +142,7 @@ Rozważmy na przykład pole Kolekcja ciągów z możliwością filtrowania, taki
 
 Wartości `seasons` pola są przechowywane w strukturze o nazwie **odwrócony indeks**, który wygląda następująco:
 
-| Termin | Identyfikatory dokumentów |
+| Okres | Identyfikatory dokumentów |
 | --- | --- |
 | Spring | 1, 2 |
 | wakacj | 1 |
@@ -180,9 +180,9 @@ Dlatego jest możliwe korzystanie `all` z `ne` i `and` .
 > [!NOTE]
 > Chociaż szczegóły wykraczają poza zakres tego dokumentu, te same zasady obejmują również [testy odległości i przecięć dla kolekcji punktów geoprzestrzennych](search-query-odata-geo-spatial-functions.md) . To dlatego, w `any` :
 >
-> - `geo.intersects`nie może być Negacja
-> - `geo.distance`należy porównać przy użyciu `lt` lub`le`
-> - wyrażenia muszą być połączone z `or` , nie`and`
+> - `geo.intersects` nie może być Negacja
+> - `geo.distance` należy porównać przy użyciu `lt` lub `le`
+> - wyrażenia muszą być połączone z `or` , nie `and`
 >
 > Reguły reguł stosują się do `all` .
 
@@ -204,4 +204,4 @@ Aby zapoznać się z konkretnymi przykładami, które rodzaje filtrów są dozwo
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
 - [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)

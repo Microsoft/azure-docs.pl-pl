@@ -9,20 +9,20 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835956"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935045"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 
 > [!div class="op_single_selector"]
 >
-> * [PowerShell](search-manage-powershell.md)
-> * [Interfejs API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [Zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Program PowerShell](search-manage-powershell.md)
+> * [Interfejs API REST](/rest/api/searchmanagement/)
+> * [Zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -33,9 +33,9 @@ Azure Wyszukiwanie poznawcze to w pełni zarządzana usługa wyszukiwania oparta
 * Zarządzanie dostępem przy użyciu strony **klucze** po lewej stronie.
 * Dostosuj pojemność przy użyciu strony **skalowanie** po lewej stronie.
 
-Te same zadania wykonywane w portalu mogą być również obsługiwane programowo za pomocą [interfejsów API zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/) i polecenia [AZ. Search programu PowerShell](search-manage-powershell.md). Zadania administracyjne są w pełni reprezentowane przez portal i Interfejsy programistyczne. Nie ma żadnych określonych zadań administracyjnych, które są dostępne tylko w jednym elemencie modalnym.
+Te same zadania wykonywane w portalu mogą być również obsługiwane programowo za pomocą [interfejsów API zarządzania](/rest/api/searchmanagement/) i polecenia [AZ. Search programu PowerShell](search-manage-powershell.md). Zadania administracyjne są w pełni reprezentowane przez portal i Interfejsy programistyczne. Nie ma żadnych określonych zadań administracyjnych, które są dostępne tylko w jednym elemencie modalnym.
 
-Usługa Azure Wyszukiwanie poznawcze wykorzystuje inne usługi platformy Azure w celu lepszego monitorowania i zarządzania. Same dane przechowywane w usłudze wyszukiwania to zawartość (indeksy, indeksator i definicje źródeł danych oraz inne obiekty). Metryki zgłoszone do stron portalu są pobierane z dzienników wewnętrznych w ramach 30-dniowego cyklu. W przypadku przechowywania dzienników sterowanych przez użytkownika i zdarzeń dodatkowych konieczne będzie [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Usługa Azure Wyszukiwanie poznawcze wykorzystuje inne usługi platformy Azure w celu lepszego monitorowania i zarządzania. Same dane przechowywane w usłudze wyszukiwania to zawartość (indeksy, indeksator i definicje źródeł danych oraz inne obiekty). Metryki zgłoszone do stron portalu są pobierane z dzienników wewnętrznych w ramach 30-dniowego cyklu. W przypadku przechowywania dzienników sterowanych przez użytkownika i zdarzeń dodatkowych konieczne będzie [Azure monitor](../azure-monitor/index.yml). 
 
 ## <a name="fixed-service-properties"></a>Właściwości stałej usługi
 
@@ -58,7 +58,7 @@ W przypadku dostępu do punktu końcowego każda osoba mająca dostęp do adresu
 
 Prawa do aparatu aprowizacji usług są udzielane za pomocą przypisań ról. [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. 
 
-W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról platformy Azure](search-security-rbac.md) określają, kto może wykonywać zadania, bez względu na to, czy korzystają z [portalu](search-manage.md), [programu POWERSHELL](search-manage-powershell.md), czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról platformy Azure](search-security-rbac.md) określają, kto może wykonywać zadania, bez względu na to, czy korzystają z [portalu](search-manage.md), [programu POWERSHELL](search-manage-powershell.md), czy [interfejsów API REST zarządzania](/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Tworzenie lub usuwanie usługi
 * Skalowanie usługi
@@ -73,12 +73,12 @@ W kontekście usługi Azure Wyszukiwanie poznawcze [przypisania ról platformy A
 
 W warstwie Podstawowa i powyżej firma Microsoft monitoruje wszystkie usługi Wyszukiwanie poznawcze platformy Azure pod kątem dostępności na 99,9% według umów dotyczących poziomu usług (SLA). Jeśli usługa działa wolno lub żądanie przepływności spadnie poniżej progów SLA, zespoły pomocy technicznej Przejrzyj pliki dziennika dostępne dla nich i rozwiąż problem.
 
-Usługa Azure Wyszukiwanie poznawcze wykorzystuje [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) do gromadzenia i przechowywania działań związanych z indeksowaniem i wykonywaniem zapytań. Usługa wyszukiwania sama przechowuje tylko swoją zawartość (indeksy, definicje indeksatorów, definicje źródeł danych, definicje zestawu umiejętności, mapy synonimów). Buforowanie i zarejestrowane informacje są przechowywane poza usługą, często na koncie usługi Azure Storage. Aby uzyskać więcej informacji na temat rejestrowania obciążeń indeksowania i zapytań, zobacz [zbieranie i analizowanie danych dziennika](search-monitor-logs.md).
+Usługa Azure Wyszukiwanie poznawcze wykorzystuje [Azure monitor](../azure-monitor/index.yml) do gromadzenia i przechowywania działań związanych z indeksowaniem i wykonywaniem zapytań. Usługa wyszukiwania sama przechowuje tylko swoją zawartość (indeksy, definicje indeksatorów, definicje źródeł danych, definicje zestawu umiejętności, mapy synonimów). Buforowanie i zarejestrowane informacje są przechowywane poza usługą, często na koncie usługi Azure Storage. Aby uzyskać więcej informacji na temat rejestrowania obciążeń indeksowania i zapytań, zobacz [zbieranie i analizowanie danych dziennika](search-monitor-logs.md).
 
 W oparciu o ogólne informacje o usłudze, korzystając tylko z udogodnień wbudowanych w platformę Azure Wyszukiwanie poznawcze, możesz uzyskać informacje w następujący sposób:
 
 * Korzystając ze strony **Przegląd** usługi, za pośrednictwem powiadomień, właściwości i komunikatów o stanie.
-* [Pobieranie właściwości usługi](https://docs.microsoft.com/rest/api/searchmanagement/services)przy użyciu [programu PowerShell](search-manage-powershell.md) lub [interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/) . Nie ma nowych informacji ani operacji dostępnych w warstwie programistycznej. Interfejsy istnieją, aby można było pisać skrypty.
+* [Pobieranie właściwości usługi](/rest/api/searchmanagement/services)przy użyciu [programu PowerShell](search-manage-powershell.md) lub [interfejsu API REST zarządzania](/rest/api/searchmanagement/) . Nie ma nowych informacji ani operacji dostępnych w warstwie programistycznej. Interfejsy istnieją, aby można było pisać skrypty.
 
 ## <a name="monitor-resource-usage"></a>Monitorowanie użycia zasobów
 
@@ -86,8 +86,8 @@ Na pulpicie nawigacyjnym monitorowanie zasobów jest ograniczone do informacji w
 
 Korzystając z interfejsu API REST usługi Search, można programowo uzyskać liczbę dokumentów i indeksów: 
 
-* [Pobierz statystyki indeksu](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Liczenie dokumentów](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Pobierz statystyki indeksu](/rest/api/searchservice/Get-Index-Statistics)
+* [Liczenie dokumentów](/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Odzyskiwanie po awarii i awaria usługi
 
@@ -135,7 +135,7 @@ W przeciwieństwie do usuwania replik, które nie wymagają żadnych dodatkowych
 
 Nie ma metody wykrywania informującej, który indeks fragmentów jest przechowywany w określonych partycjach. Każda partycja zapewnia około 25 GB miejsca w magazynie, dlatego należy zmniejszyć ilość miejsca w magazynie do rozmiaru, który można obsłużyć przez liczbę posiadanych partycji. Jeśli chcesz przywrócić jedną partycję, należy dopasować wszystkie 12 fragmentów.
 
-Aby ułatwić planowanie w przyszłości, warto sprawdzić magazyn (przy użyciu [statystyk Get index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)), aby zobaczyć, ile faktycznie używasz. 
+Aby ułatwić planowanie w przyszłości, warto sprawdzić magazyn (przy użyciu [statystyk Get index](/rest/api/searchservice/Get-Index-Statistics)), aby zobaczyć, ile faktycznie używasz. 
 
 ## <a name="next-steps"></a>Następne kroki
 

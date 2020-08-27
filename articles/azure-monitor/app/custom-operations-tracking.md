@@ -2,14 +2,15 @@
 title: Śledzenie operacji niestandardowych przy użyciu zestawu Azure Application Insights .NET SDK
 description: Śledzenie operacji niestandardowych przy użyciu zestawu Azure Application Insights .NET SDK
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320378"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933311"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET
 
@@ -213,7 +214,7 @@ Istnieje również możliwość skorelowania identyfikatora operacji Application
 #### <a name="enqueue"></a>Dodawania
 Ponieważ kolejki magazynu obsługują interfejs API protokołu HTTP, wszystkie operacje z kolejką są automatycznie śledzone przez Application Insights. W wielu przypadkach ta Instrumentacja powinna być wystarczająca. Jednak aby skorelować ślady po stronie konsumenta ze śladami producenta, należy przekazać jakiś kontekst korelacji podobnie jak w protokole HTTP dla korelacji. 
 
-Ten przykład pokazuje, jak śledzić `Enqueue` operację. Można:
+Ten przykład pokazuje, jak śledzić `Enqueue` operację. Dostępne możliwości:
 
  - **Skorelowanie ponownych prób (jeśli istnieją)**: wszystkie mają jeden wspólny element nadrzędny, który jest `Enqueue` operacją. W przeciwnym razie są one śledzone jako elementy podrzędne żądania przychodzącego. Jeśli kolejka zawiera wiele żądań logicznych, może być trudne do znalezienia, które wywołanie spowodowało ponowną próbę.
  - **Skorelowanie dzienników magazynu (jeśli**są one i w razie konieczności): są skorelowane z Application Insights telemetrii.
@@ -347,9 +348,9 @@ W przypadku usuwania komunikatów z Instrumentacji upewnij się, że ustawisz id
 ### <a name="dependency-types"></a>Typy zależności
 
 Application Insights używa typu zależności do dostosowywania środowiska interfejsu użytkownika. W przypadku kolejek rozpoznaje następujące typy `DependencyTelemetry` , które zwiększają [możliwości diagnostyki transakcji](./transaction-diagnostics.md):
-- `Azure queue`w przypadku kolejek usługi Azure Storage
-- `Azure Event Hubs`dla usługi Azure Event Hubs
-- `Azure Service Bus`dla Azure Service Bus
+- `Azure queue` w przypadku kolejek usługi Azure Storage
+- `Azure Event Hubs` dla usługi Azure Event Hubs
+- `Azure Service Bus` dla Azure Service Bus
 
 ### <a name="batch-processing"></a>Przetwarzanie wsadowe
 W przypadku niektórych kolejek można usunąć z kolejki wiele komunikatów z jednym żądaniem. Przetwarzanie takich komunikatów jest uznawane za niezależne i należy do różnych operacji logicznych. Nie jest możliwe skorelowanie `Dequeue` operacji z przetworzonym komunikatem.
@@ -388,7 +389,7 @@ async Task BackgroundTask()
 }
 ```
 
-W tym przykładzie `telemetryClient.StartOperation` tworzy `DependencyTelemetry` i wypełnia kontekst korelacji. Załóżmy, że masz operację nadrzędną, która została utworzona przez żądania przychodzące, które zaplanowali operację. Tak długo `BackgroundTask` , jak zaczyna się w tym samym przepływie kontroli asynchronicznej jako żądanie przychodzące, jest skorelowane z tą operacją nadrzędną. `BackgroundTask`wszystkie zagnieżdżone elementy telemetrii są automatycznie skorelowane z żądaniem, które je spowodowało, nawet po zakończeniu żądania.
+W tym przykładzie `telemetryClient.StartOperation` tworzy `DependencyTelemetry` i wypełnia kontekst korelacji. Załóżmy, że masz operację nadrzędną, która została utworzona przez żądania przychodzące, które zaplanowali operację. Tak długo `BackgroundTask` , jak zaczyna się w tym samym przepływie kontroli asynchronicznej jako żądanie przychodzące, jest skorelowane z tą operacją nadrzędną. `BackgroundTask` wszystkie zagnieżdżone elementy telemetrii są automatycznie skorelowane z żądaniem, które je spowodowało, nawet po zakończeniu żądania.
 
 Gdy zadanie zaczyna się od wątku w tle, które nie ma `Activity` skojarzonej operacji (), `BackgroundTask` nie ma żadnego elementu nadrzędnego. Może jednak mieć zagnieżdżone operacje. Wszystkie elementy telemetrii zgłoszone przez zadanie są skorelowane z elementem `DependencyTelemetry` utworzonym w `BackgroundTask` .
 
@@ -429,7 +430,7 @@ Operacja usuwania powoduje zatrzymanie operacji, więc można ją wykonać, a ni
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Równoległe przetwarzanie operacji i śledzenie
 
-`StopOperation`powoduje zatrzymanie tylko uruchomionej operacji. Jeśli bieżąca uruchomiona operacja nie jest zgodna z tą, która ma zostać zatrzymana, `StopOperation` nic nie robi. Taka sytuacja może wystąpić, jeśli uruchamiasz wiele operacji równolegle w tym samym kontekście wykonywania:
+`StopOperation` powoduje zatrzymanie tylko uruchomionej operacji. Jeśli bieżąca uruchomiona operacja nie jest zgodna z tą, która ma zostać zatrzymana, `StopOperation` nic nie robi. Taka sytuacja może wystąpić, jeśli uruchamiasz wiele operacji równolegle w tym samym kontekście wykonywania:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
@@ -469,11 +470,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights Operations vs system. Diagnostics. Activity
-`System.Diagnostics.Activity`reprezentuje kontekst śledzenia rozproszonego i jest używany przez struktury i biblioteki do tworzenia i propagowania kontekstu wewnątrz i na zewnątrz procesu i skorelowania elementów telemetrycznych. Działanie działa razem z `System.Diagnostics.DiagnosticSource` — mechanizm powiadomień między strukturą/biblioteką w celu powiadamiania o interesujących zdarzeniach (żądania przychodzące lub wychodzące, wyjątki itp.).
+`System.Diagnostics.Activity` reprezentuje kontekst śledzenia rozproszonego i jest używany przez struktury i biblioteki do tworzenia i propagowania kontekstu wewnątrz i na zewnątrz procesu i skorelowania elementów telemetrycznych. Działanie działa razem z `System.Diagnostics.DiagnosticSource` — mechanizm powiadomień między strukturą/biblioteką w celu powiadamiania o interesujących zdarzeniach (żądania przychodzące lub wychodzące, wyjątki itp.).
 
 Działania to obywatele pierwszej klasy w Application Insights i automatyczna zależność, a kolekcja żądań jest w dużym stopniu oparta na `DiagnosticSource` zdarzeniach. W przypadku utworzenia działania w aplikacji — nie spowoduje to utworzenia telemetrii Application Insights. Application Insights musi otrzymywać zdarzenia DiagnosticSource i znać nazwy zdarzeń i ładunki, aby przetłumaczyć aktywność na telemetrię.
 
-Każda operacja Application Insights (żądanie lub zależność) obejmuje `Activity` — gdy `StartOperation` jest wywoływana, tworzy działanie poniżej. `StartOperation`jest zalecanym sposobem ręcznego śledzenia żądań lub telemetrii zależności i zapewnienia, że wszystkie elementy są skorelowane.
+Każda operacja Application Insights (żądanie lub zależność) obejmuje `Activity` — gdy `StartOperation` jest wywoływana, tworzy działanie poniżej. `StartOperation` jest zalecanym sposobem ręcznego śledzenia żądań lub telemetrii zależności i zapewnienia, że wszystkie elementy są skorelowane.
 
 ## <a name="next-steps"></a>Następne kroki
 

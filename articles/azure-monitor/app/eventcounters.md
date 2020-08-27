@@ -3,12 +3,13 @@ title: Liczniki zdarzeń w Application Insights | Microsoft Docs
 description: Monitoruj system i niestandardową platformę .NET/.NET Core EventCounters w Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 000486ecd4fddd5749e4c7cc9f9210a1f0f8666c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3082c90f3e9f7a150206e1df8806af0de1c17024
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272369"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936490"
 ---
 # <a name="eventcounters-introduction"></a>Wprowadzenie do EventCounters
 
@@ -130,7 +131,7 @@ Metryki na żywo nie wyświetlają EventCounters z dzisiaj. Użyj Eksploratora m
 
 ### <a name="which-platforms-can-i-see-the-default-list-of-net-core-30-counters"></a>Które platformy mogą zobaczyć domyślną listę liczników programu .NET Core 3,0?
 
-EventCounter nie wymaga żadnych specjalnych uprawnień i jest obsługiwana we wszystkich platformach .NET Core 3,0. Obejmuje on:
+EventCounter nie wymaga żadnych specjalnych uprawnień i jest obsługiwana we wszystkich platformach .NET Core 3,0. Możliwości obejmują:
 
 * **System operacyjny**: Windows, Linux lub macOS.
 * **Metoda hostingu**: w procesie lub w trakcie procesu.

@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: d7637c58a90ee039189e9bebf9e9816028f6b102
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3f8bae6f03988cc38fb95800515622532199bff8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76159186"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926099"
 ---
 **Wybierz środowisko docelowe**
 

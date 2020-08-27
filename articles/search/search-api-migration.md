@@ -8,16 +8,16 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562617"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927140"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Uaktualnij do najnowszej wersji interfejsu API REST usługi Wyszukiwanie poznawcze platformy Azure
 
-Jeśli używasz poprzedniej wersji [interfejsu API REST usługi Search](https://docs.microsoft.com/rest/api/searchservice/), ten artykuł pomoże Ci uaktualnić aplikację do korzystania z najnowszej ogólnie dostępnej wersji interfejsu api, 2020-06-30.
+Jeśli używasz poprzedniej wersji [interfejsu API REST usługi Search](/rest/api/searchservice/), ten artykuł pomoże Ci uaktualnić aplikację do korzystania z najnowszej ogólnie dostępnej wersji interfejsu api, 2020-06-30.
 
 Wersja 2020-06-30 interfejsu API REST zawiera pewne zmiany z wcześniejszych wersji. Są one głównie zgodne z poprzednimi wersjami, więc zmiana kodu powinna wymagać tylko minimalnego nakładu pracy, w zależności od używanej wersji. [Procedura uaktualniania](#UpgradeSteps) przedstawia zmiany kodu wymagane do korzystania z nowych funkcji.
 
@@ -32,7 +32,7 @@ Podczas uaktualniania do nowych wersji prawdopodobnie nie trzeba wprowadzać ża
 
 * Kod kończy się niepowodzeniem, gdy nierozpoznane właściwości są zwracane w odpowiedzi interfejsu API. Domyślnie aplikacja powinna ignorować właściwości, które nie są zrozumiałe.
 
-* Kod utrzymuje żądania interfejsu API i próbuje ponownie wysłać je do nowej wersji interfejsu API. Na przykład może się tak zdarzyć, jeśli aplikacja utrzymuje tokeny kontynuacji zwrócone przez interfejs API wyszukiwania (Aby uzyskać więcej informacji, poszukaj `@search.nextPageParameters` w [dokumentacji interfejsu API wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* Kod utrzymuje żądania interfejsu API i próbuje ponownie wysłać je do nowej wersji interfejsu API. Na przykład może się tak zdarzyć, jeśli aplikacja utrzymuje tokeny kontynuacji zwrócone przez interfejs API wyszukiwania (Aby uzyskać więcej informacji, poszukaj `@search.nextPageParameters` w [dokumentacji interfejsu API wyszukiwania](/rest/api/searchservice/Search-Documents)).
 
 * Kod odwołuje się do wersji interfejsu API, która jest przedmiocie 2019-05-06 i podlega co najmniej jednej istotnej zmianie w tej wersji. Sekcja [uaktualnienie do 2019-05-06](#upgrade-to-2019-05-06) zawiera więcej szczegółów. 
 
@@ -61,7 +61,7 @@ Wersja 2019-05-06 to Poprzednia ogólnie dostępna wersja interfejsu API REST. F
 * [Tryby analizy JsonLines](search-howto-index-json-blobs.md), część indeksowania obiektów blob platformy Azure, tworzy jeden dokument wyszukiwania na jednostkę JSON rozdzieloną wierszem.
 * [Wzbogacanie AI](cognitive-search-concept-intro.md) zapewnia indeksowanie, które wykorzystuje silniki wzbogacania AI Cognitive Services.
 
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 
 Istniejący kod pisany przed wcześniejszymi wersjami interfejsu API zacznie działać w wersji API-Version = 2019-05-06, jeśli kod zawiera następujące funkcje:
 
@@ -146,4 +146,4 @@ Za pomocą interfejsu API w wersji 2017-11-11-Preview można zaktualizować inde
 Zapoznaj się z dokumentacją interfejsu API REST usługi Search. Jeśli wystąpią problemy, poproś nas o pomoc dotyczącą [Stack Overflow](https://stackoverflow.com/) lub [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST usługi Search](https://docs.microsoft.com/rest/api/searchservice/)
+> [Dokumentacja interfejsu API REST usługi Search](/rest/api/searchservice/)

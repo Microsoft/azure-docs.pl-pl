@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2de282da56a40c92eacde84ac913be0ceacf9e2b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: be873ed122bb521ce00e2d18d55a9be8197a0048
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413021"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936762"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
 
@@ -23,7 +23,7 @@ Wyszukiwanie zgodnie z oczekiwaniami to typowa technika ulepszania produktywnoś
 Aby zaimplementować te środowiska na platformie Azure Wyszukiwanie poznawcze, potrzebne są:
 
 + *Sugestia* na zapleczu.
-+ *Zapytanie* określające interfejs API [funkcji Autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete) lub [sugestii](https://docs.microsoft.com/rest/api/searchservice/suggestions) dla żądania.
++ *Zapytanie* określające interfejs API [funkcji Autouzupełnianie](/rest/api/searchservice/autocomplete) lub [sugestii](/rest/api/searchservice/suggestions) dla żądania.
 + *Kontrolka interfejsu użytkownika* do obsługi interakcji typu "Wyszukaj jako" w aplikacji klienckiej. Zalecamy używanie w tym celu istniejącej biblioteki języka JavaScript.
 
 Na platformie Azure Wyszukiwanie poznawcze w indeksie wyszukiwania są pobierane automatyczne zapytania i sugerowane wyniki z wybranych pól, które zostały zarejestrowane za pomocą sugestii. Program sugerujący jest częścią indeksu i określa, które pola będą dostarczać zawartość, która wykonuje zapytanie, sugeruje wynik lub wykonuje oba te operacje. Gdy indeks zostanie utworzony i załadowany, struktura danych sugerująca jest tworzona wewnętrznie w celu przechowywania prefiksów używanych do dopasowywania w ramach zapytań częściowych. W przypadku sugestii, wybór odpowiednich pól, które są unikatowe lub co najmniej nie powtarzające się, jest istotny dla środowiska. Aby uzyskać więcej informacji, zobacz [Tworzenie sugestii](index-add-suggesters.md).
@@ -54,16 +54,16 @@ Dopasowania znajdują się na początku terminu w dowolnym miejscu w ciągu wej�
 
 Skorzystaj z poniższych linków, aby uzyskać informacje o stronach REST i .NET SDK:
 
-+ [Sugestie interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
-+ [Autouzupełnianie interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync, Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [AutocompleteWithHttpMessagesAsync, Metoda](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Sugestie interfejsu API REST](/rest/api/searchservice/suggestions) 
++ [Autouzupełnianie interfejsu API REST](/rest/api/searchservice/autocomplete) 
++ [SuggestWithHttpMessagesAsync, Metoda](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [AutocompleteWithHttpMessagesAsync, Metoda](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
 ## <a name="structure-a-response"></a>Tworzenie struktury odpowiedzi
 
-Odpowiedzi na potrzeby automatycznego uzupełniania i sugestii są następujące: [Funkcja autouzupełniania](https://docs.microsoft.com/rest/api/searchservice/autocomplete#response) zwraca listę warunków, [sugestie](https://docs.microsoft.com/rest/api/searchservice/suggestions#response) zwracają warunki i identyfikator dokumentu, aby można było pobrać dokument (Użyj interfejsu API [dokumentu wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/lookup-document) do pobrania określonego dokumentu dla strony szczegółów).
+Odpowiedzi na potrzeby automatycznego uzupełniania i sugestii są następujące: [Funkcja autouzupełniania](/rest/api/searchservice/autocomplete#response) zwraca listę warunków, [sugestie](/rest/api/searchservice/suggestions#response) zwracają warunki i identyfikator dokumentu, aby można było pobrać dokument (Użyj interfejsu API [dokumentu wyszukiwania](/rest/api/searchservice/lookup-document) do pobrania określonego dokumentu dla strony szczegółów).
 
-Odpowiedzi są dostosowane do parametrów żądania. Dla opcji Autouzupełnianie Ustaw [**AutoCompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) , aby określić, czy uzupełnianie tekstu występuje na jednym lub dwóch warunkach. W przypadku sugestii wybrane pole określa zawartość odpowiedzi.
+Odpowiedzi są dostosowane do parametrów żądania. Dla opcji Autouzupełnianie Ustaw [**AutoCompleteMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) , aby określić, czy uzupełnianie tekstu występuje na jednym lub dwóch warunkach. W przypadku sugestii wybrane pole określa zawartość odpowiedzi.
 
 W przypadku sugestii należy dokładniej ograniczyć odpowiedź, aby uniknąć duplikowania lub jakie są niepowiązane wyniki. Aby kontrolować wyniki, Dołącz więcej parametrów do żądania. Następujące parametry mają zastosowanie zarówno do autouzupełniania, jak i sugestii, ale mogą być bardziej potrzebne w przypadku sugestii, zwłaszcza wtedy, gdy sugerował zawiera wiele pól.
 
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie DocumentsOperationsExtensions. sugerował](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-`InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+`InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](./search-howto-dotnet-sdk.md).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -175,7 +175,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-Funkcja Suggest przyjmuje dwa parametry, które określają, czy są zwracane wyróżnienia trafień oraz czy oprócz wprowadzonego terminu wyszukiwania jest stosowane dopasowywanie rozmyte. Metoda tworzy [obiekt SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), który następnie jest przenoszona do interfejsu API sugerowania. Wynik jest następnie konwertowany na format JSON, dzięki czemu można go wyświetlić w kliencie.
+Funkcja Suggest przyjmuje dwa parametry, które określają, czy są zwracane wyróżnienia trafień oraz czy oprócz wprowadzonego terminu wyszukiwania jest stosowane dopasowywanie rozmyte. Metoda tworzy [obiekt SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), który następnie jest przenoszona do interfejsu API sugerowania. Wynik jest następnie konwertowany na format JSON, dzięki czemu można go wyświetlić w kliencie.
 
 ## <a name="autocomplete"></a>Autouzupełnianie
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Funkcja Autouzupełnianie
 
-Autouzupełnianie jest oparte na [metodzie DocumentsOperationsExtensions. Autouzupełnianie](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Podobnie jak w przypadku sugestii, ten blok kodu przejdzie do pliku **HomeController.cs** .
+Autouzupełnianie jest oparte na [metodzie DocumentsOperationsExtensions. Autouzupełnianie](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Podobnie jak w przypadku sugestii, ten blok kodu przejdzie do pliku **HomeController.cs** .
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -243,7 +243,7 @@ public ActionResult AutoComplete(string term)
 }
 ```
 
-Funkcja Autouzupełnianie pobiera dane wejściowe terminu wyszukiwania. Metoda tworzy [obiekt AutoCompleteParameters](https://docs.microsoft.com/rest/api/searchservice/autocomplete). Wynik jest następnie konwertowany na format JSON, dzięki czemu można go wyświetlić w kliencie.
+Funkcja Autouzupełnianie pobiera dane wejściowe terminu wyszukiwania. Metoda tworzy [obiekt AutoCompleteParameters](/rest/api/searchservice/autocomplete). Wynik jest następnie konwertowany na format JSON, dzięki czemu można go wyświetlić w kliencie.
 
 ## <a name="next-steps"></a>Następne kroki
 

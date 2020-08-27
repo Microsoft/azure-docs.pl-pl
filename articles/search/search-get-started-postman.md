@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 4f969b08c16b26fe67ca6520323fcde780d43925
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510916"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929775"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w programie Poster przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [Program PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-W tym artykule opisano sposób interaktywnego tworzenia żądań interfejsu API REST przy użyciu [interfejsów API REST usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice) i klienta interfejsu API w celu wysyłania i otrzymywania żądań. Za pomocą klienta interfejsu API i tych instrukcji można wysyłać żądania i wyświetlać odpowiedzi przed zapisaniem kodu.
+W tym artykule opisano sposób interaktywnego tworzenia żądań interfejsu API REST przy użyciu [interfejsów API REST usługi Azure wyszukiwanie poznawcze](/rest/api/searchservice) i klienta interfejsu API w celu wysyłania i otrzymywania żądań. Za pomocą klienta interfejsu API i tych instrukcji można wysyłać żądania i wyświetlać odpowiedzi przed zapisaniem kodu.
 
 W tym artykule jest stosowana aplikacja Poster. Jeśli wolisz używać wstępnie zdefiniowanych żądań [, możesz pobrać i zaimportować kolekcję ogłoszeń](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) . 
 
@@ -74,7 +74,7 @@ W programie Poster należy sformułować żądanie, które wygląda podobnie do 
 
 ## <a name="1---create-an-index"></a>1 — Tworzenie indeksu
 
-Na platformie Azure Wyszukiwanie poznawcze zwykle tworzysz indeks przed załadowaniem go z danymi. Dla tego zadania jest używany [interfejs API Rest tworzenia indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) . 
+Na platformie Azure Wyszukiwanie poznawcze zwykle tworzysz indeks przed załadowaniem go z danymi. Dla tego zadania jest używany [interfejs API Rest tworzenia indeksu](/rest/api/searchservice/create-index) . 
 
 Adres URL jest rozszerzony i zawiera `hotels` nazwę indeksu.
 
@@ -128,7 +128,7 @@ Po przesłaniu tego żądania powinna pojawić się odpowiedź 201 protokołu HT
 
 ## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-Tworzenie indeksu i wypełnianie indeksu to oddzielne kroki. Na platformie Azure Wyszukiwanie poznawcze indeks zawiera wszystkie dane z możliwością wyszukiwania. W tym scenariuszu dane są dostarczane jako dokumenty JSON. Dla tego zadania jest używany [interfejs API REST Dodawanie, aktualizowanie lub usuwanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) . 
+Tworzenie indeksu i wypełnianie indeksu to oddzielne kroki. Na platformie Azure Wyszukiwanie poznawcze indeks zawiera wszystkie dane z możliwością wyszukiwania. W tym scenariuszu dane są dostarczane jako dokumenty JSON. Dla tego zadania jest używany [interfejs API REST Dodawanie, aktualizowanie lub usuwanie dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) . 
 
 Adres URL jest rozszerzony, aby uwzględnić `docs` kolekcje i `index` operację.
 
@@ -236,12 +236,12 @@ W ciągu kilku sekund na liście sesji powinna zostać wyświetlona odpowiedź H
 Jeśli otrzymasz odpowiedź 207, przekazanie co najmniej jednego dokumentu nie powiodło się. Jeśli otrzymasz odpowiedź 404, wystąpił błąd składniowy w nagłówku lub w treści żądania: zweryfikuj, czy zmiana punktu końcowego uwzględniła `/docs/index`.
 
 > [!Tip]
-> Dla wybranych źródeł danych możesz wybrać alternatywne podejście *indeksatora*, które upraszcza i zmniejsza ilość kodu wymaganą do indeksowania. Aby uzyskać więcej informacji, zobacz [Operacje indeksatora](https://docs.microsoft.com/rest/api/searchservice/indexer-operations).
+> Dla wybranych źródeł danych możesz wybrać alternatywne podejście *indeksatora*, które upraszcza i zmniejsza ilość kodu wymaganą do indeksowania. Aby uzyskać więcej informacji, zobacz [Operacje indeksatora](/rest/api/searchservice/indexer-operations).
 
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-Teraz, gdy indeks i zestaw dokumentów są ładowane, można wysyłać zapytania względem nich przy użyciu [interfejsu API REST dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Teraz, gdy indeks i zestaw dokumentów są ładowane, można wysyłać zapytania względem nich przy użyciu [interfejsu API REST dokumentów wyszukiwania](/rest/api/searchservice/search-documents).
 
 Adres URL jest rozszerzony, aby uwzględnić wyrażenie zapytania, określone za pomocą operatora wyszukiwania.
 
@@ -278,7 +278,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## <a name="get-index-properties"></a>Pobierz właściwości indeksu
-Można również użyć [Get Statistics](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) do wykonywania zapytań dotyczących liczby dokumentów i rozmiaru indeksu: 
+Można również użyć [Get Statistics](/rest/api/searchservice/get-index-statistics) do wykonywania zapytań dotyczących liczby dokumentów i rozmiaru indeksu: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
@@ -290,7 +290,7 @@ Dodanie `/stats` do adresu URL zwraca informacje o indeksie. W narzędziu Postma
 
 Zwróć uwagę, że składnia parametru api-version różni się. Dla tego żądania użyj `?`, aby dołączyć parametr api-version. `?`Oddziela ścieżkę adresu URL od ciągu zapytania, podczas & oddziela każdą parę "name = value" w ciągu zapytania. Dla tego zapytania parametr api-version jest pierwszym i jedynym elementem ciągu zapytania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 

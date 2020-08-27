@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561780"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934977"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Użyj "pełnej" składni wyszukiwania Lucene (zapytania zaawansowane w usłudze Azure Wyszukiwanie poznawcze)
 
@@ -147,7 +147,7 @@ Można zdefiniować pole operacji wyszukiwania za pomocą składni **NazwaPola: 
 
 Pamiętaj, aby umieścić wiele ciągów w cudzysłowie, jeśli chcesz, aby oba ciągi były oceniane jako pojedyncze jednostki, tak jak w tym przypadku wyszukiwanie dwóch odrębnych lokalizacji w `state` polu. Upewnij się również, że operator jest wielką literą, gdy zobaczysz pozycję nie i i.
 
-Pole określone w elemencie **FieldName: searchExpression** musi być polem z możliwością wyszukiwania. Aby uzyskać szczegółowe informacje na temat sposobu używania atrybutów indeksu w definicjach pól, zobacz [create index (interfejs API REST platformy Azure wyszukiwanie poznawcze)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Pole określone w elemencie **FieldName: searchExpression** musi być polem z możliwością wyszukiwania. Aby uzyskać szczegółowe informacje na temat sposobu używania atrybutów indeksu w definicjach pól, zobacz [create index (interfejs API REST platformy Azure wyszukiwanie poznawcze)](/rest/api/searchservice/create-index) .
 
 > [!NOTE]
 > W powyższym przykładzie nie musimy używać `searchFields` parametru, ponieważ każda część zapytania ma jawnie określoną nazwę pola. Jednak nadal można użyć `searchFields` parametru, jeśli chcesz uruchomić kwerendę, w której niektóre części są objęte zakresem określonego pola, a reszta może mieć zastosowanie do kilku pól. Na przykład zapytanie `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` byłoby zgodne tylko z `senior NOT junior` `business_title` polem, a w tym polu będzie pasować wartość "External" `posting_type` . Nazwa pola podana w nazwie **NazwaPola: searchExpression** zawsze ma pierwszeństwo przed `searchFields` parametrem, co w tym przykładzie nie musi zawierać `business_title` `searchFields` parametrów.
@@ -256,7 +256,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Zapytanie wyrażenia regularnego](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> Zapytania wyrażenia regularnego nie są [analizowane](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Jedyne przekształcenie wykonane na niekompletnych terminach zapytania to lowercasing.
+> Zapytania wyrażenia regularnego nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedyne przekształcenie wykonane na niekompletnych terminach zapytania to lowercasing.
 >
 
 ## <a name="example-7-wildcard-search"></a>Przykład 7: wyszukiwanie przy użyciu symboli wieloznacznych
@@ -278,18 +278,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Zapytanie symboli wieloznacznych](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> Zapytania z symbolami wieloznacznymi nie są [analizowane](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Jedyne przekształcenie wykonane na niekompletnych terminach zapytania to lowercasing.
+> Zapytania z symbolami wieloznacznymi nie są [analizowane](./search-lucene-query-architecture.md#stage-2-lexical-analysis). Jedyne przekształcenie wykonane na niekompletnych terminach zapytania to lowercasing.
 >
 
 ## <a name="next-steps"></a>Następne kroki
 Spróbuj określić parser zapytań Lucene w kodzie. Poniższe linki wyjaśniają, jak skonfigurować zapytania wyszukiwania dla platformy .NET i interfejsu API REST. Linki używają domyślnej prostej składni, dlatego należy zastosować informacje uzyskane z tego artykułu, aby określić element **querytype**.
 
-* [Tworzenie zapytań względem indeksu przy użyciu zestawu .NET SDK](search-query-dotnet.md)
-* [Tworzenie zapytań względem indeksu przy użyciu interfejsu API REST](search-create-index-rest-api.md)
+* [Tworzenie zapytań względem indeksu przy użyciu zestawu .NET SDK](./search-get-started-dotnet.md)
+* [Tworzenie zapytań względem indeksu przy użyciu interfejsu API REST](./search-get-started-powershell.md)
 
 Dodatkowe informacje na temat składni, architekturę zapytań i przykłady można znaleźć w następujących linkach:
 
 + [Przykłady prostych zapytań składniowych](search-query-simple-examples.md)
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Pełna składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Prosta składnia zapytań](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Pełna składnia zapytań Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

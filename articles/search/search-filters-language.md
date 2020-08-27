@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49a12203c833fc817b1898e6179d7f812d0a994e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084198"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923113"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Jak filtrować według języka na platformie Azure Wyszukiwanie poznawcze 
 
@@ -37,11 +37,11 @@ Poniższy przykład pochodzi z [próbki](search-get-started-portal.md) , która 
   ![Zrzut ekranu przedstawiający ekran Fields przykładu wartości rzeczywistej. Grupa pól zostanie wyróżniona, aby określić sposób, w jaki przypisania analizatora języka odpowiadają językom wyróżnionych pól.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Przykłady kodu przedstawiające definicje pól z analizatorami języków można znaleźć w temacie [Definiowanie indeksu (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) i [Definiowanie indeksu (REST)](search-create-index-rest-api.md).
+> Przykłady kodu przedstawiające definicje pól z analizatorami języków można znaleźć w temacie [Definiowanie indeksu (.NET)](./search-get-started-dotnet.md) i [Definiowanie indeksu (REST)](./search-get-started-powershell.md).
 
 ## <a name="build-and-load-an-index"></a>Kompilowanie i ładowanie indeksu
 
-Krok pośredni (i prawdopodobnie oczywisty) jest konieczny do [kompilowania i wypełniania indeksu](https://docs.microsoft.com/azure/search/search-create-index-dotnet) przed wyrażeniem zapytania. Ten krok jest tutaj omawiany w celu zapewnienia kompletności. Jednym ze sposobów ustalenia, czy indeks jest dostępny, jest sprawdzenie listy indeksów w [portalu](https://portal.azure.com).
+Krok pośredni (i prawdopodobnie oczywisty) jest konieczny do [kompilowania i wypełniania indeksu](./search-get-started-dotnet.md) przed wyrażeniem zapytania. Ten krok jest tutaj omawiany w celu zapewnienia kompletności. Jednym ze sposobów ustalenia, czy indeks jest dostępny, jest sprawdzenie listy indeksów w [portalu](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Ogranicz wyniki zapytania i przycinania
 
@@ -63,7 +63,6 @@ parameters =
 ## <a name="see-also"></a>Zobacz też
 
 + [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
-+ [Analizatory języków](https://docs.microsoft.com/rest/api/searchservice/language-support)
++ [Analizatory języków](/rest/api/searchservice/language-support)
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-
++ [Interfejs API REST wyszukiwania dokumentów](/rest/api/searchservice/search-documents)

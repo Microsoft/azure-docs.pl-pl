@@ -3,13 +3,13 @@ title: Tworzenie zależności zadań do uruchamiania zadań
 description: Utwórz zadania, które zależą od ukończenia innych zadań przetwarzania stylu MapReduce i podobnych obciążeń danych Big Data w Azure Batch.
 ms.topic: how-to
 ms.date: 05/22/2017
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4aad67b4537befd251798aac7601bc4efcc276f2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: 05b1bb289c215208be448d8ca7de144c82b313b8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965233"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936983"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Tworzenie zależności zadań w celu uruchamiania zadań zależnych od innych zadań
 
@@ -60,7 +60,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Ten fragment kodu tworzy zadanie zależne z IDENTYFIKATORem zadania "kwiaty". Zadanie "kwiaty" zależy od zadań "deszcz" i "Sun". Zadanie "kwiaty" zostanie zaplanowane do uruchomienia w węźle obliczeniowym dopiero po pomyślnym ukończeniu zadań "deszcz" i "Sun".
 
 > [!NOTE]
-> Domyślnie zadanie jest uznawane za zakończone pomyślnie, gdy jest w stanie **ukończone** i jego **Kod zakończenia** to `0` . W usłudze Batch .NET oznacza to [CloudTask][net_cloudtask]. Wartość właściwości [State][net_taskstate] `Completed` i [TaskExecutionInformation][net_taskexecutioninformation]CloudTask.[ ][net_exitcode]Wartość właściwości ExitCode to `0` . Aby to zmienić, zobacz sekcję [Akcje zależności](#dependency-actions) .
+> Domyślnie zadanie jest uznawane za zakończone pomyślnie, gdy jest w stanie **ukończone** i jego **Kod zakończenia** to `0` . W usłudze Batch .NET oznacza to [CloudTask][net_cloudtask]. Wartość właściwości [State][net_taskstate] `Completed` i [TaskExecutionInformation][net_taskexecutioninformation]CloudTask.[ ][net_exitcode] Wartość właściwości ExitCode to `0` . Aby to zmienić, zobacz sekcję [Akcje zależności](#dependency-actions) .
 
 ## <a name="dependency-scenarios"></a>Scenariusze zależności
 

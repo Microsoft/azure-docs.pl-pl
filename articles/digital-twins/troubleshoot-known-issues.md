@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 01d962db45a58781ca5f2ba494de16ad420b0807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661490"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921073"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Znane problemy w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -51,7 +51,9 @@ W przypadku użytkowników zalogowanych przy użyciu osobistego [konto Microsoft
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem z uwierzytelnianiem interakcyjnej przeglądarki
 
-Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu najnowszej wersji (wersja **1.2.0**) **biblioteki [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) **mogą wystąpić problemy z metodą [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+Podczas pisania kodu uwierzytelniania w aplikacjach Digital bliźniaczych reprezentacji platformy Azure przy użyciu wersji **1.2.0** biblioteki ** [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) **mogą wystąpić problemy z metodą [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+
+To nie jest Najnowsza wersja biblioteki. Najnowsza wersja to **1.2.2**.
 
 Ta metoda jest używana w następujących artykułach: 
 * [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)
@@ -62,10 +64,7 @@ Problem zawiera odpowiedź o błędzie "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 
-Aby można było rozwiązać ten problem, aplikacja musi jawnie korzystać z platformy Azure. tożsamość w wersji **1.1.1**. W tej wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami.
-
->[!NOTE]
-> Nie wystarczy dodać biblioteki bez określenia żadnej wersji, ponieważ będzie ona nadal domyślną **1.2.0**. Należy jawnie określić wersję **1.1.1** .
+Aby rozwiązać ten problem, zaktualizuj aplikacje do korzystania z platformy Azure. tożsamość wersja **1.2.2**. W tej wersji biblioteki przeglądarka powinna ładować i uwierzytelniać się zgodnie z oczekiwaniami.
 
 ### <a name="possible-causes"></a>Możliwe przyczyny
 

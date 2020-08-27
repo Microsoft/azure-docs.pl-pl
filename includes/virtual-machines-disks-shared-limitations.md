@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 08/26/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88809834"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944503"
 ---
 Włączenie dysków udostępnionych jest możliwe tylko dla podzbioru typów dysków. Obecnie tylko Ultra disks i Premium dysków SSD mogą włączać dyski udostępnione. Każdy dysk zarządzany z włączonymi dyskami udostępnionymi podlega następującym ograniczeniom zorganizowanym według typu dysku:
 
@@ -50,10 +50,15 @@ Udostępnione dysków SSD Premium są obsługiwane tylko w następujących regio
 - Zachodnie stany USA 2
 - Zachodnio-środkowe stany USA
 - South Central US
+- Północno-środkowe stany USA
 - Central US
+- West Europe
+- Europa Północna
 - Korea Środkowa
 - Kanada Środkowa
 - Kanada Wschodnia
+- Japonia Wschodnia
+- Japonia Zachodnia
 - US Gov Wirginia
 - US Gov Arizona
 

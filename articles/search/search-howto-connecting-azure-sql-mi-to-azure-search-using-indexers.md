@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964893"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922892"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Skonfiguruj połączenie z usługą Azure Wyszukiwanie poznawcze indeksator do wystąpienia zarządzanego SQL
 
@@ -38,11 +38,11 @@ Sprawdź, czy sieciowa Grupa zabezpieczeń ma poprawne **reguły zabezpieczeń r
 > Indeksatory nadal wymagają skonfigurowania wystąpienia zarządzanego SQL z publicznym punktem końcowym w celu odczytu danych.
 > Można jednak ograniczyć dostęp przychodzący do tego publicznego punktu końcowego, zastępując bieżącą regułę ( `public_endpoint_inbound` ) następującymi 2 regułami:
 >
-> * Zezwalanie na dostęp przychodzący z `AzureCognitiveSearch` [tagu usługi](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("source" = `AzureCognitiveSearch` , "name" = `cognitive_search_inbound` )
+> * Zezwalanie na dostęp przychodzący z `AzureCognitiveSearch` [tagu usługi](../virtual-network/service-tags-overview.md#available-service-tags) ("source" = `AzureCognitiveSearch` , "name" = `cognitive_search_inbound` )
 >
 > * Zezwalanie na dostęp przychodzący z adresu IP usługi wyszukiwania, który można uzyskać przez polecenie ping do jego w pełni kwalifikowanej nazwy domeny (np. `<your-search-service-name>.search.windows.net` ). ("Źródło" = `IP address` , "nazwa" = `search_service_inbound` )
 >
-> Dla każdej z tych 2 reguł ustaw wartość "PORT" = `3342` , "Protocol" = `TCP` , "Destination" = `Any` , "Action" =`Allow`
+> Dla każdej z tych 2 reguł ustaw wartość "PORT" = `3342` , "Protocol" = `TCP` , "Destination" = `Any` , "Action" = `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Pobierz parametry połączenia publicznego punktu końcowego
 Upewnij się, że używasz parametrów połączenia dla **publicznego punktu końcowego** (port 3342, nie port 1433).

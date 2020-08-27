@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fd405513f8bdef09e6d3ab996fc2c04bd397db13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72d00b70cf3568466715668aa441ee295614c740
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659438"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935249"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Dodawanie wyszukiwania pełnotekstowego do danych obiektów blob platformy Azure przy użyciu usługi Azure Wyszukiwanie poznawcze
 
@@ -27,7 +27,7 @@ Platforma Azure Wyszukiwanie poznawcze integruje się z usługą Azure Blob Stor
 
 Po utworzeniu i wypełnieniu indeksu istnieje on niezależnie od kontenera obiektów blob, ale można ponownie uruchomić operacje indeksowania, aby odświeżyć indeks z uwzględnieniem zmian w źródłowym kontenerze. Informacje o znacznikach czasu dla poszczególnych obiektów BLOB są używane na potrzeby wykrywania zmian. Można wybrać opcję zaplanowanego wykonania lub indeksowania na żądanie jako mechanizmu odświeżania.
 
-Dane wejściowe są obiektami BLOB w jednym kontenerze w usłudze Azure Blob Storage. Obiekty blob mogą być niemal dowolnym rodzajem danych tekstowych. Jeśli obiekty blob zawierają obrazy, można dodać [wzbogacanie AI do indeksowania obiektów BLOB](search-blob-ai-integration.md) w celu utworzenia i wyodrębnienia tekstu z obrazów.
+Dane wejściowe są obiektami BLOB w jednym kontenerze w usłudze Azure Blob Storage. Obiekty blob mogą być niemal dowolnym rodzajem danych tekstowych. Jeśli obiekty blob zawierają obrazy, można dodać [wzbogacanie AI do indeksowania obiektów BLOB ](search-blob-ai-integration.md) w celu utworzenia i wyodrębnienia tekstu z obrazów.
 
 Dane wyjściowe są zawsze indeksem Wyszukiwanie poznawcze platformy Azure, używanym do szybkiego wyszukiwania tekstu, pobierania i eksploracji w aplikacjach klienckich. W obszarze między jest architekturą potoku indeksowania. Potok jest oparty na funkcji *indeksatora* omówionej w dalszej sekcji tego artykułu.
 
@@ -75,5 +75,5 @@ Bardziej trwałe rozwiązanie polega na zebraniu danych wejściowych zapytania i
 
 ## <a name="next-steps"></a>Następne kroki
 
-+ [Przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Konfigurowanie indeksatora obiektów BLOB (Azure Wyszukiwanie poznawcze)](search-howto-indexing-azure-blob-storage.md) 
++ [Przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą Azure Portal (Azure Blob Storage)](../storage/blobs/storage-quickstart-blobs-portal.md)
++ [Konfigurowanie indeksatora obiektów BLOB (Azure Wyszukiwanie poznawcze)](search-howto-indexing-azure-blob-storage.md)

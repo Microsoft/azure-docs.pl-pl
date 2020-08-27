@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 667ee4b362d62cd4b7bd1b6c5a8ecf762adb0730
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021889"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936626"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Samouczek: Tworzenie niestandardowego analizatora dla numerów telefonów
 
@@ -21,7 +21,7 @@ ms.locfileid: "87021889"
 
 W niektórych przypadkach, podobnie jak w przypadku pola tekstowego Free, po prostu wybranie odpowiedniego [analizatora języka](index-add-language-analyzers.md) poprawi wyniki wyszukiwania. Jednak niektóre scenariusze, takie jak dokładne wyszukiwanie numerów telefonów, adresów URL lub wiadomości e-mail, mogą wymagać użycia analizatorów niestandardowych.
 
-W tym samouczku używane są następujące [interfejsy API REST](https://docs.microsoft.com/rest/api/searchservice/) i wyszukiwanie poznawcze platformy Azure:
+W tym samouczku używane są następujące [interfejsy API REST](/rest/api/searchservice/) i wyszukiwanie poznawcze platformy Azure:
 
 > [!div class="checklist"]
 > * Wyjaśnij, jak działają analizatory
@@ -201,7 +201,7 @@ To zapytanie zwraca **trzy z czterech oczekiwanych wyników,** ale również zwr
 }
 ```
 
-Następnie przeszukajmy numer bez żadnego formatowania`4255550100`
+Następnie przeszukajmy numer bez żadnego formatowania `4255550100`
 
 ```http
 GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=4255550100
@@ -225,7 +225,7 @@ Jeśli okaże się, że te wyniki są mylące, nie są same. W następnej sekcji
 
 ## <a name="4---debug-search-results"></a>4 — debugowanie wyników wyszukiwania
 
-Aby zrozumieć te wyniki wyszukiwania, ważne jest, aby najpierw zrozumieć, jak działają analizatory. W tym miejscu możemy przetestować analizatora domyślnego przy użyciu [interfejsu API analizy tekstu](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) , a następnie utworzyć Analizator, który spełnia nasze potrzeby.
+Aby zrozumieć te wyniki wyszukiwania, ważne jest, aby najpierw zrozumieć, jak działają analizatory. W tym miejscu możemy przetestować analizatora domyślnego przy użyciu [interfejsu API analizy tekstu](/rest/api/searchservice/test-analyzer) , a następnie utworzyć Analizator, który spełnia nasze potrzeby.
 
 ### <a name="how-analyzers-work"></a>Jak działają analizatory
 
@@ -260,7 +260,7 @@ Jeśli terminy zapytania nie pasują do warunków w indeksie odwróconym, wyniki
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>Test Analyzer przy użyciu interfejsu API analizy tekstu
 
-Usługa Azure Wyszukiwanie poznawcze udostępnia [interfejs API analizy tekstu](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) , który umożliwia testowanie analizatorów w celu zrozumienia sposobu przetwarzania tekstu.
+Usługa Azure Wyszukiwanie poznawcze udostępnia [interfejs API analizy tekstu](/rest/api/searchservice/test-analyzer) , który umożliwia testowanie analizatorów w celu zrozumienia sposobu przetwarzania tekstu.
 
 Interfejs API analizy tekstu jest wywoływany przy użyciu następującego żądania:
 
@@ -404,7 +404,7 @@ Chociaż nie musimy używać żadnego z tych filtrów w tym scenariuszu, użyjem
 
 [Filtr token nGram_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenFilter.html) dzieli tokeny na n-gramy o danym rozmiarze na podstawie `minGram` parametrów i `maxGram` .
 
-Dla analizatora telefonu ustawiamy `minGram` jako `3` najkrótszy podciąg, który oczekujemy, że użytkownicy będą wyszukiwać. `maxGram`jest ustawiona na tak `20` , aby upewnić się, że wszystkie numery telefonów, nawet z rozszerzeniami, zostaną dopasowane do jednego n-gramu.
+Dla analizatora telefonu ustawiamy `minGram` jako `3` najkrótszy podciąg, który oczekujemy, że użytkownicy będą wyszukiwać. `maxGram` jest ustawiona na tak `20` , aby upewnić się, że wszystkie numery telefonów, nawet z rozszerzeniami, zostaną dopasowane do jednego n-gramu.
 
  Efektem ubocznym w przypadku n-gramów jest to, że niektóre fałszywe dodatnie zostaną zwrócone. Naprawimy to w kroku 7, tworząc oddzielny analizator wyszukiwania, który nie zawiera filtru tokenów n-gramowych.
 

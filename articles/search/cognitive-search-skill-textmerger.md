@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982020"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924643"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Umiejętność scalania tekstu
 
@@ -75,7 +75,7 @@ Ten przykład pokazuje dane wyjściowe poprzedniej wartości wejściowej, przy z
 
 Typowym scenariuszem korzystania z scalania tekstu jest scalanie tekstowej reprezentacji obrazów (tekst z umiejętności OCR lub podpisanie obrazu) do pola zawartość dokumentu. 
 
-Poniższy przykład zestawu umiejętności używa umiejętności OCR do wyodrębniania tekstu z obrazów osadzonych w dokumencie. Następnie tworzy pole *merged_text* , aby zawierało oryginalny i OCRed tekst z każdego obrazu. Więcej informacji o umiejętnościach OCR można znaleźć [tutaj](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+Poniższy przykład zestawu umiejętności używa umiejętności OCR do wyodrębniania tekstu z obrazów osadzonych w dokumencie. Następnie tworzy pole *merged_text* , aby zawierało oryginalny i OCRed tekst z każdego obrazu. Więcej informacji o umiejętnościach OCR można znaleźć [tutaj](./cognitive-search-skill-ocr.md).
 
 ```json
 {
@@ -144,8 +144,8 @@ W powyższym przykładzie przyjęto założenie, że istnieje znormalizowane pol
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
-+ [Tworzenie indeksatora (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Tworzenie indeksatora (REST)](/rest/api/searchservice/create-indexer)

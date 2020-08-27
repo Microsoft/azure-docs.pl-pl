@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: f3e03a9b7a729d39438ec23a954687694d3bba2b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6a5a99dba8b6fb59f67a023cda41717d6fcefe67
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75467463"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925575"
 ---
 > [!div class="nextstepaction"]
 > [Poznaj przykłady w języku C# w witrynie GitHub](https://aka.ms/speech/github-csharp)

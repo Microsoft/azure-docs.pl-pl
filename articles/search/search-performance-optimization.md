@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 7c2857de0613be400f83544e1dabe079b7497bbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212384"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934960"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalowanie pod kątem wydajności na platformie Azure Wyszukiwanie poznawcze
 
@@ -30,7 +30,7 @@ Przed przystąpieniem do większego nakładu prac związanych z wdrażaniem upew
 
 1. Zacznij od niskiej liczby zapytań na sekundę (zapytań), a następnie stopniowo Zwiększaj liczbę wykonywanych testów do momentu spadku opóźnienia zapytania poniżej wstępnie zdefiniowanego elementu docelowego. Jest to ważny test, który ułatwia planowanie skalowania w miarę zwiększania użycia aplikacji.
 
-1. Gdy to możliwe, należy ponownie użyć połączeń HTTP. Jeśli używasz zestawu SDK platformy Azure Wyszukiwanie poznawcze .NET, oznacza to, że należy ponownie użyć wystąpienia lub wystąpienia [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) , a jeśli korzystasz z interfejsu API REST, należy ponownie użyć pojedynczej HttpClient.
+1. Gdy to możliwe, należy ponownie użyć połączeń HTTP. Jeśli używasz zestawu SDK platformy Azure Wyszukiwanie poznawcze .NET, oznacza to, że należy ponownie użyć wystąpienia lub wystąpienia [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) , a jeśli korzystasz z interfejsu API REST, należy ponownie użyć pojedynczej HttpClient.
 
 1. Różnej treści żądań zapytań, dzięki czemu wyszukiwanie odbywa się na różnych częściach indeksu. Odmiana jest ważna, ponieważ w przypadku ciągłego wykonywania tych samych żądań wyszukiwania buforowanie danych rozpocznie się, aby wydajność była lepsza niż w przypadku bardziej nieznaczącego zestawu zapytań.
 
@@ -43,7 +43,7 @@ Podczas tworzenia tych obciążeń testowych należy wziąć pod uwagę pewne ce
 + Usługa Azure Wyszukiwanie poznawcze nie uruchamia zadań indeksowania w tle. Jeśli usługa obsługuje współbieżne obciążenia zapytań i indeksowania, należy to uwzględnić, wprowadzając zadania indeksowania do testów zapytań lub przez Eksplorowanie opcji uruchamiania zadań indeksowania w godzinach szczytu.
 
 > [!Tip]
-> Możesz symulować realistyczne obciążenie zapytań za pomocą narzędzi do testowania obciążenia. Wypróbuj [testowanie obciążenia za pomocą usługi Azure DevOps](https://docs.microsoft.com/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) lub użyj jednego z tych [wariantów](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Możesz symulować realistyczne obciążenie zapytań za pomocą narzędzi do testowania obciążenia. Wypróbuj [testowanie obciążenia za pomocą usługi Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) lub użyj jednego z tych [wariantów](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Skalowanie dla dużej ilości zapytań
 
@@ -99,7 +99,7 @@ Celem rozproszonego geograficznie zestawu usług wyszukiwania jest posiadanie co
 
 ### <a name="keep-data-synchronized-across-multiple-services"></a>Utrzymywanie synchronizacji danych w wielu usługach
 
-Istnieją dwie opcje utrzymywania synchronizacji usług wyszukiwania rozproszonego, które składają się z usługi [azure wyszukiwanie poznawcze Indexer](search-indexer-overview.md) lub interfejsu API wypychania (nazywanego również [interfejsem API REST usługi Azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/)).  
+Istnieją dwie opcje utrzymywania synchronizacji usług wyszukiwania rozproszonego, które składają się z usługi [azure wyszukiwanie poznawcze Indexer](search-indexer-overview.md) lub interfejsu API wypychania (nazywanego również [interfejsem API REST usługi Azure wyszukiwanie poznawcze](/rest/api/searchservice/)).  
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Używanie indeksatorów do aktualizowania zawartości w wielu usługach
 
@@ -111,7 +111,7 @@ Poniżej znajduje się wysoce wysoki poziom wizualizacji, która będzie wygląd
 
 ### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Używanie interfejsów API REST do wypychania aktualizacji zawartości w wielu usługach
 
-Jeśli korzystasz z interfejsu API REST usługi Azure Wyszukiwanie poznawcze do [wypychania zawartości w indeksie wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/rest/api/searchservice/update-index), możesz zapewnić synchronizację różnych usług wyszukiwania przez wypychanie zmian do wszystkich usług wyszukiwania, gdy wymagana jest aktualizacja. W kodzie, pamiętaj, aby obsługiwać przypadki, w których aktualizacja jednej usługi wyszukiwania kończy się niepowodzeniem, ale powiodła się dla innych usług wyszukiwania.
+Jeśli korzystasz z interfejsu API REST usługi Azure Wyszukiwanie poznawcze do [wypychania zawartości w indeksie wyszukiwanie poznawcze platformy Azure](/rest/api/searchservice/update-index), możesz zapewnić synchronizację różnych usług wyszukiwania przez wypychanie zmian do wszystkich usług wyszukiwania, gdy wymagana jest aktualizacja. W kodzie, pamiętaj, aby obsługiwać przypadki, w których aktualizacja jednej usługi wyszukiwania kończy się niepowodzeniem, ale powiodła się dla innych usług wyszukiwania.
 
 ## <a name="leverage-azure-traffic-manager"></a>Korzystanie z usługi Azure Traffic Manager
 

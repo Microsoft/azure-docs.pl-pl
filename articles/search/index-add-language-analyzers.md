@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130555"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935888"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Dodawanie analizatorów języka do pól ciągów w indeksie Wyszukiwanie poznawcze platformy Azure
 
@@ -59,9 +59,9 @@ Analizatory języka są używane jako-is. Dla każdego pola w definicji indeksu 
 > [!NOTE]
 > Nie można użyć innego analizatora języka w czasie indeksowania niż w czasie zapytania dla pola. Ta możliwość jest zarezerwowana dla [analizatorów niestandardowych](index-add-custom-analyzers.md). Z tego powodu, jeśli spróbujesz ustawić właściwości **searchAnalyzer** lub **indexAnalyzer** jako nazwę analizatora języka, interfejs API REST zwróci odpowiedź na błąd. Zamiast tego należy użyć właściwości **Analizator** .
 
-Użyj parametru zapytania **searchFields** , aby określić, które pole specyficzne dla języka ma być wyszukiwane w zapytaniach. Przykłady zapytań, które obejmują Właściwość analizatora, można przejrzeć w [dokumentach wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Użyj parametru zapytania **searchFields** , aby określić, które pole specyficzne dla języka ma być wyszukiwane w zapytaniach. Przykłady zapytań, które obejmują Właściwość analizatora, można przejrzeć w [dokumentach wyszukiwania](/rest/api/searchservice/search-documents). 
 
-Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create index &#40;Azure wyszukiwanie POZNAWCZE API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Aby uzyskać więcej informacji na temat analizy w usłudze Azure Wyszukiwanie poznawcze, zobacz [analizatory na platformie azure wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-analyzers).
+Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create index &#40;Azure wyszukiwanie POZNAWCZE API REST&#41;](/rest/api/searchservice/create-index). Aby uzyskać więcej informacji na temat analizy w usłudze Azure Wyszukiwanie poznawcze, zobacz [analizatory na platformie azure wyszukiwanie poznawcze](./search-analyzers.md).
 
 <a name="language-analyzer-list"></a>
 
@@ -97,7 +97,7 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 |Indonezyjski (Bahasa)|Identyfikator. Microsoft|Identyfikator. Lucene|  
 |Irlandzki||ga. Lucene|  
 |Włoski|IT. Microsoft|IT. Lucene|  
-|Japoński|ja. Microsoft|ja. Lucene|  
+|japoński|ja. Microsoft|ja. Lucene|  
 |Kannada|kN. Microsoft||  
 |Koreański|ko. Microsoft|ko. Lucene|  
 |Łotewski|LV. Microsoft|LV. Lucene|  
@@ -129,9 +129,8 @@ Aby uzyskać więcej informacji o właściwościach indeksu, zobacz [create inde
 
  Wszystkie analizatory z nazwami oznaczonymi jako " **Lucene** " są obsługiwane przez [analizatory języka Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
-+ [Utwórz indeks &#40;interfejsu API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
++ [Utwórz indeks &#40;interfejsu API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/create-index)  
 
-+ [Analizatorname — Klasa](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
-
++ [Analizatorname — Klasa](/dotnet/api/microsoft.azure.search.models.analyzername)

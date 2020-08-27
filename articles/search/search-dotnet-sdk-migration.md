@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 10e6d0a183afdda2bf89014bb72f58d03a3013ec
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3b3d88c9e605889846808bb53063b06a3e980049
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171894"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929758"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Uaktualnianie do Azure Search .NET SDK w wersji 3
 
@@ -25,7 +25,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-W przypadku korzystania z wersji 2,0-Preview lub starszej [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 3.
+W przypadku korzystania z wersji 2,0-Preview lub starszej [Azure Search .NET SDK](/dotnet/api/overview/azure/search)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 3.
 
 Aby zapoznać się z bardziej ogólnym przewodnikiem dotyczącym zestawu SDK, łącznie z przykładami, zobacz [jak używać Azure Search z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
 
@@ -63,7 +63,7 @@ Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft
 
 Następnym krokiem jest poprawienie tego błędu kompilacji. Zobacz istotne [zmiany w wersji 3](#ListOfChanges) , aby uzyskać szczegółowe informacje na temat tego, co powoduje błąd i sposób jego rozwiązania.
 
-Mogą pojawić się dodatkowe ostrzeżenia kompilacji dotyczące przestarzałych metod lub właściwości. Ostrzeżenia będą zawierać instrukcje dotyczące użycia zamiast przestarzałej funkcji. Na przykład jeśli aplikacja używa `IndexingParameters.Base64EncodeKeys` właściwości, należy otrzymać ostrzeżenie z informacją o tym, że`"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
+Mogą pojawić się dodatkowe ostrzeżenia kompilacji dotyczące przestarzałych metod lub właściwości. Ostrzeżenia będą zawierać instrukcje dotyczące użycia zamiast przestarzałej funkcji. Na przykład jeśli aplikacja używa `IndexingParameters.Base64EncodeKeys` właściwości, należy otrzymać ostrzeżenie z informacją o tym, że `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
 
 Po naprawieniu błędów kompilacji możesz wprowadzić zmiany w aplikacji, aby korzystać z nowych funkcji. Nowe funkcje zestawu SDK opisano w temacie [co nowego w wersji 3](#WhatsNew).
 
@@ -132,7 +132,7 @@ index.Analyzers = new Analyzer[]
 
 Możesz zobaczyć błędy kompilacji związane z metodami lub właściwościami, które zostały oznaczone jako przestarzałe w wersji 2,0-Preview, a następnie usunięte w wersji 3. W przypadku wystąpienia takich błędów poniżej przedstawiono sposób ich rozwiązywania:
 
-- Jeśli używasz tego konstruktora: `ScoringParameter(string name, string value)` , użyj tego:`ScoringParameter(string name, IEnumerable<string> values)`
+- Jeśli używasz tego konstruktora: `ScoringParameter(string name, string value)` , użyj tego: `ScoringParameter(string name, IEnumerable<string> values)`
 - Jeśli używasz `ScoringParameter.Value` właściwości, `ScoringParameter.Values` zamiast tego użyj właściwości lub `ToString` metody.
 - Jeśli używasz `SearchRequestOptions.RequestId` właściwości, użyj `ClientRequestId` zamiast niej właściwości.
 

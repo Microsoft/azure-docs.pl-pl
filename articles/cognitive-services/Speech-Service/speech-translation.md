@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: f51288da6af3580ba7592950cde4f17d7adad529
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052615"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934501"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
@@ -33,9 +34,9 @@ Poniżej przedstawiono funkcje dostępne za pośrednictwem zestawu Speech SDK i 
 
 | Przypadek użycia | SDK | REST |
 |----------|-----|------|
-| Tłumaczenie zamiany mowy na tekst z wynikami rozpoznawania. | Tak | Nie |
-| Tłumaczenie mowy na mowę. | Tak | Nie |
-| Tymczasowe rozpoznawanie i wyniki tłumaczenia. | Tak | Nie |
+| Tłumaczenie zamiany mowy na tekst z wynikami rozpoznawania. | Yes | Nie |
+| Tłumaczenie mowy na mowę. | Yes | Nie |
+| Tymczasowe rozpoznawanie i wyniki tłumaczenia. | Yes | Nie |
 
 ## <a name="get-started-with-speech-translation"></a>Wprowadzenie do tłumaczenia mowy
 

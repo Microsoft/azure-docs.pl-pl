@@ -2,13 +2,14 @@
 title: Application Insights aplikacji usługi Worker (aplikacje inne niż HTTP)
 description: Monitorowanie aplikacji .NET Core/. NET Framework bez protokołu HTTP z Azure Monitor Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6f31236e516e44df9f5115e3efeb48db46853e8d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325410"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933277"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights aplikacji usługi Worker (aplikacje inne niż HTTP)
 
@@ -46,7 +47,7 @@ Szczegółowe instrukcje dotyczące poszczególnych typów aplikacji opisano w p
 Pełny przykład jest udostępniany [tutaj](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Pobierz i zainstaluj program [.NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Utwórz nowy projekt usługi procesu roboczego przy użyciu nowego szablonu projektu programu Visual Studio lub wiersza polecenia`dotnet new worker`
+2. Utwórz nowy projekt usługi procesu roboczego przy użyciu nowego szablonu projektu programu Visual Studio lub wiersza polecenia `dotnet new worker`
 3. Zainstaluj pakiet [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) w aplikacji.
 
 4. Dodaj `services.AddApplicationInsightsTelemetryWorkerService();` do `CreateHostBuilder()` metody w `Program.cs` klasie, tak jak w poniższym przykładzie:
@@ -124,7 +125,7 @@ Alternatywnie Określ klucz Instrumentacji w jednej z następujących zmiennych 
 `APPINSIGHTS_INSTRUMENTATIONKEY` lub `ApplicationInsights:InstrumentationKey`
 
 Na przykład: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
-ORAZ`SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
+ORAZ `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 Zazwyczaj `APPINSIGHTS_INSTRUMENTATIONKEY` określa klucz Instrumentacji dla aplikacji wdrożonych do Web Apps jako zadania w sieci Web.
 
@@ -312,7 +313,7 @@ Kolekcja zależności jest domyślnie włączona. W [tym](asp-net-dependencies.m
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`Program jest domyślnie włączony i zbiera domyślny zestaw liczników z aplikacji platformy .NET Core 3,0. Samouczek [EventCounter](eventcounters.md) zawiera domyślny zestaw zebranych liczników. Zawiera również instrukcje dotyczące dostosowywania listy.
+`EventCounterCollectionModule` Program jest domyślnie włączony i zbiera domyślny zestaw liczników z aplikacji platformy .NET Core 3,0. Samouczek [EventCounter](eventcounters.md) zawiera domyślny zestaw zebranych liczników. Zawiera również instrukcje dotyczące dostosowywania listy.
 
 ### <a name="manually-tracking-additional-telemetry"></a>Ręczne śledzenie dodatkowych danych telemetrycznych
 
@@ -349,9 +350,9 @@ Kilka typowych ustawień można zmodyfikować, przechodząc `ApplicationInsights
 
 Należy pamiętać, że `ApplicationInsightsServiceOptions` w tym zestawie SDK znajduje się w przestrzeni nazw `Microsoft.ApplicationInsights.WorkerService` , a nie `Microsoft.ApplicationInsights.AspNetCore.Extensions` w ASP.NET Core SDK.
 
-Najczęściej używane ustawienia w programie`ApplicationInsightsServiceOptions`
+Najczęściej używane ustawienia w programie `ApplicationInsightsServiceOptions`
 
-|Ustawienie | Opis | Domyślne
+|Ustawienie | Opis | Domyślny
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Włącz/Wyłącz funkcję LiveMetrics | true
 |EnableAdaptiveSampling | Włącz/Wyłącz próbkowanie adaptacyjne | true
@@ -425,7 +426,7 @@ Następujące moduły automatycznego zbierania są domyślnie włączone. Te mod
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`-(Obecnie występuje problem obejmujący ten moduł telemetrii. Tymczasowe obejście problemu można znaleźć w witrynie [GitHub 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
+* `AppServicesHeartbeatTelemetryModule` -(Obecnie występuje problem obejmujący ten moduł telemetrii. Tymczasowe obejście problemu można znaleźć w witrynie [GitHub 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
 ).)
 * `AzureInstanceMetadataTelemetryModule`
 

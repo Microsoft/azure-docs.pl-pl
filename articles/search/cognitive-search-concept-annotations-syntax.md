@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113872"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935538"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Jak odwoływać się do adnotacji w usłudze Azure Wyszukiwanie poznawcze zestawu umiejętności
 
@@ -25,7 +25,7 @@ Przykłady w tym artykule są oparte na polu *zawartości* wygenerowanej automat
 
 Przed przejrzeniem składni należy ponownie odwiedzić kilka ważnych koncepcji, aby lepiej zrozumieć przykłady opisane w dalszej części tego artykułu.
 
-| Termin | Opis |
+| Okres | Opis |
 |------|-------------|
 | Wzbogacony dokument | Wzbogacony dokument to wewnętrzna struktura utworzona i używana przez potok do przechowywania wszystkich adnotacji związanych z dokumentem. Zastanów się, że wzbogacony dokument jest drzewem adnotacji. Na ogół adnotacja utworzona na podstawie poprzedniej adnotacji staną się jej elementami podrzędnymi.<p/>Dokumenty wzbogacone istnieją tylko na czas wykonywania zestawu umiejętności. Gdy zawartość jest zamapowana na indeks wyszukiwania, wzbogacony dokument nie będzie już potrzebne. Chociaż nie można bezpośrednio korzystać z ulepszonych dokumentów, warto mieć model psychiczny dokumentów podczas tworzenia zestawu umiejętności. |
 | Kontekst wzbogacania | Kontekst, w którym odbywa się wzbogacanie, w odniesieniu do którego element jest wzbogacany. Domyślnie kontekst wzbogacania jest na `"/document"` poziomie, w zakresie do poszczególnych dokumentów. Po uruchomieniu umiejętności dane wyjściowe tej umiejętności stają się [właściwościami zdefiniowanego kontekstu](#example-2).|
@@ -95,7 +95,7 @@ Gdy adnotacje są tablicami lub kolekcjami ciągów, możesz chcieć wskazać ko
 
 Czasami trzeba zgrupować wszystkie adnotacje danego typu, aby przekazać je do określonej umiejętności. Rozważmy hipotetyczną niestandardową umiejętność, która identyfikuje najbardziej typowe nazwisko ze wszystkich ostatnich nazw wyodrębnionych w przykładzie 2. Aby podać tylko ostatnie nazwy niestandardowej umiejętności, Określ kontekst jako `"/document"` i dane wejściowe jako `"/document/people/*/lastname"` .
 
-Zauważ, że Kardynalność `"/document/people/*/lastname"` jest większa niż wartość dokumentu. Może istnieć 10 węzłów LastName, gdy istnieje tylko jeden węzeł dokumentu dla tego dokumentu. W takim przypadku system automatycznie utworzy tablicę `"/document/people/*/lastname"` zawierającą wszystkie elementy w dokumencie.
+Zauważ, że Kardynalność `"/document/people/*/lastname"` jest większa niż wartość dokumentu. Może istnieć 10 węzłów LastName, gdy istnieje tylko jeden węzeł dokumentu dla tego dokumentu. W takim przypadku system automatycznie utworzy tablicę  `"/document/people/*/lastname"` zawierającą wszystkie elementy w dokumencie.
 
 ```json
   {
@@ -120,8 +120,8 @@ Zauważ, że Kardynalność `"/document/people/*/lastname"` jest większa niż w
 
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 + [Jak zintegrować niestandardową umiejętność z potokiem wzbogacania](cognitive-search-custom-skill-interface.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
-+ [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Utwórz zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset)
 + [Jak zmapować wzbogacone pola na indeks](cognitive-search-output-field-mapping.md)

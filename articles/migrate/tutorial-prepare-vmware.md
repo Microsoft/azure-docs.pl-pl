@@ -4,18 +4,18 @@ description: Dowiedz się, jak przygotować się do oceny/migracji maszyn wirtua
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109580"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927310"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Przygotowywanie maszyny wirtualnej środowiska VMware do oceny i migracji na platformę Azure
 
 Ten artykuł ułatwia przygotowanie się do oceny i migracji lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu [Azure Migrate](migrate-services-overview.md).
 
-Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure do pracy z Azure Migrate.
@@ -36,8 +36,8 @@ Tabela zawiera podsumowanie zadań, które należy wykonać na platformie Azure.
 --- | --- | ---
 **Tworzenie projektu Azure Migrate** | Projekt Azure Migrate stanowi centralną lokalizację organizowania ocen i migracji oraz zarządzania nimi za pomocą narzędzi Azure Migrate, narzędzi firmy Microsoft i ofert innych firm. | Twoje konto platformy Azure wymaga uprawnień współautora lub właściciela w grupie zasobów, w której znajduje się projekt.
 **Zarejestruj urządzenie** | Azure Migrate korzysta z urządzenia uproszczonego Azure Migrate w celu odnajdywania maszyn wirtualnych, oceny ich za pomocą narzędzia do oceny serwera i migracji ich przy użyciu migracji bez agenta za pomocą narzędzia migracji serwera. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration) o rejestracji. | Aby zarejestrować urządzenie, konto platformy Azure musi mieć uprawnienia współautora lub właściciela subskrypcji platformy Azure.
-**Tworzenie aplikacji usługi Azure AD** | Podczas rejestrowania urządzenia Azure Migrate tworzy aplikacje Azure Active Directory (Azure AD). <br/><br/> — Pierwsza aplikacja jest używana do komunikacji między agentami działającymi na urządzeniu a Azure Migrate. <br/><br/> -Druga aplikacja jest używana wyłącznie w celu uzyskania dostępu do magazynu kluczy utworzonego w ramach subskrypcji użytkownika dla migracji maszyn wirtualnych VMware bez agentów.   | Twoje konto platformy Azure wymaga uprawnień do tworzenia aplikacji usługi Azure AD.
-**Tworzenie magazynu kluczy** | Aby przeprowadzić migrację maszyn wirtualnych VMware przy użyciu migracji bez agentów, Azure Migrate tworzy Key Vault do zarządzania kluczami dostępu do konta replikacji w ramach subskrypcji. | Aby umożliwić Azure Migrate tworzenia Key Vault, należy ustawić uprawnienia (właściciel lub współautor i administrator dostępu użytkowników) w grupie zasobów, w której znajduje się projekt Azure Migrate.
+**Tworzenie aplikacji usługi Azure AD** | Podczas rejestrowania urządzenia Azure Migrate tworzy dwie aplikacje Active Directory platformy Azure (Azure AD). <br/><br/> — Pierwsza aplikacja jest używana do komunikacji między agentami działającymi na urządzeniu a Azure Migrate. <br/><br/> -Druga aplikacja jest używana wyłącznie w celu uzyskania dostępu do magazynu kluczy utworzonego w ramach subskrypcji użytkownika dla migracji maszyn wirtualnych VMware bez agentów.   | Twoje konto platformy Azure wymaga tych [uprawnień](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) do tworzenia aplikacji usługi Azure AD.
+**Tworzenie magazynu kluczy** | — Pierwszy Key Vault jest tworzony w ramach rejestracji urządzenia i służy do zarządzania certyfikatem pobranym na urządzeniu podczas jego konfiguracji. <br/><br/> — Aby przeprowadzić migrację maszyn wirtualnych VMware przy użyciu migracji bez wykorzystania agentów, Azure Migrate tworzy kolejną Key Vault do zarządzania kluczami dostępu do konta replikacji w ramach subskrypcji.| Aby umożliwić Azure Migrate tworzenia Key Vault, należy ustawić uprawnienia (właściciel lub współautor i administrator dostępu użytkowników) w grupie zasobów, w której znajduje się projekt Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Przypisywanie uprawnień do tworzenia projektu
