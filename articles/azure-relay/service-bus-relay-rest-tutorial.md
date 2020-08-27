@@ -2,13 +2,14 @@
 title: 'Samouczek: samouczek REST przy użyciu Azure Relay'
 description: 'Samouczek: Tworzenie aplikacji hosta Azure Relay, która uwidacznia Interfejs REST.'
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 0d42bd664be0881ee0c1f036231acc67e49b6f8a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0620f55650d0e4da0cd7a616649df952f3017455
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85316629"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922331"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>Samouczek: samouczek REST platformy Azure WCF Relay
 

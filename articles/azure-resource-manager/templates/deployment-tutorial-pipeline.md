@@ -1,15 +1,15 @@
 ---
 title: Ciągła integracja z użyciem usługi Azure Pipelines
 description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablony Azure Resource Manager.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86118923"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892681"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines
 
@@ -29,7 +29,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Tworzenie potoku platformy Azure
 > * Weryfikowanie wdrożenia potoku
 > * Zaktualizuj szablon i Wdróż ponownie
-> * Oczyszczanie zasobów
+> * Czyszczenie zasobów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -127,7 +127,7 @@ Aby można było wykonać następną procedurę, wymagana jest organizacja DevOp
     * **Kontrola wersji**: wybierz pozycję **git**. Może być konieczne rozszerzenie **Zaawansowane** , aby zobaczyć **kontrolę wersji**.
 
     Użyj wartości domyślnej dla innych właściwości.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Utwórz połączenie usługi używane do wdrażania projektów na platformie Azure.
 
@@ -175,8 +175,8 @@ Aby utworzyć potok z krokiem do wdrożenia szablonu:
     * **Lokalizacja**: Wybierz lokalizację dla grupy zasobów, na przykład **środkowe stany USA**.
     * **Lokalizacja szablonu**: wybierz pozycję **połączone artefakty**, co oznacza, że zadanie szuka pliku szablonu bezpośrednio z połączonego repozytorium.
     * **Szablon**: wprowadź **CreateWebApp/azuredeploy.json**. Jeśli zmieniono nazwę folderu i nazwę pliku, należy zmienić tę wartość.
-    * **Parametry szablonu**: pozostaw to pole puste. Należy określić wartości parametrów w parametrach szablonu * * override.
-    * **overrideParameters**: ENTER **-projectName [EnterAProjectName]-linkedTemplateUri [EnterTheLinkedTemplateURL]**. Zastąp nazwę projektu i adres URL połączonego szablonu. Adres URL połączonego szablonu jest zapisany na końcu [tworzenia repozytorium GitHub](#create-a-github-repository).
+    * **Parametry szablonu**: pozostaw to pole puste. Wartości parametrów należy określić w **parametrach szablonu przesłonięć**.
+    * **Przesłoń parametry szablonu**: ENTER **-projectName [EnterAProjectName]-linkedTemplateUri [EnterTheLinkedTemplateURL]**. Zastąp nazwę projektu i adres URL połączonego szablonu. Adres URL połączonego szablonu jest zapisany na końcu [tworzenia repozytorium GitHub](#create-a-github-repository). Zaczyna się od **https://raw.githubusercontent.com** .
     * **Tryb wdrożenia**: wybierz pozycję **przyrostowe**.
     * **Nazwa wdrożenia**: wprowadź **DeployPipelineTemplate**. Wybierz pozycję **Zaawansowane** , aby zobaczyć **nazwę wdrożenia**.
 
@@ -228,7 +228,7 @@ Gdy aktualizujesz szablon i wypychasz zmiany do repozytorium zdalnego, potok aut
 
 Aby sprawdzić zmiany, można sprawdzić Właściwość replikacji konta magazynu.  Zobacz [weryfikacja wdrożenia](#verify-the-deployment).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 08/26/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27144dcd4c7d7490aba3626264e1cb4b64fbb162
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 348d436d1cb1fa838a34c9ebe86f5e37f0f85803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019203"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930569"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Utwórz, Wyświetl, Usuń lub Przypisz rolę do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal
 
 Zarządzane tożsamości dla zasobów platformy Azure zapewniają usługi platformy Azure z zarządzaną tożsamością w Azure Active Directory. Ta tożsamość służy do uwierzytelniania w usługach, które obsługują uwierzytelnianie usługi Azure AD, bez konieczności podania poświadczeń w kodzie. 
 
-W tym artykule dowiesz się, jak tworzyć, wyświetlać, usuwać lub przypisywać rolę do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu witryny Azure Portal.
+W tym artykule dowiesz się, jak utworzyć, wyświetlić, usunąć lub przypisać rolę do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,13 +40,13 @@ Do utworzenia tożsamości zarządzanej przypisanej przez użytkownika konto wym
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure w celu utworzenia tożsamości zarządzanej przypisanej przez użytkownika.
 2. W polu wyszukiwania wpisz *tożsamości zarządzane*, a w obszarze **usługi**kliknij pozycję **tożsamości zarządzane**.
 3. Kliknij przycisk **Dodaj** i wprowadź wartości w następujących polach w obszarze **Tworzenie zarządzanej tożsamości przypisanej przez użytkownika** w okienku:
-   - **Nazwa zasobu**: jest to nazwa tożsamości zarządzanej przypisanej przez użytkownika, na przykład UAI1.
-   - **Subskrypcja**: wybierz subskrypcję, aby utworzyć tożsamość zarządzaną przypisaną przez użytkownika w obszarze
-   - **Grupa zasobów**: Utwórz nową grupę zasobów, aby zawierała tożsamość zarządzaną przez użytkownika, lub wybierz pozycję **Użyj istniejącej** do utworzenia tożsamości zarządzanej przypisanej przez użytkownika w istniejącej grupie zasobów.
-   - **Lokalizacja**: Wybierz lokalizację do wdrożenia tożsamości zarządzanej przypisanej przez użytkownika, na przykład **zachodnie stany USA**.
-4. Kliknij pozycję **Utwórz**.
-
-![Tworzenie tożsamości zarządzanej przypisanej przez użytkownika](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+    - **Subskrypcja**: wybierz subskrypcję, aby utworzyć tożsamość zarządzaną przypisaną przez użytkownika.
+    - **Grupa zasobów**: Wybierz grupę zasobów, aby utworzyć tożsamość zarządzaną przypisaną przez użytkownika w programie, lub kliknij pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów.
+    - **Region**: Wybierz region, aby wdrożyć tożsamość zarządzaną przypisaną przez użytkownika, na przykład **zachodnie stany USA**.
+    - **Nazwa**: to jest nazwa tożsamości zarządzanej przypisanej przez użytkownika, na przykład UAI1.
+    ![Tworzenie tożsamości zarządzanej przypisanej przez użytkownika](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+4. Kliknij kolejno pozycje **Przegląd +** kolejka, aby przejrzeć zmiany.
+5. Kliknij przycisk **Utwórz**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Wyświetlanie tożsamości zarządzanych przypisanych przez użytkownika
 
@@ -83,7 +83,7 @@ Aby przypisać rolę do tożsamości zarządzanej przypisanej przez użytkownika
 
 5. W bloku Dodaj przypisanie roli skonfiguruj następujące wartości, a następnie kliknij przycisk **Zapisz**:
    - **Rola** — rola do przypisania
-   - **Przypisywanie dostępu do** zasobu do przypisywania tożsamości zarządzanej przypisanej przez użytkownika
+   - **Przypisywanie dostępu do**  zasobu do przypisywania tożsamości zarządzanej przypisanej przez użytkownika
    - **Wybierz** — element członkowski, do którego ma zostać przypisany dostęp
    
    ![Zarządzana przez użytkownika IAM tożsamości](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  

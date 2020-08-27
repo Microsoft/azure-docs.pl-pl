@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc05fa713186eb1e2379c3c4c170d29f1c07958a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022798"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892800"
 ---
 # <a name="server-side-performance-queries"></a>Zapytania wydajności po stronie serwera
 
@@ -61,7 +61,7 @@ void QueryFrameData(ApiHandle<AzureSession> session)
 
 Pobrany `FrameStatistics` obiekt zawiera następujące elementy członkowskie:
 
-| Członek | Objaśnienie |
+| Członek | Wyjaśnienie |
 |:-|:-|
 | latencyPoseToReceive | Opóźnienie z aparatu jest szacowane na urządzeniu klienckim do momentu, gdy ramka serwera dla tego ułożenia jest w pełni dostępna dla aplikacji klienckiej. Ta wartość obejmuje sieć w sieci, czas renderowania serwera, dekodowanie wideo i kompensację wahania. Zobacz **interwał 1 na powyższej ilustracji.**|
 | latencyReceiveToPresent | Opóźnienie od dostępności odebranej ramki zdalnej do momentu, gdy aplikacja kliencka wywoła PresentFrame na procesorze CPU. |
@@ -110,7 +110,8 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
     assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
     {
         // do something with the result:
-        PerformanceAssessment result = *res->Result();
+        PerformanceAssessment result = res->GetResult();
+
         // ...
 
     });
@@ -119,7 +120,7 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
 
 W przeciwieństwie do `FrameStatistics` obiektu, `PerformanceAssessment` obiekt zawiera informacje po stronie serwera:
 
-| Członek | Objaśnienie |
+| Członek | Wyjaśnienie |
 |:-|:-|
 | timeCPU | Średni czas procesora CPU serwera na klatkę w milisekundach |
 | timeGPU | Średni czas procesora GPU serwera na klatkę w milisekundach |

@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826244"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892341"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -43,7 +43,7 @@ Poniżej przedstawiono typowe problemy związane z błędami tworzenia kopii zap
 
 Kod błędu: VMRestorePointInternalError
 
-Jeśli w chwili tworzenia kopii zapasowej, **Dzienniki aplikacji Podgląd zdarzeń** wyświetlają **nazwę aplikacji powodującej błąd: IaaSBcdrExtension.exe** następnie potwierdzenie, że program antywirusowy skonfigurowany na maszynie wirtualnej ogranicza wykonywanie rozszerzenia kopii zapasowej.
+Jeśli w chwili tworzenia kopii zapasowej, **Dzienniki aplikacji Podgląd zdarzeń** będą wyświetlały **nazwę aplikacji powodującej błąd: IaaSBcdrExtension.exe** następnie potwierdzenie, że program antywirusowy skonfigurowany na maszynie wirtualnej ogranicza wykonywanie rozszerzenia kopii zapasowej.
 Aby rozwiązać ten problem, Wyklucz poniższe katalogi w konfiguracji programu antywirusowego i spróbuj ponownie wykonać operację tworzenia kopii zapasowej.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -192,7 +192,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Dzięki temu migawki będą wykonywane za pośrednictwem hosta, a nie konta gościa. Ponów próbę wykonania operacji tworzenia kopii zapasowej.
 
-**Krok 2**. Spróbuj zmienić harmonogram tworzenia kopii zapasowych na czas, gdy maszyna wirtualna jest mniej załadowana (mniej procesora CPU/IOps itd.)
+**Krok 2**. Spróbuj zmienić harmonogram tworzenia kopii zapasowych na czas, gdy maszyna wirtualna jest mniej załadowana (na przykład mniej procesorów lub IOps)
 
 **Krok 3**. próba [zwiększenia rozmiaru maszyny wirtualnej](https://azure.microsoft.com/blog/resize-virtual-machines/) i ponowna próba wykonania operacji
 
@@ -336,7 +336,7 @@ Kopia zapasowa maszyny wirtualnej polega na wystawianiu poleceń migawek do maga
 * **Jeśli więcej niż cztery maszyny wirtualne współużytkują tę samą usługę w chmurze, należy rozłożyć maszyny wirtualne na wiele zasad tworzenia kopii zapasowych**. Rozłożenie czasu wykonywania kopii zapasowych, więc nie można uruchomić więcej niż czterech kopii zapasowych maszyn wirtualnych. Spróbuj oddzielić godziny rozpoczęcia w zasadach o co najmniej godzinie.
 * **Maszyna wirtualna jest uruchamiana z dużym procesorem CPU lub pamięcią**. Jeśli maszyna wirtualna działa z dużą ilością pamięci lub użyciem procesora CPU, więcej niż 90 procent, zadanie migawki jest umieszczane w kolejce i opóźnione. Ostatecznie przeprowadzi limit czasu. Jeśli ten problem wystąpi, wypróbuj kopię zapasową na żądanie.
 
-## <a name="networking"></a>Sieć
+## <a name="networking"></a>Networking
 
 Aby tworzenie kopii zapasowej maszyny wirtualnej IaaS było możliwe, należy włączyć protokół DHCP wewnątrz gościa. Jeśli potrzebujesz statycznego prywatnego adresu IP, skonfiguruj go za pomocą Azure Portal lub programu PowerShell. Upewnij się, że opcja DHCP wewnątrz maszyny wirtualnej jest włączona.
 Uzyskaj więcej informacji na temat konfigurowania statycznego adresu IP za pomocą programu PowerShell:

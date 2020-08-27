@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d54bef277d80a178c45ce918290d46c11387b7d1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067498"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918098"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database for PostgreSQL podwójne szyfrowanie infrastruktury
 
@@ -62,6 +62,12 @@ Funkcje szyfrowania zapewniane przez Azure Database for PostgreSQL mogą być u�
 W przypadku Azure Database for PostgreSQL Obsługa podwójnego szyfrowania infrastruktury przy użyciu klucza zarządzanego przez usługę ma następujące ograniczenia:
 
 * Obsługa tej funkcji jest ograniczona do warstw cenowych **ogólnego przeznaczenia** i **zoptymalizowanych pod kątem pamięci** .
+* Można utworzyć Azure Database for PostgreSQL z włączonym podwójnym szyfrowaniem infrastruktury w następujących regionach:
+
+   * East US
+   * South Central US
+   * Zachodnie stany USA 2
+   
 * Ta funkcja jest obsługiwana tylko w regionach i serwerach, które obsługują magazyn do 16 TB. Listę regionów świadczenia usługi Azure obsługującą magazyn o pojemności do 16 TB można znaleźć w [dokumentacji magazynu](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

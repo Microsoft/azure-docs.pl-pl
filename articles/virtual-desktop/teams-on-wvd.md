@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509607"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922569"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
 >[!IMPORTANT]
->Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku Microsoft 365 środowisk dla instytucji rządowych.
+>Optymalizacja multimediów dla zespołów jest obsługiwana w środowiskach Microsoft 365 administracji publicznej. Optymalizacja multimediów dla zespołów nie jest obsługiwana w przypadku tej usługi.
 
 >[!NOTE]
 >Optymalizacja multimediów dla programu Microsoft Teams jest dostępna tylko dla klienta klasycznego systemu Windows na komputerach z systemem Windows 10. Optymalizacje multimediów wymagają klienta klasycznego systemu Windows w wersji 1.2.1026.0 lub nowszej.
@@ -32,7 +32,7 @@ Aby można było korzystać z programu Microsoft Teams na pulpicie wirtualnym sy
 - [Przygotuj sieć](/microsoftteams/prepare-network/) dla programu Microsoft Teams.
 - Zainstaluj [klienta pulpitu systemu Windows](connect-windows-7-10.md) na urządzeniu z systemem Windows 10 lub Windows 10 IoT Enterprise spełniającym wymagania sprzętowe zespołów firmy Microsoft [dla zespołów na komputerze z systemem Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Nawiązywanie połączenia z maszyną wirtualną z systemem Windows 10 lub systemem Windows 10 Enterprise.
-- Zainstaluj aplikację Team Desktop na hoście przy użyciu instalacji na komputerze. Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
+- [Pobierz](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) i zainstaluj aplikację Team Desktop na hoście przy użyciu instalacji na komputerze. Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
 
 ## <a name="install-the-teams-desktop-app"></a>Zainstaluj aplikację Teams Desktop
 
@@ -94,8 +94,8 @@ Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze l
 
         Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 64-bitowym systemie operacyjnym i folderze Program Files w 32-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
 
-        Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru w obszarze program i funkcje w panelu sterowania są wyświetlane zespoły Instalator, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły. 
-       
+        Istnieją dwie flagi, które mogą być ustawiane podczas instalowania zespołów, **ALLUSER = 1** i **ALLUSERS = 1**. Ważne jest, aby zrozumieć różnicę między tymi parametrami. Parametr **ALLUSER = 1** jest używany tylko w środowiskach infrastruktury VDI do określania instalacji dla komputera. Parametr **ALLUSERS = 1** może być używany w środowiskach innych niż infrastruktura VDI i VDI. Po ustawieniu tego parametru w obszarze program i funkcje w panelu sterowania są wyświetlane zespoły Instalator, a także aplikacje & funkcje w ustawieniach systemu Windows. Wszyscy użytkownicy z poświadczeniami administratora na komputerze mogą odinstalowywać zespoły.
+
         > [!NOTE]
         > Użytkownicy i Administratorzy nie mogą wyłączyć automatycznego uruchamiania dla zespołów podczas logowania.
 

@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
-ms.openlocfilehash: cef47d1c6598e73d2c17c6799f3de90458206a8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098301"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919016"
 ---
-# <a name="custom-keyword-basics"></a>Niestandardowe słowa kluczowe — podstawy
+# <a name="custom-keyword-basics"></a>Podstawy niestandardowych słów kluczowych
 
 W tym artykule przedstawiono podstawowe informacje dotyczące pracy z niestandardowymi słowami kluczowymi przy użyciu programu Speech Studio i zestawu Speech SDK. Słowo kluczowe jest słowem lub krótką frazą umożliwiającą produktowi aktywację głosu. Można tworzyć modele słów kluczowych w programie Speech Studio, a następnie eksportować plik modelu używany z zestawem Speech SDK w aplikacjach.
 

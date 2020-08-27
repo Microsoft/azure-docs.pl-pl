@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206918"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922824"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funkcja OData na platformie Azure wyszukiwanie poznawcze
 
@@ -82,7 +82,7 @@ Parametry są zdefiniowane w poniższej tabeli:
 
 <a name="bkmk_performance"></a>
 
-### <a name="performance-of-searchin"></a>Wydajność`search.in`
+### <a name="performance-of-searchin"></a>Wydajność `search.in`
 
 Jeśli używasz `search.in` , możesz oczekiwać, że czas odpowiedzi podsekundu, gdy drugi parametr zawiera listę setek lub tysięcy wartości. Nie ma żadnego jawnego limitu liczby elementów, które można przekazać `search.in` , chociaż nadal ograniczono limit rozmiaru maksymalnego żądania. Opóźnienie zostanie jednak powiększone w miarę zwiększania się liczby wartości.
 
@@ -123,4 +123,4 @@ Znajdź wszystkie hotele bez tagu "Motel" lub "cabin':
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
 - [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)

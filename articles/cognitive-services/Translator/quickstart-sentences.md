@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: de73b99cfd52a8b1c9359a6710092a4b21ec0491
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 96187c179a43f78627af8da4a9966ea29da3f480
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876601"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921340"
 ---
 # <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Szybki Start: Użyj translatora, aby określić długość zdania
 
@@ -45,7 +45,7 @@ Ten przewodnik Szybki Start wymaga [konta Cognitive Services platformy Azure](ht
 [!INCLUDE [Python quickstart](includes/sentences-python.md)]
 ::: zone-end
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Tłumaczenie tekstu](quickstart-translate.md)
 * [Transliteracja tekstu](quickstart-transliterate.md)

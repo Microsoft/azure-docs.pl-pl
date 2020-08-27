@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253311"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922115"
 ---
 # <a name="custom-controls-preview"></a>Formanty niestandardowe (wersja zapoznawcza)
 
@@ -33,11 +33,11 @@ Skopiuj dane JSON, a następnie wklej je do powiązanego pola tekstowego. Nie wp
 
 Opcja tworzenia kontrolki niestandardowej znajduje się w sekcji **Zarządzanie** na stronie **dostęp warunkowy** .
 
-![Kontrola](./media/controls/82.png)
+![Interfejs formantów niestandardowych w dostępie warunkowym](./media/controls/custom-controls-conditional-access.png)
 
 Kliknięcie przycisku **Nowy formant niestandardowy**powoduje otwarcie bloku z polem tekstowym dla danych JSON formantu.  
 
-![Kontrola](./media/controls/81.png)
+![Nowa kontrolka niestandardowa](./media/controls/new-custom-controls-conditional-access.png)
 
 ## <a name="deleting-custom-controls"></a>Usuwanie formantów niestandardowych
 
@@ -53,7 +53,7 @@ Aby edytować kontrolkę niestandardową, należy usunąć bieżącą kontrolkę
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure Multi-Factor Authentication, samoobsługowego resetowania hasła w usłudze Azure AD (SSPR), spełniającym wymagania dotyczące uwierzytelniania wieloskładnikowego lub podniesienia poziomu ról w programie Privileged Identity Manager (PIM).
+Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure Multi-Factor Authentication, samoobsługowego resetowania hasła w usłudze Azure AD (SSPR), spełniając wymagania dotyczące uwierzytelniania wieloskładnikowego, w celu podniesienia poziomu ról w programie Privileged Identity Manager (PIM) lub w ramach rejestracji urządzeń w usłudze Intune.
 
 ## <a name="next-steps"></a>Następne kroki
 

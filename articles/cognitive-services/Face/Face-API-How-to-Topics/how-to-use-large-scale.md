@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c4667b810e4d3d5f13e13572e2420880da5a8a0b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "76169780"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931628"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Przykład: korzystanie z funkcji dużej skali
 
@@ -30,7 +31,7 @@ Przykłady są zapisywane w języku C# przy użyciu biblioteki klienckiej usług
 
 ## <a name="step-1-initialize-the-client-object"></a>Krok 1. inicjowanie obiektu klienta
 
-W przypadku korzystania z biblioteki klienta programu Front Key i punkt końcowy subskrypcji są przesyłane za pomocą konstruktora klasy FaceClient. Na przykład:
+W przypadku korzystania z biblioteki klienta programu Front Key i punkt końcowy subskrypcji są przesyłane za pomocą konstruktora klasy FaceClient. Przykład:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -63,7 +64,7 @@ Dodaj wszystkie powierzchnie i osoby z tej osoby do nowego LargePersonGroup. Aby
 
 | Interfejsy API listy FaceList | Interfejsy API listy LargeFaceList |
 |:---:|:---:|
-| Utwórz | Utwórz |
+| Tworzenie | Utwórz |
 | Usuń | Usuń |
 | Get | Get |
 | Lista | Lista |

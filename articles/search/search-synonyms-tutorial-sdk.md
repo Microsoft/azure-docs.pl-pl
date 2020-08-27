@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27822ee6be26f955e4db52548da7fa2a22236c2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079445"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922756"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Przykład: Dodawanie synonimów dla usługi Azure Wyszukiwanie poznawcze w języku C #
 
@@ -22,8 +22,8 @@ Synonimy rozszerzają zapytanie, dopasowując wyrażenia uznane za semantycznie 
 Na platformie Azure Wyszukiwanie poznawcze synonimy są zdefiniowane w formie *synonimu*, za pomocą *reguł mapowania* , które kojarzą równoważne warunki. Ten przykład obejmuje podstawowe kroki umożliwiające dodawanie i używanie synonimów z istniejącym indeksem. Omawiane kwestie:
 
 > [!div class="checklist"]
-> * Utwórz mapę synonimów przy użyciu klasy [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Ustaw właściwość [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) dla pól, które powinny obsługiwać rozszerzanie zapytań za pomocą synonimów.
+> * Utwórz mapę synonimów przy użyciu klasy  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
+> * Ustaw właściwość [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) dla pól, które powinny obsługiwać rozszerzanie zapytań za pomocą synonimów.
 
 Można wysyłać zapytania do pola z włączonym synonimem, jak zwykle. Brak dodatkowej składni zapytania wymaganej do uzyskania dostępu do synonimów.
 
@@ -36,10 +36,10 @@ Możesz utworzyć wiele map synonimów, opublikować je jako zasób obejmujący 
 
 Wymagania samouczka obejmują poniższe elementy:
 
-* [Program Visual Studio](https://www.visualstudio.com/downloads/)
+* [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Usługa Wyszukiwanie poznawcze platformy Azure](search-create-service-portal.md)
-* [Biblioteka Microsoft.Azure.Search .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search)
-* [Jak korzystać z usługi Azure Wyszukiwanie poznawcze z poziomu aplikacji platformy .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Biblioteka Microsoft.Azure.Search .NET](/dotnet/api/overview/azure/search)
+* [Jak korzystać z usługi Azure Wyszukiwanie poznawcze z poziomu aplikacji platformy .NET](./search-howto-dotnet-sdk.md)
 
 ## <a name="overview"></a>Omówienie
 
@@ -77,7 +77,7 @@ Zapytania „przed” i „po” demonstrują wartość synonimów. W tym przyk�
       Console.ReadKey();
   }
 ```
-Procedura tworzenia i wypełniania przykładowego indeksu została omówiona w temacie [jak korzystać z usługi Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Procedura tworzenia i wypełniania przykładowego indeksu została omówiona w temacie [jak korzystać z usługi Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](./search-howto-dotnet-sdk.md).
 
 ## <a name="before-queries"></a>Zapytania „przed”
 
@@ -173,7 +173,7 @@ Najszybszym sposobem oczyszczenia po przykładzie jest usunięcie grupy zasobów
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ten przykład przedstawia funkcję synonimów w kodzie C# do tworzenia i publikowania reguł mapowania, a następnie wywoływania mapy synonimów w zapytaniu. Dodatkowe informacje można znaleźć w dokumentacji referencyjnej [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) i [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Ten przykład przedstawia funkcję synonimów w kodzie C# do tworzenia i publikowania reguł mapowania, a następnie wywoływania mapy synonimów w zapytaniu. Dodatkowe informacje można znaleźć w dokumentacji referencyjnej [zestawu .NET SDK](/dotnet/api/microsoft.azure.search) i [interfejsu API REST](/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Jak używać synonimów w usłudze Azure Wyszukiwanie poznawcze](search-synonyms.md)
