@@ -4,15 +4,16 @@ description: Dowiedz się, jak wykonywać zadania umowy Enterprise Agreement na 
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a92298fa3ba4de123cd89404855df15e38692aa8
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 928800f22011f6388ec50a1ab5e906b2080a4125
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244809"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682896"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Wykonywanie zadań umowy Enterprise Agreement na koncie rozliczeniowym dla umowy klienta firmy Microsoft
 

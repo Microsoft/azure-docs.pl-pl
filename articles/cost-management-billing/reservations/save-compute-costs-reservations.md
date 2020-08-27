@@ -4,15 +4,16 @@ description: Dowiedz się więcej o rezerwacjach platformy Azure i cenach, któr
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.subservice: reservations
+ms.topic: overview
 ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 437344d1a0e3cc1178c21efb4bfa26f192d23e5c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760043"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682590"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -109,7 +110,6 @@ Plany oprogramowania:
 - **Azure Red Hat OpenShift** — rezerwacja ma zastosowanie do kosztów oprogramowania OpenShift, a nie do kosztów infrastruktury platformy Azure.
 
 W przypadku maszyn wirtualnych z systemem Windows i usługi SQL Database rabat na rezerwacje nie dotyczy kosztów oprogramowania. Koszty licencjonowania można pokryć w ramach [Korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 

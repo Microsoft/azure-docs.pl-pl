@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b3909281cf475a003ffaaef6f6f48441337728e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810255"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892664"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Szybki Start: wdrażanie natywnego przykładu C++ w programie HoloLens
 
@@ -63,7 +63,6 @@ Zmień konfigurację kompilacji, aby *debugować* (lub *Release*) i *arm64*. Upe
 
 Ponieważ poświadczenia konta są stałe w kodzie źródłowym samouczka, należy zmienić je na prawidłowe poświadczenia. W tym celu Otwórz plik `HolographicAppMain.cpp` w programie Visual Studio i Zmień część, w której utworzono fronton w konstruktorze klasy `HolographicAppMain` :
 
-
 ```cpp
 // 2. Create front end
 {
@@ -79,8 +78,8 @@ Ponieważ poświadczenia konta są stałe w kodzie źródłowym samouczka, nale�
 ```
 
 W celu zmiany należy zmienić następujące wartości:
-* `init.AccountId`i `init.AccountKey` do korzystania z danych konta. Zobacz akapit dotyczący sposobu [pobierania informacji o koncie](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Część regionu `init.AccountDomain` ciągu dla innych regionów `westus2` , na przykład`"westeurope.mixedreality.azure.com"`
+* `init.AccountId` i `init.AccountKey` do korzystania z danych konta. Zobacz akapit dotyczący sposobu [pobierania informacji o koncie](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Część regionu `init.AccountDomain` ciągu dla innych regionów `westus2` , na przykład `"westeurope.mixedreality.azure.com"`
 * Ponadto, `m_sessionOverride` można zmienić na istniejący identyfikator sesji. Sesje można utworzyć poza tym przykładem, na przykład za pomocą [skryptu programu PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) lub bezpośrednio przy użyciu [interfejsu API REST sesji](../../../how-tos/session-rest-api.md#create-a-session) .
 Tworzenie sesji poza próbką jest zalecane, gdy próbka powinna być uruchamiana wiele razy. Jeśli sesja nie zostanie przeniesiona, podczas każdego uruchomienia przykładu zostanie utworzona nowa sesja, co może potrwać kilka minut.
 

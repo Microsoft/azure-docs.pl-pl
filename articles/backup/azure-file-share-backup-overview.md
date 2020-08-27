@@ -3,16 +3,16 @@ title: Informacje o kopii zapasowej udziału plików platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823884"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892256"
 ---
 # <a name="about-azure-file-share-backup"></a>Informacje o kopii zapasowej udziału plików platformy Azure
 
-Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze rozwiązanie do tworzenia kopii zapasowych, które chroni dane w chmurze i eliminuje dodatkowe koszty konserwacji związane z lokalnymi rozwiązaniami do tworzenia kopii zapasowych. Usługa Azure Backup zapewnia bezproblemowe integrację z Azure File Sync i pozwala na scentralizowanie danych udziałów plików oraz kopii zapasowych. Takie proste, niezawodne i bezpieczne rozwiązanie umożliwia skonfigurowanie ochrony udziałów plików przedsiębiorstwa w kilku prostych krokach z gwarancją, że możesz odzyskać dane na wypadek awarii.
+Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze rozwiązanie do tworzenia kopii zapasowych, które chroni dane w chmurze i eliminuje dodatkowe koszty konserwacji związane z lokalnymi rozwiązaniami do tworzenia kopii zapasowych. Usługa Azure Backup zapewnia bezproblemowe integrację z Azure File Sync i pozwala na scentralizowanie danych udziałów plików oraz kopii zapasowych. Takie proste, niezawodne i bezpieczne rozwiązanie umożliwia skonfigurowanie ochrony udziałów plików przedsiębiorstwa w kilku prostych krokach z gwarancją, że możesz odzyskać dane w dowolnym scenariuszu awarii.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Najważniejsze zalety tworzenia kopii zapasowych udziałów plików platformy Azure
 

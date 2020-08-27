@@ -4,15 +4,16 @@ description: Dowiedz się, dlaczego widzisz opłaty za bezpłatne konto platform
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 557e099b4250d5514920aa6c22399ce225f35d92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200952"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682930"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Unikanie naliczania opłat za korzystanie z bezpłatnego konta platformy Azure
 
@@ -23,7 +24,6 @@ Przyjrzyjmy się niektórym z powodów, dla których możesz ponosić opłaty za
 ## <a name="your-credit-runs-out-or-is-expired"></a>Twoje środki zostały wykorzystane lub wygasły
 
 Subskrypcja i usługi zostaną wyłączone, jeśli środki wyczerpią się lub wygasną po upływie 30 dni. Aby nadal korzystać z usług platformy Azure, musisz uaktualnić konto. Aby uzyskać więcej informacji, zobacz [Uaktualnianie bezpłatnego konta usługi platformy Azure](upgrade-azure-subscription.md). Po uaktualnieniu nadal będziesz mieć dostęp do bezpłatnych usług przez 12 miesięcy, a opłaty będą naliczane tylko za użycie wykraczające poza bezpłatne usługi i ilości.
-
 
 ## <a name="usage-exceeds-the-limits-of-free-services"></a>Użycie przekracza limity bezpłatnych usług
 
