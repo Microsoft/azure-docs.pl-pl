@@ -2,13 +2,14 @@
 title: Omówienie interfejsu API Azure Relay | Microsoft Docs
 description: Ten artykuł zawiera omówienie dostępnych Azure Relay interfejsów API (.NET Standard, .NET Framework, Node.js itp.).
 ms.topic: article
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316956"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935725"
 ---
 # <a name="available-relay-apis"></a>Dostępne interfejsy API przekazywania
 
@@ -22,7 +23,7 @@ Sekcja [dodatkowe informacje](#additional-information) zawiera więcej informacj
 | --- | --- | --- | --- |
 | .NET Standard | Połączenia hybrydowe | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Przekaźnik WCF | [WindowsAzure. ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | Nie dotyczy |
-| Węzeł | Połączenia hybrydowe | [WebSockets`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Żądania HTTP:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Węzeł | Połączenia hybrydowe | [WebSockets `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSockets `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Żądania HTTP: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Dodatkowe informacje
 

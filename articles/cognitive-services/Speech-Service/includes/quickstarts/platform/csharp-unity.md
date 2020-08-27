@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 8d9e05b5d8105cce8355d217cc6922c25bbe1730
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7678ffa1684fb1fe1ea198e9e1836a152cd51b4b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75469420"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926682"
 ---
 W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla [aparatu Unity](https://unity3d.com/).
 

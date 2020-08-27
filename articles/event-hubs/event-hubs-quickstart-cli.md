@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: acdeb1e176be1676bd531eca33faf1e0e18f3ecd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: efb00d35d2b12e6b6a577483257debf4e797c0a0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502345"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934042"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Szybki start: tworzenie centrum zdarzeń za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +25,7 @@ Do wykonania kroków tego przewodnika Szybki start jest potrzebna subskrypcja pl
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia platformy Azure i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby sprawdzić wersję. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
-## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Poniższe kroki nie są wymagane, jeśli uruchamiasz polecenia w usłudze Cloud Shell. Jeśli korzystasz z interfejsu wiersza polecenia lokalnie, wykonaj następujące kroki, aby zalogować się do platformy Azure i ustawić bieżącą subskrypcję:
 
@@ -71,10 +71,10 @@ Gratulacje! Za pomocą interfejsu wiersza polecenia platformy Azure utworzono pr
 
 W tym artykule utworzono grupę zasobów, przestrzeń nazw usługi Event Hubs i centrum zdarzeń. Aby uzyskać instrukcje krok po kroku dotyczące wysyłania zdarzeń do (lub) odbierania zdarzeń z centrum zdarzeń, zobacz samouczki **wysyłania i odbierania zdarzeń** : 
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Przejdź](event-hubs-go-get-started-send.md)
 - [C (tylko wysyłanie)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (tylko odbieranie)](event-hubs-storm-getstarted-receive.md)

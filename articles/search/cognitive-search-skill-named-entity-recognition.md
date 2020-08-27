@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7d7227a0eeaa496dd774eb962946a4ee85e22009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dc18af933a4570112beb025c1fb9163abafffff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080027"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935946"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Umiejętność rozpoznawania nazwanych jednostek
 
@@ -32,7 +32,7 @@ Umiejętność **rozpoznawania jednostek nazwanych** wyodrębnia nazwane jednost
 Microsoft. umiejętności. Text. NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limity danych
-Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Jeśli konieczne jest rozbicie danych przed wysłaniem ich do wyodrębniania kluczowych fraz, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
+Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](/dotnet/api/system.string.length) . Jeśli konieczne jest rozbicie danych przed wysłaniem ich do wyodrębniania kluczowych fraz, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -41,7 +41,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
 | categories    | Tablica kategorii, które mają zostać wyodrębnione.  Możliwe typy kategorii: `"Person"` , `"Location"` , `"Organization"` . Jeśli nie podano żadnej kategorii, zwracane są wszystkie typy.|
-|defaultLanguageCode |  Kod języka tekstu wejściowego. Obsługiwane są następujące języki:`de, en, es, fr, it`|
+|defaultLanguageCode |  Kod języka tekstu wejściowego. Obsługiwane są następujące języki: `de, en, es, fr, it`|
 | minimumPrecision  | Liczba z zakresu od 0 do 1. Jeśli dokładność jest mniejsza niż ta wartość, jednostka nie jest zwracana. Wartość domyślna to 0.|
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
@@ -153,7 +153,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 ## <a name="error-cases"></a>Przypadki błędów
 Jeśli kod języka dla dokumentu nie jest obsługiwany, zwracany jest błąd i nie są wyodrębniane żadne jednostki.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

@@ -10,24 +10,24 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aa2357e31bf2fba97ae8547948cacdffc70cc741
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: e4141bc4887a166876d1fc4590b73f382abd0b95
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705014"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936677"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Python przy użyciu notesów Jupyter
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)](./search-get-started-powershell.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Poster (REST)](search-get-started-postman.md)
 > * [Portal](search-get-started-portal.md)
 > 
 
-Tworzenie notesu Jupyter, który tworzy, ładuje i bada indeks Wyszukiwanie poznawcze platformy Azure przy użyciu języka Python i [interfejsów API REST platformy azure wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/). W tym artykule opisano sposób tworzenia notesu krok po kroku. Alternatywnie można [pobrać i uruchomić gotowy Notes Python Jupyter](https://github.com/Azure-Samples/azure-search-python-samples).
+Tworzenie notesu Jupyter, który tworzy, ładuje i bada indeks Wyszukiwanie poznawcze platformy Azure przy użyciu języka Python i [interfejsów API REST platformy azure wyszukiwanie poznawcze](/rest/api/searchservice/). W tym artykule opisano sposób tworzenia notesu krok po kroku. Alternatywnie można [pobrać i uruchomić gotowy Notes Python Jupyter](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -93,7 +93,7 @@ W tym zadaniu Uruchom Notes Jupyter i sprawdź, czy możesz nawiązać połącze
 
 ## <a name="1---create-an-index"></a>1 — Tworzenie indeksu
 
-Jeśli nie korzystasz z portalu, musi istnieć indeks usługi, aby można było załadować dane. Ten krok powoduje użycie [interfejsu API Rest tworzenia indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) w celu wypchnięcia schematu indeksu do usługi.
+Jeśli nie korzystasz z portalu, musi istnieć indeks usługi, aby można było załadować dane. Ten krok powoduje użycie [interfejsu API Rest tworzenia indeksu](/rest/api/searchservice/create-index) w celu wypchnięcia schematu indeksu do usługi.
 
 Wymagane elementy indeksu obejmują nazwę, kolekcję pól i klucz. Kolekcja Fields definiuje strukturę *dokumentu*. Każde pole ma nazwę, typ i atrybuty, które określają sposób użycia pola (na przykład czy jest to możliwość wyszukiwania pełnotekstowego, filtrowania lub pobierania w wynikach wyszukiwania). W indeksie należy wyznaczyć jedno z pól typu `Edm.String` jako *klucz* dla tożsamości dokumentu.
 
@@ -149,7 +149,7 @@ Ten indeks ma nazwę "Hotele-Szybki Start" i zawiera definicje pól widoczne pon
 
 ## <a name="2---load-documents"></a>2 — ładowanie dokumentów
 
-Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu URL Twojego indeksu. Interfejs API REST to [Dodawanie, aktualizowanie lub usuwanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Dokumenty pochodzą z [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) w serwisie GitHub.
+Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu URL Twojego indeksu. Interfejs API REST to [Dodawanie, aktualizowanie lub usuwanie dokumentów](/rest/api/searchservice/addupdate-or-delete-documents). Dokumenty pochodzą z [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) w serwisie GitHub.
 
 1. W nowej komórce Podaj cztery dokumenty, które są zgodne ze schematem indeksu. Określ akcję przekazywania dla każdego dokumentu.
 
@@ -251,7 +251,7 @@ Aby wypchnąć dokumenty, użyj żądania HTTP POST do punktu końcowego adresu 
 
 ## <a name="3---search-an-index"></a>3 — Przeszukiwanie indeksu
 
-W tym kroku przedstawiono sposób wykonywania zapytań względem indeksu przy użyciu [interfejsu API REST dokumentów do przeszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+W tym kroku przedstawiono sposób wykonywania zapytań względem indeksu przy użyciu [interfejsu API REST dokumentów do przeszukiwania](/rest/api/searchservice/search-documents).
 
 1. W komórce podaj wyrażenie zapytania, które wykonuje puste wyszukiwanie (Search = *), zwracając niesklasyfikowaną listę (wynik wyszukiwania = 1,0) dowolnych dokumentów. Domyślnie usługa Azure Wyszukiwanie poznawcze zwraca 50 dopasowań w danym momencie. Zgodnie ze strukturą, to zapytanie zwraca całą strukturę dokumentu i jego wartości. Dodaj $count = true, aby uzyskać liczbę wszystkich dokumentów w wynikach.
 
@@ -314,7 +314,7 @@ W tym kroku przedstawiono sposób wykonywania zapytań względem indeksu przy u�
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
+Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

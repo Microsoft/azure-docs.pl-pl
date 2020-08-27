@@ -2,13 +2,14 @@
 title: Uwidocznij Premium usługę WCF REST klientom przy użyciu Azure Relay
 description: W tym samouczku opisano, jak uwidocznić lokalną usługę WCF REST na zewnętrznym kliencie przy użyciu usługi Azure WCF Relay.
 ms.topic: tutorial
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 50628073efd7114aaacfe37177d2f5beb3be3d47
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85322702"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935708"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Samouczek: Uwidacznianie lokalnej usługi WCF REST na zewnętrznym kliencie przy użyciu usługi Azure WCF Relay
 

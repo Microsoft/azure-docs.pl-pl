@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b8fd25e209316e828e234b4c64c8b2a2152de6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080495"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928585"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtry zabezpieczeń do przycinania wyników Wyszukiwanie poznawcze platformy Azure przy użyciu tożsamości Active Directory
 
@@ -40,7 +40,7 @@ Aplikacja musi być również zarejestrowana w usłudze AAD, zgodnie z opisem w 
 
 ### <a name="register-your-application-with-aad"></a>Zarejestruj swoją aplikację w usłudze AAD
 
-Ten krok integruje aplikację z usługą AAD w celu zaakceptowania logowania użytkowników i kont grup. Jeśli nie jesteś administratorem usługi AAD w organizacji, może być konieczne [utworzenie nowej dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) w celu wykonania poniższych kroków.
+Ten krok integruje aplikację z usługą AAD w celu zaakceptowania logowania użytkowników i kont grup. Jeśli nie jesteś administratorem usługi AAD w organizacji, może być konieczne [utworzenie nowej dzierżawy](../active-directory/develop/quickstart-create-new-tenant.md) w celu wykonania poniższych kroków.
 
 1. Przejdź do [**portalu rejestracji aplikacji**](https://apps.dev.microsoft.com)  >   **zbieżność aplikacji**  >  **Dodaj aplikację**.
 2. Wprowadź nazwę aplikacji, a następnie kliknij przycisk **Utwórz**. 
@@ -63,7 +63,7 @@ Jeśli jednak nie masz istniejących użytkowników, możesz użyć Microsoft Gr
 
 Członkostwo użytkowników i grup może być bardzo płynne, szczególnie w dużych organizacjach. Kod, który kompiluje tożsamości użytkowników i grup, powinien być uruchamiany często, aby można było wybrać zmiany w członkostwie w organizacji. Podobnie indeks Wyszukiwanie poznawcze platformy Azure wymaga podobnego harmonogramu aktualizacji w celu odzwierciedlenia bieżącego stanu dozwolonych użytkowników i zasobów.
 
-### <a name="step-1-create-aad-group"></a>Krok 1. Tworzenie [grupy usługi AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Krok 1. Tworzenie [grupy usługi AAD](/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-user"></a>Krok 2. Tworzenie [użytkownika usługi AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Krok 2. Tworzenie [użytkownika usługi AAD](/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -98,9 +98,9 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Krok 4. buforowanie grup identyfikatorów
-Opcjonalnie, aby zmniejszyć opóźnienie sieci, można buforować skojarzenia grupy użytkowników, aby podczas wystawiania żądania wyszukiwania grupy były zwracane z pamięci podręcznej, co pozwala zaoszczędzić dostęp do usługi AAD. Korzystając z [interfejsu API usługi AAD Batch](https://developer.microsoft.com/graph/docs/concepts/json_batching) , można wysyłać pojedyncze żądanie HTTP z wieloma użytkownikami i tworzyć pamięć podręczną.
+Opcjonalnie, aby zmniejszyć opóźnienie sieci, można buforować skojarzenia grupy użytkowników, aby podczas wystawiania żądania wyszukiwania grupy były zwracane z pamięci podręcznej, co pozwala zaoszczędzić dostęp do usługi AAD. Korzystając z [interfejsu API usługi AAD Batch](/graph/json-batching) , można wysyłać pojedyncze żądanie HTTP z wieloma użytkownikami i tworzyć pamięć podręczną.
 
-Microsoft Graph został zaprojektowany z myślą o obsłudze dużej liczby żądań. W przypadku przeciążania liczby żądań Microsoft Graph nie można wykonać żądania z kodem stanu HTTP 429. Aby uzyskać więcej informacji, zobacz [Microsoft Graph ograniczanie przepustowości](https://developer.microsoft.com/graph/docs/concepts/throttling).
+Microsoft Graph został zaprojektowany z myślą o obsłudze dużej liczby żądań. W przypadku przeciążania liczby żądań Microsoft Graph nie można wykonać żądania z kodem stanu HTTP 429. Aby uzyskać więcej informacji, zobacz [Microsoft Graph ograniczanie przepustowości](/graph/throttling).
 
 ## <a name="index-document-with-their-permitted-groups"></a>Indeksowanie dokumentu z ich dozwolonymi grupami
 
@@ -138,7 +138,7 @@ Aby odfiltrować dokumenty zwrócone w wynikach wyszukiwania na podstawie grup u
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Krok 1. pobieranie identyfikatorów grup użytkowników
 
-Jeśli grupy użytkownika nie zostały już zapisane w pamięci podręcznej lub pamięć podręczna wygasła, wystaw żądanie [grup](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0)
+Jeśli grupy użytkownika nie zostały już zapisane w pamięci podręcznej lub pamięć podręczna wygasła, wystaw żądanie [grup](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0)
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {
@@ -186,7 +186,7 @@ Odpowiedź obejmuje przefiltrowaną listę dokumentów składającą się z tych
 
 W tym instruktażu przedstawiono metody używania logowań usługi AAD do filtrowania dokumentów w usłudze Azure Wyszukiwanie poznawcze wyniki, przycinania wyników dokumentów, które nie pasują do filtru dostarczonego w żądaniu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Kontrola dostępu oparta na tożsamościch za pomocą filtrów Wyszukiwanie poznawcze platformy Azure](search-security-trimming-for-azure-search.md)
 + [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)

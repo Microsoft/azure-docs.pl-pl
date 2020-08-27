@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 0434ddb1e90789628d14d4782eccb6514fccf8d8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a8262d8830f6a3297482429d88cc6152e1fdfd89
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226082"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926060"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 

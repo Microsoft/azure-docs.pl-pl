@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 99b64ca8e807fcf6a142f10878d90e77e3639698
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749488"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926868"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
 
@@ -37,15 +37,15 @@ Maksymalne limity dotyczące magazynu, obciążeń i ilości indeksów i innych 
 
 ## <a name="index-limits"></a>Limity indeksu
 
-| Zasób | Jest bezpłatna | Podstawowa &nbsp; <sup>1</sup>  | S1 | S2 | S3 | &nbsp;Wyjście S3 HD | L1 | L2 |
+| Zasób | Bezpłatna | Podstawowa &nbsp; <sup>1</sup>  | S1 | S2 | S3 | &nbsp;Wyjście S3 HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maksymalna liczba indeksów |3 |5 lub 15 |50 |200 |200 |1000 na partycję lub 3000 na usługę |10 |10 |
 | Maksymalna liczba prostych pól na indeks |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maksymalna liczba złożonych pól kolekcji na indeks |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maksymalna liczba elementów we wszystkich złożonych kolekcjach na dokument &nbsp; <sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maksymalna głębokość pól złożonych |10 |10 |10 |10 |10 |10 |10 |10 |
-| Maksymalna liczba [sugestii](https://docs.microsoft.com/rest/api/searchservice/suggesters) na indeks |1 |1 |1 |1 |1 |1 |1 |1 |
-| Maksymalna liczba [profilów oceniania](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) na indeks |100 |100 |100 |100 |100 |100 |100 |100 |
+| Maksymalna liczba [sugestii](/rest/api/searchservice/suggesters) na indeks |1 |1 |1 |1 |1 |1 |1 |1 |
+| Maksymalna liczba [profilów oceniania](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) na indeks |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maksymalna liczba funkcji na profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> podstawowe usługi utworzone przed grudnia 2017 mają niższe limity (5 zamiast 15) w indeksach. Warstwa Podstawowa jest jedyną jednostką SKU z niższym limitem 100 pól na indeks.
@@ -58,7 +58,7 @@ Maksymalne limity dotyczące magazynu, obciążeń i ilości indeksów i innych 
 
 Od października 2018 nie ma już żadnych limitów żadnego dokumentu dla każdej nowej usługi utworzonej w dowolnej warstwie rozliczeniowej (podstawowa, S1, S2, S3, S3 HD) w dowolnym regionie. Starsze usługi utworzone przed październikiem 2018 mogą nadal podlegać limitom liczby dokumentów.
 
-Aby ustalić, czy usługa ma limity dokumentów, należy użyć [interfejsu API REST usługi Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Limity dokumentów są uwzględniane w odpowiedzi z oznaczeniem `null` braku ograniczeń.
+Aby ustalić, czy usługa ma limity dokumentów, należy użyć [interfejsu API REST usługi Get Service Statistics](/rest/api/searchservice/get-service-statistics). Limity dokumentów są uwzględniane w odpowiedzi z oznaczeniem `null` braku ograniczeń.
 
 > [!NOTE]
 > Mimo że nie ma żadnych ograniczeń dokumentu narzuconych przez usługę, istnieje limit fragmentu o około 24 000 000 000 dokumentów na indeks w usługach wyszukiwania w warstwach Podstawowa, S1, S2 i S3. W przypadku platformy S3 HD limit fragmentu to 2 000 000 000 dokumentów na indeks. Każdy element kolekcji złożonej jest traktowany jako odrębny dokument pod kątem limitów fragmentu.
@@ -78,15 +78,15 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 
 | Zasób | Bezpłatnie &nbsp; <sup>1</sup> | Podstawowa &nbsp; <sup>2</sup>| S1 | S2 | S3 | S3 &nbsp; HD &nbsp; <sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Maksymalna liczba indeksatorów |3 |5 lub 15|50 |200 |200 |Brak |10 |10 |
-| Maksymalna liczba źródeł danych |3 |5 lub 15 |50 |200 |200 |Brak |10 |10 |
-| Maksymalna umiejętności <sup>4</sup> |3 |5 lub 15 |50 |200 |200 |Brak |10 |10 |
-| Maksymalne ładowanie indeksowania na wywołanie |10 000 dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Brak |Bez ograniczeń |Bez ograniczeń |
+| Maksymalna liczba indeksatorów |3 |5 lub 15|50 |200 |200 |Nie dotyczy |10 |10 |
+| Maksymalna liczba źródeł danych |3 |5 lub 15 |50 |200 |200 |Nie dotyczy |10 |10 |
+| Maksymalna umiejętności <sup>4</sup> |3 |5 lub 15 |50 |200 |200 |Nie dotyczy |10 |10 |
+| Maksymalne ładowanie indeksowania na wywołanie |10 000 dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Ograniczone tylko przez maksymalną liczbę dokumentów |Nie dotyczy |Bez ograniczeń |Bez ograniczeń |
 | Minimalny harmonogram | 5 min |5 min |5 min |5 min |5 min |5 min |5 min | 5 min |
-| Maksymalny czas działania| 1-3 minut |24 godziny |24 godziny |24 godziny |24 godziny |Brak  |24 godziny |24 godziny |
-| Maksymalny czas działania indeksatorów z zestawu umiejętności <sup>5</sup> | 3-10 minut |2 godziny |2 godziny |2 godziny |2 godziny |Brak  |2 godziny |2 godziny |
-| Indeksator obiektów blob: maksymalny rozmiar obiektu BLOB, MB |16 |16 |128 |256 |256 |Brak  |256 |256 |
-| Indeksator obiektów blob: Maksymalna liczba znaków zawartości wyodrębnionych z obiektu BLOB |32 000 |64 000 |4 &nbsp; mln |8 &nbsp; mln |16 &nbsp; mln |Brak |4 &nbsp; mln |4 &nbsp; mln |
+| Maksymalny czas działania| 1-3 minut |24 godziny |24 godziny |24 godziny |24 godziny |Nie dotyczy  |24 godziny |24 godziny |
+| Maksymalny czas działania indeksatorów z zestawu umiejętności <sup>5</sup> | 3-10 minut |2 godziny |2 godziny |2 godziny |2 godziny |Nie dotyczy  |2 godziny |2 godziny |
+| Indeksator obiektów blob: maksymalny rozmiar obiektu BLOB, MB |16 |16 |128 |256 |256 |Nie dotyczy  |256 |256 |
+| Indeksator obiektów blob: Maksymalna liczba znaków zawartości wyodrębnionych z obiektu BLOB |32 000 |64 000 |4 &nbsp; mln |8 &nbsp; mln |16 &nbsp; mln |Nie dotyczy |4 &nbsp; mln |4 &nbsp; mln |
 
 <sup>1</sup> bezpłatne usługi mają maksymalny czas wykonywania indeksatora wynoszący 3 minuty dla źródeł obiektów blob i 1 minuty dla wszystkich innych źródeł danych. W przypadku indeksowania AI, które wywołuje Cognitive Services, bezpłatne usługi są ograniczone do 20 bezpłatnych transakcji dziennie, gdzie transakcja jest definiowana jako dokument, który został pomyślnie przeszedł przez potok wzbogacania.
 
@@ -105,7 +105,7 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 
 Maksymalna liczba map synonimów jest zależna od warstwy. Każda reguła może mieć do 20 rozszerzeń, w których rozwinięcie jest równoważne. Na przykład podaną "Cat", skojarzenie z "Kitty", "Feline" i "Felis" (rodzaj dla kotów) będzie liczona jako 3 rozszerzenia.
 
-| Zasób | Jest bezpłatna | Podstawowy | S1 | S2 | S3 | S3 — HD |L1 | L2 |
+| Zasób | Bezpłatna | Podstawowe | S1 | S2 | S3 | S3 — HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Maksymalne mapy synonimów |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maksymalna liczba reguł na mapę |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -120,7 +120,7 @@ W przypadku warstw zoptymalizowanych pod kątem magazynu (L1 i L2) należy oczek
 
 ## <a name="data-limits-ai-enrichment"></a>Limity danych (wzbogacanie AI)
 
-[Potok wzbogacenia AI](cognitive-search-concept-intro.md) , który tworzy wywołania do zasobu analiza tekstu na potrzeby [rozpoznawania jednostek](cognitive-search-skill-entity-recognition.md), [wyodrębniania fraz kluczy](cognitive-search-skill-keyphrases.md), [analizy tonacji](cognitive-search-skill-sentiment.md), [wykrywania języka](cognitive-search-skill-language-detection.md)i [wykrywania informacji osobistych](cognitive-search-skill-pii-detection.md) podlega limitom danych. Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Jeśli musisz podzielić dane przed wysłaniem ich do analizatora tonacji, użyj [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
+[Potok wzbogacenia AI](cognitive-search-concept-intro.md) , który tworzy wywołania do zasobu analiza tekstu na potrzeby [rozpoznawania jednostek](cognitive-search-skill-entity-recognition.md), [wyodrębniania fraz kluczy](cognitive-search-skill-keyphrases.md), [analizy tonacji](cognitive-search-skill-sentiment.md), [wykrywania języka](cognitive-search-skill-language-detection.md)i [wykrywania informacji osobistych](cognitive-search-skill-pii-detection.md) podlega limitom danych. Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](/dotnet/api/system.string.length) . Jeśli musisz podzielić dane przed wysłaniem ich do analizatora tonacji, użyj [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limity ograniczania
 
@@ -141,7 +141,7 @@ Limity liczby żądań statycznych dla operacji związanych z indeksem:
 * Maksymalna 32 pól w klauzuli $orderby
 * Maksymalny rozmiar terminu wyszukiwania to 32 766 bajtów (32 KB minus 2 bajty) tekstu zakodowanego w formacie UTF-8
 
-<sup>1</sup> na platformie Azure wyszukiwanie poznawcze treść żądania podlega górnemu limitowi 16 MB, co nakłada praktyczny limit zawartości poszczególnych pól lub kolekcji, które nie są w inny sposób ograniczone przez limity teoretyczne (zobacz [obsługiwane typy danych](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) , aby uzyskać więcej informacji na temat kompozycji i ograniczeń pól).
+<sup>1</sup> na platformie Azure wyszukiwanie poznawcze treść żądania podlega górnemu limitowi 16 MB, co nakłada praktyczny limit zawartości poszczególnych pól lub kolekcji, które nie są w inny sposób ograniczone przez limity teoretyczne (zobacz [obsługiwane typy danych](/rest/api/searchservice/supported-data-types) , aby uzyskać więcej informacji na temat kompozycji i ograniczeń pól).
 
 ## <a name="api-response-limits"></a>Limity odpowiedzi interfejsu API
 * Maksymalna 1000 dokumentów zwróconych na stronę wyników wyszukiwania

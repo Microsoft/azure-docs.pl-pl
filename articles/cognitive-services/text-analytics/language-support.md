@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986172"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932971"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
@@ -27,25 +27,25 @@ ms.locfileid: "87986172"
 
 | Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Początkowa wersja modelu v3: |              Uwagi |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Chiński uproszczony    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`również zaakceptowane |
+| Chiński uproszczony    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` również zaakceptowane |
 | Chiński tradycyjny   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
 | Duński               |     `da`      |     ✓      |            |                            |                    |
 | Niderlandzki                 |     `nl`      |     ✓      |            |                            |                    |
 | Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Fiński               |     `fi`      |     ✓      |            |                            |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grecki                 |     `el`      |     ✓      |            |                            |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norweski (bokmål)   |     `no`      |     ✓      |            |                            |                    |
+| japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| Norweski (bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
 | Polski                |     `pl`      |     ✓      |            |                            |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt`również zaakceptowane |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
 | Rosyjski               |     `ru`      |     ✓      |            |                            |                    |
 | Hiszpański               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Szwedzki               |     `sv`      |     ✓      |            |                            |                    |
-| Turecki               |     `tr`      |     ✓      |            |                            |                    |
+| Turecki               |     `tr`      |     ✓      |     ✓       |         2020-07-01        |                    |
 
 ### <a name="opinion-mining-v31-preview-only"></a>Wyszukiwanie opinii (tylko wersja zapoznawcza w wersji 3.1)
 
@@ -64,22 +64,22 @@ ms.locfileid: "87986172"
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabski                |     `ar`      |     ✓      |            |                                 |                    |
 | Czeski                 |     `cs`      |     ✓      |            |                                 |                    |
-| Chiński uproszczony     |   `zh-hans`   |     ✓      |            |                                 | `zh`również zaakceptowane |
+| Chiński uproszczony     |   `zh-hans`   |     ✓      |            |                                 | `zh` również zaakceptowane |
 | Chiński tradycyjny   |   `zh-hant`   |     ✓      |            |                                 |                    |
 | Duński                |     `da`      |     ✓      |            |                                 |                    |
 | Niderlandzki                 |     `nl`      |     ✓      |            |                                 |                    |
 | Angielski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Fiński               |     `fi`      |     ✓      |            |                                 |                    |
 | Francuski                 |     `fr`      |     ✓      |            |                                 |                    |
-| niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
+| Niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
 | Hebrajski                |     `he`      |     ✓      |            |                                 |                    |
 | Węgierski             |     `hu`      |     ✓      |            |                                 |                    |
 | Włoski               |     `it`      |     ✓      |            |                                 |                    |
-| Japoński              |     `ja`      |     ✓      |            |                                 |                    |
-| koreański                |     `ko`      |     ✓      |            |                                 |                    |
-| Norweski (bokmål)   |     `no`      |     ✓      |            |                                 | `nb`również zaakceptowane |
+| japoński              |     `ja`      |     ✓      |            |                                 |                    |
+| Koreański                |     `ko`      |     ✓      |            |                                 |                    |
+| Norweski (bokmål)   |     `no`      |     ✓      |            |                                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |            |                                 |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt`również zaakceptowane |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt` również zaakceptowane |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Rosyjski              |     `ru`      |     ✓      |            |                                 |                    |
 | Hiszpański               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
@@ -94,13 +94,13 @@ ms.locfileid: "87986172"
 | Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb`również zaakceptowane |
+| japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt`również zaakceptowane |
+| Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` również zaakceptowane |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Rosyjski               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Hiszpański               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -115,7 +115,7 @@ ms.locfileid: "87986172"
 
 #### <a name="language-detection"></a>[Wykrywanie języka](#tab/language-detection)
 
-Interfejs API analizy tekstu może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych.  Wykrywanie języka zwraca "skrypt" języka. Na przykład dla frazy "mam Dog", będzie ona zwracała się `en` zamiast `en-US` . Jedynym szczególnym przypadkiem jest chiński, w którym funkcja wykrywania języka zwróci wartość `zh_CHS` lub `zh_CHT` Jeśli może ustalić skrypt, w którym znajduje się tekst. W sytuacjach, gdy nie można zidentyfikować określonego skryptu dla dokumentu w języku chińskim, zostanie on zwrócony po prostu `zh` .
+Interfejs API analizy tekstu może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych.  Wykrywanie języka zwraca "skrypt" języka. Na przykład dla frazy "mam Dog", będzie ona zwracała się  `en` zamiast  `en-US` . Jedynym szczególnym przypadkiem jest chiński, w którym funkcja wykrywania języka zwróci wartość `zh_CHS` lub `zh_CHT` Jeśli może ustalić skrypt, w którym znajduje się tekst. W sytuacjach, gdy nie można zidentyfikować określonego skryptu dla dokumentu w języku chińskim, zostanie on zwrócony po prostu `zh` .
 
 Nie publikujemy dokładnej listy języków dla tej funkcji, ale może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych/kulturowych. 
 
@@ -123,6 +123,6 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Czym jest interfejs API analizy tekstu?](overview.md)   

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aac184b9dc7eae8afcf796376d2f7dca684b4367
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852790"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936133"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Przykład: Tworzenie niestandardowej umiejętności przy użyciu języka Python
 
@@ -26,12 +26,12 @@ Niestandardowa umiejętność jest prosta poprzez projektowanie (łączy dwa ci�
 
 + Zapoznaj się z [niestandardowym interfejsem umiejętności](cognitive-search-custom-skill-interface.md) w celu wprowadzenia do interfejsu wejścia/wyjścia, który powinien być zaimplementowany przez umiejętność niestandardową.
 
-+ Skonfiguruj swoje środowisko. [Ten samouczek jest kompleksowy](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) , aby skonfigurować funkcję platformy Azure bezserwerową przy użyciu rozszerzeń Visual Studio Code i Python. Samouczek przeprowadzi Cię przez proces instalacji następujących narzędzi i składników: 
++ Skonfiguruj swoje środowisko. [Ten samouczek jest kompleksowy](/azure/python/tutorial-vs-code-serverless-python-01) , aby skonfigurować funkcję platformy Azure bezserwerową przy użyciu rozszerzeń Visual Studio Code i Python. Samouczek przeprowadzi Cię przez proces instalacji następujących narzędzi i składników: 
 
   + [Python 3,75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Rozszerzenie języka Python dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Rozszerzenie usługi Azure Functions dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure
@@ -270,5 +270,5 @@ Gratulacje! Utworzono swoją pierwszą umiejętność niestandardową. Teraz mo�
 + [Umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Dodaj niestandardową umiejętność do potoku wzbogacania AI](cognitive-search-custom-skill-interface.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
-+ [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Utwórz zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset)
 + [Jak zmapować wzbogacone pola](cognitive-search-output-field-mapping.md)

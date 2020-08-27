@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221311"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935555"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
 
@@ -21,10 +21,10 @@ Ten artykuł zawiera informacje i rozwiązania typowych błędów i ostrzeżeń,
 
 Indeksowanie jest przerywane, gdy licznik błędów przekracza wartość ["maxFailedItems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Jeśli chcesz, aby indeksatory ignorował te błędy (i pominąć "dokumenty nieudane"), rozważ zaktualizowanie `maxFailedItems` i `maxFailedItemsPerBatch` zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Jeśli chcesz, aby indeksatory ignorował te błędy (i pominąć "dokumenty nieudane"), rozważ zaktualizowanie `maxFailedItems` i `maxFailedItemsPerBatch` zgodnie z opisem w [tym miejscu](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
-> Każdy uszkodzony dokument wraz z jego kluczem dokumentu (jeśli jest dostępny) będzie wyświetlany jako błąd w stanie wykonywania indeksatora. Możesz użyć [interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) , aby ręcznie przekazać dokumenty w późniejszym momencie, jeśli ustawiono indeksator, aby tolerował błędy.
+> Każdy uszkodzony dokument wraz z jego kluczem dokumentu (jeśli jest dostępny) będzie wyświetlany jako błąd w stanie wykonywania indeksatora. Możesz użyć [interfejsu API indeksu](/rest/api/searchservice/addupdate-or-delete-documents) , aby ręcznie przekazać dokumenty w późniejszym momencie, jeśli ustawiono indeksator, aby tolerował błędy.
 
 Informacje o błędzie w tym artykule mogą pomóc w rozwiązaniu błędów, co umożliwia kontynuowanie indeksowania.
 
@@ -49,7 +49,7 @@ Indeksator nie mógł odczytać dokumentu ze źródła danych. Przyczyną może 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
 | Niespójne typy pól w różnych dokumentach | "Typ wartości jest niezgodny z typem kolumny. Nie można przechowywać `'{47.6,-122.1}'` w kolumnie autorów.  Oczekiwany typ to JArray ".  "Błąd podczas konwertowania typu danych nvarchar na float".  "Konwersja nie powiodła się podczas konwersji wartości nvarchar" 12 miesięcy "na typ danych int."  "Błąd przepełnienia arytmetycznego konwersji wyrażenia na typ danych int." | Upewnij się, że typ każdego pola jest taki sam w różnych dokumentach. Na przykład jeśli pierwsze `'startTime'` pole dokumentu ma wartość DateTime, a w drugim dokumencie jest ciągiem, ten błąd zostanie trafiony. |
-| błędy usługi źródłowej źródła danych | (z Cosmos DB)`{"Errors":["Request rate is large"]}` | Sprawdź wystąpienie magazynu, aby upewnić się, że jest w dobrej kondycji. Może być konieczne dostosowanie skalowania/partycjonowania. |
+| błędy usługi źródłowej źródła danych | (z Cosmos DB) `{"Errors":["Request rate is large"]}` | Sprawdź wystąpienie magazynu, aby upewnić się, że jest w dobrej kondycji. Może być konieczne dostosowanie skalowania/partycjonowania. |
 | problemy przejściowe | Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego | Sporadycznie występują nieoczekiwane problemy z łącznością. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
 
 <a name="could-not-extract-document-content"></a>
@@ -60,7 +60,7 @@ Indeksator ze źródłem danych obiektu BLOB nie mógł wyodrębnić zawartości
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
 | rozmiar obiektu BLOB przekracza limit. | Dokument jest `'150441598'` bajtów, który przekracza maksymalny rozmiar `'134217728'` bajtów na potrzeby wyodrębniania dokumentów dla bieżącej warstwy usług. | [Błędy indeksowania obiektów BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| Obiekt BLOB ma nieobsługiwany typ zawartości | Dokument zawiera nieobsługiwany typ zawartości`'image/png'` | [Błędy indeksowania obiektów BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| Obiekt BLOB ma nieobsługiwany typ zawartości | Dokument zawiera nieobsługiwany typ zawartości `'image/png'` | [Błędy indeksowania obiektów BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | Obiekt BLOB jest zaszyfrowany | Nie można przetworzyć dokumentu — może on być zaszyfrowany lub chroniony hasłem. | Możesz pominąć obiekt BLOB za pomocą [ustawień obiektu BLOB](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | problemy przejściowe | "Błąd przetwarzania obiektu BLOB: żądanie zostało przerwane: żądanie zostało anulowane." "Dokument przekroczył limit czasu podczas przetwarzania". | Sporadycznie występują nieoczekiwane problemy z łącznością. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
 
@@ -71,7 +71,7 @@ Indeksator odczytuje dokument ze źródła danych, ale wystąpił problem podcza
 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
-| Brak klucza dokumentu | Brak klucza dokumentu lub jest on pusty | Upewnij się, że wszystkie dokumenty mają prawidłowe klucze dokumentu. Klucz dokumentu jest określany przez ustawienie właściwości "Key" jako części [definicji indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Indeksatory będą emitować ten błąd, jeśli właściwość oflagowana jako "Key" nie zostanie znaleziona w określonym dokumencie. |
+| Brak klucza dokumentu | Brak klucza dokumentu lub jest on pusty | Upewnij się, że wszystkie dokumenty mają prawidłowe klucze dokumentu. Klucz dokumentu jest określany przez ustawienie właściwości "Key" jako części [definicji indeksu](/rest/api/searchservice/create-index#request-body). Indeksatory będą emitować ten błąd, jeśli właściwość oflagowana jako "Key" nie zostanie znaleziona w określonym dokumencie. |
 | Klucz dokumentu jest nieprawidłowy | Klucz dokumentu nie może mieć więcej niż 1024 znaków | Zmodyfikuj klucz dokumentu, aby spełniał wymagania dotyczące weryfikacji. |
 | Nie można zastosować mapowania pola do pola | Nie można zastosować funkcji mapowania `'functionName'` do pola `'fieldName'` . Tablica nie może mieć wartości null. Nazwa parametru: bajty | Dokładnie sprawdź [mapowania pól](search-indexer-field-mappings.md) zdefiniowane w indeksatorze i porównaj z danymi określonego pola dokumentu, który się nie powiódł. Może być konieczne zmodyfikowanie mapowań pól lub danych dokumentu. |
 | Nie można odczytać wartości pola | Nie można odczytać wartości kolumny `'fieldName'` w indeksie `'fieldIndex'` . Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego). | Te błędy są zwykle spowodowane nieoczekiwanymi problemami z łącznością z usługą źródłową źródła danych. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
@@ -155,7 +155,7 @@ Dokument został odczytany i przetworzony, ale indeksator nie mógł go dodać d
 | Problem z nawiązaniem połączenia z docelowym indeksem (który utrzymuje się po ponownych próbach), ponieważ usługa jest w innym załadowaniu, na przykład w przypadku wykonywania zapytań lub indeksowania. | Nie można ustanowić połączenia w celu zaktualizowania indeksu. Usługa wyszukiwania jest w dużym obciążeniu. | [Skalowanie w górę usługi wyszukiwania](search-capacity-planning.md)
 | Trwa poprawianie usługi wyszukiwania w ramach aktualizacji usługi lub jest ona w trakcie ponownej konfiguracji topologii. | Nie można ustanowić połączenia w celu zaktualizowania indeksu. Usługa wyszukiwania jest obecnie wyłączona/usługa wyszukiwania przechodzi do przejścia. | Skonfiguruj usługę z co najmniej 3 replikami na 99,9% dostępności na potrzeby [dokumentacji umowy SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Niepowodzenie w źródłowym zasobów obliczeniowych/sieciowych (rzadkich) | Nie można ustanowić połączenia w celu zaktualizowania indeksu. Wystąpił nieznany błąd. | Skonfiguruj indeksatory do [uruchomienia zgodnie z harmonogramem](search-howto-schedule-indexers.md) , aby przeprowadzić pobieranie z niepowodzenia.
-| Żądanie indeksowania wprowadzone do indeksu docelowego nie zostało potwierdzone w przedziale czasu z powodu problemów z siecią. | Nie można nawiązać połączenia z indeksem wyszukiwania w odpowiednim czasie. | Skonfiguruj indeksatory do [uruchomienia zgodnie z harmonogramem](search-howto-schedule-indexers.md) , aby przeprowadzić pobieranie z niepowodzenia. Ponadto spróbuj zmniejszyć [rozmiar wsadu](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) indeksatora, jeśli ten błąd będzie się utrzymywał.
+| Żądanie indeksowania wprowadzone do indeksu docelowego nie zostało potwierdzone w przedziale czasu z powodu problemów z siecią. | Nie można nawiązać połączenia z indeksem wyszukiwania w odpowiednim czasie. | Skonfiguruj indeksatory do [uruchomienia zgodnie z harmonogramem](search-howto-schedule-indexers.md) , aby przeprowadzić pobieranie z niepowodzenia. Ponadto spróbuj zmniejszyć [rozmiar wsadu](/rest/api/searchservice/create-indexer#parameters) indeksatora, jeśli ten błąd będzie się utrzymywał.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
@@ -171,11 +171,11 @@ Dokument został odczytany i przetworzony przez indeksator, ale z powodu niezgod
 | W dokumencie źródłowym odnaleziono nieznany typ. | Nieznany typ "_nieznany_" nie może być indeksowany |
 | W dokumencie źródłowym użyto niezgodnej notacji punktów geograficznych. | Literały ciągu punktu WKT nie są obsługiwane. Zamiast tego użyj literałów punktu GEOJSON |
 
-We wszystkich tych przypadkach należy zapoznać się z [obsługiwanymi typami danych](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i [mapą typów danych dla indeksatorów](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) , aby upewnić się, że schemat indeksu jest prawidłowo skonstruowany i skonfigurowano odpowiednie [mapowania pól indeksatora](search-indexer-field-mappings.md). Komunikat o błędzie będzie zawierać szczegóły, które mogą pomóc w śledzeniu źródła niezgodności.
+We wszystkich tych przypadkach należy zapoznać się z [obsługiwanymi typami danych](/rest/api/searchservice/supported-data-types) i [mapą typów danych dla indeksatorów](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) , aby upewnić się, że schemat indeksu jest prawidłowo skonstruowany i skonfigurowano odpowiednie [mapowania pól indeksatora](search-indexer-field-mappings.md). Komunikat o błędzie będzie zawierać szczegóły, które mogą pomóc w śledzeniu źródła niezgodności.
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Błąd: nie można użyć zintegrowanych zasad śledzenia zmian, ponieważ tabela zawiera złożony klucz podstawowy
 
-Dotyczy to tabel SQL i zwykle ma miejsce, gdy klucz jest zdefiniowany jako klucz złożony lub, gdy tabela ma zdefiniowany unikatowy indeks klastrowany (jak w indeksie SQL, a nie indeks Azure Search). Głównym powodem jest to, że atrybut klucza jest modyfikowany jako złożony klucz podstawowy w przypadku [unikatowego indeksu klastrowanego](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). W takim przypadku upewnij się, że tabela SQL nie ma unikatowego indeksu klastrowanego lub że pole klucza zostało zamapowane na pole, które nie ma zduplikowanych wartości.
+Dotyczy to tabel SQL i zwykle ma miejsce, gdy klucz jest zdefiniowany jako klucz złożony lub, gdy tabela ma zdefiniowany unikatowy indeks klastrowany (jak w indeksie SQL, a nie indeks Azure Search). Głównym powodem jest to, że atrybut klucza jest modyfikowany jako złożony klucz podstawowy w przypadku [unikatowego indeksu klastrowanego](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). W takim przypadku upewnij się, że tabela SQL nie ma unikatowego indeksu klastrowanego lub że pole klucza zostało zamapowane na pole, które nie ma zduplikowanych wartości.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
@@ -191,9 +191,9 @@ Ten błąd występuje, gdy indeksator próbuje [projektować dane w sklepie z wi
 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
-| Nie można zaktualizować obiektu BLOB projekcji `'blobUri'` w kontenerze`'containerName'` |Określony kontener nie istnieje. | Indeksator sprawdzi, czy określony kontener został wcześniej utworzony i utworzy go w razie potrzeby, ale wykonuje to sprawdzenie tylko raz dla indeksatora. Ten błąd oznacza, że element usunięty z kontenera jest usuwany po tym kroku.  Aby rozwiązać ten problem, wypróbuj: pozostaw same informacje o koncie magazynu, poczekaj na zakończenie indeksatora, a następnie ponownie uruchom indeksator. |
-| Nie można zaktualizować obiektu BLOB projekcji `'blobUri'` w kontenerze`'containerName'` |Nie można zapisać danych do połączenia transportowego: wykryto, że istniejące połączenie zostało wymuszone przez hosta zdalnego. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
-| Nie można zaktualizować wiersza `'projectionRow'` w tabeli`'tableName'` | Serwer jest zajęty. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
+| Nie można zaktualizować obiektu BLOB projekcji `'blobUri'` w kontenerze `'containerName'` |Określony kontener nie istnieje. | Indeksator sprawdzi, czy określony kontener został wcześniej utworzony i utworzy go w razie potrzeby, ale wykonuje to sprawdzenie tylko raz dla indeksatora. Ten błąd oznacza, że element usunięty z kontenera jest usuwany po tym kroku.  Aby rozwiązać ten problem, wypróbuj: pozostaw same informacje o koncie magazynu, poczekaj na zakończenie indeksatora, a następnie ponownie uruchom indeksator. |
+| Nie można zaktualizować obiektu BLOB projekcji `'blobUri'` w kontenerze `'containerName'` |Nie można zapisać danych do połączenia transportowego: wykryto, że istniejące połączenie zostało wymuszone przez hosta zdalnego. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
+| Nie można zaktualizować wiersza `'projectionRow'` w tabeli `'tableName'` | Serwer jest zajęty. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
@@ -255,9 +255,9 @@ Jeśli wiesz, że zestaw danych zawiera wiele języków i dlatego potrzebujesz [
 ```
 
 Poniżej przedstawiono niektóre odwołania do obecnie obsługiwanych języków dla każdej z umiejętności, które mogą generować ten komunikat o błędzie:
-* [Analiza tekstu obsługiwane języki](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (dla [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)i [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
-* [Języki obsługiwane przez translatora](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (dla [tekstu TranslationSkill](cognitive-search-skill-text-translation.md))
-* [SplitSkill tekstu](cognitive-search-skill-textsplit.md) Obsługiwane języki:`da, de, en, es, fi, fr, it, ko, pt`
+* [Analiza tekstu obsługiwane języki](../cognitive-services/text-analytics/language-support.md) (dla [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)i [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Języki obsługiwane przez translatora](../cognitive-services/translator/language-support.md) (dla [tekstu TranslationSkill](cognitive-search-skill-text-translation.md))
+* [SplitSkill tekstu](cognitive-search-skill-textsplit.md) Obsługiwane języki: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>
 
@@ -304,7 +304,7 @@ Aby uzyskać więcej informacji, zobacz [przyrostowy postęp i zapytania niestan
 
 ## <a name="warning-some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Ostrzeżenie: niektóre dane zostały utracone podczas projekcji. Wiersz "X" w tabeli "Y" ma właściwość ciągu "Z", która jest zbyt długa.
 
-[Usługa Table Storage](https://azure.microsoft.com/services/storage/tables) ma limity dotyczące sposobu, w jaki mogą być [Właściwości dużych jednostek](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types) . Ciągi mogą zawierać co najwyżej 32 000 znaków. Jeśli wiersz z właściwością ciągu dłuższą niż 32 000 znaków jest rzutowany, zachowywane są tylko pierwsze znaki 32 000. Aby obejść ten problem, należy unikać tworzenia projektów wierszy z właściwościami ciągu dłuższymi niż 32 000 znaków.
+[Usługa Table Storage](https://azure.microsoft.com/services/storage/tables) ma limity dotyczące sposobu, w jaki mogą być [Właściwości dużych jednostek](/rest/api/storageservices/understanding-the-table-service-data-model#property-types) . Ciągi mogą zawierać co najwyżej 32 000 znaków. Jeśli wiersz z właściwością ciągu dłuższą niż 32 000 znaków jest rzutowany, zachowywane są tylko pierwsze znaki 32 000. Aby obejść ten problem, należy unikać tworzenia projektów wierszy z właściwościami ciągu dłuższymi niż 32 000 znaków.
 
 <a name="truncated-extracted-text-to-x-characters"></a>
 
@@ -326,13 +326,13 @@ Mapowania pól wyjściowych, które odwołują się do nieistniejących/niepusty
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Ostrzeżenie: zasady wykrywania zmian danych są skonfigurowane do korzystania z kolumny klucza "X"
-[Zasady wykrywania zmian danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) mają określone wymagania dotyczące kolumn, których używają do wykrywania zmian. Jedno z tych wymagań polega na tym, że ta kolumna jest aktualizowana za każdym razem, gdy element źródłowy zostanie zmieniony. Innym wymaganiem jest to, że nowa wartość dla tej kolumny jest większa niż Poprzednia wartość. Kolumny kluczy nie spełniają tego wymagania, ponieważ nie zmieniają w każdej aktualizacji. Aby obejść ten problem, wybierz inną kolumnę dla zasad wykrywania zmian.
+[Zasady wykrywania zmian danych](/rest/api/searchservice/create-data-source#data-change-detection-policies) mają określone wymagania dotyczące kolumn, których używają do wykrywania zmian. Jedno z tych wymagań polega na tym, że ta kolumna jest aktualizowana za każdym razem, gdy element źródłowy zostanie zmieniony. Innym wymaganiem jest to, że nowa wartość dla tej kolumny jest większa niż Poprzednia wartość. Kolumny kluczy nie spełniają tego wymagania, ponieważ nie zmieniają w każdej aktualizacji. Aby obejść ten problem, wybierz inną kolumnę dla zasad wykrywania zmian.
 
 <a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Ostrzeżenie: tekst dokumentu jest zakodowany w formacie UTF-16, ale brakuje znacznika kolejności bajtów
 
-[Tryby analizowania indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) muszą wiedzieć, jak kodowanie tekstu przed jego przeanalizą. Dwa najczęstsze sposoby kodowania tekstu to UTF-16 i UTF-8. UTF-8 to kodowanie o zmiennej długości, gdzie każdy znak ma długość od 1 do 4 bajtów. UTF-16 to kodowanie o stałej długości, gdzie każdy znak ma długość 2 bajtów. UTF-16 ma dwa różne warianty, "big endian" i "little endian". Kodowanie tekstu jest określane na podstawie "znacznika kolejności bajtów", serii bajtów przed tekstem.
+[Tryby analizowania indeksatora](/rest/api/searchservice/create-indexer#blob-configuration-parameters) muszą wiedzieć, jak kodowanie tekstu przed jego przeanalizą. Dwa najczęstsze sposoby kodowania tekstu to UTF-16 i UTF-8. UTF-8 to kodowanie o zmiennej długości, gdzie każdy znak ma długość od 1 do 4 bajtów. UTF-16 to kodowanie o stałej długości, gdzie każdy znak ma długość 2 bajtów. UTF-16 ma dwa różne warianty, "big endian" i "little endian". Kodowanie tekstu jest określane na podstawie "znacznika kolejności bajtów", serii bajtów przed tekstem.
 
 | Encoding | Znacznik kolejności bajtów |
 | --- | --- |
@@ -348,4 +348,4 @@ Aby obejść to ostrzeżenie, należy określić, co ma być kodowanie tekstu dl
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Ostrzeżenie: Kolekcja Cosmos DB "X" ma opóźnione zasady indeksowania. Niektóre dane mogą zostać utracone
 
-Kolekcje z [opóźnionymi](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) zasadami indeksowania nie mogą być wykonywane w sposób ciągły, co spowodowało brak danych indeksatora. Aby obejść to ostrzeżenie, Zmień zasady indeksowania tak, aby były spójne.
+Kolekcje z [opóźnionymi](/azure/cosmos-db/index-policy#indexing-mode) zasadami indeksowania nie mogą być wykonywane w sposób ciągły, co spowodowało brak danych indeksatora. Aby obejść to ostrzeżenie, Zmień zasady indeksowania tak, aby były spójne.

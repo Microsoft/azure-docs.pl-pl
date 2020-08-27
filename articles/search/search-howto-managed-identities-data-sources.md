@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 6b07236fd639c9878c59523f78de5215b173ffc6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553168"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936592"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Konfigurowanie połączenia indeksatora ze źródłem danych przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Te problemy można rozwiązać przez skonfigurowanie połączenia przy użyciu t
 
 ## <a name="using-managed-identities"></a>Korzystanie z tożsamości zarządzanych
 
-[Zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to funkcja, która zapewnia usługi platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure Active Directory (Azure AD). Za pomocą tej funkcji w usłudze Azure Wyszukiwanie poznawcze można utworzyć obiekt źródła danych z parametrami połączenia, które nie zawierają żadnych poświadczeń. Zamiast tego usługa wyszukiwania uzyska dostęp do źródła danych za pośrednictwem kontroli dostępu opartej na rolach (RBAC).
+[Zarządzane tożsamości](../active-directory/managed-identities-azure-resources/overview.md) to funkcja, która zapewnia usługi platformy Azure z automatyczną tożsamością zarządzaną w usłudze Azure Active Directory (Azure AD). Za pomocą tej funkcji w usłudze Azure Wyszukiwanie poznawcze można utworzyć obiekt źródła danych z parametrami połączenia, które nie zawierają żadnych poświadczeń. Zamiast tego usługa wyszukiwania uzyska dostęp do źródła danych za pośrednictwem kontroli dostępu opartej na rolach (RBAC).
 
 Podczas konfigurowania źródła danych przy użyciu tożsamości zarządzanej można zmienić poświadczenia źródła danych, a indeksatory nadal będą mogły nawiązywać połączenia ze źródłem danych. Można również tworzyć obiekty źródła danych w kodzie bez konieczności dołączania klucza konta lub używania Key Vault do pobierania klucza konta.
 

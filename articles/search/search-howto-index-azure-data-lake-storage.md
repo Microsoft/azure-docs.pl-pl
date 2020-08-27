@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 5862654dac99bea7755eab41cf3c1bd6cdd84526
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: b1a88398d657e6bc242c7db12f3c0ddc1af828ca
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760315"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935861"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indeksowanie dokumentów w Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ ms.locfileid: "87760315"
 > Obsługa Azure Data Lake Storage Gen2 jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Możesz zażądać dostępu do wersji zapoznawczych, wypełniając [ten formularz](https://aka.ms/azure-cognitive-search/indexer-preview). [Interfejs API REST w wersji 2020-06-30 — wersja zapoznawcza](search-api-preview.md) i Portal zapewniają tę funkcję. Obecnie nie ma obsługi zestawu SDK platformy .NET.
 
 
-Podczas konfigurowania konta usługi Azure Storage można włączyć [hierarchiczną przestrzeń nazw](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). Dzięki temu zbieranie zawartości na koncie będzie zorganizowane w hierarchii katalogów i podkatalogów zagnieżdżonych. Włączenie hierarchicznej przestrzeni nazw umożliwia włączenie [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+Podczas konfigurowania konta usługi Azure Storage można włączyć [hierarchiczną przestrzeń nazw](../storage/blobs/data-lake-storage-namespace.md). Dzięki temu zbieranie zawartości na koncie będzie zorganizowane w hierarchii katalogów i podkatalogów zagnieżdżonych. Włączenie hierarchicznej przestrzeni nazw umożliwia włączenie [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 W tym artykule opisano, jak rozpocząć pracę z dokumentami indeksowanymi, które znajdują się w Azure Data Lake Storage Gen2.
 
@@ -44,9 +44,9 @@ Indeksowanie zawartości w Data Lake Storage Gen2 jest takie samo jak indeksowan
 
 ## <a name="access-control"></a>Kontrola dostępu
 
-Azure Data Lake Storage Gen2 implementuje [model kontroli dostępu](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) , który obsługuje zarówno kontrolę dostępu opartą na rolach (Azure RBAC), jak i oparte na systemie POSIX listy kontroli dostępu (ACL). Podczas indeksowania zawartości z Data Lake Storage Gen2 usługa Azure Wyszukiwanie poznawcze nie wyodrębni z zawartości informacji RBAC i listy ACL. W związku z tym te informacje nie zostaną uwzględnione w indeksie usługi Azure Wyszukiwanie poznawcze.
+Azure Data Lake Storage Gen2 implementuje [model kontroli dostępu](../storage/blobs/data-lake-storage-access-control.md) , który obsługuje zarówno kontrolę dostępu opartą na rolach (Azure RBAC), jak i oparte na systemie POSIX listy kontroli dostępu (ACL). Podczas indeksowania zawartości z Data Lake Storage Gen2 usługa Azure Wyszukiwanie poznawcze nie wyodrębni z zawartości informacji RBAC i listy ACL. W związku z tym te informacje nie zostaną uwzględnione w indeksie usługi Azure Wyszukiwanie poznawcze.
 
-Jeśli zachowanie kontroli dostępu dla każdego dokumentu w indeksie jest ważne, to Deweloper aplikacji może wdrożyć [przycinanie zabezpieczeń](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
+Jeśli zachowanie kontroli dostępu dla każdego dokumentu w indeksie jest ważne, to Deweloper aplikacji może wdrożyć [przycinanie zabezpieczeń](./search-security-trimming-for-azure-search.md).
 
 ## <a name="change-detection"></a>Wykrywanie zmian
 

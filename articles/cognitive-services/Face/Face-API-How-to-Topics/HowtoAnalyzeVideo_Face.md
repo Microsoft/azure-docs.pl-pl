@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: d52f4ad7be6ce31fd2d01208536945c1f9ab2d7d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9de803789b7ec11a971cf9a79a5c4665ac372cb4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84986733"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928143"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Przykład: jak analizować filmy wideo w czasie rzeczywistym
 
@@ -203,7 +204,7 @@ Aby zacząć pracę z tym przykładem, wykonaj następujące kroki:
 
 1. Utwórz [konto platformy Azure](https://azure.microsoft.com/free/cognitive-services/). Jeśli masz już taki, możesz przejść do następnego kroku.
 2. Utwórz zasoby dla przetwarzanie obrazów i w Azure Portal, aby uzyskać klucz i punkt końcowy. Upewnij się, że podczas instalacji wybrano warstwę bezpłatna (F0).
-   - [Przetwarzanie obrazów](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [przetwarzanie obrazów](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
    - [Do rozpoznawania](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Po wdrożeniu zasobów kliknij pozycję **Przejdź do zasobu** , aby zebrać klucz i punkt końcowy dla każdego zasobu. 
 3. Klonuj repozytorium [poznawcze-przykłady-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
 4. Otwórz przykład w programie Visual Studio i skompiluj i uruchom przykładowe aplikacje:

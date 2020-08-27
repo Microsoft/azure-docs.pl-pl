@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.openlocfilehash: 693a7006a9f5742341a11af23b64bcd8c501618f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: b5b27e201242f87e15af780bc26328dbdc5eb7fc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705898"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935963"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Samouczek: wygenerowane przez program AI zawartość do przeszukiwania z obiektów blob platformy Azure przy użyciu zestawu .NET SDK
 
 Jeśli w usłudze Azure Blob Storage znajduje się tekst lub obrazy bez struktury, [potok wzbogacenia AI](cognitive-search-concept-intro.md) może wyodrębnić informacje i utworzyć nową zawartość, która jest przydatna w przypadku wyszukiwania pełnotekstowego lub scenariuszy wyszukiwania w bazie wiedzy. W tym samouczku w języku C# Zastosuj optyczne rozpoznawanie znaków (OCR) na obrazach i wykonaj przetwarzanie języka naturalnego, aby utworzyć nowe pola, których można użyć w zapytaniach, aspektach i filtrach.
 
-Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
+Ten samouczek używa języka C# i [zestawu SDK platformy .NET](/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Zacznij od plików aplikacji i obrazów w usłudze Azure Blob Storage.
@@ -127,7 +127,7 @@ Zacznij od otwierania programu Visual Studio i tworzenia nowego projektu aplikac
 
 ### <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-[Zestaw Azure wyszukiwanie poznawcze .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) składa się z kilku bibliotek klienckich, które umożliwiają zarządzanie indeksami, źródłami danych, indeksatorami i umiejętności, a także przekazywaniem i zarządzaniem dokumentami oraz wykonywanie zapytań, bez konieczności zajmowania się szczegółowymi informacjami dotyczącymi protokołu HTTP i JSON. Te biblioteki klienckie są dystrybuowane jako pakiety NuGet.
+[Zestaw Azure wyszukiwanie poznawcze .NET SDK](/dotnet/api/overview/azure/search) składa się z kilku bibliotek klienckich, które umożliwiają zarządzanie indeksami, źródłami danych, indeksatorami i umiejętności, a także przekazywaniem i zarządzaniem dokumentami oraz wykonywanie zapytań, bez konieczności zajmowania się szczegółowymi informacjami dotyczącymi protokołu HTTP i JSON. Te biblioteki klienckie są dystrybuowane jako pakiety NuGet.
 
 Dla tego projektu Zainstaluj pakiet NuGet w wersji 9 lub nowszej `Microsoft.Azure.Search` .
 
@@ -680,7 +680,7 @@ Dodaj następującą instrukcję using, aby usunąć niejednoznaczne odwołanie.
 using Index = Microsoft.Azure.Search.Models.Index;
 ```
 
-Aby dowiedzieć się więcej na temat definiowania indeksu, zobacz [create index (Azure wyszukiwanie POZNAWCZE REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Aby dowiedzieć się więcej na temat definiowania indeksu, zobacz [create index (Azure wyszukiwanie POZNAWCZE REST API)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Krok 4. Tworzenie i uruchamianie indeksatora
 
@@ -905,7 +905,7 @@ catch (Exception e)
 }
 ```
 
-Powtórz te czynności w przypadku dodatkowych pól: Content, languageCode, phrase kluczs i organizacji w tym ćwiczeniu. Można zwrócić wiele pól za pośrednictwem właściwości [SELECT](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) przy użyciu listy rozdzielanej przecinkami.
+Powtórz te czynności w przypadku dodatkowych pól: Content, languageCode, phrase kluczs i organizacji w tym ćwiczeniu. Można zwrócić wiele pól za pośrednictwem właściwości [SELECT](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) przy użyciu listy rozdzielanej przecinkami.
 
 <a name="reset"></a>
 
@@ -925,9 +925,9 @@ Wprowadzono [wbudowane umiejętności](cognitive-search-predefined-skills.md) , 
 
 Ponadto przedstawiono sposób testowania wyników i resetowania systemu na potrzeby przyszłych iteracji. Omówiono proces, w ramach którego odpytanie indeksu powoduje zwrócenie danych wyjściowych utworzonych przez wzbogacony potok indeksowania. Zaprezentowano procedurę sprawdzania stanu indeksatora i usuwania obiektów przed ponownym uruchomieniem potoku.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

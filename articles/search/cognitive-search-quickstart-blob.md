@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 9bbe06cbdc5ad349995d93d01cc325ed8d7951a0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488957"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935402"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Szybki Start: Tworzenie usługi Azure Wyszukiwanie poznawcze poznawcze zestawu umiejętności w Azure Portal
 
@@ -29,7 +29,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
 + Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
-+ Konto usługi Azure Storage z [magazynem obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/).
++ Konto usługi Azure Storage z [magazynem obiektów BLOB](../storage/blobs/index.yml).
 
 > [!NOTE]
 > Ten przewodnik Szybki Start używa również [usługi Azure Cognitive Services dla systemu](https://azure.microsoft.com/services/cognitive-services/) AI. Ze względu na to, że obciążenie jest małe, Cognitive Services jest wybierana w tle, aby można było bezpłatnie przetwarzać do 20 transakcji. Oznacza to, że można wykonać to ćwiczenie bez konieczności tworzenia dodatkowego zasobu Cognitive Services.
@@ -40,7 +40,7 @@ W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Stora
 
 1. [Pobierz przykładowe dane](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) składające się z małego zestawu plików różnych typów. Rozpakuj pliki.
 
-1. [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Wybierz ten sam region co usługa Azure Wyszukiwanie poznawcze, aby uniknąć naliczania opłat za przepustowość. 
 
@@ -56,7 +56,7 @@ Teraz można przystąpić do przenoszenia Kreatora importu danych.
 
 ## <a name="run-the-import-data-wizard"></a>Uruchom Kreatora importowania danych
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+1. Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
 1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby skonfigurować wzbogacanie poznawcze w czterech krokach.
 
@@ -169,11 +169,11 @@ Innym ważnym pojęciem jest to, że umiejętności działają nad typami zawart
 
 Dane wyjściowe są kierowane do indeksu wyszukiwania i istnieje mapowanie między parami nazw-wartości utworzonymi podczas indeksowania i poszczególnych pól w indeksie. Wewnętrznie portal konfiguruje [adnotacje](cognitive-search-concept-annotations-syntax.md) i definiuje [zestaw umiejętności](cognitive-search-defining-skillset.md), ustanawiając kolejność operacji i ogólny przepływ. Te kroki są ukryte w portalu, ale po rozpoczęciu pisania kodu te koncepcje stają się istotne.
 
-Na koniec nauczysz się, że można zweryfikować zawartość, badając indeks. Na końcu usługa Azure Wyszukiwanie poznawcze zapewnia indeks z możliwością wyszukiwania, który można badać przy użyciu [prostej](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) lub w [pełni rozszerzonej składni zapytania](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Indeks zawierający wzbogacone pola jest taki sam, jak każdy inny. Jeśli chcesz uwzględnić standardowe lub [Niestandardowe analizatory](search-analyzers.md), [Profile oceniania](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonimy](search-synonyms.md), [filtry aspektowe](search-filters-facets.md), wyszukiwanie geograficzne lub dowolną inną funkcję wyszukiwanie poznawcze platformy Azure, możesz to zrobić.
+Na koniec nauczysz się, że można zweryfikować zawartość, badając indeks. Na końcu usługa Azure Wyszukiwanie poznawcze zapewnia indeks z możliwością wyszukiwania, który można badać przy użyciu [prostej](/rest/api/searchservice/simple-query-syntax-in-azure-search) lub w [pełni rozszerzonej składni zapytania](/rest/api/searchservice/lucene-query-syntax-in-azure-search). Indeks zawierający wzbogacone pola jest taki sam, jak każdy inny. Jeśli chcesz uwzględnić standardowe lub [Niestandardowe analizatory](search-analyzers.md), [Profile oceniania](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonimy](search-synonyms.md), [filtry aspektowe](search-filters-facets.md), wyszukiwanie geograficzne lub dowolną inną funkcję wyszukiwanie poznawcze platformy Azure, możesz to zrobić.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
@@ -184,7 +184,7 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 Umiejętności można utworzyć przy użyciu portalu, zestawu SDK platformy .NET lub interfejsu API REST. Aby dowiedzieć się więcej, wypróbuj interfejs API REST przy użyciu programu Poster i więcej przykładowych danych.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Wyodrębnianie tekstu i struktury z obiektów BLOB JSON przy użyciu interfejsów API REST](cognitive-search-tutorial-blob.md)
+> [Samouczek: Wyodrębnianie tekstu i struktury z obiektów BLOB JSON przy użyciu interfejsów API REST ](cognitive-search-tutorial-blob.md)
 
 > [!Tip]
 > Jeśli chcesz powtórzyć to ćwiczenie lub wypróbuj inny Przewodnik wzbogacania, Usuń indeksator w portalu. Usunięcie indeksatora resetuje bezpłatny dzienny licznik transakcji do zera na potrzeby przetwarzania Cognitive Services.

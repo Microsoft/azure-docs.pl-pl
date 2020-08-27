@@ -5,14 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dee6b0b1635880fb50b8d35f1f91ad2bce569cff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74158177"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928483"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi ASP.NET i sygnalizującego
 
@@ -32,7 +33,7 @@ W tym przewodniku szybki start dowiesz się, jak rozpocząć pracę z usługą A
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -62,7 +63,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
 
 1. Zaznacz i skopiuj podstawowe parametry połączenia.
 
-1. Teraz ustaw parametry połączenia w pliku Web. config.
+1. Teraz ustaw parametry połączenia w pliku web.config.
 
     ```xml
     <configuration>
@@ -73,7 +74,7 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
     </configuration>
     ```
 
-1. W *Startup.cs*, zamiast wywoływania `MapSignalR()`, należy wywołać `MapAzureSignalR({your_applicationName})` i przekazać parametry połączenia, aby aplikacja łączyła się z usługą zamiast sygnałów hostingowych. Zamień `{YourApplicationName}` na nazwę aplikacji. Ta nazwa jest unikatową nazwą odróżniającą tę aplikację od innych aplikacji. Można użyć `this.GetType().FullName` jako wartości.
+1. W *Startup.cs*, zamiast wywoływania `MapSignalR()` , należy wywołać `MapAzureSignalR({your_applicationName})` i przekazać parametry połączenia, aby aplikacja łączyła się z usługą zamiast sygnałów hostingowych. Zamień `{YourApplicationName}` na nazwę aplikacji. Ta nazwa jest unikatową nazwą odróżniającą tę aplikację od innych aplikacji. Można użyć `this.GetType().FullName` jako wartości.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -110,7 +111,7 @@ Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozyc
 W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. W instrukcjach dla tego przewodnika Szybki start używana była grupa zasobów o nazwie *SignalRTestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 
    
-![Usuwanie](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
+![Usuń](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 

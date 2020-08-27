@@ -2,15 +2,16 @@
 title: Diagnozowanie błędów i wyjątków za pomocą usługi Azure Application Insights
 description: Przechwytuj wyjątki z aplikacji ASP.NET wraz z danymi telemetrycznymi żądania.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/11/2019
-ms.openlocfilehash: c91ab4bcf8a0d2172c89fa04bd7a3b4999b2217e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321364"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936507"
 ---
-# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozuj wyjątki w aplikacjach sieci Web za pomocą Application Insights
+# <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnozowanie wyjątków w aplikacjach internetowych za pomocą usługi Application Insights
 Wyjątki w aplikacji sieci Web na żywo są zgłaszane przez [Application Insights](./app-insights-overview.md). Możliwe jest skorelowanie żądań zakończonych niepowodzeniem z wyjątkami i innymi zdarzeniami zarówno na kliencie, jak i na serwerze, dzięki czemu można szybko zdiagnozować przyczyny.
 
 ## <a name="set-up-exception-reporting"></a>Konfigurowanie raportowania wyjątków
@@ -91,10 +92,10 @@ Szczegóły żądania nie obejmują danych wysyłanych do aplikacji w wywołaniu
 * Wstaw kod w aplikacji, aby wywołać metodę [Microsoft. ApplicationInsights. TrackTrace ()](./api-custom-events-metrics.md#tracktrace). Wyślij dane POST w parametrze Message. Limit dozwolonego rozmiaru, dlatego należy spróbować wysłać tylko istotne dane.
 * Podczas badania niepomyślnego żądania Znajdź skojarzone ślady.
 
-## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Przechwytywanie wyjątków i powiązanych danych diagnostycznych
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Przechwytywanie wyjątków i powiązanych danych diagnostycznych
 Na początku nie zobaczysz w portalu wszystkich wyjątków, które powodują błędy w aplikacji. Zobaczysz dowolne wyjątki przeglądarki (Jeśli używasz [zestawu JavaScript SDK](./javascript.md) na stronach sieci Web). Jednak większość wyjątków serwera są przechwytywane przez usługi IIS i trzeba napisać bit kodu, aby je zobaczyć.
 
-Można:
+Dostępne możliwości:
 
 * **Rejestruj wyjątki jawnie** przez wstawianie kodu w obsłudze wyjątków w celu zgłoszenia wyjątków.
 * **Automatycznie Przechwytuj wyjątki** przez skonfigurowanie platformy ASP.NET. Niezbędne Dodatki są różne dla różnych typów platform.
@@ -199,7 +200,7 @@ Ale jeśli masz aktywne przekierowania, Dodaj następujące wiersze do funkcji A
 ## <a name="mvc"></a>MVC
 Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które zostały automatycznie zgłoszone w metodach kontrolerów MVC 5. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Na przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
 
 * Zgłoszone wyjątki przez konstruktorów kontrolerów.
 * Zgłoszone wyjątki przez programy obsługi komunikatów.
@@ -291,7 +292,7 @@ Zarejestruj AiHandleErrorAttribute jako filtr globalny w FilterConfig.cs:
 ## <a name="web-api"></a>Interfejs API sieci Web
 Począwszy od Application Insights zestawu SDK sieci Web w wersji 2,6 (beta3 i nowszych), Application Insights zbiera Nieobsłużone wyjątki, które są automatycznie generowane w metodach kontrolera dla WebAPI 2 +. Jeśli wcześniej dodano niestandardową procedurę obsługi do śledzenia takich wyjątków (zgodnie z opisem w poniższych przykładach), można ją usunąć, aby zapobiec podwójnemu śledzeniu wyjątków.
 
-Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Na przykład:
+Istnieją różne przypadki, w których nie można obsłużyć filtrów wyjątków. Przykład:
 
 * Zgłoszone wyjątki przez konstruktorów kontrolerów.
 * Zgłoszone wyjątki przez programy obsługi komunikatów.

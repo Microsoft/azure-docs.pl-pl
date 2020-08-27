@@ -3,12 +3,12 @@ title: Skonfiguruj urządzenie Azure Migrate w Azure Government
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate w Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 993c25d7b2c580df47b61c836b885ed6379e8640
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ffea966c58909ecaab0da13a4204295ecb193895
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612269"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936796"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurowanie urządzenia w Azure Government 
 
@@ -51,7 +51,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
     **Algorytm** | **Pobieranie** | **SHA256**
     --- | --- | ---
-    VMware (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+    VMware (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac0404426bea18809def2284188
 
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
@@ -71,8 +71,10 @@ Aby uruchomić skrypt:
 1. Wyodrębnij spakowany plik do folderu na komputerze, który będzie hostować urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu Azure Migrate.
 2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (z podwyższonym poziomem uprawnień).
 3. Zmień katalog programu PowerShell w folder zawierający zawartość wyodrębnioną z pobranego pliku spakowanego.
-4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
-5. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
+4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób: 
+    
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>.\AzureMigrateInstaller.ps1 ```
+1. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Weryfikuj dostęp
 
@@ -103,7 +105,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
     **Scenariusz** | **Pobieranie** | **SHA256**
     --- | --- | ---
-    Funkcja Hyper-V (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+    Funkcja Hyper-V (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140424) |  db5311de3d1d4a1167183a94e8347456db9c5749c7332ff2eb4b777798765e48
 
           
 
@@ -124,8 +126,10 @@ Aby uruchomić skrypt:
 1. Wyodrębnij spakowany plik do folderu na komputerze, który będzie hostować urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu Azure Migrate.
 2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (z podwyższonym poziomem uprawnień).
 3. Zmień katalog programu PowerShell w folder zawierający zawartość wyodrębnioną z pobranego pliku spakowanego.
-4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
-5. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
+4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób: 
+
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>.\AzureMigrateInstaller.ps1 ``` 
+1. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Weryfikuj dostęp
 
@@ -156,7 +160,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
     **Scenariusz** | **Przesłać*** | **Wartość skrótu**
     --- | --- | ---
-    Fizyczne (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+    Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140338) | 1545f9ce8874cedef6347c1a1332f8b5eabd6811a017440a2382525fb0430309
           
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
@@ -176,8 +180,10 @@ Aby uruchomić skrypt:
 1. Wyodrębnij spakowany plik do folderu na komputerze, który będzie hostować urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu Azure Migrate.
 2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (z podwyższonym poziomem uprawnień).
 3. Zmień katalog programu PowerShell w folder zawierający zawartość wyodrębnioną z pobranego pliku spakowanego.
-4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
-5. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
+4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób: 
+
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+1. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Weryfikuj dostęp
 

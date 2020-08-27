@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46170a0eede92584b8ac4cc77ad61ca673cae65c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113822"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935487"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Przykład: Tworzenie niestandardowej umiejętności przy użyciu interfejs API wyszukiwania jednostek Bing
 
@@ -347,7 +347,7 @@ POST https://localhost:7071/api/EntitySearch
 }
 ```
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 Powinna zostać wyświetlona odpowiedź podobna do poniższego przykładu:
 
 ```json
@@ -481,5 +481,5 @@ Gratulacje! Utworzono swoją pierwszą umiejętność niestandardową. Teraz mo�
 + [Umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Dodaj niestandardową umiejętność do potoku wzbogacania AI](cognitive-search-custom-skill-interface.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
-+ [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Utwórz zestawu umiejętności (REST)](/rest/api/searchservice/create-skillset)
 + [Jak zmapować wzbogacone pola](cognitive-search-output-field-mapping.md)

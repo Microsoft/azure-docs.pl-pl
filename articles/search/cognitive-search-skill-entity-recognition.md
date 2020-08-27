@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080845"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936082"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Umiejętność rozpoznawania jednostek
 
-Umiejętność **rozpoznawania jednostek** wyodrębnia jednostki różnych typów z tekstu. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) w Cognitive Services.
+Umiejętność **rozpoznawania jednostek** wyodrębnia jednostki różnych typów z tekstu. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Analiza tekstu](../cognitive-services/text-analytics/overview.md) w Cognitive Services.
 
 > [!NOTE]
 > Podczas rozszerzania zakresu przez zwiększenie częstotliwości przetwarzania, Dodawanie większej liczby dokumentów lub Dodawanie algorytmów AI, należy [dołączyć Cognitive Services rozliczanego zasobu](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu łamania dokumentu w usłudze Azure Wyszukiwanie poznawcze. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
@@ -29,7 +29,7 @@ Umiejętność **rozpoznawania jednostek** wyodrębnia jednostki różnych typó
 Microsoft. umiejętności. Text. EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limity danych
-Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Jeśli konieczne jest rozbicie danych przed wysłaniem ich do wyodrębniania kluczowych fraz, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
+Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](/dotnet/api/system.string.length) . Jeśli konieczne jest rozbicie danych przed wysłaniem ich do wyodrębniania kluczowych fraz, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -40,7 +40,7 @@ W parametrach jest rozróżniana wielkość liter i są one opcjonalne.
 | `categories`    | Tablica kategorii, które mają zostać wyodrębnione.  Możliwe typy kategorii: `"Person"` ,,,,, `"Location"` `"Organization"` `"Quantity"` `"Datetime"` `"URL"` , `"Email"` . Jeśli nie podano żadnej kategorii, zwracane są wszystkie typy.|
 | `defaultLanguageCode` |    Kod języka tekstu wejściowego. Obsługiwane są następujące języki: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans` . Nie wszystkie kategorie jednostek są obsługiwane we wszystkich językach; Zobacz uwagę poniżej.|
 | `minimumPrecision` | Wartość z zakresu od 0 do 1. Jeśli wynik pewności (w `namedEntities` danych wyjściowych) jest mniejszy niż ta wartość, jednostka nie jest zwracana. Wartość domyślna to 0. |
-| `includeTypelessEntities` | Ustaw na, `true` Jeśli chcesz rozpoznać dobrze znane jednostki, które nie pasują do bieżących kategorii. Rozpoznane jednostki są zwracane w `entities` polu złożone dane wyjściowe. Na przykład "system Windows 10" jest dobrze znaną jednostką (produkt), ale ponieważ "produkty" nie jest obsługiwaną kategorią, ta jednostka zostanie uwzględniona w polu dane wyjściowe jednostek. Wartość domyślna to`false` |
+| `includeTypelessEntities` | Ustaw na, `true` Jeśli chcesz rozpoznać dobrze znane jednostki, które nie pasują do bieżących kategorii. Rozpoznane jednostki są zwracane w `entities` polu złożone dane wyjściowe. Na przykład "system Windows 10" jest dobrze znaną jednostką (produkt), ale ponieważ "produkty" nie jest obsługiwaną kategorią, ta jednostka zostanie uwzględniona w polu dane wyjściowe jednostek. Wartość domyślna to `false` |
 
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
@@ -53,7 +53,7 @@ W parametrach jest rozróżniana wielkość liter i są one opcjonalne.
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 
 > [!NOTE]
-> Nie wszystkie kategorie jednostek są obsługiwane we wszystkich językach. `"Person"` `"Location"` `"Organization"` Typy kategorii jednostek, i są obsługiwane w przypadku pełnej listy języków powyżej. Tylko _de_, _EN_, _es_, _fr_i _zh-Hans_ obsługuje wyodrębnianie `"Quantity"` typów, `"Datetime"` , `"URL"` i `"Email"` . Aby uzyskać więcej informacji, zobacz [Obsługa języka i regionu dla interfejs API analizy tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> Nie wszystkie kategorie jednostek są obsługiwane we wszystkich językach. `"Person"` `"Location"` `"Organization"` Typy kategorii jednostek, i są obsługiwane w przypadku pełnej listy języków powyżej. Tylko _de_, _EN_, _es_, _fr_i _zh-Hans_ obsługuje wyodrębnianie `"Quantity"` typów, `"Datetime"` , `"URL"` i `"Email"` . Aby uzyskać więcej informacji, zobacz [Obsługa języka i regionu dla interfejs API analizy tekstu](../cognitive-services/text-analytics/language-support.md).  
 
 | Nazwa wyjściowa      | Opis                   |
 |---------------|-------------------------------|
@@ -187,12 +187,12 @@ W parametrach jest rozróżniana wielkość liter i są one opcjonalne.
 }
 ```
 
-Należy zauważyć, że przesunięcia zwrócone dla jednostek w danych wyjściowych tej umiejętności są zwracane bezpośrednio z [interfejs API analizy tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), co oznacza, że są one używane do indeksowania w oryginalnym ciągu, należy użyć klasy [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) w programie .NET w celu wyodrębnienia poprawnej zawartości.  [Więcej szczegółów można znaleźć tutaj.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Należy zauważyć, że przesunięcia zwrócone dla jednostek w danych wyjściowych tej umiejętności są zwracane bezpośrednio z [interfejs API analizy tekstu](../cognitive-services/text-analytics/overview.md), co oznacza, że są one używane do indeksowania w oryginalnym ciągu, należy użyć klasy [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) w programie .NET w celu wyodrębnienia poprawnej zawartości.  [Więcej szczegółów można znaleźć tutaj.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Przypadki błędów
 Jeśli kod języka dla dokumentu nie jest obsługiwany, zwracany jest błąd i nie są wyodrębniane żadne jednostki.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

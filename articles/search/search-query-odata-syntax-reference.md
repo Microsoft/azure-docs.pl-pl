@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e9ae4aa68bc0c819d02a0cc6c39758549811cb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72793237"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928857"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze
 
@@ -214,9 +214,9 @@ Aby wizualnie zbadać gramatykę języka OData obsługiwaną przez usługę Azur
 > [!div class="nextstepaction"]
 > [Diagram składni OData dla Wyszukiwanie poznawcze platformy Azure](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)
 - [Składnia zapytań Lucene](query-lucene-syntax.md)
 - [Prosta Składnia zapytania w usłudze Azure Wyszukiwanie poznawcze](query-simple-syntax.md)

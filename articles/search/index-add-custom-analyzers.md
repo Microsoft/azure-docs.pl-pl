@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a9f8b02d8821c76b2a7766f35244834934db1d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511402"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935912"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Dodawanie niestandardowych analizatorów do pól ciągów w indeksie Wyszukiwanie poznawcze platformy Azure
 
@@ -53,7 +53,7 @@ ms.locfileid: "86511402"
 
  `tokenizer_name`Jest nazwą elementu tokenizatora i są nazwami `token_filter_name_1` `token_filter_name_2` filtrów tokenów, a `char_filter_name_1` i `char_filter_name_2` są nazwami filtrów char (Zobacz tabele [tokenizatory](#Tokenizers), [Tokens filters](#TokenFilters) i filtry char, aby uzyskać prawidłowe wartości).
 
-Definicja analizatora jest częścią większego indeksu. Aby uzyskać informacje o pozostałej części indeksu, zobacz [create index API](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Definicja analizatora jest częścią większego indeksu. Aby uzyskać informacje o pozostałej części indeksu, zobacz [create index API](/rest/api/searchservice/create-index) .
 
 ```
 "analyzers":(optional)[
@@ -133,9 +133,9 @@ Definicje filtrów char, tokenizatory i filtrów tokenów są dodawane do indeks
 
 ## <a name="test-custom-analyzers"></a>Testowanie niestandardowych analizatorów
 
-Możesz użyć **operacji analizatora testowego** w [interfejsie API REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) , aby zobaczyć, w jaki sposób analizator przerywa dany tekst do tokenów.
+Możesz użyć **operacji analizatora testowego** w [interfejsie API REST](/rest/api/searchservice/test-analyzer) , aby zobaczyć, w jaki sposób analizator przerywa dany tekst do tokenów.
 
-**Request**
+**Żądanie**
 ```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
@@ -202,7 +202,7 @@ W przypadku analizatorów atrybuty indeksu różnią się w zależności od tego
 
 | Typ | Opis |
 | ---- | ----------- |  
-|Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
+|Name (Nazwa)|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Typ analizatorze z listy obsługiwanych analizatorów. Zobacz kolumnę **analyzer_type** w tabeli [analizatory](#AnalyzerTable) poniżej.|  
 |Opcje|Muszą być prawidłowymi opcjami wstępnie zdefiniowanego analizatora wymienionymi w tabeli [analizatorów](#AnalyzerTable) poniżej.|  
 
@@ -210,7 +210,7 @@ W przypadku analizatorów atrybuty indeksu różnią się w zależności od tego
 
 | Typ | Opis |
 | ---- | ----------- |  
-|Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
+|Name (Nazwa)|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Musi mieć wartość "#Microsoft. Azure. Search. CustomAnalyzer".|  
 |CharFilters|Ustaw jeden z wstępnie zdefiniowanych filtrów znaków wymienionych w tabeli [filtry znaków](#char-filters-reference) lub niestandardowy filtr znaków określony w definicji indeksu.|  
 |Tokenizatora|Wymagany. Ustaw jeden z wstępnie zdefiniowanych tokenizatory wymienionych w poniższej tabeli [tokenizatory](#Tokenizers) lub Custom tokenizatora określony w definicji indeksu.|  
@@ -227,7 +227,7 @@ W przypadku analizatorów atrybuty indeksu różnią się w zależności od tego
 
 | Typ | Opis |
 | ---- | ----------- | 
-|Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
+|Name (Nazwa)|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Typ filtru char z listy obsługiwanych filtrów char. Zobacz **char_filter_type** kolumny w tabeli [filtry znaków](#char-filters-reference) poniżej.|  
 |Opcje|Musi być prawidłowymi opcjami danego typu [filtrów znaków](#char-filters-reference) .|  
 
@@ -240,7 +240,7 @@ Analizator niestandardowy może użyć wstępnie zdefiniowanego tokenizatora z d
 
 | Typ | Opis |
 | ---- | ----------- | 
-|Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
+|Name (Nazwa)|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Nazwa tokenizatora z listy obsługiwanych tokenizatory. Zobacz **tokenizer_type** kolumny w poniższej tabeli [tokenizatory](#Tokenizers) .|  
 |Opcje|Muszą być prawidłowymi opcjami danego typu tokenizatora wymienionymi w poniższej tabeli [tokenizatory](#Tokenizers) .|  
 
@@ -251,7 +251,7 @@ W analizatorze niestandardowym można korzystać z wielu filtrów tokenu. Filtry
 
 | Typ | Opis |
 | ---- | ----------- |  
-|Nazwa|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
+|Name (Nazwa)|Musi zawierać tylko litery, cyfry, spacje, kreski i znaki podkreślenia, może zaczynać się i kończyć tylko znakami alfanumerycznymi i mieć ograniczone do 128 znaków.|  
 |Typ|Nazwa filtru tokenu z listy obsługiwanych filtrów tokenu. Zapoznaj się z kolumną **token_filter_type** w tabeli [filtry tokenu](#TokenFilters) poniżej.|  
 |Opcje|Musi być [filtrami tokenu](#TokenFilters) danego typu filtru tokenu.|  
 
@@ -302,7 +302,7 @@ W poniższej tabeli tokenizatory zaimplementowane przy użyciu oprogramowania Ap
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**Opis i opcje**|  
 |-|-|-|  
-|[motyw](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Tokenizatora na podstawie gramatyki, które są odpowiednie do przetwarzania większości dokumentów w języku europejskim.<br /><br /> **Opcje**<br /><br /> maxTokenLength (typ: int) — Maksymalna długość tokenu. Wartość domyślna: 255, maksimum: 300. Tokeny dłuższe niż maksymalna długość są dzielone.|  
+|[wdrożenie klasyczne](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|Tokenizatora na podstawie gramatyki, które są odpowiednie do przetwarzania większości dokumentów w języku europejskim.<br /><br /> **Opcje**<br /><br /> maxTokenLength (typ: int) — Maksymalna długość tokenu. Wartość domyślna: 255, maksimum: 300. Tokeny dłuższe niż maksymalna długość są dzielone.|  
 |[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|Tokenizes dane wejściowe z krawędzi do n-gramów o podanej wielkości.<br /><br /> **Opcje**<br /><br /> minGram (typ: int) — wartość domyślna: 1, maksimum: 300.<br /><br /> maxGram (typ: int) — wartość domyślna: 2, maksimum: 300. Musi być większa niż minGram.<br /><br /> tokenChars (typ: tablica ciągów) — klasy znaków, które mają być przechowywane w tokenach. Dozwolone wartości: <br />"Letter", "cyfra", "Odstęp", "interpunkcja", "symbol". Domyślnie do pustej tablicy — wszystkie znaki są zachowywane. |  
 |[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|Emituje cały dane wejściowe jako jeden token.<br /><br /> **Opcje**<br /><br /> maxTokenLength (typ: int) — Maksymalna długość tokenu. Wartość domyślna: 256, maksimum: 300. Tokeny dłuższe niż maksymalna długość są dzielone.|  
 |[cyrylicy](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html)|(typ ma zastosowanie tylko wtedy, gdy opcje są dostępne)  |Dzieli tekst na nie literę. Podział tokenów dłuższy niż 255 znaków.|  
@@ -331,7 +331,7 @@ W poniższej tabeli filtry tokenów zaimplementowane przy użyciu oprogramowania
 |[asciifolding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html)|AsciiFoldingTokenFilter|Konwertuje alfabetyczne, liczbowe i symboliczne znaki Unicode, które nie znajdują się w pierwszych 127 znaków ASCII (blok Unicode "podstawowy Latin") do ich odpowiedników ASCII (jeśli taki istnieje).<br /><br /> **Opcje**<br /><br /> preserveOriginal (typ: bool) — w przypadku wartości true jest przechowywany oryginalny token. Wartością domyślną jest false.|  
 |[cjk_bigram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/cjk/CJKBigramFilter.html)|CjkBigramTokenFilter|Tworzy dwugramowe warunki CJK, które są generowane na podstawie StandardTokenizer.<br /><br /> **Opcje**<br /><br /> ignoreScripts (typ: tablica ciągów) — skrypty do zignorowania. Dozwolone wartości to: "Han", "Hiragana", "katakana", "Hangul". Wartość domyślna to pusta lista.<br /><br /> outputUnigrams (typ: bool) — ustaw wartość true, jeśli chcesz, aby dane wyjściowe były zawsze unigrams i dwugramowe. Wartością domyślną jest false.|  
 |[cjk_width](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/cjk/CJKWidthFilter.html)|(typ ma zastosowanie tylko wtedy, gdy opcje są dostępne)  |Normalizuje różnice szerokości CJK. Zagnij warianty ASCII o pełnej szerokości do równoważnej podstawowej odmiany katakana i połówkowej szerokości w równoważnej postaci kana. |  
-|[motyw](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicFilter.html)|(typ ma zastosowanie tylko wtedy, gdy opcje są dostępne)  |Usuwa angielską possessives oraz kropki z akronimów. |  
+|[wdrożenie klasyczne](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicFilter.html)|(typ ma zastosowanie tylko wtedy, gdy opcje są dostępne)  |Usuwa angielską possessives oraz kropki z akronimów. |  
 |[common_grams](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/commongrams/CommonGramsFilter.html)|CommonGramTokenFilter|Utwórz dwugramy dla często zachodzących terminów podczas indeksowania. Pojedyncze terminy nadal są indeksowane, a dwugramowe.<br /><br /> **Opcje**<br /><br /> commonWords (typ: tablica ciągów) — zestaw typowych wyrazów. Wartość domyślna to pusta lista. Wymagany.<br /><br /> ignoreCase (typ: bool) — w przypadku wartości true dopasowanie uwzględnia wielkość liter. Wartością domyślną jest false.<br /><br /> querymode (typ: bool) — generuje dwugramy, a następnie usuwa typowe słowa i pojedyncze terminy, po których następuje wspólny wyraz. Wartością domyślną jest false.|  
 |[dictionary_decompounder](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/compound/DictionaryCompoundWordTokenFilter.html)|DictionaryDecompounderTokenFilter|Deredagowanie słów złożonych znalezionych w wielu językach Germanic.<br /><br /> **Opcje**<br /><br /> Lista wyrazów (typ: tablica ciągów) — lista słów do dopasowania. Wartość domyślna to pusta lista. Wymagany.<br /><br /> minWordSize (typ: int) — tylko wyrazy dłuższe niż ten przetworzony. Wartość domyślna to 5.<br /><br /> minSubwordSize (typ: int) — wszystkie słowa podrzędne są dłuższe niż te są zwracane. Wartość domyślna to 2.<br /><br /> maxSubwordSize (typ: int) — wszystkie słowa podrzędne są krótsze niż te są zwracane. Wartość domyślna to 15.<br /><br /> onlyLongestMatch (typ: bool) — Dodaj tylko najdłuższy pasujący wyraz podrzędny do danych wyjściowych. Wartością domyślną jest false.|  
 |[edgeNGram_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenFilter.html)|EdgeNGramTokenFilterV2|Generuje n-gramy o podanej wielkości od początku lub z tyłu tokenu wejściowego.<br /><br /> **Opcje**<br /><br /> minGram (typ: int) — wartość domyślna: 1, maksimum: 300.<br /><br /> maxGram (typ: int) — wartość domyślna: 2, maksymalnie 300. Musi być większa niż minGram.<br /><br /> Side (typ: ciąg) — określa, z której strony wejściowej ma być generowany n-gram. Dozwolone wartości: "Front", "Wstecz" |  
@@ -371,7 +371,7 @@ W poniższej tabeli filtry tokenów zaimplementowane przy użyciu oprogramowania
  <sup>1</sup> typy filtrów tokenu zawsze są poprzedzone znakiem "#Microsoft. Azure. Search", tak że "ArabicNormalizationTokenFilter" byłby rzeczywiście określony jako "#Microsoft. Azure. Search. ArabicNormalizationTokenFilter".  Usunęliśmy prefiks, aby zmniejszyć szerokość tabeli, ale pamiętaj, aby uwzględnić ją w kodzie.  
 
 
-## <a name="see-also"></a>Zobacz także  
- [Interfejsy API REST usługi Azure Wyszukiwanie poznawcze](https://docs.microsoft.com/rest/api/searchservice/)   
+## <a name="see-also"></a>Zobacz też  
+ [Interfejsy API REST usługi Azure Wyszukiwanie poznawcze](/rest/api/searchservice/)   
  [Analizatory > Wyszukiwanie poznawcze platformy Azure](search-analyzers.md#examples)    
- [Utwórz indeks &#40;interfejsu API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Utwórz indeks &#40;interfejsu API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/create-index)

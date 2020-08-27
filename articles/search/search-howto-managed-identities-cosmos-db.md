@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: f65aa4b307108682fa6e190a229e9d82b6efdec0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: df37b7f1c5b1ed35b6c3779eea470b2fb0936ecf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553206"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936660"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Konfigurowanie połączenia indeksatora z bazą danych Cosmos DB przy użyciu tożsamości zarządzanej (wersja zapoznawcza)
 
@@ -57,7 +57,7 @@ W tym kroku nadajesz usłudze Azure Wyszukiwanie poznawcze uprawnienia do odczyt
 
 ### <a name="3---create-the-data-source"></a>3 — Tworzenie źródła danych
 
-[Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Cosmos DB przy użyciu [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
+[Interfejs API REST](/rest/api/searchservice/create-data-source), Azure Portal i [zestaw SDK platformy .NET](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) obsługują parametry połączenia tożsamości zarządzanej. Poniżej przedstawiono przykład sposobu tworzenia źródła danych do indeksowania danych z Cosmos DB przy użyciu [interfejsu API REST](/rest/api/searchservice/create-data-source) i parametrów połączenia zarządzanej tożsamości. Format parametrów połączenia tożsamości zarządzanej jest taki sam dla interfejsu API REST, zestawu .NET SDK i Azure Portal.
 
 Podczas uwierzytelniania przy użyciu tożsamości zarządzanych **poświadczenia** nie będą zawierać klucza konta.
 
@@ -87,7 +87,7 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 | **Nazwij** | Wymagany. Wybierz dowolną nazwę reprezentującą obiekt źródła danych. |
 |**Wprowadź**| Wymagany. Musi być `cosmosdb` . |
 |**uwierzytelniające** | Wymagany. <br/><br/>Podczas nawiązywania połączenia przy użyciu tożsamości zarządzanej powinien być format **poświadczeń** : *Database = [Database-Name]; ResourceId = [Resource-ID-String];(rodzaju interfejsu API = [API-Kind];)*<br/> <br/>Format ResourceId: *ResourceID =/SUBSCRIPTIONS/**Identyfikator subskrypcji**/resourceGroups/**nazwę grupy zasobów**/Providers/Microsoft.DocumentDB/databaseAccounts/**nazwę konta Cosmos DB**/;*<br/><br/>W przypadku kolekcji SQL parametry połączenia nie wymagają rodzaju interfejsu API.<br/><br/>W przypadku kolekcji MongoDB Dodaj **rodzaju interfejsu API = MongoDB** do parametrów połączenia. <br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku wykresów Gremlin i tabel Cassandra.<br/>|
-| **kontener** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
+| **wbudowane** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
 | **dataChangeDetectionPolicy** | Zalecane |
 |**dataDeletionDetectionPolicy** | Opcjonalne |
 
@@ -111,7 +111,7 @@ api-key: [admin key]
 }
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [Tworzenie indeksu](/rest/api/searchservice/create-index)
 
 ### <a name="5---create-the-indexer"></a>5 — Tworzenie indeksatora
 
@@ -136,7 +136,7 @@ Przykładowa definicja indeksatora:
 
 Ten indeksator będzie uruchamiany co dwie godziny (interwał harmonogramu jest ustawiony na wartość "PT2H"). Aby uruchomić indeksator co 30 minut, ustaw interwał na wartość "PT30M". Najkrótszy obsługiwany interwał to 5 minut. Harmonogram jest opcjonalny — w przypadku pominięcia, indeksator jest uruchamiany tylko raz, gdy zostanie utworzony. Można jednak uruchomić indeksator na żądanie w dowolnym momencie.   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zapoznaj się z tematem [Tworzenie indeksatora](/rest/api/searchservice/create-indexer).
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 

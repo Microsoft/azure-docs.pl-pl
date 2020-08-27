@@ -5,12 +5,12 @@ ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 66c53c7485041ec9abaf72396efcfa3325a13732
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0c2811b6bed3d02a9689f3b9e49a4c3888dff6c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799910"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935572"
 ---
 # <a name="update-a-deployed-web-service"></a>Aktualizowanie wdrożonej usługi sieci Web
 
@@ -62,6 +62,7 @@ service = Webservice(name=service_name, workspace=ws)
 
 # Update to new model(s).
 service.update(models=[new_model], inference_config=inference_config)
+service.wait_for_deployment(show_output=True)
 print(service.state)
 print(service.get_logs())
 ```
@@ -88,7 +89,7 @@ Aby uzyskać więcej informacji, zobacz [AZ ml Service Update](https://docs.micr
 * [Wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Tworzenie aplikacji klienckich w celu korzystania z usług sieci Web](how-to-consume-web-service.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
-* [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+* [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)
 * [Tworzenie alertów zdarzeń i wyzwalaczy na potrzeby wdrożeń modeli](how-to-use-event-grid.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce5eafe0b36f07d8de366b6d4adb92e894fcb67e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73496431"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936745"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Używanie AI do zrozumienia danych magazynu obiektów BLOB
 
@@ -112,7 +112,7 @@ Wzbogacony dokument na końcu potoku różni się od oryginalnej wersji wejścio
 
 Istnieje dużo więcej możliwości dzięki wzbogacaniu AI, aby maksymalnie wykorzystać swoje dane w usłudze Azure Storage, w tym łączenie Cognitive Services na różne sposoby i tworzenie niestandardowych umiejętności w przypadkach, gdy nie ma istniejącej usługi poznawczej dla tego scenariusza. Więcej informacji można uzyskać, korzystając z poniższych linków.
 
-+ [Przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą Azure Portal (Azure Blob Storage)](../storage/blobs/storage-quickstart-blobs-portal.md)
 + [Konfigurowanie indeksatora obiektów BLOB (Azure Wyszukiwanie poznawcze)](search-howto-indexing-azure-blob-storage.md) 
 + [Omówienie wzbogacenia AI (Azure Wyszukiwanie poznawcze)](cognitive-search-concept-intro.md) 
 + [Tworzenie zestawu umiejętności (Azure Wyszukiwanie poznawcze)](cognitive-search-defining-skillset.md)

@@ -8,20 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: bac2f86f4134cc8d22e9f388b46bc76ab2d0e5ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 087989638193bb59001ed33c4ee253d61682d8bf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080792"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935997"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Umiejętność wykrywania języka
 
-Umiejętność **wykrywanie języka** wykrywa język tekstu wejściowego i raportuje jeden kod języka dla każdego dokumentu przesłanego w żądaniu. Kod języka jest sparowany z wynikiem wskazującym na siłę analizy. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) w Cognitive Services.
+Umiejętność **wykrywanie języka** wykrywa język tekstu wejściowego i raportuje jeden kod języka dla każdego dokumentu przesłanego w żądaniu. Kod języka jest sparowany z wynikiem wskazującym na siłę analizy. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Analiza tekstu](../cognitive-services/text-analytics/overview.md) w Cognitive Services.
 
 Ta funkcja jest szczególnie przydatna, gdy trzeba dostarczyć język tekstu jako dane wejściowe do innych umiejętności (na przykład [umiejętności analiza tonacji](cognitive-search-skill-sentiment.md) lub [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md)).
 
-Wykrywanie języka korzysta z bibliotek przetwarzania języka naturalnego Bing, które przekraczają liczbę [obsługiwanych języków i regionów](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) wymienionych dla analiza tekstu. Dokładna lista języków nie jest publikowana, ale zawiera wszystkie języki szeroko wypowiadane oraz warianty, dialekty i niektóre języki regionalne i kulturowe. Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz [wypróbować interfejs API wykrywanie języka](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) , aby zobaczyć, czy zwraca kod. Odpowiedź dla języków, których nie można wykryć, to `unknown` .
+Wykrywanie języka korzysta z bibliotek przetwarzania języka naturalnego Bing, które przekraczają liczbę [obsługiwanych języków i regionów](../cognitive-services/text-analytics/language-support.md) wymienionych dla analiza tekstu. Dokładna lista języków nie jest publikowana, ale zawiera wszystkie języki szeroko wypowiadane oraz warianty, dialekty i niektóre języki regionalne i kulturowe. Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz [wypróbować interfejs API wykrywanie języka](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) , aby zobaczyć, czy zwraca kod. Odpowiedź dla języków, których nie można wykryć, to `unknown` .
 
 > [!NOTE]
 > Podczas rozszerzania zakresu przez zwiększenie częstotliwości przetwarzania, Dodawanie większej liczby dokumentów lub Dodawanie algorytmów AI, należy [dołączyć Cognitive Services rozliczanego zasobu](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu łamania dokumentu w usłudze Azure Wyszukiwanie poznawcze. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
@@ -33,7 +33,7 @@ Wykrywanie języka korzysta z bibliotek przetwarzania języka naturalnego Bing, 
 Microsoft. umiejętności. Text. LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limity danych
-Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności wykrywania języka, możesz użyć [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
+Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](/dotnet/api/system.string.length) . Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności wykrywania języka, możesz użyć [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
@@ -134,7 +134,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 ## <a name="error-cases"></a>Przypadki błędów
 Jeśli tekst jest wyrażony w nieobsługiwanym języku, generowany jest błąd i nie jest zwracany żaden identyfikator języka.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

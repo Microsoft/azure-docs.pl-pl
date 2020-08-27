@@ -3,12 +3,12 @@ title: Omówienie funkcji — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe informacje o funkcjach i terminologii Event Hubs platformy Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2de83be023c32df067712146937f880092025a44
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172117"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936235"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -37,7 +37,7 @@ Można opublikować wydarzenie za pośrednictwem AMQP 1,0, Kafka 1,0 (lub nowsze
 
 Decyzja o korzystaniu z protokołu AMQP lub HTTPS jest specyficzna dla scenariusza użycia. Protokół AMQP wymaga ustanowienia trwałego gniazda dwukierunkowego oprócz protokołu TLS lub SSL/ TLS. AMQP dysponuje wyższymi kosztami sieci podczas inicjowania sesji, jednak protokół HTTPS wymaga dodatkowych obciążeń protokołu TLS dla każdego żądania. Protokół AMQP charakteryzują się wyższą wydajnością dla częstych wydawców.
 
-![Event Hubs](./media/event-hubs-features/partition_keys.png)
+![Klucze partycji](./media/event-hubs-features/partition_keys.png)
 
 Usługa Event Hubs zapewnia, że wszystkie zdarzenia współużytkujące wartość klucza partycji są poprawnie dostarczane na tę samą partycję. Jeśli klucze partycji są używane wraz z zasadami wydawcy, to tożsamość wydawcy i wartość klucza partycji muszą być zgodne. W przeciwnym razie wystąpi błąd.
 
@@ -86,13 +86,13 @@ W poniższych przykładach przedstawiono Konwencję identyfikatora URI grupy odb
 
 Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usługi Event Hubs:
 
-![Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
+![Architektura Event Hubs](./media/event-hubs-features/event_hubs_architecture.png)
 
 ### <a name="stream-offsets"></a>Przesunięcia strumienia
 
 *Przesunięcie* to pozycja zdarzenia w partycji. Przesunięcie można traktować jako kursor po stronie klienta. Przesunięcie to numer bajtu zdarzenia. To przesunięcie umożliwi odbiorcy zdarzeń (czytnikowi) określenie punktu w strumieniu zdarzeń, od którego ma zostać rozpoczęte odczytywanie zdarzeń. Przesunięcie można określić jako sygnaturę czasową lub wartość przesunięcia. Odbiorcy są zobowiązani do przechowywania własnych wartości przesunięcia poza usługą Event Hubs. W ramach partycji każde zdarzenie zawiera przesunięcie.
 
-![Event Hubs](./media/event-hubs-features/partition_offset.png)
+![Przesunięcie partycji](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Tworzenie punktów kontrolnych
 
@@ -104,7 +104,7 @@ Jeśli czytnik rozłączy się od partycji, po swoim ponownym połączeniu rozpo
 > Jeśli używasz platformy Azure Blob Storage jako magazynu punktów kontrolnych w środowisku obsługującym inną wersję zestawu SDK magazynu obiektów BLOB niż te, które są zwykle dostępne na platformie Azure, musisz użyć kodu, aby zmienić wersję interfejsu API usługi magazynu na określoną wersję obsługiwaną przez to środowisko. Na przykład jeśli używasz [Event Hubs w centrum Azure Stack w wersji 2002](/azure-stack/user/event-hubs-overview), najwyższa dostępna wersja usługi Storage to wersja 2017-11-09. W takim przypadku należy użyć kodu, aby docelowa wersja interfejsu API usługi Storage do 2017-11-09. Aby zapoznać się z przykładem dotyczącym konkretnej wersji interfejsu API usługi Storage, zobacz następujące przykłady w witrynie GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) lub [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) lub  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ### <a name="common-consumer-tasks"></a>Typowe zadania odbiorców
@@ -113,7 +113,7 @@ Wszyscy klienci Event Hubs nawiązują połączenie za pośrednictwem sesji AMQP
 
 #### <a name="connect-to-a-partition"></a>Nawiązywanie połączenia z partycją
 
-W przypadku nawiązywania połączenia z partycjami często używany jest mechanizm dzierżawienia w celu koordynowania połączeń czytnika z określonymi partycjami. W ten sposób można dla każdej partycji w grupie odbiorców mieć tylko jeden aktywny czytnik. Tworzenie punktów kontrolnych, dzierżawienie i zarządzanie czytnikami są uproszczone przy użyciu klientów w ramach zestawów SDK Event Hubs, które pełnią rolę inteligentnych agentów konsumenckich. Są one następujące:
+W przypadku nawiązywania połączenia z partycjami często używany jest mechanizm dzierżawienia w celu koordynowania połączeń czytnika z określonymi partycjami. W ten sposób można dla każdej partycji w grupie odbiorców mieć tylko jeden aktywny czytnik. Tworzenie punktów kontrolnych, dzierżawienie i zarządzanie czytnikami są uproszczone przy użyciu klientów w ramach zestawów SDK Event Hubs, które pełnią rolę inteligentnych agentów konsumenckich. Są to:
 
 - [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) dla platformy .NET
 - [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) dla języka Java
@@ -138,10 +138,10 @@ Zarządzanie przesunięciem jest Twoim obowiązkiem.
 Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z następujących linków:
 
 - Rozpoczynanie pracy z usługą Event Hubs
-    - [.NET](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 * [Przewodnik programowania Event Hubs](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md) (Dostępność i spójność w usłudze Event Hubs)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)

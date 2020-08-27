@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b6164ef955ac92a7ef8776e560ea4d3a92abaf8d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290682"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935980"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Samouczek: diagnozowanie, naprawianie i zatwierdzanie zmian w zestawu umiejętności
 
@@ -39,7 +39,7 @@ W tym samouczku jest stosowana usługa Azure Wyszukiwanie poznawcze i usługi Az
 
 * [Pobierz przykładowe dane](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) składające się z 19 plików.
 
-* [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+* [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Wybierz ten sam region co usługa Azure Wyszukiwanie poznawcze, aby uniknąć naliczania opłat za przepustowość.
    
@@ -247,9 +247,9 @@ Gdy indeksator zakończył działanie, powinien istnieć zielony znacznik wyboru
 1. Otwórz indeks "badania kliniczne", a następnie na karcie Eksplorator wyszukiwania kliknij pozycję **Wyszukaj**.
 1. W oknie wyników należy pokazać, że organizacje i lokalizacje obiektów są teraz wypełniane oczekiwanymi wartościami.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
@@ -258,5 +258,5 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o umiejętności](https://docs.microsoft.com/azure/search/cognitive-search-working-with-skillsets) 
->  [Dowiedz się więcej o zwiększeniu liczby przyrostowej i buforowaniu](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)
+> [Dowiedz się więcej o umiejętności](./cognitive-search-working-with-skillsets.md) 
+>  [Dowiedz się więcej o zwiększeniu liczby przyrostowej i buforowaniu](./cognitive-search-incremental-indexing-conceptual.md)

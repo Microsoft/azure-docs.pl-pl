@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214077"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935453"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Jak utworzyć zestawu umiejętności w potoku wzbogacenia AI na platformie Azure Wyszukiwanie poznawcze 
 
@@ -42,21 +42,21 @@ Załóżmy, że interesuje Cię przetwarzanie zestawu komentarzy analityków fin
 
 | rekord — tekst | towarzystw | tonacji | opisy firmy |
 |--------|-----|-----|-----|
-|Przykładowy rekord| ["Microsoft", "LinkedIn"] | 0.99 | ["Microsoft Corporation to amerykańska firma wielonarodowych technologii...", "LinkedIn to sieć społecznościowa zorientowana na działalność biznesową i"... "]
+|Przykładowy rekord| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation to amerykańska firma wielonarodowych technologii...", "LinkedIn to sieć społecznościowa zorientowana na działalność biznesową i"... "]
 
 Poniższy diagram ilustruje hipotetyczny potok wzbogacania:
 
 ![Hipotetyczny potok wzbogacania](media/cognitive-search-defining-skillset/sample-skillset.png "Hipotetyczny potok wzbogacania")
 
 
-Po uzyskaniu odpowiedniego pomysłu w potoku można wyrazić zestawu umiejętności, który zawiera te kroki. Funkcja zestawu umiejętności jest wyrażana w przypadku przekazywania definicji indeksatora do usługi Azure Wyszukiwanie poznawcze. Aby dowiedzieć się więcej na temat przekazywania indeksatora, zapoznaj się z [dokumentacją indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Po uzyskaniu odpowiedniego pomysłu w potoku można wyrazić zestawu umiejętności, który zawiera te kroki. Funkcja zestawu umiejętności jest wyrażana w przypadku przekazywania definicji indeksatora do usługi Azure Wyszukiwanie poznawcze. Aby dowiedzieć się więcej na temat przekazywania indeksatora, zapoznaj się z [dokumentacją indeksatora](/rest/api/searchservice/create-indexer).
 
 
 Na diagramie krok *łamania dokumentu* odbywa się automatycznie. Zasadniczo usługa Azure Wyszukiwanie poznawcze wie, jak otworzyć dobrze znane pliki i utworzyć pole *zawartości* zawierające tekst wyodrębniony z każdego dokumentu. Białe pola są wbudowanymi wzbogacami, a kropkowane pole "wyszukiwanie jednostek Bing" reprezentuje obiekt wzbogacany, który tworzysz. Tak jak pokazano, zestawu umiejętności zawiera trzy umiejętności.
 
 ## <a name="skillset-definition-in-rest"></a>Definicja zestawu umiejętności w REST
 
-Zestawu umiejętności jest definiowana jako tablica umiejętności. Każda umiejętność definiuje źródło danych wejściowych i nazwę wygenerowanego wyjścia. Za pomocą [interfejsu API REST Create zestawu umiejętności](https://docs.microsoft.com/rest/api/searchservice/create-skillset)można zdefiniować zestawu umiejętności, który odpowiada poprzedniemu diagramowi: 
+Zestawu umiejętności jest definiowana jako tablica umiejętności. Każda umiejętność definiuje źródło danych wejściowych i nazwę wygenerowanego wyjścia. Za pomocą [interfejsu API REST Create zestawu umiejętności](/rest/api/searchservice/create-skillset)można zdefiniować zestawu umiejętności, który odpowiada poprzedniemu diagramowi: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -175,7 +175,7 @@ Przyjrzyjmy się pierwszej umiejętności, która stanowi wbudowaną [umiejętno
 
 * Umiejętność ma jedno wyjście ```"organizations"``` . Dane wyjściowe istnieją tylko podczas przetwarzania. Aby połączyć dane wyjściowe z danymi wejściowymi w celu uzyskania kwalifikacji podrzędnych, należy odwołać się do danych wyjściowych jako ```"/document/organizations"``` .
 
-* W przypadku określonego dokumentu wartość ```"/document/organizations"``` jest tablicą organizacji wyodrębnionych z tekstu. Na przykład:
+* W przypadku określonego dokumentu wartość ```"/document/organizations"``` jest tablicą organizacji wyodrębnionych z tekstu. Przykład:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -281,4 +281,4 @@ Można zapisać wzbogacone dokumenty jako tabele z niehierarchicznymi relacjami 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już potok wzbogacania i umiejętności, Kontynuuj, [jak odwoływać się do adnotacji w zestawu umiejętności](cognitive-search-concept-annotations-syntax.md) lub [Jak mapować dane wyjściowe do pól w indeksie](cognitive-search-output-field-mapping.md). 
+Teraz, gdy znasz już potok wzbogacania i umiejętności, Kontynuuj, [jak odwoływać się do adnotacji w zestawu umiejętności](cognitive-search-concept-annotations-syntax.md) lub [Jak mapować dane wyjściowe do pól w indeksie](cognitive-search-output-field-mapping.md).

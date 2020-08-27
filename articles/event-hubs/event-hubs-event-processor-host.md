@@ -3,12 +3,12 @@ title: Odbieranie zdarzeń za pomocą hosta procesora zdarzeń — Azure Event H
 description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Event Hubs, który upraszcza zarządzanie użyciem punktów kontrolnych, dzierżawienia i odczytywania jonu zdarzeń równoległych.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002526"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936184"
 ---
 # <a name="event-processor-host"></a>Host procesora zdarzeń
 > [!NOTE]
@@ -43,7 +43,7 @@ Zamiast tworzyć własne rozwiązanie, Event Hubs udostępnia tę funkcję za po
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor, interfejs
 
-Pierwsze, zużywające aplikacje implementują interfejs [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) , który ma cztery metody: [openAsync, CloseAsync, ProcessErrorAsync i ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Ten interfejs zawiera rzeczywisty kod służący do korzystania z zdarzeń wysyłanych Event Hubs. Poniższy kod pokazuje prostą implementację:
+Pierwsze, zużywające aplikacje implementują interfejs  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) , który ma cztery metody: [openAsync, CloseAsync, ProcessErrorAsync i ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Ten interfejs zawiera rzeczywisty kod służący do korzystania z zdarzeń wysyłanych Event Hubs. Poniższy kod pokazuje prostą implementację:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -192,10 +192,10 @@ Nie zalecamy użycia aplikacji, gdy tworzysz odbiornik z epoką, a następnie pr
 Teraz, gdy znasz już hosta procesora zdarzeń, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o Event Hubs:
 
 - Rozpoczynanie pracy z usługą Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-node-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Przewodnik programowania Event Hubs](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md) (Dostępność i spójność w usłudze Event Hubs)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)

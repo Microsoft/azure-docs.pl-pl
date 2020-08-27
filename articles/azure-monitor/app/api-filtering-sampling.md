@@ -3,13 +3,13 @@ title: Filtrowanie i wstępne przetwarzanie w zestawie Application Insights SDK 
 description: Napisz procesory telemetrii i inicjatory telemetrii dla zestawu SDK w celu filtrowania lub dodawania właściwości do danych przed wysłaniem telemetrii do portalu Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.custom: devx-track-javascript
-ms.openlocfilehash: eec3cf44eb516ce20db564e1bed32e5741bfd02a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: c42b3a79e1c816e92c71e41a738bbb116a39aee1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366759"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936558"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrowanie i wstępne przetwarzanie danych telemetrycznych w zestawie Application Insights SDK
 

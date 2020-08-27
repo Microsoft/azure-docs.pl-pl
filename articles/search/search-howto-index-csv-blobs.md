@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9008b30fd89e9d57923f6c612b7a454aa1ba528e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14846761535a77f28adbd0147d244817cb799d86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084096"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935844"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Jak indeksować obiekty blob w formacie CSV przy użyciu trybu analizowania delimitedText i indeksatorów obiektów BLOB na platformie Azure Wyszukiwanie poznawcze
 
@@ -32,7 +32,7 @@ W tym artykule dowiesz się, jak analizować obiekty blob w formacie CSV za pomo
 > Postępuj zgodnie z zaleceniami dotyczącymi konfiguracji indeksatora w [indeksie jeden-do-wielu](search-howto-index-one-to-many-blobs.md) , aby wyprowadzić wiele dokumentów wyszukiwania z jednego obiektu blob platformy Azure.
 
 ## <a name="setting-up-csv-indexing"></a>Konfigurowanie indeksowania woluminów CSV
-Aby indeksować obiekty blob w formacie CSV, Utwórz lub zaktualizuj definicję indeksatora przy użyciu `delimitedText` trybu analizowania w żądaniu [tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer) :
+Aby indeksować obiekty blob w formacie CSV, Utwórz lub zaktualizuj definicję indeksatora przy użyciu `delimitedText` trybu analizowania w żądaniu [tworzenia indeksatora](/rest/api/searchservice/create-indexer) :
 
 ```http
     {
@@ -42,14 +42,14 @@ Aby indeksować obiekty blob w formacie CSV, Utwórz lub zaktualizuj definicję 
     }
 ```
 
-`firstLineContainsHeaders`wskazuje, że pierwsza (niepusta) linia każdego obiektu BLOB zawiera nagłówki.
+`firstLineContainsHeaders` wskazuje, że pierwsza (niepusta) linia każdego obiektu BLOB zawiera nagłówki.
 Jeśli obiekty blob nie zawierają początkowego wiersza nagłówka, nagłówki należy określić w konfiguracji indeksatora: 
 
 ```http
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 ```
 
-Można dostosować znak ogranicznika przy użyciu `delimitedTextDelimiter` Ustawienia konfiguracji. Na przykład:
+Można dostosować znak ogranicznika przy użyciu `delimitedTextDelimiter` Ustawienia konfiguracji. Przykład:
 
 ```http
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
@@ -98,4 +98,3 @@ Indeksatora
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Pomóż nam ulepszyć platformę Azure Wyszukiwanie poznawcze
 Jeśli masz żądania funkcji lub pomysły dotyczące ulepszeń, podaj dane wejściowe w usłudze [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

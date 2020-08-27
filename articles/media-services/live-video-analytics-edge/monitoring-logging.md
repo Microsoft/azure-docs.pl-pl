@@ -3,12 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie analizy filmów wideo na żywo na IoT Edge monitorowania i rejestrowania.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060448"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934297"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -100,13 +100,32 @@ Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane te
    ```
 Zdarzenia emitowane przez moduł są wysyłane do [centrum IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)i z tego powodu mogą być kierowane do innych miejsc docelowych. 
 
+### <a name="timestamps-in-analytic-events"></a>Sygnatury czasowe w zdarzeniach analitycznych
+Jak wskazano powyżej, zdarzenia generowane w ramach analizy wideo mają skojarzone z nimi sygnaturę czasową. Po [zarejestrowaniu wideo na żywo](video-recording-concept.md) jako części topologii wykresu, Ta sygnatura czasowa ułatwia znalezienie miejsca w zarejestrowanym filmie wideo, które wystąpiło. Poniżej przedstawiono wskazówki dotyczące sposobu mapowania sygnatury czasowej w zdarzeniu analitycznym na oś czasu filmu wideo zarejestrowanego w [usłudze Azure Media Service](terminology.md#asset).
+
+Najpierw Wyodrębnij `eventTime` wartość. Użyj tej wartości w [filtrze zakresu czasu](playback-recordings-how-to.md#time-range-filters) , aby pobrać odpowiednią część nagrania. Na przykład możesz chcieć pobrać wideo, które zaczyna 30 sekund `eventTime` , a następnie zakończy 30 sekund. W powyższym przykładzie, gdzie `eventTime` jest 2020-05-12T23:33:09.381 z, żądanie dotyczące manifestu HLS dla okna +/-30 s będzie wyglądać następująco:
+```
+https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
+```
+Powyższy adres URL zwróci nazwę [głównej listy odtwarzania](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), zawierającą adresy URL dla list odtwarzania multimediów. Lista odtwarzania multimediów zawiera następujące wpisy:
+
+```
+...
+#EXTINF:3.103011,no-desc
+Fragments(video=143039375031270,format=m3u8-aapl)
+...
+```
+W powyższym miejscu wpis informuje, że fragment wideo jest dostępny, który zaczyna się od wartości sygnatury czasowej `143039375031270` . `timestamp`Wartość w zdarzeniu analitycznym używa tego samego czasu, co w przypadku listy odtwarzania multimediów, i może służyć do identyfikowania odpowiedniego fragmentu wideo i przechodzenia do odpowiedniej ramki.
+
+Aby uzyskać więcej informacji, możesz przeczytać jeden z wielu [artykułów](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) na temat dokładnego wyszukiwania w HLS.
+
 ## <a name="controlling-events"></a>Kontrolowanie zdarzeń
 
 Można użyć następujących właściwości sznurka modułu, zgodnie z opisem w [schemacie JSON modułu](module-twin-configuration-schema.md), w celu kontrolowania zdarzeń operacyjnych i diagnostycznych opublikowanych przez usługę Live Video Analytics na IoT Edge module.
 
-`diagnosticsEventsOutputName`— Dołącz i podaj wartość dla tej właściwości, aby pobrać zdarzenia diagnostyczne z modułu. Pomiń lub pozostaw to pole puste, aby zatrzymać publikowanie zdarzeń diagnostycznych przez moduł.
+`diagnosticsEventsOutputName` — Dołącz i podaj wartość dla tej właściwości, aby pobrać zdarzenia diagnostyczne z modułu. Pomiń lub pozostaw to pole puste, aby zatrzymać publikowanie zdarzeń diagnostycznych przez moduł.
    
-`operationalEventsOutputName`— Dołącz i podaj wartość dla tej właściwości w celu uzyskania zdarzeń operacyjnych z modułu. Pomiń lub pozostaw to pole puste, aby zatrzymać publikowanie zdarzeń operacyjnych przez moduł.
+`operationalEventsOutputName` — Dołącz i podaj wartość dla tej właściwości w celu uzyskania zdarzeń operacyjnych z modułu. Pomiń lub pozostaw to pole puste, aby zatrzymać publikowanie zdarzeń operacyjnych przez moduł.
    
 Zdarzenia analizy są generowane przez węzły takie jak procesor wykrywania ruchu lub procesor rozszerzenia HTTP, a ujścia usługi IoT Hub służy do wysyłania ich do centrum IoT Edge. 
 
@@ -143,7 +162,7 @@ Każde zdarzenie, które jest zaobserwowane za pośrednictwem IoT Hub, będzie m
 |---|---|---|---|
 |Identyfikator komunikatu |System |guid|  Unikatowy identyfikator zdarzenia.|
 |temat| applicationProperty |ciąg|    Azure Resource Manager ścieżka do Media Services konta.|
-|subject|   applicationProperty |ciąg|    Ścieżka podrzędna do jednostki emitującej zdarzenie.|
+|Temat|   applicationProperty |ciąg|    Ścieżka podrzędna do jednostki emitującej zdarzenie.|
 |eventTime| applicationProperty|    ciąg| Godzina wygenerowania zdarzenia.|
 |eventType| applicationProperty |ciąg|    Identyfikator typu zdarzenia (patrz poniżej).|
 |body|body  |object|    Dane określonego zdarzenia.|
@@ -161,7 +180,7 @@ Reprezentuje konto usługi Azure Media skojarzone z wykresem.
 
 `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/mediaServices/{accountName}`
 
-#### <a name="subject"></a>subject
+#### <a name="subject"></a>Temat
 
 Jednostka, która emituje zdarzenie:
 
@@ -184,7 +203,7 @@ Typy zdarzeń są przypisywane do przestrzeni nazw zgodnie z poniższym schemate
 |---|---|
 |Analiza  |Zdarzenia generowane w ramach analizy zawartości.|
 |Diagnostyka    |Zdarzenia, które ułatwiają diagnozowanie problemów i wydajności.|
-|Działał    |Zdarzenia generowane jako część operacji zasobu.|
+|Operacyjne    |Zdarzenia generowane jako część operacji zasobu.|
 
 Typy zdarzeń są specyficzne dla każdej klasy zdarzeń.
 

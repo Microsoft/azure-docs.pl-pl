@@ -2,13 +2,14 @@
 title: Śledzenie zależności na platformie Azure Application Insights | Microsoft Docs
 description: Monitoruj wywołania zależności z lokalnej lub Microsoft Azure aplikacji sieci Web z Application Insights.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/26/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d98fe91994c992d11fc58e3fec42d1796c0c966
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321381"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936541"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Śledzenie zależności w usłudze Azure Application Insights 
 
@@ -16,9 +17,9 @@ ms.locfileid: "87321381"
 
 ## <a name="automatically-tracked-dependencies"></a>Automatycznie śledzone zależności
 
-Zestawy SDK Application Insights dla platform .NET i .NET Core, z `DependencyTrackingTelemetryModule` którymi jest moduł telemetrii, który automatycznie zbiera zależności. Ta kolekcja zależności jest włączana automatycznie dla aplikacji [ASP.NET](./asp-net.md) i [ASP.NET Core](./asp-net-core.md) , gdy jest skonfigurowana zgodnie z powiązanymi oficjalnymi dokumentami. `DependencyTrackingTelemetryModule`program jest dostarczany [this](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) jako pakiet NuGet i zostaje automatycznie uruchomiony w przypadku używania jednego z pakietów NuGet `Microsoft.ApplicationInsights.Web` lub `Microsoft.ApplicationInsights.AspNetCore` .
+Zestawy SDK Application Insights dla platform .NET i .NET Core są dostarczane z systemem `DependencyTrackingTelemetryModule` , który jest modułem telemetrii, który automatycznie zbiera zależności. Ta kolekcja zależności jest włączana automatycznie dla aplikacji [ASP.NET](./asp-net.md) i [ASP.NET Core](./asp-net-core.md) , gdy jest skonfigurowana zgodnie z powiązanymi oficjalnymi dokumentami. `DependencyTrackingTelemetryModule`program jest dostarczany [this](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) jako pakiet NuGet i zostaje automatycznie uruchomiony w przypadku używania jednego z pakietów NuGet `Microsoft.ApplicationInsights.Web` lub `Microsoft.ApplicationInsights.AspNetCore` .
 
- `DependencyTrackingTelemetryModule`obecnie śledzi następujące zależności automatycznie:
+ `DependencyTrackingTelemetryModule` obecnie śledzi następujące zależności automatycznie:
 
 |Zależności |Szczegóły|
 |---------------|-------|
@@ -122,7 +123,7 @@ W powyższych przypadkach poprawna metoda sprawdzania poprawności aparatu Instr
 * Kliknij pozycję przez powolne lub Nieudane żądania, aby sprawdzić ich wywołania zależności.
 * [Analiza](#logs-analytics) danych zależności może służyć do wykonywania zapytań.
 
-## <a name="diagnose-slow-requests"></a><a name="diagnosis"></a>Diagnozuj wolne żądania
+## <a name="diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnozuj wolne żądania
 
 Każde zdarzenie żądania jest skojarzone z wywołaniami zależności, wyjątkami i innymi zdarzeniami, które są śledzone podczas przetwarzania żądania przez aplikację. Dlatego jeśli niektóre żądania są wykonywane nieprawidłowo, można sprawdzić, czy jest to spowodowane powolnymi odpowiedziami z zależności.
 
@@ -154,7 +155,7 @@ W tym miejscu będzie można zobaczyć liczbę nieudanych zależności. Aby uzys
 
 ## <a name="logs-analytics"></a>Dzienniki (analiza)
 
-Zależności można śledzić w [języku zapytań Kusto](/azure/kusto/query/). Poniżej przedstawiono kilka przykładów.
+Zależności można śledzić w [języku zapytań Kusto](/azure/kusto/query/). Oto kilka przykładów.
 
 * Znajdź wszystkie nieudane wywołania zależności:
 
@@ -195,7 +196,19 @@ Zależności można śledzić w [języku zapytań Kusto](/azure/kusto/query/). P
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*Jak automatyczne wywołania raportu modułu zbierającego zależności nie powiodły się do zależności?*
 
-* Wywołania zależności zakończone niepowodzeniem mają ustawioną wartość false dla pola "Success". `DependencyTrackingTelemetryModule`nie zgłasza `ExceptionTelemetry` . Pełen model danych dla zależności został opisany [tutaj](data-model-dependency-telemetry.md).
+* Wywołania zależności zakończone niepowodzeniem mają ustawioną wartość false dla pola "Success". `DependencyTrackingTelemetryModule` nie zgłasza `ExceptionTelemetry` . Pełen model danych dla zależności został opisany [tutaj](data-model-dependency-telemetry.md).
+
+### <a name="how-do-i-calculate-ingestion-latency-for-my-dependency-telemetry"></a>*Jak mogę obliczyć opóźnienia pozyskiwania danych telemetrycznych zależności?*
+
+```kusto
+dependencies
+| extend E2EIngestionLatency = ingestion_time() - timestamp 
+| extend TimeIngested = ingestion_time()
+```
+
+### <a name="how-do-i-determine-the-time-the-dependency-call-was-initiated"></a>*Jak mogę określić czas zainicjowania wywołania zależności?*
+
+W widoku zapytania Log Analytics `timestamp` reprezentuje moment zainicjowania wywołania TrackDependency (), które występuje natychmiast po odebraniu odpowiedzi na wywołanie zależności. Aby obliczyć czas rozpoczęcia wywołania zależności, należy wykonać `timestamp` i odjąć `duration` liczbę zarejestrowanych wywołań zależności.
 
 ## <a name="open-source-sdk"></a>Zestaw SDK open source
 Podobnie jak w przypadku każdego zestawu Application Insights SDK, moduł kolekcji zależności jest również typu open source. Odczytaj i współtworzyj kod lub zgłoś problemy w [oficjalnym repozytorium GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet-server).

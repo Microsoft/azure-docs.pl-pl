@@ -3,18 +3,19 @@ title: Korzystanie z programu Personalizacja w programie Chat bot — Personaliz
 description: Dostosuj bot rozmowy .NET do języka C# przy użyciu pętli personalizacji, aby zapewnić poprawną zawartość użytkownikowi na podstawie akcji (z funkcjami) i funkcji kontekstu.
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131671"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935657"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Samouczek: Używanie funkcji personalizacji w programie .NET Chat bot
 
 Aby zapewnić użytkownikowi poprawną zawartość, należy użyć języka C# .NET Chat bot z pętlą Personalizujer. Ten bot rozmowy sugeruje konkretną kawę lub herbata do użytkownika. Użytkownik może zaakceptować lub odrzucić tę sugestię. Zapewnia to informacje dotyczące personalizowania, aby lepiej dostosować następną sugestię.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -191,8 +192,8 @@ Utrzymuj działającą witrynę sieci Web, ponieważ samouczek wyjaśnia, co rob
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Korzystanie z bot w emulatorze bot
 
 1. Poproszenie o wyświetlenie menu przez wprowadzenie `I would like to see the menu` . Bot rozmowy wyświetla elementy.
-1. Pozwól bot zasugerować element, wprowadzając `Please suggest a drink for me.` emulator wyświetli żądanie rangi i odpowiedź w oknie rozmowy, aby zobaczyć pełny kod JSON. A Bot wykonuje sugestię, podobną do`How about Latte?`
-1. Odpowiedź na to, co oznacza, że zaakceptujesz górną rangę opcji personalizacji, `I like it.` emulator wyświetli żądanie nagrody z wynikiem nagrody 1 i odpowiedzi w oknie rozmowy, aby zobaczyć pełny kod JSON. A bot reaguje z `That’s great! I’ll keep learning your preferences over time.` i`Would you like to get a new suggestion or reset the simulated context to a new day?`
+1. Pozwól bot zasugerować element, wprowadzając `Please suggest a drink for me.` emulator wyświetli żądanie rangi i odpowiedź w oknie rozmowy, aby zobaczyć pełny kod JSON. A Bot wykonuje sugestię, podobną do `How about Latte?`
+1. Odpowiedź na to, co oznacza, że zaakceptujesz górną rangę opcji personalizacji, `I like it.` emulator wyświetli żądanie nagrody z wynikiem nagrody 1 i odpowiedzi w oknie rozmowy, aby zobaczyć pełny kod JSON. A bot reaguje z `That’s great! I’ll keep learning your preferences over time.` i `Would you like to get a new suggestion or reset the simulated context to a new day?`
 
     Jeśli użytkownik odpowie na `no` wybór, wynik nagrody 0 jest wysyłany do personalizacji.
 
@@ -201,9 +202,9 @@ Utrzymuj działającą witrynę sieci Web, ponieważ samouczek wyjaśnia, co rob
 
 Rozwiązanie .NET to proste bot Framework bot. Kod związany z personalizacją znajduje się w następujących folderach:
 * `/samples/ChatbotExample/Bots`
-    * `PersonalizerChatbot.cs`plik interakcji między bot i personalizacją
-* `/samples/ChatbotExample/ReinforcementLearning`— zarządza akcjami i funkcjami dla modelu personalizowania
-* `/samples/ChatbotExample/Model`-pliki dla akcji i funkcji narzędzia Personalizacja oraz dla intencji LUIS
+    * `PersonalizerChatbot.cs` plik interakcji między bot i personalizacją
+* `/samples/ChatbotExample/ReinforcementLearning` — zarządza akcjami i funkcjami dla modelu personalizowania
+* `/samples/ChatbotExample/Model` -pliki dla akcji i funkcji narzędzia Personalizacja oraz dla intencji LUIS
 
 ### <a name="personalizerchatbotcs---working-with-personalizer"></a>PersonalizerChatbot.cs — praca z personalizacją
 
@@ -422,7 +423,7 @@ Jeśli zamierzasz użyć personalizacji w bot produkcyjnym, Zaplanuj:
 * Obliczanie na podstawie wielkości liter dla nagrody: w tym przykładzie pokazano dwa nagrody równe zero i jeden bez zakresu od i brak wartości ujemnej dla wyniku. System musiał być bardziej szczegółowym ocenianiem.
 * Kanały bot: Ten przykład korzysta z pojedynczego kanału, ale jeśli zamierzasz używać więcej niż jednego kanału lub odmian botów w jednym kanale, które mogą być traktowane jako część funkcji kontekstu modelu personalizowania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Oczyść następujące zasoby:
 

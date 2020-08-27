@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: b47fd90a3fc92234d95ddc9d9f4f14b5af67d757
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925398"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926684"
 ---
-W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla .NET Framework (Windows). Jeśli chcesz, aby nazwa pakietu została już uruchomiona, uruchom `Install-Package Microsoft.CognitiveServices.Speech` polecenie w konsoli programu NuGet.
+W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla .NET Framework (Windows). Jeśli chcesz, aby nazwa pakietu została już uruchomiona, uruchom polecenie `Install-Package Microsoft.CognitiveServices.Speech` w konsoli programu NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -41,7 +42,7 @@ Musisz zainstalować [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/n
 
 1. W oknie **Konfigurowanie nowego projektu** wprowadź wartość *HelloWorld* w polu **Nazwa projektu**, wybierz lub Utwórz ścieżkę katalogu w **lokalizacji**, a następnie wybierz pozycję **Utwórz**.
 
-1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia** > **Pobierz narzędzia i funkcje**, które otwiera Instalator programu Visual Studio i wyświetla okno dialogowe **Modyfikowanie** .
+1. Na pasku menu programu Visual Studio wybierz kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**, które otwiera Instalator programu Visual Studio i wyświetla okno dialogowe **Modyfikowanie** .
 
 1. Sprawdź, czy jest dostępne obciążenie **Programowanie aplikacji klasycznych dla platformy .NET** . Jeśli obciążenie nie zostało zainstalowane, zaznacz pole wyboru obok niego, a następnie wybierz pozycję **Modyfikuj** , aby rozpocząć instalację. Pobranie i zainstalowanie tego składnika może potrwać kilka minut.
 
@@ -75,7 +76,7 @@ Musisz zainstalować [pakiet NuGet zestawu Speech SDK](https://aka.ms/csspeech/n
 
 Aby skompilować i uruchomić aplikację konsolową, Utwórz konfigurację platformy zgodną z architekturą komputera.
 
-1. Na pasku menu wybierz kolejno opcje **Kompiluj** > **Configuration Manager**. Zostanie wyświetlone okno dialogowe **Configuration Manager** .
+1. Na pasku menu wybierz kolejno opcje **Kompiluj**  >  **Configuration Manager**. Zostanie wyświetlone okno dialogowe **Configuration Manager** .
 
    ![Okno dialogowe Configuration Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

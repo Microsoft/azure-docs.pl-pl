@@ -4,19 +4,19 @@ description: Dowiedz się, jak przygotować się do oceny/migracji maszyn wirtua
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8ecb886b5d5cd9d6811788043b924880b4c366c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109624"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928925"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Przygotowanie do oceny i migracji maszyn wirtualnych funkcji Hyper-V na platformę Azure
 
 Ten artykuł ułatwia przygotowanie się do oceny i migracji lokalnych maszyn wirtualnych funkcji Hyper-V na platformę Azure przy użyciu [Azure Migrate: Ocena serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool)i [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
-Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure do pracy z Azure Migrate.
@@ -38,6 +38,7 @@ Tabela zawiera podsumowanie zadań, które należy wykonać na platformie Azure.
 **Tworzenie projektu Azure Migrate** | Projekt Azure Migrate stanowi centralną lokalizację organizowania ocen i migracji oraz zarządzania nimi za pomocą narzędzi Azure Migrate, narzędzi firmy Microsoft i ofert innych firm. | Twoje konto platformy Azure wymaga uprawnień współautora lub właściciela w grupie zasobów, w której znajduje się projekt.
 **Zarejestruj urządzenie** | Azure Migrate umożliwia odnajdywanie i ocenianie maszyn wirtualnych funkcji Hyper-V przy użyciu urządzenia Azure Migrate Lightweight. [Dowiedz się więcej](migrate-appliance-architecture.md#appliance-registration). | Aby zarejestrować urządzenie, konto platformy Azure musi mieć uprawnienia współautora lub właściciela subskrypcji platformy Azure.
 **Tworzenie aplikacji usługi Azure AD** | Podczas rejestrowania urządzenia Azure Migrate tworzy aplikację Azure Active Directory (Azure AD), która jest używana do komunikacji między agentami działającymi na urządzeniu a Azure Migrate. | Twoje konto platformy Azure wymaga uprawnień do tworzenia aplikacji usługi Azure AD.
+**Tworzenie magazynu kluczy** | Key Vault jest tworzony w ramach rejestracji urządzenia i służy do zarządzania certyfikatem pobranym na urządzeniu podczas jego konfiguracji.| Aby umożliwić Azure Migrate tworzenia Key Vault, konto platformy Azure musi mieć uprawnienia współautora w grupie zasobów, w której znajduje się projekt Azure Migrate.
 **Tworzenie maszyny wirtualnej** | Musisz mieć uprawnienia do tworzenia maszyny wirtualnej w grupie zasobów i sieci wirtualnej oraz do zapisu na dysku zarządzanym platformy Azure. | Twoje konto platformy Azure wymaga roli współautor maszyny wirtualnej.
 
 
@@ -81,6 +82,7 @@ Dzierżawy/Administrator globalny mogą udzielić uprawnień w następujący spo
 #### <a name="assign-application-developer-role"></a>Przypisywanie roli Deweloper aplikacji
 
 Dzierżawa/Administrator globalny może przypisać rolę dewelopera aplikacji do konta. [Dowiedz się więcej](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 
 ### <a name="assign-azure-account-permissions"></a>Przypisywanie uprawnień konta platformy Azure
 

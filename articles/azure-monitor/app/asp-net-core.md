@@ -2,13 +2,14 @@
 title: Application Insights platformy Azure dla aplikacji ASP.NET Core | Microsoft Docs
 description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności, wydajności i użycia.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 719bf997254c98c5790d6d6733982fea08541967
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518088"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936524"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -105,7 +106,7 @@ Aby uzyskać Visual Studio dla komputerów Mac, użyj [wskazówek ręcznych](#en
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Na przykład:
+    Przykład:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -471,5 +472,5 @@ Aby zapoznać się z najnowszymi aktualizacjami i poprawkami błędów [, zapozn
 * [Skonfiguruj kolekcję migawek](./snapshot-debugger.md) , aby zobaczyć stan kodu źródłowego i zmiennych w momencie zgłaszania wyjątku.
 * [Użyj interfejsu API,](./api-custom-events-metrics.md) aby wysyłać własne zdarzenia i metryki w celu uzyskania szczegółowego widoku wydajności i użycia aplikacji.
 * Korzystaj z [testów dostępności](./monitor-web-app-availability.md) , aby stale sprawdzać swoją aplikację na całym świecie.
-* [Wstrzykiwanie zależności w ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+* [Wstrzykiwanie zależności na platformie ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 

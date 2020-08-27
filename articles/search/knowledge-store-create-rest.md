@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/02/2020
-ms.openlocfilehash: 51422be944d514de398d4bfa424679e2f6d531b6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534757"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924269"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Tworzenie sklepu z bazami danych przy użyciu REST i programu Poster
 
@@ -36,7 +36,7 @@ Ponieważ obciążenie jest tak małe, Cognitive Services jest wybierane w tle, 
 
 1. [Pobierz HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Te dane to dane z przeglądu hotelu zapisane w pliku CSV (pochodzące z Kaggle.com) i zawierają 19 opinii klientów na temat pojedynczego hotelu. 
 
-1. [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) w ramach bieżącej subskrypcji. Będziesz używać usługi Azure Storage do importowania nieprzetworzonej zawartości oraz magazynu wiedzy, który jest wynikiem końcowym.
+1. [Utwórz konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) w ramach bieżącej subskrypcji. Będziesz używać usługi Azure Storage do importowania nieprzetworzonej zawartości oraz magazynu wiedzy, który jest wynikiem końcowym.
 
    Wybierz typ konta **StorageV2 (ogólnego przeznaczenia w wersji 2)** .
 
@@ -50,7 +50,7 @@ Ponieważ obciążenie jest tak małe, Cognitive Services jest wybierane w tle, 
 
     ![Tworzenie kontenera obiektów blob platformy Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Tworzenie kontenera obiektów blob platformy Azure")
 
-1. Prawie zakończysz korzystanie z tego zasobu, ale zanim opuścisz te strony, Użyj linku w okienku nawigacji po lewej stronie, aby otworzyć stronę **klawisze dostępu** . Pobierz parametry połączenia, aby pobrać dane z magazynu obiektów BLOB. Parametry połączenia wyglądają podobnie do poniższego przykładu:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Prawie zakończysz korzystanie z tego zasobu, ale zanim opuścisz te strony, Użyj linku w okienku nawigacji po lewej stronie, aby otworzyć stronę **klawisze dostępu** . Pobierz parametry połączenia, aby pobrać dane z magazynu obiektów BLOB. Parametry połączenia wyglądają podobnie do poniższego przykładu: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 1. W portalu przejdź do usługi Azure Wyszukiwanie poznawcze. [Utwórz nową usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). W tym ćwiczeniu możesz użyć bezpłatnej usługi.
 
@@ -172,7 +172,7 @@ Następnym krokiem jest określenie zestawu umiejętności, który określa ulep
 
 Istnieją dwa duże obiekty najwyższego poziomu: `skills` i `knowledgeStore` . Każdy obiekt wewnątrz `skills` obiektu jest usługą wzbogacania. Każda usługa wzbogacania ma `inputs` i `outputs` . `LanguageDetectionSkill`Ma wynik `targetName` `Language` . Wartość tego węzła jest używana przez większość innych umiejętności jako dane wejściowe. Źródło to `document/Language` . Możliwość używania danych wyjściowych z jednego węzła jako dane wejściowe do innego jest jeszcze bardziej oczywista w `ShaperSkill` , co określa sposób, w jaki dane są przepływane do tabel w sklepie z bazami danych.
 
-`knowledge_store`Obiekt nawiązuje połączenie z kontem magazynu za pośrednictwem `{{storage-connection-string}}` zmiennej programu Poster. `knowledge_store`zawiera zestaw mapowań między rozszerzonym dokumentem i tabelami oraz kolumnami w sklepie z bazami danych. 
+`knowledge_store`Obiekt nawiązuje połączenie z kontem magazynu za pośrednictwem `{{storage-connection-string}}` zmiennej programu Poster. `knowledge_store` zawiera zestaw mapowań między rozszerzonym dokumentem i tabelami oraz kolumnami w sklepie z bazami danych. 
 
 Aby wygenerować zestawu umiejętności, wybierz przycisk **Wyślij** w ogłoszeniu w celu umieszczenia żądania:
 
@@ -306,7 +306,7 @@ Aby wygenerować zestawu umiejętności, wybierz przycisk **Wyślij** w ogłosze
 
 Ostatnim krokiem jest utworzenie indeksatora. Indeksator odczytuje dane i aktywuje zestawu umiejętności. W obszarze Ogłoś wybierz żądanie **utworzenia indeksatora** , a następnie przejrzyj treść. Definicja indeksatora odwołuje się do kilku innych już utworzonych zasobów: źródła danych, indeksu i zestawu umiejętności. 
 
-`parameters/configuration`Obiekt steruje sposobem pozyskiwania danych przez indeksator. W takim przypadku dane wejściowe znajdują się w jednym dokumencie zawierającym wiersz nagłówka i wartości rozdzielane przecinkami. Klucz dokumentu jest unikatowym identyfikatorem dla dokumentu. Przed kodowaniem klucz dokumentu jest adresem URL dokumentu źródłowego. Na koniec zestawu umiejętności wartości wyjściowe, takie jak kod języka, tonacji i kluczowe frazy, są mapowane na ich lokalizacje w dokumencie. Chociaż istnieje pojedyncza wartość dla `Language` , `Sentiment` jest stosowana do każdego elementu w tablicy `pages` . `Keyphrases`jest tablicą, która również jest stosowana do każdego elementu w `pages` tablicy.
+`parameters/configuration`Obiekt steruje sposobem pozyskiwania danych przez indeksator. W takim przypadku dane wejściowe znajdują się w jednym dokumencie zawierającym wiersz nagłówka i wartości rozdzielane przecinkami. Klucz dokumentu jest unikatowym identyfikatorem dla dokumentu. Przed kodowaniem klucz dokumentu jest adresem URL dokumentu źródłowego. Na koniec zestawu umiejętności wartości wyjściowe, takie jak kod języka, tonacji i kluczowe frazy, są mapowane na ich lokalizacje w dokumencie. Chociaż istnieje pojedyncza wartość dla `Language` , `Sentiment` jest stosowana do każdego elementu w tablicy `pages` . `Keyphrases` jest tablicą, która również jest stosowana do każdego elementu w `pages` tablicy.
 
 Po ustawieniu `api-key` i `Content-type` nagłówku i upewnieniu się, że treść żądania jest podobna do poniższego kodu źródłowego, wybierz pozycję **Wyślij** w ogłoszeniu. Po wysłaniu żądania PUT do `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}` . Usługa Azure Wyszukiwanie poznawcze tworzy i uruchamia indeksator. 
 

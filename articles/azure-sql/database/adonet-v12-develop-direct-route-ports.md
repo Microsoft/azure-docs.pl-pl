@@ -4,19 +4,19 @@ description: Połączenia klientów z ADO.NET do Azure SQL Database mogą ominą
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-dotnet
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 06/11/2020
-ms.openlocfilehash: c5ddcd083dfae1d0d4b79cd534b6ae4d034903b9
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 73bd3a86d34f36c3737db62e531dc2f79c0db8b5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759312"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928330"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porty wyższe niż 1433 dla platformy ADO.NET 4.5
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,9 +77,9 @@ W tej części objaśniono monikery odwołujące się do wersji produktu. Zawier
 * ADO.NET 4,5 został opublikowany 15 sierpnia 2012. Ogłoszenie w blogu z zespołu .NET jest dostępne [tutaj](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/).
   * Wpis w blogu dotyczący ADO.NET 4.5.1 jest dostępny [tutaj](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/).
 
-* Sterownik Microsoft ODBC Driver 17 dla SQL Serverhttps://aka.ms/downloadmsodbcsql
+* Sterownik Microsoft ODBC Driver 17 dla SQL Server https://aka.ms/downloadmsodbcsql
 
-* Nawiązywanie połączenia z usługą Azure SQL Database V12 za pomocą przekierowaniahttps://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
+* Nawiązywanie połączenia z usługą Azure SQL Database V12 za pomocą przekierowania https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [Lista wersji protokołu TDS](https://www.freetds.org/)
 * [Przegląd SQL Database Development](develop-overview.md)

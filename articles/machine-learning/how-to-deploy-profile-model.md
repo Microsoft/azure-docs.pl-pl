@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 6bbee606c59482e4a06f344d3221e8611f6dcc9d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544587"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935589"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profilowanie modelu w celu określenia wykorzystania zasobów
 
@@ -36,6 +36,9 @@ Aby profilować model, potrzebne są:
 
 > [!IMPORTANT]
 > W tym momencie obsługujemy tylko profilowanie usług, które oczekują, aby dane żądania były ciągiem, na przykład: szeregowany ciąg JSON, tekst, serializowany ciąg znaków itd. Zawartość każdego wiersza zestawu danych (String) zostanie umieszczona w treści żądania HTTP i wysłana do usługi hermetyzowania modelu na potrzeby oceniania.
+
+> [!IMPORTANT]
+> Obsługujemy profilowanie maksymalnie 2 procesorów CPU w regionie ChinaEast2 i USGovArizona.
 
 Poniżej znajduje się przykład sposobu konstruowania wejściowego zestawu danych w celu profilowania usługi, która oczekuje, że jej przychodzące dane żądania zawierają Zserializowany kod JSON. W takim przypadku utworzyliśmy zestaw danych oparty na 100 wystąpieniach tej samej zawartości danych żądania. W realnie świecie zalecamy korzystanie z większych zestawów danych zawierających różne dane wejściowe, zwłaszcza jeśli użycie/zachowanie zasobów modelu jest zależne od danych wejściowych.
 
@@ -127,9 +130,9 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Rozwiązywanie problemów z niepowodzeniem wdrożenia](how-to-troubleshoot-deployment.md)
 * [Wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Tworzenie aplikacji klienckich w celu korzystania z usług sieci Web](how-to-consume-web-service.md)
-* [Aktualizowanie usługi sieci Web](how-to-deploy-update-web-service.md)
+* [Aktualizowanie usługi internetowej](how-to-deploy-update-web-service.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
-* [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+* [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)
 * [Tworzenie alertów zdarzeń i wyzwalaczy na potrzeby wdrożeń modeli](how-to-use-event-grid.md)

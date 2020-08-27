@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 6813db0b7416695fb9433a701114f2684dd0e122
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554026"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927123"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki start: Tworzenie usługi Azure Cognitive Search w portalu
 
@@ -96,7 +96,7 @@ Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów. Li
 
  Jeśli używasz wzbogacania AI, Utwórz usługę wyszukiwania w tym samym regionie co Cognitive Services. *Współpraca z platformą Azure wyszukiwanie poznawcze i Cognitive Services w tym samym regionie jest wymagana do wzbogacania AI*.
 
- Klienci, którzy mają wymagania dotyczące ciągłości biznesowej i odzyskiwania po awarii (BCDR), powinni tworzyć usługi w [parach regionalnej](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA, Północno-środkowe stany USA i południowe Central US dla każdej usługi.
+ Klienci, którzy mają wymagania dotyczące ciągłości biznesowej i odzyskiwania po awarii (BCDR), powinni tworzyć usługi w [parach regionalnej](../best-practices-availability-paired-regions.md#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA, Północno-środkowe stany USA i południowe Central US dla każdej usługi.
 
 ### <a name="recommendations"></a>Zalecenia
 
@@ -160,7 +160,7 @@ Większość klientów używa tylko jednej usługi aprowizowanej dla danej warst
 
 Chociaż większość klientów używa tylko jednej usługi, nadmiarowość usług może być konieczna, jeśli wymagania operacyjne są następujące:
 
-+ [Ciągłość działania i odzyskiwanie po awarii (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Usługa Azure Wyszukiwanie poznawcze nie zapewnia natychmiastowej pracy w trybie failover w przypadku awarii.
++ [Ciągłość działania i odzyskiwanie po awarii (BCDR)](../best-practices-availability-paired-regions.md). Usługa Azure Wyszukiwanie poznawcze nie zapewnia natychmiastowej pracy w trybie failover w przypadku awarii.
 
 + [Architektury z wieloma dzierżawcami](search-modeling-multitenant-saas-applications.md) czasami są wywoływane w przypadku co najmniej dwóch usług.
 

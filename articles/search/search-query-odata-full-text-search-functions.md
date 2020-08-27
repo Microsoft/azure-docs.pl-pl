@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201393"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935793"
 ---
-# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funkcja wyszukiwania pełnotekstowego OData w usłudze Azure Wyszukiwanie poznawcze — `search.ismatch` i`search.ismatchscoring`
+# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funkcja wyszukiwania pełnotekstowego OData w usłudze Azure Wyszukiwanie poznawcze — `search.ismatch` i `search.ismatchscoring`
 
-Usługa Azure Wyszukiwanie poznawcze obsługuje wyszukiwanie pełnotekstowe w kontekście [wyrażeń filtru OData](query-odata-filter-orderby-syntax.md) za pośrednictwem `search.ismatch` `search.ismatchscoring` funkcji i. Te funkcje umożliwiają łączenie wyszukiwania pełnotekstowego z ścisłym filtrowaniem logicznym w sposób, który nie jest możliwy tylko przy użyciu parametru najwyższego poziomu `search` [interfejsu API wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Usługa Azure Wyszukiwanie poznawcze obsługuje wyszukiwanie pełnotekstowe w kontekście [wyrażeń filtru OData](query-odata-filter-orderby-syntax.md) za pośrednictwem `search.ismatch` `search.ismatchscoring` funkcji i. Te funkcje umożliwiają łączenie wyszukiwania pełnotekstowego z ścisłym filtrowaniem logicznym w sposób, który nie jest możliwy tylko przy użyciu parametru najwyższego poziomu `search` [interfejsu API wyszukiwania](/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> `search.ismatch`Funkcje i `search.ismatchscoring` są obsługiwane tylko w filtrach w [interfejsie API wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents). Nie są one obsługiwane w interfejsach API [Sugeruj](https://docs.microsoft.com/rest/api/searchservice/suggestions) lub [Autouzupełnianie](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
+> `search.ismatch`Funkcje i `search.ismatchscoring` są obsługiwane tylko w filtrach w [interfejsie API wyszukiwania](/rest/api/searchservice/search-documents). Nie są one obsługiwane w interfejsach API [Sugeruj](/rest/api/searchservice/suggestions) lub [Autouzupełnianie](/rest/api/searchservice/autocomplete) .
 
 ## <a name="syntax"></a>Składnia
 
@@ -73,10 +73,10 @@ Parametry są zdefiniowane w poniższej tabeli:
 | --- | --- | --- |
 | `search` | `Edm.String` | Zapytanie wyszukiwania (w [prostej](query-simple-syntax.md) lub [pełnej](query-lucene-syntax.md) składni zapytań Lucene). |
 | `searchFields` | `Edm.String` | Rozdzielana przecinkami lista pól wyszukiwania do wyszukania; Domyślnie wszystkie pola z możliwością wyszukiwania w indeksie. W przypadku używania [wyszukiwania z polami](query-lucene-syntax.md#bkmk_fields) w `search` parametrze specyfikatory pola w zapytaniu Lucene zastępują wszystkie pola określone w tym parametrze. |
-| `queryType` | `Edm.String` | `'simple'`lub `'full'` ; wartość domyślna to `'simple'` . Określa, jaki język zapytań był używany w `search` parametrze. |
-| `searchMode` | `Edm.String` | `'any'`lub `'all'` , wartość domyślna to `'any'` . Wskazuje, czy wszystkie lub wszystkie terminy wyszukiwania w `search` parametrze muszą być dopasowane w celu zliczenia dokumentu jako zgodnego. W przypadku korzystania z [operatorów logicznych "Lucene](query-lucene-syntax.md#bkmk_boolean) " w `search` parametrze będą one miały pierwszeństwo przed tym parametrem. |
+| `queryType` | `Edm.String` | `'simple'` lub `'full'` ; wartość domyślna to `'simple'` . Określa, jaki język zapytań był używany w `search` parametrze. |
+| `searchMode` | `Edm.String` | `'any'` lub `'all'` , wartość domyślna to `'any'` . Wskazuje, czy wszystkie lub wszystkie terminy wyszukiwania w `search` parametrze muszą być dopasowane w celu zliczenia dokumentu jako zgodnego. W przypadku korzystania z [operatorów logicznych "Lucene](query-lucene-syntax.md#bkmk_boolean) " w `search` parametrze będą one miały pierwszeństwo przed tym parametrem. |
 
-Wszystkie powyższe parametry są równoważne z odpowiednimi [parametrami żądania wyszukiwania w interfejsie API wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Wszystkie powyższe parametry są równoważne z odpowiednimi [parametrami żądania wyszukiwania w interfejsie API wyszukiwania](/rest/api/searchservice/search-documents).
 
 `search.ismatch`Funkcja zwraca wartość typu `Edm.Boolean` , która pozwala na redagowanie jej z innymi wyrażeniami podrzędnymi filtru przy użyciu logicznych [operatorów logicznych](search-query-odata-logical-operators.md).
 
@@ -96,7 +96,7 @@ Obie `search.ismatch` funkcje i `search.ismatchscoring` mogą być używane w ty
 
 ## <a name="examples"></a>Przykłady
 
-Znajdź dokumenty z wyrazem "Waterfront". To zapytanie filtru jest identyczne z [żądaniem wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents) w `search=waterfront` .
+Znajdź dokumenty z wyrazem "Waterfront". To zapytanie filtru jest identyczne z [żądaniem wyszukiwania](/rest/api/searchservice/search-documents) w `search=waterfront` .
 
 ```odata-filter-expr
     search.ismatchscoring('waterfront')
@@ -133,4 +133,4 @@ Znajdź dokumenty, w których terminy "Hotel" i "Lotnisko" znajdują się w 5 wy
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
 - [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)

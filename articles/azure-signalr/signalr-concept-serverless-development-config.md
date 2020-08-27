@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e25a874af66b73f5f75a07a5df65c155a16c9f01
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387153"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928568"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Programowanie i konfigurowanie w usłudze Azure Functions za pomocą usługi Azure SignalR Service
 
@@ -109,20 +109,20 @@ Wszystkie funkcje, które chcą wykorzystać model oparty na klasie, muszą być
 
 ### <a name="define-hub-method"></a>Zdefiniuj metodę Hub
 
-Wszystkie metody centrum **muszą** mieć `[SignalRTrigger]` atrybut i **muszą** korzystać z konstruktora bez parametrów. Następnie **Nazwa metody** jest traktowana jako **zdarzenie**parametru.
+Wszystkie metody centrum **muszą**  mieć `[SignalRTrigger]` atrybut i **muszą** korzystać z konstruktora bez parametrów. Następnie **Nazwa metody** jest traktowana jako **zdarzenie**parametru.
 
 Domyślnie, `category=messages` z wyjątkiem nazwy metody jest jedną z następujących nazw:
 
-* **OnConnected**: traktowane jako`category=connections, event=connected`
-* **Ondisconnected**: traktowany jako`category=connections, event=disconnected`
+* **OnConnected**: traktowane jako `category=connections, event=connected`
+* **Ondisconnected**: traktowany jako `category=connections, event=disconnected`
 
 ### <a name="parameter-binding-experience"></a>Środowisko powiązania parametrów
 
 W modelu opartym na klasie `[SignalRParameter]` jest zbędna, ponieważ wszystkie argumenty są `[SignalRParameter]` Domyślnie oznaczone jako domyślne, z tym wyjątkiem, że jest to jedna z następujących sytuacji:
 
 * Argument jest uzupełniony atrybutem powiązania.
-* Typ argumentu to `ILogger` lub`CancellationToken`
-* Argument jest uzupełniony atrybutem`[SignalRIgnore]`
+* Typ argumentu to `ILogger` lub `CancellationToken`
+* Argument jest uzupełniony atrybutem `[SignalRIgnore]`
 
 ### <a name="negotiate-experience-in-class-based-model"></a>Środowisko negocjowane w modelu opartym na klasie
 
@@ -218,8 +218,8 @@ Klient JavaScript/TypeScript wysyła żądania HTTP do funkcji Negotiate, aby za
 
 Podczas uruchamiania aplikacji funkcji na komputerze lokalnym można dodać `Host` sekcję do *local.settings.js* , aby włączyć funkcję CORS. W `Host` sekcji Dodaj dwie właściwości:
 
-* `CORS`— Wprowadź podstawowy adres URL, który jest źródłem aplikacji klienckiej.
-* `CORSCredentials`-Ustaw, aby `true` zezwalać na żądania "withCredentials"
+* `CORS` — Wprowadź podstawowy adres URL, który jest źródłem aplikacji klienckiej.
+* `CORSCredentials` -Ustaw, aby `true` zezwalać na żądania "withCredentials"
 
 Przykład:
 
