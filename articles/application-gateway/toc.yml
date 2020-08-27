@@ -4,8 +4,6 @@
   items:
     - name: Bramy aplikacji — informacje
       href: overview.md
-    - name: Co nowego?
-      href: whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -104,7 +102,7 @@
           href: tutorial-manage-web-traffic-cli.md
     - name: Konfigurowanie wewnętrznego modułu równoważenia obciążenia
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md

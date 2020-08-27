@@ -2,13 +2,14 @@
 title: Azure Relay Połączenia hybrydowe — obiekty WebSockets w programie .NET
 description: Napisz aplikację konsolową w języku C# dla Azure Relay Połączenia hybrydowe WebSockets.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: a6e759b8cda7515faf63834ef15c013e2f075687
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb204a7bf18ed1c88a6d359cc521130fa19a1c82
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317085"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934263"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Wprowadzenie do obiektów WebSocket połączeń hybrydowych usługi Relay na platformie .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

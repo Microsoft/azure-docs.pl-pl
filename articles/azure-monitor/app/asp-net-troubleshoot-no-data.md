@@ -2,13 +2,14 @@
 title: Rozwiązywanie problemów z brakiem danych — usługa Application Insights dla platformy .NET
 description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj tutaj.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: eeae4503111897d7a2fa64bc2a69c13381515157
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7cf3371dc60f97b8bba61012e87b7b4bd4899aa6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563079"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936473"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -66,7 +67,7 @@ Wygląda na to, że wystąpił problem podczas instalowania Application Insights
 
 W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, a następnie wybierz polecenie **Application Insights > skonfigurować Application Insights**. Zostanie wyświetlone okno dialogowe umożliwiające zalogowanie się do platformy Azure i utworzenie zasobu Application Insights lub ponowne użycie istniejącego.
 
-## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a>"Brak pakietów NuGet" na serwerze kompilacji
+## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "Brak pakietów NuGet" na serwerze kompilacji
 *Wszystko jest kompilowane po debugowaniu na moim komputerze deweloperskim, ale otrzymuję błąd NuGet na serwerze kompilacji.*
 
 Zobacz [przywracanie pakietu NuGet](https://docs.nuget.org/Consume/Package-Restore) i [automatyczne przywracanie pakietów](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -120,7 +121,7 @@ Wiązane
   Zobaczysz kilka wykresów podsumowujących. Możesz kliknąć, aby wyświetlić więcej szczegółów.
 * W programie Visual Studio podczas debugowania aplikacji kliknij przycisk Application Insights.
 
-## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a>Brak danych serwera (lub nie ma żadnych danych)
+## <a name="no-server-data-or-no-data-at-all"></a><a name="q03"></a> Brak danych serwera (lub nie ma żadnych danych)
 *Uruchomiono moją aplikację, a następnie otwarto usługę Application Insights w Microsoft Azure, ale wszystkie wykresy pokazują "Dowiedz się, jak zbierać..." lub "nie skonfigurowano".* Lub *tylko widok strony i dane użytkownika, ale nie dane serwera.*
 
 * Uruchom aplikację w trybie debugowania w programie Visual Studio (F5). Użyj aplikacji, aby wygenerować pewne dane telemetryczne. Sprawdź, czy można zobaczyć zdarzenia zarejestrowane w oknie danych wyjściowych programu Visual Studio.  
@@ -185,7 +186,7 @@ Postępuj zgodnie z tymi instrukcjami, aby przechwytywać dzienniki rozwiązywan
 
 ### <a name="net-framework"></a>.NET Framework
 
-1. Zainstaluj pakiet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) z narzędzia NuGet. Instalowana wersja musi być zgodna z aktualnie zainstalowaną wersją programu`Microsoft.ApplicationInsighs`
+1. Zainstaluj pakiet [Microsoft. ASPNET. ApplicationInsights. HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) z narzędzia NuGet. Instalowana wersja musi być zgodna z aktualnie zainstalowaną wersją programu `Microsoft.ApplicationInsighs`
 
 2. Zmodyfikuj plik applicationinsights.config w taki sposób, aby obejmował następujące elementy:
 
@@ -227,7 +228,7 @@ Postępuj zgodnie z tymi instrukcjami, aby przechwytywać dzienniki rozwiązywan
 4. Przywróć te zmiany po zakończeniu.
 
 
-## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a>Zbieranie dzienników za pomocą narzędzia PerfView
+## <a name="collect-logs-with-perfview"></a><a name="PerfView"></a> Zbieranie dzienników za pomocą narzędzia PerfView
 [Narzędzia PerfView](https://github.com/Microsoft/perfview) to bezpłatne narzędzie do analizy danych diagnostycznych i wydajności, które ułatwia odizolowanie procesora, pamięci i innych problemów przez gromadzenie i wizualizację informacji diagnostycznych z wielu źródeł.
 
 Application Insights dzienników zestawu SDK, które mogą być przechwytywane przez narzędzia PerfView.
@@ -249,7 +250,7 @@ Aby uzyskać więcej informacji,
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Zbieranie dzienników przy użyciu funkcji monitorowania dotnet
 
-Alternatywna metoda zbierania dzienników na potrzeby rozwiązywania problemów, które mogą być szczególnie przydatne w przypadku środowisk opartych na systemie Linux, to[`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
+Alternatywna metoda zbierania dzienników na potrzeby rozwiązywania problemów, które mogą być szczególnie przydatne w przypadku środowisk opartych na systemie Linux, to [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)
 
 ```bash
 dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore

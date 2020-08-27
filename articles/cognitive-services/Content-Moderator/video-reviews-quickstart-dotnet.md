@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 7130ed43183d64b00f8f5ef1697b9a3b456ad396
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b2fb06c838de480bb73501307ab11cb3d6831921
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72931672"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919322"
 ---
 # <a name="create-video-reviews-using-net"></a>Tworzenie recenzji wideo przy użyciu platformy .NET
 
@@ -92,7 +93,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Dodawanie właściwości prywatnych
 
-Dodaj następujące właściwości prywatne do przestrzeni nazw **VideoReviews**, **programu**klasy. Zaktualizuj pola `AzureEndpoint` i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
+Dodaj następujące właściwości prywatne do przestrzeni nazw **VideoReviews**, **programu**klasy. Zaktualizuj `AzureEndpoint` pola i `CMSubscriptionKey` przy użyciu wartości adresu URL punktu końcowego i klucza subskrypcji. Te informacje można znaleźć na karcie **Szybki Start** zasobu w Azure Portal.
 
 
 ```csharp
@@ -157,7 +158,7 @@ Utwórz recenzję wideo za pomocą **ContentModeratorClient. Reviews. CreateVide
 **CreateVideoReviews** ma następujące wymagane parametry:
 1. Ciąg zawierający typ MIME, który powinien mieć wartość "Application/JSON". 
 1. Nazwa zespołu Content Moderator.
-1. Obiekt **>\<IList CreateVideoReviewsBodyItem** . Każdy obiekt **CreateVideoReviewsBodyItem** reprezentuje przegląd wideo. Ten przewodnik Szybki Start tworzy jeden przegląd w danym momencie.
+1. Obiekt **IList \<CreateVideoReviewsBodyItem> ** . Każdy obiekt **CreateVideoReviewsBodyItem** reprezentuje przegląd wideo. Ten przewodnik Szybki Start tworzy jeden przegląd w danym momencie.
 
 **CreateVideoReviewsBodyItem** ma kilka właściwości. Należy ustawić co najmniej następujące właściwości:
 - **Zawartość**. Adres URL filmu wideo, który ma zostać sprawdzony.
@@ -165,7 +166,7 @@ Utwórz recenzję wideo za pomocą **ContentModeratorClient. Reviews. CreateVide
 - **Stan**. Ustaw wartość na "unopublikowałd". Jeśli go nie ustawisz, zostanie on ustawiony jako "Oczekujący", co oznacza, że przegląd wideo jest publikowany i oczekuje na weryfikację przez człowieka. Po opublikowaniu recenzji wideo nie można już dodawać do niej ramek wideo, transkrypcji ani moderowania transkrypcji.
 
 > [!NOTE]
-> **CreateVideoReviews** zwraca ciąg IList\<>. Każdy z tych ciągów zawiera identyfikator dla recenzji wideo. Identyfikatory te są identyfikatorami GUID i nie są takie same jak wartość właściwości **identyfikatorze** . 
+> **CreateVideoReviews** zwraca element IList \<string> . Każdy z tych ciągów zawiera identyfikator dla recenzji wideo. Identyfikatory te są identyfikatorami GUID i nie są takie same jak wartość właściwości **identyfikatorze** . 
 
 Dodaj następującą definicję metody do VideoReviews przestrzeni nazw, programu klasy.
 
@@ -215,18 +216,18 @@ Dodawaj klatki wideo do recenzji wideo przy użyciu **ContentModeratorClient. Re
 1. Ciąg zawierający typ MIME, który powinien mieć wartość "Application/JSON".
 1. Nazwa zespołu Content Moderator.
 1. Identyfikator przeglądu wideo zwrócony przez **CreateVideoReviews**.
-1. Obiekt **>\<IList VideoFrameBodyItem** . Każdy obiekt **VideoFrameBodyItem** reprezentuje ramkę wideo.
+1. Obiekt **IList \<VideoFrameBodyItem> ** . Każdy obiekt **VideoFrameBodyItem** reprezentuje ramkę wideo.
 
 **VideoFrameBodyItem** ma następujące właściwości:
 - **Sygnatura czasowa**. Ciąg zawierający w sekundach czas w filmie wideo, z którego zrobiono klatkę wideo.
 - **FrameImage**. Adres URL ramki wideo.
-- **Metadanych**. > IList\<VideoFrameBodyItemMetadataItem. **VideoFrameBodyItemMetadataItem** to po prostu para klucz/wartość. Prawidłowe klucze obejmują:
+- **Metadanych**. Element IList \<VideoFrameBodyItemMetadataItem> . **VideoFrameBodyItemMetadataItem** to po prostu para klucz/wartość. Prawidłowe klucze obejmują:
 - **reviewRecommended**. Ma wartość true, jeśli zalecamy przeglądanie ramki wideo przez człowieka.
 - **adultScore**. Wartość z przedziału od 0 do 1, która ocenia ważność zawartości dla dorosłych w ramce wideo.
 - **a**. Prawda, jeśli film wideo zawiera zawartość dla dorosłych.
 - **racyScore**. Wartość z przedziału od 0 do 1, która ocenia ważność zawartości erotycznej w ramce wideo.
 - **r**. Ma wartość true, jeśli ramka wideo zawiera zawartość erotycznej.
-- **ReviewerResultTags**. > IList\<VideoFrameBodyItemReviewerResultTagsItem. **VideoFrameBodyItemReviewerResultTagsItem** to po prostu para klucz/wartość. Aplikacja może używać tych tagów do organizowania ramek wideo.
+- **ReviewerResultTags**. Element IList \<VideoFrameBodyItemReviewerResultTagsItem> . **VideoFrameBodyItemReviewerResultTagsItem** to po prostu para klucz/wartość. Aplikacja może używać tych tagów do organizowania ramek wideo.
 
 > [!NOTE]
 > Ten przewodnik Szybki Start generuje losowo wartości właściwości **adultScore** i **racyScore** . W aplikacji produkcyjnej można uzyskać te wartości z [usługi moderowania wideo](video-moderation-api.md)wdrożonej jako usługa Azure Media.
@@ -541,7 +542,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>Zapoznaj się z przeglądem wideo
 
-Na koniec zobaczysz recenzję wideo na koncie narzędzia Content moderator recenzja na ekranie **Przejrzyj**>**wideo** .
+Na koniec zobaczysz recenzję wideo na koncie narzędzia Content moderator recenzja na ekranie **Przejrzyj** > **wideo** .
 
 ![Przegląd wideo dla moderatorów ludzkich](images/ams-video-review.PNG)
 

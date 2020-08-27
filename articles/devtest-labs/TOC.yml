@@ -8,7 +8,7 @@
       href: lab-services-overview.md
 - name: Szybki start
   items:
-    - name: Tworzenie laboratorium — szablon usługi ARM
+    - name: Tworzenie laboratorium — szablon usługi Resource Manager
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
 - name: Samouczki
@@ -75,6 +75,8 @@
       items:
         - name: Tworzenie laboratorium
           href: devtest-lab-create-lab.md
+        - name: Tworzenie laboratorium odizolowanego od sieci
+          href: network-isolation.md
         - name: Tworzenie lub modyfikowanie laboratoriów przy użyciu szablonu usługi Resource Manager
           href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
         - name: Określanie grupy zasobów dla maszyn wirtualnych laboratorium

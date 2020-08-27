@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201982"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917877"
 ---
-# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatory logiczne OData w usłudze Azure Wyszukiwanie poznawcze —, `and` `or` ,`not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operatory logiczne OData w usłudze Azure Wyszukiwanie poznawcze —, `and` `or` , `not`
 
 [Wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) na platformie Azure wyszukiwanie poznawcze są wyrażeniami logicznymi, które są szacowane do `true` lub `false` . Filtr złożony można napisać, pisząc szereg [prostszych filtrów](search-query-odata-comparison-operators.md) i tworząc je przy użyciu operatorów logicznych z [algebry logicznego](https://en.wikipedia.org/wiki/Boolean_algebra):
 
@@ -58,21 +58,21 @@ Dostępny jest również interaktywny diagram składni:
 
 Istnieją dwie formy wyrażeń logicznych: binary ( `and` / `or` ), gdzie istnieją dwa wyrażenia podrzędne i jednoargumentowy ( `not` ), gdzie istnieje tylko jeden. Wyrażenia podrzędne mogą być wyrażeniami logicznymi dowolnego rodzaju:
 
-- Pola lub zmienne zakresu typu`Edm.Boolean`
-- Funkcje, które zwracają wartości typu `Edm.Boolean` , takie jak `geo.intersects` lub`search.ismatch`
-- [Wyrażenia porównania](search-query-odata-comparison-operators.md), takie jak`rating gt 4`
-- [Wyrażenia kolekcji](search-query-odata-collection-operators.md), takie jak`Rooms/any(room: room/Type eq 'Deluxe Room')`
+- Pola lub zmienne zakresu typu `Edm.Boolean`
+- Funkcje, które zwracają wartości typu `Edm.Boolean` , takie jak `geo.intersects` lub `search.ismatch`
+- [Wyrażenia porównania](search-query-odata-comparison-operators.md), takie jak `rating gt 4`
+- [Wyrażenia kolekcji](search-query-odata-collection-operators.md), takie jak `Rooms/any(room: room/Type eq 'Deluxe Room')`
 - Literały logiczne `true` lub `false` .
 - Inne wyrażenia logiczne konstruowane przy użyciu `and` , `or` , i `not` .
 
 > [!IMPORTANT]
 > Istnieją sytuacje, w których nie można używać wszystkich rodzajów wyrażeń podrzędnych z `and` / `or` , szczególnie w wyrażeniach lambda. Aby uzyskać szczegółowe informacje, zobacz [Operatory kolekcji OData w usłudze Azure wyszukiwanie poznawcze](search-query-odata-collection-operators.md#limitations) .
 
-### <a name="logical-operators-and-null"></a>Operatory logiczne i`null`
+### <a name="logical-operators-and-null"></a>Operatory logiczne i `null`
 
 Większość wyrażeń logicznych, takich jak Functions i porównania, nie może generować `null` wartości, a operatory logiczne nie mogą być stosowane do `null` literału bezpośrednio (na przykład `x and null` nie jest to dozwolone). Jednak pola logiczne mogą być `null` , dlatego należy wiedzieć, jak `and` `or` operatory, i `not` działają w obecności wartości null. Jest to podsumowanie w poniższej tabeli, gdzie `b` to pole typu `Edm.Boolean` :
 
-| Wyrażenie | Wynik gdy `b` jest`null` |
+| Wyrażenie | Wynik gdy `b` jest `null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -120,4 +120,4 @@ Dopasowuj dokumenty dla hoteli w Vancouver, Kanada, gdy istnieje Pokój Deluxe z
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
 - [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)

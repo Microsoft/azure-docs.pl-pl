@@ -2,17 +2,17 @@
 title: Wdróż specyfikację szablonu jako połączony szablon
 description: Dowiedz się, jak wdrożyć istniejącą specyfikację szablonu w połączonym wdrożeniu.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097730"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918387"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu (wersja zapoznawcza)
 
-Dowiedz się, jak wdrożyć istniejącą [specyfikację szablonu](template-specs.md) przy użyciu [połączonego wdrożenia](linked-templates.md#linked-template). Specyfikacje szablonu są używane do udostępniania szablonów ARM innym użytkownikom w organizacji. Po utworzeniu specyfikacji szablonu można wdrożyć specyfikację szablonu przy użyciu Azure PowerShell. Specyfikacja szablonu można również wdrożyć jako część rozwiązania przy użyciu połączonego szablonu.
+Dowiedz się, jak wdrożyć istniejącą [specyfikację szablonu](template-specs.md) przy użyciu [połączonego wdrożenia](linked-templates.md#linked-template). Specyfikacje szablonu są używane do udostępniania szablonów ARM innym użytkownikom w organizacji. Po utworzeniu specyfikacji szablonu można wdrożyć specyfikację szablonu przy użyciu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Specyfikacja szablonu można również wdrożyć jako część rozwiązania przy użyciu połączonego szablonu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -117,9 +117,22 @@ Aby wdrożyć specyfikację szablonu w szablonie ARM, Dodaj [zasób wdrożenia](
 
 Identyfikator specyfikacji szablonu jest generowany przy użyciu [`resourceID()`](template-functions-resource.md#resourceid) funkcji. Argument grupy zasobów w funkcji resourceID () jest opcjonalny, jeśli templateSpec znajduje się w tej samej grupie zasobów bieżącego wdrożenia.  Możesz również przekazać bezpośrednio identyfikator zasobu jako parametr. Aby uzyskać identyfikator, użyj:
 
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
+
+```azurecli-interactive
+id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> Istnieje znany problem dotyczący pobierania identyfikatora specyfikacji szablonu, a następnie przypisywania go do zmiennej w programie Windows PowerShell.
+
+---
 
 Składnia przekazywania parametrów do specyfikacji szablonu jest następująca:
 
@@ -134,9 +147,11 @@ Składnia przekazywania parametrów do specyfikacji szablonu jest następująca:
 > [!NOTE]
 > ApiVersion `Microsoft.Resources/deployments` musi mieć wartość 2020-06-01 lub nowszą.
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
 
 Po wdrożeniu połączonego szablonu wdrażana jest zarówno aplikacja sieci Web, jak i konto magazynu. Wdrożenie jest takie samo jak wdrażanie innych szablonów ARM.
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -147,6 +162,21 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
+
+# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

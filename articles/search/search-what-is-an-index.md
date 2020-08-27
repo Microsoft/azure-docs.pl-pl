@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496545"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932886"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Tworzenie podstawowego indeksu wyszukiwania na platformie Azure Wyszukiwanie poznawcze
 
@@ -26,10 +26,10 @@ Struktura fizyczna indeksu jest określana przez schemat z polami oznaczonymi ja
 Indeks można utworzyć przy użyciu następujących narzędzi i interfejsów API:
 
 * W Azure Portal Użyj kreatora **dodawania indeksu** lub **importowania danych**
-* Korzystanie z funkcji [tworzenia indeksu (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* Korzystanie z [zestawu SDK platformy .NET](search-create-index-dotnet.md)
+* Korzystanie z funkcji [tworzenia indeksu (interfejs API REST)](/rest/api/searchservice/create-index)
+* Korzystanie z [zestawu SDK platformy .NET](./search-get-started-dotnet.md)
 
-Łatwiej jest poznać narzędzie portalu. Portal wymusza wymagania i reguły schematu dla określonych typów danych, na przykład niezezwalanie na funkcje wyszukiwania pełnotekstowego w polach liczbowych. Gdy masz prawidłowo używany indeks, możesz przejść do kodu, pobierając definicję JSON z usługi za pomocą polecenia [Get index (REST API)](https://docs.microsoft.com/rest/api/searchservice/get-index) i dodając ją do rozwiązania.
+Łatwiej jest poznać narzędzie portalu. Portal wymusza wymagania i reguły schematu dla określonych typów danych, na przykład niezezwalanie na funkcje wyszukiwania pełnotekstowego w polach liczbowych. Gdy masz prawidłowo używany indeks, możesz przejść do kodu, pobierając definicję JSON z usługi za pomocą polecenia [Get index (REST API)](/rest/api/searchservice/get-index) i dodając ją do rozwiązania.
 
 ## <a name="recommended-workflow"></a>Zalecany przepływ pracy
 
@@ -59,7 +59,7 @@ Dotarcie do ostatecznego projektu indeksu jest procesem iteracyjnym. Często zac
 
    ![Dodaj stronę indeksu pokazującą atrybuty według typu danych](media/search-what-is-an-index//field-definitions.png "Dodaj stronę indeksu pokazującą atrybuty według typu danych")
 
-1. Pobierz schemat indeksu przy użyciu polecenia [Pobierz indeks (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) i narzędzia do testowania sieci Web, takiego jak [Poster](search-get-started-postman.md). Teraz masz reprezentację w formacie JSON indeksu, który można dostosować do kodu.
+1. Pobierz schemat indeksu przy użyciu polecenia [Pobierz indeks (interfejs API REST)](/rest/api/searchservice/get-index) i narzędzia do testowania sieci Web, takiego jak [Poster](search-get-started-postman.md). Teraz masz reprezentację w formacie JSON indeksu, który można dostosować do kodu.
 
 1. [Załaduj swój indeks z danymi](search-what-is-data-import.md). Usługa Azure Wyszukiwanie poznawcze akceptuje dokumenty JSON. Aby programowo załadować dane, można użyć programu Poster z dokumentami JSON w ładunku żądania. Jeśli dane nie są łatwo wyrażone w formacie JSON, ten krok będzie najbardziej pracochłonny. 
 
@@ -180,7 +180,7 @@ Pola mają nazwę, typ, który klasyfikuje przechowywane dane, oraz atrybuty, kt
 | Edm.DateTimeOffset |Wartości daty i godziny reprezentowane w formacie OData v4 (na przykład `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm` ). |
 | Edm.GeographyPoint |Punkt przedstawiający lokalizację geograficzną na świecie. |
 
-Aby uzyskać więcej informacji, zobacz [obsługiwane typy danych](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Aby uzyskać więcej informacji, zobacz [obsługiwane typy danych](/rest/api/searchservice/Supported-data-types).
 
 <a name="index-attributes"></a>
 
@@ -195,14 +195,14 @@ Pola ciągów są często oznaczane jako "z możliwością wyszukiwania" i "do p
 |możliwością wyszukiwania |Wyszukiwanie pełnotekstowe, które można poddawać analizie leksykalnej, takiej jak dzielenie wyrazów podczas indeksowania. Ustawienie wartości „sunny day” dla pola z możliwością wyszukiwania spowoduje podział na dwa oddzielne tokeny „sunny” i „day”. Aby uzyskać więcej informacji, zobacz [Jak działa wyszukiwanie pełnotekstowe](search-lucene-query-architecture.md).|  
 |Filtrowanie |Odwołania do tego atrybutu znajdują się w zapytaniach $filter. Pola z możliwością filtrowania typu `Edm.String` lub `Collection(Edm.String)` nie są poddawane dzieleniu wyrazów, więc porównania dotyczą tylko dokładnych dopasowań. Ustawienie pola filtrowania na wartość „sunny day” spowoduje, że pole typu `$filter=f eq 'sunny'` nie wyświetli żadnych wyników, ale `$filter=f eq 'sunny day'` już tak. |  
 |sortowan |Domyślnie system sortuje pozycje według wyników, ale można również ustawić sortowanie według poszczególnych pól w dokumentach. Pola typu `Collection(Edm.String)` nie mogą być "do sortowania". |  
-|Tworzenie aspektów |Zwykle używany w prezentacji wyników wyszukiwania, która zawiera liczbę trafień według kategorii (na przykład hotele znajdujące się w określonym mieście). Nie można używać tej opcji z polami typu `Edm.GeographyPoint`. Pola typu `Edm.String` , które są filtrowane, "sortowanie" lub "uśmiech", mogą mieć co najwyżej 32 kilobajtów. Aby uzyskać więcej informacji, zobacz [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) (Tworzenie indeksu [interfejs REST API]).|  
+|Tworzenie aspektów |Zwykle używany w prezentacji wyników wyszukiwania, która zawiera liczbę trafień według kategorii (na przykład hotele znajdujące się w określonym mieście). Nie można używać tej opcji z polami typu `Edm.GeographyPoint`. Pola typu `Edm.String` , które są filtrowane, "sortowanie" lub "uśmiech", mogą mieć co najwyżej 32 kilobajtów. Aby uzyskać więcej informacji, zobacz [Create Index (REST API)](/rest/api/searchservice/create-index) (Tworzenie indeksu [interfejs REST API]).|  
 |głównych |Unikatowy identyfikator dokumentów w indeksie. Można wybrać tylko jedno pole klucza i musi ono być typu `Edm.String`.|  
 |Pobieranie |Określa, czy pole może być zwracane w wynikach wyszukiwania. Jest przydatny, jeśli chcesz użyć pola (np. *marża zysku*) z możliwością filtrowania, sortowania lub oceniania, ale nie chcesz, aby to pole było widoczne dla użytkownika końcowego. Ten atrybut musi przyjmować wartość `true` dla pól typu `key`.|  
 
 Chociaż możesz w dowolnym momencie dodać nowe pola, istniejące definicje pól są zablokowane przez cały czas istnienia indeksu. Z tego powodu deweloperzy zazwyczaj używają portalu do tworzenia prostych indeksów, testowania pomysłów lub używania stron portalu w celu wyszukania ustawień. Częsta iteracja po projekcie indeksu jest bardziej wydajna, jeśli stosujesz podejście oparte na kodzie, które pozwala na odbudowanie indeksu w prosty sposób.
 
 > [!NOTE]
-> Interfejsy API używane do tworzenia indeksu mają różne ustawienia domyślne. W przypadku [interfejsów API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index)większość atrybutów jest domyślnie włączonych (na przykład "możliwe do przeszukania" i "możliwy do pobierania" są spełnione w przypadku pól ciągów) i często należy je ustawić tylko wtedy, gdy chcesz je wyłączyć. W przypadku zestawu .NET SDK przeciwieństwem jest true. W przypadku każdej właściwości, która nie została ustawiona jawnie, domyślnie należy wyłączyć odpowiednie zachowanie wyszukiwania, chyba że zostanie to włączone.
+> Interfejsy API używane do tworzenia indeksu mają różne ustawienia domyślne. W przypadku [interfejsów API REST](/rest/api/searchservice/Create-Index)większość atrybutów jest domyślnie włączonych (na przykład "możliwe do przeszukania" i "możliwy do pobierania" są spełnione w przypadku pól ciągów) i często należy je ustawić tylko wtedy, gdy chcesz je wyłączyć. W przypadku zestawu .NET SDK przeciwieństwem jest true. W przypadku każdej właściwości, która nie została ustawiona jawnie, domyślnie należy wyłączyć odpowiednie zachowanie wyszukiwania, chyba że zostanie to włączone.
 
 ## `analyzers`
 
@@ -210,7 +210,7 @@ Element analizatorzes ustawia nazwę analizatora języka, który ma być używan
 
 ## `suggesters`
 
-Sugerował to sekcja schematu, która określa, które pola w indeksie są używane do obsługi autouzupełniania lub zapytań typu "w wyszukiwaniach". Zazwyczaj częściowe ciągi wyszukiwania są wysyłane do [sugestii (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) , podczas gdy użytkownik pisze zapytanie wyszukiwania, a interfejs API zwraca zestaw sugerowanych dokumentów lub fraz. 
+Sugerował to sekcja schematu, która określa, które pola w indeksie są używane do obsługi autouzupełniania lub zapytań typu "w wyszukiwaniach". Zazwyczaj częściowe ciągi wyszukiwania są wysyłane do [sugestii (interfejs API REST)](/rest/api/searchservice/suggestions) , podczas gdy użytkownik pisze zapytanie wyszukiwania, a interfejs API zwraca zestaw sugerowanych dokumentów lub fraz. 
 
 Pola dodane do sugestii są używane do kompilowania terminów wyszukiwania z wyprzedzeniem. Wszystkie terminy wyszukiwania są tworzone podczas indeksowania i zapisywane oddzielnie. Aby uzyskać więcej informacji na temat tworzenia struktury sugerującej, zobacz [Dodawanie sugestii](index-add-suggesters.md).
 

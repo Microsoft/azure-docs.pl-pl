@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3ea1c42234267bdbc5f8a7d35f0fd73bbb59b33c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553405"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918030"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Tworzenie prostego zapytania na platformie Azure Wyszukiwanie poznawcze
 
 W przypadku usługi Azure Wyszukiwanie poznawcze [prosta Składnia zapytania](query-simple-syntax.md) wywołuje domyślny Analizator zapytań służący do wykonywania zapytań wyszukiwania pełnotekstowego w odniesieniu do indeksu. Ten parser jest szybki i obsługuje często spotykane scenariusze, w tym wyszukiwanie pełnotekstowe, filtrowanie i wyszukiwanie aspektów oraz wyszukiwanie geograficzne. 
 
-W tym artykule użyto przykładów do zilustrowania prostej składni, wypełniając `search=` parametr operacji [wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents) .
+W tym artykule użyto przykładów do zilustrowania prostej składni, wypełniając `search=` parametr operacji [wyszukiwania dokumentów](/rest/api/searchservice/search-documents) .
 
 Alternatywna składnia zapytania to [pełna Lucene](query-lucene-syntax.md), obsługujące bardziej złożone struktury zapytań, takie jak rozmyte i wieloznaczne wyszukiwanie, które może zająć więcej czasu. Aby uzyskać więcej informacji i przykładów demonstrujących pełną składnię, zobacz [Używanie pełnej składni Lucene](search-query-lucene-examples.md).
 
@@ -103,7 +103,7 @@ Być może zauważono wynik wyszukiwania w odpowiedzi. Jednolite Punktacja 1 wys
 
 ## <a name="example-2-look-up-by-id"></a>Przykład 2: wyszukiwanie według identyfikatora
 
-Ten przykład jest nietypowy, ale podczas oceniania zachowań wyszukiwania można chcieć sprawdzić całą zawartość określonego dokumentu, aby zrozumieć, dlaczego został on uwzględniony lub wykluczony z wyników. Aby w całości zwrócić pojedynczy dokument, użyj [operacji Lookup](https://docs.microsoft.com/rest/api/searchservice/lookup-document) do przekazania identyfikatora dokumentu.
+Ten przykład jest nietypowy, ale podczas oceniania zachowań wyszukiwania można chcieć sprawdzić całą zawartość określonego dokumentu, aby zrozumieć, dlaczego został on uwzględniony lub wykluczony z wyników. Aby w całości zwrócić pojedynczy dokument, użyj [operacji Lookup](/rest/api/searchservice/lookup-document) do przekazania identyfikatora dokumentu.
 
 Wszystkie dokumenty mają unikatowy identyfikator. Aby wypróbować składnię zapytania wyszukiwania, najpierw Zwróć listę identyfikatorów dokumentów, aby można było znaleźć jeden do użycia. W przypadku zadań NYC identyfikatory są przechowywane w `id` polu.
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Przykład 3: filtrowanie zapytań
 
-[Składnia filtru](https://docs.microsoft.com/azure/search/search-query-odata-filter) jest wyrażeniem OData, które może być używane z **wyszukiwaniem** lub przez siebie. Filtr autonomiczny bez parametru wyszukiwania jest przydatny, gdy wyrażenie filtru jest w stanie w pełni kwalifikować dokumenty. Bez ciągu zapytania nie ma analizy leksykalnej ani językowej, brak oceniania (wszystkie wyniki są 1) i bez klasyfikacji. Zwróć uwagę, że ciąg wyszukiwania jest pusty.
+[Składnia filtru](./search-query-odata-filter.md) jest wyrażeniem OData, które może być używane z **wyszukiwaniem** lub przez siebie. Filtr autonomiczny bez parametru wyszukiwania jest przydatny, gdy wyrażenie filtru jest w stanie w pełni kwalifikować dokumenty. Bez ciągu zapytania nie ma analizy leksykalnej ani językowej, brak oceniania (wszystkie wyniki są 1) i bez klasyfikacji. Zwróć uwagę, że ciąg wyszukiwania jest pusty.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
@@ -147,7 +147,7 @@ Innym zaawansowanym sposobem łączenia filtru i wyszukiwania jest **`search.ism
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Aby uzyskać więcej informacji na temat funkcji, zobacz [Wyszukaj. IsMatch w "Przykłady filtrowania"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
+Aby uzyskać więcej informacji na temat funkcji, zobacz [Wyszukaj. IsMatch w "Przykłady filtrowania"](./search-query-odata-full-text-search-functions.md#examples).
 
 ## <a name="example-4-range-filters"></a>Przykład 4: filtry zakresu
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 ## <a name="example-5-geo-search"></a>Przykład 5: wyszukiwanie geograficzne
 
-Przykładowy indeks zawiera pole geo_location ze współrzędnem szerokości geograficznej i długości geograficznej. W tym przykładzie jest stosowana [Funkcja Geo. Distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) , która filtruje dokumenty w obrębie obwodu punktu początkowego, do dowolnej odległości (w kilometrach), którą zapewniasz. Możesz dostosować ostatnią wartość zapytania (4), aby zmniejszyć lub powiększyć obszar powierzchni zapytania.
+Przykładowy indeks zawiera pole geo_location ze współrzędnem szerokości geograficznej i długości geograficznej. W tym przykładzie jest stosowana [Funkcja Geo. Distance](./search-query-odata-geo-spatial-functions.md#examples) , która filtruje dokumenty w obrębie obwodu punktu początkowego, do dowolnej odległości (w kilometrach), którą zapewniasz. Możesz dostosować ostatnią wartość zapytania (4), aby zmniejszyć lub powiększyć obszar powierzchni zapytania.
 
 Poniższy przykład jest w formacie POST, aby można było uzyskać czytelność:
 
@@ -223,7 +223,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Zapytania warunkowe to pojedyncze terminy, być może wiele z nich, które są oceniane niezależnie. Zapytania frazy są ujęte w znaki cudzysłowu i oceniane jako ciąg Verbatim. Precyzja dopasowania jest kontrolowana przez operatory i searchmode.
 
-Przykład 1: **`&search=fire`** zwraca 150 wyników, gdzie wszystkie dopasowania zawierają słowo pożar w dokumencie.
+Przykład 1: **`&search=fire`**  zwraca 150 wyników, gdzie wszystkie dopasowania zawierają słowo pożar w dokumencie.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=fire
@@ -288,13 +288,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ## <a name="next-steps"></a>Następne kroki
 Spróbuj określić zapytania w kodzie. Poniższe linki wyjaśniają, jak skonfigurować zapytania wyszukiwania dla platformy .NET i interfejsu API REST przy użyciu domyślnej prostej składni.
 
-* [Tworzenie zapytań względem indeksu przy użyciu zestawu .NET SDK](search-query-dotnet.md)
-* [Tworzenie zapytań względem indeksu przy użyciu interfejsu API REST](search-create-index-rest-api.md)
+* [Tworzenie zapytań względem indeksu przy użyciu zestawu .NET SDK](./search-get-started-dotnet.md)
+* [Tworzenie zapytań względem indeksu przy użyciu interfejsu API REST](./search-get-started-powershell.md)
 
 Dodatkowe informacje na temat składni, architekturę zapytań i przykłady można znaleźć w następujących linkach:
 
 + [Przykłady zapytań składni Lucene w celu tworzenia zaawansowanych zapytań](search-query-lucene-examples.md)
 + [Jak działa wyszukiwanie pełnotekstowe w usłudze Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Pełne zapytanie Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Składnia filtru i OrderBy](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Prosta składnia zapytań](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Pełne zapytanie Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Składnia filtru i OrderBy](/rest/api/searchservice/odata-expression-syntax-for-azure-search)

@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245334"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924592"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Samouczek: kompilowanie i wdrażanie niestandardowej umiejętności przy użyciu Azure Machine Learning 
 
-W tym samouczku zostanie użyty [zestaw danych dla przeglądów hotelu](https://www.kaggle.com/datafiniti/hotel-reviews) (dystrybuowany w ramach licencji Creative Commons attributions [CC według-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)), aby utworzyć [niestandardową umiejętność](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) przy użyciu Azure Machine Learning do wyodrębnienia tonacji opartego na aspektach z przeglądów. Pozwala to na przypisanie pozytywnych i ujemnych tonacji w ramach tego samego przeglądu, aby były prawidłowo przypisane do zidentyfikowanych jednostek, takich jak personel, pokój, lobby lub Pula.
+W tym samouczku zostanie użyty [zestaw danych dla przeglądów hotelu](https://www.kaggle.com/datafiniti/hotel-reviews) (dystrybuowany w ramach licencji Creative Commons attributions [CC według-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)), aby utworzyć [niestandardową umiejętność](./cognitive-search-aml-skill.md) przy użyciu Azure Machine Learning do wyodrębnienia tonacji opartego na aspektach z przeglądów. Pozwala to na przypisanie pozytywnych i ujemnych tonacji w ramach tego samego przeglądu, aby były prawidłowo przypisane do zidentyfikowanych jednostek, takich jak personel, pokój, lobby lub Pula.
 
 Aby przeprowadzić uczenie modelu tonacji opartego na aspektach w Azure Machine Learning, będziesz używać [repozytorium z przepisami NLP](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Model zostanie następnie wdrożony jako punkt końcowy w klastrze usługi Azure Kubernetes. Po wdrożeniu punkt końcowy jest dodawany do potoku wzbogacenia jako umiejętność AML do użycia przez usługę Wyszukiwanie poznawcze.
 
@@ -36,10 +36,10 @@ Dostępne są dwa zestawy danych. Jeśli chcesz samodzielnie szkolić model, wym
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — Uzyskaj [bezpłatną subskrypcję](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Usługa Wyszukiwanie poznawcze](https://docs.microsoft.com/azure/search/search-get-started-arm)
-* [Zasób Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
-* [Konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-* [Obszar roboczy usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
+* [Usługa Wyszukiwanie poznawcze](./search-get-started-arm.md)
+* [Zasób Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)
+* [Konto usługi Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Obszar roboczy usługi Azure Machine Learning](../machine-learning/how-to-manage-workspace.md)
 
 ## <a name="setup"></a>Konfigurowanie
 
@@ -47,9 +47,9 @@ Dostępne są dwa zestawy danych. Jeśli chcesz samodzielnie szkolić model, wym
 * Wyodrębnij zawartość, jeśli pobieranie jest plikiem zip. Upewnij się, że pliki są do odczytu i zapisu.
 * Podczas konfigurowania kont i usług platformy Azure Skopiuj nazwy i klucze do łatwego dostępu do pliku tekstowego. Nazwy i klucze zostaną dodane do pierwszej komórki w notesie, gdzie są zdefiniowane zmienne umożliwiające dostęp do usług platformy Azure.
 * Jeśli nie znasz Azure Machine Learning i jej wymagań, warto przejrzeć te dokumenty przed rozpoczęciem:
- * [Skonfiguruj środowisko programistyczne dla Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment)
- * [Tworzenie Azure Machine Learning obszarów roboczych i zarządzanie nimi w Azure Portal](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
- * Podczas konfigurowania środowiska deweloperskiego dla Azure Machine Learning należy rozważyć użycie [wystąpienia obliczeniowego opartego na chmurze](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#compute-instance) w celu przyspieszenia i ułatwienia pracy.
+ * [Skonfiguruj środowisko programistyczne dla Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
+ * [Tworzenie Azure Machine Learning obszarów roboczych i zarządzanie nimi w Azure Portal](../machine-learning/how-to-manage-workspace.md)
+ * Podczas konfigurowania środowiska deweloperskiego dla Azure Machine Learning należy rozważyć użycie [wystąpienia obliczeniowego opartego na chmurze](../machine-learning/how-to-configure-environment.md#compute-instance) w celu przyspieszenia i ułatwienia pracy.
 * Przekaż plik zestawu danych do kontenera na koncie magazynu. Większy plik jest niezbędny, jeśli chcesz wykonać krok szkolenia w notesie. Jeśli wolisz pominąć etap szkolenia, zalecany jest mniejszy plik.
 
 ## <a name="open-notebook-and-connect-to-azure-services"></a>Otwieranie notesu i nawiązywanie połączenia z usługami platformy Azure
@@ -68,9 +68,9 @@ Sekcja 2 ma sześć komórek, które pobierają plik osadzania dokładne z repoz
 
 Sekcja 3 notesu będzie szkolić modele, które zostały utworzone w sekcji 2, zarejestrować te modele i wdrożyć je jako punkt końcowy w klastrze usługi Azure Kubernetes. Jeśli nie znasz usługi Azure Kubernetes, zdecydowanie zalecamy zapoznanie się z następującymi artykułami przed podjęciem próby utworzenia klastra wnioskowania:
 
-* [Omówienie usługi Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-* [Podstawowe pojęcia Kubernetes dla usługi Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
-* [Limity przydziału, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów w usłudze Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
+* [Omówienie usługi Azure Kubernetes](../aks/intro-kubernetes.md)
+* [Podstawowe pojęcia Kubernetes dla usługi Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md)
+* [Limity przydziału, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów w usłudze Azure Kubernetes Service (AKS)](../aks/quotas-skus-regions.md)
 
 Tworzenie i wdrażanie klastra wnioskowania może potrwać do 30 minut. Zaleca się przetestowanie usługi sieci Web przed przejściem do ostatniej procedury w celu zaktualizowania zestawu umiejętności i uruchomienia indeksatora.
 
@@ -99,7 +99,7 @@ Po zapisaniu zestawu umiejętności przejdź do indeksatora i wybierz łącze in
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
@@ -108,5 +108,5 @@ Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech i
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Zapoznaj się z niestandardowym interfejsem API](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api) 
->  sieci Web [Dowiedz się więcej na temat dodawania umiejętności niestandardowych do potoku wzbogacania](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+> [Zapoznaj się z niestandardowym interfejsem API](./cognitive-search-custom-skill-web-api.md) 
+>  sieci Web [Dowiedz się więcej na temat dodawania umiejętności niestandardowych do potoku wzbogacania](./cognitive-search-custom-skill-interface.md)

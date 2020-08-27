@@ -4,12 +4,12 @@ description: Ten samouczek zawiera szczegółowe instrukcje tworzenia kopii zapa
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc
-ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 46dd6ef15e3b0dad53f029ec722acf0fb5a0df7c
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513221"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889842"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure za pomocą programu PowerShell
 
@@ -52,13 +52,13 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Utwórz magazyn w następujący sposób:
 
-1. Użyj [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault), aby utworzyć magazyn. Określ nazwę i lokalizację grupy zasobów maszyny wirtualnej, dla której chcesz utworzyć kopię zapasową.
+1. Użyj  [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault), aby utworzyć magazyn. Określ nazwę i lokalizację grupy zasobów maszyny wirtualnej, dla której chcesz utworzyć kopię zapasową.
 
     ```powershell
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
     ```
 
-2. Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodne jest przechowywanie obiektu magazynu usługi Backup Recovery Services w zmiennej.
+2. Wiele poleceń cmdlet usługi Azure Backup wymaga obiektu magazynu usługi Recovery Services jako danych wejściowych. Z tego powodu wygodnie jest przechowywać obiekt magazynu Recovery Services kopii zapasowej w zmiennej.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault –Name myRSVault

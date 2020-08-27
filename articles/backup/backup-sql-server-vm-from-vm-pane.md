@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej maszyny wirtualnej SQL Server z okienka maszyny
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową SQL Server baz danych w usłudze Azure Virtual Machines z okienka maszyny wirtualnej.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: 3d44c856d264c784d07b8301fa5605affddd7c02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827481"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891661"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Tworzenie kopii zapasowej SQL Server z okienka maszyny wirtualnej
 
@@ -35,7 +35,7 @@ Tworzenie kopii zapasowych na maszynie wirtualnej SQL Server można włączyć z
     ![SQL Server widok kopii zapasowej](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
 
     >[!NOTE]
-    >Nie widzisz transparentu? Transparent jest wyświetlany tylko dla tych SQL Server maszyn wirtualnych, które są tworzone za pomocą obrazów w portalu Azure Marketplace. Jest ona również wyświetlana dla maszyn wirtualnych chronionych przy użyciu kopii zapasowej maszyny wirtualnej platformy Azure. W przypadku innych obrazów można skonfigurować tworzenie kopii zapasowych zgodnie z opisem w [tym miejscu](backup-sql-server-database-azure-vms.md).
+    >Nie widzisz transparentu? Transparent jest wyświetlany tylko dla tych SQL Server maszyn wirtualnych, które są tworzone za pomocą obrazów w portalu Azure Marketplace. Jest ona również wyświetlana w przypadku maszyn wirtualnych chronionych przy użyciu kopii zapasowej maszyny wirtualnej platformy Azure. W przypadku innych obrazów można skonfigurować tworzenie kopii zapasowych zgodnie z opisem w [tym miejscu](backup-sql-server-database-azure-vms.md).
 
 2. Wprowadź nazwę magazynu Recovery Services. Magazyn jest jednostką logiczną do przechowywania wszystkich kopii zapasowych i zarządzania nimi. W przypadku tworzenia nowego magazynu:
 

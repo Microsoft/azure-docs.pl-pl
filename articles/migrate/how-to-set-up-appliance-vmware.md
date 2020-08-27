@@ -3,12 +3,12 @@ title: Konfigurowanie urządzenia Azure Migrate dla oprogramowania VMware
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceniania i migrowania maszyn wirtualnych VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c9a9f1567f984fc5770b47d3998610cb69643360
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386745"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923628"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych VMware
 
@@ -27,17 +27,28 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 ## <a name="appliance-deployment-ova"></a>Wdrażanie urządzenia (komórki jajowe)
 
 Aby skonfigurować urządzenie przy użyciu szablonu komórki jajowe:
+- Podaj nazwę urządzenia i Wygeneruj klucz projektu Azure Migrate w portalu
 - Pobierz plik szablonu komórki jajowe i zaimportuj go do vCenter Server.
 - Utwórz urządzenie i sprawdź, czy może nawiązać połączenie z oceną serwera Azure Migrate.
-- Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate.
+- Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate przy użyciu klucza projektu Azure Migrate.
 
-## <a name="download-the-ova-template"></a>Pobierz szablon komórki jajowe
+### <a name="generate-the-azure-migrate-project-key"></a>Generowanie klucza projektu Azure Migrate
 
-1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij przycisk **tak, za pomocą funkcji hypervisor VMware vSphere**.
-3. Kliknij pozycję **Pobierz**, aby pobrać plik szablonu OVA.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, aby uzyskać VMware vSphere funkcji hypervisor**.
+3. W obszarze **1: generowanie klucza projektu Azure Migrate**Podaj nazwę urządzenia Azure Migrate, które zostanie skonfigurowane do odnajdywania maszyn wirtualnych VMware. nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
+1. Kliknij pozycję **Generuj klucz** , aby rozpocząć tworzenie wymaganych zasobów platformy Azure. Nie zamykaj strony odnajdywanie maszyn podczas tworzenia zasobów.
+1. Po pomyślnym utworzeniu zasobów platformy Azure zostanie wygenerowany **klucz projektu Azure Migrate** .
+1. Skopiuj klucz, ponieważ będzie on potrzebny do ukończenia rejestracji urządzenia podczas jego konfiguracji.
 
-  ![Wybrane do pobrania plik komórki jajowe](./media/tutorial-assess-vmware/download-ova.png)
+### <a name="download-the-ova-template"></a>Pobierz szablon komórki jajowe
+W **2: Pobierz urządzenie Azure Migrate**, wybierz opcję. Plik komórki jajowe i kliknij pozycję **Pobierz**. 
+
+
+   ![Wybory dla maszyn odnajdywania](./media/tutorial-assess-vmware/servers-discover.png)
+
+
+   ![Wybory dla klucza generowania](./media/tutorial-assess-vmware/generate-key-vmware.png)
 
 ### <a name="verify-security"></a>Weryfikuj zabezpieczenia
 
@@ -72,63 +83,65 @@ Zaimportuj pobrany plik i Utwórz maszynę wirtualną.
 Upewnij się, że maszyna wirtualna urządzenia może połączyć się z adresami URL platformy Azure dla chmur [publicznych](migrate-appliance.md#public-cloud-urls) i dla [instytucji rządowych](migrate-appliance.md#government-cloud-urls) .
 
 
-## <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
+### <a name="configure-the-appliance"></a>Konfigurowanie urządzenia
 
-Skonfiguruj urządzenie po raz pierwszy. Jeśli urządzenie zostanie wdrożone przy użyciu skryptu zamiast szablonu komórki jajowe, pierwsze dwa kroki procedury nie będą miały zastosowania.
+Skonfiguruj urządzenie po raz pierwszy.
 
-1. W konsoli klienta vSphere kliknij maszynę wirtualną prawym przyciskiem myszy, a następnie kliknij pozycję **Open Console** (Otwórz konsolę).
+> [!NOTE]
+> Jeśli urządzenie zostanie skonfigurowane przy użyciu [skryptu programu PowerShell](deploy-appliance-script.md) zamiast pobranych komórek jajowych, pierwsze dwa kroki tej procedury nie są istotne.
+
+1. W konsoli klienta vSphere kliknij prawym przyciskiem myszy maszynę wirtualną, a następnie wybierz polecenie **Otwórz konsolę**.
 2. Podaj język, strefę czasową i hasło dla urządzenia.
 3. Otwórz przeglądarkę na dowolnym komputerze, który może nawiązać połączenie z maszyną wirtualną, a następnie otwórz adres URL aplikacji sieci Web urządzenia: **https://*Nazwa urządzenia lub adres IP*: 44368**.
 
-   Możesz też otworzyć aplikację na pulpicie urządzenia, klikając skrót do aplikacji.
-4. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
-    - **Licencja**: zaakceptuj postanowienia licencyjne i przeczytaj informacje o innych firmach.
-    - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
-        - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN .
-        - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
-        - Obsługiwane są tylko serwery proxy HTTP.
-    - **Synchronizacja czasu**: godzina została zweryfikowana. Aby odnajdywanie działało prawidłowo, czas na urządzeniu powinien być zsynchronizowany z czasem Internetu.
-    - **Zainstaluj aktualizacje**: Azure Migrate sprawdza, czy są zainstalowane najnowsze aktualizacje urządzeń.
-    - **Zainstaluj VDDK**: Azure Migrate sprawdza, czy VMware vSphere jest zainstalowany zestaw SDK (VDDK).
-        - Migracje platformy Azure używają VDDK do replikowania maszyn podczas migracji na platformę Azure.
-        - Pobierz VDDK 6,7 z programu VMware i Wyodrębnij zawartość pliku zip do określonej lokalizacji na urządzeniu.
+   Możesz też otworzyć aplikację na pulpicie urządzenia, wybierając skrót do aplikacji.
+1. Zaakceptuj **postanowienia licencyjne**i przeczytaj informacje o innych firmach.
+1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
+   - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
+     - Kliknij pozycję **Skonfiguruj serwer proxy** , aby określić adres serwera proxy (w postaci http://ProxyIPAddress lub na http://ProxyFQDN) porcie nasłuchu.
+     - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
+     - Obsługiwane są tylko serwery proxy HTTP.
+     - Jeśli dodano szczegóły serwera proxy lub wyłączono serwer proxy i/lub uwierzytelnianie, kliknij przycisk **Zapisz** , aby ponownie uruchomić sprawdzanie łączności.
+   - **Synchronizacja czasu**: czas na urządzeniu powinien być zsynchronizowany z czasem Internetu, aby odnajdywanie działało prawidłowo.
+   - **Zainstaluj aktualizacje**: urządzenie zapewnia zainstalowanie najnowszych aktualizacji. Po zakończeniu sprawdzania można kliknąć pozycję **Wyświetl usługi urządzenia** , aby zobaczyć stan i wersje składników uruchomionych na urządzeniu.
+   - **Zainstaluj VDDK**: Urządzenie sprawdza, czy zainstalowano pakiet VMware vSphere Virtual Disk Development Kit (VDDK). Jeśli nie jest zainstalowany, Pobierz VDDK 6,7 z programu VMware i Wyodrębnij zawartość pliku zip do określonej lokalizacji na urządzeniu, zgodnie z **instrukcjami dotyczącymi instalacji**.
 
-## <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
+     Migracja serwera Azure Migrate przy użyciu programu VDDK umożliwia replikowanie maszyn podczas migracji na platformę Azure. 
+1. Jeśli chcesz, możesz **ponownie uruchomić wymagania wstępne** w dowolnym momencie podczas konfigurowania urządzenia, aby sprawdzić, czy urządzenie spełnia wszystkie wymagania wstępne.
 
-1. Kliknij przycisk **Zaloguj**. Jeśli ta wartość nie jest wyświetlana, upewnij się, że w przeglądarce wyłączono blokowanie wyskakujących okienek.
-2. Na nowej karcie Zaloguj się przy użyciu poświadczeń platformy Azure.
-    - Zaloguj się przy użyciu nazwy użytkownika i hasła.
-    - Logowanie przy użyciu numeru PIN nie jest obsługiwane.
-3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
-2. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate. Następnie wybierz projekt.
-3. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-4. Kliknij pozycję **Zarejestruj**.
+### <a name="register-the-appliance-with-azure-migrate"></a>Zarejestruj urządzenie w Azure Migrate
+
+1. Wklej **klucz projektu Azure Migrate** skopiowany z portalu. Jeśli nie masz klucza, przejdź do pozycji **Ocena serwera> odkryj> zarządzanie istniejącymi urządzeniami**, wybierz nazwę urządzenia podaną w momencie generowania klucza i skopiuj odpowiedni klucz.
+1. Kliknij pozycję **Zaloguj się**. Spowoduje to otwarcie monitu logowania platformy Azure na nowej karcie przeglądarki. Jeśli ta wartość nie jest wyświetlana, upewnij się, że w przeglądarce wyłączono blokowanie wyskakujących okienek.
+1. Na nowej karcie Zaloguj się przy użyciu nazwy użytkownika i hasła platformy Azure.
+   
+   Logowanie przy użyciu numeru PIN nie jest obsługiwane.
+3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web. 
+4. Jeśli konto użytkownika platformy Azure używane do rejestrowania ma odpowiednie [uprawnienia](tutorial-prepare-vmware.md#prepare-azure) do zasobów platformy Azure utworzonych podczas generowania klucza, Rejestracja urządzenia zostanie zainicjowana.
+1. Po pomyślnym zarejestrowaniu urządzenia można wyświetlić szczegóły rejestracji, klikając pozycję **Wyświetl szczegóły**.
 
 
-## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>Rozpocznij odnajdowanie ciągłe, podając poświadczenia vCenter Server i maszyny wirtualnej
+## <a name="start-continuous-discovery"></a>Uruchom odnajdywanie ciągłe
 
 Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane dotyczące konfiguracji i wydajności maszyn wirtualnych.
 
-### <a name="specify-vcenter-server-details"></a>Określanie szczegółów programu vCenter Server
-1. W obszarze **określ vCenter Server Szczegóły**Określ nazwę (FQDN) lub adres IP vCenter Server. Możesz opuścić port domyślny lub określić niestandardowy port, na którym nasłuchuje vCenter Server.
-2. W polu **Nazwa użytkownika** i **hasło**określ poświadczenia konta tylko do odczytu, które będą używane przez urządzenie do odnajdywania maszyn wirtualnych na serwerze vCenter. Zakres odnajdywania można ograniczyć, ograniczając dostęp do konta vCenter. [Dowiedz się więcej](set-discovery-scope.md).
-3. Kliknij pozycję **Sprawdź poprawność połączenia** , aby upewnić się, że urządzenie może połączyć się z vCenter Server.
+1. W **kroku 1: podaj poświadczenia vCenter Server**, kliknij pozycję **Dodaj poświadczenia** , aby określić przyjazną nazwę dla poświadczeń, Dodaj **nazwę użytkownika** i **hasło** do konta vCenter Server, które będzie używane przez urządzenie do odnajdywania maszyn wirtualnych w wystąpieniu vCenter Server.
+    - Należy skonfigurować konto z uprawnieniami wymaganymi w [poprzednim samouczku](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych maszyn wirtualnych), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
+1. W **kroku 2: podaj vCenter Server Szczegóły**, kliknij pozycję **Dodaj źródło odnajdywania** , aby wybrać przyjazną nazwę dla poświadczeń z listy rozwijanej, określ **adres IP/nazwę FQDN** wystąpienia vCenter Server. Możesz pozostawić **port** domyślny (443) lub określić port niestandardowy, dla którego vCenter Server nasłuchiwanie i kliknąć przycisk **Zapisz**.
+1. Po kliknięciu przycisku Zapisz Urządzenie spróbuje sprawdzić poprawność połączenia z vCenter Server przy użyciu podanych poświadczeń i wyświetlić **stan weryfikacji** w tabeli dotyczącej VCENTER Server adres IP/nazwa FQDN.
+1. Przed rozpoczęciem odnajdywania można ponownie **sprawdzić poprawność** łączności, aby vCenter Server w dowolnym momencie.
+1. W **kroku 3: podaj poświadczenia maszyny wirtualnej w celu odnalezienia zainstalowanych aplikacji i przeprowadzenia mapowania zależności bez agenta**, kliknij przycisk **Dodaj poświadczenia**i określ system operacyjny, dla którego podano poświadczenia, przyjazną nazwę dla poświadczeń oraz nazwę **użytkownika** i **hasło**. Następnie kliknij przycisk **Zapisz**.
 
-### <a name="specify-vm-credentials"></a>Określ poświadczenia maszyny wirtualnej
-W przypadku odnajdywania aplikacji, ról i funkcji oraz wizualizacji zależności maszyn wirtualnych można podać poświadczenia maszyny wirtualnej, które mają dostęp do maszyn wirtualnych VMware. Można dodać jedno poświadczenie dla maszyn wirtualnych z systemem Windows i jedno poświadczenie dla maszyn wirtualnych z systemem Linux. [Dowiedz się więcej](./migrate-support-matrix-vmware.md) o wymaganych uprawnieniach dostępu.
+    - Opcjonalnie możesz dodać poświadczenia tutaj, jeśli utworzono konto do użycia dla [funkcji odnajdywania aplikacji](how-to-discover-applications.md)lub [Funkcja analizy zależności bez agenta](how-to-create-group-machine-dependencies-agentless.md).
+    - Jeśli nie chcesz korzystać z tych funkcji, możesz kliknąć suwak, aby pominąć ten krok. Zamiar można zmienić w dowolnym momencie później.
+    - Przejrzyj poświadczenia potrzebne do [odnajdywania aplikacji](migrate-support-matrix-vmware.md#application-discovery-requirements)lub [analizy zależności bez agentów](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
-> [!NOTE]
-> Dane wejściowe są opcjonalne i są konieczne do włączenia funkcji odnajdywania aplikacji i wizualizacji zależności bez wykorzystania agentów.
+5. Kliknij przycisk **Rozpocznij odnajdywanie**, aby uruchomić odnajdywanie maszyn wirtualnych. Po pomyślnym zainicjowaniu odnajdywania można sprawdzić stan odnajdywania dla vCenter Server adres IP/nazwa FQDN w tabeli.
 
-1. W obszarze **Znajdź aplikacje i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia**.
-2. Wybierz **system operacyjny**.
-3. Podaj przyjazną nazwę dla poświadczenia.
-4. W polu **Nazwa użytkownika** i **hasło**Określ konto, które ma co najmniej dostęp gościa na maszynach wirtualnych.
-5. Kliknij pozycję **Dodaj**.
-
-Po określeniu vCenter Server i poświadczeń maszyny wirtualnej (opcjonalnie) kliknij przycisk **Zapisz i Rozpocznij odnajdywanie** , aby rozpocząć odnajdywanie środowiska lokalnego.
-
-Metadane wykrytych maszyn wirtualnych będą wyświetlane w portalu na około 15 minut. Odnajdywanie zainstalowanych aplikacji, ról i funkcji zajmuje trochę czasu, a czas trwania zależy od liczby wykrytych maszyn wirtualnych. W przypadku maszyn wirtualnych 500 potrzeba około 1 godziny, aby spis aplikacji był wyświetlany w portalu Azure Migrate.
+Odnajdywanie działa w następujący sposób:
+- Odnalezienie metadanych maszyny wirtualnej w portalu może potrwać około 15 minut.
+- Odnajdywanie zainstalowanych aplikacji, ról i funkcji zajmuje trochę czasu. Czas trwania zależy od liczby wykrytych maszyn wirtualnych. W przypadku maszyn wirtualnych 500 ilość spisu aplikacji do wyświetlenia w portalu Azure Migrate trwa około godzinę.
 
 ## <a name="next-steps"></a>Następne kroki
 

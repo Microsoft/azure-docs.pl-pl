@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ebeb7f6fee77c43c9da97b922fc215d75196145
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c70b42e7d0f647a3b2b60d29b5098a791e4975f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82117573"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924524"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Jak modelować relacyjne dane SQL na potrzeby importowania i indeksowania na platformie Azure Wyszukiwanie poznawcze
 
@@ -107,7 +107,7 @@ Rozwiązaniem jest przechwycenie szczegółów pokoju jako zagnieżdżonego plik
 Ten zestaw wierszy jest teraz gotowy do zaimportowania do Wyszukiwanie poznawcze platformy Azure.
 
 > [!NOTE]
-> W tym podejściu przyjęto założenie, że osadzony kod JSON [przekracza maksymalne limity rozmiaru kolumn SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
+> W tym podejściu przyjęto założenie, że osadzony kod JSON [przekracza maksymalne limity rozmiaru kolumn SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
 
  ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Użyj złożonej kolekcji dla strony "wiele" relacji jeden-do-wielu
 

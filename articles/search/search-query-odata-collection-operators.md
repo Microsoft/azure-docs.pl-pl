@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 47e7e09bae082141efd872d3a90ecc30a3be04e5
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146070"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934909"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatory kolekcji OData na platformie Azure Wyszukiwanie poznawcze — `any` i`all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operatory kolekcji OData na platformie Azure Wyszukiwanie poznawcze — `any` i `all`
 
 Podczas pisania [wyrażenia filtru OData](query-odata-filter-orderby-syntax.md) do użycia z usługą Azure wyszukiwanie poznawcze często warto odfiltrować pola kolekcji. Można to osiągnąć przy użyciu `any` operatorów i `all` .
 
@@ -107,4 +107,4 @@ Aby uzyskać więcej informacji o tych ograniczeniach oraz przykładach, zobacz 
 - [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
 - [Omówienie języka wyrażeń OData dla platformy Azure Wyszukiwanie poznawcze](query-odata-filter-orderby-syntax.md)
 - [Dokumentacja składni wyrażenia OData dla usługi Azure Wyszukiwanie poznawcze](search-query-odata-syntax-reference.md)
-- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Wyszukaj dokumenty &#40;interfejs API REST usługi Azure Wyszukiwanie poznawcze&#41;](/rest/api/searchservice/Search-Documents)

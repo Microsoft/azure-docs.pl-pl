@@ -3,14 +3,14 @@ title: 'Szybki start: uzyskiwanie odpowiedzi z bazy wiedzy — środowisko REST,
 description: W tym samouczku Szybki start opartym na protokole REST i języku C# opisano sposób programowego uzyskiwania odpowiedzi z bazy wiedzy.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-csharp
 ms.topic: how-to
-ms.openlocfilehash: 8e821531fdc7be13833b134b087d26c2b157425a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d8a5a576ee3f7be099374b2294b35ec8c1c87f89
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342837"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934195"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Szybki Start: uzyskiwanie odpowiedzi na pytanie z bazy wiedzy przy użyciu języka C #
 

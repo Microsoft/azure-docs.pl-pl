@@ -739,6 +739,8 @@
               href: data-lake-storage-explorer.md
             - name: Interfejs wiersza polecenia systemu plików usługi Hadoop
               href: data-lake-storage-use-hdfs-data-lake-storage.md
+            - name: Cykliczne ustawianie list kontroli dostępu
+              href: recursive-access-control-lists.md
         - name: Zapytanie
           items:
             - name: Filtrowanie danych za pomocą przyspieszonych zapytań

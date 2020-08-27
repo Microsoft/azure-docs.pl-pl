@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 00192ab3663944908f282f601396651cdd319df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987479"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936116"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Umiejętność wyszukiwania jednostek niestandardowych (wersja zapoznawcza)
 
@@ -22,7 +22,7 @@ ms.locfileid: "84987479"
 
 Umiejętność **wyszukiwania jednostek niestandardowych** szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne.  
 
-Ta umiejętność nie jest powiązana z interfejsem API Cognitive Services i może być używana bezpłatnie w okresie zapoznawczym. Mimo to należy [dołączyć zasób Cognitive Services](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services), aby zastąpić dzienny limit wzbogacania. Dzienny limit ma zastosowanie do bezpłatnego dostępu do Cognitive Services, gdy dostęp odbywa się za pomocą usługi Azure Wyszukiwanie poznawcze.
+Ta umiejętność nie jest powiązana z interfejsem API Cognitive Services i może być używana bezpłatnie w okresie zapoznawczym. Mimo to należy [dołączyć zasób Cognitive Services](./cognitive-search-attach-cognitive-services.md), aby zastąpić dzienny limit wzbogacania. Dzienny limit ma zastosowanie do bezpłatnego dostępu do Cognitive Services, gdy dostęp odbywa się za pomocą usługi Azure Wyszukiwanie poznawcze.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft. umiejętności. Text. CustomEntityLookupSkill 
@@ -69,7 +69,7 @@ Jeśli definicja została podana w tekście, powinna być określona jako wbudow
 
 ### <a name="csv-format"></a>Format CSV
 
-Można podać definicję jednostek niestandardowych do wyszukania w pliku wartości rozdzielanych przecinkami (CSV), podając ścieżkę do pliku i ustawiając go w parametrze umiejętności *entitiesDefinitionUri* . Ścieżka powinna znajdować się w lokalizacji HTTPS. Plik definicji może mieć rozmiar do 10 MB.
+Można podać definicję jednostek niestandardowych do wyszukania w pliku wartości rozdzielanych przecinkami (CSV), podając ścieżkę do pliku i ustawiając go w parametrze umiejętności *entitiesDefinitionUri*  . Ścieżka powinna znajdować się w lokalizacji HTTPS. Plik definicji może mieć rozmiar do 10 MB.
 
 Format CSV jest prosty. Każdy wiersz reprezentuje unikatową jednostkę, jak pokazano poniżej:
 
@@ -302,7 +302,7 @@ Alternatywnie, jeśli zdecydujesz się dostarczyć wskaźnik do pliku definicji 
 
 To ostrzeżenie będzie emitowane, jeśli liczba wykrytych dopasowań jest większa niż maksymalna dozwolona wartość. W takim przypadku będziemy przestać uwzględniać zduplikowane dopasowania. Jeśli nie możesz tego zrobić, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby mogliśmy pomóc Ci w poszczególnym przypadku użycia.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
