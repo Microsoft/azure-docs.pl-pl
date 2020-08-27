@@ -3,12 +3,12 @@ title: Co to jest usługa Azure Event Hubs? — usługa pozyskiwania danych big 
 description: Informacje na temat usługi Azure Event Hubs, usługi strumieniowego przesyłania danych big data, umożliwiającej pozyskiwanie milionów zdarzeń na sekundę.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: b442a7e0b10f3f882f12943c642ccdd6feef3114
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6669760bceee558a058878fbb89342aedda80117
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522112"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927905"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Usługa Azure Event Hubs — platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń
 Usługa Azure Event Hubs to platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń. Może odbierać i przetwarzać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania.
@@ -81,10 +81,10 @@ Event Hubs na stosie jest bezpłatny w publicznej wersji zapoznawczej. Aby uzysk
 
 Aby rozpocząć korzystanie z Event Hubs, zobacz samouczki **wysyłania i odbierania zdarzeń** :
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Przejdź](event-hubs-go-get-started-send.md)
 - [C (tylko wysyłanie)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (tylko odbieranie)](event-hubs-storm-getstarted-receive.md)

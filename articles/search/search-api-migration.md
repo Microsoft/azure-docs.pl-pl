@@ -7,28 +7,28 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927140"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949035"
 ---
-# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Uaktualnij do najnowszej wersji interfejsu API REST usługi Wyszukiwanie poznawcze platformy Azure
+# <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Uaktualnianie do najnowszego interfejsu API REST na platformie Azure Wyszukiwanie poznawcze
 
-Jeśli używasz poprzedniej wersji [interfejsu API REST usługi Search](/rest/api/searchservice/), ten artykuł pomoże Ci uaktualnić aplikację do korzystania z najnowszej ogólnie dostępnej wersji interfejsu api, 2020-06-30.
+Jeśli używasz starszej wersji [**interfejsu API REST usługi Search**](/rest/api/searchservice/), ten artykuł pomoże Ci uaktualnić aplikację do najnowszej ogólnie dostępnej wersji interfejsu api, **2020-06-30**.
 
-Wersja 2020-06-30 interfejsu API REST zawiera pewne zmiany z wcześniejszych wersji. Są one głównie zgodne z poprzednimi wersjami, więc zmiana kodu powinna wymagać tylko minimalnego nakładu pracy, w zależności od używanej wersji. [Procedura uaktualniania](#UpgradeSteps) przedstawia zmiany kodu wymagane do korzystania z nowych funkcji.
+Wersja 2020-06-30 zawiera ważną nową funkcję ([Magazyn wiedzy](knowledge-store-concept-intro.md)) i wprowadza kilka drobnych zmian w zachowaniu. W związku z tym ta wersja jest w większości zgodna z poprzednią wersją, więc zmiany kodu powinny być minimalne, Jeśli uaktualniasz poprzednią wersję (2019-05-06).
 
 > [!NOTE]
-> Wystąpienie usługi Azure Wyszukiwanie poznawcze obsługuje wiele wersji interfejsu API REST, w tym wcześniejszych. Możesz nadal używać tych wersji interfejsu API, ale zalecamy Migrowanie kodu do najnowszej wersji, aby uzyskać dostęp do nowych funkcji.
+> Usługa wyszukiwania obsługuje wiele wersji interfejsu API REST, w tym wcześniejszych. Możesz nadal używać tych wersji interfejsu API, ale zalecamy Migrowanie kodu do najnowszej wersji, aby uzyskać dostęp do nowych funkcji. W miarę upływu czasu najbardziej przestarzałe wersje interfejsu API REST zostaną wycofane i nie będą [już obsługiwane](search-api-versions.md#unsupported-versions).
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="how-to-upgrade"></a>Jak uaktualnić
 
-Podczas uaktualniania do nowych wersji prawdopodobnie nie trzeba wprowadzać żadnych zmian w kodzie, innym niż zmienić numer wersji. Jedyne sytuacje, w których może zajść potrzeba zmiany kodu, są następujące:
+W przypadku uaktualniania do nowej wersji prawdopodobnie nie będzie konieczne wprowadzanie wielu zmian w kodzie, innych niż zmiana numeru wersji. Jedyne sytuacje, w których może zajść potrzeba zmiany kodu, są następujące:
 
 * Kod kończy się niepowodzeniem, gdy nierozpoznane właściwości są zwracane w odpowiedzi interfejsu API. Domyślnie aplikacja powinna ignorować właściwości, które nie są zrozumiałe.
 
@@ -36,7 +36,7 @@ Podczas uaktualniania do nowych wersji prawdopodobnie nie trzeba wprowadzać ża
 
 * Kod odwołuje się do wersji interfejsu API, która jest przedmiocie 2019-05-06 i podlega co najmniej jednej istotnej zmianie w tej wersji. Sekcja [uaktualnienie do 2019-05-06](#upgrade-to-2019-05-06) zawiera więcej szczegółów. 
 
-Jeśli dowolna z tych sytuacji dotyczy użytkownika, może być konieczne odpowiednie zmiany kodu. W przeciwnym razie zmiany nie powinny być konieczne, chyba że chcesz zacząć korzystać z funkcji dodanych w nowej wersji.
+Jeśli dowolna z tych sytuacji dotyczy użytkownika, może być konieczne odpowiednie zmiany kodu. W przeciwnym razie nie powinno być konieczne wprowadzanie zmian, chociaż warto zacząć korzystać z funkcji dodanych w nowej wersji.
 
 ## <a name="upgrade-to-2020-06-30"></a>Uaktualnij do 2020-06-30
 
@@ -63,7 +63,7 @@ Wersja 2019-05-06 to Poprzednia ogólnie dostępna wersja interfejsu API REST. F
 
 ### <a name="breaking-changes"></a>Fundamentalne zmiany
 
-Istniejący kod pisany przed wcześniejszymi wersjami interfejsu API zacznie działać w wersji API-Version = 2019-05-06, jeśli kod zawiera następujące funkcje:
+Istniejący kod pisany przed wcześniejszymi wersjami interfejsu API zacznie działać w wersji API-Version = 2019-05-06 i nowszych, jeśli kod zawiera następujące funkcje:
 
 #### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>Indeksator dla Azure Cosmos DB-DataSource jest teraz "Type": "cosmosdb"
 
@@ -141,7 +141,7 @@ Za pomocą interfejsu API w wersji 2017-11-11-Preview można zaktualizować inde
 > [!NOTE]
 > Nie jest możliwe zarządzanie indeksami utworzonymi przy użyciu starego formatu "Flat" z Azure Portal. Uaktualnij indeksy z "płaskiej" reprezentacji do "drzewa" w najkrótszej wygodie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z dokumentacją interfejsu API REST usługi Search. Jeśli wystąpią problemy, poproś nas o pomoc dotyczącą [Stack Overflow](https://stackoverflow.com/) lub [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/community/?product=search).
 

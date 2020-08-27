@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: d171edb23b482ad1871990dcffd979d2125c4406
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067413"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949137"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -40,13 +40,13 @@ Poniżej znajduje się lista zalet integracji usługi git zapewnia środowisko t
     -   Możliwość odwracania zmian, które wprowadziły błędy.
 -   **Zapisywanie częściowe:** Podczas tworzenia względem usługi Data Factory nie można zapisywać zmian jako wersji roboczej, a wszystkie publikowanie muszą przekazywać sprawdzanie poprawności fabryki danych. Bez względu na to, czy potoki nie zakończyły się, czy po prostu nie chcesz utracić zmian w przypadku awarii komputera, integracja z usługą Git umożliwia przyrostowe zmiany zasobów usługi Data Factory niezależnie od tego, jaki stan się znajdują. Skonfigurowanie repozytorium Git umożliwia zapisanie zmian, co pozwala na publikowanie tylko w przypadku przetestowania zmian.
 -   **Współpraca i kontrola:** Jeśli masz wielu członków zespołu, którzy współpracują z tą samą fabryką, możesz chcieć zezwolić członkom zespołu wspólnie ze sobą za pośrednictwem procesu przeglądu kodu. Możesz również skonfigurować fabrykę, tak aby nie każdy współautor miał równe uprawnienia. Niektórzy członkowie zespołu mogą wprowadzać zmiany tylko za pośrednictwem usługi git, a tylko niektóre osoby w zespole mogą publikować zmiany w fabryce.
--   **Lepsza** ciągłej integracji/ciągłego wdrażania:  W przypadku wdrażania w wielu środowiskach przy użyciu [procesu ciągłego dostarczania](continuous-integration-deployment.md)integracja z usługą git sprawia, że niektóre akcje są łatwiejsze. Oto niektóre z tych akcji:
+-   **Lepsza**  ciągłej integracji/ciągłego wdrażania:  W przypadku wdrażania w wielu środowiskach przy użyciu [procesu ciągłego dostarczania](continuous-integration-deployment.md)integracja z usługą git sprawia, że niektóre akcje są łatwiejsze. Oto niektóre z tych akcji:
     -   Skonfiguruj potok wydania do automatycznego wyzwalania po wprowadzeniu zmian w fabryce "dev".
     -   Dostosuj właściwości w fabryce, które są dostępne jako parametry w szablonie Menedżer zasobów. Może być przydatne, aby zachować tylko wymagany zestaw właściwości jako parametry i mieć całkowicie zakodowane wszystko.
 -   **Lepsza wydajność:** Średnia Fabryka z integracją narzędzia Git ładuje się 10 razy szybciej niż w przypadku tworzenia do usługi Data Factory. To ulepszenie wydajności wynika z tego, że zasoby są pobierane za pośrednictwem usługi git.
 
 > [!NOTE]
-> Tworzenie bezpośrednio przy użyciu usługi Data Factory jest wyłączone w Azure Data Factory środowisku użytkownika podczas konfigurowania repozytorium git. Zmiany mogą być wprowadzane bezpośrednio do usługi za pośrednictwem programu PowerShell lub zestawu SDK.
+> Tworzenie bezpośrednio przy użyciu usługi Data Factory jest wyłączone w Azure Data Factory środowisku użytkownika podczas konfigurowania repozytorium git. Zmiany wprowadzone za pośrednictwem programu PowerShell lub zestawu SDK są publikowane bezpośrednio w usłudze Data Factory i nie są wprowadzane do usługi git.
 
 ## <a name="author-with-azure-repos-git-integration"></a>Tworzenie za pomocą integracji usługi Azure Repos z usługą Git
 
@@ -255,7 +255,7 @@ Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawi
 > [!IMPORTANT]
 > Usunięcie konfiguracji usługi git z fabryki danych nie powoduje usunięcia żadnych elementów z repozytorium. Fabryka będzie zawierać wszystkie opublikowane zasoby. Możesz kontynuować edytowanie fabryki bezpośrednio do usługi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej na temat monitorowania potoków i zarządzania nimi, zobacz temat [monitorowanie potoków i zarządzanie nimi programowo](monitor-programmatically.md).
 * Aby wdrożyć ciągłą integrację i wdrażanie, zobacz [ciągłej integracji i dostarczania (Ci/CD) w Azure Data Factory](continuous-integration-deployment.md).

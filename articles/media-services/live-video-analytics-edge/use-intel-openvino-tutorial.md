@@ -4,12 +4,12 @@ description: W tym samouczku użyjesz serwera modelu AI dostarczonego przez firm
 ms.topic: tutorial
 ms.date: 07/24/2020
 titleSuffix: Azure
-ms.openlocfilehash: 6271eab35be22d04f8ac1c6413f4f965c6800290
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 102c54d8f738c3e8e62c7092d0df6ec7d12b8a0c
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931169"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950259"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Samouczek: analizowanie wideo na żywo za pomocą OpenVINO™ model Server — rozszerzenie AI z firmy Intel 
 
@@ -53,7 +53,7 @@ W tym samouczku wykonasz następujące czynności:
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>Informacje o rozszerzeniu OpenVINO™ model Server — AI z platformy Intel
 Dystrybucja [OpenVINO™ zestawu narzędzi](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) firmy® Intel (Open Visual wnioskowania i neuronowyche optymalizację sieci) to bezpłatny zestaw oprogramowania, który pomaga deweloperom i analitykom danych przyspieszyć tworzenie obciążeń komputerowych, usprawnić przetwarzanie i wdrażanie oraz zapewnić łatwe, heterogeniczne wykonywanie na platformach Intel® od brzegu do chmury. Obejmuje zestaw narzędzi do wdrażania głębokiego uczenia firmy Intel® z technologią optymalizacji modelu i aparatem wnioskowania, a także repozytorium [Open model Zoo](https://github.com/openvinotoolkit/open_model_zoo) , które obejmuje ponad 40 zoptymalizowanych modeli.
 
-Aby można było tworzyć złożone, wysoce wydajne rozwiązania do analizy filmów wideo na żywo, analiza filmów wideo na żywo w module IoT Edge powinna być sparowana z wydajnym aparatem wnioskowania, który może wykorzystać skalę na krawędzi. W tym samouczku żądania wnioskowania są wysyłane do [rozszerzenia OpenVINO™ model Server — AI z firmy Intel](https://aka.ms/lva-intel-ovms), modułu krawędzi, który został zaprojektowany do pracy z analizą wideo na żywo na IoT Edge. Ten moduł serwera wnioskowania zawiera serwer OpenVINO™ Modeling (OVMS), serwer wnioskowania obsługiwany przez zestaw narzędzi OpenVINO™, który jest wysoce zoptymalizowany pod kątem obciążeń dotyczących przetwarzania obrazów i opracowany dla architektur architektury Intel®. Rozszerzenie zostało dodane do OVMS w celu łatwego wymiany ramek wideo oraz wyników wnioskowania między serwerem wnioskowania i analizą filmów wideo na żywo w module IoT Edge, dzięki czemu można w ten sposób uruchomić dowolny model OpenVINO™ Toolkit (można dostosować moduł serwera wnioskowania, modyfikując kod w [tym miejscu](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Można w dalszej części wybrać różne mechanizmy przyspieszenia zapewniane przez sprzęt firmy Intel®. Obejmują one procesory CPU (Atom, Core, Xeon), FPGA, VPUs.
+Aby można było tworzyć złożone, wysoce wydajne rozwiązania do analizy filmów wideo na żywo, analiza filmów wideo na żywo w module IoT Edge powinna być sparowana z wydajnym aparatem wnioskowania, który może wykorzystać skalę na krawędzi. W tym samouczku żądania wnioskowania są wysyłane do [rozszerzenia OpenVINO™ model Server — AI z firmy Intel](https://aka.ms/lva-intel-ovms), modułu krawędzi, który został zaprojektowany do pracy z analizą wideo na żywo na IoT Edge. Ten moduł serwera wnioskowania zawiera serwer OpenVINO™ Modeling (OVMS), serwer wnioskowania obsługiwany przez zestaw narzędzi OpenVINO™, który jest wysoce zoptymalizowany pod kątem obciążeń dotyczących przetwarzania obrazów i opracowany dla architektur architektury Intel®. Rozszerzenie zostało dodane do OVMS w celu ułatwienia wymiany ramek wideo i wnioskowania między serwerem wnioskowania a analizą filmów wideo na żywo w module IoT Edge, dzięki czemu można w ten sposób uruchomić dowolny model usługi OpenVINO™, który jest obsługiwany przez modyfikację [kodu](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper). Można w dalszej części wybrać różne mechanizmy przyspieszenia zapewniane przez sprzęt firmy Intel®. Obejmują one procesory CPU (Atom, Core, Xeon), FPGA, VPUs.
 
 W początkowej wersji tego serwera wnioskowania masz dostęp do następujących [modeli](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_models):
 
@@ -372,7 +372,7 @@ Możesz teraz powtórzyć powyższe kroki, aby ponownie uruchomić przykładowy 
 
 Jeśli planujesz wypróbować inne Przewodniki Szybki start lub samouczków, Zachowaj utworzone zasoby. W przeciwnym razie przejdź do Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten samouczek, i Usuń wszystkie zasoby.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z dodatkowymi wyzwaniami dla zaawansowanych użytkowników:
 

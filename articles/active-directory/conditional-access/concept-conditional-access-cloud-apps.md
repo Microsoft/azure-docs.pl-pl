@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: defb959a56446da337c4c7c16ee118ceecd3e674
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948406"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -115,7 +115,7 @@ Oprócz aplikacji firmy Microsoft Administratorzy mogą dodać do zasad dostępu
 
 - Aplikacje opublikowane za pomocą [usługi Azure serwer proxy aplikacji usługi Azure AD](../manage-apps/what-is-application-proxy.md)
 - [Aplikacje dodane z galerii](../manage-apps/add-application-portal.md)
-- [Niestandardowe aplikacje poza galerią](../manage-apps/add-non-gallery-app.md)
+- [Niestandardowe aplikacje poza galerią](../manage-apps/view-applications-portal.md)
 - [Starsze aplikacje opublikowane za poorednictwem kontrolerów dostarczania aplikacji i sieci](../manage-apps/secure-hybrid-access.md)
 - Aplikacje korzystające z [logowania jednokrotnego opartego na hasłach](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
@@ -127,7 +127,7 @@ Oprócz aplikacji firmy Microsoft Administratorzy mogą dodać do zasad dostępu
 
 Akcje użytkownika to zadania, które mogą być wykonywane przez użytkownika. Jedyną obsługiwaną akcją jest **Rejestrowanie informacji o zabezpieczeniach**, co umożliwia stosowanie zasad dostępu warunkowego, gdy użytkownicy, którzy są włączeni do łączenia się ze sobą, zarejestrują swoje informacje zabezpieczające. Więcej informacji można znaleźć w artykule [dotyczącej rejestracji informacji o zabezpieczeniach](../authentication/concept-registration-mfa-sspr-combined.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dostęp warunkowy: warunki](concept-conditional-access-conditions.md)
 

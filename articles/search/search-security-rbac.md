@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: c01806194156fb43524e2db5f4c9bf636186de95
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f0c8fe6b8df5efef0cf3948c8d628d20c79502ff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009209"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928687"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Ustawianie ról platformy Azure na potrzeby dostępu administracyjnego do usługi Azure Wyszukiwanie poznawcze
 
@@ -30,7 +30,7 @@ W przypadku usługi Azure Wyszukiwanie poznawcze role są skojarzone z poziomem 
 | --- | --- |
 | Właściciel |Utwórz lub Usuń usługę lub dowolny obiekt z usługi, w tym klucze API-Keys, indeksy, indeksatory, źródła danych indeksatora i harmonogramy indeksatora.<p>Wyświetlanie stanu usługi, w tym liczby i rozmiaru magazynu.<p>Dodaj lub Usuń członkostwo w roli (tylko właściciel może zarządzać członkostwem w roli).<p>Administratorzy subskrypcji i właściciele usług mają automatyczne członkostwo w roli właściciele. |
 | Współautor |Taki sam poziom dostępu jak właściciel, bez zarządzania rolami platformy Azure. Na przykład współautor może tworzyć lub usuwać obiekty lub wyświetlać i generować ponownie [klucze API](search-security-api-keys.md), ale nie mogą modyfikować członkostw ról. |
-| [Wbudowana rola współautora Search Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Odpowiednik roli współautor. |
+| [Wbudowana rola współautora Search Service](../role-based-access-control/built-in-roles.md#search-service-contributor) | Odpowiednik roli współautor. |
 | Czytelnik |Wyświetl podstawowe informacje dotyczące usługi i metryki. Członkowie tej roli nie mogą wyświetlać informacji dotyczących indeksu, indeksatora, źródła danych ani klucza.  |
 
 Role nie przyznają praw dostępu do punktu końcowego usługi. Operacje usługi wyszukiwania, takie jak zarządzanie indeksami, populacja indeksu i zapytania dotyczące danych wyszukiwania, są kontrolowane przez klucze API-Keys, a nie role. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami interfejsu API](search-security-api-keys.md).
@@ -50,7 +50,7 @@ Poniższa tabela zawiera podsumowanie operacji dozwolonych w usłudze Azure Wysz
 | Zarządzaj kluczami administratora | Klucz administracyjny, właściciel RBAC lub współautor zasobu |
 | Zarządzanie kluczami zapytań |  Klucz administracyjny, właściciel RBAC lub współautor zasobu  |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Zarządzanie przy użyciu programu PowerShell](search-manage-powershell.md) 
 + [Wydajność i optymalizacja na platformie Azure Wyszukiwanie poznawcze](search-performance-optimization.md)

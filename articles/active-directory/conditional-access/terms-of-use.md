@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184350"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948930"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -50,7 +50,7 @@ Warunki użytkowania usługi Azure AD mają następujące możliwości:
 - Lista użytkowników, którzy mają lub nie zaakceptowali warunków użytkowania.
 - Pomoc w zasadach zachowania poufności informacji.
 - Wyświetl dziennik działania warunków użytkowania na potrzeby zgodności i inspekcji.
-- Twórz warunki użytkowania i zarządzaj nimi za pomocą [Microsoft Graph interfejsów API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (obecnie w wersji zapoznawczej).
+- Twórz warunki użytkowania i zarządzaj nimi za pomocą [Microsoft Graph interfejsów API](/graph/api/resources/agreement?view=graph-rest-beta) (obecnie w wersji zapoznawczej).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -389,7 +389,7 @@ Odp.: w przypadku skonfigurowania warunków użytkowania usługi Azure AD i waru
 **P: jakie punkty końcowe są używane przez usługę do uwierzytelniania?**<br />
 Odp.: Warunki użytkowania wykorzystuje następujące punkty końcowe do uwierzytelniania: https://tokenprovider.termsofuse.identitygovernance.azure.com i https://account.activedirectory.windowsazure.com . Jeśli Twoja organizacja ma listę adresów URL do rejestracji, konieczne będzie dodanie tych punktów końcowych do listy dozwolonych oraz punktów końcowych usługi Azure AD w celu zalogowania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md)
 - [Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory](best-practices.md)

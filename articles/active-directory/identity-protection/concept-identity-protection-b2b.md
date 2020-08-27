@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9ec9e110c3a476c9096ae3e216c9780da0e0f49
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72881308"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949200"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Usługa Identity Protection i użytkownicy B2B
 
@@ -49,8 +49,8 @@ Jeśli ryzykowny użytkownik B2B w katalogu jest blokowany przez zasady oparte n
 
 Wyłączenie użytkowników B2B z zasad dostępu warunkowego opartych na ryzyku organizacji uniemożliwi użytkownikom B2B lub zablokowanie ich oceny ryzyka. Aby wykluczyć tych użytkowników B2B, Utwórz grupę w usłudze Azure AD, która zawiera wszystkich użytkowników-Gości w organizacji. Następnie Dodaj tę grupę jako wykluczenie dla wbudowanego ryzyka użytkownika ochrony tożsamości i zasad dotyczących ryzyka związanego z logowaniem, a także wszelkich zasad dostępu warunkowego, które używają ryzyka związanego z logowaniem jako warunku.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z następującymi artykułami dotyczącymi współpracy B2B w usłudze Azure AD:
 
-- [Czym jest współpraca B2B w usłudze Azure AD?](../b2b/what-is-b2b.md)
+- [Czym jest współpraca B2B w usłudze Azure AD?](../external-identities/what-is-b2b.md)

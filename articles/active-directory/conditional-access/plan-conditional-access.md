@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339727"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948899"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
@@ -30,11 +30,11 @@ Azure Active Directory (Azure AD) analizy dostępu warunkowego (CA) są sygnała
 
 Firma Microsoft udostępnia standardowe zasady warunkowe o nazwie [zabezpieczenia domyślne](../fundamentals/concept-fundamentals-security-defaults.md) , które zapewniają podstawowy poziom zabezpieczeń. Jednak organizacja może potrzebować większej elastyczności niż domyślna oferta zabezpieczeń. Za pomocą dostępu warunkowego można dostosować ustawienia domyślne zabezpieczeń z większą szczegółowością i skonfigurować nowe zasady spełniające Twoje wymagania.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Informacje
 
 Przed rozpoczęciem upewnij się, że rozumiesz, jak działa [dostęp warunkowy](overview.md) , oraz kiedy należy go używać.
 
-### <a name="benefits"></a>Zalety
+### <a name="benefits"></a>Korzyści
 
 Korzyści wynikające z wdrożenia dostępu warunkowego są następujące:
 
@@ -162,7 +162,7 @@ Udokumentowanie odpowiedzi na pytania dotyczące poszczególnych zasad przed ich
 
 #### <a name="common-questions-about-access-controls"></a>Często zadawane pytania dotyczące kontroli dostępu
 
-[Udziel lub Blokuj](concept-conditional-access-grant.md) 
+[Udziel lub Blokuj ](concept-conditional-access-grant.md) 
 
 Czy chcesz udzielić dostępu do zasobów, wymagając co najmniej jednego z następujących elementów?
 
@@ -240,7 +240,7 @@ Może być trudne do przewidywania liczby i nazw użytkowników, których dotycz
 * wymaganie uwierzytelniania wieloskładnikowego
 * Implementowanie zasad dotyczących ryzyka związanego z logowaniem
 
-[Tryb tylko do raportowania](concept-conditional-access-report-only.md) pozwala administratorom na ocenę wpływu zasad urzędu certyfikacji przed włączeniem ich w środowisku.
+[Tryb tylko do raportowania ](concept-conditional-access-report-only.md) pozwala administratorom na ocenę wpływu zasad urzędu certyfikacji przed włączeniem ich w środowisku.
 
 Dowiedz się, jak [skonfigurować tryb tylko do raportowania dla zasad urzędu certyfikacji](howto-conditional-access-report-only.md).
 
@@ -313,7 +313,7 @@ Typowe przypadki użycia w celu wymagania dostępu MFA:
 
 * [Według administratorów](howto-conditional-access-policy-admin-mfa.md)
 
-* [Do określonych aplikacji](app-based-mfa.md)
+* [Do określonych aplikacji](../authentication/tutorial-enable-azure-mfa.md)
 
 * [Dla wszystkich użytkowników](howto-conditional-access-policy-all-users-mfa.md)
 
@@ -354,7 +354,7 @@ Inne typowe scenariusze, w których można zablokować dostęp dla użytkownikó
 
 * [Blokuj niektóre lokalizacje sieciowe](howto-conditional-access-policy-location.md) , aby uzyskać dostęp do aplikacji w chmurze. Za pomocą tych zasad można blokować niektóre kraje, w których wiadomo, że ruch nie powinien pochodzić z usługi.
 
-* Usługa Azure AD obsługuje starsze uwierzytelnianie. Starsza wersja uwierzytelniania nie obsługuje jednak usługi MFA, a wiele środowisk wymaga, aby zająć się zabezpieczeniami tożsamości. W takim przypadku można [zablokować aplikacjom korzystającym ze starszego uwierzytelniania](block-legacy-authentication.md) dostęp do zasobów dzierżawy.
+* Usługa Azure AD obsługuje starsze uwierzytelnianie. Starsza wersja uwierzytelniania nie obsługuje jednak usługi MFA, a wiele środowisk wymaga, aby zająć się zabezpieczeniami tożsamości. W takim przypadku można [zablokować aplikacjom korzystającym ze starszego uwierzytelniania ](block-legacy-authentication.md) dostęp do zasobów dzierżawy.
 
 ## <a name="build-and-test-policies"></a>Zasady kompilacji i testowania
 
@@ -384,18 +384,18 @@ Plan testu jest istotny do porównania między oczekiwanymi wynikami i rzeczywis
 | - | - | - |
 | [Wymagaj uwierzytelniania wieloskładnikowego, gdy nie jest w pracy](untrusted-networks.md)| Autoryzowany użytkownik loguje się do aplikacji w ramach zaufanej lokalizacji/pracy| Użytkownik nie jest monitowany o uwierzytelnianie wieloskładnikowe |
 | [Wymagaj uwierzytelniania wieloskładnikowego, gdy nie jest w pracy](untrusted-networks.md)| Autoryzowany użytkownik loguje się do aplikacji, gdy nie znajduje się w zaufanej lokalizacji/pracy| Użytkownik jest monitowany o uwierzytelnianie wieloskładnikowe i może zalogować się pomyślnie |
-| [Wymagaj uwierzytelniania wieloskładnikowego (dla administratora)](howto-baseline-protect-administrators.md)| Administrator globalny loguje się do aplikacji| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
-| [Ryzykowne logowania](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| Użytkownik loguje się do aplikacji za pomocą niezatwierdzonej przeglądarki| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
+| [Wymagaj uwierzytelniania wieloskładnikowego (dla administratora)](../fundamentals/concept-fundamentals-security-defaults.md)| Administrator globalny loguje się do aplikacji| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
+| [Ryzykowne logowania](../identity-protection/howto-identity-protection-configure-risk-policies.md)| Użytkownik loguje się do aplikacji za pomocą niezatwierdzonej przeglądarki| Administrator jest monitowany o uwierzytelnianie wieloskładnikowe |
 | [Zarządzanie urządzeniami](require-managed-devices.md)| Autoryzowany użytkownik próbuje zalogować się z autoryzowanego urządzenia| Udzielony dostęp |
 | [Zarządzanie urządzeniami](require-managed-devices.md)| Autoryzowany użytkownik próbuje zalogować się z nieautoryzowanego urządzenia| Dostęp zablokowany |
-| [Zmiana hasła dla ryzykownych użytkowników](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| Autoryzowany użytkownik próbuje zalogować się przy użyciu złamanych poświadczeń (logowanie wysokiego ryzyka)| Użytkownik jest monitowany o zmianę hasła lub dostęp jest zablokowany na podstawie zasad |
+| [Zmiana hasła dla ryzykownych użytkowników](../identity-protection/howto-identity-protection-configure-risk-policies.md)| Autoryzowany użytkownik próbuje zalogować się przy użyciu złamanych poświadczeń (logowanie wysokiego ryzyka)| Użytkownik jest monitowany o zmianę hasła lub dostęp jest zablokowany na podstawie zasad |
 
 
 ### <a name="configure-the-test-policy"></a>Konfigurowanie zasad testów
 
 W [Azure Portal](https://portal.azure.com/)należy skonfigurować zasady urzędu certyfikacji w obszarze Azure Active Directory > zabezpieczenia > dostęp warunkowy.
 
-Jeśli chcesz dowiedzieć się więcej o sposobie tworzenia zasad urzędu certyfikacji, zobacz ten przykład: [zasady urzędu certyfikacji, które monitują o usługę MFA, gdy użytkownik zaloguje się do Azure Portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Ten przewodnik Szybki Start pomaga:
+Jeśli chcesz dowiedzieć się więcej o sposobie tworzenia zasad urzędu certyfikacji, zobacz ten przykład: [zasady urzędu certyfikacji, które monitują o usługę MFA, gdy użytkownik zaloguje się do Azure Portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Ten przewodnik Szybki Start pomaga:
 
 * Zapoznaj się z interfejsem użytkownika
 
@@ -442,7 +442,7 @@ W przypadku konieczności wycofania nowo wdrożonych zasad należy użyć co naj
 > [!NOTE]
 >  Ta opcja powinna być używana oszczędnie, tylko w sytuacjach, gdy użytkownik jest zaufany. Użytkownik powinien zostać dodany z powrotem do zasad lub grupy tak szybko, jak to możliwe.
 
-* **Usuń zasady.** Jeśli zasady nie są już wymagane, [Usuń](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json) je.
+* **Usuń zasady.** Jeśli zasady nie są już wymagane, [Usuń](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) je.
 
 ## <a name="manage-access-to-cloud-apps"></a>Zarządzanie dostępem do aplikacji w chmurze
 
@@ -501,4 +501,4 @@ Po zebraniu informacji zapoznaj się z następującymi zasobami:
 
 [Dowiedz się więcej na temat ochrony tożsamości](../identity-protection/overview-identity-protection.md)
 
-[Zarządzanie zasadami urzędu certyfikacji za pomocą interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Zarządzanie zasadami urzędu certyfikacji za pomocą interfejsu API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

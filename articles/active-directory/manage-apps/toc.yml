@@ -43,7 +43,7 @@
           href: plan-an-application-integration.md
         - name: Planowanie pod kątem aplikacji spoza galerii
           href: non-gallery-apps.md
-        - name: Planowanie wdrożenia przy użyciu panelu dostępu
+        - name: Planowanie wdrożenia portalu Moje aplikacje
           href: access-panel-deployment-plan.md
         - name: Wskazówki dla deweloperów
           href: developer-guidance-for-integrating-applications.md

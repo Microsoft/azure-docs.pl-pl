@@ -4,12 +4,12 @@ description: Opisuje sposób oceny lokalnych maszyn wirtualnych VMware na potrze
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 7616ff48c03c0de61d9179724fd8e351c6440319
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8c2784e999e751972883b6c9ffba2485bb9fe9e1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936252"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950089"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Ocenianie maszyn wirtualnych programu VMware przy użyciu narzędzia do oceny serwera
 
@@ -53,7 +53,7 @@ Skonfiguruj nowy projekt Azure Migrate w następujący sposób:
 
    ![Pola nazwy i regionu projektu](./media/tutorial-assess-vmware/migrate-project.png)
 
-7. Wybierz pozycję **Dalej**.
+7. Wybierz pozycję **Next** (Dalej).
 8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
    ![Wybór dla narzędzia do oceny serwera](./media/tutorial-assess-vmware/assessment-tool.png)
@@ -108,13 +108,13 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
     
         **Algorytm** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        VMware (11,6 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140333) | 9a06a316199330481f95b381a4d1d558f3869614a0ded68f1cc4f2584aa4f353
+        VMware (11,6 GB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
     - Dla Azure Government:
     
         **Algorytm** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac0404426bea18809def2284188
+        VMware (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140337) | 7dab9445a89b47302994d6de4caddaa092c1c582c8f3c1fc5b9c4908c7d2f9f7
 
 
 ### <a name="create-the-appliance-vm"></a>Tworzenie maszyny wirtualnej urządzenia
@@ -303,7 +303,7 @@ Ocena zaufania pomaga oszacować niezawodność zaleceń dotyczących rozmiaru o
 
 [Poznaj najlepsze rozwiązania](best-practices-assessment.md#best-practices-for-confidence-ratings) dotyczące klasyfikacji zaufania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku skonfigurujesz urządzenie Azure Migrate. Można również utworzyć i przejrzeć ocenę.
 

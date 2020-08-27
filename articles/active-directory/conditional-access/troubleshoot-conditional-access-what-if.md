@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d3b8d94148e3db163411c21cccf39c7630c6b3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: eb51e8590e2859a9fe8692f79c5b1238ed5a2098
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032926"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948185"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Rozwiązywanie problemów z dostępem warunkowym przy użyciu narzędzia What If
 
@@ -73,9 +73,9 @@ W takim przypadku użytkownikowi zablokowano dostęp do dowolnej aplikacji w chm
 
 Ten test można rozszerzyć, aby uwzględnić inne punkty danych w celu zawężenia zakresu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Co to jest dostęp warunkowy?](overview.md)
-* [Co to jest usługa Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
+* [Co to jest usługa Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
 * [Co to jest tożsamość urządzenia?](../devices/overview.md)
 * [Jak to działa: usługa Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

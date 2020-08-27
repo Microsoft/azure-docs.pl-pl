@@ -2,7 +2,7 @@
 title: Microsoft Identity platform & przepływ potwierdzenia elementu "okaziciela" elementu SAML | Azure
 description: Dowiedz się, jak pobierać dane z Microsoft Graph bez monitowania użytkownika o poświadczenia przy użyciu przepływu potwierdzenia elementu "okaziciela".
 services: active-directory
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.custom: aaddev
-ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114697"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949358"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity platform i OAuth 2,0 SAML Flow Assertion
 Przepływ potwierdzenia elementu "OAuth 2,0 SAML" umożliwia żądanie tokenu dostępu OAuth przy użyciu potwierdzenia SAML, gdy klient musi używać istniejącej relacji zaufania. Sygnatura zastosowana do potwierdzenia SAML zapewnia uwierzytelnianie autoryzowanej aplikacji. Potwierdzenie SAML to token zabezpieczający XML wystawiony przez dostawcę tożsamości i używany przez dostawcę usług. Dostawca usług opiera się na swojej zawartości, aby zidentyfikować podmiot potwierdzenia dla celów związanych z zabezpieczeniami.
@@ -89,6 +88,6 @@ Po odebraniu tokenu dostępu Wywołaj interfejsy API programu Graph (zadania w p
 
 1. Po pomyślnym żądaniu otrzymasz odpowiedź JSON.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Poznaj różne [przepływy uwierzytelniania i scenariusze aplikacji](authentication-flows-app-scenarios.md).

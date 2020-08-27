@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80307c97464e61d7b7d338703de90d1199adc819
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484576"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927021"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Jak indeksować duże zestawy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -50,7 +50,7 @@ Ogólnie rzecz biorąc, zalecamy Dodawanie dodatkowych właściwości do pól, j
 
 ### <a name="batch-size"></a>Rozmiar wsadu
 
-Jednym z najprostszych mechanizmów indeksowania większego zestawu danych jest przesyłanie wielu dokumentów lub rekordów w jednym żądaniu. Tak długo, jak cały ładunek przekracza 16 MB, żądanie może obsłużyć do 1000 dokumentów w operacji ładowania zbiorczego. Te limity mają zastosowanie w przypadku korzystania z [interfejsu API REST dodawania dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) lub [metody index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) w zestawie SDK platformy .NET. Dla obu interfejsów API w treści każdego żądania należy spakować 1000 dokumentów.
+Jednym z najprostszych mechanizmów indeksowania większego zestawu danych jest przesyłanie wielu dokumentów lub rekordów w jednym żądaniu. Tak długo, jak cały ładunek przekracza 16 MB, żądanie może obsłużyć do 1000 dokumentów w operacji ładowania zbiorczego. Te limity mają zastosowanie w przypadku korzystania z [interfejsu API REST dodawania dokumentów](/rest/api/searchservice/addupdate-or-delete-documents) lub [metody index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) w zestawie SDK platformy .NET. Dla obu interfejsów API w treści każdego żądania należy spakować 1000 dokumentów.
 
 Użycie partii do indeksowania dokumentów znacznie poprawi wydajność indeksowania. Określenie optymalnego rozmiaru partii danych jest kluczowym elementem optymalizacji szybkości indeksowania. Dwa podstawowe czynniki wpływające na optymalny rozmiar partii to:
 + Schemat indeksu
@@ -74,14 +74,14 @@ Możesz zmodyfikować ten przykład i przetestować z różnymi liczbami wątkó
 > [!NOTE]
 > W miarę zwiększania warstwy usługi wyszukiwania lub zwiększania partycji należy również zwiększyć liczbę współbieżnych wątków.
 
-Podczas narastania żądań, które powodują przeszukanie usługi wyszukiwania, mogą wystąpić [kody stanu HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) wskazujące, że żądanie nie zostało w pełni zakończone. Podczas indeksowania dwa typowe kody stanu HTTP to:
+Podczas narastania żądań, które powodują przeszukanie usługi wyszukiwania, mogą wystąpić [kody stanu HTTP](/rest/api/searchservice/http-status-codes) wskazujące, że żądanie nie zostało w pełni zakończone. Podczas indeksowania dwa typowe kody stanu HTTP to:
 
 + **503 Usługa niedostępna** — ten błąd oznacza, że system jest mocno obciążony i nie można w tej chwili przetworzyć Twojego żądania.
 + **207 o wielu stanach** — ten błąd oznacza, że niektóre dokumenty zostały wykonane pomyślnie, ale co najmniej jeden z nich nie powiódł się.
 
 ### <a name="retry-strategy"></a>Strategia ponawiania prób 
 
-Jeśli wystąpi awaria, żądania powinny być ponawiane przy użyciu [strategii wycofywaniaego ponawiania prób](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Jeśli wystąpi awaria, żądania powinny być ponawiane przy użyciu [strategii wycofywaniaego ponawiania prób](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Zestaw .NET SDK platformy Azure Wyszukiwanie poznawcze automatycznie ponawia próbę 503s i inne Nieudane żądania, ale musisz zaimplementować własną logikę, aby ponowić próbę 207s. Narzędzia typu open source, takie jak [Polly](https://github.com/App-vNext/Polly) , mogą również służyć do implementowania strategii ponawiania prób.
 
@@ -95,14 +95,14 @@ Szybkość transferu danych w sieci może być czynnikiem ograniczającym podcza
 
 + Harmonogramy umożliwiają dedystrybuowanie indeksowania w regularnych odstępach czasu, aby można było je rozłożyć w miarę upływu czasu.
 + Zaplanowane indeksowanie można wznowić w ostatnim znanym punkcie zatrzymywania. Jeśli źródło danych nie jest w pełni przeszukiwane w oknie 24-godzinnym, indeksator wznowi indeksowanie dziennie dwa w miejscu, w którym jest pozostawione.
-+ Partycjonowanie danych w mniejszych pojedynczych źródłach danych umożliwia przetwarzanie równoległe. Możesz podzielić dane źródłowe na mniejsze składniki, na przykład na wiele kontenerów w usłudze Azure Blob Storage, a następnie utworzyć odpowiadające im wiele [obiektów źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) na platformie Azure wyszukiwanie poznawcze, które mogą być indeksowane równolegle.
++ Partycjonowanie danych w mniejszych pojedynczych źródłach danych umożliwia przetwarzanie równoległe. Możesz podzielić dane źródłowe na mniejsze składniki, na przykład na wiele kontenerów w usłudze Azure Blob Storage, a następnie utworzyć odpowiadające im wiele [obiektów źródła danych](/rest/api/searchservice/create-data-source) na platformie Azure wyszukiwanie poznawcze, które mogą być indeksowane równolegle.
 
 > [!NOTE]
 > Indeksatory są specyficzne dla źródła danych, więc użycie metody indeksatora jest możliwe tylko dla wybranych źródeł danych na platformie Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [BLOB Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
 ### <a name="batch-size"></a>Rozmiar wsadu
 
-Podobnie jak w przypadku interfejsu API wypychania, Indeksatory umożliwiają skonfigurowanie liczby elementów na partię. W przypadku indeksatorów opartych na [interfejsie API Rest tworzenia indeksatora](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)można ustawić `batchSize` argument, aby dostosować to ustawienie, aby lepiej odpowiadało charakterystyce danych. 
+Podobnie jak w przypadku interfejsu API wypychania, Indeksatory umożliwiają skonfigurowanie liczby elementów na partię. W przypadku indeksatorów opartych na [interfejsie API Rest tworzenia indeksatora](/rest/api/searchservice/Create-Indexer)można ustawić `batchSize` argument, aby dostosować to ustawienie, aby lepiej odpowiadało charakterystyce danych. 
 
 Domyślne rozmiary partii to specyficzne dla źródła danych. Azure SQL Database i Azure Cosmos DB mają domyślny rozmiar wsadu 1000. W przeciwieństwie do indeksowania obiektów blob platformy Azure ustawia rozmiar wsadu w 10 dokumentach w celu rozpoznania większego średniego rozmiaru dokumentu. 
 
@@ -112,7 +112,7 @@ Planowanie indeksatora to ważny mechanizm przetwarzania dużych zestawów danyc
 
 Zaplanowana funkcja indeksowania jest uruchamiana w określonych odstępach czasu, a zadanie zwykle kończy się przed wznowieniem przy następnym zaplanowanym interwale. Jeśli jednak przetwarzanie nie zakończy się w przedziale czasu, indeksator zostanie zatrzymany (ponieważ został uruchomiony poza czasem). Podczas następnego interwału przetwarzanie zostanie wznowione w miejscu, w którym zostało przerwane, a system śledzi miejsce wystąpienia. 
 
-W praktyce w przypadku obciążeń indeksu obejmujących kilka dni można umieścić indeksator w harmonogramie 24-godzinnym. Gdy indeksowanie zostanie wznowione dla następnego 24-godzinnego cyklu, zostanie ono ponownie uruchomione od ostatniego znanego dobrego dokumentu. Dzięki temu indeksator może współdziałać w sposób za pośrednictwem zaległości dokumentu w ciągu kilku dni do czasu przetworzenia wszystkich nieprzetworzonych dokumentów. Aby uzyskać więcej informacji na temat tego podejścia, zobacz [indeksowanie dużych zestawów danych w usłudze Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Aby uzyskać więcej informacji na temat ogólnych ustawień harmonogramów, zobacz [Tworzenie interfejsu API REST indeksatora](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) lub zapoznaj [się z tematem planowanie indeksatorów dla usługi Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
+W praktyce w przypadku obciążeń indeksu obejmujących kilka dni można umieścić indeksator w harmonogramie 24-godzinnym. Gdy indeksowanie zostanie wznowione dla następnego 24-godzinnego cyklu, zostanie ono ponownie uruchomione od ostatniego znanego dobrego dokumentu. Dzięki temu indeksator może współdziałać w sposób za pośrednictwem zaległości dokumentu w ciągu kilku dni do czasu przetworzenia wszystkich nieprzetworzonych dokumentów. Aby uzyskać więcej informacji na temat tego podejścia, zobacz [indeksowanie dużych zestawów danych w usłudze Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Aby uzyskać więcej informacji na temat ogólnych ustawień harmonogramów, zobacz [Tworzenie interfejsu API REST indeksatora](/rest/api/searchservice/Create-Indexer) lub zapoznaj [się z tematem planowanie indeksatorów dla usługi Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -125,8 +125,8 @@ W przypadku nierutynowych obliczeniowych wymagań dotyczących indeksowania — 
 Przetwarzanie równoległe obejmuje następujące elementy:
 
 + Poddzielenie danych źródłowych między wieloma kontenerami lub wieloma folderami wirtualnymi w tym samym kontenerze. 
-+ Zamapuj każdy zestaw danych minipasek na jego własne [Źródło danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source), sparowany z jego własnym [indeksatorem](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
-+ W przypadku wyszukiwania poznawczego odwołują się do tego samego [zestawu umiejętności](https://docs.microsoft.com/rest/api/searchservice/create-skillset) w każdej definicji indeksatora.
++ Zamapuj każdy zestaw danych minipasek na jego własne [Źródło danych](/rest/api/searchservice/create-data-source), sparowany z jego własnym [indeksatorem](/rest/api/searchservice/create-indexer).
++ W przypadku wyszukiwania poznawczego odwołują się do tego samego [zestawu umiejętności](/rest/api/searchservice/create-skillset) w każdej definicji indeksatora.
 + Zapisz w tym samym docelowym indeksie wyszukiwania. 
 + Zaplanuj, aby wszystkie indeksatory były uruchamiane w tym samym czasie.
 
@@ -156,7 +156,7 @@ W zaplanowanym czasie wszystkie indeksatory rozpoczynają wykonywanie, ładowani
 > [!Note]
 > Podczas zwiększania replik należy rozważyć zwiększenie liczby partycji, jeśli rozmiar indeksu jest rzutowany, aby znacząco zwiększyć. Partycje przechowują wycinki indeksowanej zawartości; im więcej partycji, tym mniejsza jest możliwość przechowywania wycinka każdego z nich.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Omówienie indeksatora](search-indexer-overview.md)
 + [Indeksowanie w portalu](search-import-data-portal.md)

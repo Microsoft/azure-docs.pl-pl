@@ -4,19 +4,19 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263387"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950497"
 ---
-# <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
+# <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące usługi Azure Site Recovery
 
 Ten artykuł zawiera podsumowanie często zadawanych pytań dotyczących Azure Site Recovery. W przypadku określonych scenariuszy przejrzyj te artykuły
 
-- [Pytania dotyczące odzyskiwania po awarii maszyny wirtualnej platformy Azure na platformę Azure](azure-to-azure-common-questions.md)
-- [Pytania dotyczące odzyskiwania po awarii maszyny wirtualnej VMware na platformę Azure](vmware-azure-common-questions.md)
+- [Pytania dotyczące odzyskiwania po awarii maszyny wirtualnej platformy Azure na platformie Azure](azure-to-azure-common-questions.md)
+- [Pytania dotyczące odzyskiwania po awarii maszyny wirtualnej VMware na platformie Azure](vmware-azure-common-questions.md)
 - [Pytania dotyczące odzyskiwania po awarii maszyny wirtualnej funkcji Hyper-V na platformie Azure](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>Ogólne
@@ -93,7 +93,7 @@ Nie ma oddzielnego kosztu do testowania odzyskiwania po awarii. Po utworzeniu ma
 
 
 
-## <a name="security"></a>Bezpieczeństwo
+## <a name="security"></a>Zabezpieczenia
 
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Czy dane replikacji są wysyłane do usługi Site Recovery?
 Nie, Site Recovery nie przechwytuje replikowanych danych i nie zawiera żadnych informacji o działaniach na maszynach wirtualnych lub serwerach fizycznych.
@@ -257,8 +257,6 @@ Zasady replikacji określają ustawienia dla historii przechowywania punktów od
 - 24 godziny dla historii przechowywania punktów odzyskiwania.
 - 4 godziny dla częstotliwości migawek spójnych z aplikacjami.
 
-[Dowiedz się więcej o ustawieniach replikacji](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
-
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Co to jest punkt odzyskiwania spójny na poziomie awarii?
 
 Punkt odzyskiwania spójny na poziomie awarii zawiera dane na dysku, tak jak w przypadku ściągania przewodu z serwera podczas tworzenia migawki. Punkt odzyskiwania spójny na poziomie awarii nie obejmuje niczego, co było w pamięci podczas tworzenia migawki.
@@ -359,5 +357,5 @@ Tak. Przepływy pracy usługi Site Recovery można zautomatyzować przy użyciu 
 
 [Dowiedz się więcej](site-recovery-whats-new.md) o nowych aktualizacjach i [Pobierz informacje zbiorcze](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Zapoznaj się z [omówieniem usługi Site Recovery](site-recovery-overview.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874779"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948270"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
@@ -124,7 +124,7 @@ Na zarejestrowanych urządzeniach z systemem Windows w usłudze Azure AD Zaloguj
 > [!NOTE]
 > Trwała konfiguracja sesji przeglądarki w usłudze Azure AD dostęp warunkowy spowoduje zastąpienie "pozostać zalogowanym?" ustawienie w okienku znakowanie firmowe w Azure Portal dla tego samego użytkownika, jeśli skonfigurowano obie zasady.
 
-## <a name="validation"></a>Weryfikacja
+## <a name="validation"></a>Walidacja
 
 Za pomocą narzędzia do wykonywania symulacji Zasymuluj Logowanie użytkownika do aplikacji docelowej i innych warunków w zależności od sposobu skonfigurowania zasad. Kontrolki zarządzanie sesjami uwierzytelniania są wyświetlane w wyniku tego narzędzia.
 
@@ -134,7 +134,7 @@ Za pomocą narzędzia do wykonywania symulacji Zasymuluj Logowanie użytkownika 
 
 Aby upewnić się, że zasady działają zgodnie z oczekiwaniami, zalecanym najlepszym rozwiązaniem jest przetestowanie go przed wycofaniem do produkcji. Najlepiej użyć dzierżawy testowej, aby sprawdzić, czy nowe zasady działają zgodnie z oczekiwaniami. Aby uzyskać więcej informacji, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-* Aby dowiedzieć się, jak skonfigurować zasady dostępu warunkowego, zapoznaj się z artykułem [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](app-based-mfa.md).
+* Aby dowiedzieć się, jak skonfigurować zasady dostępu warunkowego, zapoznaj się z artykułem [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md).
 * Aby skonfigurować zasady dostępu warunkowego dla środowiska, zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi dostępu warunkowego w Azure Active Directory](best-practices.md).

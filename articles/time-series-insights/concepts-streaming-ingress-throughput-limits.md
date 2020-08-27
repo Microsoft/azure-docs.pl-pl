@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb10effce8b94a6443e1daa8dadaa99111da0d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099122"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950463"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limity przepływności pozyskiwania strumieniowego
 
@@ -34,7 +34,7 @@ Domyślnie Azure Time Series Insights Gen2 może pozyskać dane przychodzące z 
 
 > [!TIP]
 >
-> * Obsługa środowiska w celu pozyskiwania prędkości do 16 MB/s może być świadczona przez żądanie.
+> * Obsługa środowiska w celu pozyskiwania prędkości do 8 MB/s może być świadczona przez żądanie.
 > * Skontaktuj się z nami, jeśli potrzebujesz wyższej przepływności przez przesłanie biletu pomocy technicznej za pomocą Azure Portal.
  
 * **Przykład 1:**
@@ -42,16 +42,16 @@ Domyślnie Azure Time Series Insights Gen2 może pozyskać dane przychodzące z 
     Wysyłka firmy Contoso obejmuje 100 000 urządzeń, które emitują wydarzenie trzy razy na minutę. Rozmiar zdarzenia to 200 bajtów. Używają IoT Hub z czterema partycjami jako źródłem zdarzeń Azure Time Series Insights Gen2.
 
     * Szybkość pozyskiwania dla środowiska Azure Time Series Insights Gen2: **100 000 urządzeń * 200 bajtów/zdarzenia * (3/60 Event/s) = 1 MB/s**.
-    * Szybkość pozyskiwania na partycję 0,25 MB/s.
-    * Stawka pozyskiwania kosztów wysyłki firmy Contoso będzie w ramach ograniczenia skali.
+    * Przy założeniu, że zrównoważona partycja, szybkość pozyskiwania na partycję 0,25 MB/s.
+    * Stawka pozyskiwania kosztów wysyłki firmy Contoso będzie w ramach ograniczeń skalowania.
 
 * **Przykład 2:**
 
-    Analiza floty firmy Contoso obejmuje 60 000 urządzeń, które emitują zdarzenia co sekundę. Korzystają one z centrum zdarzeń o liczbie partycji wynoszącej 4 jako Azure Time Series Insights źródła zdarzeń Gen2. Rozmiar zdarzenia to 200 bajtów.
+    Analiza floty firmy Contoso obejmuje 40 000 urządzeń, które emitują zdarzenia co sekundę. Korzystają one z centrum zdarzeń z liczbą partycji 2 jako źródłem zdarzenia Azure Time Series Insights Gen2. Rozmiar zdarzenia to 200 bajtów.
 
-    * Szybkość pozyskiwania środowiska: **60 000 urządzeń * 200 bajtów/zdarzenia * 1 zdarzenie/s = 12 MB/s**.
-    * Stawka za partycje wynosi 3 MB/s.
-    * Wskaźnik pozyskiwania danych z usługi contoso floty jest powyżej limitów środowiska i partycji. Mogą przesłać żądanie Azure Time Series Insights Gen2 przez Azure Portal, aby zwiększyć szybkość pozyskiwania dla swojego środowiska i utworzyć centrum zdarzeń z większą liczbą partycji w ramach limitów.
+    * Szybkość pozyskiwania środowiska: **40 000 urządzeń * 200 bajtów/zdarzenia * 1 zdarzenie/s = 8 MB/s**.
+    * Przy założeniu, że zrównoważona partycja, ich stawka na partycje wynosi 4 MB/s.
+    * Wskaźnik pozyskiwania danych z usługi contoso floty jest powyżej limitów środowiska i partycji. Mogą przesłać żądanie Azure Time Series Insights Gen2 przez Azure Portal, aby zwiększyć szybkość pozyskiwania dla środowiska i utworzyć centrum zdarzeń z większą liczbą partycji, które mają być objęte limitami.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Partycje centrum i limity na partycję
 
@@ -96,6 +96,6 @@ Zapoznaj się z poniższymi zasobami, aby dowiedzieć się więcej na temat opty
 * [Skala centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
 * [Partycje centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Przeczytaj o [magazynie](./concepts-storage.md) danych

@@ -3,22 +3,20 @@ title: Odbieranie zdarzeń za pomocą hosta procesora zdarzeń — Azure Event H
 description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Event Hubs, który upraszcza zarządzanie użyciem punktów kontrolnych, dzierżawienia i odczytywania jonu zdarzeń równoległych.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7c6d08c385174597ce80e3ddfd6204db6b0b14a5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936184"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949086"
 ---
 # <a name="event-processor-host"></a>Host procesora zdarzeń
 > [!NOTE]
-> Ten artykuł ma zastosowanie do starej wersji usługi Azure Event Hubs SDK. Aby dowiedzieć się, jak przeprowadzić migrację kodu do nowszej wersji zestawu SDK, zobacz te przewodniki dotyczące migracji. 
+> Ten artykuł ma zastosowanie do starej wersji usługi Azure Event Hubs SDK. Aby uzyskać aktualną wersję zestawu SDK, zobacz [równoważenia obciążenia partycji w wielu wystąpieniach aplikacji](event-processor-balance-partition-load.md). Aby dowiedzieć się, jak przeprowadzić migrację kodu do nowszej wersji zestawu SDK, zobacz te przewodniki dotyczące migracji. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Skrypt Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
->
-> Ponadto zobacz [równoważenia obciążenia partycji w wielu wystąpieniach aplikacji](event-processor-balance-partition-load.md).
 
 Azure Event Hubs to zaawansowana usługa pozyskiwania danych telemetrycznych, która może służyć do przesyłania strumieniowego milionów zdarzeń przy niskich kosztach. W tym artykule opisano sposób korzystania z zdarzeń pozyskiwanych za pomocą *hosta procesora zdarzeń* (EPH); inteligentny Agent konsumencki, który upraszcza zarządzanie czytnikami punktów kontrolnych, dzierżaw i zdarzeń równoległych.  
 
@@ -187,7 +185,7 @@ Nie zalecamy użycia aplikacji, gdy tworzysz odbiornik z epoką, a następnie pr
 > Zalecamy używanie różnych grup odbiorców dla aplikacji korzystających z epoki i dla tych, które nie używają epoki, aby uniknąć błędów. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy znasz już hosta procesora zdarzeń, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o Event Hubs:
 

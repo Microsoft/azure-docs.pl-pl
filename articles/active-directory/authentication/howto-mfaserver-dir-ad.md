@@ -12,19 +12,23 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480984"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949545"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integracja katalogu między serwerem Azure MFA i usługą Active Directory
 
 Sekcja Integracja katalogu serwera usługi Azure MFA umożliwia przeprowadzenie integracji z usługą Active Directory lub innym katalogiem LDAP. Pozwala ona skonfigurować atrybuty w celu ich dostosowania do schematu katalogu oraz ustawić automatyczną synchronizację użytkowników.
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać opartych na chmurze Multi-Factor Authentication platformy Azure.
+>
+> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca 2019, mogą pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
 
 ## <a name="settings"></a>Ustawienia
 
@@ -100,7 +104,7 @@ Atrybuty mogą być wprowadzane ręcznie i nie muszą odpowiadać atrybutom na l
 | Faks |Wprowadź nazwę atrybutu, który zawiera numer faksu w rekordzie użytkownika.  Wartość domyślna to facsimileTelephoneNumber. |
 | Telefon VoIP |Wprowadź nazwę atrybutu, który zawiera numer telefonu VoIP w rekordzie użytkownika.  Wartość domyślna to ipPhone. |
 | Niestandardowy |Wprowadź nazwę atrybutu, który zawiera niestandardowy numer telefonu w rekordzie użytkownika.  Pole jest domyślnie puste. |
-| Wewnętrzny |Wprowadź nazwę atrybutu, który zawiera numer wewnętrzny w rekordzie użytkownika.  Wartość pola numeru wewnętrznego jest używana wyłącznie dla podstawowego numeru telefonu.  Pole jest domyślnie puste. <br><br>Jeśli nie określono atrybutu Wewnętrzny, numer wewnętrzny można uwzględnić w atrybucie numeru telefonu. W takim przypadku poprzedź rozszerzenie znakiem „x”, aby zostało poprawnie przeanalizowane.  Na przykład wartość 555-123-4567 x890 zostanie zinterpretowana jako numer telefonu 555-123-4567 i numer wewnętrzny 890. |
+| Rozszerzenie |Wprowadź nazwę atrybutu, który zawiera numer wewnętrzny w rekordzie użytkownika.  Wartość pola numeru wewnętrznego jest używana wyłącznie dla podstawowego numeru telefonu.  Pole jest domyślnie puste. <br><br>Jeśli nie określono atrybutu Wewnętrzny, numer wewnętrzny można uwzględnić w atrybucie numeru telefonu. W takim przypadku poprzedź rozszerzenie znakiem „x”, aby zostało poprawnie przeanalizowane.  Na przykład wartość 555-123-4567 x890 zostanie zinterpretowana jako numer telefonu 555-123-4567 i numer wewnętrzny 890. |
 | Przycisk Przywróć domyślne |Kliknij przycisk **Przywróć domyślne**, aby przywrócić wartości domyślne wszystkich atrybutów.  Ustawienia domyślne powinny działać prawidłowo z normalnym schematem usługi Active Directory lub ADAM. |
 
 Aby edytować atrybuty, kliknij przycisk **Edytuj** na karcie Atrybuty.  Spowoduje to wyświetlenie okna, w którym można edytować atrybuty. Wybierz przycisk **...** obok dowolnego atrybutu, aby otworzyć okno, w którym można określić atrybuty do wyświetlenia.

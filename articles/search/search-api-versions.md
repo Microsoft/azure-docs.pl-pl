@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: bf3e4262f4342788f343ab287fd3db53d12736c7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 73037ac3725ad1e7e9dd84597936c47406244630
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918115"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949885"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Wersje interfejsu API na platformie Azure Wyszukiwanie poznawcze
 
@@ -24,7 +24,24 @@ Zgodnie z regułą zespół usługi Azure Wyszukiwanie poznawcze publikuje nowe 
 Ta sama reguła dotyczy aktualizacji zestawu SDK. Zestaw SDK platformy Azure Wyszukiwanie poznawcze jest zgodny z regułami [wersji semantycznej](https://semver.org/) , co oznacza, że jej wersja ma trzy części: główna, pomocnicza i numer kompilacji (na przykład 1.1.0). Nowa główna wersja zestawu SDK jest wydawana tylko dla zmian, które Przerwij zgodność z poprzednią wersją. Niekrytyczne aktualizacje funkcji spowodują zwiększenie wersji pomocniczej, a poprawki błędów spowodują zwiększenie wersji kompilacji.
 
 > [!Important]
-> Zestawy Azure SDK dla platform .NET, Java, Python i JavaScript wdrażają nowe biblioteki klienckie dla Wyszukiwanie poznawcze platformy Azure. Obecnie żadna z bibliotek zestawu Azure SDK nie obsługuje najnowszych interfejsów API REST wyszukiwania (2020-06-30) lub interfejsów API REST zarządzania (2020-03-13), ale ta zmiana zostanie zmieniona z upływem czasu. Możesz okresowo sprawdzać Tę stronę lub [nowości](whats-new.md) dotyczące ogłoszeń dotyczących ulepszeń funkcjonalnych. 
+> Zestawy Azure SDK dla platform .NET, Java, Python i JavaScript wdrażają nowe biblioteki klienckie dla Wyszukiwanie poznawcze platformy Azure. Obecnie żadna z bibliotek zestawu Azure SDK nie obsługuje najnowszych interfejsów API REST wyszukiwania (2020-06-30) lub interfejsów API REST zarządzania (2020-03-13), ale ta zmiana zostanie zmieniona z upływem czasu. Możesz okresowo sprawdzać Tę stronę lub [nowości](whats-new.md) dotyczące ogłoszeń dotyczących ulepszeń funkcjonalnych.
+
+<a name="unsupported-versions"></a>
+
+## <a name="unsupported-versions"></a>Nieobsługiwane wersje
+
+Uaktualnij istniejące rozwiązania wyszukiwania do najnowszej wersji interfejsu API REST do 15 października 2020. W tym czasie następujące wersje interfejsu API REST usługi Azure Wyszukiwanie poznawcze zostaną wycofane i nie będą już obsługiwane:
+
++ **2015-02-28**
++ **2015-02-28 — wersja zapoznawcza**
++ **2014-07-31 — wersja zapoznawcza**
++ **2014-10-20 — wersja zapoznawcza**
+
+Ponadto wersje zestawu SDK platformy Azure Wyszukiwanie poznawcze platformy .NET starsze niż [**3.0.0-RC**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) również zostaną wycofane, ponieważ są przeznaczone dla jednej z tych wersji interfejsu API REST. 
+
+Po tej dacie aplikacje używające dowolnego przestarzałego interfejsu API REST lub wersji zestawu SDK przestaną działać i muszą zostać uaktualnione. Podobnie jak w przypadku każdej zmiany tego typu, firma Microsoft może uzyskać odpowiedni czas na dostosowanie.
+
+Aby nadal korzystać z usługi Azure Wyszukiwanie poznawcze, należy przeprowadzić migrację istniejącego kodu przeznaczonego dla [interfejsu API REST](search-api-migration.md) do [interfejsu API rest w wersji 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) lub do nowszego zestawu SDK do 15 października 2020.  Jeśli masz pytania dotyczące aktualizowania do najnowszej wersji, Wyślij wiadomość e-mail do azuresearch_contact@microsoft.com 15 maja 2020, aby upewnić się, że masz wystarczająco dużo czasu na zaktualizowanie kodu.
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
@@ -40,16 +57,16 @@ Utwórz zawartość usługi Search i zarządzaj nią.
 |-------------------------|--------|------------------------------|
 | [Wyszukiwanie 2020-06-30](/rest/api/searchservice/index)| Stable | Najnowsza stabilna wersja interfejsów API REST wyszukiwania, z zaawansowaniem oceny przydatności i ogólnie dostęp do sklepu z bazami danych.|
 | [Wyszukiwanie 2020-06-30-Preview](/rest/api/searchservice/index-preview)| Wersja zapoznawcza | Wersja zapoznawcza skojarzona z stabilną wersją. Zawiera wiele [funkcji w wersji zapoznawczej](search-api-preview.md). |
-| Wyszukiwanie 2019-05-06 | Stable | Dodaje [typy złożone](search-howto-complex-data-types.md). |
+| Wyszukiwanie 2019-05-06 | Stable  | Dodaje [typy złożone](search-howto-complex-data-types.md). |
 | Wyszukiwanie 2019-05-06 — wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza skojarzona z stabilną wersją. |
-| Wyszukaj 2017-11-11 | Stable  | Dodaje [wzbogacanie](cognitive-search-concept-intro.md)umiejętności i AI. |
+| Wyszukaj 2017-11-11 | Stable | Dodaje [wzbogacanie](cognitive-search-concept-intro.md)umiejętności i AI. |
 | Wyszukiwanie 2017-11-11 — wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza skojarzona z stabilną wersją. |
 | Wyszukaj 2016-09-01 |Stable | Dodaje [indeksatory](search-indexer-overview.md). |
 | Wyszukiwanie 2016-09-01 — wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza skojarzona z stabilną wersją.|
-| Wyszukaj 2015-02-28 | Stable  | Pierwsza ogólnie dostępna wersja.  |
-| Wyszukiwanie 2015-02-28 — wersja zapoznawcza | Wersja zapoznawcza | Wersja zapoznawcza skojarzona z stabilną wersją. |
-| Wyszukiwanie 2014-10-20 — wersja zapoznawcza | Wersja zapoznawcza | Druga publiczna wersja zapoznawcza. |
-| Wyszukiwanie 2014-07-31 — wersja zapoznawcza | Wersja zapoznawcza | Pierwsza publiczna wersja zapoznawcza. |
+| Wyszukaj 2015-02-28 | Nieobsługiwane po 10-10-2020   | Pierwsza ogólnie dostępna wersja.  |
+| Wyszukiwanie 2015-02-28 — wersja zapoznawcza | Nieobsługiwane po 10-10-2020  | Wersja zapoznawcza skojarzona z stabilną wersją. |
+| Wyszukiwanie 2014-10-20 — wersja zapoznawcza | Nieobsługiwane po 10-10-2020 | Druga publiczna wersja zapoznawcza. |
+| Wyszukiwanie 2014-07-31 — wersja zapoznawcza | Nieobsługiwane po 10-10-2020  | Pierwsza publiczna wersja zapoznawcza. |
 
 ### <a name="management-rest-apis"></a>Interfejsy API REST zarządzania
 
@@ -64,8 +81,7 @@ Utwórz i skonfiguruj usługę wyszukiwania oraz Zarządzaj kluczami interfejsu 
 
 ## <a name="azure-sdk-for-net"></a>Zestaw Azure SDK dla platformy .NET
 
-Historia wersji pakietu jest dostępna w witrynie NuGet.org. Ta tabela zawiera linki do poszczególnych stron pakietu.
-
+Poniższa tabela zawiera linki do nowszych wersji zestawu SDK. 
 
 | Wersja zestawu SDK | Stan | Opis |
 |-------------|--------|------------------------------|
@@ -73,6 +89,8 @@ Historia wersji pakietu jest dostępna w witrynie NuGet.org. Ta tabela zawiera l
 | [Microsoft. Azure. Search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Wydanie może 2019. Jest przeznaczony dla interfejsu API REST wyszukiwania — Version = 2019-05-06.|
 | [Microsoft. Azure. Search 8,0 — wersja zapoznawcza](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Wersja zapoznawcza | wydana kwiecień 2019. Celem interfejsu API REST wyszukiwania — wersja = 2019-05 -06-Preview.|
 | [Microsoft. Azure. Management. Search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Jest przeznaczony dla interfejsu API REST zarządzania — Version = 2015-08-19.  |
+
+Aby uzyskać więcej informacji na temat wcześniejszych wersji Microsoft. Azure. Search, przejdź do [strony pakietu NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search/) dla dowolnej wersji, przewiń w dół do pozycji **historia wersji**i rozwiń sekcję, aby wyświetlić pełną listę wydań.
 
 ## <a name="azure-sdk-for-java"></a>Zestaw Azure SDK dla języka Java
 

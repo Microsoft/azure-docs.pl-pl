@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039827"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948865"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze
 
@@ -25,7 +25,7 @@ Przed uzyskaniem dostępu do niektórych aplikacji w chmurze w Twoim środowisku
 - Prosta metoda konfigurowania warunków użytkowania
 - Opcja wymaga zaakceptowania warunków użytkowania za pomocą zasad dostępu warunkowego  
 
-Ten przewodnik Szybki Start przedstawia sposób konfigurowania [zasad dostępu warunkowego usługi Azure AD](../active-directory-conditional-access-azure-portal.md) , które wymagają zaakceptowania warunków użytkowania dla wybranej aplikacji w chmurze w danym środowisku.
+Ten przewodnik Szybki Start przedstawia sposób konfigurowania [zasad dostępu warunkowego usługi Azure AD](./overview.md) , które wymagają zaakceptowania warunków użytkowania dla wybranej aplikacji w chmurze w danym środowisku.
 
 ![Tworzenie zasad](./media/require-tou/5555.png)
 
@@ -82,7 +82,7 @@ Ta sekcja zawiera instrukcje dotyczące tworzenia przykładowej warunków użytk
    1. Jako **Język**wybierz pozycję **angielski**.
    1. **Aby użytkownicy mogli rozwijać warunki użytkowania**, wybierz pozycję **włączone**.
    1. Jako **wymuszanie przy użyciu szablonów zasad dostępu warunkowego**, wybierz pozycję **zasady niestandardowe**.
-   1. Kliknij pozycję **Utwórz**.
+   1. Kliknij przycisk **Utwórz**.
 
 ## <a name="create-your-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -146,7 +146,7 @@ W zasadach ustaw następujące ustawienia:
 
    ![Włącz zasady](./media/require-tou/18.png)
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Oceń symulowane logowanie
 
@@ -206,7 +206,7 @@ Gdy nie jest już potrzebne, Usuń użytkownika testowego i zasady dostępu waru
 
     ![Uwierzytelnianie wieloskładnikowe](./media/require-tou/29.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
-> [Wymaganie uwierzytelniania MFA dla określonych aplikacji](app-based-mfa.md)
+> [Wymaganie uwierzytelniania MFA dla określonych aplikacji](../authentication/tutorial-enable-azure-mfa.md)

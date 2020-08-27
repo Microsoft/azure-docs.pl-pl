@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 29fe1a7a05085d8751e249d58b64b31e6ff3dac1
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: fd406535b00ed0e25f44d875ee9b5fe716971bab
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432478"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950055"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Dodatek programu Excel dla usług sieci Web Azure Machine Learning Studio (klasyczny)
 
@@ -28,7 +28,10 @@ Program Excel ułatwia wywoływanie usług sieci Web bezpośrednio bez konieczno
 1. Otwórz [przykładowy plik programu Excel](https://aka.ms/amlexcel-sample-2), który zawiera dodatek programu Excel i dane dotyczące pasażerów w Titanic. 
  
     > [!NOTE]
-    > Zostanie wyświetlona lista usług sieci Web związanych z plikiem i u dołu pola wyboru "autoprzewidywania". Jeśli włączysz funkcję autoprzewidywania, prognozy **wszystkich** usług zostaną zaktualizowane po każdym wprowadzeniu zmiany w danych wejściowych. W przypadku usunięcia zaznaczenia należy kliknąć pozycję "przewidywanie wszystkich" do odświeżenia. Aby włączyć funkcję autoprzewidywania na poziomie usługi, przejdź do kroku 6.
+    > - Zostanie wyświetlona lista usług sieci Web związanych z plikiem i u dołu pola wyboru "autoprzewidywania". Jeśli włączysz funkcję autoprzewidywania, prognozy **wszystkich** usług zostaną zaktualizowane po każdym wprowadzeniu zmiany w danych wejściowych. W przypadku usunięcia zaznaczenia należy kliknąć pozycję "przewidywanie wszystkich" do odświeżenia. Aby włączyć funkcję autoprzewidywania na poziomie usługi, przejdź do kroku 6.
+    > - Dodatek do Azure Machine Learning programu Excel wywoła magazyn dodatków pakietu Office do załadowania. Jeśli organizacja zablokuje dostęp do sklepu dodatków pakietu Office, podczas ładowania dodatku zostanie wyświetlony komunikat o błędzie. W takim przypadku należy wdrożyć dodatek Azure Machine Learning programu Excel z poziomu Centrum administracyjnego Microsoft 365. Następnie należy wywoływać dodatek i ręcznie dodać usługę sieci Web, wklejając adres URL i klucz interfejsu API.
+
+ 
 
 2. Wybierz usługę sieci Web, klikając ją — w tym przykładzie zostanie wyTitanic predykcyjny (przykład dodatku w programie Excel) [score] ".
    

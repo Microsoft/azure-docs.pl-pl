@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295321"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948389"
 ---
 # <a name="building-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
@@ -44,7 +44,7 @@ Zasady mogą zawierać wiele [warunków](concept-conditional-access-conditions.m
 
 #### <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
 
-W przypadku organizacji z [Azure AD Identity Protection](../identity-protection/overview.md)wykryte wykrycia ryzyka mogą mieć wpływ na zasady dostępu warunkowego.
+W przypadku organizacji z [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)wykryte wykrycia ryzyka mogą mieć wpływ na zasady dostępu warunkowego.
 
 #### <a name="device-platforms"></a>Platformy urządzeń
 
@@ -115,17 +115,17 @@ Administratorzy mogą wybrać, aby wymagać jednej z powyższych kontrolek lub w
 Zasady dostępu warunkowego muszą zawierać co najmniej następujące elementy, które mają zostać wymuszone:
 
 - **Nazwa** zasad.
-- **Przypisani**
+- **Przypisania**
    - **Użytkownicy i/lub grupy** , do których mają być stosowane zasady.
    - **Aplikacje w chmurze lub akcje** , do których mają zostać zastosowane zasady.
-- **Kontrola dostępu**
+- **Kontrole dostępu**
    - **Udziel** lub **Blokuj** kontrolki
 
 ![Puste zasady dostępu warunkowego](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
 Artykuł [typowe zasady dostępu warunkowego](concept-conditional-access-policy-common.md) obejmują pewne zasady, które będą przydatne dla większości organizacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)
 

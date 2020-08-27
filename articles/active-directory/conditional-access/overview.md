@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6475fc61502a82844605ba267db5f8da984c8de6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234707"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948882"
 ---
 # <a name="what-is-conditional-access"></a>Co to jest dostęp warunkowy?
 
@@ -96,10 +96,10 @@ Dowiedz się, w jaki sposób inne organizacje używają dostępu warunkowego us�
 
 Klienci z [licencjami na Microsoft 365 Business Premium](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) mają również dostęp do funkcji dostępu warunkowego. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Kompilowanie zasad dostępu warunkowego przez element](concept-conditional-access-policies.md)
 - [Planowanie wdrażania dostępu warunkowego](plan-conditional-access.md)
-- [Informacje na temat ochrony tożsamości](../identity-protection/overview-v2.md)
+- [Informacje na temat ochrony tożsamości](../identity-protection/overview-identity-protection.md)
 - [Dowiedz się więcej o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 - [Dowiedz się więcej o Microsoft Intune](/intune/index)

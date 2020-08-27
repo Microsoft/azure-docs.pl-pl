@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
-ms.openlocfilehash: 621d39a684495edadf6c3134635ade6b86a4ab77
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 747d780b8f679adf66810bdcdf6e9b263e8d241c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798231"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923759"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Zestawy danych w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-create-datasets.md)
 > * [Bieżąca wersja](concepts-datasets-linked-services.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 W tym artykule opisano zestawy danych, sposób ich definiowania w formacie JSON oraz sposób ich użycia w potokach Azure Data Factory.
@@ -69,10 +69,10 @@ W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
 Właściwość | Opis | Wymagane |
 -------- | ----------- | -------- |
-name | Nazwa zestawu danych. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Tak |
-typ | Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: DelimitedText, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [typy zestawów danych](#dataset-type). | Tak |
+name | Nazwa zestawu danych. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Yes |
+typ | Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: DelimitedText, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [typy zestawów danych](#dataset-type). | Yes |
 schema | Schemat zestawu danych, reprezentujący fizyczny typ danych i kształt. | Nie |
-typeProperties | Właściwości typu są różne dla każdego typu. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów i ich właściwości, zobacz [Typ zestawu danych](#dataset-type). | Tak |
+typeProperties | Właściwości typu są różne dla każdego typu. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów i ich właściwości, zobacz [Typ zestawu danych](#dataset-type). | Yes |
 
 Podczas importowania schematu zestawu danych wybierz przycisk **Importuj schemat** , a następnie wybierz pozycję Importuj ze źródła lub z pliku lokalnego. W większości przypadków schemat zostanie zaimportowany bezpośrednio ze źródła. Jeśli jednak masz już lokalny plik schematu (plik Parquet lub CSV z nagłówkami), możesz skierować Data Factory, aby oprzeć schemat na tym pliku.
 

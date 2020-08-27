@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ea039526b9434501b60ed6ccf762f45625b26
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994973"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948151"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Konfigurowanie zasad dostępu warunkowego w trybie tylko do raportowania
 
@@ -51,8 +51,8 @@ Aby wyświetlić wynik zasad dotyczących tylko raportów dotyczących określon
 
 Aby wyświetlić zagregowany wpływ zasad dostępu warunkowego przy użyciu nowego skoroszytu dostępu warunkowego, należy zintegrować Azure Monitor z usługą Azure AD i wyeksportować dzienniki logowania. Aby skonfigurować tę integrację, należy wykonać dwie czynności: 
 
-1. [Zarejestruj się, aby uzyskać subskrypcję Azure monitor i utworzyć obszar roboczy](/azure/azure-monitor/learn/quick-create-workspace).
-1. [Wyeksportuj dzienniki logowania z usługi Azure AD do Azure monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Zarejestruj się, aby uzyskać subskrypcję Azure monitor i utworzyć obszar roboczy](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Wyeksportuj dzienniki logowania z usługi Azure AD do Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 Więcej informacji o cenach Azure Monitor można znaleźć na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Zasoby do oszacowania kosztów, ustawiania dziennego limitu lub dostosowywania okresu przechowywania danych można znaleźć w artykule, [zarządzać użyciem i kosztami z dzienników Azure monitor](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 
@@ -85,7 +85,7 @@ Klienci zauważyły, że zapytania czasami kończą się niepowodzeniem, jeśli 
 
 Lista rozwijana zasady dostępu warunkowego jest wypełniana przez wykonywanie zapytań dotyczących najnowszych logowań w okresie 4 godzin. Jeśli dzierżawa nie ma żadnych logowań w ciągu ostatnich 4 godzin, istnieje możliwość, że lista rozwijana będzie pusta. Jeśli to opóźnienie jest problemem trwałym, takim jak w małych dzierżawach z rzadko występującymi logowaniami, Administratorzy mogą edytować zapytanie dla listy rozwijanej zasady dostępu warunkowego i wydłużyć czas wykonywania zapytania na czas dłuższy niż 4 godziny.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 

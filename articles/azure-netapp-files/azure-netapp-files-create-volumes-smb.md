@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: 3299865837bd14566cca54ec84b2dce452c633da
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e85a78582c0f7aac188198ad91f9ac91ddf62961
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080511"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950378"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
 Azure NetApp Files obsługuje tworzenie woluminów przy użyciu systemu plików NFS (NFSv3 i NFSv 4.1), SMBv3 lub Dual Protocol (NFSv3 i SMB). Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli. W tym artykule pokazano, jak utworzyć wolumin SMBv3.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz 
+## <a name="before-you-begin"></a>Przed rozpoczęciem 
 Potrzebujesz skonfigurowanej puli pojemności.   
 [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)   
 Podsieć musi być delegowana do usługi Azure NetApp Files.  
@@ -102,7 +102,7 @@ Aby znaleźć nazwę witryny podczas korzystania z dodawania, możesz skontaktow
 
 Podczas konfigurowania połączenia z usługą AD dla Azure NetApp Files należy określić nazwę lokacji w polu zakres dla **nazwy witryny usługi AD** .
 
-### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 
+### <a name="azure-active-directory-domain-services"></a>Usługi Azure Active Directory Domain Services 
 
 Aby uzyskać informacje na temat konfiguracji Azure Active Directory Domain Services (AADDS) i wskazówki, zobacz [dokumentację dotyczącą Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
@@ -177,6 +177,8 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
+        
+        Możesz również użyć poleceń interfejsu wiersza polecenia platformy Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) , [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
 
     * Poświadczenia, w tym **Nazwa użytkownika** i **hasło**
 
@@ -237,7 +239,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
 4. Kliknij pozycję **Protokół** i wykonaj następujące informacje:  
     * Wybierz opcję **SMB** jako typ protokołu dla woluminu. 
     * Wybierz połączenie **Active Directory** z listy rozwijanej.
-    * Określ nazwę udostępnionego woluminu w polu **Nazwa udziału**.
+    * Określ nazwę udostępnionego woluminu w polu  **Nazwa udziału**.
 
     ![Określ protokół SMB](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
@@ -264,7 +266,7 @@ Uprawnienia do pliku lub folderu można ustawić przy użyciu karty **zabezpiecz
  
 ![Ustawianie uprawnień do plików i folderów](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
-## <a name="next-steps"></a>Następne kroki  
+## <a name="next-steps"></a>Kolejne kroki  
 
 * [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)

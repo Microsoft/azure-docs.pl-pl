@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80546264"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927208"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Dostosowanie pojemności na platformie Azure Wyszukiwanie poznawcze
 
@@ -21,7 +21,7 @@ Przed [zainicjowaniem obsługi administracyjnej usługi wyszukiwania](search-cre
 
 Pojemność to funkcja [wybranej warstwy](search-sku-tier.md) (warstwy określają charakterystykę sprzętu) oraz kombinacji replik i partycji potrzebnych do prognozowania obciążeń. W zależności od warstwy i rozmiaru korekty dodanie lub zmniejszenie pojemności może zająć od 15 minut do kilku godzin. 
 
-Podczas modyfikowania alokacji replik i partycji zalecamy używanie Azure Portal. Portal wymusza limity dla dozwolonych kombinacji, które pozostają poniżej maksymalnych limitów warstwy. Jeśli jednak wymagasz metody inicjowania obsługi opartej na skrypcie lub kodzie, [Azure PowerShell](search-manage-powershell.md) lub [interfejs API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/services) są rozwiązaniami alternatywnymi.
+Podczas modyfikowania alokacji replik i partycji zalecamy używanie Azure Portal. Portal wymusza limity dla dozwolonych kombinacji, które pozostają poniżej maksymalnych limitów warstwy. Jeśli jednak wymagasz metody inicjowania obsługi opartej na skrypcie lub kodzie, [Azure PowerShell](search-manage-powershell.md) lub [interfejs API REST zarządzania](/rest/api/searchmanagement/services) są rozwiązaniami alternatywnymi.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: repliki i partycje
 
@@ -89,7 +89,7 @@ Wszystkie usługi wyszukiwania zoptymalizowane pod kątem standardowej i magazyn
 | **4 repliki** |4 SU |8 SU |12 SU |16 SU |24 SU |Nie dotyczy |
 | **5 replik** |5 SU |10 SU |15 SU |20 SU |30 SU |Nie dotyczy |
 | **6 replik** |6 SU |12 SU |18 SU |24 SU |36 SU |Nie dotyczy |
-| **12 replik** |12 SU |24 SU |36 SU |Nie dotyczy |Nie dotyczy |Nie dotyczy |
+| **12 replik** |12 SU |24 SU |36 SU |NIE DOTYCZY |NIE DOTYCZY |NIE DOTYCZY |
 
 W witrynie sieci Web systemu Azure szczegółowo objaśniono usługi SUs, cennik i pojemność. Aby uzyskać więcej informacji, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/search/).
 

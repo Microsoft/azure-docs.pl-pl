@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414942"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949964"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Informacje o cenach usługi Data Factory w ramach przykładów
 
@@ -167,7 +167,47 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
   - Uruchomienia działania = 001 \* 2 = 0,002 [1 Run = $1/1000 = 0,001]
   - Działania związane z przepływem danych = $1,461 proporcjonalnie do 20 minut (czas wykonywania w 10 minutach + 10 minut TTL). $0.274/godzinę w Azure Integration Runtime z 16 rdzeniami ogólnymi obliczeniowymi
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Integracja danych w Azure Data Factory zarządzanej sieci wirtualnej
+W tym scenariuszu chcesz usunąć oryginalne pliki na platformie Azure Blob Storage i skopiować dane z Azure SQL Database do usługi Azure Blob Storage. To wykonanie jest dwa razy dla różnych potoków. Czas wykonywania tych dwóch potoków nakłada się na siebie.
+![Scenario4 ](media/pricing-concepts/scenario-4.png) do osiągnięcia scenariusza, należy utworzyć dwa potoki z następującymi elementami:
+  - Działanie potoku — usuwanie działania.
+  - Działanie kopiowania z wejściowym zestawem danych, który ma być kopiowany z usługi Azure Blob Storage.
+  - Wyjściowy zestaw danych na Azure SQL Database.
+  - Harmonogram wyzwala wykonywanie potoku.
+
+
+| **Operacje** | **Typy i jednostki** |
+| --- | --- |
+| Utwórz połączoną usługę | 4 jednostka do odczytu i zapisu |
+| Tworzenie zestawów danych | 8 jednostek odczytu/zapisu (4 dla tworzenia zestawu danych, 4 dla odwołań do połączonych usług) |
+| Utwórz potok | 6 jednostek odczytu/zapisu (2 dla tworzenia potoku, 4 dla odwołań do zestawu danych) |
+| Pobierz potok | 2 jednostka do odczytu i zapisu |
+| Uruchom potok | 6 uruchomień działania (2 dla uruchomienia wyzwalacza, 4 dla uruchomień działania) |
+| Wykonaj działanie usuwania: każdy czas wykonywania = 5 minut. Wykonanie działania usuwania w pierwszym potoku to od 10:00 czasu UTC do 10:05 czasu UTC. Wykonanie działania usuwania w drugim potoku to od 10:02 czasu UTC do 10:07 czasu UTC.|Łącznie 7 min wykonywania działania potoku w zarządzanej sieci wirtualnej. Działanie potoku obsługuje do 50 współbieżności w zarządzanej sieci wirtualnej. |
+| Kopiowanie danych założeń: każdy czas wykonywania = 10 min. Wykonanie kopii w pierwszym potoku to od 10:06 czasu UTC do 10:15 czasu UTC. Wykonanie działania usuwania w drugim potoku to od 10:08 czasu UTC do 10:17 czasu UTC. | 10 * 4 Azure Integration Runtime (domyślne ustawienie DIU = 4) Aby uzyskać więcej informacji o jednostkach integracji danych i optymalizowaniu wydajności kopiowania, zobacz [ten artykuł](copy-activity-performance.md) . |
+| Monitorowanie założeń potoku: wystąpiły tylko 2 uruchomienia | 6 ponownych prób uruchomienia monitorowania (2 dla uruchomienia potoku, 4 dla uruchomienia działania) |
+
+
+**Łączny Cennik scenariusza: $0,45523**
+
+- Operacje Data Factory = $0,00023
+  - Odczyt/zapis = 20 * 00001 = $0,0002 [1 R/W = $0,50/50000 = 0,00001]
+  - Monitorowanie = 6 * 000005 = $0,00003 [1 Monitorowanie = $0,25/50000 = 0,000005]
+- Organizowanie potoku & wykonywania = $0,455
+  - Uruchomienia działania = 0,001 * 6 = 0,006 [1 Run = $1/1000 = 0,001]
+  - Działania przenoszenia danych = $0,333 (proporcjonalnie do 10 minut czasu wykonywania. $0,25/godz. w Azure Integration Runtime)
+  - Działanie potoku = $0,116 (proporcjonalnie do 7 minut czasu wykonywania. $1/godzinę w Azure Integration Runtime)
+
+> [!NOTE]
+> Te ceny są wyłącznie na przykład.
+
+**Często zadawane pytania**
+
+P: Jeśli chcę uruchomić więcej niż 50 działań potoku, czy te działania mogą być wykonywane jednocześnie?
+
+Odp.: dozwolone są maksymalnie 50 współbieżnych działań potokowych.  Działanie potoku 51th będzie umieszczane w kolejce do momentu otwarcia okna "wolne miejsce". Ta sama dla działania zewnętrznego. Dozwolone są maksymalnie 800 współbieżne działania zewnętrzne.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy rozumiesz Cennik Azure Data Factory, możesz rozpocząć pracę.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232342"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949178"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection słownik
 
@@ -26,7 +26,7 @@ Użytkownik, który ma co najmniej jedno aktywne wykrywanie zagrożeń.
 ### <a name="atypical-sign-in-location"></a>Nietypowa lokalizacja logowania
 Logowanie z lokalizacji geograficznej, która nie jest typowa dla określonego użytkownika, podobnych użytkowników lub dzierżawcy.
 
-### <a name="azure-ad-identity-protection"></a>Usługa Azure AD Identity Protection
+### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
 Moduł zabezpieczeń Azure Active Directory, który zapewnia skonsolidowany wgląd w wykrywanie ryzyka i potencjalne luki w zabezpieczeniach wpływających na tożsamości organizacji.
 
 ### <a name="conditional-access"></a>Dostęp warunkowy
@@ -35,7 +35,7 @@ Zasady zabezpieczające dostęp do zasobów. Reguły dostępu warunkowego są pr
 ### <a name="credentials"></a>Poświadczenia
 Informacje, które obejmują identyfikację i weryfikację tożsamości, która jest używana do uzyskiwania dostępu do zasobów lokalnych i sieciowych. Przykładami poświadczeń są nazwy i hasła użytkowników, karty inteligentne i certyfikaty.
 
-### <a name="event"></a>Wydarzenie
+### <a name="event"></a>Zdarzenie
 Rekord działania w Azure Active Directory.
 
 ### <a name="false-positive-risk-detection"></a>FAŁSZ — pozytywne (wykrywanie ryzyka)
@@ -56,10 +56,10 @@ Wykrywanie ryzyka wyzwalane w przypadku wykrycia dwóch logowań dla tego samego
 ### <a name="investigation"></a>Badanie
 Proces przeglądania działań, dzienników i innych istotnych informacji związanych z wykrywaniem ryzyka w celu podjęcia decyzji o tym, czy kroki zaradcze lub zaradcze są niezbędne, zrozumieć, czy i w jaki sposób została naruszona tożsamość, oraz zrozumieć, jak została wykorzystana tożsamość.
 
-### <a name="leaked-credentials"></a>Nieujawnione poświadczenia
+### <a name="leaked-credentials"></a>Ujawnione poświadczenia
 Wykrycie ryzyka wyzwalane, gdy bieżące poświadczenia użytkownika (nazwa użytkownika i hasło) zostaną opublikowane publicznie w ciemnej sieci Web przez naszych pracowników.
 
-### <a name="mitigation"></a>Środki zaradcze
+### <a name="mitigation"></a>Ograniczanie ryzyka
 Akcja ograniczająca lub eliminująca zdolność osoby atakującej do korzystania ze złamanej tożsamości lub urządzenia bez przywracania tożsamości lub urządzenia do stanu bezpiecznego. Środki zaradcze nie rozwiązują poprzednich wykryć ryzyka skojarzonych z tożsamością lub urządzeniem.
 
 ### <a name="multi-factor-authentication"></a>Uwierzytelnianie wieloskładnikowe
@@ -89,13 +89,13 @@ Wykrywanie anomalii i oceny ryzyka zdarzenia, takiego jak próba logowania, zani
 ### <a name="remediated-risk-detection"></a>Skorygowane (wykrywanie ryzyka)
 Stan wykrywania ryzyka ustawiany automatycznie przez ochronę tożsamości, co oznacza, że wykrywanie ryzyka zostało skorygowane przy użyciu standardowej akcji korygowania tego typu wykrywania ryzyka. Na przykład, gdy hasło użytkownika zostanie zresetowane, wykrycie wielu zagrożeń wskazujące na naruszenie bezpieczeństwa poprzedniego hasła jest automatycznie korygowane.
 
-### <a name="remediation"></a>Korekty
+### <a name="remediation"></a>Korygowanie
 Akcja zabezpieczania tożsamości lub urządzenia, które zostały wcześniej podejrzane lub uznane za zagrożone. Akcja korygowania przywraca tożsamość lub urządzenie do stanu bezpiecznego i rozwiązuje poprzednie wykrywanie ryzyka skojarzone z tożsamością lub urządzeniem.
 
 ### <a name="resolved-risk-detection"></a>Rozwiązano (wykrywanie ryzyka)
 Stan wykrywania ryzyka ustawiany ręcznie przez użytkownika ochrony tożsamości, wskazujący, że użytkownik wykonał odpowiednią akcję naprawczą poza usługą Identity Protection, oraz że wykrywanie ryzyka powinno być uznawane za zamknięte.
 
-### <a name="risk-detection-status"></a>Stan wykrywania ryzyka
+### <a name="risk-detection-status"></a>Stan wykrycia ryzyka
 Właściwość wykrywania ryzyka wskazująca, czy zdarzenie jest aktywne, a jeśli jest zamknięte, powód jego zamknięcia.
 
 ### <a name="risk-detection-type"></a>Typ wykrywania ryzyka
@@ -140,16 +140,16 @@ Wykrycie ryzyka wyzwalane po pomyślnym zalogowaniu się użytkownika z nowej lo
 ### <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
 Zobacz poziom ryzyka (logowanie)
 
-### <a name="sign-in-risk-policy"></a>Zasady dotyczące ryzyka związanego z logowaniem
+### <a name="sign-in-risk-policy"></a>Zasady ryzyka związanego z logowaniem
 Zasady dostępu warunkowego, które szacują ryzyko związane z określonym logowaniem i stosują środki zaradcze na podstawie wstępnie zdefiniowanych warunków i reguł.
 
 ### <a name="user-compromise-risk"></a>Zagrożenie naruszenia użytkownika
 Zobacz poziom ryzyka (naruszenie użytkownika)
 
-### <a name="user-risk"></a>Ryzyko użytkownika
+### <a name="user-risk"></a>Ryzyko związane z użytkownikiem
 Zobacz poziom ryzyka (naruszenie użytkowników).
 
-### <a name="user-risk-policy"></a>Zasady ryzyka dla użytkowników
+### <a name="user-risk-policy"></a>Zasady ryzyka związanego z użytkownikiem
 Zasady dostępu warunkowego, które traktują logowanie i stosują środki zaradcze na podstawie wstępnie zdefiniowanych warunków i reguł.
 
 ### <a name="users-flagged-for-risk"></a>Użytkownicy oflagowani w związku z ryzykiem
@@ -158,6 +158,6 @@ Użytkownicy, którzy mają wykryte zagrożenia, które są aktywne lub skorygow
 ### <a name="vulnerability"></a>Problemy
 Konfiguracja lub warunek w Azure Active Directory, który sprawia, że katalog jest podatny na luki w zabezpieczeniach lub zagrożeniach.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-- [Ochrona tożsamości w usłudze Azure Active Directory](../active-directory-identityprotection.md)
+- [Ochrona tożsamości w usłudze Azure Active Directory](./overview-identity-protection.md)

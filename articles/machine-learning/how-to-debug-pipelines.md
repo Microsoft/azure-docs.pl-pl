@@ -5,34 +5,47 @@ description: Debuguj potoki Azure Machine Learning w języku Python. Poznaj typo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: likebupt
-ms.author: keli19
-ms.date: 03/18/2020
+author: lobrien
+ms.author: laobri
+ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: ac8896bae4b3bf36ee6e943581bbf6791401c821
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a036cb4212b0237bea1c8509532dc78d469acb17
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904653"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950157"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak debugować i rozwiązywać problemy z [potokami uczenia maszynowego](concept-ml-pipelines.md) w [zestawach SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) i [Azure Machine Learning Designer (wersja zapoznawcza)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Informacje na ten temat można znaleźć w tematach:
+Ten artykuł zawiera informacje dotyczące rozwiązywania problemów i debugowania [potoków uczenia maszynowego](concept-ml-pipelines.md) w [zestawach SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) i [Azure Machine Learning Designer (wersja zapoznawcza)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
 
-* Debugowanie przy użyciu zestawu SDK Azure Machine Learning
-* Debugowanie za pomocą narzędzia Azure Machine Learning Designer
-* Debuguj przy użyciu Application Insights
-* Debuguj interaktywnie przy użyciu Visual Studio Code (VS Code) i Python Tools for Visual Studio (PTVSD)
+## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 
-## <a name="azure-machine-learning-sdk"></a>Azure Machine Learning SDK
-Poniższe sekcje zawierają omówienie typowych pułapek podczas kompilowania potoków oraz różnych strategii debugowania kodu działającego w potoku. Jeśli masz problemy z uruchamianiem potoku zgodnie z oczekiwaniami, Skorzystaj z poniższych wskazówek.
+Poniższa tabela zawiera typowe problemy podczas tworzenia potoku z potencjalnymi rozwiązaniami.
 
-### <a name="testing-scripts-locally"></a>Lokalne testowanie skryptów
+| Problem | Możliwe rozwiązanie |
+|--|--|
+| Nie można przekazać danych do `PipelineData` katalogu | Upewnij się, że utworzono katalog w skrypcie, który odnosi się do miejsca, w którym potok oczekuje danych wyjściowych kroku. W większości przypadków argument wejściowy określi katalog wyjściowy, a następnie utworzysz katalog jawnie. Użyj polecenia `os.makedirs(args.output_dir, exist_ok=True)` , aby utworzyć katalog wyjściowy. Zapoznaj się z [samouczkiem](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) przykładowego skryptu oceniania, który pokazuje ten Wzorzec projektowy. |
+| Błędy zależności | Jeśli w potoku zdalnym widoczne są błędy zależności, które nie były wykonywane podczas lokalnego testowania, potwierdź zależności środowiska zdalnego i wersje zgodne z wymaganiami w środowisku testowym. (Zobacz [Tworzenie środowiska, buforowanie i ponowne używanie](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
+| Niejednoznaczne błędy z obiektami docelowymi obliczeń | Spróbuj usunąć i ponownie utworzyć cele obliczeniowe. Ponowne tworzenie obiektów docelowych obliczeń jest szybkie i może rozwiązać pewne problemy przejściowe. |
+| Potok nie wykorzystał się z kroków | Ponowne użycie kroku jest włączone domyślnie, ale upewnij się, że nie zostało wyłączone w kroku potoku. Jeśli ponowne użycie jest wyłączone, `allow_reuse` parametr w kroku zostanie ustawiony na `False` . |
+| Potok jest niepotrzebny. | Aby zapewnić, że kroki mają zostać uruchomione ponownie tylko wtedy, gdy ich dane podstawowe lub skrypty zmienią się, należy rozdzielić katalogi kodu źródłowego dla każdego kroku. Jeśli używasz tego samego katalogu źródłowego dla wielu kroków, może wystąpić niepotrzebne wykonanie ponownie. Użyj `source_directory` parametru w obiekcie krok potoku, aby wskazać odizolowany katalog dla tego kroku, i upewnij się, że nie używasz tej samej `source_directory` ścieżki dla wielu kroków. |
 
-Jeden z najczęstszych błędów w potoku polega na tym, że dołączony skrypt (skrypt czyszczący dane, skrypt oceniania itp.) nie jest uruchomiony zgodnie z oczekiwaniami lub zawiera błędy środowiska uruchomieniowego w zdalnym kontekście obliczeniowym, które są trudne do debugowania w obszarze roboczym w Azure Machine Learning Studio. 
+
+## <a name="debugging-techniques"></a>Techniki debugowania
+
+Istnieją trzy główne techniki dla potoków debugowania: 
+
+* Debuguj poszczególne etapy potoku na komputerze lokalnym
+* Użyj rejestrowania i Application Insights, aby wyizolować i zdiagnozować źródło problemu
+* Dołącz zdalny debuger do potoku uruchomionego na platformie Azure
+
+### <a name="debug-scripts-locally"></a>Lokalne debugowanie skryptów
+
+Jeden z najczęstszych błędów w potoku polega na tym, że skrypt domeny nie działa zgodnie z oczekiwaniami lub zawiera błędy środowiska uruchomieniowego w zdalnym kontekście obliczeniowym, które są trudne do debugowania.
 
 Potoki same nie mogą być uruchamiane lokalnie, ale uruchamianie skryptów w izolacji na komputerze lokalnym pozwala na szybsze debugowanie, ponieważ nie trzeba czekać na proces tworzenia i kompilowania środowiska. Aby to zrobić, należy wykonać następujące czynności:
 
@@ -49,41 +62,9 @@ Po skonfigurowaniu skryptu do uruchomienia w środowisku lokalnym można znaczni
 > [!TIP] 
 > Po sprawdzeniu, czy skrypt działa zgodnie z oczekiwaniami, dobrym następnym krokiem jest uruchomienie skryptu w potoku jednoetapowym przed podjęciem próby uruchomienia go w potoku z wieloma krokami.
 
-### <a name="debugging-scripts-from-remote-context"></a>Debugowanie skryptów z kontekstu zdalnego
+## <a name="configure-write-to-and-review-pipeline-logs"></a>Konfigurowanie, zapisywanie i przeglądanie dzienników potoku
 
 Testowanie skryptów lokalnie to doskonały sposób na Debugowanie głównych fragmentów kodu i złożonej logiki przed rozpoczęciem tworzenia potoku, ale w pewnym momencie prawdopodobnie trzeba będzie debugować skrypty w trakcie rzeczywistego uruchomienia potoku, szczególnie podczas diagnozowania zachowań występujących podczas interakcji między krokami potoku. Zalecamy korzystanie z niezliberalizowanych `print()` instrukcji w skryptach kroków, dzięki czemu można zobaczyć stan obiektu i oczekiwane wartości podczas wykonywania zdalnego, podobnie jak w przypadku debugowania kodu JavaScript.
-
-Plik dziennika `70_driver_log.txt` zawiera: 
-
-* Wszystkie wydrukowane instrukcje podczas wykonywania skryptu
-* Ślad stosu dla skryptu 
-
-Aby znaleźć te i inne pliki dziennika w portalu, najpierw kliknij potok uruchomiony w obszarze roboczym.
-
-![Strona listy uruchomień potoku](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Przejdź do strony szczegółów uruchomienia potoku.
-
-![Strona szczegółów uruchomienia potoku](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Kliknij moduł dla określonego kroku. Przejdź do karty **dzienniki** . Inne dzienniki zawierają informacje o procesie kompilacji obrazu środowiska i skryptach przygotowania krokowego.
-
-![Karta dziennika strony szczegółów uruchomienia potoku](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Przebiegi *opublikowanych potoków* można znaleźć na karcie **punkty końcowe** w obszarze roboczym. Przebiegi dla *nieopublikowanych potoków* można znaleźć w **eksperymentach** lub **potokach**.
-
-### <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
-
-Poniższa tabela zawiera typowe problemy podczas tworzenia potoku z potencjalnymi rozwiązaniami.
-
-| Problem | Możliwe rozwiązanie |
-|--|--|
-| Nie można przekazać danych do `PipelineData` katalogu | Upewnij się, że utworzono katalog w skrypcie, który odnosi się do miejsca, w którym potok oczekuje danych wyjściowych kroku. W większości przypadków argument wejściowy określi katalog wyjściowy, a następnie utworzysz katalog jawnie. Użyj polecenia `os.makedirs(args.output_dir, exist_ok=True)` , aby utworzyć katalog wyjściowy. Zapoznaj się z [samouczkiem](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) przykładowego skryptu oceniania, który pokazuje ten Wzorzec projektowy. |
-| Błędy zależności | Jeśli lokalnie opracowano i przetestowano skrypty, ale występują problemy z zależnościami podczas uruchamiania na zdalnym obliczeniu w potoku, upewnij się, że zależności środowiska obliczeniowego i wersje są zgodne ze środowiskiem testowym. (Zobacz [Tworzenie środowiska, buforowanie i ponowne używanie](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
-| Niejednoznaczne błędy z obiektami docelowymi obliczeń | Usunięcie i ponowne utworzenie obiektów docelowych obliczeń może rozwiązać pewne problemy związane z obiektami docelowymi obliczeń. |
-| Potok nie wykorzystał się z kroków | Ponowne użycie kroku jest włączone domyślnie, ale upewnij się, że nie zostało wyłączone w kroku potoku. Jeśli ponowne użycie jest wyłączone, `allow_reuse` parametr w kroku zostanie ustawiony na `False` . |
-| Potok jest niepotrzebny. | Aby zapewnić, że kroki mają zostać uruchomione ponownie tylko wtedy, gdy ich dane podstawowe lub skrypty zmienią się, należy rozdzielić katalogi dla każdego kroku. Jeśli używasz tego samego katalogu źródłowego dla wielu kroków, może wystąpić niepotrzebne wykonanie ponownie. Użyj `source_directory` parametru w obiekcie krok potoku, aby wskazać odizolowany katalog dla tego kroku, i upewnij się, że nie używasz tej samej `source_directory` ścieżki dla wielu kroków. |
 
 ### <a name="logging-options-and-behavior"></a>Opcje rejestrowania i zachowanie
 
@@ -93,7 +74,7 @@ Poniższa tabela zawiera informacje dotyczące różnych opcji debugowania potok
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | Metryka | `run.log(name, val)`                                             | Interfejs użytkownika portalu Azure Machine Learning             | [Jak śledzić eksperymenty](how-to-track-experiments.md)<br>[Azure. Core. Run — Klasa](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Drukowanie w języku Python/rejestrowanie    | Log    | `print(val)`<br>`logging.info(message)`                          | Dzienniki sterowników, Azure Machine Learning Designer | [Jak śledzić eksperymenty](how-to-track-experiments.md)<br><br>[Rejestrowanie w języku Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights — ślady                | [Debugowanie potoków w usłudze Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Eksporterzy biblioteki OpenCensus usługi Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Rejestrowanie w języku Python Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
+| Zestaw OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights — ślady                | [Debugowanie potoków w usłudze Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Eksporterzy biblioteki OpenCensus usługi Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Rejestrowanie w języku Python Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Przykład opcji rejestrowania
 
@@ -127,9 +108,31 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="azure-machine-learning-designer-preview"></a>Projektant Azure Machine Learning (wersja zapoznawcza)
+### <a name="finding-and-reading-pipeline-log-files"></a>Znajdowanie i odczytywanie plików dziennika potoku
 
-Ta sekcja zawiera omówienie sposobu rozwiązywania problemów z potokami w projektancie. W przypadku potoków utworzonych w projektancie można znaleźć plik **70_driver_log** na stronie Tworzenie lub na stronie szczegółów uruchomienia potoku.
+Plik dziennika `70_driver_log.txt` zawiera: 
+
+* Wszystkie wydrukowane instrukcje podczas wykonywania skryptu
+* Ślad stosu dla skryptu 
+
+Aby znaleźć te i inne pliki dziennika w portalu, najpierw kliknij potok uruchomiony w obszarze roboczym.
+
+![Strona listy uruchomień potoku](./media/how-to-debug-pipelines/pipelinerun-01.png)
+
+Przejdź do strony szczegółów uruchomienia potoku.
+
+![Strona szczegółów uruchomienia potoku](./media/how-to-debug-pipelines/pipelinerun-02.png)
+
+Kliknij moduł dla określonego kroku. Przejdź do karty **dzienniki** . Inne dzienniki zawierają informacje o procesie kompilacji obrazu środowiska i skryptach przygotowania krokowego.
+
+![Karta dziennika strony szczegółów uruchomienia potoku](./media/how-to-debug-pipelines/pipelinerun-03.png)
+
+> [!TIP]
+> Przebiegi *opublikowanych potoków* można znaleźć na karcie **punkty końcowe** w obszarze roboczym. Przebiegi dla *nieopublikowanych potoków* można znaleźć w **eksperymentach** lub **potokach**.
+
+## <a name="logging-in-azure-machine-learning-designer-preview"></a>Logowanie w programie Azure Machine Learning Designer (wersja zapoznawcza)
+
+W przypadku potoków utworzonych w projektancie można znaleźć plik **70_driver_log** na stronie Tworzenie lub na stronie szczegółów uruchomienia potoku.
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>Włączanie rejestrowania dla punktów końcowych w czasie rzeczywistym
 
@@ -140,7 +143,7 @@ W celu rozwiązywania problemów i debugowania punktów końcowych w czasie rzec
 Po przesłaniu uruchomienia potoku i pozostawania na stronie Tworzenie można znaleźć pliki dziennika wygenerowane dla każdego modułu, ponieważ każdy moduł kończy działanie.
 
 1. Wybierz moduł, który zakończył działanie na kanwie tworzenia.
-1. W prawym okienku modułu przejdź do karty dane **wyjściowe i dzienniki** .
+1. W prawym okienku modułu przejdź do karty dane  **wyjściowe i dzienniki** .
 1. Rozwiń okienko po prawej stronie i wybierz **70_driver_log.txt** , aby wyświetlić plik w przeglądarce. Możesz również pobrać dzienniki lokalnie.
 
     ![Rozwinięte okienko danych wyjściowych w projektancie](./media/how-to-debug-pipelines/designer-logs.png)
@@ -154,7 +157,7 @@ Pliki dziennika dla określonych przebiegów można również znaleźć na stron
     ![Strona uruchomienia potoku](./media/how-to-debug-pipelines/designer-pipelines.png)
 
 1. Wybierz moduł w okienku podglądu.
-1. W prawym okienku modułu przejdź do karty dane **wyjściowe i dzienniki** .
+1. W prawym okienku modułu przejdź do karty dane  **wyjściowe i dzienniki** .
 1. Rozwiń okienko po prawej stronie, aby wyświetlić plik **70_driver_log.txt** w przeglądarce, lub wybierz plik, aby pobrać dzienniki lokalnie.
 
 > [!IMPORTANT]
@@ -163,11 +166,11 @@ Pliki dziennika dla określonych przebiegów można również znaleźć na stron
 ## <a name="application-insights"></a>Application Insights
 Aby uzyskać więcej informacji na temat korzystania z biblioteki OpenCensus Python w ten sposób, zobacz ten przewodnik: [debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="visual-studio-code"></a>Visual Studio Code
+## <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
 W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python używanego w potoku. Korzystając z Visual Studio Code (VS Code) i debugpy, można dołączać do kodu w trakcie jego działania w środowisku szkoleniowym. Aby uzyskać więcej informacji, zobacz [interaktywny debugowanie w przewodniku vs Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Zapoznaj się z dokumentacją zestawu SDK, aby uzyskać pomoc dotyczącą pakietu [Azure-Pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) oraz pakietem [kroków dla potoków usługi Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) .
 

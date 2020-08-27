@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: e5d7f30f26be999ae43ce13aa31fc5393d049529
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fb83b30f0844b9bf0e362e6f1e3a3822ba0044d1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078958"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950004"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>Dynamiczna zmiana poziomu usługi woluminu
 
@@ -53,6 +53,7 @@ Funkcja przenoszenia woluminu do innej puli pojemności jest obecnie w wersji za
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
+Możesz również użyć poleceń interfejsu wiersza polecenia platformy Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) , [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) Aby zarejestrować funkcję i wyświetlić stan rejestracji. 
 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>Przenoszenie woluminu do innej puli pojemności
 
@@ -67,7 +68,7 @@ Funkcja przenoszenia woluminu do innej puli pojemności jest obecnie w wersji za
 3.  Kliknij przycisk **OK**.
 
 
-## <a name="next-steps"></a>Następne kroki  
+## <a name="next-steps"></a>Kolejne kroki  
 
 * [Poziomy usług dla usługi Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Konfigurowanie puli pojemności](azure-netapp-files-set-up-capacity-pool.md)

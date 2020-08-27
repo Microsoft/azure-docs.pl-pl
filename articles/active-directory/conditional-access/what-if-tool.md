@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032887"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948202"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Rozwiązywanie problemów przy użyciu narzędzia What If w dostępie warunkowym
 
-[Dostęp warunkowy](../active-directory-conditional-access-azure-portal.md) jest możliwością Azure Active Directory (Azure AD), która umożliwia kontrolowanie sposobu, w jaki autoryzowani użytkownicy uzyskują dostęp do aplikacji w chmurze. Jak wiesz, czego można oczekiwać od zasad dostępu warunkowego w danym środowisku? Aby odpowiedzieć na to pytanie, można użyć **narzędzia What If dostępu warunkowego**.
+[Dostęp warunkowy](./overview.md) jest możliwością Azure Active Directory (Azure AD), która umożliwia kontrolowanie sposobu, w jaki autoryzowani użytkownicy uzyskują dostęp do aplikacji w chmurze. Jak wiesz, czego można oczekiwać od zasad dostępu warunkowego w danym środowisku? Aby odpowiedzieć na to pytanie, można użyć **narzędzia What If dostępu warunkowego**.
 
 W tym artykule wyjaśniono, jak można użyć tego narzędzia do testowania zasad dostępu warunkowego.
 
@@ -32,7 +32,7 @@ Narzędzie **What If** umożliwia szybkie ustalenie zasad, które mają zastosow
 
 ## <a name="how-it-works"></a>Jak to działa
 
-W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. takie jak:
+W **narzędziu dostępu warunkowego What If**należy najpierw skonfigurować ustawienia scenariusza logowania, który ma zostać symulowany. Do tych ustawień należą:
 
 - Użytkownik, który ma zostać przetestowany 
 - Aplikacje w chmurze, do których użytkownik podejmie próbę uzyskania dostępu
@@ -102,7 +102,7 @@ Na liście zasad, które są stosowane dla wybranego użytkownika, można równi
 
 Na liście zasad, które nie mają zastosowania do użytkownika, możesz również znaleźć powody, dla których te zasady nie są stosowane. Dla każdej z wymienionych zasad powód reprezentuje pierwszy warunek, który nie był spełniony. Możliwą przyczyną niestosowania zasad jest zasada wyłączona, ponieważ nie są one jeszcze oceniane.   
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Więcej informacji na temat aplikacji zasady dostępu warunkowego można znaleźć za pomocą trybu tylko raportowanie zasad przy użyciu usługi [dostęp warunkowy i raportowania](howto-conditional-access-insights-reporting.md).
-- Jeśli wszystko jest gotowe do skonfigurowania zasad dostępu warunkowego dla danego środowiska, zobacz [zasady dostępu warunkowego](concept-conditional-access-policy-common.md). 
+- Jeśli wszystko jest gotowe do skonfigurowania zasad dostępu warunkowego dla danego środowiska, zobacz [zasady dostępu warunkowego](concept-conditional-access-policy-common.md).

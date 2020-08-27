@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c890c8e9af7310338e8470c4d56b46d1e259c168
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605575"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948067"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Dostęp warunkowy: dostęp warunkowy oparty na ryzyku
 
@@ -29,7 +29,7 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
-1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad. Aby uzyskać więcej informacji, [Ustaw standardy nazewnictwa dla zasad](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
+1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad. Aby uzyskać więcej informacji, [Ustaw standardy nazewnictwa dla zasad](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
@@ -56,7 +56,7 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. Ustaw ustawienie **Wymuszaj zasady** na **włączone**.
 1. Wybierz pozycję **Zapisz**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 
@@ -66,4 +66,4 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)
 
-[Co to jest usługa Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[Co to jest usługa Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

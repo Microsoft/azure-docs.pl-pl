@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72887002"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950208"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Środowiska użytkownika z Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Wszystkie zasady ochrony tożsamości mają wpływ na środowisko logowania uży
 
 ## <a name="multi-factor-authentication-registration"></a>Rejestracja w usłudze uwierzytelniania wieloskładnikowego
 
-Włączenie zasady ochrony tożsamości wymagające rejestracji w usłudze uwierzytelniania wieloskładnikowego i przekierowania wszystkim użytkownikom zapewnia możliwość korzystania z usługi Azure MFA do samodzielnego korygowania w przyszłości. Skonfigurowanie tych zasad spowoduje, że użytkownicy będą mieć 14-dniowy okres, w którym mogą oni wybrać rejestrację, a na koniec będą zmuszeni do rejestracji. Środowisko dla użytkowników zostało opisane poniżej. Więcej informacji można znaleźć w dokumentacji użytkownika końcowego w artykule [Omówienie weryfikacji dwuskładnikowej i konta służbowego](../user-help/user-help-two-step-verification-overview.md).
+Włączenie zasady ochrony tożsamości wymagające rejestracji w usłudze uwierzytelniania wieloskładnikowego i przekierowania wszystkim użytkownikom zapewnia możliwość korzystania z usługi Azure MFA do samodzielnego korygowania w przyszłości. Skonfigurowanie tych zasad spowoduje, że użytkownicy będą mieć 14-dniowy okres, w którym mogą oni wybrać rejestrację, a na koniec będą zmuszeni do rejestracji. Środowisko dla użytkowników zostało opisane poniżej. Więcej informacji można znaleźć w dokumentacji użytkownika końcowego w artykule [Omówienie weryfikacji dwuskładnikowej i konta służbowego](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Przerwanie rejestracji
 
@@ -67,7 +67,7 @@ Po skonfigurowaniu zasad ryzyka użytkownika użytkownicy, którzy spełnią pra
 
 1. Użytkownik jest informowany, że zabezpieczenia konta są zagrożone ze względu na podejrzane działanie lub nieujawnione poświadczenia.
    
-    ![Korekty](./media/concept-identity-protection-user-experience/101.png)
+    ![Korygowanie](./media/concept-identity-protection-user-experience/101.png)
 
 1. Użytkownik musi potwierdzić swoją tożsamość, kończąc usługę Azure MFA przy użyciu jednej z wcześniej zarejestrowanych metod. 
 1. Na koniec użytkownik jest zmuszony do zmiany hasła przy użyciu funkcji samoobsługowego resetowania hasła, ponieważ ktoś inny mógł uzyskać dostęp do swojego konta.
@@ -80,8 +80,8 @@ Administratorzy mogą blokować użytkownikom logowanie się w zależności od p
 
 Pracownicy działu IT mogą postępować zgodnie z instrukcjami w sekcji [odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) , aby umożliwić użytkownikom ponowne logowanie.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Korygowanie zagrożeń i odblokowywanie użytkowników](howto-identity-protection-remediate-unblock.md)
 
-- [Ochrona tożsamości w usłudze Azure Active Directory](../active-directory-identityprotection.md) 
+- [Ochrona tożsamości w usłudze Azure Active Directory](./overview-identity-protection.md)

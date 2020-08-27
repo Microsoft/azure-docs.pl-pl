@@ -3,12 +3,12 @@ title: Konfigurowanie dzienników diagnostycznych — centrum zdarzeń Azure | M
 description: Informacje na temat konfigurowania dzienników aktywności i dzienników diagnostycznych dla centrów zdarzeń na platformie Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521942"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927735"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 
@@ -61,18 +61,18 @@ Dzienniki archiwum JSON zawierają elementy wymienione w poniższej tabeli:
 
 Nazwa | Opis
 ------- | -------
-TaskName | Opis zadania, które zakończyło się niepowodzeniem
-ActivityId | Identyfikator wewnętrzny używany do śledzenia
-trackingId | Identyfikator wewnętrzny używany do śledzenia
-resourceId | Identyfikator zasobu Azure Resource Manager
-eventHub | Pełna nazwa centrum zdarzeń (łącznie z nazwą przestrzeni nazw)
-partitionId | Zapisywana partycja centrum zdarzeń
-archiveStep | możliwe wartości: ArchiveFlushWriter, DestinationInit
-startTime | Czas rozpoczęcia niepowodzenia
-powodzenia | Liczba wystąpień awarii
-durationInSeconds | Czas trwania awarii
-message | Komunikat o błędzie
-category | ArchiveLogs
+`TaskName` | Opis zadania, które zakończyło się niepowodzeniem
+`ActivityId` | Identyfikator wewnętrzny używany do śledzenia
+`trackingId` | Identyfikator wewnętrzny używany do śledzenia
+`resourceId` | Identyfikator zasobu Azure Resource Manager
+`eventHub` | Pełna nazwa centrum zdarzeń (łącznie z nazwą przestrzeni nazw)
+`partitionId` | Zapisywana partycja centrum zdarzeń
+`archiveStep` | możliwe wartości: ArchiveFlushWriter, DestinationInit
+`startTime` | Czas rozpoczęcia niepowodzenia
+`failures` | Liczba wystąpień awarii
+`durationInSeconds` | Czas trwania awarii
+`message` | Komunikat o błędzie
+`category` | ArchiveLogs
 
 Poniższy kod jest przykładem ciągu JSON dziennika archiwum:
 
@@ -99,15 +99,15 @@ Ciągi JSON dziennika operacyjnego zawierają elementy wymienione w poniższej t
 
 Nazwa | Opis
 ------- | -------
-ActivityId | Wewnętrzny identyfikator używany do śledzenia |
-EventName | Nazwa operacji |
-resourceId | Identyfikator zasobu Azure Resource Manager |
-SubscriptionId | Identyfikator subskrypcji |
-EventTimeString | Czas operacji |
-EventProperties | Właściwości operacji |
-Stan | Stan operacji |
-Obiekt wywołujący | Obiekt wywołujący operacji (Azure Portal lub klient zarządzania) |
-Kategoria | OperationalLogs |
+`ActivityId` | Wewnętrzny identyfikator używany do śledzenia |
+`EventName` | Nazwa operacji |
+`resourceId` | Identyfikator zasobu Azure Resource Manager |
+`SubscriptionId` | Identyfikator subskrypcji |
+`EventTimeString` | Czas operacji |
+`EventProperties` | Właściwości operacji |
+`Status` | Stan operacji |
+`Caller` | Obiekt wywołujący operacji (Azure Portal lub klient zarządzania) |
+`Category` | OperationalLogs |
 
 Poniższy kod jest przykładem ciągu JSON dziennika operacyjnego:
 
@@ -131,9 +131,9 @@ Plik JSON dziennika skalowania automatycznego zawiera elementy wymienione w poni
 
 | Nazwa | Opis |
 | ---- | ----------- | 
-| TrackingId | Identyfikator wewnętrzny, który jest używany na potrzeby śledzenia |
-| ResourceId | Azure Resource Manager identyfikator zasobu. |
-| Komunikat | Komunikat informacyjny, który zawiera szczegółowe informacje na temat akcji autodostrajania. Komunikat zawiera poprzednią i bieżącą wartość jednostki przepływności dla danego obszaru nazw oraz sposób wyzwalający poznanie jednostek PRZEPŁYWNOŚCI. |
+| `TrackingId` | Identyfikator wewnętrzny, który jest używany na potrzeby śledzenia |
+| `ResourceId` | Azure Resource Manager identyfikator zasobu. |
+| `Message` | Komunikat informacyjny, który zawiera szczegółowe informacje na temat akcji autodostrajania. Komunikat zawiera poprzednią i bieżącą wartość jednostki przepływności dla danego obszaru nazw oraz sposób wyzwalający poznanie jednostek PRZEPŁYWNOŚCI. |
 
 Oto przykładowe zdarzenie skalowania automatycznego: 
 
@@ -150,13 +150,13 @@ Plik JSON dziennika koordynatora Kafka zawiera elementy wymienione w poniższej 
 
 | Nazwa | Opis |
 | ---- | ----------- | 
-| IdentyfikatorŻądania | Identyfikator żądania, który jest używany na potrzeby śledzenia |
-| ResourceId | Identyfikator zasobu Azure Resource Manager |
-| Operacja | Nazwa operacji wykonywanej w ramach koordynacji grupy |
-| ClientId | Identyfikator klienta |
-| NamespaceName | Nazwa przestrzeni nazw | 
-| SubscriptionId | Identyfikator subskrypcji platformy Azure |
-| Komunikat | Komunikat informacyjny lub ostrzegawczy, który zawiera szczegółowe informacje o akcjach wykonywanych podczas koordynacji grupy. |
+| `RequestId` | Identyfikator żądania, który jest używany na potrzeby śledzenia |
+| `ResourceId` | Identyfikator zasobu Azure Resource Manager |
+| `Operation` | Nazwa operacji wykonywanej w ramach koordynacji grupy |
+| `ClientId` | Identyfikator klienta |
+| `NamespaceName` | Nazwa przestrzeni nazw | 
+| `SubscriptionId` | Identyfikator subskrypcji platformy Azure |
+| `Message` | Komunikat informacyjny lub ostrzegawczy, który zawiera szczegółowe informacje o akcjach wykonywanych podczas koordynacji grupy. |
 
 ### <a name="example"></a>Przykład
 
@@ -178,14 +178,14 @@ Plik JSON dziennika błędów użytkownika Kafka zawiera elementy wymienione w p
 
 | Nazwa | Opis |
 | ---- | ----------- |
-| TrackingId | Identyfikator śledzenia, który jest używany na potrzeby śledzenia. |
-| NamespaceName | Nazwa przestrzeni nazw |
-| Eventhub | Nazwa centrum zdarzeń |
-| PartitionId | Identyfikator partycji |
-| Identyfikator grupy | Identyfikator grupy |
-| ClientId | Identyfikator klienta |
-| ResourceId | Azure Resource Manager identyfikator zasobu. |
-| Komunikat | Komunikat informacyjny, który zawiera szczegółowe informacje o błędzie |
+| `TrackingId` | Identyfikator śledzenia, który jest używany na potrzeby śledzenia. |
+| `NamespaceName` | Nazwa przestrzeni nazw |
+| `Eventhub` | Nazwa centrum zdarzeń |
+| `PartitionId` | Identyfikator partycji |
+| `GroupId` | Identyfikator grupy |
+| `ClientId` | Identyfikator klienta |
+| `ResourceId` | Azure Resource Manager identyfikator zasobu. |
+| `Message` | Komunikat informacyjny, który zawiera szczegółowe informacje o błędzie |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Schemat zdarzenia połączenia z siecią wirtualną Event Hubs
 
@@ -193,13 +193,13 @@ Plik JSON zdarzenia połączenia sieci wirtualnej (VNet) Event Hubs zawiera elem
 
 | Nazwa | Opis |
 | ---  | ----------- | 
-| SubscriptionId | Identyfikator subskrypcji platformy Azure |
-| NamespaceName | Nazwa przestrzeni nazw |
-| IPAddress | Adres IP klienta łączącego się z usługą Event Hubs |
-| Akcja | Akcja wykonywana przez usługę Event Hubs podczas oceniania żądań połączeń. Obsługiwane akcje są **akceptowane** i **odmawiają**połączenia. |
-| Przyczyna | Zawiera powód, dla którego akcja została wykonana |
-| Liczba | Liczba wystąpień danej akcji |
-| ResourceId | Azure Resource Manager identyfikator zasobu. |
+| `SubscriptionId` | Identyfikator subskrypcji platformy Azure |
+| `NamespaceName` | Nazwa przestrzeni nazw |
+| `IPAddress` | Adres IP klienta łączącego się z usługą Event Hubs |
+| `Action` | Akcja wykonywana przez usługę Event Hubs podczas oceniania żądań połączeń. Obsługiwane akcje są **akceptowane** i **odmawiają**połączenia. |
+| `Reason` | Zawiera powód, dla którego akcja została wykonana |
+| `Count` | Liczba wystąpień danej akcji |
+| `ResourceId` | Azure Resource Manager identyfikator zasobu. |
 
 ### <a name="example"></a>Przykład
 
@@ -221,14 +221,14 @@ Plik JSON dziennika użytkownika klucza zarządzanego przez klienta zawiera elem
 
 | Nazwa | Opis |
 | ---- | ----------- | 
-| Kategoria | Typ kategorii wiadomości. Jest to jedna z następujących wartości: **błąd** i **informacje** |
-| ResourceId | Wewnętrzny identyfikator zasobu, który zawiera identyfikator subskrypcji platformy Azure i nazwę przestrzeni nazw |
-| KeyVault | Nazwa zasobu Key Vault |
-| Klucz | Nazwa klucza Key Vault. |
-| Wersja | Wersja klucza Key Vault |
-| Operacja | Nazwa operacji wykonanej do obsługi żądań |
-| Kod | Kod stanu |
-| Komunikat | Komunikat, który zawiera szczegółowe informacje o błędzie lub komunikat informacyjny |
+| `Category` | Typ kategorii wiadomości. Jest to jedna z następujących wartości: **błąd** i **informacje** |
+| `ResourceId` | Wewnętrzny identyfikator zasobu, który zawiera identyfikator subskrypcji platformy Azure i nazwę przestrzeni nazw |
+| `KeyVault` | Nazwa zasobu Key Vault |
+| `Key` | Nazwa klucza Key Vault. |
+| `Version` | Wersja klucza Key Vault |
+| `Operation` | Nazwa operacji wykonanej do obsługi żądań |
+| `Code` | Kod stanu |
+| `Message` | Komunikat, który zawiera szczegółowe informacje o błędzie lub komunikat informacyjny |
 
 
 
@@ -236,7 +236,7 @@ Plik JSON dziennika użytkownika klucza zarządzanego przez klienta zawiera elem
 - [Wprowadzenie do Event Hubs](./event-hubs-about.md)
 - [Przykłady Event Hubs](sdks.md)
 - Rozpoczynanie pracy z usługą Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)

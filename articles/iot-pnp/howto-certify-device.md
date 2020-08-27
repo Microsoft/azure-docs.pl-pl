@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: eaae6d90799c11d2475105a30f830db8dfae7fcf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: bdb6bf166e84bb9134bbd14454899bcefbf0a887
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861210"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949902"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Jak zatwierdzić urządzenia Plug and Play IoT
 
@@ -43,7 +43,7 @@ Aby spełnić wymagania dotyczące certyfikacji, urządzenie musi:
 - Opisz interakcję urządzenia z modelem [DTDL v2](https://aka.ms/dtdl) .
 - Publikuj model i wszystkie wymagane interfejsy w [repozytorium modelu publicznego usługi Azure IoT](https://devicemodels.azureiotsolutions.com/)
 - Wyślij Identyfikator modelu podczas rejestracji w usłudze [DPS](concepts-developer-guide.md#dps-payload) w ładunku aprowizacji.
-- Ogłoś Identyfikator modelu podczas połączenia usługi [MQTT](/concepts-developer-guide.md#model-id-announcement).
+- Ogłoś Identyfikator modelu podczas połączenia usługi [MQTT](concepts-developer-guide.md#model-id-announcement).
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testowanie przy użyciu interfejsu wiersza polecenia usługi Azure IoT Extension
 
@@ -204,6 +204,6 @@ Należy wykonać trzy czynności:
 1. Przejrzyj interfejsy. Sprawdź interfejs i upewnij się, że każdy z nich ma dane wejściowe ładunku, które mają sens dla testowania.
 1. Badan. System sprawdza każdy model urządzenia, aby sprawdzić, czy dane telemetryczne, właściwości i polecenia opisane w modelu są zgodne z konwencjami Plug and Play IoT. Po zakończeniu testu wybierz łącze **Wyświetl dzienniki** , aby wyświetlić dane telemetryczne z urządzenia, a następnie nieprzetworzonych danych wysyłanych do IoT Hub właściwości bliźniaczych urządzeń.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po zakończeniu tego procesu można skontaktować się z zespołem certyfikacji urządzenia w [iotcert@microsoft.com](mailto:iotcert@microsoft.com) usłudze, aby przejść do następnych kroków, które obejmują Microsoft Partner Network weryfikację członkostwa i przegląd przewodników wprowadzających. Jeśli spełnione są wszystkie wymagania, możesz zdecydować, aby urządzenie było dołączone do [wykazu urządzeń z certyfikatem usługi Azure IoT](https://aka.ms/devicecatalog).

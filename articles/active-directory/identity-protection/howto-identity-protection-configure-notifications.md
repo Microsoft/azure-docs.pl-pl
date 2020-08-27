@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130436"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950395"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Powiadomienia Azure Active Directory Identity Protection
 
@@ -29,7 +29,7 @@ Ten artykuł zawiera omówienie obu wiadomości e-mail z powiadomieniami.
 
 ## <a name="users-at-risk-detected-email"></a>Użytkownicy z wykrytymi zagrożeniami wiadomości e-mail
 
-W odpowiedzi na wykryte konto zagrożone Azure AD Identity Protection generuje alert e-mail z **użytkownikami narażonymi na ryzyko wykryte** jako temat. Wiadomość e-mail zawiera link do raportu **[Użytkownicy oflagowani w związku z ryzykiem](../reports-monitoring/concept-user-at-risk.md)** . Najlepszym rozwiązaniem jest natychmiastowe badanie narażonych użytkowników.
+W odpowiedzi na wykryte konto zagrożone Azure AD Identity Protection generuje alert e-mail z **użytkownikami narażonymi na ryzyko wykryte** jako temat. Wiadomość e-mail zawiera link do raportu **[Użytkownicy oflagowani w związku z ryzykiem](./overview-identity-protection.md)** . Najlepszym rozwiązaniem jest natychmiastowe badanie narażonych użytkowników.
 
 Konfiguracja tego alertu umożliwia określenie poziomu ryzyka użytkownika, który ma zostać wygenerowany przez alert. Wiadomość e-mail zostanie wygenerowana, gdy poziom ryzyka użytkownika osiągnie określone elementy. Jeśli na przykład ustawisz zasady, aby otrzymywać alerty dotyczące średniego ryzyka użytkownika, a Ocena ryzyka użytkownika przez użytkownika Jan przejdzie na średnie ryzyko z powodu ryzyka związanego z logowaniem w czasie rzeczywistym, otrzymasz wiadomość e-mail z wykrytym ryzykiem. Jeśli użytkownik ma kolejne wykrycia ryzyka, które spowodują, że Obliczanie poziomu ryzyka użytkownika będzie określonym poziomem ryzyka (lub wyższym), otrzymasz komunikat o zagrożeniu wykrytym przez użytkownika w przypadku ponownego obliczenia wyniku ryzyka dla użytkowników. Na przykład jeśli użytkownik przejdzie do średniego ryzyka pierwszego stycznia, otrzymasz powiadomienie e-mail, jeśli ustawienia są ustawione na alert dotyczący średniego ryzyka. Jeśli ten sam użytkownik ma inne wykrycie ryzyka o piątym ryzyku, co oznacza również średnie ryzyko, a Ocena ryzyka użytkownika zostanie przeliczona i będzie nadal średnia, otrzymasz kolejną wiadomość e-mail z powiadomieniem. 
 
@@ -68,6 +68,6 @@ Jako administrator możesz przełączać wysyłanie cotygodniowej wiadomości e-
 
 Skonfiguruj cotygodniowe wiadomości e-mail z podsumowaniem w **Azure Portal** w obszarze **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **Weekly digest**.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-- [Ochrona tożsamości w usłudze Azure Active Directory](../active-directory-identityprotection.md)
+- [Ochrona tożsamości w usłudze Azure Active Directory](./overview-identity-protection.md)

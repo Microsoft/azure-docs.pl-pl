@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: a57232853284dad6f363797c009b1c38738d5b37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519783"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929571"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Jak indeksować tabele z usługi Azure Table Storage za pomocą usługi Azure Wyszukiwanie poznawcze
 
@@ -25,8 +25,8 @@ W tym artykule pokazano, jak używać usługi Azure Wyszukiwanie poznawcze do in
 Indeksator usługi Azure Table Storage można skonfigurować przy użyciu następujących zasobów:
 
 * [Witryna Azure Portal](https://ms.portal.azure.com)
-* [Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
-* Azure Wyszukiwanie poznawcze [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* [Interfejs API REST](/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
+* Azure Wyszukiwanie poznawcze [.NET SDK](/dotnet/api/overview/azure/search)
 
 W tym miejscu zademonstrowano przepływ przy użyciu interfejsu API REST. 
 
@@ -62,7 +62,7 @@ Aby utworzyć źródło danych:
     }   
 ```
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła danych, zobacz [Create DataSource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła danych, zobacz [Create DataSource](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="ways-to-specify-credentials"></a>Sposoby określania poświadczeń ####
@@ -73,7 +73,7 @@ Poświadczenia dla tabeli można podać w jeden z następujących sposobów:
 - **Parametry połączenia sygnatury dostępu współdzielonego konta magazynu**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` sygnatura dostępu współdzielonego powinna mieć uprawnienia listy i odczytu w kontenerach (w tym przypadku tabel w tym przypadku) i obiektach (wiersze tabeli).
 -  **Sygnatura dostępu współdzielonego tabeli**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` sygnatura dostępu współdzielonego powinna mieć uprawnienia zapytania (odczyt) w tabeli.
 
-Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego magazynu, zobacz [Używanie sygnatur dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego magazynu, zobacz [Używanie sygnatur dostępu współdzielonego](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > W przypadku korzystania z poświadczeń sygnatury dostępu współdzielonego należy okresowo zaktualizować poświadczenia źródła danych za pomocą odnowionych podpisów, aby zapobiec ich wygaśnięciu. Jeśli poświadczenia sygnatury dostępu współdzielonego wygasną, indeksator kończy się niepowodzeniem z komunikatem o błędzie podobnym do "poświadczenia podane w parametrach połączenia są nieprawidłowe lub wygasły".  
@@ -97,7 +97,7 @@ Aby utworzyć indeks:
     }
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [create index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Aby uzyskać więcej informacji na temat tworzenia indeksów, zobacz [create index](/rest/api/searchservice/create-index).
 
 ### <a name="step-3-create-an-indexer"></a>Krok 3. Tworzenie indeksatora
 Indeksator łączy źródło danych z docelowym indeksem wyszukiwania i zawiera harmonogram służący do automatyzowania odświeżania danych. 
@@ -119,7 +119,7 @@ Po utworzeniu indeksu i źródła danych możesz utworzyć indeksator:
 
 Ten indeksator działa co dwie godziny. (Interwał harmonogramu jest ustawiony na wartość "PT2H"). Aby uruchomić indeksator co 30 minut, ustaw interwał na wartość "PT30M". Najkrótszy obsługiwany interwał wynosi pięć minut. Harmonogram jest opcjonalny; w przypadku pominięcia indeksator jest uruchamiany tylko raz, gdy zostanie utworzony. Można jednak uruchomić indeksator na żądanie w dowolnym momencie.   
 
-Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zobacz [Tworzenie indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Aby uzyskać więcej informacji na temat interfejsu API tworzenia indeksatora, zobacz [Tworzenie indeksatora](/rest/api/searchservice/create-indexer).
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
@@ -170,7 +170,7 @@ Poniżej przedstawiono dwie możliwe podejścia do usprawnienia działania indek
 
 - Jeśli dane są partycjonowane według czasu (na przykład można utworzyć nową partycję każdego dnia lub tygodnia), należy wziąć pod uwagę następujące podejście: 
     - Użyj zapytania dotyczącego formularza: `(PartitionKey ge <TimeStamp>) and (other filters)` . 
-    - Monitoruj postęp indeksatora przy użyciu [interfejsu Get indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status), a następnie okresowo Aktualizuj `<TimeStamp>` warunek zapytania w oparciu o ostatnią pomyślną wartość ze znakiem końca wody. 
+    - Monitoruj postęp indeksatora przy użyciu [interfejsu Get indeksatora](/rest/api/searchservice/get-indexer-status), a następnie okresowo Aktualizuj `<TimeStamp>` warunek zapytania w oparciu o ostatnią pomyślną wartość ze znakiem końca wody. 
     - W przypadku konieczności wyzwolenia kompletnego ponownego indeksowania należy zresetować zapytanie DataSource oprócz resetowania indeksatora. 
 
 

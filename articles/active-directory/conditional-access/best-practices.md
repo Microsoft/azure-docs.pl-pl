@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275432"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948457"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Najlepsze rozwiązania dotyczące dostępu warunkowego w Azure Active Directory
 
-Za pomocą [dostępu warunkowego usługi Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md)można kontrolować sposób, w jaki autoryzowani użytkownicy uzyskują dostęp do aplikacji w chmurze. Ten artykuł zawiera informacje na temat:
+Za pomocą [dostępu warunkowego usługi Azure Active Directory (Azure AD)](./overview.md)można kontrolować sposób, w jaki autoryzowani użytkownicy uzyskują dostęp do aplikacji w chmurze. Ten artykuł zawiera informacje na temat:
 
 - Rzeczy, które należy znać 
 - Co należy unikać podczas konfigurowania zasad dostępu warunkowego. 
 
-W tym artykule założono, że znasz koncepcje i terminologię podaną w temacie [co to jest dostęp warunkowy w Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+W tym artykule założono, że znasz koncepcje i terminologię podaną w temacie [co to jest dostęp warunkowy w Azure Active Directory?](./overview.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>Co jest wymagane do wprowadzenia zasad?
 
@@ -150,9 +150,9 @@ Rozważ Migrowanie zasad, które nie zostały utworzone w Azure Portal, poniewa�
 
 Aby uzyskać więcej informacji, zobacz artykuł [Migrate classic policies in the Azure portal (Migrowanie zasad klasycznych w witrynie Azure Portal)](policy-migration.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli chcesz poznać następujące informacje:
 
-- Jak skonfigurować zasady dostępu warunkowego, zobacz [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](app-based-mfa.md).
+- Jak skonfigurować zasady dostępu warunkowego, zobacz [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji, Azure Active Directory dostępu warunkowego](../authentication/tutorial-enable-azure-mfa.md).
 - Jak planować zasady dostępu warunkowego, zobacz [jak zaplanować wdrożenie dostępu warunkowego w Azure Active Directory](plan-conditional-access.md).

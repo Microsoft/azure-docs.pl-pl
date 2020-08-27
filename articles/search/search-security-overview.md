@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225278"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928772"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
@@ -94,7 +94,7 @@ Aby dodatkowo kontrolować dostęp do usługi wyszukiwania, można utworzyć reg
 
 Za pomocą portalu można [skonfigurować dostęp przychodzący](service-configure-firewall.md).
 
-Alternatywnie możesz użyć interfejsów API REST zarządzania. Interfejs API w wersji 2020-03-13 z parametrem [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) umożliwia ograniczenie dostępu do usługi przez identyfikację adresów IP, pojedynczo lub w zakresie, które mają udzielić dostępu do usługi wyszukiwania.
+Alternatywnie możesz użyć interfejsów API REST zarządzania. Interfejs API w wersji 2020-03-13 z parametrem [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) umożliwia ograniczenie dostępu do usługi przez identyfikację adresów IP, pojedynczo lub w zakresie, które mają udzielić dostępu do usługi wyszukiwania.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Prywatny punkt końcowy (bez ruchu internetowego)
 
@@ -127,7 +127,7 @@ Jeśli potrzebujesz szczegółowej kontroli dla poszczególnych użytkowników n
 
 ## <a name="administrative-rights"></a>Prawa administracyjne
 
-[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia lub usuwania usługi, zarządzania kluczami interfejsu API i skalowania usługi. W związku z tym przypisania ról platformy Azure określają, kto może wykonywać te zadania, niezależnie od tego, czy korzystają one z [portalu](search-manage.md), [programu PowerShell](search-manage-powershell.md)czy [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia lub usuwania usługi, zarządzania kluczami interfejsu API i skalowania usługi. W związku z tym przypisania ról platformy Azure określają, kto może wykonywać te zadania, niezależnie od tego, czy korzystają one z [portalu](search-manage.md), [programu PowerShell](search-manage-powershell.md)czy [interfejsów API REST zarządzania](/rest/api/searchmanagement/search-howto-management-rest-api).
 
 Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak możliwość tworzenia lub usuwania indeksu, są nałożone przez klucze interfejsu API zgodnie z opisem w [poprzedniej sekcji](#index-access).
 

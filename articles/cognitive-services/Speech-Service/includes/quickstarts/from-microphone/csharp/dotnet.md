@@ -4,19 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 871f992f6457a846d29a7145d53a7e382cbe10dd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 63fc699cfd2f02a322f71324519b2f0b5b22234b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400668"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926475"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Tworzenie zasobu usługi Azure Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Tworzenie zasobu usługi Azure Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * [Skonfiguruj środowisko deweloperskie i Utwórz pusty projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 > * Upewnij się, że masz dostęp do mikrofonu do przechwytywania audio
 
@@ -93,8 +94,8 @@ namespace Speech.Recognition
 
 Teraz wszystko jest gotowe do odbudowania aplikacji i przetestowania funkcji rozpoznawania mowy przy użyciu usługi mowy.
 
-1. **Skompiluj kod** — na pasku menu programu Visual Studio wybierz polecenie **Kompiluj** > **kompilację rozwiązania**.
-2. **Uruchom aplikację** — z poziomu paska menu wybierz **Debuguj** > **Rozpocznij debugowanie** lub naciśnij klawisz <kbd>F5</kbd>.
+1. **Skompiluj kod** — na pasku menu programu Visual Studio wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania**.
+2. **Uruchom aplikację** — z poziomu paska menu wybierz **Debuguj**  >  **Rozpocznij debugowanie** lub naciśnij klawisz <kbd>F5</kbd>.
 3. **Rozpocznij rozpoznawanie** — spowoduje to wyświetlenie monitu o rozmowę w języku angielskim. Twoja mowa jest wysyłana do usługi mowy, uzyskanego jako tekst i renderowany w konsoli programu.
 
 ## <a name="next-steps"></a>Następne kroki

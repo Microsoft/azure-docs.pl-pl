@@ -11,19 +11,25 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01decb99a9eb24ae60250f83f1f961b4c1690bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 116446c2ca6512ac39b907e95a2c1ccdf70befda
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652844"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949290"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Zaawansowane scenariusze z serwerem usługi Azure MFA i rozwiązaniami sieci VPN innych firm
 
 Usługa Azure Serwer Multi-Factor Authentication (serwer usługi Azure MFA) umożliwia bezproblemowe łączenie się z różnymi rozwiązaniami sieci VPN innych firm. Ten artykuł koncentruje się na &reg; urządzeniu sieci VPN Cisco ASA, urządzeniu sieci VPN protokołu SSL Citrix i sieci Juniper Networks bezpieczny dostęp/puls Secure Connect Secure SSL. Utworzyliśmy przewodniki konfiguracyjne, aby rozwiązać te trzy typowe urządzenia. Serwer usługi Azure MFA można również zintegrować z większością innych systemów, które używają usługi RADIUS, LDAP, IIS lub uwierzytelniania opartego na oświadczeniach do AD FS. Więcej szczegółów można znaleźć w [konfiguracjach serwera usługi Azure MFA](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać opartych na chmurze Multi-Factor Authentication platformy Azure.
+>
+> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Jeśli używasz usługi MFA opartej na chmurze, zobacz [integrowanie infrastruktury sieci VPN z usługą Azure MFA](howto-mfa-nps-extension-vpn.md).
+>
+> Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca 2019, mogą pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Urządzenie sieci VPN Cisco ASA i serwer usługi Azure MFA
 Serwer usługi Azure MFA integruje się z &reg; urządzeniem sieci VPN Cisco ASA w celu zapewnienia dodatkowych zabezpieczeń na potrzeby &reg; logowania do sieci VPN Cisco AnyConnect i dostępu do portalu.  Można użyć protokołu LDAP lub RADIUS.  Wybierz jedną z poniższych opcji, aby pobrać szczegółowe przewodniki dotyczące konfiguracji krok po kroku.
@@ -49,7 +55,7 @@ Serwer usługi Azure MFA integruje się z urządzeniem sieci VPN Secure SSL Juni
 | [Juniper/Pulse Secure SSL sieci VPN i konfiguracja usługi Azure MFA dla LDAP](https://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | Integruj swoją Juniper/puls Secure SSL VPN z urządzeniem Azure MFA przy użyciu protokołu LDAP |
 | [Juniper/Pulse Secure SSL sieci VPN i konfiguracja usługi Azure MFA dla usługi RADIUS](https://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Integruj swoje urządzenie sieci VPN Secure SSL Juniper/puls z usługą Azure MFA przy użyciu usługi RADIUS |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Rozszerzanie istniejącej infrastruktury uwierzytelniania przy użyciu rozszerzenia serwera NPS dla platformy Azure Multi-Factor Authentication](howto-mfa-nps-extension.md)
 

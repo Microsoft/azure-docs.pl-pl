@@ -3,12 +3,12 @@ title: Ocenianie serwerów fizycznych na potrzeby migracji na platformę Azure z
 description: Opisuje, jak oceniać lokalne serwery fizyczne do migracji na platformę Azure przy użyciu oceny serwera Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: a8a7cc3734bc7a36afc307526cd41634ccaf00dc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933821"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950106"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Ocenianie serwerów fizycznych za pomocą Azure Migrate: Ocena serwera
 
@@ -115,13 +115,13 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
         **Scenariusz** | **Przesłać*** | **Wartość skrótu**
         --- | --- | ---
-        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
 
     - Dla Azure Government:
 
         **Scenariusz** | **Przesłać*** | **Wartość skrótu**
         --- | --- | ---
-        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140338) | 1545f9ce8874cedef6347c1a1332f8b5eabd6811a017440a2382525fb0430309
+        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Uruchom skrypt Instalatora Azure Migrate
 
@@ -318,7 +318,7 @@ Klasyfikacje zaufania dla oceny są następujące.
 [Dowiedz się więcej](best-practices-assessment.md#best-practices-for-confidence-ratings) o najlepszych rozwiązaniach dotyczących klasyfikacji zaufania.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku zostały wykonane następujące czynności:
 

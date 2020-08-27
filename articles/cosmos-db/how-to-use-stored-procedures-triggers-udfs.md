@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: fccd3209d88ecd0f7e2baa06a55555a1370c4ec4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 856c68d04b5eefb9cdca35947f693ffc5226ff87
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586311"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950429"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Jak rejestrować procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika oraz jak ich używać w usłudze Azure Cosmos DB
 
@@ -196,33 +196,46 @@ const {body: result} = await container.scripts.storedProcedure(sprocId).execute(
 
 ### <a name="stored-procedures---python-sdk"></a>Procedury składowane — zestaw SDK języka Python
 
-Poniższy przykład pokazuje, jak zarejestrować procedurę składowaną przy użyciu zestawu SDK języka Python
+Poniższy przykład pokazuje, jak zarejestrować procedurę składowaną za pomocą zestawu SDK języka Python:
 
 ```python
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
 with open('../js/spCreateToDoItems.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
-sproc_definition = {
-    'id': 'spCreateToDoItems',
+
+sproc = {
+    'id': 'spCreateToDoItem',
     'serverScript': file_contents,
 }
 client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
-sproc = container.create_stored_procedure(container_link, sproc_definition)
+created_sproc = container.scripts.create_stored_procedure(body=sproc) 
 ```
 
-Poniższy kod pokazuje, jak wywołać procedurę składowaną przy użyciu zestawu SDK języka Python
+Poniższy kod przedstawia sposób wywoływania procedury składowanej przy użyciu zestawu SDK języka Python:
 
 ```python
-sproc_link = 'dbs/myDatabase/colls/myContainer/sprocs/spCreateToDoItems'
-new_item = [{
-    'category':'Personal',
-    'name':'Groceries',
-    'description':'Pick up strawberries',
-    'isComplete': False
-}]
-container.execute_stored_procedure(sproc_link, new_item, {'partitionKey': 'Personal'}
+import uuid
+
+new_id= str(uuid.uuid4())
+
+# Creating a document for a container with "id" as a partition key.
+
+new_item =   {
+      "id": new_id, 
+      "category":"Personal",
+      "name":"Groceries",
+      "description":"Pick up strawberries",
+      "isComplete":False
+   }
+result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[[new_item]], partition_key=new_id) 
 ```
 
 ## <a name="how-to-run-pre-triggers"></a><a id="pre-triggers"></a>Jak uruchamiać wyzwalacze wywoływane przed operacją
@@ -361,29 +374,34 @@ await container.items.create({
 Poniższy kod pokazuje, jak zarejestrować wyzwalacz wykonywany przed operacją przy użyciu zestawu SDK języka Python:
 
 ```python
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
 with open('../js/trgPreValidateToDoItemTimestamp.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
+
 trigger_definition = {
     'id': 'trgPreValidateToDoItemTimestamp',
     'serverScript': file_contents,
     'triggerType': documents.TriggerType.Pre,
-    'triggerOperation': documents.TriggerOperation.Create
+    'triggerOperation': documents.TriggerOperation.All
 }
 client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
-trigger = container.create_trigger(container_link, trigger_definition)
+trigger = container.scripts.create_trigger(trigger_definition)
 ```
 
 Poniższy kod pokazuje, jak wywołać wyzwalacz wykonywany przed operacją przy użyciu zestawu SDK języka Python:
 
 ```python
-container_link = 'dbs/myDatabase/colls/myContainer'
 item = {'category': 'Personal', 'name': 'Groceries',
         'description': 'Pick up strawberries', 'isComplete': False}
-container.create_item(container_link, item, {
-                  'pre_trigger_include': 'trgPreValidateToDoItemTimestamp'})
+container.create_item(item, {'pre_trigger_include': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 ## <a name="how-to-run-post-triggers"></a><a id="post-triggers"></a>Jak uruchamiać wyzwalacze wywoływane po operacji
@@ -511,29 +529,34 @@ await container.items.create(item, {postTriggerInclude: [triggerId]});
 Poniższy kod pokazuje, jak zarejestrować wyzwalacz wykonywany po operacji przy użyciu zestawu SDK języka Python:
 
 ```python
-with open('../js/trgPostUpdateMetadata.js') as file:
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
+with open('../js/trgPostValidateToDoItemTimestamp.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
+
 trigger_definition = {
-    'id': 'trgPostUpdateMetadata',
+    'id': 'trgPostValidateToDoItemTimestamp',
     'serverScript': file_contents,
     'triggerType': documents.TriggerType.Post,
-    'triggerOperation': documents.TriggerOperation.Create
+    'triggerOperation': documents.TriggerOperation.All
 }
 client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
-trigger = container.create_trigger(container_link, trigger_definition)
+trigger = container.scripts.create_trigger(trigger_definition)
 ```
 
 Poniższy kod pokazuje, jak wywołać wyzwalacz wykonywany po operacji przy użyciu zestawu SDK języka Python:
 
 ```python
-container_link = 'dbs/myDatabase/colls/myContainer'
-item = {'name': 'artist_profile_1023', 'artist': 'The Band',
-        'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
-container.create_item(container_link, item, {
-                  'post_trigger_include': 'trgPostUpdateMetadata'})
+item = {'category': 'Personal', 'name': 'Groceries',
+        'description': 'Pick up strawberries', 'isComplete': False}
+container.create_item(item, {'post_trigger_include': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 ## <a name="how-to-work-with-user-defined-functions"></a><a id="udfs"></a>Jak pracować z funkcjami zdefiniowanymi przez użytkownika
@@ -658,9 +681,15 @@ const {result} = await container.items.query(sql).toArray();
 Poniższy kod pokazuje, jak zarejestrować funkcję zdefiniowaną przez użytkownika przy użyciu zestawu SDK języka Python:
 
 ```python
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
 with open('../js/udfTax.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
     'id': 'Tax',
     'serverScript': file_contents,
@@ -668,18 +697,17 @@ udf_definition = {
 client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
-udf = container.create_user_defined_function(container_link, udf_definition)
+udf = container.scripts.create_user_defined_function(udf_definition)
 ```
 
 Poniższy kod pokazuje, jak wywołać funkcję zdefiniowaną przez użytkownika przy użyciu zestawu SDK języka Python:
 
 ```python
-container_link = 'dbs/myDatabase/colls/myContainer'
 results = list(container.query_items(
-    container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
+    'query': 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Poznaj dodatkowe pojęcia i dowiedz się, jak pisać procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB:
 

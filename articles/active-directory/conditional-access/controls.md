@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922115"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948304"
 ---
 # <a name="custom-controls-preview"></a>Formanty niestandardowe (wersja zapoznawcza)
 
@@ -53,9 +53,9 @@ Aby edytować kontrolkę niestandardową, należy usunąć bieżącą kontrolkę
 
 ## <a name="known-limitations"></a>Znane ograniczenia
 
-Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure Multi-Factor Authentication, samoobsługowego resetowania hasła w usłudze Azure AD (SSPR), spełniając wymagania dotyczące uwierzytelniania wieloskładnikowego, w celu podniesienia poziomu ról w programie Privileged Identity Manager (PIM) lub w ramach rejestracji urządzeń w usłudze Intune.
+Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure Multi-Factor Authentication, samoobsługowego resetowania hasła w usłudze Azure AD (SSPR), spełniając wymagania dotyczące uwierzytelniania wieloskładnikowego w celu podniesienia poziomu ról w programie Privileged Identity Manager (PIM) w ramach rejestracji urządzeń w usłudze Intune lub dołączania urządzeń do usługi Azure AD.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 

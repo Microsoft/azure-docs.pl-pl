@@ -8,14 +8,14 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 64491a4093cc7174e84737a7fe5021337ebe7e01
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b00d84e1c2dc8f104046fe24360d79e6952dfacc
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286142"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950293"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Limity przydziału procesorów wirtualnych maszyny wirtualnej
+# <a name="check-vcpu-quotas-using-azure-powershell"></a>Sprawdź przydziały vCPU przy użyciu Azure PowerShell
 
 Przydziały vCPU dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych są ułożone w dwóch warstwach dla każdej subskrypcji w każdym regionie. Pierwsza warstwa jest całkowitą procesorów wirtualnych vCPU regionalną, a druga warstwy to różne rdzenie rodzinne rozmiaru maszyny wirtualnej, takie jak seria D procesorów wirtualnych vCPU. Za każdym razem, gdy zostanie wdrożona nowa maszyna wirtualna, procesorów wirtualnych vCPU dla maszyny wirtualnej nie może przekraczać limitu przydziału vCPU dla rodziny rozmiaru maszyny wirtualnej ani łącznego limitu regionalnego vCPU. Jeśli jeden z tych przydziałów zostanie przekroczony, wdrożenie maszyny wirtualnej nie będzie dozwolone. Istnieje również limit przydziału ogólnej liczby maszyn wirtualnych w regionie. Szczegółowe informacje na temat każdego z tych przydziałów można znaleźć w sekcji **użycie i przydziały** strony **subskrypcji** w [Azure Portal](https://portal.azure.com)lub można wykonać zapytanie dotyczące wartości przy użyciu programu PowerShell.
 
@@ -78,6 +78,6 @@ Wystąpienia zarezerwowane maszyn wirtualnych, które są objęte zakresem pojed
 
 Jeśli do zakupu pojedynczej subskrypcji RI wymagane jest zwiększenie limitu przydziału, można [zażądać zwiększenia limitu przydziału](../../azure-portal/supportability/resource-manager-core-quotas-request.md) w ramach subskrypcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat rozliczeń i przydziałów, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json).

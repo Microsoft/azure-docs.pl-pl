@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: efcc4aebf16fccc70af7c77f0e8481d24f13b9cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935266"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950480"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funkcje w wersji zapoznawczej na platformie Azure Wyszukiwanie poznawcze
 
@@ -35,7 +35,7 @@ Funkcje wersji zapoznawczej, które przechodzą do ogólnej dostępności, są u
 |  [**Azure Data Lake Storage Gen2 indeksator**](search-howto-index-azure-data-lake-storage.md) | Źródło danych indeksatora | Indeksuj zawartość i metadane z Data Lake Storage Gen2.| [Rejestracja](https://aka.ms/azure-cognitive-search/indexer-preview) jest wymagana, aby można było włączyć obsługę subskrypcji w zapleczu. Uzyskaj dostęp do tego źródła danych przy użyciu polecenia [Create Data Source (REST)](/rest/api/searchservice/create-data-source) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza lub API-Version = 2019-05 -06 — wersja zapoznawcza. |
 | [**moreLikeThis**](search-more-like-this.md) | Zapytanie | Znajduje dokumenty, które mają zastosowanie do określonego dokumentu. Ta funkcja została zamieszczona w wcześniejszych wersjach zapoznawczych. | Dodaj ten parametr zapytania w wywołaniach [dokumentów wyszukiwania (REST)](/rest/api/searchservice/search-documents) z interfejsem API-Version = 2020-06 -30 — wersja zapoznawcza, 2019-05-06 — wersja zapoznawcza, 2016-09-01 — wersja zapoznawcza lub 2017-11-11 — wersja zapoznawcza. |
 
-## <a name="calling-preview-rest-apis"></a>Wywoływanie interfejsów API REST w wersji zapoznawczej
+## <a name="how-to-call-a-preview-rest-api"></a>Jak wywołać interfejs API REST w wersji zapoznawczej
 
 Usługa Azure Wyszukiwanie poznawcze zawsze wstępnie zwalnia funkcje eksperymentalne za pomocą interfejsu API REST, a następnie za pomocą wersji wstępnej zestawu .NET SDK.
 
@@ -47,17 +47,19 @@ W przypadku niektórych funkcji w wersji zapoznawczej w portalu i zestawie .NET 
 
 + W przypadku operacji zarządzania [**`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview) jest to bieżąca wersja zapoznawcza.
 
-Starsze wersje zapoznawcze nadal działają, ale stają się nieodświeżone w czasie. Jeśli kod wywołuje `api-version=2019-05-06-Preview` lub `api-version=2016-09-01-Preview` lub `api-version=2017-11-11-Preview` , te wywołania są nadal ważne. Jednak tylko Najnowsza wersja zapoznawcza jest odświeżana z ulepszeniami. 
+Starsze wersje zapoznawcze nadal działają, ale stają się nieodświeżone w czasie. Jeśli kod wywołuje `api-version=2019-05-06-Preview` lub `api-version=2016-09-01-Preview` lub `api-version=2017-11-11-Preview` , te wywołania są nadal ważne. Jednak tylko Najnowsza wersja zapoznawcza jest odświeżana z ulepszeniami.
 
 Poniższa przykładowa składnia ilustruje wywołanie wersji interfejsu API podglądu.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 Usługa Azure Wyszukiwanie poznawcze jest dostępna w wielu wersjach. Aby uzyskać więcej informacji, zobacz [wersje interfejsu API](search-api-versions.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z dokumentacją interfejsu API REST usługi Search w wersji zapoznawczej. Jeśli wystąpią problemy, poproś nas o pomoc dotyczącą [Stack Overflow](https://stackoverflow.com/) lub [skontaktuj się z pomocą techniczną](https://azure.microsoft.com/support/community/?product=search).
 

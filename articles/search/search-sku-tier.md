@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553975"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922807"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -25,7 +25,7 @@ Większość klientów zaczyna się od warstwy Bezpłatna, aby umożliwić jej o
 
 W poniższej tabeli opisano ograniczenia funkcji związanych z warstwą.
 
-| Cechy | Ograniczenia |
+| Cecha | Ograniczenia |
 |---------|-------------|
 | [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD. |
 | [Wzbogacanie sztucznej inteligencji](search-security-manage-encryption-keys.md) | Działa w warstwie Bezpłatna, ale nie jest zalecana. |
@@ -98,7 +98,7 @@ W przypadku [wzbogacania AI](cognitive-search-concept-intro.md)należy zaplanowa
 | Operacja | Wpływ rozliczeń |
 |-----------|----------------|
 | Łamanie dokumentów, Wyodrębnianie tekstu | Bezpłatna |
-| Łamanie dokumentów, wyodrębnianie obrazów | Opłaty są naliczane zgodnie z liczbą obrazów wyodrębnionych z dokumentów. W [konfiguracji indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) **imageAction** jest parametrem, który wyzwala wyodrębnianie obrazów. Jeśli **imageAction** jest ustawiona na wartość "none" (domyślnie), nie zostanie naliczona opłata za Wyodrębnianie obrazu. Stawka wyodrębniania obrazu jest udokumentowana na stronie [szczegóły cennika](https://azure.microsoft.com/pricing/details/search/) usługi Azure wyszukiwanie poznawcze.|
+| Łamanie dokumentów, wyodrębnianie obrazów | Opłaty są naliczane zgodnie z liczbą obrazów wyodrębnionych z dokumentów. W [konfiguracji indeksatora](/rest/api/searchservice/create-indexer#indexer-parameters) **imageAction** jest parametrem, który wyzwala wyodrębnianie obrazów. Jeśli **imageAction** jest ustawiona na wartość "none" (domyślnie), nie zostanie naliczona opłata za Wyodrębnianie obrazu. Stawka wyodrębniania obrazu jest udokumentowana na stronie [szczegóły cennika](https://azure.microsoft.com/pricing/details/search/) usługi Azure wyszukiwanie poznawcze.|
 | [Wbudowane umiejętności poznawcze](cognitive-search-predefined-skills.md) | Opłaty są naliczane według tej samej stawki, co w przypadku, gdy zadanie zostało wykonane przy użyciu Cognitive Services bezpośrednio. |
 | Umiejętności niestandardowe | Niestandardowa umiejętność zapewnia funkcjonalność. Koszt użycia niestandardowej umiejętności zależy wyłącznie od tego, czy kod niestandardowy wywołuje inne usługi taryfowe. |
 
@@ -130,7 +130,7 @@ Poniższe sugestie pomogą Ci obniżyć koszty lub skuteczniej zarządzać koszt
 
 + Skalowanie w górę dla operacji intensywnie korzystających z zasobów, takich jak indeksowanie, a następnie korygowanie w dół na potrzeby zwykłych obciążeń zapytań. Rozpocznij od minimalnej konfiguracji Wyszukiwanie poznawcze platformy Azure (jeden element SU składający się z jednej partycji i jednej repliki), a następnie Monitoruj aktywność użytkowników, aby identyfikować wzorce użycia, które wskazują potrzebę większej pojemności. Jeśli istnieje przewidywalny wzorzec, można synchronizować skalę z aktywnością (należy napisać kod w celu zautomatyzowania tego).
 
-Dodatkowo zapoznaj się z tematem [rozliczeń i zarządzania kosztami](https://docs.microsoft.com/azure/billing/billing-getting-started) dla wbudowanych narzędzi i funkcji związanych z wydatkami.
+Dodatkowo zapoznaj się z tematem [rozliczeń i zarządzania kosztami](../cost-management-billing/manage/getting-started.md) dla wbudowanych narzędzi i funkcji związanych z wydatkami.
 
 Tymczasowe wyłączenie usługi wyszukiwania nie jest możliwe. Dedykowane zasoby są zawsze operacyjne, przydzielane do wyłącznego użytku przez okres istnienia usługi. Usuwanie usługi jest trwałe, a także usuwa skojarzone z nią dane.
 
@@ -175,7 +175,7 @@ Dzięki przybliżonemu szacunkowi możesz dwukrotnie określić wartość budże
 
 Dedykowane zasoby mogą obsługiwać większe próbkowanie i czasy przetwarzania dla bardziej realistycznych szacunków liczby indeksów, rozmiaru i woluminów zapytań podczas opracowywania. Niektórzy klienci przechodźą w prawo przy użyciu warstwy rozliczeniowej, a następnie ponownie ocenianej jako dojrzały projekt programistyczny.
 
-1. [Przejrzyj limity usługi w każdej warstwie](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) , aby określić, czy niższe warstwy mogą obsługiwać wymaganą liczbę indeksów. W warstwach Podstawowa, S1 i S2 limity indeksu są odpowiednio 15, 50 i 200. Warstwa zoptymalizowana pod kątem magazynu ma limit 10 indeksów, ponieważ jest ona zaprojektowana do obsługi niskiej liczby bardzo dużych indeksów.
+1. [Przejrzyj limity usługi w każdej warstwie](./search-limits-quotas-capacity.md#index-limits) , aby określić, czy niższe warstwy mogą obsługiwać wymaganą liczbę indeksów. W warstwach Podstawowa, S1 i S2 limity indeksu są odpowiednio 15, 50 i 200. Warstwa zoptymalizowana pod kątem magazynu ma limit 10 indeksów, ponieważ jest ona zaprojektowana do obsługi niskiej liczby bardzo dużych indeksów.
 
 1. [Utwórz usługę w warstwie rozliczanej](search-create-service-portal.md):
 

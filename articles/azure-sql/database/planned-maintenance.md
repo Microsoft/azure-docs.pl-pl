@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 08/25/2020
-ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c7b78f14602632068a19d520aeeb940b543be61
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869121"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948219"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Zaplanuj zdarzenia konserwacji platformy Azure w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,6 +24,8 @@ ms.locfileid: "88869121"
 Dowiedz się, jak przygotować się do planowanych zdarzeń konserwacji w bazie danych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>Co to jest planowane zdarzenie konserwacji?
+
+Aby zapewnić bezpieczne, zgodne, stabilne i wydajne usługi wystąpień zarządzanych w usłudze Azure SQL Azure SQL Database, aktualizacje są wykonywane za pomocą składników usługi niemal w sposób ciągły. Dzięki nowoczesnej i niezawodnej architekturze usług oraz innowacyjnym technologiom, takim jak [gorąca poprawka](https://aka.ms/azuresqlhotpatching), większość aktualizacji jest w pełni przejrzysta i nie ma wpływu na warunki dostępności usługi. Nadal niektóre typy aktualizacji powodują krótkie przerwania działania usługi i wymagają szczególnego traktowania. 
 
 Dla każdej bazy danych Azure SQL Database i wystąpienie zarządzane usługi Azure SQL utrzymują kworum replik baz danych, w których jedna replika jest podstawowym. Przez cały czas replika podstawowa musi być obsługą online, a co najmniej jedna replika pomocnicza musi być w dobrej kondycji. Podczas planowanej konserwacji członkowie kworum bazy danych przechodzą do trybu offline po jednej naraz, z zamiarem, że istnieje jedna replika podstawowa, a co najmniej jedna replika pomocnicza jest w trybie online, aby zapewnić brak przestojów klientów. Jeśli replika podstawowa musi zostać przełączona w tryb offline, proces ponownej konfiguracji/przełączenia w tryb failover nastąpi, gdy jedna replika pomocnicza stanie się nowym serwerem podstawowym.  
 
@@ -43,7 +45,7 @@ Każda aplikacja produkcyjna klienta, która nawiązuje połączenie z usługą 
 
 Jeśli baza danych ma błędy logowania, Sprawdź okno [Resource Health](../../service-health/resource-health-overview.md#get-started) w [Azure Portal](https://portal.azure.com) dla bieżącego stanu. Sekcja historia kondycji zawiera przyczynę przestoju dla każdego zdarzenia (jeśli jest dostępna).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej na temat [Resource Health](resource-health-to-troubleshoot-connectivity.md) Azure SQL Database i wystąpienia zarządzanego Azure SQL.
 - Aby uzyskać więcej informacji na temat logiki ponawiania, zobacz [logika ponawiania dla błędów przejściowych](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).

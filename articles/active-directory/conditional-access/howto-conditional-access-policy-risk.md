@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024364"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948100"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Dostęp warunkowy: Logowanie warunkowe oparte na ryzyku
 
@@ -35,11 +35,11 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **wszystkie aplikacje w chmurze**.
 1. W obszarze **warunki**  >  **ryzyka użytkownika**ustaw opcję **Skonfiguruj** na **wartość tak**. W obszarze **Wybierz poziom ryzyka związanego z logowaniem ta zasada będzie miała zastosowanie** 
    1. Wybierz opcję **wysoki** i **Średni**.
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
@@ -52,7 +52,7 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz opcję **Wybierz wykluczonych użytkowników**, wybierz pozycję dostęp awaryjny lub konta w firmie, a następnie wybierz pozycję **Wybierz**.
-   1. Wybierz pozycję **Gotowe**.
+   1. Kliknij **Gotowe**.
 1. W obszarze **warunki**wybierz pozycję **ryzyko związane z logowaniem**, a następnie wybierz pozycję **średni i powyżej**.
    1. Wybierz pozycję **Wybierz**, a następnie pozycję **gotowe**.
 1. W obszarze **Kontrola**  >  **dostępu**wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj uwierzytelniania wieloskładnikowego**.
@@ -60,14 +60,14 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. Ustaw ustawienie **Wymuszaj zasady** na **włączone**.
 1. Wybierz pozycję **Zapisz**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 
-[Dostęp warunkowy oparty na ryzyku](howto-conditional-access-policy-risk-user.md)
+[Dostęp warunkowy oparty na ryzyku użytkownika](howto-conditional-access-policy-risk-user.md)
 
 [Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)
 
-[Co to jest usługa Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[Co to jest usługa Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

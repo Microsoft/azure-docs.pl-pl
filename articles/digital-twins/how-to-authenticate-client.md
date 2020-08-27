@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 00219dbebb8e84c21b9e5b84cf71309c63fc518e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c211c0e5ef0b39f778db7c922fafc735e2411068
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855960"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930047"
 ---
 # <a name="write-client-app-authentication-code"></a>Napisz kod uwierzytelniania aplikacji klienckiej
 
@@ -35,7 +35,7 @@ Aby można było wykonać operację, potrzebny będzie projekt aplikacji klienck
 
 Najpierw należy uwzględnić następujące pakiety w projekcie, aby można było użyć zestawu .NET SDK i narzędzi do uwierzytelniania:
 * `Azure.DigitalTwins.Core` (wersja `1.0.0-preview.2` )
-* `Azure.Identity` (wersja `1.1.1` )
+* `Azure.Identity`
 
 W zależności od wybranych narzędzi można dołączyć pakiety przy użyciu Menedżera pakietów programu Visual Studio lub `dotnet` narzędzia wiersza polecenia. 
 
