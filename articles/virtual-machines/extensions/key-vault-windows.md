@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c41207bedbea96c76f0a9a6ffd45ea6efa09138b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 70dcee1cce49c658a60e98821a3ce60ec443408a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641776"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932580"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Windows
 
@@ -80,12 +80,12 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 ### <a name="property-values"></a>Wartości właściwości
 
-| Nazwa | Wartość/przykład | Typ danych |
+| Name (Nazwa) | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
 | typ | KeyVaultForWindows | ciąg |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1,0 | int |
 | pollingIntervalInS | 3600 | ciąg |
 | certificateStoreName | MY | ciąg |
 | linkOnRenewal | fałsz | boolean |
@@ -130,6 +130,8 @@ Konfiguracja JSON rozszerzenia maszyny wirtualnej musi być zagnieżdżona w ram
 
 
 ## <a name="azure-powershell-deployment"></a>Wdrożenie Azure PowerShell
+> [!WARNING]
+> Klienci programu PowerShell często dodają `\` do `"` programu w settings.js, na którym spowoduje to niepowodzenie akvvm_service z powodu błędu: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
 Azure PowerShell można użyć do wdrożenia rozszerzenia maszyny wirtualnej Key Vault do istniejącej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. 
 

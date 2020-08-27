@@ -116,7 +116,7 @@
           href: tag-support.md
     - name: Zarządzanie grupami zasobów
       items:
-        - name: Witryna Azure Portal
+        - name: Azure Portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
@@ -139,9 +139,9 @@
     - name: Subskrypcje EA
       items:
         - name: Utwórz
-          href: programmatically-create-subscription.md
+          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Udzielanie dostępu do tworzenia
-          href: grant-access-to-create-subscription.md
+          href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Dostawcy zasobów i ich typy
       href: resource-providers-and-types.md
     - name: Usuwanie zasobów i grup zasobów

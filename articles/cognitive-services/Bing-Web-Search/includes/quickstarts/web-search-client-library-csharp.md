@@ -8,12 +8,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 32a31892317cadb37f16e48df80bef7d6d8a99ef
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3f8f7c41e4d18909ec4f483a0e37d83b4d05e79d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925614"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931095"
 ---
 Wyszukiwanie w sieci Web Bing Biblioteka kliencka ułatwia integrację wyszukiwanie w sieci Web Bing z aplikacją w języku C#. Z tego przewodnika Szybki start dowiesz się, jak utworzyć wystąpienie klienta, wysłać żądanie i wyświetlić odpowiedź.
 
@@ -414,7 +415,7 @@ W tym przykładzie użyto parametrów `answer_count`, `promote` i `safe_search`,
 
 3. Uruchom aplikację.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pamiętaj, aby po zakończeniu pracy z tym projektem usunąć klucz subskrypcji z kodu aplikacji.
 

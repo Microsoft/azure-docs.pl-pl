@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 08/25/2020
 ms.author: aahi
-ms.openlocfilehash: e7dca6f74145d1ea50c5a9bfc57b52e1cbdfcab3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869834"
+ms.locfileid: "88933022"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Instrukcje: wykrywanie tonacji przy użyciu interfejs API analizy tekstu
 
@@ -40,7 +40,7 @@ Analiza tonacji obsługuje szeroką gamę języków z więcej w wersji zapoznawc
 
 Analiza tonacji w wersji 3 stosuje etykiety tonacji do tekstu, które są zwracane na poziomie zdania i dokumentu, z wynikiem pewności dla każdej z nich. 
 
-Etykiety to `positive` , `negative` , i `neutral` . Na poziomie dokumentu `mixed` można również zwrócić etykietę tonacji. Tonacji dokumentu jest określana poniżej:
+Etykiety są *dodatnie*, *ujemne*i *neutralne*. Na poziomie dokumentu może być również zwracana etykieta *mieszany* tonacji. Tonacji dokumentu jest określana poniżej:
 
 | Tonacji zdania                                                                            | Etykieta zwracanego dokumentu |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -49,7 +49,7 @@ Etykiety to `positive` , `negative` , i `neutral` . Na poziomie dokumentu `mixed
 | Co najmniej jedno `negative` zdanie i co najmniej jedno `positive` zdanie znajduje się w dokumencie.    | `mixed`                 |
 | Wszystkie zdania w dokumencie są `neutral` .                                                  | `neutral`               |
 
-Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Wyniki pewności w ramach każdego zdania (nie dokumentu) są dodawane do 1.
+Wyniki zaufania mieszczą się w zakresie od 1 do 0. Wyniki zbliżone do 1 oznaczają wyższy poziom ufności w klasyfikacji etykiety, a niższe wyniki wskazują na zmniejszenie zaufania. Dla każdego dokumentu lub każdego zdania przewidywane wyniki skojarzone z etykietami (pozytywna, ujemna i neutralna) są dodawane do 1.
 
 ### <a name="opinion-mining"></a>Wyszukiwanie opinii
 

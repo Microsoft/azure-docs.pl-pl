@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169344"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919679"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure Multi-Factor Authentication
 
@@ -45,6 +45,8 @@ Aby zoptymalizować częstotliwość wyświetlania wierszy uwierzytelniania dla 
 ### <a name="evaluate-session-lifetime-policies"></a>Oceń zasady okresu istnienia sesji
 
 Bez żadnych ustawień okresu istnienia sesji w sesji przeglądarki nie ma trwałych plików cookie. Za każdym razem, gdy użytkownik zamknie i otworzy przeglądarkę, otrzymuje monit o ponowne uwierzytelnienie. W przypadku klientów pakietu Office domyślny okres jest przedziałem czasu 90 dni. Jeśli użytkownik zresetował swoje hasło przy użyciu tej domyślnej konfiguracji pakietu Office lub nie działa przez ponad 90 dni, użytkownik musi ponownie uwierzytelnić się ze wszystkimi wymaganymi czynnikami (pierwszym i drugim czynnikiem).
+
+Użytkownik może zobaczyć wiele wyświetleń usługi MFA na urządzeniu, które nie ma tożsamości w usłudze Azure AD. Jeśli każda aplikacja ma swój własny token odświeżenia OAuth, który nie jest udostępniany innym aplikacjom klienckim, zostanie wyświetlony komunikat z wieloma wynikami. W tym scenariuszu MFA monituje wiele razy, ponieważ każda aplikacja żąda zweryfikowania tokenu odświeżania OAuth przy użyciu usługi MFA.
 
 W usłudze Azure AD najbardziej restrykcyjne zasady dotyczące okresu istnienia sesji decydują o konieczności ponownego uwierzytelnienia użytkownika. Poniżej przedstawiono przykładowy scenariusz:
 

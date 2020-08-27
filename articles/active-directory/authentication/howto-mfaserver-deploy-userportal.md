@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c88a54661e8fee2dd7c3b4dc34336d44a6803090
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ccd1192c7597b5a088b1c50b5367030a616b9d77
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719465"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919594"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal użytkowników serwera usługi Azure Multi-Factor Authentication
 
@@ -29,7 +29,11 @@ Można skonfigurować administratorów portalu użytkowników oraz przyznać im 
 W zależności od środowiska można wdrożyć portal użytkowników na tym samym serwerze co serwer usługi Azure Multi-Factor Authentication lub na innym serwerze internetowym.
 
 > [!IMPORTANT]
-> Od 1 lipca 2019 firma Microsoft nie będzie już oferować serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego od użytkowników, powinni korzystać z usługi Azure Multi-Factor Authentication opartej na chmurze. Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca, będą mogli pobrać najnowszą wersję, przyszłe aktualizacje i generować poświadczenia aktywacji w zwykły sposób.
+> Od 1 lipca 2019 firma Microsoft nie oferuje już serwera MFA dla nowych wdrożeń. Nowi klienci, którzy chcą wymagać uwierzytelniania wieloskładnikowego (MFA) podczas zdarzeń logowania, powinni używać opartych na chmurze Multi-Factor Authentication platformy Azure.
+>
+> Aby rozpocząć pracę z usługą MFA opartą na chmurze, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Istniejący klienci, którzy aktywowali serwer usługi MFA przed 1 lipca 2019, mogą pobrać najnowszą wersję, przyszłe aktualizacje i wygenerować poświadczenia aktywacji w zwykły sposób.
 
 ![Strona logowania portalu użytkowników serwera usługi MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 

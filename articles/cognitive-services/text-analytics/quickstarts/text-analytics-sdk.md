@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/27/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: ba53b4a4765a2b3db0aa048a990a0a48f74682d0
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874983"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931186"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
@@ -83,11 +83,11 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 | Język | Dostępna wersja | 
 |----------|------------------------|
 | Ruby     | [Wersja 2,1](ruby-sdk.md) | 
-| Przejdź       | [Wersja 2,1](go-sdk.md) | 
+| Go       | [Wersja 2,1](go-sdk.md) | 
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

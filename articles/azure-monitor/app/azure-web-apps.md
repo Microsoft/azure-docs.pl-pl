@@ -3,13 +3,13 @@ title: Monitorowanie wydajności usługi Azure App Services | Microsoft Docs
 description: Monitorowanie wydajności aplikacji dla usług Azure App Services. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 33ad4503b744b4737c2d63f74e146a79d36080e1
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.custom: devx-track-javascript, devx-track-dotnet
+ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258732"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933804"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -61,11 +61,11 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
         
 | Dane | Podstawowa kolekcja .NET | Zalecana kolekcja .NET |
 | --- | --- | --- |
-| Dodanie trendów użycia procesora, pamięci i operacji we/wy |Tak |Tak |
-| Zbieranie trendów użycia z możliwością korelacji wyników dostępności z transakcjami | Tak |Tak |
-| Zbieranie wyjątków nieobsłużonych przez proces hosta | Tak |Tak |
-| Zwiększenie dokładności metryki APM pod obciążeniem, gdy jest używane próbkowanie | Tak |Tak |
-| Korelowanie mikrousług ponad granicami żądań/zależności | Nie (tylko możliwości APM o pojedynczym wystąpieniu) |Tak |
+| Dodanie trendów użycia procesora, pamięci i operacji we/wy |Yes |Yes |
+| Zbieranie trendów użycia z możliwością korelacji wyników dostępności z transakcjami | Yes |Yes |
+| Zbieranie wyjątków nieobsłużonych przez proces hosta | Yes |Yes |
+| Zwiększenie dokładności metryki APM pod obciążeniem, gdy jest używane próbkowanie | Yes |Yes |
+| Korelowanie mikrousług ponad granicami żądań/zależności | Nie (tylko możliwości APM o pojedynczym wystąpieniu) |Yes |
 
 3. Aby skonfigurować ustawienia, takie jak próbkowanie, które można wcześniej kontrolować za pomocą pliku applicationinsights.config, można teraz współdziałać z tymi samymi ustawieniami za pośrednictwem ustawień aplikacji z odpowiednim prefiksem. 
 

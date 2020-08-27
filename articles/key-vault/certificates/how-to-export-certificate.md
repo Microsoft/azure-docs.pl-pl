@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: ee05d331e953aa39855033d0987cb85cbfddb744
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 408b507ff23a2a20c5ed6d2fc32fd5dbf5dbab5d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827515"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930897"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Eksportuj certyfikaty z Azure Key Vault
 
@@ -36,10 +36,7 @@ Po utworzeniu certyfikatu Key Vault można pobrać go z klucza prywatnego z moż
 - Możliwe do **eksportowania**: zasady użyte do utworzenia certyfikatu wskazują, że klucz jest eksportowalny.
 - **Nie można eksportować**: zasady użyte do utworzenia certyfikatu wskazują, że klucz nie jest eksportowalny. W takim przypadku klucz prywatny nie jest częścią wartości, gdy zostanie pobrany jako wpis tajny.
 
-Key Vault obsługuje dwa typy kluczy:
-
-- **RSA**: możliwe do eksportowania
-- **Klucz RSA modułu HSM**: nie do eksportu
+Obsługiwane typy kluczy: RSA, RSA-HSM, EC, we-HSM, Oct (wymienione [tutaj](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) można eksportować tylko za pomocą RSA, we. Klucze HSM nie mogą być eksportowane.
 
 Aby uzyskać więcej informacji, zobacz [Informacje o Azure Key Vault certyfikatach](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key) .
 

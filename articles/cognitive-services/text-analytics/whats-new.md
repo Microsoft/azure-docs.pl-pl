@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: 06c36b3f3939c8804149448ecb770a22d658fcbf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854723"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930914"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Co nowego w interfejsie API analizy tekstu?
 
@@ -27,6 +27,7 @@ Interfejs API analizy tekstu jest regularnie aktualizowana. Aby zachować aktual
 
 * Wersja modelu `2020-07-01` dla `/keyphrases` `/pii` `/languages` punktów końcowych v3 i, które dodaje:
     * Dodatkowe [Kategorie jednostek](named-entity-types.md?tabs=personal) dla instytucji rządowych i poszczególnych krajów dla nazwanego rozpoznawania jednostek.
+    * Wsparcie norweskie i tureckie w analiza tonacji v3.
 * W przypadku żądań interfejsu API v3, które przekraczają opublikowane [limity danych](concepts/data-limits.md), zostanie teraz zwrócony błąd HTTP 400. 
 * Punkty końcowe zwracające przesunięcie obsługują teraz opcjonalny `stringIndexType` parametr, który dostosowuje zwrócone `offset` i `length` wartości zgodne z obsługiwanym [schematem indeksu ciągu](concepts/text-offsets.md).
 
@@ -150,7 +151,7 @@ Dodatkowe typy jednostek są teraz dostępne w publicznej wersji zapoznawczej ro
     * Organizacja
     * Wiek jako podtyp w ramach ilości
     * Data jako podtyp w obszarze DateTime
-    * E-mail 
+    * Wiadomość e-mail 
     * Numer telefonu (tylko Stany Zjednoczone)
     * Adres URL
     * Adres IP

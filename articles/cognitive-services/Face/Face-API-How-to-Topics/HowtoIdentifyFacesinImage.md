@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 07/02/2020
 ms.author: sbowles
-ms.openlocfilehash: 607f67258c5d069590f934891c09ccada780c977
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bae84d93d15abe8804a430dacd2f2cddf8a9aed9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85918752"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919169"
 ---
 # <a name="example-identify-faces-in-images"></a>Przykład: Zidentyfikuj twarze na obrazach
 

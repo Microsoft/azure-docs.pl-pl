@@ -5,12 +5,12 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: e3f3e457a0eb9bcce08499bf7d10c69185d7f211
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 227849380d543f6ea5bc1c0ae9cd6dfbf8de69b0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337720"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934212"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Szybki Start: Tworzenie bazy wiedzy w QnA Maker przy użyciu języka C# z usługą REST
 
@@ -67,8 +67,8 @@ W górnej części klasy program Dodaj wymagane stałe, aby uzyskać dostęp do 
 
 Ustaw następujące wartości w zmiennych środowiskowych:
 
-* `QNA_MAKER_SUBSCRIPTION_KEY`- **Klucz** jest ciągiem znaków 32 i jest dostępny w Azure Portal na QNA Maker zasobu na stronie szybkiego startu. Ta wartość nie jest taka sama jak klucz punktu końcowego przewidywania.
-* `QNA_MAKER_ENDPOINT`- **Punkt końcowy** to adres URL do tworzenia w formacie `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Nie jest to ten sam adres URL służący do wykonywania zapytań dotyczących punktu końcowego przewidywania.
+* `QNA_MAKER_SUBSCRIPTION_KEY` - **Klucz** jest ciągiem znaków 32 i jest dostępny w Azure Portal na QNA Maker zasobu na stronie szybkiego startu. Ta wartość nie jest taka sama jak klucz punktu końcowego przewidywania.
+* `QNA_MAKER_ENDPOINT` - **Punkt końcowy** to adres URL do tworzenia w formacie `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Nie jest to ten sam adres URL służący do wykonywania zapytań dotyczących punktu końcowego przewidywania.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
 

@@ -3,13 +3,13 @@ title: Uruchamianie systemu Linux na węzłach obliczeniowych maszyny wirtualnej
 description: Dowiedz się, jak przetwarzać obciążenia równoległe obliczeniowe dla pul maszyn wirtualnych z systemem Linux w Azure Batch.
 ms.topic: how-to
 ms.date: 06/01/2018
-ms.custom: H1Hack27Feb2017, devx-track-python
-ms.openlocfilehash: bc4c98472609ef906d59159fb31d396071bf6a8d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
+ms.openlocfilehash: c4dd74a3f2b27680de81c6295f1f27fbcdac16c9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853012"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919441"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach wsadowym
 
@@ -58,7 +58,7 @@ Agent węzła usługi Batch jest programem uruchamianym w każdym węźle w puli
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>Tworzenie puli systemu Linux: Batch Python
-Poniższy fragment kodu przedstawia przykład korzystania z [biblioteki klienta Microsoft Azure Batch dla języka Python][py_batch_package] w celu utworzenia puli węzłów obliczeniowych serwera Ubuntu. Dokumentacja referencyjna dla modułu usługi Batch Python znajduje się w [pakiecieazure.batch][py_batch_docs] na stronie odczytywanie dokumentów.
+Poniższy fragment kodu przedstawia przykład korzystania z [biblioteki klienta Microsoft Azure Batch dla języka Python][py_batch_package] w celu utworzenia puli węzłów obliczeniowych serwera Ubuntu. Dokumentacja referencyjna dla modułu usługi Batch Python znajduje się w [ pakiecieazure.batch][py_batch_docs] na stronie odczytywanie dokumentów.
 
 Ten fragment kodu tworzy [elementu imagereference][py_imagereference] jawnie i określa każdą z jej właściwości (Wydawca, oferta, jednostka SKU, wersja). Jednak w kodzie produkcyjnym zalecamy użycie metody [list_supported_images][py_list_supported_images] do określenia i wybrania spośród dostępnych kombinacji jednostki SKU agenta węzła w czasie wykonywania.
 

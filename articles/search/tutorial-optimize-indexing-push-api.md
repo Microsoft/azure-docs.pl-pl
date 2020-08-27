@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 5cafb7927bb3ec697446b37df8936da65748a9ba
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3e1845eee9832770cc289821c60097e69eec6c08
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749464"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932019"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
 
@@ -21,7 +21,7 @@ Usługa Azure Wyszukiwanie poznawcze obsługuje [dwa podstawowe podejścia](sear
 
 W tym samouczku opisano sposób wydajnego indeksowania danych przy użyciu [modelu wypychania](search-what-is-data-import.md#pushing-data-to-an-index) przez przetwarzanie wsadowe żądań i użycie wykładniczej strategii ponawiania wycofywania. Możesz [pobrać i uruchomić aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). W tym artykule wyjaśniono kluczowe aspekty aplikacji i czynników, które należy wziąć pod uwagę podczas indeksowania danych.
 
-Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
+Ten samouczek używa języka C# i [zestawu SDK platformy .NET](/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Tworzenie indeksu
@@ -111,7 +111,7 @@ Ta prosta aplikacja konsolowa języka C#/.NET wykonuje następujące zadania:
 
 ### <a name="creating-the-index"></a>Tworzenie indeksu
 
-Ten przykładowy program używa zestawu .NET SDK do definiowania i tworzenia indeksu Wyszukiwanie poznawcze platformy Azure. Wykorzystuje klasę [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) , aby wygenerować strukturę indeksu z klasy modelu danych języka C#.
+Ten przykładowy program używa zestawu .NET SDK do definiowania i tworzenia indeksu Wyszukiwanie poznawcze platformy Azure. Wykorzystuje klasę [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) , aby wygenerować strukturę indeksu z klasy modelu danych języka C#.
 
 Model danych jest definiowany przez klasę hotelu, która również zawiera odwołania do klasy Address. FieldBuilder przechodzi przez wiele definicji klas w celu wygenerowania złożonej struktury danych dla indeksu. Tagi metadanych są używane do definiowania atrybutów poszczególnych pól, na przykład czy można je przeszukiwać czy sortować.
 
@@ -162,8 +162,8 @@ Schemat indeksu może mieć znaczny wpływ na szybkość indeksowania. Ze wzglę
 
 Usługa Azure Wyszukiwanie poznawcze obsługuje następujące interfejsy API w celu załadowania jednego lub wielu dokumentów do indeksu:
 
-+ [Dodawanie, aktualizowanie lub usuwanie dokumentów (interfejs API REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Klasa indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) lub [klasa indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
++ [Dodawanie, aktualizowanie lub usuwanie dokumentów (interfejs API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Klasa indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) lub [klasa indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
 
 Indeksowanie dokumentów w partiach znacznie poprawi wydajność indeksowania. Te partie mogą należeć do 1000 dokumentów lub maksymalnie 16 MB na partię.
 
@@ -258,14 +258,14 @@ Aby w pełni wykorzystać szybkość indeksowania Wyszukiwanie poznawcze platfor
 
 Kilka z kluczowych zagadnień wymienionych powyżej ma wpływ na optymalną liczbę wątków. Możesz zmodyfikować ten przykład i przetestować z różnymi liczbami wątków, aby określić optymalną liczbę wątków dla danego scenariusza. Jednak o ile wiele wątków jest uruchomionych współbieżnie, powinno być możliwe korzystanie z większości korzyści z wydajności.
 
-Podczas narastania żądań, które powodują przeszukanie usługi wyszukiwania, mogą wystąpić [kody stanu HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) wskazujące, że żądanie nie zostało w pełni zakończone. Podczas indeksowania dwa typowe kody stanu HTTP to:
+Podczas narastania żądań, które powodują przeszukanie usługi wyszukiwania, mogą wystąpić [kody stanu HTTP](/rest/api/searchservice/http-status-codes) wskazujące, że żądanie nie zostało w pełni zakończone. Podczas indeksowania dwa typowe kody stanu HTTP to:
 
 + **503 Usługa niedostępna** — ten błąd oznacza, że system jest mocno obciążony i nie można w tej chwili przetworzyć Twojego żądania.
 + **207 o wielu stanach** — ten błąd oznacza, że niektóre dokumenty zostały wykonane pomyślnie, ale co najmniej jeden z nich nie powiódł się.
 
 ### <a name="implement-an-exponential-backoff-retry-strategy"></a>Zaimplementuj strategię ponowień wycofywania wykładniczych
 
-Jeśli wystąpi awaria, żądania powinny być ponawiane przy użyciu [strategii wycofywaniaego ponawiania prób](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Jeśli wystąpi awaria, żądania powinny być ponawiane przy użyciu [strategii wycofywaniaego ponawiania prób](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Zestaw .NET SDK platformy Azure Wyszukiwanie poznawcze automatycznie ponawia próbę 503s i inne Nieudane żądania, ale musisz zaimplementować własną logikę, aby ponowić próbę 207s. Narzędzia typu open source, takie jak [Polly](https://github.com/App-vNext/Polly) , mogą również służyć do implementowania strategii ponawiania prób. 
 
@@ -281,7 +281,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Ważne jest, aby przechwytywać [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) , ponieważ te wyjątki wskazują, że Operacja indeksowania tylko częściowo powiodła się (207s). W przypadku elementów zakończonych niepowodzeniem należy wykonać ponowną próbę przy użyciu `FindFailedActionsToRetry` metody, która ułatwia tworzenie nowej partii zawierającej tylko elementy zakończone niepowodzeniem.
+Ważne jest, aby przechwytywać [IndexBatchException](/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) , ponieważ te wyjątki wskazują, że Operacja indeksowania tylko częściowo powiodła się (207s). W przypadku elementów zakończonych niepowodzeniem należy wykonać ponowną próbę przy użyciu `FindFailedActionsToRetry` metody, która ułatwia tworzenie nowej partii zawierającej tylko elementy zakończone niepowodzeniem.
 
 Wyjątki inne niż `IndexBatchException` należy również przechwycić i wskazać, że żądanie nie powiodło się. Te wyjątki są mniej popularne, szczególnie w przypadku zestawu .NET SDK w miarę automatycznego ponawiania prób 503s.
 
@@ -346,7 +346,7 @@ Wypełniony indeks wyszukiwania można eksplorować po uruchomieniu programu pro
 
 ### <a name="programatically"></a>Programowo
 
-Dostępne są dwie główne opcje sprawdzania liczby dokumentów w indeksie: [interfejs API zliczania dokumentów](https://docs.microsoft.com/rest/api/searchservice/count-documents) i [interfejs API pobierania statystyk indeksu](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics). Obie ścieżki mogą wymagać dodatkowego czasu na aktualizację, dlatego nie jest to alarmne, jeśli liczba zwróconych dokumentów jest niższa niż oczekiwano.
+Dostępne są dwie główne opcje sprawdzania liczby dokumentów w indeksie: [interfejs API zliczania dokumentów](/rest/api/searchservice/count-documents) i [interfejs API pobierania statystyk indeksu](/rest/api/searchservice/get-index-statistics). Obie ścieżki mogą wymagać dodatkowego czasu na aktualizację, dlatego nie jest to alarmne, jeśli liczba zwróconych dokumentów jest niższa niż oczekiwano.
 
 #### <a name="count-documents"></a>Liczenie dokumentów
 
@@ -370,7 +370,7 @@ W Azure Portal Otwórz stronę **Przegląd** usługi wyszukiwania i Znajdź inde
 
   ![Lista indeksów usługi Azure Wyszukiwanie poznawcze](media/tutorial-optimize-data-indexing/portal-output.png "Lista indeksów usługi Azure Wyszukiwanie poznawcze")
 
-*Liczba dokumentów* i *Rozmiar magazynu* są oparte na [interfejsie API pobierania statystyk indeksu](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) i może potrwać kilka minut.
+*Liczba dokumentów* i *Rozmiar magazynu* są oparte na [interfejsie API pobierania statystyk indeksu](/rest/api/searchservice/get-index-statistics) i może potrwać kilka minut.
 
 ## <a name="reset-and-rerun"></a>Resetowanie i ponowne uruchamianie
 
@@ -380,9 +380,9 @@ Przykładowy kod dla tego samouczka sprawdza istniejące indeksy i usuwa je, aby
 
 Możesz również użyć portalu, aby usunąć indeksy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Możesz usuwać zasoby pojedynczo lub usunąć grupę zasobów, aby usunąć cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

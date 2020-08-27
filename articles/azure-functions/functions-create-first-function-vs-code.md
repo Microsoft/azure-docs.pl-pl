@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d00fa5cf475eb2311bfa4b6f7dbe7dba70d080fd
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: b5f3a6b8b8a04cca9543a5343d4496524a166c39
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642337"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919611"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code
 
@@ -52,35 +52,35 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
 + [Node.js](https://nodejs.org/), wymagany przez system Windows for npm. Tylko [aktywne wersje LTS LTS i Maintenance](https://nodejs.org/about/releases/). Użyj `node --version` polecenia, aby sprawdzić wersję.
     Nie jest wymagana do lokalnego programowania w systemach macOS i Linux.   
-::: zone-end  
+::: zone-end   
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js](https://nodejs.org/), aktywne wersje LTS LTS i Maintenance (zalecane 10.14.1). Użyj `node --version` polecenia, aby sprawdzić wersję.
-::: zone-end 
++ [Node.js](https://nodejs.org/), aktywne wersje LTS LTS i Maintenance (zalecane 10.14.1). Użyj `node --version` polecenia, aby sprawdzić wersję.  
+::: zone-end  
 ::: zone pivot="programming-language-python"
 + Środowisko [python 3,8](https://www.python.org/downloads/release/python-381/), [Python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) jest obsługiwane przez Azure Functions (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
 + [Program PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [Zestaw .NET Core SDK 3,1](https://www.microsoft.com/net/download)  
++ [.Net core 3,1](https://www.microsoft.com/net/download) i [.NET Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Zestaw Java developer Kit](https://aka.ms/azure-jdks), wersja 8.
 
 + [Apache Maven](https://maven.apache.org), wersja 3,0 lub nowsza.
 ::: zone-end  
-+ [Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
++ [Visual Studio Code](https://code.visualstudio.com/) na jednej z [obsługiwanych platform](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 ::: zone pivot="programming-language-csharp"  
 + [Rozszerzenie C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) dla Visual Studio Code.  
 ::: zone-end  
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-python"  
 + [Rozszerzenie Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) dla Visual Studio Code.  
 ::: zone-end  
-::: zone pivot="programming-language-powershell"
-+ [Rozszerzenie programu PowerShell dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
+::: zone pivot="programming-language-powershell"  
++ [Rozszerzenie programu PowerShell dla Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 ::: zone-end  
-::: zone pivot="programming-language-java"  
-+ [Pakiet rozszerzeń Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+::: zone pivot="programming-language-java"   
++ [Pakiet rozszerzeń Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
 ::: zone-end  
 
 + [Azure Functions rozszerzenie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) Visual Studio Code. 
@@ -180,7 +180,7 @@ Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można uż
 
     ![Odpowiedź funkcji wyświetlona w przeglądarce](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po przeniesieniu do następnego kroku [Dodaj powiązanie kolejki usługi Azure Storage do funkcji](functions-add-output-binding-storage-queue-vs-code.md), musisz zachować wszystkie Twoje zasoby, aby skompilować, co już zostało zrobione.
 

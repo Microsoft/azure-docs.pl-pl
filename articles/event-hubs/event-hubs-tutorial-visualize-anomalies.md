@@ -3,12 +3,12 @@ title: Azure Event Hubs — Wizualizuj anomalie danych w zdarzeniach w czasie rz
 description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzeczywistym wysyłanych do Microsoft Azure Event Hubs'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85315614"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934059"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
 
@@ -16,7 +16,7 @@ Dzięki usłudze Azure Event Hubs można za pomocą usługi Azure Stream Analyti
 
 W tym samouczku przeprowadzamy symulację takiej sytuacji. Możesz uruchomić aplikację, która tworzy i wysyła transakcje kart kredytowych do centrum zdarzeń. Następnie można odczytać strumień danych w czasie rzeczywistym za pomocą Azure Stream Analytics, który oddziela prawidłowe transakcje od nieprawidłowych transakcji, a następnie używa Power BI do wizualnego identyfikowania transakcji, które są otagowane jako nieprawidłowe.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Event Hubs
 > * Tworzenie centrum zdarzeń
@@ -308,7 +308,7 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
    ![Zrzut ekranu przedstawiający określanie zestawu danych.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Wybierz pozycję **Karta** dla typu wizualizacji. W obszarze **Pola** kliknij przycisk **Dodaj wartość**, a następnie wybierz pozycję **fraudulentuses**.
+9. Wybierz pozycję **Karta** dla typu wizualizacji. W obszarze **pola**kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `fraudulentuses` .
 
    ![Zrzut ekranu przedstawiający określanie typu wizualizacji i pól.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,9 +329,9 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
 12. W obszarze **Typ wizualizacji** wybierz opcję **Wykres liniowy**.
 
-13. W obszarze **Oś** kliknij przycisk **Dodaj wartość** i wybierz pozycję **windowend**. 
+13. W obszarze **oś**kliknij pozycję **Dodaj wartość**, a następnie wybierz pozycję `windowend` . 
 
-14. W obszarze **Wartości** kliknij przycisk **Dodaj wartość** i wybierz pozycję **fraudulentuses**.
+14. W obszarze **wartości**kliknij pozycję **Dodaj wartość** i wybierz pozycję `fraudulentuses` .
 
 15. W obszarze **Okno czasowe do wyświetlenia** wybierz ostatnie 5 minut. Kliknij przycisk **Dalej**.
 
@@ -341,7 +341,7 @@ W ramach zadania usługi Stream Analytics kliknij pozycje **Uruchom**, następni
 
     ![Zrzut ekranu przedstawiający wyniki usługi Power BI](./media/event-hubs-tutorial-visualize-anomalies/power-bi-results.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz usunąć wszystkie utworzone zasoby, usuń dane wizualizacji usługi Power BI, a następnie usuń grupę zasobów. Usunięcie grupy zasobów spowoduje usunięcie wszystkich zasobów w tej grupie. W tym przypadku spowoduje to usunięcie centrum zdarzeń, przestrzeni nazw centrum zdarzeń, zadania usługi Stream Analytics i samej grupy zasobów. 
 
@@ -378,6 +378,6 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Przejdź do następnego artykułu, aby dowiedzieć się więcej na temat usługi Azure Event Hubs.
 
 > [!div class="nextstepaction"]
-> [Wprowadzenie do wysyłania komunikatów do usługi Azure Event Hubs przy użyciu biblioteki .NET Standard](get-started-dotnet-standard-send-v2.md)
+> [Wprowadzenie do wysyłania komunikatów do usługi Azure Event Hubs przy użyciu biblioteki .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
 [Utwórz bezpłatne konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

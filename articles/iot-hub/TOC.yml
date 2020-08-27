@@ -188,6 +188,9 @@
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
         - name: Zabezpieczanie wdrożenia IoT
           href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Zabezpieczanie przy użyciu certyfikatów X.509 urzędu certyfikacji
       items:
         - name: Przegląd zabezpieczeń certyfikatu X.509 urzędu certyfikacji

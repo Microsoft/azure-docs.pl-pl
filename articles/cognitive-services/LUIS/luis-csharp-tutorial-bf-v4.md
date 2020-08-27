@@ -3,18 +3,19 @@ title: 'Samouczek: Language Understanding bot C# v4'
 description: Przy użyciu języka C# twórz czatbot zintegrowany z usługą Language Understanding (LUIS). Bot jest tworzona przy użyciu platformy bot Framework w wersji 4 i usługi Azure Web App bot.
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 820cdeb692dffbf80a0e85c9d3dd86b703a4cae3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445903"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931271"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Samouczek: używanie bot aplikacji sieci Web z włączonym Language Understanding w języku C #
 
 Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją interpretacji języka (LUIS). Bot jest tworzona przy użyciu [aplikacji sieci Web](https://docs.microsoft.com/azure/bot-service/) platformy Azure bot Resource i [bot Framework w wersji](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie bota aplikacji internetowej. Ten proces tworzy nową aplikację usługi LUIS.
@@ -31,7 +32,7 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
 
 1. W witrynie [Azure Portal](https://portal.azure.com) wybierz polecenie **Utwórz nowy zasób**.
 
-1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz przycisk **Utwórz**.
+1. W polu wyszukiwania wyszukaj i wybierz pozycję **Web App Bot** (Bot aplikacji internetowej). Wybierz pozycję **Utwórz**.
 
 1. W polu **Bot Service** (Usługa bota) podaj wymagane informacje:
 
@@ -56,7 +57,7 @@ Użyj języka C# do kompilowania programu Chat bot zintegrowanego z funkcją int
     |Język zestawu SDK|Język programowania bota|**C#**|
     |Bot|Typ bota|**Bot podstawowy**|
 
-1. Wybierz przycisk **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
+1. Wybierz pozycję **Utwórz**. To powoduje utworzenie i wdrożenie usługi bota na platformie Azure. W ramach tego procesu jest tworzona nowa aplikacja usługi LUIS o nazwie `luis-csharp-bot-XXXX`. Ta nazwa jest oparta na nazwie aplikacji usługi/Azure bot.
 
     > [!div class="mx-imgBorder"]
     > [![Tworzenie bot aplikacji sieci Web](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)

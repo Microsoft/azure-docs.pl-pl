@@ -2,13 +2,13 @@
 title: Przenoszenie maszyn wirtualnych platformy Azure do nowej subskrypcji lub grupy zasobów
 description: Użyj Azure Resource Manager, aby przenieść maszyny wirtualne do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: e812f2cee44fc48dccbd8ab66a3343e087790803
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063092"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933243"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Wskazówki dotyczące przenoszenia maszyn wirtualnych
 
@@ -18,7 +18,6 @@ W tym artykule opisano scenariusze, które nie są obecnie obsługiwane, oraz kr
 
 Następujące scenariusze nie są jeszcze obsługiwane:
 
-* Nie można przenieść Managed Disks w Strefy dostępności do innej subskrypcji.
 * Nie można przenieść Virtual Machine Scale Sets ze standardową jednostką SKU Load Balancer lub z publicznym adresem IP standardowej jednostki SKU.
 * Nie można przenosić maszyn wirtualnych utworzonych z zasobów witryny Marketplace z dołączonymi planami między subskrypcjami. Usuń obsługę administracyjną maszyny wirtualnej w bieżącej subskrypcji i Wdróż ją ponownie w nowej subskrypcji.
 * Nie można przenieść maszyn wirtualnych w istniejącej sieci wirtualnej do nowej subskrypcji, jeśli nie przeniesiesz wszystkich zasobów w sieci wirtualnej.
@@ -63,15 +62,15 @@ Jeśli [usuwanie nietrwałe](../../../backup/backup-azure-security-feature-cloud
 * Znajdź lokalizację maszyny wirtualnej.
 * Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` na przykład AzureBackupRG_westus2_1
 * Jeśli w programie PowerShell, użyj `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` polecenia cmdlet
-* Znajdź zasób z typem `Microsoft.Compute/restorePointCollections` , który ma wzorzec nazewnictwa`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Znajdź zasób z typem `Microsoft.Compute/restorePointCollections` , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
 * Znajdź lokalizację maszyny wirtualnej.
 * Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` na przykład AzureBackupRG_westus2_1
-* Jeśli w interfejsie wiersza polecenia, użyj polecenia`az resource list -g AzureBackupRG_<location of your VM>_1`
-* Znajdź zasób z typem `Microsoft.Compute/restorePointCollections` , który ma wzorzec nazewnictwa`AzureBackup_<name of your VM that you're trying to move>_###########`
+* Jeśli w interfejsie wiersza polecenia, użyj polecenia `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Znajdź zasób z typem `Microsoft.Compute/restorePointCollections` , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
 
 ## <a name="next-steps"></a>Następne kroki

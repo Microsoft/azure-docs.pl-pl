@@ -3,12 +3,12 @@ title: Metryki w Azure Monitor — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące monitorowania platformy Azure Event Hubs przy użyciu usługi Azure Monitoring
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c7841007fa1736c88c30108099f86b99d3dad0fb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ad570a41fd9dfff01e3a1da6b2d309a7a8464cc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074855"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931152"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metryki usługi Azure Event Hubs na platformie Azure Monitor
 
@@ -120,10 +120,10 @@ W scenariuszu, w którym narzędzie SIEM korzysta z danych dziennika z centrum z
 Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z następujących linków:
 
 - Wprowadzenie do samouczka Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)
 * [Przykładowe aplikacje korzystające z usługi Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

@@ -3,12 +3,12 @@ title: Architektura urządzenia usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770904"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919747"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architektura urządzenia usługi Azure Migrate
 
@@ -31,7 +31,7 @@ Urządzenie ma wiele składników.
 
 - **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.
 - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure. 
-- **Agent oceny**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.
+- **Agent modułu zbierającego**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.
 - **Agent dra**: organizuje REPLIKACJĘ maszyny wirtualnej i koordynuje komunikację między replikowanymi maszynami i platformą Azure. Używane tylko w przypadku replikowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji bez wykorzystania agentów.
 - **Brama**: wysyła zreplikowane dane na platformę Azure. Używane tylko w przypadku replikowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji bez wykorzystania agentów.
 - **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).

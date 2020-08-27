@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816409"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933526"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -233,7 +233,7 @@ Logowanie w funkcjach programu PowerShell działa jak regularne rejestrowanie pr
 
 | Poziom rejestrowania funkcji | Polecenie cmdlet rejestrowania |
 | ------------- | -------------- |
-| Błąd | **`Write-Error`** |
+| Error | **`Write-Error`** |
 | Ostrzeżenie | **`Write-Warning`**  | 
 | Informacyjny | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informacyjny | Zapisuje dane w dzienniku na poziomie _informacji_ . |
 | Debugowanie | **`Write-Debug`** |
@@ -384,14 +384,60 @@ Po utworzeniu aplikacji funkcji przy użyciu narzędzi, takich jak Visual Studio
 
 ## <a name="powershell-versions"></a>Wersje programu PowerShell
 
-W poniższej tabeli przedstawiono wersje programu PowerShell obsługiwane przez każdą główną wersję środowiska uruchomieniowego funkcji, a wymagana wersja platformy .NET:
+W poniższej tabeli przedstawiono wersje programu PowerShell dostępne dla każdej wersji głównej środowiska uruchomieniowego funkcji, a wymagana wersja platformy .NET:
 
 | Wersja funkcji | Wersja programu PowerShell                               | Wersja platformy .NET  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3. x (zalecane) | PowerShell 7 (zalecane)<br/>Program PowerShell Core 6 | .NET Core 3,1<br/>.NET Core 3,1 |
+| 3. x (zalecane) | PowerShell 7 (zalecane)<br/>Program PowerShell Core 6 | .NET Core 3,1<br/>.NET Core 2.1 |
 | 2.x               | Program PowerShell Core 6                                | .NET Core 2.2 |
 
 Bieżącą wersję można zobaczyć, drukując ją `$PSVersionTable` z dowolnej funkcji.
+
+### <a name="running-local-on-a-specific-version"></a>Uruchamianie lokalne w określonej wersji
+
+W przypadku uruchamiania lokalnego Azure Functions ustawień domyślnych środowiska uruchomieniowego przy użyciu programu PowerShell Core 6. Aby zamiast tego używać programu PowerShell 7 w przypadku uruchamiania lokalnego, należy dodać ustawienie `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` do `Values` tablicy w local.setting.jsw pliku w katalogu głównym projektu. W przypadku uruchamiania lokalnego w programie PowerShell 7 local.settings.jsna pliku wygląda podobnie do poniższego przykładu: 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "powershell",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+  }
+}
+```
+
+### <a name="changing-the-powershell-version"></a>Zmiana wersji programu PowerShell
+
+Aplikacja funkcji musi być uruchomiona w wersji 3. x, aby można było uaktualnić program PowerShell Core 6 do programu PowerShell 7. Aby dowiedzieć się, jak to zrobić, zobacz [Wyświetlanie i aktualizowanie bieżącej wersji środowiska uruchomieniowego](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+Aby zmienić wersję programu PowerShell używaną przez aplikację funkcji, należy wykonać poniższe czynności. Można to zrobić w Azure Portal lub przy użyciu programu PowerShell.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+1. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojej aplikacji funkcji.
+
+1. W obszarze **Ustawienia**wybierz pozycję **Konfiguracja**. Na karcie **Ustawienia ogólne** Znajdź **wersję programu PowerShell**. 
+
+    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Wybieranie wersji programu PowerShell używanej przez aplikację funkcji"::: 
+
+1. Wybierz żądaną **wersję rdzenia programu PowerShell** i wybierz pozycję **Zapisz**. Po wyświetleniu ostrzeżenia o oczekującym ponownym uruchomieniu wybierz pozycję **Kontynuuj**. Aplikacja funkcji jest uruchamiana ponownie w wybranej wersji programu PowerShell. 
+
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
+Uruchom następujący skrypt, aby zmienić wersję programu PowerShell: 
+
+```powershell
+Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
+
+```
+
+Zastąp wartości `<SUBSCRIPTION_ID>` , `<RESOURCE_GROUP>` , i `<FUNCTION_APP>` identyfikatorem subskrypcji platformy Azure, odpowiednio nazwą grupy zasobów i aplikacji funkcji.  Ponadto Zastąp ciąg albo `<VERSION>` `~6` lub `~7` . Możesz sprawdzić zaktualizowaną wartość `powerShellVersion` Ustawienia w `Properties` tabeli zwracanych skrótów. 
+
+---
+
+Aplikacja funkcji zostanie ponownie uruchomiona po wprowadzeniu zmian w konfiguracji.
 
 ## <a name="dependency-management"></a>Zarządzanie zależnościami
 
