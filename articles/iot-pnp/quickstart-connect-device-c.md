@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9011c56096d61e50ae3655a76a396ec3f2dd97c5
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 65b35c30d796f733e91c71e569634b61f9f7c52b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352938"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959293"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Szybki Start: łączenie przykładowej aplikacji urządzenia IoT Plug and Play Preview działającej w systemie Linux lub Windows do IoT Hub (C)
 
@@ -117,7 +117,10 @@ Zestaw SDK urządzenia jest używany do kompilowania dołączonego przykładoweg
 
 Aby uruchomić przykładową aplikację w zestawie SDK, która symuluje wysyłanie danych telemetrycznych przez urządzenie Plug and Play IoT do centrum IoT:
 
-Utwórz zmienną środowiskową o nazwie **IOTHUB_DEVICE_CONNECTION_STRING** do przechowywania parametrów połączenia urządzenia, które zostały wcześniej wykonane.
+Utwórz dwie zmienne środowiskowe, aby skonfigurować przykład do używania parametrów połączenia w celu nawiązania połączenia z Centrum IoT:
+
+- **IOTHUB_DEVICE_SECURITY_TYPE** z wartością `"connectionString"`
+- **IOTHUB_DEVICE_CONNECTION_STRING** do przechowywania parametrów połączenia urządzenia, które zostały wcześniej wykonane.
 
 W folderze _CMAKE_ przejdź do folderu, który zawiera plik wykonywalny, i uruchom go:
 
@@ -174,7 +177,7 @@ Kod używa biblioteki Parson do analizowania obiektów JSON w ładunków wysyła
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start przedstawiono sposób nawiązywania połączenia z urządzeniem IoT Plug and Play w usłudze IoT Hub. Aby dowiedzieć się więcej na temat tworzenia rozwiązania, które współdziała z urządzeniami Plug and Play IoT, zobacz:
 

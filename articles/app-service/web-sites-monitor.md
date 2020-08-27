@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079675"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959795"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorowanie aplikacji w Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) zapewnia wbudowaną funkcję monitorowania dla aplikacji sieci Web, urządzeń przenośnych i aplikacji interfejsu API w [Azure Portal](https://portal.azure.com).
@@ -152,14 +152,14 @@ Aby znaleźć przydziały, wybierz pozycję **Ustawienia**  >  **limity przydzia
 
 Kliknięcie dowolnego z tych wykresów spowoduje przejście do widoku metryk, w którym można tworzyć niestandardowe wykresy, wysyłać zapytania o różne metryki i wiele innych. 
 
-Aby dowiedzieć się więcej o metrykach, zobacz [monitorowanie metryk usług](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Aby dowiedzieć się więcej o metrykach, zobacz [monitorowanie metryk usług](../azure-monitor/platform/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Alerty i automatyczne skalowanie
-Metryki dla aplikacji lub planu App Service mogą być podłączane do alertów. Aby uzyskać więcej informacji, zobacz [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md) (Otrzymywanie powiadomień o alertach).
+Metryki dla aplikacji lub planu App Service mogą być podłączane do alertów. Aby uzyskać więcej informacji, zobacz [Receive alert notifications](../azure-monitor/platform/alerts-classic-portal.md) (Otrzymywanie powiadomień o alertach).
 
 App Service aplikacje hostowane w planach App Service w warstwie Podstawowa lub wyższa obsługują automatyczne skalowanie. Funkcja automatycznego skalowania umożliwia skonfigurowanie reguł, które monitorują metryki planu App Service. Reguły mogą zwiększyć lub zmniejszyć liczbę wystąpień, co może zapewnić dodatkowe zasoby w razie konieczności. Reguły mogą również ułatwić oszczędność pieniędzy, gdy aplikacja jest nadmiernie obsługiwana.
 
-Aby uzyskać więcej informacji na temat automatycznego skalowania, zobacz [Jak skalować](../monitoring-and-diagnostics/insights-how-to-scale.md) i [najlepsze rozwiązania dotyczące Azure monitor skalowanie](../azure-monitor/platform/autoscale-best-practices.md)automatyczne.
+Aby uzyskać więcej informacji na temat automatycznego skalowania, zobacz [Jak skalować](../azure-monitor/platform/autoscale-get-started.md) i [najlepsze rozwiązania dotyczące Azure monitor skalowanie](../azure-monitor/platform/autoscale-best-practices.md)automatyczne.
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 65f2a7ba51fcf811e36839d3998902ba37a90fc4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 063cd04ecfc67d5f0f761bb0159ab80dcff40030
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889995"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958817"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -36,7 +36,9 @@ Przed skonfigurowaniem kopii zapasowych upewnij się, że wykonano następujące
   * Powinien być obecny w domyślnym **hdbuserstore**. Wartość domyślna to `<sid>adm` konto, pod którym zainstalowano SAP HANA.
   * W przypadku MDC klucz powinien wskazywać port SQL **serwer nazw**. W przypadku SDC powinna wskazywać port SQL of **INDEXSERVER**
   * Należy mieć poświadczenia, aby dodawać i usuwać użytkowników
+  * Należy pamiętać, że ten klucz można usunąć po pomyślnym uruchomieniu skryptu przed rejestracją
 * Uruchom skrypt konfiguracji kopii zapasowej SAP HANA (skrypt przed rejestracją) na maszynie wirtualnej, na której jest zainstalowany program HANA, jako użytkownik główny. [Ten skrypt](https://aka.ms/scriptforpermsonhana) Pobiera System Hana do utworzenia kopii zapasowej. Zapoznaj się z sekcją co to jest [skrypt przed rejestracją](#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat skryptu przed rejestracją.
+* Jeśli Instalator platformy HANA używa prywatnych punktów końcowych, uruchom [skrypt poprzedzający rejestrację](https://aka.ms/scriptforpermsonhana) za pomocą parametru *-SN* lub *--Skip-Network-checks* .
 
 >[!NOTE]
 >Skrypt przed rejestracją instaluje **unixODBC234** SAP HANA dla obciążeń, które działają w RHEL (7,4, 7,6 i 7,7) i **unixODBC** dla RHEL 8,1. [Ten pakiet znajduje się w repozytorium RHEL for SAP HANA (w przypadku serwera RHEL 7) usługi Update Services for SAP Solutions (pakiety RPM)](https://access.redhat.com/solutions/5094721).  W przypadku obrazu RHEL w portalu Azure Marketplace repozytorium będzie **rhui-RHEL-SAP-HANA-for-RHEL-7-Server-rhui-e4s-pakiety RPM**.
@@ -103,7 +105,7 @@ Uruchamianie skryptu przed rejestracją wykonuje następujące funkcje:
 
 * W oparciu o dystrybucję systemu Linux skrypt instaluje lub aktualizuje wszelkie niezbędne pakiety wymagane przez agenta Azure Backup.
 * Przeprowadza ona kontrolę łączności sieciowej wychodzącej za pomocą serwerów Azure Backup i usług zależnych, takich jak Azure Active Directory i Azure Storage.
-* Loguje się do systemu HANA przy użyciu klucza użytkownika podanego w ramach [wymagań wstępnych](#prerequisites). Klucz użytkownika służy do tworzenia kopii zapasowej użytkownika (AZUREWLBACKUPHANAUSER) w systemie HANA, a klucz użytkownika można usunąć po pomyślnym uruchomieniu skryptu przed rejestracją.
+* Loguje się do systemu HANA przy użyciu klucza użytkownika podanego w ramach [wymagań wstępnych](#prerequisites). Klucz użytkownika służy do tworzenia kopii zapasowej użytkownika (AZUREWLBACKUPHANAUSER) w systemie HANA, a **klucz użytkownika można usunąć po pomyślnym uruchomieniu skryptu przed rejestracją**.
 * Do AZUREWLBACKUPHANAUSER są przypisane następujące wymagane role i uprawnienia:
   * Administrator bazy danych (w przypadku MDC) i administrator kopii ZAPASowych (w przypadku SDC): do tworzenia nowych baz danych podczas przywracania.
   * Odczyt wykazu: odczytywanie wykazu kopii zapasowych.

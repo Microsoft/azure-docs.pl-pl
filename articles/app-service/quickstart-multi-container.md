@@ -7,19 +7,19 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 228e6f144a1d6e3d0fc4f8fd8cb35c6f4e989ee9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 562185697f8f80fc52b06be80a9f15271f16c0a3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085355"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961469"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Tworzenie aplikacji z wieloma kontenerami (w wersji zapoznawczej) przy użyciu konfiguracji narzędzia Docker Compose
 
 > [!NOTE]
 > Wiele kontenerów jest w wersji zapoznawczej.
 
-Funkcja [Web App for Containers](overview.md#app-service-on-linux) oferuje elastyczny sposób korzystania z obrazów platformy Docker. Ten przewodnik Szybki Start przedstawia sposób wdrażania aplikacji z obsługą kontenera (wersja zapoznawcza) w celu Web App for Containers w [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) przy użyciu konfiguracji Docker Compose.
+Funkcja [Web App for Containers](overview.md#app-service-on-linux) oferuje elastyczny sposób korzystania z obrazów platformy Docker. Ten przewodnik Szybki Start przedstawia sposób wdrażania aplikacji z obsługą kontenera (wersja zapoznawcza) w celu Web App for Containers w [Cloud Shell](../cloud-shell/overview.md) przy użyciu konfiguracji Docker Compose.
 
 Użyjesz tego przewodnika Szybki start w usłudze Cloud Shell, ale możesz również uruchomić te polecenia lokalnie za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (w wersji 2.0.32 lub nowszej). 
 
@@ -133,7 +133,7 @@ Przejdź do wdrożonej aplikacji pod adresem `http://<app_name>.azurewebsites.ne
 
 [!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: wielokontenerowa aplikacja WordPress](tutorial-multi-container-app.md)

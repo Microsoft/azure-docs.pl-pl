@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5255041a97a56e6577f33b571403ff454bb65b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 86f501a145ea82f7a4499824dd0b21822c3f1cbd
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211880"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961588"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -52,7 +52,7 @@ Aby skonfigurować tożsamość zarządzaną za pomocą interfejsu wiersza polec
 
 - Użyj [Azure Cloud Shell](../cloud-shell/overview.md) z Azure Portal.
 - Użyj osadzonego Azure Cloud Shell za pomocą przycisku "Wypróbuj go" znajdującego się w prawym górnym rogu każdego bloku kodu poniżej.
-- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 lub nowsza), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia. 
+- [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (2.0.31 lub nowsza), jeśli wolisz korzystać z lokalnej konsoli interfejsu wiersza polecenia. 
 
 Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji sieci Web i przypisywania jej tożsamości przy użyciu interfejsu wiersza polecenia:
 
@@ -109,7 +109,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywa
 
 1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
-2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywa
 
 1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
-2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). Poniższy skrypt korzysta również z programu `New-AzUserAssignedIdentity` , który należy zainstalować oddzielnie zgodnie z definicją [lub usunięciem tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](/powershell/module/az.functions/?view=azps-4.1.0#functions). Poniższy skrypt korzysta również z programu `New-AzUserAssignedIdentity` , który należy zainstalować oddzielnie zgodnie z definicją [lub usunięciem tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -347,7 +347,7 @@ Pomyślne odpowiedź 200 OK zawiera treść JSON o następujących właściwośc
 > | zasób      | Zasób, dla którego zażądano tokenu dostępu, który jest zgodny z `resource` parametrem ciągu zapytania żądania.                                                                                                                               |
 > | token_type    | Wskazuje wartość typu tokenu. Jedynym typem obsługiwanym przez usługę Azure AD jest FBearer. Aby uzyskać więcej informacji o tokenach okaziciela, zobacz [Framework uwierzytelniania OAuth 2,0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
-Ta odpowiedź jest taka sama jak [odpowiedź na żądanie tokenu dostępu usługi Azure AD do usługi](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
+Ta odpowiedź jest taka sama jak [odpowiedź na żądanie tokenu dostępu usługi Azure AD do usługi](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 ### <a name="rest-protocol-examples"></a>Przykłady protokołu REST
 
@@ -520,7 +520,7 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!NOTE]
 > Istnieje również ustawienie aplikacji, które można ustawić, WEBSITE_DISABLE_MSI, co spowoduje jedynie wyłączenie usługi tokenów lokalnych. Jednak opuszcza tożsamość, a funkcja narzędzi nadal będzie wyświetlać tożsamość zarządzaną jako "on" lub "Enabled". W związku z tym nie zaleca się używania tego ustawienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Bezpieczny dostęp SQL Database przy użyciu tożsamości zarządzanej](app-service-web-tutorial-connect-msi.md)

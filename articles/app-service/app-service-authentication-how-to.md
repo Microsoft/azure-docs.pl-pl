@@ -4,12 +4,12 @@ description: Dowiedz się, jak dostosować funkcję uwierzytelniania i autoryzac
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7ec16b5de6053256fa6565db510ee94776def2c4
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272318"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962472"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Zaawansowane użycie uwierzytelniania i autoryzacji w Azure App Service
 
@@ -146,7 +146,7 @@ App Service przekazuje oświadczenia użytkownika do aplikacji przy użyciu spec
 
 Kod, który jest pisany w dowolnym języku lub platformie, może uzyskać informacje potrzebne z tych nagłówków. W przypadku aplikacji ASP.NET 4,6, **ClaimsPrincipal** jest automatycznie ustawiany z odpowiednimi wartościami. ASP.NET Core jednak nie oferuje oprogramowania pośredniczącego uwierzytelniania, które integruje się z App Service oświadczenia użytkownika. Aby obejść ten temat, zobacz [MaximeRouiller. Azure. appService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth).
 
-Jeśli [Magazyn tokenów](overview-authentication-authorization.md#token-store) jest włączony dla aplikacji, możesz również uzyskać dodatkowe informacje na temat uwierzytelnionego użytkownika, wywołując polecenie `/.auth/me` . Zestawy SDK serwera Mobile Apps zapewniają metody pomocnika do pracy z tymi danymi. Aby uzyskać więcej informacji, zobacz [jak używać zestawu SDK platformy azure Mobile Apps Node.js](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity)i [współdziałać z zestawem SDK serwera zaplecza platformy .NET dla platformy Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Jeśli [Magazyn tokenów](overview-authentication-authorization.md#token-store) jest włączony dla aplikacji, możesz również uzyskać dodatkowe informacje na temat uwierzytelnionego użytkownika, wywołując polecenie `/.auth/me` . Zestawy SDK serwera Mobile Apps zapewniają metody pomocnika do pracy z tymi danymi. Aby uzyskać więcej informacji, zobacz [jak używać zestawu SDK platformy azure Mobile Apps Node.js](/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk#howto-tables-getidentity)i [współdziałać z zestawem SDK serwera zaplecza platformy .NET dla platformy Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#user-info).
 
 ## <a name="retrieve-tokens-in-app-code"></a>Pobieranie tokenów w kodzie aplikacji
 
@@ -154,7 +154,7 @@ W kodzie serwera tokeny specyficzne dla dostawcy są wstawiane do nagłówka ż�
 
 | Dostawca | Nazwy nagłówków |
 |-|-|
-| Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
+| Usługa Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Token Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Konto Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
@@ -489,7 +489,7 @@ Bieżącą wersję oprogramowania pośredniczącego uwierzytelniania platformy m
 
 ##### <a name="from-the-azure-cli"></a>W interfejsie wiersza polecenia platformy Azure
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, Wyświetl bieżącą wersję oprogramowania pośredniczącego przy użyciu [AZ webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) .
+Korzystając z interfejsu wiersza polecenia platformy Azure, Wyświetl bieżącą wersję oprogramowania pośredniczącego przy użyciu [AZ webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) .
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -520,7 +520,7 @@ Możesz również kliknąć pozycję punkt końcowy/.auth/Version w aplikacji, a
 
 #### <a name="update-the-current-runtime-version"></a>Aktualizuj bieżącą wersję środowiska uruchomieniowego
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, można zaktualizować `runtimeVersion` ustawienie w aplikacji za pomocą [AZ webapp auth Update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) .
+Korzystając z interfejsu wiersza polecenia platformy Azure, można zaktualizować `runtimeVersion` ustawienie w aplikacji za pomocą [AZ webapp auth Update](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) .
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -530,9 +530,9 @@ az webapp auth update --name <my_app_name> \
 
 Zamień `<my_app_name>` na nazwę aplikacji. Zastąp również `<my_resource_group>` nazwą grupy zasobów aplikacji. Zastąp również `<version>` prawidłową wersją środowiska uruchomieniowego 1. x lub `~1` najnowszą wersję. Informacje o wersji można znaleźć w różnych wersjach środowiska uruchomieniowego [tutaj] ( https://github.com/Azure/app-service-announcements) Aby określić wersję do przypięcia do programu.
 
-Możesz uruchomić to polecenie z [Azure Cloud Shell](../cloud-shell/overview.md) , wybierając pozycję **Wypróbuj** w poprzednim przykładzie kodu. Możesz również użyć [interfejsu wiersza polecenia platformy Azure lokalnie](https://docs.microsoft.com/cli/azure/install-azure-cli) , aby wykonać to polecenie po wykonaniu polecenia [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) , aby się zalogować.
+Możesz uruchomić to polecenie z [Azure Cloud Shell](../cloud-shell/overview.md) , wybierając pozycję **Wypróbuj** w poprzednim przykładzie kodu. Możesz również użyć [interfejsu wiersza polecenia platformy Azure lokalnie](/cli/azure/install-azure-cli) , aby wykonać to polecenie po wykonaniu polecenia [AZ login](/cli/azure/reference-index#az-login) , aby się zalogować.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników](tutorial-auth-aad.md)

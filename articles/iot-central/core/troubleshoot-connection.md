@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6a1506de0bf21e44d84925fabeeea860f5807e2c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816069"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958103"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Rozwiązywanie problemów z tym, dlaczego dane z urządzeń nie są wyświetlane na platformie Azure IoT Central
 
@@ -94,8 +94,6 @@ version : 32
 ': 200}, 'brightness': {'value': {'value': 2}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac': 200}, 'p
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
-
-### <a name="interpreting-terminal-output"></a>Interpretowanie danych wyjściowych terminalu
 
 Jeśli zobaczysz, że dane są wyświetlane w terminalu, dane są tak samo, jak w przypadku aplikacji IoT Central.
 
@@ -187,8 +185,6 @@ Aby wykryć, których kategorii dotyczy problem, uruchom najbardziej odpowiednie
     az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
-- Jeśli wolisz używać graficznego interfejsu użytkownika, użyj widoku **nieprzetworzonych danych** IoT Central, aby sprawdzić, czy coś nie jest modelowane. Widok **nieprzetworzonych danych** nie wykrywa, czy urządzenie wysyła źle sformułowany kod JSON.
-
 Może zostać wyświetlony monit o zainstalowanie `uamqp` biblioteki podczas pierwszego uruchomienia `validate` polecenia.
 
 Następujące dane wyjściowe pokazują przykład błędu i komunikaty ostrzegawcze z polecenia Validate:
@@ -205,19 +201,16 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Zrzut ekranu przedstawiający widok danych nieprzetworzonych":::
+Jeśli wolisz używać graficznego interfejsu użytkownika, użyj widoku **nieprzetworzonych danych** IoT Central, aby sprawdzić, czy coś nie jest modelowane. Widok **nieprzetworzonych danych** nie wykrywa, czy urządzenie wysyła źle sformułowany kod JSON.
 
-### <a name="interpreting-terminal-output"></a>Interpretowanie danych wyjściowych terminalu
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Zrzut ekranu przedstawiający widok danych nieprzetworzonych":::
 
 Po wykryciu problemu może być konieczne zaktualizowanie oprogramowania układowego urządzenia lub utworzenie nowego szablonu urządzenia, który modeluje poprzednio niemodelowane dane.
 
 W przypadku wybrania opcji utworzenia nowego szablonu, który poprawnie modeluje dane, Migruj urządzenia ze starego szablonu do nowego szablonu. Aby dowiedzieć się więcej, zobacz [Zarządzanie urządzeniami w aplikacji IoT Central platformy Azure](howto-manage-devices.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Jeśli nie możesz rozwiązać problemu i rozwiązać ten problem za pomocą tego przewodnika, Otwórz bilet pomocy technicznej. Klienci platformy Azure mogą tworzyć żądania pomocy technicznej i zarządzać nimi w Azure Portal:
-
-- [Witryna Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-- [Azure Portal dla instytucji rządowych Stany Zjednoczone](https://portal.azure.us/)
+Jeśli potrzebujesz więcej pomocy, możesz skontaktować się z ekspertami platformy Azure na [forach MSDN i Stack Overflow](https://azure.microsoft.com/support/community/). Alternatywnie możesz zaplikować [bilet pomocy technicznej systemu Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 Aby uzyskać więcej informacji, zobacz temat pomoc [techniczna i opcje pomocy usługi Azure IoT](../../iot-fundamentals/iot-support-help.md).

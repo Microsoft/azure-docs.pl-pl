@@ -1,20 +1,20 @@
 ---
 title: 'Szybki Start: bezpośredni ruch internetowy przy użyciu portalu'
 titleSuffix: Azure Application Gateway
-description: Dowiedz się, jak za pomocą Azure Portal utworzyć Application Gateway platformy Azure, która kieruje ruch internetowy do maszyn wirtualnych w puli zaplecza.
+description: W tym przewodniku szybki start dowiesz się, jak za pomocą Azure Portal utworzyć Application Gateway platformy Azure, która kieruje ruch sieci Web do maszyn wirtualnych w puli zaplecza.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a6415657d68e10b63e357f3c1353bb66fc9c8262
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 4929836b7fb617884008fafea50a10e0212fbd58
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779428"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961962"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Szybki start: bezpośredni ruch internetowy w usłudze Azure Application Gateway — Azure Portal
 
@@ -34,7 +34,7 @@ Możesz również ukończyć ten przewodnik Szybki Start przy użyciu [Azure Pow
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta platformy Azure.
+Zaloguj się w [witrynie Azure Portal](https://portal.azure.com) przy użyciu danych konta Azure.
 
 ## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
@@ -228,7 +228,7 @@ Aby usunąć grupę zasobów:
 3. Na **stronie grupy zasobów** wybierz pozycję **Usuń grupę zasobów**.
 4. Wprowadź ciąg *myResourceGroupAG* w polu **WPISZ NAZWĘ GRUPY ZASOBÓW**, a następnie wybierz pozycję **Usuń**
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: Konfigurowanie bramy aplikacji z zakończeniem protokołu TLS przy użyciu Azure Portal](create-ssl-portal.md)

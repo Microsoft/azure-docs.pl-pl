@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668026"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958443"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Rozwiązywanie problemów z certyfikatami domeny i protokołu TLS/SSL w Azure App Service
 
@@ -131,7 +131,7 @@ Nie możesz dodać nowej nazwy hosta do aplikacji, aby przypisać poddomenę.
 #### <a name="solution"></a>Rozwiązanie
 
 - Skontaktuj się z administratorem subskrypcji, aby upewnić się, że masz uprawnienia do dodawania nazwy hosta do aplikacji.
-- Jeśli potrzebujesz więcej domen poddomen, zalecamy zmianę hostingu domeny w usłudze Azure Domain Name Service (DNS). Za pomocą Azure DNS można dodać do aplikacji nazwy hostów 500. Aby uzyskać więcej informacji, zobacz [Dodawanie poddomeny](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Jeśli potrzebujesz więcej domen poddomen, zalecamy zmianę hostingu domeny w usłudze Azure Domain Name Service (DNS). Za pomocą Azure DNS można dodać do aplikacji nazwy hostów 500. Aby uzyskać więcej informacji, zobacz [Dodawanie poddomeny](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website).
 
 ### <a name="dns-cant-be-resolved"></a>Nie można rozpoznać systemu DNS
 
@@ -310,7 +310,7 @@ Tak. Gdy uzyskujesz dostęp do niestandardowych domen i protokołu TLS w Azure P
 
 **Czy mogę przenieść domenę z jednej subskrypcji do innej?**
 
-Domenę można przenieść do innej subskrypcji/grupy zasobów przy użyciu polecenia cmdlet [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) programu PowerShell.
+Domenę można przenieść do innej subskrypcji/grupy zasobów przy użyciu polecenia cmdlet [Move-AzResource](/powershell/module/az.Resources/Move-azResource) programu PowerShell.
 
 **Jak mogę zarządzać moją domeną niestandardową, jeśli nie mam obecnie aplikacji Azure App Service?**
 

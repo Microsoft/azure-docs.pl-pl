@@ -4,12 +4,12 @@ description: Dowiedz się, jak wywoływać procesy biznesowe z poziomu aplikacji
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 9d4136099a8cadc43a53298f367f6eeb784e5ce1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212847"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962200"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z App Service
 
@@ -84,7 +84,7 @@ Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. 
 1. W dolnej części okna projektanta kliknij pozycję **nowy krok**, wpisz **Gmail** w polu wyszukiwania akcje i Znajdź i wybierz pozycję **Wyślij wiadomość e-mail (wersja 2)**.
     
     > [!TIP]
-    > Można wyszukiwać inne typy integracji, takie jak SendGrid, MailChimp, Office 365 i SalesForce. Aby uzyskać więcej informacji, zobacz [dokumentację Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+    > Można wyszukiwać inne typy integracji, takie jak SendGrid, MailChimp, Office 365 i SalesForce. Aby uzyskać więcej informacji, zobacz [dokumentację Logic Apps](../logic-apps/index.yml).
 1. W oknie dialogowym usługi **Gmail** wybierz pozycję **Zaloguj** się i zaloguj się na koncie usługi Gmail, z którego chcesz wysłać wiadomość e-mail.
 
     ![Zrzut ekranu przedstawiający okno dialogowe Gmail używane do logowania się do konta usługi Gmail, z którego chcesz wysłać wiadomość e-mail.](./media/tutorial-send-email/gmail-sign-in.png)
@@ -152,7 +152,7 @@ Kliknij kartę preferowany język/struktura poniżej, aby zobaczyć przykład.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Na przykład:
+W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Na przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworz
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Na przykład:
+W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Na przykład:
 
 ```csharp
 // requires using System.Net.Http;
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Ten kod jest przeznaczony dla prostoty demonstracji. W programie nie można utworzyć wystąpienia `HttpClient` obiektu dla każdego żądania. Postępuj zgodnie ze wskazówkami w temacie [use IHttpClientFactory, aby zaimplementować odporne żądania HTTP](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+> Ten kod jest przeznaczony dla prostoty demonstracji. W programie nie można utworzyć wystąpienia `HttpClient` obiektu dla każdego żądania. Postępuj zgodnie ze wskazówkami w temacie [use IHttpClientFactory, aby zaimplementować odporne żądania HTTP](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: tworzenie ASP.NET Core i SQL Database aplikacji w Azure App Service](tutorial-dotnetcore-sqldb-app.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w ramach [akcji tworzenia](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)po `Todo` dodaniu elementu.
 
@@ -312,7 +312,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [tworzenia aplika
 
 ---
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 [Samouczek: hostowanie interfejsu API RESTful z mechanizmem CORS w usłudze Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Odwołanie żądania HTTP/odpowiedzi dla Logic Apps](../connectors/connectors-native-reqres.md)  

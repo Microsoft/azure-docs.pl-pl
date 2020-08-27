@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 25aaf49d32da29fe5fb082e6e4481cd9266f88e1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208635"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962013"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>How to use the Azure WebJobs SDK for event-driven background processing (Jak używać zestawu SDK usługi Azure WebJobs w celu opartego na zdarzeniach przetwarzania w tle)
 
@@ -815,7 +815,7 @@ Jeśli chcesz mieć pewność, że tylko jedno wystąpienie funkcji działa nawe
 
 ## <a name="filters"></a>Filtry
 
-Filtry funkcji (wersja zapoznawcza) umożliwiają dostosowanie potoku wykonywania zadań WebJob przy użyciu własnej logiki. Filtry są podobne do [filtrów ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). Można zaimplementować je jako atrybuty deklaracyjne, które są stosowane do funkcji lub klas. Aby uzyskać więcej informacji, zobacz [filtry funkcji](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Filtry funkcji (wersja zapoznawcza) umożliwiają dostosowanie potoku wykonywania zadań WebJob przy użyciu własnej logiki. Filtry są podobne do [filtrów ASP.NET Core](/aspnet/core/mvc/controllers/filters). Można zaimplementować je jako atrybuty deklaracyjne, które są stosowane do funkcji lub klas. Aby uzyskać więcej informacji, zobacz [filtry funkcji](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## <a name="logging-and-monitoring"></a>Rejestrowanie i monitorowanie
 
@@ -831,7 +831,7 @@ Każdy dziennik utworzony przez `ILogger` wystąpienie ma skojarzone `Category` 
 |Debugowanie       | 1 |
 |Informacje | 2 |
 |Ostrzeżenie     | 3 |
-|Błąd       | 4 |
+|Error       | 4 |
 |Krytyczne    | 5 |
 |Brak        | 6 |
 

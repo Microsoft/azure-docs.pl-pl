@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084543"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959021"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Samouczek: Rozwiązywanie problemów z aplikacją App Service przy użyciu Azure Monitor
 
@@ -18,11 +18,11 @@ ms.locfileid: "88084543"
 > Integracja Azure Monitor z App Service jest w [wersji zapoznawczej](https://aka.ms/appsvcblog-azmon).
 >
 
-W tym samouczku pokazano, jak rozwiązywać problemy z aplikacją [App Service](overview.md) przy użyciu [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Przykładowa aplikacja zawiera kod przeznaczony do wyczerpania pamięci i powoduje błędy HTTP 500, dzięki czemu można zdiagnozować i rozwiązać problem przy użyciu Azure Monitor. Po zakończeniu będziesz mieć przykładową aplikację działającą na App Service w systemie Linux zintegrowanym z [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+W tym samouczku pokazano, jak rozwiązywać problemy z aplikacją [App Service](overview.md) przy użyciu [Azure monitor](../azure-monitor/overview.md). Przykładowa aplikacja zawiera kod przeznaczony do wyczerpania pamięci i powoduje błędy HTTP 500, dzięki czemu można zdiagnozować i rozwiązać problem przy użyciu Azure Monitor. Po zakończeniu będziesz mieć przykładową aplikację działającą na App Service w systemie Linux zintegrowanym z [Azure monitor](../azure-monitor/overview.md).
 
-[Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maksymalizuje dostępność i wydajność aplikacji i usług, udostępniając kompleksowe rozwiązanie do zbierania, analizowania i działania na telemetrii z chmur i środowisk lokalnych.
+[Azure monitor](../azure-monitor/overview.md) maksymalizuje dostępność i wydajność aplikacji i usług, udostępniając kompleksowe rozwiązanie do zbierania, analizowania i działania na telemetrii z chmur i środowisk lokalnych.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie aplikacji sieci Web za pomocą Azure Monitor
@@ -38,8 +38,8 @@ Kroki opisane w tym samouczku można wykonać w systemie macOS, Linux i Windows.
 Do wykonania czynności w tym samouczku potrzebne są:
 
 - [Subskrypcja platformy Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
-- [Narzędzia](https://git-scm.com/)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli)
+- [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Tworzenie zasobów platformy Azure
 
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>Utwórz ustawienie diagnostyczne
 
-Za pomocą ustawień diagnostycznych można zbierać metryki dla określonych usług platformy Azure w Azure Monitor dzienników do analizy z innymi danymi monitorowania przy użyciu zapytań dzienników. W tym samouczku zostanie włączony serwer sieci Web i dzienniki standardowego wyjścia/błędów. Aby uzyskać pełną listę typów dzienników i opisów, zobacz [obsługiwane typy dzienników](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) .
+Za pomocą ustawień diagnostycznych można zbierać metryki dla określonych usług platformy Azure w Azure Monitor dzienników do analizy z innymi danymi monitorowania przy użyciu zapytań dzienników. W tym samouczku zostanie włączony serwer sieci Web i dzienniki standardowego wyjścia/błędów. Aby uzyskać pełną listę typów dzienników i opisów, zobacz [obsługiwane typy dzienników](./troubleshoot-diagnostic-logs.md#supported-log-types) .
 
 Uruchom następujące polecenia, aby utworzyć ustawienia diagnostyczne dla AppServiceConsoleLogs (wyjście standardowe/błąd) i AppServiceHTTPLogs (Dzienniki serwera sieci Web). Zastąp _\<app-name>_ _\<workspace-name>_ wartości i wartościami. 
 
 > [!NOTE]
-> Pierwsze dwa polecenia `resourceID` i `workspaceID` , są zmiennymi, które mają być używane w `az monitor diagnostic-settings create` poleceniu. Aby uzyskać więcej informacji na temat tego polecenia, zobacz [Tworzenie ustawień diagnostycznych przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) .
+> Pierwsze dwa polecenia `resourceID` i `workspaceID` , są zmiennymi, które mają być używane w `az monitor diagnostic-settings create` poleceniu. Aby uzyskać więcej informacji na temat tego polecenia, zobacz [Tworzenie ustawień diagnostycznych przy użyciu interfejsu wiersza polecenia platformy Azure](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) .
 >
 
 ```bash
@@ -129,7 +129,7 @@ W Azure Portal wybierz obszar roboczy Log Analytics.
 
 ### <a name="log-queries"></a>Rejestrowanie zapytań
 
-Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w dziennikach Azure Monitor. Zapytania dzienników służą do identyfikowania dzienników zarówno AppServiceHTTPLogs, jak i AppServiceConsoleLogs. Aby uzyskać więcej informacji na temat zapytań dzienników, zobacz [Omówienie zapytania dziennika](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) .
+Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w dziennikach Azure Monitor. Zapytania dzienników służą do identyfikowania dzienników zarówno AppServiceHTTPLogs, jak i AppServiceConsoleLogs. Aby uzyskać więcej informacji na temat zapytań dzienników, zobacz [Omówienie zapytania dziennika](../azure-monitor/log-query/log-query-overview.md) .
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Wyświetl AppServiceHTTPLogs z zapytaniem dziennika
 
@@ -186,7 +186,7 @@ Teraz, po zidentyfikowaniu zarówno HTTP 500S, jak i standardowych błędów, na
 >
 > - Filtry HTTPLogs dla błędów 500
 > - Dzienniki konsoli zapytań
-> - Sprzęga tabele w`TimeGenerated`
+> - Sprzęga tabele w `TimeGenerated`
 >
 
 Uruchom zapytanie:
@@ -268,7 +268,7 @@ Które czynności umiesz wykonać:
 > * Wysłano dzienniki do Log Analytics
 > * Zapytania dzienników używane do identyfikowania i rozwiązywania problemów z błędami aplikacji sieci Web
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Następne kroki
+## <a name="next-steps"></a><a name="nextsteps"></a> Następne kroki
 * [Wysyłanie zapytań do dzienników przy użyciu Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Rozwiązywanie problemów Azure App Service w programie Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analizowanie dzienników aplikacji w usłudze HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

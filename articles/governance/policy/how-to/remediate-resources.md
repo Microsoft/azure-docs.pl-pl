@@ -1,18 +1,18 @@
 ---
 title: Korygowanie niezgodnych zasobów
 description: Ten przewodnik przeprowadzi Cię przez korygowanie zasobów, które są niezgodne z zasadami w Azure Policy.
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636312"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958749"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Koryguj niezgodne zasoby za pomocą Azure Policy
 
-Zasoby, które są niezgodne z zasadami **deployIfNotExistsymi** lub **modyfikacjami** , mogą zostać umieszczone w stanie zgodnym przez **skorygowanie**. Korygowanie jest realizowane przez podzielenie Azure Policy do uruchomienia efektu **deployIfNotExists** lub tagów **operacji** przypisanych zasad w istniejących zasobach, niezależnie od tego, czy to przypisanie jest grupą zarządzania, subskrypcją, grupą zasobów czy pojedynczym zasobem. W tym artykule przedstawiono kroki niezbędne do zrozumienia i wykonania korygowania Azure Policy.
+Zasoby, które są niezgodne z zasadami **deployIfNotExistsymi** lub **modyfikacjami** , mogą zostać umieszczone w stanie zgodnym przez **skorygowanie**. Korygowanie jest realizowane przez podzielenie Azure Policy do uruchamiania efektu **deployIfNotExists** lub **Modyfikowanie operacji** przypisanych zasad w istniejących zasobach, niezależnie od tego, czy przypisanie jest grupą zarządzania, subskrypcją, grupą zasobów czy pojedynczym zasobem. W tym artykule przedstawiono kroki niezbędne do zrozumienia i wykonania korygowania Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Jak działa zabezpieczenia korygujące
 
@@ -182,7 +182,7 @@ Inne polecenia cmdlet służące do korygowania i przykłady można znaleźć w 
 
 Ulepszony sposób tworzenia zadania korygowania polega na Azure Portal podczas przypisywania zasad. Jeśli definicja zasad, która ma zostać przypisana, to efekt **deployIfNotExists** lub **modyfikacji** , Kreator na karcie **korygowanie** oferuje opcję _tworzenia zadania korygującego_ . W przypadku wybrania tej opcji zadanie korygowania jest tworzone jednocześnie z przypisaniem zasad.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).
 - Przejrzyj temat [Struktura definicji zasad Azure Policy](../concepts/definition-structure.md).

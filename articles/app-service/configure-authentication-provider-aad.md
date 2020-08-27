@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: cdbce7c11bc3184b624fa00f3ac33db7ad8730d8
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4022ca97f88e2f06d3b4c1eeb103bb60d1856eda
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077440"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962149"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD
 
@@ -120,7 +120,7 @@ Możesz zarejestrować natywnych klientów, aby zezwolić na uwierzytelnianie w 
 1. W polu **Identyfikator URI przekierowania**wybierz pozycję **Klient publiczny (Mobile & Desktop)** , a następnie wpisz adres URL `<app-url>/.auth/login/aad/callback` . Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
-    > W przypadku aplikacji Microsoft Store Użyj [identyfikatora SID pakietu](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) jako identyfikatora URI.
+    > W przypadku aplikacji Microsoft Store Użyj [identyfikatora SID pakietu](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) jako identyfikatora URI.
 1. Wybierz pozycję **Utwórz**.
 1. Po utworzeniu rejestracji aplikacji skopiuj wartość **Identyfikator aplikacji (klienta)**.
 1. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**  >  **Moje interfejsy API**.
@@ -154,7 +154,7 @@ Teraz dzięki temu _każda_ aplikacja kliencka w dzierżawie usługi Azure AD ż
 
 Już skonfigurowano aplikację kliencką demona, która może uzyskiwać dostęp do aplikacji App Service przy użyciu własnej tożsamości.
 
-## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
+## <a name="next-steps"></a><a name="related-content"> </a>Kolejne kroki
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 * [Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service](tutorial-auth-aad.md)

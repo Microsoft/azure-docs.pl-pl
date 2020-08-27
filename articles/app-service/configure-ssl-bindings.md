@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078635"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962642"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service
 
-W tym artykule pokazano, jak zabezpieczyć [domenę niestandardową](app-service-web-tutorial-custom-domain.md) w [aplikacji App Service](https://docs.microsoft.com/azure/app-service/) lub [aplikacji funkcji](https://docs.microsoft.com/azure/azure-functions/) przez utworzenie powiązania certyfikatu. Po zakończeniu możesz uzyskać dostęp do aplikacji App Service w `https://` punkcie końcowym dla niestandardowej nazwy DNS (na przykład `https://www.contoso.com` ). 
+W tym artykule pokazano, jak zabezpieczyć [domenę niestandardową](app-service-web-tutorial-custom-domain.md) w [aplikacji App Service](./index.yml) lub [aplikacji funkcji](../azure-functions/index.yml) przez utworzenie powiązania certyfikatu. Po zakończeniu możesz uzyskać dostęp do aplikacji App Service w `https://` punkcie końcowym dla niestandardowej nazwy DNS (na przykład `https://www.contoso.com` ). 
 
 ![Aplikacja internetowa z niestandardowym certyfikatem TLS/SSL](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -24,7 +24,7 @@ Zabezpieczanie [domeny niestandardowej](app-service-web-tutorial-custom-domain.m
 - [Dodaj prywatny certyfikat do App Service](configure-ssl-certificate.md) , który spełnia wszystkie [wymagania dotyczące certyfikatu prywatnego](configure-ssl-certificate.md#private-certificate-requirements).
 -  Utwórz powiązanie TLS z odpowiednią domeną niestandardową. Ten drugi krok jest objęty tym artykułem.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Uaktualnienie warstwy cenowej aplikacji
@@ -37,7 +37,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Aby wykonać następujące czynności:
 
-- [Utwórz aplikację usługi App Service](/azure/app-service/)
+- [Utwórz aplikację usługi App Service](./index.yml)
 - [Mapowanie nazwy domeny do aplikacji](app-service-web-tutorial-custom-domain.md) lub [kupowanie i Konfigurowanie na platformie Azure](manage-custom-dns-buy-domain.md)
 - [Dodawanie certyfikatu prywatnego do aplikacji](configure-ssl-certificate.md)
 
@@ -168,4 +168,4 @@ Wskazówki dotyczące konfiguracji specyficzne dla języka, takie jak przewodnik
 ## <a name="more-resources"></a>Dodatkowe zasoby
 
 * [Użyj certyfikatu TLS/SSL w kodzie w Azure App Service](configure-ssl-certificate-in-code.md)
-* [Często zadawane pytania: certyfikaty App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Często zadawane pytania: certyfikaty App Service](./faq-configuration-and-management.md)

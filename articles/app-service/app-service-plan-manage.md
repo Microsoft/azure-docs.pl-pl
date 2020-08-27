@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb0765a1d7934d60f787ed277dd3bd1f9bc1359b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811712"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962948"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Zarządzanie planem App Service na platformie Azure
 
@@ -82,7 +82,7 @@ Region, w którym jest uruchomiona aplikacja, jest regionem App Service planu. N
 
 Aby skalować w górę warstwę cenową planu App Service, zobacz [skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md).
 
-Aby skalować liczbę wystąpień aplikacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Aby skalować liczbę wystąpień aplikacji, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="delete"></a>
 
@@ -93,7 +93,7 @@ Aby uniknąć nieoczekiwanych opłat, po usunięciu ostatniej aplikacji w planie
 > [!IMPORTANT]
 > Plany App Service, do których nie są skojarzone żadne aplikacje, nadal będą naliczane opłaty, ponieważ nadal rezerwują skonfigurowane wystąpienia maszyn wirtualnych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Skalowanie aplikacji w górę na platformie Azure](manage-scale-up.md)

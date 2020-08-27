@@ -6,14 +6,17 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 9dd4067d066362f5842b504971afbc59fd0717a3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d10b36047959299f5b66da5fb16beef8a591a983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212199"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962846"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph powiązania Azure Functions
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 W tym artykule opisano sposób konfigurowania i pracy z Microsoft Graph wyzwalaczami i powiązaniami w programie Azure Functions. Za pomocą tych danych można używać Azure Functions do pracy z danymi, szczegółowymi informacjami i zdarzeniami z [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -38,6 +41,9 @@ Powiązanie danych wejściowych tokenu uwierzytelniania jest dostępne w pakieci
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Konfigurowanie rozszerzeń
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Powiązania Microsoft Graph są dostępne za poorednictwem _rozszerzeń powiązań_. Rozszerzenia powiązań są opcjonalnymi składnikami środowiska uruchomieniowego Azure Functions. W tej sekcji przedstawiono sposób konfigurowania rozszerzeń Microsoft Graph i tokenów uwierzytelniania.
 
@@ -71,6 +77,9 @@ Jeśli używasz Azure Portal, zobaczysz ostrzeżenie poniżej monitu o zainstalo
 
 <a name="token-input"></a>
 ## <a name="auth-token"></a>Token uwierzytelniania
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Powiązanie danych wejściowych tokenu uwierzytelniania pobiera token usługi Azure AD dla danego zasobu i udostępnia go kodowi jako ciąg. Może to być dowolny zasób, dla którego aplikacja ma uprawnienia. 
 
@@ -230,6 +239,9 @@ Token jest zawsze wyświetlany w kodzie jako ciąg.
 <a name="excel-input"></a>
 ## <a name="excel-input"></a>Dane wejściowe programu Excel
 
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Powiązanie danych wejściowych tabeli programu Excel odczytuje zawartość tabeli programu Excel przechowywanej w usłudze OneDrive.
 
 Ta sekcja zawiera następujące podsekcje:
@@ -349,7 +361,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Identity**|**Tożsamość**|Wymagane — tożsamość, która zostanie użyta do wykonania akcji. Może być jedną z następujących wartości:<ul><li><code>userFromRequest</code> -Prawidłowy tylko z [wyzwalaczem http]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym IDENTYFIKATORze. Zobacz <code>userId</code> Właściwość.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowanej przez określony token. Zobacz <code>userToken</code> Właściwość.</li><li><code>clientCredentials</code> — Używa tożsamości aplikacji funkcji.</li></ul>|
 |**userId**|**Nazwa**  |Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromId` . Identyfikator podmiotu zabezpieczeń użytkownika skojarzony z wcześniej zalogowanym użytkownikiem.|
 |**userToken**|**UserToken**|Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromToken` . Token ważny dla aplikacji funkcji. |
-|**path**|**Ścieżka**|Wymagane — ścieżka w usłudze OneDrive do skoroszytu programu Excel.|
+|**ścieżka**|**Ścieżka**|Wymagane — ścieżka w usłudze OneDrive do skoroszytu programu Excel.|
 |**arkuszname**|**Arkuszname**|Arkusz, w którym znajduje się tabela.|
 |**tableName**|**TableName**|Nazwa tabeli. Jeśli nie zostanie określony, zostanie użyta zawartość arkusza.|
 
@@ -511,7 +523,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Identity**|**Tożsamość**|Wymagane — tożsamość, która zostanie użyta do wykonania akcji. Może być jedną z następujących wartości:<ul><li><code>userFromRequest</code> -Prawidłowy tylko z [wyzwalaczem http]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym IDENTYFIKATORze. Zobacz <code>userId</code> Właściwość.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowanej przez określony token. Zobacz <code>userToken</code> Właściwość.</li><li><code>clientCredentials</code> — Używa tożsamości aplikacji funkcji.</li></ul>|
 |**Nazwa** |**userId** |Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromId` . Identyfikator podmiotu zabezpieczeń użytkownika skojarzony z wcześniej zalogowanym użytkownikiem.|
 |**userToken**|**UserToken**|Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromToken` . Token ważny dla aplikacji funkcji. |
-|**path**|**Ścieżka**|Wymagane — ścieżka w usłudze OneDrive do skoroszytu programu Excel.|
+|**ścieżka**|**Ścieżka**|Wymagane — ścieżka w usłudze OneDrive do skoroszytu programu Excel.|
 |**arkuszname**|**Arkuszname**|Arkusz, w którym znajduje się tabela.|
 |**tableName**|**TableName**|Nazwa tabeli. Jeśli nie zostanie określony, zostanie użyta zawartość arkusza.|
 |**Typ aktualizacji**|**Typ aktualizacji**|Wymagane — typ zmiany do wprowadzenia do tabeli. Może być jedną z następujących wartości:<ul><li><code>update</code> — Zastępuje zawartość tabeli w usłudze OneDrive.</li><li><code>append</code> -Dodaje ładunek do końca tabeli w usłudze OneDrive, tworząc nowe wiersze.</li></ul>|
@@ -537,6 +549,9 @@ Powiązanie uwidacznia następujące typy do funkcji .NET Functions:
 
 <a name="onedrive-input"></a>
 ## <a name="file-input"></a>Dane wejściowe pliku
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Powiązanie danych wejściowych pliku usługi OneDrive odczytuje zawartość pliku przechowywanego w usłudze OneDrive.
 
@@ -657,7 +672,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Identity**|**Tożsamość**|Wymagane — tożsamość, która zostanie użyta do wykonania akcji. Może być jedną z następujących wartości:<ul><li><code>userFromRequest</code> -Prawidłowy tylko z [wyzwalaczem http]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym IDENTYFIKATORze. Zobacz <code>userId</code> Właściwość.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowanej przez określony token. Zobacz <code>userToken</code> Właściwość.</li><li><code>clientCredentials</code> — Używa tożsamości aplikacji funkcji.</li></ul>|
 |**userId**|**Nazwa**  |Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromId` . Identyfikator podmiotu zabezpieczeń użytkownika skojarzony z wcześniej zalogowanym użytkownikiem.|
 |**userToken**|**UserToken**|Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromToken` . Token ważny dla aplikacji funkcji. |
-|**path**|**Ścieżka**|Wymagane — ścieżka do pliku w usłudze OneDrive.|
+|**ścieżka**|**Ścieżka**|Wymagane — ścieżka do pliku w usłudze OneDrive.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Wprowadzanie plików — użycie
@@ -681,6 +696,9 @@ Powiązanie uwidacznia następujące typy do funkcji .NET Functions:
 
 <a name="onedrive-output"></a>
 ## <a name="file-output"></a>Dane wyjściowe pliku
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Powiązanie danych wyjściowych pliku usługi OneDrive modyfikuje zawartość pliku przechowywanego w usłudze OneDrive.
 
@@ -805,7 +823,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które z
 |**Identity**|**Tożsamość**|Wymagane — tożsamość, która zostanie użyta do wykonania akcji. Może być jedną z następujących wartości:<ul><li><code>userFromRequest</code> -Prawidłowy tylko z [wyzwalaczem http]. Używa tożsamości użytkownika wywołującego.</li><li><code>userFromId</code> -Używa tożsamości wcześniej zalogowanego użytkownika o określonym IDENTYFIKATORze. Zobacz <code>userId</code> Właściwość.</li><li><code>userFromToken</code> -Używa tożsamości reprezentowanej przez określony token. Zobacz <code>userToken</code> Właściwość.</li><li><code>clientCredentials</code> — Używa tożsamości aplikacji funkcji.</li></ul>|
 |**Nazwa** |**userId** |Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromId` . Identyfikator podmiotu zabezpieczeń użytkownika skojarzony z wcześniej zalogowanym użytkownikiem.|
 |**userToken**|**UserToken**|Wymagana, jeśli i tylko wtedy, gdy _tożsamość_ jest ustawiona na `userFromToken` . Token ważny dla aplikacji funkcji. |
-|**path**|**Ścieżka**|Wymagane — ścieżka do pliku w usłudze OneDrive.|
+|**ścieżka**|**Ścieżka**|Wymagane — ścieżka do pliku w usłudze OneDrive.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Wyjście pliku — użycie
@@ -828,6 +846,9 @@ Powiązanie uwidacznia następujące typy do funkcji .NET Functions:
 
 <a name="outlook-output"></a>
 ## <a name="outlook-output"></a>Dane wyjściowe programu Outlook
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Powiązanie danych wyjściowych wiadomości programu Outlook wysyła wiadomość e-mail za pomocą programu Outlook.
 
@@ -979,6 +1000,9 @@ Powiązanie uwidacznia następujące typy do funkcji .NET Functions:
 
 ## <a name="webhooks"></a>Elementy webhook
 
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Elementy webhook umożliwiają reagowanie na zdarzenia w Microsoft Graph. Aby obsługiwać elementy webhook, funkcje są konieczne do tworzenia, odświeżania i reagowania na _subskrypcje elementu webhook_. Kompletne rozwiązanie elementu webhook wymaga połączenia następujących powiązań:
 - [Wyzwalacz Microsoft Graph elementu webhook](#webhook-trigger) umożliwia reagowanie na przychodzące elementy webhook.
 - [Powiązanie danych wejściowych subskrypcji elementu webhook](#webhook-input) umożliwia wyświetlenie listy istniejących subskrypcji i ich opcjonalne odświeżenie. Microsoft Graph
@@ -993,6 +1017,9 @@ Aby uzyskać więcej informacji na temat elementów webhook, zobacz [Praca z ele
 
 
 ## <a name="webhook-trigger"></a>Wyzwalacz elementu webhook
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Wyzwalacz Microsoft Graph elementu webhook umożliwia funkcji reagowanie na przychodzące elementy webhook z Microsoft Graph. Każde wystąpienie tego wyzwalacza może reagować na jeden typ zasobu programu Microsoft Graph.
 
@@ -1112,6 +1139,9 @@ Powiązanie uwidacznia następujące typy do funkcji .NET Functions:
 
 <a name="webhook-input"></a>
 ## <a name="webhook-input"></a>Wejście elementu webhook
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Powiązanie danych wejściowych elementu webhook Microsoft Graph umożliwia pobranie listy subskrypcji zarządzanych przez tę aplikację funkcji. Powiązanie odczytuje z magazynu aplikacji funkcji, więc nie odzwierciedla innych subskrypcji utworzonych spoza aplikacji.
 
@@ -1264,6 +1294,9 @@ Powiązanie uwidacznia następujące typy do funkcji .NET Functions:
 
 ## <a name="webhook-output"></a>Wyjście elementu webhook
 
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Powiązanie danych wyjściowych subskrypcji elementu webhook umożliwia tworzenie, usuwanie i odświeżanie subskrypcji elementu webhook w Microsoft Graph.
 
 Ta sekcja zawiera następujące podsekcje:
@@ -1407,6 +1440,9 @@ Powiązanie uwidacznia następujące typy do funkcji .NET Functions:
 
 <a name="webhook-examples"></a>
 ## <a name="webhook-subscription-refresh"></a>Odświeżanie subskrypcji elementu webhook
+
+> [!IMPORTANT]
+> Powiązania Microsoft Graph w wersji zapoznawczej są obecnie przestarzałe. Aby uzyskać szczegółowe informacje na temat używania Microsoft Graph z Azure Functions, zapoznaj się z samouczkiem [kompilacja Azure Functions z Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Istnieją dwa podejścia do odświeżania subskrypcji:
 
@@ -1584,7 +1620,7 @@ public class UserSubscription {
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o wyzwalaczach i powiązaniach usługi Azure Functions](functions-triggers-bindings.md)

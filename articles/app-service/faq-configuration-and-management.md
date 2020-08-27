@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160004"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962353"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące konfiguracji i zarządzania dla Web Apps na platformie Azure
 
@@ -65,7 +65,7 @@ Aby ustawić strefę czasową serwera dla aplikacji sieci Web:
     * Wartość = *wybrana strefa czasowa*
 3. Wybierz pozycję **Zapisz**.
 
-W przypadku usług aplikacji działających w systemie Windows Zapoznaj się z kolumną **strefa** czasowa w artykule [strefy czasowe](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) dla zaakceptowanych wartości. W przypadku usług App Services działających w systemie Linux jako wartość strefy czasowej należy ustawić [nazwę bazy danych](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) . Oto przykład nazwy bazy danych: America/Adak.
+W przypadku usług aplikacji działających w systemie Windows Zapoznaj się z kolumną **strefa** czasowa w artykule [strefy czasowe](/windows-hardware/manufacture/desktop/default-time-zones) dla zaakceptowanych wartości. W przypadku usług App Services działających w systemie Linux jako wartość strefy czasowej należy ustawić [nazwę bazy danych](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) . Oto przykład nazwy bazy danych: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Dlaczego moje ciągłe zadania WebJob czasami kończą się niepowodzeniem?
 
@@ -147,7 +147,7 @@ Wyjątek został spowodowany przez problem z Menedżer połączeń hybrydowych, 
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Jak mogę dodać regułę ponownego zapisywania adresu URL?
 
-Aby dodać regułę ponownego zapisywania adresu URL, Utwórz plik web.config z odpowiednimi wpisami konfiguracji w folderze **wwwroot** . Aby uzyskać więcej informacji, zobacz [Azure App Services: Omówienie ponownego zapisywania adresów URL](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Aby dodać regułę ponownego zapisywania adresu URL, Utwórz plik web.config z odpowiednimi wpisami konfiguracji w folderze **wwwroot** . Aby uzyskać więcej informacji, zobacz [Azure App Services: Omówienie ponownego zapisywania adresów URL](/archive/blogs/madhurabharadwaj/azure-app-services-understanding-url-re-write).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Jak mogę kontrolować ruch przychodzący do App Service?
 
@@ -222,7 +222,7 @@ Aby rozwiązać ten problem, upewnij się, że żaden z następujących warunkó
 * Niewłaściwa sieciowa Grupa zabezpieczeń uniemożliwia wymagania dotyczące łączności sieciowej App Service Environment.
 * Wymuszone tunelowanie jest włączone.
 
-Aby uzyskać więcej informacji, zobacz [częste problemy podczas wdrażania (tworzenia) nowego Azure App Service Environment](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
+Aby uzyskać więcej informacji, zobacz [częste problemy podczas wdrażania (tworzenia) nowego Azure App Service Environment](/archive/blogs/waws/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase).
 
 ## <a name="why-cant-i-delete-my-app-service-plan"></a>Dlaczego nie mogę usunąć mojego planu App Service?
 
@@ -286,7 +286,7 @@ Podczas tworzenia nowej witryny sieci Web przy użyciu Web Apps na platformie Az
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Jak mogę określić, która wersja programu .NET jest zainstalowana w programie App Service?
 
-Najszybszym sposobem znalezienia wersji Microsoft .NET zainstalowanej w App Service jest użycie konsoli kudu. Możesz uzyskać dostęp do konsoli kudu z poziomu portalu lub przy użyciu adresu URL aplikacji App Service. Aby uzyskać szczegółowe instrukcje, zobacz [Określanie zainstalowanej wersji platformy .NET w App Service](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
+Najszybszym sposobem znalezienia wersji Microsoft .NET zainstalowanej w App Service jest użycie konsoli kudu. Możesz uzyskać dostęp do konsoli kudu z poziomu portalu lub przy użyciu adresu URL aplikacji App Service. Aby uzyskać szczegółowe instrukcje, zobacz [Określanie zainstalowanej wersji platformy .NET w App Service](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services).
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Dlaczego automatyczne skalowanie nie działa zgodnie z oczekiwaniami?
 

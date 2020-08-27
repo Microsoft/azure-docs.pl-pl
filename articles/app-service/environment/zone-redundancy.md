@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1b32ae55030cc24c8892b204ff7330269993a483
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098565"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961571"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Obsługa stref dostępności dla środowisk App Service
 
@@ -77,7 +77,7 @@ Poniższy fragment kodu szablonu ARM przedstawia nową właściwość ***Zones**
     ]
 ```
 
-Aby zapewnić nadmiarową strefę aplikacji, należy wdrożyć dwa strefy ILB środowisk ASE. Dwa strefy ILB środowisk ASE muszą znajdować się w osobnych strefach dostępności. Następnie należy wdrożyć aplikacje w każdym z ILB środowisk ASE. Po utworzeniu aplikacji należy skonfigurować rozwiązanie do równoważenia obciążenia. Zalecanym rozwiązaniem jest wdrożenie [strefy nadmiarowe Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) nadrzędnej ILB środowisk ASE. 
+Aby zapewnić nadmiarową strefę aplikacji, należy wdrożyć dwa strefy ILB środowisk ASE. Dwa strefy ILB środowisk ASE muszą znajdować się w osobnych strefach dostępności. Następnie należy wdrożyć aplikacje w każdym z ILB środowisk ASE. Po utworzeniu aplikacji należy skonfigurować rozwiązanie do równoważenia obciążenia. Zalecanym rozwiązaniem jest wdrożenie [strefy nadmiarowe Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) nadrzędnej ILB środowisk ASE. 
 
 ## <a name="in-region-data-residency"></a>W miejscu zamieszkania danych regionu ##
 
@@ -90,5 +90,3 @@ Klienci mogą sprawdzić, czy App Service Environment jest prawidłowo skonfigur
 1. Przy użyciu [Eksplorator zasobów](https://resources.azure.com)przejdź do zasobu ARM dla App Service Environment.  Środowisk ASE są wymienione w obszarze *dostawcy/Microsoft. Web/hostingEnvironments*.
 2. Jeśli właściwość *Zones* istnieje w widoku składni JSON w usłudze ARM i zawiera tablicę JSON o pojedynczej wartości z wartością "1", "2" lub "3", wówczas środowisko ASE jest zonally wdrożone i dane klienta pozostają w tym samym regionie.
 2. Jeśli właściwość *Zones* nie istnieje lub właściwość nie ma prawidłowej wartości strefy określonej wcześniej, środowisko ASE nie zostanie zonally wdrożone i dane klienta nie są przechowywane wyłącznie w tym samym regionie.
-
-

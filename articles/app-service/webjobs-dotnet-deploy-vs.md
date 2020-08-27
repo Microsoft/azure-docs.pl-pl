@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212881"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959905"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Opracowywanie i wdrażanie zadań WebJob za pomocą programu Visual Studio
 
@@ -55,7 +55,7 @@ Wdróż projekt jako zadanie WebJob lub połącz go z projektem sieci Web, tak a
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Zainstaluj program Visual Studio 2017 lub Visual Studio 2019 przy użyciu [obciążeń programistycznych platformy Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Zainstaluj program Visual Studio 2017 lub Visual Studio 2019 przy użyciu [obciążeń programistycznych platformy Azure](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Włącz wdrażanie zadań WebJob dla istniejącego projektu aplikacji konsolowej
 
@@ -239,7 +239,7 @@ Jeśli włączysz opcję **zawsze włączone** na platformie Azure, możesz uży
 
 1. Wybierz pozycję **Publikuj** na karcie **Publikowanie** , aby ponownie opublikować zadanie WebJob ze zaktualizowanymi ustawieniami.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o zestawie SDK zadań WebJob](webjobs-sdk-how-to.md)

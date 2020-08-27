@@ -1,14 +1,14 @@
 ---
 title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544727"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958766"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -43,7 +43,7 @@ Następujące efekty są _przestarzałe_:
 
 Gdy dostawca zasobów zwróci kod sukcesu w żądaniu w trybie Menedżer zasobów, **AuditIfNotExists** i **DeployIfNotExists** ocenę, aby określić, czy wymagane jest dodatkowe rejestrowanie zgodności lub akcja.
 
-## <a name="append"></a>Dołączanie
+## <a name="append"></a>Append
 
 Dołączanie służy do dodawania dodatkowych pól do żądanego zasobu podczas tworzenia lub aktualizowania. Typowym przykładem jest określenie dozwolonych adresów IP dla zasobu magazynu.
 
@@ -205,7 +205,7 @@ Przykład: oblicza Virtual Machines, aby określić, czy rozszerzenie chroniące
 }
 ```
 
-## <a name="deny"></a>Zablokuj
+## <a name="deny"></a>Deny
 
 Odmów służy do zapobiegania żądaniu zasobu, który nie jest zgodny ze zdefiniowanymi standardami za pomocą definicji zasad i nie powoduje wykonania żądania.
 
@@ -479,14 +479,33 @@ Przykład: strażnika v2 reguła kontroli, aby zezwalać tylko na określone obr
 
 ## <a name="modify"></a>Modyfikowanie
 
-Modyfikowanie służy do dodawania, aktualizowania lub usuwania tagów w zasobie podczas tworzenia lub aktualizowania. Typowym przykładem jest aktualizowanie tagów w zasobach, takich jak costCenter. Zasady modyfikowania powinny zawsze mieć `mode` ustawioną wartość _Indexed_ , chyba że zasób docelowy jest grupą zasobów. Istniejące niezgodne zasoby można skorygować przy użyciu [zadania korygowania](../how-to/remediate-resources.md). Pojedyncza reguła modyfikowania może zawierać dowolną liczbę operacji.
+Modyfikowanie służy do dodawania, aktualizowania lub usuwania właściwości lub tagów w zasobie podczas tworzenia lub aktualizowania.
+Typowym przykładem jest aktualizowanie tagów w zasobach, takich jak costCenter. Istniejące niezgodne zasoby można skorygować przy użyciu [zadania korygowania](../how-to/remediate-resources.md). Pojedyncza reguła modyfikowania może zawierać dowolną liczbę operacji.
+
+Następujące operacje są obsługiwane przez modyfikację:
+
+- Dodawanie, zastępowanie lub usuwanie tagów zasobów. W przypadku tagów zasady modyfikowania powinny mieć `mode` ustawioną wartość _Indexed_ , chyba że zasób docelowy jest grupą zasobów.
+- Dodaj lub Zastąp wartość zarządzanego typu tożsamości ( `identity.type` ) maszyn wirtualnych i zestawów skalowania maszyn wirtualnych.
+- Dodaj lub Zamień wartości niektórych aliasów (wersja zapoznawcza).
+  - Korzystanie z polecenia `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
+    w Azure PowerShell uzyskać listę aliasów, które mogą być używane z modyfikacją.
 
 > [!IMPORTANT]
-> Modyfikacja jest obecnie tylko do użytku z tagami. Jeśli zarządzasz tagami, zaleca się korzystanie z funkcji Modify zamiast Dołącz jako Modyfikuj udostępnia dodatkowe typy operacji i możliwość korygowania istniejących zasobów. Jednakże zaleca się dołączenie, jeśli nie można utworzyć tożsamości zarządzanej.
+> Jeśli zarządzasz tagami, zaleca się korzystanie z funkcji Modify zamiast Dołącz jako Modyfikuj udostępnia dodatkowe typy operacji i możliwość korygowania istniejących zasobów. Jednakże zaleca się dołączenie, jeśli nie można utworzyć tożsamości zarządzanej lub modyfikacja nie obsługuje jeszcze aliasu dla właściwości zasobu.
 
 ### <a name="modify-evaluation"></a>Modyfikuj ocenę
 
-Modyfikacja jest szacowana przed przetworzeniem żądania przez dostawcę zasobów podczas tworzenia lub aktualizowania zasobu. Modyfikuj Dodawanie lub aktualizowanie tagów w zasobie, gdy spełniony **jest warunek reguły** zasad.
+Modyfikacja jest szacowana przed przetworzeniem żądania przez dostawcę zasobów podczas tworzenia lub aktualizowania zasobu. Operacje modyfikowania są stosowane do zawartości **żądania, gdy spełniony jest warunek reguły** zasad. Każda operacja modyfikowania może określić warunek, który określa, kiedy ma być stosowany. Operacje z warunkami, które są oceniane na _wartość false_ , są pomijane.
+
+Po określeniu aliasu wykonywane są następujące dodatkowe kontrole w celu upewnienia się, że operacja Modyfikuj nie zmienia zawartości żądania w taki sposób, aby dostawca zasobów mógł go odrzucić:
+
+- Właściwość mapowania aliasu na wartość jest oznaczona jako "modyfikowalna" w wersji interfejsu API żądania.
+- Typ tokenu w operacji Modify jest zgodny z oczekiwanym typem tokenu dla właściwości w wersji interfejsu API żądania.
+
+Jeśli jeden z tych sprawdzeń zakończy się niepowodzeniem, Ocena zasad powróci do określonego **conflictEffect**.
+
+> [!IMPORTANT]
+> Jest to Recommeneded, że modyfikacje definicji, które obejmują aliasy, używają **efektu konfliktu** _inspekcji_ , aby uniknąć nieudanych żądań przy użyciu wersji interfejsu API, gdzie zmapowana właściwość nie jest "modyfikowalna". Jeśli ten sam alias działa inaczej między wersjami interfejsu API, warunkowe operacje modyfikowania mogą służyć do określania operacji modyfikowania używanych dla każdej wersji interfejsu API.
 
 Gdy definicja zasad używająca efektu Modyfikuj jest uruchamiana w ramach cyklu oceny, nie wprowadza zmian do już istniejących zasobów. Zamiast tego oznacza wszelkie zasoby, które spełniają warunek **if** jako niezgodne.
 
@@ -498,7 +517,7 @@ Właściwość **Details** efektu Modyfikuj ma wszystkie właściwości, które 
   - Ta właściwość musi zawierać tablicę ciągów, które pasują do identyfikatora roli kontroli dostępu opartej na rolach dostępnej w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz [korygowanie — Konfigurowanie definicji zasad](../how-to/remediate-resources.md#configure-policy-definition).
   - Zdefiniowana rola musi obejmować wszystkie operacje przyznane do roli [współautor](../../../role-based-access-control/built-in-roles.md#contributor) .
 - **conflictEffect** (opcjonalnie)
-  - Określa definicję zasad "WINS" w przypadku, gdy więcej niż jedna definicja zasad modyfikuje tę samą właściwość.
+  - Określa definicję zasad "WINS" w przypadku, gdy więcej niż jedna definicja zasad modyfikuje tę samą właściwość lub gdy operacja Modyfikuj nie działa na określonym aliasie.
     - W przypadku nowych lub zaktualizowanych zasobów definicja zasad z _Odmów_ ma pierwszeństwo. Definicje zasad z _inspekcją_ pomija wszystkie **operacje**. Jeśli więcej niż jedna definicja zasad ma _odmowę_, żądanie jest odrzucane jako konflikt. Jeśli wszystkie definicje zasad mają _inspekcję_, wówczas żadna z **operacji** w sprzecznych definicjach zasad nie zostanie przetworzona.
     - W przypadku istniejących zasobów, jeśli więcej niż jedna definicja zasad ma _odmowę_, stan zgodności jest w _konflikcie_. Jeśli co najmniej jedna definicja zasad ma _odmowę_, każde przypisanie zwraca stan zgodności _niezgodny_.
   - Dostępne wartości: _Inspekcja_, _Odmów_, _wyłączone_.
@@ -513,6 +532,9 @@ Właściwość **Details** efektu Modyfikuj ma wszystkie właściwości, które 
     - **wartość** (opcjonalnie)
       - Wartość, dla której ma zostać ustawiony tag.
       - Ta właściwość jest wymagana, jeśli **operacja** jest _addOrReplace_ lub _Dodaj_.
+    - **warunek** (opcjonalnie)
+      - Ciąg zawierający wyrażenie języka Azure Policy z [funkcją zasad](./definition-structure.md#policy-functions) , która daje w wyniku _wartość true_ lub _false_.
+      - Program nie obsługuje następujących funkcji zasad: `field()` , `resourceGroup()` , `subscription()` .
 
 ### <a name="modify-operations"></a>Modyfikuj operacje
 
@@ -548,9 +570,9 @@ Właściwość **Operation** ma następujące opcje:
 
 |Operacja |Opis |
 |-|-|
-|addOrReplace |Dodaje zdefiniowany tag i wartość do zasobu, nawet jeśli tag już istnieje z inną wartością. |
-|Dodaj |Dodaje zdefiniowany tag i wartość do zasobu. |
-|Usuń |Usuwa zdefiniowany tag z zasobu. |
+|addOrReplace |Dodaje zdefiniowaną właściwość lub tag i wartość do zasobu, nawet jeśli właściwość lub tag już istnieje z inną wartością. |
+|Dodaj |Dodaje zdefiniowaną właściwość lub tag i wartość do zasobu. |
+|Usuń |Usuwa zdefiniowaną właściwość lub tag z zasobu. |
 
 ### <a name="modify-examples"></a>Modyfikuj przykłady
 
@@ -599,6 +621,28 @@ Przykład 2: Usuń `env` tag i Dodaj `environment` tag lub Zastąp istniejące `
 }
 ```
 
+Przykład 3: Upewnij się, że konto magazynu nie zezwala na dostęp publiczny obiektu BLOB, operacja modyfikowania jest stosowana tylko podczas oceniania żądań z wersją interfejsu API nowszą lub równą "2019-04-01":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
+            }
+        ]
+    }
+}
+```
+
 ## <a name="layering-policy-definitions"></a>Definicje zasad dotyczących warstw
 
 Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Na przykład:
@@ -628,7 +672,7 @@ Jeśli zasada 1 i zasady 2 miały wpływ na odmowę, sytuacja zmieni się na:
 
 Każde przypisanie jest oceniane indywidualnie. W związku z tym nie istnieje możliwość poślizgania zasobu przez przerwę od różnic między zakresami. Wynik sieci definicji zasad warstw jest traktowany jako **skumulowany najbardziej restrykcyjny**. Jeśli na przykład zasady 1 i 2 mają skutek odmowy, zasób zostałby zablokowany przez nakładające się i sprzeczne definicje zasad. Jeśli nadal potrzebujesz zasobu, który ma zostać utworzony w zakresie docelowym, przejrzyj wykluczenia poszczególnych przypisań, aby sprawdzić, czy odpowiednie przypisania zasad mają wpływ na właściwe zakresy.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).
 - Przejrzyj temat [Struktura definicji zasad Azure Policy](definition-structure.md).

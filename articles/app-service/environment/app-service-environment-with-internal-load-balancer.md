@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 49045c8b8c7b3ccfa44a1077e59683191393e1ee
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220817"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962557"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Używanie wewnętrznego Load Balancer z App Service Environment
 
@@ -22,7 +22,7 @@ ms.locfileid: "86220817"
 
 Funkcja App Service Environment (ASE) to opcja usługi Premium Azure App Service, która zapewnia rozszerzoną funkcję konfiguracji, która nie jest dostępna w sygnaturach z wieloma dzierżawcami. Funkcja ASE zasadniczo wdraża Azure App Service w usłudze Azure Virtual Network (VNet). Aby uzyskać lepsze zrozumienie możliwości oferowanych przez App Service środowiska, przeczytaj artykuł [co to jest App Service Environment][WhatisASE] dokumentacja. Jeśli nie znasz korzyści płynących z używania sieci wirtualnej, zapoznaj się z tematem [często zadawanych pytań dotyczących platformy Azure Virtual Network][virtualnetwork]. 
 
-## <a name="overview"></a>Przegląd
+## <a name="overview"></a>Omówienie
 Środowisko ASE można wdrożyć za pomocą punktu końcowego dostępnego z Internetu lub z adresem IP w sieci wirtualnej. Aby ustawić adres IP na adres sieci wirtualnej, należy wdrożyć środowisko ASE przy użyciu wewnętrznego Load Balancer (ILB). Gdy środowisko ASE jest skonfigurowane z ILB, należy udostępnić:
 
 * Twoja domena lub poddomena. Aby to ułatwić, ten dokument zakłada, że jest poddomeną, ale można go skonfigurować w dowolny sposób. 
@@ -104,7 +104,7 @@ Adres IP ILB jest wyświetlany na liście właściwości jako wirtualny adres IP
 #### <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 ILB ASE umożliwia izolację sieci dla aplikacji. Aplikacje są niedostępne lub nawet znane przez Internet. Takie podejście jest doskonałe do hostowania witryn intranetowych, takich jak aplikacje biznesowe. W przypadku konieczności jeszcze bardziej ograniczonego dostępu można nadal korzystać z sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) w celu kontrolowania dostępu na poziomie sieci. 
 
-Aby dodatkowo ograniczyć dostęp do programu sieciowych grup zabezpieczeń, należy się upewnić, że nie przerywasz komunikacji wymaganej do działania środowiska ASE. Chociaż dostęp do protokołu HTTP/HTTPS odbywa się tylko za pośrednictwem ILB używanego przez środowisko ASE, środowisko ASE nadal zależy od zasobów poza siecią wirtualną. Aby sprawdzić, jaki dostęp do sieci jest nadal wymagany, zobacz [kontrolowanie ruchu przychodzącego do App Service Environment][ControlInbound] i [szczegóły konfiguracji sieci dla środowisk App Service z ExpressRoute][ExpressRoute]. 
+Aby dodatkowo ograniczyć dostęp do programu sieciowych grup zabezpieczeń, należy się upewnić, że nie przerywasz komunikacji wymaganej do działania środowiska ASE. Chociaż dostęp do protokołu HTTP/HTTPS odbywa się tylko za pośrednictwem ILB używanego przez środowisko ASE, środowisko ASE nadal zależy od zasobów poza siecią wirtualną. Aby sprawdzić, jaki dostęp do sieci jest nadal wymagany, zobacz [kontrolowanie ruchu przychodzącego do App Service Environment][ControlInbound] i  [szczegóły konfiguracji sieci dla środowisk App Service z ExpressRoute][ExpressRoute]. 
 
 Aby skonfigurować sieciowych grup zabezpieczeń, musisz znać adres IP używany przez platformę Azure do zarządzania środowiskiem ASE. Ten adres IP jest również wychodzącym adresem IP z środowiska ASE, jeśli wykonuje żądania internetowe. Wychodzący adres IP dla środowiska ASE pozostaje statyczny dla cyklu życia środowiska ASE. Jeśli usuniesz i utworzysz ponownie środowisko ASE, otrzymasz nowy adres IP. Aby znaleźć adres IP, przejdź do pozycji **Ustawienia-> właściwości** i Znajdź **wychodzący adres IP**. 
 
@@ -140,9 +140,9 @@ Aby rozpocząć pracę z App Service środowiskami, zobacz [wprowadzenie do App 
 [WhatisASE]: app-service-app-service-environment-intro.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

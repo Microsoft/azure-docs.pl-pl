@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: fd7f860eb6e18edeb2096c12102e74c7446d050f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 90becfb79973ba45851b0e30384b0f05a7b887e3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213755"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962251"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Samouczek: wdrażanie aplikacji ASP.NET na platformie Azure za pomocą Azure SQL Database
 
@@ -19,7 +19,7 @@ ms.locfileid: "88213755"
 
 ![Opublikowana aplikacja ASP.NET w aplikacji usługi App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -71,14 +71,14 @@ Upewnij się, że jest zaznaczona usługa **Microsoft Azure App Service**, a nas
 
 Publikowanie powoduje otwarcie okna dialogowego **Tworzenie usługi App Service**, które ułatwia tworzenie wszystkich zasobów platformy Azure potrzebnych do uruchomienia aplikacji ASP.NET na platformie Azure.
 
-### <a name="sign-in-to-azure"></a>Logowanie się do platformy Azure
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 W oknie dialogowym **Tworzenie usługi App Service** kliknij pozycję **Dodaj konto**, a następnie zaloguj się do swojej subskrypcji platformy Azure. Jeśli zalogowano się już do konta Microsoft, upewnij się, że to konto zawiera Twoją subskrypcję platformy Azure. Jeśli użyte do logowania konto Microsoft nie ma subskrypcji platformy Azure, kliknij je, aby dodać prawidłowe konto.
 
 > [!NOTE]
 > Jeśli przeprowadzono już logowanie, nie wybieraj jeszcze pozycji **Utwórz**.
 
-![Logowanie się do platformy Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
+![Logowanie do platformy Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Konfigurowanie nazwy aplikacji internetowej
 
@@ -110,7 +110,7 @@ Wygenerowaną nazwę aplikacji internetowej można zachować lub zmienić na inn
    | ----------------- | ------------ | ----|
    |**Plan usługi App Service**| myAppServicePlan | [Plany usługi App Service](../app-service/overview-hosting-plans.md) |
    |**Lokalizacja**| West Europe | [Regiony platformy Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
-   |**Rozmiar**| Jest bezpłatna | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
+   |**Rozmiar**| Bezpłatna | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-server"></a>Tworzenie serwera
 
@@ -141,7 +141,7 @@ Przed utworzeniem bazy danych potrzebny jest [logiczny serwer SQL](../azure-sql/
 
    * Nie zmieniaj wygenerowanej domyślnej wartości pola **Nazwa bazy danych**.
    * W polu **Nazwa parametrów połączenia** wpisz *MyDbConnection*. Ta nazwa musi być zgodna z parametrami połączenia przywoływanymi w pliku *Models/MyDatabaseContext.cs*.
-   * Wybierz pozycję **OK**.
+   * Kliknij przycisk **OK**.
 
     ![Konfiguruj bazę danych](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
@@ -199,7 +199,7 @@ Rozwiń połączenie > **baz**danych  >  ** &lt; bazy danych>**  >  **tabele**. 
 
 Znanych narzędzi programu Visual Studio można używać do aktualizowania bazy danych i aplikacji na platformie Azure. W tym kroku użyjesz funkcji Migracje Code First platformy Entity Framework do zmiany schematu bazy danych i opublikowania go na platformie Azure.
 
-Aby uzyskać więcej informacji o używaniu migracji Code First platformy Entity Framework, zobacz [Getting Started with Entity Framework 6 Code First using MVC 5](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) (Wprowadzenie do migracji Code First platformy Entity Framework 6 za pomocą MVC 5).
+Aby uzyskać więcej informacji o używaniu migracji Code First platformy Entity Framework, zobacz [Getting Started with Entity Framework 6 Code First using MVC 5](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) (Wprowadzenie do migracji Code First platformy Entity Framework 6 za pomocą MVC 5).
 
 ### <a name="update-your-data-model"></a>Aktualizowanie modelu danych
 
@@ -419,4 +419,4 @@ Więcej zasobów:
 Chcesz zoptymalizować i zapisać wydatki na chmurę?
 
 > [!div class="nextstepaction"]
-> [Rozpocznij analizowanie kosztów za pomocą Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Rozpocznij analizowanie kosztów za pomocą Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

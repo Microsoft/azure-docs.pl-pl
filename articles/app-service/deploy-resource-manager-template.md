@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1146b5979d81b91c6c6894aa54b2e0ca50c896c1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637927"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961622"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Wskazówki dotyczące wdrażania aplikacji sieci Web za pomocą szablonów Azure Resource Manager
 
@@ -90,7 +90,7 @@ Jeśli szablon Menedżer zasobów używa MSDeploy, komunikaty o błędach wdroż
 
 1. Przejdź do [konsoli kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console)lokacji.
 2. Przejdź do folderu pod adresem D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Wyszukaj pliki appManagerStatus.xml i appManagerLog.xml. Pierwszy plik rejestruje stan. Drugi plik rejestruje informacje o błędzie. Jeśli błąd nie jest oczywisty, możesz dołączyć go, gdy zostanie wyświetlony monit o pomoc na [forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+3. Wyszukaj pliki appManagerStatus.xml i appManagerLog.xml. Pierwszy plik rejestruje stan. Drugi plik rejestruje informacje o błędzie. Jeśli błąd nie jest oczywisty, możesz dołączyć go, gdy zostanie wyświetlony monit o pomoc na [forum](/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Wybierz unikatową nazwę aplikacji sieci Web
 
@@ -131,7 +131,7 @@ W szablonie Podaj nazwę certyfikatu `keyVaultSecretName` .
 
 Aby zapoznać się z przykładowym szablonem, zobacz [Wdrażanie certyfikatu aplikacji sieci Web z poziomu wpisu tajnego Key Vault i używanie go do tworzenia powiązania SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby zapoznać się z samouczkiem dotyczącym wdrażania aplikacji sieci Web za pomocą szablonu, zobacz [udostępnianie i wdrażanie mikrousług na platformie Azure](deploy-complex-application-predictably.md).
 * Aby dowiedzieć się więcej o składni i właściwościach JSON dla typów zasobów w szablonach, zobacz [Azure Resource Manager dokumentacja szablonu](/azure/templates/).

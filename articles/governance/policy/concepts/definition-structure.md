@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba6b8160eefb0a59bc8273989c27a3a8501a79b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b6509f684e611fbb79184383e1b332d793458b9
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547804"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958783"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -22,7 +22,7 @@ Schemat definicji zasad znajduje się tutaj: [https://schema.management.azure.co
 Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- description (opis)
+- opis
 - tryb
 - metadane
 - parameters
@@ -652,6 +652,13 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
+  > [!NOTE]
+  > Aby znaleźć aliasy, które mogą być używane z efektem [modyfikacji](./effects.md#modify) , użyj następującego polecenia:
+  >
+  > ```azurepowershell-interactive
+  > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
+  > ```
+
 - Interfejs wiersza polecenia platformy Azure
 
   ```azurecli-interactive
@@ -704,7 +711,7 @@ Ta przykładowa reguła sprawdza, czy dla dowolnych dopasowań **ipRules \[ \* \
 
 Aby uzyskać więcej informacji, zobacz [ocenianie \* aliasu []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz [strukturę definicji inicjatywy](./initiative-definition-structure.md)
 - Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).

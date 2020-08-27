@@ -1,5 +1,5 @@
 ---
-title: Eksplorowanie przykładowego scenariusza
+title: Eksploruj przykładowy scenariusz
 titleSuffix: Azure Digital Twins
 description: Użyj przykładu ADT Explorer, aby wizualizować i eksplorować wstępnie skompilowany scenariusz.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: b199a50443445b983011d755c3ffacaa71131faf
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: c3230294fd9d5761433b4507ff054bcaae7a11ad
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88894353"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959817"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -170,7 +170,7 @@ W polu *Widok wykresu* kliknij ikonę *Importuj wykres* .
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="W polu widok wykresu zostanie wyróżniona ikona. Pokazuje strzałkę wskazującą chmurę." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-W polu Selektor plików przejdź ponownie do folderu *Klient/przykłady* i wybierz _**buildingScenario.xlsx**_ plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Naciśnij przycisk OK.
+W polu Selektor plików przejdź do folderu *Azure_Digital_Twins_samples/adtsampleapp/sampleclientapp* i wybierz _**buildingScenario.xlsx**_ plik arkusza kalkulacyjnego. Ten plik zawiera opis przykładowego wykresu. Naciśnij przycisk OK.
 
 Po kilku sekundach Eksplorator ADT otworzy widok *importu* z podglądem wykresu, który zostanie załadowany.
 
@@ -314,7 +314,7 @@ Jeśli planujesz kontynuować korzystanie z samouczków Digital bliźniaczych re
 
 Na koniec Usuń przykładowe foldery projektu pobrane na maszynę lokalną (_**ADT_Explorer.zip**_ i _**Azure_Digital_Twins_samples.zip**_).
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Kolejne kroki 
 
 Następnie przejdź do samouczków Digital bliźniaczych reprezentacji systemu Azure, aby utworzyć własny scenariusz i narzędzia interakcji dotyczące platformy Azure Digital bliźniaczych reprezentacji.
 

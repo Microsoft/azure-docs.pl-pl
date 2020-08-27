@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811697"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962132"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Użyj certyfikatu TLS/SSL w kodzie w Azure App Service
 
@@ -24,7 +24,7 @@ Gdy zezwolisz App Service na zarządzanie certyfikatami TLS/SSL, możesz osobno 
 
 Aby wykonać następujące czynności:
 
-- [Utwórz aplikację usługi App Service](/azure/app-service/)
+- [Utwórz aplikację usługi App Service](./index.yml)
 - [Dodawanie certyfikatu do aplikacji](configure-ssl-certificate.md)
 
 ## <a name="find-the-thumbprint"></a>Znajdowanie odcisku palca
@@ -164,4 +164,4 @@ Aby dowiedzieć się, jak załadować certyfikat TLS/SSL z pliku w Node.js, PHP,
 * [Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md)
 * [Wymuszanie protokołu HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Wymuszanie protokołu TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Często zadawane pytania: certyfikaty App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Często zadawane pytania: certyfikaty App Service](./faq-configuration-and-management.md)

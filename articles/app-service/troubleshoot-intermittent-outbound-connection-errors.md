@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 39073169fbc4558492a47f78f0840a0e314b3ee8
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 467f7b3525883e16e57a06ff97cf4fd386279d22
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763562"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958239"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Rozwiązywanie problemów sporadyczne błędy połączenia wychodzącego w Azure App Service
 
-Ten artykuł pomaga w rozwiązywaniu problemów z sporadycznymi błędami połączeń i powiązanymi problemami z wydajnością w [Azure App Service](https://docs.microsoft.com/azure/app-service/overview). Ten temat zawiera więcej informacji na temat metod rozwiązywania problemów z portami translacji sieci adresów źródłowych (NAT). Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, skontaktuj się z ekspertami platformy Azure w [witrynie MSDN Azure i na forach Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.
+Ten artykuł pomaga w rozwiązywaniu problemów z sporadycznymi błędami połączeń i powiązanymi problemami z wydajnością w [Azure App Service](./overview.md). Ten temat zawiera więcej informacji na temat metod rozwiązywania problemów z portami translacji sieci adresów źródłowych (NAT). Jeśli potrzebujesz więcej pomocy w dowolnym punkcie tego artykułu, skontaktuj się z ekspertami platformy Azure w [witrynie MSDN Azure i na forach Stack Overflow](https://azure.microsoft.com/support/forums/). Alternatywnie możesz zaplikować zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.
 
 ## <a name="symptoms"></a>Objawy
 
@@ -32,23 +32,23 @@ Aplikacje i funkcje hostowane w usłudze Azure App Service mogą mieć co najmni
 Główną przyczyną tych objawów jest fakt, że wystąpienie aplikacji nie może otworzyć nowego połączenia z zewnętrznym punktem końcowym, ponieważ osiągnęło jeden z następujących limitów:
 
 * Połączenia TCP: istnieje limit liczby połączeń wychodzących, które mogą zostać wykonane. Jest to związane z rozmiarem używanego procesu roboczego.
-* Porty protokołu Resources: jak opisano w [połączeniach wychodzących na platformie Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections), platforma Azure korzysta z translatora adresów sieciowych (Resources) i Load Balancer (nieujawnione klientom) do komunikowania się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP. Każde wystąpienie w usłudze Azure App Service początkowo uzyskało wstępnie przydzieloną liczbę portów przydziałów adresów sieciowych **128** . Ten limit wpływa na otwieranie połączeń z tym samym hostem i kombinacją portów. Jeśli aplikacja tworzy połączenia z kombinacją kombinacji adresów i portów, nie będziesz używać portów. Porty przyłączone do nich są używane, gdy powtórzone wywołania tego samego adresu i kombinacji portów. Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razie potrzeby. Moduł równoważenia obciążenia sieci platformy Azure ponownie przejmuje port z zamkniętych połączeń dopiero po upływie 4 minut.
+* Porty protokołu Resources: jak opisano w [połączeniach wychodzących na platformie Azure](../load-balancer/load-balancer-outbound-connections.md), platforma Azure korzysta z translatora adresów sieciowych (Resources) i Load Balancer (nieujawnione klientom) do komunikowania się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP. Każde wystąpienie w usłudze Azure App Service początkowo uzyskało wstępnie przydzieloną liczbę portów przydziałów adresów sieciowych **128** . Ten limit wpływa na otwieranie połączeń z tym samym hostem i kombinacją portów. Jeśli aplikacja tworzy połączenia z kombinacją kombinacji adresów i portów, nie będziesz używać portów. Porty przyłączone do nich są używane, gdy powtórzone wywołania tego samego adresu i kombinacji portów. Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razie potrzeby. Moduł równoważenia obciążenia sieci platformy Azure ponownie przejmuje port z zamkniętych połączeń dopiero po upływie 4 minut.
 
 Gdy aplikacje lub funkcje szybko otwierają nowe połączenie, mogą szybko wyczerpać wstępnie przydzieloną liczbę portów 128. Są one następnie blokowane do momentu udostępnienia nowego portu protokołu reportowego, poprzez dynamiczne przydzielanie dodatkowych portów lub ponowne użycie odnoszącego się do niego portu. Aplikacje lub funkcje, które są blokowane z powodu niemożności utworzenia nowych połączeń, zostaną uruchomione co najmniej jednego problemu opisanego w sekcji **objawy** tego artykułu.
 
 ## <a name="avoiding-the-problem"></a>Unikanie problemu
 
-Jeśli lokalizacja docelowa to usługa platformy Azure, która obsługuje punkty końcowe usługi, można uniknąć problemów z wyczerpaniem portów z użyciem [regionalnej sieci wirtualnej](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) i punktów końcowych usługi lub prywatnych punktów końcowych. W przypadku korzystania z integracji regionalnej sieci wirtualnej i umieszczania punktów końcowych usługi w podsieci integracji ruch wychodzący aplikacji do tych usług nie będzie miał ograniczeń portów wychodzących adresów integracyjnych. Podobnie, jeśli korzystasz z zintegrowanej integracji sieci wirtualnej z prywatnymi punktami końcowymi, nie będziesz mieć żadnych problemów z portem przychodzący do tego miejsca docelowego. 
+Jeśli lokalizacja docelowa to usługa platformy Azure, która obsługuje punkty końcowe usługi, można uniknąć problemów z wyczerpaniem portów z użyciem [regionalnej sieci wirtualnej](./web-sites-integrate-with-vnet.md) i punktów końcowych usługi lub prywatnych punktów końcowych. W przypadku korzystania z integracji regionalnej sieci wirtualnej i umieszczania punktów końcowych usługi w podsieci integracji ruch wychodzący aplikacji do tych usług nie będzie miał ograniczeń portów wychodzących adresów integracyjnych. Podobnie, jeśli korzystasz z zintegrowanej integracji sieci wirtualnej z prywatnymi punktami końcowymi, nie będziesz mieć żadnych problemów z portem przychodzący do tego miejsca docelowego. 
 
 Unikanie problemu z portem podłączania adresów sieciowych oznacza uniknięcie tworzenia nowych połączeń wielokrotnie na tym samym hoście i porcie.
 
-Ogólne strategie rozwiązywania problemów z wyczerpaniem portów [przydziałów](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#problemsolving) adresów sieciowych zostały omówione w sekcji rozwiązanie problemu dotyczącej **połączeń wychodzących dokumentacji platformy Azure** . Z tych strategii dotyczą aplikacje i funkcje hostowane w usłudze Azure App Service.
+Ogólne strategie rozwiązywania problemów z wyczerpaniem portów [przydziałów](../load-balancer/load-balancer-outbound-connections.md) adresów sieciowych zostały omówione w sekcji rozwiązanie problemu dotyczącej **połączeń wychodzących dokumentacji platformy Azure** . Z tych strategii dotyczą aplikacje i funkcje hostowane w usłudze Azure App Service.
 
 ### <a name="modify-the-application-to-use-connection-pooling"></a>Modyfikowanie aplikacji tak, aby używała puli połączeń
 
-* W celu buforowania połączeń HTTP Przejrzyj [pulę połączeń HTTP z HttpClientFactory](https://docs.microsoft.com/aspnet/core/performance/performance-best-practices#pool-http-connections-with-httpclientfactory).
-* Aby uzyskać informacje dotyczące SQL Server puli połączeń, zapoznaj się z tematem [pule połączeń SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
-* W celu zaimplementowania puli przy użyciu aplikacji Entity Framework, przejrzyj [pulę DbContext](https://docs.microsoft.com/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling).
+* W celu buforowania połączeń HTTP Przejrzyj [pulę połączeń HTTP z HttpClientFactory](/aspnet/core/performance/performance-best-practices#pool-http-connections-with-httpclientfactory).
+* Aby uzyskać informacje dotyczące SQL Server puli połączeń, zapoznaj się z tematem [pule połączeń SQL Server (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
+* W celu zaimplementowania puli przy użyciu aplikacji Entity Framework, przejrzyj [pulę DbContext](/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling).
 
 Poniżej znajduje się kolekcja linków do implementowania puli połączeń przy użyciu innego stosu rozwiązań.
 
@@ -105,22 +105,22 @@ W przypadku innych środowisk zapoznaj się z tematem dostawca lub dokumenty spe
 
 ### <a name="modify-the-application-to-reuse-connections"></a>Modyfikowanie aplikacji w celu ponownego użycia połączeń
 
-*  Aby uzyskać dodatkowe wskaźniki i przykłady dotyczące zarządzania połączeniami w usłudze Azure Functions, zapoznaj się z tematem [Zarządzanie połączeniami w Azure Functions](https://docs.microsoft.com/azure/azure-functions/manage-connections).
+*  Aby uzyskać dodatkowe wskaźniki i przykłady dotyczące zarządzania połączeniami w usłudze Azure Functions, zapoznaj się z tematem [Zarządzanie połączeniami w Azure Functions](../azure-functions/manage-connections.md).
 
 ### <a name="modify-the-application-to-use-less-aggressive-retry-logic"></a>Modyfikowanie aplikacji tak, aby była używana mniej agresywna logika ponawiania
 
-* Aby uzyskać dodatkowe wskazówki i przykłady, przejrzyj [wzorzec ponawiania prób](https://docs.microsoft.com/azure/architecture/patterns/retry).
+* Aby uzyskać dodatkowe wskazówki i przykłady, przejrzyj [wzorzec ponawiania prób](/azure/architecture/patterns/retry).
 
 ### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a>Aby zresetować limit czasu bezczynności dla ruchu wychodzącego, użyj utrzymywania aktywności
 
-* W celu zaimplementowania nieaktywności dla Node.js aplikacji Sprawdź, [czy aplikacja w węźle ma nadmierne wywołania wychodzące](https://docs.microsoft.com/azure/app-service/app-service-web-nodejs-best-practices-and-troubleshoot-guide#my-node-application-is-making-excessive-outbound-calls).
+* W celu zaimplementowania nieaktywności dla Node.js aplikacji Sprawdź, [czy aplikacja w węźle ma nadmierne wywołania wychodzące](./app-service-web-nodejs-best-practices-and-troubleshoot-guide.md#my-node-application-is-making-excessive-outbound-calls).
 
 ### <a name="additional-guidance-specific-to-app-service"></a>Dodatkowe wskazówki dotyczące App Service:
 
-* [Test obciążenia](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) powinien symulować rzeczywiste dane świata w stałej szybkości żywienia. Testowanie aplikacji i funkcji w ramach rzeczywistego środowiska światowego może identyfikować i rozwiązywać problemy z wyczerpaniem portów podkluczy adresów w czasie.
-* Upewnij się, że usługi zaplecza mogą szybko zwracać odpowiedzi. Rozwiązywanie problemów z wydajnością Azure SQL Database można znaleźć w tematach [Rozwiązywanie problemów z wydajnością Azure SQL Database z Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
-* Skaluj w poziomie plan App Service do większej liczby wystąpień. Aby uzyskać więcej informacji na temat skalowania, zobacz [skalowanie aplikacji w Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). Każde wystąpienie procesu roboczego w planie usługi App Service ma przydzieloną liczbę portów przydziałów adresów sieciowych. W przypadku rozłożenia użycia w większej liczbie wystąpień można uzyskać dostęp do portów dla danego wystąpienia, poniżej zalecanego limitu 100 połączeń wychodzących, na unikatowy zdalny punkt końcowy.
-* Rozważ przeniesienie do [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), w którym ma zostać przydzielony pojedynczy wychodzący adres IP, a limity dla połączeń i portów podłączania adresów sieciowych są znacznie wyższe. W środowisku ASE liczba portów przydziałów adresów sieciowych na wystąpienie jest oparta na [tabeli alokacji wstępnej modułu równoważenia obciążenia platformy Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatporttable) , więc przykładowo środowisko ase z 1-50 wystąpieniami roboczymi ma 1024 wstępnie przydzielone porty na wystąpienie, podczas gdy środowisko ase z 51-100 wystąpieniami procesów roboczych ma 512 wstępnie przydzielone porty na wystąpienie.
+* [Test obciążenia](/azure/devops/test/load-test/app-service-web-app-performance-test) powinien symulować rzeczywiste dane świata w stałej szybkości żywienia. Testowanie aplikacji i funkcji w ramach rzeczywistego środowiska światowego może identyfikować i rozwiązywać problemy z wyczerpaniem portów podkluczy adresów w czasie.
+* Upewnij się, że usługi zaplecza mogą szybko zwracać odpowiedzi. Rozwiązywanie problemów z wydajnością Azure SQL Database można znaleźć w tematach [Rozwiązywanie problemów z wydajnością Azure SQL Database z Intelligent Insights](../azure-sql/database/intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow).
+* Skaluj w poziomie plan App Service do większej liczby wystąpień. Aby uzyskać więcej informacji na temat skalowania, zobacz [skalowanie aplikacji w Azure App Service](./manage-scale-up.md). Każde wystąpienie procesu roboczego w planie usługi App Service ma przydzieloną liczbę portów przydziałów adresów sieciowych. W przypadku rozłożenia użycia w większej liczbie wystąpień można uzyskać dostęp do portów dla danego wystąpienia, poniżej zalecanego limitu 100 połączeń wychodzących, na unikatowy zdalny punkt końcowy.
+* Rozważ przeniesienie do [App Service Environment (ASE)](./environment/using-an-ase.md), w którym ma zostać przydzielony pojedynczy wychodzący adres IP, a limity dla połączeń i portów podłączania adresów sieciowych są znacznie wyższe. W środowisku ASE liczba portów przydziałów adresów sieciowych na wystąpienie jest oparta na [tabeli alokacji wstępnej modułu równoważenia obciążenia platformy Azure](../load-balancer/load-balancer-outbound-connections.md#snatporttable) , więc przykładowo środowisko ase z 1-50 wystąpieniami roboczymi ma 1024 wstępnie przydzielone porty na wystąpienie, podczas gdy środowisko ase z 51-100 wystąpieniami procesów roboczych ma 512 wstępnie przydzielone porty na wystąpienie.
 
 Uniknięcie limitów wychodzącego protokołu TCP jest łatwiejsze do rozwiązania, ponieważ limity są ustawiane przez rozmiar procesu roboczego. Limity można zobaczyć w obszarze [limity liczbowe między maszynami wirtualnymi piaskownic — połączenia TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
@@ -138,7 +138,7 @@ Jeśli nie wiesz, że zachowanie aplikacji jest wystarczające, aby szybko ustal
 
 ### <a name="find-snat-port-allocation-information"></a>Znajdowanie informacji o alokacji portu dla translatora adresów sieciowych
 
-Możesz użyć [diagnostyki App Service](https://docs.microsoft.com/azure/app-service/overview-diagnostics) , aby znaleźć informacje o alokacji portu dla interfejsu podrzędnego i obserwować metrykę alokacji portów dla App Service lokacji. Aby znaleźć informacje o alokacji portów dla translatora adresów sieciowych, wykonaj następujące czynności:
+Możesz użyć [diagnostyki App Service](./overview-diagnostics.md) , aby znaleźć informacje o alokacji portu dla interfejsu podrzędnego i obserwować metrykę alokacji portów dla App Service lokacji. Aby znaleźć informacje o alokacji portów dla translatora adresów sieciowych, wykonaj następujące czynności:
 
 1. Aby uzyskać dostęp do diagnostyki App Service, przejdź do aplikacji internetowej App Service lub App Service Environment w [Azure Portal](https://portal.azure.com/). W lewym okienku nawigacji wybierz pozycję **Diagnozuj i rozwiąż problemy**.
 2. Wybierz kategorię dostępności i wydajności
@@ -168,11 +168,11 @@ Jeśli porty wiązania adresów sieciowych są wyczerpane, a zadania WebJobs nie
 
 Nie można zmienić żadnych ustawień platformy Azure w celu szybszego wydawania używanych portów ze współdziałaniem, ponieważ wszystkie porty podstawki adresów sieciowych zostaną wydane zgodnie z poniższymi warunkami, a zachowanie jest zaprojektowane.
  
-* Jeśli serwer lub klient wysyła FINACK, port dla tego elementu [zostanie wydaną](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#tcp-snat-port-release) po 240 sekundach.
+* Jeśli serwer lub klient wysyła FINACK, port dla tego elementu [zostanie wydaną](../load-balancer/load-balancer-outbound-connections.md) po 240 sekundach.
 * Jeśli jest widoczny parametr RST, port elementu źródłowego zostanie wystawiony po 15 sekundach.
 * Po osiągnięciu limitu czasu bezczynności port zostanie wystawiony.
  
 ## <a name="additional-information"></a>Dodatkowe informacje
 
 * [Za pomocą App Service](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)
-* [Rozwiązywanie problemów z wydajnością wolniejszych aplikacji w Azure App Service](https://docs.microsoft.com/azure/app-service/troubleshoot-performance-degradation)
+* [Rozwiązywanie problemów z wydajnością wolniejszych aplikacji w Azure App Service](./troubleshoot-performance-degradation.md)

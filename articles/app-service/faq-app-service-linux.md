@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e01954e0f2f311a7229a69cb18f881e0491b80d3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083040"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961724"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux FAQ (Usługa Azure App Service w systemie Linux — często zadawane pytania)
 
@@ -35,7 +35,7 @@ Wszystkie pliki platformy Docker można znaleźć w witrynie [GitHub](https://gi
 | Java SE         | polecenie uruchamiania aplikacji JAR (na przykład `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
 | Tomcat          | Lokalizacja skryptu do wykonania wszelkich niezbędnych konfiguracji (na przykład `/home/site/deployments/tools/startup_script.sh` )          |
 | Node.js         | plik konfiguracji PM2 lub plik skryptu                                |
-| .NET Core       | Nazwa skompilowanej biblioteki DLL jako`dotnet <myapp>.dll`                                 |
+| .NET Core       | Nazwa skompilowanej biblioteki DLL jako `dotnet <myapp>.dll`                                 |
 | Ruby            | skrypt Ruby, z którym chcesz zainicjować aplikację                     |
 
 Te polecenia lub skrypty są wykonywane po uruchomieniu wbudowanego kontenera Docker, ale przed uruchomieniem kodu aplikacji.
@@ -122,7 +122,7 @@ Podaj pełny adres URL rejestru, włącznie z `http://` lub `https://` .
 
 **Jaki jest format nazwy obrazu w opcji rejestru prywatnego?**
 
-Dodaj pełną nazwę obrazu, w tym adres URL rejestru prywatnego (na przykład myacr.azurecr.io/dotnet:latest). [W portalu nie można wprowadzać](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)nazw obrazów używających portu niestandardowego. Aby ustawić `docker-custom-image-name` , użyj [ `az` narzędzia wiersza polecenia](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Dodaj pełną nazwę obrazu, w tym adres URL rejestru prywatnego (na przykład myacr.azurecr.io/dotnet:latest). [W portalu nie można wprowadzać](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)nazw obrazów używających portu niestandardowego. Aby ustawić `docker-custom-image-name` , użyj [ `az` narzędzia wiersza polecenia](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Czy mogę uwidocznić więcej niż jeden port w obrazie niestandardowego kontenera?**
 
@@ -130,7 +130,7 @@ Nie obsługujemy ujawniania więcej niż jednego portu.
 
 **Czy mogę przenieść własny magazyn?**
 
-Tak, [Przenieś własny magazyn](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) w wersji zapoznawczej.
+Tak, [Przenieś własny magazyn](./configure-connect-to-azure-storage.md) w wersji zapoznawczej.
 
 **Dlaczego nie mogę przeglądać mojego systemu plików kontenera niestandardowego ani uruchamiać procesów z poziomu witryny SCM?**
 
@@ -201,7 +201,7 @@ Do ustawień aplikacji można używać tylko liter (A-Z, a-z), cyfr (0-9) i znak
 
 Swój pomysł można przesłać na [forum opinii Web Apps](https://aka.ms/webapps-uservoice). Dodaj "[Linux]" do tytułu Twojego pomysłu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Co to jest Azure App Service w systemie Linux?](overview.md#app-service-on-linux)
 - [Konfigurowanie środowisk przejściowych w usłudze Azure App Service](deploy-staging-slots.md)

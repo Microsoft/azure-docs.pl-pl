@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: b6984e16d1ddcee7d3f276ddcdf8c89609f14fe5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271026"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962829"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -31,7 +31,7 @@ Bezpieczne uwierzytelnianie i autoryzacja wymagają dokładnego poznania zabezpi
 > [!NOTE]
 > Włączenie tej funkcji spowoduje, że **wszystkie** niezabezpieczone żądania HTTP do aplikacji będą automatycznie przekierowywane do protokołu HTTPS, niezależnie od ustawienia konfiguracji App Service [wymuszania protokołu HTTPS](configure-ssl-bindings.md#enforce-https). W razie potrzeby można je wyłączyć za pomocą `requireHttps` Ustawienia w [pliku konfiguracyjnym ustawień uwierzytelniania](app-service-authentication-how-to.md#configuration-file-reference), ale należy pamiętać o zapewnieniu, że tokeny zabezpieczające nie są przekazywane za pośrednictwem niezabezpieczonych połączeń HTTP.
 
-Aby uzyskać informacje specyficzne dla natywnych aplikacji mobilnych, zobacz [uwierzytelnianie użytkowników i autoryzacja dla aplikacji mobilnych za pomocą Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
+Aby uzyskać informacje specyficzne dla natywnych aplikacji mobilnych, zobacz [uwierzytelnianie użytkowników i autoryzacja dla aplikacji mobilnych za pomocą Azure App Service](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -52,7 +52,7 @@ Moduł zostanie uruchomiony niezależnie od kodu aplikacji i skonfigurowany przy
 
 ### <a name="on-containers"></a>W kontenerach
 
-Moduł uwierzytelniania i autoryzacji jest uruchamiany w oddzielnym kontenerze odizolowanym od kodu aplikacji. Za pomocą tego, co jest znane jako [wzorzec ambasadora](https://docs.microsoft.com/azure/architecture/patterns/ambassador), współdziała z ruchem przychodzącym w celu przeprowadzenia podobnej funkcjonalności jak w systemie Windows. Ponieważ nie działa on w procesie, nie jest możliwa Bezpośrednia integracja z określonymi strukturami języka; jednak odpowiednie informacje wymagane przez aplikację są przesyłane za pośrednictwem nagłówków żądań, jak wyjaśniono poniżej.
+Moduł uwierzytelniania i autoryzacji jest uruchamiany w oddzielnym kontenerze odizolowanym od kodu aplikacji. Za pomocą tego, co jest znane jako [wzorzec ambasadora](/azure/architecture/patterns/ambassador), współdziała z ruchem przychodzącym w celu przeprowadzenia podobnej funkcjonalności jak w systemie Windows. Ponieważ nie działa on w procesie, nie jest możliwa Bezpośrednia integracja z określonymi strukturami języka; jednak odpowiednie informacje wymagane przez aplikację są przesyłane za pośrednictwem nagłówków żądań, jak wyjaśniono poniżej.
 
 ### <a name="userapplication-claims"></a>Oświadczenia użytkownika/aplikacji
 
@@ -147,10 +147,10 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 > [!CAUTION]
 > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być odpowiednie dla aplikacji, które chcą korzystać z publicznie dostępnej strony głównej, tak jak w przypadku aplikacji jednostronicowych.
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](tutorial-auth-aad.md)  
-[Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](containers/tutorial-auth-aad.md)  
+[Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 [Dostosuj uwierzytelnianie i autoryzację w App Service](app-service-authentication-how-to.md) 
  [Integracja z platformą .NET Core w usłudze Azure appService EasyAuth (trzecia firma)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
  [Pobieranie Azure App Service uwierzytelniania podczas pracy z platformą .NET Core (inna firma)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
@@ -171,8 +171,8 @@ Przewodniki z poszczególnymi dostawcami:
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
 
-[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
+[custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
+[ADAL-Android]: /previous-versions/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library#adal
+[ADAL-iOS]: /previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library#adal
+[ADAL-dotnet]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#adal

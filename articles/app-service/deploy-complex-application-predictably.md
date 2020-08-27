@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: f5e4c4d89a1119b0f59aa15885406cd7261d2f69
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170007"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962030"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Udostępnianie i wdrażanie mikrousług na platformie Azure
 Ten samouczek pokazuje, jak zainicjować i wdrożyć aplikację składającą się z [mikrousług](https://en.wikipedia.org/wiki/Microservices) w [Azure App Service](https://azure.microsoft.com/services/app-service/) jako pojedynczą jednostkę i w sposób przewidywalny przy użyciu szablonów grup zasobów JSON i skryptów programu PowerShell. 
@@ -29,7 +29,7 @@ W samouczku zostanie wdrożona aplikacja obejmująca następujące możliwości:
 W tym samouczku zostaną użyte następujące narzędzia. Ponieważ nie jest to obszerna dyskusja nad narzędziami, chcę przejść do kompleksowego scenariusza i po prostu przedstawić krótkie wprowadzenie do każdego z nich i gdzie można znaleźć więcej informacji na jego temat. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Szablony Azure Resource Manager (JSON)
-Za każdym razem, gdy tworzysz aplikację w Azure App Service, na przykład Azure Resource Manager używa szablonu JSON do tworzenia całej grupy zasobów z zasobami składników. Złożony szablon z [portalu Azure Marketplace](/azure/marketplace) może obejmować bazę danych, konta magazynu, plan App Service, samą aplikację, reguły alertów, ustawienia aplikacji, ustawienia automatycznego skalowania i wiele innych. wszystkie te szablony są dostępne dla użytkownika za pośrednictwem programu PowerShell. Aby uzyskać więcej informacji na temat szablonów Azure Resource Manager, zobacz [tworzenie Azure Resource Manager szablonów](../azure-resource-manager/templates/template-syntax.md)
+Za każdym razem, gdy tworzysz aplikację w Azure App Service, na przykład Azure Resource Manager używa szablonu JSON do tworzenia całej grupy zasobów z zasobami składników. Złożony szablon z [portalu Azure Marketplace](../marketplace/index.yml) może obejmować bazę danych, konta magazynu, plan App Service, samą aplikację, reguły alertów, ustawienia aplikacji, ustawienia automatycznego skalowania i wiele innych. wszystkie te szablony są dostępne dla użytkownika za pośrednictwem programu PowerShell. Aby uzyskać więcej informacji na temat szablonów Azure Resource Manager, zobacz [tworzenie Azure Resource Manager szablonów](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Zestaw Azure SDK 2,6 dla programu Visual Studio
 Najnowszy zestaw SDK zawiera ulepszenia obsługi szablonów Menedżer zasobów w edytorze JSON. Za pomocą tej funkcji można szybko utworzyć szablon grupy zasobów od podstaw lub otworzyć istniejący szablon JSON (taki jak pobrany szablon galerii) do modyfikacji, wypełnić plik parametrów, a nawet wdrożyć grupę zasobów bezpośrednio z rozwiązania grupy zasobów platformy Azure.
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji, zobacz [zestaw Azure SDK 2,6 dla programu Visua
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 lub nowszy
 Począwszy od wersji 0.8.0, instalacja Azure PowerShell obejmuje moduł Azure Resource Manager oprócz modułu platformy Azure. Ten nowy moduł umożliwia tworzenie skryptów wdrożenia grup zasobów.
 
-Aby uzyskać więcej informacji, zobacz [używanie Azure PowerShell z Azure Resource Manager](../powershell-azure-resource-manager.md)
+Aby uzyskać więcej informacji, zobacz [używanie Azure PowerShell z Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 
 ### <a name="azure-resource-explorer"></a>Eksplorator zasobów Azure
 To [Narzędzie do podglądu](https://resources.azure.com) umożliwia zapoznanie się z definicjami JSON wszystkich grup zasobów w ramach subskrypcji i poszczególnych zasobów. W narzędziu można edytować definicje JSON zasobu, usuwać całą hierarchię zasobów i tworzyć nowe zasoby.  Informacje, które są łatwo dostępne w tym narzędziu, są bardzo przydatne w przypadku tworzenia szablonów, ponieważ pokazują, jakie właściwości należy ustawić dla określonego typu zasobu, prawidłowych wartości itd. Możesz nawet utworzyć grupę zasobów w [witrynie Azure Portal](https://portal.azure.com/), a następnie sprawdzić jej definicje JSON w narzędziu Eksplorator, aby ułatwić templatize grupy zasobów.
@@ -137,8 +137,8 @@ Ustawienia aplikacji są również zdefiniowane jako zasób zagnieżdżony.
 
 W `properties` elemencie dla programu `config/appsettings` masz dwa ustawienia aplikacji w formacie `"<name>" : "<value>"` .
 
-* `PROJECT`to [ustawienie KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) , które mówi wdrożenia platformy Azure, który projekt ma być używany w rozwiązaniu z programem Visual Studio. Pokażę później sposób skonfigurowania kontroli źródła, ale ponieważ kod ToDoApp znajduje się w wieloprojektowym rozwiązaniu Visual Studio, to ustawienie jest wymagane.
-* `clientUrl`jest po prostu ustawieniem aplikacji, którego używa kod aplikacji.
+* `PROJECT` to [ustawienie KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) , które mówi wdrożenia platformy Azure, który projekt ma być używany w rozwiązaniu z programem Visual Studio. Pokażę później sposób skonfigurowania kontroli źródła, ale ponieważ kod ToDoApp znajduje się w wieloprojektowym rozwiązaniu Visual Studio, to ustawienie jest wymagane.
+* `clientUrl` jest po prostu ustawieniem aplikacji, którego używa kod aplikacji.
 
 ##### <a name="connection-strings"></a>Parametry połączeń
 Parametry połączenia są również zdefiniowane jako zasób zagnieżdżony.
@@ -254,10 +254,10 @@ W DevOps, powtarzalność i przewidywalność to klucze do każdego pomyślnego 
 * [Tworzenie szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Funkcje szablonu Azure Resource Manager](../azure-resource-manager/templates/template-functions.md)
 * [Wdrażanie aplikacji przy użyciu szablonu Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* [Używanie programu Azure PowerShell z usługą Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Używanie programu Azure PowerShell z usługą Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 * [Rozwiązywanie problemów z wdrożeniami grup zasobów na platformie Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o składni i właściwościach JSON dla typów zasobów wdrożonych w tym artykule, zobacz:
 

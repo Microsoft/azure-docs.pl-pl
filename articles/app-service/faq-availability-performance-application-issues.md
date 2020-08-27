@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfaeee6a6e2a9728d7e63fb5681c487fbbd6139e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159987"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959004"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Często zadawane pytania dotyczące wydajności aplikacji dla Web Apps na platformie Azure
 
@@ -32,15 +32,15 @@ Wiele czynników może przyczynić się do spowolnienia wydajności aplikacji. A
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Jak mogę Rozwiązywanie problemów z dużym scenariuszem zużycia procesora CPU?
 
-W przypadku niektórych dużych scenariuszy użycia procesora CPU aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami duże użycie procesora CPU może być spowodowane przez złą pętlę lub przez zaawansowaną technikę kodowania. Uzyskanie wglądu w informacje o tym, co wyzwala użycie procesora CPU, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu zapewnienia wysokiego użycia procesora CPU dla Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+W przypadku niektórych dużych scenariuszy użycia procesora CPU aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami duże użycie procesora CPU może być spowodowane przez złą pętlę lub przez zaawansowaną technikę kodowania. Uzyskanie wglądu w informacje o tym, co wyzwala użycie procesora CPU, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu zapewnienia wysokiego użycia procesora CPU dla Web Apps](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Jak mogę Rozwiązywanie problemów dotyczących dużego użycia pamięci?
 
-W niektórych dużych scenariuszach zużycia pamięci aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami usterka w kodzie może spowodować przeciek pamięci. Sposób tworzenia kodu może również zwiększyć zużycie pamięci.Uzyskanie wglądu w informacje o tym, co wyzwala duże użycie pamięci, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Diagnostykę awarii z galerii rozszerzeń witryn Azure można efektywnie wykonać obie te czynności. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu przeprowadzenia sporadycznej dużej ilości pamięci dla Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+W niektórych dużych scenariuszach zużycia pamięci aplikacja może naprawdę wymagać większej ilości zasobów obliczeniowych.W takim przypadku Rozważ przeskalowanie do wyższej warstwy usług, aby aplikacja mogła pobierać wszystkie potrzebne zasoby. Czasami usterka w kodzie może spowodować przeciek pamięci. Sposób tworzenia kodu może również zwiększyć zużycie pamięci.Uzyskanie wglądu w informacje o tym, co wyzwala duże użycie pamięci, jest procesem dwuetapowym. Najpierw Utwórz zrzut procesu, a następnie Przeanalizuj zrzut procesu. Diagnostykę awarii z galerii rozszerzeń witryn Azure można efektywnie wykonać obie te czynności. Aby uzyskać więcej informacji, zobacz [przechwytywanie i analizowanie pliku zrzutu w celu przeprowadzenia sporadycznej dużej ilości pamięci dla Web Apps](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Jak mogę Automatyzowanie App Service aplikacji sieci Web przy użyciu programu PowerShell?
 
-Za pomocą poleceń cmdlet programu PowerShell można zarządzać App Service aplikacjami sieci Web i obsługiwać je. W naszym wpisie w blogu [Automatyzowanie aplikacji sieci Web hostowanych w Azure App Service przy użyciu programu PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)opisujemy sposób używania poleceń cmdlet programu PowerShell opartych na Azure Resource Manager do automatyzowania typowych zadań. Wpis w blogu zawiera również przykładowy kod dla różnych zadań zarządzania aplikacjami sieci Web. Opisy i składnia wszystkich poleceń cmdlet App Service Web Apps można znaleźć w temacie [AZ. websites](/powershell/module/az.websites).
+Za pomocą poleceń cmdlet programu PowerShell można zarządzać App Service aplikacjami sieci Web i obsługiwać je. W naszym wpisie w blogu [Automatyzowanie aplikacji sieci Web hostowanych w Azure App Service przy użyciu programu PowerShell](/archive/blogs/puneetgupta/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way)opisujemy sposób używania poleceń cmdlet programu PowerShell opartych na Azure Resource Manager do automatyzowania typowych zadań. Wpis w blogu zawiera również przykładowy kod dla różnych zadań zarządzania aplikacjami sieci Web. Opisy i składnia wszystkich poleceń cmdlet App Service Web Apps można znaleźć w temacie [AZ. websites](/powershell/module/az.websites).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>Jak mogę wyświetlić dzienniki zdarzeń aplikacji sieci Web?
 
@@ -81,7 +81,7 @@ W przypadku tego błędu mogą wystąpić trzy warunki:
 * Aplikacja sieci Web została zatrzymana w portalu.
 * Aplikacja sieci Web osiągnęła limit przydziału zasobów, który może być stosowany do planu usług w warstwie Bezpłatna lub współdzielona.
 
-Aby zobaczyć, co jest przyczyną błędu i rozwiązać ten problem, wykonaj czynności opisane w [Web Apps: "błąd 403 — ta aplikacja sieci Web została zatrzymana"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Aby zobaczyć, co jest przyczyną błędu i rozwiązać ten problem, wykonaj czynności opisane w [Web Apps: "błąd 403 — ta aplikacja sieci Web została zatrzymana"](/archive/blogs/waws/azure-web-apps-error-403-this-web-app-is-stopped).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Gdzie można dowiedzieć się więcej o limitach przydziału i limitów dla różnych planów App Service?
 
@@ -167,7 +167,7 @@ Zadania WebJob są przeznaczone do przetwarzania w tle. W ramach zadania WebJob 
 
 Znany problem z wcześniejszą [wersją Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) może spowodować, że aplikacja ASP.NET Core 1,0, która jest hostowana w App Service, aby sporadycznie przestać reagować. Ten komunikat może również zostać wyświetlony: "określona aplikacja CGI napotkała błąd i serwer zakończył proces".
 
-Ten problem został rozwiązany w wersji Kestrel 1.0.2. Ta wersja jest uwzględniona w ASP.NET Core aktualizacji 1.0.3. Aby rozwiązać ten problem, upewnij się, że Twoje zależności aplikacji zostały zaktualizowane, tak aby korzystały z Kestrel 1.0.2. Alternatywnie możesz użyć jednego z dwóch obejść, które opisano w wpisie w blogu [ASP.NET Core 1,0 wolnych problemów z wydajności w aplikacjach App Service Web Apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
+Ten problem został rozwiązany w wersji Kestrel 1.0.2. Ta wersja jest uwzględniona w ASP.NET Core aktualizacji 1.0.3. Aby rozwiązać ten problem, upewnij się, że Twoje zależności aplikacji zostały zaktualizowane, tak aby korzystały z Kestrel 1.0.2. Alternatywnie możesz użyć jednego z dwóch obejść, które opisano w wpisie w blogu [ASP.NET Core 1,0 wolnych problemów z wydajności w aplikacjach App Service Web Apps](/archive/blogs/waws/asp-net-core-slow-perf-issues-on-azure-websites).
 
 
 ## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Nie mogę znaleźć plików dziennika w strukturze plików mojej aplikacji sieci Web. Jak można je znaleźć?
@@ -188,4 +188,4 @@ Aby uzyskać więcej informacji o połączeniach wychodzących w aplikacji sieci
 
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Jak mogę użyć programu Visual Studio do zdalnego debugowania mojej aplikacji internetowej App Service?
 
-Aby uzyskać szczegółowy przewodnik, w którym pokazano, jak debugować aplikację sieci Web przy użyciu programu Visual Studio, zobacz [zdalne debugowanie aplikacji internetowej App Service](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+Aby uzyskać szczegółowy przewodnik, w którym pokazano, jak debugować aplikację sieci Web przy użyciu programu Visual Studio, zobacz [zdalne debugowanie aplikacji internetowej App Service](/archive/blogs/benjaminperkins/remote-debug-your-azure-app-service-web-app).

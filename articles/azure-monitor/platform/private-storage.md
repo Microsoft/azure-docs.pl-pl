@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: a14f7ca3e5a7b291e430db6ea536edc5396b5448
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 58d6f98c87e37254e77bcc8dda1cdca6e608cafc
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318899"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962676"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Konta magazynu należące do klienta na potrzeby pozyskiwania dzienników w Azure Monitor
 
@@ -28,7 +28,7 @@ Typy danych, które są pozyskiwane z konta magazynu, obejmują następujące el
 | Typ | Informacje o tabeli |
 |:-----|:------------------|
 | Dzienniki usług IIS | BLOB: funkcji wad-IIS-LogFiles|
-|dzienniki zdarzeń systemu Windows | Tabela: WADWindowsEventLogsTable |
+|Dzienniki zdarzeń systemu Windows | Tabela: WADWindowsEventLogsTable |
 | Dziennik systemu | Tabela: LinuxsyslogVer2v0 |
 | Dzienniki funkcji ETW systemu Windows | Tabela: WADETWEventTable|
 | Service Fabric | Tabela: WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
@@ -78,6 +78,8 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
+## <a name="get-linked-storage-accounts"></a>Pobierz połączone konta magazynu
+
 ### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Pobierz połączone konta magazynu dla wszystkich typów źródeł danych
 
 #### <a name="api-request"></a>Żądanie interfejsu API
@@ -86,7 +88,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts?api-version=2019-08-01-preview  
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```json
 {
@@ -132,7 +134,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
 ```
 
-#### <a name="response"></a>Odpowiedź 
+#### <a name="response"></a>Reakcja 
 
 ```json
 {
@@ -178,7 +180,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 ```json
 {
@@ -233,7 +235,7 @@ Jeśli zarejestrowane konto magazynu obszaru roboczego znajduje się w innym reg
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby uzyskać więcej informacji na temat konfigurowania linku prywatnego, zobacz [bezpieczne łączenie sieci do Azure monitor przy użyciu prywatnego linku platformy Azure](private-link-security.md)
 

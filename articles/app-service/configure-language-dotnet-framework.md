@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 67816544e173c19cbc85c5779ffeba92578e00b2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211871"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961707"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET dla Azure App Service
 
@@ -95,7 +95,7 @@ Wdróż ponownie aplikację ze zaktualizowanym *Web.config*. Powinna zostać wy�
 
 ## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 
-W kodzie aplikacji można dodawać komunikaty diagnostyczne przy użyciu funkcji [System. Diagnostics. Trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Na przykład: 
+W kodzie aplikacji można dodawać komunikaty diagnostyczne przy użyciu funkcji [System. Diagnostics. Trace](/dotnet/api/system.diagnostics.trace). Na przykład: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace
@@ -105,7 +105,7 @@ Trace.TraceInformation("GET /Home/Index"); // Information trace
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Samouczek: Tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)

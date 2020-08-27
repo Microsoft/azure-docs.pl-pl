@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: b8545c4f8c0dc86d83e0711147a1bda608c2897f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84020170"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962489"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Skalowanie aplikacji w górę w Azure App Service
 
@@ -18,7 +18,7 @@ W tym artykule przedstawiono sposób skalowania aplikacji w Azure App Service. I
 
 * [Skalowanie w górę](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Uzyskaj więcej informacji na temat procesora CPU, pamięci, miejsca na dysku i dodatkowych funkcji, takich jak dedykowane maszyny wirtualne, domeny niestandardowe i certyfikaty, gniazda tymczasowe, Skalowanie automatyczne i nie tylko. Możesz skalować w górę, zmieniając warstwę cenową planu App Service, do którego należy aplikacja.
 * [Skalowanie w poziomie](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Zwiększ liczbę wystąpień maszyn wirtualnych, na których działa aplikacja.
-  Możesz skalować w poziomie do maksymalnie 30 wystąpień, w zależności od warstwy cenowej. [Środowiska App Service](environment/intro.md) w warstwie **izolowanej** dodatkowo zwiększają liczbę wystąpień skalowania do 100. Aby uzyskać więcej informacji na temat skalowania w poziomie, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../monitoring-and-diagnostics/insights-how-to-scale.md). W tym miejscu możesz dowiedzieć się, jak używać funkcji automatycznego skalowania, która polega na automatycznym skalowaniu liczby wystąpień na podstawie wstępnie zdefiniowanych reguł i harmonogramów.
+  Możesz skalować w poziomie do maksymalnie 30 wystąpień, w zależności od warstwy cenowej. [Środowiska App Service](environment/intro.md) w warstwie **izolowanej** dodatkowo zwiększają liczbę wystąpień skalowania do 100. Aby uzyskać więcej informacji na temat skalowania w poziomie, zobacz [Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md). W tym miejscu możesz dowiedzieć się, jak używać funkcji automatycznego skalowania, która polega na automatycznym skalowaniu liczby wystąpień na podstawie wstępnie zdefiniowanych reguł i harmonogramów.
 
 Zastosowanie ustawień skalowania trwa tylko kilka sekund i ma wpływ na wszystkie aplikacje w [planie App Service](../app-service/overview-hosting-plans.md).
 Nie wymagają one zmiany kodu ani ponownego wdrożenia aplikacji.
@@ -77,7 +77,7 @@ Aby zapoznać się z tabelą limity usług, przydziałów i ograniczeń oraz obs
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 
-[Ręczne lub automatyczne skalowanie liczby wystąpień](../monitoring-and-diagnostics/insights-how-to-scale.md)  
+[Ręczne lub automatyczne skalowanie liczby wystąpień](../azure-monitor/platform/autoscale-get-started.md)  
 [Konfigurowanie warstwy PremiumV2 dla App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->

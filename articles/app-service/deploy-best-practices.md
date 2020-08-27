@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88081055"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961877"
 ---
 # <a name="deployment-best-practices"></a>Najlepsze rozwiązania dotyczące wdrażania
 
@@ -127,7 +127,7 @@ W skrypcie Zaloguj się przy użyciu `az login --service-principal` , dostarczaj
 
 ### <a name="java"></a>Java
 
-Użyj kudu [zipdeploy/](deploy-zip.md) API do wdrażania aplikacji jar i [Narzędzia WARDEPLOY/](deploy-zip.md#deploy-war-file) for War. Jeśli używasz Jenkins, możesz używać tych interfejsów API bezpośrednio w fazie wdrażania. Aby uzyskać więcej informacji, zobacz [ten artykuł](../jenkins/execute-cli-jenkins-pipeline.md).
+Użyj kudu [zipdeploy/](deploy-zip.md) API do wdrażania aplikacji jar i [Narzędzia WARDEPLOY/](deploy-zip.md#deploy-war-file) for War. Jeśli używasz Jenkins, możesz używać tych interfejsów API bezpośrednio w fazie wdrażania. Aby uzyskać więcej informacji, zobacz [ten artykuł](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Węzeł
 
@@ -149,7 +149,7 @@ Zawsze używaj lokalnej pamięci podręcznej w połączeniu z miejscami [wdroże
 
 Jeśli plan App Service jest używany przez ponad 90% dostępnego procesora lub pamięci, źródłowa maszyna wirtualna może mieć problemy z przetwarzaniem wdrożenia. W takim przypadku należy tymczasowo skalować liczbę wystąpień w celu przeprowadzenia wdrożenia. Po zakończeniu wdrożenia można zwrócić liczbę wystąpień do poprzedniej wartości.
 
-Aby uzyskać więcej informacji na temat najlepszych rozwiązań, odwiedź stronę [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) , aby dowiedzieć się, jakie są najlepsze rozwiązania, które są odpowiednie dla danego zasobu.
+Aby uzyskać więcej informacji na temat najlepszych rozwiązań, odwiedź stronę [App Service Diagnostics](./overview-diagnostics.md) , aby dowiedzieć się, jakie są najlepsze rozwiązania, które są odpowiednie dla danego zasobu.
 
 - Przejdź do aplikacji sieci Web w [Azure Portal](https://portal.azure.com).
 - Kliknij przycisk **diagnozowanie i rozwiązywanie problemów** w lewym okienku nawigacji, co spowoduje otwarcie App Service diagnostyki.

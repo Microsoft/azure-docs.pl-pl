@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327348"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961979"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
@@ -54,11 +54,11 @@ Aby wyświetlić wykorzystanie i dostępność kont magazynu we wszystkich subsk
 
 ### <a name="overview-workbook"></a>Skoroszyt omówienia
 
-W skoroszycie **Przegląd** dla wybranej subskrypcji w tabeli są wyświetlane metryki magazynu interaktywnego i stan dostępności usługi dla maksymalnie 10 kont magazynu pogrupowanych w ramach subskrypcji. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
+W skoroszycie **Przegląd** dla wybranej subskrypcji w tabeli są wyświetlane metryki magazynu interaktywnego i stan dostępności usługi dla maksymalnie 5 kont magazynu pogrupowanych w ramach subskrypcji. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
 
 * Są wyświetlane subskrypcje obsługujące tylko **subskrypcje** z kontami magazynu.  
 
-* **Konta magazynu** — domyślnie wybrane są 10 kont magazynu. W przypadku wybrania w selektorze zakresu wszystkich lub wielu kont magazynu zostaną zwrócone maksymalnie 200 kont magazynu. Jeśli na przykład masz łącznie 573 kont magazynu w ramach trzech wybranych subskrypcji, zostaną wyświetlone tylko konta 200. 
+* **Konta magazynu** — domyślnie zostaną wstępnie wybrane 5 kont magazynu. W przypadku wybrania w selektorze zakresu wszystkich lub wielu kont magazynu zostaną zwrócone maksymalnie 200 kont magazynu. Jeśli na przykład masz łącznie 573 kont magazynu w ramach trzech wybranych subskrypcji, zostaną wyświetlone tylko konta 200. 
 
 * **Zakres czasu** — domyślnie wyświetla ostatnie 4 godziny informacji na podstawie odpowiednich opcji.
 
@@ -267,7 +267,7 @@ Jeśli chcesz zobaczyć n różne typy błędów niż określa splitByLimit jako
 
 Każdy skoroszyt jest zapisywany na koncie magazynu, w którym został zapisany. Spróbuj znaleźć określone konto magazynu, w którym zapisano skoroszyt. W przeciwnym razie nie ma możliwości znalezienia określonego skoroszytu bez znajomości zasobu (konto magazynu).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications-portal.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
 

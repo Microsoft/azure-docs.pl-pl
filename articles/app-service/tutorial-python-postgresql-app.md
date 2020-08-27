@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: d9d8694c8ac81352ab36f3d610f02f3751090b27
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 368a87d1054e4a5ad12fa1e8c78bcde39f76ee63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120596"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959412"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web Django za pomocą PostgreSQL w Azure App Service
 
@@ -49,7 +49,7 @@ Otwórz okno terminalu i sprawdź, czy wersja języka Python to 3,6 lub nowszego
 python3 --version
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```cmd
 py -3 --version
@@ -121,7 +121,7 @@ Te zmiany są specyficzne dla konfigurowania Django do uruchamiania w dowolnym �
 ## <a name="create-postgres-database-in-azure"></a>Tworzenie bazy danych Postgres na platformie Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. -->
 
 Zainstaluj `db-up` rozszerzenie dla interfejsu wiersza polecenia platformy Azure:
 
@@ -184,7 +184,7 @@ To polecenie wykonuje następujące akcje, co może potrwać kilka minut:
 <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
 <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
 - Utwórz [grupę zasobów](../azure-resource-manager/management/overview.md#terminology) , jeśli jeszcze nie istnieje. (W tym poleceniu zostanie użyta ta sama Grupa zasobów, w której wcześniej została utworzona baza danych).
-- Utwórz plan [App Service](overview-hosting-plans.md) *DjangoPostgres — samouczek — plan* w warstwie cenowej Basic (B1), jeśli nie istnieje. `--plan`i `--sku` są opcjonalne.
+- Utwórz plan [App Service](overview-hosting-plans.md) *DjangoPostgres — samouczek — plan* w warstwie cenowej Basic (B1), jeśli nie istnieje. `--plan` i `--sku` są opcjonalne.
 - Utwórz aplikację App Service, jeśli nie istnieje.
 - Włącz domyślne rejestrowanie dla aplikacji, jeśli nie została jeszcze włączona.
 - Przekaż repozytorium przy użyciu wdrożenia ZIP z włączonym automatyzacją kompilacji.
@@ -284,7 +284,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 # Configure the Python virtual environment
@@ -414,7 +414,7 @@ Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz 
 > [!NOTE]
 > Możesz również sprawdzić pliki dziennika z przeglądarki pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
 >
-> `az webapp up`włącza opcję rejestrowania domyślnego. Ze względu na wydajność to rejestrowanie wyłącza się po pewnym czasie, ale włącza się ponownie przy każdym uruchomieniu `az webapp up` . Aby włączyć tę funkcję ręcznie, uruchom następujące polecenie:
+> `az webapp up` włącza opcję rejestrowania domyślnego. Ze względu na wydajność to rejestrowanie wyłącza się po pewnym czasie, ale włącza się ponownie przy każdym uruchomieniu `az webapp up` . Aby włączyć tę funkcję ręcznie, uruchom następujące polecenie:
 >
 > ```azurecli
 > az webapp log config --docker-container-logging filesystem
@@ -444,7 +444,7 @@ Polecenie używa nazwy grupy zasobów zapisanej w pamięci podręcznej w pliku *
 
 [Masz problemy? Daj nam znać.](https://aka.ms/DjangoCLITutorialHelp)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak zmapować niestandardową nazwę DNS na aplikację:
 

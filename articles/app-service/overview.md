@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: b6d8a73dd4f4e7c1a1e430b6f5ea494ed51d20c0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211695"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961486"
 ---
 # <a name="app-service-overview"></a>Omówienie usługi App Service
 
@@ -28,15 +28,15 @@ Poniżej przedstawiono kilka najważniejszych funkcji usługi App Service:
 * **Zarządzane środowisko produkcyjne** — App Service automatycznie [poprawki i obsługuje platformy systemu operacyjnego i języka](overview-patch-os-runtime.md) . Poświęcaj czas na pisanie doskonałych aplikacji i zezwól platformie Azure na działanie platformy.
 * **Kontenerach i Docker** -przekształcać aplikację i obsługują niestandardowy kontener systemu Windows lub Linux w App Service. Uruchom aplikacje z obsługą kontenerów z Docker Compose. Przeprowadź migrację swoich umiejętności platformy Docker bezpośrednio do App Service.
 * **Optymalizacja metodyki DevOps** — konfigurowanie [ciągłej integracji i wdrażania](deploy-continuous-deployment.md) za pomocą usług Azure DevOps, GitHub, BitBucket, Docker Hub lub Azure Container Registry. Promowanie aktualizacji za pośrednictwem [środowisk testowych i przejściowych](deploy-staging-slots.md). Zarządzaj aplikacjami w usłudze App Service za pomocą programu [Azure PowerShell](/powershell/azure/) lub [międzyplatformowego interfejsu wiersza polecenia](/cli/azure/install-azure-cli).
-* **Globalne skalowanie i wysoka dostępność** — ręczne lub automatyczne skalowanie [w pionie](manage-scale-up.md) lub [w poziomie](../monitoring-and-diagnostics/insights-how-to-scale.md). Hostuj aplikacje w dowolnym miejscu globalnej infrastruktury centrum danych firmy Microsoft i korzystaj z wysokiej dostępności usługi App Service zapewnianej w umowie [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
+* **Globalne skalowanie i wysoka dostępność** — ręczne lub automatyczne skalowanie [w pionie](manage-scale-up.md) lub [w poziomie](../azure-monitor/platform/autoscale-get-started.md). Hostuj aplikacje w dowolnym miejscu globalnej infrastruktury centrum danych firmy Microsoft i korzystaj z wysokiej dostępności usługi App Service zapewnianej w umowie [SLA](https://azure.microsoft.com/support/legal/sla/app-service/).
 * **Połączenia z platformami SaaS i danymi lokalnymi** — możliwość wyboru spośród ponad 50 [łączników](../connectors/apis-list.md) obsługujących systemy dla przedsiębiorstw (takie jak SAP), usługi SaaS (takie jak Salesforce) oraz serwisy internetowe (takie jak Facebook). Dostęp do danych lokalnych przy użyciu [połączeń hybrydowych](app-service-hybrid-connections.md) i [sieci wirtualnych platformy Azure](web-sites-integrate-with-vnet.md).
 * **Bezpieczeństwo i zgodność** — usługa App Service jest [zgodna ze standardami ISO, SOC i PCI](https://www.microsoft.com/en-us/trustcenter). Uwierzytelnianie użytkowników za pomocą [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md)lub [konto Microsoft](configure-authentication-provider-microsoft.md). Utwórz [ograniczenia adresów IP](app-service-ip-restrictions.md) i [zarządzaj tożsamościami usługi](overview-managed-identity.md).
 * **Szablony aplikacji** — możliwość wyboru z obszernej listy szablonów aplikacji dostępnych w portalu [Azure Marketplace](https://azure.microsoft.com/marketplace/), takich jak WordPress, Joomla i Drupal.
 * **Program Visual Studio i narzędzie Visual Studio Code Integration** — dedykowane narzędzia w programie Visual studio i Visual Studio Code usprawniają tworzenie, wdrażanie i debugowanie.
 * **Interfejs API i funkcje mobilne** — usługa App Service zapewnia gotową do użycia obsługę mechanizmu CORS w scenariuszach interfejsów API RESTful i upraszcza scenariusze aplikacji mobilnych dzięki włączeniu uwierzytelniania, synchronizacji danych w trybie offline, powiadomień push itd.
-* **Kod niewymagający serwera** — możliwość uruchamiania fragmentów kodu lub skryptów na żądanie bez konieczności jawnego aprowizowania infrastruktury i zarządzania nią, dzięki czemu płacisz tylko za czas obliczeniowy faktycznie używany przez kod (zobacz [Usługa Azure Functions](/azure/azure-functions/)).
+* **Kod niewymagający serwera** — możliwość uruchamiania fragmentów kodu lub skryptów na żądanie bez konieczności jawnego aprowizowania infrastruktury i zarządzania nią, dzięki czemu płacisz tylko za czas obliczeniowy faktycznie używany przez kod (zobacz [Usługa Azure Functions](../azure-functions/index.yml)).
 
-Oprócz usługi App Service platforma Azure oferuje inne usługi, które mogą służyć do hostingu witryn i aplikacji internetowych. W przypadku większości scenariuszy najlepszym wyborem jest usługa App Service.  W przypadku architektury mikrousług należy rozważyć użycie [usługi Azure wiosennej](/azure/spring-cloud/) lub [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Jeśli potrzebujesz większej kontroli nad maszynami wirtualnymi, na których działa kod, weź pod uwagę [Virtual Machines platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](overview-compare.md) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
+Oprócz usługi App Service platforma Azure oferuje inne usługi, które mogą służyć do hostingu witryn i aplikacji internetowych. W przypadku większości scenariuszy najlepszym wyborem jest usługa App Service.  W przypadku architektury mikrousług należy rozważyć użycie [usługi Azure wiosennej](../spring-cloud/index.yml) lub [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Jeśli potrzebujesz większej kontroli nad maszynami wirtualnymi, na których działa kod, weź pod uwagę [Virtual Machines platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Aby uzyskać więcej informacji o tym, jak dokonać wyboru między usługami Azure, zobacz [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree) (Porównanie usług Azure App Service, Virtual Machines, Service Fabric i Cloud Services).
 
 ## <a name="app-service-on-linux"></a>Usługa App Service w systemie Linux
 
@@ -44,7 +44,7 @@ App Service mogą również hostować aplikacje sieci Web w systemie Linux w prz
 
 ### <a name="built-in-languages-and-frameworks"></a>Wbudowane Języki i struktury
 
-App Service w systemie Linux obsługuje wiele wbudowanych obrazów specyficznych dla języka. Po prostu Wdróż swój kod. Obsługiwane języki to: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core i Ruby. Uruchom, [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) Aby wyświetlić najnowsze Języki i obsługiwane wersje. Jeśli środowisko uruchomieniowe wymagane przez aplikację nie jest obsługiwane w wbudowanych obrazach, można je wdrożyć z kontenerem niestandardowym.
+App Service w systemie Linux obsługuje wiele wbudowanych obrazów specyficznych dla języka. Po prostu Wdróż swój kod. Obsługiwane języki to: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core i Ruby. Uruchom, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) Aby wyświetlić najnowsze Języki i obsługiwane wersje. Jeśli środowisko uruchomieniowe wymagane przez aplikację nie jest obsługiwane w wbudowanych obrazach, można je wdrożyć z kontenerem niestandardowym.
 
 ### <a name="limitations"></a>Ograniczenia
 
@@ -54,7 +54,7 @@ App Service w systemie Linux obsługuje wiele wbudowanych obrazów specyficznych
 - W Azure Portal są wyświetlane tylko funkcje, które obecnie działają w przypadku aplikacji systemu Linux. Gdy funkcje są włączone, są aktywowane w portalu.
 - Po wdrożeniu wbudowanych obrazów do kodu i zawartości są przydzielone woluminy magazynu dla zawartości sieci Web, obsługiwane przez usługę Azure Storage. Opóźnienie dysku tego woluminu jest większe i bardziej zmienne niż opóźnienie systemu plików kontenera. Aplikacje wymagające dużego dostępu tylko do odczytu do plików zawartości mogą korzystać z opcji niestandardowego kontenera, która umieszcza pliki w systemie plików kontenera zamiast na woluminie zawartości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Utwórz swoją pierwszą aplikację internetową.
 

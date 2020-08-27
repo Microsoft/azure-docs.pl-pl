@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3abef3324bee61f2d7eb96c80750ad589b15f342
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987039"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958664"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
 
@@ -153,7 +153,7 @@ Poniższy przykład przedstawia Pomyślne odpowiedzi na żądanie tokenu dostęp
 ```
 
 > [!NOTE]
-> Powyższy token dostępu jest tokenem w formacie v 1.0 dla wykresu Microosft. Jest to spowodowane tym, że format tokenu jest oparty na **zasobach** , do których uzyskuje się dostęp i które nie są powiązane z punktami końcowymi używanymi do żądania. Microsoft Graph jest skonfigurowany do akceptowania tokenów v 1.0, więc platforma tożsamości firmy Microsoft generuje tokeny dostępu w wersji 1.0, gdy klient żąda tokenów dla Microsoft Graph. Inne aplikacje mogą wskazywać, że chcą mieć tokeny w formacie v 2.0, tokeny w formacie v 1.0, a nawet zastrzeżone lub zaszyfrowane formaty tokenów.  Punkty końcowe v 1.0 i v 2.0 mogą emitować dowolny format tokenu — w ten sposób zasób zawsze uzyskuje odpowiedni format tokenu niezależnie od tego, czy token został żądany przez klienta. 
+> Powyższy token dostępu jest tokenem w formacie v 1.0 dla Microsoft Graph. Jest to spowodowane tym, że format tokenu jest oparty na **zasobach** , do których uzyskuje się dostęp i które nie są powiązane z punktami końcowymi używanymi do żądania. Microsoft Graph jest skonfigurowany do akceptowania tokenów v 1.0, więc platforma tożsamości firmy Microsoft generuje tokeny dostępu w wersji 1.0, gdy klient żąda tokenów dla Microsoft Graph. Inne aplikacje mogą wskazywać, że chcą mieć tokeny w formacie v 2.0, tokeny w formacie v 1.0, a nawet zastrzeżone lub zaszyfrowane formaty tokenów.  Punkty końcowe v 1.0 i v 2.0 mogą emitować dowolny format tokenu — w ten sposób zasób zawsze uzyskuje odpowiedni format tokenu niezależnie od tego, czy token został żądany przez klienta. 
 >
 > Tylko aplikacje powinny przeglądać tokeny dostępu. Klienci **nie muszą** ich sprawdzać. Sprawdzanie tokenów dostępu dla innych aplikacji w kodzie spowoduje nieoczekiwane przerwanie działania aplikacji, gdy aplikacja zmieni format ich tokenów lub zacznie je szyfrować. 
 
@@ -222,7 +222,7 @@ W niektórych scenariuszach może istnieć tylko jedno skojarzenie klienta warst
 
 Jeśli klient używa niejawnego przepływu do uzyskania id_token, a ten klient ma także symbole wieloznaczne w adresie URL odpowiedzi, nie można użyć id_token dla przepływu OBO.  Jednak tokeny dostępu nabyte za pomocą niejawnego przepływu dotacji nadal mogą być realizowane przez poufnego klienta, nawet jeśli klient inicjujący ma zarejestrowany adres URL odpowiedzi z symbolem wieloznacznym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o protokole OAuth 2,0 i innym sposobie przeprowadzania uwierzytelniania usługi przy użyciu poświadczeń klienta.
 

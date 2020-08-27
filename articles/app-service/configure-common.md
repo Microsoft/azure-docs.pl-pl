@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4990862bacbf2afe2d4b5f39c2b9d31a7c48b78e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213573"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962897"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
@@ -44,7 +44,7 @@ Inne stosy języka, podobnie, pobierają ustawienia aplikacji jako zmienne środ
 Ustawienia aplikacji są zawsze szyfrowane, gdy są przechowywane (szyfrowane w trybie REST).
 
 > [!NOTE]
-> Ustawienia aplikacji mogą być również rozwiązywane z [Key Vault](/azure/key-vault/) przy użyciu [Key Vault odwołań](app-service-key-vault-references.md).
+> Ustawienia aplikacji mogą być również rozwiązywane z [Key Vault](../key-vault/index.yml) przy użyciu [Key Vault odwołań](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Pokaż ukryte wartości
 
@@ -115,7 +115,7 @@ Na przykład parametry połączenia MySql o nazwie *connectionstring1* są dost�
 Parametry połączenia są zawsze szyfrowane, gdy są przechowywane (szyfrowane w trybie REST).
 
 > [!NOTE]
-> Parametry połączenia można również rozpoznać z [Key Vault](/azure/key-vault/) przy użyciu [Key Vault odwołań](app-service-key-vault-references.md).
+> Parametry połączenia można również rozpoznać z [Key Vault](../key-vault/index.yml) przy użyciu [Key Vault odwołań](app-service-key-vault-references.md).
 
 ### <a name="show-hidden-values"></a>Pokaż ukryte wartości
 
@@ -245,7 +245,7 @@ W przypadku aplikacji systemu Linux Zobacz:
 
 Zobacz [Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Service](configure-custom-container.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Konfigurowanie niestandardowej nazwy domeny w Azure App Service]
 - [Konfigurowanie środowisk przejściowych w usłudze Azure App Service]
@@ -258,7 +258,7 @@ Zobacz [Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Se
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
-[Witryna Azure Portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Konfigurowanie niestandardowej nazwy domeny w Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Konfigurowanie środowisk przejściowych w usłudze Azure App Service]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
