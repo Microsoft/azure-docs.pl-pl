@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890471"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012555"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -36,7 +36,7 @@ W przypadku Azure Backup, które obejmują kopie zapasowe maszyn wirtualnych ora
 
 Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure wymaga przenoszenia danych z dysku maszyny wirtualnej do magazynu Recovery Services. Jednak wszystkie wymagane operacje komunikacji i transferu danych odbywają się tylko w sieci szkieletowej platformy Azure bez konieczności uzyskiwania dostępu do sieci wirtualnej. W związku z tym tworzenie kopii zapasowych maszyn wirtualnych platformy Azure umieszczonych w zabezpieczonych sieciach nie wymaga zezwolenia na dostęp do żadnych adresów IP ani nazw FQDN.
 
-## <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla usługi Azure Backup
+## <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
 Możesz teraz używać [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) do bezpiecznego wykonywania kopii zapasowych danych z serwerów w sieci wirtualnej do magazynu Recovery Services. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla Twojego magazynu, więc nie trzeba ujawniać sieci wirtualnych żadnym publicznym adresom IP. Prywatne punkty końcowe mogą służyć do tworzenia kopii zapasowych i przywracania baz danych SQL i SAP HANA, które działają w ramach maszyn wirtualnych platformy Azure. Można go również użyć dla serwerów lokalnych przy użyciu agenta MARS.
 
@@ -70,13 +70,13 @@ Usługa Azure Backup używa agenta Microsoft Azure Recovery Services (MARS) do t
 
 * Usunięte dane kopii zapasowej są przechowywane przez dodatkowe 14 dni od daty usunięcia. Zapewnia to możliwość odzyskania danych w danym okresie, dlatego nie ma utraty danych, nawet jeśli wystąpi atak. Ponadto do ochrony przed uszkodzeniem danych są utrzymywane większą liczbę punktów odzyskiwania. [Dowiedz się więcej o odzyskiwaniu usuniętych danych kopii zapasowej](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
-* W przypadku danych utworzonych przy użyciu agenta Microsoft Azure Recovery Services (MARS) hasło służy do zapewnienia szyfrowania danych przed przekazaniem do Azure Backup i odszyfrowywane dopiero po pobraniu z Azure Backup. Szczegóły hasła są dostępne tylko dla użytkownika, który utworzył hasło, oraz agenta, który jest z nim skonfigurowany. Nic nie jest przesyłane ani udostępniane usłudze. Zapewnia to pełne bezpieczeństwo danych, ponieważ wszystkie dane, które są narażone na przypadkowe (takie jak atak typu man-in-the-Middle w sieci), nie nadają się do użytku bez hasła i hasło nie jest wysyłane w sieci.
+* W przypadku danych utworzonych przy użyciu agenta Microsoft Azure Recovery Services (MARS) hasło służy do zapewnienia szyfrowania danych przed przekazaniem do Azure Backup i odszyfrowywane dopiero po pobraniu z Azure Backup. Szczegóły hasła są dostępne tylko dla użytkownika, który utworzył hasło, oraz agenta, który jest z nim skonfigurowany. Nic nie jest przesyłane ani udostępniane usłudze. Zapewnia to pełne bezpieczeństwo danych, ponieważ wszystkie dane, które zostały przypadkowo ujawnione (na przykład atak typu "man-in-the-middle" w sieci) nie nadaje się do użytku bez hasła, a hasło nie jest wysyłane przez sieć.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Zgodność z znormalizowanymi wymaganiami dotyczącymi zabezpieczeń
 
 Aby ułatwić organizacjom zgodność z krajowymi, regionalnymi i branżowymi wymaganiami dotyczącymi zbierania i używania danych indywidualnych, Microsoft Azure & Azure Backup oferuje kompleksowy zestaw certyfikatów i zaświadczania. [Zapoznaj się z listą certyfikatów zgodności](compliance-offerings.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Funkcje zabezpieczeń pomagające w ochronie obciążeń w chmurze korzystających z Azure Backup](backup-azure-security-feature-cloud.md)
 * [Funkcje zabezpieczeń chroniące hybrydowe kopie zapasowe, które używają Azure Backup](backup-azure-security-feature.md)

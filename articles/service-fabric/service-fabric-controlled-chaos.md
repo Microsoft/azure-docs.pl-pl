@@ -5,12 +5,13 @@ author: motanv
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 33ad837195c747a4e7f9a4609d745659be69dc9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9e9127d9776169131c2ed7f4778052646e84f8b6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246184"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013116"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Chaos kontrolowane w klastrach Service Fabric
 Systemy rozproszone o dużej skali, takie jak infrastruktury chmury, są z natury zawodowe. Dzięki platformie Azure Service Fabric deweloperzy mogą pisać niezawodne usługi rozproszone w oparciu o niezawodną infrastrukturę. Aby pisać niezawodne usługi rozproszone w oparciu o niezawodną infrastrukturę, deweloperzy muszą mieć możliwość przetestowania stabilności usług, podczas gdy podstawowa zawodna infrastruktura przechodzi przez skomplikowane przejścia stanu z powodu błędów.

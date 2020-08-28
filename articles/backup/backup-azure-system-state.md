@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
 description: Dowiedz się, jak utworzyć kopię zapasową stanu systemu komputerów z systemem Windows Server na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b3e4e5451d40d7b0e600875b73e4810d5818d168
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824466"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013439"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Tworzenie kopii zapasowej stanu systemu Windows na platformie Azure
 
@@ -152,7 +152,7 @@ Aby utworzyć początkową kopię zapasową, użyj agenta usługi Microsoft Azur
 
 5. Wybierz pozycję **stan systemu** , a następnie wybierz przycisk **OK**.
 
-6. Wybierz pozycję **Dalej**.
+6. Wybierz pozycję **Next** (Dalej).
 
 7. Wybierz żądaną częstotliwość tworzenia kopii zapasowych i zasady przechowywania kopii zapasowych stanu systemu na kolejnych stronach.
 
@@ -185,7 +185,7 @@ Po zakończeniu tworzenia początkowej kopii zapasowej w konsoli usługi Backup 
 
 Jeśli masz pytania, [Prześlij nam swoją opinię](https://feedback.azure.com/forums/258995-azure-backup).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się więcej o [tworzeniu kopii zapasowej maszyn z systemem Windows](backup-windows-with-mars-agent.md).
 * Teraz, po wykonaniu kopii zapasowej stanu systemu Windows Server, możesz [zarządzać magazynami i serwerami](backup-azure-manage-windows-server.md).

@@ -10,18 +10,19 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 62c66f8b787d27b72216eb08b87352d8dbf272fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774357"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022432"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Samouczek: używanie interfejsu API usługi Video Indexer
 
 Video Indexer konsoliduje różne technologie audio i wideo sztuczne inteligencje (AI) oferowane przez firmę Microsoft w ramach jednej zintegrowanej usługi, co upraszcza programowanie. Interfejsy API zostały zaprojektowane, aby umożliwić deweloperom skoncentrowanie się na zużywaniu technologii multimedialnych, bez konieczności przejmowania się skalowaniem, globalnym zasięgiem, dostępnością i niezawodnością platform chmurowych. Możesz użyć interfejsu API do przekazywania plików, uzyskiwać szczegółowe informacje o wideo, uzyskiwać adresy URL z możliwością osadzania i elementów widget i nie tylko.
 
-Podczas tworzenia konta Video Indexer możesz wybrać bezpłatne konto próbne (w przypadku wybrania pewnej liczby bezpłatnych minut indeksowania) lub opcji płatnej (w przypadku których limit przydziału nie jest ograniczony). Dzięki bezpłatnej wersji próbnej Video Indexer zapewnia do 600 minut bezpłatnego indeksowania do użytkowników witryny sieci Web oraz do 2400 minut wolnego indeksowania do użytkowników interfejsu API. Za pomocą płatnej opcji utworzysz konto Video Indexer, które jest [połączone z subskrypcją platformy Azure i kontem Azure Media Services](connect-to-azure.md). Naliczane są opłaty za minuty indeksowania, a także opłaty powiązane z kontem usługi Azure Media Services.
+Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatnej wersji próbnej (w ramach którego otrzymuje się określoną liczbę bezpłatnych minut indeksowania) lub opcję płatną (w przypadku której nie ma ograniczeń przydziału). Usługa Video Indexer w bezpłatnej wersji próbnej udostępnia do 600 minut bezpłatnego indeksowania u użytkowników witryn internetowych oraz do 2400 minut bezpłatnego indeksowania u użytkowników interfejsów API. Za pomocą płatnej opcji utworzysz konto Video Indexer, które jest [połączone z subskrypcją platformy Azure i kontem Azure Media Services](connect-to-azure.md). Naliczane są opłaty za minuty indeksowania, a także opłaty powiązane z kontem usługi Azure Media Services.
 
 W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usługi Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -207,12 +208,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Omówienie usługi Video Indexer](video-indexer-overview.md)
 - [Regiony](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Badanie szczegółów wyjściowego JSON](video-indexer-output-json-v2.md)
 - Zapoznaj się z [przykładowym kodem](https://github.com/Azure-Samples/media-services-video-indexer) , który demonstruje istotny aspekt przekazywania i indeksowania wideo. Po będzie kodu zawarto informacje na temat korzystania z naszego interfejsu API na potrzeby podstawowych funkcji. Zapoznaj się z komentarzami wbudowanymi i zwróć uwagę na nasze wskazówki dotyczące najlepszych rozwiązań.

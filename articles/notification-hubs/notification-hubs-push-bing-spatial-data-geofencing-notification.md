@@ -13,17 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 5888eeea98a80eeacb97e625d199a3b1912d1943
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116927"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015139"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Samouczek: wysyłanie powiadomień wypychanych opartych na lokalizacji z danymi przestrzennymi Notification Hubs i Bing
 
@@ -39,7 +39,7 @@ W tym samouczku wykonasz następujące kroki:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
+* **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem  [Utwórz bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * Program [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) lub nowszy ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)).
 * Najnowsza wersja zestawu [Azure SDK](https://azure.microsoft.com/downloads/).
 * [Konto Centrum deweloperów Map Bing](https://www.bingmapsportal.com/) (można utworzyć je bezpłatnie i skojarzyć z kontem Microsoft).
@@ -78,7 +78,7 @@ W tym samouczku wykonasz następujące kroki:
 8. Otwórz kartę **Published Data Sources** (Opublikowane źródła danych) i upewnij się, że źródło danych jest widoczne na liście.
 
     ![Zrzut ekranu przedstawiający Centrum deweloperów map Bing na stronie Zarządzanie źródłami danych z wybraną kartą opublikowane źródła danych.](./media/notification-hubs-geofence/bing-maps-published-data.png)
-9. Wybierz pozycję **Edytuj**. Od razu zobaczysz lokalizacje wprowadzone w danych.
+9. Kliknij pozycję **Edytuj**. Od razu zobaczysz lokalizacje wprowadzone w danych.
 
     ![Zrzut ekranu przedstawiający stronę Edytowanie danych jednostki z mapą zachodnich Stanów Zjednoczonych i karmazynową kropką w sieci San Francisco Waterfront.](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
@@ -389,7 +389,7 @@ W tym samouczku wykonasz następujące kroki:
 
     ![Zrzut ekranu przedstawiający pulpit systemu Windows z wyświetlonym komunikatem TESTowym.](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jest kilka kroków, których wykonanie może być konieczne, aby mieć pewność, że rozwiązanie jest gotowe do zastosowania w środowisku produkcyjnym.
 

@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 255f0b5f0066c0a437daba85121edb2f99ba590d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826858"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022398"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -109,7 +109,7 @@ Skorzystaj z tej karty, aby uzyskać wgląd w potencjalne możliwości optymaliz
 
 ###### <a name="inactive-resources"></a>Zasoby nieaktywne
 
-Korzystając z tego widoku, można zidentyfikować te elementy kopii zapasowej, które nie miały pomyślnej kopii zapasowej przez znaczny czas. Może to oznaczać, że maszyna źródłowa, której kopia zapasowa jest tworzona, już nie istnieje (i dlatego prowadzi do nieudanych kopii zapasowych) lub występuje problem z maszyną uniemożliwiającą niezawodne wykonywanie kopii zapasowych.
+Korzystając z tego widoku, można zidentyfikować te elementy kopii zapasowej, które nie miały pomyślnej kopii zapasowej przez znaczny czas. Może to oznaczać, że maszyna źródłowa, której kopia zapasowa jest tworzona, już nie istnieje (i w efekcie powoduje utworzenie kopii zapasowej) lub występuje problem z maszyną uniemożliwiającą niezawodne wykonywanie kopii zapasowych.
 
 Aby wyświetlić zasoby nieaktywne, przejdź do karty **Optymalizacja** i wybierz kafelek **zasoby nieaktywne** . Wybierz ten kafelek wyświetla siatkę zawierającą szczegóły wszystkich nieaktywnych zasobów istniejących w wybranym zakresie. Domyślnie siatka pokazuje elementy, które nie mają punktu odzyskiwania w ciągu ostatnich siedmiu dni. Aby znaleźć nieaktywne zasoby dla innego przedziału czasu, można dostosować filtr **zakresu czasu** w górnej części karty.
 
@@ -177,6 +177,6 @@ Widżety w raporcie kopii zapasowych są obsługiwane przez zapytania Kusto, kt�
 
 - Ponadto [schemat wersji 1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) służący do wysyłania danych diagnostycznych na konto magazynu lub w obszarze roboczym La znajduje się również na ścieżce przestarzałej. Oznacza to, że w przypadku zapisaniu niestandardowych zapytań lub automatyzacji opartych na schemacie V1 zaleca się zaktualizowanie tych zapytań, aby używały obecnie obsługiwanego schematu v2.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dowiedz się więcej o monitorowaniu i raportowaniu za pomocą Azure Backup](./backup-azure-monitor-alert-faq.md)

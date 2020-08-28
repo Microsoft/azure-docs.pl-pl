@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0fc79cab5868ec7d676c956581407dce308d80ad
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891502"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022517"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Samouczek: Eksplorowanie usługi Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -21,9 +21,10 @@ W tym samouczku przedstawiono przykładową aplikację, która implementuje apli
 Możesz użyć tego przykładu, aby wykonać podstawowe akcje usługi Azure Digital bliźniaczych reprezentacji, takie jak przekazywanie modeli, tworzenie i modyfikowanie bliźniaczych reprezentacji oraz tworzenie relacji. Możesz również zapoznać się z kodem przykładu, aby dowiedzieć się więcej o interfejsie API Digital bliźniaczych reprezentacji platformy Azure, i ćwicz implementację własnych poleceń, modyfikując przykładowy projekt.
 
 W tym samouczku będziesz...
-1. Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
-2. Konfigurowanie przykładowej aplikacji wiersza polecenia do współpracy z wystąpieniem
-3. Użyj aplikacji wiersza polecenia, aby poznać usługę Azure Digital bliźniaczych reprezentacji, w tym **modele**, **bliźniaczych reprezentacji Digital**, **relacje**i **zapytania**
+> [!div class="checklist"]
+> * Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+> * Konfigurowanie przykładowej aplikacji wiersza polecenia do współpracy z wystąpieniem
+> * Użyj aplikacji wiersza polecenia, aby poznać usługę Azure Digital bliźniaczych reprezentacji, w tym **modele**, **bliźniaczych reprezentacji Digital**, **relacje**i **zapytania**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -292,7 +293,7 @@ Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [*Samouczek
 
 Na koniec Usuń folder przykładowego projektu pobrany na komputer lokalny.
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Kolejne kroki 
 
 W tym samouczku przedstawiono rozpoczęcie pracy z usługą Azure Digital bliźniaczych reprezentacji przez skonfigurowanie wystąpienia i aplikacji klienckiej w celu korzystania z tego wystąpienia. Aplikacja kliencka została użyta do eksplorowania usługi Azure Digital bliźniaczych reprezentacji, tworzenia modeli, cyfrowego bliźniaczych reprezentacji i relacji. W rozwiązaniu uruchomiono również pewne zapytania, aby poznać, jakie rodzaje pytań można znaleźć w usłudze Azure Digital bliźniaczych reprezentacji.
 

@@ -5,12 +5,13 @@ author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 2d9ebf77862f7b9b019507613e269126501abfd8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fd8e6dd712801de49971c1ef27cea664d73a4cb0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244926"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012776"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Zwrotny serwer proxy na platformie Azure Service Fabric
 Zwrotny serwer proxy wbudowany w usługę Azure Service Fabric ułatwia mikrousługi działające w klastrze Service Fabric odnajdywania i komunikowania się z innymi usługami, które mają punkty końcowe http.
@@ -94,18 +95,18 @@ Poniżej przedstawiono zasoby usługi:
 
 Jeśli usługa korzysta z schematu partycjonowania singleton, parametry ciągu zapytania *PartitionKey* i *PartitionKind* nie są wymagane i można uzyskać dostęp do usługi przy użyciu bramy jako:
 
-* Zewnętrznie`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
-* Wewnętrznie`http://localhost:19081/MyApp/MyService`
+* Zewnętrznie `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* Wewnętrznie `http://localhost:19081/MyApp/MyService`
 
 Jeśli usługa używa jednorodnego schematu partycjonowania Int64, parametry ciągu zapytania *PartitionKey* i *PartitionKind* muszą być używane do uzyskania dostępu do partycji usługi:
 
-* Zewnętrznie`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Wewnętrznie`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Zewnętrznie `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Wewnętrznie `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Aby dotrzeć do zasobów udostępnianych przez usługę, wystarczy umieścić ścieżkę zasobu po nazwie usługi w adresie URL:
 
-* Zewnętrznie`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Wewnętrznie`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* Zewnętrznie `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Wewnętrznie `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 Następnie Brama przekaże te żądania do adresu URL usługi:
 
@@ -149,7 +150,7 @@ Dla klastra lokalnego domyślnie `Fabric_NodeIPOrFQDN` jest ustawiona wartość 
 
 Usługi Service Fabric, które są uruchamiane w ramach kontenerów Docker Compose, wymagają specjalnej *sekcji portów* Docker-Compose. yml http: lub https: Configuration. Aby uzyskać więcej informacji, zobacz [Docker Compose obsługa wdrażania w usłudze Azure Service Fabric](service-fabric-docker-compose.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Skonfiguruj [i skonfiguruj zwrotny serwer proxy w klastrze](service-fabric-reverseproxy-setup.md).
 * [Skonfiguruj przekazywanie do bezpiecznej usługi HTTP przy użyciu zwrotnego serwera proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnozowanie zdarzeń zwrotnego serwera proxy](service-fabric-reverse-proxy-diagnostics.md)

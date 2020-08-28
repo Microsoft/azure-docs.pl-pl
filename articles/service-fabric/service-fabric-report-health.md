@@ -5,12 +5,13 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 5695e8d03f782527cd3a9a2667f3513046d7e76c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256309"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012657"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Dodawanie niestandardowych raportów o kondycji Service Fabric
 Na platformie Azure Service Fabric wprowadzono [model kondycji](service-fabric-health-introduction.md) umożliwiający Flagowanie klastra w złej kondycji i warunków aplikacji na określonych jednostkach. Model kondycji używa **raportów kondycji** (składniki systemowe i alarmy). Celem jest łatwe i Szybkie diagnozowanie i naprawa. Moduły zapisujące usługi muszą myśleć o kondycji. Każdy warunek, który może mieć wpływ na kondycję, powinien być raportowany w szczególności, jeśli może pomóc w oflagowaniu problemów blisko poziomu głównego. Informacje o kondycji mogą zaoszczędzić czas i wysiłku związane z debugowaniem i badaniem. Użyteczność jest szczególnie oczywista, gdy usługa jest uruchomiona i działa w dużej skali w chmurze (prywatnej lub na platformie Azure).
@@ -172,7 +173,7 @@ Raportowanie dotyczące przejść ma sens dla usług, które są raportowane sam
 ## <a name="implement-health-reporting"></a>Implementowanie raportowania kondycji
 Gdy szczegóły jednostki i raportu zostaną wyczyszczone, wysyłanie raportów kondycji można wykonać za pomocą interfejsu API, programu PowerShell lub REST.
 
-### <a name="api"></a>API
+### <a name="api"></a>interfejs API
 Aby zgłosić za pomocą interfejsu API, należy utworzyć raport kondycji specyficzny dla typu jednostki, w którym mają być zgłaszane. Przekaż raport klientowi kondycji. Alternatywnie możesz utworzyć informacje o kondycji i przekazać je, aby skorygować metody raportowania w programie `Partition` lub `CodePackageActivationContext` do raportów dotyczących bieżących jednostek.
 
 Poniższy przykład przedstawia raportowanie okresowe z licznika alarmowego w klastrze. Licznik alarm sprawdza, czy można uzyskać dostęp do zasobu zewnętrznego z poziomu węzła. Zasób jest wymagany przez manifest usługi w aplikacji. Jeśli zasób jest niedostępny, inne usługi w aplikacji mogą nadal działać prawidłowo. W związku z tym raport jest wysyłany w ramach wdrożonego pakietu usługi co 30 sekund.
@@ -292,7 +293,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 Wysyłać raporty kondycji przy użyciu protokołu REST z żądaniami POST, które przechodzą do żądanej jednostki i zawierają treść raportu kondycji. Na przykład Zobacz jak wysyłać [raporty kondycji klastra](/rest/api/servicefabric/report-the-health-of-a-cluster) REST lub [raporty kondycji usług](/rest/api/servicefabric/report-the-health-of-a-service). Wszystkie jednostki są obsługiwane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W oparciu o dane dotyczące kondycji, moduły zapisujące usługi i Administratorzy klastrów/aplikacji mogą traktować metody korzystania z tych informacji. Można na przykład skonfigurować alerty na podstawie stanu kondycji, aby przechwytywać poważne problemy przed ich wystąpieniem. Administratorzy mogą również skonfigurować systemy naprawcze w celu automatycznego rozwiązywania problemów.
 
 [Wprowadzenie do monitorowania kondycji Service Fabric](service-fabric-health-introduction.md)

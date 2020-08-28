@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 10a630aa04f51dc96b948b01e5fc01cfad4356fd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 514fe30da9c0e232c168992c2aabbb484644aa99
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85118818"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015309"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Samouczek: Tworzenie aplikacji konsolowej .NET do zarządzania danymi w Azure Cosmos DB koncie interfejsu API SQL
 
@@ -492,7 +493,7 @@ Aby przywrócić odwołania do zestawu SDK programu Azure Cosmos DB .NET w progr
 
 To wszystko — skompiluj projekt i gotowe!
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Potrzebujesz bardziej złożonego samouczka platformy ASP.NET MVC? Zobacz [Samouczek: Tworzenie aplikacji sieci web ASP.NET Core MVC z Azure Cosmos dB przy użyciu zestawu .NET SDK](sql-api-dotnet-application.md).
 * Chcesz przeprowadzić testowanie skalowalności i wydajności za pomocą Azure Cosmos DB? Zobacz [testowanie wydajności i skalowania przy użyciu Azure Cosmos DB](performance-testing.md).

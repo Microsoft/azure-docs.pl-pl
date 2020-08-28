@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611300"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014918"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualnych platformy Azure
 
@@ -129,7 +129,7 @@ Aby ustawić uprawnienia:
     - Wymagane uprawnienia są wstępnie wypełnione dla **uprawnień klucza** i uprawnień do wpisów **tajnych**.
     - Jeśli maszyna wirtualna jest zaszyfrowana **tylko**przy użyciu klucz szyfrowania bloków, usuń zaznaczenie dla **uprawnień kluczowych** , ponieważ potrzebujesz tylko uprawnień do wpisów tajnych.
 
-    ![Wybór usługi Azure Backup](./media/backup-azure-vms-encryption/select-backup-template.png)
+    ![Azure Backup wybór](./media/backup-azure-vms-encryption/select-backup-template.png)
 
 1. Wybierz pozycję **Dodaj**. **Usługa zarządzania kopiami zapasowymi** jest dodawana do **zasad dostępu**.
 
@@ -149,7 +149,7 @@ Przywróć zaszyfrowane maszyny wirtualne w następujący sposób:
     2. Utwórz nową maszynę wirtualną na podstawie przywróconych dysków przy użyciu programu PowerShell. [Dowiedz się więcej](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. W przypadku maszyn wirtualnych z systemem Linux ponownie zainstaluj rozszerzenie ADE, aby dyski z danymi były otwarte i zainstalowane.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli napotkasz jakiekolwiek problemy, zapoznaj się z następującymi artykułami:
 

@@ -3,12 +3,12 @@ title: Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 description: W tym artykule opisano sposób przywracania SAP HANA baz danych uruchomionych w usłudze Azure Virtual Machines.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763290"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006316"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 
@@ -28,7 +28,7 @@ Azure Backup można przywrócić SAP HANA baz danych uruchomionych na maszynach 
 
 Przed przywróceniem bazy danych należy zwrócić uwagę na następujące kwestie:
 
-* Bazę danych można przywrócić tylko do wystąpienia SAP HANA, które znajduje się w tym samym regionie.
+* Bazę danych można przywrócić tylko do wystąpienia SAP HANA znajdującego się w tym samym regionie.
 
 * Wystąpienie docelowe musi być zarejestrowane w tym samym magazynie co Źródło
 
@@ -112,7 +112,7 @@ Do przywrócenia wymagane są następujące uprawnienia:
     > Przywracanie kontenerów pojedyncza baza danych (SDC) musi być zgodne z tymi [sprawdzeniami](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
 1. Jeśli ma to zastosowanie, wybierz opcję **Zastąp, jeśli baza danych o takiej samej nazwie już istnieje w wybranym wystąpieniu platformy Hana**.
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
     ![Przywracanie konfiguracji — Ekran końcowy](media/sap-hana-db-restore/restore-configuration-last.png)
 
@@ -250,6 +250,6 @@ Jeśli wybrano opcję **pełny & różnicowa** jako typ przywracania, wykonaj na
     > [!NOTE]
     > W przypadku przywracania wielu baz danych (MDC) po przywróceniu bazy danych systemowych do wystąpienia docelowego jeden musi ponownie uruchomić skrypt przed rejestracją. Kolejne Przywracanie bazy danych dzierżawy zakończy się powodzeniem. Aby dowiedzieć się więcej, zobacz [temat Rozwiązywanie problemów — przywracanie MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Dowiedz się, jak](sap-hana-db-manage.md) zarządzać bazami danych SAP HANA kopia zapasowa przy użyciu Azure Backup

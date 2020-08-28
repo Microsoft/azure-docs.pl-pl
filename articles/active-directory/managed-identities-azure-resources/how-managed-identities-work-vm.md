@@ -3,7 +3,7 @@ title: Jak zarządzane tożsamości zasobów platformy Azure współpracują z u
 description: Opis zarządzanych tożsamości zasobów platformy Azure współpracują z maszynami wirtualnymi platformy Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/11/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b61fd2f9bc36743754a43b05629a798f0305d4e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb5355d4c83961d87ad4b880f6b3758b212e74dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609213"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014353"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Jak zarządzane tożsamości zasobów platformy Azure współpracują z maszynami wirtualnymi platformy Azure
 
@@ -57,7 +57,7 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 
 4. Teraz, gdy maszyna wirtualna zyskała tożsamość, używamy informacji o jednostce usługi w celu przyznania maszynie wirtualnej dostępu do zasobów platformy Azure. Aby wywołać usługę Azure Resource Manager, należy użyć kontroli dostępu opartej na rolach (RBAC) w usłudze Azure AD w celu przypisania odpowiedniej roli do jednostki usługi maszyny wirtualnej. Aby wywołać usługę Key Vault, należy przyznać kodowi dostęp do określonego wpisu tajnego lub klucza w usłudze Key Vault.
 
-5. Kod uruchomiony na maszynie wirtualnej może zażądać tokenu z punktu końcowego usługi metadanych wystąpienia platformy Azure, dostępne tylko z poziomu maszyny wirtualnej:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Kod uruchomiony na maszynie wirtualnej może zażądać tokenu z punktu końcowego usługi metadanych wystąpienia platformy Azure, dostępne tylko z poziomu maszyny wirtualnej: `http://169.254.169.254/metadata/identity/oauth2/token`
     - Parametr zasobu określa usługę, do której jest wysyłany token. Aby przeprowadzić uwierzytelnianie w usłudze Azure Resource Manager, należy użyć elementu `resource=https://management.azure.com/`.
     - Parametr wersji interfejsu API określa wersję usługi IMDS, użyj wartości api-version=2018-02-01 lub nowszej.
 
@@ -78,7 +78,7 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
    > [!Note]
    > Ten krok można również wykonać przed krokiem 3.
 
-5. Kod uruchomiony na maszynie wirtualnej może zażądać tokenu z punktu końcowego tożsamości usługi Azure Instance Metadata Service, dostępnego tylko z poziomu maszyny wirtualnej:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Kod uruchomiony na maszynie wirtualnej może zażądać tokenu z punktu końcowego tożsamości usługi Azure Instance Metadata Service, dostępnego tylko z poziomu maszyny wirtualnej: `http://169.254.169.254/metadata/identity/oauth2/token`
     - Parametr zasobu określa usługę, do której jest wysyłany token. Aby przeprowadzić uwierzytelnianie w usłudze Azure Resource Manager, należy użyć elementu `resource=https://management.azure.com/`.
     - Parametr Identyfikator klienta określa tożsamość, dla której jest żądany token. Ta wartość jest wymagana do przeprowadzenia uściślania, gdy na jednej maszynie wirtualnej znajduje się więcej niż jedna tożsamość przypisana przez użytkownika.
     - Parametr wersji interfejsu API określa wersję usługi Azure Instance Metadata Service. Należy użyć wersji `api-version=2018-02-01` lub nowszej.
@@ -87,7 +87,7 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 7. Kod wysyła token dostępu w wywołaniu do usługi, która obsługuje uwierzytelnianie w usłudze Azure AD.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Rozpocznij pracę z funkcją tożsamości zarządzanych dla zasobów platformy Azure, korzystając z następujących przewodników Szybki start:
 

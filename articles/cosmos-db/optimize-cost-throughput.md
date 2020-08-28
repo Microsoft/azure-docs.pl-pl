@@ -6,12 +6,13 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 548faa6c702c599ed766c7f03123dd02fb43684d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e1359fd2a59b49f10bb3b2daa4bcbadae921e188
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610731"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012453"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optymalizacja zaaprowizowanej przepływności w usłudze Azure Cosmos DB
 
@@ -53,7 +54,7 @@ Poniżej przedstawiono kilka wytycznych dotyczących podejmowania decyzji dotycz
 
 Jak pokazano w poniższej tabeli, w zależności od wyboru interfejsu API, można zainicjować przepływność na różnej szczegółowości.
 
-|Interfejs API|W przypadku **udostępnionej** przepływności Skonfiguruj |W przypadku **dedykowanej** przepływności Skonfiguruj |
+|interfejs API|W przypadku **udostępnionej** przepływności Skonfiguruj |W przypadku **dedykowanej** przepływności Skonfiguruj |
 |----|----|----|
 |Interfejs API SQL|baza danych|Kontener|
 |Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB|baza danych|Kolekcja|
@@ -173,7 +174,7 @@ Poniższe kroki pomagają zapewnić wysoką skalowalność i opłacalność rozw
 
 10. Dzięki Azure Cosmos DB zarezerwowanej pojemności można uzyskać znaczne rabaty nawet na 65% przez trzy lata. Azure Cosmos DB zarezerwowany model pojemności jest zobowiązaniem z góry na żądania jednostek żądań w czasie. Rabaty są w warstwach w taki sposób, że jednostki żądań o większej liczbie są używane w dłuższym okresie, tym większy będzie rabat. Rabaty te są stosowane natychmiast. Wszystkie jednostek ru użyte powyżej wartości zainicjowanej są obciążane opłatami na podstawie niezastrzeżonego kosztu wydajności. Aby uzyskać więcej informacji, zobacz [Cosmos DB zarezerwowana pojemność](cosmos-db-reserved-capacity.md)). Należy rozważyć zakup zarezerwowanej pojemności, aby obniżyć koszty związane z przepływem wydajności.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Następnie możesz dowiedzieć się więcej o optymalizacji kosztów w Azure Cosmos DB z następującymi artykułami:
 

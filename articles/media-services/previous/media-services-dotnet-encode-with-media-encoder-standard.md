@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 259e32d55f25c4a146b7ff358eb503763dd5fab2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ead605462eeb92b31181ce9bba3100df521b471b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69016589"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004426"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Kodowanie elementu zawartości za pomocą Media Encoder Standard przy użyciu platformy .NET  
 
@@ -209,7 +210,7 @@ namespace MediaEncoderStandardSample
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Jak wygenerować miniaturę przy użyciu Media Encoder Standard z platformą .NET](media-services-dotnet-generate-thumbnail-with-mes.md) 
  [Omówienie kodowania Media Services](media-services-encode-asset.md)
 

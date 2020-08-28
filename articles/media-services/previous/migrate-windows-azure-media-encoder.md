@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: e75e3f3eecf6c34050aeaa7fe387fffb0de58a74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4c1a9f98373ac872bb315c1ae621b3895760dc18
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513205"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013388"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrowanie z systemu Windows Azure Media Encoder do Media Encoder Standard
 
@@ -78,7 +79,7 @@ Media Encoder Standard jest bardziej niezawodna, niezawodna, ma lepszą wydajno�
 
 Możesz otworzyć bilet pomocy technicznej, przechodząc do [nowego żądania obsługi](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Starsze składniki](legacy-components.md)
 * [Strona cennika](https://azure.microsoft.com/pricing/details/media-services/#encoding)

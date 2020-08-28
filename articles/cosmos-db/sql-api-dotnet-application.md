@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 252f38e289f7b40c673d9048119823348a30a546
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85118886"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015445"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
 
@@ -245,7 +246,7 @@ Aby przetestować aplikację na komputerze lokalnym, wykonaj następujące czynn
 
 1. Wybierz opcję **Utwórz nowe** łącze i Dodaj wartości do pól **Nazwa** i **Opis** . Pozostaw zaznaczone pole wyboru **ukończone** . W przypadku wybrania tej opcji aplikacja dodaje nowy element w stanie ukończone. Element nie jest już wyświetlany na liście początkowej.
 
-1. Wybierz przycisk **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
+1. Wybierz pozycję **Utwórz**. Aplikacja wyśle Cię z powrotem do widoku **indeksu** , a element zostanie wyświetlony na liście. Do listy **czynności do wykonania** można dodać kilka elementów.
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Zrzut ekranu przedstawiający widok indeksu":::
   
@@ -287,7 +288,7 @@ Innym rozwiązaniem jest utworzenie nowego profilu:
 
 W ciągu kilku sekund program Visual Studio opublikuje aplikację sieci Web i uruchomi przeglądarkę, w której można zobaczyć swój projekt uruchomiony na platformie Azure.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku przedstawiono sposób tworzenia aplikacji sieci Web ASP.NET Core MVC. Aplikacja może uzyskiwać dostęp do danych przechowywanych w Azure Cosmos DB. Teraz możesz kontynuować z następującymi zasobami:
 

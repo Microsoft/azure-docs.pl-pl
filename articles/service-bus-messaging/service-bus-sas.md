@@ -3,12 +3,13 @@ title: Azure Service Bus kontroli dostępu z sygnaturami dostępu współdzielon
 description: Omówienie kontroli dostępu Service Bus przy użyciu sygnatur dostępu współdzielonego — Omówienie, szczegółowe informacje na temat autoryzacji SAS i Azure Service Bus.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066189"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012079"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus kontroli dostępu z sygnaturami dostępu współdzielonego
 
@@ -67,9 +68,9 @@ Każdy klient, który ma dostęp do nazwy reguły autoryzacji i jednego z jego k
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**-Natychmiastowe wygaśnięcie tokenu. Liczba całkowita odzwierciedlająca sekundy od `00:00:00 UTC` 1 stycznia 1970 (w systemie UNIX epoki) po wygaśnięciu tokenu.
-* **`skn`**-Nazwa reguły autoryzacji.
-* **`sr`**-Identyfikator URI zasobu, do którego uzyskuje się dostęp.
+* **`se`** -Natychmiastowe wygaśnięcie tokenu. Liczba całkowita odzwierciedlająca sekundy od `00:00:00 UTC` 1 stycznia 1970 (w systemie UNIX epoki) po wygaśnięciu tokenu.
+* **`skn`** -Nazwa reguły autoryzacji.
+* **`sr`** -Identyfikator URI zasobu, do którego uzyskuje się dostęp.
 * **`sig`** Podpisane.
 
 `signature-string`Jest to skrót SHA-256 obliczany na podstawie identyfikatora URI zasobu (**zakres** zgodnie z opisem w poprzedniej sekcji) oraz ciąg reprezentacji tokenu wygasa natychmiast, oddzielony znakami LF.
@@ -298,7 +299,7 @@ W poniższej tabeli przedstawiono prawa dostępu wymagane do różnych operacji 
 | Usuwanie reguły |Zarządzanie |.. /myTopic/Subscriptions/mySubscription |
 | Wyliczanie zasad |Zarządzanie lub nasłuchiwanie |.. /myTopic/Subscriptions/mySubscription/Rules
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat obsługi komunikatów usługi Service Bus, zobacz następujące tematy.
 

@@ -8,12 +8,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fe143b1c172c5d89a7dba33731a378df988b4a47
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75429175"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014612"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Tworzenie Centrum IoT Hub przy użyciu interfejsu API REST dostawcy zasobów (.NET)
 
@@ -25,7 +26,7 @@ Za pomocą [interfejsu API REST dostawcy zasobów IoT Hub](https://docs.microsof
 
 Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* Program Visual Studio.
+* Programu Visual Studio.
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
 
@@ -170,7 +171,7 @@ Teraz możesz ukończyć aplikację, wywołując metodę **CreateIoTHub** przed 
 > [!NOTE]
 > Ta przykładowa aplikacja dodaje standardowe IoT Hub S1, dla którego są naliczane opłaty. Po zakończeniu możesz usunąć Centrum IoT za pośrednictwem [Azure Portal](https://portal.azure.com/) lub przy użyciu polecenia cmdlet **Remove-AzResource** środowiska PowerShell po zakończeniu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po wdrożeniu usługi IoT Hub przy użyciu interfejsu API REST dostawcy zasobów warto dowiedzieć się więcej:
 

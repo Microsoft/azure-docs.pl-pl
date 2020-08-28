@@ -1,25 +1,24 @@
 ---
 title: Informacje o usłudze Azure VPN Gateway
-description: Dowiedz się, co to jest VPN Gateway i jak używać VPN Gateway do nawiązywania połączenia z sieciami wirtualnymi protokołu IPsec typu lokacja-lokacja, Sieć wirtualna-sieć VNET i połączenie sieci VPN punkt-lokacja.
+description: Dowiedz się, co to jest VPN Gateway i jak używać VPN Gateway do nawiązywania połączenia z sieciami wirtualnymi protokołu IPsec typu lokacja-lokacja, Sieć wirtualna-sieć VNet i połączenie sieci VPN punkt-lokacja.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: contperfq1
+ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855608"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015394"
 ---
 # <a name="what-is-vpn-gateway"></a>Co to jest usługa VPN Gateway?
 
 Brama sieci VPN to specyficzny typ bramy sieci wirtualnej, który służy do wysyłania zaszyfrowanego ruchu sieciowego między siecią wirtualną platformy Azure a lokalizacją lokalną za pośrednictwem publicznego Internetu. Za pomocą bramy sieci VPN można także wysyłać zaszyfrowany ruch sieciowy między sieciami wirtualnymi platformy Azure za pośrednictwem sieci firmy Microsoft. Każda sieć wirtualna może mieć tylko jedną bramę sieci VPN. Możesz jednak utworzyć wiele połączeń do tej samej bramy sieci VPN. W przypadku utworzenia wielu połączeń do tej samej bramy sieci VPN wszystkie tunele VPN współdzielą dostępną przepustowość bramy.
-
-Bramy sieci VPN można wdrożyć w Strefy dostępności platformy Azure. Zapewni to elastyczność, skalowalność i większą dostępność bram sieci wirtualnej. Wdrażanie bram w strefach dostępności platformy Azure fizycznie i logicznie dzieli bramy w danym regionie, chroniąc jednocześnie lokalną łączność sieci z platformą Azure przed błędami na poziomie strefy. Zobacz [temat strefy — nadmiarowe bramy sieci wirtualnej w strefy dostępności platformy Azure](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>Co to jest brama sieci wirtualnej?
 
@@ -33,9 +32,15 @@ Tworzenie bramy sieci wirtualnej może potrwać do 45 minut. Podczas tworzenia b
 
 Połączenie bramy sieci VPN bazuje na wielu zasobach konfigurowanych przy użyciu konkretnych ustawień. Większość zasobów można skonfigurować osobno, choć niektóre z nich należy skonfigurować w określonej kolejności.
 
-### <a name="design-connection-topology-diagrams"></a><a name="diagrams"></a>Projektowanie: diagramy topologii połączeń
+### <a name="design"></a><a name="diagrams"></a>Projekt
 
-Dostępne są różne konfiguracje połączeń bramy sieci VPN. Należy określić, która konfiguracja najlepiej odpowiada Twoim wymaganiom. Na przykład połączenie punkt-lokacja, lokacja-lokacja i współistniejące połączenia ExpressRoute/lokacja-lokacja mają różne instrukcje i wymagania dotyczące konfiguracji. Aby uzyskać informacje na temat diagramów topologii projektowania i połączeń, zobacz [Design](design.md).
+Dostępne są różne konfiguracje połączeń bramy sieci VPN. Należy określić, która konfiguracja najlepiej odpowiada Twoim wymaganiom. Na przykład połączenie punkt-lokacja, lokacja-lokacja i współistniejące połączenia ExpressRoute/lokacja-lokacja mają różne instrukcje i wymagania dotyczące konfiguracji. Aby uzyskać informacje na temat projektowania i wyświetlania diagramów topologii połączeń, zobacz [Design](design.md).
+
+### <a name="planning-table"></a><a name="planningtable"></a>Tabela planowania
+
+W poniższej tabeli znajdują się informacje pomocne podczas podejmowania decyzji co do najlepszej opcji łączności dla rozwiązania.
+
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ### <a name="settings"></a><a name="settings"></a>Ustawienia
 
@@ -44,12 +49,6 @@ Ustawienia wybrane dla każdego zasobu mają kluczowe znaczenie dla utworzenia p
 ### <a name="deployment-tools"></a><a name="tools"></a>Narzędzia wdrażania
 
 Możesz rozpocząć tworzenie i konfigurowanie zasobów za pomocą jednego narzędzia konfiguracji, takiego jak witryna Azure Portal. Później możesz zdecydować się zmienić narzędzie na inne, np. program PowerShell, w celu skonfigurowania dodatkowych zasobów lub zmodyfikowania istniejących zasobów, jeśli jest to wymagane. Obecnie nie wszystkie zasoby i ustawienia zasobów można skonfigurować w witrynie Azure Portal. Instrukcje w artykułach dotyczących poszczególnych topologii połączeń określają, kiedy potrzebne jest konkretne narzędzie konfiguracji.
-
-### <a name="planning-table"></a><a name="planningtable"></a>Tabela planowania
-
-W poniższej tabeli znajdują się informacje pomocne podczas podejmowania decyzji co do najlepszej opcji łączności dla rozwiązania.
-
-[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>Jednostki SKU bramy
 
@@ -61,6 +60,10 @@ Podczas tworzenia bramy sieci wirtualnej określa się jednostkę SKU bramy do u
 ### <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>Jednostki SKU bramy według tunelowania, połączenia i przepływności
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="availability-zones"></a><a name="availability"></a>Strefy dostępności
+
+Bramy sieci VPN można wdrożyć w Strefy dostępności platformy Azure. Zapewni to elastyczność, skalowalność i większą dostępność bram sieci wirtualnej. Wdrażanie bram w strefach dostępności platformy Azure fizycznie i logicznie dzieli bramy w danym regionie, chroniąc jednocześnie lokalną łączność sieci z platformą Azure przed błędami na poziomie strefy. Zobacz [temat strefy — nadmiarowe bramy sieci wirtualnej w strefy dostępności platformy Azure](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="pricing"></a><a name="pricing"></a>Cennik
 
@@ -76,7 +79,7 @@ Aby zapoznać się z często zadawanymi pytaniami dotyczącymi bramy sieci VPN, 
 
 Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami funkcji VPN Gateway na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway) .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Więcej informacji można znaleźć w temacie [Brama VPN Gateway — często zadawane pytania](vpn-gateway-vpn-faq.md).
 - Wyświetl [limity usług i subskrypcji](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).

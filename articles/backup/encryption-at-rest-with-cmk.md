@@ -3,12 +3,12 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892647"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022415"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -169,7 +169,7 @@ Aby przypisać klucz:
     ![Stan zakończony powodzeniem](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
 >[!NOTE]
-> Ten proces pozostaje taki sam, gdy chcesz zaktualizować/zmienić klucz szyfrowania. Jeśli chcesz zaktualizować i użyć klucza z innego Key Vault (innego niż aktualnie używany), upewnij się, że:
+> Ten proces pozostaje taki sam, gdy chcesz zaktualizować/zmienić klucz szyfrowania. Jeśli chcesz zaktualizować i użyć klucza z innego Key Vault (innego niż aktualnie używane), upewnij się, że:
 >
 > - Key Vault znajduje się w tym samym regionie co magazyn Recovery Services
 >
@@ -242,7 +242,7 @@ Nie, szyfrowanie CMK można włączyć tylko dla nowych magazynów. W związku z
 
 Nie. magazyn nie może mieć żadnych prób ochrony żadnych elementów w przeszłości.
 
-### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Mam magazyn, który korzysta z szyfrowania CMK. Czy można później powracać do szyfrowania przy użyciu kluczy zarządzanych przez platformę, nawet jeśli mam elementy kopii zapasowej chronione do magazynu?
+### <a name="i-have-a-vault-thats-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Mam magazyn, który korzysta z szyfrowania CMK. Czy można później powracać do szyfrowania przy użyciu kluczy zarządzanych przez platformę, nawet jeśli mam elementy kopii zapasowej chronione do magazynu?
 
 Nie, po włączeniu szyfrowania CMK nie można go przywrócić, aby używać kluczy zarządzanych przez platformę. Można zmienić klucze używane zgodnie z wymaganiami.
 
@@ -258,6 +258,6 @@ Nie wykonano kroków opisanych w artykule i kontynuowanie ochrony elementów mo�
 
 Korzystanie z szyfrowania CMK dla kopii zapasowych nie wiąże się z żadnymi dodatkowymi kosztami. Można jednak nadal ponosić koszty używania Azure Key Vault, w którym jest przechowywany klucz.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Omówienie funkcji zabezpieczeń w programie Azure Backup](security-overview.md)

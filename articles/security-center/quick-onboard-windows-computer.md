@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2cec55b7c9450070d2e692fae50eff9ea880c54e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519766"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013745"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Szybki start: dołączanie komputerów z systemem Windows do usługi Azure Security Center
 Po dodaniu subskrypcji platformy Azure można włączyć Security Center dla zasobów działających poza platformą Azure, na przykład lokalnie lub w innych chmurach, udostępniając agenta Log Analytics.
@@ -41,7 +41,7 @@ Przed rozpoczęciem tego przewodnika Szybki Start musisz mieć Security Center w
 3. W menu głównym usługi Security Center wybierz pozycję **Wprowadzenie**.
 4. Wybierz kartę **Rozpoczęcie pracy**.
 
-   ![Wprowadzenie][3]
+   ![Rozpoczęcie pracy][3]
 
 5. Kliknij przycisk **Konfiguruj** w obszarze **Dodaj nowe komputery spoza platformy Azure**. Zostanie wyświetlona lista obszarów roboczych usługi Log Analytics. Jeśli ma to zastosowanie, lista zawiera domyślny obszar roboczy utworzony przez usługę Security Center po włączeniu automatycznej aprowizacji. Wybierz ten obszar roboczy lub inny obszar roboczy, którego chcesz użyć.
 
@@ -74,7 +74,7 @@ Teraz musisz zainstalować pobrany plik na komputerze docelowym.
 
 Po zakończeniu **log Analytics Agent** zostanie wyświetlony w **Panelu sterowania**. Możesz tam przejrzeć konfigurację i sprawdzić, czy agent został połączony.
 
-Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta, zobacz [Connect Windows computers (Łączenie komputerów z systemem Windows)](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta, zobacz [Connect Windows computers (Łączenie komputerów z systemem Windows)](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Teraz możesz monitorować maszyny wirtualne platformy Azure oraz komputery spoza platformy Azure w jednym miejscu. W obszarze **Obliczanie** zawarto przegląd wszystkich maszyn wirtualnych i komputerów wraz z zaleceniami. Każda kolumna reprezentuje jeden zestaw zaleceń. Kolor reprezentuje bieżący stan zabezpieczeń maszyny wirtualnej lub komputera dla tego zalecenia. Ponadto usługa Security Center przedstawia wszelkie wykrycia dotyczące tych komputerów w alertach zabezpieczeń.
 
@@ -95,7 +95,7 @@ Aby usunąć agenta:
 2. Otwórz aplet **Programy i funkcje**.
 3. W obszarze **programy i funkcje**wybierz opcję **Agent log Analytics** i kliknij przycisk **Odinstaluj**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym przewodniku szybki start został zainicjowany Agent Log Analytics na komputerze z systemem Windows. Aby dowiedzieć się więcej na temat sposobu korzystania z usługi Security Center, przejdź do samouczka konfigurowania zasad zabezpieczeń i oceniania zabezpieczeń Twoich zasobów.
 
 > [!div class="nextstepaction"]

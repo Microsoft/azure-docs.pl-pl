@@ -3,12 +3,13 @@ title: 'Szybki Start: pierwsze zapytanie w programie .NET Core'
 description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie pakietów NuGet grafu zasobów dla platformy .NET Core i uruchomienie pierwszego zapytania.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: b452329148f607b6a71c366c51745906247a43a1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0470f100b6323f760bc48af70e8a6c11b94dfb3c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802711"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005874"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu platformy .NET Core
 
@@ -18,7 +19,7 @@ Po zakończeniu tego procesu dodaliśmy pakiety do instalacji programu .NET Core
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 - Nazwa główna usługi platformy Azure, w tym _clientId_ i _clientSecret_. Jeśli nie masz nazwy głównej usługi do użycia z wykresem zasobów lub chcesz utworzyć nowy, zobacz [biblioteki zarządzania platformy Azure dla uwierzytelniania platformy .NET](/dotnet/azure/sdk/authentication#mgmt-auth).
   Pomiń ten krok, aby zainstalować pakiety .NET Core, jak opisano w następnych krokach.
 
@@ -98,8 +99,8 @@ Dzięki skompilowanej i opublikowanej aplikacji konsolowej .NET Core należy wyp
 W każdym wywołaniu do `argQuery` , istnieją zmienne, które są używane, należy zamienić na własne wartości:
 
 - `{tenantId}` — zastąp identyfikatorem swojej dzierżawy
-- `{clientId}`-Zamień na identyfikator klienta nazwy głównej usługi
-- `{clientSecret}`-Zamień na klucz tajny klienta jednostki usługi
+- `{clientId}` -Zamień na identyfikator klienta nazwy głównej usługi
+- `{clientSecret}` -Zamień na klucz tajny klienta jednostki usługi
 - `{subscriptionId}` — zastąp swoim identyfikatorem subskrypcji
 
 1. Zmień katalogi na `{run-folder}` zdefiniowane za pomocą poprzedniego `dotnet publish` polecenia.
@@ -134,7 +135,7 @@ Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic 
 
 Jeśli chcesz usunąć aplikację konsolową .NET Core i zainstalowane pakiety, możesz to zrobić, usuwając `argQuery` folder projektu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start utworzono aplikację konsolową .NET Core z wymaganymi pakietami wykresów zasobów i uruchomimy pierwsze zapytanie. Aby dowiedzieć się więcej na temat języka grafu zasobów, przejdź do strony szczegółów języka zapytań.
 

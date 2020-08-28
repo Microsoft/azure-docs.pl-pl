@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645637"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012793"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Dostęp, zapisywanie i usuwanie stanu Reliable Actors
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) są obiektami jednowątkowymi, które mogą w sposób niezawodny hermetyzować logikę i stan i zachować stan. Każde wystąpienie aktora ma swój własny [Menedżer stanu](service-fabric-reliable-actors-state-management.md): strukturę danych przypominającą słownik, która w niezawodny sposób przechowuje pary klucz/wartość. Menedżer stanu jest otoką wokół dostawcy stanu. Można jej użyć do przechowywania danych bez względu na to, które [ustawienie trwałości](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) jest używane.
@@ -315,7 +316,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Stan, który jest przechowywany w Reliable Actors musi być serializowany przed zapisem na dysku i replikowany w celu zapewnienia wysokiej dostępności. Dowiedz się więcej o [serializacji typu aktora](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

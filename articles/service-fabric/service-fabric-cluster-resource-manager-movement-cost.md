@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0fdcfb02851d56ed996ae4bf32671ab545782733
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75563347"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005347"
 ---
 # <a name="service-movement-cost"></a>Koszt przeniesienia usługi
 Jest to czynnik, który Menedżer zasobów klastrze Service Fabric podczas próby ustalenia, które zmiany należy wprowadzić w klastrze, jest kosztem tych zmian. Pojęcie "koszt" jest wymieniane z informacjami o tym, jak dużo można ulepszyć klaster. Koszt jest przynoszony podczas przechodzenia usług na potrzeby równoważenia, defragmentacji i innych wymagań. Celem jest spełnienie wymagań dotyczących najmniej niezakłóconych lub kosztownych sposobów.
@@ -118,7 +119,7 @@ za pomocą ClusterConfig.jsna potrzeby wdrożeń autonomicznych lub Template.jsn
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Service Fabric Menedżer zasobów klastra używa metryk do zarządzania zużyciem i pojemnością w klastrze. Aby dowiedzieć się więcej o metrykach i sposobach ich konfigurowania, zapoznaj się z tematem [Zarządzanie użyciem zasobów i obciążeniem Service Fabric za pomocą metryk](service-fabric-cluster-resource-manager-metrics.md).
 - Aby dowiedzieć się, jak klaster Menedżer zasobów zarządza i zrównoważy obciążenie w klastrze, sprawdź [równoważenie Service Fabric klastra](service-fabric-cluster-resource-manager-balancing.md).
 

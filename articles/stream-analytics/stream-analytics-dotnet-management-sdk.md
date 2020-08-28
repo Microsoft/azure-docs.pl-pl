@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: de152a636d8751616744887a521b2f94bbd386a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 5776c741bb69d345f191e5673fe388328d0fe7bb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077756"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015598"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Zestaw SDK zarządzania .NET: Konfigurowanie i uruchamianie zadań analitycznych za pomocą interfejsu API Azure Stream Analytics dla platformy .NET
 Informacje na temat konfigurowania i uruchamiania zadań analitycznych przy użyciu interfejsu API Stream Analytics dla platformy .NET przy użyciu zestawu .NET SDK zarządzania. Skonfiguruj projekt, twórz źródła danych wejściowych i wyjściowych, przekształcenia oraz zadania uruchamiania i zatrzymywania. W przypadku zadań analitycznych można przesyłać strumieniowo dane z magazynu obiektów blob lub z centrum zdarzeń.
@@ -287,8 +287,8 @@ Metoda **delete** usunie zadanie, a także bazowe zasoby podrzędne, w tym dane 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Następne kroki
-Znasz podstawowe informacje na temat używania zestawu SDK platformy .NET do tworzenia i uruchamiania zadań analitycznych. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+## <a name="next-steps"></a>Kolejne kroki
+Znasz podstawowe informacje na temat używania zestawu SDK platformy .NET do tworzenia i uruchamiania zadań analitycznych. Więcej informacji można znaleźć w następujących artykułach:
 
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)

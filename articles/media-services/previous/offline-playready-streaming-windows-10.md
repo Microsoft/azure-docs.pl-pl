@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 4d8e637cd3691e7b1acf1988efe40fc80561a183
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 873f8bfda5dcfbc41d1bdc73bb4f0de97f775f15
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091678"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013405"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Przesyłanie strumieniowe przy użyciu technologii PlayReady w trybie offline dla systemu Windows 10  
 
@@ -64,13 +65,13 @@ Poniżej znajdują się dwa zestawy zasobów testowych, pierwszej z nich przy u�
 
 #1 zasobów:
 
-* Adres URL pobierania progresywnego:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* LA_URL PlayReady (AMS):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
+* Adres URL pobierania progresywnego: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL PlayReady (AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 #2 zasobów:
 
-* Adres URL pobierania progresywnego:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* LA_URL PlayReady (on-Premium):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
+* Adres URL pobierania progresywnego: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL PlayReady (on-Premium): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 Do testowania odtwarzania użyto aplikacji uniwersalnej systemu Windows w systemie Windows 10. W przypadku [uniwersalnych przykładów systemu Windows 10](https://github.com/Microsoft/Windows-universal-samples)istnieje przykład podstawowego odtwarzacza o nazwie [adaptacyjnego przesyłania strumieniowego](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Wystarczy dodać kod, aby wybrać pobrany film wideo i użyć go jako źródła zamiast adaptacyjnego źródła przesyłania strumieniowego. Zmiany są po kliknięciu przycisku programu obsługi zdarzeń:
 
@@ -130,6 +131,6 @@ Podsumowując, osiągnięto tryb offline na Azure Media Services:
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Projekt hybrydowego systemu DRM](hybrid-design-drm-sybsystem.md)

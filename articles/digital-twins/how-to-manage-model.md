@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661558"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013008"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -166,6 +166,30 @@ Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `ModelData` obie
 
 Modele nie zawsze są zwracane w dokładnie formularzu dokumentu, w którym zostały przekazane. Usługa Azure Digital bliźniaczych reprezentacji gwarantuje, że formularz zwrotny będzie semantycznie równoważny. 
 
+### <a name="update-models"></a>Aktualizowanie modeli
+
+Po przekazaniu modelu do wystąpienia cały interfejs modelu jest niezmienny. Oznacza to, że nie ma tradycyjnego "edytowania" modeli.
+
+Zamiast tego, jeśli chcesz wprowadzić zmiany w modelu w usłudze Azure Digital bliźniaczych reprezentacji, takie jak zmiana `DisplayName` lub `Description` , Metoda ta umożliwia przekazanie **nowszej wersji** tego samego modelu. Spowoduje to zastąpienie oryginalnego modelu.
+
+Aby to zrobić, Zacznij od DTDL oryginalnego modelu. Zaktualizuj wszelkie pola, które chcesz zmienić.
+
+Następnie oznacz ją jako nowszą wersję modelu, aktualizując `id` pole modelu. Ostatnia sekcja identyfikatora modelu, po `;` , reprezentuje numer modelu. Aby wskazać, że jest to teraz bardziej zaktualizowana wersja tego modelu, Zwiększ liczbę na końcu `id` wartości do dowolnej liczby większej niż bieżący numer wersji.
+
+Na przykład jeśli poprzedni Identyfikator modelu wyglądał następująco:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+Wersja 2 tego modelu może wyglądać następująco:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+Następnie Przekaż nową wersję modelu do wystąpienia. Nastąpi przejście do starej wersji, a nowe bliźniaczych reprezentacji utworzone przy użyciu tego modelu będą używały zaktualizowanej wersji.
+
 ### <a name="remove-models"></a>Usuń modele
 
 Modele można również usunąć z usługi, na jeden z dwóch sposobów:
@@ -250,7 +274,7 @@ Usługa Azure Digital bliźniaczych reprezentacji nie uniemożliwia tego stanu, 
 
 Modele można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [*opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz, jak tworzyć i zarządzać bliźniaczych reprezentacjiami cyfrowymi w oparciu o Twoje modele:
 * [*Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym*](how-to-manage-twin.md)

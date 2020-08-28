@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-javascript
-ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414024"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011807"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
@@ -34,10 +34,10 @@ Widżet Cognitive Insights (Szczegółowe informacje) zawiera wszystkie szczegó
 |---|---|---|
 |`widgets` | Ciągi rozdzielone przecinkami | Umożliwia kontrolowanie szczegółowych informacji, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renderuje tylko osoby i słowa kluczowe dotyczące interfejsu użytkownika.<br/>Dostępne opcje: ludzie, animatedCharacters, keywords, Labels, mową, emocji, tematy, ramki kluczowe, Transkrypcja, OCR, głośniki, sceny i namedEntities.|
 |`controls`|Ciągi rozdzielone przecinkami|Umożliwia kontrolowanie formantów, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renderuje tylko opcję wyszukiwania i przycisk pobierania.<br/>Dostępne opcje: wyszukiwanie, pobieranie, ustawienia wstępne, język.|
-|`language`|Kod w języku krótkim (nazwa języka)|Steruje językiem usługi Insights.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>oraz`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
+|`language`|Kod w języku krótkim (nazwa języka)|Steruje językiem usługi Insights.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>oraz `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Kod w języku krótkim | Kontroluje język interfejsu użytkownika. Wartość domyślna to `en`. <br/>Przykład: `locale=de`.|
 |`tab` | Domyślna wybrana karta | Steruje kartą usługi **Insights** , która jest renderowana domyślnie. <br/>Przykład: `tab=timeline` renderuje szczegółowych informacji przy użyciu karty **oś czasu** .|
-|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
+|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru.| 
 
 ### <a name="player-widget"></a>Widżet Player
 
@@ -51,7 +51,7 @@ Możesz użyć widżetu odtwarzacza do przesyłania strumieniowego wideo przy u�
 |`type`| | Aktywuje karnację odtwarzacza audio (część wideo jest usuwana).<br/> Przykład: `type=audio`. |
 |`autoplay` | Wartość logiczna | Wskazuje, czy odtwarzacz powinien rozpocząć odtwarzanie wideo po załadowaniu. Wartość domyślna to `true`.<br/> Przykład: `autoplay=false`. |
 |`language`/`locale` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`.|
-|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
+|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru.| 
 
 ### <a name="editor-widget"></a>Widżet edytora
 
@@ -59,10 +59,10 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 
 |Nazwa|Definicja|Opis|
 |---|---|---|
-|`accessToken`<sup>*</sup> | String | Zapewnia dostęp do filmów wideo, które są tylko na koncie używanym do osadzenia widżetu.<br> Widżet edytora wymaga `accessToken` parametru. |
+|`accessToken`<sup>*</sup> | Ciąg | Zapewnia dostęp do filmów wideo, które są tylko na koncie używanym do osadzenia widżetu.<br> Widżet edytora wymaga `accessToken` parametru. |
 |`language` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`. |
 |`locale` | Kod w języku krótkim | Steruje językiem usługi Insights. Wartość domyślna to `en`.<br/>Przykład: `language=de`. |
-|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
+|`location` ||`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru.| 
 
 <sup>*</sup>Właściciel powinien zapewnić `accessToken` ostrożność.
 
@@ -70,7 +70,7 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 
 W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjach.
 
-`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru. Przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+`location`Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial` jest wartością domyślną dla `location` parametru. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
@@ -102,6 +102,17 @@ Aby zapewnić możliwości edytowania szczegółowych informacji w osadzonym ele
 Widżet wglądu w szczegółowe dane może korzystać z filmu wideo w aplikacji. W tej sekcji pokazano, jak zrealizować taką interakcję.
 
 ![Widżet szczegółowe informacje o poznawczej Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+
+### <a name="flow-overview"></a>Omówienie przepływu
+
+Podczas edytowania transkrypcji następuje następujący przepływ:
+
+1. Edytuj transkrypcję na osi czasu.
+1. Video Indexer pobiera te aktualizacje i zapisuje je w ramach [edycji z transkrypcji](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) w modelu języka.
+1. Napisy są aktualizowane:
+
+    * Jeśli używasz widżetu Video Indexer odtwarzacza, zostanie on automatycznie zaktualizowany.
+    * Jeśli używasz zewnętrznego odtwarzacza, otrzymujesz nowe podpisy, które **są wywoływane przez** użytkownika.
 
 ### <a name="cross-origin-communications"></a>Komunikacja między źródłami
 
@@ -293,7 +304,7 @@ Zobacz repozytorium [przykłady kodu](https://github.com/Azure-Samples/media-ser
 | `url-generator`                   | Generuje niestandardowy adres URL osadzania widżetów na podstawie opcji określonych przez użytkownika.             |
 | `html5-player`                    | Osadź plik VI Insights przy użyciu domyślnego odtwarzacza wideo HTML5.                           |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać informacje na temat sposobu wyświetlania i edytowania Video Indexer szczegółowych informacji, zobacz [Wyświetlanie i edytowanie Video Indexer szczegółowych](video-indexer-view-edit.md)informacji.
 
