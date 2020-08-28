@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 146b9a04b190808848af56612e14a05a617c7109
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554824"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005959"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorowanie i wyświetlanie dzienników i metryk przebiegów ML
 
@@ -111,8 +111,7 @@ Przechodzenie do określonego przebiegu w celu wyświetlenia jego danych wyjści
 
 Możesz również edytować tabelę listy uruchamiania, aby wybrać wiele uruchomień i wyświetlić ostatnią, minimalną lub maksymalną zarejestrowana wartość dla przebiegów. Dostosuj wykresy, aby porównać wartości zarejestrowanej metryk i agregacje w wielu przebiegach.
 
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Szczegóły uruchamiania w programie Azure Machine Learning Studio":::
-
+![Szczegóły uruchamiania w programie Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
 ### <a name="format-charts-in-the-studio"></a>Formatowanie wykresów w Studio
 
@@ -126,7 +125,7 @@ Użyj następujących metod w interfejsie API rejestrowania, aby mieć wpływ na
 |Tabela dzienników z 2 kolumnami liczbowymi|`run.log_table(name='Sine Wave', value=sines)`|Wykres liniowy z dwoma zmiennymi|
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Spróbuj wykonać następujące kroki, aby dowiedzieć się, jak używać Azure Machine Learning:
 

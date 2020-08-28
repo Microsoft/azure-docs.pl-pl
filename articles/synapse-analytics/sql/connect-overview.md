@@ -9,12 +9,13 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a9a9b8b9ed3e65ae9b8500017b838dc320ecbaac
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198516"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005024"
 ---
 # <a name="connect-to-synapse-sql"></a>Nawiązywanie połączenia z usługą Synapse SQL
 Połącz się z funkcją SQL Synapse w usłudze Azure Synapse Analytics.
@@ -35,7 +36,7 @@ Nazwa serwera dla SQL na żądanie w następującym przykładzie to: showdemoweu
 
 Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Synapse obszary robocze**.
 3. Kliknij obszar roboczy, z którym chcesz nawiązać połączenie.
 4. Przejdź do omówienia.
@@ -93,5 +94,5 @@ Synapse SQL Standard podczas tworzenia połączeń i obiektów. Tych ustawień n
 
 W celu wykonywania zapytań **na żądanie SQL** zalecane są narzędzia [Azure Data Studio](get-started-azure-data-studio.md) i Azure Synapse Studio.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej na temat opcji uwierzytelniania, zobacz [uwierzytelnianie w programie SQL Synapse](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

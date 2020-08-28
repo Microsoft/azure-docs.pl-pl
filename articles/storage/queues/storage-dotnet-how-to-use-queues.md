@@ -8,12 +8,13 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 5b8b127391401b956088ddb099d1853700e6f120
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871313"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001114"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET
 
@@ -491,7 +492,7 @@ queue.Delete();
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy znasz już podstawy usługi Queue Storage, skorzystaj z poniższych linków, aby dowiedzieć się więcej o bardziej skomplikowanych zadaniach magazynu.
 

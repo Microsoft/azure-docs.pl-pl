@@ -8,12 +8,13 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 8a50aa02a2ba7187c8221c046fcabb7f4a6473fa
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826688"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006350"
 ---
 # <a name="table-design-patterns"></a>Wzorce projektowe tabel
 W tym artykule opisano niektóre wzorce odpowiednie do użycia z rozwiązaniami Table service. Ponadto zobaczysz, jak można praktycznie rozwiązać niektóre problemy i wady, które omówiono w innych artykułach dotyczących projektowania magazynów tabel. Poniższy diagram podsumowuje relacje między różnymi wzorcami:  
@@ -742,7 +743,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -762,7 +763,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -799,7 +800,7 @@ Table service to magazyn tabel bez *schematu* , który oznacza, że pojedyncza t
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -835,7 +836,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -857,7 +858,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -898,7 +899,7 @@ Każda jednostka musi nadal mieć wartości **PartitionKey**, **RowKey**i **time
 <th>FirstName (Imię)</th>
 <th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>E-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td>Pracownik</td>
@@ -1124,7 +1125,7 @@ W tym przykładzie asynchronicznym można zobaczyć następujące zmiany w wersj
 
 Aplikacja kliencka może wywoływać wiele metod asynchronicznych, takich jak ta, i każde wywołanie metody zostanie uruchomione w osobnym wątku.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Modelowanie relacji](table-storage-design-modeling.md)
 - [Projektowanie pod kątem wykonywania zapytań](table-storage-design-for-query.md)

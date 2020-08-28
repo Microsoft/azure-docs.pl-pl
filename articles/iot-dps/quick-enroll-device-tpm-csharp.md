@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
-ms.openlocfilehash: ee1b803459e0c81b86021b617a29e0b29ee19909
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 6176ff91029817e6891f0ee1e043cc3a827c2d6c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74976846"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999057"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Szybki Start: rejestrowanie urządzenia TPM w IoT Hub Device Provisioning Service przy użyciu zestawu SDK usługi C#
 
@@ -63,7 +63,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core, kt�
 
    Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do pakietu NuGet [zestawu SDK klienta usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) i jego zależności.
 
-1. Dodaj następujące `using` instrukcje `using` w górnej części `Program.cs`okna:
+1. Dodaj następujące `using` instrukcje `using` w górnej części okna `Program.cs` :
   
    ```csharp
    using System.Threading.Tasks;
@@ -152,13 +152,13 @@ Wybierz wpis, aby zweryfikować Klucz poręczenia i inne właściwości wpisu.
 
 Jeśli wykonano kroki opisane w temacie [Tworzenie i udostępnianie symulowanego urządzenia TPM przy użyciu zestawu SDK języka C#](quick-create-simulated-device-tpm-csharp.md) — Szybki Start, możesz wykonać pozostałe kroki tego przewodnika Szybki Start, aby zarejestrować symulowane urządzenie. Pomiń kroki tworzenia rejestracji indywidualnej przy użyciu witryny Azure Portal.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz Eksplorowanie przykładu usługi C#, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. W przeciwnym razie wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 
 1. Zamknij Przykładowe okno dane wyjściowe w języku C# na komputerze.
 
-1. Przejdź do usługi Device Provisioning w Azure Portal, wybierz pozycję **Zarządzaj rejestracjami**, a następnie wybierz kartę **indywidualne rejestracje** . Zaznacz pole wyboru obok *identyfikatora rejestracji* wpisu rejestracji utworzonego w ramach tego przewodnika Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.
+1. Przejdź do usługi Device Provisioning w Azure Portal wybierz pozycję **Zarządzaj rejestracjami**, a następnie wybierz kartę **rejestracje indywidualne** . Zaznacz pole wyboru obok *identyfikatora rejestracji* wpisu rejestracji utworzonego w ramach tego przewodnika Szybki Start i naciśnij przycisk **Usuń** w górnej części okienka.
 
 1. Jeśli wykonano kroki opisane w temacie [Tworzenie i udostępnianie symulowanego urządzenia TPM za pomocą zestawu SDK języka C#](quick-create-simulated-device-tpm-csharp.md) w celu utworzenia symulowanego urządzenia TPM, wykonaj następujące czynności:
 
@@ -166,7 +166,7 @@ Jeśli planujesz Eksplorowanie przykładu usługi C#, nie czyść zasobów utwor
 
     1. W witrynie Azure Portal przejdź do usługi IoT Hub, w której zaaprowizowano urządzenie. W menu w obszarze **Explorer**wybierz pozycję **urządzenia IoT**, zaznacz pole wyboru obok *identyfikatora urządzenia* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start utworzysz indywidualny wpis rejestracji dla urządzenia TPM. Opcjonalnie utworzono symulowane urządzenie TPM na komputerze i zainicjowano je do centrum IoT Hub przy użyciu IoT Hub Device Provisioning Service platformy Azure. Aby uzyskać dokładne informacje na temat aprowizowania urządzeń, przejdź do samouczka poświęconego konfiguracji usługi Device Provisioning Service w witrynie Azure portal.
 

@@ -3,13 +3,13 @@ title: Uwierzytelnianie dostępu do usługi Azure Event Hubs przy użyciu sygnat
 description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5397cd746f33fc82ee63cc7d2a1f396ba704f334
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423103"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008322"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
 Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 
@@ -44,10 +44,10 @@ W przypadku korzystania z reguły autoryzacji sendRuleNS aplikacje klienckie mog
 ## <a name="generate-a-shared-access-signature-token"></a>Generowanie tokenu sygnatury dostępu współdzielonego 
 Każdy klient, który ma dostęp do nazwy reguły autoryzacji i jednego z jego kluczy podpisywania, może generować token SAS. Token jest generowany przez przedpływanie ciągu w następującym formacie:
 
-- `se`— Czas wygaśnięcia tokenu. Liczba całkowita odzwierciedlająca sekundy od czasu 00:00:00 czasu UTC na 1 stycznia 1970 (Epoka systemu UNIX) po wygaśnięciu tokenu
-- `skn`— Nazwa reguły autoryzacji, która jest nazwą klucza sygnatury dostępu współdzielonego.
-- `sr`— Identyfikator URI zasobu, do którego uzyskuje się dostęp.
-- `sig`Podpisane.
+- `se`  — Czas wygaśnięcia tokenu. Liczba całkowita odzwierciedlająca sekundy od czasu 00:00:00 czasu UTC na 1 stycznia 1970 (Epoka systemu UNIX) po wygaśnięciu tokenu
+- `skn` — Nazwa reguły autoryzacji, która jest nazwą klucza sygnatury dostępu współdzielonego.
+- `sr` — Identyfikator URI zasobu, do którego uzyskuje się dostęp.
+- `sig` Podpisane.
 
 Ciąg sygnatury to skrót SHA-256 obliczany na podstawie identyfikatora URI zasobu (zakres, zgodnie z opisem w poprzedniej sekcji) oraz ciąg reprezentujący czas wygaśnięcia tokenu, oddzielony znakiem CRLF.
 
@@ -218,7 +218,7 @@ Na przykład w celu zdefiniowania reguł autoryzacji objętych zakresem do wysy�
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Uwierzytelnianie Event Hubs użytkowników przy użyciu sygnatury dostępu współdzielonego 
 Aby uwierzytelniać aplikacje zaplecza, które wykorzystują dane wygenerowane przez producentów Event Hubs, uwierzytelnianie tokenów Event Hubs wymaga, aby klienci mieli uprawnienia do **zarządzania** prawami lub **nasłuchiwanie** przypisane do jego przestrzeni nazw Event Hubs lub wystąpienia centrum zdarzeń lub tematu. Dane są używane z Event Hubs przy użyciu grup odbiorców. Chociaż zasady SAS dają szczegółowy zakres, ten zakres jest definiowany tylko na poziomie jednostki, a nie na poziomie odbiorcy. Oznacza to, że uprawnienia zdefiniowane na poziomie przestrzeni nazw lub wystąpieniu centrum zdarzeń lub poziomie tematu zostaną zastosowane do grup odbiorców tej jednostki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły:
 
 - [Autoryzuj przy użyciu sygnatury dostępu współdzielonego](authenticate-shared-access-signature.md)

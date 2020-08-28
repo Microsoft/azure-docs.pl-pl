@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
-ms.openlocfilehash: a05d58108561856f61a8c484882c996eee96e44d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f9db8a50e670e3c6af7adce0a8efcf3ce569ac89
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918081"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009631"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze
 
@@ -364,7 +365,7 @@ Utwórz obiekt [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.custom
    serviceClient.Indexes.Create(definition);
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 + Zapoznaj się z kompleksowym wyjaśnieniem [działania wyszukiwania pełnotekstowego w usłudze Azure wyszukiwanie poznawcze](search-lucene-query-architecture.md). W tym artykule przedstawiono przykłady zachowań, które mogą wydawać się intuicyjne na powierzchni.
 

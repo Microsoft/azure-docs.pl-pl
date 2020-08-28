@@ -7,12 +7,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9ff3e12721628e244f247e174af101e71ea91191
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61447628"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998326"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Dostosowywanie i ponowne wdrażanie mikrousługi
 
@@ -20,7 +21,7 @@ W tym samouczku pokazano, jak edytować jedną z [mikrousług](https://azure.com
 
 Rozwiązanie do zdalnego monitorowania używa mikrousług, które są tworzone przy użyciu obrazów platformy Docker, które są pobierane z usługi Docker Hub. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 >[!div class="checklist"]
 > * Edytowanie i kompilowanie mikrousługi w rozwiązaniu do zdalnego monitorowania
@@ -148,7 +149,7 @@ Uzupełnij przez ponowne wdrożenie lokalnego wystąpienia rozwiązania do zdaln
 
 ![Nowe zmiany wprowadzone w tym miejscu](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Usunąć
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Rozwiązywanie problemów
 
 Jeśli występują problemy, spróbuj usunąć obrazy platformy Docker i kontenery na komputerze lokalnym.
 
@@ -181,7 +182,7 @@ Jeśli występują problemy, spróbuj usunąć obrazy platformy Docker i kontene
 
     Jeśli wszystkie kontenery zostały pomyślnie usunięte, nic nie powinno być widoczne.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku pokazano, jak:
 

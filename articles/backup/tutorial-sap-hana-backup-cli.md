@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fbf50a9b1fa33e86777c25dcbeee9681aa2dda62
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890607"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007591"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Domyślnie magazyn usługi Recovery Services jest ustawiony na magazyn geograficznie nadmiarowy. Magazyn geograficznie nadmiarowy gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego. Jeśli należy zmodyfikować ustawienie nadmiarowości magazynu, użyj polecenia [AZ Backup Storage Backup-Properties Set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
+Domyślnie magazyn usługi Recovery Services jest ustawiony na magazyn geograficznie nadmiarowy. Magazyn Geograficznie nadmiarowy gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego. Jeśli należy zmodyfikować ustawienie nadmiarowości magazynu, użyj polecenia [AZ Backup Storage Backup-Properties Set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
 
 ```azurecli
 az backup vault backup-properties set \
@@ -180,7 +180,7 @@ Odpowiedź będzie zawierać nazwę zadania. Ta nazwa zadania może służyć do
 >
 > Przyrostowe kopie zapasowe nie są obecnie obsługiwane przez Azure Backup.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się, jak przywrócić bazę danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia, przejdź do samouczka — [przywracanie SAP HANAj bazy danych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia](tutorial-sap-hana-restore-cli.md)
 

@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6a9564576715c32f8bcc871d10fae50f139aacdb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9819615039a6dd6aceec796a3ec1c7338f6f3968
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932155"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998530"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Samouczek: kolejność wyników wyszukiwania przy użyciu zestawu .NET SDK
 
@@ -115,7 +115,7 @@ Nie ma potrzeby modyfikowania żadnego z modeli, aby umożliwić Określanie kol
     ```
 
     >[!Tip]
-    >Przeglądarki zwykle buforują pliki CSS i mogą prowadzić do używanego starego pliku CSS, a zmiany zostały zignorowane. Dobrym sposobem jest dodanie ciągu zapytania z parametrem Version do linku. Przykład:
+    >Przeglądarki zwykle buforują pliki CSS i mogą prowadzić do używanego starego pliku CSS, a zmiany zostały zignorowane. Dobrym sposobem jest dodanie ciągu zapytania z parametrem Version do linku. Na przykład:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
@@ -971,7 +971,7 @@ Rozważmy następujący wnioski z tego projektu:
 * Jest to naturalne dla niektórych wyników, które mają być uporządkowane w kolejności rosnącej (mówimy, odległość od punktu), a niektóre w kolejności malejącej (na przykład Ocena gościa).
 * Profile oceniania można definiować, gdy porównania liczbowe są niedostępne lub nie są wystarczająco inteligentne dla zestawu danych. Ocenianie każdego wyniku może ułatwić uporządkowanie i wyświetlanie wyników.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Ta seria samouczków języka C# została ukończona — należy uzyskać cenne informacje dotyczące interfejsów API Wyszukiwanie poznawcze platformy Azure.
 

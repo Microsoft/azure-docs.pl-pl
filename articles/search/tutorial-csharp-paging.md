@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3fb77c147db0883dc1dc61040f916bcec88237c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 3223bf3e2b413940fd99404453b7f958655e6fff
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420621"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998479"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Samouczek: Dodawanie stronicowania do wyników wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak zaimplementować dwa różne systemy stronicowania, pierwsze na podstawie numerów stron i drugi przy nieskończonym przewijaniu. Oba systemy stronicowania są szeroko używane i wybór jednego z nich zależy od środowiska użytkownika, które chcesz uzyskać w wyniku. W tym samouczku przedstawiono systemy stronicowania w projekcie utworzonym w [samouczku języka C#: Tworzenie pierwszej aplikacji — samouczek wyszukiwanie poznawcze platformy Azure](tutorial-csharp-create-first-app.md) .
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Poszerzanie aplikacji za pomocą numerowanego stronicowania
 > * Zwiększanie możliwości aplikacji dzięki nieskończonemu przewijaniu
@@ -597,7 +597,7 @@ Rozważmy następujący wnioski z tego projektu:
 * Magazyn tymczasowy utrzymuje tylko jedno wywołanie i musi zostać zresetowany w celu przechowania dodatkowych wywołań.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Stronicowanie jest podstawą wyszukiwania w Internecie. Przy użyciu dobrze stronicowania, następnym krokiem jest dalsze ulepszanie środowiska użytkownika przez dodanie wyszukiwania typu z wyprzedzeniem.
 

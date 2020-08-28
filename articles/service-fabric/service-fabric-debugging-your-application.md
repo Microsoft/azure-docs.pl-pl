@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77624136"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000111"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug your Service Fabric application by using Visual Studio (Debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio)
 > [!div class="op_single_selector"]
@@ -133,7 +134,7 @@ Istnieje również możliwość strumieniowego przesyłania śladów bezpośredn
    
     ![Wyłącz zdalne ślady przesyłania strumieniowego][disablestreamingtraces]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Przetestuj usługę Service Fabric](service-fabric-testability-overview.md).
 * [Zarządzaj aplikacjami Service Fabric w programie Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 

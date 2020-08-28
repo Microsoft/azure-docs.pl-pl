@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak konfigurować i inicjować operacj
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890335"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006299"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST
 
@@ -466,7 +466,7 @@ Cofanie usunięcia jest operacją *Put* , która jest bardzo podobna do [zmiany 
 
 Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano w [przypadku wyzwalania kopii zapasowej na żądanie](#example-responses-for-on-demand-backup). Zadanie wynikowe powinno być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Przywróć dane z kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 

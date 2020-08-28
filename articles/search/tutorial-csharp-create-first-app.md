@@ -8,18 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 4c96dfa078ec12e0681574629276c48af2c1760d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: adcd6aa2c232bf87dc82284acbe2815484660ca7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85261464"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998564"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak utworzyć interfejs sieci Web, aby wykonywać zapytania i przedstawić wyniki wyszukiwania w indeksie przy użyciu usługi Azure Wyszukiwanie poznawcze. Ten samouczek rozpoczyna się od istniejącego, hostowanego indeksu, dzięki czemu możesz skupić się na tworzeniu strony wyszukiwania. Indeks zawiera fikcyjne dane hotelu. Gdy masz stronę podstawową, możesz ją ulepszyć w kolejnych lekcjach w celu uwzględnienia stronicowania, aspektów i środowiska z wyprzedzeniem.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Konfigurowanie środowiska deweloperskiego
 > * Struktury danych modelu
@@ -547,7 +548,7 @@ Rozważmy następujący wnioski z tego projektu:
 * Wywołania asynchroniczne powodują dodanie niewielkiej złożoności do kontrolera, ale najlepszym rozwiązaniem jest, jeśli zamierzasz opracowywać aplikacje wysokiej jakości.
 * Ta aplikacja wykonała proste wyszukiwanie tekstowe zdefiniowane przez co to jest konfiguracja w **searchParameters**. Jednak tę jedną klasę można wypełnić wieloma elementami członkowskimi, które dodają złożoności do wyszukiwania. Aby ta aplikacja była znacznie bardziej wydajna, nie trzeba wykonywać wielu dodatkowych czynności.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby zapewnić najlepsze środowisko użytkownika przy użyciu usługi Azure Wyszukiwanie poznawcze, musimy dodać więcej funkcji, szczególnie stronicowanie (przy użyciu numerów stron lub nieskończoność przewijania) oraz Autouzupełnianie/sugestie. Należy również rozważyć bardziej zaawansowane parametry wyszukiwania (na przykład geograficzne wyszukiwanie w hotelach w określonym promieniu danego punktu i porządkowanie wyników wyszukiwania).
 

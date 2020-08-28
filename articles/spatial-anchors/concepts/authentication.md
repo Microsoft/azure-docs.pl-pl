@@ -8,12 +8,13 @@ ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456508"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997170"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
@@ -205,7 +206,7 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Gdzie nagłówek autoryzacji jest sformatowany w następujący sposób:`Bearer <Azure_AD_token>`
+Gdzie nagłówek autoryzacji jest sformatowany w następujący sposób: `Bearer <Azure_AD_token>`
 
 A odpowiedź zawiera token MR w postaci zwykłego tekstu.
 
@@ -259,7 +260,7 @@ Aby ułatwić kontrolę poziomu dostępu udzielonego aplikacjom, usługom lub u�
 - **Współautor konta kotwic przestrzenny**: aplikacje lub Użytkownicy, którzy mają tę rolę, mogą tworzyć kotwice przestrzenne, wysyłać do nich zapytania, ale nie mogą ich usuwać.
 - **Czytnik kont kotwic przestrzenny**: aplikacje lub Użytkownicy, którzy mają tę rolę, mogą wykonywać zapytania dotyczące kotwic przestrzennych, ale nie mogą tworzyć nowych, usuwać istniejących ani aktualizować metadanych w kotwicach przestrzennych. Jest to zwykle używane w przypadku aplikacji, w których niektórzy użytkownicy nadzorują środowisko, a inne mogą odwoływać kotwice wcześniej umieszczone w tym środowisku.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Utwórz swoją pierwszą aplikację z zakotwiczeniami przestrzennymi platformy Azure.
 

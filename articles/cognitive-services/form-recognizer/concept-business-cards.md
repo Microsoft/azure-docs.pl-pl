@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799285"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004905"
 ---
 # <a name="business-card-concepts"></a>Pojęcia dotyczące wizytówek
 
-Aparat rozpoznawania formularzy platformy Azure może analizować i wyodrębniać pary kluczowych wartości z kart służbowych przy użyciu jednego z wbudowanych modeli. Interfejs API wizytówki łączy zaawansowane funkcje optycznego rozpoznawania znaków (OCR) z naszą kartą biznesową, aby wyodrębnić informacje o kluczu z kart służbowych w języku angielskim. Wyodrębnia on osobiste informacje kontaktowe, nazwę firmy, stanowisko i nie tylko. Prebudowany interfejs API kart służbowych jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej. 
+Aparat rozpoznawania formularzy platformy Azure umożliwia analizowanie i wyodrębnianie informacji kontaktowych z kart służbowych przy użyciu jednego z wbudowanych modeli. Interfejs API wizytówki łączy zaawansowane funkcje optycznego rozpoznawania znaków (OCR) z naszą kartą biznesową, aby wyodrębnić informacje o kluczu z kart służbowych w języku angielskim. Wyodrębnia on osobiste informacje kontaktowe, nazwę firmy, stanowisko i nie tylko. Prebudowany interfejs API kart służbowych jest publicznie dostępny w postaci aparatu rozpoznawania w wersji zapoznawczej. 
 
 ## <a name="what-does-the-business-card-api-do"></a>Do czego służy interfejs API wizytówek?
 
@@ -27,10 +27,11 @@ Interfejs API karty biznesowej wyodrębnia pola kluczy z kart służbowych i zwr
 
 ![Obraz przedstawiający elementy contoso z FOTT + dane wyjściowe JSON](./media/business-card-english.jpg)
 
-### <a name="fields-extracted"></a>Wyodrębnione pola: 
+### <a name="fields-extracted"></a>Wyodrębnione pola:
+
 * Nazwy kontaktów 
-* Imię 
-* Nazwisko 
+  * Imiona
+  * Nazwiska
 * Nazwy firm 
 * Działy 
 * Tytuły zadań 
@@ -43,7 +44,7 @@ Interfejs API karty biznesowej wyodrębnia pola kluczy z kart służbowych i zwr
   * Telefony służbowe 
   * Inne telefony 
 
-Interfejs API wizytówek również zwraca wszystkie rozpoznane teksty z karty biznesowej. To dane wyjściowe OCR są zawarte w odpowiedzi JSON.  
+Interfejs API wizytówek może również zwrócić cały rozpoznany tekst z karty biznesowej. To dane wyjściowe OCR są zawarte w odpowiedzi JSON.  
 
 ### <a name="input-requirements"></a>Wymagania wejściowe 
 
@@ -51,7 +52,7 @@ Interfejs API wizytówek również zwraca wszystkie rozpoznane teksty z karty bi
 
 ## <a name="the-analyze-business-card-operation"></a>Operacja analizowania karty biznesowej
 
-[Karta analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) pobiera obraz lub plik PDF karty biznesowej jako dane wejściowe i wyodrębnia wartości zainteresowań i tekstu. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
+[Karta analizy biznesowej](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) pobiera obraz lub plik PDF karty biznesowej jako dane wejściowe i wyodrębnia interesujące wartości. Wywołanie zwraca pole nagłówka odpowiedzi o nazwie `Operation-Location` . `Operation-Location`Wartość jest adresem URL, który zawiera identyfikator wynik do użycia w następnym kroku.
 
 |Nagłówek odpowiedzi| Adres URL wyniku |
 |:-----|:----|
@@ -63,18 +64,15 @@ Drugim krokiem jest wywołanie operacji [Pobierz wyniki analizy karty biznesowej
 
 |Pole| Typ | Możliwe wartości |
 |:-----|:----:|:----|
-|status | ciąg | notStarted: operacja analizy nie została rozpoczęta. |
-| |  | Uruchamianie: operacja analizy jest w toku. |
-| |  | Niepowodzenie: operacja analizy zakończyła się niepowodzeniem. |
-| |  | powodzenie: operacja analizy zakończyła się pomyślnie. |
+|status | ciąg | notStarted: operacja analizy nie została rozpoczęta.<br /><br />Uruchamianie: operacja analizy jest w toku.<br /><br />Niepowodzenie: operacja analizy zakończyła się niepowodzeniem.<br /><br />powodzenie: operacja analizy zakończyła się pomyślnie.|
 
-Gdy wartość w polu **stan** zostanie **zakończona pomyślnie** , odpowiedź JSON będzie zawierać zrozumienie i wyniki rozpoznawania tekstu. Wynik zrozumienie karty biznesowej jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiadające im elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
+W przypadku wartości pola **stan** **zakończyła się pomyślnie** , odpowiedź JSON będzie zawierać informacje o zrozumieniu karty biznesowej i opcjonalnych wynikach rozpoznawania tekstu, jeśli jest to wymagane. Wynik zrozumienie karty biznesowej jest zorganizowany jako słownik nazwanych wartości pól, gdzie każda wartość zawiera wyodrębniony tekst, znormalizowana wartość, pole ograniczenia, pewność i odpowiadające im elementy programu Word. Wynik rozpoznawania tekstu jest zorganizowany jako hierarchia wierszy i słów, z tekstem, obwiednią i informacjami o ufności.
 
 ![Przykładowe dane wyjściowe karty biznesowej](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Przykładowe dane wyjściowe JSON
 
-Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults" zawiera wszystkie rozpoznane teksty. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. Węzeł "documentResults" zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne pary klucz/wartość, takie jak imię, nazwisko, nazwa firmy i inne.
+Zobacz następujący przykład pomyślnej odpowiedzi JSON: węzeł "readResults" zawiera wszystkie rozpoznane teksty. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. Węzeł "documentResults" zawiera wartości specyficzne dla karty biznesowej, które zostały odnalezione przez model. W tym miejscu znajdziesz przydatne informacje kontaktowe, takie jak imię i nazwisko, nazwisko, nazwa firmy itd.
 
 ```json
 {
@@ -389,10 +387,9 @@ Dane wyodrębnione za pomocą interfejsu API kart służbowych mogą służyć d
 
 Interfejs API kart służbowych zapewnia również [funkcję przetwarzania karty biznesowej AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Skorzystaj z przewodnika Szybki Start, aby rozpocząć pracę z [kartami biznesowymi interfejs API Python](./quickstarts/python-business-cards.md)
 - Dowiedz się więcej o [interfejsie API REST aparatu rozpoznawania formularzy](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Dowiedz się więcej o [aparacie rozpoznawania formularzy](overview.md)
-
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78939223"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008968"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementowanie przesyłania strumieniowego trybu failover z Media Services V2
 
@@ -752,11 +753,11 @@ W przykładzie w tym temacie przedstawiono wyczyszczenie przesyłania strumienio
 
 Aby uzyskać więcej informacji na temat ochrony zawartości, zobacz [Korzystanie z szyfrowania dynamicznego AES-128 i usługi dostarczania kluczy](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Monitorowanie powiadomień dotyczących zadań Media Services za pomocą elementów webhook platformy Azure](media-services-dotnet-check-job-progress-with-webhooks.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Za pomocą Menedżera ruchu można teraz kierować żądania między dwoma centrami danych, a tym samym przechodzić w tryb failover w przypadku awarii.
 

@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b957ea9131c5124925b74576fd78665522afd8dc
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: be18718513e8624db00d502228a3e5af6076d9d7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080236"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007081"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Samouczek: używanie tożsamości zarządzanej do łączenia Key Vault z aplikacją sieci Web platformy Azure przy użyciu platformy .NET
 
@@ -278,7 +279,7 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Dodaj te wiersze przed `app.UseEndpoints` wywołaniem, aktualizując identyfikator URI w celu odzwierciedlenia `vaultUri` Twojego magazynu kluczy. Poniższy kod używa [elementu "DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) do uwierzytelniania w magazynie kluczy, który używa tokenu z tożsamości zarządzanej przez aplikację do uwierzytelniania. Jest również używany wycofywania wykładniczy do ponawiania prób w przypadku ograniczania magazynu kluczy.
+Dodaj te wiersze przed `app.UseEndpoints` wywołaniem, aktualizując identyfikator URI w celu odzwierciedlenia `vaultUri` Twojego magazynu kluczy. Poniższy kod używa  [elementu "DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) do uwierzytelniania w magazynie kluczy, który używa tokenu z tożsamości zarządzanej przez aplikację do uwierzytelniania. Jest również używany wycofywania wykładniczy do ponawiania prób w przypadku ograniczania magazynu kluczy.
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
@@ -324,7 +325,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 Gdzie przed rozpoczęciem **Hello World**powinna zostać wyświetlona wartość wpisu tajnego: **sukces!**
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej o [tożsamościach zarządzanych dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md)
 - Dowiedz się więcej o [tożsamościach zarządzanych dla App Service](../../app-service/overview-managed-identity.md?tabs=dotnet)

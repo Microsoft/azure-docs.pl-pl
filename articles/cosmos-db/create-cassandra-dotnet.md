@@ -8,12 +8,13 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: e274db2983c476c2428fdd0d25f3dff9bbc5e6ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f17385307995d87f2d5792a7e9ce19ad0260cbcc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523880"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010248"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra przy użyciu zestawu .NET SDK i Azure Cosmos DB
 
@@ -173,7 +174,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia kontenera za pomocą Eksploratora danych i uruchamiania aplikacji internetowej. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Cosmos DB. 
 

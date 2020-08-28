@@ -3,13 +3,13 @@ title: Odbieraj zdarzenia z Azure Event Grid do punktu końcowego HTTP
 description: Opisuje, jak sprawdzać poprawność punktu końcowego HTTP, a następnie odbierać i deserializować zdarzenia z Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 3e79d292dfcbed9f572c88e913bc76d47e6ee37f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9e89c6920c76914ccab6298b1404b0cae698b532
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415112"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006078"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Odbieranie zdarzeń w punkcie końcowym HTTP
 
@@ -360,9 +360,9 @@ Na koniec sprawdź, czy funkcja może teraz obsłużyć niestandardowy typ zdarz
 }]
 ```
 
-Możesz również przetestować tę funkcję na żywo, [wysyłając niestandardowe zdarzenie z zwinięciem z portalu](./custom-event-quickstart-portal.md) lub [ogłaszając w temacie niestandardowym](./post-to-custom-topic.md) przy użyciu dowolnej usługi lub aplikacji, która może publikować w punkcie końcowym [, takim jak program](https://www.getpostman.com/). Utwórz temat niestandardowy i subskrypcję zdarzeń z punktem końcowym ustawionym jako adres URL funkcji.
+Możesz również przetestować tę funkcję na żywo, [wysyłając niestandardowe zdarzenie z zwinięciem z portalu](./custom-event-quickstart-portal.md) lub [ogłaszając w temacie niestandardowym](./post-to-custom-topic.md)  przy użyciu dowolnej usługi lub aplikacji, która może publikować w punkcie końcowym [, takim jak program](https://www.getpostman.com/). Utwórz temat niestandardowy i subskrypcję zdarzeń z punktem końcowym ustawionym jako adres URL funkcji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Eksplorowanie [Azure Event Grid zarządzania i publikowania zestawów SDK](./sdk-overview.md)
 * Dowiedz się, jak [publikować w temacie niestandardowym](./post-to-custom-topic.md)

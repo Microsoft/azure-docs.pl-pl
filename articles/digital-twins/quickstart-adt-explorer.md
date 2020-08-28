@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: c3230294fd9d5761433b4507ff054bcaae7a11ad
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 6b0a024dde1c96610a637ec51fd29e4a23dadc53
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959817"
+ms.locfileid: "89008560"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -98,7 +98,7 @@ Naciśnij przycisk *Zaloguj* w górnej części okna, aby skonfigurować Eksplor
 Wprowadź ważne informacje zebrane wcześniej w sekcji [wymagania wstępne](#prerequisites) :
 * Identyfikator aplikacji (klienta)
 * Identyfikator katalogu (dzierżawcy)
-* ADT adres URL w formacie *https:// <instance host name> *
+* ADT adres URL w formacie *https://{Nazwa hosta wystąpienia}*
 
 >[!NOTE]
 > Możesz odwiedzać/edytować te informacje w dowolnym momencie, wybierając tę samą ikonę, aby ponownie pobrać pole logowania. Dane zostaną zachowane.

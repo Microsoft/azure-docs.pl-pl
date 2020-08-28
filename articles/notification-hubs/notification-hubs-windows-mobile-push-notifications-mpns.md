@@ -13,17 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: fcf8eb8cd110fab4f1fc85a317f1dd491d21c091
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e91d250b8cc9b80f2c97910c7fa972af32fa9104
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529951"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998343"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji Windows Phone przy użyciu Notification Hubs
 
@@ -36,7 +36,7 @@ Korzystając z tego samouczka, utworzysz pustą aplikację dla systemu Windows P
 > [!NOTE]
 > Zestaw SDK usługi Notification Hubs dla systemu Windows Phone nie obsługuje używania usługi WNS (Windows Push Notification Service) z aplikacjami platformy Silverlight dla systemu Windows Phone 8.1. Aby używać usługi WNS (zamiast usługi MPNS) z aplikacjami platformy Silverlight dla systemu Windows Phone 8.1, postępuj zgodnie z instrukcjami w [samouczku dotyczącym usługi Notification Hubs dla aplikacji platformy Silverlight dla systemu Windows Phone], w którym zastosowano interfejsy API REST.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie centrum powiadomień
@@ -152,7 +152,7 @@ W tej sekcji utworzysz aplikację systemu Windows Phone, która będzie rejestro
 
     ![Powiadomienie w systemie Windows Phone](./media/notification-hubs-windows-phone-get-started/notification-on-windows-phone.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym prostym przykładzie wysłano powiadomienia wypychane do wszystkich urządzeń z systemem Windows Phone 8. Aby dowiedzieć się, jak wysyłać powiadomienia push do konkretnych urządzeń, przejdź do następującego samouczka:
 

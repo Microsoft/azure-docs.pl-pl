@@ -8,12 +8,13 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75750496"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008407"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista kontrolna wydajności i skalowalności usługi queue storage
 
@@ -37,10 +38,10 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 | &nbsp; |Konfiguracja platformy .NET |[Czy skonfigurowano klienta tak, aby używał wystarczającej liczby jednoczesnych połączeń?](#increase-default-connection-limit) |
 | &nbsp; |Konfiguracja platformy .NET |[Czy w przypadku aplikacji .NET skonfigurowano platformę .NET do używania wystarczającej liczby wątków?](#increase-minimum-number-of-threads) |
 | &nbsp; |Równoległości |[Czy istnieje pewność, że równoległość jest odpowiednio ograniczona, aby nie można było przeciążać możliwości klienta ani podejścia do celów skalowalności?](#unbounded-parallelism) |
-| &nbsp; |Narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
+| &nbsp; |narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Ponowne próby |[Czy zasady ponawiania są używane z wykładniczą wycofywaniaą do ograniczania błędów i przekroczeń limitu czasu?](#timeout-and-server-busy-errors) |
 | &nbsp; |Ponowne próby |[Czy aplikacja unika ponawiania prób w przypadku błędów, które nie są ponawiane?](#non-retryable-errors) |
-| &nbsp; |Konfiguracja |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
+| &nbsp; |Konfigurowanie |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
 | &nbsp; |Rozmiar komunikatu |[Czy komunikaty są kompaktowe, aby zwiększyć wydajność kolejki?](#message-size) |
 | &nbsp; |Pobieranie zbiorcze |[Czy pobierasz wiele komunikatów w ramach jednej operacji GET?](#batch-retrieval) |
 | &nbsp; |Częstotliwość sondowania |[Czy trwa sondowanie na tyle często, aby zmniejszyć postrzegane opóźnienie aplikacji?](#queue-polling-interval) |
@@ -192,7 +193,7 @@ Użyj kolejek, aby zapewnić skalowalność architektury aplikacji. Poniżej wym
 - Za pomocą kolejek można tworzyć zaległości służbowe do przetwarzania i wygładzania obciążeń w aplikacji. Na przykład można kolejkować żądania od użytkowników w celu wykonywania dużej ilości pracy procesora, takich jak zmienianie rozmiarów przekazanych obrazów.
 - Za pomocą kolejek można rozdzielić części aplikacji, aby umożliwić ich niezależne skalowanie. Na przykład fronton sieci Web może umieścić wyniki ankiety od użytkowników w kolejce na potrzeby późniejszej analizy i magazynu. Można dodać więcej wystąpień roli procesu roboczego, aby przetworzyć dane kolejki zgodnie z wymaganiami.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Elementy docelowe skalowalności i wydajności dla usługi queue storage](scalability-targets.md)
 - [Cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)

@@ -3,12 +3,13 @@ title: Uwierzytelnianie tożsamości zarządzanej przy użyciu Azure Active Dire
 description: Ten artykuł zawiera informacje dotyczące uwierzytelniania tożsamości zarządzanej przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c74e49eff8233d9918fcdb55e6fa2ad8d7517f6f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079145"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010022"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
 Usługa Azure Event Hubs obsługuje uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). Zarządzane tożsamości dla zasobów platformy Azure mogą autoryzować dostęp do zasobów Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych na platformie Azure Virtual Machines (maszyny wirtualne), aplikacji funkcji, Virtual Machine Scale Sets i innych usług. Korzystając z tożsamości zarządzanych dla zasobów platformy Azure wraz z uwierzytelnianiem w usłudze Azure AD, można uniknąć zapisywania poświadczeń z aplikacjami uruchomionymi w chmurze.
@@ -148,7 +149,7 @@ Za pomocą aplikacji Apache Kafka można wysyłać wiadomości i odbierać komun
 - [Event Hubs Kafka — wysyłanie i odbieranie komunikatów przy użyciu tożsamości zarządzanej OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Zapoznaj się z następującym artykułem, aby dowiedzieć się więcej o zarządzanych tożsamościach dla zasobów platformy Azure: [jakie są zarządzane tożsamości dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 - Zapoznaj się z następującymi artykułami:
     - [Uwierzytelniaj żądania do Event Hubs platformy Azure z aplikacji przy użyciu Azure Active Directory](authenticate-application.md)

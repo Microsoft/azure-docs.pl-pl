@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a7a7a6681be78c2777130ca540319eb829d8f9d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 257656a29733972672570648d4317b7847fedff1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002354"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997680"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Używanie Log Analytics dla funkcji diagnostyki na pulpicie wirtualnym systemu Windows (klasyczny)
 
@@ -34,7 +34,7 @@ Zalecamy używanie Log Analytics do analizowania danych diagnostycznych w klienc
 
 Aby można było używać Log Analytics z funkcją diagnostyki, należy [utworzyć obszar roboczy](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) uzyskać następujące informacje:
+Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) uzyskać następujące informacje:
 
 - Identyfikator obszaru roboczego
 - Klucz podstawowy obszaru roboczego
@@ -132,6 +132,6 @@ Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnaly
 
 Należy uruchomić to polecenie cmdlet dla każdej dzierżawy, z której ma zostać zatrzymane wysyłanie danych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby zapoznać się z typowymi scenariuszami błędów, które mogą identyfikować funkcja diagnostyki, zobacz [Identyfikowanie i diagnozowanie problemów](diagnostics-role-service-2019.md#common-error-scenarios).

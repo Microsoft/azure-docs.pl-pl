@@ -4,12 +4,12 @@ description: Rozwiązywanie problemów z instalacją, rejestracją Azure Backup 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 70431ee42566d1cbba5ed239b9da55c2ff7a2afe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893021"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999227"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Rozwiązywanie problemów ze składnikiem Azure Backup Server
 
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operacja | Szczegóły błędu | Obejście |
 | --- | --- | --- |
-| Przywracanie | **Kod błędu**: błąd CBPServerRegisteredVaultDontMatchWithCurrent/poświadczeń magazynu: 100110 <br/> <br/>**Komunikat o błędzie**: oryginalne i zewnętrzne serwery DPM muszą być zarejestrowane w tym samym magazynie | **Przyczyna**: ten problem występuje, gdy próbujesz przywrócić pliki na alternatywny serwer z oryginalnego serwera przy użyciu opcji odzyskiwania zewnętrznego programu DPM i jeśli przywracany serwer i oryginalny serwer, z którego są tworzone kopie zapasowe, nie są skojarzone z tym samym magazynem Recovery Services.<br/> <br/>**Obejście problemu** Aby rozwiązać ten problem, upewnij się, że oryginalny i alternatywny serwer jest zarejestrowany w tym samym magazynie.|
+| Przywracanie | **Kod błędu**: błąd CBPServerRegisteredVaultDontMatchWithCurrent/poświadczeń magazynu: 100110 <br/> <br/>**Komunikat o błędzie**: oryginalne i zewnętrzne serwery DPM muszą być zarejestrowane w tym samym magazynie | **Przyczyna**: ten problem występuje, gdy próbujesz przywrócić pliki na alternatywny serwer z oryginalnego serwera przy użyciu opcji odzyskiwania zewnętrznego programu DPM, a serwer, który jest odzyskiwany, oraz oryginalny serwer, z którego są tworzone kopie zapasowe danych, nie są skojarzone z tym samym magazynem Recovery Services.<br/> <br/>**Obejście problemu** Aby rozwiązać ten problem, upewnij się, że zarówno oryginalny, jak i alternatywny serwer są zarejestrowani do tego samego magazynu.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Zadania tworzenia punktu odzyskiwania w trybie online dla maszyny wirtualnej VMware kończą się niepowodzeniem
 

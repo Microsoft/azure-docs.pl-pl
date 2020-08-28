@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 1b6b5af2e6533c13165ae8253813a52b2c7ad261
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: f870f90ede4465bf9ebf5c886e1ebb7aa76acaaa
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756966"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997901"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
 
@@ -28,14 +28,14 @@ W tym artykule przedstawiono, jak:
 - Użyj `Dataset` obiektów dla wstępnie istniejących danych
 - Dostęp do danych w ramach kroków
 - Podziel `Dataset` dane na podzbiory, takie jak szkolenia i podzbiory walidacji
-- Tworzenie `OutputFileDatasetConfig` obiektów do przeniesienia danych do następnego kroku potoku
-- Użyj `OutputFileDatasetConfig` obiektów jako danych wejściowych dla kroków potoku
-- Utwórz nowe `Dataset` obiekty `OutputFileDatasetConfig` , które chcesz zachować
+- Tworzenie `PipelineData` obiektów do przeniesienia danych do następnego kroku potoku
+- Użyj `PipelineData` obiektów jako danych wejściowych dla kroków potoku
+- Utwórz nowe `Dataset` obiekty `PipelineData` , które chcesz zachować
 
-> [!NOTE]
->`OutputFileDatasetConfig`Klasy i `OutputTabularDatasetConfig` to eksperymentalne funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie.
->
->Aby uzyskać więcej informacji, zobacz https://aka.ms/azuremlexperimental.
+> [!TIP]
+> Udoskonalone środowisko przekazywania danych tymczasowych między etapami potoku i utrwalanie danych po uruchomieniu potoków jest dostępne w publicznych klasach wersji zapoznawczych  `OutputFileDatasetConfig` i `OutputTabularDatasetConfig` .  Te klasy to eksperymentalne funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie.
+> 
+>Aby uzyskać więcej informacji na temat funkcji eksperymentalnych, zobacz https://aka.ms/azuremlexperimental .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -151,68 +151,67 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
-## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Użyj `OutputFileDatasetConfig` dla danych pośrednich
+## <a name="use-pipelinedata-for-intermediate-data"></a>Użyj `PipelineData` dla danych pośrednich
 
-Gdy `Dataset` obiekty reprezentują tylko trwałe dane, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) można używać obiektów do tymczasowego wyprowadzania danych z kroków potoku **i** trwałych danych wyjściowych. 
-
- `OutputFileDatasetConfig` domyślne zachowanie obiektu to zapis w domyślnym magazynie danych obszaru roboczego. Przekaż swoje `OutputFileDatasetConfig` obiekty do `PythonScriptStep` `arguments` parametru.
+Gdy `Dataset` obiekty reprezentują dane trwałe, obiekty [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) są używane dla danych tymczasowych, które są wyprowadzane z kroków potoku. Ponieważ cykl życia `PipelineData` obiektu jest dłuższy niż pojedynczy krok potoku, można je zdefiniować w skrypcie definicji potoku. Podczas tworzenia `PipelineData` obiektu należy podać nazwę i magazyn danych, w których będą znajdować się dane. Przekaż swoje `PipelineData` obiekty do `PythonScriptStep` _obu_ `arguments` `outputs` argumentów i:
 
 ```python
-from azureml.data import OutputFileDatasetConfig
-dataprep_output = OutputFileDatasetConfig()
-input_dataset = Dataset.get_by_name(workspace, 'raw_data')
+
+default_datastore = workspace.get_default_datastore()
+dataprep_output = PipelineData("clean_data", datastore=default_datastore)
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
     compute_target=cluster,
-    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
-    )
+    arguments=["--output-path", dataprep_output]
+    inputs=[Dataset.get_by_name(workspace, 'raw_data')],
+    outputs=[dataprep_output]
+)
+
 ```
 
-Po `OutputFileDatasetConfig` zakończeniu przebiegu można przekazać zawartość obiektu. W takim przypadku należy użyć `as_upload()` funkcji wraz z `OutputFileDatasetConfig` obiektem i określić, czy zastąpić istniejące pliki w miejscu docelowym. 
+Można utworzyć `PipelineData` Obiekt przy użyciu trybu dostępu, który zapewnia natychmiastowe przekazywanie. W takim przypadku podczas tworzenia `PipelineData` należy ustawić `upload_mode` do `"upload"` i użyć `output_path_on_compute` argumentu, aby określić ścieżkę, do której będą zapisywane dane:
 
 ```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(overwrite=False)
+PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
 ```
 
-### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>Użyj `OutputFileDatasetConfig` jako wyjścia kroku szkoleniowego
+> [!TIP]
+> Udoskonalone środowisko przekazywania pośrednich danych między etapami potoku jest dostępne z publiczną klasą zapoznawczą `OutputFileDatasetConfig` . Dowiedz się więcej o `OutputFileDatasetConfig` wzorcach i metodach projektowania w [dokumentacji referencyjnej dotyczącej zestawu SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
 
-W ramach potoku `PythonScriptStep` można pobrać dostępne ścieżki wyjściowe przy użyciu argumentów programu. Jeśli ten krok jest pierwszy i spowoduje zainicjowanie danych wyjściowych, należy utworzyć katalog w określonej ścieżce. Następnie można napisać wszystkie pliki, które mają być zawarte w `OutputFileDatasetConfig` .
+### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>Użyj `PipelineData` jako wyjścia kroku szkoleniowego
+W ramach potoku `PythonScriptStep` można pobrać dostępne ścieżki wyjściowe przy użyciu argumentów programu. Jeśli ten krok jest pierwszy i spowoduje zainicjowanie danych wyjściowych, należy utworzyć katalog w określonej ścieżce. Następnie można napisać wszystkie pliki, które mają być zawarte w `PipelineData` .
 
 ```python
 parser = argparse.ArgumentParser()
 parser.add_argument('--output_path', dest='output_path', required=True)
 args = parser.parse_args()
-
 # Make directory for file
 os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
 with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-### <a name="read-outputfiledatasetconfig-as-inputs-to-non-initial-steps"></a>Odczytaj `OutputFileDatasetConfig` jako dane wejściowe do kroków niepoczątkowych
+Jeśli został utworzony `PipelineData` z `is_directory` argumentem ustawionym na `True` , wystarczy wykonać `os.makedirs()` wywołanie, a następnie będzie można napisać dowolne pliki do ścieżki. Aby uzyskać więcej informacji, zobacz dokumentację referencyjną [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) .
 
-Po przepisaniu przez początkowy krok potoku danych do `OutputFileDatasetConfig` ścieżki i stanie się on wyjściem tego kroku, można go użyć jako danych wejściowych w późniejszym kroku. 
 
-W poniższym kodzie, 
+### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>Odczytaj `PipelineData` jako dane wejściowe do kroków niepoczątkowych
 
-* `step1_output_data` wskazuje, że dane wyjściowe PythonScriptStep `step1` są zapisywane w magazynie danych ADLS generacji 2 `my_adlsgen2` w trybie dostępu do przekazywania. Dowiedz się więcej na temat sposobu [konfigurowania uprawnień roli](how-to-access-data.md#azure-data-lake-storage-generation-2) w celu zapisywania danych z powrotem do magazynu ADLS generacji 2. 
-
-* Po `step1` zakończeniu i dane wyjściowe są zapisywane w miejscu docelowym wskazywanym przez `step1_output_data` , a następnie step2 jest gotowy do użycia `step1_output_data` jako dane wejściowe. 
+Po przepisaniu przez początkowy krok potoku danych do `PipelineData` ścieżki i stanie się on wyjściem tego kroku, można go użyć jako danych wejściowych w późniejszym kroku:
 
 ```python
+step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
 # get adls gen 2 datastore already registered with the workspace
 datastore = workspace.datastores['my_adlsgen2']
-step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=datastore).as_upload()
 
 step1 = PythonScriptStep(
     name="generate_data",
     script_name="step1.py",
     runconfig = aml_run_config,
-    arguments = ["--output_path", step1_output_data]
+    arguments = ["--output_path", step1_output_data],
+    inputs=[],
+    outputs=[step1_output_data]
 )
 
 step2 = PythonScriptStep(
@@ -220,23 +219,40 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
-
+    arguments = ["--pd", step1_output_data],
+    inputs=[step1_output_data]
 )
-
 pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
-## <a name="register-outputfiledatasetconfig-objects-for-reuse"></a>Rejestrowanie `OutputFileDatasetConfig` obiektów do ponownego użycia
+Wartość `PipelineData` wejściowa jest ścieżką do poprzednich danych wyjściowych. 
 
-Jeśli chcesz, aby były `OutputFileDatasetConfig` dostępne dłużej niż w czasie trwania eksperymentu, zarejestruj je w obszarze roboczym, aby udostępniać i ponownie używać w ramach eksperymentów.
+> [!TIP]
+> Udoskonalone środowisko przekazywania pośrednich danych między etapami potoku jest dostępne z publiczną klasą zapoznawczą `OutputFileDatasetConfig` . Dowiedz się więcej o `OutputFileDatasetConfig` wzorcach i metodach projektowania w [dokumentacji referencyjnej dotyczącej zestawu SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+
+Jeśli tak, jak pokazano wcześniej, pierwszy krok został napisany pojedynczym plikiem, a jego używanie może wyglądać następująco: 
 
 ```python
-step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
-                                                         description = 'files from step1`)
+parser = argparse.ArgumentParser()
+parser.add_argument('--pd', dest='pd', required=True)
+args = parser.parse_args()
+with open(args.pd) as f:
+    print(f.read())
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="convert-pipelinedata-objects-to-datasets"></a>Konwertuj `PipelineData` obiekty na `Dataset` s
+
+Jeśli chcesz, aby były `PipelineData` dostępne dłużej niż czas trwania przebiegu, użyj `as_dataset()` funkcji, aby przekonwertować ją na `Dataset` . Następnie możesz zarejestrować się `Dataset` , tworząc jako obywatela pierwszej klasy w Twoim obszarze roboczym. Ponieważ `PipelineData` obiekt będzie miał inną ścieżkę przy każdym uruchomieniu potoku, zdecydowanie zaleca się, `create_new_version` Aby `True` podczas rejestrowania `Dataset` utworzonego na podstawie `PipelineData` obiektu był ustawiony na wartość.
+
+```python
+step1_output_ds = step1_output_data.as_dataset()
+step1_output_ds.register(name="processed_data", create_new_version=True)
+
+```
+> [!TIP]
+> Udoskonalone środowisko utrwalania danych pośrednich poza uruchomionymi potokami jest dostępne z klasą publicznej wersji zapoznawczej `OutputFileDatasetConfig` . Dowiedz się więcej o `OutputFileDatasetConfig` wzorcach i metodach projektowania w [dokumentacji referencyjnej dotyczącej zestawu SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tworzenie zestawu danych usługi Azure Machine Learning](how-to-create-register-datasets.md)
 * [Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning](how-to-create-your-first-pipeline.md)

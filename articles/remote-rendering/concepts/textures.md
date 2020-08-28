@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b87557b6d884068d3fb85978e8d238fc7f1047ea
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 20c2951b601690beb9ec64040cf650bb5208d0e4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891525"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997714"
 ---
 # <a name="textures"></a>Tekstury
 
@@ -87,7 +88,7 @@ W zależności od tego, co ma być używane dla tekstury, mogą istnieć ogranic
 > [!CAUTION]
 > Wszystkie funkcje *asynchroniczne* w asynchronicznych obiektach operacji Return. Odwołanie do tych obiektów należy przechowywać do momentu ukończenia operacji. W przeciwnym razie Moduł wyrzucania elementów bezużytecznych języka C# może usunąć operację wczesną i nigdy nie zakończy się. W przykładowym kodzie powyżej zmiennej składowej "_textureLoad" jest używany do przechowywania odwołania do momentu *zakończenia ukończenia* zdarzenia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Materiały](materials.md)
 * [Błękitny](../overview/features/sky.md)

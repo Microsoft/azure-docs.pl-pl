@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 8b9f0e824352126204c7a6f1cfe08d3e7c6c29a9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 39cbfebcf34ef47ae93972a11be44ef3bcec0d66
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826062"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008951"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indeksowanie plików multimedialnych za pomocą Azure Media Indexer
 
@@ -240,7 +241,7 @@ Jeśli nie wszystkie pliki multimediów wejściowych są indeksowane pomyślnie,
 
 Generowane są te same dane wyjściowe (zgodnie z zakończonymi pomyślnie zadaniami). Można odwołać się do pliku manifestu wyjściowego, aby dowiedzieć się, które pliki wejściowe nie powiodły się, zgodnie z wartościami kolumny błędu. W przypadku plików wejściowych, które nie powiodły się, powstałe pliki TTML, WebVTT i Keywords nie będą generowane.
 
-### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a>Ustawienia wstępne zadania dla Azure Media Indexer
+### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Ustawienia wstępne zadania dla Azure Media Indexer
 Przetwarzanie z Azure Media Indexer może być dostosowane przez udostępnienie opcjonalnego ustawienia wstępnego zadania obok zadania.  Poniżej opisano Format tego pliku XML konfiguracji.
 
 | Nazwa | Wymagane | Opis |
@@ -263,7 +264,7 @@ W przypadku błędu, Azure Media Indexer powinien zgłosić jeden z następując
 | 2006 |Zbyt wiele plików wejściowych |Manifest wejściowy zawiera więcej niż 10 plików. |
 | 3000 |Dekodowanie pliku nośnika nie powiodło się |Nieobsługiwany koder-dekoder multimediów <br/>lub<br/> Uszkodzony plik multimedialny <br/>lub<br/> Brak strumienia audio w nośniku wejściowym. |
 | 4000 |Indeksowanie wsadowe częściowo powiodło się |Nie można indeksować niektórych plików multimediów wejściowych. Aby uzyskać więcej informacji, zobacz <a href="#output_files">pliki wyjściowe</a>. |
-| inne |Błędy wewnętrzne |Skontaktuj się z zespołem pomocy technicznej. indexer@microsoft.com |
+| other |Błędy wewnętrzne |Skontaktuj się z zespołem pomocy technicznej. indexer@microsoft.com |
 
 ## <a name="supported-languages"></a><a id="supported_languages"></a>Obsługiwane języki
 Obecnie obsługiwane są języki w języku angielskim i hiszpańskim.  
@@ -271,7 +272,7 @@ Obecnie obsługiwane są języki w języku angielskim i hiszpańskim.
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Linki pokrewne

@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654892"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008883"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Skonfiguruj klucze zarządzane przez klienta dla konta Azure Batch przy użyciu tożsamości Azure Key Vault i zarządzanej
 
@@ -149,6 +149,6 @@ az batch account set \
   * **Jak mogę obrócić moje klucze?** Klucze zarządzane przez klienta nie są automatycznie obracane. Aby obrócić klucz, zaktualizuj identyfikator klucza, z którym jest skojarzone konto.
   * **Czy po przywróceniu dostępu przez program do czasu ponownego działania konta usługi Batch?** Ponowne udostępnienie konta po przywróceniu dostępu może potrwać do 10 minut.
   * **Czy konto usługa Batch jest niedostępna, co się dzieje z zasobami?** Wszystkie pule uruchomione w przypadku utraty dostępu do kluczy zarządzanych przez klienta będą nadal działać. Jednak węzły przechodzą w stan niedostępności, a zadania przestaną działać (i będą ponownie kolejkowane). Po przywróceniu dostępu węzły staną się znów dostępne i zadania zostaną ponownie uruchomione.
-  * **Czy ten mechanizm szyfrowania ma zastosowanie do dysków maszyn wirtualnych w puli wsadowej?** Nie. W przypadku pul konfiguracji usługi w chmurze nie jest stosowane szyfrowanie dla systemu operacyjnego i dysku tymczasowego. W przypadku pul konfiguracji maszyny wirtualnej system operacyjny i wszystkie określone dyski danych zostaną domyślnie zaszyfrowane za pomocą klucza zarządzanego platformy firmy Microsoft. Obecnie nie można określić własnego klucza dla tych dysków. Aby zaszyfrować tymczasowy dysk maszyn wirtualnych dla puli usługi Batch przy użyciu klucza zarządzanego przez platformę Microsoft, należy włączyć właściwość [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) w puli [konfiguracji maszyny wirtualnej](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . W przypadku środowisk o wysokim poziomie dostępności zalecamy włączenie tymczasowego szyfrowania dysków i uniknięcie przechowywania poufnych danych na dyskach systemu operacyjnego i danych.
+  * **Czy ten mechanizm szyfrowania ma zastosowanie do dysków maszyn wirtualnych w puli wsadowej?** Nie. W przypadku pul konfiguracji usługi w chmurze nie jest stosowane szyfrowanie dla systemu operacyjnego i dysku tymczasowego. W przypadku pul konfiguracji maszyny wirtualnej system operacyjny i wszystkie określone dyski danych zostaną domyślnie zaszyfrowane za pomocą klucza zarządzanego platformy firmy Microsoft. Obecnie nie można określić własnego klucza dla tych dysków. Aby zaszyfrować tymczasowy dysk maszyn wirtualnych dla puli usługi Batch przy użyciu klucza zarządzanego przez platformę Microsoft, należy włączyć właściwość [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) w puli [konfiguracji maszyny wirtualnej](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . W przypadku środowisk o wysokim poziomie dostępności zalecamy włączenie tymczasowego szyfrowania dysków i uniknięcie przechowywania poufnych danych na dyskach systemu operacyjnego i danych. Aby uzyskać więcej informacji, zobacz [Tworzenie puli z włączonym szyfrowaniem dysku](./disk-encryption.md)
   * **Czy tożsamość zarządzana przypisana przez system na koncie w usłudze Batch jest dostępna w węzłach obliczeniowych?** Nie. Ta tożsamość zarządzana jest obecnie używana tylko do uzyskiwania dostępu do Azure Key Vault dla klucza zarządzanego przez klienta.
   

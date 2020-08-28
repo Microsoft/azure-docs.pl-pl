@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 029c2ffa548c8c99030f630a90eb07ac8ba063a0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997272"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurowanie czasu wygaśnięcia w usłudze Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Aby utworzyć lub włączyć czas wygaśnięcia dla kontenera, zobacz.
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Włączanie czasu wygaśnięcia dla kontenera za pomocą zestawu SDK
 
-### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a> ZESTAW SDK PLATFORMY .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -83,7 +83,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a>Zestaw Java SDK
+### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a> Zestaw Java SDK
 
 # <a name="java-sdk-v4"></a>[Zestaw Java SDK v4](#tab/javav4)
 
@@ -116,7 +116,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 Aby ustawić czas wygaśnięcia dla kontenera, należy podać niezerową liczbę dodatnią, określającą czas w sekundach. Na podstawie skonfigurowanej wartości TTL wszystkie elementy w kontenerze zostaną usunięte po upływie wskazanego czasu od wartości znacznika czasu ostatniej modyfikacji `_ts`.
 
-### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> ZESTAW SDK PLATFORMY .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -149,7 +149,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a>Zestaw Java SDK
+### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a> Zestaw Java SDK
 
 # <a name="java-sdk-v4"></a>[Zestaw Java SDK v4](#tab/javav4)
 
@@ -269,7 +269,7 @@ const itemDefinition = {
         };
 ```
 
-### <a name="java-sdk"></a><a id="java-set-ttl-item"></a>Zestaw Java SDK
+### <a name="java-sdk"></a><a id="java-set-ttl-item"></a> Zestaw Java SDK
 
 # <a name="java-sdk-v4"></a>[Zestaw Java SDK v4](#tab/javav4)
 
@@ -350,7 +350,7 @@ SalesOrder salesOrder = new SalesOrder(
 
 Możesz zresetować czas wygaśnięcia elementu, wykonując operację zapisu lub aktualizacji na elemencie. Operacja zapisu lub aktualizacji spowoduje ustawienie znacznika czasu `_ts` na bieżący czas, od którego ponownie rozpocznie się odliczanie czasu wygaśnięcia elementu. Jeśli chcesz zmienić czas wygaśnięcia elementu, możesz zaktualizować pole TTL tak samo jak każde inne pole.
 
-### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a> ZESTAW SDK PLATFORMY .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -382,7 +382,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a>Zestaw Java SDK
+### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a> Zestaw Java SDK
 
 # <a name="java-sdk-v4"></a>[Zestaw Java SDK v4](#tab/javav4)
 
@@ -424,7 +424,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Jeśli ustawiono czas wygaśnięcia elementu, ale nie chcesz, aby ten element wygasał, możesz pobrać go, usunąć pole TTL i ponownie umieścić element na serwerze. Po usunięciu pola TTL z elementu stosowana jest do niego domyślna wartość czasu wygaśnięcia przypisana do kontenera. Ustaw wartość TTL na –1, aby element nie dziedziczył wartości czasu wygaśnięcia z kontenera i nie wygasał.
 
-### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a> ZESTAW SDK PLATFORMY .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -457,7 +457,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a>Zestaw Java SDK
+### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a> Zestaw Java SDK
 
 # <a name="java-sdk-v4"></a>[Zestaw Java SDK v4](#tab/javav4)
 
@@ -499,7 +499,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Aby wyłączyć czas wygaśnięcia dla kontenera i zatrzymać proces w tle sprawdzający, czy elementy wygasły, należy usunąć właściwość `DefaultTimeToLive` z kontenera. Usunięcie tej właściwości ma inne skutki niż ustawienie jej na –1. Jeśli wartość właściwości zostanie ustawiona na –1, nowe elementy dodawane do kontenera nie będą wygasały, ale można będzie zastąpić tę wartość w przypadku wybranych elementów w kontenerze. Po usunięciu właściwości TTL z kontenera elementy będą nigdy nie wygasną, nawet jeśli istnieją jawnie zastąpione poprzednią domyślną wartością czasu wygaśnięcia.
 
-### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a>ZESTAW SDK PLATFORMY .NET
+### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a> ZESTAW SDK PLATFORMY .NET
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -526,7 +526,7 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a>Zestaw Java SDK
+### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a> Zestaw Java SDK
 
 # <a name="java-sdk-v4"></a>[Zestaw Java SDK v4](#tab/javav4)
 
@@ -556,7 +556,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 ```
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat czasu wygaśnięcia, zobacz artykuł:
 

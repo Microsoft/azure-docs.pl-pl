@@ -3,7 +3,7 @@ title: Zarządzanie tożsamościami zarządzanymi przez użytkownika przy użyci
 description: Instrukcje krok po kroku dotyczące sposobu tworzenia, wyświetlania i usuwania tożsamości zarządzanej przypisanej przez użytkownika w celu wykonania wywołań interfejsu API REST.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c342359b015085804b127ef8c58aca8a4b13dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da142b9ee97d45b5f798e1b7db31228613cd37f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608470"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014292"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu wywołań interfejsu API REST
 
@@ -63,7 +63,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 |Nagłówek żądania  |Opis  |
 |---------|---------|
 |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-|*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
+|*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
 
 **Treść żądania**
 
@@ -86,7 +86,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 |Nagłówek żądania  |Opis  |
 |---------|---------|
 |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-|*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
+|*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Usuwanie tożsamości zarządzanej przypisanej przez użytkownika
 
@@ -106,8 +106,8 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 |Nagłówek żądania  |Opis  |
 |---------|---------|
 |*Typ zawartości*     | Wymagany. Ustaw wartość `application/json`.        |
-|*Zgody*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
+|*Autoryzacja*     | Wymagany. Ustaw prawidłowy `Bearer` token dostępu.        |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać informacje na temat sposobu przypisywania tożsamości zarządzanej przypisanej przez użytkownika do maszyny wirtualnej platformy Azure/VMSS za pomocą [ZAwieszania, zobacz Konfigurowanie tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu wywołań interfejsu API REST](qs-configure-rest-vm.md#user-assigned-managed-identity) i [Konfigurowanie tożsamości zarządzanych dla zasobów platformy Azure w zestawie skalowania maszyn wirtualnych przy użyciu wywołań interfejsu API REST](qs-configure-rest-vmss.md#user-assigned-managed-identity).

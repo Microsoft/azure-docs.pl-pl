@@ -8,12 +8,13 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0726edae7c5f44fae7f573559d561e7ef5773e71
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85801303"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997935"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Samouczek: Tworzenie i wdrażanie niestandardowych modułów IoT Edge
 
@@ -803,7 +804,7 @@ Logując się do urządzenia IoT Edge (maszyna wirtualna z systemem Linux w nasz
    sudo docker exec -it avroFileWriter bash
    ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule utworzyliśmy IoT Edge rozwiązanie w Visual Studio Code z trzema modułami: klasyfikatorem, routerem i składnikiem zapisywania/obiektu przekazującego. Skonfigurujemy trasy, aby umożliwić modułom komunikowanie się ze sobą na urządzeniu brzegowym. Zmodyfikowano konfigurację urządzenia brzegowego i Zaktualizowano wieloetapowe dockerfile w celu zainstalowania zależności i dodania instalacji powiązań do kontenerów modułów. 
 

@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 101fd5298482f2f92e2a3fa4284d6e3fe94989a1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bfe24ff38446fa0d0ccea96799e6f42b561713bf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923232"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002814"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 10
 
@@ -154,7 +155,7 @@ W przypadku wybrania opcji identyfikacji umiejętności według nazwy niestandar
 > [!NOTE]
 > Rozpoczęto tworzenie struktury błędów i ostrzeżeń w celu uwzględnienia tych przydatnych szczegółowych informacji, gdy jest to możliwe. Pracujemy nad tym, że w przypadku wszystkich błędów i ostrzeżeń te szczegóły są obecne, ale jest to praca w toku i te dodatkowe szczegóły mogą nie zawsze zostać wypełnione.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zmiany w umiejętnościach kształtu mają największy wpływ na nowy lub istniejący kod. W następnym kroku Pamiętaj, aby ponownie odwiedzić ten przykład ilustrujący strukturę wejściową: [przykład definicji JSON kwalifikacji kształtu](cognitive-search-skill-shaper.md)
 - Przejdź do [omówienia wzbogacania AI](cognitive-search-concept-intro.md).

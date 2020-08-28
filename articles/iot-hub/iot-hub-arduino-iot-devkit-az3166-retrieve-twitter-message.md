@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f0aa71b34818cf373d1bb58531ee5c68c8d3d5ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560978"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004327"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Wstrząsanie i wstrząsanie tweetu — pobieranie komunikatu usługi Twitter za pomocą Azure Functions
 
 W tym projekcie dowiesz się, jak za pomocą czujnika ruchu wyzwolić zdarzenie przy użyciu Azure Functions. Aplikacja pobiera losowy Tweet z #hashtag skonfigurowanym we własnym szkicie Arduino. Tweet zostanie wyświetlony na ekranie DevKit.
 
-## <a name="what-you-need"></a>Co jest potrzebne
+## <a name="what-you-need"></a>Potrzebne elementy
 
 Zakończ [przewodnik wprowadzenie](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) , aby:
 
@@ -116,7 +117,7 @@ Teraz parametry połączenia są ustawiane, sprawdza i przekazuje aplikację, a 
 
    ![przekazywanie urządzenia](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
-2. DevKit wykonuje ponowny rozruch i uruchamia kod.
+2. Zestaw deweloperski wykonuje ponowny rozruch i uruchamia kod.
 
 Może zostać wyświetlony komunikat o błędzie "błąd: AZ3166: nieznany pakiet". Ten błąd występuje, gdy indeks pakietu tablicy nie został poprawnie odświeżony. Aby rozwiązać ten problem, sprawdź [błąd "nieznany pakiet" w temacie IoT DevKit — często zadawane pytania](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
@@ -202,7 +203,7 @@ Jeśli występują inne problemy, zapoznaj się z tematem [często zadawanych py
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy wiesz już, jak podłączyć urządzenie DevKit do akceleratora rozwiązania do monitorowania zdalnego usługi Azure IoT i pobrać Tweet, poniżej przedstawiono sugerowane następne kroki:
 

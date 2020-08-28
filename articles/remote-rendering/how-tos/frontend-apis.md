@@ -5,16 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: 699344f9343c17d449fa48e05b2c3474b524d695
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891474"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003528"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Uwierzytelnianie przy użyciu interfejsów API frontonu platformy Azure
 
-W tej sekcji opisano sposób korzystania z interfejsu API języka C# na potrzeby uwierzytelniania.
+W tej sekcji opisano sposób korzystania z interfejsu API do zarządzania uwierzytelnianiem i sesją.
+
+> [!CAUTION]
+Funkcje opisane w tym rozdziale generują wewnętrznie wywołania REST na serwerze. Podobnie jak w przypadku wszystkich wywołań REST, wysłanie tych poleceń zbyt często spowoduje ograniczenie i zwrócenie błędu. Wartością `SessionGeneralContext.HttpResponseCode` elementu członkowskiego w tym przypadku jest 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
+
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo
 
@@ -477,7 +482,7 @@ void ConnectToArrInspector(ApiHandle<AzureSession> session, std::string hostname
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tworzenie konta](create-an-account.md)
 * [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)

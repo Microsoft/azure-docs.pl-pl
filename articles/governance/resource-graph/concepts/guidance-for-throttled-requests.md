@@ -3,12 +3,13 @@ title: Wskazówki dotyczące ograniczonych żądań
 description: Zapoznaj się z równoległym grupowaniem, rozłożeniem, stronicowaniem i wykonywaniem zapytań, aby uniknąć ograniczania żądań przez usługę Azure Resource Graph.
 ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541842"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006010"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące żądań z ograniczeniami na wykresie zasobów platformy Azure
 
@@ -27,8 +28,8 @@ Wykres zasobów platformy Azure przydziela numer przydziału dla każdego użytk
 
 W każdej odpowiedzi na zapytanie wykres zasobów platformy Azure dodaje dwa nagłówki ograniczania:
 
-- `x-ms-user-quota-remaining`(int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
-- `x-ms-user-quota-resets-after`(hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika.
+- `x-ms-user-quota-remaining` (int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika.
 
 Gdy podmiot zabezpieczeń ma dostęp do ponad 5000 subskrypcji w ramach [zakresu zapytania](./query-language.md#query-scope)dzierżawy lub grupy zarządzania, odpowiedź jest ograniczona do pierwszych subskrypcji 5000, a `x-ms-tenant-subscription-limit-hit` nagłówek jest zwracany jako `true` .
 
@@ -239,7 +240,7 @@ Podaj następujące informacje:
 - Jakie typy zasobów interesują Cię?
 - Co to jest Twój wzorzec zapytania? X zapytań na sekundę i tak dalej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz język używany w [zapytaniach początkowych](../samples/starter.md).
 - Zobacz zaawansowane zastosowania w [zaawansowanych zapytaniach](../samples/advanced.md).

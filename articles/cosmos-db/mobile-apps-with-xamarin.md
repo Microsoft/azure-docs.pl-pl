@@ -7,12 +7,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: fbcbf1be29031596201774ae5ebb40cb1a3b89a2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 14a004864891aad768486c3a436b4936d693715e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85113453"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999040"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji mobilnych za pomocą platformy Xamarin i Azure Cosmos DB
 
@@ -44,7 +45,7 @@ Usługa Azure Cosmos DB oferuje następujące kluczowe możliwości dla dewelope
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Samouczek dotyczący usługi Azure Cosmos DB i platformy Xamarin
 W poniższym samouczku pokazano sposób tworzenia aplikacji mobilnych za pomocą platformy Xamarin i usługi Azure Cosmos DB. Pełny kod źródłowy samouczka możesz znaleźć w witrynie [platformy Xamarin i usługi Azure Cosmos DB w serwisie GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 Rozpoczęcie pracy z usługą Azure Cosmos DB jest łatwe. Przejdź do witryny Azure Portal i utwórz nowe konto usługi Azure Cosmos DB. Kliknij kartę **Szybki Start** . Pobierz przykładową listę do wykonania formularzy Xamarin, która jest już połączona z kontem Azure Cosmos DB. 
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Azure Cosmos DB — Szybki start dla aplikacji mobilnych":::
@@ -101,7 +102,7 @@ W miarę zdobywania popularności przez Twoją aplikację możesz zyskać użytk
 
 Gratulacje. Rozwiązanie korzystające z platformy Xamarin i usługi Azure Cosmos DB zostało ukończone i masz aplikację mobilną. Wykonaj podobne kroki, aby utworzyć aplikacje środowiska Cordova za pomocą zestawu SDK JavaScript usługi Azure Cosmos DB i natywne aplikacje dla systemu iOS/Android za pomocą interfejsów API REST usługi Azure Cosmos DB.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Wyświetl kod źródłowy [platformy Xamarin i usługi Azure Cosmos DB w serwisie GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Pobierz [zestaw .NET Core SDK usługi Cosmos Azure DB](sql-api-sdk-dotnet-core.md).
 * Znajdź więcej przykładów kodu dla [aplikacji .NET](sql-api-dotnet-samples.md).

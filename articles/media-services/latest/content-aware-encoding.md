@@ -11,13 +11,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
-ms.custom: ''
-ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c29909d70b0fd55e4b680c79928cdc5d05b494fa
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039146"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003732"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
 
@@ -79,7 +79,7 @@ TransformOutput[] output = new TransformOutput[]
 > [!NOTE]
 > Opłaty za zadania kodowania przy użyciu `ContentAwareEncoding` ustawienia wstępnego są rozliczane na podstawie minut danych wyjściowych. 
   
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3](stream-files-tutorial-with-api.md)
 * [Samouczek: Kodowanie pliku zdalnego na podstawie adresu URL i przesyłanie strumieniowe wideo — REST](stream-files-tutorial-with-rest.md)

@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: f0a52decfe77b37c4fa14fc4c4ba922ed351bd3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce47d2ae65a4ea9e6878381ce58d62cb6c998599
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519919"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998207"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin. Android przy użyciu Notification Hubs
 
@@ -92,7 +92,7 @@ Centrum powiadomień jest skonfigurowane do pracy z usługą FCM i uzyskano para
 1. Dodaj wymagane pakiety NuGet do projektu, wykonując następujące czynności:
     1. Kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Zarządzaj pakietami NuGet..**..
     1. Przejdź do **zainstalowanej** karty, wybierz pozycję **Xamarin. Android. support. Design**, a następnie wybierz pozycję **Update (Aktualizuj** ) w okienku po prawej stronie, aby zaktualizować pakiet do najnowszej wersji.
-    1. Przejdź do karty **Przeglądaj** . Wyszukaj ciąg **Xamarin. GooglePlayServices. Base**. Na liście wyników wybierz pozycję **Xamarin.GooglePlayServices.Base**. Następnie wybierz pozycję **Zainstaluj**.
+    1. Przejdź do karty **przeglądanie** . Wyszukaj aplikację **Xamarin. GooglePlayServices. Base**. Na liście wyników wybierz pozycję **Xamarin.GooglePlayServices.Base**. Następnie wybierz pozycję **Zainstaluj**.
 
         ![Pakiet NuGet usług Google Play](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
     6. W oknie **Menedżera pakietów NuGet** wyszukaj pozycję **Xamarin.Firebase.Messaging**. Na liście wyników wybierz pozycję **Xamarin.Firebase.Messaging**. Następnie wybierz pozycję **Zainstaluj**.
@@ -324,7 +324,7 @@ Odbieranie powiadomień w aplikacji możesz przetestować za pomocą opcji **Wys
 
 Powiadomienia wypychane są zwykle wysyłane w usłudze zaplecza, takiej jak Mobile Services czy ASP.NET, za pośrednictwem zgodnej biblioteki. Jeśli biblioteka nie jest dostępna dla zaplecza, można także użyć interfejsu API REST bezpośrednio do wysyłania komunikatów powiadomień.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku wysłano wyemitowane powiadomienia do wszystkich urządzeń z systemem Android zarejestrowanych w zapleczu. Aby dowiedzieć się, jak wysyłać powiadomienia push do konkretnych urządzeń z systemem Android, przejdź do następującego samouczka:
 

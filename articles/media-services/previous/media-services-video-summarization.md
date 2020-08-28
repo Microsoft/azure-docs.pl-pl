@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a0e342e5509aaba05228c7d1032023a6f4710f1f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231849"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999516"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Użyj Azure Media Video Thumbnails, aby utworzyć podsumowanie wideo  
 
@@ -33,7 +34,7 @@ Procesor Media **Azure Media Video thumbnails** (MP) umożliwia tworzenie podsum
 
 Pakiet MP **usługi Azure Media Video** jest obecnie w wersji zapoznawczej.
 
-Ten artykuł zawiera szczegółowe informacje na temat **miniatury usługi Azure Media Video** i pokazuje, jak używać jej z zestawem SDK Media Services dla platformy .NET.
+Ten artykuł zawiera szczegółowe informacje na temat  **miniatury usługi Azure Media Video** i pokazuje, jak używać jej z zestawem SDK Media Services dla platformy .NET.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -67,7 +68,7 @@ Obecnie można zmienić następujące parametry:
 
 W poniższej tabeli opisano domyślny czas trwania, gdy **maxMotionThumbnailInSecs** nie jest używany.
 
-|  | Small | Krocz |
+|  | Mała | Krocz |
 | --- | --- | --- |
 | **Czas trwania wideo** |d < 3 min |3 minuty < d < 15 min |
 | **Czas trwania miniatury** |15 sek. (2-3 scen) |30 sek. (3-5 scen) |

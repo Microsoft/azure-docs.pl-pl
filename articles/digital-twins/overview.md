@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042823"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003851"
 ---
 # <a name="what-is-azure-digital-twins"></a>Co to jest usługa Azure Digital Twins?
 
@@ -98,12 +98,11 @@ Na poniższym diagramie przedstawiono, gdzie usługa Azure Digital bliźniaczych
 
 Aby zapoznać się z listą limitów cyfrowych bliźniaczych reprezentacji na platformie Azure w ramach publicznej wersji zapoznawczej, zobacz temat [*Informacje o usłudze Public Preview limity*](reference-service-limits.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli pracujesz z poprzednią wersją zapoznawczą usługi Azure Digital bliźniaczych reprezentacji, Dowiedz się, co się zmieniło:
 * [*Przegląd: różnice od wcześniejszej wersji*](overview-differences.md)
 
 Możesz też przejść do pracy z usługą Azure Digital bliźniaczych reprezentacji i szczegółowe w pierwszym samouczku:
 
-> [!div class="nextstepaction"]
-> [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)
+[*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

@@ -11,12 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab4e2f480ab0ef2deea3909d56f4fe1da17bbd07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d0e608e1afae77afd44d7351b7c3f1f269bd8a8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321409"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998088"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
 > [!NOTE]
@@ -130,7 +131,7 @@ Aby sprawdzić i zmienić dane w projektach magazynu, należy użyć [Eksplorato
 
    ![Struktura folderów i podfolderów](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`i `outputfolder` to foldery najwyższego poziomu w programie `mycontainer` . `inputfolder`Folder zawiera podfoldery z sygnaturami daty i godziny (rrrr-mm-dd-hh).
+   `Inputfolder` i `outputfolder` to foldery najwyższego poziomu w programie `mycontainer` . `inputfolder`Folder zawiera podfoldery z sygnaturami daty i godziny (rrrr-mm-dd-hh).
 
    Jeśli używasz Eksplorator usługi Storage, w następnym kroku przekażesz pliki o następujących nazwach: `inputfolder/2015-11-16-00/file.txt` , `inputfolder/2015-11-16-01/file.txt` i tak dalej. Ten krok powoduje automatyczne utworzenie folderów.
 
@@ -964,13 +965,13 @@ Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, 
 * [Odśwież dane w Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure i Power BI: omówienie podstawowe](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
   * [Wprowadzenie do Data Factory](data-factory-build-your-first-pipeline.md)
   * [Korzystanie z działań niestandardowych w potoku Data Factory](data-factory-use-custom-activities.md)
-* [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
+* [Usługa Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
   * [Podstawowe informacje o usłudze Batch](../../azure-sql/database/sql-database-paas-overview.md)
   * [Omówienie funkcji usługi Batch](../../batch/batch-service-workflow-features.md)

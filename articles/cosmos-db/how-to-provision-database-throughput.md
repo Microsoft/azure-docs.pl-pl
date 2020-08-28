@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a63e5a8b59c1e043b4af7b35c34cde6be0314d22
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 668aa51bdb57dc4bcde0e3a95c481bb60e3d8ed3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497022"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997374"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w Azure Cosmos DB
 
@@ -31,7 +31,7 @@ W tym artykule wyjaśniono, jak zapewnić przepustowość standardową (ręczną
    * Wprowadź identyfikator bazy danych.
    * Wybierz pozycję **Zaaprowizuj przepływność**.
    * Wprowadź przepływność (na przykład 1000 jednostek RU).
-   * Wybierz przycisk **OK**.
+   * Kliknij przycisk **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Zrzut ekranu okna dialogowego Nowa baza danych":::
 
@@ -70,7 +70,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ---
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API bazy danych Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API rozwiązania Cassandra
 
 Podobne polecenie można wykonać przy użyciu dowolnego sterownika zgodnego z CQL.
 
@@ -79,7 +79,7 @@ Podobne polecenie można wykonać przy użyciu dowolnego sterownika zgodnego z C
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
  
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o aprowizacji przepływności w Azure Cosmos DB:
 

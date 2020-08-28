@@ -3,13 +3,13 @@ title: Używanie Azure Event Grid ze zdarzeniami w schemacie CloudEvents
 description: Opisuje sposób używania schematu CloudEvents dla zdarzeń w Azure Event Grid. Usługa obsługuje zdarzenia w implementacji JSON zdarzeń w chmurze.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 0064fcc8da2a2aee8b4e413e697d2d8219fd09cc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9c58811cc13a9eb37104abbe9901cb94dda25a9e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419890"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008781"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Używanie schematu CloudEvents v 1.0 z Event Grid
 Poza [domyślnym schematem zdarzeń](event-schema.md), Azure Event Grid natywnie obsługuje zdarzenia w [implementacji JSON CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) i [powiązania protokołu HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) to [otwarta Specyfikacja](https://github.com/cloudevents/spec/blob/v1.0/spec.md) dla opisywania danych zdarzenia.
@@ -208,7 +208,7 @@ module.exports = function (context, req) {
 };
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby uzyskać informacje na temat monitorowania dostarczania zdarzeń, zobacz [monitorowanie Event Grid dostarczania komunikatów](monitor-event-delivery.md).
 * Zachęcamy do testowania, komentowania i [współtworzenia](https://github.com/cloudevents/spec/blob/master/community/CONTRIBUTING.md) CloudEvents.

@@ -1,31 +1,91 @@
 ---
-title: Łączenie komputerów z systemem Linux z Azure Monitor | Microsoft Docs
+title: Instalowanie agenta Log Analytics na komputerach z systemem Linux
 description: W tym artykule opisano sposób łączenia komputerów z systemem Linux hostowanych w innych chmurach lub lokalnych w celu Azure Monitor z agentem Log Analytics dla systemu Linux.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/21/2020
-ms.openlocfilehash: 965d5dd558d0da7a758db77330c9129ea0e8247c
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+author: bwren
+ms.author: bwren
+ms.date: 08/21/2020
+ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543864"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998938"
 ---
-# <a name="connect-linux-computers-to-azure-monitor"></a>Łączenie komputerów z systemem Linux z Azure Monitor
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta Log Analytics na komputerach z systemem Linux
+Ten artykuł zawiera szczegółowe informacje dotyczące instalowania agenta Log Analytics na komputerach z systemem Linux przy użyciu następujących metod:
 
-W celu monitorowania maszyn wirtualnych lub komputerów fizycznych w lokalnym centrum danych lub w innym środowisku chmury przy użyciu Azure Monitor należy wdrożyć agenta Log Analytics i skonfigurować go do raportowania w obszarze roboczym Log Analytics. Agent obsługuje również rolę hybrydowego procesu roboczego elementu Runbook dla Azure Automation.
-
-Log Analytics agenta dla systemu Linux można zainstalować przy użyciu jednej z poniższych metod. Szczegółowe informacje o używaniu każdej metody są podane w dalszej części artykułu.
-
-* [Ręcznie Pobierz i zainstaluj](#install-the-agent-manually) agenta. Jest to wymagane, gdy komputer z systemem Linux nie ma dostępu do Internetu i będzie komunikować się z Azure Monitor lub Azure Automation za pomocą [bramy log Analytics](gateway.md). 
 * [Zainstaluj agenta dla systemu Linux, używając skryptu otoki](#install-the-agent-using-wrapper-script) hostowanego w witrynie GitHub. Jest to zalecana metoda instalacji i uaktualnienia agenta, gdy komputer ma łączność z Internetem bezpośrednio lub za pośrednictwem serwera proxy.
+* [Ręcznie Pobierz i zainstaluj](#install-the-agent-manually) agenta. Jest to wymagane, gdy komputer z systemem Linux nie ma dostępu do Internetu i będzie komunikować się z Azure Monitor lub Azure Automation za pomocą [bramy log Analytics](gateway.md). 
 
-Aby poznać obsługiwaną konfigurację, przejrzyj tematy dotyczące [obsługiwanych systemów operacyjnych Linux](log-analytics-agent.md#supported-linux-operating-systems) oraz [konfiguracji zapory sieciowej](log-analytics-agent.md#network-requirements).
+>[!IMPORTANT]
+> Metody instalacji opisane w tym artykule są zwykle używane w przypadku maszyn wirtualnych lokalnie lub w innych chmurach. Zobacz [Opcje instalacji](log-analytics-agent.md#installation-options) , aby uzyskać więcej wydajnych opcji, których można użyć w przypadku maszyn wirtualnych platformy Azure.
+
+
+
+## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
+
+Listę dystrybucji systemu Linux obsługiwanych przez agenta Log Analytics można znaleźć w temacie [Omówienie agentów Azure monitor](agents-overview.md#supported-operating-systems) .
 
 >[!NOTE]
->Agenta usługi Log Analytics dla systemu Linux nie można skonfigurować w taki sposób, aby przesyłał raporty do więcej niż jednego obszaru roboczego usługi Log Analytics. Można ją skonfigurować tylko do raportowania zarówno do System Center Operations Manager grupy zarządzania, jak i do Log Analytics obszaru roboczego, lub pojedynczo.
+>OpenSSL 1.1.0 jest obsługiwana tylko na platformach x86_x64 (64-bitowe) i OpenSSL wcześniejszych niż 1. x nie jest obsługiwana na żadnej platformie.
+>
+Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany w naszym modelu pomocy technicznej:  
+
+* Obsługiwane są tylko wersje serwera, a nie klient.  
+* Zanotuj pomoc techniczną na dowolnym z [potwierdzonych dystrybucje systemu Azure](../../virtual-machines/linux/endorsed-distros.md)w systemie Linux. Należy pamiętać, że może wystąpić pewne opóźnienie między nowym dystrybucji/wersją zatwierdzona w systemie Azure Linux i jest ona obsługiwana dla agenta Log Analytics Linux.
+* Wszystkie wersje pomocnicze są obsługiwane dla każdej wymienionej wersji głównej.
+* Wersje, które przekazały datę zakończenia obsługi przez producenta, nie są obsługiwane.  
+* Nowe wersje AMI nie są obsługiwane.  
+* Obsługiwane są tylko wersje, które domyślnie korzystają z protokołu SSL 1. x.
+
+>[!NOTE]
+>Jeśli używasz dystrybucji lub wersji, która nie jest obecnie obsługiwana i nie jest zgodna z naszym modelem pomocy technicznej, zalecamy przerozwidlenie tego repozytorium, co oznacza, że pomoc techniczna firmy Microsoft nie będzie świadczyć pomocy z wersjami agentów z rozwidleniami.
+
+### <a name="python-2-requirement"></a>Wymagania dotyczące języka Python 2
+
+ Agent Log Analytics wymaga języka Python 2. Jeśli maszyna wirtualna używa dystrybucji, która domyślnie nie zawiera języka Python 2, należy ją zainstalować. Następujące przykładowe polecenia zainstalują środowisko Python 2 na różnych dystrybucje.
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SZŁO `zypper install -y python2`
+
+Plik wykonywalny python2 musi mieć alias "Python" przy użyciu następującego polecenia:
+
+```
+alternatives --set python `which python2`
+```
+
+## <a name="supported-linux-hardening"></a>Obsługiwane Ograniczanie poziomu systemu Linux
+Agent pakietu OMS ma ograniczoną obsługę dostosowywania dla systemu Linux. 
+
+Obecnie obsługiwane są następujące elementy: 
+- Trybu
+
+Następujące elementy są planowane, ale nie są jeszcze obsługiwane:
+- CIS — SELINUX
+
+Inne metody ograniczania i dostosowywania nie są obsługiwane ani planowane dla agenta pakietu OMS.  
+
+## <a name="agent-prerequisites"></a>Wymagania wstępne agenta
+
+W poniższej tabeli przedstawiono pakiety wymagane dla [obsługiwanych dystrybucje systemu Linux](#supported-operating-systems) , na których zostanie zainstalowany agent.
+
+|Wymagany pakiet |Opis |Minimalna wersja |
+|-----------------|------------|----------------|
+|Glibc |    Biblioteka GNU C | 2.5-12 
+|Openssl    | Biblioteki OpenSSL | 1.0. x lub 1.1. x |
+|Narzędzie Curl | zazwinięcie klienta sieci Web | 7.15.5 |
+|Python | | 2.6 + lub 3.3 +
+|Python — ctypes | | 
+|PAM | Podłączane moduły uwierzytelniania (PAM) | | 
+
+>[!NOTE]
+>Do zbierania komunikatów dziennika systemowego wymagane są rsyslog lub Dziennik systemu. Domyślny demon dziennika systemowego w wersji 5 Red Hat Enterprise Linux, CentOS i Oracle Linux wersja (sysklog) nie jest obsługiwany w przypadku zbierania zdarzeń dziennika systemowego. Aby zebrać dane dziennika systemu z tej wersji dystrybucji, demona rsyslog powinna zostać zainstalowana i skonfigurowana do zastępowania sysklog.
+
+## <a name="network-requirements"></a>Wymagania dotyczące sieci
+Zapoznaj się z [omówieniem log Analytics agenta](log-analytics-agent.md#network-requirements) , aby poznać wymagania dotyczące sieci dla agenta systemu Linux.
 
 ## <a name="agent-install-package"></a>Pakiet instalacji agenta
 
@@ -49,25 +109,47 @@ Po zainstalowaniu agenta Log Analytics dla pakietów systemu Linux stosowane są
 * Plik *dołączany* sudo jest tworzony w `/etc/sudoers.d/omsagent` . `omsagent`Pozwala to na ponowne uruchomienie dziennika systemowego i demonów omsagent. Jeśli sudo dyrektywy *include* nie są obsługiwane w zainstalowanej wersji programu sudo, te wpisy będą zapisywane w `/etc/sudoers` .
 * Konfiguracja dziennika systemowego zostanie zmodyfikowana w celu przekierowania podzbioru zdarzeń do agenta. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zbierania danych dziennika](data-sources-syslog.md)systemowego.
 
-Na monitorowanym komputerze z systemem Linux Agent jest wyświetlany jako `omsagent` . `omsconfig`jest agentem konfiguracji agenta Log Analytics dla systemu Linux, który szuka nowej konfiguracji po stronie portalu co 5 minut. Nowa i zaktualizowana konfiguracja jest stosowana do plików konfiguracji agenta znajdujących się w lokalizacji `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
+Na monitorowanym komputerze z systemem Linux Agent jest wyświetlany jako `omsagent` . `omsconfig` jest agentem konfiguracji agenta Log Analytics dla systemu Linux, który szuka nowej konfiguracji po stronie portalu co 5 minut. Nowa i zaktualizowana konfiguracja jest stosowana do plików konfiguracji agenta znajdujących się w lokalizacji `/etc/opt/microsoft/omsagent/conf/omsagent.conf` .
 
-## <a name="obtain-workspace-id-and-key"></a>Uzyskiwanie identyfikatora i klucza obszaru roboczego
+## <a name="install-the-agent-using-wrapper-script"></a>Instalowanie agenta przy użyciu skryptu otoki
 
-Przed zainstalowaniem agenta usługi Log Analytics dla systemu Linux potrzebne są identyfikator i klucz obszaru roboczego usługi Log Analytics. Te informacje są wymagane podczas instalacji agenta w celu poprawnego skonfigurowania i upewnienia się, że może on pomyślnie komunikować się z Azure Monitor.
+Poniższe kroki umożliwiają skonfigurowanie instalatora agenta dla Log Analytics na platformie Azure i w chmurze Azure Government przy użyciu skryptu otoki dla komputerów z systemem Linux, które mogą komunikować się bezpośrednio lub za pośrednictwem serwera proxy w celu pobrania agenta hostowanego w witrynie GitHub i zainstalowania agenta.  
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
+Jeśli komputer z systemem Linux musi komunikować się za pomocą serwera proxy w celu Log Analytics, tę konfigurację można określić w wierszu polecenia, włączając w to polecenie `-p [protocol://][user:password@]proxyhost[:port]` . Właściwość *protokołu* akceptuje `http` lub `https` , a właściwość *ProxyHost* akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera proxy. 
 
-1. W lewym górnym rogu Azure Portal wybierz pozycję **wszystkie usługi**. W polu wyszukiwania wprowadź **log Analytics**. Podczas wpisywania lista jest filtrowana na podstawie danych wejściowych. Wybierz **log Analytics obszary robocze**.
+Na przykład: `https://proxy01.contoso.com:30443`
 
-2. Na liście obszarów roboczych Log Analytics wybierz utworzony wcześniej obszar roboczy. (Może być nazwany IT **DefaultLAWorkspace**).
+Jeśli w obu przypadkach wymagane jest uwierzytelnianie, należy określić nazwę użytkownika i hasło. Na przykład: `https://user01:password@proxy01.contoso.com:30443`
 
-3. Wybierz pozycję **Ustawienia zaawansowane**:
+1. Aby skonfigurować komputer z systemem Linux do łączenia się z obszarem roboczym Log Analytics, uruchom następujące polecenie, podając identyfikator obszaru roboczego i klucz podstawowy. To polecenie pobiera agenta, weryfikuje jego sumę kontrolną i instaluje go.
+    
+    ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
+    ```
 
-    ![Menu Ustawienia zaawansowane dla Log Analytics w Azure Portal](../learn/media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
- 
-4. Wybierz **Połączone źródła**, a następnie **Serwery Linux**.
+    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
 
-5. Wartość z prawej strony **identyfikatora obszaru roboczego** i **klucza podstawowego**. Skopiuj i wklej obie wartości do ulubionego edytora.
+   ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
+    ```
+
+2. Aby skonfigurować komputer z systemem Linux do łączenia się z obszarem roboczym Log Analytics w Azure Government chmurze, uruchom następujące polecenie, podając wcześniej skopiowany identyfikator obszaru roboczego i klucz podstawowy. To polecenie pobiera agenta, weryfikuje jego sumę kontrolną i instaluje go. 
+
+    ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
+    ``` 
+
+    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
+
+   ```
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
+    ```
+2. Uruchom ponownie agenta, uruchamiając następujące polecenie: 
+
+    ```
+    sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
+    ``` 
+
 
 ## <a name="install-the-agent-manually"></a>Ręczna instalacja agenta
 
@@ -117,63 +199,19 @@ Jeśli chcesz wyodrębnić pakiety agentów z pakietu bez instalowania agenta, u
 sudo sh ./omsagent-*.universal.x64.sh --extract
 ```
 
-## <a name="install-the-agent-using-wrapper-script"></a>Instalowanie agenta przy użyciu skryptu otoki
-
-Poniższe kroki umożliwiają skonfigurowanie instalatora agenta dla Log Analytics na platformie Azure i w chmurze Azure Government przy użyciu skryptu otoki dla komputerów z systemem Linux, które mogą komunikować się bezpośrednio lub za pośrednictwem serwera proxy w celu pobrania agenta hostowanego w witrynie GitHub i zainstalowania agenta.  
-
-Jeśli komputer z systemem Linux musi komunikować się za pomocą serwera proxy w celu Log Analytics, tę konfigurację można określić w wierszu polecenia, włączając w to polecenie `-p [protocol://][user:password@]proxyhost[:port]` . Właściwość *protokołu* akceptuje `http` lub `https` , a właściwość *ProxyHost* akceptuje w pełni kwalifikowaną nazwę domeny lub adres IP serwera proxy. 
-
-Na przykład: `https://proxy01.contoso.com:30443`
-
-Jeśli w obu przypadkach wymagane jest uwierzytelnianie, należy określić nazwę użytkownika i hasło. Na przykład: `https://user01:password@proxy01.contoso.com:30443`
-
-1. Aby skonfigurować komputer z systemem Linux do łączenia się z obszarem roboczym Log Analytics, uruchom następujące polecenie, podając identyfikator obszaru roboczego i klucz podstawowy. To polecenie pobiera agenta, weryfikuje jego sumę kontrolną i instaluje go.
-    
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
-    ```
-
-    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
-
-   ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
-    ```
-
-2. Aby skonfigurować komputer z systemem Linux do łączenia się z obszarem roboczym Log Analytics w Azure Government chmurze, uruchom następujące polecenie, podając wcześniej skopiowany identyfikator obszaru roboczego i klucz podstawowy. To polecenie pobiera agenta, weryfikuje jego sumę kontrolną i instaluje go. 
-
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
-    ``` 
-
-    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
-
-   ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxy user>:<proxy password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
-    ```
-2. Uruchom ponownie agenta, uruchamiając następujące polecenie: 
-
-    ```
-    sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
-    ``` 
-
-## <a name="supported-linux-hardening"></a>Obsługiwane Ograniczanie poziomu systemu Linux
-Agent pakietu OMS ma ograniczoną obsługę dostosowywania dla systemu Linux. 
-
-Obecnie obsługiwane są następujące elementy: 
-- Trybu
-
-Następujące elementy są planowane, ale nie są jeszcze obsługiwane:
-- SIC
-- SELINUX
-
-Inne metody ograniczania i dostosowywania nie są obsługiwane ani planowane dla agenta pakietu OMS.  
-
-
 ## <a name="upgrade-from-a-previous-release"></a>Uaktualnianie z poprzedniej wersji
 
 Uaktualnianie z poprzedniej wersji, począwszy od wersji 1.0.0-47, jest obsługiwane w każdej wersji. Wykonaj instalację z `--upgrade` parametrem, aby uaktualnić wszystkie składniki agenta do najnowszej wersji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="cache-information"></a>Informacje o pamięci podręcznej
+Dane z agenta Log Analytics dla systemu Linux są przechowywane w pamięci podręcznej na komputerze lokalnym w lokalizacji *% STATE_DIR_WS%/out_oms_common*. Buffer * przed wysłaniem do Azure monitor. Niestandardowe dane dziennika są buforowane w *% STATE_DIR_WS%/out_oms_blob*. Buffer *. Ścieżka może być różna w przypadku niektórych [rozwiązań i typów danych](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
+
+Agent próbuje przekazać co 20 sekund. Jeśli to się nie powiedzie, będzie oczekiwać wykładniczego wydłużenia czasu do momentu jego pomyślnego przeprowadzenia. Poczeka 30 sekund przed kolejną próbą, 60 sekund przed kolejnymi, 120 sekund i tak dalej, aż do upływu 9 minut między ponownymi próbami ponownego nawiązania połączenia. Po odrzuceniu i przeniesieniu do następnego Agent ponowi próbę po upływie 10 razy dla danego fragmentu danych. Ten proces jest kontynuowany do momentu pomyślnego przekazania agenta. Oznacza to, że dane mogą być buforowane do 8,5 godzin przed odrzuceniem.
+
+Domyślny rozmiar pamięci podręcznej wynosi 10 MB, ale można go zmodyfikować w [pliku omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
+
+
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zapoznaj się z tematem [Zarządzanie agentem log Analytics dla systemów Windows i Linux oraz ich obsługiwanie](agent-manage.md) , aby dowiedzieć się, jak ponownie skonfigurować, uaktualnić lub usunąć agenta z maszyny wirtualnej.
 

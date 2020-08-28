@@ -1,18 +1,19 @@
 ---
-title: Rozmiary serwera
+title: Rozmiary serwerów
 description: Opisuje różne rozmiary serwera, które mogą być przydzielone
 author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: b9479c2ab5b63440a03bd74d2503930108a49091
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8843f24f27f8973ad99989f743d1b3fae568679e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511189"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997153"
 ---
-# <a name="server-sizes"></a>Rozmiary serwera
+# <a name="server-sizes"></a>Rozmiary serwerów
 
 Zdalne renderowanie na platformie Azure jest dostępne w dwóch konfiguracjach serwera: `Standard` i `Premium` .
 
@@ -82,7 +83,7 @@ Istnieją dwa sposoby określenia liczby wielokątów modelu lub sceny, które p
 
 Szczegółowy podział cen dla każdego typu konfiguracji można znaleźć na stronie [cennika renderowania zdalnego](https://azure.microsoft.com/pricing/details/remote-rendering) .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)
 * [Konwersja modelu](../how-tos/conversion/model-conversion.md)
 

@@ -3,12 +3,13 @@ title: Wdrożenie Service Fabric platformy Azure z usługą FabricClient
 description: Użyj interfejsów API FabricClient, aby wdrażać i usuwać aplikacje w Service Fabric.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75376974"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009305"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Wdrażanie i usuwanie aplikacji przy użyciu FabricClient
 > [!div class="op_single_selector"]
@@ -122,7 +123,7 @@ Zobacz [opis parametrów połączenia magazynu obrazu](service-fabric-image-stor
 
 ### <a name="deploy-large-application-package"></a>Wdróż pakiet dużej aplikacji
 Problem: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API limit czasu dla dużego pakietu aplikacji (kolejność GB).
-Spróbował
+Spróbuj:
 - Określ większy limit czasu dla metody [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) z `timeout` parametrem. Domyślnie limit czasu to 30 minut.
 - Sprawdź połączenie sieciowe między maszyną źródłową a klastrem. Jeśli połączenie jest powolne, rozważ użycie komputera z lepszym połączeniem sieciowym.
 Jeśli komputer kliencki znajduje się w innym regionie niż klaster, rozważ użycie komputera klienckiego w tym samym lub tym samym regionie co klaster.
@@ -135,7 +136,7 @@ Kompresja zmniejsza rozmiar i liczbę plików, co z kolei zmniejsza ilość ruch
 
 ### <a name="deploy-application-package-with-many-files"></a>Wdróż pakiet aplikacji z wieloma plikami
 Problem: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) limit czasu dla pakietu aplikacji z wieloma plikami (kolejność tysięcy).
-Spróbował
+Spróbuj:
 - [Kompresuj pakiet](service-fabric-package-apps.md#compress-a-package) przed skopiowaniem do magazynu obrazów. Kompresja zmniejsza liczbę plików.
 - Określ większy limit czasu dla [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) z `timeout` parametrem.
 
@@ -320,7 +321,7 @@ static void Main(string[] args)
 
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Service Fabric uaktualniania aplikacji](service-fabric-application-upgrade.md)
 
 [Service Fabric wprowadzenie do kondycji](service-fabric-health-introduction.md)

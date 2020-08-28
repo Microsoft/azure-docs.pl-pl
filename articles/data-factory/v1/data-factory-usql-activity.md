@@ -10,14 +10,15 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 author: nabhishek
 ms.author: abnarain
+ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: c6d3510dfdd02bf2eb07d656c706c44d895c582d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4ae575984badb2b03f72a77aaf580012a1fc002
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74927900"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997136"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Przekształcanie danych przez uruchamianie skryptów U-SQL w usłudze Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -117,7 +118,7 @@ Kod autoryzacji wygenerowany przy użyciu przycisku **Autoryzuj** wygaśnie po p
 
 | Typ użytkownika | Wygasa po |
 |:--- |:--- |
-| Konta użytkowników niezarządzane przez Azure Active Directory ( @hotmail.com , @live.com itp.) |12 godz. |
+| Konta użytkowników niezarządzane przez Azure Active Directory ( @hotmail.com , @live.com itp.) |12 godzin |
 | Konta użytkowników zarządzane przez Azure Active Directory (AAD) |14 dni od ostatniego uruchomienia wycinka. <br/><br/>90 dni, jeśli wycinek oparty na połączonej usłudze opartej na protokole OAuth jest uruchamiany co najmniej raz na 14 dni. |
 
 Aby uniknąć tego błędu/rozwiązać ten problem, ponownie Autoryzuj przy użyciu przycisku **Autoryzuj** po **wygaśnięciu tokenu** i ponownym wdrożeniu połączonej usługi. Możesz również generować wartości właściwości **SessionID** i **Authorization** programowo przy użyciu kodu w następujący sposób:
@@ -330,7 +331,7 @@ W definicji potoku przykładowego parametry in i out są przypisywane z ustalony
 }
 ```
 
-Zamiast tego można użyć parametrów dynamicznych. Przykład: 
+Zamiast tego można użyć parametrów dynamicznych. Na przykład: 
 
 ```json
 "parameters": {

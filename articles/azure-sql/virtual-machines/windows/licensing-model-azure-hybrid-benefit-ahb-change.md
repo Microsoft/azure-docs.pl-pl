@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208b900de20a89a9ecc819ef1254c08fcc628f82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668903"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010226"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Zmienianie modelu licencjonowania maszyny wirtualnej z programem SQL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,7 +55,7 @@ Zmiana modelu licencjonowania maszyny wirtualnej SQL Server ma następujące wym
 
 ## <a name="vms-already-registered-with-the-resource-provider"></a>Maszyny wirtualne już zarejestrowane z dostawcą zasobów 
 
-# <a name="the-azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -156,7 +156,9 @@ Zmiana modelu licencji to:
 
 ## <a name="known-errors"></a>Znane błędy
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>Nie znaleziono zasobu "Microsoft. SqlVirtualMachine/SqlVirtualMachines/ \<resource-group> " w grupie zasobów " \<resource-group> ".
+Przejrzyj często znane błędy i ich rozwiązania. 
+
+**Nie znaleziono zasobu "Microsoft. SqlVirtualMachine/SqlVirtualMachines/ \<resource-group> " w grupie zasobów " \<resource-group> ".**
 
 Ten błąd występuje podczas próby zmiany modelu licencji na SQL Server maszynie wirtualnej, która nie została zarejestrowana w dostawcy zasobów maszyny wirtualnej SQL:
 
@@ -165,7 +167,7 @@ Ten błąd występuje podczas próby zmiany modelu licencji na SQL Server maszyn
 Musisz zarejestrować swoją subskrypcję u dostawcy zasobów, a następnie [zarejestrować SQL Serverą maszynę wirtualną przy użyciu dostawcy zasobów](sql-vm-resource-provider-register.md). 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>Maszyna wirtualna " \<vmname\> " ma skojarzoną więcej niż jedną kartę sieciową
+**Maszyna wirtualna " \<vmname\> " ma skojarzoną więcej niż jedną kartę sieciową**
 
 Ten błąd występuje na maszynach wirtualnych, które mają więcej niż jedną kartę sieciową. Przed zmianą modelu licencjonowania Usuń jedną z kart sieciowych. Mimo że można dodać kartę sieciową z powrotem do maszyny wirtualnej po zmianie modelu licencji, operacje w Azure Portal, takie jak automatyczne tworzenie kopii zapasowych i stosowanie poprawek, nie będą już obsługiwane. 
 

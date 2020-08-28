@@ -7,12 +7,13 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b6dc5ba59aa563da6e7c19e6c821f4a9b697832f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4fa7ebc71f2bbe6abe6956ad36daaf983e011a94
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206526"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001331"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 z platformą Xamarin
 
@@ -31,7 +32,7 @@ Linki odwołań:
 * [Dokumentacja referencyjna interfejsu API](/dotnet/api/azure.storage.blobs)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
 * [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-* [Sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+* [Przykład](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -266,7 +267,7 @@ Przed rozpoczęciem procesu oczyszczania Sprawdź, czy dane wyjściowe zawartoś
 
 Po zweryfikowaniu wartości Potwierdź monit o usunięcie kontenera i Zakończ pokaz.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start przedstawiono sposób przekazywania, pobierania i wyświetlania listy obiektów BLOB przy użyciu biblioteki klienta usługi Azure Blob Storage V12 z platformą Xamarin.
 

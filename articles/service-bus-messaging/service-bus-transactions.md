@@ -3,12 +3,13 @@ title: Przegląd przetwarzania transakcji w Azure Service Bus
 description: Ten artykuł zawiera omówienie przetwarzania transakcji i funkcji wysyłania za pośrednictwem programu w Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340509"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999958"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Przegląd Service Bus przetwarzania transakcji
 
@@ -27,7 +28,7 @@ Usługa Service Bus obsługuje grupowanie operacji względem jednej jednostki ob
 Operacje, które mogą być wykonywane w ramach zakresu transakcji są następujące:
 
 * ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**:,,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` ,`RenewLockAsync` 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**:,,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
 
 Operacje odbioru nie są uwzględniane, ponieważ zakłada się, że aplikacja uzyskuje komunikaty przy użyciu trybu [ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) w ramach niektórych pętli Receive lub wywołania zwrotnego [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) , a następnie otwiera zakres transakcji w celu przetworzenia komunikatu.
 
@@ -41,7 +42,7 @@ Moc tej możliwości transakcyjnej stanie się widoczna, gdy kolejka transferu j
 
 ### <a name="see-it-in-code"></a>Zobacz go w kodzie
 
-Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Przykład:
+Aby skonfigurować takie transfery, należy utworzyć nadawcę wiadomości, który jest przeznaczony dla kolejki docelowej za pośrednictwem kolejki transferu. Istnieje również odbiornik, który pobiera wiadomości z tej samej kolejki. Na przykład:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);
@@ -90,7 +91,7 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 ## <a name="timeout"></a>Limit czasu
 Transakcja zostanie przeprowadzona po upływie 2 minut. Czasomierz transakcji jest uruchamiany po rozpoczęciu pierwszej operacji w transakcji. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Więcej informacji o kolejkach Service Bus można znaleźć w następujących artykułach:
 

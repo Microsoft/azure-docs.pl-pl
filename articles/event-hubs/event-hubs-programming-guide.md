@@ -3,12 +3,13 @@ title: Przewodnik programowania .NET — Azure Event Hubs (starsza wersja) | Mic
 description: Ten artykuł zawiera informacje dotyczące sposobu pisania kodu dla platformy Azure Event Hubs przy użyciu zestawu Azure .NET SDK.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5be30d7786fa094a55badb7b38ff2116a6013b6a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 17bec931f79a6dbb3d98270ab0ff6e2d1d4c6541
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934025"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013915"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Przewodnik programowania .NET dla platformy Azure Event Hubs (starszy pakiet Microsoft. Azure. EventHubs)
 W tym artykule omówiono niektóre typowe scenariusze tworzenia kodu przy użyciu usługi Azure Event Hubs. Przyjęto założenie, że wstępnie znasz i rozumiesz usługę Event Hubs. Omówienie koncepcji usługi Event Hubs można znaleźć w temacie [Przegląd usługi Event Hubs](./event-hubs-about.md).
@@ -56,7 +57,7 @@ Zdarzenia są wysyłane do centrum zdarzeń przez utworzenie wystąpienia [Event
 
 ## <a name="event-serialization"></a>Serializacja zdarzeń
 
-Klasa [EVENTDATA][] ma [dwa przeciążone konstruktory](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) , które przyjmują wiele parametrów, bajtów lub tablicę bajtową, która reprezentuje ładunek danych zdarzenia. W przypadku używania formatu JSON z klasą [EventData][] można użyć funkcji **Encoding.UTF8.GetBytes()** do pobrania tablicy bajtowej dla ciągu zakodowanego w formacie JSON. Przykład:
+Klasa [EVENTDATA][] ma [dwa przeciążone konstruktory](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) , które przyjmują wiele parametrów, bajtów lub tablicę bajtową, która reprezentuje ładunek danych zdarzenia. W przypadku używania formatu JSON z klasą [EventData][] można użyć funkcji **Encoding.UTF8.GetBytes()** do pobrania tablicy bajtowej dla ciągu zakodowanego w formacie JSON. Na przykład:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -108,7 +109,7 @@ Aby używać klasy [EventProcessorHost][], można zaimplementować interfejs [IE
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [klasy eventprocessorhost][], dostarczając odpowiednie parametry dla centrum zdarzeń. Przykład:
+Aby rozpocząć przetwarzanie zdarzeń, Utwórz wystąpienie [klasy eventprocessorhost][], dostarczając odpowiednie parametry dla centrum zdarzeń. Na przykład:
 
 > [!NOTE]
 > Klasy eventprocessorhost i powiązane klasy są dostępne w pakiecie **Microsoft. Azure. EventHubs. Processor** . Dodaj pakiet do projektu programu Visual Studio, wykonując instrukcje podane w [tym artykule](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) lub wykonując następujące polecenie w oknie [konsola Menedżera pakietów](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) : `Install-Package Microsoft.Azure.EventHubs.Processor` .
@@ -145,7 +146,7 @@ Oprócz zaawansowanych funkcji w czasie wykonywania hosta procesora zdarzeń us�
 
 Aby uzyskać więcej informacji o odwołaniu wydawcy i sposobie wysyłania zdarzeń do usługi Event Hubs jako wydawca, zobacz przykład [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) (Bezpieczne publikowanie na dużą skalę w usłudze Event Hubs).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o scenariuszach usługi Event Hubs, skorzystaj z następujących linków:
 

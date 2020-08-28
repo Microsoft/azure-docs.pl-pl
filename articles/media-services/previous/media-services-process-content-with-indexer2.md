@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: d4589e2e923bf4068cc3a707c69f0304a1539745
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 82c69d67d261c493d89f259720e1f903824d6ef8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011553"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013609"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indeksowanie plików multimedialnych z Azure Media Indexer 2 wersja zapoznawcza
 

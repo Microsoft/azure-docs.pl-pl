@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.openlocfilehash: 2133b68bf942cee87548783fb40d08c9bfe876ff
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 80918c63c1fef82c13b23569bcda10545628e8e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85851633"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998020"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Rozpoczynanie pracy z interfejsem API tabel usługi Azure Cosmos DB oraz usługą Azure Table Storage przy użyciu zestawu SDK platformy .NET
 
@@ -49,7 +50,7 @@ W programie Visual Studio Utwórz nową aplikację konsolową platformy .NET. Po
 
 1. W polu **Nazwa projektu** wprowadź nazwę aplikacji, na przykład **CosmosTableSamples**. (W razie konieczności można podać inną nazwę).
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 Wszystkie przykłady kodu z tego przykładu można dodać do metody Main () pliku **program.cs** aplikacji konsolowej.
 
@@ -437,7 +438,7 @@ Teraz możesz zalogować się do Azure Portal i sprawdzić, czy dane istnieją w
 
 :::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Wyniki w portalu":::
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz możesz przechodzić do następnego samouczka i dowiedzieć się, jak migrować dane do konta interfejs API tabel Azure Cosmos DB. 
 

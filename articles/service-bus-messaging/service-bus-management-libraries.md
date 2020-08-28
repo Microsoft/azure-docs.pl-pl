@@ -4,12 +4,13 @@ description: W tym artykule wyjaśniono, jak za pomocą bibliotek zarządzania A
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 915606bffc2037c8fcd1a7d33218143f40c78f2c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066172"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008050"
 ---
 # <a name="service-bus-management-libraries"></a>Biblioteki zarządzania usługi Service Bus
 
@@ -156,5 +157,5 @@ namespace SBusADApp
 > [!IMPORTANT]
 > Aby uzyskać pełny przykład, zobacz [przykład zarządzania .NET w witrynie GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dokumentacja interfejsu API Microsoft. Azure. Management. ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

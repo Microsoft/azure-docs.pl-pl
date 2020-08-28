@@ -3,7 +3,7 @@ title: Przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu i
 description: Instrukcje krok po kroku dotyczące przypisywania tożsamości zarządzanej do jednego zasobu, uzyskiwania dostępu do innego zasobu przy użyciu interfejsu wiersza polecenia platformy Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb89f962251c8c83a0f01e67a1ae42203d7e69f9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fc55034582c4758a57c1fb532f8cf5b203c17961
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494642"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009393"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Przypisywanie zarządzanej tożsamości dostępu do zasobu przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -67,7 +67,7 @@ Po włączeniu tożsamości zarządzanej w zasobie platformy Azure, na przykład
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie tożsamościami dla zasobów platformy Azure — omówienie](overview.md)
 - Aby włączyć zarządzaną tożsamość na maszynie wirtualnej platformy Azure, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](qs-configure-cli-windows-vm.md).

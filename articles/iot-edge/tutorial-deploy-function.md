@@ -8,17 +8,17 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d9b9ba3a8092992c9ebca9b3242223213b75ad80
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 9526a1569a5d8320dd59272ca97f5b48ec1dac1c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439672"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999125"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Samouczek: wdrażanie Azure Functions jako modułów IoT Edge
 
-Możesz użyć usługi Azure Functions, aby wdrożyć kod implementujący Twoją logikę biznesową bezpośrednio na urządzeniach usługi Azure IoT Edge. Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania funkcji platformy Azure, która filtruje dane czujników na symulowanym urządzeniu IoT Edge. Używasz symulowanego urządzenia usługi IoT Edge utworzonego podczas pracy z przewodnikami Szybki start dotyczącymi wdrażania usługi Azure IoT Edge na urządzeniu symulowanym w systemie [Windows](quickstart.md) lub [Linux](quickstart-linux.md). Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Możesz użyć usługi Azure Functions, aby wdrożyć kod implementujący Twoją logikę biznesową bezpośrednio na urządzeniach usługi Azure IoT Edge. Ten samouczek przeprowadzi Cię przez proces tworzenia i wdrażania funkcji platformy Azure, która filtruje dane czujników na symulowanym urządzeniu IoT Edge. Używasz symulowanego urządzenia usługi IoT Edge utworzonego podczas pracy z przewodnikami Szybki start dotyczącymi wdrażania usługi Azure IoT Edge na urządzeniu symulowanym w systemie [Windows](quickstart.md) lub [Linux](quickstart-linux.md). Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -227,7 +227,7 @@ Możesz również filtrować widok, aby wyświetlać wszystkie komunikaty przych
 
 Aby zatrzymać monitorowanie komunikatów, uruchom polecenie **Azure IoT Hub: Zatrzymaj monitorowanie wbudowanego punktu końcowego zdarzenia** w palecie poleceń.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego zalecanego artykułu, możesz zachować utworzone zasoby oraz konfiguracje i użyć ich ponownie. Możesz także nadal używać tego samego urządzenia usługi IoT Edge jako urządzenia testowego.
 
@@ -235,7 +235,7 @@ W przeciwnym razie możesz usunąć konfigurację lokalną i zasoby platformy Az
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku utworzono moduł funkcji platformy Azure z kodem służącym do filtrowania nieprzetworzonych danych, które są generowane przez urządzenie IoT Edge. Gdy wszystko jest gotowe do kompilowania własnych modułów, można dowiedzieć się więcej na temat sposobu [programowania za pomocą Azure IoT Edge Visual Studio Code](how-to-vs-code-develop-module.md).
 

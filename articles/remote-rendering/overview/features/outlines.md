@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 566bbca4c9b5c2f2a96ad231d69dda94374c7db2
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a3b4ba62072e26f16a0e39416c9ae346d1acefd9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893004"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997527"
 ---
 # <a name="outline-rendering"></a>Renderowanie konturów
 
@@ -60,6 +61,6 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 
 Renderowanie konspektu może mieć znaczny wpływ na wydajność renderowania. Ten wpływ zależy od relacji przestrzennej między zaznaczonymi i niewybranymi obiektami dla danej ramki.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Składnik przesłonięcia stanu hierarchicznego](../../overview/features/override-hierarchical-state.md)

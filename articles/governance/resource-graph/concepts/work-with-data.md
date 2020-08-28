@@ -3,12 +3,13 @@ title: Praca z dużymi zestawami danych
 description: Informacje na temat pobierania, formatowania, wyświetlania i pomijania rekordów w dużych zestawach danych podczas pracy z wykresem zasobów platformy Azure.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2de62af5f7a59837876ed3348bc14de232fdee38
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206363"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005942"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Praca z dużymi zestawami danych zasobów platformy Azure
 
@@ -167,7 +168,7 @@ request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, opt
 response = client.resources(request)
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Zobacz język używany w [zapytaniach początkowych](../samples/starter.md).
 - Zobacz zaawansowane zastosowania w [zaawansowanych zapytaniach](../samples/advanced.md).

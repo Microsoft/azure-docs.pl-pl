@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: b17befcd86cd56eb5eb385ddc5196cbfce73003c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f5634a33dccb06437f2e5f095e7880221dba9d6e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260428"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007914"
 ---
 # <a name="actor-events"></a>Zdarzenia aktora
 Zdarzenia aktora umożliwiają wysyłanie powiadomień o najlepszych nakładów od aktora do klientów. Zdarzenia aktora są przeznaczone do komunikacji między komputerami i nie powinny być używane do komunikacji między aktorami.
@@ -99,7 +100,7 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Współużytkowania wątkowości aktora](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostyka aktora i monitorowanie wydajności](service-fabric-reliable-actors-diagnostics.md)
 * [Dokumentacja interfejsu API aktora](/previous-versions/azure/dn971626(v=azure.100))

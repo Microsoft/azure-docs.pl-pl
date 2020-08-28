@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 815709611c0d7985a97ce52584b9e223c6d79aa2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d3dd75d246c1f74253a9ce910e50b05402065464
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924116"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998462"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Samouczek: indeksowanie z wielu źródeł danych przy użyciu zestawu .NET SDK
 
@@ -365,11 +366,11 @@ Możesz również użyć portalu, aby usunąć indeksy, indeksatory i źródła 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy znasz koncepcję pozyskiwania danych z wielu źródeł, przyjrzyjmy się bliżej konfiguracji indeksatora, rozpoczynając od Cosmos DB.
 

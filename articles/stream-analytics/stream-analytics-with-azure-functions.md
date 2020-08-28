@@ -5,14 +5,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77589457"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006894"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Samouczek: uruchamianie Azure Functions z Azure Stream Analytics zadań 
 
@@ -209,7 +209,7 @@ Gdy grupa zasobów, zadanie przesyłania strumieniowego i wszystkie pokrewne zas
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal kliknij pozycję **Grupy zasobów**, a następnie kliknij nazwę utworzonego zasobu.  
 2. Na stronie grupy zasobów kliknij pozycję **Usuń**, wpisz w polu tekstowym nazwę zasobu do usunięcia, a następnie kliknij pozycję **Usuń**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku utworzono proste zadanie Stream Analytics, w którym działa funkcja platformy Azure. Aby dowiedzieć się więcej na temat zadań usługi Stream Analytics, przejdź do następnego samouczka:
 

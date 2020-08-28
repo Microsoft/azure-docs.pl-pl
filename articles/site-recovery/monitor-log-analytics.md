@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495067"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006945"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorowanie usługi Site Recovery przy użyciu dzienników usługi Azure Monitor
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób monitorowania maszyn replikowanych przez usługę
 
 Dzienniki Azure Monitor udostępniają platformę danych dziennika, która zbiera dane dotyczące aktywności i dzienników zasobów oraz inne dane monitorowania. W ramach Azure Monitor dzienników używasz Log Analytics do zapisywania i testowania zapytań dzienników oraz do interaktywnego analizowania danych dziennika. Możesz wizualizować i badać wyniki dzienników oraz konfigurować alerty w celu podejmowania działań w oparciu o monitorowane dane.
 
-Site Recovery można Azure Monitor dzienników, aby ułatwić wykonywanie następujących czynności:
+Site Recovery można użyć dzienników Azure Monitor, aby ułatwić wykonywanie następujących czynności:
 
 - **Monitoruj Site Recovery kondycję i stan**. Na przykład można monitorować kondycję replikacji, stan testu pracy w trybie failover, zdarzenia Site Recovery, cele punktu odzyskiwania (RPO) dla chronionych maszyn i szybkość zmian dysku/danych.
 - **Skonfiguruj alerty dla Site Recovery**. Można na przykład skonfigurować alerty dotyczące kondycji komputera, stanu testu pracy w trybie failover lub Site Recovery stanu zadania.
@@ -62,9 +62,9 @@ Możesz przechwytywać informacje o szybkości zmian danych i szybkość przekaz
 1. Przejdź do obszaru roboczego Log Analytics i kliknij pozycję **Ustawienia zaawansowane**.
 2. Kliknij stronę **połączone źródła** , a następnie wybierz pozycję **serwery z systemem Windows**.
 3. Pobierz agenta systemu Windows (64 bit) na serwerze przetwarzania. 
-4. [Uzyskaj identyfikator i klucz obszaru roboczego](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+4. [Uzyskaj identyfikator i klucz obszaru roboczego](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 5. [Konfigurowanie agenta do korzystania z protokołu TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Ukończ instalację agenta](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) , podając identyfikator i klucz pozyskanego obszaru roboczego.
+6. [Ukończ instalację agenta](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) , podając identyfikator i klucz pozyskanego obszaru roboczego.
 7. Po zakończeniu instalacji przejdź do obszaru roboczego Log Analytics i kliknij pozycję **Ustawienia zaawansowane**. Przejdź do strony **dane** , a następnie kliknij pozycję **liczniki wydajności systemu Windows**. 
 8. Kliknij znak **"+"** , aby dodać następujące dwa liczniki z interwałem próbkowania wynoszącym 300 sekund:
 
@@ -359,6 +359,6 @@ AzureDiagnostics  
 
 Dla alertu Ustaw **wartość progu** na 1 i **okres** na 1440 minut, aby sprawdzić błędy w ciągu ostatniego dnia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dowiedz się więcej na temat](site-recovery-monitor-and-troubleshoot.md) wbudowanego monitorowania Site Recovery.

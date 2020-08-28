@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: 4445bb5c73ca001813d529a3e65d1ea95e084616
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082458"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000145"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Przewodnik programowania SCP dla Apache Storm w usłudze Azure HDInsight
 
@@ -72,7 +72,7 @@ Kod wtyczki implementuje jeden z następujących interfejsów. Który interfejs 
 
 ### <a name="iscpplugin"></a>ISCPPlugin
 
-**ISCPPlugin** jest wspólnym interfejsem dla wielu wtyczek. obecnie jest to fikcyjny interfejs.
+**ISCPPlugin** jest wspólnym interfejsem dla wielu wtyczek. Obecnie jest to fikcyjny interfejs.
 
 ```csharp
 public interface ISCPPlugin
@@ -201,7 +201,7 @@ public Dictionary<string, Object> stormConf { get; set; }
 public Dictionary<string, Object> pluginConf { get; set; }  
 ```
 
-Częścią **stormConf** są parametry zdefiniowane przez burzę, a część **pluginConf** jest parametrami ZDEFINIOWANYmi przez punkt połączenia usługi. Przykład:
+Częścią **stormConf** są parametry zdefiniowane przez burzę, a część **pluginConf** jest parametrami ZDEFINIOWANYmi przez punkt połączenia usługi. Oto przykład:
 
 ```csharp
 public class Constants
@@ -217,7 +217,7 @@ public class Constants
 }
 ```
 
-Typ **TopologyContext** Pobiera kontekst topologii. Jest to najbardziej przydatne w przypadku wielu składników równoległych. Przykład:
+Typ **TopologyContext** Pobiera kontekst topologii. Jest to najbardziej przydatne w przypadku wielu składników równoległych. Oto przykład:
 
 ```csharp
 //demo how to get TopologyContext info
@@ -539,9 +539,9 @@ SCP.NET dodaje dostosowaną metodę grupowania i używa zawartości obiektu **By
 
 W poprzednim pliku specyfikacji:
 
-* `scp-field-group`Określa, że grupowanie jest dostosowanym grupowaniem pól implementowanym przez punkt połączenia usługi.
-* `:tx`lub `:non-tx` określa, czy topologia jest transakcyjna. Te informacje są potrzebne, ponieważ indeks początkowy różni się od topologii transakcyjnej i nietransakcyjnej.
-* `[0,1]`Określa zestaw skrótów identyfikatorów pól, które zaczynają się od zera.
+* `scp-field-group` Określa, że grupowanie jest dostosowanym grupowaniem pól implementowanym przez punkt połączenia usługi.
+* `:tx` lub `:non-tx` określa, czy topologia jest transakcyjna. Te informacje są potrzebne, ponieważ indeks początkowy różni się od topologii transakcyjnej i nietransakcyjnej.
+* `[0,1]` Określa zestaw skrótów identyfikatorów pól, które zaczynają się od zera.
 
 ### <a name="hybrid-topology"></a>Topologia hybrydowa
 
@@ -549,7 +549,7 @@ Natywny kod burzy jest pisany w języku Java. SCP.NET ma ulepszoną burzę, aby 
 
 ### <a name="specify-java-spoutbolt-in-a-specification-file"></a>Określanie języka Java elementu Spout/piorun w pliku specyfikacji
 
-Aby określić elementy Spout i pioruny języka Java, można użyć **punktu SCP-elementu Spout** i **punktu połączenia** usługi w pliku specyfikacji. Przykład:
+Aby określić elementy Spout i pioruny języka Java, można użyć **punktu SCP-elementu Spout** i **punktu połączenia** usługi w pliku specyfikacji. Oto przykład:
 
 ```csharp
 (spout-spec 
@@ -561,7 +561,7 @@ Oto `microsoft.scp.example.HybridTopology.Generator` Nazwa klasy elementu Spout 
 
 ### <a name="specify-the-java-classpath-in-a-runspec-command"></a>Określanie ścieżki klas Java w runSpec polecenia
 
-Aby przesłać topologię zawierającą elementy Spout lub piorunów języka Java, należy najpierw skompilować je w celu utworzenia plików JAR. Następnie określ ścieżkę klasy Java, która zawiera pliki JAR podczas przesyłania topologii. Przykład:
+Aby przesłać topologię zawierającą elementy Spout lub piorunów języka Java, należy najpierw skompilować je w celu utworzenia plików JAR. Następnie określ ścieżkę klasy Java, która zawiera pliki JAR podczas przesyłania topologii. Oto przykład:
 
 ```csharp
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
@@ -789,7 +789,7 @@ Ta topologia zawiera elementu Spout Java i piorun języka C#. Używa domyślnej 
 
 Ten przykład jest w istocie taki sam jak HelloWorld. Jedyną różnicą jest to, że kod jest kompilowany jako biblioteka DLL, a topologia jest przesyłana przy użyciu SCPHost.exe. Aby uzyskać bardziej szczegółowy opis, zobacz sekcję Tryb hosta punktu połączenia usługi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przykłady topologii Apache Storm utworzonych za pomocą usługi SCP można znaleźć w następujących artykułach:
 

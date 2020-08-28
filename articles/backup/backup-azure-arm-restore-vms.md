@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 0607133f26113123f1c75d714c6c71f19cf2db63
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3212ba621f02740e9b27c28da854eef70dce64a6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826518"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006586"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -87,7 +87,7 @@ Jako jedna z [opcji przywracania](#restore-options)można szybko utworzyć maszy
 
 Jako jedną z [opcji przywracania](#restore-options)można utworzyć dysk z punktu przywracania. Następnie przy użyciu dysku można wykonać jedną z następujących czynności:
 
-- Użyj szablonu, który jest generowany podczas operacji przywracania, aby dostosować ustawienia i wyzwolić wdrożenie maszyny wirtualnej. Można edytować domyślne ustawienia szablonu i przesłać szablon do wdrożenia maszyny wirtualnej.
+- Użyj szablonu wygenerowanego podczas operacji przywracania, aby dostosować ustawienia i wyzwolić wdrożenie maszyny wirtualnej. Można edytować domyślne ustawienia szablonu i przesłać szablon do wdrożenia maszyny wirtualnej.
 - [Dołącz przywrócone dyski](../virtual-machines/windows/attach-managed-disk-portal.md) do istniejącej maszyny wirtualnej.
 - [Utwórz nową maszynę wirtualną](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) na podstawie przywróconych dysków przy użyciu programu PowerShell.
 
@@ -260,7 +260,7 @@ Po przywróceniu maszyny wirtualnej można pamiętać o kilku kwestiach:
 - W przypadku przywrócenia maszyny wirtualnej do tej samej grupy zasobów o takiej samej nazwie jak oryginalna kopia zapasowa maszyny wirtualnej kopia zapasowa jest kontynuowana na maszynie wirtualnej po przywróceniu.
 - Jeśli maszyna wirtualna została przywrócona do innej grupy zasobów lub została określona inna nazwa dla przywróconej maszyny wirtualnej, należy skonfigurować kopię zapasową przywróconej maszyny wirtualnej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Jeśli wystąpią problemy podczas procesu przywracania, [Przejrzyj](backup-azure-vms-troubleshoot.md#restore) typowe problemy i błędy.
 - Po przywróceniu maszyny wirtualnej Dowiedz się więcej o [zarządzaniu maszynami wirtualnymi](backup-azure-manage-vms.md)

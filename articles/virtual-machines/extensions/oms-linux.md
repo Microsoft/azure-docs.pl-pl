@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d7ebb23cfc0ffdcfcac7ecb4ecbd9b9a665e6130
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029097"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999822"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Linux
 
@@ -36,7 +36,7 @@ Dzienniki Azure Monitor udostępniają funkcje monitorowania, alertów i korygow
 
 ### <a name="operating-system"></a>System operacyjny
 
-Aby uzyskać szczegółowe informacje o obsługiwanych dystrybucjach systemu Linux, zapoznaj się z artykułem [Omówienie agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
+Aby uzyskać szczegółowe informacje o obsługiwanych dystrybucjach systemu Linux, zobacz artykuł [Omówienie agentów Azure monitor](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Wersja rozszerzenia agenta i maszyny wirtualnej
 Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej Log Analytics i pakietu agenta Log Analytics dla każdej wersji. Dołączono link do informacji o wersji dla wersji pakietu agenta Log Analytics. Informacje o wersji zawierają szczegóły poprawek błędów i nowych funkcji dostępnych dla danej wersji agenta.  
@@ -109,7 +109,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozsze
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft. EnterpriseCloud. Monitoring |
 | typ | OmsAgentForLinux |
-| typeHandlerVersion | 1.7 |
+| typeHandlerVersion | 1,7 |
 | Identyfikator obszaru roboczego (np.) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (np.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
@@ -186,7 +186,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiąż problemy
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu interfejsu wiersza polecenia platformy Azure. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie przy użyciu interfejsu wiersza polecenia platformy Azure.
 

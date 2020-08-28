@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4b1207f85f87755c8c0f2b8e9935f7e88118df3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005114"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006809"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
 
@@ -48,7 +48,7 @@ Aby móc używać Log Analytics, musisz utworzyć obszar roboczy. Aby to zrobić
 - Jeśli wolisz używać Azure Portal, zobacz [tworzenie log Analytics obszaru roboczego w Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
 - Jeśli wolisz program PowerShell, zobacz [Tworzenie obszaru roboczego log Analytics przy użyciu programu PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
-Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) uzyskać następujące informacje:
+Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) uzyskać następujące informacje:
 
 - Identyfikator obszaru roboczego
 - Klucz podstawowy obszaru roboczego
@@ -91,7 +91,7 @@ Możesz uzyskać dostęp do Log Analytics obszarów roboczych na Azure Portal lu
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Log Analytics dostępu do Log Analytics obszaru roboczego
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Wyszukaj **log Analytics obszar roboczy**.
 
@@ -197,6 +197,6 @@ WVDErrors
 >- W tabeli WVDErrors przedstawiono błędy zarządzania, problemy z rejestracją hosta oraz inne problemy, które są wykonywane, gdy użytkownik subskrybuje listę aplikacji lub pulpitów.
 >- WVDErrors pomaga identyfikować problemy, które mogą być rozwiązywane przez zadania administracyjne. Wartość właściwości serviceerror zawsze mówi "false" dla tego rodzaju problemów. Jeśli serviceerror = "true", musisz eskalować problem do firmy Microsoft. Upewnij się, że podajesz identyfikator korelacji dla błędów, które są eskalacjne.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby zapoznać się z typowymi scenariuszami błędów, które mogą identyfikować funkcja diagnostyki, zobacz [Identyfikowanie i diagnozowanie problemów](diagnostics-role-service.md#common-error-scenarios).

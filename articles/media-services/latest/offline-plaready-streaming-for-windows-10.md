@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bec7b37cf45851216f7b392ae1be52d4b1b2d990
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060594"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998496"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Tryb online PlayReady Streaming dla systemu Windows 10 z Media Services v3
 
@@ -60,13 +61,13 @@ Poniżej znajdują się dwa zestawy zasobów testowych, pierwszej z nich przy u�
 
 #1 zasobów:
 
-* Adres URL pobierania progresywnego:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* LA_URL PlayReady (AMS):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
+* Adres URL pobierania progresywnego: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL PlayReady (AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 #2 zasobów:
 
-* Adres URL pobierania progresywnego:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* LA_URL PlayReady (lokalnie):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
+* Adres URL pobierania progresywnego: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* LA_URL PlayReady (lokalnie): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 Do testowania odtwarzania użyto uniwersalnej aplikacji systemu Windows w systemie Windows 10. W przypadku [uniwersalnych przykładów systemu Windows 10](https://github.com/Microsoft/Windows-universal-samples)istnieje przykład podstawowego odtwarzacza o nazwie [adaptacyjnego przesyłania strumieniowego](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Wystarczy dodać kod, aby wybrać pobrany film wideo i użyć go jako źródła zamiast adaptacyjnego źródła przesyłania strumieniowego. Zmiany są po kliknięciu przycisku programu obsługi zdarzeń:
 
@@ -122,6 +123,6 @@ Podsumowując, osiągnięto tryb offline na Azure Media Services:
 * Dostawy licencji PlayReady mogą znajdować się w Azure Media Services lub w innym miejscu;
 * Przygotowanej płynnej zawartości strumieniowej można nadal używać do przesyłania strumieniowego online za pośrednictwem ŁĄCZNIKa lub Wygładź przy użyciu oprogramowania PlayReady jako technologii DRM.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu](design-multi-drm-system-with-access-control.md)

@@ -7,12 +7,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9c141cd96877fd140b858d0aaed9197f2de80eca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75551747"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005738"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurowanie i używanie koligacji usługi w Service Fabric
 Koligacja jest formantem, który jest przeznaczony głównie do ułatwienia przejścia większej liczby aplikacji monolitycznych do chmury i mikrousług na świecie. Jest on również używany jako Optymalizacja do poprawy wydajności usług, chociaż może to mieć wpływ na skutki uboczne.
@@ -73,7 +74,7 @@ Kolejną kwestią, aby zauważyć, że relacje koligacji już dzisiaj są domyś
 ### <a name="partitioning-support"></a>Obsługa partycjonowania
 Ostatnim krokiem, aby zauważyć o koligacji, jest to, że relacje koligacji nie są obsługiwane w przypadku partycjonowania elementu nadrzędnego. Podzielone na partycje usługi nadrzędne mogą być obsługiwane ostatecznie, ale dzisiaj nie jest to dozwolone.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji na temat konfigurowania usług, [Dowiedz się więcej o konfigurowaniu usług](service-fabric-cluster-resource-manager-configure-services.md)
 - Aby ograniczyć usługi do małego zestawu maszyn lub agregowania obciążeń usług, należy użyć [grup aplikacji](service-fabric-cluster-resource-manager-application-groups.md)
 

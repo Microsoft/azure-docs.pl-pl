@@ -4,12 +4,13 @@ description: 'Samouczek: w tym samouczku pokazano, jak przechwytywać dane z cen
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 1a7030014a8926b1db11ad99ba031e51194ddfd9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b6b6466675c8fa258af8370798cadd88e3b25a83
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833729"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997833"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Samouczek: Migrowanie przechwyconych danych Event Hubs do SQL Data Warehouse przy użyciu Event Grid i Azure Functions
 
@@ -113,11 +114,11 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Publikowanie aplikacji funkcji](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Kliknij pozycję **Opublikuj**.
+1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Wybierz pozycję **Opublikuj**.
 
    ![Docelowa aplikacja funkcji](./media/store-captured-data-data-warehouse/pick-target.png)
 
-1. Wybierz aplikację funkcji, która została wdrożona za pomocą szablonu. Wybierz przycisk **OK**.
+1. Wybierz aplikację funkcji, która została wdrożona za pomocą szablonu. Kliknij przycisk **OK**.
 
    ![Wybieranie aplikacji funkcji](./media/store-captured-data-data-warehouse/select-function-app.png)
 
@@ -142,7 +143,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia Captur
 
    ![Dodawanie subskrypcji](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
-1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz przycisk **Utwórz**.
+1. Nadaj nazwę subskrypcji siatki zdarzeń. Jako typu zdarzenia użyj wartości **Przestrzenie nazw usługi Event Hubs**. Podaj wartości, aby wybrać swoje wystąpienie przestrzeni nazw usługi Event Hubs. W polu punktu końcowego subskrybenta pozostaw podaną wartość. Wybierz pozycję **Utwórz**.
 
    ![Tworzenie subskrypcji](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
@@ -175,7 +176,7 @@ Konfiguracja centrum zdarzeń, magazynu danych SQL, aplikacji funkcji platformy 
 ## <a name="verify-captured-data-in-data-warehouse"></a>Weryfikowanie zapisanych danych w magazynie danych
 Po kilku minutach wyślij zapytanie do tabeli w magazynie danych SQL. Zauważysz, że dane generowane przez aplikację WindTurbineDataGenerator zostały przesłane strumieniowo do centrum Event Hub, zapisane w kontenerze usługi Azure Storage, a następnie przeniesione do tabeli usługi SQL Data Warehouse za pomocą funkcji platformy Azure.  
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Kolejne kroki 
 Aby uzyskać praktyczne informacje, możesz użyć zaawansowanych narzędzi do wizualizacji danych w magazynie danych.
 
 W tym artykule przedstawiono sposób korzystania z usługi [Power BI z usługą SQL Data Warehouse](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)

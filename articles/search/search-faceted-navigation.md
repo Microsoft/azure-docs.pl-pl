@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: dd00c357a422a407a3367e45531e3443577f9bec
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 05be5295ae5f8c73c916a21bba7dbc98ab0c5e87
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923249"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002797"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Jak wdrożyć nawigację aspektową na platformie Azure Wyszukiwanie poznawcze
 
@@ -397,7 +398,7 @@ Podczas pracy z wynikami wyszukiwania Obejrzyj adres URL pod kątem zmian w kons
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Dowiedz się więcej
 Obejrzyj [platformę Azure wyszukiwanie poznawcze głębokie szczegółowe](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Na 45:25 znajduje się pokaz dotyczący implementacji aspektów.
 
 Aby uzyskać więcej szczegółowych informacji na temat zasad projektowania dla nawigacji aspektowej, zalecamy następujące linki:

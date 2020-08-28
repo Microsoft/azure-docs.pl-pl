@@ -7,12 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4fa2d7f3884a30e60ce703dd45b295a85722fe67
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285292"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001420"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v11 dla platformy .NET
 
@@ -102,7 +103,7 @@ Z katalogu projektu:
 2. Usuń `Console.WriteLine` instrukcję
 3. Dodaj `using` dyrektywy
 4. Utwórz `ProcessAsync` metodę, w której będzie znajdować się główny kod dla przykładu
-5. Asynchroniczne wywołanie `ProcessAsync` metody z`Main`
+5. Asynchroniczne wywołanie `ProcessAsync` metody z `Main`
 
 Oto kod:
 
@@ -391,7 +392,7 @@ Po naciśnięciu klawisza **Enter** aplikacja usunie kontener magazynu i pliki. 
 
 Po zweryfikowaniu plików naciśnij dowolny klawisz, aby zakończyć demonstrację i usunąć pliki testowe.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku Szybki start opisano następujące czynności: przekazywanie, pobieranie i wyświetlanie listy obiektów blob przy użyciu platformy .NET.
 

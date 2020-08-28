@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392135"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008696"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Tuning query performance with Azure Cosmos DB (Dostosowywanie wydajności zapytań w usłudze Azure Cosmos DB)
 
@@ -136,7 +137,7 @@ Aby uzyskać szczegółowe informacje na temat nagłówków i opcji żądań int
 ## <a name="best-practices-for-query-performance"></a>Najlepsze rozwiązania dotyczące wydajności zapytań
 Poniżej przedstawiono najbardziej typowe czynniki wpływające na wydajność zapytań Azure Cosmos DB. Dig się do każdego z tych tematów w tym artykule.
 
-| 1U | Porada | 
+| Czynnik | Porada | 
 | ------ | -----| 
 | Aprowizowana przepływność | Zmierz wartość RU na zapytanie i upewnij się, że masz wymaganą przepustowość zainicjowaną dla zapytań. | 
 | Partycjonowanie i klucze partycji | Preferuj zapytania z wartością klucza partycji w klauzuli filtru w przypadku małych opóźnień. |
@@ -182,7 +183,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Maksymalny stopień równoległości
-W przypadku zapytań Dostosuj program, `MaxDegreeOfParallelism` Aby zidentyfikować najlepsze konfiguracje dla aplikacji, szczególnie w przypadku wykonywania zapytań między partycjami (bez filtrowania wartości klucza partycji). `MaxDegreeOfParallelism`kontroluje maksymalną liczbę równoległych zadań, czyli maksymalną liczbę partycji, które mają być odwiedzane równolegle. 
+W przypadku zapytań Dostosuj program, `MaxDegreeOfParallelism` Aby zidentyfikować najlepsze konfiguracje dla aplikacji, szczególnie w przypadku wykonywania zapytań między partycjami (bez filtrowania wartości klucza partycji). `MaxDegreeOfParallelism`  kontroluje maksymalną liczbę równoległych zadań, czyli maksymalną liczbę partycji, które mają być odwiedzane równolegle. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -271,7 +272,7 @@ Oto kilka przykładowych zapytań i sposób interpretowania niektórych metryk z
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | Zapytanie jest wykonywane w ramach skanowania, ponieważ jest w nim stosowane `LOWER` , a 500 z 2491 pobrane dokumenty są zwracane. |
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby dowiedzieć się więcej na temat obsługiwanych operatorów zapytań SQL i słów kluczowych, zobacz [zapytanie SQL](sql-query-getting-started.md). 
 * Aby dowiedzieć się więcej o jednostkach żądania, zobacz [jednostki żądań](request-units.md).
 * Aby dowiedzieć się więcej na temat zasad indeksowania, zobacz [zasady indeksowania](index-policy.md) 

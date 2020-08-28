@@ -4,18 +4,18 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 991a00aca3b32ee743be3cdc2bc6a35de064cb25
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890560"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006146"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
 W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych SQL Server baz danych, które działają na maszynach wirtualnych platformy Azure i korzystają z usługi [Azure Backup](backup-overview.md) .
 
-## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Czy mogę użyć usługi Azure Backup dla maszyny wirtualnej IaaS, a także SQL Server na tym samym komputerze?
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Czy można użyć Azure Backup dla maszyny wirtualnej IaaS, jak również SQL Server na tym samym komputerze?
 
 Tak. na tej samej maszynie wirtualnej można tworzyć kopie zapasowe maszyn wirtualnych i kopie zapasowe SQL. W takim przypadku wewnętrznie wyzwalają kopię zapasową tylko do kopiowania na maszynie wirtualnej, aby nie obciąć dzienników.
 
@@ -102,6 +102,6 @@ Baza danych, którą można [dodać do wystąpienia z ochroną](backup-sql-serve
 
   ![Ręczne odnajdywanie nowo dodanej bazy danych](./media/backup-azure-sql-database/view-newly-added-database.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak [utworzyć kopię zapasową bazy danych SQL Server](backup-azure-sql-database.md) działającej na maszynie wirtualnej platformy Azure.

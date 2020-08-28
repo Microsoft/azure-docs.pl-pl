@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi baz danych SAP HANA
 description: Opisuje sposób rozwiązywania typowych błędów, które mogą wystąpić podczas tworzenia kopii zapasowej SAP HANA baz danych przy użyciu Azure Backup.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826994"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004174"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Rozwiązywanie problemów z tworzeniem kopii zapasowych baz danych SAP HANA na platformie Azure
 
@@ -22,7 +22,7 @@ Przed skonfigurowaniem kopii zapasowych zapoznaj się z sekcją [wymagania wstę
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Komunikat o błędzie**      | <span style="font-weight:normal">Usługa Azure Backup nie ma uprawnień do wykonywania kopii zapasowych wymaganych przez rolę.</span>    |
+| **Komunikat o błędzie**      | <span style="font-weight:normal">Azure Backup nie ma wymaganych uprawnień roli do przeprowadzenia kopii zapasowej</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Możliwe przyczyny**    | Rola mogła zostać nadpisywana.                          |
 | **Zalecana akcja** | Aby rozwiązać ten problem, uruchom skrypt z okienka **odnajdywanie bazy danych** lub Pobierz go [tutaj](https://aka.ms/scriptforpermsonhana). Alternatywnie Dodaj rolę "SAP_INTERNAL_HANA_SUPPORT" do użytkownika kopii zapasowej obciążenia (AZUREWLBACKUPHANAUSER). |
@@ -31,7 +31,7 @@ Przed skonfigurowaniem kopii zapasowych zapoznaj się z sekcją [wymagania wstę
 
 | Komunikat o błędzie      | <span style="font-weight:normal">Nie można nawiązać połączenia z systemem HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Możliwe przyczyny**    | Wystąpienie SAP HANA może nie działać.<br/>Nie są ustawione uprawnienia wymagane dla usługi Azure Backup w celu współdziałania z bazą danych HANA. |
+| **Możliwe przyczyny**    | Wystąpienie SAP HANA może nie działać.<br/>Nie ustawiono wymaganych uprawnień do Azure Backup, aby można było korzystać z bazy danych HANA. |
 | **Zalecana akcja** | Sprawdź, czy baza danych SAP HANA działa. Jeśli baza danych jest uruchomiona i działa, sprawdź, czy są ustawione wszystkie wymagane uprawnienia. Jeśli brakuje któregoś z uprawnień, uruchom [skrypt rejestracyjny](https://aka.ms/scriptforpermsonhana) , aby dodać brakujące uprawnienia. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
@@ -45,14 +45,14 @@ Przed skonfigurowaniem kopii zapasowych zapoznaj się z sekcją [wymagania wstę
 
 | Komunikat o błędzie      | <span style="font-weight:normal">Określona operacja SAP HANA nie jest obsługiwana</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **Możliwe przyczyny**    | Usługa Azure Backup dla SAP HANA nie obsługuje przyrostowych kopii zapasowych i akcji wykonywanych na SAP HANA natywnych klientów (Studio/Panel sterowania/DBA) |
+| **Możliwe przyczyny**    | Azure Backup dla SAP HANA nie obsługuje przyrostowych kopii zapasowych i akcji wykonywanych na SAP HANA natywnych klientów (Studio/Panel sterowania/DBA) |
 | **Zalecana akcja** | Więcej informacji można znaleźć [tutaj](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
 | Komunikat o błędzie      | <span style="font-weight:normal">Ta SAP HANA baza danych nie obsługuje żądanego typu kopii zapasowej</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Możliwe przyczyny**    | Usługa Azure Backup nie obsługuje przyrostowych kopii zapasowych i kopii zapasowych przy użyciu migawek |
+| **Możliwe przyczyny**    | Azure Backup nie obsługuje przyrostowych kopii zapasowych i kopii zapasowych przy użyciu migawek |
 | **Zalecana akcja** | Więcej informacji można znaleźć [tutaj](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
@@ -73,7 +73,7 @@ Przed skonfigurowaniem kopii zapasowych zapoznaj się z sekcją [wymagania wstę
 
 | Komunikat o błędzie      | <span style="font-weight:normal">Wykryto nieprawidłową konfigurację BACKINT</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Możliwe przyczyny**    | Parametry zapasowe są niepoprawnie określone dla usługi Azure Backup |
+| **Możliwe przyczyny**    | Parametry zapasowe są niepoprawnie określone dla Azure Backup |
 | **Zalecana akcja** | Sprawdź, czy są ustawione następujące parametry (BACKINT):<br/>\* [catalog_backup_using_backint: true]<br/>\* [enable_accumulated_catalog_backup: false]<br/>\* [parallel_data_backup_backint_channels: 1]<br/>\* [log_backup_timeout_s: 900)]<br/>\* [backint_response_timeout: 7200]<br/>Jeśli na HOŚCIE znajdują się BACKINT parametry, usuń je. Jeśli parametry nie są dostępne na poziomie hosta, ale zostały ręcznie zmodyfikowane na poziomie bazy danych, przywróć je do odpowiednich wartości zgodnie z wcześniejszym opisem. Możesz też uruchomić polecenie [Zatrzymaj ochronę i zachować dane kopii zapasowej](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) z Azure Portal, a następnie wybrać polecenie **Wznów wykonywanie kopii zapasowej**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
@@ -202,6 +202,6 @@ Te objawy mogą wystąpić z następujących powodów:
 
 W powyższych scenariuszach zalecamy wyzwolenie operacji ponownego zarejestrowania na maszynie wirtualnej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Przejrzyj [często zadawane pytania](./sap-hana-faq-backup-azure-vm.md) dotyczące tworzenia kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure.

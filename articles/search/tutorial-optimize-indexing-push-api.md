@@ -8,12 +8,13 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 3e1845eee9832770cc289821c60097e69eec6c08
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932019"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998428"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
 
@@ -382,11 +383,11 @@ Możesz również użyć portalu, aby usunąć indeksy.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy znasz już koncepcję pozyskiwania danych, przyjrzyjmy się bliżej architekturze zapytań Lucene i jak działa wyszukiwanie pełnotekstowe w usłudze Azure Wyszukiwanie poznawcze.
 

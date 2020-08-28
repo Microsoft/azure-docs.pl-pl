@@ -2,21 +2,21 @@
 title: Usługi platformy Azure, które obsługują tożsamości zarządzane — Azure AD
 description: Lista usług, które obsługują zarządzane tożsamości dla zasobów platformy Azure i uwierzytelniania usługi Azure AD
 services: active-directory
-author: MarkusVi
-ms.author: markvi
+author: barclayn
+ms.author: barclayn
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: markvi
+manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 13521017076c609c2fadb4362d5cccdf12d94098
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1d9bd6ccc0f92ab28088e886c5bd17d79bc6cea3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873589"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007631"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -30,7 +30,7 @@ Zarządzane tożsamości dla zasobów platformy Azure zapewniają usługi platfo
 Następujące usługi platformy Azure obsługują tożsamości zarządzane dla zasobów platformy Azure:
 
 
-### <a name="azure-api-management"></a>Usługa Azure API Management
+### <a name="azure-api-management"></a>Azure API Management
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -39,7 +39,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure API Management (w regionach, w których są dostępne):
 
-- [Szablon Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Szablon usługi Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 
 ### <a name="azure-app-service"></a>Azure App Service
@@ -54,7 +54,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Witryna Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Platforma Kubernetes z włączoną usługą Azure Arc
 
@@ -103,7 +103,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Container Instances (w regionach, w których są dostępne):
 
 - [Interfejs wiersza polecenia platformy Azure](~/articles/container-instances/container-instances-managed-identity.md)
-- [Szablon Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Szablon usługi Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
@@ -135,7 +135,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Data Factory v2 (w regionach, w których są dostępne):
 
 - [Witryna Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [Program PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
@@ -168,7 +168,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Witryna Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-iot-hub"></a>Azure IoT Hub
 
@@ -210,7 +210,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Logic Apps (w regionach, w których są dostępne):
 
 - [Witryna Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Szablon Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Szablon usługi Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
 ### <a name="azure-policy"></a>Azure Policy
@@ -240,7 +240,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla aplikacji Service Fabric platformy Azure we wszystkich regionach:
 
-- [Szablon Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+- [Szablon usługi Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ### <a name="azure-spring-cloud"></a>Azure Spring Cloud
 
@@ -294,7 +294,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 | Przypisana przez użytkownika | [Dostępne w obsługiwanych regionach](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Niedostępny | Niedostępny | Niedostępny |
 
 Aby dowiedzieć się, jak skonfigurować tożsamość zarządzaną dla konstruktora obrazów maszyn wirtualnych platformy Azure (w regionach, w których jest dostępna), zobacz [Omówienie konstruktora obrazów](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
-### <a name="azure-signalr-service"></a>Usługa Azure SignalR Service
+### <a name="azure-signalr-service"></a>Azure SignalR Service
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -303,7 +303,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować zarządzaną tożsamość usługi Azure Signal Service (w regionach, w których są dostępne):
 
-- [Szablon Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
+- [Szablon usługi Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD
 

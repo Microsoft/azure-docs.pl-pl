@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 7d91348b727c1c43f010ec9f60ae9abd33978ce8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0b51960418b311ed6170d6d060f3674a9a825808
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85257520"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998513"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Samouczek: Dodawanie nawigacji aspektowej przy użyciu zestawu .NET SDK
 
@@ -21,7 +22,7 @@ Zestawy reguł służą do ułatwienia nawigacji, dostarczając użytkownikowi z
 
 Ten samouczek kompiluje się do projektu stronicowania utworzonego w [samouczku języka C#: wyniki wyszukiwania stronicowania — Samouczek platformy Azure wyszukiwanie poznawcze](tutorial-csharp-paging.md) .
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Ustaw właściwości modelu jako _Isuderzający_
 > * Dodawanie nawigacji aspektu do aplikacji
@@ -555,7 +556,7 @@ Rozważmy następujący wnioski z tego projektu:
 * Nawigacja aspektów zapewnia użytkownikowi łatwy i intuicyjny sposób zawężania wyszukiwania.
 * Nawigacja aspektów najlepiej dzieli się na sekcje (kategorie hotelu, walory hotelowe, zakresy cen, zakresy klasyfikacji itp.), Każda sekcja z odpowiednim nagłówkiem.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W następnym samouczku będziemy przeglądać wyniki sortowania. Do tego momentu wyniki są uporządkowane po prostu w kolejności, w jakiej znajdują się w bazie danych.
 

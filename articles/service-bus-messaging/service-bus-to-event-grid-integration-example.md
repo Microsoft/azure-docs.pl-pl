@@ -6,17 +6,18 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0909fd95238051a6a50e582cb2543dd3bdd307bf
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6f64c8155724a1306f5074a9164bcf97391dfbf6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067294"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000349"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Samouczek: reagowanie na zdarzenia Azure Service Bus odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions i Azure Logic Apps
 W tym samouczku dowiesz się, jak odpowiedzieć na zdarzenia Azure Service Bus, które są odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions i Azure Logic Apps. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Service Bus
 > * Przygotowanie przykładowej aplikacji do wysyłania wiadomości
@@ -325,7 +326,7 @@ W tej sekcji dowiesz się, jak odbierać i przetwarzać komunikaty po odebraniu 
 5. Na stronie **Publikowanie**wykonaj następujące czynności: 
     1. Wybierz pozycję **Rozpocznij** na stronie **Publikowanie** 
     2. Dla **elementu docelowego**wybierz pozycję **Importuj profil**. 
-    3. Wybierz pozycję **Dalej**. 
+    3. Wybierz pozycję **Next** (Dalej). 
 
         ![Visual Studio — przycisk importowania profilu](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
 7. Wybierz pobrany wcześniej **plik profilu publikowania** i wybierz pozycję **Zakończ**.
@@ -353,7 +354,7 @@ W tej sekcji dowiesz się, jak odbierać i przetwarzać komunikaty po odebraniu 
 3. Postępuj zgodnie z instrukcjami w sekcji [wysyłanie komunikatów do Service Bus tematu](#send-messages-to-the-service-bus-topic) , aby wysyłać komunikaty do tematu i monitorować funkcję. 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się więcej na temat usługi [Azure Event Grid](../event-grid/index.yml).
 * Dowiedz się więcej na temat usługi [Azure Functions](../azure-functions/index.yml).

@@ -5,12 +5,13 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261115"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005823"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowe skalowanie klastra Service Fabricowego 
 
@@ -25,9 +26,9 @@ Jednym z wyzwań zapisywania usługi do obsługi skalowania jest to, że usługa
 Jednostkę usługi można utworzyć przy użyciu następujących kroków:
 
 1. Zaloguj się do interfejsu wiersza polecenia platformy Azure ( `az login` ) jako użytkownik z dostępem do zestawu skalowania maszyn wirtualnych
-2. Tworzenie jednostki usługi za pomocą`az ad sp create-for-rbac`
+2. Tworzenie jednostki usługi za pomocą `az ad sp create-for-rbac`
     1. Zanotuj identyfikator appId (nazywany "IDENTYFIKATORem klienta" w innym miejscu), nazwę, hasło i dzierżawcę do późniejszego użycia.
-    2. Wymagany jest również Identyfikator subskrypcji, który można wyświetlić za pomocą`az account list`
+    2. Wymagany jest również Identyfikator subskrypcji, który można wyświetlić za pomocą `az account list`
 
 Biblioteka obliczeń Fluent może zalogować się przy użyciu tych poświadczeń w następujący sposób (należy zauważyć, że podstawowe typy Fluent platformy Azure, takie jak `IAzure` znajdują się w pakiecie [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) ):
 
@@ -59,7 +60,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Alternatywnie można także zarządzać rozmiarem zestawu skalowania maszyn wirtualnych za pomocą poleceń cmdlet programu PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)może pobrać obiekt zestawu skalowania maszyn wirtualnych. Bieżąca pojemność jest dostępna za pomocą `.sku.capacity` właściwości. Po zmianie pojemności na żądaną wartość zestaw skalowania maszyn wirtualnych na platformie Azure można zaktualizować za pomocą [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) polecenia.
+Alternatywnie można także zarządzać rozmiarem zestawu skalowania maszyn wirtualnych za pomocą poleceń cmdlet programu PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) może pobrać obiekt zestawu skalowania maszyn wirtualnych. Bieżąca pojemność jest dostępna za pomocą `.sku.capacity` właściwości. Po zmianie pojemności na żądaną wartość zestaw skalowania maszyn wirtualnych na platformie Azure można zaktualizować za pomocą [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) polecenia.
 
 Podobnie jak podczas ręcznego dodawania węzła dodanie wystąpienia zestawu skalowania powinno być wszystkie konieczne do uruchomienia nowego węzła Service Fabric, ponieważ szablon zestawu skalowania zawiera rozszerzenia umożliwiające automatyczne dołączanie nowych wystąpień do klastra Service Fabric. 
 
@@ -115,7 +116,7 @@ Podobnie jak w przypadku skalowania w poziomie, polecenia cmdlet programu PowerS
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby rozpocząć implementowanie własnej logiki automatycznego skalowania, zapoznaj się z następującymi pojęciami i przydatnymi interfejsami API:
 

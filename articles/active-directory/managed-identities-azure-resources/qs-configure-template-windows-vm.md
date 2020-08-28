@@ -3,7 +3,7 @@ title: Konfigurowanie zarządzanych tożsamości na maszynie wirtualnej platform
 description: Instrukcje krok po kroku dotyczące konfigurowania tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu szablonu Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7970f321f301cc394732b1557d65974e7902574
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3af0715377e6beadd8d686613f1d1199421314dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609031"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005194"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-templates"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu szablonów
 
@@ -344,6 +344,6 @@ Aby usunąć tożsamość przypisaną przez użytkownika z maszyny wirtualnej, T
 
    Jeśli masz tożsamość zarządzaną przypisaną przez system, Zachowaj ją w `type` wartości poniżej `identity` wartości.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Zarządzanie tożsamościami dla zasobów platformy Azure — omówienie](overview.md).

@@ -1,9 +1,9 @@
 ---
-title: Szybki`:` Start Użyj tożsamości zarządzanej, aby uzyskać dostęp do Azure Resource Manager — Azure AD
+title: Szybki Start `:` Użyj tożsamości zarządzanej, aby uzyskać dostęp do Azure Resource Manager — Azure AD
 description: Szybki start przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: bryanla
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee10a73579e8533cd14ecfeeebab44e726ba16b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ffcdbe01ec3bdd49d0238f3fb8741a3e94306d62
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74326318"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007655"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Resource Manager
 
@@ -81,7 +81,7 @@ Aby wykonać te kroki, będziesz potrzebować klienta SSH. Jeśli używasz syste
     "token_type":"Bearer"} 
     ```
     
-    Możesz użyć tego tokenu dostępu w celu uzyskania dostępu do usługi Azure Resource Manager, np. aby odczytać właściwości grupy zasobów, do której wcześniej udzielono dostępu tej maszynie wirtualnej.Zastąp wartości \<IDENTYFIKATOR SUBSKRYPCJI\>, \<GRUPA ZASOBÓW\> oraz \<TOKEN DOSTĘPU\> wcześniej utworzonymi. 
+    Możesz użyć tego tokenu dostępu w celu uzyskania dostępu do usługi Azure Resource Manager, np. aby odczytać właściwości grupy zasobów, do której wcześniej udzielono dostępu tej maszynie wirtualnej.Zastąp wartości \<SUBSCRIPTION ID\> , \<RESOURCE GROUP\> i dla \<ACCESS TOKEN\> utworzonych wcześniej reguł. 
     
     > [!NOTE]
     > W adresie URL rozróżniana jest wielkość liter, więc upewnij się, że użyto takich samych wartości jak wcześniej, podczas nazywania grupy zasobów — z wielką literą „G” w nazwie „resourceGroup”.  
@@ -95,10 +95,10 @@ Aby wykonać te kroki, będziesz potrzebować klienta SSH. Jeśli używasz syste
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku Szybki start przedstawiono sposób używania tożsamości zarządzanej przypisanej przez system w celu uzyskania dostępu do interfejsu API usługi Azure Resource Manager.  Aby dowiedzieć się więcej o usłudze Azure Resource Manager, zobacz:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
->[tworzenia, wyświetlania lub usuwania tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](how-to-manage-ua-identity-powershell.md)
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) 
+> [Tworzenie, wyświetlanie i usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](how-to-manage-ua-identity-powershell.md)

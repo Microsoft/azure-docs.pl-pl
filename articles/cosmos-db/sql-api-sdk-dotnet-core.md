@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: f415402d45532ade2777cd534659e0f302a550f8
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 7592bc9badd1f27f0d24feffe916242981492209
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590153"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998377"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB zestaw .NET Core SDK V2 dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]

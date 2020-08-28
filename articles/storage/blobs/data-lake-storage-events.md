@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 85fad873b6c176d2278ea48709d2892ab515a025
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8df4de01750de92222bfa9021b66828927804e85
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78303311"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005483"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Samouczek: implementowanie wzorca przechwytywania danych w celu zaktualizowania tabeli różnicowej datakostki
 
@@ -127,7 +128,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
 
     ![Tworzenie notesu w kostkach](./media/data-lake-storage-events/new-databricks-notebook.png "Tworzenie notesu w kostkach")
 
-    Wybierz przycisk **Utwórz**.
+    Wybierz pozycję **Utwórz**.
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Tworzenie i wypełnianie tabeli różnicowej datakostki
 
@@ -410,7 +411,7 @@ W tej sekcji utworzysz subskrypcję Event Grid, która wywołuje funkcję platfo
 
 Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. W tym celu zaznacz grupę zasobów konta magazynu i wybierz pozycję **Usuń**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 > [!div class="nextstepaction"]
 > [Reagowanie na zdarzenia usługi Blob Storage](storage-blob-event-overview.md)

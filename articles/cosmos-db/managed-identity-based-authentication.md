@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: acb74d806f1ad361d3772438eec7fb788a843b02
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 25ec74f3638ce857e4472d73a51e45f24c4df5ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243721"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997731"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
 
@@ -90,10 +91,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 Teraz mamy aplikację funkcji, która ma tożsamość zarządzaną przypisaną przez system z rolą **współautor konta DocumentDB** w uprawnieniach Azure Cosmos DB. Poniższy kod aplikacji funkcji pobierze klucze Azure Cosmos DB, utworzy obiekt CosmosClient, pobierze temperaturę Aquarium, a następnie zapisze go w Azure Cosmos DB.
 
-Ten przykład używa [interfejsu API kluczy list](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) , aby uzyskać dostęp do kluczy konta Azure Cosmos DB.
+Ten przykład używa [interfejsu API kluczy list](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) , aby uzyskać dostęp do kluczy konta Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Jeśli chcesz przypisać rolę [czytnika konta Cosmos DB](#grant-access-to-your-azure-cosmos-account) , musisz użyć [interfejsu API tylko do odczytu listy kluczy](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Spowoduje to wypełnienie tylko kluczy tylko do odczytu.
+> Jeśli chcesz przypisać rolę [czytnika konta Cosmos DB](#grant-access-to-your-azure-cosmos-account) , musisz użyć [interfejsu API tylko do odczytu listy kluczy](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). Spowoduje to wypełnienie tylko kluczy tylko do odczytu.
 
 Interfejs API kluczy list zwraca `DatabaseAccountListKeysResult` obiekt. Ten typ nie jest zdefiniowany w bibliotekach języka C#. Poniższy kod przedstawia implementację tej klasy:  
 
@@ -213,7 +214,7 @@ namespace Monitor
 
 Teraz możesz przystąpić do [wdrażania aplikacji funkcji](../azure-functions/functions-create-first-function-vs-code.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Uwierzytelnianie oparte na certyfikatach z użyciem Azure Cosmos DB i Azure Active Directory](certificate-based-authentication.md)
 * [Zabezpiecz klucze Azure Cosmos DB przy użyciu Azure Key Vault](access-secrets-from-keyvault.md)

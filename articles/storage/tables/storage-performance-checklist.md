@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
-ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236390"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008679"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista kontrolna wydajności i skalowalności dla usługi Table Storage
 
@@ -39,11 +40,11 @@ Ten artykuł organizuje sprawdzone rozwiązania dotyczące wydajności w ramach 
 | &nbsp; |Konfiguracja platformy .NET |[Czy skonfigurowano klienta tak, aby używał wystarczającej liczby jednoczesnych połączeń?](#increase-default-connection-limit) |
 | &nbsp; |Konfiguracja platformy .NET |[Czy w przypadku aplikacji .NET skonfigurowano platformę .NET do używania wystarczającej liczby wątków?](#increase-minimum-number-of-threads) |
 | &nbsp; |Równoległości |[Czy istnieje pewność, że równoległość jest odpowiednio ograniczona, aby nie można było przeciążać możliwości klienta ani podejścia do celów skalowalności?](#unbounded-parallelism) |
-| &nbsp; |Narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
+| &nbsp; |narzędzia |[Czy używasz najnowszych wersji bibliotek i narzędzi klienta dostarczonych przez firmę Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Ponowne próby |[Czy zasady ponawiania są używane z wykładniczą wycofywaniaą do ograniczania błędów i przekroczeń limitu czasu?](#timeout-and-server-busy-errors) |
 | &nbsp; |Ponowne próby |[Czy aplikacja unika ponawiania prób w przypadku błędów, które nie są ponawiane?](#non-retryable-errors) |
-| &nbsp; |Konfiguracja |[Czy używasz formatu JSON dla żądań tabeli?](#use-json) |
-| &nbsp; |Konfiguracja |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
+| &nbsp; |Konfigurowanie |[Czy używasz formatu JSON dla żądań tabeli?](#use-json) |
+| &nbsp; |Konfigurowanie |[Czy wyłączono algorytm nagle, aby zwiększyć wydajność małych żądań?](#disable-nagle) |
 | &nbsp; |Tabele i partycje |[Czy masz poprawnie partycjonowane dane?](#schema) |
 | &nbsp; |Partycje aktywne |[Czy unikasz wzorców tylko do dołączania i tylko do prefiksu?](#append-only-and-prepend-only-patterns) |
 | &nbsp; |Partycje aktywne |[Czy operacje wstawiania/aktualizowania są rozłożone na wiele partycji?](#high-traffic-data) |
@@ -188,7 +189,7 @@ Biblioteki klienta obsługują ponawianie prób z świadomością, które błęd
 
 Aby uzyskać więcej informacji na temat kodów błędów usługi Azure Storage, zobacz informacje o [stanie i kodach błędów](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Ta sekcja zawiera kilka ustawień szybkiego konfigurowania, których można użyć w celu zwiększenia wydajności Table service:
 
@@ -287,7 +288,7 @@ Alternatywnie, aplikacja może przechowywać użycie procesora CPU przez każdą
 
 Jeśli wykonujesz operacje wstawiania wsadowego, a następnie pobierasz zakresy jednostek, rozważ użycie obiektów BLOB zamiast tabel. Dobrym przykładem jest plik dziennika. Można wykonać wsadowe kilka minut dzienników i wstawić je, a następnie pobrać kilka minut dzienników jednocześnie. W takim przypadku wydajność jest lepsza, jeśli używasz obiektów BLOB zamiast tabel, ponieważ można znacząco ograniczyć liczbę obiektów zapisaną lub odczytaną, a także liczbę żądań, które wymagają.  
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Cele skalowalności i wydajności dla usługi Table Storage](scalability-targets.md)
 - [Cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)

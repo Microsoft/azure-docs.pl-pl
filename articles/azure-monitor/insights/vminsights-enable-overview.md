@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/27/2020
+ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824770"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998411"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
 
@@ -68,7 +68,7 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 
 Jeśli nie masz obszaru roboczego Log Analytics, możesz go utworzyć przy użyciu jednego z zasobów:
 * [Interfejs wiersza polecenia platformy Azure](../learn/quick-create-workspace-cli.md)
-* [PowerShell](../platform/powershell-workspace-configuration.md)
+* [Program PowerShell](../platform/powershell-workspace-configuration.md)
 * [Witryna Azure Portal](../learn/quick-create-workspace.md)
 * [Azure Resource Manager](../platform/template-workspace-configuration.md)
 
@@ -78,86 +78,25 @@ Jeśli nie masz obszaru roboczego Log Analytics, możesz go utworzyć przy użyc
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-W poniższej tabeli wymieniono systemy operacyjne Windows i Linux obsługiwane przez Azure Monitor dla maszyn wirtualnych. W dalszej części tej sekcji znajdziesz pełną listę zawierającą szczegóły głównej i pomocniczej wersji systemu operacyjnego Linux oraz obsługiwane wersje jądra.
+Azure Monitor dla maszyn wirtualnych obsługuje każdy system operacyjny, który obsługuje agenta Log Analytics i agenta zależności. Pełną listę można znaleźć w temacie [Omówienie agentów Azure monitor ](../platform/agents-overview.md#supported-operating-systems) .
 
-|Wersja systemu operacyjnego |Wydajność |Maps |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|System Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 z dodatkiem R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 z dodatkiem R2 | X | X|
-|System Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 z dodatkiem SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18,04, 16,04 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9,4, 8 | X<sup>1</sup> | |
+Zapoznaj się z poniższą listą zagadnień związanych z obsługą agenta zależnego obsługiwanego przez system Linux Azure Monitor dla maszyn wirtualnych:
 
-<sup>1</sup> funkcja wydajności Azure monitor dla maszyn wirtualnych jest dostępna tylko z Azure monitor. Nie jest ona dostępna bezpośrednio z okienka po lewej stronie maszyny wirtualnej platformy Azure.
+- Obsługiwane są tylko wersje domyślne i wersje SMP jądra systemu Linux.
+- Niestandardowe wersje jądra, takie jak rozszerzenie adresu fizycznego (PAE) i Xen, nie są obsługiwane w przypadku żadnej dystrybucji systemu Linux. Na przykład system z ciągiem wydania *2.6.16.21-0,8-Xen* nie jest obsługiwany.
+- Niestandardowe jądra, w tym ponowne kompilacje standardowych jądra, nie są obsługiwane.
+- W przypadku Debian dystrybucje innych niż wersja 9,4 funkcja map nie jest obsługiwana, a funkcja wydajność jest dostępna tylko z menu Azure Monitor. Nie jest ona dostępna bezpośrednio z okienka po lewej stronie maszyny wirtualnej platformy Azure.
+- CentOSPlus jądro jest obsługiwane.
+- Dla luki w zabezpieczeniach Spectre należy zainstalować jądro systemu Linux. Aby uzyskać więcej informacji, skontaktuj się z dostawcą dystrybucji systemu Linux.
 
->[!NOTE]
->W systemie operacyjnym Linux:
-> - Obsługiwane są tylko wersje domyślne i wersje SMP jądra systemu Linux.
-> - Niestandardowe wersje jądra, takie jak rozszerzenie adresu fizycznego (PAE) i Xen, nie są obsługiwane w przypadku żadnej dystrybucji systemu Linux. Na przykład system z ciągiem wydania *2.6.16.21-0,8-Xen* nie jest obsługiwany.
-> - Niestandardowe jądra, w tym ponowne kompilacje standardowych jądra, nie są obsługiwane.
-> - CentOSPlus jądro jest obsługiwane.
-> - Dla luki w zabezpieczeniach Spectre należy zainstalować jądro systemu Linux. Aby uzyskać więcej informacji, skontaktuj się z dostawcą dystrybucji systemu Linux.
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-
-| Wersja systemu operacyjnego | Wersja jądra |
-|:--|:--|
-| 7,6 | 3.10.0-957 |
-| 7,5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-
-| Wersja systemu operacyjnego | Wersja jądra |
-|:--|:--|
-| 6,10 | 2.6.32 — 754 |
-| 6,9 | 2.6.32-696 |
-
-#### <a name="centosplus"></a>CentOSPlus
-
-| Wersja systemu operacyjnego | Wersja jądra |
-|:--|:--|
-| 6,10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6,9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### <a name="ubuntu-server"></a>Ubuntu Server
-
-| Wersja systemu operacyjnego | Wersja jądra |
-|:--|:--|
-| 18,04 | 5.3.0-1020<br>5,0 (obejmuje jądro dostosowane do platformy Azure)<br>4,18* <br> 4,15* |
-| 16.04.3 | 4,15. * |
-| 16,04 | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
-
-#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| Wersja systemu operacyjnego | Wersja jądra |
-|:--|:--|
-|12 SP4 | 4,12. * (obejmuje jądro dostosowane do platformy Azure) |
-|12 SP3 | 4,4. * |
-|12 Z DODATKIEM SP2 | 4,4. * |
-
-#### <a name="debian"></a>Debian 
-
-| Wersja systemu operacyjnego | Wersja jądra |
-|:--|:--|
-| 9 | 4,9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Obsługiwane maszyny usługi Azure Arc
 Azure Monitor dla maszyn wirtualnych jest dostępna dla serwerów z obsługą usługi Azure Arc w regionach, w których jest dostępna usługa rozszerzenia Arc. Musi być uruchomiona wersja 0,9 lub nowsza agenta Arc.
 
 | Połączone źródło | Obsługiwane | Opis |
 |:--|:--|:--|
-| Agenci dla systemu Windows | Tak | Wraz z [agentem log Analytics dla systemu Windows](../platform/log-analytics-agent.md)agenci systemu Windows potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](#supported-operating-systems). |
+| Agenci dla systemu Windows | Tak | Wraz z [agentem log Analytics dla systemu Windows](../platform/log-analytics-agent.md)agenci systemu Windows potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](../platform/agents-overview.md#supported-operating-systems). |
 | Agenci dla systemu Linux | Tak | Wraz z [agentem log Analytics dla systemu Linux](../platform/log-analytics-agent.md)agenci systemu Linux potrzebują agenta zależności. Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne](#supported-operating-systems). |
 | Grupa zarządzania programu System Center Operations Manager | Nie | |
 
@@ -175,7 +114,7 @@ Poniżej przedstawiono wiele metod wdrażania tych agentów.
 | Metoda | Opis |
 |:---|:---|
 | [Witryna Azure Portal](./vminsights-enable-portal.md) | Zainstaluj obu agentów na jednej maszynie wirtualnej, w zestawie skalowania maszyn wirtualnych lub hybrydowych maszyn wirtualnych połączonych z usługą Azure Arc. |
-| [Szablony Menedżer zasobów](vminsights-enable-powershell.md) | Zainstaluj obu agentów przy użyciu dowolnej z obsługiwanych metod do wdrożenia szablonu Menedżer zasobów, w tym interfejsu wiersza polecenia i programu PowerShell. |
+| [Szablony usługi Resource Manager](vminsights-enable-powershell.md) | Zainstaluj obu agentów przy użyciu dowolnej z obsługiwanych metod do wdrożenia szablonu Menedżer zasobów, w tym interfejsu wiersza polecenia i programu PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Przypisz inicjatywę Azure Policy, aby automatycznie zainstalować agentów podczas tworzenia maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych. |
 | [Instalacja ręczna](./vminsights-enable-hybrid.md) | Zainstaluj agentów w systemie operacyjnym gościa na komputerach hostowanych poza platformą Azure, w tym w centrum danych lub w innych środowiskach w chmurze. |
 
@@ -197,6 +136,6 @@ Aby uzyskać więcej informacji na temat zbierania i używania danych, zobacz [z
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się, jak korzystać z funkcji monitorowania wydajności, zobacz [wyświetlanie Azure monitor dla maszyn wirtualnych Performance](vminsights-performance.md). Aby wyświetlić odnalezione zależności aplikacji, zobacz [view Azure monitor dla maszyn wirtualnych map](vminsights-maps.md).

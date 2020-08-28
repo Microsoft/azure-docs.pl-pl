@@ -3,12 +3,13 @@ title: Tworzenie podzielonych kolejek Azure Service Bus i tematów | Microsoft D
 description: Opisuje sposób partycjonowania Service Bus kolejek i tematów przy użyciu wielu brokerów komunikatów.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c43d8d560ddede021b70b0cdc167f42052904b0b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064863"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007965"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 
@@ -33,7 +34,7 @@ Nie ma dodatkowych kosztów podczas wysyłania komunikatu do lub otrzymywania ko
 
 Aby używać podzielonych kolejek i tematów w Azure Service Bus, należy użyć zestawu Azure SDK w wersji 2,2 lub nowszej albo określić `api-version=2013-10` lub później w żądaniach HTTP.
 
-### <a name="standard"></a>Standardowa (Standard)
+### <a name="standard"></a>Standard
 
 W warstwie Standardowa obsługa komunikatów można tworzyć Service Bus kolejki i tematy w rozmiarze 1, 2, 3, 4 lub 5 GB (wartość domyślna to 1 GB). Po włączeniu partycjonowania Service Bus tworzy 16 kopii (16 partycji) jednostki, każdy z określonych rozmiarów. W związku z tym, jeśli utworzysz kolejkę o rozmiarze 5 GB, a w przypadku 16 partycji zostanie osiągnięty maksymalny rozmiar kolejki (5 \* 16) = 80 GB. Możesz zobaczyć maksymalny rozmiar kolejki lub tematu partycjonowanego, przeglądając jego wpis na [Azure Portal][Azure portal], w bloku **Przegląd** dla tej jednostki.
 
@@ -141,7 +142,7 @@ Obecnie Service Bus nakładają następujące ograniczenia dotyczące podzielony
 * Partycjonowane kolejki i tematy nie obsługują wysyłania komunikatów należących do różnych sesji w ramach jednej transakcji.
 * Obecnie w usłudze Service Bus można utworzyć maksymalnie 100 partycjonowanych kolejek lub tematów w każdej przestrzeni nazw. Każda kolejka podzielona na partycje lub temat ma do przydziału liczby jednostek 10 000 na przestrzeń nazw (nie dotyczy warstwy Premium).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z podstawowymi pojęciami dotyczącymi specyfikacji komunikatów AMQP 1,0 w [przewodniku po protokole AMQP 1,0](service-bus-amqp-protocol-guide.md).
 

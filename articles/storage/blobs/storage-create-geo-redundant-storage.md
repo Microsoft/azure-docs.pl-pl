@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc, devx-track-python, devx-track-javascript
+ms.custom: mvc, devx-track-python, devx-track-javascript, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 25f4c0244a027a0354809080bf13923e92d295f9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0e437cfb984acb71b27bc60a06929b6755e8a3ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844596"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001472"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB
 
@@ -78,7 +78,7 @@ Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiaro
    | **Lokalizacja** | *East US* | Wybierz lokalizację. |
    | **Wydajność** | *Standardowa* | Standardowa wydajność jest dobrą opcją dla przykładowego scenariusza. |
    | **Rodzaj konta** | *StorageV2* | Zalecane jest użycie konta magazynu ogólnego przeznaczenia w wersji 2. Aby uzyskać więcej informacji na temat typów kont usługi Azure Storage, zobacz [Omówienie konta magazynu](../common/storage-account-overview.md). |
-   | **Replikacja**| *Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS)* | Region podstawowy jest strefowo nadmiarowy i jest replikowany do regionu pomocniczego, z włączonym dostępem do odczytu do regionu pomocniczego. |
+   | **Replikacja**| *Magazyn strefowo i geograficznie nadmiarowy z dostępem do odczytu (RA-GZRS)* | Region podstawowy jest strefowo nadmiarowy i jest replikowany do regionu pomocniczego, z włączonym dostępem do odczytu do regionu pomocniczego. |
    | **Warstwa dostępu**| *Gorąca* | Użyj warstwy gorąca dla często używanych danych. |
 
     ![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/createragrsstracct.png)
@@ -340,7 +340,7 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W pierwszej części serii omówiono tworzenie aplikacji o wysokiej dostępności przy użyciu kont magazynu RA-GZRS.
 
