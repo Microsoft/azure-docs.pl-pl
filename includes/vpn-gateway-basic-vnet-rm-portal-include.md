@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/03/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d2cf1a2e2ab9cf2d6e35aa12b5b0f8ddc04ad0e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78301956"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89052489"
 ---
 Możesz utworzyć sieć wirtualną w modelu wdrożenia usługi Resource Manager w witrynie Azure Portal, wykonując poniższe kroki. Aby uzyskać więcej informacji na temat sieci wirtualnych, zobacz [Virtual network overview](../articles/virtual-network/virtual-networks-overview.md) (Omówienie sieci wirtualnych).
 
@@ -46,7 +46,6 @@ Możesz utworzyć sieć wirtualną w modelu wdrożenia usługi Resource Manager 
 
    ![Karta adresy IP](./media/vpn-gateway-basic-vnet-rm-portal-include/addresses.png "Karta adresy IP")  
    - **Przestrzeń adresów IPv4**: domyślnie przestrzeń adresowa jest tworzona automatycznie. Możesz kliknąć przestrzeń adresową, aby dostosować ją do własnych wartości. Możesz również dodać dodatkowe przestrzenie adresowe.
-   - **IPv6**: Jeśli konfiguracja wymaga przestrzeni adresów IPv6, zaznacz pole **Dodaj przestrzeń adresową IPv6** , aby wprowadzić te informacje.
    - **Podsieć**: w przypadku korzystania z domyślnej przestrzeni adresowej automatycznie zostanie utworzona podsieć. W przypadku zmiany przestrzeni adresowej należy dodać podsieć. Wybierz pozycję **+ Dodaj podsieć** , aby otworzyć okno **Dodawanie podsieci** . Skonfiguruj poniższe ustawienia, a następnie wybierz pozycję **Dodaj** , aby dodać wartości:
       - **Nazwa podsieci**: w tym przykładzie nazywamy podsiecią "frontonu".
       - **Zakres adresów podsieci**: zakres adresów dla tej podsieci.

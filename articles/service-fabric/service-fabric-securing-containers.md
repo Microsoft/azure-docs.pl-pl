@@ -4,14 +4,17 @@ description: Zapoznaj się teraz z zaimportowaniem plików certyfikatów do usł
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 949cc642572bfbf6ebe297d3ffba16939561ac8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012725"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050747"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Zaimportuj plik certyfikatu do kontenera działającego na Service Fabric
+
+> [!NOTE]
+> W przypadku klastrów Service Fabric działających na platformie Azure zaleca się użycie [Service Fabric tożsamości zarządzanej aplikacji](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) do udostępniania certyfikatów aplikacji z poziomu kontenera. Tożsamość zarządzana zapewnia izolację wpisów tajnych i certyfikatów na poziomie usługi i zezwala na to, aby obsługa certyfikatów aplikacji była częścią przepływu pracy aplikacji, a nie z przepływem pracy infrastruktury. Mechanizm CertificateRef będzie przestarzały w przyszłej wersji.
 
 Usługi kontenera można zabezpieczyć, określając certyfikat. Service Fabric udostępnia mechanizm dla usług wewnątrz kontenera w celu uzyskania dostępu do certyfikatu zainstalowanego na węzłach w klastrze z systemem Windows lub Linux (wersja 5,7 lub nowsza). Certyfikat należy zainstalować w magazynie certyfikatów w obszarze LocalMachine na wszystkich węzłach klastra. Klucz prywatny odpowiadający certyfikatowi musi być dostępny, dostępny i włączony do eksportu systemu Windows. Informacje o certyfikacie znajdują się w manifeście aplikacji pod `ContainerHostPolicies` tagiem, jak pokazano w poniższym fragmencie kodu:
 
@@ -30,6 +33,8 @@ W przypadku klastrów systemu Linux certyfikaty (PEM) są kopiowane z magazynu o
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+Należy pamiętać, że oba `PEM` `PrivateKey` pliki i zawierają certyfikat oraz niezaszyfrowany klucz prywatny.
 
 Alternatywnie, jeśli masz już certyfikaty w wymaganym formularzu i chcesz uzyskać do nich dostęp wewnątrz kontenera, możesz utworzyć pakiet danych wewnątrz pakietu aplikacji i określić następujący element wewnątrz manifestu aplikacji:
 

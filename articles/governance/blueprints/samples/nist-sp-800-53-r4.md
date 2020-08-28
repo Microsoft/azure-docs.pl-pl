@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii NIST SP 800-53 R4
 description: Omówienie przykładu strategii NIST SP 800-53 R4. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli NIST SP 800-53 R4.
-ms.date: 05/14/2020
+ms.date: 08/27/2020
 ms.topic: sample
-ms.openlocfilehash: 20ea6e81746a07db85a00a0881744340b2a24d1f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f40451e1e82833aba4f626052e708f2c1136f832
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86042666"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048775"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Przykładowy plan NIST SP 800-53 R4
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716303"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049574"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Utwórz odporną strategię zarządzania kontrolą dostępu za pomocą Azure Active Directory
 
@@ -92,7 +92,7 @@ Ten przykładowy zestaw zasad będzie przyznawać wybranym użytkownikom w **App
 
 ### <a name="contingencies-for-user-lockout"></a>Sytuacje awaryjne dla blokady użytkownika
 
-Alternatywnie organizacja może również tworzyć zasady awaryjne. Aby utworzyć zasady awaryjne, należy zdefiniować kryteria kompromisu między ciągłością biznesową, kosztami operacyjnymi, kosztami finansowymi i zagrożeniami bezpieczeństwa. Na przykład można aktywować zasady awaryjne tylko dla podzbioru użytkowników, dla podzestawu aplikacji, dla podzestawu klientów lub z podzestawu lokalizacji. Zasady awaryjne zapewniają administratorom i użytkownikom końcowym dostęp do aplikacji i zasobów, podczas gdy nie zaimplementowano metody zaradczej. Firma Microsoft zaleca włączenie zasad awaryjnych w [trybie tylko do raportowania](../conditional-access/howto-conditional-access-report-only.md) , gdy nie jest używany, co pozwala administratorom monitorować potencjalny wpływ zasad, które należy włączyć.
+Alternatywnie organizacja może również tworzyć zasady awaryjne. Aby utworzyć zasady awaryjne, należy zdefiniować kryteria kompromisu między ciągłością biznesową, kosztami operacyjnymi, kosztami finansowymi i zagrożeniami bezpieczeństwa. Na przykład można aktywować zasady awaryjne tylko dla podzbioru użytkowników, dla podzestawu aplikacji, dla podzestawu klientów lub z podzestawu lokalizacji. Zasady awaryjne zapewniają administratorom i użytkownikom końcowym dostęp do aplikacji i zasobów, podczas gdy nie zaimplementowano metody zaradczej. Firma Microsoft zaleca włączenie zasad awaryjnych w [trybie tylko do raportowania](../conditional-access/howto-conditional-access-insights-reporting.md) , gdy nie jest używany, co pozwala administratorom monitorować potencjalny wpływ zasad, które należy włączyć.
 
  Zrozumienie narażenia użytkownika podczas przerw w działaniu pomaga ograniczyć ryzyko i stanowić krytyczną część procesu planowania. W celu utworzenia planu awaryjnego należy najpierw określić następujące wymagania biznesowe organizacji:
 

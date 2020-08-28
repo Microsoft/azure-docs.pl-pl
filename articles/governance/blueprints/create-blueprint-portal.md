@@ -1,18 +1,18 @@
 ---
 title: 'Szybki Start: Tworzenie strategii w portalu'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów za pomocą Azure Portal.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045216"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051526"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Szybki Start: Definiowanie i Przypisywanie planu w portalu
 
-Gdy dowiesz się, jak tworzyć i przypisywać plany, możesz definiować typowe wzorce, aby opracowywać konfiguracje do wielokrotnego użytku i szybko wdrażane w oparciu o szablony Azure Resource Manager (szablony ARM), zasady, zabezpieczenia i inne. W ramach tego samouczka nauczysz się korzystać z planów platformy Azure w celu wykonywania niektórych typowych zadań związanych z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji. Te zadania obejmują:
+Gdy dowiesz się, jak tworzyć i przypisywać plany, możesz definiować typowe wzorce, aby opracowywać konfiguracje do wielokrotnego użytku i szybko wdrażane w oparciu o szablony Azure Resource Manager (szablony ARM), zasady, zabezpieczenia i inne. W ramach tego samouczka nauczysz się korzystać z planów platformy Azure w celu wykonywania niektórych typowych zadań związanych z tworzeniem, publikowaniem i przypisywaniem strategii w organizacji. Do zadań tych należą:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -61,7 +61,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
 
    1. Zmień **Typ** na **wbudowany**. W polu **wyszukiwania**wpisz **tag**.
 
-   1. Kliknij poza polem **Wyszukiwanie**, aby zastosować filtrowanie. Wybierz opcję **Dołącz tag i jej wartość domyślną do grup zasobów**.
+   1. Zmień fokus poza **wyszukiwaniem** , aby nastąpiło filtrowanie. Wybierz opcję **Dołącz tag i jej wartość domyślną do grup zasobów**.
 
    1. Wybierz pozycję **Dodaj** , aby dodać ten artefakt do planu.
 

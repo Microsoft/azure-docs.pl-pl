@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 ms.author: pafarley
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0a0f501f56f7537923f301ed41e4c044cf6ec71c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc5b0d05dc1e9e7c09781dba63c2031c72da73ff
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936876"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050287"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Szybki Start: korzystanie z biblioteki klienta przetwarzanie obrazów
 
@@ -26,7 +26,7 @@ Rozpocznij pracę z biblioteką klienta przetwarzanie obrazów. Wykonaj następu
 Użyj biblioteki klienta przetwarzanie obrazów, aby:
 
 * Analizuj obraz pod kątem tagów, opisu tekstu, twarzy, treści dla dorosłych itd.
-* Rozpoznawanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu usługi Batch.
+* Odczytywanie wydrukowanych i odręcznych tekstu za pomocą interfejsu API odczytu.
 
 ::: zone pivot="programming-language-csharp"
 

@@ -1,14 +1,14 @@
 ---
 title: Etapy wdrażania strategii
 description: Zapoznaj się z tematami dotyczącymi zabezpieczeń i artefaktów, które są wykonywane przez usługi platformy Azure podczas tworzenia przypisania planu.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970658"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049778"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapy wdrażania strategii
 
@@ -56,8 +56,8 @@ Po zakończeniu wdrożeń usługa Azure planuje odwołuje prawa zarządzanej to�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](parameters.md).
-- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](sequencing-order.md).
-- Dowiedz się, jak używać [blokowania zasobów strategii](resource-locking.md).
+- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](./parameters.md).
+- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](./sequencing-order.md).
+- Dowiedz się, jak używać [blokowania zasobów strategii](./resource-locking.md).
 - Dowiedz się, jak [zaktualizować istniejące przypisania](../how-to/update-existing-assignments.md).
 - Rozwiązywanie problemów podczas przypisywania strategii za pomocą [ogólnych procedur rozwiązywania problemów](../troubleshoot/general.md).

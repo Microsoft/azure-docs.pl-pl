@@ -4,12 +4,12 @@ description: Dane zamieszkania i informacje o serwerach z obsługą usługi Azur
 ms.topic: reference
 ms.date: 08/25/2020
 ms.custom: references_regions
-ms.openlocfilehash: 028398c27dde9760192d366b9e8a91dca8e429cf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f207f5889c1764eebcc6081960ff70c0d5bca3a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860974"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048860"
 ---
 # <a name="azure-arc-enabled-servers-preview-data-residency"></a>Serwery z obsługą usługi Azure ARC (wersja zapoznawcza): zamieszkania danych
 
@@ -34,4 +34,4 @@ Aby uzyskać więcej informacji o naszej regionalnej odporności i obsłudze zgo
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o projektowaniu [odporności na platformę Azure](/architecture/reliability/architect).
+Dowiedz się więcej o projektowaniu [odporności na platformę Azure](/azure/architecture/reliability/architect).

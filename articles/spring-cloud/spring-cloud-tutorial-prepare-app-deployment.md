@@ -7,16 +7,18 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2ae94da3d9b2dee62bc031c4a32d17b43be00a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1261e36c782068844712908e62a72b77d34ba5af
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021277"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046735"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
 W tym temacie przedstawiono sposób przygotowania istniejącej aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej. W przypadku poprawnego skonfigurowania chmurowa usługa Azure wiosenna zapewnia niezawodne usługi do monitorowania, skalowania i aktualizowania aplikacji w chmurze ze sprężyną Java.
+
+Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
 
 Inne przykłady wyjaśniają sposób wdrażania aplikacji w chmurze Azure sprężynowej po skonfigurowaniu pliku pliku pom. 
 * [Uruchom aplikację przy użyciu Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
@@ -39,7 +41,7 @@ Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprę
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
 2.1 | Greenwich. RELEASE
-2.2 | Hoxton. RELEASE
+2,2 | Hoxton. RELEASE
 2.3 | Hoxton.SR5
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
@@ -127,7 +129,7 @@ W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla a
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja chmury wiosennej platformy Azure
 ---|---|---
 2.1 | Greenwich. RELEASE | 2.1
-2.2 | Hoxton. RELEASE | 2.2
+2,2 | Hoxton. RELEASE | 2,2
 2.3 | Hoxton.SR5 | 2.3
 
 Uwzględnij jedną z następujących zależności w pliku pom.xml. Wybierz zależność, której wersja chmury sieci Azure ze sprężyną jest zgodna z własnymi.

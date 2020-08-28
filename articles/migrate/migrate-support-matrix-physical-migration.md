@@ -4,12 +4,12 @@ description: Dowiedz się więcej o obsłudze migracji serwera fizycznego w Azur
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770343"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051138"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Macierz obsługi dla migracji serwera fizycznego
 
@@ -44,6 +44,7 @@ W tabeli zestawiono obsługę serwerów fizycznych, które mają być migrowane 
 **Wymagania platformy Azure** | Aby uzyskać najnowsze informacje, zapoznaj się z wymaganiami dotyczącymi sieci, [magazynu](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)i [mocy obliczeniowej](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) [platformy Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)dla Site Recovery. Azure Migrate ma identyczne wymagania dotyczące migracji serwera fizycznego.
 **Usługa mobilności** | Agent usługi mobilności musi być zainstalowany na każdej maszynie, która ma zostać poddana migracji.
 **Rozruch z interfejsem UEFI** | Migrowana maszyna na platformie Azure zostanie automatycznie przekonwertowana na maszynę wirtualną platformy Azure z systemem BIOS. Obsługiwane są tylko serwery z systemem Windows Server 2012 lub nowszym.<br/><br/> Dysk systemu operacyjnego powinien mieć maksymalnie cztery partycje, a woluminy powinny być sformatowane w systemie plików NTFS.
+**Interfejs UEFI — bezpieczny rozruch**         | Migracja nie jest obsługiwana.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa) na platformie Azure.
 **Rozmiar dysku** | dysk systemu operacyjnego: 2 TB; 8 TB dla dysków z danymi.
 **Limity dysku** |  Do 63 dysków na maszynę.

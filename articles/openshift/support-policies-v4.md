@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774388"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049965"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Zasady pomocy technicznej usługi Azure Red Hat OpenShift
 
@@ -25,7 +25,6 @@ Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć w
 * Wszystkie operatory klastrów OpenShift muszą pozostać w stanie zarządzanym. Listę operatorów klastra można zwrócić przez uruchomienie `oc get clusteroperators` .
 * Nie usuwaj ani nie Modyfikuj usług Cluster Prometheus i Alertmanager.
 * Nie usuwaj reguł usługi alertów usług.
-* Nie należy modyfikować wersji klastra OpenShift.
 * Nie usuwaj ani nie Modyfikuj rejestrowania usługi Azure Red Hat OpenShift Service (procesem MDSD).
 * Nie usuwaj ani nie Modyfikuj klucza tajnego ściągania klastra "arosvc.azurecr.io".
 * Wszystkie maszyny wirtualne klastra muszą mieć bezpośredni dostęp do Internetu, co najmniej do punktów końcowych Azure Resource Manager (ARM) i rejestrowania usług (Genewa).  Nie jest obsługiwany żaden formularz proxy protokołu HTTPS.

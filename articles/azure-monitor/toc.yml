@@ -329,6 +329,28 @@
       items:
         - name: Reguły zbierania danych
           href: platform/data-collection-rule-overview.md
+        - name: Źródła danych agentów
+          items:
+            - name: Omówienie
+              href: platform/agent-data-sources.md
+            - name: Zdarzenia systemu Windows
+              href: platform/data-sources-windows-events.md
+            - name: Niestandardowe dane JSON
+              href: platform/data-sources-json.md
+            - name: Dane wydajności demona CollectD
+              href: platform/data-sources-collectd.md
+            - name: Dziennik systemu
+              href: platform/data-sources-syslog.md
+            - name: Liczniki wydajności
+              href: platform/data-sources-performance-counters.md
+            - name: Wydajność aplikacji dla systemu Linux
+              href: platform/data-sources-linux-applications.md
+            - name: Dzienniki usług IIS
+              href: platform/data-sources-iis-logs.md
+            - name: Niestandardowe dzienniki
+              href: platform/data-sources-custom-logs.md
+            - name: Niestandardowe pola
+              href: platform/custom-fields.md
         - name: Metryki niestandardowe
           items:
             - name: Metryki niestandardowe
@@ -361,6 +383,24 @@
             - name: Zbieranie danych
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
+        - name: Agent usługi Log Analytics
+          items:
+            - name: Omówienie
+              href: platform/log-analytics-agent.md
+            - name: Agenci dla systemu Windows
+              href: platform/agent-windows.md
+            - name: Agenci dla systemu Linux
+              href: platform/agent-linux.md
+            - name: Rozszerzenie maszyny wirtualnej dla systemu Windows
+              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Rozszerzenie maszyny wirtualnej dla systemu Linux
+              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Brama usługi Log Analytics
+              href: platform/gateway.md
+            - name: Agent zarządzania
+              href: platform/agent-manage.md
+            - name: Kondycja agenta
+              href: insights/solution-agenthealth.md
         - name: Rozszerzenie Diagnostyki Azure
           items:
             - name: Omówienie
@@ -403,46 +443,6 @@
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Zbieranie metryk za pomocą programu Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
-        - name: Agent usługi Log Analytics
-          items:
-            - name: Omówienie
-              href: platform/log-analytics-agent.md
-            - name: Agenci dla systemu Windows
-              href: platform/agent-windows.md
-            - name: Agenci dla systemu Linux
-              href: platform/agent-linux.md
-            - name: Rozszerzenie maszyny wirtualnej dla systemu Windows
-              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-            - name: Rozszerzenie maszyny wirtualnej dla systemu Linux
-              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-            - name: Brama usługi Log Analytics
-              href: platform/gateway.md
-            - name: Agent zarządzania
-              href: platform/agent-manage.md
-            - name: Kondycja agenta
-              href: insights/solution-agenthealth.md
-            - name: Źródła danych
-              items:
-                - name: Omówienie
-                  href: platform/agent-data-sources.md
-                - name: Zdarzenia systemu Windows
-                  href: platform/data-sources-windows-events.md
-                - name: Niestandardowe dane JSON
-                  href: platform/data-sources-json.md
-                - name: Dane wydajności demona CollectD
-                  href: platform/data-sources-collectd.md
-                - name: Dziennik systemu
-                  href: platform/data-sources-syslog.md
-                - name: Liczniki wydajności
-                  href: platform/data-sources-performance-counters.md
-                - name: Wydajność aplikacji dla systemu Linux
-                  href: platform/data-sources-linux-applications.md
-                - name: Dzienniki usług IIS
-                  href: platform/data-sources-iis-logs.md
-                - name: Niestandardowe dzienniki
-                  href: platform/data-sources-custom-logs.md
-                - name: Niestandardowe pola
-                  href: platform/custom-fields.md
         - name: Rozwiązywanie problemów
           items:
             - name: Rozszerzenie maszyny wirtualnej usługi Log Analytics

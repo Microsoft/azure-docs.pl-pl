@@ -1,14 +1,14 @@
 ---
 title: Zapoznaj się z cyklem życia planu
 description: Dowiedz się więcej na temat cyklu życia, przez który przechodzą definicje planu i szczegółowe informacje o każdym z etapów, w tym aktualizowanie i usuwanie przypisań strategii.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864032"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049710"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Zapoznaj się z cyklem życia Azure Blueprint
 
@@ -81,14 +81,14 @@ Usuń plan z [Azure portalem](../create-blueprint-portal.md#delete-a-blueprint) 
 
 W trakcie cyklu życia można przypisać plan do subskrypcji. Po **opublikowaniu**trybu wersji planu ta wersja może być przypisana do subskrypcji. Ten cykl życia umożliwia korzystanie z wersji planu i aktywnie przypisywania podczas tworzenia nowszej wersji.
 
-Gdy są przypisane wersje planów, ważne jest, aby zrozumieć, gdzie są przypisane, i z którymi parametrami zostały przypisane. Parametry mogą być statyczne lub dynamiczne. Aby dowiedzieć się więcej, zobacz [Parametry statyczne i dynamiczne](parameters.md).
+Gdy są przypisane wersje planów, ważne jest, aby zrozumieć, gdzie są przypisane, i z którymi parametrami zostały przypisane. Parametry mogą być statyczne lub dynamiczne. Aby dowiedzieć się więcej, zobacz [Parametry statyczne i dynamiczne](./parameters.md).
 
 ### <a name="updating-assignments"></a>Aktualizowanie przypisań
 
 Po przypisaniu planu można zaktualizować przypisanie. Istnieje kilka powodów, dla których należy zaktualizować istniejące przypisanie, w tym:
 
-- Dodawanie lub usuwanie [blokowania zasobów](resource-locking.md)
-- Zmień wartość [parametrów dynamicznych](parameters.md#dynamic-parameters)
+- Dodawanie lub usuwanie [blokowania zasobów](./resource-locking.md)
+- Zmień wartość [parametrów dynamicznych](./parameters.md#dynamic-parameters)
 - Uaktualnij przypisanie do nowszej **opublikowanej** wersji planu
 
 Aby dowiedzieć się, jak to zrobić, zobacz [aktualizowanie istniejących przypisań](../how-to/update-existing-assignments.md).
@@ -97,7 +97,7 @@ Aby dowiedzieć się, jak to zrobić, zobacz [aktualizowanie istniejących przyp
 
 Jeśli plan nie jest już wymagany, można go przypisać do grupy zarządzania lub subskrypcji. Podczas przypisywania strategii następuje:
 
-- Usuwanie [blokowania zasobów](resource-locking.md) planu
+- Usuwanie [blokowania zasobów](./resource-locking.md) planu
 - Usuwanie obiektu przypisania strategii
 - Warunk Jeśli użyto **tożsamości zarządzanej przypisanej do systemu** , zostanie ona również usunięta
 
@@ -106,8 +106,8 @@ Jeśli plan nie jest już wymagany, można go przypisać do grupy zarządzania l
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](parameters.md).
-- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](sequencing-order.md).
-- Dowiedz się, jak używać [blokowania zasobów strategii](resource-locking.md).
+- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](./parameters.md).
+- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](./sequencing-order.md).
+- Dowiedz się, jak używać [blokowania zasobów strategii](./resource-locking.md).
 - Dowiedz się, jak [zaktualizować istniejące przypisania](../how-to/update-existing-assignments.md).
 - Rozwiązywanie problemów podczas przypisywania strategii za pomocą [ogólnych procedur rozwiązywania problemów](../troubleshoot/general.md).

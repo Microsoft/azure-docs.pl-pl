@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
-ms.openlocfilehash: 1a044569c39ae2667c83ac881f1908b1d7b27cab
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d7d893d3de5541bf1108a9182dfee6ad995e061b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848370"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050611"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Szybki Start: Tworzenie pokoju rozmów z usługami Azure Functions i sygnalizującymi przy użyciu języka Python
 
@@ -31,13 +31,21 @@ Azure Functions wymaga języka [Python 3,6 lub 3,7](https://www.python.org/downl
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)
+
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> przy użyciu danych konta Azure.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurowanie i uruchamianie aplikacji funkcji platformy Azure
 
@@ -91,10 +99,16 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
     ```
 
     ![Uruchom aplikację funkcji](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
+    
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -102,3 +116,5 @@ W tym przewodniku szybki start utworzono i uruchomiono aplikację bezserwerową 
 
 > [!div class="nextstepaction"]
 > [Wdrażanie usługi Azure Functions za pomocą programu VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qspython)

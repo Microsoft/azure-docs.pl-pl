@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236611"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047296"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure
 
@@ -26,10 +26,12 @@ Jeden zarządzany obraz obsługuje maksymalnie 20 równoczesnych wdrożeń. Pró
 
 Program Sysprep usuwa wszystkie informacje o koncie osobistym i zabezpieczeniach, a następnie przygotuje maszynę do użycia jako obraz. Aby uzyskać informacje o programie Sysprep, zobacz [Omówienie narzędzia Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa programu Sysprep dla ról serwera](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) i [nieobsługiwanych scenariuszy](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Program Sysprep wymaga całkowicie odszyfrowania dysków przed wykonaniem. Jeśli na maszynie wirtualnej włączono szyfrowanie, przed uruchomieniem programu Sysprep należy wyłączyć szyfrowanie.
+Upewnij się, że role serwera uruchomione na komputerze są obsługiwane przez program Sysprep. Aby uzyskać więcej informacji, zobacz [Obsługa programu Sysprep dla ról serwera](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) i [nieobsługiwanych scenariuszy](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
 > Po uruchomieniu programu Sysprep na maszynie wirtualnej maszyna wirtualna jest traktowana jako *uogólniona* i nie można jej uruchomić ponownie. Proces uogólniania maszyny wirtualnej jest nieodwracalny. Jeśli musisz zachować oryginalną maszynę wirtualną, Utwórz [kopię maszyny wirtualnej](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) i Uogólnij jej kopię. 
+>
+>Program Sysprep wymaga całkowicie odszyfrowania dysków. Jeśli na maszynie wirtualnej włączono szyfrowanie, przed uruchomieniem programu Sysprep należy wyłączyć szyfrowanie.
 >
 > Jeśli planujesz uruchomienie programu Sysprep przed przekazaniem wirtualnego dysku twardego (VHD) do platformy Azure po raz pierwszy, upewnij się, że [maszyna wirtualna została przygotowana](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
@@ -47,7 +49,7 @@ Aby uogólnić maszynę wirtualną z systemem Windows, wykonaj następujące kro
    
 5. W obszarze **Opcje zamykania**wybierz pozycję **Zamknij**.
    
-6. Wybierz przycisk **OK**.
+6. Kliknij przycisk **OK**.
    
     ![Uruchom program Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

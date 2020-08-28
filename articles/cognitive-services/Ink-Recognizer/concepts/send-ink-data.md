@@ -3,21 +3,23 @@ title: Wysyłanie danych pisma odręcznego do interfejsu API rozpoznawania pisma
 titleSuffix: Azure Cognitive Services
 description: Dowiedz się więcej o wywoływaniu interfejsu API analizatora farb dla różnych aplikacji
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 08/24/2020
+ms.author: aahi
+ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221107"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051104"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Wysyłanie danych pisma odręcznego do interfejsu API rozpoznawania pisma odręcznego 
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Cyfrowe pismo odręczne odnosi się do technologii, które umożliwiają tworzenie cyfrowych reprezentacji danych wejściowych, takich jak pismo ręczne i rysunki. Jest to zazwyczaj realizowane przy użyciu dyskretyzatora, który przechwytuje ruchy urządzeń wejściowych, takich jak pióro. Urządzenia udostępniają zaawansowane środowiska cyfrowego pisma odręcznego, dlatego sztuczna inteligencja i systemy uczenia maszynowego umożliwiają rozpoznawanie napisanych kształtów i tekstu w dowolnym kontekście. Interfejs API rozpoznawania pisma odręcznego umożliwia wysyłanie pociągnięć odręcznych i uzyskiwanie szczegółowych informacji o nich. 
 
@@ -90,6 +92,6 @@ Program [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-an
 * [Dokumentacja interfejsu API REST aparatu rozpoznawania atramentu](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 * Rozpocznij wysyłanie danych pociągnięcia cyfrowego atramentu przy użyciu:
-    * [S #](../quickstarts/csharp.md)
+    * [C#](../quickstarts/csharp.md)
     * [Java](../quickstarts/java.md)
     * [JavaScript](../quickstarts/javascript.md)

@@ -3,12 +3,12 @@ title: Koncepcje grafu multimediów — Azure
 description: Graf multimedialny pozwala określić, gdzie mają być przechwytywane nośniki, jak należy je przetworzyć i gdzie mają zostać dostarczone wyniki. Ten artykuł zawiera szczegółowy opis koncepcji wykresu multimedialnego.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798843"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048430"
 ---
 # <a name="media-graph"></a>Graf multimedialny
 
@@ -37,19 +37,28 @@ Wartości parametrów w topologii są określane podczas tworzenia wystąpień g
 
 ## <a name="media-graph-states"></a>Stany grafu multimediów  
 
-Graf multimedialny może być w jednym z następujących stanów:
+Cykl życia topologii wykresu i wystąpienia grafu są wyświetlane na poniższym diagramie stanu.
 
-* Nieaktywny — reprezentuje stan, w którym Graf multimedialny jest skonfigurowany, ale nie jest aktywny.
-* Aktywowanie — stan podczas tworzenia wystąpienia grafu multimedialnego (czyli stanu przejścia między nieaktywnym i aktywnym).
-* Aktywny — stan, w którym jest aktywny Graf multimedialny. 
+![Cykl życia topologii wykresu i wystąpienia grafu](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  Program Media Graph może być aktywny bez przechodzenia przez nią danych (na przykład wejściowe źródło wideo przejdzie w tryb offline).
-* Dezaktywowanie — jest to stan, gdy wykres multimedialny przechodzi z aktywnego do nieaktywnego.
+Zaczynasz od [tworzenia topologii wykresu](direct-methods.md#graphtopologyset). Następnie dla każdego na żywo kanału informacyjnego wideo, który chcesz przetworzyć z tą topologią, [utworzysz wystąpienie grafu](direct-methods.md#graphinstanceset). 
 
-Poniższy diagram przedstawia komputer stanu wykresu multimediów.
+Wystąpienie grafu będzie w `Inactive` stanie (bezczynnym).
 
-![Komputer stanu grafu multimediów](./media/media-graph/media-graph-state-machine.png)
+Gdy wszystko jest gotowe do wysłania strumieniowego wideo na żywo do wystąpienia grafu, należy je [aktywować](direct-methods.md#graphinstanceactivate) . Wystąpienie grafu zostanie krótko przenoszone przez stan przejściowy `Activating` , a jeśli to się powiedzie, przejdź do `Active` stanu. W `Active` stanie nośnik zostanie przetworzony (Jeśli wystąpienie grafu odbiera dane wejściowe).
+
+> [!NOTE]
+>  Wystąpienie grafu może być aktywne bez przechodzenia przez nią danych (na przykład aparat przejdzie w tryb offline).
+> Twoja subskrypcja platformy Azure zostanie rozliczona, gdy wystąpienie programu Graph jest w stanie aktywnym.
+
+Możesz powtórzyć proces tworzenia i aktywowania innych wystąpień grafu dla tej samej topologii, jeśli masz inne kanały wideo na żywo do przetworzenia.
+
+Po zakończeniu przetwarzania kanału wideo na żywo można [dezaktywować](direct-methods.md#graphinstancedeactivate) wystąpienie grafu. Wystąpienie grafu krótko przejdzie przez stan przejściowy `Deactivating` , opróżni wszystkie dane, które ma, a następnie powróci do `Inactive` stanu.
+
+Wystąpienie wykresu można [usunąć](direct-methods.md#graphinstancedelete) tylko wtedy, gdy jest w `Inactive` stanie.
+
+Po usunięciu wszystkich wystąpień grafów odwołujących się do określonej topologii grafu można [usunąć topologię grafu](direct-methods.md#graphtopologydelete).
+
 
 ## <a name="sources-processors-and-sinks"></a>Źródła, procesory i ujścia  
 

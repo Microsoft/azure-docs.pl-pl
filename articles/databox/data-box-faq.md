@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823985"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051172"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: często zadawane pytania
 
@@ -61,7 +61,7 @@ A. Urządzenie Data Box jest obsługiwana w przypadku wszystkich regionów w Sta
 
 Urządzenie Data Box obsługuje pozyskiwanie danych lub wychodzące tylko w tym samym kraju/regionie co ich miejsce docelowe i nie będzie przekraczać granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), gdzie pola danych mogą być dostarczane do i z dowolnego kraju/regionu UE.
 
-Na przykład w scenariuszu importu, jeśli masz dane lokalne w Kanadzie, które chcesz przenieść na konto magazynu w zachodniej witrynie Azure, możesz to osiągnąć w następujący sposób:
+Na przykład w scenariuszu importu, jeśli masz dane źródłowe w Kanadzie, które chcesz przenieść na konto magazynu w zachodniej tabeli platformy Azure, możesz to osiągnąć w następujący sposób:
 
 1. Zamów urządzenie Data Box w Kanadzie, wybierając konto magazynu w Cananda. Urządzenie jest dostarczane z centrum danych platformy Azure w Kanadzie do adresu wysyłkowego (w Kanadzie) zapewnionego podczas tworzenia zamówienia.
 

@@ -4,12 +4,12 @@ description: Informacje na temat włączania i wyświetlania dzienników dla wę
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 76ded781d4eae48db04f54a4f88a80cc700d0ad9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250740"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048282"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service
 
@@ -30,12 +30,8 @@ Dzienniki Azure Monitor są włączone i zarządzane w Azure Portal. Aby włącz
 1. Wybierz klaster AKS, taki jak *myAKSCluster*, a następnie wybierz opcję **dodania ustawienia diagnostycznego**.
 1. Wprowadź nazwę, na przykład *myAKSClusterLogs*, a następnie wybierz opcję **wysyłania do log Analytics**.
 1. Wybierz istniejący obszar roboczy lub Utwórz nowy. W przypadku tworzenia obszaru roboczego Podaj nazwę obszaru roboczego, grupę zasobów i lokalizację.
-1. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. Typowe dzienniki obejmują *polecenia-apiserver*, *polecenia-Controller-Manager*i *polecenia-Scheduler*. Możesz włączyć dodatkowe dzienniki, takie jak *polecenia-Audit* i *cluster-autoscaleer*. Można zwrócić i zmienić zebrane dzienniki po włączeniu Log Analytics obszarów roboczych.
+1. Na liście dostępnych dzienników wybierz dzienniki, które chcesz włączyć. W tym przykładzie należy włączyć dzienniki *inspekcji polecenia* . Typowe dzienniki obejmują *polecenia-apiserver*, *polecenia-Controller-Manager*i *polecenia-Scheduler*. Można zwrócić i zmienić zebrane dzienniki po włączeniu Log Analytics obszarów roboczych.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz** , aby włączyć zbieranie wybranych dzienników.
-
-Poniższy przykładowy zrzut ekranu portalu pokazuje okno *Ustawienia diagnostyki* :
-
-![Włączanie Log Analyticsego obszaru roboczego dla dzienników Azure Monitor klastra AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Zaplanuj test pod względem klastra AKS
 
@@ -71,30 +67,25 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Wyświetlanie zebranych dzienników
 
-Włączenie dzienników diagnostycznych w obszarze roboczym Log Analytics może potrwać kilka minut. W Azure Portal wybierz grupę zasobów dla obszaru roboczego Log Analytics, na przykład grupa *zasobów*, a następnie wybierz zasób usługi log Analytics, taki jak *myAKSLogs*.
+Włączenie i wyświetlenie dzienników diagnostycznych może potrwać kilka minut. W Azure Portal przejdź do klastra AKS, a następnie wybierz pozycję **dzienniki** po lewej stronie. Zamknij okno *przykładowe zapytania* , jeśli pojawia się.
 
-![Wybierz obszar roboczy Log Analytics dla klastra AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
-Po lewej stronie wybierz pozycję **dzienniki**. Aby wyświetlić *polecenia-apiserver*, w polu tekstowym wprowadź następujące zapytanie:
-
-```
-AzureDiagnostics
-| where Category == "kube-apiserver"
-| project log_s
-```
-
-Dla serwera interfejsu API jest możliwe zwrócenie wielu dzienników. Aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać wartości */Nginx* , jak pokazano w poniższym przykładowym zapytaniu:
+Po lewej stronie wybierz pozycję **dzienniki**. Aby wyświetlić dzienniki *inspekcji polecenia* , w polu tekstowym wprowadź następujące zapytanie:
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
-| where log_s contains "pods/nginx"
+| where Category == "kube-audit"
 | project log_s
 ```
 
-Są wyświetlane określone dzienniki dla NGINX pod, jak pokazano na poniższym przykładowym zrzucie ekranu:
+Jest możliwe zwrócenie wielu dzienników. Aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu:
 
-![Wyniki zapytania usługi log Analytics dla przykładowej NGINX pod](media/view-master-logs/log-analytics-query-results.png)
+```
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
+```
 
 Aby wyświetlić dodatkowe dzienniki, można zaktualizować zapytanie dla nazwy *kategorii* do *polecenia-Controller-Manager* lub *polecenia-Scheduler*, w zależności od tego, jakie dodatkowe dzienniki są włączane. Dodatkowe instrukcje *WHERE* mogą być następnie używane do uściślenia szukanych zdarzeń.
 

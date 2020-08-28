@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381afdbb57e2de41382a10c1912abac980e89cbd
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948474"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049540"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Instrukcje: blokowanie starszego uwierzytelniania w usłudze Azure AD przy użyciu dostępu warunkowego   
 
@@ -85,7 +85,7 @@ Przed zablokowaniem starszego uwierzytelniania w katalogu należy najpierw zrozu
 
 1. Przejdź do **Azure Portal**  >  **Azure Active Directory**  >  **logowania**.
 1. Dodaj kolumnę aplikacji klienckiej, jeśli nie jest ona wyświetlana po kliknięciu pozycji **kolumny**  >  **aplikacja kliencka**.
-1. **Dodaj filtry**  >  **Aplikacja kliencka** > wybrać wszystkie starsze protokoły uwierzytelniania. Wybierz poza oknem dialogowym filtrowania blox, aby zastosować wybrane opcje i zamknąć okno dialogowe.
+1. **Dodaj filtry**  >  **Aplikacja kliencka** > wybrać wszystkie starsze protokoły uwierzytelniania. Wybierz poza oknem dialogowym filtrowania, aby zastosować wybrane opcje i zamknąć okno dialogowe.
 
 Filtrowanie będzie zawierać tylko próby logowania, które zostały wykonane przez starsze protokoły uwierzytelniania. Kliknięcie każdej próby logowania spowoduje wyświetlenie dodatkowych szczegółów. Pole **aplikacji klienckiej** na karcie **Informacje podstawowe** wskazuje, który z starszych wersji protokołu uwierzytelniania był używany.
 
@@ -120,9 +120,9 @@ Zastosowanie zasad może potrwać do 24 godzin.
 
 Można wybrać wszystkie dostępne kontrolki Udziel dla **innych klientów** warunek. jednak środowisko użytkownika końcowego zawsze ma ten sam zablokowany dostęp.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-- [Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
+- [Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-insights-reporting.md)
 - Jeśli nie znasz jeszcze konfiguracji zasad dostępu warunkowego, zobacz [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji z Azure Active Directory dostępem warunkowym](../authentication/tutorial-enable-azure-mfa.md) na przykład.
 - Aby uzyskać więcej informacji na temat nowoczesnej obsługi uwierzytelniania, zobacz [jak nowoczesne uwierzytelnianie działa dla pakietu office 2013 i aplikacji klienckich pakietu office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
 - [Jak skonfigurować urządzenie lub aplikację wielofunkcyjną do wysyłania wiadomości e-mail przy użyciu pakietu Office 365 i Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

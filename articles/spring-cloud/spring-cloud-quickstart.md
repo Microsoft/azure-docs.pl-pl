@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9e9973db60f84d2eab63137a3034882bb4ded7f6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e4813f5c8c156fdf381a55ae450cf0ee35cedfa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951846"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048209"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -169,13 +169,15 @@ Po zakończeniu wdrażania możesz uzyskać dostęp do aplikacji w witrynie `htt
 
 #### <a name="cli"></a>[Interfejs wiersza polecenia](#tab/Azure-CLI)
 
-1. Użyj poniższego polecenia, aby uzyskać dzienniki czasu rzeczywistego z aplikacji.
+Użyj poniższego polecenia, aby uzyskać dzienniki czasu rzeczywistego z aplikacji.
 
-    ```azurecli
-    az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
-    ```
-    
-    [![Dzienniki ](media/spring-cloud-quickstart-java/streaming-logs.png) przesyłania strumieniowego](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
+```azurecli
+az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
+
+```
+Dzienniki są wyświetlane w wynikach:
+
+[![Dzienniki ](media/spring-cloud-quickstart-java/streaming-logs.png) przesyłania strumieniowego](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
 
 >[!TIP]
 > Użyj `az spring-cloud app logs -h` , aby poznać dodatkowe parametry i funkcje strumienia dzienników.
@@ -214,7 +216,7 @@ W tym przewodniku Szybki start zawarto informacje na temat wykonywania następuj
 > * Inicjowanie obsługi administracyjnej wystąpienia usługi
 > * Kompilowanie i wdrażanie aplikacji za pomocą publicznego punktu końcowego
 > * Dzienniki przesyłania strumieniowego w czasie rzeczywistym
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Kompiluj i uruchamiaj mikrousługi](spring-cloud-quickstart-sample-app-introduction.md)
 

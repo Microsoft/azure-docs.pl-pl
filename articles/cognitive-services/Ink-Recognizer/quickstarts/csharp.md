@@ -1,24 +1,26 @@
 ---
 title: 'Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST aparatu rozpoznawania atramentu i języka C #'
 titleSuffix: Azure Cognitive Services
-description: Ten przewodnik Szybki Start przedstawia sposób korzystania z interfejsu API rozpoznawania pisma odręcznego w celu rozpoczęcia rozpoznawania cyfrowych pociągnięć atramentu.
+description: Ten przewodnik Szybki Start przedstawia sposób korzystania z interfejsu API rozpoznawania pisma odręcznego i języka C# w celu rozpoczęcia rozpoznawania cyfrowych pociągnięć odręcznych.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 25360ec1b5e8cd79c21da426a293c148ac0b1932
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931458"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051597"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST aparatu rozpoznawania atramentu i języka C #
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć wysyłanie pociągnięć cyfrowego atramentu do interfejsu API rozpoznawania atramentu. Ta aplikacja w języku C# wysyła żądanie interfejsu API zawierające dane pociągnięcia odręcznego w formacie JSON i pobiera odpowiedź.
 

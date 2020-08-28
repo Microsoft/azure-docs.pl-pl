@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 82d820e676cb241198e7b412bad9602b5eb8109b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb76f7897b9647a688e21993002f9c96fe9487f8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037342"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046752"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Przesyłanie strumieniowe dzienników aplikacji Azure Spring Cloud w czasie rzeczywistym
 Chmura sprężynowa Azure umożliwia przesyłanie strumieniowe dzienników w interfejsie wiersza polecenia platformy Azure w czasie rzeczywistym w celu rozwiązywania problemów. Możesz również [analizować dzienniki i metryki przy użyciu ustawień diagnostycznych](./diagnostic-services.md).
@@ -87,7 +87,7 @@ az spring-cloud app logs -h
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-
+* [Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](./diagnostic-services.md)
 
  

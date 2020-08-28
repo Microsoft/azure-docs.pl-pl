@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 3456c37e066818f837bb0eb2f5aedb7c4db299d1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 15a53ddaa669f0720632901edfd58eb273518867
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685208"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049625"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 i Edsv4
 
-Serie Edv4 i Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej i są idealnym rozwiązaniem dla różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504 GIB pamięci RAM, [ &reg; technologii Intel Turbo zwiększania poziomu 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Obsługują one również [technologię Intel &reg; głębokiego uczenia](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Te nowe rozmiary maszyn wirtualnych będą miały 50% większego magazynu lokalnego, a także lepszą liczbę operacji we/wy na dysku lokalnym dla odczytu i zapisu w porównaniu do rozmiarów [EV3/Esv3](./ev3-esv3-series.md) z [maszynami wirtualnymi Gen2](./linux/generation-2.md)
+Serie Edv4 i Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej i są idealnym rozwiązaniem dla różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504 GIB pamięci RAM, [ &reg; technologii Intel Turbo zwiększania poziomu 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Obsługują one również [technologię Intel &reg; głębokiego uczenia](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Te nowe rozmiary maszyn wirtualnych będą miały 50% większego magazynu lokalnego, a także lepszą liczbę operacji we/wy na dysku lokalnym dla odczytu i zapisu w porównaniu do rozmiarów [EV3/Esv3](./ev3-esv3-series.md) z [maszynami wirtualnymi Gen2](./linux/generation-2.md). Funkcja IT oferuje stałą prędkość zegara Turbo wynoszącą 3,4 GHz. 
 
 ## <a name="edv4-series"></a>Seria Edv4
 

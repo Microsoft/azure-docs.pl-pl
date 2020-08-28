@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207549"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051359"
 ---
 # <a name="load-balancer-health-probes"></a>Sondy kondycji usługi Load Balancer
 
@@ -95,7 +95,7 @@ Dostępne protokoły zależą od używanej jednostki SKU Load Balancer:
 | **Standardowy SKU** |    &#9989; |   &#9989; |   &#9989; |
 | **Podstawowy SKU** |   &#9989; |   &#9989; | &#10060; |
 
-### <a name="tcp-probe"></a><a name="tcpprobe"></a>Sonda TCP
+### <a name="tcp-probe"></a><a name="tcpprobe"></a> Sonda TCP
 
 Sondy TCP inicjują połączenie, wykonując trzy-kierunkowe uzgadnianie protokołu TCP ze zdefiniowanym portem.  Sondy TCP przerywają połączenie z czterema sposobem zamykania protokołu TCP.
 
@@ -223,7 +223,7 @@ Oprócz Load Balancer sond kondycji [następujące operacje używają tego adres
 - Umożliwia komunikację z serwerem wirtualnym DNS w celu zapewnienia przefiltrowanego rozpoznawania nazw klientom, którzy nie definiują niestandardowych serwerów DNS.  Takie filtrowanie gwarantuje, że klienci będą mogli rozpoznać tylko nazwy hostów ich wdrożenia.
 - Umożliwia maszynie wirtualnej uzyskanie dynamicznego adresu IP z usługi DHCP na platformie Azure.
 
-## <a name="design-guidance"></a><a name="design"></a>Wskazówki dotyczące projektowania
+## <a name="design-guidance"></a><a name="design"></a> Wskazówki dotyczące projektowania
 
 Sondy kondycji są używane do odporności usługi i umożliwienia jej skalowania. Niepoprawna konfiguracja lub nieodpowiedni Wzorzec projektowy może mieć wpływ na dostępność i skalowalność usługi. Zapoznaj się z tym całym dokumentem i zastanów się, co ma wpływ na Twój scenariusz, gdy ta odpowiedź sondy jest oznaczona jako wyłączona lub oznaczona jako taka, jak ma to wpływ na dostępność scenariusza aplikacji.
 
@@ -263,6 +263,6 @@ Podstawowa Publiczna Load Balancer udostępnia stan sondy kondycji podsumowany d
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md)
-- [Wprowadzenie do tworzenia publicznego modułu równoważenia obciążenia w Menedżer zasobów przy użyciu programu PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Wprowadzenie do tworzenia publicznego modułu równoważenia obciążenia w Menedżer zasobów przy użyciu programu PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [Interfejs API REST dla sond kondycji](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Zażądaj nowych możliwości sondowania kondycji za pomocą usługi [Uservoice Load Balancer](https://aka.ms/lbuservoice)

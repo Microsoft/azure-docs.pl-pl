@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące urządzenia Azure Migrate
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące urządzenia Azure Migrateowego.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530121"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050679"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie Azure Migrate: typowe pytania
 
@@ -39,10 +39,14 @@ Urządzenie można wdrożyć w następujący sposób:
 - Jeśli nie chcesz używać szablonu lub jesteś w Azure Government, możesz wdrożyć urządzenie dla oprogramowania VMware lub funkcji Hyper-V za pomocą skryptu programu PowerShell.
 - W przypadku serwerów fizycznych urządzenie jest zawsze wdrażane przy użyciu skryptu.
 
-
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Jak urządzenie nawiązuje połączenie z platformą Azure?
 
-Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute z usługą komunikacji równorzędnej firmy Microsoft.
+Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute.
+
+- Aby można było używać usługi Azure ExpressRoute Azure Migrate do obsługi ruchu związanego z replikacją, wymagana jest Komunikacja równorzędna firmy Microsoft lub istniejąca publiczna Komunikacja równorzędna (publiczna Komunikacja równorzędna jest przestarzała w przypadku nowych tworzenia obiektów.).
+- Replikacja za pośrednictwem usługi Azure ExpressRoute z włączoną obsługą prywatnej komunikacji równorzędnej nie jest obsługiwana.
+
+Usługa Azure ExpressRoute z konfiguracją komunikacji równorzędnej firmy Microsoft jest zalecaną domeną routingu dla ruchu związanego z replikacją.
 
 ## <a name="does-appliance-analysis-affect-performance"></a>Czy analiza urządzenia ma wpływ na wydajność?
 
@@ -53,7 +57,6 @@ Lokalne profile urządzeń Azure Migrate są stale do mierzenia danych wydajnoś
 W przypadku użycia pobranego szablonu do utworzenia maszyny wirtualnej urządzenia można dodać do szablonu składniki (na przykład program antywirusowy), jeśli użytkownik opuści reguły komunikacji i zapory wymagane przez urządzenie Azure Migrate.
 
 ## <a name="what-network-connectivity-is-required"></a>Jaka łączność sieciowa jest wymagana?
-
 
 Urządzenie musi mieć dostęp do adresów URL platformy Azure. [Przejrzyj](migrate-appliance.md#url-access) listę adresów URL.
 
@@ -99,9 +102,11 @@ W tych krokach opisano, jak urządzenie łączy się z VMware vCenter Server:
 Nie. Istnieje mapowanie jeden do jednego między [urządzeniem Azure Migrate](migrate-appliance.md) i vCenter Server. Aby odnajdywać maszyny wirtualne w wielu wystąpieniach vCenter Server, należy wdrożyć wiele urządzeń. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Czy projekt Azure Migrate ma wiele urządzeń?
+
 Projekt może mieć dołączone wiele urządzeń. Urządzenie może być jednak skojarzone tylko z jednym projektem. 
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Czy urządzenie Azure Migrate/urządzenie do replikacji nawiązuje połączenie z tym samym programem vCenter?
+
 Tak. Do tego samego serwera vCenter można dodać urządzenie Azure Migrate (używane do oceny i migracji VMware bez agentów) oraz urządzenie do replikacji (używane do migracji opartej na agentach maszyn wirtualnych VMware).
 
 

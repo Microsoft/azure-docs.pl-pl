@@ -3,12 +3,12 @@ title: 'Szybki Start: Tworzenie kwerendy udostępnionej przy użyciu interfejsu 
 description: W tym przewodniku szybki start wykonaj kroki, aby włączyć rozszerzenie Graf zasobów dla interfejsu wiersza polecenia platformy Azure i utworzyć zapytanie udostępnione.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc03339c50316516301901d84d2c5a3ba2ab287d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85570062"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050968"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Szybki Start: Tworzenie zapytania udostępnionego grafu zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -18,7 +18,7 @@ Po zakończeniu tego procesu dodaliśmy rozszerzenie do wybranej instalacji inte
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Aby włączyć interfejs wiersza polecenia platformy Azure do pracy z usługą Azure Resource Graph, należy dodać rozszerzenie. To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platformy Azure może być używany, w tym w [funkcji bash w systemie Windows 10](/windows/wsl/install-win10), usłudze [Cloud Shell](https://shell.azure.com) (autonomicznej i wewnątrz portalu), [obrazie platformy Docker interfejsu wiersza polecenia platformy Azure](https://hub.docker.com/r/microsoft/azure-cli/), lub zainstalowany lokalnie.
 
-1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.8.0**). Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.8.0**). Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows).
 
 1. W wybranym środowisku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Extension Add](/cli/azure/extension#az-extension-add) , aby zaimportować rozszerzenie grafu zasobów przy użyciu następujące polecenie:
 
@@ -96,7 +96,7 @@ Po dodaniu rozszerzenia interfejsu wiersza polecenia platformy Azure do wybraneg
 
 Innym sposobem na znalezienie zapytań udostępnionych grafu zasobów jest użycie Azure Portal. W portalu Użyj paska wyszukiwania, aby wyszukać "zapytania dotyczące wykresów zasobów". Wybierz zapytanie udostępnione. Na stronie **Przegląd** na karcie **zapytanie** zostanie wyświetlone zapisane zapytanie. Przycisk **Edytuj** zostanie otwarty w [Eksploratorze grafu zasobów](./first-query-portal.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz usunąć zapytanie udostępnione, grupę zasobów i rozszerzenie grafu zasobów ze środowiska interfejsu wiersza polecenia platformy Azure, możesz to zrobić za pomocą następujących poleceń:
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ab9a9785f2f995a6f8df766603e3fc3b9a894be5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814239"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049874"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C partnerów niezależnych dostawców oprogramowania
 
@@ -31,6 +31,7 @@ Nasza sieć partnera niezależnego dostawcy oprogramowania rozszerza możliwośc
 | :--- | :--- |
 | ![znaku](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) to dostawca rozwiązań zapobiegania oszustwom, który pomaga organizacjom chronić przed atakami bot, atakami polegającymi na przejęciu kont i nieuczciwych otwartych kontach.
 | ![znaku](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) jest weryfikacją tożsamości i dostawcą sprawdzającym, który przeprowadza ocenę ryzyka na podstawie atrybutów użytkownika w celu zapobiegania oszustwom.|
+| ![znaku](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) to dostawca uwierzytelniania bez hasła, który zastępuje hasła z szyfrowaniem klucza publicznego eliminujące oszustwo, phishing i ponowne użycie poświadczeń.|
 | ![znaku](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) to weryfikacja tożsamości i dostawca weryfikacji z rozwiązaniami weryfikacji identyfikatora, rozwiązaniami zapobiegania oszustwom, rozwiązaniami zgodności i innymi.|
 | ![znaku](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) to elektroniczne rozwiązanie do identyfikacji, uwierzytelniania i usług zaufania (eiDAS), które umożliwia użytkownikom bezpieczne logowanie bez czytników kart, haseł, uwierzytelniania dwuskładnikowego i wielu kodów PIN. |
 | ![znaku](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) to usługa weryfikacji identyfikatora, która umożliwia automatyczne weryfikację identyfikatora w czasie rzeczywistym, chroniąc dane klientów. |
