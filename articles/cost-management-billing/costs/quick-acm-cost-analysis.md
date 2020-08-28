@@ -3,17 +3,18 @@ title: Szybki start — eksplorowanie kosztów platformy Azure za pomocą analiz
 description: Ten przewodnik Szybki start ułatwia eksplorowanie i analizowanie kosztów organizacyjnych platformy Azure za pomocą funkcji analizy kosztów.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8ca9eaeeb8d484c9aeae6646e6f4814afbaed577
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560577"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718530"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -161,6 +162,10 @@ Czasami musisz pobrać dane do dalszej analizy, scalić je z własnymi danymi lu
 
 Jeśli potrzebujesz pełnego, niezagregowanego zestawu danych, pobierz go z konta rozliczeniowego. Następnie na liście usług w okienku nawigacji po lewej stronie portalu przejdź do pozycji **Zarządzanie kosztami i rozliczenia**. Wybierz konto rozliczeniowe, jeśli ma to zastosowanie. Przejdź do pozycji **Użycie + opłaty**, a następnie wybierz ikonę **Pobierz** dla żądanego okresu rozliczeniowego.
 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+- Jeśli masz przypięty dostosowany widok analizy kosztów, który nie jest już potrzebny, przejdź do pulpitu nawigacyjnego, do którego widok został przypięty, i usuń go.
+- Jeśli masz pobrane pliki danych użycia, które nie są już potrzebne, pamiętaj o ich usunięciu.
 
 ## <a name="next-steps"></a>Następne kroki
 

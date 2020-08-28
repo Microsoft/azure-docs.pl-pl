@@ -4,20 +4,21 @@ description: Dowiedz się, jak rabat na zarezerwowane dyski platformy Azure jest
 author: roygara
 ms.author: rogarana
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 3541e3f12a6d0b1beecdd67821d31f71b47f6c68
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: cd89c3ddc3c58de02f1104109ce7f243c4d1e6fd
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509469"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682454"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Omówienie stosowania rabatu za rezerwację do usługi Azure Disk Storage
 
 Po zakupie pojemności zarezerwowanej dysku na platformie usługi Azure rabat za rezerwację jest stosowany automatycznie do zasobów dyskowych spełniających warunki rezerwacji. Rabat za rezerwację dotyczy tylko do jednostek SKU dysków. Opłaty za migawki dysku są naliczane według stawek płatności zgodnie z rzeczywistym użyciem.
 
-Aby uzyskać więcej informacji na temat rezerwacji dysków platformy Azure, zobacz [Oszczędzanie kosztów dzięki rezerwacji dysków platformy Azure](../../virtual-machines/linux/disks-reserved-capacity.md). Aby uzyskać informacje na temat cennika rezerwacji dysków platformy Azure, zobacz [Cennik dysków zarządzanych platformy Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
+Aby uzyskać więcej informacji na temat rezerwacji dysków platformy Azure, zobacz [Oszczędzanie kosztów dzięki rezerwacji dysków platformy Azure](../../virtual-machines/disks-reserved-capacity.md). Aby uzyskać informacje na temat cennika rezerwacji dysków platformy Azure, zobacz [Cennik dysków zarządzanych platformy Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="how-the-reservation-discount-is-applied"></a>Jak jest naliczany rabat za rezerwację
 
@@ -53,6 +54,5 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Obniżenie kosztów dzięki rezerwacji dysków platformy Azure (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
-- [Obniżenie kosztów dzięki rezerwacji dysków platformy Azure (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
+- [Obniżenie kosztów dzięki rezerwacji dysków platformy Azure](../../virtual-machines/disks-reserved-capacity.md)
 - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)

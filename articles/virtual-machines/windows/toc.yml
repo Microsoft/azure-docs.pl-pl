@@ -82,7 +82,7 @@
             - name: Kopiowanie dysku zarządzanego
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Eksportowanie migawki jako dysku VHD na konto magazynu
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Eksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
             - name: Tworzenie migawki z dysku VHD
@@ -124,7 +124,7 @@
             - name: Kopiowanie dysku zarządzanego
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Eksportowanie migawki jako dysku VHD na konto magazynu
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Eksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
             - name: Kopiowanie migawki

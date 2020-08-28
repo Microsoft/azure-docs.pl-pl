@@ -96,6 +96,8 @@
       href: language-packs.md
 - name: Pojęcia
   items:
+    - name: Authentication
+      href: authentication.md
     - name: Lista bezpiecznych adresów URL
       href: safe-url-list.md
     - name: Środowisko usługi Windows Virtual Desktop

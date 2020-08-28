@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: be76cd9d3c358864d1278cad77be43048dec7a71
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: 5a716ad70a31342467eb0944b3e6d1f5d80d5166
+  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88263456"
+  ms.lasthandoff: 08/27/2020
+  ms.locfileid: "89000910"
 landingContent:
 - title: Certyfikaty
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     - text: Biblioteka klienta języka Python
       url: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
     - text: Biblioteka klienta języka Java
-      url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.2.0/index.html
+      url: https://apidocs.chargebee.com/docs/api?lang=java#client_library
     - text: Biblioteka klienta środowiska Node.js
       url: /javascript/api/@azure/keyvault-certificates/?view=azure-node-latest
 - title: Więcej informacji o usłudze Key Vault
