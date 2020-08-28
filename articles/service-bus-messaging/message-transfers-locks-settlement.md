@@ -3,12 +3,13 @@ title: Azure Service Bus transfery, blokady i rozliczanie komunikatów
 description: Ten artykuł zawiera omówienie Azure Service Bus transferów komunikatów, blokad i operacji rozliczeń.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 22be139fccdeecee846c204a8035804fb897ae5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fd71edd12e478bcd5f14815c105c14482cf7e2bd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341162"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020035"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferowanie, blokady i uzgadnianie komunikatów
 
@@ -124,7 +125,7 @@ Typowym mechanizmem służącym do identyfikowania powielonych dostaw komunikat�
 >
 > Gdy blokada zostanie utracona, Azure Service Bus wygeneruje element LockLostException, który zostanie nadany w kodzie aplikacji klienta. W tym przypadku domyślna logika ponowienia klienta powinna być automatycznie uruchamiana i spróbuj ponownie wykonać operację.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat Service Bus Messaging, zobacz następujące tematy:
 

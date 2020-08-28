@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
-ms.custom: mvc
-ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: fb86b25fc24ea505ae258cc44d5554a019723af6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "73890391"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019202"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Samouczek: część 2 — Wyświetlanie rozesłanych komunikatów
 
@@ -52,7 +52,7 @@ Kolejka usługi Service Bus jest używana do odbierania komunikatów oznaczonych
 
    ![Ekran Tworzenie aplikacji logiki](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Wybierz przycisk **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
+   Wybierz pozycję **Utwórz**. Wdrożenie aplikacji może potrwać kilka minut.
 
 2. Teraz przejdź do aplikacji logiki. Najprostszym sposobem, aby uzyskać dostęp do aplikacji logiki, jest wybranie **grup zasobów**, wybranie grupy zasobów (w tym samouczku jest używany program **ContosoResources**), a następnie wybierz aplikację logiki z listy zasobów. 
 
@@ -298,7 +298,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Możesz również usunąć liczbę wiadomości e-mail w skrzynce odbiorczej, które zostały wygenerowane przez aplikację logiki, gdy aplikacja urządzenia była uruchomiona.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym dwuczęściowym samouczku przedstawiono sposób używania routingu komunikatów do kierowania komunikatów IoT Hub do różnych miejsc docelowych, wykonując następujące zadania.  
 

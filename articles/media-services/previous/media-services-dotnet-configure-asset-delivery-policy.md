@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ab3c40ee408498453bb137c63c440d980b0b7255
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ddce8f348fa802dd5a8e37f52c69af02752339f4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974516"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019355"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Konfigurowanie zasad dostarczania elementów zawartości przy użyciu zestawu SDK platformy .NET
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -54,7 +55,7 @@ MPEG DASH
 
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest(format=mpd-time-csf)
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 * Przed usunięciem AssetDeliveryPolicy należy usunąć wszystkie lokalizatory przesyłania strumieniowego skojarzone z elementem zawartości. W razie potrzeby możesz później utworzyć nowe lokalizatory przesyłania strumieniowego z nowym AssetDeliveryPolicy.
 * Nie można utworzyć lokalizatora przesyłania strumieniowego w zaszyfrowanym elemencie zawartości magazynu, jeśli nie ustawiono żadnych zasad dostarczania zasobów.  Jeśli element zawartości nie jest szyfrowany jako magazyn, system zezwoli na utworzenie lokalizatora i strumieniowe przekazanie elementu zawartości bez zasad dostarczania elementów zawartości.
 * Można mieć wiele zasad dostarczania zasobów skojarzonych z pojedynczym elementem zawartości, ale można określić tylko jeden sposób obsługi danego AssetDeliveryProtocol.  Znaczenie, jeśli próbujesz połączyć dwie zasady dostarczania, które określają protokół AssetDeliveryProtocol. SmoothStreaming, który spowoduje błąd, ponieważ system nie wie, który z nich ma być stosowany, gdy klient wysyła żądanie Smooth Streaming.

@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 9e8869ed75350fd4063832932f076fb6fd52d4e5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889812"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001743"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -318,7 +318,7 @@ Komunikat o błędzie: wykonywanie kopii zapasowej nie powiodło się, ponieważ
 
 Sprawdź, czy kopia zapasowa udziału plików została trwale usunięta. Jeśli tak, Zatrzymaj tworzenie kopii zapasowej udziału plików, aby uniknąć błędów kopii zapasowych. Aby dowiedzieć się, jak zatrzymać ochronę, zobacz [Zatrzymywanie ochrony udziału plików platformy Azure](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać więcej informacji na temat tworzenia kopii zapasowych udziałów plików platformy Azure, zobacz:
 

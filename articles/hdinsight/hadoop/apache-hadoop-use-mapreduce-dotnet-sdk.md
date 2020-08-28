@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: c165663e19037bd2ebac410adb6b6d05fcc162e6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3de7101eb998d0f9b3b57afba6d19595738cbb63
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076355"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020409"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Uruchamianie zadania MapReduce przy użyciu zestawu SDK dla platformy .NET usługi HDInsight
 
@@ -167,9 +167,9 @@ Aby ponownie uruchomić zadanie, należy zmienić nazwę folderu wyjściowego za
 
 Po pomyślnym zakończeniu zadania aplikacja drukuje zawartość pliku wyjściowego `part-r-00000` .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-W tym artykule przedstawiono kilka sposobów tworzenia klastra usługi HDInsight. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym artykule przedstawiono kilka sposobów tworzenia klastra usługi HDInsight. Więcej informacji można znaleźć w następujących artykułach:
 
 * Aby przesłać zadanie programu Hive, zobacz [uruchamianie Apache Hive zapytań przy użyciu zestawu .NET SDK usługi HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
 * Aby utworzyć klastry usługi HDInsight, zobacz [Tworzenie klastrów Apache Hadoop opartych na systemie Linux w usłudze HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).

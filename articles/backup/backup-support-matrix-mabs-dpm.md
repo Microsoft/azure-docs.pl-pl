@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26d9e3012749298a781cd611866bc6d0a6596979
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 90b79dfa412102b139f2f094fb9ca07a6361cab0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825226"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019576"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 
@@ -190,7 +190,7 @@ Aby uzyskać informacje na temat różnych serwerów i obciążeń, które możn
 - Klastrowane obciążenia tworzone w ramach programu DPM/serwera usługi MAB powinny znajdować się w tej samej domenie co program DPM/serwera usługi MAB lub w domenie podrzędnej/zaufanej.
 - Przy użyciu uwierzytelniania NTLM/Certificate można tworzyć kopie zapasowe danych w niezaufanych domenach lub grupach roboczych.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dowiedz się więcej](backup-architecture.md#architecture-back-up-to-dpmmabs) o architekturze serwera usługi MAB.
 - [Sprawdź](backup-support-matrix-mars-agent.md) , co jest obsługiwane przez agenta Mars.

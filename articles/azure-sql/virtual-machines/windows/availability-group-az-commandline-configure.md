@@ -9,16 +9,16 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/15/2020
+ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6ce142f196da9207dd26b1917190ebdcba50fe74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532109"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003007"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Konfigurowanie grupy dostępności dla SQL Server na maszynie wirtualnej platformy Azure (PowerShell & AZ CLI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Aby skonfigurować zawsze włączona Grupa dostępności, należy spełnić nast
 - Grupa zasobów z kontrolerem domeny. 
 - Co najmniej jedna maszyna wirtualna przyłączona [do domeny na platformie Azure z systemem SQL Server 2016 (lub nowszym)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) w *tym samym* zestawie dostępności lub w *różnych* strefach dostępności [zarejestrowanych u dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md).  
 - Najnowsza wersja programu [PowerShell](/powershell/scripting/install/installing-powershell) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
-- Dostępne są dwa adresy IP (nieużywane przez żadne jednostki). Jeden z nich dotyczy wewnętrznego modułu równoważenia obciążenia. Druga dotyczy odbiornika grupy dostępności w tej samej podsieci, w której znajduje się grupa dostępności. Jeśli używasz istniejącego modułu równoważenia obciążenia, dla odbiornika grupy dostępności jest wymagany tylko jeden dostępny adres IP. 
+- Dostępne są dwa adresy IP (nieużywane przez żadne jednostki). Jeden z nich dotyczy wewnętrznego modułu równoważenia obciążenia. Druga dotyczy odbiornika grupy dostępności w tej samej podsieci, w której znajduje się grupa dostępności. Jeśli używasz istniejącego modułu równoważenia obciążenia, potrzebny jest tylko jeden dostępny adres IP dla odbiornika grupy dostępności. 
 
 ## <a name="permissions"></a>Uprawnienia
 
@@ -44,7 +44,7 @@ Aby skonfigurować zawsze włączone grupy dostępności przy użyciu interfejsu
 - Istniejące konto użytkownika domeny, które ma uprawnienie **Tworzenie obiektu komputera** w domenie. Na przykład konto administratora domeny ma zwykle wystarczające uprawnienia (na przykład: account@domain.com ). _To konto powinno być również częścią lokalnej grupy administratorów na każdej maszynie wirtualnej w celu utworzenia klastra._
 - Konto użytkownika domeny kontrolujące SQL Server. 
  
-## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Krok 1. Tworzenie konta magazynu jako monitora chmury
+## <a name="create-a-storage-account-as-a-cloud-witness"></a>Tworzenie konta magazynu jako monitora w chmurze
 Klaster wymaga konta magazynu do działania jako monitor chmury. Możesz użyć dowolnego istniejącego konta magazynu lub utworzyć nowe konto magazynu. Jeśli chcesz użyć istniejącego konta magazynu, przejdź do następnej sekcji. 
 
 Poniższy fragment kodu tworzy konto magazynu: 
@@ -77,11 +77,10 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
     -SkuName Standard_LRS -Location <region> -Kind StorageV2 `
     -AccessTier Hot -EnableHttpsTrafficOnly
 ```
+
 ---
 
-
-
-## <a name="step-2-define-windows-failover-cluster-metadata"></a>Krok 2. Definiowanie metadanych klastra trybu failover systemu Windows
+## <a name="define-windows-failover-cluster-metadata"></a>Definiowanie metadanych klastra trybu failover systemu Windows
 
 W interfejsie wiersza polecenia platformy Azure [AZ SQL VM Group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) Group (usługa) zarządza metadanymi usługi Windows Server failover Cluster (WSFC), która hostuje grupę dostępności. Metadane klastra obejmują domenę Active Directory, konta klastra, konta magazynu, które mają być używane jako monitor chmury i wersja SQL Server. Użyj [AZ SQL VM Group Create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) w celu zdefiniowania metadanych usługi WSFC, aby podczas dodawania pierwszej SQL SERVEREJ maszyny wirtualnej klaster został utworzony zgodnie z definicją. 
 
@@ -126,7 +125,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ---
 
-## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>Krok 3. Dodawanie SQL Server maszyn wirtualnych do klastra
+## <a name="add-vms-to-the-cluster"></a>Dodawanie maszyn wirtualnych do klastra
 
 Dodanie do klastra pierwszej SQL Serverej maszyny wirtualnej spowoduje utworzenie klastra. Polecenie [AZ SQL VM Add-to-Group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) tworzy klaster o nazwie podaną wcześniej, instaluje rolę klastra na maszynach wirtualnych SQL Server i dodaje je do klastra. Kolejne zastosowania `az sql vm add-to-group` polecenia Dodaj więcej SQL Server maszyn wirtualnych do nowo utworzonego klastra. 
 
@@ -185,14 +184,14 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 
 ---
 
-## <a name="step-4-create-the-availability-group"></a>Krok 4. Tworzenie grupy dostępności
+## <a name="create-availability-group"></a>Utwórz grupę dostępności
 
 Ręcznie Utwórz grupę dostępności jak zwykle za pomocą [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell)lub [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > *Nie* Twórz teraz odbiornika, ponieważ odbywa się to za pomocą interfejsu wiersza polecenia platformy Azure w poniższych sekcjach.  
 
-## <a name="step-5-create-the-internal-load-balancer"></a>Krok 5. Tworzenie wewnętrznego modułu równoważenia obciążenia
+## <a name="create-internal-load-balancer"></a>Tworzenie wewnętrznego modułu równoważenia obciążenia
 
 Odbiornik grupy dostępności zawsze włączony wymaga wewnętrznego wystąpienia Azure Load Balancer. Wewnętrzny moduł równoważenia obciążenia udostępnia "przestawny" adres IP dla odbiornika grupy dostępności, który umożliwia szybsze przełączanie w tryb failover i ponowne łączenie. Jeśli SQL Server maszyny wirtualne w grupie dostępności są częścią tego samego zestawu dostępności, można użyć podstawowego modułu równoważenia obciążenia. W przeciwnym razie należy użyć standardowego modułu równoważenia obciążenia.  
 
@@ -228,7 +227,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 >[!IMPORTANT]
 > Zasób publicznego adresu IP dla każdej maszyny wirtualnej SQL Server powinien mieć standardową jednostkę SKU zgodną z usługą równoważenia obciążenia w warstwie Standardowa. Aby określić jednostkę SKU publicznego adresu IP maszyny wirtualnej, przejdź do pozycji **Grupa zasobów**, wybierz zasób **publicznego adresu ip** dla żądanej SQL Serverj maszyny wirtualnej i Znajdź wartość w obszarze **jednostka SKU** w okienku **Przegląd** .  
 
-## <a name="step-6-create-the-availability-group-listener"></a>Krok 6. Tworzenie odbiornika grupy dostępności
+## <a name="create-listener"></a>Utwórz odbiornik
 
 Po ręcznym utworzeniu grupy dostępności odbiornik można utworzyć za pomocą polecenia [AZ SQL VM AG-Listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
@@ -237,9 +236,9 @@ Po ręcznym utworzeniu grupy dostępności odbiornik można utworzyć za pomocą
    1. Wybierz zasób sieci wirtualnej. 
    1. W okienku **Ustawienia** wybierz pozycję **Właściwości** . 
    1. Zidentyfikuj identyfikator zasobu dla sieci wirtualnej i Dołącz `/subnets/<subnetname>` go do końca, aby utworzyć identyfikator zasobu podsieci. Na przykład:
-      - Identyfikator zasobu sieci wirtualnej to:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
-      - Nazwa podsieci:`default`
-      - W związku z tym identyfikator zasobu podsieci:`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
+      - Identyfikator zasobu sieci wirtualnej to: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
+      - Nazwa podsieci: `default`
+      - W związku z tym identyfikator zasobu podsieci: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
 
 
 Poniższy fragment kodu tworzy odbiornik grupy dostępności:
@@ -283,7 +282,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 
 ---
 
-## <a name="modify-the-number-of-replicas-in-an-availability-group"></a>Modyfikowanie liczby replik w grupie dostępności
+## <a name="modify-number-of-replicas"></a>Modyfikuj liczbę replik 
 Po wdrożeniu grupy dostępności do SQL Server maszyn wirtualnych hostowanych na platformie Azure dodaliśmy warstwę złożoności. Dostawca zasobów i Grupa maszyn wirtualnych teraz zarządzają zasobami. W związku z tym podczas dodawania lub usuwania replik w grupie dostępności jest dostępny dodatkowy krok aktualizowania metadanych odbiornika przy użyciu informacji o maszynach wirtualnych SQL Server. W przypadku modyfikowania liczby replik w grupie dostępności należy również użyć polecenia [AZ SQL VM Group AG-Listener Update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) , aby zaktualizować odbiornik przy użyciu metadanych maszyn wirtualnych SQL Server. 
 
 
@@ -408,7 +407,7 @@ Aby usunąć replikę z grupy dostępności:
 
 ---
 
-## <a name="remove-the-availability-group-listener"></a>Usuń odbiornik grupy dostępności
+## <a name="remove-listener"></a>Usuń odbiornik
 Jeśli później będzie konieczne usunięcie odbiornika grupy dostępności skonfigurowanego za pomocą interfejsu wiersza polecenia platformy Azure, musisz przejść przez dostawcę zasobów maszyny wirtualnej SQL. Ponieważ odbiornik jest zarejestrowany za pośrednictwem dostawcy zasobów maszyny wirtualnej SQL, usunięcie go za pośrednictwem SQL Server Management Studio jest niewystarczające. 
 
 Najlepszą metodą jest usunięcie go za pośrednictwem dostawcy zasobów maszyny wirtualnej SQL przy użyciu poniższego fragmentu kodu w interfejsie wiersza polecenia platformy Azure. Spowoduje to usunięcie metadanych odbiornika grupy dostępności z dostawcy zasobów maszyny wirtualnej SQL. Również fizycznie usuwa odbiornik z grupy dostępności. 
@@ -431,6 +430,65 @@ az sql vm group ag-listener delete --group-name <cluster name> --name <listener 
 
 Remove-AzAvailabilityGroupListener -Name <Listener> `
    -ResourceGroupName <Resource Group Name> -SqlVMGroupName <cluster name>
+```
+
+---
+
+## <a name="remove-cluster"></a>Usuń klaster
+
+Usuń wszystkie węzły z klastra, aby je zniszczyć, a następnie usuń metadane klastra z dostawcy zasobów maszyny wirtualnej SQL. Można to zrobić za pomocą interfejsu wiersza polecenia platformy Azure lub programu PowerShell. 
+
+
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+Najpierw usuń wszystkie SQL Server maszyny wirtualne z klastra: 
+
+```azurecli-interactive
+# Remove the VM from the cluster metadata
+# example: az sql vm remove-from-group --name SQLVM2 --resource-group SQLVM-RG
+
+az sql vm remove-from-group --name <VM1 name>  --resource-group <resource group name>
+az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group name>
+```
+
+Jeśli są to jedyne maszyny wirtualne w klastrze, klaster zostanie zniszczony. Jeśli w klastrze znajdują się inne maszyny wirtualne, oprócz SQL Server maszyn wirtualnych, które zostały usunięte, inne maszyny wirtualne nie zostaną usunięte i klaster nie zostanie zniszczony. 
+
+Następnie usuń metadane klastra z dostawcy zasobów maszyny wirtualnej SQL: 
+
+```azurecli-interactive
+# Remove the cluster from the SQL VM RP metadata
+# example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
+
+az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+```
+
+
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+Najpierw usuń wszystkie SQL Server maszyny wirtualne z klastra. Spowoduje to fizyczne usunięcie węzłów z klastra i zniszczenie klastra: 
+
+```powershell-interactive
+# Remove the SQL VM from the cluster
+# example: $sqlvm = Get-AzSqlVM -Name SQLVM3 -ResourceGroupName SQLVM-RG
+#  $sqlvm. SqlVirtualMachineGroup = ""
+#  Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+
+$sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
+   $sqlvm. SqlVirtualMachineGroup = ""
+   
+   Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+```
+
+Jeśli są to jedyne maszyny wirtualne w klastrze, klaster zostanie zniszczony. Jeśli w klastrze znajdują się inne maszyny wirtualne, oprócz SQL Server maszyn wirtualnych, które zostały usunięte, inne maszyny wirtualne nie zostaną usunięte i klaster nie zostanie zniszczony. 
+
+Następnie usuń metadane klastra z dostawcy zasobów maszyny wirtualnej SQL: 
+
+```powershell-interactive
+# Remove the cluster metadata
+# example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
+
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
 ```
 
 ---

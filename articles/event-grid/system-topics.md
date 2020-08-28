@@ -2,13 +2,13 @@
 title: Tematy systemowe w Azure Event Grid
 description: Opisuje tematy systemowe w Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/27/2020
+ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119926"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019100"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tematy systemowe w Azure Event Grid
 Temat systemowy w Event Grid reprezentuje jedno lub więcej zdarzeń opublikowanych przez usługi platformy Azure, takie jak Azure Storage i Azure Event Hubs. Na przykład temat systemowy może reprezentować **wszystkie zdarzenia obiektu BLOB** lub tylko **utworzone** zdarzenia BLOB i **usunięte obiekty blob** dla **określonego konta magazynu**. W tym przykładzie, gdy obiekt BLOB jest przekazywany do konta magazynu, usługa Azure Storage publikuje zdarzenie **utworzone obiektu BLOB** w temacie system w Event Grid, który następnie przekazuje zdarzenie do [subskrybentów](event-handlers.md) tematu, którzy odbierają i przetwarzają zdarzenia. 
@@ -25,7 +25,7 @@ Oto bieżąca lista usług platformy Azure, które obsługują tworzenie na nich
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
-- [W usłudze Azure Key Vault](event-schema-key-vault.md)
+- [Usługa Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
@@ -57,9 +57,9 @@ Tworzenie tematu systemu kończy się niepowodzeniem, jeśli zasady platformy Az
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Lokalizacja i Grupa zasobów tematu systemowego
 W przypadku źródeł zdarzeń platformy Azure, które znajdują się w określonym regionie/lokalizacji, temat systemowy jest tworzony w tej samej lokalizacji, w której znajduje się źródło zdarzeń platformy Azure. Jeśli na przykład utworzysz subskrypcję zdarzeń dla magazynu obiektów blob platformy Azure w regionie Wschodnie stany USA, temat systemowy zostanie utworzony w regionie Wschodnie stany USA. W przypadku globalnych źródeł zdarzeń platformy Azure, takich jak subskrypcje platformy Azure, grupy zasobów lub Azure Maps, Event Grid tworzy temat systemowy w lokalizacji **globalnej** . 
 
-Ogólnie rzecz biorąc, temat systemowy jest tworzony w tej samej grupie zasobów, w której znajduje się źródło zdarzeń platformy Azure. W przypadku subskrypcji zdarzeń utworzonych w ramach zakresu subskrypcji platformy Azure temat systemowy jest tworzony w ramach grupy zasobów **default-EventGrid**. Jeśli grupa zasobów nie istnieje, Azure Event Grid ją utworzyć przed utworzeniem tematu systemowego. 
+Ogólnie rzecz biorąc, temat systemowy jest tworzony w tej samej grupie zasobów, w której znajduje się źródło zdarzeń platformy Azure. W przypadku subskrypcji zdarzeń utworzonych w ramach zakresu subskrypcji platformy Azure temat systemowy jest tworzony w grupie zasobów **EventGrid domyślne** w regionie **zachodnie stany USA 2** . Jeśli grupa zasobów nie istnieje, Azure Event Grid ją utworzyć przed utworzeniem tematu systemowego. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz następujące artykuły: 
 
 - [Tworzenie i wyświetlanie tematów systemowych oraz zarządzanie nimi za pomocą Azure Portal](create-view-manage-system-topics.md).

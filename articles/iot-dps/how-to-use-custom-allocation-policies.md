@@ -7,12 +7,13 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7733859c4ca4de8b580a228d8a73b899f0afa953
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75453941"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001981"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Jak używać niestandardowych zasad alokacji
 
@@ -587,7 +588,7 @@ Aby usunąć grupę zasobów według nazwy:
 
 4. Zostanie wyświetlony monit o potwierdzenie usunięcia grupy zasobów. Wpisz ponownie nazwę grupy zasobów, aby potwierdzić, a następnie wybierz pozycję **Usuń**. Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej, zobacz temat [IoT Hub ponowne Inicjowanie obsługi administracyjnej urządzeń](concepts-device-reprovision.md) 
 * Aby dowiedzieć się więcej, zobacz [Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane](how-to-unprovision-devices.md) . 

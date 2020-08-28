@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
+ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: b6a60536bae6fbedf01eda7aa340e90ced58e004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe3401354d4853b875cdd001d5074ebdf0d3377b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281602"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019542"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Kopiowanie danych do i z Data Lake Storage Gen1 przy użyciu Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -154,7 +155,7 @@ W poniższej tabeli przedstawiono czasy wygaśnięcia różnych typów kont uży
 
 | Typ użytkownika | Wygasa po |
 |:--- |:--- |
-| *Konta użytkowników* niezarządzane przez Azure Active Directory (na przykład @hotmail.com lub @live.com ) |12 godz. |
+| *Konta użytkowników* niezarządzane przez Azure Active Directory (na przykład @hotmail.com lub @live.com ) |12 godzin |
 | Konta użytkowników zarządzane przez Azure Active Directory |14 dni od ostatniego uruchomienia wycinka <br/><br/>90 dni, jeśli wycinek oparty na połączonej usłudze opartej na protokole OAuth jest uruchamiany co najmniej raz na 14 dni |
 
 Jeśli zmienisz hasło przed upływem czasu wygaśnięcia tokenu, token natychmiast wygaśnie. Zobaczysz komunikat wymieniony wcześniej w tej sekcji.

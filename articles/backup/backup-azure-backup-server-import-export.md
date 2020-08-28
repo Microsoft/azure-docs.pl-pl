@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla programu DPM i usługi Azure Backup Server
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890080"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002015"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (serwera usługi MAB)
 
@@ -192,10 +192,10 @@ Stan zadania importowania można monitorować z Azure Portal, przechodząc do st
 
 ### <a name="complete-the-workflow"></a>Ukończ przepływ pracy
 
-Po zakończeniu zadania importowania dane początkowej kopii zapasowej są dostępne na koncie magazynu. W czasie następnej zaplanowanej kopii zapasowej usługa Azure Backup kopiuje zawartość danych z konta magazynu do magazynu Recovery Services.
+Po zakończeniu zadania importowania dane początkowej kopii zapasowej są dostępne na koncie magazynu. W czasie następnej zaplanowanej kopii zapasowej Azure Backup kopiuje zawartość danych z konta magazynu do magazynu Recovery Services.
 
 Podczas następnego zaplanowanego zadania tworzenia repliki w trybie online Data Protection Manager wykonuje przyrostową kopię zapasową za pomocą początkowej kopii zapasowej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby uzyskać odpowiedzi na pytania dotyczące przepływu pracy usługi Azure Import/Export, zobacz [Używanie usługi Microsoft Azure Import/Export do transferowania danych do magazynu obiektów BLOB](../storage/common/storage-import-export-service.md).

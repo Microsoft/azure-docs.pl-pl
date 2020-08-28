@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6e62e307b6c5f5de939505eae8850f0117782a69
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498365"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020001"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Tworzenie kontenera usługi Azure Cosmos
 
@@ -23,7 +23,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
 
 ## <a name="create-a-container-using-azure-portal"></a>Tworzenie kontenera przy użyciu witryny Azure Portal
 
-### <a name="sql-api"></a><a id="portal-sql"></a>Interfejs API SQL
+### <a name="sql-api"></a><a id="portal-sql"></a>INTERFEJS API SQL
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -35,7 +35,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wprowadź identyfikator kontenera.
    * Wprowadź klucz partycji.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Kliknij przycisk **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Zrzut ekranu przedstawiający okienko Eksplorator danych z wyróżnionym nowym kontenerem":::
 
@@ -51,7 +51,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wprowadź identyfikator kontenera.
    * Wprowadź klucz fragmentu.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Kliknij przycisk **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Zrzut ekranu przedstawiający interfejs Azure Cosmos DB API dla MongoDB, okno dialogowe Dodawanie kontenera":::
 
@@ -67,7 +67,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wprowadź nazwę tabeli.
    * Wprowadź właściwości i określ klucz podstawowy.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Kliknij przycisk **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Zrzut ekranu interfejsu API Cassandra, okno dialogowe Dodawanie tabeli":::
 
@@ -87,7 +87,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
    * Wybierz pojemność magazynu **Bez ograniczeń**.
    * Wprowadź klucz partycji dla wierzchołków.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Kliknij przycisk **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Zrzut ekranu interfejsu API Gremlin, okno dialogowe Dodawanie grafu":::
 
@@ -101,7 +101,7 @@ W tym artykule opisano różne sposoby tworzenia kontenera usługi Azure Cosmos 
 
    * Wprowadź identyfikator tabeli.
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Kliknij przycisk **OK**.
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Zrzut ekranu interfejsu API tabel, okno dialogowe Dodawanie tabeli":::
 
@@ -170,7 +170,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Partitioning in Azure Cosmos DB (Partycjonowanie w usłudze Azure Cosmos DB)](partitioning-overview.md)
 * [Jednostki żądania w usłudze Azure Cosmos DB](request-units.md)

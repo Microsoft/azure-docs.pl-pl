@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 447f999f48edb9696c74ec5decb1109eefb964d7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 605fba03e65d4200d0f1e18219e892ec6d207bc4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206974"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019321"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurowanie potoku ciągłej integracji/ciągłego wdrażania przy użyciu zadania kompilacji emulatora usługi Azure Cosmos DB w usłudze Azure DevOps
 
@@ -174,7 +175,7 @@ Po ukończeniu kompilacji zwróć uwagę, że testy uruchomione względem emulat
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/buildComplete_1.png" alt-text="Zapisywanie i uruchamianie kompilacji":::
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat korzystania z emulatora do celów lokalnego programowania i testowania, zobacz [Programowanie i testowanie w środowisku lokalnym przy użyciu emulatora usługi Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
 

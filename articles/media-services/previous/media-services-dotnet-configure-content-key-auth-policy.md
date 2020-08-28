@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e05c7a8388b662731c04ac4098d6eecb1d89fe4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2419ea0db7c5653e7ff4f41b6aae842c5a37c80a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060153"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019338"
 ---
 # <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Konfigurowanie zasad autoryzacji klucza zawartości przy użyciu zestawu SDK platformy Media Services .NET
 
@@ -437,5 +438,5 @@ Aby uzyskać token testowy oparty na ograniczeniu tokenu, który został użyty 
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, po skonfigurowaniu zasad autoryzacji klucza zawartości, zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-dotnet-configure-asset-delivery-policy.md).

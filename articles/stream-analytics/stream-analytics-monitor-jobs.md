@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2017
-ms.openlocfilehash: 2177280d4b8ffd52fb37dd01a74ea3ab0ae7de9f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 196d722e57abe743fc51692dde231e8f93682c46
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044077"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002270"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Programowe tworzenie Stream Analytics monitor zadań
 
@@ -171,7 +172,7 @@ Poniższy kod umożliwia monitorowanie **istniejącego** zadania Stream Analytic
 
 Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics (Rozpoczynanie pracy z usługą Azure Stream Analytics)](stream-analytics-real-time-fraud-detection.md)

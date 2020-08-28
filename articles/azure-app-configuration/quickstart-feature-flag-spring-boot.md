@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121905"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019746"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 
@@ -54,7 +54,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 ## <a name="add-feature-management"></a>Dodawanie funkcji zarządzania funkcjami
 
-1. Po wyodrębnieniu plików w systemie lokalnym aplikacja do rozruchowego sprężyny jest gotowa do edycji. Znajdź *pom.xml* w katalogu głównym aplikacji.
+1. Po wyodrębnieniu plików w systemie lokalnym aplikacja do rozruchowego sprężyny jest gotowa do edycji. Znajdź  *pom.xml* w katalogu głównym aplikacji.
 
 1. Otwórz plik *pom.xml* w edytorze tekstów i Dodaj następujący tekst do listy `<dependencies>` :
 
@@ -97,7 +97,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
     ```
 
 > [!Note]
-> Istnieje Biblioteka zarządzania funkcją niezawierającą sieci Web, która nie jest zależna od sprężyny sieci Web. Różnice można znaleźć w [dokumentacji](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) usługi GitHub.
+> Istnieje Biblioteka zarządzania funkcją niezawierającą sieci Web, która nie jest zależna od sprężyny sieci Web. Różnice można znaleźć w [dokumentacji](https://github.com/microsoft/spring-cloud-azure) usługi GitHub.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
@@ -302,7 +302,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji, który będzie używany do zarządzania funkcjami w aplikacji sieci Web ze sprężyną rozruchu za pośrednictwem [bibliotek zarządzania](https://go.microsoft.com/fwlink/?linkid=2074664)funkcjami.
 

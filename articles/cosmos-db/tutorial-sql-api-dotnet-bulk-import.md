@@ -7,12 +7,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b16402f809da18588b26995e7129d2f27575b48d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77587570"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019253"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Zbiorcze importowanie danych do Azure Cosmos DB konta interfejsu API SQL przy użyciu zestawu .NET SDK
 
@@ -181,7 +182,7 @@ Przykład można uruchomić, zmieniając katalog repozytorium i używając `dotn
    dotnet run
    ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku wykonano następujące czynności:
 

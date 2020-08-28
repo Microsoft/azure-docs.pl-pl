@@ -10,12 +10,13 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bab78d60e5007d9c3eb61afa7bc63a9b44e47aa1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8ec35a651d4d3ef9e0877463329a654bc7491f4c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888026"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001880"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Przenoszenie danych za pomocą biblioteki przenoszenia danych
 
@@ -44,12 +45,12 @@ W tym dokumencie przedstawiono sposób tworzenia aplikacji konsolowej .NET Core,
 3. Otwórz ten katalog w Visual Studio Code. Ten krok można szybko wykonać przy użyciu wiersza polecenia, wpisując `code .` w systemie Windows.
 4. Zainstaluj [rozszerzenie C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) z witryny Visual Studio Code Marketplace. Uruchom ponownie Visual Studio Code.
 5. W tym momencie powinny pojawić się dwa wiersze. Jeden z nich służy do dodawania "wymaganych zasobów do kompilowania i debugowania". Kliknij przycisk "tak". Inny monit jest przeznaczony do przywracania nierozwiązanych zależności. Kliknij pozycję "Przywróć".
-6. Zmodyfikuj `launch.json` w obszarze, `.vscode` Aby używać terminalu zewnętrznego jako konsoli programu. To ustawienie powinno być odczytane jako`"console": "externalTerminal"`
+6. Zmodyfikuj `launch.json` w obszarze, `.vscode` Aby używać terminalu zewnętrznego jako konsoli programu. To ustawienie powinno być odczytane jako `"console": "externalTerminal"`
 7. Visual Studio Code umożliwia debugowanie aplikacji .NET Core. Naciśnij klawisz, `F5` Aby uruchomić aplikację, i sprawdź, czy Twoja konfiguracja działa. Powinna zostać wyświetlona wartość "Hello world!" wydrukowany w konsoli programu.
 
 ## <a name="add-the-data-movement-library-to-your-project"></a>Dodawanie biblioteki przenoszenia danych do projektu
 
-1. Dodaj najnowszą wersję biblioteki przenoszenia danych do `dependencies` sekcji `<project-name>.csproj` pliku. W momencie zapisu ta wersja będzie`"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+1. Dodaj najnowszą wersję biblioteki przenoszenia danych do `dependencies` sekcji `<project-name>.csproj` pliku. W momencie zapisu ta wersja będzie `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
 2. Monit powinien zostać wyświetlony w celu przywrócenia projektu. Kliknij przycisk "Przywróć". Możesz również przywrócić projekt z wiersza polecenia, wpisując polecenie `dotnet restore` w katalogu głównym katalogu projektu.
 
 Modyfikuj `<project-name>.csproj` :
@@ -564,7 +565,7 @@ W tym przykładzie ustawimy parametr Boolean w na tak `TransferManager.CopyAsync
 
 Aplikacja przenoszenia danych została ukończona. [Pełny przykładowy kod jest dostępny w serwisie GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dokumentacja biblioteki przenoszenia danych usługi Azure Storage](https://azure.github.io/azure-storage-net-data-movement).
 

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 0e65bf39db00f1277635d600da87346f19a881a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 43c003d69ff64ea85581b2d4e22c545376acd525
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197170"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010158"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>FairPlay przesyłania strumieniowego w trybie offline dla systemu iOS z Media Services v3
 
@@ -206,6 +207,6 @@ W przypadku wersji 3 lub 4 zestawu SDK serwera FPS, jeśli główna lista odtwar
 
 Zobacz [często zadawane pytania](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode), aby uzyskać pomoc dotyczącą rozwiązywania problemów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się, jak [stosować ochronę przy użyciu algorytmu AES-128](protect-with-aes128.md)

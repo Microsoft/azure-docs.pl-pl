@@ -7,12 +7,13 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: b8cf0425a4a40c4692f4c0c7fcf11dbb23019b23
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 24f321e3c3c0fe8e85633edb505879874e8c772f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132674"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019236"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 
@@ -107,7 +108,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 *QueryMetrics* zawiera szczegółowe informacje o tym, jak długo każdy składnik zapytania wykonał wykonanie. Najbardziej powszechną główną przyczyną długotrwałych zapytań jest skanowanie, co oznacza, że zapytanie nie mogło użyć indeksów. Ten problem można rozwiązać, używając lepszego warunku filtru.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz wiesz już, jak monitorować i debugować problemy przy użyciu metryk podanych w Azure Portal. Warto dowiedzieć się więcej o ulepszaniu wydajności bazy danych, czytając następujące artykuły:
 

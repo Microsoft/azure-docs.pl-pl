@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f27822ee6be26f955e4db52548da7fa2a22236c2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 982aa4bdb37af53999e75b7e33db990adb057938
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922756"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019763"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Przykład: Dodawanie synonimów dla usługi Azure Wyszukiwanie poznawcze w języku C #
 
@@ -171,7 +172,7 @@ Możesz znaleźć pełny kod źródłowy przykładowej aplikacji używanej w tym
 
 Najszybszym sposobem oczyszczenia po przykładzie jest usunięcie grupy zasobów zawierającej usługę Wyszukiwanie poznawcze platformy Azure. Możesz teraz usunąć tę grupę zasobów, aby trwale usunąć całą jej zawartość. Nazwa grupy zasobów w portalu znajduje się na stronie Przegląd usługi Azure Wyszukiwanie poznawcze.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Ten przykład przedstawia funkcję synonimów w kodzie C# do tworzenia i publikowania reguł mapowania, a następnie wywoływania mapy synonimów w zapytaniu. Dodatkowe informacje można znaleźć w dokumentacji referencyjnej [zestawu .NET SDK](/dotnet/api/microsoft.azure.search) i [interfejsu API REST](/rest/api/searchservice/).
 

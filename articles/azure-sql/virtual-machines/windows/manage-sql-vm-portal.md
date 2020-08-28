@@ -12,31 +12,31 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8def7c52f2b1005419a29d35ef122b48f34fdee4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f502183b8240515ee136ce27d99bd4b5d6277c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010175"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Zarządzanie maszynami wirtualnymi SQL Server na platformie Azure przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W [Azure Portal](https://portal.azure.com) **jest to** niezależna usługa zarządzania. Służy do wyświetlania wszystkich SQL Server maszyn wirtualnych jednocześnie i modyfikowania ustawień przeznaczonych dla SQL Server: 
+W [Azure Portal](https://portal.azure.com)zasób [**maszyny wirtualne SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) to niezależna usługa zarządzania umożliwiająca zarządzanie SQL Server na maszynach wirtualnych platformy Azure. Służy do wyświetlania wszystkich SQL Server maszyn wirtualnych jednocześnie i modyfikowania ustawień przeznaczonych dla SQL Server: 
 
 ![Zasób maszyn wirtualnych SQL](./media/manage-sql-vm-portal/sql-vm-manage.png)
 
 
 ## <a name="remarks"></a>Uwagi
 
-- Zalecamy używanie zasobu **maszyny wirtualne SQL** do wyświetlania maszyn wirtualnych SQL Server i zarządzania nimi na platformie Azure. Obecnie zasób **maszyn wirtualnych SQL** nie obsługuje zarządzania [końcami](sql-server-2008-extend-end-of-support.md) SQL Server maszyn wirtualnych. Aby zarządzać ustawieniami dla punktów końcowych SQL Server, użyj [karty konfiguracja](#access-the-sql-server-configuration-tab) przestarzałej SQL Server. 
+- Zalecamy używanie zasobu [**maszyny wirtualne SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) do wyświetlania maszyn wirtualnych SQL Server i zarządzania nimi na platformie Azure. Obecnie zasób **maszyn wirtualnych SQL** nie obsługuje zarządzania [końcami](sql-server-2008-extend-end-of-support.md) SQL Server maszyn wirtualnych. Aby zarządzać ustawieniami dla punktów końcowych SQL Server, użyj [karty konfiguracja](#access-the-sql-server-configuration-tab) przestarzałej SQL Server. 
 - Zasób **maszyny wirtualne SQL** jest dostępny tylko dla SQL Server maszyn wirtualnych [zarejestrowanych w dostawcy zasobów maszyny wirtualnej SQL](sql-vm-resource-provider-register.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Dostęp do zasobu maszyn wirtualnych SQL
 Aby uzyskać dostęp do zasobu **maszyny wirtualne SQL** , wykonaj następujące czynności:
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com). 
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com). 
 1. Wybierz pozycję **wszystkie usługi**. 
 1. W polu wyszukiwania wprowadź **maszyny wirtualne SQL** .
 1. (Opcjonalnie): Wybierz gwiazdkę obok pozycji **SQL Virtual Machines** , aby dodać tę opcję do menu **Ulubione** . 
@@ -51,7 +51,7 @@ Aby uzyskać dostęp do zasobu **maszyny wirtualne SQL** , wykonaj następujące
    Wybranie maszyny wirtualnej SQL Server spowoduje otwarcie zasobu **maszyny wirtualnej SQL** : 
 
 
-   ![Zasób maszyn wirtualnych SQL](./media/manage-sql-vm-portal/sql-vm-resource.png)
+   ![Wyświetlanie zasobów maszyn wirtualnych SQL](./media/manage-sql-vm-portal/sql-vm-resource.png)
 
 > [!TIP]
 > Zasób **maszyn wirtualnych SQL** jest przeznaczony dla dedykowanych ustawień SQL Server. Wybierz nazwę maszyny wirtualnej w polu **maszyna wirtualna** , aby otworzyć ustawienia specyficzne dla maszyny wirtualnej, ale nie wyłącznie do SQL Server. 
@@ -61,7 +61,7 @@ Karta **konfiguracja SQL Server** była przestarzała. W tej chwili jest jedyną
 
 Aby uzyskać dostęp do karty **Konfiguracja** przestarzałej SQL Server, przejdź do zasobu **maszyny wirtualne** . Wykonaj następujące kroki:
 
-1. Otwórz [witrynę Azure Portal](https://portal.azure.com). 
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com). 
 1. Wybierz pozycję **wszystkie usługi**. 
 1. W polu wyszukiwania wprowadź **maszyny wirtualne** .
 1. (Opcjonalnie): Wybierz gwiazdkę obok pozycji **maszyny wirtualne** , aby dodać tę opcję do menu **Ulubione** . 

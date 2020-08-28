@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7469d60095026c8a016fc1ecaa1a4f92361800f3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084011"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019383"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Szybki Start: dołączanie Azure Stack maszyn wirtualnych do Security Center
 Po dołączeniu subskrypcji platformy Azure można włączyć Security Center, aby chronić maszyny wirtualne działające w Azure Stack przez dodanie rozszerzenia maszyny wirtualnej **Azure monitor, aktualizacji i zarządzania konfiguracją** z witryny Azure Stack Marketplace.
@@ -72,7 +72,7 @@ Należy teraz dodać rozszerzenie maszyny wirtualnej **Azure monitor, aktualizac
 7. Po wprowadzeniu niezbędnych ustawień konfiguracji kliknij przycisk **OK**.
 8. Po zakończeniu instalacji rozszerzenia jego stan zostanie wyświetlony po **pomyślnym zainicjowaniu obsługi administracyjnej**. Pojawienie się maszyny wirtualnej w portalu Security Center może potrwać do godziny.
 
-Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta dla systemu Windows, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta dla systemu Windows, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Rozwiązywanie problemów z agentami w systemie Linux można znaleźć w temacie [Rozwiązywanie problemów z usługą Azure log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
@@ -96,7 +96,7 @@ Aby usunąć rozszerzenie:
 3. Wybierz pozycję **rozszerzenia**, wybierz rozszerzenie **Microsoft. EnterpriseCloud. Monitoring**.
 4. Kliknij przycisk **Odinstaluj**i potwierdź wybór, klikając **przycisk tak**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym przewodniku szybki start zainicjowano Azure Monitor, aktualizację i rozszerzenie zarządzania konfiguracją na maszynie wirtualnej uruchomionej w Azure Stack. Aby dowiedzieć się więcej na temat sposobu korzystania z usługi Security Center, przejdź do samouczka konfigurowania zasad zabezpieczeń i oceniania zabezpieczeń Twoich zasobów.
 
 > [!div class="nextstepaction"]

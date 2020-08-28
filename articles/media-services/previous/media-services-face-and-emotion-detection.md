@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: b8f100d253dc5ecb321934eb49a1aba60595a5e8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a3bd50d23f2543c6efeb6297b4dbcba8293269c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232580"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019882"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Wykrywanie kroju i rozpoznawania emocji przy użyciu Azure Media Analytics
 
@@ -45,7 +46,7 @@ Procesor Media **Azure Media Face Detector** (MP) umożliwia zliczanie, śledzen
 
 Pakiet MP **Azure Media Face Detector** jest obecnie w wersji zapoznawczej.
 
-Ten artykuł zawiera szczegółowe informacje dotyczące **Azure Media Face Detector** i pokazuje, jak używać go z zestawem SDK Media Services dla platformy .NET.
+Ten artykuł zawiera szczegółowe informacje dotyczące  **Azure Media Face Detector** i pokazuje, jak używać go z zestawem SDK Media Services dla platformy .NET.
 
 ## <a name="face-detector-input-files"></a>Pliki wejściowe czujnika kroju
 Pliki wideo. Obecnie obsługiwane są następujące formaty: MP4, MOV i WMV.

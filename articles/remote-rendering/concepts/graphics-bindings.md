@@ -9,12 +9,13 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
-ms.openlocfilehash: d29500db5efd0abde4c9555fde9a7e3d5bbe070a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f769036ac9e5a6945e7ecad30e021d377cabd358
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564993"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020273"
 ---
 # <a name="graphics-binding"></a>Powiązanie grafiki
 
@@ -88,7 +89,7 @@ Istnieją obecnie dwa interfejsy API grafiki, które można wybrać, `WmrD3D11` 
 
 ### <a name="windows-mixed-reality"></a>Windows Mixed Reality
 
-`GraphicsApiType.WmrD3D11`jest domyślnym powiązaniem do uruchamiania na serwerze HoloLens 2. Zostanie utworzone `GraphicsBindingWmrD3d11` powiązanie. W tym trybie zdalne renderowanie platformy Azure jest podłączane bezpośrednio do interfejsów API Holographic.
+`GraphicsApiType.WmrD3D11` jest domyślnym powiązaniem do uruchamiania na serwerze HoloLens 2. Zostanie utworzone `GraphicsBindingWmrD3d11` powiązanie. W tym trybie zdalne renderowanie platformy Azure jest podłączane bezpośrednio do interfejsów API Holographic.
 
 Aby uzyskać dostęp do pochodnych powiązań graficznych, baza `GraphicsBinding` musi być rzutowana.
 Istnieją dwie rzeczy, które należy wykonać, aby użyć powiązania WMR:
@@ -136,7 +137,7 @@ wmrBinding->BlitRemoteFrame();
 
 ### <a name="simulation"></a>Symulacja
 
-`GraphicsApiType.SimD3D11`jest powiązaniem symulacji i jeśli wybrane, tworzy `GraphicsBindingSimD3d11` powiązanie grafiki. Ten interfejs służy do symulowania przenoszenia głowy, na przykład w aplikacji klasycznej i renderowania obrazu monoscopic.
+`GraphicsApiType.SimD3D11` jest powiązaniem symulacji i jeśli wybrane, tworzy `GraphicsBindingSimD3d11` powiązanie grafiki. Ten interfejs służy do symulowania przenoszenia głowy, na przykład w aplikacji klasycznej i renderowania obrazu monoscopic.
 Konfiguracja jest nieco większa i działa w następujący sposób:
 
 #### <a name="create-proxy-render-target"></a>Utwórz obiekt docelowy renderowania serwera proxy
@@ -231,6 +232,6 @@ else
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Samouczek: Wyświetlanie modeli renderowanych zdalnie](../tutorials/unity/view-remote-models/view-remote-models.md)

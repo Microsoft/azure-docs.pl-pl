@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 48f728e697e3ca92eee0469c8368e966479fe7fb
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 85c99892a225de933da337e748ebde3370b6f7a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422236"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019610"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Zarządzanie poziomami spójności w usłudze Azure Cosmos DB
 
@@ -93,7 +93,7 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Zestaw SDK Java v4
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
 # <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
@@ -109,7 +109,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 --- 
 
-### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a>Zestawy SDK Java v2
+### <a name="java-v2-sdks"></a><a id="override-default-consistency-javav2"></a> Zestawy SDK Java v2
 
 # <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
@@ -194,7 +194,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 ```
 ---
 
-### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a>Zestaw SDK Java v4
+### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Zestaw SDK Java v4
 
 # <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
@@ -279,11 +279,11 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorowanie metryki PBS (Probabilistically Bounded Staleness)
 
-Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku można zaoferować nieaktualność w odniesieniu do historii wersji i czasu. Metryka [**probabilistically ograniczona (PBS)**](https://pbs.cs.berkeley.edu/) próbuje określić prawdopodobieństwo nieodświeżoności i pokazuje ją jako metrykę. Aby wyświetlić metrykę usługi PBS, przejdź do swojego konta usługi Azure Cosmos w Azure Portal. Otwórz okienko **metryki** i wybierz kartę **spójność** . Spójrz na wykres o nazwie **prawdopodobieństwo silnie spójnych odczytów w oparciu o obciążenie (zobacz PBS)**.
+Jak ostateczna jest spójność ostateczna? W przypadku średniego przypadku można zaoferować nieaktualność w odniesieniu do historii wersji i czasu. Metryka [**probabilistically ograniczona (PBS)**](https://pbs.cs.berkeley.edu/) próbuje określić prawdopodobieństwo nieodświeżoności i pokazuje ją jako metrykę. Aby wyświetlić metrykę usługi PBS, przejdź do swojego konta usługi Azure Cosmos w Azure Portal. Otwórz okienko **metryki** i wybierz kartę **spójność** . Przyjrzyj się grafowi o nazwie **prawdopodobieństwo silnie spójnych odczytów w oparciu o obciążenie (zobacz PBS)**.
 
 :::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Wykres PBS w witrynie Azure Portal":::
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o zarządzaniu konfliktami danych lub przejdź do następnej kluczowej koncepcji w usłudze Azure Cosmos DB. Zobacz następujące artykuły:
 

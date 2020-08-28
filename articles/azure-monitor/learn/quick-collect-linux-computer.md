@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a1adf167bb23b3d66f6dcbd07794145f7c817105
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b856381e8d085c6839effd1de6d9867b214d24ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322163"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020392"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Szybki Start: zbieranie danych z komputera z systemem Linux w środowisku hybrydowym z Azure Monitor
 
 [Azure monitor](../overview.md) może zbierać dane bezpośrednio z fizycznych lub wirtualnych komputerów z systemem Linux w środowisku do log Analytics obszaru roboczego w celu uzyskania szczegółowej analizy i korelacji. Zainstalowanie [agenta log Analytics](../platform/log-analytics-agent.md) pozwala Azure monitor zbierać dane z centrum danych lub innego środowiska chmury. Ten przewodnik Szybki Start przedstawia sposób konfigurowania i zbierania danych z serwera z systemem Linux przy użyciu kilku prostych kroków. Aby uzyskać informacje o maszynach wirtualnych z systemem Linux systemu Azure, zobacz [zbieranie danych o maszynach wirtualnych platformy Azure](./quick-collect-azurevm.md).  
 
-Aby zrozumieć obsługiwaną konfigurację, zobacz [obsługiwane systemy operacyjne Windows](../platform/log-analytics-agent.md#supported-linux-operating-systems) i [Konfiguracja zapory sieciowej](../platform/log-analytics-agent.md#network-requirements).
+Aby zrozumieć obsługiwaną konfigurację, zobacz [obsługiwane systemy operacyjne](../platform/agents-overview.md#supported-operating-systems) i [Konfiguracja zapory sieciowej](../platform/log-analytics-agent.md#network-requirements).
  
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -149,7 +149,7 @@ Teraz, po włączeniu zbierania danych, uruchomimy proste przykładowe wyszukiwa
 
     ![Wynik przeszukiwania dzienników w usłudze Log Analytics](media/quick-collect-linux-computer/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebny, można usunąć agenta z komputera z systemem Linux i usunąć obszar roboczy usługi Log Analytics.  
 
@@ -161,7 +161,7 @@ Aby usunąć obszar roboczy, wybierz utworzony wcześniej obszar roboczy Log Ana
 
 ![Usuwanie zasobu usługi Log Analytics](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, kiedy są zbierane dane operacyjne i dane wydajności z lokalnego komputera z systemem Linux, możesz w prosty sposób rozpocząć eksplorowanie i analizowanie danych oraz wykonywanie działań na *bezpłatnie* zebranych danych.  
 

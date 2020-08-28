@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685412"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020358"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -164,7 +164,7 @@ W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia inst
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)i [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
+- **Agent MMS**: Zapoznaj się z obsługiwanymi systemami operacyjnymi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)i [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
 - **Agent zależności**: obsługiwane systemy operacyjne [Windows i Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
 
 ## <a name="visualize-dependencies-for--hour"></a>Wizualizuj zależności dla > godziny
@@ -222,6 +222,6 @@ Zbierz dzienniki ruchu sieciowego w następujący sposób:
 - W przypadku maszyn wirtualnych funkcji Hyper-V dane systemu operacyjnego są zbierane z hosta funkcji Hyper-V
 - W przypadku serwerów fizycznych jest on pobierany z serwera.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Utwórz](how-to-create-assessment.md) lub [Dostosuj](how-to-modify-assessment.md) ocenę.

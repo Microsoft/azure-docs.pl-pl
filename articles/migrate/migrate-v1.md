@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836007"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001641"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
@@ -85,7 +85,7 @@ Komputer jest przenoszony tylko do późniejszego etapu, jeśli przekaże poprze
 
 Widok gotowości platformy Azure w ocenie przedstawia stan gotowości każdej maszyny wirtualnej.
 
-**Gotowość** | **Stan** | **Szczegóły**
+**Gotowości** | **Stan** | **Szczegóły**
 --- | --- | ---
 Gotowa na platformę Azure | Brak problemów ze zgodnością. Maszynę można migrować na platformę Azure i uruchamiać ją na platformie Azure z pełną pomocą techniczną platformy Azure. | W przypadku maszyn wirtualnych, które są gotowe do migracji, usługa Azure Migrate wyświetla zalecany rozmiar maszyny wirtualnej na platformie Azure.
 Warunkowo gotowa na platformę Azure | Komputer może przeprowadzić rozruch na platformie Azure, ale może nie mieć pełnej pomocy technicznej platformy Azure. Na przykład maszyna ze starszą wersją systemu Windows Server, która nie jest obsługiwana na platformie Azure. | Azure Migrate objaśnia problemy z gotowością i zawiera czynności zaradcze.
@@ -97,7 +97,7 @@ Nieznana gotowość | Azure Migrate nie może zidentyfikować gotowości platfor
 Gotowość uwzględnia wiele właściwości maszyn wirtualnych, aby określić, czy maszyna wirtualna może działać na platformie Azure.
 
 
-**Właściwość** | **Szczegóły** | **Gotowość**
+**Właściwość** | **Szczegóły** | **Gotowości**
 --- | --- | ---
 **Typ rozruchu** | Obsługiwane przez system BIOS. Interfejs UEFI nie jest obsługiwany. | Warunkowo gotowe, jeśli typ rozruchu to UEFI.
 **Rdzenie** | Komputery Core <= Maksymalna liczba rdzeni (128) obsługiwana przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie.<br/>Jeśli czynnik komfortu jest określony w ustawieniach oceny, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni, bez zastosowania współczynnika komfortu. | Gotowe, jeśli jest mniejsze lub równe limitom.
@@ -114,7 +114,7 @@ Wraz z właściwościami maszyny wirtualnej Azure Migrate również sprawdzać s
 
 Używana jest następująca logika.
 
-**System operacyjny** | **Szczegóły** | **Gotowość**
+**System operacyjny** | **Szczegóły** | **Gotowości**
 --- | --- | ---
 Windows Server 2016 i wszystkie SPs | Platforma Azure oferuje pełną pomoc techniczną. | Gotowa na platformę Azure
 Windows Server 2012 R2 i wszystkie SPs | Platforma Azure oferuje pełną pomoc techniczną. | Gotowa na platformę Azure
@@ -238,7 +238,7 @@ Aby zainstalować agenta na komputerze z systemem Windows:
 4. W obszarze **Opcje instalacji agenta**wybierz pozycję **Azure log Analytics**  >  **dalej**.
 5. Kliknij przycisk **Dodaj** , aby dodać nowy obszar roboczy log Analytics. Wklej w obszarze Identyfikator i klucz obszaru roboczego skopiowane z portalu. Kliknij przycisk **Dalej**.
 
-Agenta można zainstalować z poziomu wiersza polecenia lub przy użyciu metody zautomatyzowanej, takiej jak Configuration Manager. [Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) na temat korzystania z tych metod w celu zainstalowania agenta MMA.
+Agenta można zainstalować z poziomu wiersza polecenia lub przy użyciu metody zautomatyzowanej, takiej jak Configuration Manager. [Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#installation-options) na temat korzystania z tych metod w celu zainstalowania agenta MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Instalowanie agenta MMA na komputerze z systemem Linux
 
@@ -249,7 +249,7 @@ Aby zainstalować agenta na komputerze z systemem Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) o obsłudze systemu operacyjnego Linux przez program MMA.
+[Dowiedz się więcej](../azure-monitor/platform/agents-overview.md#supported-operating-systems) o obsłudze systemu operacyjnego Linux przez program MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Zainstaluj agenta MMA na komputerze monitorowanym przez Operations Manager
 
@@ -349,5 +349,5 @@ VMConnection
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Dowiedz się więcej o](migrate-services-overview.md) najnowszej wersji programu Azure Migrate.

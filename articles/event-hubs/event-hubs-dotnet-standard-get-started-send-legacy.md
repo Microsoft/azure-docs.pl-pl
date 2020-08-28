@@ -3,12 +3,13 @@ title: Wysyłanie i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu 
 description: Ten artykuł zawiera Przewodnik dotyczący tworzenia aplikacji .NET Core, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu starego pakietu Microsoft. Azure. EventHubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 9aa971b3415894fc79df6faf1075184b413fefb6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d7d33ebcabb728cf2fbf43b393de5eec6cb58af3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942235"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010702"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu platformy .NET Core (Microsoft. Azure. EventHubs)
 Ten przewodnik Szybki Start przedstawia sposób wysyłania zdarzeń do i odbierania zdarzeń z centrum zdarzeń za pomocą biblioteki **Microsoft. Azure. EventHubs** .NET Core.
@@ -358,7 +359,7 @@ Dodaj do swojego projektu pakiety NuGet biblioteki .NET Standard [**Microsoft.Az
 4. Uruchom program i upewnij się, że nie ma w nim żadnych błędów.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przeczytaj następujące artykuły:
 
 - [Przykłady kontroli dostępu opartej na rolach (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 

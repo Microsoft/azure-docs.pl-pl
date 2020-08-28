@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 182d9a77700577c583bbdcd6f2620c0603569dd0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5a72f864d16ff89636b77709e439dd04134b64b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935232"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002729"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 11
 
@@ -191,7 +192,7 @@ W odniesieniu do aktualizacji wersji usługi, w których zmiany kodu w wersji 11
 
 + [Uporządkowane wyniki](search-query-odata-orderby.md) dla wartości null zostały zmienione w tej wersji, a wartości null są wyświetlane jako pierwsze, jeśli sortowanie jest `asc` i ostatnie, jeśli sortowanie jest `desc` . Jeśli Zapisano kod do obsługi sortowania wartości null, należy przejrzeć i potencjalnie usunąć ten kod, jeśli nie jest już potrzebny.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 + [Azure.Search.Docpakiet uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Przykłady w serwisie GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)

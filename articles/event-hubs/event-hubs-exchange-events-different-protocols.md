@@ -3,22 +3,23 @@ title: Azure Event Hubs — zdarzenia programu Exchange korzystające z różnyc
 description: W tym artykule pokazano, jak konsumenci i producenci korzystający z różnych protokołów (AMQP, Apache Kafka i HTTPS) mogą wymieniać zdarzenia podczas korzystania z usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6cdc4b9040f314b4ec41f84cc7436f0f2e3d6af6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cbc6999e3ede73b948ce034769966922b4b0f282
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002509"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010324"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Wymieniaj zdarzenia między konsumentami a producentami, którzy korzystają z różnych protokołów: AMQP, Kafka i HTTPS
 Usługa Azure Event Hubs obsługuje trzy protokoły dla klientów i producentów: AMQP, Kafka i HTTPS. Każdy z tych protokołów ma własny sposób reprezentowania komunikatów, więc w naturalny sposób wystąpią następujące pytania: Jeśli aplikacja wysyła zdarzenia do centrum zdarzeń z jednym protokołem i zużywa je za pomocą innego protokołu, co sprawia, że różne części i wartości zdarzenia wyglądają jak w przypadku nadejścia do konsumenta? W tym artykule omówiono najlepsze rozwiązania dla producentów i konsumentów, aby zapewnić, że wartości w ramach zdarzenia są poprawnie interpretowane przez aplikację, która zużywa.
 
 Porady przedstawione w tym artykule dotyczą tych klientów, z wymienionymi wersjami użytymi podczas opracowywania fragmentów kodu:
 
-* Klient Java Kafka (wersja 1.1.1 zhttps://www.mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
-* Microsoft Azure Event Hubs Client for Java (wersja 1.1.0 zhttps://github.com/Azure/azure-event-hubs-java)
-* Microsoft Azure Event Hubs Client for .NET (wersja 2.1.0 zhttps://github.com/Azure/azure-event-hubs-dotnet)
-* Microsoft Azure Service Bus (wersja 5.0.0 zhttps://www.nuget.org/packages/WindowsAzure.ServiceBus)
+* Klient Java Kafka (wersja 1.1.1 z https://www.mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
+* Microsoft Azure Event Hubs Client for Java (wersja 1.1.0 z https://github.com/Azure/azure-event-hubs-java)
+* Microsoft Azure Event Hubs Client for .NET (wersja 2.1.0 z https://github.com/Azure/azure-event-hubs-dotnet)
+* Microsoft Azure Service Bus (wersja 5.0.0 z https://www.nuget.org/packages/WindowsAzure.ServiceBus)
 * HTTPS (obsługuje tylko producentów)
 
 Inni klienci AMQP mogą działać nieco inaczej. AMQP ma dobrze zdefiniowany system typów, ale informacje o serializacji typów charakterystycznych dla języka do i z tego systemu są zależne od klienta, jak w przypadku, gdy klient zapewnia dostęp do części komunikatu AMQP.
@@ -328,7 +329,7 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 W tym artykule przedstawiono sposób przesyłania strumieniowego do Event Hubs bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby dowiedzieć się więcej na temat Event Hubs i Event Hubs dla Kafka, zobacz następujące artykuły:  
 
 * [Dowiedz się więcej na temat usługi Event Hubs](./event-hubs-about.md)

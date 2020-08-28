@@ -5,12 +5,13 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824600"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002253"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planowanie i skalowanie pojemności dla Service Fabric platformy Azure
 
@@ -166,7 +167,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> W przypadku skalowania w klastrze zobaczysz usunięte wystąpienie węzła/maszyny wirtualnej wyświetlone w złej kondycji w Service Fabric Explorer. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można obserwować w Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Można:
+> W przypadku skalowania w klastrze zobaczysz usunięte wystąpienie węzła/maszyny wirtualnej wyświetlone w złej kondycji w Service Fabric Explorer. Aby uzyskać wyjaśnienie tego zachowania, zobacz [zachowania, które można obserwować w Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Dostępne możliwości:
 > * Wywołaj [polecenie Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) z odpowiednią nazwą węzła.
 > * Wdróż [aplikację pomocnika automatycznego skalowania Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) w klastrze. Ta aplikacja zapewnia, że węzły skalowane w dół są wyczyszczone z Service Fabric Explorer.
 
@@ -224,7 +225,7 @@ Inny zasób znajduje się `nodeTypes` w obszarze [zasobów Microsoft. servicefab
 ]
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Service Fabric tworzenia klastra dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Linux: [Tworzenie klastra systemu Linux](service-fabric-cluster-creation-via-portal.md).

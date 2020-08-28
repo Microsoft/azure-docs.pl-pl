@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2a65d31bd7cde0a1f456212a19c06f6b940ce602
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 1e7f832faffc09cb7bbbcca73763b09f58cbb412
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922739"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019797"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Zbieraj dane telemetryczne dla analizy ruchu wyszukiwania
 
@@ -234,7 +234,7 @@ Poniższy zrzut ekranu pokazuje, jak wygląda wbudowany raport, jeśli użyto ws
 
 ![Pulpit nawigacyjny Power BI dla platformy Azure Wyszukiwanie poznawcze](./media/search-traffic-analytics/azuresearch-powerbi-dashboard.png "Pulpit nawigacyjny Power BI dla platformy Azure Wyszukiwanie poznawcze")
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Instrumentacja aplikacji wyszukiwania pozwala uzyskać zaawansowane i szczegółowe dane dotyczące usługi wyszukiwania.
 

@@ -4,16 +4,16 @@ description: Ten przewodnik Szybki start zawiera przykład kodu w języku C# (.N
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: f3d59cae7351d53fcdb499c1b709b928b1274c37
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: b5e024536cdd0829435b9676501b21bc99fff49a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185965"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020052"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: Użyj platformy .NET (C#) do nawiązywania połączeń i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
@@ -274,6 +274,6 @@ namespace AzureMySqlExample
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 > [!div class="nextstepaction"]
 > [Migrowanie bazy danych MySQL do usługi Azure Database for MySQL przy użyciu zrzutu i przywracania](concepts-migrate-dump-restore.md)

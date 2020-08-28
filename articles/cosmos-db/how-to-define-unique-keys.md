@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 8a87f9c9b2db2c6118134d76cefc7c2813f5a864
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 413664b790423fb5eafb58e2baaee46e10c6a929
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876669"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019967"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
 
@@ -119,7 +119,7 @@ client.createCollection(String.format("/dbs/%s", "database"), container, null);
 
 ## <a name="use-the-nodejs-sdk"></a>Korzystanie z zestawu SDK Node.js
 
-Podczas tworzenia nowego kontenera przy użyciu [zestawu SDKNode.js](https://www.npmjs.com/package/@azure/cosmos), `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
+Podczas tworzenia nowego kontenera przy użyciu [ zestawu SDKNode.js](https://www.npmjs.com/package/@azure/cosmos), `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
 
 ```javascript
 client.database('database').containers.create({
@@ -149,7 +149,7 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 })
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej na temat [partycjonowania](partition-data.md)
 - Zapoznaj się z [działaniem indeksowania](index-overview.md)

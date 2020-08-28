@@ -8,12 +8,13 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.openlocfilehash: b5b27e201242f87e15af780bc26328dbdc5eb7fc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935963"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002866"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Samouczek: wygenerowane przez program AI zawartość do przeszukiwania z obiektów blob platformy Azure przy użyciu zestawu .NET SDK
 
@@ -927,11 +928,11 @@ Ponadto przedstawiono sposób testowania wyników i resetowania systemu na potrz
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy znasz wszystkie obiekty w potoku wzbogacenia, przyjrzyjmy się dokładniej definicjom zestawu umiejętności i indywidualnym umiejętnościom.
 

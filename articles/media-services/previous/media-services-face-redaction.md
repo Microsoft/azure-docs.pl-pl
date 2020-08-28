@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8e150ec037bab0010c5505c880c4cac456118b35
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7cdacabcc97d37c144b498ea9a05ccc9d6bffc04
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058014"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019865"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redagowanie twarzy przy użyciu Azure Media Analytics 
 ## <a name="overview"></a>Omówienie
@@ -147,9 +148,9 @@ Przykłady typów rozmycia można znaleźć poniżej.
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
 ```
 
-#### <a name="low"></a>Małe
+#### <a name="low"></a>Niski
 
-![Małe](./media/media-services-face-redaction/blur1.png)
+![Niski](./media/media-services-face-redaction/blur1.png)
  
 #### <a name="med"></a>Komitetem
 
@@ -159,13 +160,13 @@ Przykłady typów rozmycia można znaleźć poniżej.
 
 ![Wysoki](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Box
+#### <a name="box"></a>Pole
 
-![Box](./media/media-services-face-redaction/blur4.png)
+![Pole](./media/media-services-face-redaction/blur4.png)
 
-#### <a name="black"></a>Czarny
+#### <a name="black"></a>Czarnoskórzy
 
-![Czarny](./media/media-services-face-redaction/blur5.png)
+![Czarnoskórzy](./media/media-services-face-redaction/blur5.png)
 
 ## <a name="elements-of-the-output-json-file"></a>Elementy wyjściowego pliku JSON
 
@@ -365,7 +366,7 @@ namespace FaceRedaction
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

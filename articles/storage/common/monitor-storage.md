@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring
-ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: monitoring, devx-track-csharp
+ms.openlocfilehash: 2cc275028b64c3df06e2c0275bc0f4ac21fa0f6e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836670"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020154"
 ---
 # <a name="monitor-azure-storage"></a>Monitorowanie usługi Azure Storage
 
@@ -74,7 +74,7 @@ Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do 
 
 Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych danych, zobacz [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](monitor-storage-reference.md).
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Aby proces tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -120,7 +120,7 @@ Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym u
 > [!TIP]
 > Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione w tym miejscu.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 
@@ -406,7 +406,7 @@ Użyj tych zapytań, aby ułatwić monitorowanie kont usługi Azure Storage:
 
 Nie. Usługa Azure COMPUTE obsługuje metryki na dyskach. Aby uzyskać więcej informacji, zobacz [metryki na dysku dla dysków zarządzanych i niezarządzanych](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby uzyskać informacje na temat dzienników i metryk utworzonych przez usługę Azure Storage, zobacz [Informacje o danych monitorowania usługi Azure Storage](monitor-storage-reference.md).
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md).

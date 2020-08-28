@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.author: victorh
-ms.openlocfilehash: be2bf0f9590a23f9def44a1800338c80f69a782c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25c2096de4c3643a4e6a3ba7bdad1e69ae93a179
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610527"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019083"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Zakresy prywatnych adresów IP zapory systemu Azure
 
@@ -23,6 +23,9 @@ Ta logika działa prawidłowo w przypadku kierowania ruchu bezpośrednio do Inte
 Jeśli Twoja organizacja używa zakresu publicznego adresu IP dla sieci prywatnych, Zapora platformy Azure SNATs ruch do jednego z prywatnych adresów IP zapory w AzureFirewallSubnet. Można jednak skonfigurować zaporę platformy Azure w taki sposób, aby **nie** przywiązać do tego zakresu publicznych adresów IP.
 
 Aby skonfigurować zaporę platformy Azure w taki sposób, aby nigdy nie były kierowane adresy IP, należy użyć wartości **0.0.0.0/0** jako zakresu prywatnych adresów IP. W przypadku tej konfiguracji zapora platformy Azure nigdy nie może kierować ruchu bezpośrednio do Internetu. Aby skonfigurować zaporę w taki sposób, aby zawsze używała adresów IP bez względu na adres docelowy, użyj wartości **255.255.255.255/32** jako zakresu prywatnego adresu.
+
+> [!IMPORTANT]
+> Jeśli chcesz określić własne zakresy prywatnych adresów IP i zachować domyślne zakresy organizacji IANA RFC 1918, upewnij się, że Lista niestandardowa nadal zawiera zakres w dokumencie IANA RFC 1918. 
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Skonfiguruj zakresy prywatnych adresów IP współdziałania — Azure PowerShell
 
@@ -73,6 +76,6 @@ Możesz użyć Azure Portal, aby określić zakresy prywatnych adresów IP dla z
 1. Domyślnie **IANAPrivateRanges** jest skonfigurowany.
 2. Edytuj zakresy prywatnych adresów IP dla danego środowiska, a następnie wybierz pozycję **Zapisz**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Dowiedz się więcej na temat [wymuszonego tunelowania zapory platformy Azure](forced-tunneling.md).

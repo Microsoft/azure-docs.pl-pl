@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 695513bb572f5931ee1f0fa54a330cfa0574fc21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261600"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019984"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Utwórz wiele wyzwalaczy Azure Functions dla Cosmos DB
 
@@ -106,7 +107,7 @@ W przypadku języka JavaScript można zastosować konfigurację do `function.jso
 > [!NOTE]
 > Zawsze Monitoruj jednostki żądania udostępniane w kontenerze dzierżawy udostępnione. Każdy wyzwalacz, który go udostępnia, zwiększy zużycie na średnią przepływność, więc może być konieczne zwiększenie przepływności w miarę zwiększania liczby używanych Azure Functions.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Zapoznaj się z pełną konfiguracją [wyzwalacza Azure Functions dla Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)
 * Zapoznaj się z rozszerzoną [listą próbek](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) dla wszystkich języków.

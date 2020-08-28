@@ -3,12 +3,13 @@ title: Uwierzytelnianie klientów, którzy publikują zdarzenia w celu Event Gri
 description: W tym artykule opisano różne sposoby uwierzytelniania klientów, którzy publikują zdarzenia w celu Event Grid tematów niestandardowych.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8b08c46fdeadccfad0471ddfa4f9ba2762a951a0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e934ce0d8f5e31dc8dd7592a2e553cd278af2b10
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837401"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019117"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Uwierzytelnianie klientów publikowania (Azure Event Grid)
 Ten artykuł zawiera informacje dotyczące uwierzytelniania klientów, którzy publikują zdarzenia w celu Azure Event Grid tematów lub domen przy użyciu **klucza dostępu** lub tokenu **sygnatury dostępu współdzielonego (SAS)** . Zalecamy używanie tokenu SAS, ale uwierzytelnianie klucza zapewnia proste programowanie i jest zgodne z wieloma istniejącymi wydawcami elementów webhook.  
@@ -79,5 +80,5 @@ Oto przykład przekazywania tokenu sygnatury dostępu współdzielonego jako war
 Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Zobacz temat [uwierzytelnianie dostarczania zdarzeń](security-authentication.md) , aby dowiedzieć się więcej o uwierzytelnianiu za pomocą programów obsługi zdarzeń w celu dostarczenia zdarzeń. 

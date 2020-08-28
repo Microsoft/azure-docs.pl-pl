@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: d8b5f79d9c9050eeb7957ddcf28021e3c8b3dd94
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500559"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010651"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego z Media Services v3
 
@@ -57,7 +57,7 @@ Aby uzyskać więcej informacji, zobacz:
  
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Przejdź do swojego konta Azure Media Services.
-1. W lewym okienku wybierz pozycję **punkty końcowe przesyłania strumieniowego**.
+1. W lewym okienku wybierz pozycję  **punkty końcowe przesyłania strumieniowego**.
 1. Wybierz punkt końcowy przesyłania strumieniowego, który chcesz uruchomić, a następnie wybierz pozycję **Uruchom**.
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
@@ -104,7 +104,7 @@ Zobacz kompletny [przykład kodu platformy .NET](https://github.com/Azure-Sample
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Media Services v3 — Specyfikacja OpenAPI (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
 * [Operacje punktów końcowych przesyłania strumieniowego](/rest/api/media/streamingendpoints)

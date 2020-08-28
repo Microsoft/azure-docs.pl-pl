@@ -8,12 +8,13 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4ed1a7cacc6c40cb12976c8703164d46e0dc0458
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 02f5c570b7400266ac648eaa257fb76d26819a40
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202387"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003188"
 ---
 # <a name="coarse-relocalization"></a>Zgrubna ponowna lokalizacja
 
@@ -662,7 +663,7 @@ Poniższa tabela zawiera podsumowanie danych czujników zbieranych na każdej z 
 | **Karta**        | Obsługiwane z szybkością około jednego skanowania co 3 sekundy | Obsługiwane. Począwszy od poziomu interfejsu API 28, skanowania w sieci Wi-Fi są ograniczone do 4 wywołań co 2 minuty. W przypadku systemu Android 10 ograniczenie przepustowości można wyłączyć w menu Ustawienia dewelopera. Aby uzyskać więcej informacji, zobacz [dokumentację systemu Android][5]. | N/A — brak publicznego interfejsu API |
 | **Sygnały nawigacyjne dotyczące beli** | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] | Ograniczone do [Eddystone][1] i [iBeacon][2] |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Użyj bardzo dużej lokalizacji w aplikacji.
 

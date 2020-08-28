@@ -10,12 +10,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8f5b03e22fee2bf1bd662c152bf1b5c2f83a4358
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541423"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019916"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania
 
@@ -45,7 +46,7 @@ Jeśli nie masz istniejących Key Vault i SQL Server, możesz użyć poniższego
 
 1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **akvrotation**.
 1. W obszarze **Logowanie administratora SQL**wpisz nazwę logowania administratora SQL. 
-1. Wybierz pozycję **Przegląd + utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Wybierz pozycję **Utwórz**
 
     ![Tworzenie grupy zasobów](../media/rotate2.png)
@@ -241,7 +242,7 @@ https://akvrotation-app.azurewebsites.net/
 
 Gdy aplikacja zostanie otwarta w przeglądarce, zostanie wyświetlona **wartość wygenerowanego klucza tajnego** i **połączona wartość bazy danych** *true*.
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Dowiedz się więcej
 
 - Samouczek: [rotacja zasobów przy użyciu dwóch zestawów poświadczeń](tutorial-rotation-dual.md)
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](../general/event-grid-overview.md)

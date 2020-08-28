@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 2796a2be5c779124db4dd7f1137ebbff4094705d
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9c7addf4d30e81f449e9d9a7509dfe44c381e014
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056705"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020089"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Zarządzanie zasobami Media Services na wielu kontach magazynu  
 
@@ -31,7 +32,7 @@ W tym artykule przedstawiono sposób dołączania wielu kont magazynu do konta M
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 W przypadku dołączania wielu kont magazynu do konta Media Services są stosowane następujące zagadnienia:
 

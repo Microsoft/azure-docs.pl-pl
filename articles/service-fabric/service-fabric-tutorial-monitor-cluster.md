@@ -5,19 +5,19 @@ author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
-ms.custom: mvc
-ms.openlocfilehash: 5cde4967e85dbdab0b2d7177f9c09836a2082db2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244969"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020120"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Samouczek: monitorowanie klastra Service Fabric na platformie Azure
 
 Monitorowanie i Diagnostyka mają kluczowe znaczenie dla opracowywania, testowania i wdrażania obciążeń w dowolnym środowisku chmury. Ten samouczek jest drugą częścią serii i pokazuje, jak monitorować i diagnozować klaster Service Fabric przy użyciu zdarzeń, liczników wydajności i raportów kondycji.   Aby uzyskać więcej informacji, zapoznaj się z omówieniem [monitorowanie klastra](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) i [monitorowanie infrastruktury](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie zdarzeń Service Fabric

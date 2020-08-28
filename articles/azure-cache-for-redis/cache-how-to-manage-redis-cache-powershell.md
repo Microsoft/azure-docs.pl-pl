@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 327505dfbaf5f6f35b065f4f3941053c5114aa33
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004865"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019219"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Zarządzanie usługą Azure cache for Redis za pomocą Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Aby określić subskrypcję, uruchom następujące polecenie. W poniższym przyk
 
 Aby można było używać programu Windows PowerShell z Azure Resource Manager, potrzebne są następujące elementy:
 
-* Windows PowerShell, wersja 3,0 lub 4,0. Aby znaleźć wersję programu Windows PowerShell, wpisz: `$PSVersionTable` i sprawdź, czy wartość `PSVersion` to 3,0 lub 4,0. Aby zainstalować zgodną wersję, zobacz [Windows Management framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595) lub [windows Management Framework 4,0](https://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, wersja 3,0 lub 4,0. Aby znaleźć wersję programu Windows PowerShell, wpisz: `$PSVersionTable` i sprawdź, czy wartość `PSVersion` to 3,0 lub 4,0. Aby zainstalować zgodną wersję, zobacz [Windows Management Framework 3,0](https://www.microsoft.com/download/details.aspx?id=34595).
 
 Aby uzyskać szczegółową pomoc dotyczącą każdego polecenia cmdlet wyświetlanego w tym samouczku, należy użyć polecenia cmdlet Get-Help.
 
@@ -146,7 +146,7 @@ Poniższa tabela zawiera właściwości i opisy często używanych parametrów p
 | ResourceGroupName |Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna | |
 | Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |PAMIĘCI |
 | ShardCount |Liczba fragmentów do utworzenia podczas tworzenia pamięci podręcznej Premium z włączoną obsługą klastrowania. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Basic, standard, Premium |Standardowa (Standard) |
+| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Basic, standard, Premium |Standard |
 | RedisConfiguration |Określa ustawienia konfiguracji Redis. Aby uzyskać szczegółowe informacje na temat każdego ustawienia, zobacz następującą tabelę [Właściwości RedisConfiguration](#redisconfiguration-properties) . | |
 | EnableNonSslPort |Wskazuje, czy port bez obsługi protokołu SSL jest włączony. |Fałsz |
 | MaxMemoryPolicy |Ten parametr jest przestarzały — zamiast tego należy użyć RedisConfiguration. | |
@@ -358,7 +358,7 @@ Następujące polecenie aktualizuje zasady maxmemory dla usługi Azure cache dla
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Aby skalować pamięć podręczną platformy Azure dla usługi Redis
-`Set-AzRedisCache`może służyć do skalowania pamięci podręcznej platformy Azure dla wystąpienia Redis `Size` , gdy `Sku` właściwości, lub `ShardCount` są modyfikowane. 
+`Set-AzRedisCache` może służyć do skalowania pamięci podręcznej platformy Azure dla wystąpienia Redis `Size` , gdy `Sku` właściwości, lub `ShardCount` są modyfikowane. 
 
 > [!NOTE]
 > Skalowanie pamięci podręcznej przy użyciu programu PowerShell podlega tym samym limitom i wytycznym jak skalowanie pamięci podręcznej z Azure Portal. Możesz skalować do innej warstwy cenowej, korzystając z następujących ograniczeń.
@@ -845,7 +845,7 @@ Poniższe polecenie ponownie wykonuje rozruch obu węzłów określonej pamięci
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby dowiedzieć się więcej o korzystaniu z programu Windows PowerShell z platformą Azure, zobacz następujące zasoby:
 
 * [Dokumentacja poleceń cmdlet usługi Azure cache for Redis w witrynie MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)

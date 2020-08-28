@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: f781018fc5fc832be92de34c3ef220517ad28d75
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118257"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020426"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Szybki Start: Tworzenie aplikacji .NET Framework lub Core przy użyciu konta interfejsu API Azure Cosmos DB Gremlin
 
@@ -40,7 +41,7 @@ Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pob
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Dodawanie grafu
+## <a name="add-a-graph"></a>Dodawanie wykresu
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -111,7 +112,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Kopiowanie punktu końcowego":::
 
-   Aby uruchomić ten przykład, skopiuj wartość **punktu końcowego Gremlin** , Usuń numer portu na końcu, który jest identyfikatorem URI `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . Wartość punktu końcowego powinna wyglądać jak`testgraphacct.gremlin.cosmosdb.azure.com`
+   Aby uruchomić ten przykład, skopiuj wartość **punktu końcowego Gremlin** , Usuń numer portu na końcu, który jest identyfikatorem URI `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . Wartość punktu końcowego powinna wyglądać jak `testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Następnie przejdź do karty **klucze** i skopiuj wartość **klucz podstawowy** z Azure Portal. 
 
@@ -156,7 +157,7 @@ Teraz możesz wrócić do Eksploratora danych w witrynie Azure Portal, aby przeg
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku Szybki start wyjaśniono sposób tworzenia konta usługi Azure Cosmos DB, tworzenia grafu za pomocą Eksploratora danych i uruchamiania aplikacji. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
 

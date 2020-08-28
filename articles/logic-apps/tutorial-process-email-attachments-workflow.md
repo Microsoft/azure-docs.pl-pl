@@ -5,20 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 925759b63d1225c720ad439f15b82632a4921cbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 79ce5125283a234530435891044ead3141665433
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132334"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002780"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Samouczek: Automatyzowanie zadań do przetwarzania wiadomości e-mail przy użyciu Azure Logic Apps, Azure Functions i usługi Azure Storage
 
 Usługa Azure Logic Apps pomaga automatyzować przepływy pracy i integrować dane w usługach platformy Azure, usługach firmy Microsoft, innych aplikacjach typu oprogramowanie jako usługa (SaaS) oraz systemach lokalnych. Ten samouczek pokazuje sposób tworzenia [aplikacji logiki](../logic-apps/logic-apps-overview.md), która obsługuje przychodzące wiadomości e-mail i wszelkie załączniki. Ta aplikacja logiki analizuje zawartość wiadomości e-mail, zapisuje ją w usłudze Azure Storage oraz wysyła powiadomienia dotyczące przeglądania zawartości.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowania [magazynu platformy Azure](../storage/common/storage-introduction.md) i Eksploratora usługi Storage na potrzeby sprawdzania zapisanych wiadomości e-mail i załączników.
@@ -148,7 +148,7 @@ Teraz użyj fragmentu kodu zapewnionego przez te kroki, aby utworzyć funkcję p
    | **Plan hostingu** | Plan zużycia | To ustawienie określa sposób przydzielania i skalowania zasobów, takich jak moc obliczeniowa, na potrzeby uruchamiania aplikacji funkcji. Zobacz [Hosting plan comparison (Porównanie planów hostingu)](../azure-functions/functions-scale.md). |
    | **Lokalizacja** | Zachodnie stany USA | Ten sam region, którego użyto wcześniej |
    | **Stos środowiska uruchomieniowego** | Preferowany język | Wybierz środowisko uruchomieniowe, które obsługuje ulubiony język programowania funkcji. Wybierz pozycję **.NET** dla funkcji języka C# i języka F #. |
-   | **Magazyn** | cleantextfunctionstorageacct | Utwórz konto magazynu dla aplikacji funkcji. Użyj tylko małych liter i cyfr. <p>**Uwaga:** To konto magazynu zawiera aplikacje funkcji i różni się od wcześniej utworzonego konta magazynu na potrzeby załączników wiadomości e-mail. |
+   | **Storage** | cleantextfunctionstorageacct | Utwórz konto magazynu dla aplikacji funkcji. Użyj tylko małych liter i cyfr. <p>**Uwaga:** To konto magazynu zawiera aplikacje funkcji i różni się od wcześniej utworzonego konta magazynu na potrzeby załączników wiadomości e-mail. |
    | **Application Insights** | Wyłącz | Włącza monitorowanie aplikacji przy użyciu [Application Insights](../azure-monitor/app/app-insights-overview.md), ale na potrzeby tego samouczka wybierz pozycję **Wyłącz**  >  **Zastosuj**. |
    ||||
 
@@ -363,7 +363,7 @@ Teraz należy sprawdzić, czy warunek działa prawidłowo:
 
 1. Wyślij do siebie wiadomość e-mail spełniającą następujące kryteria:
 
-   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu**wyzwalacza:`Business Analyst 2 #423501`
+   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu**wyzwalacza: `Business Analyst 2 #423501`
 
    * Wiadomość e-mail zawiera jeden załącznik. Teraz po prostu utwórz pusty plik tekstowy i załącz go do wiadomości e-mail.
 
@@ -470,11 +470,11 @@ Teraz przetestuj aplikację logiki pod kątem określonego sposobu obsługi wiad
 
 1. Wyślij do siebie wiadomość e-mail spełniającą następujące kryteria:
 
-   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu**wyzwalacza:`Business Analyst 2 #423501`
+   * Temat wiadomości e-mail zawiera tekst określony w **filtrze podmiotu**wyzwalacza: `Business Analyst 2 #423501`
 
    * Wiadomość e-mail zawiera co najmniej jeden załącznik. Na razie po prostu Utwórz jeden pusty plik tekstowy i Dołącz ten plik do wiadomości e-mail.
 
-   * Wiadomość e-mail zawiera treść testową w treści, na przykład:`Testing my logic app`
+   * Wiadomość e-mail zawiera treść testową w treści, na przykład: `Testing my logic app`
 
    Jeśli aplikacja logiki nie została wyzwolona lub nie została uruchomiona mimo pomyślnego uruchomienia wyzwalacza, zobacz [Troubleshoot your logic app (Rozwiązywanie problemów z aplikacją logiki)](../logic-apps/logic-apps-diagnosing-failures.md).
 
@@ -555,7 +555,7 @@ Następnie przetestuj aplikację logiki pod kątem określonego sposobu obsługi
 
 1. Wyślij do siebie wiadomość e-mail spełniającą następujące kryteria:
 
-   * Temat wiadomości e-mail zawiera tekst określony we właściwości **filtru podmiotu** wyzwalacza:`Business Analyst 2 #423501`
+   * Temat wiadomości e-mail zawiera tekst określony we właściwości **filtru podmiotu** wyzwalacza: `Business Analyst 2 #423501`
 
    * Wiadomość e-mail zawiera co najmniej dwa załączniki. Teraz po prostu utwórz dwa puste pliki tekstowe i załącz je do wiadomości e-mail.
 
@@ -601,7 +601,7 @@ Następnie dodaj akcję, dzięki której aplikacja logiki będzie wysyłać wiad
 
    | Ustawienie | Wartość | Uwagi |
    | ------- | ----- | ----- |
-   | **Do** | <*odbiorca — adres e-mail*> | Do celów testowych możesz użyć własnego adresu e-mail. |
+   | **Działanie** | <*odbiorca — adres e-mail*> | Do celów testowych możesz użyć własnego adresu e-mail. |
    | **Temat**  | ```ASAP - Review applicant for position:``` **Temat** | Temat wiadomości e-mail, który chcesz uwzględnić. Kliknij wewnątrz tego pola, wprowadź przykładowy tekst i z dynamicznej listy zawartości wybierz pole **Temat** w obszarze **Po nadejściu nowej wiadomości e-mail**. |
    | **Treść** | ```Please review new applicant:``` <p>```Applicant name:```**Od** <p>```Application file location:``` **Ścieżka** <p>```Application email content:``` **Treść** | Treść wiadomości e-mail. Kliknij wewnątrz tego pola, wprowadź przykładowy tekst i z dynamicznej listy zawartości wybierz następujące pola: <p>– Pole **Od** w obszarze **Po nadejściu nowej wiadomości e-mail** </br>– Pole **Ścieżka** w obszarze **Utwórz obiekt blob na potrzeby treści wiadomości e-mail** </br>– Pole **Treść** w obszarze **Wywołaj funkcję RemoveHTMLFunction, aby wyczyścić treść wiadomości e-mail** |
    ||||
@@ -621,7 +621,7 @@ Teraz przetestuj aplikację logiki, która powinna wyglądać następująco:
 
 1. Wyślij do siebie wiadomość e-mail spełniającą następujące kryteria:
 
-   * Temat wiadomości e-mail zawiera tekst określony we właściwości **filtru podmiotu** wyzwalacza:`Business Analyst 2 #423501`
+   * Temat wiadomości e-mail zawiera tekst określony we właściwości **filtru podmiotu** wyzwalacza: `Business Analyst 2 #423501`
 
    * Wiadomość e-mail zawiera co najmniej jeden załącznik. Możesz ponownie użyć pustego pliku tekstowego z poprzedniego testu. Aby zrealizować bardziej realistyczny scenariusz, dołącz plik z życiorysem.
 
@@ -664,7 +664,7 @@ Teraz przetestuj aplikację logiki, która powinna wyglądać następująco:
 
 Gratulacje. Udało Ci się utworzyć i uruchomić aplikację logiki, która automatyzuje zadania w różnych usługach platformy Azure i wywołuje niestandardowy węzeł.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy ten przykład nie będzie już potrzebny, usuń grupę zasobów zawierającą aplikację logiki i powiązane zasoby.
 
@@ -682,7 +682,7 @@ Gdy ten przykład nie będzie już potrzebny, usuń grupę zasobów zawierając�
 
 1. Gdy zostanie wyświetlone okienko potwierdzenia, wprowadź nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku utworzono aplikację logiki, która przetwarza i przechowuje załączniki wiadomości e-mail przez integrowanie usług platformy Azure, takich jak Azure Storage i Azure Functions. Teraz dowiedz się więcej o innych łącznikach, których możesz używać do tworzenia aplikacji logiki.
 

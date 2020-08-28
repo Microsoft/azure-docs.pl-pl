@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 2cf6d2c02beff93553944474138bee3a2a316aa9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 94465e44a6cc2c4fa94ec8ea4504cbed80742f0f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874354"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019151"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurowanie wielu wzorców w aplikacjach korzystających z Azure Cosmos DB
 
@@ -56,7 +56,7 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a>Zestaw SDK Java v4
+## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> Zestaw SDK Java v4
 
 Aby włączyć obsługę wielu wzorców w aplikacji, wywołaj `.multipleWriteRegionsEnabled(true)` i `.preferredRegions(preferredRegions)` w konstruktorze klienta, gdzie `preferredRegions` jest `List` zawierający jeden element — czyli region, w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
 
@@ -74,7 +74,7 @@ Aby włączyć obsługę wielu wzorców w aplikacji, wywołaj `.multipleWriteReg
 
 --- 
 
-## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a>Asynchroniczne środowisko Java w wersji 2 SDK
+## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> Asynchroniczne środowisko Java w wersji 2 SDK
 
 Zestaw Java v2 SDK użył Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Aby włączyć wiele wzorców w aplikacji, ustaw `policy.setUsingMultipleWriteLocations(true)` i Ustaw region, `policy.setPreferredLocations` w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
 
@@ -121,7 +121,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
                                     'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przeczytaj następujące artykuły:
 
