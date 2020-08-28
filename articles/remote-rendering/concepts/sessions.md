@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: a74fae74a2d0ebbb71d65420475e5772e44a8d84
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507097"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021837"
 ---
 # <a name="remote-rendering-sessions"></a>Sesje usługi Remote Rendering
 
@@ -76,7 +77,7 @@ We wszystkich przypadkach nie będą naliczane dalsze opłaty po zatrzymaniu ses
 
 #### <a name="extend-a-sessions-lease-time"></a>Zwiększ czas dzierżawy sesji
 
-Możesz [wydłużyć czas dzierżawy](../how-tos/session-rest-api.md#update-a-session) aktywnej sesji, jeśli okaże się to konieczne dłużej.
+Możesz [wydłużyć czas dzierżawy](../how-tos/session-rest-api.md#modify-and-query-session-properties) aktywnej sesji, jeśli okaże się to konieczne dłużej.
 
 ## <a name="example-code"></a>Przykładowy kod
 
@@ -107,6 +108,8 @@ while (true)
     {
         break;
     }
+    // REST calls must not be issued too frequently, otherwise the server returns failure code 429 ("too many requests"). So we insert the recommended delay of 10s
+    await Task.Delay(TimeSpan.FromSeconds(10));
 }
 
 if (sessionProperties.Status != RenderingSessionStatus.Ready)
@@ -144,7 +147,7 @@ W przypadku identyfikatora sesji trwałej można wykonywać zapytania `AzureSess
 
 Gdy `AzureSession.IsConnected` ma wartość true, `AzureSession.Actions` zwraca wystąpienie `RemoteManager` , które zawiera funkcje do [ładowania modeli](models.md), manipulowania [jednostkami](entities.md)i [zapytania o informacje](../overview/features/spatial-queries.md) o renderowanej scenie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jednostki](entities.md)
 * [Modele](models.md)

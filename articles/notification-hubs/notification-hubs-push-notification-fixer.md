@@ -16,12 +16,13 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3bad65dbecd6e4a7d9bcb7fbdee6faafc31ead86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b5139f75084eb0646db2fc8b05b04aaf3ddb2a12
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078027"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010787"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnozuj opuszczone powiadomienia w usłudze Azure Notification Hubs
 
@@ -128,7 +129,7 @@ Poniżej przedstawiono ścieżki umożliwiające zdiagnozowanie głównej przycz
 
 Sprawdź poświadczenia w odpowiednim portalu dla deweloperów usługi powiadomień wypychanych (APNs, FCM, usługa powiadomień systemu Windows itd.). Aby uzyskać więcej informacji, zobacz [Samouczek: wysyłanie powiadomień do platforma uniwersalna systemu Windows aplikacji przy użyciu usługi Azure Notification Hubs](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 Aby przejrzeć i dopasować poświadczenia do tych, które zostały uzyskane z portalu dla deweloperów usługi powiadomień wypychanych, przejdź do karty **zasady dostępu** w Azure Portal.
 
@@ -171,7 +172,7 @@ Wielu klientów używa [eksploratora Service Bus](https://github.com/paolosalvat
 
 ### <a name="verify-message-notifications"></a>Weryfikuj powiadomienia o wiadomościach
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 Aby wysłać testowe powiadomienie do klientów bez konieczności zapełniania i uruchamiania usługi, w obszarze **Pomoc techniczna i rozwiązywanie problemów**wybierz pozycję **wysyłanie testowe**.
 
@@ -248,7 +249,7 @@ Ten komunikat oznacza, że poświadczenia skonfigurowane w Notification Hubs są
 
 ### <a name="review-telemetry"></a>Przejrzyj dane telemetryczne
 
-#### <a name="azure-portal"></a>Witryna Azure Portal
+#### <a name="azure-portal"></a>Azure Portal
 
 W portalu możesz zapoznać się z krótkim omówieniem wszystkich działań w centrum powiadomień.
 

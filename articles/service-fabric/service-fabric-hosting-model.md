@@ -5,12 +5,13 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: b6c55ab52f4e51ddf2a39e03bed3ea543a6096be
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2e14995b92e99e1a9695f81fb71bcab6dd62303a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247459"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011671"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Model hostingu Service Fabric platformy Azure
 Ten artykuł zawiera omówienie modeli hostingu aplikacji udostępnianych przez usługę Azure Service Fabric i opisuje różnice między **procesem udostępnionym** i modelami **procesów wyłącznych** . Opisano w nim, jak wdrożona aplikacja szuka węzła Service Fabric i relacji między replikami (lub wystąpieniami) usługi i procesem hosta usługi.
@@ -173,7 +174,7 @@ W powyższym przykładzie można wziąć pod uwagę, że jeśli "MyCodePackageA"
 
 Service Fabric nie obsługuje niezawodnych usług, a następnie niezawodnych aktorów rozwidlenia podprocesów. Przykładem nieobsługiwanego elementu jest [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) nie można użyć do zarejestrowania nieobsługiwanego podprocesu, a tokeny anulowania są wysyłane tylko do zarejestrowanych procesów; w wyniku wszystkich rodzajów problemów, takich jak błędy uaktualniania, gdy podprocesy nie są zamykane po odebraniu tokenu anulowania przez proces nadrzędny.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Utwórz [pakiet aplikacji][a4] i przygotuj go do wdrożenia.
 
 [Wdrażaj i usuwaj aplikacje][a5]. W tym artykule opisano sposób użycia programu PowerShell do zarządzania wystąpieniami aplikacji.

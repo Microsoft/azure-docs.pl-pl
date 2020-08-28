@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: caf067f793ca2086bc068907e86a82266627d128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 24a411403fc139a7e7fa6644690c57a3b2729bf5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463344"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002287"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Przewodnik konwersji ról sieci Web i procesu roboczego w celu Service Fabric usług bezstanowych
 W tym artykule opisano sposób migrowania ról Cloud Services sieci Web i procesu roboczego do Service Fabric usług bezstanowych. Jest to najprostsza ścieżka migracji z Cloud Services do Service Fabric dla aplikacji, których ogólna architektura ma być w przybliżeniu taka sama.
@@ -30,7 +31,7 @@ Koncepcyjnie rola proces roboczy reprezentuje bezstanowe obciążenie, co oznacz
 ## <a name="web-role-to-stateless-service"></a>Rola sieci Web do usługi bezstanowej
 Podobnie jak w przypadku roli proces roboczy, rola sieci Web reprezentuje również obciążenie bezstanowe i dlatego można ją mapować do Service Fabric bezstanowej usługi. Jednak w przeciwieństwie do ról sieci Web Service Fabric nie obsługuje usług IIS. Aby przeprowadzić migrację aplikacji sieci Web z roli sieci Web do usługi bezstanowej, należy najpierw przenieść się do platformy sieci Web, która może być samodzielna, i nie zależy od usług IIS ani system. Web, takich jak ASP.NET Core 1.
 
-| **Aplikacja** | **Obsługiwane** | **Ścieżka migracji** |
+| **Aplikacja** | **Obsługiwał** | **Ścieżka migracji** |
 | --- | --- | --- |
 | Formularze sieci Web ASP.NET |Nie |Konwertuj na ASP.NET Core 1 MVC |
 | ASP.NET MVC |Z migracją |Uaktualnij do ASP.NET Core 1 MVC |
@@ -45,7 +46,7 @@ Role proces roboczy i interfejsy API usługi Service Fabric oferują podobne pun
 | Przetwarzanie |`Run()` |`RunAsync()` |
 | Uruchomienie maszyny wirtualnej |`OnStart()` |Nie dotyczy |
 | Zatrzymanie maszyny wirtualnej |`OnStop()` |Nie dotyczy |
-| Otwórz odbiornik dla żądań klientów |Nie dotyczy |<ul><li> `CreateServiceInstanceListener()`dla bezstanowego</li><li>`CreateServiceReplicaListener()`dla stanowych</li></ul> |
+| Otwórz odbiornik dla żądań klientów |Nie dotyczy |<ul><li> `CreateServiceInstanceListener()` dla bezstanowego</li><li>`CreateServiceReplicaListener()` dla stanowych</li></ul> |
 
 ### <a name="worker-role"></a>Rola procesu roboczego
 ```csharp
@@ -113,7 +114,7 @@ Interfejs API środowiska Cloud Services udostępnia informacje i funkcje dla bi
 | --- | --- | --- |
 | Ustawienia konfiguracji i powiadomienia o zmianie |`RoleEnvironment` |`CodePackageActivationContext` |
 | Magazyn lokalny |`RoleEnvironment` |`CodePackageActivationContext` |
-| Informacje o punkcie końcowym |`RoleInstance` <ul><li>Bieżące wystąpienie:`RoleEnvironment.CurrentRoleInstance`</li><li>Inne role i wystąpienia:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`dla bieżącego adresu węzła</li><li>`FabricClient`i `ServicePartitionResolver` dla odnajdywania punktu końcowego usługi</li> |
+| Informacje o punkcie końcowym |`RoleInstance` <ul><li>Bieżące wystąpienie: `RoleEnvironment.CurrentRoleInstance`</li><li>Inne role i wystąpienia: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` dla bieżącego adresu węzła</li><li>`FabricClient` i `ServicePartitionResolver` dla odnajdywania punktu końcowego usługi</li> |
 | Emulacja środowiska |`RoleEnvironment.IsEmulated` |Nie dotyczy |
 | Jednoczesne zdarzenie zmiany |`RoleEnvironment` |Nie dotyczy |
 
@@ -243,7 +244,7 @@ W Service Fabric w ServiceManifest.xml skonfigurowano punkt wejścia uruchamiani
 ## <a name="a-note-about-development-environment"></a>Uwaga dotycząca środowiska deweloperskiego
 Zarówno Cloud Services, jak i Service Fabric są zintegrowane z programem Visual Studio z szablonami projektów i obsługują debugowanie, Konfigurowanie i wdrażanie zarówno lokalnie, jak i na platformie Azure. Zarówno Cloud Services, jak i Service Fabric udostępniają także lokalne środowisko środowiska uruchomieniowego. Różnica polega na tym, że podczas gdy środowisko uruchomieniowe usług w chmurze emuluje środowisko platformy Azure, w którym działa, Service Fabric nie korzysta z emulatora — używa kompletnego środowiska uruchomieniowego Service Fabric. Środowisko Service Fabric uruchamiane na lokalnym komputerze deweloperskim jest tym samym środowiskiem, które działa w środowisku produkcyjnym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przeczytaj więcej na temat Service Fabric Reliable Services i podstawowych różnic między architekturą aplikacji Cloud Services i Service Fabric, aby zrozumieć, jak korzystać z pełnego zestawu funkcji Service Fabric.
 
 * [Wprowadzenie do Service Fabric Reliable Services](service-fabric-reliable-services-quick-start.md)

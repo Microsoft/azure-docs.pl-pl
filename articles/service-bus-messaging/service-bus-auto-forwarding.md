@@ -3,12 +3,13 @@ title: Autoprzekazywanie Azure Service Bus jednostek komunikatów
 description: W tym artykule opisano sposób łańcucha kolejki Azure Service Bus lub subskrypcji do innej kolejki lub tematu.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 28c3e8985f12163e871fa4de5fb6cc92d68110b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: af1c8a8e043ae964c4917a58ea67275e8379817f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337740"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021718"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Łączenie Service Bus jednostek z funkcją autoprzesyłania dalej
 
@@ -52,7 +53,7 @@ Service Bus weksle jednej operacji dla każdego przesyłanego dalej komunikatu. 
 
 Aby utworzyć subskrypcję, która jest łańcuchem do innej kolejki lub tematu, twórca subskrypcji musi mieć uprawnienia do **zarządzania** zarówno dla jednostki źródłowej, jak i docelowej. Wysyłanie komunikatów do tematu źródłowego wymaga tylko uprawnień do **wysyłania** w temacie źródłowym.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby uzyskać szczegółowe informacje na temat autoprzesyłania dalej, zobacz następujące tematy dotyczące odwołań:
 

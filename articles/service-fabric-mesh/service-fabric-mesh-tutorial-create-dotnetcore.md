@@ -5,13 +5,13 @@ author: dkkapur
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: mvc, devcenter, devx-track-csharp
+ms.openlocfilehash: 4a64d1999f13ee09cf92633fd188bfc7ed0e4856
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75495189"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011213"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Samouczek: tworzenie, debugowanie, wdrażanie i aktualizowanie aplikacji usługi Service Fabric Mesh dla wielu usług
 
@@ -383,7 +383,7 @@ Plik **service.yaml** w Twoim projekcie **WebFrontEnd** powinien wyglądać mnie
 
 Teraz możesz przystąpić do tworzenia i wdrażania obrazu aplikacji usługi Service Fabric Mesh oraz usługi internetowej zaplecza w lokalnym klastrze.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tej części samouczka zawarto informacje na temat wykonywania następujących czynności:
 

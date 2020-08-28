@@ -3,12 +3,12 @@ title: Wskazówki i najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i wskazówki dotyczące tworzenia kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825583"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000366"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Tworzenie kopii zapasowych obciążeń w chmurze i lokalnych w chmurze
 
@@ -90,7 +90,7 @@ Przed skonfigurowaniem kopii zapasowych w magazynie Sprawdź ustawienia domyśln
 
 ## <a name="backup-policy-considerations"></a>Zagadnienia dotyczące zasad tworzenia kopii zapasowych
 
-Zasada Azure Backup ma dwa składniki: *Schedule* (Kiedy należy wykonać kopię zapasową) i *przechowywanie* (jak długo ma być przechowywana kopia zapasowa). Zasady można definiować na podstawie typu danych, których kopia zapasowa jest wykonywana, wymagania RTO/RPO, potrzeby operacyjne lub zgodne z przepisami oraz typ obciążenia (na przykład maszyna wirtualna, baza danych, pliki). [Dowiedz się więcej tutaj](backup-architecture.md#backup-policy-essentials).
+Zasada Azure Backup ma dwa składniki: *Schedule* (Kiedy należy wykonać kopię zapasową) i *przechowywanie* (jak długo ma być przechowywana kopia zapasowa). Zasady można definiować na podstawie typu danych, których kopia zapasowa jest tworzona, wymagania RTO/RPO, potrzeby operacyjne lub prawne oraz typ obciążenia (na przykład maszyna wirtualna, baza danych, pliki). [Dowiedz się więcej tutaj](backup-architecture.md#backup-policy-essentials).
 
 Podczas tworzenia zasad tworzenia kopii zapasowych należy wziąć pod uwagę następujące wytyczne:
 
@@ -119,7 +119,7 @@ Podczas tworzenia zasad tworzenia kopii zapasowych należy wziąć pod uwagę na
   * W przypadku skrócenia okresu przechowywania punkty odzyskiwania są oznaczane do oczyszczenia w następnym zadaniu oczyszczania, a następnie usunięte.
   * Najnowsze reguły przechowywania są stosowane dla wszystkich punktów przechowywania (z wyjątkiem punktów przechowywania na żądanie). W przypadku przekroczenia okresu przechowywania (na przykład do 100 dni), gdy wykonywana jest kopia zapasowa, a następnie zmniejszenie ilości przechowywania (na przykład z 100 dni do siedmiu dni), wszystkie dane kopii zapasowej będą przechowywane zgodnie z ostatnim określonym okresem przechowywania (czyli 7 dni).
 
-* Usługa Azure Backup zapewnia elastyczność *zatrzymywania ochrony kopii zapasowych i zarządzania nimi*:
+* Azure Backup zapewnia elastyczność *zatrzymywania ochrony kopii zapasowych i zarządzania nimi*:
   * *Zatrzymaj ochronę i Zachowaj dane kopii zapasowej*. W przypadku wycofywania lub likwidowania źródła danych (maszyny wirtualnej, aplikacji), ale należy zachować dane do celów inspekcji lub zgodności, można użyć tej opcji, aby zatrzymać wszystkie przyszłe zadania tworzenia kopii zapasowej chroniące źródło danych i zachować kopie zapasowe punktów odzyskiwania. Następnie można przywrócić lub wznowić ochronę maszyny wirtualnej.
   * *Zatrzymaj ochronę i Usuń dane kopii zapasowej*. Ta opcja spowoduje zatrzymanie wszystkich przyszłych zadań tworzenia kopii zapasowej z ochrony maszyny wirtualnej i usunięcie wszystkich punktów odzyskiwania. Nie będzie można przywrócić maszyny wirtualnej ani użyć opcji Wznów tworzenie kopii zapasowej.
 
@@ -214,7 +214,7 @@ Możliwości usługi Azure Backup oferują elastyczność w skutecznym zarządza
 
 * Azure Backup wykonuje migawki maszyn wirtualnych platformy Azure i przechowuje je razem z dyskami w celu zwiększenia tworzenia punktów odzyskiwania i przyspieszenia operacji przywracania. Jest to nazywane natychmiastowym przywracaniem. Domyślnie migawki przywracania natychmiastowego są przechowywane przez dwa dni. Ta funkcja pozwala wykonać operację przywracania z tych migawek, wycinając czasy przywracania. Skraca czas wymagany do przekształcania i kopiowania danych z magazynu. W związku z tym zobaczysz koszty magazynu odpowiadające migawkom pobranym w tym okresie. [Dowiedz się więcej tutaj](backup-instant-restore-capability.md#configure-snapshot-retention).
 
-* Typ replikacji magazynu Azure Backup magazyn domyślnie jest ustawiany jako Geograficznie nadmiarowy (GRS). Tej opcji nie można zmienić po włączeniu ochrony elementów. Magazyn Geograficznie nadmiarowy (GRS) zapewnia wyższy poziom trwałości danych niż magazyn lokalnie nadmiarowy (LRS), dzięki czemu umożliwia korzystanie z funkcji przywracania między regionami i zwiększania kosztów. Zapoznaj się z kompromisem między niższymi kosztami i wyższą trwałością danych, które najlepiej sprawdzają się w danym scenariuszu. [Dowiedz się więcej tutaj](backup-create-rs-vault.md#set-storage-redundancy)
+* Typ replikacji magazynu Azure Backup magazyn domyślnie jest ustawiany jako Geograficznie nadmiarowy (GRS). Tej opcji nie można zmienić po włączeniu ochrony elementów. Magazyn Geograficznie nadmiarowy (GRS) zapewnia wyższy poziom trwałości danych niż magazyn lokalnie nadmiarowy (LRS), dzięki czemu umożliwia korzystanie z funkcji przywracania między regionami i zwiększania kosztów. Zapoznaj się z kompromisem między niższymi kosztami i wyższą trwałością danych i zdecyduj, co jest najlepsze w danym scenariuszu. [Dowiedz się więcej tutaj](backup-create-rs-vault.md#set-storage-redundancy)
 
 * W przypadku ochrony obciążeń uruchomionych wewnątrz maszyny wirtualnej i samej maszyny wirtualnej Sprawdź, czy jest wymagana taka Podwójna ochrona.
 
@@ -255,7 +255,7 @@ Jako użytkownik lub administrator kopii zapasowej powinien być w stanie monito
 
 * Możesz również otrzymywać powiadomienia za poorednictwem wbudowanych **dzienników aktywności**magazynu Recovery Services. Obsługiwane są jednak ograniczone scenariusze i nie są odpowiednie dla operacji, takich jak zaplanowane kopie zapasowe, które są lepiej dostosowane do dzienników zasobów niż w przypadku dzienników aktywności. Aby dowiedzieć się więcej o tych ograniczeniach i sposobach używania Log Analytics obszaru roboczego do monitorowania i generowania alertów dla wszystkich obciążeń chronionych przez Azure Backup, zapoznaj się z tym [artykułem](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zalecamy zapoznanie się z następującymi artykułami jako punktami początkowymi dotyczącymi używania Azure Backup:
 

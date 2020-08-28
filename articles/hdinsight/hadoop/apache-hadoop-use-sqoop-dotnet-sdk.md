@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
-ms.openlocfilehash: 5faa3d7bf048eee622ddd5a46082bb2432d84871
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bc4b3019cb8308ea19d86eea7bf886063ea28563
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076253"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008288"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Uruchamianie zadań Apache Sqoop przy użyciu zestawu SDK platformy .NET dla Apache Hadoop w usłudze HDInsight
 
@@ -139,9 +139,9 @@ Usługa HDInsight oparta na systemie Linux oferuje następujące ograniczenia:
 
 * Przetwarzanie wsadowe: za pomocą `-batch` przełącznika, Sqoop wykonuje wiele operacji INSERT zamiast wsadowych operacje wstawiania.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
-Teraz wiesz już, jak używać programu Sqoop. Aby dowiedzieć się więcej, zobacz:
+Teraz wiesz już, jak używać programu Sqoop. Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
 * [Korzystanie z platformy Apache Oozie z usługą HDInsight](../hdinsight-use-oozie-linux-mac.md): Użyj akcji Sqoop w przepływie pracy Oozie.
 * [Przekazywanie danych do usługi HDInsight](../hdinsight-upload-data.md): Znajdź inne metody przekazywania danych do usług HDInsight lub Azure Blob Storage.

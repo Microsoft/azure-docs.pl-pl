@@ -7,12 +7,13 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089417"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001913"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Korzystanie z emulatora azurite na potrzeby tworzenia lokalnych magazynów platformy Azure
 
@@ -329,8 +330,8 @@ Jeśli używasz zestawów SDK platformy Azure, zacznij azurite z `--oauth basic 
 
 Azurite akceptuje to samo dobrze znane konto i klucz używany przez starszy emulator usługi Azure Storage.
 
-- Nazwa konta:`devstoreaccount1`
-- Klucz konta:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+- Nazwa konta: `devstoreaccount1`
+- Klucz konta: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### <a name="custom-storage-accounts-and-keys"></a>Niestandardowe konta magazynu i klucze
 
@@ -361,7 +362,7 @@ Azurite odświeża niestandardowe nazwy kont i klucze ze zmiennej środowiskowej
 > [!NOTE]
 > Domyślne `devstoreaccount1` konto magazynu jest wyłączone podczas ustawiania niestandardowych kont magazynu.
 
-### <a name="connection-strings"></a>Parametry połączenia
+### <a name="connection-strings"></a>Parametry połączeń
 
 Najprostszym sposobem nawiązywania połączenia z usługą azurite z poziomu aplikacji jest skonfigurowanie parametrów połączenia w pliku konfiguracji aplikacji, który odwołuje się do skrótu *UseDevelopmentStorage = true*. Oto przykład parametrów połączenia w pliku *app.config* :
 
@@ -498,7 +499,7 @@ Wykonaj następujące kroki, aby dodać azurite HTTPS do Eksplorator usługi Sto
 1. Wybierz **załączony & lokalny**
 1. Kliknij prawym przyciskiem myszy pozycję **konta magazynu** i wybierz pozycję **Połącz z usługą Azure Storage**.
 1. Wybierz opcję **Użyj parametrów połączenia**
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Next** (Dalej).
 1. Wprowadź wartość w polu **Nazwa wyświetlana** .
 1. Wprowadź [Parametry połączenia HTTPS](#https-connection-strings) z poprzedniej sekcji tego dokumentu
 1. Wybierz pozycję **Dalej**
@@ -508,12 +509,12 @@ Wykonaj następujące kroki, aby dodać azurite HTTPS do Eksplorator usługi Sto
 
 Podczas inicjowania azurite można utworzyć następujące pliki i foldery w lokalizacji obszaru roboczego.
 
-- `__blobstorage__`-Katalog zawierający utrwalone dane binarne usługi azurite BLOB
-- `__queuestorage__`-Katalog zawierający utrwalone dane binarne usługi azurite Queue
-- `__azurite_db_blob__.json`— Plik metadanych usługi BLOB azurite
-- `__azurite_db_blob_extent__.json`-Plik metadanych zakresu usługi azurite BLOB
-- `__azurite_db_queue__.json`— Plik metadanych usługi kolejki azurite
-- `__azurite_db_queue_extent__.json`-Plik metadanych zakresu usługi azurite Queue
+- `__blobstorage__` -Katalog zawierający utrwalone dane binarne usługi azurite BLOB
+- `__queuestorage__` -Katalog zawierający utrwalone dane binarne usługi azurite Queue
+- `__azurite_db_blob__.json` — Plik metadanych usługi BLOB azurite
+- `__azurite_db_blob_extent__.json` -Plik metadanych zakresu usługi azurite BLOB
+- `__azurite_db_queue__.json` — Plik metadanych usługi kolejki azurite
+- `__azurite_db_queue_extent__.json` -Plik metadanych zakresu usługi azurite Queue
 
 Aby oczyścić azurite, Usuń powyższe pliki i foldery, a następnie uruchom ponownie emulator.
 
@@ -559,7 +560,7 @@ Azurite obsługuje replikację Geograficznie nadmiarowy do odczytu (RA-GRS). W p
 
 Zamieszczamy wkłady i sugestie dotyczące azurite. Przejdź na stronę [projektu GitHub](https://github.com/Azure/Azurite/projects) azurite lub problemy z usługą [GitHub](https://github.com/Azure/Azurite/issues) dla punktów kontrolnych i elementów roboczych, które są śledzone pod kątem nadchodzących funkcji i poprawek błędów. Szczegółowe elementy robocze są również śledzone w usłudze GitHub.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Korzystanie z emulatora usługi Azure Storage na potrzeby tworzenia i testowania](storage-use-emulator.md) dokumentów w starszym emulatorze usługi Azure Storage, który jest zastępowany przez azurite.
 - [Konfigurowanie parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md) wyjaśnia, jak utworzyć prawidłowe parametry połączenia usługi Azure Storage.

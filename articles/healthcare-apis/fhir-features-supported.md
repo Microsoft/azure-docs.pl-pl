@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796565"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000009"
 ---
 # <a name="features"></a>Funkcje
 
@@ -49,7 +49,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 | stronicowania                         | Częściowe   | Częściowe   | Częściowe   | `self` i `next` są obsługiwane                     |
 | pośredników                 | Nie        | Nie        | Nie        |                                                     |
 
-## <a name="search"></a>Wyszukaj
+## <a name="search"></a>Wyszukiwanie
 
 Wszystkie typy parametrów wyszukiwania są obsługiwane. 
 
@@ -98,7 +98,7 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Operacje wyszukiwania       | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Nie        | Nie        | Nie        |         |
-| `_sort`                 | Nie        | Nie        | Nie        |         |
+| `_sort`                 | Nie        | Częściowe   | Częściowe        |   `_sort=_lastUpdated` jest obsługiwana       |
 | `_score`                | Nie        | Nie        | Nie        |         |
 | `_count`                | Tak       | Tak       | Tak       |         |
 | `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
@@ -121,7 +121,7 @@ Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services
 
 Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie API.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Ten artykuł zawiera informacje o obsługiwanych funkcjach FHIR w interfejsie API platformy Azure dla FHIR. Następnie wdróż interfejs API platformy Azure dla usługi FHIR.
  

@@ -5,12 +5,13 @@ author: mcoskun
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: bf004b913c032d8a121bf4d508adf4cf9be1c7f9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a60ebff06562c12415b2a106a9a11127feb94dab
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253324"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021990"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Tworzenie kopii zapasowych i przywracanie Reliable Services i Reliable Actors
 Azure Service Fabric to platforma o wysokiej dostępności, która replikuje stan w wielu węzłach w celu zapewnienia wysokiej dostępności.  W takim przypadku, nawet jeśli jeden węzeł w klastrze ulegnie awarii, usługi będą nadal dostępne. Chociaż ta wbudowana nadmiarowość dostarczana przez platformę może być wystarczająca dla niektórych, w niektórych przypadkach jest pożądane, aby usługa mogła tworzyć kopie zapasowe danych (w magazynie zewnętrznym).
@@ -80,7 +81,7 @@ Użytkownicy mogą zwiększyć prawdopodobieństwo, że można wykonywać przyro
 Zwiększenie tych wartości zwiększa użycie dysku na replikę.
 Aby uzyskać więcej informacji, zobacz [konfiguracja Reliable Services](service-fabric-reliable-services-configuration.md)
 
-`BackupInfo`zawiera informacje dotyczące kopii zapasowej, w tym lokalizację folderu, w którym środowisko uruchomieniowe zapisało kopię zapasową ( `BackupInfo.Directory` ). Funkcja wywołania zwrotnego może przenieść `BackupInfo.Directory` do magazynu zewnętrznego lub innej lokalizacji.  Ta funkcja zwraca również wartość logiczną, która wskazuje, czy można pomyślnie przenieść folder kopii zapasowej do lokalizacji docelowej.
+`BackupInfo` zawiera informacje dotyczące kopii zapasowej, w tym lokalizację folderu, w którym środowisko uruchomieniowe zapisało kopię zapasową ( `BackupInfo.Directory` ). Funkcja wywołania zwrotnego może przenieść `BackupInfo.Directory` do magazynu zewnętrznego lub innej lokalizacji.  Ta funkcja zwraca również wartość logiczną, która wskazuje, czy można pomyślnie przenieść folder kopii zapasowej do lokalizacji docelowej.
 
 Poniższy kod ilustruje sposób `BackupCallbackAsync` użycia metody do przekazywania kopii zapasowej do usługi Azure Storage:
 
@@ -137,15 +138,15 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 }
 ```
 
-`RestoreDescription`przekazanie do `RestoreContext.RestoreAsync` wywołania zawiera element członkowski o nazwie `BackupFolderPath` .
+`RestoreDescription` przekazanie do `RestoreContext.RestoreAsync` wywołania zawiera element członkowski o nazwie `BackupFolderPath` .
 Podczas przywracania pojedynczej pełnej kopii zapasowej `BackupFolderPath` należy ustawić ścieżkę lokalną folderu zawierającego pełną kopię zapasową.
 Podczas przywracania pełnej kopii zapasowej i wielu przyrostowych kopii zapasowych `BackupFolderPath` należy ustawić ścieżkę lokalną folderu, który nie tylko zawiera pełną kopię zapasową, ale również wszystkie przyrostowe kopie zapasowe.
-`RestoreAsync`Wywołanie może zgłosić `FabricMissingFullBackupException` , czy `BackupFolderPath` podane nie zawiera pełnej kopii zapasowej.
+`RestoreAsync` Wywołanie może zgłosić `FabricMissingFullBackupException` , czy `BackupFolderPath` podane nie zawiera pełnej kopii zapasowej.
 Może również zgłosić, `ArgumentException` Jeśli `BackupFolderPath` ma przerwany łańcuch przyrostowych kopii zapasowych.
 Na przykład, jeśli zawiera pełną kopię zapasową, pierwsze przyrostowe i trzecią przyrostową kopię zapasową, ale nie drugą przyrostową kopię zapasową.
 
 > [!NOTE]
-> RestorePolicy jest domyślnie ustawiona na bezpieczny.  Oznacza to, że `RestoreAsync` interfejs API nie powiedzie się z argumentem, jeśli wykryje, że folder kopii zapasowej zawiera stan starszy niż lub równy stanowi zawartemu w tej replice.  `RestorePolicy.Force`może służyć do pomijania tego sprawdzania bezpieczeństwa. Jest to określone jako część `RestoreDescription` .
+> RestorePolicy jest domyślnie ustawiona na bezpieczny.  Oznacza to, że `RestoreAsync` interfejs API nie powiedzie się z argumentem, jeśli wykryje, że folder kopii zapasowej zawiera stan starszy niż lub równy stanowi zawartemu w tej replice.  `RestorePolicy.Force` może służyć do pomijania tego sprawdzania bezpieczeństwa. Jest to określone jako część `RestoreDescription` .
 > 
 
 ## <a name="deleted-or-lost-service"></a>Usunięta lub utracona usługa
@@ -223,7 +224,7 @@ Gdy przyrostowa kopia zapasowa jest włączona, program nie `KvsActorStateProvid
 W przypadku przywracania z łańcucha kopii zapasowych, podobnie jak Reliable Services, BackupFolderPath powinien zawierać podkatalogi z jednym podkatalog zawierającym pełną kopię zapasową i inne podkatalogi zawierające przyrostowe kopie zapasowe. Jeśli weryfikacja łańcucha kopii zapasowych nie powiedzie się, interfejs API przywracania zwróci wyjątek Fabricexception z odpowiednim komunikatem o błędzie. 
 
 > [!NOTE]
-> `KvsActorStateProvider`obecnie ignoruje opcję RestorePolicy. Safe. Obsługa tej funkcji jest planowana w przyszłej wersji.
+> `KvsActorStateProvider` obecnie ignoruje opcję RestorePolicy. Safe. Obsługa tej funkcji jest planowana w przyszłej wersji.
 > 
 
 ## <a name="testing-back-up-and-restore"></a>Testowanie tworzenia i przywracania kopii zapasowych
@@ -251,9 +252,9 @@ Oznacza to, że dla realizatorów klasy statefulservice `RunAsync` nie będzie w
 Następnie `OnDataLossAsync` zostanie wywołana na nowym serwerze podstawowym.
 Dopóki usługa nie ukończy pomyślnie tego interfejsu API (zwracając wartość true lub false) i zakończy odpowiednią ponowną konfigurację, interfejs API będzie nadal wywoływana pojedynczo.
 
-`RestoreAsync`najpierw porzuca wszystkie istniejące Stany w replice podstawowej, w której została wywołana. Następnie Menedżer niezawodnego stanu tworzy wszystkie niezawodne obiekty, które znajdują się w folderze kopii zapasowej. Następnie niezawodne obiekty są nakazuje przywracanie z punktów kontrolnych w folderze kopii zapasowej. Na koniec niezawodny Menedżer stanu odzyskuje swój własny stan z rekordów dziennika w folderze kopii zapasowej i wykonuje odzyskiwanie. W ramach procesu odzyskiwania operacje zaczynające się od "punktu początkowego", które mają zatwierdzone rekordy dziennika w folderze kopii zapasowej, są odtwarzane w niezawodnych obiektach. Ten krok zapewnia, że odzyskany stan jest spójny.
+`RestoreAsync` najpierw porzuca wszystkie istniejące Stany w replice podstawowej, w której została wywołana. Następnie Menedżer niezawodnego stanu tworzy wszystkie niezawodne obiekty, które znajdują się w folderze kopii zapasowej. Następnie niezawodne obiekty są nakazuje przywracanie z punktów kontrolnych w folderze kopii zapasowej. Na koniec niezawodny Menedżer stanu odzyskuje swój własny stan z rekordów dziennika w folderze kopii zapasowej i wykonuje odzyskiwanie. W ramach procesu odzyskiwania operacje zaczynające się od "punktu początkowego", które mają zatwierdzone rekordy dziennika w folderze kopii zapasowej, są odtwarzane w niezawodnych obiektach. Ten krok zapewnia, że odzyskany stan jest spójny.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
   - [Elementy Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Reliable Services — Szybki Start](service-fabric-reliable-services-quick-start.md)
   - [Powiadomienia Reliable Services](service-fabric-reliable-services-notifications.md)

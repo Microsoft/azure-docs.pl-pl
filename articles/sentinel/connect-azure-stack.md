@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8114a5e6db7b82b846d221471f41dbdf418ddd9d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77588522"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001998"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Łączenie Azure Stack maszyn wirtualnych z platformą Azure — wskaźnikiem
 
@@ -49,7 +49,7 @@ Dodaj rozszerzenie maszyny wirtualnej **Azure monitor, aktualizacji i zarządzan
 1. W oknie Azure Stack **rozszerzenie instalacji** wklej je w wskazanych polach i kliknij przycisk **OK**.
 1. Po zakończeniu instalacji rozszerzenia jego stan wskazuje, że **Inicjowanie obsługi powiodło się**. Aby maszyna wirtualna mogła zostać wyświetlona w portalu wskaźnikowym platformy Azure, może upłynąć do godziny.
 
-Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta dla systemu Windows, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta dla systemu Windows, zobacz [łączenie komputerów z systemem Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Rozwiązywanie problemów z agentami w systemie Linux można znaleźć w temacie [Rozwiązywanie problemów z usługą Azure log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
@@ -65,7 +65,7 @@ Aby usunąć rozszerzenie:
 3. Wybierz pozycję **rozszerzenia**, wybierz rozszerzenie **Microsoft. EnterpriseCloud. Monitoring**.
 4. Kliknij przycisk **Odinstaluj**i potwierdź wybór.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).

@@ -3,12 +3,13 @@ title: Stan Event Grid operacji asynchronicznych
 description: Opisuje sposób śledzenia Event Grid operacji asynchronicznych na platformie Azure. Pokazuje wartości używane do uzyskania stanu długotrwałej operacji.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103334"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011688"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Śledź Event Grid asynchroniczne operacje na platformie Azure
 Niektóre operacje REST platformy Azure są uruchamiane asynchronicznie, ponieważ nie można szybko ukończyć operacji. W tym artykule opisano sposób śledzenia stanu operacji asynchronicznych za pomocą wartości zwracanych w odpowiedzi.  
@@ -29,9 +30,9 @@ Zapoznaj się z [dokumentacją interfejsu API REST](/rest/api/) , aby zobaczyć 
 ## <a name="monitor-status-of-operation"></a>Monitoruj stan operacji
 Asynchroniczne operacje REST zwracają wartości nagłówka, których można użyć do określenia stanu operacji. Istnieją potencjalnie trzy wartości nagłówka do sprawdzenia:
 
-* `Azure-AsyncOperation`-Adres URL służący do sprawdzania stanu trwającego operacji. Jeśli operacja zwróci tę wartość, zawsze używaj jej (zamiast lokalizacji) do śledzenia stanu operacji.
-* `Location`-Adres URL służący do określania, kiedy operacja została ukończona. Ta wartość jest używana tylko wtedy, gdy usługa Azure-AsyncOperation nie jest zwracana.
-* `Retry-After`— Liczba sekund oczekiwania przed sprawdzeniem stanu operacji asynchronicznej.
+* `Azure-AsyncOperation` -Adres URL służący do sprawdzania stanu trwającego operacji. Jeśli operacja zwróci tę wartość, zawsze używaj jej (zamiast lokalizacji) do śledzenia stanu operacji.
+* `Location` -Adres URL służący do określania, kiedy operacja została ukończona. Ta wartość jest używana tylko wtedy, gdy usługa Azure-AsyncOperation nie jest zwracana.
+* `Retry-After` — Liczba sekund oczekiwania przed sprawdzeniem stanu operacji asynchronicznej.
 
 Jednak nie każda operacja asynchroniczna zwraca wszystkie te wartości. Na przykład może być konieczne oszacowanie wartości nagłówka Azure-AsyncOperation dla jednej operacji oraz wartości nagłówka lokalizacji dla innej operacji. 
 
@@ -71,7 +72,7 @@ Treść odpowiedzi z tej operacji zawiera informacje o operacji. W poniższym pr
 
 Operacje, które tworzą, aktualizują lub usuwają (PUT, PATCH, Usuń) zasobu zwykle zwracają `provisioningState` wartość. Po zakończeniu operacji jest zwracana jedna z następujących trzech wartości: 
 
-* Sukces
+* Powodzenie
 * Niepowodzenie
 * Anulowane
 
@@ -182,7 +183,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 Jeśli żądanie jest nadal uruchomione, zostanie wyświetlony kod stanu 202. Jeśli żądanie zostało zakończone, otrzymano kod stanu 200 i treść odpowiedzi zawiera właściwości konta magazynu, które zostało utworzone.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby uzyskać dokumentację dotyczącą każdej operacji REST, zobacz [dokumentację interfejsu API REST](/rest/api/).
 * Aby uzyskać informacje na temat wdrażania szablonów za pomocą interfejsu API REST Menedżer zasobów, zobacz [wdrażanie zasobów za pomocą szablonów Menedżer zasobów i interfejs API rest Menedżer zasobów](../azure-resource-manager/templates/deploy-rest.md).

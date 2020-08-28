@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 075bf78599602b1b92f3cec01fe5dfb92b5321cc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fcb38f761a72bf2c6e5dee8bb993cec9143e7241
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654450"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998955"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Wykonywanie zapytań dotyczących danych ze środowiska Azure Time Series Insights Gen2 przy użyciu języka C Sharp
 
 W tym przykładzie w języku C# pokazano, jak wykonywać zapytania dotyczące danych z [interfejsów API dostępu do danych Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview) w środowiskach Azure Time Series Insights Gen2.
 
 > [!TIP]
-> Wyświetl przykłady kodu w języku C# Gen2 w [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
+> Wyświetl przykłady kodu w języku C# Gen2 w [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) .
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -71,14 +71,14 @@ Alternatywnie możesz dodać każdy pakiet przy użyciu narzędzia [NuGet 2.12 +
 
 ## <a name="c-sample-code"></a>Przykładowy kod w języku C#
 
-Zapoznaj się z repozytorium [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs) , aby uzyskać dostęp do przykładowego kodu w języku C#. 
+Zapoznaj się z repozytorium [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) , aby uzyskać dostęp do przykładowego kodu w języku C#. 
 
 > [!NOTE]
 >
 > * Przykładowy kod można wykonać bez zmiany domyślnych zmiennych środowiskowych.
 > * Przykładowy kod zostanie skompilowany do aplikacji konsoli wykonywalnej platformy .NET.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej o wysyłaniu zapytań, Przeczytaj [Informacje o interfejsie API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis).
 

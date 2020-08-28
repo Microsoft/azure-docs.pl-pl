@@ -4,12 +4,12 @@ description: Dowiedz się, jak usuwanie nietrwałe dla maszyn wirtualnych sprawi
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: a79f2bf77bcc184db8ac61b51107c1bb4a2a989d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889830"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022245"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Usuwanie nietrwałe maszyn wirtualnych
 
@@ -82,7 +82,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Cofanie operacji usuwania przy użyciu Azure PowerShell
 
-Najpierw Pobierz odpowiedni element kopii zapasowej, który jest w stanie usuwania nietrwałego (to oznacza, że zostanie usunięty).
+Najpierw Pobierz odpowiedni element kopii zapasowej, który jest w stanie usuwania nietrwałego (to wszystko, aby usunąć).
 
 ```powershell
 
@@ -116,7 +116,7 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 Wyłączenie tej funkcji nie jest zalecane. Jedyną okolicznością, w której należy rozważyć wyłączenie usuwania nietrwałego, jest to, że planujesz przeniesienie chronionych elementów do nowego magazynu i nie będzie można odczekać 14 dni przed usunięciem i ponownym włączeniem ochrony (na przykład w środowisku testowym). Aby uzyskać instrukcje dotyczące sposobu wyłączania usuwania nietrwałego, zobacz [Włączanie i wyłączanie usuwania nietrwałego](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Przeczytaj [często zadawane pytania](backup-azure-security-feature-cloud.md#frequently-asked-questions) dotyczące usuwania nietrwałego
 - Przeczytaj o wszystkich [funkcjach zabezpieczeń w programie Azure Backup](security-overview.md)

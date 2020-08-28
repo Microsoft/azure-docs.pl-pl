@@ -3,12 +3,13 @@ title: Opracowywanie testów jednostkowych dla usług stanowych
 description: Dowiedz się więcej na temat testów jednostkowych w usłudze Azure Service Fabric dla usług stanowych i szczególnych zagadnień, które należy wziąć pod uwagę podczas opracowywania.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 9c657bd8295d01a4e0fa4e44e969b33946684bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 287c0544daa3c44d91fd336b502c496b9b4bb266
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75639840"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011399"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Tworzenie testów jednostkowych dla usług stanowych
 Testy jednostkowe Service Fabric usługi stanowe nie obejmują częstych pomyłek, które nie muszą być przechwytywane przez konwencjonalne aplikacje lub testy jednostkowe specyficzne dla domeny. Opracowując testy jednostkowe dla usług stanowych, należy pamiętać o pewnych szczególnych kwestiach.
@@ -127,5 +128,5 @@ public async Task TestServiceState_InMemoryState_PromoteActiveSecondary()
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Informacje na temat testowania [komunikacji między](service-fabric-testability-scenarios-service-communication.md) usługami i [symulowania błędów przy użyciu kontrolowanego chaos](service-fabric-controlled-chaos.md).

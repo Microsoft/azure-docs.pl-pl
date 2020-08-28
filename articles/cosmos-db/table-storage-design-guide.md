@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: seodec18
-ms.openlocfilehash: b5e2dc56ad84504f0bf5ced09d865d7cb4e467fa
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027796"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002180"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Przewodnik projektowy tabeli usługi Azure Table Storage: skalowalne i wydajne tabele
 
@@ -39,7 +39,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -49,10 +49,10 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td>Nie</td>
@@ -69,10 +69,10 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td>Cze</td>
@@ -106,10 +106,10 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td>Krzysztof</td>
@@ -152,13 +152,13 @@ Poniższa tabela zawiera kilka najważniejszych wartości, które należy znać 
 | Liczba partycji w tabeli |Ograniczone tylko pojemności konta magazynu. |
 | Liczba jednostek w partycji |Ograniczone tylko pojemności konta magazynu. |
 | Rozmiar pojedynczej jednostki |Do 1 MB i maksymalnie 255 właściwości (łącznie z `PartitionKey` , `RowKey` i `Timestamp` ). |
-| Rozmiar`PartitionKey` |Ciąg o rozmiarze do 1 KB. |
-| Rozmiar`RowKey` |Ciąg o rozmiarze do 1 KB. |
+| Rozmiar `PartitionKey` |Ciąg o rozmiarze do 1 KB. |
+| Rozmiar `RowKey` |Ciąg o rozmiarze do 1 KB. |
 | Rozmiar transakcji grupy jednostek |Transakcja może obejmować maksymalnie 100 jednostek, a ładunek musi mieć rozmiar mniejszy niż 4 MB. Element EGT może aktualizować tylko raz jednostkę. |
 
 Aby uzyskać więcej informacji, zobacz [Omówienie modelu danych Table Service](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
-### <a name="cost-considerations"></a>Kwestie związane z kosztami
+### <a name="cost-considerations"></a>Zagadnienia dotyczące kosztów
 Magazyn tabel jest stosunkowo niedrogi, ale należy uwzględnić oszacowania kosztów zarówno w przypadku użycia pojemności, jak i liczby transakcji w ramach oceny dowolnego rozwiązania korzystającego z usługi Table Storage. Jednak w wielu scenariuszach przechowywanie nieznormalizowanych lub zduplikowanych danych w celu poprawy wydajności lub skalowalności rozwiązania jest prawidłowym podejściem. Aby uzyskać więcej informacji o cenach, zobacz [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## <a name="guidelines-for-table-design"></a>Wytyczne dotyczące projektu tabel
@@ -195,12 +195,12 @@ W poniższych przykładach założono, że magazyn tabel przechowuje jednostki p
 
 | Nazwa kolumny | Typ danych |
 | --- | --- |
-| `PartitionKey`(Nazwa działu) |String |
-| `RowKey`(Identyfikator pracownika) |String (ciąg) |
+| `PartitionKey` (Nazwa działu) |Ciąg |
+| `RowKey` (Identyfikator pracownika) |String (ciąg) |
 | `FirstName` |String (ciąg) |
 | `LastName` |String (ciąg) |
-| `Age` |Integer |
-| `EmailAddress` |String |
+| `Age` |Liczba całkowita |
+| `EmailAddress` |Ciąg |
 
 Poniżej przedstawiono niektóre ogólne wytyczne dotyczące projektowania zapytań usługi Table Storage. Składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -222,7 +222,7 @@ Aby zapoznać się z przykładami kodu po stronie klienta, które mogą obsługi
 
 * [Współpraca z niejednorodnymi typami jednostek](#work-with-heterogeneous-entity-types)  
 
-### <a name="choose-an-appropriate-partitionkey"></a>Wybierz odpowiednią`PartitionKey`
+### <a name="choose-an-appropriate-partitionkey"></a>Wybierz odpowiednią `PartitionKey`
 Wybór `PartitionKey` powinien zrównoważyć potrzebę umożliwienia używania EGTs (w celu zapewnienia spójności) przed wymaganiem dystrybucji jednostek na wielu partycjach (aby zapewnić skalowalne rozwiązanie).  
 
 Z jednej najwyższej wartości można przechowywać wszystkie jednostki w jednej partycji. Może to jednak ograniczyć skalowalność rozwiązania i uniemożliwić usłudze Table Storage możliwość równoważenia obciążenia żądań. Z drugiej najwyższej wartości można przechowywać jedną jednostkę na partycję. Jest to wysoce skalowalne i umożliwia usłudze Table Storage Równoważenie obciążenia żądań, ale uniemożliwia korzystanie z transakcji grupy jednostek.  
@@ -664,7 +664,7 @@ W relacyjnej bazie danych zazwyczaj normalizuje dane w celu usunięcia duplikat�
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE16.png" alt-text="Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika":::
 
 #### <a name="solution"></a>Rozwiązanie
-Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Przykład:  
+Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Na przykład:  
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE17.png" alt-text="Ilustracja nieznormalizowanej i połączonej jednostki działu":::
 
@@ -1127,7 +1127,7 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1137,10 +1137,10 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1157,10 +1157,10 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1194,10 +1194,10 @@ Magazyn tabel jest magazynem tabel bez *schematu* . Oznacza to, że pojedyncza t
 <td>
 <table>
 <tr>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
 <td></td>
@@ -1219,7 +1219,7 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Znacznik czasu</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1230,13 +1230,13 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <table>
 <tr>
 <th>Typ obiektu</th>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
-<td>Employee</td>
+<td>Pracownik</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1252,13 +1252,13 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <table>
 <tr>
 <th>Typ obiektu</th>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
-<td>Employee</td>
+<td>Pracownik</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1293,13 +1293,13 @@ Każda jednostka musi nadal mieć `PartitionKey` `RowKey` wartości,, i `Timesta
 <table>
 <tr>
 <th>Typ obiektu</th>
-<th>FirstName</th>
-<th>LastName</th>
+<th>FirstName (Imię)</th>
+<th>LastName (Nazwisko)</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>Adres e-mail</th>
 </tr>
 <tr>
-<td>Employee</td>
+<td>Pracownik</td>
 <td></td>
 <td></td>
 <td></td>

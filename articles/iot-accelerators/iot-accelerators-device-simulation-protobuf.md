@@ -6,17 +6,15 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom:
-- mvc
-- amqp
+ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81684005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012334"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializowanie telemetrii przy użyciu buforów protokołu
 
@@ -176,7 +174,7 @@ Jeśli masz plik **proto** , następnym krokiem jest wygenerowanie klas wymagany
 
 1. [Pobierz kompilator protobuf z usługi GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Uruchom kompilator, określając Katalog źródłowy, katalog docelowy i nazwę pliku **proto** . Przykład:
+1. Uruchom kompilator, określając Katalog źródłowy, katalog docelowy i nazwę pliku **proto** . Na przykład:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -208,7 +206,7 @@ Otwórz plik **WebService\appsettings.ini** i zmodyfikuj ustawienia w następuj�
 
 Domyślnie nowe pliki JSON i JS modelu urządzenia nie zostaną skopiowane do skompilowanego rozwiązania. Należy je jawnie uwzględnić.
 
-Dodaj wpis do pliku **services\services.csproj** dla każdego pliku, który ma zostać uwzględniony. Przykład:
+Dodaj wpis do pliku **services\services.csproj** dla każdego pliku, który ma zostać uwzględniony. Na przykład:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -277,6 +275,6 @@ Jeśli nie potrzebujesz już IoT Hub i Cosmos DB wystąpień, usuń je z subskry
 
 Wiele funkcji IoT Hub nie obsługuje natywnie protobuf ani innych formatów binarnych. Na przykład nie można kierować na podstawie ładunku komunikatu, ponieważ IoT Hub nie będzie w stanie przetworzyć ładunku komunikatu. Można jednak kierować trasy na podstawie nagłówków komunikatów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz wiesz już, jak dostosować symulację urządzenia do korzystania z protobuf w celu wysyłania danych telemetrycznych, następnym krokiem jest teraz poznanie [wdrożenia niestandardowego obrazu do chmury](iot-accelerators-device-simulation-deploy-image.md).
