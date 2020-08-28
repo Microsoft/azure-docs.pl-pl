@@ -5,12 +5,13 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: db47a758d33c3ed6e861601285e7737514ab416d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260434"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016703"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cykl życia aktora, automatyczne odzyskiwanie pamięci i usuwanie ręczne
 Aktor jest uaktywniany podczas pierwszego wywołania każdej z jego metod. Aktor jest dezaktywowany (elementy bezużyteczne zbierane przez środowisko uruchomieniowe aktorów), jeśli nie jest używany przez konfigurowalny okres czasu. Aktor i jego stan można również usunąć ręcznie w dowolnym momencie.
@@ -40,7 +41,7 @@ Gdy aktor zostanie zdezaktywowany, odwołania do obiektu aktora są zwalniane i 
 Co jest traktowane jako "używane" na potrzeby dezaktywacji i wyrzucania elementów bezużytecznych?
 
 * Otrzymywanie wywołania
-* `IRemindable.ReceiveReminderAsync`wywoływana metoda (ma zastosowanie tylko wtedy, gdy aktor używa przypomnień)
+* `IRemindable.ReceiveReminderAsync` wywoływana metoda (ma zastosowanie tylko wtedy, gdy aktor używa przypomnień)
 
 > [!NOTE]
 > Jeśli aktor wykorzystuje czasomierze i wywołanie zwrotne czasomierza jest wywoływane, **nie** jest liczone jako "używane".
@@ -107,7 +108,7 @@ Aktor nigdy nie zostanie pobrany jako bezużyteczny podczas wykonywania jednej z
 ## <a name="manually-deleting-actors-and-their-state"></a>Ręczne usuwanie aktorów i ich Stanów
 Wyrzucanie elementów bezużytecznych nieaktywowanych aktorów jedynie czyści obiekt aktora, ale nie usuwa danych przechowywanych w Menedżerze stanu aktora. Po ponownym aktywowaniu aktora jego dane zostaną ponownie udostępnione za pomocą menedżera stanu. W przypadkach, gdy aktory przechowują dane w Menedżerze stanu i są dezaktywowane, ale nigdy nie są ponownie aktywowane, może być konieczne wyczyszczenie danych.  Przykłady usuwania aktorów, odczytu [i ich stanu](service-fabric-reliable-actors-delete-actors.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Czasomierze aktora i przypomnienia](service-fabric-reliable-actors-timers-reminders.md)
 * [Zdarzenia aktora](service-fabric-reliable-actors-events.md)
 * [Współużytkowania wątkowości aktora](service-fabric-reliable-actors-reentrancy.md)

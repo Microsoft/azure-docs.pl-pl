@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 8e462cc5fa82b8692304f58ef6cf0ea0e2db8725
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dd3a61db32fb8e442beb42bd45c88da8559a29dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245980"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016652"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Wyliczenie Service Fabric Reliable Actors
 Usługa Reliable Actors umożliwia klientowi Wyliczenie metadanych dotyczących aktorów, które są obsługiwane przez usługę. Ponieważ usługa aktora jest podzielona na partycje usługa stanowa, wyliczanie jest wykonywane na partycję. Ponieważ każda partycja może zawierać wiele aktorów, Wyliczenie jest zwracane jako zestaw wyników stronicowanych. Strony są zapętle do momentu odczytania wszystkich stron. Poniższy przykład pokazuje, jak utworzyć listę wszystkich aktywnych aktorów w jednej partycji usługi aktora:
@@ -58,7 +59,7 @@ while (continuationToken != null);
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
 * [Cykl życia aktora i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
 * [Dokumentacja referencyjna interfejsu API aktorów](/previous-versions/azure/dn971626(v=azure.100))

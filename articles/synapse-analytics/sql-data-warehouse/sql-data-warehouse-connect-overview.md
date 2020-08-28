@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 31537f6cf957307aea4524d9c9421842d65979c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: ab169f7b814dedbc63f3cb6cddbfb822bdb57ab9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213537"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016448"
 ---
 # <a name="connect-to-synapse-sql-pool"></a>Łączenie z pulą SQL Synapse
 
@@ -26,7 +26,7 @@ Połącz z pulą SQL.
 
 W poniższym przykładzie nazwa serwera to sqlpoolservername.database.windows.net. Aby znaleźć w pełni kwalifikowaną nazwę serwera:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Azure Synapse Analytics**.
 3. Kliknij pulę SQL, z którą chcesz nawiązać połączenie.
 4. Znajdź pełną nazwę serwera.
@@ -77,6 +77,6 @@ Podczas łączenia i tworzenia obiektów w puli SQL jest przeprowadzana standary
 | [DATEFORMAT](/sql/t-sql/statements/set-dateformat-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |mdy |
 | [DATEFIRST](/sql/t-sql/statements/set-datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |7 |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby nawiązać połączenie i rozpocząć tworzenie zapytań przy użyciu programu Visual Studio, zobacz artykuł [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md) (Wykonywanie zapytań przy użyciu programu Visual Studio). Aby dowiedzieć się więcej na temat opcji uwierzytelniania, zobacz [uwierzytelnianie w usłudze Azure Synapse Analytics](sql-data-warehouse-authentication.md).

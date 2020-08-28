@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak zarządzać kopiami zapasowymi SA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 03e3f7450fd7282acde7988550df404656021961
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3051eb9a6f0c395f8ec06d92d6501296ec39c768
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824172"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007302"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: zarządzanie bazami danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -35,7 +35,7 @@ Jeśli utworzono [kopię zapasową bazy danych SAP HANA na platformie Azure przy
 * kopia zapasowa bazy danych/elementu o nazwie *saphanadatabase; HXE; HXE*
 * zasoby w regionie *westus2*
 
-Interfejs wiersza polecenia platformy Azure ułatwia zarządzanie SAP HANA bazą danych działającą na maszynie wirtualnej platformy Azure, której kopia zapasowa jest wykonywana przy użyciu Azure Backup. Ten samouczek zawiera szczegółowe informacje dotyczące operacji zarządzania.
+Interfejs wiersza polecenia platformy Azure ułatwia zarządzanie SAP HANA bazą danych działającą na maszynie wirtualnej platformy Azure, której kopia zapasowa została utworzona przy użyciu Azure Backup. Ten samouczek zawiera szczegółowe informacje dotyczące operacji zarządzania.
 
 ## <a name="monitor-backup-and-restore-jobs"></a>Monitorowanie zadań tworzenia kopii zapasowej i przywracania
 
@@ -196,7 +196,7 @@ b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
 
 Aby sprawdzić stan tej operacji, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się, jak utworzyć kopię zapasową bazy danych SAP HANA działającej na maszynie wirtualnej platformy Azure przy użyciu Azure Portal, zobacz [bazy danych SAP HANA kopii zapasowych na maszynach wirtualnych](./backup-azure-sap-hana-database.md)
 

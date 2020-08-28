@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak przywrócić bazy danych SAP HANA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a1dbf0593c7c9b65c4e285b7162411de6c01bbbf
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 3887b8e7333b6c581887fcfde7e1bd99200e72ef
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762287"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007268"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Przywracanie SAP HANA baz danych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ Po zakończeniu tego samouczka będziesz mieć możliwość:
 > * Wyświetlanie punktów przywracania dla kopii zapasowej bazy danych
 > * Przywracanie bazy danych
 
-W tym samouczku założono, że masz bazę danych SAP HANA działającą na maszynie wirtualnej platformy Azure, której kopię zapasową utworzono przy użyciu Azure Backup. Jeśli utworzono [kopię zapasową bazy danych SAP HANA na platformie Azure przy użyciu interfejsu wiersza polecenia](tutorial-sap-hana-backup-cli.md) , aby utworzyć kopię zapasową bazy danych SAP HANA, wówczas używasz następujących zasobów:
+W tym samouczku założono, że masz bazę danych SAP HANA działającą na maszynie wirtualnej platformy Azure, której kopia zapasowa została utworzona przy użyciu Azure Backup. Jeśli utworzono [kopię zapasową bazy danych SAP HANA na platformie Azure przy użyciu interfejsu wiersza polecenia](tutorial-sap-hana-backup-cli.md) , aby utworzyć kopię zapasową bazy danych SAP HANA, wówczas używasz następujących zasobów:
 
 * Grupa zasobów o nazwie *saphanaResourceGroup*
 * magazyn o nazwie *saphanaVault*
@@ -63,7 +63,7 @@ Jak widać, Powyższa lista zawiera trzy punkty odzyskiwania: jeden dla pełnych
 
 Przed przystąpieniem do przywracania bazy danych upewnij się, że zostały spełnione następujące wymagania wstępne:
 
-* Bazę danych można przywrócić tylko do wystąpienia SAP HANA, które znajduje się w tym samym regionie.
+* Bazę danych można przywrócić tylko do wystąpienia SAP HANA znajdującego się w tym samym regionie.
 * Wystąpienie docelowe musi być zarejestrowane w tym samym magazynie co Źródło
 * Azure Backup nie może zidentyfikować dwóch różnych wystąpień SAP HANA na tej samej maszynie wirtualnej. W związku z tym przywracanie danych z jednego wystąpienia do innego na tej samej maszynie wirtualnej nie jest możliwe.
 
@@ -344,7 +344,7 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
         * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
         * `<BackupIdFromJsonFile>` - **BackupId** wyodrębniony w **kroku 3**
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się, jak zarządzać bazami danych SAP HANA, których kopia zapasowa została utworzona przy użyciu interfejsu wiersza polecenia platformy Azure, przejdź do samouczka [Zarządzanie bazą danych SAP HANA na maszynie wirtualnej platformy Azure](tutorial-sap-hana-backup-cli.md)
 

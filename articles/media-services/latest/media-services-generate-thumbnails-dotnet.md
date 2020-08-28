@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: inhenkel
-ms.openlocfilehash: f6a432ad30fa3ce24693a00478f2194caaa11ff9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 89b640e1a23123fcac335ee0bf02ef078227e633
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068215"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016813"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Jak generować miniatury przy użyciu standardu Encoder w programie .NET
 
@@ -92,5 +93,5 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Generuj miniatury przy użyciu REST](media-services-generate-thumbnails-rest.md)

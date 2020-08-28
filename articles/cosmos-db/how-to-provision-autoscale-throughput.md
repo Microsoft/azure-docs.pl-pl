@@ -6,12 +6,13 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497056"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017145"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Zastrzegaj przepływność skalowania automatycznego dla bazy danych lub kontenera w Azure Cosmos DB
 
@@ -29,7 +30,7 @@ W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skal
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
 
-1. Wybierz przycisk **OK**.
+1. Kliknij przycisk **OK**.
 
 Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływności, wybierz opcję **zainicjuj przepływność bazy danych** podczas tworzenia nowej bazy danych. 
 
@@ -242,7 +243,7 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ---
 
-## <a name="cassandra-api"></a>Interfejs API bazy danych Cassandra
+## <a name="cassandra-api"></a>Interfejs API rozwiązania Cassandra
 
 Azure Cosmos DB kont interfejs API Cassandra można obsługiwać automatyczne skalowanie przy użyciu [poleceń CQL](manage-scale-cassandra.md#use-autoscale), szablonów [interfejsu wiersza polecenia platformy Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) lub [Azure Resource Manager](resource-manager-samples.md).
 
@@ -262,7 +263,7 @@ Interfejs wiersza polecenia platformy Azure może służyć do aprowizacji przep
 
 Azure PowerShell może służyć do aprowizacji przepływności automatycznego skalowania dla bazy danych lub zasobów na poziomie kontenera dla wszystkich Azure Cosmos DB interfejsów API. Aby uzyskać przykłady, zobacz [Azure PowerShell Samples for Azure Cosmos DB](powershell-samples.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się więcej na temat [korzyści z przedziału IT obsługiwanego przez automatyczne skalowanie](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Dowiedz się [, jak wybierać przepływność ręczną i skalowanie automatyczne](how-to-choose-offer.md).

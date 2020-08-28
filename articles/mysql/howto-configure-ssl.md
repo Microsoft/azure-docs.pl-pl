@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: d6a388e9abb476ff280c35f81fbce966af80c534
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: a9f2568bc35552e299e7bc33137666c1a23891a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855573"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999448"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Skonfiguruj połączenie SSL w aplikacji, aby bezpiecznie połączyć się z Azure Database for MySQL
 
@@ -249,6 +249,6 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przejrzyj różne opcje łączności aplikacji następujące: [biblioteki połączeń dla Azure Database for MySQL](concepts-connection-libraries.md)

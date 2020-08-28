@@ -8,15 +8,13 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:
-- amqp
-- mqtt
-ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, mqtt, devx-track-csharp
+ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730905"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016958"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Poznaj środowisko uruchomieniowe Azure IoT Edge i jego architekturę
 
@@ -92,22 +90,22 @@ Każdy element w manifeście wdrożenia zawiera określone informacje o module i
 * **status** — stan, w którym Agent IoT Edge umieszcza moduł. Zazwyczaj ta wartość jest ustawiana jako *uruchomiona* , gdy większość osób chce, aby Agent IoT Edge natychmiast uruchomił wszystkie moduły na urządzeniu. Można jednak określić początkowy stan modułu, który ma zostać zatrzymany, i poczekać na przyszły czas, aby poinformować IoT Edge agenta o konieczności uruchomienia modułu.Agent IoT Edge raportuje stan każdego modułu z powrotem do chmury w raportowanych właściwościach. Różnica między żądaną właściwością a raportowaną właściwością jest wskaźnikiem urządzenia błędna. Obsługiwane są następujące stany:
 
   * Trwa
-  * Działanie
+  * Uruchomienie
   * Nieprawidłowy
   * Niepowodzenie
   * Zatrzymano
 
 * **restartPolicy** — sposób ponownego uruchomienia modułu przez agenta IoT Edge. Możliwe wartości to:
   
-  * `never`— Agent IoT Edge nigdy nie uruchamia ponownie modułu.
-  * `on-failure`— Jeśli moduł ulegnie awarii, Agent IoT Edge ponownie go uruchomi. Jeśli moduł nie zostanie prawidłowo zamknięty, Agent IoT Edge nie uruchomi go ponownie.
-  * `on-unhealthy`— Jeśli moduł ulegnie awarii lub jest uznawany za nieprawidłowy, Agent IoT Edge ponownie go uruchomi.
-  * `always`— Jeśli moduł ulegnie awarii, jest uznawany za w złej kondycji lub zamknięty w dowolny sposób, Agent IoT Edge ponownie go uruchomi.
+  * `never` — Agent IoT Edge nigdy nie uruchamia ponownie modułu.
+  * `on-failure` — Jeśli moduł ulegnie awarii, Agent IoT Edge ponownie go uruchomi. Jeśli moduł nie zostanie prawidłowo zamknięty, Agent IoT Edge nie uruchomi go ponownie.
+  * `on-unhealthy` — Jeśli moduł ulegnie awarii lub jest uznawany za nieprawidłowy, Agent IoT Edge ponownie go uruchomi.
+  * `always` — Jeśli moduł ulegnie awarii, jest uznawany za w złej kondycji lub zamknięty w dowolny sposób, Agent IoT Edge ponownie go uruchomi.
 
 * **imagePullPolicy** — czy Agent IoT Edge próbuje pobrać najnowszy obraz dla modułu automatycznie. Jeśli nie określisz wartości, wartość domyślna to *OnCreate*. Możliwe wartości to:
 
-  * `on-create`— Podczas uruchamiania modułu lub aktualizowania modułu na podstawie nowego manifestu wdrożenia Agent IoT Edge podejmie próbę ściągnięcia obrazu modułu z rejestru kontenerów.
-  * `never`-Agent IoT Edge nigdy nie podejmie próby ściągnięcia obrazu modułu z rejestru kontenerów. W przypadku tej konfiguracji użytkownik jest odpowiedzialny za pobieranie obrazu modułu na urządzenie i zarządzanie wszelkimi aktualizacjami obrazu.
+  * `on-create` — Podczas uruchamiania modułu lub aktualizowania modułu na podstawie nowego manifestu wdrożenia Agent IoT Edge podejmie próbę ściągnięcia obrazu modułu z rejestru kontenerów.
+  * `never` -Agent IoT Edge nigdy nie podejmie próby ściągnięcia obrazu modułu z rejestru kontenerów. W przypadku tej konfiguracji użytkownik jest odpowiedzialny za pobieranie obrazu modułu na urządzenie i zarządzanie wszelkimi aktualizacjami obrazu.
 
 Agent IoT Edge wysyła odpowiedź środowiska uruchomieniowego do IoT Hub. Poniżej znajduje się lista możliwych odpowiedzi:
   
@@ -126,6 +124,6 @@ Agent IoT Edge odgrywa kluczową rolę w zabezpieczeniach IoT Edge urządzeniu. 
 
 Aby uzyskać więcej informacji na temat środowiska zabezpieczeń Azure IoT Edge, Przeczytaj o programie [IoT Edge Security Manager](iot-edge-security-manager.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Omówienie modułów usługi Azure IoT Edge](iot-edge-modules.md)

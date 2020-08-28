@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 17b325ab15f55a8fc02729c6f5ed0cb0330ecca2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77913008"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016839"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Wykrywaj ruchy przy użyciu Azure Media Analytics
 
@@ -34,7 +35,7 @@ Technologia ta umożliwia kategoryzowanie ruchu na odpowiednich zdarzeniach i fa
 
 Pakiet MP **Azure Media Motion Detector** jest obecnie w wersji zapoznawczej.
 
-Ten artykuł zawiera szczegółowe informacje dotyczące **Azure Media Motion Detector** i pokazuje, jak używać go z zestawem SDK Media Services dla platformy .NET
+Ten artykuł zawiera szczegółowe informacje dotyczące  **Azure Media Motion Detector** i pokazuje, jak używać go z zestawem SDK Media Services dla platformy .NET
 
 ## <a name="motion-detector-input-files"></a>Pliki wejściowe czujnika ruchu
 Pliki wideo. Obecnie obsługiwane są następujące formaty: MP4, MOV i WMV.
@@ -45,7 +46,7 @@ Podczas tworzenia zadania z **Azure Media Motion Detector**należy określić us
 ### <a name="parameters"></a>Parametry
 Można użyć następujących parametrów:
 
-| Nazwa | Opcje | Opis | Domyślne |
+| Nazwa | Opcje | Opis | Domyślny |
 | --- | --- | --- | --- |
 | sensitivityLevel |Ciąg: "Low", "medium", "High" |Ustawia poziom czułości, przy którym są raportowane ruchy. Dostosuj ten sposób, aby dopasować liczbę fałszywie dodatnich. |średniookresow |
 | frameSamplingValue |Dodatnia liczba całkowita |Ustawia częstotliwość uruchamiania algorytmu. 1 równa się każdej klatce, 2 oznacza każdą klatkę i tak dalej. |1 |
@@ -105,7 +106,7 @@ W poniższej tabeli opisano elementy wyjściowego pliku JSON.
 | przesunięcie |Przesunięcie czasu dla sygnatur czasowych w "Takty". W wersji 1,0 interfejsów API wideo zawsze będzie równa 0. W przyszłych scenariuszach dział IT może zmienić tę wartość. |
 | szybkości |Liczba klatek na sekundę w wideo. |
 | Szerokość, Wysokość |Odnosi się do szerokości i wysokości wideo w pikselach. |
-| rozpoczynanie |Początkowa sygnatura czasowa w "taktach". |
+| start |Początkowa sygnatura czasowa w "taktach". |
 | czas trwania |Długość zdarzenia w "taktach". |
 | interval |Interwał każdego wpisu w zdarzeniu w "Takty". |
 | zdarzenia |Każdy fragment zdarzenia zawiera ruch wykryty w tym czasie. |

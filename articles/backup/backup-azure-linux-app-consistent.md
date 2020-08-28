@@ -3,12 +3,12 @@ title: Spójne z aplikacjami kopie zapasowe maszyn wirtualnych z systemem Linux
 description: Twórz spójne z aplikacjami kopie zapasowe maszyn wirtualnych z systemem Linux na platformie Azure. W tym artykule wyjaśniono, jak skonfigurować strukturę skryptów do tworzenia kopii zapasowych maszyn wirtualnych z systemem Linux wdrożonych na platformie Azure. Ten artykuł zawiera również informacje dotyczące rozwiązywania problemów.
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407102"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999244"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Kopia zapasowa maszyn wirtualnych platformy Azure z systemem Linux spójna na poziomie aplikacji
 
@@ -58,7 +58,7 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
 
     - **timeoutInSeconds**: Określ indywidualne limity czasu dla skryptu wstępnego i po skrypcie (wartość maksymalna może być równa 1800).
 
-    - **continueBackupOnFailure**: Ustaw tę wartość na **true (prawda** ), jeśli chcesz, aby Azure Backup powracać do systemu plików w spójny sposób lub kopia zapasowa spójna na poziomie awarii w przypadku niepowodzenia skryptów poprzedzających skrypt lub po awarii. Ustawienie **wartości false** powoduje niepowodzenie tworzenia kopii zapasowej w przypadku wystąpienia błędu skryptu (z wyjątkiem sytuacji, gdy istnieje maszyna wirtualna z jednym dyskiem, która powraca do kopii zapasowej spójnej na poziomie awarii, niezależnie od tego ustawienia). Gdy wartość **continueBackupOnFailure** jest ustawiona na false, jeśli kopia zapasowa nie powiedzie się, zostanie podjęta ponowna próba wykonania kopii zapasowej na podstawie logiki ponawiania w usłudze (dla określonej liczby prób).
+    - **continueBackupOnFailure**: Ustaw tę wartość na **true (prawda** ), jeśli chcesz, aby Azure Backup powracać do systemu plików w spójny sposób lub kopia zapasowa spójna na poziomie awarii w przypadku niepowodzenia skryptów poprzedzających skrypt lub po awarii. Ustawienie **wartości false** powoduje niepowodzenie tworzenia kopii zapasowej w przypadku niepowodzenia skryptu (z wyjątkiem sytuacji, gdy istnieje maszyna wirtualna z jednym dyskiem, która powraca do kopii zapasowej spójnej na poziomie awarii, niezależnie od tego ustawienia). Gdy wartość **continueBackupOnFailure** jest ustawiona na false, jeśli kopia zapasowa nie powiedzie się, zostanie podjęta ponowna próba wykonania kopii zapasowej na podstawie logiki ponawiania w usłudze (dla określonej liczby prób).
 
     - **fsFreezeEnabled**: Określ, czy system Linux fsfreeze powinien być wywoływany podczas tworzenia migawki maszyny wirtualnej w celu zapewnienia spójności systemu plików. Zalecamy pozostawienie tego ustawienia na **wartość true** , chyba że aplikacja ma zależność od wyłączenia fsfreeze.
 
@@ -70,7 +70,7 @@ Przed skryptami wywoływane są natywne interfejsy API aplikacji, które w trybi
 
 Pamiętaj o dodaniu odpowiedniego rejestrowania podczas pisania skryptu wstępnego i po skrypcie oraz Przejrzyj dzienniki skryptów, aby rozwiązać wszelkie problemy ze skryptami. Jeśli nadal występują problemy z uruchamianiem skryptów, zapoznaj się z poniższą tabelą, aby uzyskać więcej informacji.
 
-| Błąd | Komunikat o błędzie | Zalecana akcja |
+| Error | Komunikat o błędzie | Zalecana akcja |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Skrypt przed wystąpieniem zwrócił błąd, dlatego kopia zapasowa może nie być spójna z aplikacją.| Zapoznaj się z dziennikami błędów dla skryptu, aby rozwiązać ten problem.|  
 |Po ScriptExecutionFailed |Skrypt po stronie zwrócił błąd, który może mieć wpływ na stan aplikacji. |Zapoznaj się z dziennikami błędów dla skryptu, aby rozwiązać problem, i sprawdź stan aplikacji. |
@@ -83,6 +83,6 @@ Pamiętaj o dodaniu odpowiedniego rejestrowania podczas pisania skryptu wstępne
 | Przed-ScriptTimeout | Upłynął limit czasu wykonywania skryptu wstępnego tworzenia kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w **VMSnapshotScriptPluginConfig.js** pliku, który znajduje się w **/etc/Azure**. |
 | Post-ScriptTimeout | Przekroczono limit czasu wykonywania skryptu po wykonaniu kopii zapasowej spójnej na poziomie aplikacji. | Sprawdź skrypt i zwiększ limit czasu w **VMSnapshotScriptPluginConfig.js** pliku, który znajduje się w **/etc/Azure**. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Konfigurowanie kopii zapasowej maszyny wirtualnej w magazynie Recovery Services](./backup-azure-vms-first-look-arm.md)

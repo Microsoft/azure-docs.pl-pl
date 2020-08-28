@@ -3,7 +3,7 @@ title: Logowanie do usługi Azure ADV przy użyciu tożsamości zarządzanych na
 description: Instrukcje krok po kroku i przykłady dotyczące korzystania z tożsamości zarządzanych przez maszynę wirtualną platformy Azure dla jednostki usługi Azure Resources w celu logowania klienta skryptu i dostępu do zasobów.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 058058b975116fabcbc242f46afb09dff8df08b6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 02815003bf5167a73c1e2362d9270deb867c84b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480445"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999414"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu logowania 
 
@@ -97,7 +97,7 @@ Jeśli zostanie wyświetlony jeden z tych błędów, Wróć do maszyny wirtualne
 
 Jeśli jeden z nich jest nieprawidłowy, może być konieczne ponowne wdrożenie zarządzanych tożsamości dla zasobów platformy Azure w ramach zasobu lub Rozwiązywanie problemów z błędem wdrożenia. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby włączyć zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell](qs-configure-powershell-windows-vm.md)lub [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy](qs-configure-cli-windows-vm.md) Azure
 

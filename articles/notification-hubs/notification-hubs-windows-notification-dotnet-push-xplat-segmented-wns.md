@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: be20cd583be7c9c87d9f3a3cebc6609764384c9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 027bbebaaab0694cfa0157464d47ef2c8e08fbff
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084232"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998224"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Samouczek: wysyłanie powiadomień do określonych urządzeń z uruchomionymi platforma uniwersalna systemu Windows aplikacjami
 
@@ -246,7 +246,7 @@ Aplikacja jest teraz ukończona. Można przechowywać zestaw kategorii w lokalny
 
 Uruchom aplikację utworzoną w poprzedniej sekcji. Powiadomienia dla wybranych kategorii będą wyświetlane jako powiadomienia wyskakujące.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule przedstawiono sposób rozgłaszania ważnych wiadomości według kategorii. Aplikacja zaplecza wysyła otagowane powiadomienia do urządzeń, które zostały zarejestrowane w celu otrzymywania powiadomień dla tego tagu. Aby dowiedzieć się, jak wypychanie powiadomień do określonych użytkowników niezależnie od używanego urządzenia, przejdź do następującego samouczka:
 

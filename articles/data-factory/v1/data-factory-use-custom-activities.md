@@ -10,14 +10,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
+ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 1f0d60d1f76523beca6567517ef44d50b910b221
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537619"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997459"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Korzystanie z działań niestandardowych w potoku Azure Data Factory w wersji 1
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -49,7 +50,7 @@ Poniższy przewodnik zawiera instrukcje krok po kroku dotyczące tworzenia niest
 ### <a name="azure-batch-prerequisites"></a>Wymagania wstępne Azure Batch
 W tym przewodniku uruchomiono niestandardowe działania programu .NET przy użyciu Azure Batch jako zasób obliczeniowy. **Azure Batch** to usługa platformy służąca do wydajnego uruchamiania aplikacji równoległych i o wysokiej wydajności obliczeniowych (HPC) w chmurze. Azure Batch planuje uruchamianie zadań intensywnie korzystających z mocy obliczeniowej na zarządzanych **kolekcjach maszyn wirtualnych**i umożliwia automatyczne skalowanie zasobów obliczeniowych w celu spełnienia potrzeb Twoich obowiązków. Aby zapoznać się z szczegółowym omówieniem usługi Azure Batch, zobacz artykuł dotyczący [Azure Batch podstawowych][batch-technical-overview] .
 
-Aby zapoznać się z samouczkiem, Utwórz konto Azure Batch z pulą maszyn wirtualnych. Oto konkretne kroki:
+Aby zapoznać się z samouczkiem, Utwórz konto Azure Batch z pulą maszyn wirtualnych. Oto odpowiednie kroki:
 
 1. Utwórz **konto Azure Batch** przy użyciu [Azure Portal](https://portal.azure.com). Instrukcje można znaleźć w artykule [Tworzenie artykułu konta Azure Batch i zarządzanie][batch-create-account] nim.
 2. Zanotuj nazwę konta Azure Batch, klucz konta, identyfikator URI i nazwę puli. Są one potrzebne do utworzenia Azure Batch połączonej usługi.

@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 621e325d0b549d2970180a5a40eb09260c1f2ee0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1cd90d4567bde6cd2c4f2a29e2d516b51b79e2af
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253477"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016618"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Jak Reliable Actors używać platformy Service Fabric
 W tym artykule wyjaśniono, jak Reliable Actors pracy na platformie Azure Service Fabric. Reliable Actors działać w strukturze, która jest hostowana w implementacji niezawodnej usługi stanowej o nazwie *Usługa aktora*. Usługa aktora zawiera wszystkie składniki niezbędne do zarządzania cyklem życia i wysyłaniem komunikatów dla uczestników:
@@ -61,7 +62,7 @@ Usługa aktora jest podzielona na partycje usługi stanowe. Każda partycja usł
 Reliable Services można tworzyć z różnymi schematami partycji i zakresami kluczy partycji. Usługa aktor używa schematu partycjonowania Int64 z pełnym zakresem wartości Int64 do mapowania aktorów na partycje.
 
 ### <a name="actor-id"></a>Identyfikator aktora
-Każdy aktor, który jest tworzony w usłudze, ma przypisany unikatowy identyfikator, reprezentowany przez `ActorId` klasę. `ActorId`to nieprzezroczysta wartość identyfikatora, która może być używana do jednorodnej dystrybucji aktorów w ramach partycji usługi przez generowanie losowych identyfikatorów:
+Każdy aktor, który jest tworzony w usłudze, ma przypisany unikatowy identyfikator, reprezentowany przez `ActorId` klasę. `ActorId` to nieprzezroczysta wartość identyfikatora, która może być używana do jednorodnej dystrybucji aktorów w ramach partycji usługi przez generowanie losowych identyfikatorów:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -87,7 +88,7 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 W przypadku używania identyfikatorów GUID/UUID i ciągów wartości są zmieszane z wartością Int64. Jeśli jednak jawnie podajesz wartość Int64 do `ActorId` , to Int64 będzie mapować bezpośrednio na partycję bez dalszej mieszania. Za pomocą tej metody można kontrolować, w której partycji umieszczane są aktory.
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
 * [Cykl życia aktora i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)
 * [Dokumentacja referencyjna interfejsu API aktorów](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)

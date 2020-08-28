@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: b8bf54f9909125030e067bc483ca2fb7e3dc68a7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4eb8dd98909459feab72f61e46834e60c5b07ebd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253358"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007761"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementowanie funkcji na poziomie usług w usłudze aktora
 
@@ -211,7 +212,7 @@ Ta zmiana jest uaktualnieniem dwuetapowym. Wykonaj kroki opisane w tej sekwencji
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Zarządzanie stanem aktora](service-fabric-reliable-actors-state-management.md)
 * [Cykl życia aktora i odzyskiwanie pamięci](service-fabric-reliable-actors-lifecycle.md)

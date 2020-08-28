@@ -4,12 +4,12 @@ description: Dowiedz się, jak przeprowadzić przywracanie na poziomie plików n
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f972913bcae68297ed166f82fd78a047ce9d475d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: c8adb114685379112aee20ab600d37bc25ce700e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890660"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007642"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Przywracanie plików na maszynę wirtualną na platformie Azure
 
@@ -77,7 +77,7 @@ Jeśli przypadkowo usuniesz lub zmienisz plik, możesz przywrócić pojedyncze p
 
 Na potrzeby przywracania plików usługa Azure Backup udostępnia skrypt do uruchomienia na maszynie wirtualnej, który łączy ją z punktem odzyskiwania jako dyskiem lokalnym. Możesz przeglądać zawartość tego dysku lokalnego, przywrócić pliki bezpośrednio na maszynę wirtualną, a następnie zakończyć połączenie z punktem odzyskiwania. Kopia zapasowa danych będzie nadal tworzona w usłudze Azure Backup zgodnie z przypisanymi zasadami harmonogramu i przechowywania.
 
-1. Aby wyświetlić listę punktów odzyskiwania dla maszyny wirtualnej, użyj polecenia [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). W tym przykładzie wybierzemy najnowszy punkt odzyskiwania dla maszyny wirtualnej o nazwie *myVM*, chronionej w magazynie *myRecoveryServicesVault*:
+1. Aby wyświetlić listę punktów odzyskiwania dla maszyny wirtualnej, użyj polecenia [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). W tym przykładzie wybieramy najnowszy punkt odzyskiwania dla maszyny wirtualnej o nazwie *myVM* , która jest chroniona w *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -89,7 +89,7 @@ Na potrzeby przywracania plików usługa Azure Backup udostępnia skrypt do uruc
         --output tsv
     ```
 
-2. Aby uzyskać skrypt umożliwiający połączenie z punktem odzyskiwania — innymi słowy, zainstalowanie go — na maszynie wirtualnej, użyj polecenia [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp). Poniższy przykład umożliwia uzyskanie skryptu dla maszyny wirtualnej o nazwie *myVM*, chronionej w magazynie *myRecoveryServicesVault*.
+2. Aby uzyskać skrypt umożliwiający połączenie z punktem odzyskiwania — innymi słowy, zainstalowanie go — na maszynie wirtualnej, użyj polecenia [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp). Poniższy przykład umożliwia pobranie skryptu dla maszyny wirtualnej o nazwie *myVM* , która jest chroniona w *myRecoveryServicesVault*.
 
     Zastąp ciąg *myRecoveryPointName* nazwą punktu odzyskiwania uzyskaną przy użyciu poprzedniego polecenia:
 
@@ -192,7 +192,7 @@ Po skopiowaniu skryptu odzyskiwania na maszynę wirtualną możesz nawiązać po
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Podczas pracy z tym samouczkiem połączono punkt odzyskiwania z maszyną wirtualną i przywrócono pliki serwera internetowego. W tym samouczku omówiono:
 

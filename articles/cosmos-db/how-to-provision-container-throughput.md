@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: fa03ae10239be4ec735a2d450343bf98fde00e70
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: cf2bd616fc739d233826769baaa14298d0fcec2d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497039"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017128"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Inicjowanie obsługi przepływności standardowej (ręcznej) w kontenerze usługi Azure Cosmos
 
@@ -30,7 +30,7 @@ W tym artykule wyjaśniono, jak zainicjować standardową (ręczną) przepływno
    * Wprowadź identyfikator kontenera (lub tabeli lub grafu).
    * Wprowadź wartość klucza partycji (na przykład `/userid`).
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
-   * Wybierz przycisk **OK**.
+   * Kliknij przycisk **OK**.
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Zrzut ekranu okienka usługi Data Explorer z wyróżnioną pozycją Nowa kolekcja":::
 
@@ -121,7 +121,7 @@ mongoDatabase = mongoClient.GetDatabase("testdb");
 var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API bazy danych Cassandra
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API rozwiązania Cassandra
 
 Podobne polecenia mogą być wydawane za poorednictwem dowolnego sterownika zgodnego z CQL.
 
@@ -141,7 +141,7 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 ```
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz następujące artykuły, aby dowiedzieć się więcej na temat aprowizowania przepływności w usłudze Azure Cosmos DB:
 
