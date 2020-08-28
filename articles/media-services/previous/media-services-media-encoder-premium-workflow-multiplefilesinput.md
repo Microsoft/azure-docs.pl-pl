@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
-ms.openlocfilehash: 4a51a67200ec411f0f9362bc92bf7926f221b1f2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 70acbb239df3806437127e41510bfebc1358532a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056807"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015972"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Korzystanie z wielu plików wejściowych i właściwości składników przy użyciu kodera Premium
 ## <a name="overview"></a>Omówienie
@@ -466,7 +467,7 @@ Aby zakodować, wykonaj następujące kroki:
 
 * Zakodowany element zawartości będzie zawierać ścieżki audio w wielu językach, a ścieżki powinny być wybierane w Azure Media Player.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Wprowadzenie kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Jak używać kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Kodowanie zawartości na żądanie za pomocą Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)

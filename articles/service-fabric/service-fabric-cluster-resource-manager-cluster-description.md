@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5ec5db2b2fefeba3bffb7e30a77850b30dccf95e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246558"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005636"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
 Funkcja Menedżer zasobów klastra platformy Azure Service Fabric oferuje kilka mechanizmów opisywania klastra:
@@ -237,7 +238,7 @@ W poprzednim układzie, jeśli wartość **wartość targetreplicasetsize** jest
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
-| **UD0** |Nie dotyczy |Nie dotyczy |Nie dotyczy |Nie dotyczy |Nie dotyczy |Nie dotyczy |
+| **UD0** |NIE DOTYCZY |NIE DOTYCZY |NIE DOTYCZY |NIE DOTYCZY |NIE DOTYCZY |NIE DOTYCZY |
 | **UD1** |R2 | | | | |1 |
 | **UD2** | |R3 |R4 | | |2 |
 | **UD3** | | | |R1 | |1 |
@@ -615,7 +616,7 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * Aby uzyskać informacje o architekturze i przepływie informacji w Menedżer zasobów klastra, zobacz [Omówienie architektury Menedżer zasobów klastra](service-fabric-cluster-resource-manager-architecture.md).
 * Definiowanie metryk defragmentacji jest jednym ze sposobów konsolidacji obciążenia węzłów zamiast rozproszenia go. Aby dowiedzieć się, jak skonfigurować defragmentację, zobacz [defragmentacja metryk i ładowanie w Service Fabric](service-fabric-cluster-resource-manager-defragmentation-metrics.md).
 * Zacznij od początku i [zapoznaj się z wprowadzeniem do Service Fabric klastra Menedżer zasobów](service-fabric-cluster-resource-manager-introduction.md).

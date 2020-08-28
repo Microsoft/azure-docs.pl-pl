@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c51b5c4d9cd7362aeda0a0998d8031d0ba358ce1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050694"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012351"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Zasady pomocy technicznej dla usługi Azure Kubernetes Service
 
@@ -20,7 +20,7 @@ Ten artykuł zawiera szczegółowe informacje na temat zasad i ograniczeń pomoc
 ## <a name="service-updates-and-releases"></a>Aktualizacje i wydania usługi
 
 * Aby uzyskać informacje o wersji, zobacz [AKS informacji o wersji](https://github.com/Azure/AKS/releases).
-* Aby uzyskać informacje na temat funkcji dostępnych w wersji zapoznawczej, zobacz [AKS Preview Features and pokrewne projekty](https://github.com/Azure/AKS/blob/master/previews.md).
+* Aby uzyskać informacje na temat funkcji dostępnych w wersji zapoznawczej, zobacz [AKS Preview Features and pokrewne projekty](https://awesomeopensource.com/projects/aks?categoryPage=11).
 
 ## <a name="managed-features-in-aks"></a>Funkcje zarządzane w programie AKS
 
@@ -140,7 +140,7 @@ Mimo że klienci mogą zalogować się do i zmieniać węzły procesu roboczego,
 Jako usługa zarządzana AKS ma określone wymagania dotyczące sieci i łączności. Te wymagania są mniej elastyczne niż wymagania dotyczące normalnych składników IaaS. W AKS, operacje, takie jak Dostosowywanie reguł sieciowej grupy zabezpieczeń, blokują określony port (na przykład przy użyciu reguł zapory blokujących port wychodzący 443), a Dodawanie adresów URL do listy dozwolonych może spowodować, że klaster jest nieobsługiwany.
 
 > [!NOTE]
-> Obecnie AKS nie pozwala na całkowite zablokowanie ruchu wyjściowego z klastra. Aby kontrolować listę adresów URL i portów, które mogą być używane przez klaster dla ruchu wychodzącego, zobacz [ograniczanie ruchu ruchowego](limit-egress-traffic.md).
+> Obecnie AKS nie pozwala na całkowite zablokowanie ruchu wyjściowego z klastra. Aby kontrolować listę adresów URL i portów, które mogą być używane przez klaster dla ruchu wychodzącego, zobacz  [ograniczanie ruchu ruchowego](limit-egress-traffic.md).
 
 ## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Nieobsługiwane funkcje Kubernetes Alpha i beta
 
@@ -149,7 +149,7 @@ AKS obsługuje tylko stabilne funkcje w projekcie Kubernetes nadrzędnego. O ile
 W dwóch scenariuszach funkcje Alpha lub beta mogą zostać wycofane, zanim staną się ogólnie dostępne:
 
 * Klienci spełnili AKS produkt, pomoc techniczną lub zespoły inżynieryjne i zostali zaproszeni o wypróbowanie tych nowych funkcji.
-* Te funkcje zostały [włączone przez flagę funkcji](https://github.com/Azure/AKS/blob/master/previews.md). Klienci muszą jawnie korzystać z tych funkcji.
+* Te funkcje zostały [włączone przez flagę funkcji](https://awesomeopensource.com/projects/aks?categoryPage=11). Klienci muszą jawnie korzystać z tych funkcji.
 
 ## <a name="preview-features-or-feature-flags"></a>Funkcje wersji zapoznawczej lub flagi funkcji
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: f9ad39b88ad2212ea2cdceb40e61fbc0a2d1a764
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320497"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022500"
 ---
 # <a name="what-is-azure-monitor-for-vms"></a>Co to jest Azure Monitor dla maszyn wirtualnych?
 
@@ -26,10 +26,6 @@ Azure Monitor dla maszyn wirtualnych obsługuje systemy operacyjne Windows i Lin
 - Maszyny wirtualne hostowane w innym środowisku chmury
   
 
-
->[!NOTE]
->Niedawno [ogłoszono zmiany wprowadzane](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
-) do funkcji kondycji w oparciu o Opinie otrzymane od naszych klientów publicznej wersji zapoznawczej. Mając na względzie liczbę wprowadzonych zmian, będziemy mogli przestać oferować funkcję kondycji dla nowych klientów. Istniejący klienci mogą nadal korzystać z funkcji kondycji. Aby uzyskać więcej informacji, zobacz nasze [często zadawane pytania dotyczące ogólnej dostępności](vminsights-ga-release-faq.md).  
 
 
 Azure Monitor dla maszyn wirtualnych przechowuje dane w dziennikach Azure Monitor, co pozwala na dostarczanie zaawansowanej agregacji i filtrowania oraz analizowanie trendów danych w miarę upływu czasu. Możesz wyświetlić te dane bezpośrednio z maszyny wirtualnej lub użyć Azure Monitor, aby dostarczyć Zagregowany widok wielu maszyn wirtualnych.
@@ -56,7 +52,7 @@ Poniżej przedstawiono procedurę konfigurowania Azure Monitor dla maszyn wirtua
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby włączyć monitorowanie dla maszyn wirtualnych, zobacz temat [wdrażanie Azure monitor dla maszyn wirtualnych](vminsights-enable-overview.md) .
 

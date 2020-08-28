@@ -4,16 +4,16 @@ description: W tym artykule dowiesz się, jak zarządzać operacją tworzenia ko
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757255"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012606"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Tworzenie magazynu Recovery Services platformy Azure przy użyciu interfejsu API REST
 
-Procedurę tworzenia magazynu usługi Azure Recovery Services przy użyciu interfejsu API REST opisano w temacie Tworzenie dokumentacji [interfejsu API REST magazynu](/rest/api/recoveryservices/vaults/createorupdate) . Pozwól nam używać tego dokumentu jako odniesienia do tworzenia magazynu o nazwie "testVault" w "zachodnie stany USA".
+Procedurę tworzenia magazynu usługi Azure Recovery Services przy użyciu interfejsu API REST opisano w temacie Tworzenie dokumentacji [interfejsu API REST magazynu](/rest/api/recoveryservices/vaults/createorupdate) . Skorzystajmy z tego dokumentu jako odniesienia do tworzenia magazynu o nazwie "testVault" w "zachodnie stany USA".
 
 Aby utworzyć lub zaktualizować magazyn usługi Azure Recovery Services, użyj następującej operacji *Put* .
 
@@ -92,7 +92,7 @@ Skrócona odpowiedź *201 utworzona* na podstawie poprzedniego przykładowej tre
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Utwórz zasady tworzenia kopii zapasowej dla tworzenia kopii zapasowej maszyny wirtualnej platformy Azure w tym magazynie](backup-azure-arm-userestapi-createorupdatepolicy.md).
 

@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75451994"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005653"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Zarządzanie zużyciem zasobów i obciążeniem Service Fabric przy użyciu metryk
 *Metryki* to zasoby, których dotyczą usługi i które są udostępniane przez węzły w klastrze. Metryka to wszystko, co chcesz zarządzać, aby zwiększyć lub monitorować wydajność usług. Na przykład możesz obserwować użycie pamięci, aby dowiedzieć się, czy usługa jest przeciążona. Innym rozwiązaniem jest określenie, czy usługa może zostać przeniesiona w innym miejscu, w którym ilość pamięci jest mniej ograniczona, aby uzyskać lepszą wydajność.
@@ -33,7 +34,7 @@ Załóżmy, że chcesz zacząć pisać i wdrażać usługę. W tym momencie nie 
 
 W przypadku obciążeń podstawowych metryki domyślne zapewniają dystrybucję znośnego pracy w klastrze. W poniższym przykładzie Zobaczmy, co się dzieje, gdy utworzymy dwie usługi i korzystasz z domyślnych metryk na potrzeby równoważenia. Pierwsza usługa jest usługą stanową z trzema partycjami i docelowym zestawem replik o rozmiarze trzech. Druga usługa to usługa bezstanowa z jedną partycją i liczbą wystąpień trzy.
 
-Oto, co otrzymujemy:
+Oto co otrzymujemy:
 
 <center>
 
@@ -135,7 +136,7 @@ Jako przypomnienie: Jeśli chcesz, aby użyć domyślnych metryk, nie musisz dot
 Teraz przejdźmy do każdego z tych ustawień bardziej szczegółowo i zapoznaj się z zachowaniem, na które ma to wpływ.
 
 ## <a name="load"></a>Ładowanie
-Cały punkt definiowania metryk ma reprezentować pewne obciążenie. *Obciążenie* polega na tym, ile danej metryki jest zużywane przez niektóre wystąpienie usługi lub replika w danym węźle. Obciążenie można skonfigurować w prawie każdym punkcie. Przykład:
+Cały punkt definiowania metryk ma reprezentować pewne obciążenie. *Obciążenie* polega na tym, ile danej metryki jest zużywane przez niektóre wystąpienie usługi lub replika w danym węźle. Obciążenie można skonfigurować w prawie każdym punkcie. Na przykład:
 
   - Obciążenie można zdefiniować podczas tworzenia usługi. Jest to nazywane _obciążeniem domyślnym_.
   - Informacje o metrykach, w tym domyślne obciążenia dla usługi, można zaktualizować po utworzeniu usługi. Jest to nazywane _aktualizacją usługi_. 
@@ -258,7 +259,7 @@ W górnym przykładzie opartym tylko na globalnym saldzie klaster jako całość
 
 W dolnym przykładzie klaster Menedżer zasobów rozłożyć repliki na podstawie zarówno globalnego, jak i za usługę. Podczas obliczania wyniku rozwiązania zapewnia większość wagi do rozwiązania globalnego i (konfigurowalne) część do poszczególnych usług. Saldo globalne dla metryki jest obliczane na podstawie średniej wagi metryk z każdej usługi. Każda usługa jest zrównoważona zgodnie ze zdefiniowanymi wagami metryk. Dzięki temu usługi są zrównoważone w zależności od potrzeb. W związku z tym, jeśli ten sam pierwszy węzeł ulegnie awarii, błąd jest dystrybuowany we wszystkich partycjach wszystkich usług. Wpływ na poszczególne są takie same.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji na temat konfigurowania usług, [Dowiedz się więcej o konfigurowaniu usług](service-fabric-cluster-resource-manager-configure-services.md)(Service-Fabric-Cluster-Resource-Manager-Configure-Services.MD)
 - Definiowanie metryk defragmentacji jest jednym ze sposobów konsolidacji obciążenia węzłów zamiast rozproszenia go. Aby dowiedzieć się, jak skonfigurować defragmentację, zapoznaj się z [tym artykułem](service-fabric-cluster-resource-manager-defragmentation-metrics.md) .
 - Aby dowiedzieć się, w jaki sposób klaster Menedżer zasobów zarządza i równoważenia obciążenia w klastrze, zapoznaj się z artykułem dotyczącym [równoważenia obciążenia](service-fabric-cluster-resource-manager-balancing.md)

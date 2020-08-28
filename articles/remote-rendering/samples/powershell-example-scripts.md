@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: c51081c4cf2225474353afcb3a6c0de9bc9c71f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506515"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014372"
 ---
 # <a name="example-powershell-scripts"></a>Przykładowe skrypty programu PowerShell
 
@@ -20,6 +20,9 @@ Zdalne renderowanie na platformie Azure udostępnia dwa następujące interfejsy
 - [Interfejs API REST sesji](../how-tos/session-rest-api.md)
 
 [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera przykładowe skrypty w folderze *skryptów* na potrzeby współpracy z interfejsami API REST usługi. W tym artykule opisano ich użycie.
+
+> [!CAUTION]
+Zbyt częste wywoływanie funkcji interfejsu API REST spowoduje, że serwer zostanie ograniczony i ostatecznie nie zwróci błędu. Identyfikator kodu błędu HTTP w tym przypadku to 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -269,7 +272,7 @@ Można też pobrać stan konwersji tej konwersji przy użyciu:
 
 Użyj `-Poll` , aby poczekać na zakończenie konwersji lub wystąpił błąd.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Szybki Start: renderowanie modelu przy użyciu aparatu Unity](../quickstarts/render-model.md)
 - [Szybki Start: konwertowanie modelu do renderowania](../quickstarts/convert-model.md)

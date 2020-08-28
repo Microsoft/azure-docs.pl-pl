@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bb2a7d8ef55e993726b185e5652c8dff9e96b23e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 887b2da46fdcd6ad275f18913fd7ba675700ad3b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056367"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015989"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,8 @@ W tym samouczku użyjesz Azure Machine Learning R SDK (wersja zapoznawcza), aby 
 Ten samouczek obejmuje wykonanie następujących zadań:
 > [!div class="checklist"]
 > * Tworzenie obszaru roboczego Azure Machine Learning
-> * Klonowanie folderu notesu przy użyciu plików niezbędnych do uruchomienia tego samouczka w obszarze roboczym
 > * Otwórz RStudio z obszaru roboczego
+> * Klonowanie https://github.com/Azure/azureml-sdk-for-r plików niezbędnych do uruchomienia tego samouczka w obszarze roboczym
 > * Ładowanie danych i przygotowanie do szkolenia
 > * Przekaż dane do magazynu danych, aby były dostępne do szkolenia zdalnego
 > * Utwórz zasób obliczeniowy, aby zdalnie nauczyć model
@@ -53,33 +53,11 @@ Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za po�
 > Zanotuj swój **obszar roboczy** i **subskrypcję**. Będą one potrzebne do utworzenia eksperymentu w odpowiednim miejscu. 
 
 
-## <a name="clone-a-notebook-folder"></a><a name="azure"></a>Klonowanie folderu notesu
-
-W tym przykładzie używany jest serwer notesu w chmurze w obszarze roboczym na potrzeby instalacji i wstępnie skonfigurowanego środowiska. Jeśli wolisz sterować środowiskiem, pakietami i zależnościami, użyj [własnego środowiska](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) .
-
-Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia kroków w programie Azure Machine Learning Studio — skonsolidowany interfejs, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych wszystkich poziomów umiejętności.
-
-1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/).
-
-1. Wybierz swoją subskrypcję i utworzony obszar roboczy.
-
-1. Wybierz **notesy** po lewej stronie.
-
-1. Otwórz folder **Samples** .
-
-1. Otwórz folder **R** .
-
-1. Otwórz w folderze numer wersji.  Ta liczba reprezentuje bieżącą wersję zestawu R SDK.
-
-1. Wybierz pozycję **"..."** po prawej stronie folderu **vignettes** , a następnie wybierz pozycję **Klonuj**.
-
-    ![Klonuj folder](media/tutorial-1st-r-experiment/clone-folder.png)
-
-1. Zostanie wyświetlona lista folderów pokazująca każdego użytkownika, który uzyskuje dostęp do obszaru roboczego.  Wybierz folder, w którym ma zostać sklonowany folder **vignettes** .
-
 ## <a name="open-rstudio"></a><a name="open"></a>Otwórz RStudio
 
-Użyj RStudio na wystąpieniu obliczeniowym lub maszynie wirtualnej z notesem, aby uruchomić ten samouczek.  
+W tym przykładzie używane jest wystąpienie obliczeniowe w obszarze roboczym na potrzeby instalacji bezpłatnej i wstępnie skonfigurowanego środowiska. Użyj [własnego środowiska](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) , jeśli wolisz mieć kontrolę nad środowiskiem, pakietami i zależnościami na własnym komputerze.
+
+Użyj RStudio w wystąpieniu obliczeniowym Azure ML, aby uruchomić ten samouczek.  
 
 1. Wybierz pozycję **obliczenia** po lewej stronie.
 
@@ -87,10 +65,19 @@ Użyj RStudio na wystąpieniu obliczeniowym lub maszynie wirtualnej z notesem, a
 
 1. Po uruchomieniu obliczeń Użyj linku **RStudio** , aby otworzyć RStudio.
 
-1. W programie RStudio folder *vignettes* to kilka poziomów w dół od *użytkowników* w sekcji **pliki** w prawym dolnym rogu.  W obszarze *vignettes*wybierz folder *uczenie i wdrażanie-do-ACI* , aby znaleźć pliki wymagane w tym samouczku.
+
+## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Klonowanie przykładowej vignettes 
+
+Sklonuj https://github.com/azure/azureml-sdk-for-r repozytorium GitHub, aby uzyskać kopię plików Vignette, które zostaną uruchomione w tym samouczku.
+
+1. W programie RStudio przejdź do karty "Terminal" i CD do katalogu, w którym chcesz sklonować repozytorium.
+
+1. Uruchom w terminalu "klonowanie git https://github.com/Azure/azureml-sdk-for-r.git ", aby sklonować repozytorium.
+
+1. W RStudio przejdź do folderu *vignettes* w sklonowanym folderze *Azure-SDK-for-r* .  W obszarze *vignettes*wybierz *kolejno pozycje uczenie i wdrażanie-pierwszy-model. RMD* plik, aby znaleźć Vignette używany w tym samouczku. Dodatkowe pliki używane dla Vignette znajdują się w podfolderze *pociąg-and-Deploy-First-model* . Po otwarciu Vignette Ustaw katalog roboczy na lokalizację pliku za pośrednictwem **sesji > ustaw > katalog roboczy na lokalizację pliku źródłowego**. 
 
 > [!Important]
-> Pozostała część tego artykułu zawiera tę samą zawartość, która jest widoczna w części *uczenie i wdrażanie-do-ACI. Plik RMD* . Jeśli masz doświadczenie z RMarkdown, możesz użyć kodu z tego pliku.  Można też skopiować/wkleić fragmenty kodu z tego miejsca lub z tego artykułu do skryptu języka R lub wiersza polecenia.  
+> Pozostała część tego artykułu zawiera tę samą zawartość, która jest wyświetlana w  *modelu uczenie i wdrażanie-pierwszy-model. Plik RMD* . Jeśli masz doświadczenie z RMarkdown, możesz użyć kodu z tego pliku.  Można też skopiować/wkleić fragmenty kodu z tego miejsca lub z tego artykułu do skryptu języka R lub wiersza polecenia. 
 
 
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
@@ -197,7 +184,7 @@ Na potrzeby tego samouczka Dopasuj model regresji logistycznej do przekazanych d
 * Przesyłanie zadania
 
 ### <a name="prepare-the-training-script"></a>Przygotuj skrypt szkoleniowy
-Skrypt szkoleniowy został wywołany `accidents.R` w tym samym katalogu, w którym znajduje się ten samouczek. Zwróć uwagę na następujące szczegóły w **skrypcie szkoleniowym** , które zostały wykonane w celu wykorzystania Azure Machine Learning do szkolenia:
+`accidents.R`W katalogu " *szkolenie i wdrażanie-pierwszy-model* " udostępniono skrypt szkoleniowy o nazwie. Zwróć uwagę na następujące szczegóły w **skrypcie szkoleniowym** , które zostały wykonane w celu wykorzystania Azure Machine Learning do szkolenia:
 
 * Skrypt szkoleniowy przyjmuje argument `-d` , aby znaleźć katalog zawierający dane szkoleniowe. Po zdefiniowaniu i przesłaniu zadania później należy wskazać magazyn danych dla tego argumentu. Platforma Azure ML zainstaluje folder magazynu w klastrze zdalnym dla zadania szkoleniowego.
 * Skrypt szkoleniowy rejestruje ostateczną dokładność jako metrykę do rekordu uruchomienia w usłudze Azure ML przy użyciu `log_metric_to_run()` . Zestaw SDK usługi Azure ML udostępnia zestaw interfejsów API rejestrowania do rejestrowania różnych metryk podczas przebiegów szkoleniowych. Te metryki są rejestrowane i utrwalane w rekordzie przebiegu eksperymentu. Dostęp do metryk można uzyskać w dowolnym momencie lub wyświetlić na stronie Szczegóły uruchamiania w programie [Studio](https://ml.azure.com). Zobacz [informacje](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) dotyczące pełnego zestawu metod rejestrowania `log_*()` .
@@ -216,7 +203,7 @@ Aby utworzyć szacowania, zdefiniuj:
 * Wszystkie zależności środowiska wymagane do uczenia się. Domyślny obraz platformy Docker skompilowany na potrzeby szkolenia zawiera już trzy pakiety ( `caret` , `e1071` i), które `optparse` są niezbędne w skrypcie szkoleniowym.  Nie musisz podawać dodatkowych informacji. Jeśli używasz pakietów języka R, które nie są uwzględnione domyślnie, użyj parametru szacowania, `cran_packages` Aby dodać dodatkowe pakiety Cran. Zobacz [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) informacje dotyczące pełnego zestawu konfigurowalnych opcji.
 
 ```R
-est <- estimator(source_directory = ".",
+est <- estimator(source_directory = "train-and-deploy-first-model",
                  entry_script = "accidents.R",
                  script_params = list("--data_folder" = ds$path(target_path)),
                  compute_target = compute_target
@@ -225,7 +212,7 @@ est <- estimator(source_directory = ".",
 
 ### <a name="submit-the-job-on-the-remote-cluster"></a>Prześlij zadanie w klastrze zdalnym
 
-Na koniec Prześlij zadanie do uruchomienia w klastrze. `submit_experiment()`zwraca obiekt Run, który następnie jest używany do interfejsu z przebiegiem. Łącznie pierwszy przebieg trwa **około 10 minut**. Jednak w przypadku późniejszego uruchomienia ten sam obraz platformy Docker jest ponownie używany, tak długo, jak zależności skryptu nie są zmieniane.  W takim przypadku obraz jest buforowany i czas uruchamiania kontenera jest znacznie szybszy.
+Na koniec Prześlij zadanie do uruchomienia w klastrze. `submit_experiment()` zwraca obiekt Run, który następnie jest używany do interfejsu z przebiegiem. Łącznie pierwszy przebieg trwa **około 10 minut**. Jednak w przypadku późniejszego uruchomienia ten sam obraz platformy Docker jest ponownie używany, tak długo, jak zależności skryptu nie są zmieniane.  W takim przypadku obraz jest buforowany i czas uruchamiania kontenera jest znacznie szybszy.
 
 ```R
 run <- submit_experiment(exp, est)
@@ -331,6 +318,7 @@ Teraz masz wszystko, co musisz zrobić, aby utworzyć **konfigurację wnioskowan
 ```R
 inference_config <- inference_config(
   entry_script = "accident_predict.R",
+  source_directory = "train-and-deploy-first-model",
   environment = r_env)
 ```
 
@@ -406,7 +394,7 @@ delete_compute(compute)
 
 Możesz też zachować grupę zasobów i usunąć jeden obszar roboczy. Wyświetl właściwości obszaru roboczego i wybierz pozycję **Usuń**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Teraz, po ukończeniu pierwszego Azure Machine Learning eksperymentu w języku R, Dowiedz się więcej na temat [Azure Machine Learning SDK dla języka r](https://azure.github.io/azureml-sdk-for-r/index.html).
 

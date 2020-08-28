@@ -7,19 +7,19 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: 7bcf656b1fa0a73021a92113eb5879312d100823
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: b1a361b2c1b1010c6593defa37ef92a3c36b0693
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84974504"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015615"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Samouczek: pisanie funkcji zdefiniowanej przez użytkownika w języku C# dla zadania Azure Stream Analytics (wersja zapoznawcza)
 
 Zdefiniowane przez użytkownika funkcje w języku C# w programie Visual Studio pozwalają rozszerzyć język zapytań usługi Azure Stream Analytics przy użyciu własnych funkcji. Możesz ponownie używać istniejącego kodu (w tym bibliotek DLL), a także korzystać z matematycznej lub złożonej logiki języka C#. Istnieją trzy sposoby implementowania funkcji zdefiniowanych przez użytkownika: pliki CodeBehind w projekcie usługi Stream Analytics, funkcje zdefiniowane przez użytkownika z lokalnego projektu języka C# lub funkcje zdefiniowane przez użytkownika z istniejącego pakietu z konta magazynu. W tym samouczku do zaimplementowania podstawowej funkcji języka C# jest używana metoda CodeBehind. Funkcja UDF dla Stream Analytics zadań jest obecnie w wersji zapoznawczej i nie powinna być używana w obciążeniach produkcyjnych.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie funkcji zdefiniowanej przez użytkownika w języka C# przy użyciu metody CodeBehind.
@@ -146,7 +146,7 @@ Po przetestowaniu zapytania w środowisku lokalnym wybierz pozycję **Prześlij 
 ## <a name="deploy-to-iot-edge-devices"></a>Wdrażanie na urządzeniach usługi IoT Edge
 Jeśli zdecydujesz się na utworzenie zadania Stream Analytics Edge, można je wdrożyć jako moduł IoT Edge. Postępuj zgodnie z instrukcjami z [przewodnika Szybki start dotyczącego usługi IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart), aby utworzyć centrum IoT Hub, zarejestrować urządzenie usługi IoT Edge, a następnie zainstaluj i uruchom środowisko uruchomieniowe usługi IoT Edge na urządzeniu. Następnie postępuj zgodnie z instrukcjami z samouczka dotyczącego [wdrażania zadania](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job), aby wdrożyć zadanie usługi Stream Analytics jako moduł usługi IoT Edge. 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku utworzysz prostą funkcję zdefiniowaną przez użytkownika w języku C# za pomocą CodeBehind, opublikowano zadanie na platformie Azure i wdrożono zadanie na platformie Azure lub na IoT Edge urządzeniu. 
 

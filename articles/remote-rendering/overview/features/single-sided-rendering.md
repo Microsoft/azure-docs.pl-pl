@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: aff636adff48a8882c152eab398a96a8d28f84e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f1778d1f37217a5f65624be2fcc6c58c68002931
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892749"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013286"
 ---
 # <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: dawania
 
@@ -65,7 +66,7 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wycięte płaszczyzny](cut-planes.md)
 * [Konfigurowanie konwersji modelu](../../how-tos/conversion/configure-model-conversion.md)

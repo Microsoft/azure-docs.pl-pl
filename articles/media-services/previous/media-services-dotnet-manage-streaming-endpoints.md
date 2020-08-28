@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a1ab14ab0899e94c447537d1d7eb7876cf70aab0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038736"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015717"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego za pomocą zestawu .NET SDK  
 
@@ -143,7 +144,7 @@ namespace AMSStreamingEndpoint
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

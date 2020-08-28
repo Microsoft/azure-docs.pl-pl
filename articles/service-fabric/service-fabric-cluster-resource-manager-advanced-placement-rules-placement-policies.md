@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75834398"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005755"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Zasady umieszczania dla usług Service Fabric
 Zasady umieszczania są dodatkowymi regułami, które mogą służyć do zarządzania umieszczaniem usługi w określonych, mniej typowych scenariuszach. Oto kilka przykładów tych scenariuszy:
@@ -122,7 +123,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 Czy można teraz używać tych konfiguracji dla usług w klastrze, który nie jest geograficznie łączony? Możesz, ale nie istnieje zbyt dobry powód. Należy unikać wymaganych, nieprawidłowych i preferowanych konfiguracji domeny, chyba że są one wymagane. Nie ma żadnego sensu, aby wymusić wymuszenie uruchomienia danego obciążenia w jednym stojaku lub preferowanie pewnego segmentu lokalnego klastra. Różne konfiguracje sprzętu powinny być rozłożone między domenami błędów i obsługiwane przez normalne ograniczenia umieszczania i właściwości węzła.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 - Aby uzyskać więcej informacji na temat konfigurowania usług, [Dowiedz się więcej o konfigurowaniu usług](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png

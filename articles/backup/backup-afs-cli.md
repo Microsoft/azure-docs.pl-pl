@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 54852112591b5f5eec1ecbac34b836b4cb0f4f1f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763256"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012028"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia
 
@@ -98,9 +98,9 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-Atrybut **name** w danych wyjściowych odpowiada nazwie zadania tworzonego przez usługę kopii zapasowej dla operacji tworzenia kopii zapasowej na żądanie. Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+Atrybut **name** w danych wyjściowych odpowiada nazwie zadania, które jest tworzone przez usługę kopii zapasowej dla operacji "kopia zapasowa na żądanie". Aby śledzić stan zadania, użyj polecenia [AZ Backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się, jak [przywrócić udziały plików platformy Azure przy użyciu interfejsu wiersza polecenia](restore-afs-cli.md)
 * Informacje na temat [zarządzania kopiami zapasowymi udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia](manage-afs-backup-cli.md)

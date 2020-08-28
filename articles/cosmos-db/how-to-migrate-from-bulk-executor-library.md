@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261430"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022483"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki wykonawców zbiorczych do pomocy technicznej zbiorczej w Azure Cosmos DB .NET v3 SDK
 
@@ -33,15 +34,15 @@ Na przykład, jeśli początkowe dane wejściowe to lista elementów, w których
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Jeśli chcesz przeprowadzić import zbiorczy (podobnie jak w przypadku korzystania z programu BulkExecutor. BulkImportAsync), musisz mieć współbieżne wywołania do `CreateItemAsync` . Przykład:
+Jeśli chcesz przeprowadzić import zbiorczy (podobnie jak w przypadku korzystania z programu BulkExecutor. BulkImportAsync), musisz mieć współbieżne wywołania do `CreateItemAsync` . Na przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Jeśli chcesz przeprowadzić *aktualizację* zbiorczą (podobną do korzystania z [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), musisz mieć współbieżne wywołania `ReplaceItemAsync` metody po zaktualizowaniu wartości elementu. Przykład:
+Jeśli chcesz przeprowadzić *aktualizację* zbiorczą (podobną do korzystania z [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)), musisz mieć współbieżne wywołania `ReplaceItemAsync` metody po zaktualizowaniu wartości elementu. Na przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-A jeśli chcesz przeprowadzić *usuwanie* zbiorcze (podobnie jak w przypadku korzystania z programu [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), musisz mieć współbieżne wywołania do `DeleteItemAsync` , z `id` kluczem partycji i dla każdego elementu. Przykład:
+A jeśli chcesz przeprowadzić *usuwanie* zbiorcze (podobnie jak w przypadku korzystania z programu [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), musisz mieć współbieżne wywołania do `DeleteItemAsync` , z `id` kluczem partycji i dla każdego elementu. Na przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -93,7 +94,7 @@ Podobnie jak w przypadku innych operacji przy użyciu zestawu .NET SDK, korzysta
 
 Używanie interfejsów API usługi Stream jest możliwe tylko wtedy, gdy charakter używanych danych pasuje do strumienia bajtów (na przykład strumieni plików). W takich przypadkach użycie `CreateItemStreamAsync` `ReplaceItemStreamAsync` metod,, lub `DeleteItemStreamAsync` i praca z `ResponseMessage` (zamiast `ItemResponse` ) zwiększa przepływność, która może zostać osiągnięta.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Aby dowiedzieć się więcej o wersjach zestawu SDK platformy .NET, zobacz artykuł [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) .
 * Pobierz kompletny [kod źródłowy migracji](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration) z usługi GitHub.

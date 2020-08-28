@@ -5,12 +5,13 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793095"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005517"
 ---
 # <a name="introduction-to-auto-scaling"></a>Wprowadzenie do automatycznego skalowania
 Skalowanie automatyczne to dodatkowa funkcja Service Fabric do dynamicznego skalowania usług na podstawie obciążenia, które usługi są raportowane lub na podstawie ich użycia. Skalowanie automatyczne zapewnia doskonałą elastyczność i umożliwia obsługę dodatkowych wystąpień lub partycji usługi na żądanie. Cały proces skalowania automatycznego jest zautomatyzowany i przejrzysty, a po skonfigurowaniu zasad w ramach usługi nie ma potrzeby ręcznego skalowania operacji na poziomie usługi. Skalowanie automatyczne może być włączane podczas tworzenia usługi lub w dowolnym momencie przez aktualizację usługi.
@@ -201,5 +202,5 @@ Aby umożliwić skalowanie usługi Monitor zasobów na podstawie rzeczywistych z
 Istnieją dwie metryki reprezentujące rzeczywiste zasoby fizyczne. Jednym z nich jest element servicefabric:/_CpuCores reprezentujący rzeczywiste użycie procesora CPU (więc 0,5 reprezentuje połowę rdzenia), a drugi to w przypadku elementu servicefabric:/_MemoryInMB, który reprezentuje użycie pamięci w MB.
 ResourceMonitorService jest odpowiedzialny za śledzenie użycia procesora i pamięci przez usługi użytkownika. Ta usługa będzie stosowała ważoną średnią przesunięcia w celu uwzględnienia potencjalnych gwałtownych skoków. Monitorowanie zasobów jest obsługiwane w przypadku aplikacji kontenerowych i niekontenerowych w systemie Windows oraz dla kontenerów w systemie Linux. Skalowanie automatyczne na zasobach jest włączone tylko dla usług aktywowanych w [modelu procesów wyłącznych](service-fabric-hosting-model.md#exclusive-process-model).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Dowiedz się więcej o [skalowalności aplikacji](service-fabric-concepts-scalability.md).

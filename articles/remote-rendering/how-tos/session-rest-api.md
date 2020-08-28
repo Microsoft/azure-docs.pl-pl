@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509845"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012385"
 ---
 # <a name="use-the-session-management-rest-api"></a>Korzystanie z interfejsu API REST zarządzania sesją
 
@@ -117,7 +117,14 @@ Odpowiedź z powyższego żądania zawiera **Identyfikator sesji**, który jest 
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
 
-## <a name="update-a-session"></a>Aktualizowanie sesji
+## <a name="modify-and-query-session-properties"></a>Modyfikuj i badaj właściwości sesji
+
+Istnieje kilka poleceń służących do wykonywania zapytań lub modyfikacji parametrów istniejących sesji.
+
+> [!CAUTION]
+Podobnie jak w przypadku wszystkich wywołań REST, wysłanie tych poleceń zbyt często spowoduje ograniczenie i zwrócenie błędu. Kod stanu w tym przypadku jest 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
+
+### <a name="update-session-parameters"></a>Aktualizuj parametry sesji
 
 To polecenie aktualizuje parametry sesji. Obecnie można zwiększyć tylko czas dzierżawy sesji.
 
@@ -138,7 +145,7 @@ To polecenie aktualizuje parametry sesji. Obecnie można zwiększyć tylko czas 
 |-----------|:-----------|:-----------|
 | 200 | | Powodzenie |
 
-### <a name="example-script-update-a-session"></a>Przykładowy skrypt: aktualizowanie sesji
+#### <a name="example-script-update-a-session"></a>Przykładowy skrypt: aktualizowanie sesji
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
@@ -160,7 +167,7 @@ Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Da
 RawContentLength  : 0
 ```
 
-## <a name="get-active-sessions"></a>Pobierz aktywne sesje
+### <a name="get-active-sessions"></a>Pobierz aktywne sesje
 
 To polecenie zwraca listę aktywnych sesji.
 
@@ -174,7 +181,7 @@ To polecenie zwraca listę aktywnych sesji.
 |-----------|:-----------|:-----------|
 | 200 | -Sessions: Tablica właściwości sesji | Opis właściwości sesji znajduje się w sekcji "Uzyskiwanie właściwości sesji". |
 
-### <a name="example-script-query-active-sessions"></a>Przykładowy skrypt: wykonywanie zapytań dotyczących aktywnych sesji
+#### <a name="example-script-query-active-sessions"></a>Przykładowy skrypt: wykonywanie zapytań dotyczących aktywnych sesji
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -203,7 +210,7 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 2
 ```
 
-## <a name="get-sessions-properties"></a>Pobierz właściwości sesji
+### <a name="get-sessions-properties"></a>Pobierz właściwości sesji
 
 To polecenie zwraca informacje o sesji, takie jak nazwa hosta maszyny wirtualnej.
 
@@ -217,7 +224,7 @@ To polecenie zwraca informacje o sesji, takie jak nazwa hosta maszyny wirtualnej
 |-----------|:-----------|:-----------|
 | 200 | -Message: ciąg<br/>-sessionElapsedTime: TimeSpan<br/>-sessionHostname: ciąg<br/>-sessionId: ciąg<br/>-sessionMaxLeaseTime: TimeSpan<br/>-sessionSize: enum<br/>-sessionStatus: enum | Wyliczenie sessionStatus {Start, gotowe, zatrzymywanie, zatrzymane, wygasłe, błąd}<br/>Jeśli stan ma wartość "Error" lub "wygasła", komunikat będzie zawierać więcej informacji |
 
-### <a name="example-script-get-session-properties"></a>Przykładowy skrypt: pobieranie właściwości sesji
+#### <a name="example-script-get-session-properties"></a>Przykładowy skrypt: pobieranie właściwości sesji
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -281,6 +288,6 @@ Headers           : {[MS-CV, YDxR5/7+K0KstH54WG443w.0], [Date, Thu, 09 May 2019 
 RawContentLength  : 0
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)

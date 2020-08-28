@@ -5,12 +5,13 @@ author: jumeder
 ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
-ms.openlocfilehash: f4c6883753e9acbe66aa11dd6c26a5af67143f44
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891423"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013592"
 ---
 # <a name="debug-rendering"></a>Debugowanie renderowania
 
@@ -74,7 +75,7 @@ Jednak podane efekty nie dają żadnych szczegółowych introspekcji w zakresie 
 * Włączenie nakładek tekstu jest nieco nieznacznie niezwiązane z wydajnością.
 * Włączenie trybu szkieletu wiąże się z nieprostym obciążeniem wydajności, ale może się to różnić w zależności od sceny. W przypadku złożonych scen ten tryb może spowodować spadek szybkości klatek poniżej wartości docelowej 60-Hz.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Tryby renderowania](../../concepts/rendering-modes.md)
 * [Zapytania wydajności po stronie serwera](performance-queries.md)

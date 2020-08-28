@@ -3,12 +3,13 @@ title: Partycjonowanie Service Fabric usług
 description: Opisuje sposób partycjonowania Service Fabric usługi stanowe. Partycje umożliwiają przechowywanie danych na maszynach lokalnych, dzięki czemu można skalować dane i obliczenia jednocześnie.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: e395fc31550dfdbedf963db0d648191453d016b2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045420"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005432"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric reliable services (Partycjonowanie usług Reliable Services w ramach usługi Service Fabric)
 Ten artykuł zawiera wprowadzenie do podstawowych pojęć dotyczących partycjonowania Service Fabric niezawodnych usług Azure. Kod źródłowy używany w artykule jest również dostępny w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -224,7 +225,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
     }
     ```
    
-    `ProcessInternalRequest`odczytuje wartości parametru ciągu zapytania używanego do wywołania partycji i wywołań, `AddUserAsync` Aby dodać LastName do niezawodnego słownika `dictionary` .
+    `ProcessInternalRequest` odczytuje wartości parametru ciągu zapytania używanego do wywołania partycji i wywołań, `AddUserAsync` Aby dodać LastName do niezawodnego słownika `dictionary` .
 10. Dodajmy do projektu usługę bezstanową, aby zobaczyć, jak można wywołać określoną partycję.
     
     Ta usługa służy jako prosty interfejs sieci Web, który akceptuje nazwisko jako parametr ciągu zapytania, określa klucz partycji i wysyła go do alfabetu. przetwarzanie usługi do przetworzenia.
@@ -307,7 +308,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
     ```
     
     Należy pamiętać, że w tym przykładzie używamy 26 partycji z jednym kluczem partycji na partycję.
-    Następnie uzyskujemy partycję usługi `partition` dla tego klucza przy użyciu `ResolveAsync` metody dla `servicePartitionResolver` obiektu. `servicePartitionResolver`jest zdefiniowane jako
+    Następnie uzyskujemy partycję usługi `partition` dla tego klucza przy użyciu `ResolveAsync` metody dla `servicePartitionResolver` obiektu. `servicePartitionResolver` jest zdefiniowane jako
     
     ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
@@ -349,7 +350,7 @@ Ponieważ firma Microsoft chce mieć jedną partycję na literę, można użyć 
 
 Cały kod źródłowy przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Aby uzyskać informacje na temat pojęć Service Fabric, zobacz następujące tematy:
 
 * [Dostępność usług Service Fabric Services](service-fabric-availability-services.md)

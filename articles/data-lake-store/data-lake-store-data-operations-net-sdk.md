@@ -6,12 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 1044af94df43e61ae8c0032041bc80a356331f1a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515667"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022466"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operacje systemu plików na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 
@@ -48,8 +49,8 @@ Przykładowy kod dostępny [w usłudze GitHub](https://github.com/Azure-Samples/
    1. Upewnij **się, że** na karcie **Menedżer pakietów NuGet** jest ustawiona wartość **NuGet.org**. Upewnij się również, że zaznaczone jest pole wyboru **Uwzględnij wersję wstępną** .
    1. Wyszukaj i zainstaluj następujące pakiety NuGet:
 
-      * `Microsoft.Azure.DataLake.Store`— W tym artykule jest stosowane 1.0.0 v.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`— W tym artykule jest stosowany program v 2.3.1.
+      * `Microsoft.Azure.DataLake.Store` — W tym artykule jest stosowane 1.0.0 v.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — W tym artykule jest stosowany program v 2.3.1.
 
       Zamknij **Menedżera pakietów NuGet**.
 
@@ -198,11 +199,11 @@ Poniżej przedstawiono kilka przykładów, które pokazują, jak korzystać z ze
 * [Podstawowy przykład w witrynie GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Zaawansowany przykład w witrynie GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Dokumentacja zestawu SDK platformy .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)

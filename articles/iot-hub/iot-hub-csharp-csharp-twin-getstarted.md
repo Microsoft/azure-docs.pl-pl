@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 91cebee1196dc38af8ece4086b6e6ab66fdc14da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: mqtt, devx-track-csharp
+ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135553"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013762"
 ---
 # <a name="get-started-with-device-twins-net"></a>Wprowadzenie do bliźniaczych reprezentacji urządzeń (.NET)
 
@@ -33,7 +33,7 @@ W tym samouczku utworzysz następujące aplikacje konsolowe platformy .NET:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Program Visual Studio.
+* Programu Visual Studio.
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
 
@@ -211,7 +211,7 @@ W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się
     }
     ```
 
-   Powyższy kod aktualizuje raportowaną Właściwość **myDeviceId** z informacjami o łączności.
+   Powyższy kod aktualizuje raportowaną Właściwość  **myDeviceId** z informacjami o łączności.
 
 1. Na koniec dodaj następujące wiersze do metody **Główne**:
 
@@ -244,7 +244,7 @@ W tej sekcji utworzysz aplikację konsolową platformy .NET, która łączy się
 
     ![Pomyślnie zgłoszono łączność urządzenia](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku opisano konfigurowanie nowego centrum IoT Hub w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Metadane urządzenia zostały dodane jako Tagi z aplikacji zaplecza i zapisały symulowaną aplikację urządzenia do raportowania informacji o łączności urządzenia w ramach sznurka urządzenia. Dowiesz się również, jak wykonywać zapytania dotyczące tych informacji przy użyciu języka zapytań IoT Hub w programie SQL Server.
 

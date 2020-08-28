@@ -3,13 +3,13 @@ title: 'Tworzenie pierwszej aplikacji Service Fabric w języku C #'
 description: Wprowadzenie do tworzenia aplikacji Microsoft Azure Service Fabric przy użyciu usług bezstanowych i stanowych.
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: sfrev
-ms.openlocfilehash: 201131f774632e1130c6be6a0dbcb950b96ec508
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: sfrev, devx-track-csharp
+ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260477"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012742"
 ---
 # <a name="get-started-with-reliable-services"></a>Wprowadzenie do usług Reliable Services
 
@@ -103,7 +103,7 @@ Platforma wywołuje tę metodę, gdy wystąpienie usługi jest umieszczane i got
 
 Ta aranżacja jest zarządzana przez system w celu zapewnienia wysokiej dostępności i prawidłowego zrównoważenia usługi.
 
-`RunAsync()`nie powinien blokować synchronicznie. Implementacja RunAsync powinna zwrócić zadanie lub oczekiwanie na wszystkie operacje długotrwałe lub blokujące, aby umożliwić kontynuowanie środowiska uruchomieniowego. Zwróć uwagę na `while(true)` pętlę w poprzednim przykładzie, która jest używana do zwracania zadań `await Task.Delay()` . Jeśli obciążenie musi blokować synchronicznie, należy zaplanować nowe zadanie przy użyciu `Task.Run()` w `RunAsync` implementacji.
+`RunAsync()` nie powinien blokować synchronicznie. Implementacja RunAsync powinna zwrócić zadanie lub oczekiwanie na wszystkie operacje długotrwałe lub blokujące, aby umożliwić kontynuowanie środowiska uruchomieniowego. Zwróć uwagę na `while(true)` pętlę w poprzednim przykładzie, która jest używana do zwracania zadań `await Task.Delay()` . Jeśli obciążenie musi blokować synchronicznie, należy zaplanować nowe zadanie przy użyciu `Task.Run()` w `RunAsync` implementacji.
 
 Anulowanie obciążenia jest wysiłkiem w ramach współpracy zorganizowanej przy użyciu podanego tokenu anulowania. System poczeka na zakończenie zadania (przez pomyślne ukończenie, anulowanie lub błąd) przed przekazaniem. Ważne jest, aby honorować token anulowania, zakończyć pracę i zakończyć działanie `RunAsync()` tak szybko, jak to możliwe, gdy system żąda anulowania.
 
@@ -161,7 +161,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ### <a name="runasync"></a>RunAsync
 
-`RunAsync()`działa podobnie do usług stanowych i bezstanowych. Jednak w usłudze stanowej platforma wykonuje dodatkową prace w Twoim imieniu, zanim zostanie wykonana `RunAsync()` . To działanie może obejmować upewnienie się, że niezawodny Menedżer stanu i niezawodne kolekcje są gotowe do użycia.
+`RunAsync()` działa podobnie do usług stanowych i bezstanowych. Jednak w usłudze stanowej platforma wykonuje dodatkową prace w Twoim imieniu, zanim zostanie wykonana `RunAsync()` . To działanie może obejmować upewnienie się, że niezawodny Menedżer stanu i niezawodne kolekcje są gotowe do użycia.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Niezawodne kolekcje i Menedżer niezawodnego stanu
 
@@ -209,7 +209,7 @@ Po uruchomieniu usług można wyświetlić wygenerowane zdarzenia śledzenia zda
 
 ![Wyświetlanie zdarzeń diagnostycznych w programie Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Debugowanie aplikacji Service Fabric w programie Visual Studio](service-fabric-debugging-your-application.md)
 
 [Wprowadzenie: Service Fabric usług interfejsu API sieci Web za pomocą samoobsługowego udostępniania usługi OWIN](./service-fabric-reliable-services-communication-aspnetcore.md)

@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.custom: seodec18
-ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: fff1a228e32f115c498678a654f6c8f028772161
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921860"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015683"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Opracowywanie .NET Standard funkcji zdefiniowanych przez użytkownika dla zadań Azure Stream Analytics (wersja zapoznawcza)
 
@@ -21,10 +21,10 @@ Azure Stream Analytics oferuje język zapytań przypominający SQL, służący d
 Funkcja zdefiniowana przez użytkownika platformy .NET dla zadań w chmurze jest dostępna w:
 * Zachodnio-środkowe stany USA
 * Europa Północna
-* Wschodnie stany USA
+* East US
 * Zachodnie stany USA
 * Wschodnie stany USA 2
-* Europa Zachodnia
+* West Europe
 
 Jeśli interesuje Cię korzystanie z tej funkcji w innym regionie, możesz [poprosić o dostęp](https://aka.ms/ccodereqregion).
 
@@ -158,7 +158,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`jest przenoszona jako parametr wejściowy do metody UDF i może być używany w formacie UDF do publikowania informacji o dzienniku niestandardowym. W poniższym przykładzie definiuje dane `MyUdfMethod` wejściowe, **data** które są dostarczane przez zapytanie oraz dane wejściowe **kontekstu** jako `StreamingContext` , dostarczone przez aparat środowiska uruchomieniowego. 
+`StreamingContext` jest przenoszona jako parametr wejściowy do metody UDF i może być używany w formacie UDF do publikowania informacji o dzienniku niestandardowym. W poniższym przykładzie definiuje dane `MyUdfMethod` wejściowe, **data** które są dostarczane przez zapytanie oraz dane wejściowe **kontekstu** jako `StreamingContext` , dostarczone przez aparat środowiska uruchomieniowego. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)
@@ -191,7 +191,7 @@ Wersja zapoznawcza UDF ma obecnie następujące ograniczenia:
 
 * Niestandardowy kod użytkownika nie obsługuje pustych folderów. Nie dodawaj pustych folderów do plików pomocniczych w projekcie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Samouczek: pisanie funkcji zdefiniowanej przez użytkownika w języku C# dla zadania Azure Stream Analytics (wersja zapoznawcza)](stream-analytics-edge-csharp-udf.md)
 * [Samouczek: funkcje języka JavaScript zdefiniowane przez użytkownika w usłudze Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

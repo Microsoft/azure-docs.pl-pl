@@ -3,16 +3,16 @@ title: Jak zarządzać komercyjnym kontem witryny Marketplace w centrum partners
 description: Dowiedz się, jak zarządzać komercyjnym kontem witryny Marketplace w centrum partnerskim firmy Microsoft.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 04/27/2020
-ms.openlocfilehash: 8362019365aab002929cc3414e6ca742952fc8ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/27/2020
+ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320021"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015836"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -91,16 +91,18 @@ W centrum partnerskim można dokończyć i przesyłać formularze podatkowe elek
 Różne kraje i regiony mają różne wymagania podatkowe. Dokładna kwota, która musi zostać zapłacona podatkiem, zależy od krajów i regionów, w których sprzedawane są oferty. Firma Microsoft dokonuje sprzedaży i używa podatków w Twoim imieniu w niektórych krajach/regionach. Te kraje/regiony zostaną zidentyfikowane w procesie tworzenia oferty. W innych krajach/regionach, w zależności od tego, gdzie się rejestrujesz, może być konieczne przekazanie sprzedaży i użycie podatku za sprzedaż bezpośrednio do urzędu opodatkowania lokalnego. Ponadto otrzymane przychody mogą być opodatkowane jako dochód. Zdecydowanie zachęcamy do skontaktowania się z odpowiednim urzędem dla danego kraju lub regionu, który może pomóc w ustaleniu odpowiednich informacji podatkowych dla transakcji sprzedaży firmy Microsoft.
 
 ##### <a name="withholding-rates"></a>Stawki za potrącenie
+
 Informacje przesyłane w formularzach podatkowych określają odpowiednią stawkę za potrącenie podatku. Wskaźnik potrącenia ma zastosowanie tylko do sprzedaży wprowadzonej do Stany Zjednoczone; sprzedaż dokonywana w lokalizacjach innych niż Stany USA nie podlega potrąceniu. Stawki zaliczania są różne, ale dla większości deweloperów rejestrowanych poza Stany Zjednoczone Domyślna stawka wynosi 30%. Istnieje możliwość zmniejszenia tej stawki, jeśli kraj/region wyraził zgodę na Traktat akcyzowy z Stany Zjednoczone.
 
 ##### <a name="tax-treaty-benefits"></a>Korzyści z Traktatu podatkowego
+
 Jeśli nie masz Stany Zjednoczone, możesz skorzystać z korzyści z traktatów podatkowych. Te korzyści różnią się w zależności od kraju/regionu do kraju/regionu i mogą pozwalać zmniejszyć liczbę podatków rozpuszczalnych przez firmę Microsoft. Korzyści z Traktatu podatkowego można zgłaszać, wypełniając część II formularza W 8BEN. Zalecamy komunikację z odpowiednimi zasobami w Twoim kraju lub regionie, aby określić, czy te korzyści dotyczą użytkownika.
 
 [Dowiedz się więcej o szczegółach dotyczących podatku dla deweloperów aplikacji/gier systemu Windows i wydawców portalu Azure Marketplace](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
 #### <a name="payout-hold-status"></a>Stan wstrzymania
 
-Domyślnie firma Microsoft wysyła płatności miesięcznie. Istnieje jednak możliwość zawieszania twoich wypłat, co uniemożliwi wysyłanie płatności do konta. Jeśli zdecydujesz się na wstrzymanie wypłatów, będziemy nadal rejestrować wszelkie dochody, które uzyskasz, i podaj szczegóły w **podsumowaniu wypłaty**. Nie będziemy jednak wysyłać żadnych płatności do konta do momentu usunięcia blokady. 
+Domyślnie firma Microsoft wysyła płatności miesięcznie. Można jednak opcjonalnie wprowadzić wypłaty, co uniemożliwi wysyłanie płatności do konta. Jeśli zdecydujesz się na wstrzymanie wypłatów, będziemy nadal rejestrować wszelkie dochody, które uzyskasz, i podaj szczegóły w **podsumowaniu wypłaty**. Nie będziemy jednak wysyłać żadnych płatności do konta do momentu usunięcia blokady.
 
 Aby wstrzymać płatności, przejdź do pozycji **Ustawienia konta**. W obszarze **szczegóły finansowe**, w sekcji **stan wstrzymania** , przełącz suwak na wartość **wł**. W każdej chwili możesz zmienić status wypłaty, ale należy pamiętać, że decyzja wpłynie na następną miesięczną wypłatę. Na przykład jeśli chcesz wstrzymać wypłatę z kwietnia, pamiętaj, aby przed końcem marca ustawić stan wstrzymania na wartość **włączone** .
 
@@ -123,8 +125,8 @@ Zalecamy utworzenie unikatowego identyfikatora GUID dla każdej oferty i kanału
 
 Jeśli produkt zostanie wdrożony przy użyciu szablonu, który jest dostępny zarówno w portalu Azure Marketplace, jak i w witrynie GitHub, można utworzyć i zarejestrować dwa różne identyfikatory GUID:
 
-*    Produkt A w portalu Azure Marketplace
-*    Produkt A w serwisie GitHub
+- Produkt A w portalu Azure Marketplace
+- Produkt A w serwisie GitHub
 
 Raportowanie jest wykonywane przez wartość partnera (identyfikator partnera firmy Microsoft) i identyfikatory GUID. Możesz także śledzić identyfikatory GUID na bardziej szczegółowym poziomie wyrównanym do każdego planu w ramach oferty.
 
@@ -138,7 +140,7 @@ Adres rozliczeniowy jest wstępnie wypełniony przez firmę prawną i można go 
 
 ## <a name="multi-user-account-management"></a>Zarządzanie kontami przez wiele użytkowników
 
-Centrum partnerskie wykorzystuje [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) do dostępu do konta i zarządzania przez wiele użytkowników. Usługa Azure AD Twojej organizacji jest automatycznie skojarzona z kontem Centrum partnerskiego w ramach procesu rejestracji.
+Centrum partnerskie używa [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) do uzyskiwania dostępu do konta i zarządzania przez wiele użytkowników. Usługa Azure AD Twojej organizacji jest automatycznie skojarzona z kontem Centrum partnerskiego w ramach procesu rejestracji.
 
 ## <a name="manage-users"></a>Zarządzanie użytkownikami
 
@@ -162,13 +164,13 @@ Aby dodać użytkowników do konta Centrum partnerskiego, które już istnieje n
 1. Przejdź do pozycji **Użytkownicy** (w obszarze **Ustawienia konta**) i wybierz pozycję **Dodaj użytkowników**.
 2. Wybierz co najmniej jednego użytkownika z wyświetlonej listy. Możesz użyć pola wyszukiwania, aby wyszukać określonych użytkowników.
 * Jeśli wybierzesz więcej niż jednego użytkownika do dodania do konta Centrum partnerskiego, musisz przypisać im tę samą rolę lub zestaw uprawnień niestandardowych. Aby dodać wielu użytkowników z różnymi rolami/uprawnieniami, Powtórz te kroki dla każdej roli lub zestawu uprawnień niestandardowych.
-3. Po zakończeniu wybierania użytkowników kliknij przycisk **Dodaj wybrane**.
+3. Po zakończeniu wybierania użytkowników wybierz pozycję **Dodaj wybrane**.
 4. W sekcji **role** Określ role lub dostosowane uprawnienia dla wybranych użytkowników.
 5. Wybierz pozycję **Zapisz**.
 
 ### <a name="create-new-users"></a>Utwórz nowych użytkowników
 
-Aby utworzyć nowe konta użytkowników, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) . 
+Aby utworzyć nowe konta użytkowników, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) .
 
 1. Przejdź do pozycji **Użytkownicy** (w obszarze **Ustawienia konta**), wybierz pozycję **Dodaj użytkowników**, a następnie wybierz pozycję **Utwórz nowych użytkowników**.
 1. Wprowadź imię i nazwisko oraz nazwę użytkownika dla każdego nowego użytkownika. 
@@ -185,7 +187,7 @@ Utworzenie nowego użytkownika w centrum partnerskim spowoduje również utworze
 Aby zapraszać użytkowników, którzy nie są obecnie częścią firmowego konta służbowego (Azure AD dzierżawcą) za pośrednictwem poczty e-mail, musisz mieć konto z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) .
 
 1. Przejdź do pozycji **Użytkownicy** (w obszarze **Ustawienia konta**), wybierz pozycję **Dodaj użytkowników**, a następnie wybierz opcję **Zapraszanie użytkowników za pośrednictwem poczty e-mail**.
-2. Wprowadź co najmniej jeden adres e-mail (do dziesięciu), rozdzielony przecinkami lub średnikami.
+2. Wprowadź co najmniej jeden adres e-mail (do 10), rozdzielony przecinkami lub średnikami.
 3. W sekcji **role** Określ role lub dostosowane uprawnienia dla użytkownika.
 4. Wybierz pozycję **Zapisz**.
 
@@ -202,11 +204,11 @@ Aby usunąć użytkownika z konta służbowego (dzierżawy usługi Azure AD), pr
 
 ### <a name="change-a-user-password"></a>Zmiana hasła użytkownika
 
-Jeśli jeden z użytkowników musi zmienić hasło, może to zrobić, jeśli podczas tworzenia konta użytkownika podano **wiadomość e-mail z odzyskiwaniem haseł** . Możesz również zaktualizować hasło użytkownika, wykonując poniższe kroki. Aby zmienić hasło użytkownika na koncie służbowym firmy (dzierżawy usługi Azure AD), użytkownik musi być zalogowany na koncie z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) . Należy pamiętać, że spowoduje to zmianę hasła użytkownika w dzierżawie usługi Azure AD wraz z hasłem używanym do uzyskiwania dostępu do Centrum partnerskiego.
+Jeśli jeden z użytkowników musi zmienić hasło, może to zrobić, jeśli podczas tworzenia konta użytkownika podano **wiadomość e-mail z odzyskiwaniem haseł** . Możesz również zaktualizować hasło użytkownika, wykonując poniższe kroki. Aby zmienić hasło użytkownika na koncie służbowym firmy (dzierżawy usługi Azure AD), użytkownik musi być zalogowany na koncie z uprawnieniami [**administratora globalnego**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) . Spowoduje to zmianę hasła użytkownika w dzierżawie usługi Azure AD wraz z hasłem używanym do uzyskiwania dostępu do Centrum partnerskiego.
 
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz nazwę konta użytkownika, które chcesz edytować.
 2. Wybierz przycisk **resetowania hasła** w dolnej części strony.
-3. Zostanie wyświetlona strona potwierdzenia przedstawiająca informacje logowania dla użytkownika, w tym hasło tymczasowe. Pamiętaj, aby wydrukować lub skopiować te informacje i udostępnić je użytkownikowi, ponieważ nie będzie można uzyskać dostępu do hasła tymczasowego po opuszczeniu tej strony.
+3. Zostanie wyświetlona strona potwierdzenia z informacjami logowania użytkownika, w tym hasła tymczasowego. Pamiętaj, aby wydrukować lub skopiować te informacje i udostępnić je użytkownikowi, ponieważ nie będzie można uzyskać dostępu do hasła tymczasowego po opuszczeniu tej strony.
 
 ## <a name="manage-groups"></a>Zarządzanie grupami
 
@@ -219,7 +221,7 @@ Aby dodać grupę, która już istnieje w ramach konta służbowego organizacji 
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz pozycję **Dodaj grupy**.
 2. Wybierz co najmniej jedną grupę z wyświetlonej listy. Możesz użyć pola wyszukiwania do wyszukiwania określonych grup.
 W przypadku wybrania więcej niż jednej grupy do dodania do konta Centrum partnerskiego należy przypisać im tę samą rolę lub zestaw uprawnień niestandardowych. Aby dodać wiele grup z różnymi rolami/uprawnieniami, Powtórz te kroki dla każdej roli lub zestawu uprawnień niestandardowych.
-3. Po zakończeniu wybierania grup kliknij przycisk **Dodaj wybrane**.
+3. Po zakończeniu wybierania grup wybierz pozycję **Dodaj wybrane**.
 4. W sekcji **role** Określ role lub dostosowane uprawnienia dla wybranych grup. Wszyscy członkowie grupy będą mogli uzyskiwać dostęp do konta Centrum partnerskiego z uprawnieniami, które są stosowane do grupy, niezależnie od ról i uprawnień skojarzonych z ich indywidualnym kontem.
 5. Wybierz pozycję **Zapisz**.
 
@@ -234,10 +236,10 @@ Aby dodać nową markę do konta Centrum partnerskiego:
 3. Wprowadź nazwę wyświetlaną dla nowej grupy.
 4. Określ role lub dostosowane uprawnienia dla grupy. Wszyscy członkowie grupy będą mogli uzyskiwać dostęp do konta Centrum partnerskiego z uprawnieniami, które są stosowane w tym miejscu, niezależnie od ról/uprawnień skojarzonych z ich indywidualnym kontem.
 5. Z wyświetlonej listy wybierz użytkowników dla nowej grupy. Możesz użyć pola wyszukiwania, aby wyszukać określonych użytkowników.
-6. Po zakończeniu wybierania użytkowników kliknij przycisk **Dodaj wybrane** , aby dodać je do nowej grupy.
+6. Po zakończeniu wybierania użytkowników wybierz pozycję **Dodaj wybrane** , aby dodać je do nowej grupy.
 7. Wybierz pozycję **Zapisz**.
 
-Ta nowa grupa zostanie utworzona w ramach konta służbowego organizacji (dzierżawy usługi Azure AD), a nie tylko na koncie Centrum partnerskiego.
+Nowa grupa zostanie utworzona w ramach konta służbowego organizacji (dzierżawy usługi Azure AD), a nie tylko na koncie Centrum partnerskiego.
 
 ### <a name="remove-a-group"></a>Usuwanie grupy
 
@@ -253,18 +255,18 @@ Aby dodać aplikacje, które już istnieją w Azure Active Directory firmy:
 
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz pozycję **Dodaj aplikacje usługi Azure AD**.
 2. Wybierz co najmniej jedną aplikację usługi Azure AD z wyświetlonej listy. Możesz użyć pola wyszukiwania, aby wyszukać określone aplikacje usługi Azure AD. W przypadku wybrania więcej niż jednej aplikacji usługi Azure AD, która ma zostać dodana do konta Centrum partnerskiego, należy przypisać im tę samą rolę lub zestaw uprawnień niestandardowych. Aby dodać wiele aplikacji usługi Azure AD z różnymi rolami/uprawnieniami, Powtórz te kroki dla każdej roli lub zestawu uprawnień niestandardowych.
-3. Po zakończeniu wybierania aplikacji usługi Azure AD kliknij pozycję **Dodaj wybrane**.
+3. Po zakończeniu wybierania aplikacji usługi Azure AD wybierz pozycję **Dodaj wybrane**.
 4. W sekcji **role** Określ role lub dostosowane uprawnienia dla wybranych aplikacji usługi Azure AD.
 5. Wybierz pozycję **Zapisz**.
 
 ### <a name="add-new-azure-ad-applications"></a>Dodawanie nowych aplikacji usługi Azure AD
 
-Jeśli chcesz udzielić Centrum partnerskiego dostępu do nowego konta aplikacji usługi Azure AD, możesz je utworzyć w sekcji **Użytkownicy** . Należy pamiętać, że spowoduje to utworzenie nowego konta na koncie służbowym firmy (dzierżawy usługi Azure AD), a nie tylko na koncie Centrum partnerskiego. Jeśli korzystasz głównie z tej aplikacji usługi Azure AD na potrzeby uwierzytelniania w centrum partnerskim i nie potrzebujesz dostępu do nich bezpośrednio, możesz wprowadzić dowolny prawidłowy adres **URL odpowiedzi** i **Identyfikator URI identyfikatora aplikacji**, o ile te wartości nie są używane przez żadną inną aplikację usługi Azure AD w katalogu.
+Jeśli chcesz udzielić Centrum partnerskiego dostępu do nowego konta aplikacji usługi Azure AD, możesz je utworzyć w sekcji **Użytkownicy** . Spowoduje to utworzenie nowego konta na koncie służbowym firmy (dzierżawy usługi Azure AD), a nie tylko na koncie Centrum partnerskiego. Jeśli korzystasz głównie z tej aplikacji usługi Azure AD na potrzeby uwierzytelniania w centrum partnerskim i nie potrzebujesz dostępu do nich bezpośrednio, możesz wprowadzić dowolny prawidłowy adres **URL odpowiedzi** i **Identyfikator URI identyfikatora aplikacji**, o ile te wartości nie są używane przez żadną inną aplikację usługi Azure AD w katalogu.
 
 1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz pozycję **Dodaj aplikacje usługi Azure AD**.
 2. Na następnej stronie wybierz pozycję **Nowa aplikacja usługi Azure AD**.
 3. Wprowadź **adres URL odpowiedzi** dla nowej aplikacji usługi Azure AD. Jest to adres URL, pod którym użytkownicy mogą się logować i korzystać z aplikacji usługi Azure AD (czasami także znanego również jako adres URL aplikacji lub adres URL logowania). **Adres URL odpowiedzi** nie może mieć więcej niż 256 znaków i musi być unikatowy w obrębie katalogu.
-4. Wprowadź **Identyfikator URI aplikacji** dla nowej aplikacji usługi Azure AD. Jest to identyfikator logiczny dla aplikacji usługi Azure AD, który jest prezentowany podczas wysyłania żądania logowania jednokrotnego do usługi Azure AD. Należy pamiętać, że **Identyfikator URI aplikacji** musi być unikatowy dla każdej aplikacji usługi Azure AD w katalogu. Ten identyfikator nie może zawierać więcej niż 256 znaków. Aby uzyskać więcej informacji o IDENTYFIKATORze URI aplikacji, zobacz [Integrowanie aplikacji z usługą Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
+4. Wprowadź **Identyfikator URI aplikacji** dla nowej aplikacji usługi Azure AD. Jest to identyfikator logiczny dla aplikacji usługi Azure AD, który jest prezentowany podczas wysyłania żądania logowania jednokrotnego do usługi Azure AD. **Identyfikator URI identyfikatora aplikacji** musi być unikatowy dla każdej aplikacji usługi Azure AD w katalogu. Ten identyfikator nie może zawierać więcej niż 256 znaków. Aby uzyskać więcej informacji o IDENTYFIKATORze URI aplikacji, zobacz [Integrowanie aplikacji z usługą Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. W sekcji **role** Określ role lub dostosowane uprawnienia dla aplikacji usługi Azure AD.
 6. Wybierz pozycję **Zapisz**.
 
@@ -278,7 +280,7 @@ Aby usunąć aplikację z konta służbowego (dzierżawy usługi Azure AD), prze
 
 Jeśli aplikacja usługi Azure AD odczytuje i zapisuje dane w Microsoft Azure AD, będzie potrzebny klucz. Możesz utworzyć klucze dla aplikacji usługi Azure AD, edytując jej informacje w centrum partnerskim. Możesz również usunąć klucze, które nie są już potrzebne.
 
-1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz nazwę aplikacji usługi Azure AD. Zobaczysz wszystkie aktywne klucze dla aplikacji usługi Azure AD, w tym datę utworzenia klucza i czas jego wygaśnięcia. 
+1. Na stronie **Użytkownicy** (w obszarze **Ustawienia konta**) wybierz nazwę aplikacji usługi Azure AD. Zobaczysz wszystkie aktywne klucze dla aplikacji usługi Azure AD, w tym datę utworzenia klucza i czas wygaśnięcia 50.
 2. Aby usunąć klucz, który nie jest już wymagany, wybierz pozycję **Usuń**.
 3. Aby dodać nowy klucz, wybierz pozycję **Dodaj nowy klucz**.
 4. Zobaczysz ekran pokazujący **Identyfikator klienta** i **wartości klucza**. Pamiętaj, aby wydrukować lub skopiować te informacje, ponieważ nie będzie można uzyskać do niej dostępu, gdy opuścisz Tę stronę.
@@ -288,6 +290,8 @@ Jeśli aplikacja usługi Azure AD odczytuje i zapisuje dane w Microsoft Azure AD
 
 Użytkownikom firmy można przypisać następujące role i uprawnienia do komercyjnego programu Marketplace w centrum partnerskim:
 
+- **Właściciel**
+  - "Jest to osoba, która po raz pierwszy utworzyła konto i ma do niego pełny dostęp, w tym możliwość tworzenia i edytowania wszystkich użytkowników konta oraz zmiany wszystkich ustawień finansowych i kont. Konto ma zwykle tylko jednego właściciela ".
 - **Manager**
   - Może uzyskać dostęp do wszystkich funkcji konto Microsoft oprócz ustawień podatków i wypłat
   - Może zarządzać użytkownikami, rolami i kontami służbowymi (dzierżawcami)

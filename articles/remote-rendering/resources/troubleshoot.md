@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509284"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014595"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -34,6 +34,14 @@ Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują
 Sprawdź, czy procesor GPU obsługuje sprzętowe dekodowanie wideo. Zobacz [komputer deweloperski](../overview/system-requirements.md#development-pc).
 
 Jeśli pracujesz na laptopie z dwoma procesorami GPU, istnieje możliwość, że procesor GPU, który jest uruchamiany domyślnie, nie zapewnia funkcji sprzętowego dekodowania wideo. Jeśli tak, spróbuj wymusić, aby aplikacja korzystała z innego procesora GPU. Jest to często możliwe w ustawieniach sterownika procesora GPU.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>Pobieranie stanu sesji/konwersji nie powiodło się
+
+Wysyłanie poleceń interfejsu API REST zbyt często spowoduje, że serwer zostanie ograniczony i ostatecznie nie zwraca błędu. Kod stanu HTTP w przypadku dławienia ma 429 ("zbyt wiele żądań"). Zgodnie z zasadą dla elementu kciuka należy mieć opóźnienie **5-10 sekund między kolejnymi wywołaniami**.
+
+Należy zauważyć, że ten limit nie ma wpływu na wywołania interfejsu API REST, gdy jest wywoływana bezpośrednio, ale także ich odpowiedników w języku C#/C + +, takich jak `Session.GetPropertiesAsync` , `Session.RenewAsync` , lub `Frontend.GetAssetConversionStatusAsync` .
+
+W przypadku korzystania z funkcji ograniczania przepustowości po stronie serwera należy zmienić kod, tak aby wywołania były rzadziej używane. Serwer zresetuje stan ograniczania co minutę, więc można bezpiecznie ponownie uruchomić kod po minucie.
 
 ## <a name="h265-codec-not-available"></a>Koder-dekoder H265 niedostępny
 
@@ -236,7 +244,7 @@ Współrzędne powierzchniowe mogą mieć różne przyczyny:
 
 
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Wymagania systemowe](../overview/system-requirements.md)
 * [Wymagania dotyczące sieci](../reference/network-requirements.md)

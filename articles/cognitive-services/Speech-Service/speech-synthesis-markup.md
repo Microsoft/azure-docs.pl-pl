@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f202a9d616809d1f14366350d8d60ef2bc06b96b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 069e0f2d14dafe0de208ac69d2d652361a11ee34
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934518"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012436"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -155,7 +155,7 @@ speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objectivec)
 
 Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -192,33 +192,38 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > Dopasowanie stylów wymawiania będzie działało tylko z głosymi neuronowych.
 
-Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy użyciu neutralnego stylu mowy dla głosów standardowych i neuronowych. Za pomocą głosów neuronowych można dostosować styl mówiący, aby wyszukiwać różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak niestandardowe usługi, newscasting i asystent głosowy, przy użyciu  `mstts:express-as`   elementu. Jest to opcjonalny element unikatowy dla usługi mowy.
+Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy użyciu neutralnego stylu mowy dla głosów standardowych i neuronowych. Za pomocą głosów neuronowych można dostosować styl mówiący do języka Express różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak Customer Service, newscasting i Voice Assistant, przy użyciu `mstts:express-as` elementu. Jest to opcjonalny element unikatowy dla usługi mowy.
 
 Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
-Zmiany są stosowane na poziomie zdania i stylu różnią się w zależności od głosu. Jeśli styl nie jest obsługiwany, usługa zwróci mowę w domyślnym stylu mowy neutralnej.
+Zmiany są stosowane na poziomie zdania i style różnią się w zależności od głosu. Jeśli styl nie jest obsługiwany, usługa zwróci mowę w domyślnym stylu mowy neutralnej. Możesz badać style obsługiwane przez poszczególne głosy za pomocą [interfejsu API listy głosowej](rest-text-to-speech.md#get-a-list-of-voices).
+
+W przypadku języka chińskiego XiaoxiaoNeural można zmienić intensywność stylu mówiącego, aby lepiej dopasować się do Twojego przypadku użycia. Możesz określić silniejszy lub miękki styl, `styledegree` Aby zwiększyć mowę lub Subdued.
 
 **Składnia**
 
 ```xml
-<mstts:express-as style="string"></mstts:express-as>
+<mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+> [!NOTE]
+> W tej chwili program `styledegree` obsługuje tylko XiaoxiaoNeural. 
 
 **Atrybuty**
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `style` | Określa styl wymawiania. Obecnie style wymawiające są specyficzne dla głosu. | Wymagane, jeśli ustawienie stylu wymawiania dla głosu neuronowych. Jeśli używasz `mstts:express-as` , należy podać styl. Jeśli podano nieprawidłową wartość, ten element zostanie zignorowany. |
+| `styledegree` | Określa intensywność stylu wymawiania. **Akceptowane wartości**: od 0,01 do 2 włącznie. Wartość domyślna to 1, co oznacza intensywność stylu wstępnie zdefiniowanego. Jednostką minimalną jest 0,01, która skutkuje niewielkim tendencją dla stylu docelowego. Wartość 2 powoduje dwustronne zwiększenie intensywności stylu domyślnego.  | Opcjonalnie (w momencie `styledegree` obsługuje tylko XiaoxiaoNeural).|
 
 Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla każdego głosu neuronowych.
 
 | Połączenia głosowe                   | Styl                     | Opis                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast-formal"` | Formalny, pewny i wiarygodny dźwięk na potrzeby dostarczania wiadomości|
-|                         | `style="newscast-casual"` | Uniwersalny i swobodny sygnał na potrzeby dostarczania ogólnych wiadomości       |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Wyraża formalny, pewny i wiarygodny dźwięk na potrzeby dostarczania wiadomości |
+|                         | `style="newscast-casual"` | Wyraża wszechstronny i swobodny sygnał na potrzeby dostarczania ogólnych wiadomości        |
 |                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
 |                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
 |                         | `style="cheerful"`        | Wyraża pozytywne i szczęśliwe Tony                         |
@@ -226,6 +231,15 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
 |                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
 |                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |
+|                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał dla Chit-Chat           |
+|                         | `style="calm"`            | Wyraża położeniu chłodną, zebraną i złożoną. Tony, gęstość, Prosody jest znacznie bardziej jednorodne w porównaniu z innymi rodzajami mowy.                                |
+|                         | `style="cheerful"`        | Wyraża puls i r o wyższej skoku i energii Vocal                         |
+|                         | `style="sad"`             | Wyraża ton sorrowful z większą ilością, mniejszą intensywnością i niższą vocalą energię. Typowymi wskaźnikami tego rozpoznawania emocji będzie whimpers lub Crying podczas mowy.            |
+|                         | `style="angry"`           | Wyraża ton Angry i wywołuje taką reakcję, z niższą wysokością, wyższą intensywnością i wyższą energią Vocal. Prelegent jest w stanie Irate, wypełniania i nieprawidłowym.       |
+|                         | `style="fearful"`         | Wyraża dźwięk obawialiśmy i nerwowy z większą opłatą, wyższą vocalą i szybszym tempem. Prelegent jest w stanie tenseness i uneasiness.                          |
+|                         | `style="disgruntled"`     | Wyraża disdainful i oddzwonka. Funkcja mowy tego rozpoznawania emocji wyświetla nieprawdziwa i nietymczasową.              |
+|                         | `style="serious"`         | Wyraża sygnał Strict i Command. Głośnik często wydaje się większym stopniu i mniej swobodny dzięki firmie erze.          | |                         | `style="affectionate"`    | Przedstawia gęstość ciepłą i Affectionate z większą ilością i Vocal energią. Prelegent jest w stanie zwrócić uwagę na odbiornik. "Osobowość" prelegenta często jest endearinga.          |     
+|                         | `style="gentle"`          | Wyraża łagodne, łagodnego i przyjemne tony, z niższą ilością i Vocal energią         |   
 |                         | `style="lyrical"`         | Wyraża emocji w melodic i Sentimental sposób         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  | 
 
@@ -239,6 +253,18 @@ Ten fragment kodu SSML ilustruje, w jaki sposób `<mstts:express-as>` element je
     <voice name="en-US-AriaNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+Ten fragment kodu SSML ilustruje, jak `styledegree` atrybut jest używany do zmiany intensywności stylu wymawiania dla XiaoxiaoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaoxiaoNeural">
+        <mstts:express-as style="sad" styledegree="2">
+            快走吧，路上一定要注意安全，早去早回。
         </mstts:express-as>
     </voice>
 </speak>
@@ -405,7 +431,7 @@ Aby zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestan
 
 `lexicon`Element zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden `grapheme` element i jeden lub więcej `grapheme` `alias` elementów,, i `phoneme` . `grapheme`Element zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. `alias`Elementy są używane do wskazania wymowy akronimu lub skróconego terminu. `phoneme`Element zawiera tekst opisujący sposób `lexeme` wymawiania.
 
-Należy pamiętać, że nie można bezpośrednio ustawić wymowy słowa przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla akronimu lub skróconego terminu, najpierw Podaj `alias` wartość, a następnie skojarz ją `phoneme` z `alias` . Przykład:
+Należy pamiętać, że nie można bezpośrednio ustawić wymowy słowa przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla akronimu lub skróconego terminu, najpierw Podaj `alias` wartość, a następnie skojarz ją `phoneme` z `alias` . Na przykład:
 
 ```xml
   <lexeme>
@@ -494,7 +520,7 @@ Ponieważ wartości atrybutów granicę prozodyczną mogą się różnić w ró�
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `pitch` | Wskazuje gęstość linii bazowej dla tekstu. Możesz wyrazić gęstość jako:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hz). Na przykład 600 Hz.</li><li>Wartość względna, wyrażona jako liczba poprzedzona znakiem "+" lub "-", po której następuje "Hz" lub "St", która określa ilość, aby zmienić gęstość. Na przykład: + 80 Hz lub-2st. "St" wskazuje, że jednostka zmiany to semitone, czyli połowę tonu (pół kroku) w standardowej skali Diatonic.</li><li>Stała wartość:<ul><li>x — niska</li><li>małą</li><li>średni</li><li>wysoka</li><li>x — wysoka</li><li>default</li></ul></li></ul>. | Opcjonalne |
-| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Opcjonalne |
+| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Na przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Opcjonalne |
 | `range` | Wartość, która reprezentuje zakres skoku dla tekstu. Można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia, które są używane do opisywania `pitch` . | Opcjonalne |
 | `rate` | Wskazuje stawkę głosu tekstu. Można wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje brak zmian w szybkości. Wartość *0,5* skutkuje halving szybkością. Wartość *3* powoduje przekroczenie stawki.</li><li>Stała wartość:<ul><li>x — powolne</li><li>opóźnienie</li><li>średni</li><li>szybki</li><li>x — Fast</li><li>default</li></ul></li></ul> | Opcjonalne |
 | `duration` | Okres, który powinien upłynąć, gdy usługa synteza mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2S* lub *1800ms*. | Opcjonalne |
@@ -690,6 +716,6 @@ Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak pr
 </speak>
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Obsługa języków: głosy, zmienne lokalne, Języki](language-support.md)
