@@ -159,7 +159,7 @@ Metody tworzenia dla jednostek są częścią klasy [modelu](https://docs.micros
 
 Kod tworzenia jednostki tworzy jednostkę uczenia maszynowego z podjednostkami i funkcjami zastosowanymi do `Quantity` podjednostek.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Kod tworzenia jednostki tworzy jednostkę uczenia maszynowego z podjednostkami i funkcjami zastosowanymi do podjednostek "ilooć".":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Kod tworzenia jednostki tworzy jednostkę uczenia maszynowego z podjednostkami i funkcjami zastosowanymi do podjednostek ilooć.":::
 
 [!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=AuthoringAddEntities)]
 
