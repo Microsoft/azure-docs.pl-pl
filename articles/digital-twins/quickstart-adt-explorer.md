@@ -56,7 +56,7 @@ Następnie przygotuj utworzone wystąpienie usługi Azure Digital bliźniaczych 
 
 Wybierz pozycję *uwierzytelnianie* z menu Rejestracja i naciśnij pozycję *+ Dodaj platformę*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Azure Portal stronie szczegółów uwierzytelniania dla rejestracji aplikacji. Zostanie wyróżniony przycisk "Dodaj platformę"" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Azure Portal stronie szczegółów uwierzytelniania dla rejestracji aplikacji. Zostanie wyróżniony przycisk Dodaj platformę" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 Na stronie *Konfigurowanie platform* poniżej wybierz pozycję *Sieć Web*.
 Wypełnij szczegóły konfiguracji w następujący sposób:
