@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: da0c5bf6bc371bc512d9264afeab52b9908396fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f443cd5603e6ca0f60dc0e69b734bfa46138d476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463562"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018947"
 ---
 # <a name="list-blob-containers-with-net"></a>Wyświetlanie listy kontenerów obiektów BLOB przy użyciu platformy .NET
 
@@ -98,7 +99,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Lista kontenerów](/rest/api/storageservices/list-containers2) 
  [Wyliczanie zasobów obiektów BLOB](/rest/api/storageservices/enumerating-blob-resources)

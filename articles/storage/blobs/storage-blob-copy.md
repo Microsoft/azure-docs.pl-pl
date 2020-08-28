@@ -8,12 +8,13 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 144ad1a2f9d9b94deca1462d217aa16baca75846
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446851"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018896"
 ---
 # <a name="copy-a-blob-with-net"></a>Kopiowanie obiektu BLOB za pomocą platformy .NET
 
@@ -129,7 +130,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Poniższe tematy zawierają informacje o kopiowaniu obiektów blob i przerywaniu trwających operacji kopiowania przy użyciu interfejsów API REST platformy Azure.
 

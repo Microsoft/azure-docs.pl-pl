@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
-ms.openlocfilehash: d8c61c90456607d73fc0e8abc24709d901328ecf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ae1d2dfaf7d83d3b2323812f637bddd91b9a2ea2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829530"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018233"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu SDK Firebase w wersji 1.0.0-zestawu
 
@@ -269,7 +270,7 @@ Przed przetestowaniem powiadomień wypychanych wewnątrz emulatora upewnij się,
 
 Upewnij się również, że konto Google zostało dodane do działającego emulatora w obszarze **Ustawienia**   >  **konta**. W przeciwnym razie próby zarejestrowania się w usłudze FCM mogą spowodować wyjątek **AUTHENTICATION_FAILED**   .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku użyto usługi Firebase Cloud Messaging do rozgłaszania powiadomień do wszystkich urządzeń z systemem Android, które zostały zarejestrowane w usłudze. Aby dowiedzieć się, jak wysyłać powiadomienia push do konkretnych urządzeń, przejdź do następującego samouczka:
 

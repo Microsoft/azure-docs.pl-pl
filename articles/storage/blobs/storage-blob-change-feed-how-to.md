@@ -8,12 +8,13 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: baed9ef099ed818fa0967c7a3e7ab61fb4921f75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719312"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018964"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Kanał informacyjny zmiany procesu w usłudze Azure Blob Storage (wersja zapoznawcza)
 
@@ -216,6 +217,6 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
 
 Określony czas rozpoczęcia jest zaokrąglany w dół do najbliższej godziny, a czas zakończenia jest zaokrąglany do najbliższej godziny. Istnieje możliwość, że użytkownicy mogą zobaczyć zdarzenia, które wystąpiły przed upływem czasu rozpoczęcia i czasu zakończenia. Istnieje również możliwość, że niektóre zdarzenia występujące między czasem rozpoczęcia i zakończenia nie będą wyświetlane. Wynika to z faktu, że zdarzenia mogą być rejestrowane w ciągu godziny wcześniejszej niż godzina rozpoczęcia lub w ciągu godziny po zakończeniu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o dziennikach źródła zmian. Zobacz artykuł [Zmiana kanału informacyjnego w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md)

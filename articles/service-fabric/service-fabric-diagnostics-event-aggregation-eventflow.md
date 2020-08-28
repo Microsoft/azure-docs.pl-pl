@@ -5,12 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463095"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018658"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregacja i zbieranie zdarzeń przy użyciu użyciu struktury eventflow
 
@@ -24,12 +25,12 @@ Pliki binarne użyciu struktury eventflow są dostępne jako zbiór pakietów Nu
 
 Zostanie wyświetlona lista różnych pakietów, które są wyświetlane z etykietą "dane wejściowe" i "wyjścia". Użyciu struktury eventflow obsługuje różnych różnych dostawców rejestrowania i analizatorów. Użyciu struktury eventflow hostingu usługi powinna zawierać odpowiednie pakiety w zależności od źródła i miejsca docelowego dzienników aplikacji. Oprócz podstawowego pakietu servicefabric potrzebne są również co najmniej jedno skonfigurowane dane wejściowe i wyjściowe. Na przykład można dodać następujące pakiety, aby wysłać zdarzenia EventSource do Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`Aby przechwytywać dane z klasy EventSource usługi i ze standardowych zdarzeń EventSource, takich jak *Microsoft-servicefabric-Services* i *Microsoft-Servicefabric-aktors*)
-* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`(będziemy wysyłać dzienniki do zasobu usługi Azure Application Insights)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` Aby przechwytywać dane z klasy EventSource usługi i ze standardowych zdarzeń EventSource, takich jak *Microsoft-servicefabric-Services* i *Microsoft-Servicefabric-aktors*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (będziemy wysyłać dzienniki do zasobu usługi Azure Application Insights)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(umożliwia inicjowanie potoku użyciu struktury eventflow z konfiguracji usługi Service Fabric i zgłasza wszelkie problemy z wysyłaniem danych diagnostycznych jako raportów kondycji Service Fabric)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Inputs.EventSource`Pakiet wymaga, aby projekt usługi miał wartość docelową .NET Framework 4,6 lub nowszą. Przed zainstalowaniem tego pakietu upewnij się, że we właściwościach projektu została ustawiona odpowiednia struktura docelowa.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` Pakiet wymaga, aby projekt usługi miał wartość docelową .NET Framework 4,6 lub nowszą. Przed zainstalowaniem tego pakietu upewnij się, że we właściwościach projektu została ustawiona odpowiednia struktura docelowa.
 
 Po zainstalowaniu wszystkich pakietów następnym krokiem jest skonfigurowanie i włączenie użyciu struktury eventflow w usłudze.
 
@@ -139,13 +140,13 @@ Użyciu struktury eventflow obsługuje używanie ustawień Service Fabric i para
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`jest nazwą sekcji konfiguracji Service Fabric i `<setting-name>` jest ustawieniem konfiguracji dostarczającym wartość, która będzie używana do konfigurowania ustawienia użyciu struktury eventflow. Aby dowiedzieć się więcej o tym, jak to zrobić, przejdź do [pomocy technicznej dotyczącej ustawień Service Fabric i parametrów aplikacji](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` jest nazwą sekcji konfiguracji Service Fabric i `<setting-name>` jest ustawieniem konfiguracji dostarczającym wartość, która będzie używana do konfigurowania ustawienia użyciu struktury eventflow. Aby dowiedzieć się więcej o tym, jak to zrobić, przejdź do [pomocy technicznej dotyczącej ustawień Service Fabric i parametrów aplikacji](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Weryfikacja
 
 Uruchom usługę i zaobserwuj okno dane wyjściowe debugowania w programie Visual Studio. Po uruchomieniu usługi należy zacząć wyświetlać dowód, że usługa wysyła rekordy do danych wyjściowych, które zostały skonfigurowane. Przejdź do platformy analizy zdarzeń i wizualizacji, a następnie upewnij się, że dzienniki zostały uruchomione w celu wyświetlenia (może to potrwać kilka minut).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Analiza zdarzeń i wizualizacja przy użyciu Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Analiza zdarzeń i wizualizacja z dziennikami Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

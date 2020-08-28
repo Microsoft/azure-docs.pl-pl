@@ -4,12 +4,12 @@ description: Dowiedz się, jak funkcje szyfrowania w programie Azure Backup uła
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 71183e99522707737812096567d877df740c4bae
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f55deba58cd7b725bd030409296794e5de911c09
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763647"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017910"
 ---
 # <a name="encryption-in-azure-backup"></a>Szyfrowanie w usłudze Azure Backup
 
@@ -29,7 +29,7 @@ Azure Backup obejmuje szyfrowanie na dwóch poziomach:
 >[!NOTE]
 >Szyfrowanie infrastruktury jest obecnie w ograniczonej wersji zapoznawczej i jest dostępne w regionach Wschodnie stany USA, Stany USA West2, Południowo-środkowe stany USA, US Gov Arizona i stany USA GOV Wirginia. Jeśli chcesz użyć funkcji w dowolnym z tych regionów, Wypełnij [ten formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) i Wyślij wiadomość e-mail na adres [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 - [Azure Backup często zadawane](backup-azure-backup-faq.md#encryption) pytania dotyczące niezwiązanych z szyfrowaniem

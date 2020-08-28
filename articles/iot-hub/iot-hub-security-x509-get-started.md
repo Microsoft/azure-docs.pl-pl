@@ -12,12 +12,13 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: d7bf31f7b16fa987bb9c710835d1a3aff8214604
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+- devx-track-csharp
+ms.openlocfilehash: 1c1e29d43fefa6be1586aefc28249fe2f0f9e9fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783267"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001029"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurowanie zabezpieczeń X.509 w usłudze Azure IoT Hub
 
@@ -93,7 +94,7 @@ Aby uwierzytelnić urządzenie X. 509, należy najpierw podpisać urządzenie pr
 
 Następnie pokażemy, jak utworzyć aplikację w języku C# w celu symulowania urządzenia X. 509 zarejestrowanego dla Centrum IoT. Będziemy wysyłać wartości temperatury i wilgotności z symulowanego urządzenia do centrum. W tym samouczku utworzymy tylko aplikację urządzenia. Jest to pozostawione jako ćwiczenie dla czytelników, aby utworzyć aplikację usługi IoT Hub, która będzie wysyłać odpowiedzi na zdarzenia wysyłane przez to symulowane urządzenie. W aplikacji C# założono, że wykonano kroki [zarządzania certyfikatami testów urzędu certyfikacji dla przykładów i samouczków](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-1. Otwórz program Visual Studio, wybierz pozycję **Utwórz nowy projekt**, a następnie wybierz szablon projektu **aplikacja konsoli (.NET Framework)** . Wybierz pozycję **Dalej**.
+1. Otwórz program Visual Studio, wybierz pozycję **Utwórz nowy projekt**, a następnie wybierz szablon projektu **aplikacja konsoli (.NET Framework)** . Wybierz pozycję **Next** (Dalej).
 
 1. W obszarze **Konfigurowanie nowego projektu**Nazwij projekt *SimulateX509Device*, a następnie wybierz pozycję **Utwórz**.
 
@@ -193,7 +194,7 @@ Następnie pokażemy, jak utworzyć aplikację w języku C# w celu symulowania u
 
    ![Uruchom aplikację urządzenia](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat zabezpieczania rozwiązania IoT, zobacz:
 

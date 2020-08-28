@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b3f2f8a6a8a1e4f287af45f994c0f0b1d479811
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075824"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001012"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Informacje o wersji usługi Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="aug-2020"></a>2020 sie
+
+| Ulepszenia usługi | Szczegóły |
+| --- | --- |
+|**Zarządzanie obciążeniem — środowisko portalu**|Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal. Możliwa jest możliwość skonfigurowania [grup obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) i [klasyfikatorów obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) .|
+|**Ulepszony widok wykazu mapowań tabel**|Nowy widok wykazu [sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapuje **object_ids** trwałych tabel użytkowników na nazwy tabel fizycznych. Ten widok oferuje zoptymalizowaną wydajność w porównaniu z bieżącym [sys. pdw_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions).|
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
@@ -138,7 +145,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
 |**Klasyfikacja & odnajdywania danych**|Klasyfikacja & odnajdywania danych jest teraz dostępna w publicznej wersji zapoznawczej usługi SQL Synapse. Ochrona danych poufnych i prywatności klientów jest niezwykle ważna. W miarę wzrostu zasobów danych firmy i klienta nie będzie można nimi zarządzać w celu odnajdywania, klasyfikowania i ochrony danych. Funkcja odnajdywania i klasyfikowania danych, którą wprowadzamy natywnie przy użyciu narzędzia Synapse SQL, pomaga chronić dane. Poniżej przedstawiono ogólne korzyści wynikające z tej możliwości:<br/>&bull;&nbsp;Standardy prywatności danych i wymagania dotyczące zgodności z przepisami.<br/>&bull;&nbsp;Ograniczanie dostępu do i ograniczanie bezpieczeństwa magazynów danych zawierających wysoce poufne dane.<br/>&bull;&nbsp;Monitorowanie i zgłaszanie alertów dotyczących nietypowego dostępu do poufnych danych.<br/>&bull;&nbsp;Wizualizacja poufnych danych w centralnym pulpicie nawigacyjnym na Azure Portal. </br></br>Funkcja odnajdywania danych & jest dostępna we wszystkich regionach świadczenia usługi Azure. jest ona częścią zaawansowanych zabezpieczeń danych, w tym oceny luk w zabezpieczeniach i wykrywania zagrożeń. Aby uzyskać więcej informacji na temat klasyfikacji & odnajdywania danych, zapoznaj się z [wpisem w blogu](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) i [dokumentacją](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)online.|
-|**GRUPUJ WEDŁUG ZESTAWIEŃ**|Pakiet zbiorczy jest teraz obsługiwaną opcją GROUP BY.   Grupowanie według zestawień tworzy grupę dla każdej kombinacji wyrażeń kolumn. Grupuj według również "rzutuje" wyniki do sum częściowych i sum końcowych. Funkcja GROUP BY przetwarza od prawej do lewej, zmniejszając liczbę wyrażeń kolumn, w których tworzone są grupy i agregacje.  Kolejność kolumn ma wpływ na dane wyjściowe ZESTAWIEnia i może wpływać na liczbę wierszy w zestawie wyników.<br/><br/>Aby uzyskać więcej informacji na temat grupowania według ZESTAWIEnia, zobacz [Group by (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+|**GRUPUJ WEDŁUG ZESTAWIEŃ**|Pakiet zbiorczy jest teraz obsługiwaną opcją GROUP BY.   Grupowanie według zestawień tworzy grupę dla każdej kombinacji wyrażeń kolumn. Grupuj według również "rzutuje" wyniki do sum częściowych i sum końcowych. Funkcja GROUP BY przetwarza od prawej do lewej, zmniejszając liczbę wyrażeń kolumn, w których tworzone są grupy i agregacje.  Kolejność kolumn ma wpływ na dane wyjściowe ZESTAWIEnia i może wpływać na liczbę wierszy w zestawie wyników.<br/><br/>Aby uzyskać więcej informacji na temat grupowania według ZESTAWIEnia, zobacz  [Group by (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 |**Ulepszona dokładność dla jednostek dwu używanych i metryk portalu procesora**|Synapse SQL znacznie zwiększa dokładność metryk w Azure Portal.  Ta wersja zawiera poprawkę do użycia procesora CPU i jednostek dwu w celu prawidłowego odzwierciedlenia obciążenia we wszystkich węzłach obliczeniowych. Przed tą poprawką wartości metryk były podliczane. Należy spodziewać się wzrostu jednostek dwu używanych i metryk procesora w Azure Portal. |
 |**Zabezpieczenia na poziomie wiersza**|Funkcja zabezpieczeń na poziomie wiersza została wprowadzona w lis 2017. Teraz rozszerzono obsługę również do tabel zewnętrznych. Ponadto dodaliśmy obsługę wywoływania funkcji niedeterministycznych w wbudowanych funkcjach zwracających tabelę (TVFs) wymaganych do zdefiniowania predykatu filtru zabezpieczeń. To dodanie umożliwia określenie IS_ROLEMEMBER (), USER_NAME () itp. w predykacie filtru zabezpieczeń. Aby uzyskać więcej informacji, zobacz przykłady w [dokumentacji zabezpieczeń na poziomie wiersza](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).|
 |**Dodatkowa obsługa języka T-SQL**|Obszar powierzchniowy języka T-SQL dla Synapse SQL został rozszerzony w celu uwzględnienia obsługi [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
@@ -198,7 +205,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Istotne usterki**|CETAS do Parquet niepowodzeń w małych klasach zasobów w magazynach danych DW2000 i więcej — ta poprawka poprawnie identyfikuje odwołanie o wartości null w polu Utwórz tabelę zewnętrzną jako ścieżkę kodu Parquet.<br/><br/>Wartość kolumny tożsamości może ulec utracie w niektórych operacjach CTAS — nie można zachować wartości kolumny identyfikującej, gdy CTASed do innej tabeli. Zgłoszone w [blogu](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/).<br/><br/>Błąd wewnętrzny w niektórych przypadkach, gdy sesja zostanie zakończona, gdy zapytanie jest nadal uruchomione — ta poprawka wyzwala InvalidOperationException, jeśli sesja zostanie zakończona, gdy zapytanie jest nadal uruchomione.<br/><br/>(Wdrożone w listopadzie 2018) W przypadku próby załadowania wielu małych plików z ADLS (Gen1) przy użyciu bazy danych Base klienci mają nieoptymalną wydajność. — Wydajność systemu była nieprzerwana podczas weryfikacji tokenu zabezpieczającego usługi AAD. Problemy z wydajnością zostały skorygowane przez włączenie buforowania tokenów zabezpieczających. |
 | | |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Tworzenie puli SQL](create-data-warehouse-portal.md)
 

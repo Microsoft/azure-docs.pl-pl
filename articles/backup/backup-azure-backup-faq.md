@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892766"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017740"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -56,7 +56,7 @@ Jeśli kopia zapasowa została już skonfigurowana i musi zostać przeniesiona z
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Czy można wykonać przywracanie na poziomie elementu (ILR) dla maszyn wirtualnych, których kopia zapasowa jest wykonywana w magazynie usług Recovery Services?
 
 - Przywracanie na poziomie elementu jest obsługiwane w przypadku maszyn wirtualnych platformy Azure, których kopia zapasowa jest wykonywana przez kopię zapasową maszyny wirtualnej platformy Azure. Więcej informacji znajduje się w tym [artykule](backup-azure-restore-files-from-vm.md)
-- Usługa ILR nie jest obsługiwana dla punktów odzyskiwania online lokalnych maszyn wirtualnych, których kopia zapasowa jest wykonywana przez serwer usługi Azure Backup lub program System Center DPM.
+- ILR nie jest obsługiwana dla punktów odzyskiwania online lokalnych maszyn wirtualnych, których kopia zapasowa jest wykonywana przez Azure Backup Server (serwera usługi MAB) lub System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agent usługi Azure Backup
 
@@ -127,7 +127,7 @@ Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, któr
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Czy istnieje ograniczenie ilości danych kopii zapasowej utworzonej przy użyciu magazynu usługi Recovery Services?
 
-Nie ma żadnego limitu łącznej ilości danych, których kopię zapasową można utworzyć przy użyciu magazynu Recovery Services. Poszczególne źródła danych (inne niż maszyny wirtualne platformy Azure) mogą mieć maksymalnie 54 400 GB pamięci. Aby uzyskać więcej informacji na temat limitów, zobacz [sekcję limity magazynu w macierzy obsługi](./backup-support-matrix.md#vault-support).
+Nie ma limitu łącznej ilości danych, których kopię zapasową można utworzyć przy użyciu magazynu Recovery Servicesowego. Poszczególne źródła danych (inne niż maszyny wirtualne platformy Azure) mogą mieć maksymalnie 54 400 GB pamięci. Aby uzyskać więcej informacji na temat limitów, zobacz [sekcję limity magazynu w macierzy obsługi](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Dlaczego rozmiar danych przesyłanych do magazynu usługi Recovery Services jest mniejszy niż rozmiar danych wybranych do utworzenia kopii zapasowej?
 
@@ -184,7 +184,7 @@ Możesz utworzyć maksymalnie 9999 punktów odzyskiwania na każde pojedyncze ch
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Ile razy można odzyskać dane, których kopia zapasowa jest wykonywana na platformie Azure?
 
-Nie ma ograniczenia liczby operacji odzyskiwania z usługi Azure Backup.
+Nie ma żadnego limitu liczby operacji odzyskiwania z Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Czy podczas przywracania danych należy zapłacić za ruch wychodzący z platformy Azure?
 
@@ -224,7 +224,7 @@ Klucz szyfrowania używany przez agenta Microsoft Azure Recovery Services (MARS)
 
 Klucz używany do szyfrowania danych kopii zapasowej znajduje się tylko w Twojej lokacji. Firma Microsoft nie zachowuje kopii na platformie Azure i nie ma dostępu do klucza. W przypadku utraty klucza firma Microsoft nie może odzyskać danych kopii zapasowej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z innymi często zadawanymi pytaniami:
 

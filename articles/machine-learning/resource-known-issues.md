@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757289"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018726"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -184,6 +184,8 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 ## <a name="set-up-your-environment"></a>Konfigurowanie środowiska
 
 * **Problem z tworzeniem AmlCompute**: istnieje rzadka szansa, że niektórzy użytkownicy, którzy utworzyli swój Azure Machine Learningy obszar roboczy z Azure Portal przed wydaniem GA, nie będą mogli tworzyć AmlCompute w tym obszarze roboczym. Możesz zgłosić żądanie obsługi do usługi lub utworzyć nowy obszar roboczy za pomocą portalu lub zestawu SDK, aby natychmiast odblokować.
+
+* **Azure Container Registry nie obsługuje obecnie znaków Unicode w nazwach grup zasobów**: istnieje możliwość, że żądania ACR kończą się niepowodzeniem, ponieważ nazwa grupy zasobów zawiera znaki Unicode. Aby wyeliminować ten problem, zalecamy utworzenie ACR w grupie zasobów o innej nazwie.
 
 ## <a name="work-with-data"></a>Praca z danymi
 
@@ -449,7 +451,7 @@ Za pomocą kontroli dostępu opartej na rolach platformy Azure można ograniczy�
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami](how-to-assign-roles.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zobacz więcej artykułów do rozwiązywania problemów dotyczących Azure Machine Learning:
 

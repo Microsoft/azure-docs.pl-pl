@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: has-adal-ref
-ms.openlocfilehash: 57d1cda2e74cfe4ae3948e55124123d05682591b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: d842974b0b53e0b0ce199334a07f11e5c998b18d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534230"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018811"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 
@@ -54,7 +54,7 @@ Następnie Udziel uprawnień aplikacji do wywoływania interfejsów API usługi 
 1. W sekcji **uprawnienia interfejsu API** wybierz pozycję **Dodaj uprawnienie** i wybierz pozycję **interfejsy API firmy Microsoft**.
 1. Wybierz pozycję **Azure Storage** z listy wyników, aby wyświetlić okienko **uprawnienia do interfejsu API żądania** .
 1. W obszarze **jakiego typu uprawnienia aplikacja jest wymagana? Sprawdź**, czy dostępne są **uprawnienia delegowane**. Ta opcja jest domyślnie wybrana.
-1. W sekcji **Wybierz uprawnienia** okienka **uprawnienia interfejsu API żądania** zaznacz pole wyboru obok pozycji **user_impersonation**, a następnie kliknij pozycję **Dodaj uprawnienia**.
+1. W sekcji **Wybierz uprawnienia** okienka **uprawnienia interfejsu API żądania** zaznacz pole wyboru obok pozycji **user_impersonation**, a następnie kliknij pozycję  **Dodaj uprawnienia**.
 
     ![Zrzut ekranu przedstawiający uprawnienia do magazynu](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
@@ -299,7 +299,7 @@ Po uruchomieniu przykładu możesz sprawdzić, czy należy zaktualizować identy
 
     ![Zrzut ekranu przedstawiający identyfikatory URI przekierowania dla rejestracji aplikacji](media/storage-auth-aad-app/redirect-uri.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Platforma tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
 - [Zarządzanie prawami dostępu do danych magazynu za pomocą RBAC](storage-auth-aad-rbac.md)

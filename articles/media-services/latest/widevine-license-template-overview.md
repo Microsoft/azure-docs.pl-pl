@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 35816c693589c5a45d51e5bd093d908b68f9c0d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 173fa5a598a929ff77ce573cc429ed9488a5bd9b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043272"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018777"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Omówienie szablonu licencji Media Services v3 with Widevine
 
@@ -127,7 +128,7 @@ ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration =
 };
 ```
 
-### <a name="define-needed-classes-and-serialize-to-json"></a><a id="classes"></a>Zdefiniuj wymaganą klasę i serializować do formatu JSON
+### <a name="define-needed-classes-and-serialize-to-json"></a><a id="classes"></a> Zdefiniuj wymaganą klasę i serializować do formatu JSON
 
 #### <a name="define-classes"></a>Definiuj klasy
 
@@ -301,6 +302,6 @@ private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTem
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z tematem [Ochrona przy użyciu technologii DRM](protect-with-drm.md)

@@ -14,12 +14,13 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 0b4fbe4ab7accec18f48e6319e16d10f083a8709
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327450"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008347"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Wysyłanie komunikatów z chmury do urządzenia przy użyciu IoT Hub (.NET)
 
@@ -116,7 +117,7 @@ W tej sekcji utworzysz aplikację konsolową .NET, która wysyła komunikaty z c
 
 1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy nowy projekt, a następnie wybierz polecenie **Zarządzaj pakietami NuGet**.
 
-1. W obszarze **Zarządzaj pakietami NuGet**wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**. Wybierz pozycję **Zainstaluj**.
+1. W obszarze **Zarządzaj pakietami NuGet**wybierz pozycję **Przeglądaj**, a następnie wyszukaj i wybierz pozycję **Microsoft. Azure. Devices**. Wybierz pozycję  **Zainstaluj**.
 
    Ten krok spowoduje pobranie, zainstalowanie i dodanie odwołania do [pakietu NuGet zestawu SDK usługi Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
@@ -216,7 +217,7 @@ W tej sekcji zmodyfikujesz aplikację **SendCloudToDevice** , aby żądać opini
 > Dla uproszczenia w tym samouczku nie są implementowane żadne zasady ponawiania. W kodzie produkcyjnym należy zaimplementować zasady ponawiania, takie jak wycofywania wykładniczy, zgodnie z sugestią w [przejściowej obsłudze błędów](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym instruktażu pokazano, jak wysyłać i odbierać komunikaty z chmury do urządzenia.
 

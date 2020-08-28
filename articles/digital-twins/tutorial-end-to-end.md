@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0f4155c479151c5af64049e0cf9a6a1c4dc4a553
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: b12320213b28e6b07abe217bb509fd668a9ad997
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017522"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
 Aby skonfigurować kompleksowe rozwiązanie oparte na danych na żywo ze środowiska, możesz połączyć wystąpienie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami platformy Azure w celu zarządzania urządzeniami i danymi.
 
 W tym samouczku będziesz...
-* Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
-* Zapoznaj się z przykładowym scenariuszem kompilowania i wystąpieniami wstępnie zapisanych składników
-* Korzystanie z aplikacji [Azure Functions](../azure-functions/functions-overview.md) do kierowania symulowanych danych telemetrycznych z urządzenia [IoT Hub](../iot-hub/about-iot-hub.md) do właściwości cyfrowej przędzy
-* Propaguj zmiany za pomocą **grafu bliźniaczyego**, przetwarzając powiadomienia Digital bliźniaczy z Azure Functions, punktami końcowymi i trasami
+> [!div class="checklist"]
+> * Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+> * Zapoznaj się z przykładowym scenariuszem kompilowania i wystąpieniami wstępnie zapisanych składników
+> * Korzystanie z aplikacji [Azure Functions](../azure-functions/functions-overview.md) do kierowania symulowanych danych telemetrycznych z urządzenia [IoT Hub](../iot-hub/about-iot-hub.md) do właściwości cyfrowej przędzy
+> * Propaguj zmiany za pomocą **grafu bliźniaczyego**, przetwarzając powiadomienia Digital bliźniaczy z Azure Functions, punktami końcowymi i trasami
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -450,10 +451,11 @@ az ad app delete --id <your-application-ID>
 
 Na koniec Usuń folder przykładowego projektu pobrany z komputera lokalnego.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym samouczku opisano tworzenie kompleksowego scenariusza, który pokazuje, że usługa Azure Digital bliźniaczych reprezentacji jest obsługiwana przez dane urządzenia na żywo.
 
 Następnie zacznij od dokumentacji koncepcji, aby dowiedzieć się więcej o elementach, z którymi pracujesz w samouczku:
+
 > [!div class="nextstepaction"]
 > [*Koncepcje: modele niestandardowe*](concepts-models.md)

@@ -15,12 +15,13 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Operations'
 - devx-track-javascript
-ms.openlocfilehash: 223ec01165922702f8f8fa17b09e530b16fa79e5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-csharp
+ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423477"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017689"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -79,7 +80,7 @@ Aby uzyskać więcej informacji na temat tworzenia i używania tokenów zabezpie
 
 Każdy obsługiwany protokół, taki jak MQTT, AMQP i HTTPS, transportuje tokeny na różne sposoby.
 
-W przypadku korzystania z MQTT pakiet CONNECT ma identyfikator deviceId jako ClientId, `{iothubhostname}/{deviceId}` w polu username i token sygnatury dostępu współdzielonego w polu hasło. `{iothubhostname}`powinna to być pełny rekord CName Centrum IoT Hub (na przykład contoso.azure-devices.net).
+W przypadku korzystania z MQTT pakiet CONNECT ma identyfikator deviceId jako ClientId, `{iothubhostname}/{deviceId}` w polu username i token sygnatury dostępu współdzielonego w polu hasło. `{iothubhostname}` powinna to być pełny rekord CName Centrum IoT Hub (na przykład contoso.azure-devices.net).
 
 W przypadku korzystania z usługi [AMQP](https://www.amqp.org/)IoT Hub obsługuje [SASL Plain](https://tools.ietf.org/html/rfc4616) i [AMQP zabezpieczenia oparte na oświadczeniach](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
@@ -87,8 +88,8 @@ W przypadku korzystania z zabezpieczeń opartych na oświadczeniach AMQP standar
 
 W przypadku SASL PLAIN **Nazwa użytkownika** może:
 
-* `{policyName}@sas.root.{iothubName}`w przypadku korzystania z tokenów na poziomie Centrum IoT.
-* `{deviceId}@sas.{iothubname}`w przypadku używania tokenów z zakresem urządzeń.
+* `{policyName}@sas.root.{iothubName}` w przypadku korzystania z tokenów na poziomie Centrum IoT.
+* `{deviceId}@sas.{iothubname}` w przypadku używania tokenów z zakresem urządzeń.
 
 W obu przypadkach pole Password zawiera token, zgodnie z opisem w [IoT Hub tokeny zabezpieczające](iot-hub-devguide-security.md#security-tokens).
 
@@ -96,7 +97,7 @@ Protokół HTTPS implementuje uwierzytelnianie, dołączając prawidłowy token 
 
 #### <a name="example"></a>Przykład
 
-Nazwa użytkownika (identyfikator urządzenia jest rozróżniana wielkość liter):`iothubname.azure-devices.net/DeviceId`
+Nazwa użytkownika (identyfikator urządzenia jest rozróżniana wielkość liter): `iothubname.azure-devices.net/DeviceId`
 
 Hasło (można wygenerować token sygnatury dostępu współdzielonego z poleceniem polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)lub [Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
@@ -465,7 +466,7 @@ Inne tematy referencyjne w przewodniku dewelopera IoT Hub obejmują:
 
 * [RFC 5246 — protokół Transport Layer Security (TLS) w wersji 1,2](https://tools.ietf.org/html/rfc5246/) zawiera więcej informacji na temat uwierzytelniania TLS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz, gdy wiesz już, jak kontrolować dostęp IoT Hub, warto zainteresować Cię następujące IoT Hub tematy dotyczące przewodnika dla deweloperów:
 

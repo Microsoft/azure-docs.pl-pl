@@ -8,12 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
-ms.openlocfilehash: 3645b6752a49a0cf2544d170ac55a77cc8ae5e40
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082016"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000196"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Tworzenie topologii języka C# dla Apache Storm przy użyciu narzędzi Data Lake Tools for Visual Studio
 
@@ -150,9 +151,9 @@ Następnie Dodaj kod dla elementu Spout, który jest używany do odczytywania da
 
    * `NextTuple`: Wywoływane przez burzę, gdy elementu Spout może emitować nowe krotki.
 
-   * `Ack`(tylko topologia transakcyjna): obsługuje potwierdzenia uruchomione przez inne składniki w topologii dla krotek wysłanych z elementu Spout. Potwierdzenie krotki umożliwia elementu Spout, że została przetworzona pomyślnie przez składniki podrzędne.
+   * `Ack` (tylko topologia transakcyjna): obsługuje potwierdzenia uruchomione przez inne składniki w topologii dla krotek wysłanych z elementu Spout. Potwierdzenie krotki umożliwia elementu Spout, że została przetworzona pomyślnie przez składniki podrzędne.
 
-   * `Fail`(tylko topologia transakcyjna): obsługuje krotki, które nie przetwarzają innych składników w topologii. Implementacja `Fail` metody umożliwia ponowne wyemitowanie spójnej kolekcji, aby można ją było przetworzyć ponownie.
+   * `Fail` (tylko topologia transakcyjna): obsługuje krotki, które nie przetwarzają innych składników w topologii. Implementacja `Fail` metody umożliwia ponowne wyemitowanie spójnej kolekcji, aby można ją było przetworzyć ponownie.
 
 2. Zastąp zawartość `Spout` klasy następującym tekstem:
 
@@ -481,9 +482,9 @@ Podczas tworzenia i przesyłania topologii hybrydowej należy wziąć pod uwagę
 
 W wersji SCP.NET 0.9.4.203 wprowadzono nową klasę i metodę przeznaczone do pracy z centrum zdarzeń elementu Spout (Java elementu Spout, który odczytuje z Event Hubs). Podczas tworzenia topologii korzystającej z centrum zdarzeń elementu Spout (na przykład za pomocą przykładowego szablonu **czytnika burzy EventHub** ) Użyj następujących interfejsów API:
 
-* `EventHubSpoutConfig`Klasa: tworzy obiekt, który zawiera konfigurację dla składnika elementu Spout.
+* `EventHubSpoutConfig` Klasa: tworzy obiekt, który zawiera konfigurację dla składnika elementu Spout.
 
-* `TopologyBuilder.SetEventHubSpout`Metoda: dodaje składnik elementu Spout centrum zdarzeń do topologii.
+* `TopologyBuilder.SetEventHubSpout` Metoda: dodaje składnik elementu Spout centrum zdarzeń do topologii.
 
 > [!NOTE]  
 > Nadal należy używać `CustomizedInteropJSONSerializer` do serializacji danych wytwarzanych przez elementu Spout.
@@ -739,7 +740,7 @@ Jeśli plik dziennika *HDInsight-scpwebapi. out* zawiera `FileNotFoundException`
 * JDK nie znajduje się w ścieżce w środowisku deweloperskim. Sprawdź, czy program JDK jest zainstalowany w środowisku deweloperskim i czy `%JAVA_HOME%/bin` znajduje się w ścieżce.
 * Brak zależności Java. Upewnij się, że w ramach przesłania dołączane są wszystkie wymagane pliki jar.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Przykład przetwarzania danych z Event Hubs można znaleźć w temacie [zdarzenia przetwarzania z platformy Azure Event Hubs z burzą w usłudze HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 

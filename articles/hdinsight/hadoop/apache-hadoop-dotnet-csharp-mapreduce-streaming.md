@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 0a20a120f72c70cb50cae37cece54d5efad31f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58f807a5a036f14af9baede604debe9d577cdbf6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074815"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000689"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Używanie języka C# z MapReduce przesyłania strumieniowego na Apache Hadoop w usłudze HDInsight
 
@@ -88,7 +88,7 @@ namespace mapper
 }
 ```
 
-Po utworzeniu aplikacji Skompiluj ją, aby utworzyć plik *mapper.exe/bin/debug/* w katalogu projektu.
+Po utworzeniu aplikacji Skompiluj ją, aby utworzyć plik *mapper.exe/bin/debug/ * w katalogu projektu.
 
 ## <a name="create-the-reducer"></a>Utwórz ograniczenie
 
@@ -141,7 +141,7 @@ namespace reducer
 }
 ```
 
-Po utworzeniu aplikacji Skompiluj ją, aby utworzyć plik *reducer.exe/bin/debug/* w katalogu projektu.
+Po utworzeniu aplikacji Skompiluj ją, aby utworzyć plik *reducer.exe/bin/debug/ * w katalogu projektu.
 
 ## <a name="upload-to-storage"></a>Przekazywanie do magazynu
 
@@ -267,7 +267,7 @@ yourselves      3
 youth   17
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Użyj MapReduce w Apache Hadoop w usłudze HDInsight](hdinsight-use-mapreduce.md).
 * [Używanie funkcji zdefiniowanej przez użytkownika w języku C# z Apache Hive i Apache świni](apache-hadoop-hive-pig-udf-dotnet-csharp.md).

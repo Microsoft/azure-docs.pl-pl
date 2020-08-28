@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449057"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018862"
 ---
 # <a name="tutorial-manipulating-models"></a>Samouczek: manipulowanie modelami
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -110,7 +111,7 @@ Granice modelu są definiowane przez pole, które zawiera cały model — podobn
     > [!NOTE]
     > Jeśli zobaczysz błąd w programie Visual Studio, *Funkcja "X" nie jest dostępna w języku C# 6. Użyj języka w wersji 7,0 lub nowszej*, ten błąd można bezpiecznie zignorować. Jest to związane z rozwiązaniem i generowaniem projektu środowiska Unity.
 
-    Ten skrypt należy dodać do tego samego programu gameobject co skrypt implementujący **BaseRemoteRenderedModel**. W takim przypadku oznacza to **RemoteRenderedModel**. Podobnie jak w przypadku poprzednich skryptów, ten kod początkowy będzie obsługiwał wszystkie zmiany stanu, zdarzenia i dane związane ze zdalnymi ograniczeniami.
+    Ten skrypt należy dodać do tego samego programu gameobject co skrypt implementujący  **BaseRemoteRenderedModel**. W takim przypadku oznacza to **RemoteRenderedModel**. Podobnie jak w przypadku poprzednich skryptów, ten kod początkowy będzie obsługiwał wszystkie zmiany stanu, zdarzenia i dane związane ze zdalnymi ograniczeniami.
 
     Istnieją dwie metody do zaimplementowania: **QueryBounds** i **ProcessQueryResult**. **QueryBounds** Pobiera granice, a **ProcessQueryResult** pobiera wynik zapytania i stosuje je do lokalnego **BoxCollider**.
 
@@ -381,7 +382,7 @@ Ten sam proces można wykonać programowo, a pierwszy krok polega na zmodyfikowa
 
 Tworzenie wystąpienia lokalnego i automatyczne synchronizowanie to pierwszy krok w operacji manipulowania jednostkami podrzędnymi. Te same techniki, z których korzystamy do manipulowania modelem jako całości, można również użyć w jednostkach podrzędnych. Na przykład po utworzeniu zsynchronizowanego wystąpienia lokalnego jednostki można wykonać zapytanie dotyczące jego granic i dodać procedury obsługi manipulowania, aby umożliwić przeniesienie go między oddziałami użytkownika.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz można manipulować z zdalnie renderowanymi modelami i korzystać z nich. W następnym samouczku zajmiemy się modyfikowaniem materiałów, zmianami oświetlenia i zastosowaniem efektów do zdalnych renderowanych modeli.
 

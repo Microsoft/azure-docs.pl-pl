@@ -3,12 +3,13 @@ title: Serializacja niezawodnych obiektów kolekcji
 description: Dowiedz się więcej na temat serializacji niezawodnych kolekcji obiektów Service Fabric platformy Azure, w tym domyślnej strategii i sposobu definiowania serializacji niestandardowej.
 ms.topic: conceptual
 ms.date: 5/8/2017
-ms.openlocfilehash: f7a0dc56c181ddd6a98ab0e263180c222368dafb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245997"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018624"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializacja niezawodnych obiektów kolekcji na platformie Azure Service Fabric
 Niezawodne kolekcje "Replikuj i utrwalają swoje elementy", aby upewnić się, że są one trwałe przez awarie maszyn i przestoje.
@@ -137,7 +138,7 @@ Użytkownicy korzystający z serializatorów niestandardowych powinni przestrzeg
 Typowym sposobem obsługi wszystkich wersji jest dodanie informacji o rozmiarze na początku i dodanie tylko właściwości opcjonalnych.
 W ten sposób każda wersja może odczytywać tyle, ile może i przeskoczyć do pozostałej części strumienia.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
   * [Serializacja i uaktualnienie](service-fabric-application-upgrade-data-serialization.md)
   * [Dokumentacja dla deweloperów dla niezawodnych kolekcji](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   * [Uaktualnianie aplikacji przy użyciu programu Visual Studio](service-fabric-application-upgrade-tutorial.md) przeprowadzi Cię przez proces uaktualniania aplikacji przy użyciu programu Visual Studio.

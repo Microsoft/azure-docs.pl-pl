@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930540"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017723"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planowanie wdrożenia Azure Active Directory moje aplikacje
 
-Azure Active Directory (Azure AD) moje aplikacje to portal oparty na sieci Web, który pomaga obniżyć koszty pomocy technicznej, zwiększyć produktywność i bezpieczeństwo oraz ograniczyć frustrację użytkowników. System zawiera szczegółowe raporty, które są śledzone podczas uzyskiwania dostępu do systemu i powiadamia administratorów o niewłaściwych lub nadużyciach.
+Azure Active Directory (Azure AD) moje aplikacje to portal oparty na sieci Web, który pomaga obniżyć koszty pomocy technicznej, zwiększyć produktywność i bezpieczeństwo oraz ograniczyć frustrację użytkowników. System zawiera szczegółowe raporty, które są śledzone podczas uzyskiwania dostępu do systemu i powiadamia administratorów o niewłaściwych lub nadużyciach. Aby dowiedzieć się więcej o używaniu aplikacji z perspektywy użytkowników końcowych, zobacz [Moje aplikacje — pomoc](../user-help/my-apps-portal-end-user-access.md).
 
 Za pomocą funkcji Moje aplikacje usługi Azure AD można:
 
@@ -42,7 +42,7 @@ Moje aplikacje w usłudze Azure AD są korzystne dla firm w następujący sposó
 
 **Zapewnia intuicyjne środowisko użytkownika**: Moje aplikacje udostępniają jedną platformę dla wszystkich aplikacji połączonych z logowaniem jednokrotnym (SSO) platformy Azure. Masz ujednolicony Portal, aby znaleźć istniejące ustawienia i nowe funkcje, takie jak zarządzanie grupami i Samoobsługowe resetowanie haseł, gdy są dodawane. Intuicyjne środowisko zapewnia użytkownikom szybsze i wydajniejsze działanie, zmniejszając jednocześnie frustrację.
 
-**Zwiększa produktywność**: w przypadku wszystkich aplikacji użytkowników w moich aplikacjach włączono Logowanie jednokrotne. Włączenie logowania jednokrotnego w aplikacjach dla przedsiębiorstw i Microsoft 365 tworzy doskonałe środowisko logowania przez zredukowanie lub wyeliminowanie dodatkowych wierszy logowania. Aplikacje używają samoobsługowego i dynamicznego członkostwa oraz zwiększają bezpieczeństwo systemu tożsamości. W tym celu należy upewnić się, że odpowiednie osoby zarządzają dostępem do aplikacji. Moje aplikacje służy jako spójna Strona docelowa umożliwiająca szybkie znajdowanie zasobów i kontynuowanie zadań roboczych.
+**Zwiększa produktywność**: w przypadku wszystkich aplikacji użytkowników w moich aplikacjach włączono Logowanie jednokrotne. Włączenie logowania jednokrotnego w aplikacjach dla przedsiębiorstw i Microsoft 365 tworzy doskonałe środowisko logowania przez zredukowanie lub wyeliminowanie dodatkowych wierszy logowania. Aplikacje używają samoobsługowego i dynamicznego członkostwa oraz zwiększają bezpieczeństwo systemu tożsamości. Moje aplikacje zapewniają właściwym osobom zarządzanie dostępem do aplikacji. Moje aplikacje służy jako spójna Strona docelowa umożliwiająca szybkie znajdowanie zasobów i kontynuowanie zadań roboczych.
 
 **Zarządza kosztami**: włączenie aplikacji za pomocą usługi Azure AD może pomóc w rozmieszczeniu infrastruktury lokalnej. Pozwala to zmniejszyć koszty pomocy technicznej, zapewniając spójny Portal, aby znaleźć wszystkie swoje aplikacje, zażądać dostępu do zasobów i zarządzać kontami.
 
@@ -90,6 +90,10 @@ W poniższej tabeli przedstawiono najważniejsze przypadki użycia dla wdrożeni
 | Doświadczenie użytkownika| Użytkownicy są świadomi zgodności z przeglądarką. |
 | Pomoc techniczna| Użytkownicy mogą znaleźć pomoc techniczną dotyczącą moich aplikacji. |
 
+
+> [!TIP]
+> Moje aplikacje mogą być używane z wewnętrznymi adresami URL firmy podczas zdalnego korzystania z serwera proxy aplikacji. Aby dowiedzieć się więcej, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md).
+
 ### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Najlepsze rozwiązania dotyczące wdrażania aplikacji usługi Azure AD
 
 Funkcjonalność moich aplikacji może być włączona stopniowo. Zalecamy wykonanie następującej kolejności wdrożenia:
@@ -122,11 +126,11 @@ W poniższej tabeli wymieniono kilka ważnych konfiguracji aplikacji oraz typowe
 | Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Zezwalaj użytkownikom na korzystanie z rejestracji jednokrotnej w niektórych typach aplikacji| Federacyjne Logowanie jednokrotne, uwierzytelnianie OAuth, logowanie jednokrotne, serwer proxy aplikacji |
-| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego resetowania hasła | Yes |
-| Zezwalaj użytkownikom na korzystanie z Multi-Factor Authentication| Yes |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego resetowania hasła | Tak |
+| Zezwalaj użytkownikom na korzystanie z Multi-Factor Authentication| Tak |
 | Zezwalaj użytkownikom na korzystanie z samoobsługowego zarządzania grupami dla niektórych typów grup| Grupy zabezpieczeń, Microsoft 365 grupy |
-| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego zarządzania aplikacjami| Yes |
-| Zezwalaj użytkownikom na korzystanie z przeglądów dostępu| Yes |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego zarządzania aplikacjami| Tak |
+| Zezwalaj użytkownikom na korzystanie z przeglądów dostępu| Tak |
 
 ### <a name="plan-consent-strategy"></a>Planowanie strategii wyrażania zgody
 
@@ -189,7 +193,7 @@ Przeglądarka chroniona przy użyciu zasad usługi Intune (Microsoft Edge lub In
 
 ## <a name="plan-your-my-apps-deployment"></a>Planowanie wdrożenia aplikacji Moje aplikacje
 
-Podstawą moich aplikacji jest portal uruchamiania aplikacji, do którego użytkownicy uzyskują dostęp [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Na stronie Moje aplikacje można udostępnić użytkownikom pojedyncze miejsce, aby rozpocząć pracę i uzyskać dostęp do potrzebnych aplikacji. W tym miejscu użytkownicy mogą znaleźć listę wszystkich aplikacji, do których mają dostęp z logowaniem jednokrotnym. 
+Podstawą moich aplikacji jest portal uruchamiania aplikacji, do którego użytkownicy uzyskują dostęp [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Strona Moje aplikacje umożliwia użytkownikom pojedyncze miejsce na rozpoczęcie pracy i dostęp do niezbędnych aplikacji. W tym miejscu użytkownicy mogą znaleźć listę wszystkich aplikacji, do których mają dostęp z logowaniem jednokrotnym. 
 
 > [!NOTE]
 > Te same aplikacje będą widoczne w oknie uruchamiania aplikacji Microsoft 365.
@@ -255,7 +259,7 @@ Zobacz [przypisywanie użytkowników i grup do aplikacji w Active Directory](met
 
 Jeśli podczas testowania lub wdrażania chcesz dodać grupy, ale jeszcze nie zezwalasz aplikacji na wyświetlanie w aplikacjach, zobacz sekcję [ukrywanie aplikacji ze środowiska użytkownika w Azure Active Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Wdrażanie aplikacji Microsoft 365 firmy Microsoft w aplikacjach
+### <a name="deploy-microsoft-365-applications-to-my-apps"></a>Wdrażanie aplikacji Microsoft 365 w moich aplikacjach
 
 W przypadku aplikacji Microsoft 365 użytkownicy otrzymają kopię pakietu Office w oparciu o przypisane do nich licencje. Wstępny dostęp do aplikacji pakietu Office jest przeznaczony dla użytkowników, którym można przypisać prawidłowe licencje powiązane z aplikacjami pakietu Office. Po przypisaniu licencji użytkownika zostanie automatycznie wyświetlona aplikacja, która jest skojarzona z licencją na stronie Moje aplikacje, oraz w obszarze uruchamiania aplikacji Microsoft 365.
 
@@ -303,7 +307,7 @@ Ważne jest, aby zaplanować czynności, które należy wykonać, jeśli wdroże
 
 ## <a name="manage-your-implementation"></a>Zarządzanie implementacją
 
-Należy użyć najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure Active Directory. [Zapoznaj się z różnymi rolami, które są dostępne](../users-groups-roles/directory-assign-admin-roles.md) , a następnie wybierz jedną z nich, aby rozwiązać potrzeby każdej osoby dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
+Użyj najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure Active Directory. [Zapoznaj się z różnymi rolami, które są dostępne](../users-groups-roles/directory-assign-admin-roles.md) , a następnie wybierz jedną z nich, aby rozwiązać potrzeby każdej osoby dla tej aplikacji. Niektóre role mogą wymagać tymczasowego zastosowania i usunąć po zakończeniu wdrażania.
 
 | Osoby| Role| Rola usługi Azure AD  |
 | - | -| -|
@@ -331,6 +335,6 @@ Zapoznaj się z następującymi przewodnikami rozwiązywania problemów:
 
 [Problemy z rozszerzeniem przeglądarki](manage-access-panel-browser-extension.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Planowanie wdrożenia usługi Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

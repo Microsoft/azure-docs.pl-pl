@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81481834"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017706"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplikacje wielodostępne na platformie Azure
 Aplikacja wielodostępna jest udostępnionym zasobem, który umożliwia "użytkownikom w osobnych dzierżawcach" wyświetlanie aplikacji tak, jakby była własna. Typowym scenariuszem, który ogranicza się do aplikacji wielodostępnej, jest to, w której wszyscy użytkownicy aplikacji z różnych dzierżawców mogą chcieć dostosować środowisko użytkownika, ale w przeciwnym razie mają one te same podstawowe wymagania biznesowe. Przykładami dużych aplikacji wielodostępnych są pakiety Office 365, Outlook.com i visualstudio.com.
@@ -46,7 +47,7 @@ Aby uzyskać więcej informacji na temat dodatkowych zagadnień projektowych apl
 
 Platforma Azure udostępnia wiele funkcji, które umożliwiają rozwiązywanie najważniejszych problemów występujących podczas projektowania wielodostępnego systemu.
 
-**Izolacja**
+**Izolacji**
 
 * Segmentowanie dzierżawców witryn sieci Web według nagłówków hosta z lub bez komunikacji TLS
 * Przesegmentowanie dzierżawców witryn sieci Web według parametrów zapytania

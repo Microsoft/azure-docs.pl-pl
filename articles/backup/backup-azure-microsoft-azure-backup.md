@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892290"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001165"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -24,7 +24,7 @@ ms.locfileid: "88892290"
 W tym artykule wyjaśniono, jak przygotować środowisko do tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB). Za pomocą Azure Backup Server można chronić obciążenia aplikacji, takie jak maszyny wirtualne funkcji Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange i klienci z systemem Windows, z poziomu pojedynczej konsoli.
 
 > [!NOTE]
-> Azure Backup Server mogą teraz chronić maszyny wirtualne VMware i zapewniać ulepszone funkcje zabezpieczeń. Zainstaluj produkt zgodnie z opisem w poniższych sekcjach i najnowszym agentem Azure Backup. Aby dowiedzieć się więcej o tworzeniu kopii zapasowych serwerów VMware za pomocą Azure Backup Server, zobacz artykuł [Azure Backup Server do tworzenia kopii zapasowej serwera VMware](backup-azure-backup-server-vmware.md). Aby dowiedzieć się więcej o możliwościach zabezpieczeń, zapoznaj się z [dokumentacją funkcji zabezpieczeń usługi Azure Backup](backup-azure-security-feature.md).
+> Azure Backup Server mogą teraz chronić maszyny wirtualne VMware i zapewniać ulepszone funkcje zabezpieczeń. Zainstaluj produkt zgodnie z opisem w poniższych sekcjach i najnowszym agentem Azure Backup. Aby dowiedzieć się więcej o tworzeniu kopii zapasowych serwerów VMware za pomocą Azure Backup Server, zobacz artykuł [Azure Backup Server do tworzenia kopii zapasowej serwera VMware](backup-azure-backup-server-vmware.md). Aby dowiedzieć się więcej o możliwościach zabezpieczeń, zapoznaj się z [dokumentacją dotyczącą funkcji zabezpieczeń Azure Backup](backup-azure-security-feature.md).
 >
 >
 
@@ -66,7 +66,7 @@ Magazyn programu DPM można deduplikowany przy użyciu funkcji deduplikacji syst
 >
 > * Komputer działa jako kontroler domeny
 > * Komputer, na którym jest zainstalowana rola serwera aplikacji
-> * Komputer, który jest serwerem zarządzania programu System Center Operations Manager
+> * Komputer, na którym jest System Center Operations Manager serwer zarządzania
 > * Komputer, na którym jest uruchomiony program Exchange Server
 > * Komputer, który jest węzłem klastra
 >
@@ -261,25 +261,25 @@ Poniżej przedstawiono kroki, które należy wykonać, jeśli chcesz przenieść
 
   > [!IMPORTANT]
   >
-  > * Nazwa nowego serwera musi być taka sama jak nazwa oryginalnego wystąpienia Azure Backup Server. Nie można zmienić nazwy nowego wystąpienia Azure Backup Server, jeśli chcesz użyć poprzedniej puli magazynów i bazy danych serwera usługi MAB (DPMDB), aby zachować punkty odzyskiwania.
-  > * Musisz mieć kopię zapasową bazy danych serwera usługi MAB (DPMDB). Musisz przywrócić bazę danych.
+  > * Nazwa nowego serwera musi mieć taką samą nazwę jak oryginalne wystąpienie Azure Backup Server. Nie można zmienić nazwy nowego wystąpienia Azure Backup Server, jeśli chcesz użyć poprzedniej puli magazynów i bazy danych serwera usługi MAB (DPMDB), aby zachować punkty odzyskiwania.
+  > * Musisz mieć kopię zapasową bazy danych serwera usługi MAB (DPMDB). Będzie on potrzebny do przywrócenia bazy danych.
 
 1. W okienku wyświetlania wybierz komputery klienckie, dla których chcesz zaktualizować agenta ochrony.
-2. Zamknij oryginalny serwer usługi Azure Backup lub Wyłącz sieć.
-3. Zresetuj konto komputera w usłudze Active Directory.
-4. Zainstaluj serwer 2016 na nowym komputerze, a następnie nadaj mu nazwę tego samego komputera co oryginalny serwer Azure Backup.
-5. Przyłącz do domeny
-6. Zainstaluj Azure Backup Server v3 lub nowszy (Przenieś dyski puli magazynu serwera usługi MAB ze starego serwera i Importuj)
+2. Zamknij oryginalny serwer Azure Backup lub Przełącz go w tryb offline.
+3. Zresetuj konto komputera w Active Directory.
+4. Zainstaluj serwer 2016 na nowym komputerze i nadaj mu taką samą nazwę komputera, jak oryginalny serwer Azure Backup.
+5. Dołącz do domeny.
+6. Zainstaluj Azure Backup Server wersja 3 lub nowszą (Przenieś dyski puli magazynu serwera usługi MAB ze starego serwera i zaimportować).
 7. Przywróć DPMDB wykonaną w kroku 1.
 8. Dołącz magazyn z oryginalnego serwera kopii zapasowej do nowego serwera.
-9. Z poziomu bazy danych SQL Przywróć DPMDB
-10. Z poziomu wiersza polecenia administratora na nowym dysku CD Server do Microsoft Azure Backup lokalizacji instalacji i folderu bin
+9. W programie SQL Przywróć DPMDB.
+10. Uruchom polecenie CMD (jako administrator) na nowym serwerze. Przejdź do lokalizacji instalacji Microsoft Azure Backup i folderu bin
 
     Przykład ścieżki: C:\Windows\System32>CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
-11. Do usługi Azure Backup, uruchom polecenie DPMSYNC-SYNC
+11. Aby nawiązać połączenie z Azure Backup, uruchom polecenie `DPMSYNC -SYNC`
 
-    Jeśli nowe dyski zostały dodane do puli magazynów programu DPM, a nie przeniesione starych, uruchom polecenie DPMSYNC-Reallocatereplica
+    Jeśli **nowe** dyski zostały dodane do puli magazynów programu DPM, a nie przeniesione ze starych, uruchom polecenie `DPMSYNC -Reallocatereplica`
 
 ## <a name="network-connectivity"></a>Łączność sieciowa
 
@@ -360,7 +360,7 @@ Wykonaj następujące kroki, aby uaktualnić program serwera usługi MAB:
 Jeśli w trakcie fazy instalacji (lub tworzenia kopii zapasowej lub przywracania) wystąpi błąd programu Microsoft Azure Backup Server, zapoznaj się z tym [dokumentem kodów błędów](https://support.microsoft.com/kb/3041338)  , aby uzyskać więcej informacji.
 Możesz również odwoływać się do [Azure Backup powiązanych często zadawanych pytań](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym miejscu możesz uzyskać szczegółowe informacje [na temat przygotowywania środowiska programu DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Zawiera również informacje o obsługiwanych konfiguracjach, w których Azure Backup Server można wdrożyć i użyć. Możesz użyć szeregu [poleceń cmdlet programu PowerShell](/powershell/module/dataprotectionmanager/) do wykonywania różnych operacji.
 

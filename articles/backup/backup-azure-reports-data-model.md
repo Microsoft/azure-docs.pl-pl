@@ -3,12 +3,12 @@ title: Model danych dla zdarzeń diagnostyki Azure Backup
 description: Ten model danych znajduje się w odniesieniu do trybu specyficznego dla zasobu, który wysyła zdarzenia diagnostyczne do Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892528"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017587"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Model danych dla zdarzeń diagnostyki Azure Backup
 
@@ -218,7 +218,7 @@ Ta tabela zawiera szczegółowe informacje o polach związanych z magazynem.
 | VolumeFriendlyName             | Tekst          | Przyjazna nazwa woluminu magazynu                          |
 | SourceSystem                   | Tekst          | System źródłowy bieżących danych — Azure                    |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dowiedz się, jak wysyłać dane diagnostyczne do Log Analytics](./backup-azure-diagnostic-events.md)
 - [Dowiedz się, jak pisać zapytania w tabelach specyficznych dla zasobów](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)

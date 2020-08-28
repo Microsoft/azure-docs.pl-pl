@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: f3400d82a6aa184daabfa2ebbe6b775b8e4c1562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4a0be44d8709726e159e17e703566c6c576bc18f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565469"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018981"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Konfigurowanie usługi Remote Rendering dla środowiska Unity
 
@@ -66,17 +67,17 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 ### <a name="session-state-events"></a>Zdarzenia stanu sesji
 
-`RemoteManagerUnity.OnSessionUpdate`emituje zdarzenia dotyczące czasu zmiany stanu sesji, zobacz dokumentację kodu, aby uzyskać szczegółowe informacje.
+`RemoteManagerUnity.OnSessionUpdate` emituje zdarzenia dotyczące czasu zmiany stanu sesji, zobacz dokumentację kodu, aby uzyskać szczegółowe informacje.
 
 ### <a name="arrserviceunity"></a>ARRServiceUnity
 
-`ARRServiceUnity`jest opcjonalnym składnikiem do usprawniania instalacji i zarządzania sesją. Zawiera opcje automatycznego zatrzymania sesji, gdy aplikacja jest zamykana lub tryb odtwarzania zostanie zakończony w edytorze, a także automatycznie odnawia dzierżawę sesji w razie potrzeby. W pamięci podręcznej dane takie jak właściwości sesji (patrz jego `LastProperties` zmienna) i ujawniają zdarzenia dotyczące zmian stanu sesji i błędów sesji.
+`ARRServiceUnity` jest opcjonalnym składnikiem do usprawniania instalacji i zarządzania sesją. Zawiera opcje automatycznego zatrzymania sesji, gdy aplikacja jest zamykana lub tryb odtwarzania zostanie zakończony w edytorze, a także automatycznie odnawia dzierżawę sesji w razie potrzeby. W pamięci podręcznej dane takie jak właściwości sesji (patrz jego `LastProperties` zmienna) i ujawniają zdarzenia dotyczące zmian stanu sesji i błędów sesji.
 
 Nie może istnieć więcej niż jedno wystąpienie `ARRServiceUnity` naraz. Jest to przeznaczone do szybszego uruchamiania przez implementację niektórych typowych funkcji. W przypadku większej aplikacji może być zalecane Samodzielne wykonywanie tych czynności.
 
 Aby zapoznać się z przykładem sposobu konfigurowania i używania, `ARRServiceUnity` Zobacz [Samouczek: wyświetlanie zdalnie renderowane modele](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Instalowanie pakietu usługi Remote Rendering dla środowiska Unity](install-remote-rendering-unity-package.md)
 * [Samouczek: Wyświetlanie modeli renderowanych zdalnie](../../tutorials/unity/view-remote-models/view-remote-models.md)

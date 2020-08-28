@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat regionów i Strefy dostępności na p
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413165"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018675"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
 
@@ -92,46 +92,45 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Podstawowe | Podstawowa pomoc techniczna | Wyspecjalizowany |
 > | --- | --- | --- |
 > | Magazyn kont | API Management | Interfejs API platformy Azure dla standardu FHIR |
-> | Application Gateway | Konfiguracja aplikacji | Usługa Azure Blockchain |
-> | Azure Backup | App Service | Azure Blueprints |
-> | Azure Cosmos DB | Automation | Azure Database for MariaDB |
-> | Usługa Azure Data Lake Storage 2. generacji | Azure Active Directory Domain Services | Dedykowany moduł HSM platformy Azure |
-> | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
-> | Azure SQL Database | Azure Bastion | Azure Digital Twins |
-> | Cloud Services | Azure Cache for Redis | Azure Lab Services |
-> | Cloud Services: Seria Av2 | Azure Cognitive Search | Azure NetApp Files |
-> | Cloud Services: Seria Dv2 | Azure Data Explorer | Quantum platformy Azure |
-> | Cloud Services: Seria Dv3 | Azure Data Share | Azure Time Series Insights |
-> | Cloud Services: Seria EV3 | Azure Database for MySQL | Azure VMware Solution by CloudSimple |
-> | Cloud Services: adresy IP na poziomie wystąpienia | Azure Database for PostgreSQL | Cloud Services: A8-A11 (intensywnie korzystające z obliczeń) |
-> | Cloud Services: Zastrzeżony adres IP | Azure Database Migration Service | Cloud Services: Seria G |
-> | Disk Storage | Azure Databricks | Cloud Services: Seria H |
-> | Event Hubs | Azure DDoS Protection | Cognitive Services: detektor anomalii |
-> | Usługa Key Vault | Azure DevTest Labs | Cognitive Services: Custom Vision |
+> | Application Gateway | Konfiguracja aplikacji | Azure Analysis Services |
+> | Azure Backup | App Service | Usługa Azure Blockchain |
+> | Azure Cosmos DB | Automatyzacja | Azure Blueprints |
+> | Usługa Azure Data Lake Storage 2. generacji | Usługi Azure Active Directory Domain Services | Azure Database for MariaDB |
+> | Azure ExpressRoute | Azure Bastion | Dedykowany moduł HSM platformy Azure |
+> | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
+> | Cloud Services | Azure Cognitive Search | Azure Digital Twins |
+> | Cloud Services: Seria Av2 | Azure Data Explorer | Azure Lab Services |
+> | Cloud Services: Seria Dv2 | Azure Data Share | Azure NetApp Files |
+> | Cloud Services: Seria Dv3 | Azure Database for MySQL | Quantum platformy Azure |
+> | Cloud Services: Seria EV3 | Azure Database for PostgreSQL | Usługa w chmurze Azure wiosny |
+> | Cloud Services: adresy IP na poziomie wystąpienia | Azure Database Migration Service | Azure Time Series Insights |
+> | Cloud Services: Zastrzeżony adres IP | Azure Databricks | Azure VMware Solution by CloudSimple |
+> | Disk Storage | Azure DDoS Protection | Cloud Services: Seria G |
+> | Event Hubs | Azure DevTest Labs | Cloud Services: Seria H |
+> | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | Moduł równoważenia obciążenia | Azure Firewall Manager | Cognitive Services: rozpoznawanie osoby mówiącej |
-> | Service Bus | Azure Firewall | Data Box Heavy |
-> | Service Fabric | Azure Functions | Data Catalog |
-> | Virtual Machine Scale Sets | Azure HPC Cache | Data Factory: Data Factory v1 |
-> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
-> | Virtual Machines: Seria Av2 | Azure Kubernetes Service (AKS) | Machine Learning Studio |
-> | Virtual Machines: BS — seria | Azure Machine Learning | Microsoft Genomics |
-> | Virtual Machines: Seria DSv2 | Link prywatny platformy Azure | Remote Rendering |
-> | Virtual Machines: Seria DSv3 | Azure Red Hat OpenShift | Spatial Anchors |
+> | Service Bus | Azure Functions | Data Box Heavy |
+> | Service Fabric | Azure HPC Cache | Data Catalog |
+> | Usługa Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory v1 |
+> | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
+> | Virtual Machines: Seria Av2 | Azure Machine Learning | Machine Learning Studio |
+> | Virtual Machines: BS — seria | Link prywatny platformy Azure | Microsoft Genomics |
+> | Virtual Machines: Seria DSv2 | Azure Red Hat OpenShift | Remote Rendering |
+> | Virtual Machines: Seria DSv3 | Azure SignalR Service | Spatial Anchors |
 > | Virtual Machines: Seria Dv2 | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Seria Dv3 | Usługa w chmurze Azure wiosny | Video Indexer |
-> | Virtual Machines: Seria ESv3 | Azure Stack Hub | Virtual Machines: A8-A11 (intensywnie korzystające z obliczeń) |
-> | Virtual Machines: Seria EV3 | Usługa Azure Stream Analytics | Virtual Machines: Seria DASv4 |
-> | Virtual Machines: Seria F | Azure Synapse Analytics | Virtual Machines: Seria DAv4 |
-> | Virtual Machines: Seria FS | Usługa Azure SignalR Service | Virtual Machines: Seria DCsv2 |
-> | Virtual Machines: adresy IP na poziomie wystąpienia | Batch | Virtual Machines: Seria EASv4 |
-> | Virtual Machines: Zastrzeżony adres IP | Cloud Services: Seria M | Virtual Machines: Seria EAv4 |
-> | Virtual Network | Cognitive Services | Virtual Machines: Seria G |
-> | VPN Gateway | Cognitive Services: przetwarzanie obrazów | Virtual Machines: Seria GS |
-> |  | Cognitive Services: Content Moderator | Virtual Machines: Seria HBv1 |
-> |  | Cognitive Services: kroju | Virtual Machines: Seria HBv2 |
+> | Virtual Machines: Seria Dv3 | Azure Stack Hub | Indeksator wideo |
+> | Virtual Machines: Seria ESv3 | Usługa Azure Stream Analytics | Virtual Machines: Seria DASv4 |
+> | Virtual Machines: Seria EV3 | Azure Synapse Analytics | Virtual Machines: Seria DAv4 |
+> | Virtual Machines: Seria F | Batch | Virtual Machines: Seria DCsv2 |
+> | Virtual Machines: Seria FS | Cloud Services: Seria M | Virtual Machines: Seria EASv4 |
+> | Virtual Machines: adresy IP na poziomie wystąpienia | Cognitive Services | Virtual Machines: Seria EAv4 |
+> | Virtual Machines: Zastrzeżony adres IP | Cognitive Services: przetwarzanie obrazów | Virtual Machines: Seria G |
+> | Virtual Network | Cognitive Services: Content Moderator | Virtual Machines: Seria GS |
+> | VPN Gateway | Cognitive Services: kroju | Virtual Machines: Seria HBv1 |
+> |  | Cognitive Services: aparat rozpoznawania formularzy | Virtual Machines: Seria HBv2 |
 > |  | Cognitive Services: Language Understanding | Virtual Machines: Seria HCv1 |
-> |  | Cognitive Services: usługi mowy | Virtual Machines: Seria H |
-> |  | Cognitive Services: QnA Maker | Virtual Machines: Seria LS |
+> |  | Cognitive Services: QnA Maker | Virtual Machines: Seria H |
+> |  | Cognitive Services: usługi mowy | Virtual Machines: Seria LS |
 > |  | Container Instances | Virtual Machines: Seria LSv2 |
 > |  | Container Registry | Virtual Machines: Seria Mv2 |
 > |  | Fabryka danych | Virtual Machines: Seria NC |
@@ -146,6 +145,14 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > |  | Magazyn plików w warstwie Premium | Visual Studio App Center |
 > |  | Magazyn: Archive Storage |  |
 > |  | Ultra Disk Storage |  |
+> |  | Virtual Machines: Seria Ddsv4 |  |
+> |  | Virtual Machines: Seria Ddv4 |  |
+> |  | Virtual Machines: Seria Dsv4 |  |
+> |  | Virtual Machines: Seria Dv4 |  |
+> |  | Virtual Machines: Seria Edsv4 |  |
+> |  | Virtual Machines: Seria Edv4 |  |
+> |  | Virtual Machines: Seria Esv4 |  |
+> |  | Virtual Machines: Seria Ev4 |  |
 > |  | Virtual Machines: Seria Fsv2 |  |
 > |  | Virtual Machines: Seria M |  |
 > |  | Virtual WAN |  |
@@ -175,7 +182,7 @@ Nie ma dodatkowych opłat za maszyny wirtualne wdrożone w strefie dostępności
 - [Utwórz wystąpienie usługi Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Utwórz klaster usługi Azure Kubernetes Service (AKS), który używa Strefy dostępności](../aks/availability-zones.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Regiony obsługujące Strefy dostępności na platformie Azure](az-region.md)
 - [Szablony szybkiego startu](https://aka.ms/azqs)

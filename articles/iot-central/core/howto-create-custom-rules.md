@@ -7,16 +7,16 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158150"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017859"
 ---
-# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Zwiększanie IoT Central platformy Azure za pomocą reguł niestandardowych przy użyciu Stream Analytics, Azure Functions i SendGrid
+# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Rozszerzanie usługi Azure IoT Central o niestandardowe reguły przy użyciu usług Stream Analytics, Azure Functions i SendGrid
 
 
 
@@ -42,7 +42,7 @@ Utwórz aplikację IoT Central w witrynie programu [Azure IoT Central Applicatio
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Plan cenowy | Standardowa (Standard) |
+| Plan cenowy | Standard |
 | Szablon aplikacji | Analiza warunków w sklepie — monitorowanie |
 | Nazwa aplikacji | Zaakceptuj wartość domyślną lub wybierz własną nazwę |
 | Adres URL | Zaakceptuj domyślny lub wybierz własny unikatowy prefiks adresu URL |
@@ -65,7 +65,7 @@ Użyj [Azure Portal, aby utworzyć przestrzeń nazw Event Hubs](https://portal.a
 | Ustawienie | Wartość |
 | ------- | ----- |
 | Nazwa    | Wybierz nazwę przestrzeni nazw |
-| Warstwa cenowa | Podstawowy |
+| Warstwa cenowa | Podstawowe |
 | Subskrypcja | Twoja subskrypcja |
 | Grupa zasobów | DetectStoppedDevices |
 | Lokalizacja | Wschodnie stany USA |
@@ -73,7 +73,7 @@ Użyj [Azure Portal, aby utworzyć przestrzeń nazw Event Hubs](https://portal.a
 
 ### <a name="stream-analytics-job"></a>Zadanie usługi Stream Analytics
 
-Użyj [Azure Portal, aby utworzyć zadanie Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) z następującymi ustawieniami:
+Użyj [Azure Portal, aby utworzyć zadanie Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)  z następującymi ustawieniami:
 
 | Ustawienie | Wartość |
 | ------- | ----- |
@@ -159,7 +159,7 @@ Aby wysyłać wiadomości e-mail za pomocą usługi SendGrid, należy skonfiguro
 1. Wybierz pozycję **integracja**, wybierz wyjściowy **protokół http ($Return)**, a następnie wybierz pozycję **Usuń**.
 1. Wybierz pozycję **+ nowe dane wyjściowe**, a następnie wybierz pozycję **SendGrid**, a następnie wybierz **pozycję Wybierz**. Wybierz pozycję **Zainstaluj** , aby zainstalować rozszerzenie SendGrid.
 1. Po zakończeniu instalacji wybierz opcję **Użyj zwracanej wartości funkcji**. Dodaj prawidłowy **adres** do odbierania powiadomień e-mail.  Dodaj prawidłowy **adres od** do użycia jako nadawca wiadomości e-mail.
-1. Wybierz pozycję **Nowy** obok **Ustawienia aplikacji klucz interfejsu API SendGrid**. Wprowadź **SendGridAPIKey** jako klucz i klucz interfejsu API SendGrid zanotowany wcześniej jako wartość. Następnie wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Nowy** obok **Ustawienia aplikacji klucz interfejsu API SendGrid**. Wprowadź **SendGridAPIKey** jako klucz i klucz interfejsu API SendGrid zanotowany wcześniej jako wartość. Następnie wybierz przycisk **Utwórz**.
 1. Wybierz pozycję **Zapisz** , aby zapisać powiązania SendGrid dla funkcji.
 
 Ustawienia integracji są podobne do poniższego zrzutu ekranu:
@@ -349,7 +349,7 @@ Aby uporządkowanego się po tym, jak to zrobić, i uniknąć niepotrzebnych kos
 
 Aplikację IoT Central można usunąć ze strony **zarządzania** w ramach aplikacji.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym przewodniku krok po kroku przedstawiono następujące informacje:
 

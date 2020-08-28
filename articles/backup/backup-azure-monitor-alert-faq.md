@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892562"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000723"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alert monitorowania Azure Backup — często zadawane pytania
 
@@ -50,13 +50,13 @@ Jeśli jesteś użytkownikiem [usługi Azure Lighthouse](https://azure.microsoft
 
 ## <a name="recovery-services-vault"></a>Magazyn usługi Recovery Services
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Jak długo trwa stan zadania agenta usługi Azure Backup na potrzeby odzwierciedlenia w portalu?
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Jak długo trwa Azure Backup stan zadania agenta do odzwierciedlenia w portalu?
 
-Aby odzwierciedlić stan zadania agenta usługi Azure Backup, Azure Portal może potrwać do 15 minut.
+Aby odzwierciedlić stan zadania agenta Azure Backup, Azure Portal może potrwać do 15 minut.
 
 ### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Ile czasu trwa wywołanie alertu po niepowodzeniu zadania tworzenia kopii zapasowej?
 
-Alert jest zgłaszany w ciągu 20 minut awarii usługi Azure Backup.
+Alert jest zgłaszany w ciągu 20 minut od błędu Azure Backup.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Czy istnieje przypadek, w którym nie będzie wysyłana wiadomość e-mail, jeśli są skonfigurowane powiadomienia?
 
@@ -66,7 +66,7 @@ Tak. W następujących sytuacjach powiadomienia nie są wysyłane:
 * Gdy zadanie zostało anulowane
 * Jeśli drugie zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem, ponieważ oryginalne zadanie tworzenia kopii zapasowej jest w toku
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z innymi często zadawanymi pytaniami:
 

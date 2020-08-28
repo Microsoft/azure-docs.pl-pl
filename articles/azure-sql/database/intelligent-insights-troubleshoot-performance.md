@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 329d3208037548bd1cb5a5564a4a393747ed48f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986390"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017281"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Intelligent Insights automatycznie wykrywa problemy z wydajnością w zależnoś
 | [Osiąganie limitów zasobów](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Limity zasobów dotyczące użycia dostępnych zasobów (DTU), wątków roboczych bazy danych lub sesji logowania do bazy danych dostępnych w monitorowanej subskrypcji osiągnęły. Ma to wpływ na wydajność. | Użycie zasobów procesora CPU zbliża się do limitów zasobów. Ma to wpływ na wydajność bazy danych. |
 | [Wzrost obciążenia](intelligent-insights-troubleshoot-performance.md#workload-increase) | Wykryto wzrost obciążenia lub ciągłe gromadzenie obciążeń w bazie danych. Ma to wpływ na wydajność. | Wykryto wzrost obciążenia. Ma to wpływ na wydajność bazy danych. |
 | [Wykorzystanie pamięci](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Pracownicy, którzy zażądali przydzielenia pamięci, muszą oczekiwać na alokacje pamięci przez statystycznie znaczny czas lub zwiększony akumulację pracowników, którzy zażądali przyznanych pamięci. Ma to wpływ na wydajność. | Pracownicy, którzy zażądali przydzielenia pamięci, oczekują na alokacje pamięci przez statystycznie znaczący czas. Ma to wpływ na wydajność bazy danych. |
-| [Blokowanie](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
+| [Blokowan](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
 | [Zwiększono MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. |
 | [Rywalizacja o PAGELATCH](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność. | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność bazy danych. |
 | [Brakujący indeks](intelligent-insights-troubleshoot-performance.md#missing-index) | Wykryto brakujący indeks mający wpływ na wydajność. | Wykryto brakujący indeks mający wpływ na wydajność bazy danych. |
@@ -168,7 +168,7 @@ Ponieważ PAGELATCH jest mechanizmem kontroli wewnętrznego, automatycznie okre�
 
 Jedną z metod obsługi rywalizacji zamka jest zastępowanie sekwencyjnego klucza indeksu z niesekwencyjnym kluczem, aby równomiernie rozłożyć wstawki przez zakres indeksów. Zazwyczaj wiodąca kolumna w indeksie dystrybuuje obciążenie proporcjonalnie do obciążenia. Inną metodą, którą należy wziąć pod uwagę, jest partycjonowanie tabeli. Tworzenie schematu partycjonowania skrótów z kolumną obliczaną w tabeli partycjonowanej jest typowym podejściem do łagodzenia nadmiernej rywalizacji zamków. W przypadku rywalizacji o PAGELATCH we/wy, wprowadzenie indeksów pomaga wyeliminować ten problem z wydajnością.
 
-Aby uzyskać więcej informacji, zobacz [diagnozowanie i rozwiązywanie rywalizacji o zatrzaski na SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (pobieranie plików PDF).
+Aby uzyskać więcej informacji, zobacz [diagnozowanie i rozwiązywanie rywalizacji o zatrzaski na SQL Server](http://databaser.net/moniwiki/pds/PerformanceTuning/SQLServerLatchContention.pdf) (pobieranie plików PDF).
 
 ## <a name="missing-index"></a>Brakujący indeks
 
@@ -328,7 +328,7 @@ Uzyskaj dostęp do Intelligent Insights za pośrednictwem Azure Portal, przechod
 
 Intelligent Insights zwykle potrzebuje jednej godziny, aby przeprowadzić analizę głównej przyczyny problemu z wydajnością. Jeśli nie możesz znaleźć problemu w Intelligent Insights i ma on krytyczne znaczenie, użyj magazynu zapytań, aby ręcznie zidentyfikować główną przyczynę problemu z wydajnością. (Zwykle te problemy są krótsze niż godzina starego). Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności przy użyciu magazynu zapytań](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Poznaj [Intelligent Insights](intelligent-insights-overview.md) pojęcia.
 - Użyj [dziennika diagnostyki wydajności Intelligent Insights](intelligent-insights-use-diagnostics-log.md).

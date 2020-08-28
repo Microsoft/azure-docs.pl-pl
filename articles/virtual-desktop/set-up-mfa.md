@@ -3,15 +3,15 @@ title: Konfigurowanie usługi Azure Multi-Factor Authentication dla pulpitu wirt
 description: Jak skonfigurować usługę Azure Multi-Factor Authentication w celu zwiększenia bezpieczeństwa na pulpicie wirtualnym systemu Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009464"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017785"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Włączanie usługi Azure Multi-Factor Authentication na potrzeby usługi Windows Virtual Desktop
 
@@ -47,31 +47,38 @@ Poniżej przedstawiono sposób tworzenia zasad dostępu warunkowego, które wyma
 6. W obszarze **dołączanie**wybierz pozycję **Wybierz użytkowników i grupy**  >  **Użytkownicy i grupy** > wybierz grupę utworzoną na etapie [wymagania wstępne](#prerequisites) .
 7. Kliknij **Gotowe**.
 8. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Wybierz aplikacje**.
-9. Wybierz jedną z następujących grup aplikacji w zależności od używanej wersji pulpitu wirtualnego systemu Windows.
-   - Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), wybierz te dwie aplikacje:
+9. Wybierz jedną z następujących aplikacji, w zależności od używanej wersji pulpitu wirtualnego systemu Windows.
+   - Jeśli używasz pulpitu wirtualnego systemu Windows (klasycznego), wybierz tę aplikację:
        - **Pulpit wirtualny systemu Windows** (Identyfikator aplikacji 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Klient pulpitu wirtualnego systemu Windows** (Identyfikator aplikacji fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Jeśli używasz pulpitu wirtualnego systemu Windows, wybierz te dwie aplikacje:
+   - Jeśli używasz pulpitu wirtualnego systemu Windows, wybierz tę aplikację zamiast:
        -  **Pulpit wirtualny systemu Windows** (Identyfikator aplikacji 9cdead84-a844-4324-93f2-b2e6bb768d07)
-       -  **Klient pulpitu wirtualnego systemu Windows** (Identyfikator aplikacji a85cf173-4192-42f8-81fa-777a763e6e2c)
 
    >[!IMPORTANT]
-   > Aplikacje klienckie pulpitu wirtualnego systemu Windows są używane dla klienta sieci Web. Nie należy jednak wybierać aplikacji o nazwie Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Ta aplikacja jest używana tylko do pobierania źródła danych użytkownika i nie powinna mieć usługi MFA.
+   > Nie wybieraj aplikacji o nazwie Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Ta aplikacja jest używana tylko do pobierania źródła danych użytkownika i nie powinna mieć usługi MFA.
 
-1. Po wybraniu aplikacji wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
+10. Przejdź do pozycji **warunki**  >  **aplikacje klienckie**, a następnie wybierz miejsce, do którego chcesz zastosować zasady:
+    
+    - Wybierz pozycję **przeglądarka** , aby zastosować zasady do klienta sieci Web.
+    - Wybierz pozycję **aplikacje mobilne i klienci stacjonarni,** Jeśli chcesz zastosować zasady do innych klientów.
+    - Zaznacz oba pola wyboru, jeśli chcesz zastosować zasady do wszystkich klientów.
+   
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu strony aplikacji klienckich. Użytkownik zaznaczył pole wyboru aplikacje mobilne i klienci stacjonarni.](media/select-apply.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Zrzut ekranu strony aplikacji w chmurze lub akcji. Pulpity wirtualne systemu Windows i aplikacje klienckie pulpitu wirtualnego systemu Windows są wyróżnione kolorem czerwonym.](media/cloud-apps-enterprise.png)
+11. Po wybraniu aplikacji wybierz pozycję **Wybierz**, a następnie wybierz pozycję **gotowe**.
 
-   >[!NOTE]
-   >Aby znaleźć identyfikator aplikacji dla aplikacji, którą chcesz wybrać, przejdź do pozycji **aplikacje dla przedsiębiorstw** i wybierz pozycję **aplikacje firmy Microsoft** z menu rozwijanego Typ aplikacji.
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu strony aplikacji w chmurze lub akcji. Pulpity wirtualne systemu Windows i aplikacje klienckie pulpitu wirtualnego systemu Windows są wyróżnione kolorem czerwonym.](media/cloud-apps-enterprise.png)
 
-10. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
-11. W obszarze sesja **kontroli dostępu**  >  **Session**wybierz **pozycję częstotliwość logowania**, ustaw wartość **1** i jednostkę na **godziny**, a następnie wybierz pozycję **Wybierz**.
-12. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
-13. Wybierz pozycję **Utwórz** , aby włączyć zasady.
+    >[!NOTE]
+    >Aby znaleźć identyfikator aplikacji dla aplikacji, którą chcesz wybrać, przejdź do pozycji **aplikacje dla przedsiębiorstw** i wybierz pozycję **aplikacje firmy Microsoft** z menu rozwijanego Typ aplikacji.
 
-## <a name="next-steps"></a>Następne kroki
+12. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie **Wybierz opcję**.
+13. W obszarze sesja **kontroli dostępu**  >  **Session**wybierz **pozycję częstotliwość logowania**, ustaw wartość **1** i jednostkę na **godziny**, a następnie wybierz pozycję **Wybierz**.
+14. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
+15. Wybierz pozycję **Utwórz** , aby włączyć zasady.
+
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dowiedz się więcej o zasadach dostępu warunkowego](../active-directory/conditional-access/concept-conditional-access-policies.md)
 

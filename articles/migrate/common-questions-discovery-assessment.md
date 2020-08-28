@@ -3,12 +3,12 @@ title: Pytania dotyczące odnajdywania, oceny i analizy zależności w programie
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odnajdywania, oceny i analizy zależności w programie Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b8ba0ec83b9f2faedebb2bfb4ba84109f6f8b77
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d4f833926541bafbae211caff37e5974b57e1047
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263507"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019015"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -181,13 +181,13 @@ Nie, nie można wyeksportować raportu wizualizacji zależności w wizualizacji 
 Dla wizualizacji zależności opartej na agentach:
 
 - [Zainstaluj agenta zależności](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent)przy użyciu skryptu.
-- W przypadku MMA należy [użyć wiersza polecenia lub automatyzacji](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)lub użyć [skryptu](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- W przypadku MMA należy [użyć wiersza polecenia lub automatyzacji](../azure-monitor/platform/log-analytics-agent.md#installation-options)lub użyć [skryptu](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - Oprócz skryptów można użyć narzędzi wdrażania, takich jak Microsoft Endpoint Configuration Manager i [Intigua](https://www.intigua.com/intigua-for-azure-migration) , aby wdrożyć agentów.
 
 ## <a name="what-operating-systems-does-mma-support"></a>Jakie systemy operacyjne są obsługiwane przez MMA?
 
-- Zapoznaj się z listą [systemów operacyjnych Windows obsługiwanych przez program MMA](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
-- Zapoznaj się z listą [systemów operacyjnych Linux obsługiwanych przez program MMA](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
+- Zapoznaj się z listą [systemów operacyjnych Windows obsługiwanych przez program MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- Zapoznaj się z listą [systemów operacyjnych Linux obsługiwanych przez program MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
 
 ## <a name="can-i-visualize-dependencies-for-more-than-one-hour"></a>Czy mogę wizualizować zależności przez więcej niż godzinę?
 
@@ -199,6 +199,6 @@ W przypadku wizualizacji bez wykorzystania agentów można wyświetlić mapę za
 
 Możesz [wizualizować zależności](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) dla grup, które mają maksymalnie 10 maszyn wirtualnych. Jeśli masz grupę, która ma więcej niż 10 maszyn wirtualnych, zalecamy podział grupy do mniejszych grup, a następnie wizualizację zależności.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z [omówieniem Azure Migrate](migrate-services-overview.md).

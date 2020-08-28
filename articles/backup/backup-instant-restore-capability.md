@@ -4,18 +4,18 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892630"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000383"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
 > [!NOTE]
 > W oparciu o opinie użytkowników zmieniono nazwę **stosu kopii zapasowych maszyny wirtualnej v2** na **natychmiastowe przywracanie** , aby zmniejszyć liczbę nieporozumień przy użyciu funkcji Azure Stack.
-> Wszyscy użytkownicy usługi Azure Backup zostali teraz uaktualnioni do **natychmiastowego przywracania**.
+> Wszyscy użytkownicy Azure Backup zostali zaktualizowani do **natychmiastowego przywracania**.
 
 Nowy model do natychmiastowego przywracania zapewnia następujące udoskonalenia funkcji:
 
@@ -108,9 +108,9 @@ Jeśli typ odzyskiwania to "migawka i magazyn", przywracanie zostanie automatycz
 
 Nowy model nie zezwala na usuwanie punktu przywracania (SVR), chyba że migawka (Pomoc) jest usuwana. Zalecamy przeprowadzenie planowania okresu przechowywania punktu przywracania (SVR) większego niż okres przechowywania migawki.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Dlaczego moja migawka jest istniejąca, nawet po upływie ustawionego okresu przechowywania w zasadach tworzenia kopii zapasowych?
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Dlaczego moja migawka nadal istnieje, nawet po upływie ustawionego okresu przechowywania w zasadach tworzenia kopii zapasowych?
 
-Jeśli punkt odzyskiwania zawiera migawkę i jest to najnowszy dostępny element RP, jest zachowywany do momentu następnej pomyślnej kopii zapasowej. Jest to zgodne z zaprojektowanymi zasadami "wyrzucania elementów bezużytecznych" (GC), ponieważ w przypadku wystąpienia problemu z maszyną wirtualną wszystkie kopie zapasowe mogą być zawsze obecne w przypadku wystąpienia błędu. W normalnych scenariuszach RPS pliku są czyszczone w ciągu maksymalnie 24 godzin po ich wygaśnięciu.
+Jeśli punkt odzyskiwania zawiera migawkę i jest dostępny najnowszy punkt odzyskiwania, jest zachowywany do momentu następnej pomyślnej kopii zapasowej. Jest to uzależnione od wydanych zasad "wyrzucania elementów bezużytecznych" (GC). Jest to wymagane, aby zawsze był obecny co najmniej jeden najnowszy punkt odzyskiwania, w przypadku gdy wszystkie kolejne kopie zapasowe kończą się niepowodzeniem z powodu problemu z maszyną wirtualną. W normalnych scenariuszach punkty odzyskiwania są czyszczone przez maksymalnie 24 godziny od momentu ich wygaśnięcia.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Nie potrzebuję funkcji natychmiastowego przywracania. Czy można ją wyłączyć?
 

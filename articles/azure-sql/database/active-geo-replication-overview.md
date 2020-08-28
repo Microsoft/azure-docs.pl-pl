@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
-ms.openlocfilehash: 10c0d3d5f043d31454810b55e808cd6df01467a4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/27/2020
+ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448746"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018386"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Tworzenie i używanie aktywnej replikacji geograficznej — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 Aby mieć pewność, że aplikacja będzie mogła natychmiast uzyskać dostęp do nowego elementu podstawowego po przejściu w tryb failover, upewnij się, że wymagania dotyczące uwierzytelniania dla serwera pomocniczego i bazy danych są prawidłowo skonfigurowane. Aby uzyskać szczegółowe informacje, zobacz [SQL Database zabezpieczenia po odzyskiwaniu po awarii](active-geo-replication-security-configure.md). Aby zagwarantować zgodność po przejściu w tryb failover, należy się upewnić, że zasady przechowywania kopii zapasowych w pomocniczej bazie danych są zgodne z serwerem podstawowym. Te ustawienia nie są częścią bazy danych i nie są replikowane. Domyślnie dla elementu pomocniczego zostanie skonfigurowany domyślny okres przechowywania kopie wynoszący siedem dni. Aby uzyskać szczegółowe informacje, zobacz [SQL Database zautomatyzowane kopie zapasowe](automated-backups-overview.md).
 
 > [!IMPORTANT]
-> Jeśli baza danych jest członkiem grupy trybu failover, nie można zainicjować jej trybu failover za pomocą polecenia trybu failover replikacji geograficznej. Użyj polecenia trybu failover dla grupy. Jeśli musisz przełączyć się do trybu failover dla pojedynczej bazy danych, musisz najpierw usunąć ją z grupy trybu failover. Aby uzyskać szczegółowe informacje, zobacz [grupy trybu failover](auto-failover-group-overview.md) .
+> Jeśli baza danych jest członkiem grupy trybu failover, nie można zainicjować jej trybu failover za pomocą polecenia trybu failover replikacji geograficznej. Użyj polecenia trybu failover dla grupy. Jeśli musisz przełączyć się do trybu failover dla pojedynczej bazy danych, musisz najpierw usunąć ją z grupy trybu failover. Aby uzyskać szczegółowe informacje, zobacz  [grupy trybu failover](auto-failover-group-overview.md) .
 
 ## <a name="configuring-secondary-database"></a>Konfigurowanie pomocniczej bazy danych
 
@@ -178,7 +178,8 @@ Klient wykonujący zmiany wymaga dostępu sieciowego do serwera podstawowego. Mi
 
 ### <a name="on-the-master-of-the-secondary-server"></a>Na serwerze pomocniczym
 
-1. Dodaj adres IP do listy dozwolonych klientów wykonujących zmiany. Musi to być ten sam dokładny adres IP serwera podstawowego.
+1. Dodaj adres IP klienta do listy dozwolonych w obszarze reguły zapory dla serwera pomocniczego. Sprawdź, czy dokładnie ten sam adres IP klienta, który został dodany do serwera podstawowego został również dodany do pomocniczej. Jest to wymagany krok, który należy wykonać przed uruchomieniem polecenia ALTER DATABASE ADD delokacja w celu zainicjowania replikacji geograficznej.
+
 1. Utwórz taką samą nazwę logowania jak na serwerze podstawowym, używając tego samego hasła użytkownika i identyfikatora SID:
 
    ```sql
@@ -287,7 +288,7 @@ Jak wspomniano wcześniej, aktywna replikacja geograficzna może być również 
 | [Usuń łącze replikacji](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Usuwa łącze replikacji bazy danych. Nie można wykonać operacji w trybie failover. |
 |  | |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Aby zapoznać się z przykładowymi skryptami, zobacz:
   - [Konfigurowanie pojedynczej bazy danych i wprowadzanie jej w tryb failover przy użyciu funkcji aktywnej replikacji geograficznej](scripts/setup-geodr-and-failover-database-powershell.md)

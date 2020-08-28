@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: ec79fc7c09f2bc1aeb2c07016365e831932fa1ff
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761512"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018114"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -71,7 +71,7 @@ Jeśli zablokujesz grupę zasobów utworzoną przez usługę Azure Backup, kopie
 
 Usuń blokadę i wyczyść kolekcję punktów przywracania z tej grupy zasobów, aby umożliwić pomyślne tworzenie kopii zapasowych w przyszłości. [Wykonaj następujące kroki](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) , aby usunąć kolekcję punktów przywracania.
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Czy usługa Azure Backup obsługuje standardowe dyski zarządzane przez dysk SSD?
+### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Czy Azure Backup obsługuje standardowe dyski zarządzane przez dysk SSD?
 
 Tak, Azure Backup obsługuje [dyski zarządzane w warstwie Standardowa SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 

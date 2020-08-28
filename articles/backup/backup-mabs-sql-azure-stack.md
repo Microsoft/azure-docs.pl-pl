@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych obciążeń SQL Server na Azure Stack
 description: W tym artykule dowiesz się, jak skonfigurować serwer Microsoft Azure Backup (serwera usługi MAB) w celu ochrony SQL Serverymi bazami danych w Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e56b29f886224617a9ae13d58c8b3dd8dda0dcf8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032650"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017965"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Tworzenie kopii zapasowej SQL Server na Azure Stack
 
@@ -101,7 +101,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
     ![Sprawdzanie spójności](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server przeprowadza sprawdzanie spójności na integralność punktu kopii zapasowej. Azure Backup Server oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym (SQL Server komputerze w tym scenariuszu) oraz dane kopii zapasowej dla tego pliku. W przypadku konfliktu zakłada się, że plik kopii zapasowej w Azure Backup Server jest uszkodzony. Azure Backup Server wznawia dane kopii zapasowej, wysyłając bloki odpowiadające niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności ma intensywną wydajność, można zaplanować sprawdzanie spójności lub uruchomić je automatycznie.
+    Azure Backup Server przeprowadza sprawdzanie spójności na integralność punktu kopii zapasowej. Azure Backup Server oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym (SQL Server komputerze w tym scenariuszu) oraz dane kopii zapasowej dla tego pliku. Jeśli wystąpi konflikt, zakłada się, że plik kopii zapasowej w Azure Backup Server jest uszkodzony. Azure Backup Server wznawia dane kopii zapasowej, wysyłając bloki odpowiadające niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności ma intensywną wydajność, można zaplanować sprawdzanie spójności lub uruchomić je automatycznie.
 
 10. Aby określić ochronę w trybie online dla źródeł danych, wybierz te, które mają być chronione na platformie Azure, a następnie kliknij przycisk **dalej**.
 
@@ -179,7 +179,7 @@ Poniższe kroki są wymagane do odzyskania chronionej jednostki (SQL Server Data
 
     Po zakończeniu odzyskiwania przywrócona baza danych jest spójna z aplikacją.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z artykułem [pliki i aplikacje kopii zapasowej](backup-mabs-files-applications-azure-stack.md) .
 Zapoznaj się z artykułem [Tworzenie kopii zapasowej programu SharePoint w Azure Stack](backup-mabs-sharepoint-azure-stack.md) .

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure z
 description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywrócić dane programu SharePoint. Ten artykuł zawiera informacje dotyczące konfigurowania farmy programu SharePoint w taki sposób, aby wymagane dane mogły być przechowywane na platformie Azure. Chronione dane programu SharePoint można przywrócić z dysku lub z platformy Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 00af51764d5a9454b002de6375b2b16d6e80c300
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514241"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017434"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure za pomocą usługi serwera usługi MAB
 
@@ -82,7 +82,7 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
     Po rozszerzeniu programu SharePoint Server serwera usługi MAB zapytania usługi VSS, aby zobaczyć, jakie dane mogą być chronione przez serwera usługi MAB.  Jeśli baza danych programu SharePoint jest zdalna, serwera usługi MAB łączy się z nią. Jeśli źródła danych programu SharePoint nie są wyświetlane, sprawdź, czy składnik zapisywania usługi VSS jest uruchomiony na serwerze programu SharePoint i wszystkich SQL Server zdalnych, a następnie upewnij się, że agent serwera usługi MAB jest zainstalowany na serwerze programu SharePoint i SQL Server zdalnym. Ponadto upewnij się, że bazy danych programu SharePoint nie są chronione w innym miejscu jako SQL Server bazy danych.
 
-1. W obszarze **Wybierz metodę ochrony danych**Określ, jak mają być obsługiwane krótkoterminowe i długoterminowe \- kopie zapasowe. Krótkoterminowa kopia zapasowa jest zawsze najpierw tworzona na dysku z opcją przeniesienia kopii zapasowej z dysku do chmury Azure za pomocą usługi Azure Backup \(na potrzeby przechowywania krótkoterminowego i długoterminowego\).
+1. W obszarze **Wybierz metodę ochrony danych**Określ, jak mają być obsługiwane krótkoterminowe i długoterminowe \- kopie zapasowe. Krótkoterminowe \- Tworzenie kopii zapasowych zawsze odbywa się na dysku, z opcją tworzenia kopii zapasowych na dysku w chmurze platformy Azure z Azure Backupm \( krótkim lub długim \- okresem \) .
 
 1. W obszarze **Wybierz \- cele krótkoterminowe**Określ sposób tworzenia kopii zapasowej do krótkoterminowego \- przechowywania na dysku.   W obszarze **Zakres przechowywania** Określ, jak długo chcesz przechowywać dane na dysku. W obszarze **częstotliwość synchronizacji**Określ, jak często mają być uruchamiane przyrostowe kopie zapasowe na dysku. Jeśli nie chcesz ustawiać interwału kopii zapasowych, możesz sprawdzić tuż przed punktem odzyskiwania, aby program serwera usługi MAB uruchomił ekspresową pełną kopię zapasową tuż przed zaplanowaniem każdego punktu odzyskiwania.
 
@@ -102,7 +102,7 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
 1. W obszarze **Wybierz replikację online**Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](./backup-azure-backup-import-export.md).
 
-1. Na stronie **Podsumowanie** przejrzyj ustawienia. Po kliknięciu przycisku **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
+1. Na stronie  **Podsumowanie** przejrzyj ustawienia. Po kliknięciu przycisku **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
 
 ## <a name="monitoring"></a>Monitorowanie
 
@@ -167,7 +167,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
 
     ![Location1 przemieszczania](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    SERWERA usługi MAB dołącza bazę danych zawartości, która hostuje element programu SharePoint do wystąpienia tymczasowego SQL Server. Z bazy danych zawartości odzyskuje element i umieszcza go w lokalizacji pliku przemieszczania w systemie serwera usługi MAB. Odzyskany element, który znajduje się w lokalizacji tymczasowej, musi zostać wyeksportowany do lokalizacji tymczasowej w farmie programu SharePoint.
+    SERWERA usługi MAB dołącza bazę danych zawartości, która hostuje element programu SharePoint, do wystąpienia tymczasowego SQL Server. Z bazy danych zawartości odzyskuje element i umieszcza go w lokalizacji pliku przemieszczania w systemie serwera usługi MAB. Odzyskany element, który znajduje się w lokalizacji tymczasowej, musi zostać wyeksportowany do lokalizacji tymczasowej w farmie programu SharePoint.
 
     ![Location2 przemieszczania](./media/backup-azure-backup-sharepoint/staging-location2.png)
 10. Wybierz opcję **Określ opcje odzyskiwania**i Zastosuj ustawienia zabezpieczeń do farmy programu SharePoint lub Zastosuj ustawienia zabezpieczeń punktu odzyskiwania. Kliknij przycisk **Dalej**.
@@ -255,7 +255,7 @@ Poniższa procedura używa przykładu farmy serwerów z dwoma serwerami frontonu
 
 1. Jeśli wykonano krok 6, można teraz usunąć wolumin z grupy ochrony.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Zapoznaj się z artykułem [Tworzenie kopii zapasowej programu Exchange Server](backup-azure-exchange-mabs.md) .
 Zapoznaj się z artykułem [Tworzenie kopii zapasowej SQL Server](backup-azure-sql-mabs.md) .

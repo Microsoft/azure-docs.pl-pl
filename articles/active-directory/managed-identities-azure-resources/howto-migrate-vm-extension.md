@@ -3,7 +3,7 @@ title: Zaprzestanie korzystania z rozszerzenia maszyny wirtualnej do zarządzani
 description: Instrukcje krok po kroku, aby zatrzymać korzystanie z rozszerzenia maszyny wirtualnej i zacząć korzystać z usługi Azure Instance Metadata Service (IMDS) do uwierzytelniania.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: markvi
-ms.openlocfilehash: afcbf5187a3b5ef3f44aebda22d376e9b796bf59
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.author: barclayn
+ms.openlocfilehash: 67e7f8890923dec2dca369b6a57399232c0198cc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848382"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018380"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Jak zatrzymać korzystanie z rozszerzenia tożsamości zarządzanej maszyny wirtualnej i zacząć korzystać z usługi Azure Instance Metadata Service
 
@@ -167,8 +167,8 @@ Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <loc
 ```
 
 Gdzie: 
-- Nazwa rozszerzenia i typ dla systemu Windows to:`ManagedIdentityExtensionForWindows`
-- Nazwa rozszerzenia i typ dla systemu Linux to:`ManagedIdentityExtensionForLinux`
+- Nazwa rozszerzenia i typ dla systemu Windows to: `ManagedIdentityExtensionForWindows`
+- Nazwa rozszerzenia i typ dla systemu Linux to: `ManagedIdentityExtensionForLinux`
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>"Skrypt automatyzacji" kończy się niepowodzeniem podczas próby eksportowania schematu dla tożsamości zarządzanych dla rozszerzenia zasobów platformy Azure
 
@@ -186,7 +186,7 @@ Istnieje kilka istotnych ograniczeń dotyczących używania rozszerzenia maszyny
 
  * Najważniejszym ograniczeniem jest fakt, że poświadczenia używane do żądania tokenów są przechowywane na maszynie wirtualnej. Osoba atakująca, która pomyślnie naruszyła maszynę wirtualną, może wyprowadzać poświadczenia. 
  * Ponadto rozszerzenie maszyny wirtualnej nadal jest nieobsługiwane przez kilka dystrybucji systemu Linux, dzięki czemu można modyfikować, kompilować i testować rozszerzenie dla każdej z tych dystrybucji. Obecnie obsługiwane są tylko następujące dystrybucje systemu Linux: 
-    * CoreOS stabilne
+    * CoreOS Stable
     * CentOS 7,1 
     * Red Hat 7,2 
     * Ubuntu 15,04 

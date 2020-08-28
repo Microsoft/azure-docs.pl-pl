@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: a036cb4212b0237bea1c8509532dc78d469acb17
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950157"
+ms.locfileid: "89018063"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,6 +129,8 @@ Kliknij moduł dla określonego kroku. Przejdź do karty **dzienniki** . Inne dz
 
 > [!TIP]
 > Przebiegi *opublikowanych potoków* można znaleźć na karcie **punkty końcowe** w obszarze roboczym. Przebiegi dla *nieopublikowanych potoków* można znaleźć w **eksperymentach** lub **potokach**.
+
+Aby uzyskać więcej informacji na temat rejestrowania i śledzenia z usługi `ParallelRunStep` , zobacz [debugowanie i rozwiązywanie problemów z ParallelRunStep](how-to-debug-parallel-run-step.md).
 
 ## <a name="logging-in-azure-machine-learning-designer-preview"></a>Logowanie w programie Azure Machine Learning Designer (wersja zapoznawcza)
 

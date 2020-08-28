@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83873037"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008390"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Odczytaj dane wejściowe w dowolnym formacie przy użyciu niestandardowych deserializacji platformy .NET
 
@@ -22,7 +23,7 @@ Niestandardowe deserializacji .NET umożliwiają zadanie Azure Stream Analytics 
 
 Poniższe przykłady kodu są interfejsami, które definiują deserializatory niestandardowe i implementują `StreamDeserializer<T>` .
 
-`UserDefinedOperator`jest klasą bazową dla wszystkich niestandardowych operatorów przesyłania strumieniowego. Jest on inicjowany `StreamingContext` , który zawiera kontekst, który obejmuje mechanizm publikowania diagnostyki, dla którego będzie konieczne debugowanie wszelkich problemów z deserializatorem.
+`UserDefinedOperator` jest klasą bazową dla wszystkich niestandardowych operatorów przesyłania strumieniowego. Jest on inicjowany `StreamingContext` , który zawiera kontekst, który obejmuje mechanizm publikowania diagnostyki, dla którego będzie konieczne debugowanie wszelkich problemów z deserializatorem.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -35,7 +36,7 @@ Poniższy fragment kodu jest deserializacji dla danych przesyłanych strumieniow
 
 Błędy, które można pominąć, powinny być emitowane przy użyciu `IStreamingDiagnostics` metody inicjacji przekazaną przez `UserDefinedOperator` . Wszystkie wyjątki będą traktowane jako błędy i Deserializator zostanie utworzony ponownie. Po określonej liczbie błędów zadanie przejdzie w stan niepowodzenia.
 
-`StreamDeserializer<T>`deserializacji strumienia do obiektu typu `T` . Muszą zostać spełnione następujące warunki:
+`StreamDeserializer<T>` deserializacji strumienia do obiektu typu `T` . Muszą zostać spełnione następujące warunki:
 
 1. T jest klasą lub strukturą.
 1. Wszystkie pola publiczne w T są
@@ -45,7 +46,7 @@ Błędy, które można pominąć, powinny być emitowane przy użyciu `IStreamin
     1. Elementy IList `T2` , gdzie T2 są zgodne z tymi samymi regułami.
     1. Nie ma żadnych typów cyklicznych.
 
-Parametr `stream` jest strumieniem zawierającym serializowany obiekt. `Deserialize`Zwraca kolekcję `T` wystąpień.
+Parametr `stream` jest strumieniem zawierającym serializowany obiekt. `Deserialize` Zwraca kolekcję `T` wystąpień.
 
 ```csharp
     public abstract class StreamDeserializer<T> : UserDefinedOperator
@@ -54,7 +55,7 @@ Parametr `stream` jest strumieniem zawierającym serializowany obiekt. `Deserial
     }
 ```
 
-`StreamingContext`zawiera kontekst, który obejmuje mechanizm publikowania diagnostyki dla operatora użytkownika.
+`StreamingContext` zawiera kontekst, który obejmuje mechanizm publikowania diagnostyki dla operatora użytkownika.
 
 ```csharp
     public abstract class StreamingContext
@@ -63,13 +64,13 @@ Parametr `stream` jest strumieniem zawierającym serializowany obiekt. `Deserial
     }
 ```
 
-`StreamingDiagnostics`jest diagnostyką dla operatorów zdefiniowanych przez użytkownika, w tym serializatorów, deserializacji i funkcji zdefiniowanych przez użytkownika.
+`StreamingDiagnostics` jest diagnostyką dla operatorów zdefiniowanych przez użytkownika, w tym serializatorów, deserializacji i funkcji zdefiniowanych przez użytkownika.
 
-`WriteError`zapisuje komunikat o błędzie w dziennikach zasobów i wysyła błąd do diagnostyki.
+`WriteError` zapisuje komunikat o błędzie w dziennikach zasobów i wysyła błąd do diagnostyki.
 
-`briefMessage`jest krótkim komunikatem o błędzie. Ten komunikat jest wyświetlany w diagnostyce i jest używany przez zespół produktu do celów debugowania. Nie uwzględniaj poufnych informacji i Zachowaj komunikat krótszy niż 200 znaków
+`briefMessage` jest krótkim komunikatem o błędzie. Ten komunikat jest wyświetlany w diagnostyce i jest używany przez zespół produktu do celów debugowania. Nie uwzględniaj poufnych informacji i Zachowaj komunikat krótszy niż 200 znaków
 
-`detailedMessage`jest szczegółowym komunikatem o błędzie, który jest dodawany tylko do dzienników zasobów w magazynie. Ta wiadomość powinna być krótsza niż 2000 znaków.
+`detailedMessage` jest szczegółowym komunikatem o błędzie, który jest dodawany tylko do dzienników zasobów w magazynie. Ta wiadomość powinna być krótsza niż 2000 znaków.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -219,7 +220,7 @@ Poniższy kod JavaScript jest przykładem formatu serializacji deserializacji .N
 }  
 ```
 
-`serializationClassName`powinna być klasą implementującą `StreamDeserializer<T>` . Opisano to w poniższej sekcji.
+`serializationClassName` powinna być klasą implementującą `StreamDeserializer<T>` . Opisano to w poniższej sekcji.
 
 ## <a name="region-support"></a>Obsługa regionów
 
@@ -227,10 +228,10 @@ Ta funkcja jest dostępna w następujących regionach:
 
 * Zachodnio-środkowe stany USA
 * Europa Północna
-* Wschodnie stany USA
+* East US
 * Zachodnie stany USA
 * Wschodnie stany USA 2
-* Europa Zachodnia
+* West Europe
 
 Możesz [zażądać obsługi](https://aka.ms/ccodereqregion) dodatkowych regionów.
 

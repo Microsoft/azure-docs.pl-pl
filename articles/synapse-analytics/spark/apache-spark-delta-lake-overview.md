@@ -9,13 +9,14 @@ ms.topic: overview
 ms.subservice: spark
 ms.date: 07/28/2020
 ms.author: euang
+ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 4559446c3de61c552d8fe091fbb95e8b52163472
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 655daeb0149228d78d5288b0e5d0d705a5743d28
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658524"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008645"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Przegląd zmian w systemie Linux Foundation
 
@@ -33,7 +34,7 @@ Oto co należy zrobić:
 * Odczytywanie strumienia zmian z tabeli
 * Obsługa SQL
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Upewnij się, że zmodyfikujesz poniższe czynności jako odpowiednie dla danego środowiska.
 
@@ -993,7 +994,7 @@ Pełną dokumentację można znaleźć na [stronie z dokumentacją usługi Delta
 
 Aby uzyskać więcej informacji, zobacz temat [różnicowa Lake Project](https://github.com/delta-io/delta).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

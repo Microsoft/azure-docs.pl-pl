@@ -9,12 +9,13 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 28f666fe295b2b49fb6795306e9fad489c867517
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d00232d602ce7b2de0db4e06ef3c7456f552833e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387221"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018743"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
@@ -73,12 +74,12 @@ Tabele platformy Spark zapewniają różne typy danych niż aparaty SQL Synapse.
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | Z sortowaniem`Latin1_General_CP1_CI_AS_UTF8` |
+| `string`    |    `varchar(max)`   | Z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem`Latin1_General_CP1_CI_AS_UTF8` |
-| `map`       |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem`Latin1_General_CP1_CI_AS_UTF8` |
-| `struct`    |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem`Latin1_General_CP1_CI_AS_UTF8` |
+| `array`     |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
+| `map`       |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
+| `struct`    |    `varchar(max)`   | Serializacja w formacie JSON z sortowaniem `Latin1_General_CP1_CI_AS_UTF8` |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 
@@ -190,7 +191,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Dowiedz się więcej o udostępnionych metadanych usługi Azure Synapse Analytics](overview.md)
 - [Dowiedz się więcej o udostępnionej bazie danych metadanych usługi Azure Synapse Analytics](database.md)

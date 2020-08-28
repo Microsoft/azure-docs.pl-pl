@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ff34b967e2ba42c01c904b8854ecfa04c394e17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551527"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017541"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu łącznika usługi Google Cloud (G Suite)
 
@@ -225,15 +225,18 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     b. W polu **adres URL strony logowania** w łączniku usługi Google Cloud (G Suite) Wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    c. W polu **adres URL strony logowania** w łączniku usługi Google Cloud (G Suite) Wklej wartość **adresu URL wylogowywania** skopiowanego z Azure Portal.
+    c. W polu **adres URL strony logowania** w łączniku usługi Google Cloud (G Suite) Wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    d. W polu **Zmień hasło URL** w usłudze Google Cloud (G Suite) Wklej wartość **adresu URL zmiany hasła** skopiowanego z Azure Portal.
+    > [!NOTE]
+    > Usługa Google Cloud (G Suite) jest oparta na protokole wylogowania protokołu SAML. Dlatego w polu **adres URL strony logowania** musi być używany adres URL WYLOGOWYWAnia SAML, czyli adres URL logowania jako wartość tego samego.
 
-    e. W przypadku łącznika usługi Google Cloud (G Suite) dla **certyfikatu weryfikacji**Przekaż certyfikat pobrany z Azure Portal.
+    d. W przypadku łącznika usługi Google Cloud (G Suite) dla **certyfikatu weryfikacji**Przekaż certyfikat pobrany z Azure Portal.   
 
-    f. Zaznacz/Usuń zaznaczenie opcji **Użyj określonego wystawcy dla domeny** zgodnie z uwagą wymienionym w powyższej sekcji podstawowe informacje o **konfiguracji języka SAML** w usłudze Azure AD.
+    e. Zaznacz/Usuń zaznaczenie opcji **Użyj określonego wystawcy dla domeny** zgodnie z uwagą wymienionym w powyższej sekcji podstawowe informacje o **konfiguracji języka SAML** w usłudze Azure AD.
 
-    przykład Kliknij przycisk **Zapisz zmiany**.
+    f. W polu **Zmień hasło URL** w usłudze Google Cloud (G Suite) Wklej wartość **adresu URL zmiany hasła** skopiowanego z Azure Portal.
+
+    przykład Kliknij pozycję **Zapisz**.
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Utwórz użytkownika testowego łącznika usługi Google Cloud (G Suite)
 
