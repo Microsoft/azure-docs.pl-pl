@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 39560966b542999b2c0c3472075c7497f2146455
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207344"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021072"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Samouczek: poprawianie materiałów, oświetlenia i efektów
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -514,7 +515,7 @@ Utworzymy skrypt **RemoteSky** , który zawiera listę wbudowanych CubeMaps w fo
 
 1. Dodaj skrypt **RemoteSky** do programu **świetlik** gameobject.
 
-    Przełączenie między światłami z przestrzenią powietrzną może odbywać się przez wywołanie `SetSky` jednego z kluczy ciągu zdefiniowanych w `AvailableCubemaps` . Kontroler widoku wbudowany w **AppMenu** automatycznie tworzy przyciski i łączy swoje zdarzenia w celu wywołania `SetSky` z odpowiednimi kluczami.
+    Przełączenie między światłami z przestrzenią powietrzną może odbywać się przez wywołanie `SetSky` jednego z kluczy ciągu zdefiniowanych w `AvailableCubemaps` . Kontroler widoku wbudowany w  **AppMenu** automatycznie tworzy przyciski i łączy swoje zdarzenia w celu wywołania `SetSky` z odpowiednimi kluczami.
 1. Naciśnij pozycję Odtwórz w edytorze aparatu Unity i Autoryzuj połączenie.
 1. Po nawiązaniu połączenia lokalnego środowiska uruchomieniowego z sesją zdalną przejdź do strony **AppMenu-> Session Tools — > zdalnej przestrzeni** czasu, aby poznać różne opcje dotyczące przestrzeni powietrznej i zobaczyć, jak wpływają one na **TestModel**.
 
@@ -927,7 +928,7 @@ Ponieważ modyfikujemy tylko pierwszy materiał siatki, może nie być widoczna 
 
 ![Przykład edycji materiału](./media/material-edit-example.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Gratulacje! Wdrożono wszystkie podstawowe funkcje renderowania zdalnego na platformie Azure. W następnym rozdziale dowiesz się, jak zabezpieczać zdalne renderowanie i magazyn obiektów BLOB na platformie Azure. Poniżej przedstawiono pierwsze kroki umożliwiające wydanie komercyjnej aplikacji używającej renderowania zdalnego platformy Azure.
 

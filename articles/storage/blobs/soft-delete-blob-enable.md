@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 83827c7a39b2833ce1301e78a0bef4e6d61ec62b
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185302"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020851"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
@@ -63,7 +63,7 @@ Po cofnięciu usunięcia migawek obiektu BLOB można kliknąć pozycję **Podwy�
 
 ![Zrzut ekranu przedstawiający stronę wyświetlanie migawek z wyróżnioną opcją podwyższania poziomu.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -192,7 +192,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Usuwanie nietrwałe dla magazynu obiektów BLOB](soft-delete-overview.md)
 - [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)

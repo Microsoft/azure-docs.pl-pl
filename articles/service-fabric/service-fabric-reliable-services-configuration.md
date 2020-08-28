@@ -5,12 +5,13 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 640ee925a0a91c4f8424546e7ae734dfbeaed21d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518966"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021973"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurowanie niezawodnych usług stanowych
 Istnieją dwa zestawy ustawień konfiguracji dla niezawodnych usług. Jeden zestaw jest globalny dla wszystkich niezawodnych usług w klastrze, podczas gdy drugi zestaw jest specyficzny dla konkretnej niezawodnej usługi.
@@ -63,7 +64,7 @@ SharedLogSizeInMB określa ilość miejsca na dysku do wstępnego przydzielenia 
 Można modyfikować stanowe Reliable Services "konfiguracje domyślne przy użyciu pakietu konfiguracyjnego (konfiguracji) lub implementacji usługi (kod).
 
 * Konfiguracja **konfiguracji za** pośrednictwem pakietu konfiguracyjnego jest realizowana przez zmianę pliku Settings.xml, który jest generowany w katalogu głównym pakietu Microsoft Visual Studio w folderze config dla każdej usługi w aplikacji.
-* **Kod** — konfiguracja za pośrednictwem kodu jest realizowana przez utworzenie ReliableStateManager przy użyciu obiektu ReliableStateManagerConfiguration z odpowiednimi zestawami opcji.
+* **Kod**   — konfiguracja za pośrednictwem kodu jest realizowana przez utworzenie ReliableStateManager przy użyciu obiektu ReliableStateManagerConfiguration z odpowiednimi zestawami opcji.
 
 Domyślnie środowisko uruchomieniowe platformy Azure Service Fabric wyszukuje wstępnie zdefiniowane nazwy sekcji w pliku Settings.xml i zużywa wartości konfiguracyjne podczas tworzenia podstawowych składników środowiska uruchomieniowego.
 
@@ -118,7 +119,7 @@ ReplicatorConfig
 | SharedLogPath |W pełni kwalifikowana nazwa ścieżki |"" |Określa w pełni kwalifikowaną ścieżkę, w której zostanie utworzony udostępniony plik dziennika dla tej repliki. Zazwyczaj usługi nie powinny używać tego ustawienia. Jeśli jednak SharedLogPath jest określony, należy również określić SharedLogId. |
 | SlowApiMonitoringDuration |Sekundy |300 |Ustawia interwał monitorowania dla wywołań zarządzanych interfejsów API. Przykład: użytkownik podał funkcję wywołania zwrotnego kopii zapasowej. Po upływie interwału Raport kondycji ostrzeżeń zostanie wysłany do Menedżera kondycji. |
 | LogTruncationIntervalSeconds |Sekundy |0 |Konfigurowalny interwał, w którym zostanie zainicjowane obcinanie dziennika dla każdej repliki. Jest on używany do zapewnienia, że dziennik jest również obcinany w oparciu o czas, a nie tylko rozmiar dziennika. To ustawienie wymusza także przeczyszczanie usuniętych wpisów w niezawodnym słowniku. W związku z tym można go użyć w celu zapewnienia, że usunięte elementy są czyszczone w odpowiednim czasie. |
-| EnableStableReads |Boolean (wartość logiczna) |Fałsz |Włączenie stałych odczytów ogranicza repliki pomocnicze do zwracania wartości, które były potwierdzone kworum. |
+| EnableStableReads |Wartość logiczna |Fałsz |Włączenie stałych odczytów ogranicza repliki pomocnicze do zwracania wartości, które były potwierdzone kworum. |
 
 ### <a name="sample-configuration-via-code"></a>Przykładowa konfiguracja za pośrednictwem kodu
 ```csharp
@@ -184,6 +185,6 @@ Ustawienie MaxRecordSizeInKB określa maksymalny rozmiar rekordu, który może b
 
 Ustawienia SharedLogId i SharedLogPath są zawsze używane razem, aby usługa korzystała z oddzielnego dziennika udostępnionego z domyślnego dziennika udostępnionego węzła. W celu uzyskania najlepszej wydajności, jak wiele usług, jak to możliwe, należy określić ten sam dziennik udostępniony. Udostępnione pliki dzienników powinny być umieszczane na dyskach, które są używane wyłącznie dla udostępnionego pliku dziennika, aby zmniejszyć rywalizację o ruch podrzędny. Oczekujemy, że ta wartość powinna być zmieniana tylko w rzadkich przypadkach.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Debugowanie aplikacji Service Fabric w programie Visual Studio](service-fabric-debugging-your-application.md)
 * [Dokumentacja dla deweloperów Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

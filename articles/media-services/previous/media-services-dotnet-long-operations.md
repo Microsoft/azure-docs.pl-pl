@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1c5b008b9771e636201f95f3a56f81d4e75b7ea2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4365796a9d7f7b72687db19573c09ccfdf9ea8de
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831740"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020532"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Dostarczanie przesyłania strumieniowego na żywo za pomocą Azure Media Services
 
@@ -32,7 +33,7 @@ Zestaw Media Services .NET SDK udostępnia interfejsy API, które wysyłają ż�
 Istnieją scenariusze, w których aplikacja nie może czekać na długotrwałe żądanie HTTP i chce przeprowadzić ręczne sondowanie postępu operacji. Typowym przykładem jest przeglądarka korzystająca z bezstanowej usługi sieci Web: gdy przeglądarka żąda utworzenia kanału, usługa sieci Web inicjuje długotrwałą operację i zwraca identyfikator operacji do przeglądarki. Przeglądarka może następnie poprosił usługi sieci Web o uzyskanie stanu operacji na podstawie identyfikatora. Zestaw SDK Media Services platformy .NET udostępnia interfejsy API, które są przydatne w tym scenariuszu. Te interfejsy API są nazywane "metodami niesondowania".
 "Metody, które nie są sondowane" mają następujący wzorzec nazewnictwa:*sendname operacji (* na przykład SendCreateOperation). Metody*operacji sendname*zwracają obiekt **IOperation** ; zwrócony obiekt zawiera informacje, które mogą być używane do śledzenia operacji. Metody*sendname*OperationAsync zwracają **zadanie \<IOperation> **.
 
-Obecnie następujące klasy obsługują metody inne niż sondowanie: **Channel**, **StreamingEndpoint**i **program**.
+Obecnie następujące klasy obsługują metody inne niż sondowanie:  **Channel**, **StreamingEndpoint**i **program**.
 
 Aby przeprowadzić sondowanie w poszukiwaniu stanu operacji, użyj metody **getoperation** w klasie **OperationBaseCollection** . Aby sprawdzić stan operacji dla operacji **kanału** i **StreamingEndpoint** , użyj następujących interwałów: 30 sekund; w przypadku operacji **programu** Użyj 10 sekund.
 
@@ -213,5 +214,5 @@ Console.WriteLine(channelId);
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

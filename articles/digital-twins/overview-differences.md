@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ad99dc3dc17e81c3b5da144b21519781353baa47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fdd0cd6995a294be03640693fcca9fb814f3acbe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826827"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021701"
 ---
-# <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>Jak nowa usługa Azure Digital bliźniaczych reprezentacji różni się od poprzedniej wersji (2018)?
+# <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Co to jest nowa usługa Azure Digital bliźniaczych reprezentacji? Czym różni się od poprzedniej wersji (2018)?
 
 Pierwsza publiczna wersja zapoznawcza usługi Azure Digital bliźniaczych reprezentacji została wydana w październiku 2018. Chociaż podstawowe koncepcje z poprzedniej wersji zostały przeniesione do nowej usługi w publicznej wersji zapoznawczej, wiele interfejsów i szczegółów implementacji uległo zmianie, aby usługa była bardziej elastyczna i dostępna. Te zmiany zostały zauzasadnione przez Opinie klientów.
 
@@ -40,9 +40,8 @@ Poniższy wykres zawiera szczegółowe informacje o pojęciach, które uległy z
 
 Listę limitów cyfrowych bliźniaczych reprezentacji na platformie Azure w ramach tej publicznej wersji zapoznawczej można znaleźć w temacie [*Reference: Public Preview Service Limits*](reference-service-limits.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Następnie szczegółowe do pracy z usługą Azure Digital bliźniaczych reprezentacji przy użyciu pierwszego samouczka:
 
-> [!div class="nextstepaction"]
-> [*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)
+[*Samouczek: kod aplikacji klienckiej*](tutorial-code.md)

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: b09fb7cb5e631d3405adf39d5c92a72288249aff
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893145"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022279"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
@@ -103,7 +103,7 @@ Dzięki Key Vault można przechowywać i regularnie przekazywać wpisy tajne, ta
 
 Azure Key Vault za pomocą sterownika CSI magazynu kluczy tajnych można używać w przypadku węzłów systemu Linux i Kubernetes, które wymagają wersji 1,16 lub nowszej. W przypadku węzłów systemu Windows i Kubernetes jest wymagana wersja 1,18 lub nowsza.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Ten artykuł koncentruje się na sposobach zabezpieczania swoich zasobników. Aby zaimplementować niektóre z tych obszarów, zobacz następujące artykuły:
 
@@ -115,7 +115,7 @@ Ten artykuł koncentruje się na sposobach zabezpieczania swoich zasobników. Ab
 [aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#selinuxoptions-v1-core
-[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
+[aks-associated-projects]: https://awesomeopensource.com/projects/aks?categoryPage=11
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

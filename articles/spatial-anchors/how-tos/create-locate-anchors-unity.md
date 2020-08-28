@@ -8,18 +8,19 @@ ms.author: rgarcia
 ms.date: 08/10/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f1e17d4aeb4856eba9ab6d7f5489e088474d10e1
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 47862469c074e85484227876caaef0ade64080de
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042585"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003399"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Jak utworzyć i zlokalizować kotwice przy użyciu kotwic Azure przestrzennego w środowisku Unity
 
 > [!div  class="op_single_selector"]
 > * [Unity](create-locate-anchors-unity.md)
-> * [Objective-C](create-locate-anchors-objc.md)
+> * [Obiektowy C](create-locate-anchors-objc.md)
 > * [Swift](create-locate-anchors-swift.md)
 > * [System Android Java](create-locate-anchors-java.md)
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)

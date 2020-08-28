@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718955"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003545"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planowanie i wdrażanie lokalnej Azure Active Directory ochrony hasłem
 
@@ -49,6 +49,8 @@ Istnieje również możliwość, że sprawdzanie poprawności hasła ma wpływ n
 * [Obniżanie poziomu kontrolera domeny nie powiodło się z powodu słabego hasła administratora lokalnego](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Po uruchomieniu funkcji w trybie inspekcji przez rozsądny okres można zmienić konfigurację z *inspekcji* w celu *wymuszenia* , aby wymagać bardziej bezpiecznych haseł. Dodatkowe monitorowanie w tym czasie jest dobrym pomysłem.
+
+Należy pamiętać, że ochrona hasłem w usłudze Azure AD może tylko weryfikować hasła podczas operacji zmiany lub ustawiania hasła. Hasła, które zostały zaakceptowane i zapisane w Active Directory przed wdrożeniem ochrony hasłem usługi Azure AD, nigdy nie będą weryfikowane i będą nadal działać zgodnie z oczekiwaniami. Wraz z upływem czasu wszyscy użytkownicy i konta ostatecznie rozpoczną korzystanie z funkcji ochrony hasłem w usłudze Azure AD, ponieważ istniejące hasła wygasają normalnie. Konta skonfigurowane z opcją "hasło nigdy nie wygasa" są wykluczone z tej usługi.
 
 ### <a name="multiple-forest-considerations"></a>Zagadnienia dotyczące wielu lasów
 
@@ -413,6 +415,6 @@ Możesz pominąć `/norestart` flagę, jeśli wolisz, aby Instalator automatyczn
 
 `Get-AzureADPasswordProtectionDCAgent`Polecenie cmdlet może służyć do wykonywania zapytań dotyczących wersji oprogramowania wszystkich aktualnie zainstalowanych agentów usługi Azure AD Password Protection w lesie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Po zainstalowaniu usług potrzebnych do ochrony hasłem usługi Azure AD na serwerach lokalnych [Włącz ochronę hasłem Premium usługi Azure AD w Azure Portal](howto-password-ban-bad-on-premises-operations.md) , aby ukończyć wdrożenie.

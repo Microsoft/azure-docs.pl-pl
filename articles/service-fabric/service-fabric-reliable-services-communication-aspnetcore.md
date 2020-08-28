@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529305"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022194"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core na platformie Azure Service Fabric Reliable Services
 
@@ -92,7 +93,7 @@ Zarówno implementacje Kestrel, jak i HTTP.sys `ICommunicationListener` używaj�
 W ten sposób zarówno implementacje Kestrel, jak i HTTP.sys są `ICommunicationListener` ustandaryzowane na oprogramowanie pośredniczące dostarczone przez `UseServiceFabricIntegration` metodę rozszerzenia. W związku z tym klienci muszą jedynie wykonać akcję ponownego rozpoznania punktu końcowego w odpowiedzi HTTP 410.
 
 ## <a name="httpsys-in-reliable-services"></a>HTTP.sys w Reliable Services
-HTTP.sys w Reliable Services można użyć, importując pakiet NuGet **Microsoft. servicefabric. AspNetCore. HttpSys** . Ten pakiet zawiera `HttpSysCommunicationListener` implementację programu `ICommunicationListener` . `HttpSysCommunicationListener`umożliwia utworzenie ASP.NET Core WebHost wewnątrz niezawodnej usługi za pomocą HTTP.sys jako serwer sieci Web.
+HTTP.sys w Reliable Services można użyć, importując pakiet NuGet **Microsoft. servicefabric. AspNetCore. HttpSys** . Ten pakiet zawiera `HttpSysCommunicationListener` implementację programu `ICommunicationListener` . `HttpSysCommunicationListener` umożliwia utworzenie ASP.NET Core WebHost wewnątrz niezawodnej usługi za pomocą HTTP.sys jako serwer sieci Web.
 
 HTTP.sys jest oparty na [interfejsie API serwera HTTP systemu Windows](/windows/win32/http/http-api-start-page). Ten interfejs API używa **HTTP.sys** sterownika jądra do przetwarzania żądań HTTP i kierowania ich do procesów uruchamiających aplikacje sieci Web. Pozwala to na wiele procesów na tej samej maszynie fizycznej lub wirtualnej do hostowania aplikacji sieci Web na tym samym porcie, niezależnie od unikatowej ścieżki URL lub nazwy hosta. Te funkcje są przydatne w Service Fabric do hostowania wielu witryn sieci Web w tym samym klastrze.
 
@@ -129,7 +130,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HTTP.sys w usłudze stanowej
 
-`HttpSysCommunicationListener`obecnie nie jest przeznaczona do użycia w usługach stanowych z powodu komplikacji z podstawową funkcją udostępniania portów **HTTP.sys** . Aby uzyskać więcej informacji, zobacz poniższą sekcję dotyczącą dynamicznego przydzielania portów przy użyciu HTTP.sys. W przypadku usług stanowych Kestrel jest sugerowanym serwerem sieci Web.
+`HttpSysCommunicationListener` obecnie nie jest przeznaczona do użycia w usługach stanowych z powodu komplikacji z podstawową funkcją udostępniania portów **HTTP.sys** . Aby uzyskać więcej informacji, zobacz poniższą sekcję dotyczącą dynamicznego przydzielania portów przy użyciu HTTP.sys. W przypadku usług stanowych Kestrel jest sugerowanym serwerem sieci Web.
 
 ### <a name="endpoint-configuration"></a>Konfiguracja punktu końcowego
 
@@ -189,7 +190,7 @@ Aby użyć dynamicznie przypisanego portu z HTTP.sys, Pomiń `Port` Właściwoś
 Port dynamiczny przydzielony przez `Endpoint` konfigurację zapewnia tylko jeden port *na proces hosta*. Bieżący model hostingu Service Fabric umożliwia hostowanie wielu wystąpień usługi i/lub replik w tym samym procesie. Oznacza to, że każda z nich będzie współużytkować ten sam port po przydzieleniu przez `Endpoint` konfigurację. Wiele wystąpień **HTTP.sys** może współużytkować port przy użyciu podstawowej funkcji udostępniania portów **HTTP.sys** . Nie jest to jednak obsługiwane `HttpSysCommunicationListener` ze względu na komplikacje, które wprowadza dla żądań klientów. W przypadku używania portów dynamicznych Kestrel jest sugerowanym serwerem sieci Web.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel w Reliable Services
-Kestrel można użyć w Reliable Services przez zaimportowanie pakietu NuGet **Microsoft. servicefabric. AspNetCore. Kestrel** . Ten pakiet zawiera `KestrelCommunicationListener` implementację programu `ICommunicationListener` . `KestrelCommunicationListener`umożliwia utworzenie ASP.NET Core WebHost wewnątrz niezawodnej usługi za pomocą Kestrel jako serwera sieci Web.
+Kestrel można użyć w Reliable Services przez zaimportowanie pakietu NuGet **Microsoft. servicefabric. AspNetCore. Kestrel** . Ten pakiet zawiera `KestrelCommunicationListener` implementację programu `ICommunicationListener` . `KestrelCommunicationListener` umożliwia utworzenie ASP.NET Core WebHost wewnątrz niezawodnej usługi za pomocą Kestrel jako serwera sieci Web.
 
 Kestrel to Międzyplatformowy serwer sieci Web dla ASP.NET Core. W przeciwieństwie do HTTP.sys, Kestrel nie używa scentralizowanego Menedżera punktów końcowych. Również w przeciwieństwie do HTTP.sys, Kestrel nie obsługuje udostępniania portów między wieloma procesami. Każde wystąpienie elementu Kestrel musi używać unikatowego portu. Aby uzyskać więcej informacji na temat Kestrel, zobacz [szczegóły implementacji](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
@@ -470,7 +471,7 @@ Kestrel to sugerowany serwer sieci Web dla usług frontonu, które uwidaczniają
  
 W przypadku udostępnienia Internetu usługa bezstanowa powinna używać dobrze znanego i stabilnego punktu końcowego, który jest dostępny za pomocą modułu równoważenia obciążenia. Ten adres URL należy podać użytkownikom aplikacji. Zalecamy wykonanie następującej konfiguracji:
 
-| Typ | Rekomendacja | Uwagi |
+| Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Kestrel to preferowany serwer sieci Web, który jest obsługiwany w systemach Windows i Linux. |
 | Konfiguracja portu | static | Dobrze znany port statyczny powinien zostać skonfigurowany w `Endpoints` konfiguracji ServiceManifest.xml, na przykład 80 dla http lub 443 dla protokołu HTTPS. |
@@ -495,7 +496,7 @@ Jeśli wiele usług narażonych na zewnątrz współużytkują ten sam zestaw w�
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Usługa bezstanowa ASP.NET Core tylko w ramach wewnętrznego
 W przypadku usług bezstanowych, które są wywoływane tylko z klastra, należy używać unikatowych adresów URL i dynamicznie przypisywanych portów w celu zapewnienia współpracy między wieloma usługami. Zalecamy wykonanie następującej konfiguracji:
 
-| Typ | Rekomendacja | Uwagi |
+| Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | Chociaż można używać HTTP.sys dla wewnętrznych usług bezstanowych, Kestrel jest najlepszym serwerem, aby umożliwić wielu wystąpieniem usługi Udostępnianie hosta.  |
 | Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
@@ -505,13 +506,13 @@ W przypadku usług bezstanowych, które są wywoływane tylko z klastra, należy
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Usługa bezstanowa ASP.NET Core tylko wewnętrznie
 Usługi stanowe, które są wywoływane tylko z poziomu klastra, powinny używać dynamicznie przydzielonych portów w celu zapewnienia współpracy między wieloma usługami. Zalecamy wykonanie następującej konfiguracji:
 
-| Typ | Rekomendacja | Uwagi |
+| Typ | Zalecenie | Uwagi |
 | ---- | -------------- | ----- |
 | Serwer sieci Web | Kestrel | `HttpSysCommunicationListener`Nie jest przeznaczony do użycia przez usługi stanowe, w których repliki współużytkują proces hosta. |
 | Konfiguracja portu | przypisane dynamicznie | Wielokrotne repliki usługi stanowej mogą współużytkować proces hosta lub system operacyjny hosta i w ten sposób potrzebować unikatowych portów. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | W przypadku dynamicznego przypisywania portów to ustawienie uniemożliwia opisywany wcześniej problem dotyczący tożsamości. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 [Debug your Service Fabric application by using Visual Studio (Debugowanie aplikacji usługi Service Fabric przy użyciu programu Visual Studio)](service-fabric-debugging-your-application.md)
 
 

@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 52a15654d1bb802c57ba1aa43fae6b4b44d833dc
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 1d24f06631bd3fd52061637892423c94e12127af
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852603"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021361"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Jak połączyć aplikacje z usługą Azure Database for MariaDB
 W tym temacie wymieniono typy parametrów połączenia, które są obsługiwane przez Azure Database for MariaDB wraz z szablonami i przykładami. W parametrach połączenia mogą istnieć inne parametry i ustawienia.

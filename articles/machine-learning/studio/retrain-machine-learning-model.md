@@ -7,14 +7,14 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 9acb9db0024ea1601f82b96376f084536fbbeabb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7ce7697b92df9c6bef61bbf9eccb9f4252ce957f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431859"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020696"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ponowne uczenie i wdrażanie modelu uczenia maszynowego
 
@@ -35,7 +35,7 @@ Wykonaj następujące kroki, aby ponownie przeprowadzić uczenie i wdrożyć now
 
 ## <a name="deploy-the-retraining-web-service"></a>Wdrażanie usługi sieci Web reszkoleniowej
 
-Usługa sieci Web do przeszkolenia umożliwia ponowne uczenie modelu z nowym zestawem parametrów, takimi jak nowe dane, i zapisywanie go w przyszłości. Po podłączeniu **danych wyjściowych usługi sieci Web** do **modelu uczenia**eksperyment szkoleniowy wysyła nowy model do użycia.
+Usługa sieci Web do przeszkolenia umożliwia ponowne uczenie modelu z nowym zestawem parametrów, takimi jak nowe dane, i zapisywanie go w przyszłości. Po podłączeniu **danych wyjściowych usługi sieci Web**  do **modelu uczenia**eksperyment szkoleniowy wysyła nowy model do użycia.
 
 Wykonaj następujące kroki, aby wdrożyć usługę sieci Web z ponownym uczeniem:
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby wdrożyć usługę sieci Web z ponownym uczenie
 1. W dolnej części kanwy eksperymentu kliknij pozycję **Skonfiguruj usługę sieci Web** .
 1. Wybierz pozycję **Wdróż usługę sieci Web [New]**. Portal usług sieci Web Azure Machine Learning zostanie otwarty na stronie **wdrażanie usługi sieci Web** .
 1. Wpisz nazwę usługi sieci Web i wybierz plan płatności.
-1. Wybierz pozycję **Wdróż**.
+1. Wybierz pozycję **Deploy** (Wdróż).
 
 ## <a name="retrain-the-model"></a>Ponowne uczenie modelu
 
@@ -208,7 +208,7 @@ Na koniec użyj polecenia cmdlet [Update-AzMlWebService](https://docs.microsoft.
 Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej na temat zarządzania usługami sieci Web lub śledzenia wielu przebiegów eksperymentów, zobacz następujące artykuły:
 

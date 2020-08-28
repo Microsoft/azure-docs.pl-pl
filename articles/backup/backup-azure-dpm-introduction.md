@@ -3,12 +3,12 @@ title: Przygotuj serwer programu DPM do tworzenia kopii zapasowych obciążeń
 description: W tym artykule dowiesz się, jak przygotować się do tworzenia kopii zapasowych programu System Center Data Protection Manager (DPM) na platformie Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890811"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021038"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Przygotowanie do tworzenia kopii zapasowych obciążeń na platformie Azure przy użyciu programu System Center DPM
 
@@ -119,7 +119,7 @@ Każdy komputer, na którym jest tworzona kopia zapasowa Azure Backup musi mieć
     ![Otwórz ustawienia magazynu](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Na stronie **Właściwości** pobierz agenta Azure Backup.
 
-    ![Pobierz](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Pobieranie](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Po pobraniu Uruchom MARSAgentInstaller.exe. Aby zainstalować agenta na komputerze DPM.
 5. Wybierz folder instalacyjny i folder pamięci podręcznej agenta. Ilość wolnego miejsca w lokalizacji pamięci podręcznej musi wynosić co najmniej 5% danych kopii zapasowej.

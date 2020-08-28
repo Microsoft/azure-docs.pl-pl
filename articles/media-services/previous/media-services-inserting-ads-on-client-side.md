@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 93b449636282568ab614b42a46d939935f576895
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594869"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021310"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Wstawianie reklam po stronie klienta
 Ten artykuł zawiera informacje na temat wstawiania różnych typów reklam po stronie klienta.
@@ -160,7 +161,7 @@ Reklamy nieliniowe są również określone w `<Creative>` elemencie. Poniższy 
     </Creative>
 ```
 
-Element <**NonLinearAds**> może zawierać co najmniej jeden <**nieliniowych** elementów>, z których każdy może opisywać nieliniowe AD. Element <**Nieliniowy**> określa zasób dla nieliniowej usługi AD. Zasób może być <**StaticResource**>, <**IFrameResource**> lub <**HTMLResource**>. \<**StaticResource**>Opisuje zasób niebędący w formacie HTML i definiuje atrybut creativetype, który określa sposób wyświetlania zasobu:
+Element <**NonLinearAds**> może zawierać co najmniej jeden <**nieliniowych** elementów>, z których każdy może opisywać nieliniowe AD. Element <**Nieliniowy**> określa zasób dla nieliniowej usługi AD. Zasób może być <**StaticResource**>, <**IFrameResource**> lub <**HTMLResource**>. \<**StaticResource**> Opisuje zasób niebędący w formacie HTML i definiuje atrybut creativetype, który określa sposób wyświetlania zasobu:
 
 Image/GIF, Image/JPEG, Image/PNG — zasób jest wyświetlany w tagu <**img**> języka HTML.
 
@@ -239,9 +240,9 @@ W obrębie `<AdBreak>` elementu może istnieć jeden <**AdSource**> elementu. El
 
 Element <**AdSource**> Umożliwia odtwarzaczowi wbudowaną odpowiedź usługi AD lub odwołanie do odpowiedzi usługi AD. Może zawierać jeden z następujących elementów:
 
-* `<VASTAdData>`wskazuje, że OBSZERNa odpowiedź usługi AD jest osadzona w pliku VMAP
-* `<AdTagURI>`Identyfikator URI, który odwołuje się do odpowiedzi usługi AD z innego systemu
-* `<CustomAdData>`-dowolny ciąg, który reprezentuje nieogromną odpowiedź
+* `<VASTAdData>` wskazuje, że OBSZERNa odpowiedź usługi AD jest osadzona w pliku VMAP
+* `<AdTagURI>` Identyfikator URI, który odwołuje się do odpowiedzi usługi AD z innego systemu
+* `<CustomAdData>` -dowolny ciąg, który reprezentuje nieogromną odpowiedź
 
 W tym przykładzie jest określona w wierszu odpowiedź usługi AD z `<VASTAdData>` elementem, który zawiera ogromną odpowiedź usługi AD. Aby uzyskać więcej informacji o innych elementach, zobacz [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
@@ -276,7 +277,7 @@ W poniższym przykładzie przedstawiono plik VMAP, który określa zdarzenia śl
     </vmap:VMAP>
 ```
 
-Aby uzyskać więcej informacji na temat <**TrackingEvents**> elementu i jego elementów podrzędnych, zobaczhttp://iab.net/VMAP.pdf
+Aby uzyskać więcej informacji na temat <**TrackingEvents**> elementu i jego elementów podrzędnych, zobacz http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Używanie pliku szablonu (MAST) abstrakcyjnej zawartości multimedialnej
 Plik MAST pozwala określić wyzwalacze, które definiują, kiedy zostanie wyświetlona wartość AD. Poniżej znajduje się przykładowy plik MAST, który zawiera wyzwalacze dla wstępnej kompilacji usługi AD, usługi AD i usługi AD po rozwinięcia.
@@ -327,7 +328,7 @@ Plik MAST pozwala określić wyzwalacze, które definiują, kiedy zostanie wyśw
 
 Plik MAST rozpoczyna się od elementu **Mast** , który zawiera jeden element **Triggers** . `<triggers>`Element zawiera jeden lub więcej elementów **wyzwalacza** , które definiują, kiedy ma być odtwarzany AD.
 
-Element **wyzwalacza** zawiera element **startConditions** , który określa, kiedy ma się rozpoczynać odtwarzanie AD. Element **startConditions** zawiera jeden lub więcej `<condition>` elementów. Gdy każda `<condition>` z nich szacuje wartość true, wyzwalacz jest inicjowany lub odwołany w zależności od tego, czy `<condition>` jest zawarty w elemencie **startConditions** czy **endConditions** odpowiednio. Gdy `<condition>` są obecne wiele elementów, są one traktowane jako niejawne lub, dowolny warunek oceniający wartość true spowoduje, że wyzwalacz zostanie zainicjowany. `<condition>`elementy mogą być zagnieżdżane. Gdy `<condition>` elementy podrzędne są wstępnie zdefiniowane, są traktowane jako niejawne i, wszystkie warunki muszą mieć wartość true, aby można było zainicjować wyzwalacz. `<condition>`Element zawiera następujące atrybuty, które definiują warunek:
+Element **wyzwalacza** zawiera element **startConditions** , który określa, kiedy ma się rozpoczynać odtwarzanie AD. Element **startConditions** zawiera jeden lub więcej `<condition>` elementów. Gdy każda `<condition>` z nich szacuje wartość true, wyzwalacz jest inicjowany lub odwołany w zależności od tego, czy `<condition>` jest zawarty w elemencie **startConditions** czy **endConditions** odpowiednio. Gdy `<condition>` są obecne wiele elementów, są one traktowane jako niejawne lub, dowolny warunek oceniający wartość true spowoduje, że wyzwalacz zostanie zainicjowany. `<condition>` elementy mogą być zagnieżdżane. Gdy `<condition>` elementy podrzędne są wstępnie zdefiniowane, są traktowane jako niejawne i, wszystkie warunki muszą mieć wartość true, aby można było zainicjować wyzwalacz. `<condition>`Element zawiera następujące atrybuty, które definiują warunek:
 
 1. **Typ** — określa typ warunku, zdarzenia lub właściwości.
 2. **name** — nazwa właściwości lub zdarzenia, które mają być używane podczas obliczania

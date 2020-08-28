@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: 82bcc61d06ac519447307c1e92784f33794d5817
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258020"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020596"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Jak wysyłać wiadomości E-mail przy użyciu programu SendGrid z platformą Azure
 ## <a name="overview"></a>Omówienie
@@ -272,11 +273,11 @@ msg.SetClickTracking(true);
 ## <a name="how-to-use-additional-sendgrid-services"></a>Instrukcje: korzystanie z dodatkowych usług SendGrid Services
 SendGrid oferuje kilka interfejsów API i elementów webhook, których można użyć do korzystania z dodatkowych funkcji w aplikacji platformy Azure. Aby uzyskać więcej informacji, zobacz [Dokumentacja interfejsu API SendGrid][SendGrid API documentation].
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Teraz, gdy znasz już podstawy usługi poczty E-mail SendGrid, Skorzystaj z poniższych linków, aby dowiedzieć się więcej.
 
 * \#Repozytorium biblioteki SendGrid C: [SendGrid-CSharp][sendgrid-csharp]
-* Dokumentacja interfejsu API SendGrid:<https://sendgrid.com/docs>
+* Dokumentacja interfejsu API SendGrid: <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
 [What is the SendGrid Email Service?]: #whatis

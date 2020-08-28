@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć magazyn Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6556731ed18bd591e930ed89264cd62893fe9ac6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757510"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022058"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych za pomocą witryny Azure Portal
 
@@ -53,7 +53,7 @@ Magazyn usługi Recovery Services zawiera dane kopii zapasowych i zasady tworzen
 
     ![Recovery Services wartości magazynu](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Magazyn usługi Recovery Services musi znajdować się w tej samej lokalizacji co chronione maszyny wirtualne. Jeśli Twoje maszyny wirtualne znajdują się w wielu regionach, utwórz magazyn usługi Recovery Services w każdym regionie. W tym samouczku tworzony jest magazyn usługi Recovery Services w regionie *Europa Zachodnia*, ponieważ w tym właśnie regionie utworzono maszynę *myVM* (maszynę wirtualną utworzoną za pomocą przewodnika Szybki start).
+    Magazyn usługi Recovery Services musi znajdować się w tej samej lokalizacji co chronione maszyny wirtualne. Jeśli Twoje maszyny wirtualne znajdują się w wielu regionach, utwórz magazyn usługi Recovery Services w każdym regionie. W tym samouczku przedstawiono magazyn Recovery Services w *Europie zachodniej* , ponieważ *myVM* (maszyna wirtualna utworzona przy użyciu szybkiego startu) została utworzona.
 
 1. Gdy wszystko będzie gotowe do utworzenia magazynu Recovery Services, wybierz pozycję **Utwórz**.
 
@@ -150,7 +150,7 @@ Aby uruchomić zadanie tworzenia kopii zapasowej na żądanie:
 
     ![Kafelek Zadania tworzenia kopii zapasowej](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie czyść zasobów utworzonych w tym samouczku. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego samouczka w Azure Portal.
 
@@ -189,7 +189,7 @@ Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie czyść zasob�
 
     Po usunięciu magazynu powrócisz do listy magazynów Recovery Services.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Podczas pracy z tym samouczkiem wykonano następujące czynności przy użyciu witryny Azure Portal:
 

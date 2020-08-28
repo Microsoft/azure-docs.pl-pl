@@ -16,12 +16,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 36d74a8819285c5eb5fb0367a2b32ae299ae6c8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084317"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003630"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Wskazówki dotyczące architektury powiadomień wypychanych w przedsiębiorstwie
 
@@ -89,7 +90,7 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
     }
     ```
 
-    c. `CreateTopic`służy do tworzenia tematu Service Bus.
+    c. `CreateTopic` służy do tworzenia tematu Service Bus.
 
     ```csharp
     public static void CreateTopic(string connectionString)
@@ -106,7 +107,7 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
     }
     ```
 
-    d. `SendMessage`służy do wysyłania komunikatów do tego tematu Service Bus. Ten kod po prostu wysyła zestaw losowych komunikatów do tematu okresowo na potrzeby przykładu. Zwykle istnieje system zaplecza, który wysyła komunikaty po wystąpieniu zdarzenia.
+    d. `SendMessage` służy do wysyłania komunikatów do tego tematu Service Bus. Ten kod po prostu wysyła zestaw losowych komunikatów do tematu okresowo na potrzeby przykładu. Zwykle istnieje system zaplecza, który wysyła komunikaty po wystąpieniu zdarzenia.
 
     ```csharp
     public static void SendMessage(string connectionString)
@@ -158,7 +159,7 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
     }
     ```
 
-    c. `CreateSubscription`służy do tworzenia subskrypcji Service Bus dla tematu, w którym system zaplecza wysyła komunikaty. W zależności od scenariusza biznesowego ten składnik tworzy co najmniej jedną subskrypcję z odpowiednimi tematami (na przykład niektóre mogą odbierać komunikaty z systemu kadr, niektóre z systemu finansowego itd.)
+    c. `CreateSubscription` służy do tworzenia subskrypcji Service Bus dla tematu, w którym system zaplecza wysyła komunikaty. W zależności od scenariusza biznesowego ten składnik tworzy co najmniej jedną subskrypcję z odpowiednimi tematami (na przykład niektóre mogą odbierać komunikaty z systemu kadr, niektóre z systemu finansowego itd.)
 
     ```csharp
     static void CreateSubscription(string connectionString)
@@ -174,7 +175,7 @@ Pełny przykładowy kod jest dostępny w [przykładach centrum powiadomień]. Je
     }
     ```
 
-    d. `ReceiveMessageAndSendNotification`służy do odczytywania wiadomości z tematu przy użyciu jej subskrypcji, a jeśli odczyt powiedzie się, należy skierować powiadomienie (w przykładowym scenariuszu wyskakujące powiadomienie systemu Windows Native) do wysłania do aplikacji mobilnej przy użyciu usługi Azure Notification Hubs.
+    d. `ReceiveMessageAndSendNotification` służy do odczytywania wiadomości z tematu przy użyciu jej subskrypcji, a jeśli odczyt powiedzie się, należy skierować powiadomienie (w przykładowym scenariuszu wyskakujące powiadomienie systemu Windows Native) do wysłania do aplikacji mobilnej przy użyciu usługi Azure Notification Hubs.
 
     ```csharp
     static void ReceiveMessageAndSendNotification(string connectionString)

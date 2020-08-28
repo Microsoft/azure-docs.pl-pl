@@ -14,16 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b9b234f0d701ae2ef269b53c3b3c0276ca31f7f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052828"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020613"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Opracowywanie Azure Functions z Media Services
 
-W tym artykule pokazano, jak rozpocząć tworzenie Azure Functions korzystających z Media Services. Funkcja platformy Azure zdefiniowana w tym artykule monitoruje kontener konta magazynu o nazwie **Input** dla nowych plików MP4. Gdy plik zostanie usunięty do kontenera magazynu, wyzwalacz obiektu BLOB wykonuje funkcję. Aby zapoznać się z usługą Azure Functions, zobacz [Omówienie](../../azure-functions/functions-overview.md) i inne tematy w sekcji **usługi Azure Functions** .
+W tym artykule pokazano, jak rozpocząć tworzenie Azure Functions korzystających z Media Services. Funkcja platformy Azure zdefiniowana w tym artykule monitoruje kontener konta magazynu o nazwie **Input** dla nowych plików MP4. Gdy plik zostanie usunięty do kontenera magazynu, wyzwalacz obiektu BLOB wykonuje funkcję. Aby zapoznać się z usługą Azure Functions, zobacz  [Omówienie](../../azure-functions/functions-overview.md) i inne tematy w sekcji **usługi Azure Functions** .
 
 Jeśli chcesz eksplorować i wdrażać istniejące Azure Functions, które używają Azure Media Services, Wyewidencjonuj [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). To repozytorium zawiera przykłady, które używają Media Services do wyświetlania przepływów pracy związanych z pozyskiwaniem zawartości bezpośrednio z magazynu obiektów blob, kodowania i zapisywania zawartości z powrotem do magazynu obiektów BLOB. Zawiera również przykłady monitorowania powiadomień zadań za pośrednictwem elementów webhook i kolejek platformy Azure. Możesz również opracowywać funkcje na podstawie przykładów w repozytorium [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) . Aby wdrożyć funkcje, naciśnij przycisk **Wdróż na platformie Azure** .
 
@@ -42,7 +43,7 @@ Jeśli chcesz eksplorować i wdrażać istniejące Azure Functions, które używ
 
 ## <a name="configure-function-app-settings"></a>Skonfiguruj ustawienia aplikacji funkcji
 
-Podczas opracowywania funkcji Media Services warto dodać zmienne środowiskowe, które będą używane w całej funkcji. Aby skonfigurować ustawienia aplikacji, kliknij link Konfiguruj ustawienia aplikacji. Aby uzyskać więcej informacji, zobacz [jak skonfigurować ustawienia aplikacji funkcji platformy Azure](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
+Podczas opracowywania funkcji Media Services warto dodać zmienne środowiskowe, które będą używane w całej funkcji. Aby skonfigurować ustawienia aplikacji, kliknij link Konfiguruj ustawienia aplikacji. Aby uzyskać więcej informacji, zobacz  [jak skonfigurować ustawienia aplikacji funkcji platformy Azure](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
 
 Funkcja zdefiniowana w tym artykule zakłada, że w ustawieniach aplikacji znajdują się następujące zmienne środowiskowe:
 
@@ -70,7 +71,7 @@ Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Az
 
     ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Kliknij pozycję **Utwórz**. 
+4. Kliknij przycisk **Utwórz**. 
 
 ## <a name="files"></a>Files
 
@@ -340,7 +341,7 @@ Aby przetestować funkcję, należy przekazać plik MP4 do kontenera **wejściow
 >[!NOTE]
 > W przypadku korzystania z wyzwalacza obiektu BLOB w planie zużycia może wystąpić maksymalnie 10 minut opóźnienia w przetwarzaniu nowych obiektów BLOB po przejściu aplikacji funkcji do trybu bezczynności. Po uruchomieniu aplikacji funkcji obiekty blob są przetwarzane natychmiast. Aby uzyskać więcej informacji, zobacz [wyzwalacze i powiązania usługi BLOB Storage](../../azure-functions/functions-bindings-storage-blob.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz możesz rozpocząć tworzenie aplikacji Media Services. 
  

@@ -10,12 +10,13 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 29bec00916f4cc3683dae5b6d3065e02a3cbe10f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724170"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010906"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Wywoływanie operacji interfejsu API REST przy użyciu autoryzacji klucza wspólnego
 
@@ -567,7 +568,7 @@ Content-Length: 1135
 
 W tym artykule przedstawiono sposób tworzenia żądania do interfejsu API REST usługi BLOB Storage. Za pomocą żądania można pobrać listę kontenerów lub listę obiektów BLOB w kontenerze. Wiesz już, jak utworzyć podpis autoryzacji dla wywołania interfejsu API REST i jak używać go w żądaniu REST. Na koniec zapoznaj się z badaniem odpowiedzi.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Interfejs API REST usługi Blob Service](/rest/api/storageservices/blob-service-rest-api)
 - [Interfejs API REST usługi File (Plik)](/rest/api/storageservices/file-service-rest-api)

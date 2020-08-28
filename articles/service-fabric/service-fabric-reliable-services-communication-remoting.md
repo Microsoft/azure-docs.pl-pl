@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a3f19d1240c2dcf1e62d5723c40b4f7c8b2154f0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 246b1456c05605c4015c19e1a139e9ad65f6eaba
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253290"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022160"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Komunikacja zdalna usługi w języku C# z Reliable Services
 
@@ -109,7 +110,7 @@ Użytkownik może skonfigurować te wartości, przekazując obiekt OperationRetr
 
 Począwszy od wersji 2,8 pakietu funkcji komunikacji zdalnej NuGet, można użyć stosu zdalnego systemu v2. Stos usług zdalnych w wersji 2 wykonuje lepsze. Udostępnia również funkcje takie jak Serializacja niestandardowa i więcej interfejsów API do podłączania.
 Kod szablonu nadal używa stosu zdalnego v1.
-Komunikacja zdalna v2 nie jest zgodna z V1 (poprzedni stos komunikacji zdalnej). Postępuj zgodnie z instrukcjami zawartymi w artykule [uaktualnienie z wersji od 1 do v2](#upgrade-from-remoting-v1-to-remoting-v2) , aby uniknąć wpływu na dostępność usługi.
+Komunikacja zdalna v2 nie jest zgodna z V1 (poprzedni stos komunikacji zdalnej). Postępuj zgodnie z instrukcjami zawartymi w artykule  [uaktualnienie z wersji od 1 do v2](#upgrade-from-remoting-v1-to-remoting-v2) , aby uniknąć wpływu na dostępność usługi.
 
 Dostępne są następujące podejścia umożliwiające włączenie stosu v2.
 
@@ -127,7 +128,7 @@ Te kroki zmieniają kod szablonu, aby używać stosu v2 przy użyciu atrybutu ze
    </Resources>
    ```
 
-2. Użyj `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners` metody rozszerzającej, aby utworzyć odbiorniki komunikacji zdalnej (równe zarówno V1, jak i v2).
+2. Użyj `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners`  metody rozszerzającej, aby utworzyć odbiorniki komunikacji zdalnej (równe zarówno V1, jak i v2).
 
    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -547,7 +548,7 @@ Wykonaj następujące kroki:
       });
       ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Interfejs API sieci Web z OWIN w Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Windows Communication Foundation komunikacji z Reliable Services](service-fabric-reliable-services-communication-wcf.md)

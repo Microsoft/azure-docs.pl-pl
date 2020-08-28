@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/10/2020
 ms.author: kumud
-ms.openlocfilehash: d789d74f79fa691a2d5b374530450d966e0c40ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9eedba6c8aee5c8aab73e2ed598a4511b4c5982
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047251"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020460"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Dostosowywanie modelu języka za pomocą witryny sieci Web Video Indexer
 
@@ -133,7 +133,9 @@ Video Indexer obsługuje automatyczne dostosowywanie modeli języka na podstawie
 
     ![Dostosuj transkrypcję edycji modelu języka — Video Indexer](./media/customize-language-model/edits.png)
 
-    Video Indexer przechwytuje wszystkie wiersze, które są poprawione przez użytkownika w transkrypcji wideo, i automatycznie dodaje je do pliku tekstowego o nazwie "z edycji transkrypcji". Te zmiany są używane do ponownego uczenia określonego modelu języka, który został użyty do indeksowania tego wideo.
+    Video Indexer przechwytuje wszystkie wiersze, które są poprawione przez użytkownika w transkrypcji wideo, i automatycznie dodaje je do pliku tekstowego o nazwie "z edycji transkrypcji". Te zmiany są używane do ponownego uczenia określonego modelu języka, który został użyty do indeksowania tego wideo. 
+    
+    Uwzględniono również zmiany wprowadzone w osi czasu [widżetu](video-indexer-embed-widgets.md) .
     
     Jeśli nie określono modelu języka podczas indeksowania tego wideo, wszystkie modyfikacje tego wideo będą przechowywane w domyślnym modelu języka o nazwie "dostosowania konta" w wykrytym języku wideo.
     
@@ -150,6 +152,6 @@ Video Indexer obsługuje automatyczne dostosowywanie modeli języka na podstawie
 
     ![Z edycji transkrypcji — Video Indexer](./media/customize-language-model/from-transcript-edits.png)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Dostosowywanie modelu języka przy użyciu interfejsów API](customize-language-model-with-api.md)

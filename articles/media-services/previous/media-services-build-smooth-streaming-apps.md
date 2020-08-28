@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2a1a506e7e4c4a90ed39f4371b48e47b632918c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071909"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021508"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows  
 
@@ -45,7 +46,7 @@ Kompletne rozwiązanie dla każdej lekcji można pobrać z przykładów kodu dew
 * [Lekcja 1](https://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) — prosty Media Player Smooth Streaming systemu Windows 8, 
 * [Lekcja 2](https://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) — prosty Media Player Smooth Streaming systemu Windows 8 z kontrolką paska suwaka 
 * [Lekcja 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) — Media Player Smooth Streaming systemu Windows 8 z wybraniem strumienia  
-* [Lekcja 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) — Media Player Smooth Streaming systemu Windows 8 z opcją śledzenia.
+* [Lekcja 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907)  — Media Player Smooth Streaming systemu Windows 8 z opcją śledzenia.
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lekcja 1. Tworzenie podstawowej aplikacji do sklepu Smooth Streaming
 
@@ -69,7 +70,7 @@ Aby uzyskać więcej informacji na temat tworzenia aplikacji do sklepu Windows, 
     | Nazwa | Wartość |
     | --- | --- |
     | Grupa szablonów |Zainstalowane/szablony/sklep Visual C#/Windows |
-    | Template |Pusta aplikacja (XAML) |
+    | Szablon |Pusta aplikacja (XAML) |
     | Nazwa |SSPlayer |
     | Lokalizacja |C:\SSTutorials |
     | Nazwa rozwiązania |SSPlayer |

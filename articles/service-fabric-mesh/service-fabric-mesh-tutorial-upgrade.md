@@ -5,13 +5,13 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devcenter, devx-track-csharp
+ms.openlocfilehash: 876359b45daa280a1f5701f2490ce505327f309b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75351712"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011008"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Samouczek: informacje na temat uaktualniania aplikacji Service Fabric przy użyciu programu Visual Studio
 
@@ -61,7 +61,7 @@ Zaktualizujemy parametr, `WebFrontEnd_cpu` Aby zaktualizować zasoby procesora C
 > Domyślnie plik parametrów, który jest elementem równorzędnym pliku profile. YAML, będzie używany do dostarczania wartości dla tego pliku profile. YAML.
 > Na przykład środowiska > > w chmurze. YAML udostępnia wartości parametrów dla środowisk > Cloud > profile. YAML.
 >
-> Można to zastąpić, dodając następujący plik do pliku profile. YAML: `parametersFilePath=”relative or full path to the parameters file”` na przykład `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` lub`parametersFilePath=”..\CommonParameters.yaml”`
+> Można to zastąpić, dodając następujący plik do pliku profile. YAML: `parametersFilePath=”relative or full path to the parameters file”` na przykład `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` lub `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modyfikowanie modelu
 
@@ -151,7 +151,7 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Otwórz przeglądarkę internetową i przejdź do adresu URL, aby wyświetlić witrynę internetową działającą na platformie Azure. Powinna zostać wyświetlona strona sieci Web, która zawiera kolumnę kategorii.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tej części samouczka przedstawiono informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]

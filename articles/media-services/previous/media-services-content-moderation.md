@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70d824522e1ae71bd49050779ff37e821d560783
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d30949327f3025c06d4c98670494809c486631a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954710"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022211"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Korzystanie z usługi Azure Media Content Moderator do wykrywania możliwej zawartości dla osób dorosłych i erotycznej 
 
@@ -31,7 +32,7 @@ ms.locfileid: "85954710"
 
 Pakiet MP **usługi Azure Media Content moderator** jest obecnie w wersji zapoznawczej.
 
-W tym artykule przedstawiono szczegółowe informacje o **usłudze Azure Media Content moderator** i pokazano, jak używać jej z zestawem SDK Media Services dla platformy .NET.
+W tym artykule przedstawiono szczegółowe informacje o  **usłudze Azure Media Content moderator** i pokazano, jak używać jej z zestawem SDK Media Services dla platformy .NET.
 
 ## <a name="content-moderator-input-files"></a>Pliki wejściowe Content Moderator
 Pliki wideo. Obecnie obsługiwane są następujące formaty: MP4, MOV i WMV.
@@ -54,7 +55,7 @@ Wyjściowy kod JSON zawiera następujące elementy:
 | przesunięcie |Przesunięcie czasu dla sygnatur czasowych. W wersji 1,0 interfejsów API wideo ta wartość będzie zawsze równa 0. Ta wartość może ulec zmianie w przyszłości. |
 | szybkości |Liczba klatek na sekundę w wideo. |
 | szerokość |Szerokość wyjściowej ramki wideo (w pikselach).|
-| height |Wysokość wyjściowej ramki wideo (w pikselach).|
+| wysokość |Wysokość wyjściowej ramki wideo (w pikselach).|
 | totalDuration |Czas trwania wejściowego filmu wideo w "taktach". |
 | [elementy](#fragments-json-elements) |Metadane są podzielone na różne segmenty o nazwie fragmenty. Każdy fragment jest wykrytym wstępnie zrzutem z początkiem, czasem trwania, numerem interwału i zdarzeniami. |
 
@@ -62,7 +63,7 @@ Wyjściowy kod JSON zawiera następujące elementy:
 
 |Element|Opis|
 |---|---|
-| rozpoczynanie |Godzina rozpoczęcia pierwszego zdarzenia w "Takty". |
+| start |Godzina rozpoczęcia pierwszego zdarzenia w "Takty". |
 | czas trwania |Długość fragmentu w "Takty". |
 | interval |Interwał każdego wpisu zdarzenia w obrębie fragmentu w "Takty". |
 | [wydarzeniach](#events-json-elements) |Każde zdarzenie reprezentuje klip, a każdy klip zawiera ramki kluczowe wykryte i śledzone w tym czasie. Jest to tablica zdarzeń. Zewnętrzna tablica reprezentuje jeden interwał czasu. Wewnętrzna tablica składa się z 0 lub większej liczby zdarzeń, które wystąpiły w danym momencie.|
@@ -71,10 +72,10 @@ Wyjściowy kod JSON zawiera następujące elementy:
 
 |Element|Opis|
 |---|---|
-| reviewRecommended | `true`lub `false` w zależności od tego, czy **AdultScore** lub **racyScore** przekraczają wewnętrzne progi. |
+| reviewRecommended | `true` lub `false` w zależności od tego, czy **AdultScore** lub **racyScore** przekraczają wewnętrzne progi. |
 | adultScore | Wynik pewności dotyczącej możliwej zawartości dla dorosłych w skali od 0,00 do 0,99. |
 | racyScore | Wynik zaufania dla możliwej zawartości erotycznej w skali od 0,00 do 0,99. |
-| indeks | indeks ramki w skali od pierwszego indeksu ramki do ostatniego indeksu ramki. |
+| index | indeks ramki w skali od pierwszego indeksu ramki do ostatniego indeksu ramki. |
 | sygnatura czasowa | Lokalizacja ramki w "Takty". |
 | shotIndex | Indeks zrzutu nadrzędnego. |
 
@@ -235,7 +236,7 @@ Poniższy przykład Content Moderator danych wyjściowych JSON został obcięty.
 
 [Demonstracje Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o [moderowaniu wideo Content moderator i rozwiązaniu problemu](../../cognitive-services/Content-Moderator/video-moderation-human-review.md).
 

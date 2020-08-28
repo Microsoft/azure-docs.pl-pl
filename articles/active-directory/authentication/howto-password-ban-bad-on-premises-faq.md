@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717782"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003477"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Ochrona hasłem w usłudze Azure AD — często zadawane pytania
 
@@ -47,6 +47,14 @@ Zmiana hasła jest konieczna, gdy użytkownik wybierze nowe hasło po udowodnien
 Ustawienie hasła (nazywane czasem resetowaniem hasła) polega na tym, że administrator zastępuje hasło na koncie z nowym hasłem, na przykład za pomocą narzędzia do zarządzania użytkownikami i komputerami Active Directory. Ta operacja wymaga wysokiego poziomu uprawnień (zazwyczaj administratora domeny), a osoba wykonująca operację zwykle nie ma informacji o starym haśle. Scenariusze pomocy technicznej często wykonują zbiory haseł, na przykład podczas wspomagania użytkownika, który zapomniał hasło. W przypadku tworzenia nowego konta użytkownika po raz pierwszy przy użyciu hasła będą widoczne także zdarzenia ustawiania hasła.
 
 Zasady walidacji hasła działają tak samo, niezależnie od tego, czy są wykonywane zmiany lub ustawienia hasła. Usługa agenta DC ochrony hasłem w usłudze Azure AD rejestruje różne zdarzenia w celu powiadomienia użytkownika o tym, czy operacja zmiany lub ustawienia hasła została ukończona.  Zobacz [monitorowanie i rejestrowanie w usłudze Azure AD Password Protection](./howto-password-ban-bad-on-premises-monitor.md).
+
+**P: czy ochrona hasłem usługi Azure AD sprawdza istniejące hasła po zainstalowaniu?**
+
+Nie — Ochrona hasłem w usłudze Azure AD może wymuszać tylko zasady haseł dla haseł ze zwykłym tekstem podczas operacji zmiany lub ustawienia hasła. Po zaakceptowaniu hasła przez Active Directory są zachowywane wyłącznie wartości skrótu specyficzne dla protokołu uwierzytelniania. Hasło w postaci zwykłego tekstu nigdy nie jest utrwalane, dlatego Ochrona hasłem w usłudze Azure AD nie może zweryfikować istniejących haseł.
+
+Po początkowym wdrożeniu ochrony hasłem usługi Azure AD wszyscy użytkownicy i konta ostatecznie rozpoczną korzystanie z hasła zweryfikowanego przez ochronę hasłem usługi Azure AD, ponieważ istniejące hasła wygasają zwykle w czasie. W razie potrzeby ten proces może być przyspieszony przez jednorazowe ręczne wygaśnięcie haseł kont użytkowników.
+
+Konta skonfigurowane z opcją "hasło nigdy nie wygasa" nigdy nie będą wymuszane do zmiany hasła, chyba że zostanie wykonane ręczne wygaśnięcie.
 
 **P: Dlaczego są zduplikowane zdarzenia odrzucania hasła zarejestrowane podczas próby ustawienia słabego hasła przy użyciu przystawki Zarządzanie użytkownikami i komputerami Active Directory?**
 
@@ -157,7 +165,7 @@ Następujące linki nie są częścią podstawowej dokumentacji ochrony hasłem 
 
 Jeśli chcesz dowiedzieć się więcej o ochronie haseł usługi Azure AD i wdrażaniu jej w środowisku, możesz skorzystać z usługi Microsoft proaktywnie dostępnej dla tych klientów z umową Premier lub Unified support. Usługa jest nazywana Azure Active Directory: Ochrona hasłem. Aby uzyskać więcej informacji, skontaktuj się z kierownikiem ds. klientów.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli masz lokalne pytanie ochrony hasła usługi Azure AD, na które nie udzielono odpowiedzi, Prześlij element opinii poniżej — Dziękujemy!
 

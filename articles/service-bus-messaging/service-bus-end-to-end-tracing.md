@@ -3,12 +3,13 @@ title: Azure Service Bus kompleksowe śledzenie i Diagnostyka | Microsoft Docs
 description: Przegląd Service Bus diagnostyki klienta i kompleksowego śledzenia (klient przez wszystkie usługi, które są związane z przetwarzaniem).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9b46f85e16370d15e3a8def98cdcdf8b3878208d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340732"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021633"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Śledzenie rozproszone i korelacja za poorednictwem Service Bus Messaging
 
@@ -86,7 +87,7 @@ Na wypadek, gdy system śledzenia nie obsługuje automatycznego śledzenia wywo�
 
 Klient platformy .NET Service Bus jest Instrumentacją przy użyciu elementów podstawowych śledzenia .NET [System. Diagnostics. Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) i [System. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
-`Activity`służy jako kontekst śledzenia, gdy `DiagnosticSource` jest mechanizmem powiadamiania. 
+`Activity` służy jako kontekst śledzenia, gdy `DiagnosticSource` jest mechanizmem powiadamiania. 
 
 Jeśli nie ma żadnych odbiorników dla zdarzeń DiagnosticSource, Instrumentacja jest wyłączona, utrzymując koszty Instrumentacji. DiagnosticSource daje wszystkie sterowanie odbiornikiem:
 - odbiornik steruje źródłami i zdarzeniami, do których nasłuchuje
@@ -142,8 +143,8 @@ Dla każdej operacji są wysyłane dwa zdarzenia: "Start" i "Stop". Najprawdopod
 Ładunek zdarzenia udostępnia odbiornik z kontekstem operacji, replikuje parametry przychodzące interfejsu API i wartość zwracaną. Ładunek zdarzenia "Stop" ma wszystkie właściwości ładunku zdarzenia "Start", więc można zignorować wydarzenie "Start" w całości.
 
 Wszystkie zdarzenia mają również właściwości "Entity" i "Endpoint", które zostały pominięte w poniższej tabeli
-  * `string Entity`--Nazwa jednostki (kolejki, tematu itp.)
-  * `Uri Endpoint`-Service Bus adres URL punktu końcowego
+  * `string Entity` --Nazwa jednostki (kolejki, tematu itp.)
+  * `Uri Endpoint` -Service Bus adres URL punktu końcowego
 
 Każde zdarzenie "Stop" ma `Status` Właściwość z `TaskStatus` operacją asynchroniczną została ukończona z, która jest również pomijana w poniższej tabeli dla uproszczenia.
 
@@ -151,33 +152,33 @@ Oto pełna lista operacji Instrumentacji:
 
 | Nazwa operacji | Śledzony interfejs API | Określone właściwości ładunku|
 |----------------|-------------|---------|
-| Microsoft. Azure. ServiceBus. Send | [MessageSender. SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages`-Lista wysyłanych komunikatów |
-| Microsoft. Azure. ServiceBus. ScheduleMessage | [MessageSender. ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message`-Trwa przetwarzanie komunikatu<br/>`DateTimeOffset ScheduleEnqueueTimeUtc`— Przesunięcia zaplanowanego komunikatu<br/>`long SequenceNumber`-Sekwencja numerów zaplanowanych komunikatów ("Zatrzymaj") |
-| Microsoft. Azure. ServiceBus. Cancel | [MessageSender. CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber`-Numer sekwencyjny wiadomości, która ma zostać anulowana | 
-| Microsoft. Azure. ServiceBus. Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount`— Maksymalna liczba komunikatów, które mogą zostać odebrane.<br/>`IList<Message> Messages`-Lista odebranych komunikatów ("Zatrzymaj" ładunku zdarzenia) |
-| Microsoft. Azure. ServiceBus. Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber`-Punkt początkowy, od którego należy przeglądać partię komunikatów.<br/>`int RequestedMessageCount`— Liczba komunikatów do pobrania.<br/>`IList<Message> Messages`-Lista odebranych komunikatów ("Zatrzymaj" ładunku zdarzenia) |
-| Microsoft. Azure. ServiceBus. ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers`— Lista zawierająca numery sekwencji do odebrania.<br/>`IList<Message> Messages`-Lista odebranych komunikatów ("Zatrzymaj" ładunku zdarzenia) |
-| Microsoft. Azure. ServiceBus. Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens`-Lista zawierająca tokeny blokady odpowiednich komunikatów do ukończenia.|
-| Microsoft. Azure. ServiceBus. Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken`-Token blokady odpowiadającego komunikatu do porzucenia. |
-| Microsoft. Azure. ServiceBus. Ustąp | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken`-Token blokady odpowiadającego komunikatu do odroczenia. | 
-| Microsoft. Azure. ServiceBus. utracony | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken`-Token blokady odpowiadającego komunikatu na wiadomość utraconą. | 
-| Microsoft. Azure. ServiceBus. RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken`-Token blokady odpowiedniej wiadomości, aby odnowić blokadę.<br/>`DateTime LockedUntilUtc`-Nowa Data i godzina wygaśnięcia tokenu blokady w formacie UTC. ("Zatrzymaj" ładunek zdarzenia)|
-| Microsoft. Azure. ServiceBus. Process | Funkcja lambda obsługi komunikatów podana w [IReceiverClient. RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message`-Komunikat jest przetwarzany. |
-| Microsoft. Azure. ServiceBus. ProcessSession | Funkcja lambda obsługi sesji komunikatów podana w [IQueueClient. RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message`-Komunikat jest przetwarzany.<br/>`IMessageSession Session`-Trwa przetwarzanie sesji |
-| Microsoft. Azure. ServiceBus. AddRule | [SubscriptionClient. AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule`-Opis reguły, która zapewnia regułę do dodania. |
-| Microsoft. Azure. ServiceBus. RemoveRule | [SubscriptionClient. RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName`-Nazwa reguły do usunięcia. |
-| Microsoft. Azure. ServiceBus. GetRules | [SubscriptionClient. GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules`— Wszystkie reguły skojarzone z subskrypcją. (Tylko ładunek "Stop") |
-| Microsoft. Azure. ServiceBus. AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId`-Identyfikator sesji znajdujący się w wiadomościach. |
-| Microsoft. Azure. ServiceBus. GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId`-Identyfikator sesji znajdujący się w wiadomościach.<br/>`byte [] State`-Stan sesji ("Zatrzymaj" ładunku zdarzenia) |
-| Microsoft. Azure. ServiceBus. SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId`-Identyfikator sesji znajdujący się w wiadomościach.<br/>`byte [] State`-Stan sesji |
-| Microsoft. Azure. ServiceBus. RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId`-Identyfikator sesji znajdujący się w wiadomościach. |
-| Microsoft. Azure. ServiceBus. Exception | dowolny interfejs API instrumentacji| `Exception Exception`-Wystąpienie wyjątku |
+| Microsoft. Azure. ServiceBus. Send | [MessageSender. SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Lista wysyłanych komunikatów |
+| Microsoft. Azure. ServiceBus. ScheduleMessage | [MessageSender. ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -Trwa przetwarzanie komunikatu<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` — Przesunięcia zaplanowanego komunikatu<br/>`long SequenceNumber` -Sekwencja numerów zaplanowanych komunikatów ("Zatrzymaj") |
+| Microsoft. Azure. ServiceBus. Cancel | [MessageSender. CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` -Numer sekwencyjny wiadomości, która ma zostać anulowana | 
+| Microsoft. Azure. ServiceBus. Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` — Maksymalna liczba komunikatów, które mogą zostać odebrane.<br/>`IList<Message> Messages` -Lista odebranych komunikatów ("Zatrzymaj" ładunku zdarzenia) |
+| Microsoft. Azure. ServiceBus. Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` -Punkt początkowy, od którego należy przeglądać partię komunikatów.<br/>`int RequestedMessageCount` — Liczba komunikatów do pobrania.<br/>`IList<Message> Messages` -Lista odebranych komunikatów ("Zatrzymaj" ładunku zdarzenia) |
+| Microsoft. Azure. ServiceBus. ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` — Lista zawierająca numery sekwencji do odebrania.<br/>`IList<Message> Messages` -Lista odebranych komunikatów ("Zatrzymaj" ładunku zdarzenia) |
+| Microsoft. Azure. ServiceBus. Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` -Lista zawierająca tokeny blokady odpowiednich komunikatów do ukończenia.|
+| Microsoft. Azure. ServiceBus. Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` -Token blokady odpowiadającego komunikatu do porzucenia. |
+| Microsoft. Azure. ServiceBus. Ustąp | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` -Token blokady odpowiadającego komunikatu do odroczenia. | 
+| Microsoft. Azure. ServiceBus. utracony | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` -Token blokady odpowiadającego komunikatu na wiadomość utraconą. | 
+| Microsoft. Azure. ServiceBus. RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` -Token blokady odpowiedniej wiadomości, aby odnowić blokadę.<br/>`DateTime LockedUntilUtc` -Nowa Data i godzina wygaśnięcia tokenu blokady w formacie UTC. ("Zatrzymaj" ładunek zdarzenia)|
+| Microsoft. Azure. ServiceBus. Process | Funkcja lambda obsługi komunikatów podana w [IReceiverClient. RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message` -Komunikat jest przetwarzany. |
+| Microsoft. Azure. ServiceBus. ProcessSession | Funkcja lambda obsługi sesji komunikatów podana w [IQueueClient. RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message` -Komunikat jest przetwarzany.<br/>`IMessageSession Session` -Trwa przetwarzanie sesji |
+| Microsoft. Azure. ServiceBus. AddRule | [SubscriptionClient. AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` -Opis reguły, która zapewnia regułę do dodania. |
+| Microsoft. Azure. ServiceBus. RemoveRule | [SubscriptionClient. RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` -Nazwa reguły do usunięcia. |
+| Microsoft. Azure. ServiceBus. GetRules | [SubscriptionClient. GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` — Wszystkie reguły skojarzone z subskrypcją. (Tylko ładunek "Stop") |
+| Microsoft. Azure. ServiceBus. AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` -Identyfikator sesji znajdujący się w wiadomościach. |
+| Microsoft. Azure. ServiceBus. GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` -Identyfikator sesji znajdujący się w wiadomościach.<br/>`byte [] State` -Stan sesji ("Zatrzymaj" ładunku zdarzenia) |
+| Microsoft. Azure. ServiceBus. SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` -Identyfikator sesji znajdujący się w wiadomościach.<br/>`byte [] State` -Stan sesji |
+| Microsoft. Azure. ServiceBus. RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` -Identyfikator sesji znajdujący się w wiadomościach. |
+| Microsoft. Azure. ServiceBus. Exception | dowolny interfejs API instrumentacji| `Exception Exception` -Wystąpienie wyjątku |
 
 W każdym zdarzeniu można uzyskać dostęp do `Activity.Current` , który zawiera bieżący kontekst operacji.
 
 #### <a name="logging-additional-properties"></a>Rejestrowanie dodatkowych właściwości
 
-`Activity.Current`zawiera szczegółowy kontekst bieżącej operacji i jej obiektów nadrzędnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [działania](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) , aby uzyskać więcej szczegółów.
+`Activity.Current` zawiera szczegółowy kontekst bieżącej operacji i jej obiektów nadrzędnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [działania](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) , aby uzyskać więcej szczegółów.
 Instrumentacja Service Bus zapewnia dodatkowe informacje w ich `Activity.Current.Tags` wstrzymaniu `MessageId` i `SessionId` za każdym razem, gdy są dostępne.
 
 Działania śledzące zdarzenie "Receive", "Peek" i "ReceiveDeferred" mogą także mieć `RelatedTo` tag. Zawiera ona odrębną listę `Diagnostic-Id` (y) komunikatów, które zostały odebrane w wyniku.
@@ -201,17 +202,17 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 #### <a name="filtering-and-sampling"></a>Filtrowanie i próbkowanie
 
 W niektórych przypadkach wskazane jest zarejestrowanie tylko części zdarzeń, aby zmniejszyć obciążenie związane z wydajnością lub użycie magazynu. Można rejestrować tylko zdarzenia "Stop" (jak w powyższym przykładzie) lub próbkować procent zdarzeń. 
-`DiagnosticSource`Określ sposób osiągnięcia tego celu z `IsEnabled` predykatem. Aby uzyskać więcej informacji, zobacz [filtrowanie na podstawie kontekstu w DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
+`DiagnosticSource` Określ sposób osiągnięcia tego celu z `IsEnabled` predykatem. Aby uzyskać więcej informacji, zobacz [filtrowanie na podstawie kontekstu w DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
 
-`IsEnabled`może być wywoływana wiele razy dla jednej operacji, aby zminimalizować wpływ na wydajność.
+`IsEnabled` może być wywoływana wiele razy dla jednej operacji, aby zminimalizować wpływ na wydajność.
 
-`IsEnabled`jest wywoływana w następującej kolejności:
+`IsEnabled` jest wywoływana w następującej kolejności:
 
-1. `IsEnabled(<OperationName>, string entity, null)`na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Pamiętaj, że na końcu nie ma żadnego "Start" lub "Stop". Służy do filtrowania określonych operacji lub kolejek. Jeśli wywołanie zwrotne zwraca `false` , zdarzenia dla operacji nie są wysyłane
+1. `IsEnabled(<OperationName>, string entity, null)` na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Pamiętaj, że na końcu nie ma żadnego "Start" lub "Stop". Służy do filtrowania określonych operacji lub kolejek. Jeśli wywołanie zwrotne zwraca `false` , zdarzenia dla operacji nie są wysyłane
 
    * W przypadku operacji "Process" i "ProcessSession" otrzymasz również `IsEnabled(<OperationName>, string entity, Activity activity)` wywołanie zwrotne. Służy do filtrowania zdarzeń na podstawie `activity.Id` Właściwości tagów lub.
   
-2. `IsEnabled(<OperationName>.Start)`na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")` . Sprawdza, czy zdarzenie "Start" powinno być wyzwalane. Wynik dotyczy tylko zdarzenia "Start", ale dalsze Instrumentacja nie jest od niego zależne.
+2. `IsEnabled(<OperationName>.Start)` na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")` . Sprawdza, czy zdarzenie "Start" powinno być wyzwalane. Wynik dotyczy tylko zdarzenia "Start", ale dalsze Instrumentacja nie jest od niego zależne.
 
 Nie ma `IsEnabled` dla zdarzenia "Stop".
 
@@ -221,7 +222,7 @@ Można użyć `IsEnabled` również strategii próbkowania. Próbkowanie oparte 
 
 W obecności wielu `DiagnosticSource` odbiorników dla tego samego źródła wystarcza tylko jeden odbiornik do zaakceptowania zdarzenia, więc `IsEnabled` nie ma gwarancji, że jest on wywoływany,
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Application Insights korelacji](../azure-monitor/app/correlation.md)
 * [Application Insights Monitoruj zależności](../azure-monitor/app/asp-net-dependencies.md) , aby zobaczyć, czy REST, SQL lub inne zasoby zewnętrzne spowalniają pracę.

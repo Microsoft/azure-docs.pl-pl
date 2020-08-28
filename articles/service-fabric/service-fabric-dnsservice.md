@@ -3,12 +3,13 @@ title: Usługa DNS Service Fabric Azure
 description: Użyj usługi DNS Service Fabric do odnajdywania mikrousług z wewnątrz klastra.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258908"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021276"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS Service in Azure Service Fabric (Usługa DNS w usłudze Azure Service Fabric)
 Usługa DNS to opcjonalna usługa systemowa, którą można włączyć w klastrze w celu odnajdywania innych usług przy użyciu protokołu DNS. 
@@ -116,7 +117,7 @@ Nazwa DNS usługi jest rozpoznawana w klastrze, dlatego ważne jest, aby zapewni
 Zdecydowanie zaleca się użycie schematu nazewnictwa, `<ServiceDnsName>.<AppInstanceName>` na przykład `service1.application1` . Jeśli aplikacja jest wdrażana za pomocą narzędzia Docker, usługi są automatycznie przypisywane nazwy DNS przy użyciu tego schematu nazewnictwa.
 
 ### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Ustawianie nazwy DNS dla usługi domyślnej w ApplicationManifest.xml
-Otwórz projekt w programie Visual Studio lub ulubionym edytorze i Otwórz plik ApplicationManifest.xml. Przejdź do sekcji Usługi domyślne, a dla każdej usługi Dodaj `ServiceDnsName` atrybut. Poniższy przykład pokazuje, jak ustawić nazwę DNS usługi na`service1.application1`
+Otwórz projekt w programie Visual Studio lub ulubionym edytorze i Otwórz plik ApplicationManifest.xml. Przejdź do sekcji Usługi domyślne, a dla każdej usługi Dodaj `ServiceDnsName` atrybut. Poniższy przykład pokazuje, jak ustawić nazwę DNS usługi na `service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -143,7 +144,7 @@ Poniższy przykład ustawia nazwę DNS usługi stanowej na `statefulsvc.app` . U
 ```
 
 ### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Ustawianie nazwy DNS dla usługi przy użyciu programu PowerShell
-Nazwę DNS usługi można ustawić podczas jej tworzenia przy użyciu `New-ServiceFabricService` polecenia programu PowerShell. Poniższy przykład tworzy nową usługę bezstanową z nazwą DNS`service1.application1`
+Nazwę DNS usługi można ustawić podczas jej tworzenia przy użyciu `New-ServiceFabricService` polecenia programu PowerShell. Poniższy przykład tworzy nową usługę bezstanową z nazwą DNS `service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -173,9 +174,9 @@ Zapytania DNS, które są przeznaczone dla partycji, są sformatowane w następu
 Gdzie:
 
 - *Pierwsza etykieta-usługa-dnsname* jest pierwszą częścią nazwy usługi DNS.
-- *PartitionPrefix* jest wartością, którą można ustawić w sekcji DnsService manifestu klastra lub za pomocą szablonu Menedżer zasobów klastra. Wartość domyślna to "--". Aby dowiedzieć się więcej, zobacz [Ustawienia usługi DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* jest wartością, którą można ustawić w sekcji DnsService manifestu klastra lub za pomocą szablonu Menedżer zasobów klastra. Wartość domyślna to "--". Aby dowiedzieć się więcej, zobacz  [Ustawienia usługi DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - Wartość *Target-Partition-Name* to nazwa partycji. 
-- *PartitionSuffix* jest wartością, którą można ustawić w sekcji DnsService manifestu klastra lub za pomocą szablonu Menedżer zasobów klastra. Wartość domyślna to pusty ciąg. Aby dowiedzieć się więcej, zobacz [Ustawienia usługi DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionSuffix* jest wartością, którą można ustawić w sekcji DnsService manifestu klastra lub za pomocą szablonu Menedżer zasobów klastra. Wartość domyślna to pusty ciąg. Aby dowiedzieć się więcej, zobacz  [Ustawienia usługi DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Pozostałe partycje-Service-dnsname* jest pozostałą częścią nazwy usługi DNS.
 
 W poniższych przykładach pokazano zapytania DNS dla usług partycjonowanych uruchomionych w klastrze z ustawieniami domyślnymi dla `PartitionPrefix` i `PartitionSuffix` : 
@@ -251,5 +252,5 @@ public class ValuesController : Controller
 
 * Usługa DNS dla usług Service Fabric Services nie jest jeszcze obsługiwana w systemie Linux. Usługa DNS jest obsługiwana w przypadku kontenerów w systemie Linux. Rozwiązaniem ręcznym przy użyciu programu Fabric Client/ServicePartitionResolver jest dostępna alternatywa.
 
-## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o komunikacji usługi w ramach klastra przy użyciu [usługi Connect i Komunikuj się z usługami](service-fabric-connect-and-communicate-with-services.md)
+## <a name="next-steps"></a>Kolejne kroki
+Dowiedz się więcej o komunikacji usługi w ramach klastra przy użyciu  [usługi Connect i Komunikuj się z usługami](service-fabric-connect-and-communicate-with-services.md)

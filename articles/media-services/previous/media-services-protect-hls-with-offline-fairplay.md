@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: eee718627f35154c878c717e02febe0ea7958fe6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: df84761edf605f1dda087569f95749e5b9c5c7b6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000554"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021106"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Przesyłanie strumieniowe w trybie offline przy użyciu technologii FairPlay na potrzeby systemu iOS 
 
@@ -257,6 +258,6 @@ Ten dokument zawiera następujące kroki i informacje, których można użyć do
 * Przykładowe wideo FPS służy do testowania trybu offline i przesyłania strumieniowego online.
 * Często zadawane pytania dotyczące trybu offline FPS.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

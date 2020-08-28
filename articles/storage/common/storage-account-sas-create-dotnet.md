@@ -10,12 +10,13 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 75f4a3c835a843e824c2ac0b437843cd91824bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 102248882e1ec123ee74eedd74730c12a991fb86
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512714"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021191"
 ---
 # <a name="create-an-account-sas-with-net"></a>Tworzenie sygnatury dostępu współdzielonego konta przy użyciu platformy .NET
 
@@ -95,7 +96,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md)
 - [Tworzenie sygnatury dostępu współdzielonego konta](/rest/api/storageservices/create-account-sas)

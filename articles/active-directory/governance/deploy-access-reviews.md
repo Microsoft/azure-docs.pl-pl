@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853023"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011348"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -182,7 +182,7 @@ Typowe elementy docelowe do przeglądu obejmują:
 
 * [Członkostwo](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) w grupach (synchronizowane z usługą Azure AD lub utworzone w usłudze Azure AD lub Office 365, w tym Microsoft Teams).
 
-* [Pakiet dostępu](/entitlement-management-overview.md) , który grupuje zasoby (grupy, aplikacje i lokacje) w jednym pakiecie w celu zarządzania dostępem.
+* [Pakiet dostępu](/azure/active-directory/governance/entitlement-management-overview) , który grupuje zasoby (grupy, aplikacje i lokacje) w jednym pakiecie w celu zarządzania dostępem.
 
 * [Role usługi Azure AD i role zasobów platformy Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) zgodnie z definicją w Privileged Identity Management.
 
@@ -422,7 +422,7 @@ Aby zmniejszyć ryzyko nieaktualnego dostępu, Administratorzy mogą włączyć 
 | Instrukcje| Opis |
 | - | - |
 | [Tworzenie przeglądów dostępu](entitlement-management-access-reviews-create.md)| Włącz przeglądy pakietu dostępu. |
-| [Wykonaj przeglądy dostępu](/entitlement-management-access-reviews-review-access.md)| Wykonaj przeglądy dostępu dla innych użytkowników przypisanych do pakietu dostępu. |
+| [Wykonaj przeglądy dostępu](entitlement-management-access-reviews-review-access.md)| Wykonaj przeglądy dostępu dla innych użytkowników przypisanych do pakietu dostępu. |
 | [Samodzielne przeglądanie przypisanych pakietów dostępu](entitlement-management-access-reviews-self-review.md)| Samodzielna weryfikacja przypisanych pakietów dostępu |
 
 
@@ -511,7 +511,7 @@ Działania przeglądów dostępu są rejestrowane i dostępne w [dziennikach ins
 
 Aby uzyskać bardziej zaawansowane zapytania i analizę kontroli dostępu, a także śledzić zmiany i dokonywać przeglądów, zalecamy wyeksportowanie dzienników inspekcji usługi Azure AD do [usługi azure log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) lub centrum zdarzeń platformy Azure. W przypadku przechowywania danych w usłudze Azure Log Analytics można użyć [zaawansowanego języka analitycznego](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) — i utworzyć własne pulpity nawigacyjne.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej na temat pokrewnych technologii.
 

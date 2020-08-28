@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: d0497162c8535b80b7e9d9a564b12dc6966a4120
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b92bfad99c854f75c945121d352a7122d8c6db89
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891440"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011603"
 ---
 # <a name="cut-planes"></a>Wycięte płaszczyzny
 
@@ -68,7 +69,7 @@ Następujące właściwości są uwidocznione w składniku wycinania płaszczyzn
 
   Jeśli wartość alfa *FadeColor* jest różna od zera, piksele blisko płaszczyzny wycinania przestaną się na część RGB części FadeColor. Siła kanału alfa decyduje o tym, czy przejdzie w pełni do koloru zanikania, czy tylko częściowo. *FadeLength* definiuje odległość tego zaniku.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Renderowanie jednostronne](single-sided-rendering.md)
 * [Zapytania przestrzenne](spatial-queries.md)

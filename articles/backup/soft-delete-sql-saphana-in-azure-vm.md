@@ -3,12 +3,12 @@ title: Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platfo
 description: Dowiedz się, jak usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure zwiększa bezpieczeństwo kopii zapasowych.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825175"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022296"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Nietrwałe usuwanie dla programu SQL Server na maszynie wirtualnej platformy Azure i SAP HANA w obciążeniach maszyn wirtualnych platformy Azure
 
@@ -109,7 +109,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoint
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Cofanie operacji usuwania przy użyciu Azure PowerShell
 
-Najpierw Pobierz odpowiedni element kopii zapasowej, który jest w stanie usuwania nietrwałego (to oznacza, że zostanie usunięty).
+Najpierw Pobierz odpowiedni element kopii zapasowej, który jest w stanie usuwania nietrwałego (to wszystko, aby usunąć).
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
@@ -129,7 +129,7 @@ Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -
 
 Wyłączenie tej funkcji nie jest zalecane. Jedyną okolicznością, w której należy rozważyć wyłączenie usuwania nietrwałego, jest to, że planujesz przeniesienie chronionych elementów do nowego magazynu i nie będzie można odczekać 14 dni przed usunięciem i ponownym włączeniem ochrony (na przykład w środowisku testowym). Aby uzyskać instrukcje dotyczące sposobu wyłączania usuwania nietrwałego, zobacz [Włączanie i wyłączanie usuwania nietrwałego](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Przeczytaj [często zadawane pytania](backup-azure-security-feature-cloud.md#frequently-asked-questions) dotyczące usuwania nietrwałego
 - Przeczytaj o wszystkich [funkcjach zabezpieczeń w programie Azure Backup](security-overview.md)

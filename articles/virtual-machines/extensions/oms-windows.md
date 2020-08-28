@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494670"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020511"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Windows
 
@@ -29,7 +29,7 @@ Dzienniki Azure Monitor udostępniają możliwości monitorowania między zasoba
 
 ### <a name="operating-system"></a>System operacyjny
 
-Szczegółowe informacje o obsługiwanych systemach operacyjnych Windows można znaleźć w artykule [Omówienie agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) .
+Szczegółowe informacje o obsługiwanych systemach operacyjnych Windows można znaleźć w artykule [omówienie Azure Monitor agentów](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Wersja rozszerzenia agenta i maszyny wirtualnej
 Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej z systemem Windows Log Analytics i pakietu agenta Log Analytics dla każdej wersji. 
@@ -38,13 +38,13 @@ Poniższa tabela zawiera mapowanie wersji rozszerzenia maszyny wirtualnej z syst
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18038 | 1.0.18038 | Kwiecień 2020 r.   | <ul><li>Umożliwia łączność za pośrednictwem prywatnego linku przy użyciu Azure Monitor zakresy linków prywatnych</li><li>Dodaje ograniczenie pozyskiwania, aby uniknąć nagłego i przypadkowego napływu w obszarze roboczym</li><li>Dodaje obsługę dodatkowych chmur Azure Government i regionów</li><li>Rozwiązuje usterkę, w której HealthService.exe awaria</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzec 2020 r.   | <ul><li>Dodaje obsługę podpisywania kodu SHA-2</li><li>Udoskonalenie instalacji i zarządzania rozszerzeniami maszyny wirtualnej</li><li>Rozwiązuje usterkę w usłudze Azure Arc na potrzeby integracji serwerów</li><li>Dodaje wbudowane narzędzie do rozwiązywania problemów z obsługą klienta</li><li>Dodaje obsługę dodatkowych regionów Azure Government</li> |
-| 10.20.18018 | 1.0.18018 | Październik 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li></ul> |
-| 10.20.18011 | 1.0.18011 | Lipiec 2019 | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Zwiększono MaxExpressionDepth do 10000 </li></ul> |
+| 10.20.18018 | 1.0.18018 | Październik 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li></ul> |
+| 10.20.18011 | 1.0.18011 | Lipiec 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Zwiększono MaxExpressionDepth do 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Czerwiec 2019 r. | <ul><li> Drobne poprawki błędów i ulepszenia stabilizacji </li><li> Dodano możliwość wyłączania poświadczeń domyślnych podczas nawiązywania połączenia z serwerem proxy (obsługa WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
-| 10.19.13515 | 1.0.13515 | Marzec 2019 | <ul><li>Niewielkie poprawki stabilizacji </li></ul> |
+| 10.19.13515 | 1.0.13515 | Marzec 2019 r. | <ul><li>Niewielkie poprawki stabilizacji </li></ul> |
 | 10.19.10006 | nie dotyczy | Dec 2018 | <ul><li> Niewielkie poprawki stabilizacji </li></ul> | 
 | 8.0.11136 | nie dotyczy | Września 2018 |  <ul><li> Dodano obsługę wykrywania zmiany identyfikatora zasobu podczas przenoszenia maszyny wirtualnej </li><li> Dodano obsługę identyfikatora zasobu raportowania podczas korzystania z instalacji niezwiązanej z rozszerzeniem </li></ul>| 
-| 8.0.11103 | nie dotyczy |  Kwiecień 2018 | |
+| 8.0.11103 | nie dotyczy |  Kwiecień 2018 r. | |
 | 8.0.11081 | 1.0.11081 | Lis 2017 | | 
 | 8.0.11072 | 1.0.11072 | Września 2017 | |
 | 8.0.11049 | 1.0.11049 | 2017 lutego | |
@@ -91,11 +91,11 @@ Poniższy kod JSON przedstawia schemat rozszerzenia agenta Log Analytics. Rozsze
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft. EnterpriseCloud. Monitoring |
 | typ | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1,0 |
 | Identyfikator obszaru roboczego (np.) * | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (np.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
-\*Identyfikator obszaru roboczego jest nazywana consumerId w interfejsie API Log Analytics.
+\* Identyfikator obszaru roboczego jest nazywana consumerId w interfejsie API Log Analytics.
 
 > [!NOTE]
 > Aby uzyskać dodatkowe właściwości, zobacz Azure [Connect komputery z systemem Windows do Azure monitor](../../azure-monitor/platform/agent-windows.md).
@@ -162,7 +162,7 @@ Podczas umieszczania kodu JSON rozszerzenia w katalogu głównym szablonu nazwa 
 }
 ```
 
-## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
+## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 
 Za pomocą `Set-AzVMExtension` polecenia można wdrożyć rozszerzenie maszyny wirtualnej agenta log Analytics na istniejącej maszynie wirtualnej. Przed uruchomieniem polecenia należy zapisać konfigurację publiczną i prywatną w tabeli skrótów programu PowerShell. 
 

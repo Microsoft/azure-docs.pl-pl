@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7832f999de2f6f16cfe816c061925e371f90662e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83758694"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021888"
 ---
 # <a name="models"></a>Modele
 
@@ -118,7 +119,7 @@ Następnie można przejść do hierarchii jednostek i zmodyfikować jednostki i 
 > [!CAUTION]
 > Wszystkie funkcje *asynchroniczne* w asynchronicznych obiektach operacji Return. Odwołanie do tych obiektów należy przechowywać do momentu ukończenia operacji. W przeciwnym razie Moduł wyrzucania elementów bezużytecznych języka C# może usunąć operację wczesną i nigdy nie zakończy się. W przykładowym kodzie powyżej użycia programu *await* gwarantuje, że zmienna lokalna "loadOp" przechowuje odwołanie do momentu zakończenia ładowania modelu. Jeśli jednak zamiast tego użyć zdarzenia *ukończone* , należy zapisać operację asynchroniczną w zmiennej składowej.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [Jednostki](entities.md)
 * [Siatki](meshes.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749025"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003885"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: metryki
 
@@ -24,7 +24,7 @@ Metryki są domyślnie włączone. Możesz wyświetlić metryki usługi Azure Di
 
 1. Utwórz wystąpienie usługi Azure Digital bliźniaczych reprezentacji. Instrukcje dotyczące sposobu konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji można znaleźć w temacie [*jak to zrobić: Konfigurowanie wystąpienia i uwierzytelniania*](how-to-set-up-instance-scripted.md).
 
-2. Znajdź wystąpienie usługi Azure Digital bliźniaczych reprezentacji w [Azure Portal](https:/portal.azure.com) (możesz otworzyć stronę, wpisując jej nazwę na pasku wyszukiwania portalu). 
+2. Znajdź wystąpienie usługi Azure Digital bliźniaczych reprezentacji w [Azure Portal](https://portal.azure.com) (możesz otworzyć stronę, wpisując jej nazwę na pasku wyszukiwania portalu). 
 
     Z menu wystąpienie wybierz pozycję **metryki**.
    
@@ -98,7 +98,7 @@ Wymiary ułatwiają znalezienie dodatkowych informacji o metrykach. Niektóre me
 
 | Wymiar | Wartości |
 | --- | --- |
-| Uwierzytelnianie | OAuth |
+| Authentication | OAuth |
 | Operacja (dla żądań interfejsu API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/odczyt, <br>Microsoft. DigitalTwins/eventroutes/odczyt, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/modele/odczyt, <br>Microsoft. DigitalTwins/modele/zapis, <br>Microsoft. DigitalTwins/modele/usuwanie, <br>Microsoft. DigitalTwins/kwerenda/akcja |
 | Typ punktu końcowego | Event Grid <br>Centrum zdarzeń, <br>Service Bus |
 | Protokół | HTTPS |
@@ -107,6 +107,6 @@ Wymiary ułatwiają znalezienie dodatkowych informacji o metrykach. Niektóre me
 | Klasa kodu stanu | 2xx, 4xx, 5xx itd. |
 | Tekst stanu | Wewnętrzny błąd serwera, nie znaleziono i tak dalej. |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Aby dowiedzieć się więcej o zarządzaniu zarejestrowanymi metrykami dla usługi Azure Digital bliźniaczych reprezentacji, zobacz [*Rozwiązywanie problemów: Konfigurowanie diagnostyki*](troubleshoot-diagnostics.md).

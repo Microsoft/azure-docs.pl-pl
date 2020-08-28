@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c7bef7fac23ab054810d7d27f99b773f6910f344
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749678"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021446"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Wprowadzenie do dysków zarządzanych na platformie Azure
 
@@ -91,7 +91,7 @@ Dysk danych to dysk zarządzany połączony z maszyną wirtualną w celu przecho
 
 Każda maszyna wirtualna ma jeden dołączony dysk systemu operacyjnego. Ten dysk systemu operacyjnego ma wstępnie zainstalowany system operacyjny, który został wybrany podczas tworzenia maszyny wirtualnej. Ten dysk zawiera wolumin rozruchowy.
 
-Ten dysk ma maksymalną pojemność wynoszącą 2 048 GiB.
+Ten dysk ma maksymalną pojemność wynoszącą 4 095 GiB.
 
 ### <a name="temporary-disk"></a>Dysk tymczasowy
 
@@ -143,7 +143,7 @@ Platforma Azure używa priorytetowego kanału sieciowego dla ruchu dyskowego, kt
 
 Zapoznaj się z naszym [projektem w celu uzyskania wysokiej wydajności](premium-storage-performance.md) artykułu, aby poznać najlepsze rozwiązania dotyczące optymalizowania konfiguracji maszyn wirtualnych i dysków, dzięki czemu można osiągnąć żądaną wydajność
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli chcesz uzyskać więcej szczegółów na temat dysków zarządzanych, zapoznaj się z tematem: [Lepsza odporność maszyn wirtualnych platformy Azure za pomocą Managed disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 

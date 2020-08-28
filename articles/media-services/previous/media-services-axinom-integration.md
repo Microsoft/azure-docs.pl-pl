@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 147fecdd9777e06ce078e4ed1531d6d0a0da749c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c2dc90b84446917c4f06de707047b92e52cf7bc8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954625"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020987"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z Axinom w celu dostarczania licencji Widevine do usługi Azure Media Services 
 > [!div class="op_single_selector"]
@@ -54,7 +55,7 @@ Dynamiczną ochronę CENC można skonfigurować przy użyciu technologii wielow�
 
 Zobacz sekcję [generowanie tokenów JWT](media-services-axinom-integration.md#jwt-token-generation) , dla której Azure Active Directory nie może być używany jako serwer licencji usługi STS dla Axinom Widevine.
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 1. Aby wygenerować klucz zawartości służący do konfigurowania usługi dostarczania kluczy, należy użyć Axinom określonego inicjatora kluczy (8888000000000000000000000000000000000000) oraz wygenerowanego lub wybranego identyfikatora klucza. Serwer licencji Axinom wystawia wszystkie licencje zawierające klucze zawartości na podstawie tego samego inicjatora kluczy, który jest prawidłowy dla testowania i produkcji.
 2. Adres URL pozyskiwania licencji Widevine do testowania: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense) . Dozwolone są zarówno HTTP, jak i HTTS.
 
@@ -142,7 +143,7 @@ Serwer licencji Axinom Widevine
 <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
 ```
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 1. Mimo że usługa dostarczania licencji usługi AMS PlayReady wymaga "Bearer =" poprzedzającego token uwierzytelniania, serwer licencji Axinom Widevine nie używa tego elementu.
 2. Klucz komunikacji Axinom jest używany jako klucz podpisywania. Klucz jest ciągiem szesnastkowym, ale musi być traktowany jako seria bajtów, a nie ciąg znaków podczas kodowania. Jest to osiągane przez metodę ConvertHexStringToByteArray.
 
@@ -199,8 +200,8 @@ W przypadku korzystania z serwera licencji Axinom Widevine wymagane są następu
 | --- | --- |
 | Identyfikator klucza komunikacji |Musi być uwzględniony jako wartość "com_key_id" w tokenie JWT (zobacz [tę](media-services-axinom-integration.md#jwt-token-generation) sekcję). |
 | Klucz komunikacyjny |Musi być używany jako klucz podpisywania tokenu JWT (patrz [Ta](media-services-axinom-integration.md#jwt-token-generation) sekcja). |
-| Inicjator kluczy |Musi zostać użyty do wygenerowania klucza zawartości z dowolnym IDENTYFIKATORem klucza zawartości (zobacz [tę](media-services-axinom-integration.md#content-protection) sekcję). |
-| Adres URL pozyskiwania licencji Widevine |Musi być używany podczas konfigurowania zasad dostarczania elementów zawartości dla przesyłania strumieniowego z użyciem ŁĄCZNIKów (zobacz [tę](media-services-axinom-integration.md#content-protection) sekcję). |
+| Inicjator kluczy |Musi zostać użyty do wygenerowania klucza zawartości z dowolnym IDENTYFIKATORem klucza zawartości (zobacz  [tę](media-services-axinom-integration.md#content-protection) sekcję). |
+| Adres URL pozyskiwania licencji Widevine |Musi być używany podczas konfigurowania zasad dostarczania elementów zawartości dla przesyłania strumieniowego z użyciem ŁĄCZNIKów (zobacz  [tę](media-services-axinom-integration.md#content-protection) sekcję). |
 | Identyfikator klucza zawartości |Musi być uwzględniony jako część wartości żądania komunikatu o uprawnienia token JWT (patrz [Ta](media-services-axinom-integration.md#jwt-token-generation) sekcja). |
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
