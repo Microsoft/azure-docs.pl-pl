@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 96a9e22d929c62be2a28b8c46657970e7a403813
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826283"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050628"
 ---
 # <a name="service-fabric-releases"></a>Wersje Service Fabric
 
@@ -74,7 +74,7 @@ Przyjemnością ogłaszamy kolejne wydanie Service Fabric. Ta wersja jest ładow
 | 20 kwietnia 2020 | [Azure Service Fabric 7,1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
 | 16 czerwca 2020 | [Microsoft Azure Service Fabric 7,1, pierwsze odświeżanie](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
 | 20 lipca 2020 | [Microsoft Azure Service Fabric 7,1 drugiego odświeżenia](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-second-refresh-release/ba-p/1534246) | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU2-releasenotes.md)
-
+| 12 sierpnia 2020 | [Microsoft Azure Service Fabric 7,1 trzecie odświeżanie](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-third-refresh-release/ba-p/1587586) | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU3-releasenotes.md)
 
 ### <a name="service-fabric-70"></a>Service Fabric 7,0
 

@@ -1,14 +1,14 @@
 ---
 title: Aktualizowanie istniejącego przypisania z portalu
 description: Dowiedz się więcej o mechanizmie aktualizowania istniejącego przypisania strategii z portalu w planach platformy Azure.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969468"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051427"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Jak zaktualizować istniejące przypisanie strategii
 
@@ -24,12 +24,11 @@ Po przypisaniu planu można zaktualizować przypisanie. Istnieje kilka powodów,
 
 1. Wybierz pozycję **przypisane plany** ze strony po lewej stronie.
 
-1. Na liście planów kliknij lewym przyciskiem myszy przypisanie planu. Następnie kliknij przycisk **Aktualizuj przypisanie** lub kliknij prawym przyciskiem myszy przypisanie planu i wybierz pozycję **Aktualizuj przypisanie**.
+1. Na liście planów wybierz pozycję przypisanie strategii. Następnie użyj przycisku **Aktualizuj przypisanie** lub kliknij prawym przyciskiem myszy przypisanie planu i wybierz pozycję **Aktualizuj przypisanie**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Aktualizowanie istniejącego przypisania strategii" border="false":::
 
-1. Strona **Przypisz plan** spowoduje załadowanie wstępnie wypełnionych wszystkich wartości z oryginalnego przypisania.
-   Można zmienić **wersję definicji**planu, stan **przypisania blokady** i wszystkie parametry dynamiczne, które istnieją w definicji strategii. Po wprowadzeniu zmian kliknij przycisk **Przypisz** .
+1. Strona **Przypisz plan** ładuje wstępnie wypełnione wszystkie wartości z oryginalnego przypisania. Można zmienić **wersję definicji**planu, stan **przypisania blokady** i wszystkie parametry dynamiczne, które istnieją w definicji strategii. Wybierz pozycję **Przypisz** po wprowadzeniu zmian.
 
 1. Na stronie zaktualizowane informacje o przypisaniu Zobacz nowy stan. W tym przykładzie dodaliśmy **blokadę** do przypisania.
 

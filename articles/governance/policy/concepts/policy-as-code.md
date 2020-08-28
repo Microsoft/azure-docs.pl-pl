@@ -1,14 +1,14 @@
 ---
 title: Projektowanie przepływów pracy typu zasady jako kod
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
-ms.date: 07/23/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131501"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047330"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
 
@@ -29,10 +29,10 @@ Przed zapoznaj się ze szczegółami dotyczącymi zasad jako przepływu pracy w 
 - [Definicja inicjatywy](./initiative-definition-structure.md)
 
 Nazwy plików są wyrównane do części definicji zasad lub inicjatywy:
-- `policy(set).json`-Cała definicja
-- `policy(set).parameters.json`- `properties.parameters` Część definicji
-- `policy.rules.json`- `properties.policyRule` Część definicji
-- `policyset.definitions.json`- `properties.policyDefinitions` Część definicji
+- `policy(set).json` -Cała definicja
+- `policy(set).parameters.json` - `properties.parameters` Część definicji
+- `policy.rules.json` - `properties.policyRule` Część definicji
+- `policyset.definitions.json` - `properties.policyDefinitions` Część definicji
 
 Przykłady tych formatów plików są dostępne w [repozytorium Azure Policy GitHub](https://github.com/Azure/azure-policy/):
 
@@ -110,7 +110,8 @@ Przypisanie powinno używać [wymuszania](./assignment-structure.md#enforcement-
 > [!NOTE]
 > Tryb wymuszania jest przydatny, ale nie zastępuje dokładnego testowania definicji zasad w różnych warunkach. Definicja zasad powinna być testowana przy użyciu `PUT` `PATCH` wywołań interfejsu API REST, zgodnych i niezgodnych zasobów oraz przypadków brzegowych, takich jak brak właściwości w zasobie.
 
-Po wdrożeniu przypisania Użyj zestawu SDK zasad, aby [uzyskać dane zgodności](../how-to/get-compliance-data.md) dla nowego przypisania. Środowisko używane do testowania zasad i przypisań powinno mieć zarówno zgodne, jak i niezgodne zasoby. Podobnie jak w przypadku dobrego testu jednostkowego dla kodu, należy przetestować, czy zasoby są zgodne z oczekiwaniami, a także nie mają fałszywych wartości fałszywie dodatnich lub fałszywych. W przypadku testowania i weryfikowania tylko tego, czego oczekujesz, może wystąpić nieoczekiwany i niezidentyfikowany wpływ zasad. Aby uzyskać więcej informacji, zobacz [ocenę wpływu nowej definicji Azure Policy](./evaluate-impact.md).
+Po wdrożeniu przypisania Użyj zestawu SDK zasad lub [akcji Azure Policy skanowania zgodności](https://github.com/marketplace/actions/azure-policy-compliance-scan) w witrynie GitHub, aby [uzyskać dane zgodności](../how-to/get-compliance-data.md) dla nowego przypisania. Środowisko używane do testowania zasad i przypisań powinno mieć zarówno zgodne, jak i niezgodne zasoby.
+Podobnie jak w przypadku dobrego testu jednostkowego dla kodu, należy przetestować, czy zasoby są zgodne z oczekiwaniami, a także nie mają fałszywych wartości fałszywie dodatnich lub fałszywych. W przypadku testowania i weryfikowania tylko tego, czego oczekujesz, może wystąpić nieoczekiwany i niezidentyfikowany wpływ zasad. Aby uzyskać więcej informacji, zobacz [ocenę wpływu nowej definicji Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Włączanie zadań korygowania
 

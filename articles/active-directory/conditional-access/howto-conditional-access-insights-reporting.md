@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253277"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049421"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Szczegółowe informacje i raportowanie dostępu warunkowego
 
@@ -97,6 +97,22 @@ Wyświetl podział użytkowników lub logowania dla każdego z tych warunków. M
 
 Możesz również zbadać logowania określonego użytkownika, wyszukując logowania w dolnej części pulpitu nawigacyjnego. Zapytanie po lewej stronie wyświetla najbardziej częste użytkowników. Wybranie użytkownika spowoduje odfiltrowanie zapytania po prawej stronie.  
 
+> [!NOTE]
+> Podczas pobierania dzienników logowania wybierz format JSON, aby dołączyć raport dostępu warunkowego — tylko dane wynikowe.
+
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Konfigurowanie zasad dostępu warunkowego w trybie tylko do raportowania
+
+Aby skonfigurować zasady dostępu warunkowego w trybie tylko do raportowania:
+
+1. Zaloguj się do **Azure Portal** jako administrator dostępu warunkowego, administrator zabezpieczeń lub Administrator globalny.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
+1. Wybierz istniejące zasady lub Utwórz nowe zasady.
+1. W obszarze **Włączanie zasad** ustaw opcję Przełącz do trybu **tylko raportowanie** .
+1. Wybierz pozycję **Zapisz**
+
+> [!TIP]
+> Edytowanie stanu **zasad włączania** istniejących zasad z **w** do **raportu —** powoduje wyłączenie tylko istniejącego wymuszania zasad. 
+
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Dlaczego zapytania kończą się niepowodzeniem z powodu błędu uprawnień?
@@ -111,6 +127,10 @@ Aby można było uzyskać dostęp do skoroszytu, potrzebne są odpowiednie upraw
 ![Rozwiązywanie problemów z nieudanymi zapytaniami](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 Aby uzyskać więcej informacji o sposobach przesyłania strumieniowego dzienników logowania usługi Azure AD do obszaru roboczego Log Analytics, zobacz artykuł [integracja dzienników usługi Azure AD z dziennikami Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>Dlaczego zapytania w skoroszycie kończą się niepowodzeniem?
+
+Klienci zauważyły, że zapytania czasami kończą się niepowodzeniem, jeśli z skoroszytem skojarzone są nieprawidłowe lub wiele obszarów roboczych. Aby rozwiązać ten problem, kliknij pozycję **Edytuj** w górnej części skoroszytu, a następnie ustawienia koła zębatego. Wybierz, a następnie usuń obszary robocze, które nie są skojarzone ze skoroszytem. Z każdym skoroszytem powinien być skojarzony tylko jeden obszar roboczy.
 
 ### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Dlaczego parametr zasady dostępu warunkowego jest pusty?
 
@@ -134,4 +154,8 @@ Można edytować i dostosowywać skoroszyt, przechodząc do **Azure Active Direc
  
 ## <a name="next-steps"></a>Następne kroki
 
-[Tryb tylko do raportowania dostępu warunkowego](concept-conditional-access-report-only.md)
+- [Tryb tylko do raportowania dostępu warunkowego](concept-conditional-access-report-only.md)
+
+- Aby uzyskać więcej informacji na temat skoroszytów usługi Azure AD, zapoznaj się z artykułem [dotyczącym Azure Active Directory raportów za pomocą Azure monitor skoroszytów](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)

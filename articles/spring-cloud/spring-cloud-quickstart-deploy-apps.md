@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 770dd021a09e3ba0b1c2c6742ded3a73424b042f
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 8931c22c3656cf9708756153268ab1d9d87b8343
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951750"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050832"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Szybki Start: kompilowanie i wdrażanie aplikacji w chmurze Azure wiosennej
 
@@ -68,7 +68,7 @@ Kompilowanie projektu trwa około 5 minut. Po ukończeniu należy mieć pojedync
     az spring-cloud app create --name account-service
     ```
 
-1. Musimy faktycznie wdrożyć nasze aplikacje na platformie Azure. Użyj następujących poleceń, aby wdrożyć wszystkie trzy aplikacje:
+1. Musimy wdrożyć aplikacje utworzone w poprzednim kroku na platformie Azure. Użyj następujących poleceń, aby wdrożyć wszystkie trzy aplikacje:
 
     ```azurecli
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
@@ -118,10 +118,10 @@ Potrzebujemy sposobu na dostęp do aplikacji za pośrednictwem przeglądarki sie
     ```
     
     Zostanie wyświetlony monit o wybranie:
-    * **Moduły:** wybierz `gateway` , `auth-service` i "konto-usługa" "
-    * **Subskrypcja:** utworzono subskrypcję ze swoim wystąpieniem usługi Azure wiosny Cloud
-    * **Wystąpienie usługi:** nazwa utworzonego wystąpienia chmury Azure wiosennej
-    * **Publiczny punkt końcowy:** Na liście podanych projektów wprowadź numer, który odpowiada w `gateway` celu uzyskania dostępu publicznego.
+    * **Moduły:** Wybierz opcję `gateway` , `auth-service` , i `account-service` .
+    * **Subskrypcja:** To jest subskrypcja użyta do utworzenia wystąpienia chmury wiosennej na platformie Azure.
+    * **Wystąpienie usługi:** To jest nazwa Twojego wystąpienia chmury Azure wiosennej.
+    * **Publiczny punkt końcowy:** Na liście podanych projektów wprowadź liczbę, która odpowiada `gateway` .  Daje to dostęp publiczny.
 
 1. PLIKU pom zawiera teraz zależności i konfiguracje wtyczki. Wdróż aplikacje za pomocą następującego polecenia. 
 
@@ -158,13 +158,13 @@ Aby można było wdrożyć platformę Azure, musisz zalogować się przy użyciu
 
     ![Wdróż na platformie Azure](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. W sekcji **przed uruchomieniem** okna dialogowego kliknij dwukrotnie pozycję * Run Maven cel * *.
+1. W sekcji **przed uruchomieniem** okna dialogowego kliknij dwukrotnie pozycję *Uruchom Maven cel*.
 1. W polu tekstowym **katalog roboczy** przejdź do folderu *piggymetrics/Gateway* .
 1. W polu tekstowym **wiersz polecenia** wprowadź polecenie *Package-DskipTests*. Kliknij przycisk **OK**.
 1. Rozpocznij wdrażanie, klikając przycisk **Uruchom** w dolnej części okna dialogowego **wdrażanie aplikacji w chmurze Azure ze sprężyną** . Wtyczka uruchomi polecenie `mvn package` w `gateway` aplikacji i Wdróż plik JAR wygenerowany przez `package` polecenie.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Wdrażanie aplikacji uwierzytelniania-usługi i konta usługi w chmurze platformy Azure
-Możesz powtórzyć powyższe kroki, aby wdrożyć `auth-service` usługi i `account-service` aplikacje w chmurze Azure wiosennej. Upewnij się:
+Możesz powtórzyć powyższe kroki, aby wdrożyć `auth-service` usługi i `account-service` aplikacje w chmurze Azure wiosną:
 
 1. Zmodyfikuj **nazwę** i **artefakt** , aby zidentyfikować `auth-service` aplikację.
 1. W polu tekstowym **aplikacja:** wybierz pozycję **Utwórz aplikację..** ., aby utworzyć `auth-service` aplikacje.
@@ -198,6 +198,6 @@ W poprzednich krokach należy również ustawić domyślną nazwę grupy zasobó
 ```azurecli
 az configure --defaults group=
 ```
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
 > [Dzienniki, metryki i śledzenie](spring-cloud-quickstart-logs-metrics-tracing.md)

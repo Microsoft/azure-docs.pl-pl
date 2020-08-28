@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7496ffcc365a3e9178bcc3293b518ea790e56c78
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 95ae9c596742b075b5d78d22b925b3adf9285a7d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607066"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048061"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Szybki Start: uruchamianie aplikacji w chmurze ze sprężyną na platformie Azure przy użyciu wtyczki Maven
 
 Korzystając z wtyczki usługi Azure wiosennej w chmurze Maven, możesz łatwo tworzyć i aktualizować aplikacje w chmurze platformy Azure. Dzięki wstępnemu definiowaniu konfiguracji można wdrażać aplikacje w istniejącej usłudze w chmurze platformy Azure. W tym artykule przedstawiono tę funkcję za pomocą przykładowej aplikacji o nazwie PiggyMetrics.
+
+Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
 
 Postępując zgodnie z tym przewodnikiem Szybki Start, dowiesz się, jak:
 

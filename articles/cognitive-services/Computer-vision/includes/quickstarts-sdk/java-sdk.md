@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/19/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6eacaf2ec75c485dbdd7e66a73cdd36787da6126
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 9186cb9e8a603330d8fac6003b4b27bffbc29688
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753015"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050288"
 ---
 <a name="HOLTop"></a>
 
@@ -204,26 +204,47 @@ Poniższy kod drukuje informacje o typie obrazu, niezależnie od tego, &mdash; c
 
 ## <a name="read-printed-and-handwritten-text"></a>Odczytaj tekst drukowany i odręczny
 
-Przetwarzanie obrazów może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków.
+Przetwarzanie obrazów może odczytać widoczny tekst w obrazie i przekonwertować go na strumień znaków. Ta sekcja definiuje metodę, `ReadFromFile` która pobiera ścieżkę do pliku lokalnego i drukuje tekst obrazu do konsoli programu.
 
 > [!NOTE]
 > Możesz również odczytać tekst w obrazie zdalnym przy użyciu jego adresu URL. Zapoznaj się z przykładowym kodem w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) , aby poznać scenariusze związane z obrazami zdalnymi.
 
-### <a name="call-the-recognize-api"></a>Wywoływanie interfejsu API rozpoznawania
+### <a name="set-up-test-image"></a>Konfigurowanie obrazu testu
 
-Najpierw użyj następującego kodu, aby wywołać metodę **recognizePrintedTextInStream** dla danego obrazu. Po dodaniu tego kodu do projektu należy zastąpić wartość `localTextImagePath` ścieżką do lokalnego obrazu. Możesz pobrać [Przykładowy obraz](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) do użycia w tym miejscu.
+Utwórz **zasoby/** folder w folderze **src/Main/** folder projektu, a następnie Dodaj obraz, z którego chcesz odczytywać tekst. Możesz pobrać [Przykładowy obraz](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) do użycia w tym miejscu.
+
+Następnie Dodaj następującą definicję metody do klasy **ComputerVisionQuickstarts** . W razie potrzeby zmień wartość w `localFilePath` celu dopasowania do pliku obrazu. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_setup)]
+
+### <a name="call-the-read-api"></a>Wywoływanie interfejsu API odczytu
+
+Następnie Dodaj następujący kod, aby wywołać metodę **readInStreamWithServiceResponseAsync** dla danego obrazu.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 
-### <a name="print-recognize-results"></a>Drukuj wyniki rozpoznawania
 
-Poniższy blok kodu przetwarza zwracany tekst i analizuje go w celu wydrukowania pierwszego wyrazu w każdym wierszu. Możesz użyć tego kodu, aby szybko zrozumieć strukturę wystąpienia **OcrResult** .
+Poniższy blok kodu wyodrębnia Identyfikator operacji z odpowiedzi na wywołanie odczytu. Używa tego identyfikatora z użyciem metody pomocnika do drukowania wyników odczytu tekstu do konsoli. 
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_print)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_response)]
 
-Na koniec Zamknij blok try/catch i definicję metody.
+Zamknij blok try/catch i definicję metody.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_catch)]
+
+### <a name="get-read-results"></a>Pobierz wyniki odczytu
+
+Następnie Dodaj definicję dla metody pomocnika. Ta metoda używa identyfikatora operacji z poprzedniego kroku, aby wykonać zapytanie dotyczące operacji odczytu i uzyskać wyniki OCR, gdy są one dostępne.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_result_helper_call)]
+
+Pozostała część metody analizuje wyniki OCR i drukuje je w konsoli programu.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_result_helper_print)]
+
+Na koniec Dodaj inną stosowaną metodę pomocnika, która wyodrębnia Identyfikator operacji z początkowej odpowiedzi.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
@@ -239,7 +260,7 @@ Uruchom aplikację za pomocą `gradle run` polecenia:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 34c29a6f6cab77eaa69c7f28f57a4b823dd23d08
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6e35e32c92535a408c8df22d7306895150a59519
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685242"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050152"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4
 
-Seria Ev4 i Esv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, idealnie sprawdza się w przypadku różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504GiB pamięci RAM.
+Seria Ev4 i Esv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, idealnie sprawdza się w przypadku różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504GiB pamięci RAM. Funkcja IT oferuje stałą prędkość zegara Turbo wynoszącą 3,4 GHz.
 
 > [!NOTE]
 > W przypadku często zadawanych pytań zapoznaj się z tematem  [rozmiary maszyn wirtualnych platformy Azure bez lokalnego dysku tymczasowego](azure-vms-no-temp-disk.md).

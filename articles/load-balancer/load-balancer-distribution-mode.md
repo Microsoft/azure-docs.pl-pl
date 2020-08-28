@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 82c203322f1a417fa006c5228d957c178a706b3a
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d6995073ba7d283a30f7580456cd61573752f7cc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961017"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051393"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Skonfiguruj tryb dystrybucji dla Azure Load Balancer
 
@@ -187,7 +187,7 @@ Content-Type: application/xml
 
 Jak opisano wcześniej, ustaw `LoadBalancerDistribution` element na sourceIP dla koligacji dwóch krotek, sourceIPProtocol dla koligacji z trzema krotkami lub brak dla koligacji (koligacja z pięcioma krotką).
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```http
 HTTP/1.1 202 Accepted
@@ -202,5 +202,5 @@ Date: Thu, 16 Oct 2014 22:49:21 GMT
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie usługi Azure Internal Load Balancer](load-balancer-internal-overview.md)
-* [Wprowadzenie do konfigurowania modułu równoważenia obciążenia dostępnego z Internetu](quickstart-create-standard-load-balancer-powershell.md)
+* [Wprowadzenie do konfigurowania modułu równoważenia obciążenia dostępnego z Internetu](quickstart-load-balancer-standard-public-powershell.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md) (Konfigurowanie ustawień limitu czasu bezczynności protokołu TCP dla modułu równoważenia obciążenia)

@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 3212ba621f02740e9b27c28da854eef70dce64a6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006586"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050424"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -200,7 +200,7 @@ Istnieje kilka typowych scenariuszy, w których może być konieczne przywrócen
 **Przywracanie wielu maszyn wirtualnych kontrolera domeny w jednej domenie** | Jeśli inne kontrolery domeny w tej samej domenie można osiągnąć za pośrednictwem sieci, kontroler domeny może zostać przywrócony do dowolnej maszyny wirtualnej. Jeśli jest to ostatni pozostały kontroler domeny w domenie lub zostanie wykonane odzyskiwanie w sieci izolowanej, należy użyć [odzyskiwania lasu](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Przywracanie wielu domen w jednym lesie** | Zalecamy [odzyskanie lasu](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Przywracanie bez systemu operacyjnego** | Główna różnica między maszynami wirtualnymi platformy Azure i lokalnymi funkcjami hypervisor polega na tym, że żadna konsola maszyny wirtualnej nie jest dostępna na platformie Azure. Konsola programu jest wymagana w niektórych scenariuszach, takich jak odzyskiwanie przy użyciu odzyskiwania bez systemu operacyjnego (BMR). Jednak przywracanie maszyny wirtualnej z magazynu jest pełnym zamiennikiem BMR.
-**Przywracanie maszyn wirtualnych ze specjalnymi konfiguracjami sieci** | Specjalne konfiguracje sieci obejmują maszyny wirtualne korzystające z wewnętrznego lub zewnętrznego równoważenia obciążenia, przy użyciu wielu kart sieciowych lub wielu zarezerwowanych adresów IP. Te maszyny wirtualne można przywrócić przy użyciu [opcji Przywróć dysk](#restore-disks). Ta opcja powoduje utworzenie kopii dysków VHD na określonym koncie magazynu, a następnie można utworzyć maszynę wirtualną z [wewnętrznym](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) lub [zewnętrznym](../load-balancer/quickstart-create-standard-load-balancer-powershell.md) modułem równoważenia obciążenia, [wieloma](../virtual-machines/windows/multiple-nics.md)kartami sieciowymi lub [wieloma zastrzeżonymi adresami IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), zgodnie z konfiguracją.
+**Przywracanie maszyn wirtualnych ze specjalnymi konfiguracjami sieci** | Specjalne konfiguracje sieci obejmują maszyny wirtualne korzystające z wewnętrznego lub zewnętrznego równoważenia obciążenia, przy użyciu wielu kart sieciowych lub wielu zarezerwowanych adresów IP. Te maszyny wirtualne można przywrócić przy użyciu [opcji Przywróć dysk](#restore-disks). Ta opcja powoduje utworzenie kopii dysków VHD na określonym koncie magazynu, a następnie można utworzyć maszynę wirtualną z [wewnętrznym](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) lub [zewnętrznym](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) modułem równoważenia obciążenia, [wieloma](../virtual-machines/windows/multiple-nics.md)kartami sieciowymi lub [wieloma zastrzeżonymi adresami IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), zgodnie z konfiguracją.
 **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) na karcie sieciowej/podsieci** | Kopia zapasowa maszyny wirtualnej platformy Azure obsługuje tworzenie kopii zapasowych i przywracanie informacji sieciowej grupy zabezpieczeń na poziomie sieci wirtualnej, podsieci i karty sieciowej.
 **Przypięte strefy maszyny wirtualne** | W przypadku tworzenia kopii zapasowej maszyny wirtualnej platformy Azure, która jest przypięta do strefy (z Azure Backup), można przywrócić ją w tej samej strefie, w której został przypięty. [Dowiedz się więcej](../availability-zones/az-overview.md)
 **Przywróć maszynę wirtualną w dowolnym zestawie dostępności** | W przypadku przywracania maszyny wirtualnej z portalu nie jest dostępna opcja wyboru zestawu dostępności. Przywrócona maszyna wirtualna nie ma zestawu dostępności. Jeśli używasz opcji Przywróć dysk, możesz [określić zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md) podczas tworzenia maszyny wirtualnej na podstawie dysku przy użyciu podanego szablonu lub programu PowerShell.
@@ -260,7 +260,7 @@ Po przywróceniu maszyny wirtualnej można pamiętać o kilku kwestiach:
 - W przypadku przywrócenia maszyny wirtualnej do tej samej grupy zasobów o takiej samej nazwie jak oryginalna kopia zapasowa maszyny wirtualnej kopia zapasowa jest kontynuowana na maszynie wirtualnej po przywróceniu.
 - Jeśli maszyna wirtualna została przywrócona do innej grupy zasobów lub została określona inna nazwa dla przywróconej maszyny wirtualnej, należy skonfigurować kopię zapasową przywróconej maszyny wirtualnej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Jeśli wystąpią problemy podczas procesu przywracania, [Przejrzyj](backup-azure-vms-troubleshoot.md#restore) typowe problemy i błędy.
 - Po przywróceniu maszyny wirtualnej Dowiedz się więcej o [zarządzaniu maszynami wirtualnymi](backup-azure-manage-vms.md)

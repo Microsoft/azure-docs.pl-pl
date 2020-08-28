@@ -1,7 +1,7 @@
 ---
 title: Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak utworzyć aplikację mobilną wywołującą interfejsy API sieci Web (konfigurację kodu aplikacji)
+description: Dowiedz się, jak utworzyć aplikację mobilną wywołującą interfejsy API sieci Web (Rejestracja aplikacji)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,18 +13,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652638"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047677"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Rejestrowanie aplikacji mobilnych, które wywołują interfejsy API sieci Web
 
 Ten artykuł zawiera instrukcje ułatwiające zarejestrowanie tworzonej aplikacji mobilnej.
 
-## <a name="supported-account-types"></a>Obsługiwane typy konta
+## <a name="supported-account-types"></a>Obsługiwane typy kont
 
 Typy kont, które są obsługiwane przez aplikacje mobilne, zależą od środowiska, które chcesz włączyć, oraz przepływów, których chcesz użyć.
 
@@ -40,7 +40,7 @@ Użytkowników można także zalogować, korzystając z tożsamości społeczno�
 
 Aby uzyskać więcej informacji, zobacz [scenariusze i obsługiwane przepływy uwierzytelniania](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) oraz [scenariusze i obsługiwane platformy i języki](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>Konfiguracja platformy i identyfikatory URI przekierowania  
+## <a name="platform-configuration-and-redirect-uris"></a>Konfiguracja platformy i identyfikatory URI przekierowania
 
 ### <a name="interactive-authentication"></a>Uwierzytelnianie interakcyjne
 
@@ -72,20 +72,20 @@ Po wykonaniu tych kroków identyfikator URI przekierowania zostanie obliczony dl
 
 Jeśli wolisz ręcznie skonfigurować identyfikator URI przekierowania, możesz to zrobić za pomocą manifestu aplikacji. Oto zalecany format manifestu:
 
-- System **iOS**:`msauth.<BUNDLE_ID>://auth` 
+- System **iOS**:`msauth.<BUNDLE_ID>://auth`
   - Na przykład wprowadź `msauth.com.yourcompany.appName://auth`
 - System **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Można wygenerować skrót sygnatury systemu Android przy użyciu klucza wydania lub klucza debugowania za pomocą polecenia narzędzia.
 
 ### <a name="username-password-authentication"></a>Nazwa użytkownika — uwierzytelnianie hasła
 
-Jeśli Twoja aplikacja używa tylko uwierzytelniania przy użyciu hasła użytkownika, nie musisz rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ wykonuje rundy do punktu końcowego Microsoft Identity platform w wersji 2,0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI. 
+Jeśli Twoja aplikacja używa tylko uwierzytelniania przy użyciu hasła użytkownika, nie musisz rejestrować identyfikatora URI przekierowania dla aplikacji. Ten przepływ wykonuje rundy do punktu końcowego Microsoft Identity platform w wersji 2,0. Aplikacja nie zostanie wywołana ponownie na żadnym konkretnym identyfikatorze URI.
 
 Należy jednak zidentyfikować aplikację jako publiczną aplikację kliencką. Aby to zrobić, Zacznij od sekcji **uwierzytelnianie** w aplikacji. W podsekcji **Ustawienia zaawansowane** w obszarze **domyślny typ klienta** dla pytania **Traktuj aplikację jako klienta publicznego**wybierz pozycję **tak**.
 
 ## <a name="api-permissions"></a>Uprawnienia aplikacji
 
-Interfejsy API wywołania aplikacji mobilnych w imieniu zalogowanego użytkownika. Aplikacja musi zażądać delegowania uprawnień. Te uprawnienia są również nazywane zakresami. W zależności od wybranego środowiska można zażądać delegowania uprawnień statycznie przez Azure Portal. Można też zażądać ich dynamicznie w czasie wykonywania. 
+Interfejsy API wywołania aplikacji mobilnych w imieniu zalogowanego użytkownika. Aplikacja musi zażądać delegowania uprawnień. Te uprawnienia są również nazywane zakresami. W zależności od wybranego środowiska można zażądać delegowania uprawnień statycznie przez Azure Portal. Można też zażądać ich dynamicznie w czasie wykonywania.
 
 Statycznie rejestrowanie uprawnień pozwala administratorom łatwo zatwierdzać aplikację. Zalecana jest rejestracja statyczna.
 

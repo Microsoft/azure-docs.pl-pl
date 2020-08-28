@@ -1,22 +1,22 @@
 ---
-title: Co to jest ryzyko? Usługa Azure AD Identity Protection
+title: Co to jest ryzyko? Azure AD Identity Protection
 description: Wyjaśnienie ryzyka w Azure AD Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815056"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047109"
 ---
 # <a name="what-is-risk"></a>Co to jest ryzyko?
 
@@ -39,7 +39,6 @@ Te zagrożenia są obliczane w trybie offline przy użyciu wewnętrznych i zewn�
 | Wykrywanie ryzyka | Opis |
 | --- | --- |
 | Ujawnione poświadczenia | Ten typ wykrywania zagrożeń wskazuje, że wykryto przeciek prawidłowych poświadczeń użytkownika. Gdy cybernetycznymi naruszają prawidłowe hasła dla uprawnionych użytkowników, często udostępniają te poświadczenia. Takie udostępnianie jest zwykle realizowane przez ogłaszanie publicznie w witrynie sieci Web, wklejanie witryn lub przez handel i sprzedawanie poświadczeń na czarnym rynku. Gdy usługa nieujawnione poświadczenia firmy Microsoft uzyskuje poświadczenia użytkownika z ciemnej witryny sieci Web, wklejania witryn lub innych źródeł, są one sprawdzane względem bieżących ważnych poświadczeń użytkowników usługi Azure AD w celu znalezienia prawidłowych dopasowań. Aby uzyskać więcej informacji na temat przecieków poświadczeń, zobacz [często zadawane pytania](#common-questions). |
-| Rozpylanie hasła | Atak polegający na napylania hasła polega na tym, że wiele nazw użytkowników jest zaatakowanych przy użyciu typowych haseł w ujednoliconej sile, aby uzyskać nieautoryzowany dostęp. To wykrywanie ryzyka jest wyzwalane, gdy zostanie wykonane ataki z wykorzystaniem hasła. |
 | Analiza zagrożeń usługi Azure AD | Ten typ wykrywania zagrożeń wskazuje aktywność użytkownika nietypową dla danego użytkownika lub jest zgodna ze znanymi wzorcami ataków na podstawie wewnętrznych i zewnętrznych źródeł analizy zagrożeń firmy Microsoft. |
 
 ### <a name="sign-in-risk"></a>Ryzyko związane z logowaniem
@@ -57,6 +56,7 @@ Te zagrożenia mogą być obliczane w czasie rzeczywistym lub obliczane w trybie
 | Administrator zatwierdził naruszenie zabezpieczeń | Tryb offline | To wykrywanie wskazuje, że administrator zaznaczył "Potwierdzanie naruszenia przez użytkownika" w interfejsie użytkownika ryzykownych użytkowników lub przy użyciu interfejsu API riskyUsers. Aby sprawdzić, który administrator został naruszony, należy sprawdzić historię ryzyka użytkownika (za pośrednictwem interfejsu użytkownika lub interfejsu API). |
 | Złośliwy adres IP | Tryb offline | To wykrywanie wskazuje, że logowanie jest ze złośliwego adresu IP. Adres IP jest uznawany za złośliwy na podstawie częstych awarii z powodu nieprawidłowych poświadczeń odebranych z adresu IP lub innych źródeł reputacji adresów IP. |
 | Podejrzane reguły manipulowania skrzynką odbiorczą | Tryb offline | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). To wykrywanie powoduje profilowanie środowiska i wyzwala alerty w przypadku podejrzanych reguł, które usuwają lub przenoś wiadomości lub foldery są ustawiane w skrzynce odbiorczej użytkownika. To wykrywanie może wskazywać na naruszenie zabezpieczeń konta użytkownika, a tym samym celowe ukrycie komunikatów oraz użycie tej skrzynki pocztowej do dystrybucji spamu lub złośliwego oprogramowania w organizacji. |
+| Rozpylanie hasła | Tryb offline | Atak polegający na napylania hasła polega na tym, że wiele nazw użytkowników jest zaatakowanych przy użyciu typowych haseł w ujednoliconej sile, aby uzyskać nieautoryzowany dostęp. To wykrywanie ryzyka jest wyzwalane, gdy zostanie wykonane ataki z wykorzystaniem hasła. |
 | Niemożliwa podróż | Tryb offline | To wykrywanie jest odnajdywane przez [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). To wykrywanie identyfikuje dwie działania użytkownika (jest to jedna lub wiele sesji) pochodzące z lokalizacji geograficznie odległych w przedziale czasowym krótszym niż czas, w którym użytkownik przejdzie od pierwszej lokalizacji do drugiego, co oznacza, że inny użytkownik korzysta z tych samych poświadczeń. |
 
 ### <a name="other-risk-detections"></a>Inne wykrycia ryzyka

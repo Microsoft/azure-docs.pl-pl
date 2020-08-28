@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511256"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050815"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
@@ -29,7 +29,7 @@ Ten scentralizowany model wdrożenia ma następujące zalety:
 
 - Własność danych pozostaje dla każdej zarządzanej dzierżawy.
 - Program obsługuje wymagania dotyczące przechowywania danych w granicach geograficznych.
-- Zapewnia izolację danych, ponieważ dane dla wielu klientów nie są przechowywane w tym samym obszarze roboczym. 
+- Zapewnia izolację danych, ponieważ dane dla wielu klientów nie są przechowywane w tym samym obszarze roboczym.
 - Zapobiega eksfiltracji danych od zarządzanych dzierżawców, pomagając zapewnić zgodność danych.
 - Koszty związane są naliczone dla każdej zarządzanej dzierżawy, a nie do dzierżawy zarządzającej.
 - Dane ze wszystkich źródeł danych i łączników danych, które są zintegrowane z platformą Azure (np. dzienniki aktywności usługi Azure AD, dzienniki pakietu Office 365 lub alerty ochrony przed zagrożeniami firmy Microsoft), pozostaną w ramach każdej dzierżawy klienta.
@@ -71,13 +71,21 @@ Skoroszyty można również wdrażać bezpośrednio w poszczególnych dzierżawa
 
 ## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Uruchom Log Analytics i wyłowiectwj zapytania dla obszarów roboczych wskaźnikowych platformy Azure
 
-Możesz tworzyć i zapisywać Log Analytics zapytań dotyczących wykrywania zagrożeń centralnie w dzierżawie zarządzającej, w tym [zapytań polowania](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Te zapytania można następnie uruchomić we wszystkich obszarach roboczych Azure wskaźnikowych dla klientów, korzystając z operatora Union i wyrażenia obszaru roboczego (). Aby uzyskać więcej informacji, zobacz [zapytania między obszarami roboczymi](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Twórz i zapisuj Log Analytics zapytania dotyczące wykrywania zagrożeń centralnie w dzierżawie zarządzającej, w tym [zapytań polowania](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Te zapytania można następnie uruchomić we wszystkich obszarach roboczych Azure wskaźnikowych dla klientów, korzystając z operatora Union i wyrażenia obszaru roboczego (). Aby uzyskać więcej informacji, zobacz [zapytania między obszarami roboczymi](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Używanie automatyzacji do zarządzania między obszarami roboczymi
 
 Za pomocą usługi Automation można zarządzać wieloma obszarami roboczymi usługi Azure wskaźnikami i konfigurować [zapytania łowieckie](../../sentinel/hunting.md), elementy playbook i skoroszyty. Aby uzyskać więcej informacji, zobacz [Zarządzanie między obszarami roboczymi przy użyciu usługi Automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
 Należy pamiętać, że niektóre funkcje [nie są obecnie obsługiwane w wielu obszarach roboczych](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+
+## <a name="manage-security-of-office-365-environments"></a>Zarządzanie zabezpieczeniami środowisk pakietu Office 365
+
+Skorzystaj z usługi Azure Lighthouse w połączeniu z usługą Azure wskaźnikiem, aby zarządzać zabezpieczeniami środowisk pakietu Office 365 w różnych dzierżawach. Najpierw [należy włączyć wbudowane łączniki danych pakietu Office 365 w zarządzanej dzierżawie](../../sentinel/connect-office-365.md) , aby informacje o działaniach użytkownika i administratora w programach Exchange i SharePoint (w tym OneDrive) mogły zostać przeprowadzone do obszaru roboczego wskaźnikowego platformy Azure w ramach zarządzanej dzierżawy. Dotyczy to również szczegółowych informacji o akcjach, takich jak pobieranie plików, wysłane żądania dostępu, zmiany w zdarzeniach grupy i operacje skrzynek pocztowych oraz informacje o użytkownikach, którzy wykonali te akcje. [Alerty funkcji DLP pakietu office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) są również obsługiwane w ramach wbudowanego łącznika pakietu Office 365.
+
+[Łącznik Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) można włączyć do przesyłania strumieniowego alertów i Cloud Discovery dzienników do usługi Azure wskaźnikowej. Dzięki temu możesz uzyskać wgląd w aplikacje w chmurze, uzyskać zaawansowaną analizę, aby identyfikować i zwalczać dotyczące środowiskach oraz kontrolować sposób przesyłania danych. Dzienniki aktywności dla MCAS można [używać przy użyciu typowego formatu zdarzeń (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+
+Po skonfigurowaniu łączników danych w pakiecie Office 365 można korzystać z funkcji kontrolki Azure, obejmującej wiele dzierżawców, takich jak przeglądanie i analizowanie danych w skoroszytach, używanie zapytań do tworzenia niestandardowych alertów i Konfigurowanie elementy PlayBook w celu reagowania na zagrożenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398cf947f0a2d250c3cd0ed73a75bc3c091e5f7a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561033"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047534"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Ciągła integracja i ciągłe wdrażanie do Azure IoT Edge
 
@@ -184,7 +184,7 @@ Utwórz nowy potok i Dodaj nowy etap
     * **Domyślna platforma**: Wybierz tę samą wartość podczas kompilowania obrazów modułów.
     * **Ścieżka wyjściowa**: Umieść ścieżkę `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Ta ścieżka to końcowy plik manifestu wdrażania IoT Edge.
 
-    Te konfiguracje ułatwiają zastępowanie adresów URL obrazów modułów w `deployment.template.json` pliku. Funkcja **Generuj manifest wdrożenia** pomaga również zastąpić zmienne dokładnie wartością określoną w `deployment.template.json` pliku. W programie VS/VS Code określasz wartość rzeczywistą w `.env` pliku. W Azure Pipelines ustawiasz wartość na karcie zmienne potoku wydania. Przejdź do karty zmienne i skonfiguruj nazwę i wartość w następujący sposób.
+    Te konfiguracje ułatwiają zastępowanie adresów URL obrazów modułów w `deployment.template.json` pliku. Funkcja **Generuj manifest wdrożenia** pomaga również zastąpić zmienne dokładnie wartością określoną w `deployment.template.json` pliku. W programie VS/VS Code określasz wartość rzeczywistą w `.env` pliku. W Azure Pipelines należy ustawić wartość na karcie zmienne potoku wydania. Przejdź do karty zmienne i skonfiguruj nazwę i wartość w następujący sposób.
 
     * **ACR_ADDRESS**: adres Azure Container Registry.
     * **ACR_PASSWORD**: hasło Azure Container Registry.
@@ -204,6 +204,15 @@ Utwórz nowy potok i Dodaj nowy etap
       * W przypadku wdrażania na jednym urządzeniu wprowadź **IoT Edge identyfikator urządzenia**.
       * W przypadku wdrażania na wielu urządzeniach należy określić **warunek docelowy**urządzenia. Warunek docelowy to filtr zgodny z zestawem IoT Edge urządzeń w IoT Hub. Jeśli chcesz używać tagów urządzenia jako warunku, musisz zaktualizować odpowiednie znaczniki urządzeń za pomocą sznurka urządzenia IoT Hub. Zaktualizuj **IoT Edge identyfikator wdrożenia** i **IoT Edge priorytet wdrożenia** w obszarze Ustawienia zaawansowane. Aby uzyskać więcej informacji na temat tworzenia wdrożenia dla wielu urządzeń, zobacz [opis IoT Edge wdrożeń automatycznych](module-deployment-monitoring.md).
     * Rozwiń pozycję Ustawienia zaawansowane, wybierz pozycję **IoT Edge identyfikator wdrożenia**, umieść zmienną `$(System.TeamProject)-$(Release.EnvironmentName)` . Mapuje projekt i nazwę wydania na identyfikator wdrożenia IoT Edge.
+
+>[!NOTE]
+>Jeśli chcesz używać **wdrożeń warstwowych** w potoku, wdrożenia warstwowe nie są jeszcze obsługiwane w Azure IoT Edge zadaniach w usłudze Azure DevOps.
+>
+>Można jednak użyć [zadania interfejsu wiersza polecenia platformy Azure w usłudze Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) , aby utworzyć wdrożenie jako wdrożenie warstwowe. W przypadku wartości **skryptu wbudowanego** można użyć [polecenia AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>
+>   ```azurecli-interactive
+>   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
+>   ```
 
 12. Wybierz pozycję **Zapisz** , aby zapisać zmiany w nowym potoku wydania. Wróć do widoku potoku, wybierając pozycję **potok** z menu.
 

@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: przykład strategii do nowego środowiska'
 description: W tym samouczku użyto przykładu strategii do utworzenia definicji planu, która konfiguruje dwie grupy zasobów i konfiguruje przypisanie roli dla każdego z nich.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80677087"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048736"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Samouczek: Tworzenie środowiska na podstawie przykładu strategii
 
@@ -122,7 +122,7 @@ Przypisanie planu tworzy i śledzi artefakty zdefiniowane w definicji strategii.
 
 1. Wybierz stronę **przypisane plany** po lewej stronie. Użyj filtrów, aby znaleźć przypisanie strategii _-dwa-RGS-with-role-przypisania_ , a następnie wybierz je.
 
-   Na tej stronie można zobaczyć, że przypisanie zakończyło się pomyślnie, a także listę utworzonych zasobów wraz z ich stanem blokady. Jeśli przypisanie zostało zaktualizowane, lista rozwijana **operacja przypisywania** zawiera szczegółowe informacje dotyczące wdrożenia każdej wersji definicji. Każdy utworzony zasób na liście można kliknąć i otworzyć stronę właściwości zasoby.
+   Na tej stronie można zobaczyć, że przypisanie zakończyło się pomyślnie, a także listę utworzonych zasobów wraz z ich stanem blokady. Jeśli przypisanie zostało zaktualizowane, lista rozwijana **operacja przypisywania** zawiera szczegółowe informacje dotyczące wdrożenia każdej wersji definicji. Wszystkie utworzone zasoby na liście można wybrać i otworzyć stronę właściwości zasoby.
 
 1. Wybierz grupę zasobów **ProductionRG** .
 

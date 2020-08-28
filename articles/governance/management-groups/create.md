@@ -3,12 +3,12 @@ title: Tworzenie grup zarządzania w celu organizowania zasobów — zarządzani
 description: Dowiedz się, jak utworzyć grupy zarządzania platformy Azure, aby zarządzać wieloma zasobami przy użyciu portalu, Azure PowerShell i interfejsu wiersza polecenia platformy Azure.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0739eafdf4cf41195b189a8496c331ab470bbec0
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9504679062c9facad60023759b474be1675cb6a8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056639"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048554"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Tworzenie grup zarządzania na potrzeby organizowania zasobów i zarządzania nimi
 
@@ -70,7 +70,7 @@ New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 
 ### <a name="create-in-azure-cli"></a>Tworzenie w interfejsie wiersza polecenia platformy Azure
 
-Aby utworzyć nową grupę zarządzania, użyj polecenia [AZ Account Management-Group Create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) w interfejsie Azure.
+Aby utworzyć nową grupę zarządzania, użyj polecenia [AZ Account Management-Group Create](/cli/azure/account/management-group#az-account-management-group-create) w interfejsie Azure.
 
 ```azurecli-interactive
 az account management-group create --name Contoso

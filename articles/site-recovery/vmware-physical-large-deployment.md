@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131781"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047089"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurowanie odzyskiwania po awarii na dużą skalę dla maszyn wirtualnych VMware/serwerów fizycznych
 
@@ -100,7 +100,7 @@ Co oznacza zgodność? Aby uruchomić maszynę wirtualną platformy Azure, platf
 
 **Maszyna jest zgodna z platformą Azure?** | **Limity maszyn wirtualnych platformy Azure (tryb failover dysku zarządzanego)**
 --- | --- 
-Tak | 2000
+Yes | 2000
 Nie | 1000
 
 - Limity zakładają, że minimalne inne zadania są w toku w regionie docelowym dla subskrypcji.
@@ -127,7 +127,7 @@ Ważne jest posiadanie wystarczającej liczby serwerów konfiguracji i skalowaln
  
 Wydajność serwera konfiguracji ma wpływ na liczbę maszyn replikowanych, a nie przez współczynnik zmian danych. Aby ustalić, czy potrzebujesz dodatkowych serwerów konfiguracji, Użyj tych zdefiniowanych limitów maszyn wirtualnych.
 
-**Procesor CPU** | **Memory (Pamięć)** | **Dysk pamięci podręcznej** | **Limit zreplikowanych maszyn**
+**Procesor CPU** | **Pamięć** | **Dysk pamięci podręcznej** | **Limit zreplikowanych maszyn**
  --- | --- | --- | ---
 8 procesorów wirtualnych vCPU<br> 2 gniazda * 4 rdzenie o częstotliwości 2,5 GHz | 16 GB | 600 GB | Do 550 maszyn<br> Przyjęto założenie, że każdy komputer ma trzy dyski o pojemności 100 GB każdego z nich.
 
@@ -153,7 +153,7 @@ Wydajności serwera przetwarzania mają wpływ szybkości zmian danych, a nie pr
 - Zalecamy dodanie serwera o najwyższej specyfikacji. 
 
 
-**Procesor CPU** | **Memory (Pamięć)** | **Dysk pamięci podręcznej** | **Współczynnik zmian**
+**Procesor CPU** | **Pamięć** | **Dysk pamięci podręcznej** | **Współczynnik zmian**
  --- | --- | --- | --- 
 12 procesorów wirtualnych vCPU<br> 2 gniazda * 6 rdzenie, 2,5 GHz | 24 GB | 1 GB | Do 2 TB dziennie
 
@@ -205,7 +205,7 @@ Przed przejściem do trybu failover można przygotować się w następujący spo
     - Oszacuj kompleksowe RTO dla aplikacji.
     - Oszacowanie kompleksowego celu punktu odzyskiwania dla obciążeń.
     - Identyfikuj konflikty zakresów adresów IP.
-    - Podczas przeprowadzania testów zaleca się, aby nie używać sieci produkcyjnych do przechodzenia do szczegółów, unikać używania tych samych nazw podsieci w sieciach produkcyjnych i testowych oraz czyścić test pracy awaryjnej po każdym przejściu do szczegółów.
+    - Podczas przeprowadzania testów zaleca się, aby nie używać sieci produkcyjnych do przechodzenia do szczegółów i czyścić test pracy w trybie failover po każdym przejściu do szczegółów.
 
 Aby uruchomić tryb failover o dużej skali, zalecamy wykonanie następujących czynności:
 

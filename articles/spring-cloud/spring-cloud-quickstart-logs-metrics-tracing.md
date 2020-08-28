@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9f0ba36abac045d1deb6b4179fbfb6aa32d4dc9a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f9f03c355e1e619d004c8ec8c1cc2f91932db744
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009772"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046837"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia
 
-Wbudowana funkcja monitorowania w chmurze Azure wiosennej umożliwia łatwe debugowanie i monitorowanie złożonych problemów. Chmura ze sprężyną Azure integruje się z [chmurą Sleuth](https://spring.io/projects/spring-cloud-sleuth) z platformą [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)Azure. Ta integracja zapewnia zaawansowane dzienniki, metryki i funkcję śledzenia rozproszonego z Azure Portal. Poprowadzimy Cię przez Ciebie, jak korzystać z przesyłania strumieniowego dzienników, Log Analytics, metryk i rozproszonego śledzenia przy użyciu wdrożonych aplikacji PiggyMetrics.
+Korzystając z wbudowanej funkcji monitorowania w chmurze Azure wiosennej, można debugować i monitorować złożone problemy. Chmura ze sprężyną Azure integruje się z [chmurą Sleuth](https://spring.io/projects/spring-cloud-sleuth) z platformą [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)Azure. Ta integracja zapewnia zaawansowane dzienniki, metryki i funkcję śledzenia rozproszonego z Azure Portal. W poniższych procedurach opisano sposób używania przesyłania strumieniowego dzienników, Log Analytics, metryk i śledzenia rozproszonego ze wdrożonymi aplikacjami PiggyMetrics.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -124,7 +124,7 @@ W poprzednich krokach należy również ustawić domyślną nazwę grupy zasobó
 az configure --defaults group=
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat możliwości monitorowania w chmurze platformy Azure, zobacz:
 

@@ -3,12 +3,12 @@ title: Obsługa migracji oprogramowania VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji maszyn wirtualnych VMware w Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 19252a058fd26da6bddf64ad7af132a12cd1e140
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869103"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051121"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi migracji VMware
 
@@ -117,6 +117,7 @@ Ta tabela zawiera podsumowanie obsługi maszyn wirtualnych VMware na potrzeby mi
 **Wymagania platformy Azure** | Aby uzyskać najnowsze informacje, zapoznaj się z wymaganiami dotyczącymi sieci, [magazynu](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)i [mocy obliczeniowej](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) [platformy Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)dla Site Recovery. Azure Migrate ma identyczne wymagania dotyczące migracji oprogramowania VMware.
 **Usługa mobilności** | Agent usługi mobilności musi być zainstalowany na każdej maszynie wirtualnej, która ma zostać poddana migracji.
 **Rozruch z interfejsem UEFI** | Obsługiwane.
+**Interfejs UEFI — bezpieczny rozruch**         | Migracja nie jest obsługiwana.
 **Dysk docelowy** | Maszyny wirtualne można migrować tylko do dysków zarządzanych (dysk twardy w warstwie Standardowa) na platformie Azure.
 **Rozmiar dysku** | dysk systemu operacyjnego: 2 TB; 8 TB dla dysków z danymi.
 **Limity dysku** |  Do 63 dysków na maszynę wirtualną.

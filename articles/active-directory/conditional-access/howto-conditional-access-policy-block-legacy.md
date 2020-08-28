@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032088"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049251"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Dostęp warunkowy: Blokuj starsze uwierzytelnianie
 
@@ -24,7 +24,7 @@ Ze względu na zwiększone ryzyko związane ze starszymi protokołami uwierzytel
 
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
-Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania starszych żądań uwierzytelniania. Te zasady są umieszczane w [trybie tylko do raportowania](howto-conditional-access-report-only.md) , aby rozpocząć, aby administratorzy mogli ustalić wpływ, jaki będzie miał na istniejących użytkowników. Gdy Administratorzy są woli, że zasady mają zastosowanie, mogą przełączyć **się na wdrożenie lub wdrożyć** je przez dodanie określonych grup i wykluczenie innych.
+Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania starszych żądań uwierzytelniania. Te zasady są umieszczane w [trybie tylko do raportowania](howto-conditional-access-insights-reporting.md) , aby rozpocząć, aby administratorzy mogli ustalić wpływ, jaki będzie miał na istniejących użytkowników. Gdy Administratorzy są woli, że zasady mają zastosowanie, mogą przełączyć **się na wdrożenie lub wdrożyć** je przez dodanie określonych grup i wykluczenie innych.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
@@ -48,7 +48,7 @@ Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 
-[Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
+[Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-insights-reporting.md)
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)
 

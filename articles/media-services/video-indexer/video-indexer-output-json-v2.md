@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: juliako
-ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604785"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050866"
 ---
 # <a name="examine-the-video-indexer-output"></a>Sprawdzanie danych wyjściowych Video Indexer
 
@@ -27,7 +27,7 @@ Możesz również użyć interfejsu API, wywołując interfejs API **pobierania 
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-Ten artykuł bada dane wyjściowe Video Indexer (zawartość JSON). Aby uzyskać informacje o dostępnych funkcjach i szczegółowych danych, zobacz [Video Indexer Insights](video-indexer-overview.md#video-insights).
+Ten artykuł bada dane wyjściowe Video Indexer (zawartość JSON). <br/>Aby uzyskać informacje o dostępnych funkcjach i szczegółowych danych, zobacz [Video Indexer Insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > Wygaśnięcie wszystkich tokenów dostępu w Video Indexer wynosi godzinę.
@@ -58,7 +58,7 @@ Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie wglądu w da
 |accountId|Identyfikator konta w VI listy odtwarzania.|
 |identyfikator|Identyfikator listy odtwarzania.|
 |name|Nazwa listy odtwarzania.|
-|description (opis)|Opis listy odtwarzania.|
+|opis|Opis listy odtwarzania.|
 |userName|Nazwa użytkownika, który utworzył listę odtwarzania.|
 |utworzony|Godzina utworzenia listy odtwarzania.|
 |Ustawienia prywatności|Tryb prywatności listy odtwarzania (prywatny/publiczny).|
@@ -331,7 +331,7 @@ Jeśli istnieją twarzy (Nieanimowane znaki), Video Indexer używa interfejs API
 |identyfikator|Identyfikator kroju.|
 |name|Nazwa kroju. Może to być "nieznany #0, zidentyfikowanej osobistości lub osoby przeszkolonej przez klienta.|
 |ufność|Niepewność identyfikacji kroju.|
-|description (opis)|Opis osobistości. |
+|opis|Opis osobistości. |
 |thumbnailId|Identyfikator miniatury tej czołowej.|
 |knownPersonId|Jeśli jest to znana osoba, jej identyfikator wewnętrzny.|
 |referenceId|Jeśli jest to osobistości Bing, jego identyfikator Bing.|
@@ -519,7 +519,7 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 |name|Nazwa marki.|
 |referenceId | Sufiks adresu URL witryny Wikipedia. Na przykład "Target_Corporation" jest sufiksem [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Przykładowy adres URL to [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description (opis)|Opis marek.|
+|opis|Opis marek.|
 |tags|Lista wstępnie zdefiniowanych tagów, które zostały skojarzone z tą marką.|
 |ufność|Wartość ufności detektora Video Indexer marką (0-1).|
 |Liczba|Lista zakresów czasu tej marki. Każde wystąpienie ma element marktype, który wskazuje, czy ta marka pojawiła się w transkrypcji, czy w OCR.|

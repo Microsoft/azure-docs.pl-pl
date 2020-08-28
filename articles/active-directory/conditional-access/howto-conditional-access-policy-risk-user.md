@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c890c8e9af7310338e8470c4d56b46d1e259c168
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: d5423a61c8febee72f32935f3dee4e9f9e868630
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948067"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049081"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Dostęp warunkowy: dostęp warunkowy oparty na ryzyku
 
@@ -56,13 +56,13 @@ Istnieją dwie lokalizacje, w których te zasady mogą być przypisane. Organiza
 1. Ustaw ustawienie **Wymuszaj zasady** na **włączone**.
 1. Wybierz pozycję **Zapisz**.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 
 [Dostęp warunkowy oparty na ryzyku logowania](howto-conditional-access-policy-risk.md)
 
-[Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
+[Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-insights-reporting.md)
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)
 

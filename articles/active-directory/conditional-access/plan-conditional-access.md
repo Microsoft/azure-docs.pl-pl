@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948899"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049931"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) analizy dostępu warunkowego (CA) są sygnała
 
 Firma Microsoft udostępnia standardowe zasady warunkowe o nazwie [zabezpieczenia domyślne](../fundamentals/concept-fundamentals-security-defaults.md) , które zapewniają podstawowy poziom zabezpieczeń. Jednak organizacja może potrzebować większej elastyczności niż domyślna oferta zabezpieczeń. Za pomocą dostępu warunkowego można dostosować ustawienia domyślne zabezpieczeń z większą szczegółowością i skonfigurować nowe zasady spełniające Twoje wymagania.
 
-## <a name="learn"></a>Informacje
+## <a name="learn"></a>Learn
 
 Przed rozpoczęciem upewnij się, że rozumiesz, jak działa [dostęp warunkowy](overview.md) , oraz kiedy należy go używać.
 
@@ -242,7 +242,7 @@ Może być trudne do przewidywania liczby i nazw użytkowników, których dotycz
 
 [Tryb tylko do raportowania ](concept-conditional-access-report-only.md) pozwala administratorom na ocenę wpływu zasad urzędu certyfikacji przed włączeniem ich w środowisku.
 
-Dowiedz się, jak [skonfigurować tryb tylko do raportowania dla zasad urzędu certyfikacji](howto-conditional-access-report-only.md).
+Dowiedz się, jak [skonfigurować tryb tylko do raportowania dla zasad urzędu certyfikacji](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Planowanie przerw w działaniu
 

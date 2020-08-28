@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 989c6464e45b95a276746b6d57e0ca08a345296c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c1a720e7e9bd9c71f925f104ca7fc70a1a5ef59
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931492"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051070"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Co to jest interfejs API rozpoznawania pisma odręcznego?
 
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 Usługa poznawczego rozpoznawania pisma odręcznego zapewnia oparty na chmurze interfejs API REST umożliwiający analizowanie i rozpoznawanie zawartości cyfrowego atramentu. W przeciwieństwie do usług korzystających z optycznego rozpoznawania znaków (OCR), interfejs API wymaga cyfrowego pociągnięć atramentu jako danych wejściowych. Cyfrowe pociągnięcia atramentu to uporządkowane w czasie zestawy punktów 2D (współrzędne X, Y), które reprezentują ruch narzędzi wejściowych, takich jak pióra cyfrowe lub palca. Następnie rozpoznaje kształty i zawartość odręcznie z danych wejściowych i zwraca odpowiedź JSON zawierającą wszystkie rozpoznane jednostki.
 

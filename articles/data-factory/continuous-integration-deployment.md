@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: f44c3ac51bfc509df0b8f2b82c2d6259bba0aa3c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815814"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047714"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -625,6 +625,8 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
 
     - Jednostki usługi Data Factory są od siebie zależne. Na przykład wyzwalacze są zależne od potoków, a potoki zależą od zestawów danych i innych potoków. Selektywne publikowanie podzestawu zasobów może prowadzić do nieoczekiwanych zachowań i błędów.
     - W rzadkich przypadkach, gdy potrzebna jest publikacja selektywna, rozważ użycie poprawki. Aby uzyskać więcej informacji, zobacz [środowisko produkcyjne poprawki](#hotfix-production-environment).
+
+- Zespół Azure Data Factory nie zaleca przypisywania kontroli RBAC do poszczególnych jednostek (potoków, zestawów danych itp.) w fabryce danych. Na przykład, jeśli deweloper ma dostęp do potoku lub zestawu danych, powinien mieć możliwość dostępu do wszystkich potoków lub zestawów danych w usłudze Data Factory. Jeśli uważasz, że musisz zaimplementować wiele ról RBAC w ramach fabryki danych, zapoznaj się z tematem Wdrażanie drugiej fabryki danych.
 
 -   Nie można publikować z gałęzi prywatnych.
 

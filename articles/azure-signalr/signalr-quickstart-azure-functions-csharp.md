@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 79bc96f9ba8347a4dc220dd2424b11e86aa9e95e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 54a4c9374c064073620f2679e7c7511e30c45de6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922025"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050645"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Szybki Start: Tworzenie pokoju rozmów z usługami Azure Functions i sygnalizacyjnymi przy użyciu języka C\#
 
@@ -27,13 +27,21 @@ Ten samouczek można również uruchomić w wierszu polecenia (macOS, Windows lu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
+
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> przy użyciu danych konta Azure.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurowanie i uruchamianie aplikacji funkcji platformy Azure
 
@@ -67,10 +75,15 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
         ```bash
         func start
         ```
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -78,3 +91,5 @@ W tym przewodniku szybki start utworzono i uruchomiono aplikację bezserwerową 
 
 > [!div class="nextstepaction"]
 > [Opracowywanie funkcji usługi Azure Functions przy użyciu programu Visual Studio](../azure-functions/functions-develop-vs.md)
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qscsharp)

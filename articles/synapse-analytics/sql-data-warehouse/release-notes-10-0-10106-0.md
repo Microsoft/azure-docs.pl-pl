@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9b3f2f8a6a8a1e4f287af45f994c0f0b1d479811
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001012"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047456"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Informacje o wersji usługi Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
 |**Zarządzanie obciążeniem — środowisko portalu**|Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal. Możliwa jest możliwość skonfigurowania [grup obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) i [klasyfikatorów obciążeń](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) .|
-|**Ulepszony widok wykazu mapowań tabel**|Nowy widok wykazu [sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapuje **object_ids** trwałych tabel użytkowników na nazwy tabel fizycznych. Ten widok oferuje zoptymalizowaną wydajność w porównaniu z bieżącym [sys. pdw_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions).|
+|**Ulepszony widok wykazu mapowań tabel**|Nowy widok wykazu [sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapuje **object_ids** trwałych tabel użytkowników na nazwy tabel fizycznych.|
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
@@ -205,7 +205,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Istotne usterki**|CETAS do Parquet niepowodzeń w małych klasach zasobów w magazynach danych DW2000 i więcej — ta poprawka poprawnie identyfikuje odwołanie o wartości null w polu Utwórz tabelę zewnętrzną jako ścieżkę kodu Parquet.<br/><br/>Wartość kolumny tożsamości może ulec utracie w niektórych operacjach CTAS — nie można zachować wartości kolumny identyfikującej, gdy CTASed do innej tabeli. Zgłoszone w [blogu](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/).<br/><br/>Błąd wewnętrzny w niektórych przypadkach, gdy sesja zostanie zakończona, gdy zapytanie jest nadal uruchomione — ta poprawka wyzwala InvalidOperationException, jeśli sesja zostanie zakończona, gdy zapytanie jest nadal uruchomione.<br/><br/>(Wdrożone w listopadzie 2018) W przypadku próby załadowania wielu małych plików z ADLS (Gen1) przy użyciu bazy danych Base klienci mają nieoptymalną wydajność. — Wydajność systemu była nieprzerwana podczas weryfikacji tokenu zabezpieczającego usługi AAD. Problemy z wydajnością zostały skorygowane przez włączenie buforowania tokenów zabezpieczających. |
 | | |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie puli SQL](create-data-warehouse-portal.md)
 

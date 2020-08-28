@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/25/2020
-ms.openlocfilehash: 4890013fe584c49caa9e358c924911255a7f5d33
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 08/28/2020
+ms.openlocfilehash: cd14a183ae1434af83c96b7f8d6575186412b534
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815967"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051223"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) za pomocą Azure Data Factory
 
@@ -48,7 +48,7 @@ W przypadku działania kopiowania ten łącznik usługi Azure Synapse Analytics 
 > W przypadku kopiowania danych przy użyciu Integration Runtime Azure Data Factory należy skonfigurować [regułę zapory na poziomie serwera](../azure-sql/database/firewall-configure.md) , tak aby usługi platformy Azure mogły uzyskiwać dostęp do [serwera logicznego SQL](../azure-sql/database/logical-servers.md).
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z usługą Azure Synapse Analytics.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 > [!TIP]
 > Aby uzyskać najlepszą wydajność, należy użyć bazy danych na platformie Azure Synapse Analytics. [Aby załadować dane do usługi Azure Synapse Analytics, należy wykonać](#use-polybase-to-load-data-into-azure-sql-data-warehouse) szczegóły. Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](load-azure-sql-data-warehouse.md).
@@ -63,8 +63,8 @@ Następujące właściwości są obsługiwane dla połączonej usługi Azure Syn
 
 | Właściwość            | Opis                                                  | Wymagane                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| typ                | Właściwość Type musi być ustawiona na wartość **AzureSqlDW**.             | Tak                                                          |
-| Parametry połączenia    | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem usługi Azure Synapse Analytics dla właściwości **ConnectionString** . <br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory. Klucz nazwy głównej usługi można również umieścić w Azure Key Vault i jeśli jest to uwierzytelnianie SQL, należy ściągnąć `password` konfigurację z parametrów połączenia. Zobacz przykład JSON poniżej tabeli i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Tak                                                          |
+| typ                | Właściwość Type musi być ustawiona na wartość **AzureSqlDW**.             | Yes                                                          |
+| Parametry połączenia    | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem usługi Azure Synapse Analytics dla właściwości **ConnectionString** . <br/>Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory. Klucz nazwy głównej usługi można również umieścić w Azure Key Vault i jeśli jest to uwierzytelnianie SQL, należy ściągnąć `password` konfigurację z parametrów połączenia. Zobacz przykład JSON poniżej tabeli i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Yes                                                          |
 | servicePrincipalId  | Określ identyfikator klienta aplikacji.                         | Tak, w przypadku używania uwierzytelniania usługi Azure AD z jednostką usługi. |
 | servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak, w przypadku używania uwierzytelniania usługi Azure AD z jednostką usługi. |
 | dzierżaw              | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Tak, w przypadku używania uwierzytelniania usługi Azure AD z jednostką usługi. |
@@ -224,7 +224,7 @@ Następujące właściwości są obsługiwane dla zestawu danych usługi Azure S
 
 | Właściwość  | Opis                                                  | Wymagane                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureSqlDWTable**. | Tak                         |
+| typ      | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureSqlDWTable**. | Yes                         |
 | schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
 | table | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 | tableName | Nazwa tabeli/widoku ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. W przypadku nowych obciążeń Użyj `schema` i `table` . | Nie dla źródła, tak dla ujścia |
@@ -263,7 +263,7 @@ Aby skopiować dane z usługi Azure Synapse Analytics, ustaw właściwość **Ty
 
 | Właściwość                     | Opis                                                  | Wymagane |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SqlDWSource**. | Tak      |
+| typ                         | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SqlDWSource**. | Yes      |
 | sqlReaderQuery               | Użyj niestandardowego zapytania SQL, aby odczytać dane. Przykład: `select * from MyTable`. | Nie       |
 | sqlReaderStoredProcedureName | Nazwa procedury składowanej, która odczytuje dane z tabeli źródłowej. Ostatnia instrukcja SQL musi być instrukcją SELECT w procedurze składowanej. | Nie       |
 | storedProcedureParameters    | Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw lub wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie       |
@@ -378,7 +378,7 @@ Aby skopiować dane do Azure SQL Data Warehouse, ustaw typ ujścia w działaniu 
 
 | Właściwość          | Opis                                                  | Wymagane                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| typ              | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **SqlDWSink**. | Tak                                           |
+| typ              | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **SqlDWSink**. | Yes                                           |
 | allowPolyBase     | Wskazuje, czy baza danych ma zostać załadowana do SQL Data Warehouse. `allowCopyCommand` i `allowPolyBase` nie może mieć jednocześnie wartości true. <br/><br/>Aby uzyskać informacje o ograniczeniach i szczegółach, zobacz temat [Korzystanie z bazy Azure SQL Data Warehouse danych](#use-polybase-to-load-data-into-azure-sql-data-warehouse) .<br/><br/>Dozwolone wartości to **true** i **false** (wartość domyślna). | Nie.<br/>Zastosuj podczas korzystania z bazy.     |
 | polyBaseSettings  | Grupa właściwości, które można określić, gdy `allowPolybase` Właściwość ma **wartość true**. | Nie.<br/>Zastosuj podczas korzystania z bazy. |
 | allowCopyCommand | Wskazuje, czy należy użyć [instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (wersja zapoznawcza) w celu załadowania danych do SQL Data Warehouse. `allowCopyCommand` i `allowPolyBase` nie może mieć jednocześnie wartości true. <br/><br/>Zobacz [używanie instrukcji Copy, aby załadować dane do sekcji Azure SQL Data Warehouse](#use-copy-statement) w celu uzyskania ograniczeń i szczegółów.<br/><br/>Dozwolone wartości to **true** i **false** (wartość domyślna). | Nie.<br>Zastosuj, gdy jest używana kopia. |
@@ -504,7 +504,7 @@ Jeśli wymagania nie są spełnione, Azure Data Factory sprawdza ustawienia i au
 
 3. Jeśli źródło jest folderem, `recursive` w działaniu Kopiuj musi być ustawiona wartość true.
 
-4. `wildcardFolderPath` , `wildcardFilename` , `modifiedDateTimeStart` `modifiedDateTimeEnd` i `additionalColumns` nie są określone.
+4. `wildcardFolderPath` , `wildcardFilename` ,,, `modifiedDateTimeStart` `modifiedDateTimeEnd` `prefix` `enablePartitionDiscovery` i `additionalColumns` nie są określone.
 
 >[!NOTE]
 >Jeśli źródło jest folderem, należy zwrócić uwagę, że plik jest pobierany z folderu i wszystkich jego podfolderów, a nie pobiera danych z plików, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.), zgodnie z opisem w [miejscu ARGUMENTU lokalizacji](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -684,7 +684,7 @@ Użycie instrukcji COPY obsługuje następującą konfigurację:
 
 3. Jeśli źródło jest folderem, `recursive` w działaniu kopiowania musi być ustawiona wartość true i musi `wildcardFilename` być `*` . 
 
-4. `wildcardFolderPath` , `wildcardFilename` (inne niż `*` ), `modifiedDateTimeStart` `modifiedDateTimeEnd` i `additionalColumns` nie są określone.
+4. `wildcardFolderPath` , `wildcardFilename` (inne niż `*` ), `modifiedDateTimeStart` , `modifiedDateTimeEnd` , `prefix` `enablePartitionDiscovery` i `additionalColumns` nie są określone.
 
 Następujące ustawienia instrukcji COPY są obsługiwane w ramach `allowCopyCommand` działania kopiowania:
 
@@ -806,7 +806,7 @@ W przypadku kopiowania danych z programu lub do usługi Azure Synapse Analytics 
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binarny                                | Byte []                         |
-| bit                                   | Boolean (wartość logiczna)                        |
+| bit                                   | Wartość logiczna                        |
 | char                                  | String, Char []                 |
 | date                                  | DateTime                       |
 | Datetime (data/godzina)                              | DateTime                       |

@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 11/4/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a8b6535a6e1f6bf083b4a82b9f2ecacbd222cb27
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: dda95932551cdb28c5f28207c05c8e3e78e753b8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949766"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050849"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Co to jest usługa Azure Spring Cloud?
 
-Chmura sprężynowa platformy Azure ułatwia wdrażanie aplikacji mikrousług opartych na rozruchu sprężyny na platformie Azure bez zmian w kodzie.  Chmura sprężynowa platformy Azure zarządza cyklem życia aplikacji w chmurze, dzięki czemu deweloperzy mogą skupić się na kodzie.  Chmura Wiosenna umożliwia zarządzanie cyklem życia przy użyciu kompleksowych funkcji monitorowania i diagnostyki, zarządzania konfiguracją, odnajdywania usług, integracji ciągłej i ciągłego wdrażania, a także innych elementów.
+Chmura sprężynowa platformy Azure ułatwia wdrażanie aplikacji mikrousług opartych na rozruchu sprężyny na platformie Azure bez zmian w kodzie.  Chmura ze sprężyną systemu Azure zarządza infrastrukturą aplikacji w chmurze, dzięki czemu deweloperzy mogą skupić się na kodzie.  Chmura Wiosenna umożliwia zarządzanie cyklem życia przy użyciu kompleksowych funkcji monitorowania i diagnostyki, zarządzania konfiguracją, odnajdywania usług, integracji ciągłej i ciągłego wdrażania, a także innych elementów.
 
 W ramach ekosystemu platformy Azure chmura sprężynowa platformy Azure umożliwia łatwe powiązanie z innymi usługami platformy Azure, w tym z magazynem, bazami danych, monitorowaniem i innymi.
 
@@ -28,11 +28,9 @@ W tym artykule opisano serwer konfiguracji chmury z platformą Azure, sposób w�
 
 Serwer konfiguracji chmurowej platformy Azure zapewnia konfigurację zewnętrzną w systemie rozproszonym z obsługą serwera i klienta.  Serwer konfiguracji chmury Azure wiosny to centralna lokalizacja do zarządzania właściwościami aplikacji we wszystkich środowiskach. Aby uzyskać więcej informacji, zobacz [informacje dotyczące serwera konfiguracji chmury wiosennej](https://spring.io/projects/spring-cloud-config.md). 
 
-
-
 ## <a name="enable-bluegreen-deployments"></a>Włącz wdrożenia Blue/Green
 
-Chmura sprężynowa platformy Azure obsługuje wdrożenia niebieskie/zielone do zwalniania i aktualizowania kodu w środowiskach produkcyjnych.  Korzystanie z tego wzorca zarządzania zmianami umożliwia deweloperom Implementowanie funkcji i zmian kodu z zabezpieczeniami natychmiastowego powrotu, gdy jest to konieczne.  System Azure umożliwia deweloperom skoncentrowanie się na pisaniu kodu przez zarządzanie wieloma środowiskami produkcyjnymi oraz ułatwia aktualizowanie lub wycofywanie zmian w kodzie bez zakłócania działania aplikacji.  Aby dowiedzieć się więcej o środowiskach przejściowych i wdrożeniach Blue/Green, zapoznaj się z tym [artykułem](spring-cloud-howto-staging-environment.md).
+Chmura sprężynowa platformy Azure obsługuje wdrożenia niebieskie/zielone do zwalniania i aktualizowania kodu w środowiskach produkcyjnych.  Ten wzorzec zarządzania zmianami umożliwia deweloperom Implementowanie funkcji i zmian kodu z zabezpieczeniami natychmiastowego powrotu, gdy jest to konieczne.  Deweloperzy mogą skoncentrować się na pisaniu kodu z wieloma środowiskami produkcyjnymi w celu aktualizowania lub wycofywania zmian w kodzie bez zakłócania działania aplikacji.  Aby dowiedzieć się więcej o środowiskach przejściowych i wdrożeniach Blue/Green, zapoznaj się z tym [artykułem](spring-cloud-howto-staging-environment.md).
 
 ## <a name="automate-cicd-pipelines"></a>Automatyzowanie potoków ciągłej integracji/ciągłego dostarczania
 
@@ -48,10 +46,9 @@ Chmura sprężynowa platformy Azure umożliwia łatwe skalowanie mikrousług na 
 
 Rozproszone narzędzia do śledzenia w chmurze sprężynowe umożliwiają deweloperom debugowanie i monitorowanie złożonych połączeń między mikrousługami w aplikacji.  Dzięki integracji [wiosennej chmury Sleuth](https://spring.io/projects/spring-cloud-sleuth) z [Application Insights](../azure-monitor/insights/insights-overview.md)platformy Azure platforma Azure zapewnia zaawansowane możliwości śledzenia rozproszonego bezpośrednio z Azure Portal.  Aby dowiedzieć się więcej, wykonaj kroki tego [samouczka](spring-cloud-tutorial-distributed-tracing.md).
 
-## <a name="next-steps"></a>Kolejne kroki
-Aby rozpocząć, Skorzystaj z przewodnika Szybki Start dla chmury przewodowej przy użyciu [interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md), [Azure Portal](spring-cloud-quickstart-launch-app-portal.md)lub [Maven](spring-cloud-quickstart-launch-app-maven.md).
-
-Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
-
+## <a name="next-steps"></a>Następne kroki
+Aby rozpocząć, Wypełnij chmurę z przewodnikiem Szybki Start:
 > [!div class="nextstepaction"]
 > [Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny](spring-cloud-quickstart.md)
+
+Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

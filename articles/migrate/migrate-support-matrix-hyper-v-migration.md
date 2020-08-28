@@ -3,12 +3,12 @@ title: Obsługa migracji funkcji Hyper-V w Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji funkcji Hyper-V za pomocą Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871500"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051155"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Macierz obsługi dla migracji funkcji Hyper-V
 
@@ -26,7 +26,10 @@ Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli 
 | **Wdrożenie**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze. <br/>Na hostach funkcji Hyper-V jest zainstalowane oprogramowanie do replikacji Azure Migrate (dostawca replikacji funkcji Hyper-V).|
 | **Uprawnienia**           | Wymagane są uprawnienia administratora na hoście funkcji Hyper-V. |
 | **System operacyjny hosta** | Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2 z najnowszymi aktualizacjami. Należy zauważyć, że jest również obsługiwana instalacja Server Core tych systemów operacyjnych. |
+| **Inne wymagania programowe** | .NET Framework 4,7 lub nowszy |
 | **Dostęp do portu** |  Połączenia wychodzące na porcie HTTPS 443 do wysyłania danych replikacji maszyny wirtualnej.
+| **Wolne miejsce na dysku (pamięć podręczna)** |  600 GB |
+| **Wolne miejsce na dysku (dysk przechowywania)** |  600 GB |
 
 
 ## <a name="hyper-v-vms"></a>Maszyny wirtualne funkcji Hyper-V
@@ -39,6 +42,7 @@ Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli 
 | **Wymagane zmiany dotyczące platformy Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure. Ręcznie wprowadź korekty przed migracją. Odpowiednie artykuły zawierają instrukcje, jak to zrobić. |
 | **Rozruch systemu Linux**                 | Jeśli/Boot znajduje się na dedykowanej partycji, powinien znajdować się na dysku systemu operacyjnego i nie można go rozłożyć na wiele dysków.<br/> Jeśli/boot jest częścią partycji głównej (/), partycja "/" powinna znajdować się na dysku systemu operacyjnego i nie może obejmować innych dysków. |
 | **Rozruch z interfejsem UEFI**                  | Obsługiwane. Upewnij się, że wybrano rozmiar maszyny wirtualnej obsługiwaną przez maszynę wirtualną generacji 2 platformy Azure  |
+| **Interfejs UEFI — bezpieczny rozruch**         | Migracja nie jest obsługiwana.|
 | **Rozmiar dysku**                  | 2 TB dla dysku systemu operacyjnego, 4 TB dla dysków z danymi.|
 | **Numer dysku** | Maksymalnie 16 dysków na maszynę wirtualną.|
 | **Zaszyfrowane dyski/woluminy**    | Migracja nie jest obsługiwana.|

@@ -7,15 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 77b105fd5bbc6cc88411379e79522562ebce3677
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 587b26d821b9701df435b9ee0a1c5f9ba5602fc0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083756"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050934"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Wdrażanie aplikacji Azure Spring Cloud za pomocą środowiska IntelliJ
 Wtyczka IntelliJ dla chmury wiosennej platformy Azure obsługuje wdrażanie aplikacji ze POMYSŁu IntelliJ.  
+
+Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
@@ -44,7 +46,7 @@ Poniższe procedury służą do wdrażania aplikacji Hello world przy użyciu PO
 
 ## <a name="open-gs-spring-boot-project"></a>Otwórz projekt GS-sprężynowy
 
-1. Pobierz i rozpakuj repozytorium źródłowe dla tego samouczka lub Sklonuj je za pomocą narzędzia Git: klonowanie githttps://github.com/spring-guides/gs-spring-boot.git 
+1. Pobierz i rozpakuj repozytorium źródłowe dla tego samouczka lub Sklonuj je za pomocą narzędzia Git: klonowanie git https://github.com/spring-guides/gs-spring-boot.git 
 1. dysk CD do GS-Spring-boot\complete.
 1. Otwórz okno dialogowe **Witamy** w IntelliJ, wybierz pozycję **Importuj projekt** , aby otworzyć Kreatora importu.
 1. Wybierz `gs-spring-boot\complete` folder.

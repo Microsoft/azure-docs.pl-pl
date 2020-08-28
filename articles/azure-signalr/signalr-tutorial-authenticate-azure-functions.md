@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 72f6cee18664f63e36c38499e77f4c0ba7177c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 45dc137141491938367fb57c6955e8e3145f8ff9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386864"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050458"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Samouczek: Uwierzytelnianie usługi Azure SignalR Service za pomocą usługi Azure Functions
 
@@ -30,7 +30,7 @@ Samouczek krok po kroku z informacjami dotyczącymi tworzenia pokoju czatu z uwi
 
 Do wykonania instrukcji znajdujących się w tym samouczku wymagane jest następujące oprogramowanie.
 
-* [Narzędzia](https://git-scm.com/downloads)
+* [Git](https://git-scm.com/downloads)
 * [Platforma Node.js](https://nodejs.org/en/download/) (wersja 10.x)
 * [Zestaw SDK .NET](https://www.microsoft.com/net/download) (wersja 2.x, wymagana na potrzeby rozszerzeń usługi Functions)
 * [Podstawowe narzędzia usługi Azure Functions](https://github.com/Azure/azure-functions-core-tools) (wersja 2)
@@ -38,9 +38,13 @@ Do wykonania instrukcji znajdujących się w tym samouczku wymagane jest następ
   * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) — umożliwia pracę z usługą Azure Functions w programie VS Code
   * [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) — udostępnia lokalnie strony internetowe na potrzeby testowania
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
+
 ## <a name="sign-into-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
 Przejdź do witryny [ Azure Portal](https://portal.azure.com/) i zaloguj się przy użyciu swoich poświadczeń.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-an-azure-signalr-service-instance"></a>Tworzenie wystąpienia usługi Azure SignalR Service
 
@@ -48,25 +52,26 @@ Aplikację usługi Azure Functions utworzysz i przetestujesz lokalnie. Uzyska on
 
 1. Kliknij przycisk **Utwórz zasób** ( **+** ), aby utworzyć nowy zasób platformy Azure.
 
-1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij pozycję **Utwórz**.
+1. Wyszukaj usługę **SignalR Service** i wybierz ją. Kliknij przycisk **Utwórz**.
 
     ![Nowa usługa SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
 1. Wprowadź następujące informacje.
 
-    | Name | Wartość |
+    | Nazwa | Wartość |
     |---|---|
     | Nazwa zasobu | Unikatowa nazwa wystąpienia usługi SignalR Service |
     | Grupa zasobów | Utwórz nową grupę zasobów o unikatowej nazwie |
-    | Location | Wybierz bliską Ci lokalizację |
+    | Lokalizacja | Wybierz bliską Ci lokalizację |
     | Warstwa cenowa | Bezpłatna |
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 1. Po wdrożeniu wystąpienia otwórz je w portalu i Znajdź jego stronę ustawień. Zmień ustawienie trybu usługi na *bezserwerowy*.
 
     ![Tryb usługi sygnalizującej](media/signalr-concept-azure-functions/signalr-service-mode.png)
-
+    
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
 
 ## <a name="initialize-the-function-app"></a>Inicjowanie aplikacji funkcji
 
@@ -131,7 +136,7 @@ Podczas lokalnego uruchamiania i debugowania środowiska uruchomieniowego usług
 
 1. Zapisz plik.
 
-    
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-a-function-to-authenticate-users-to-signalr-service"></a>Tworzenie funkcji do uwierzytelniania użytkowników w ramach usługi SignalR Service
 
@@ -146,7 +151,7 @@ Gdy aplikacja czatu zostanie po razy pierwszy otwarta w przeglądarce, wymaga on
 
 1. Po wyświetleniu monitu podaj następujące informacje.
 
-    | Name | Wartość |
+    | Nazwa | Wartość |
     |---|---|
     | Folder aplikacji funkcji | Wybierz główny folder projektu |
     | Szablon | Wyzwalacz HTTP |
@@ -194,6 +199,8 @@ Gdy aplikacja czatu zostanie po razy pierwszy otwarta w przeglądarce, wymaga on
     ```
 
     Ta funkcja przyjmuje informacje dotyczące połączenia usługi SignalR z powiązania danych wejściowych i zwraca je do klienta w treści odpowiedzi HTTP. Klient sygnalizujący użyje tych informacji do nawiązania połączenia z wystąpieniem usługi sygnalizującej.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
 
 ## <a name="create-a-function-to-send-chat-messages"></a>Tworzenie funkcji do wysyłania wiadomości czatu
 
@@ -276,6 +283,8 @@ Aplikacja internetowa wymaga także interfejsu API protokołu HTTP do wysyłania
 
 1. Zapisz plik.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
+
 ## <a name="create-and-run-the-chat-client-web-user-interface"></a>Tworzenie i uruchamianie internetowego interfejsu użytkownika klienta czatu
 
 Interfejs użytkownika aplikacji czatu to prosta aplikacja jednostronicowa utworzona za pomocą platformy Vue JavaScript. Będzie ona hostowana oddzielnie od aplikacji funkcji. Pracując lokalnie, uruchomisz interfejs internetowy przy użyciu rozszerzenia Live Server programu VS Code.
@@ -293,6 +302,8 @@ Interfejs użytkownika aplikacji czatu to prosta aplikacja jednostronicowa utwor
 1. Pozostawiając plik **index.html** otwarty, uruchom rozszerzenie Live Server, otwierając paletę poleceń programu VS Code (skrót: `Ctrl-Shift-P`, w systemie macOS: `Cmd-Shift-P`) i wybierając polecenie **Live Server: Open with Live Server**. Rozszerzenie Live Server otworzy aplikację w przeglądarce.
 
 1. Zostanie otwarta aplikacja. Wprowadź wiadomość w polu czatu, a następnie naciśnij klawisz Enter. Odśwież aplikację, aby wyświetlić nowe wiadomości. Ponieważ uwierzytelnianie nie zostało skonfigurowane, wszystkie wiadomości zostaną wysłane jako użytkownik „anonimowy”.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
 
 ## <a name="deploy-to-azure-and-enable-authentication"></a>Wdrażanie na platformie Azure i włączanie uwierzytelniania
 
@@ -321,9 +332,9 @@ Konto usługi Azure Storage jest wymagane przez aplikację funkcji działającą
     | Subskrypcja | Wybierz subskrypcję zawierającą wystąpienie usługi sygnalizującej |
     | Grupa zasobów | Wybierz tę samą grupę zasobów |
     | Nazwa zasobu | Unikatowa nazwa konta magazynu |
-    | Location | Wybierz tę samą lokalizację co inne zasoby |
+    | Lokalizacja | Wybierz tę samą lokalizację co inne zasoby |
     | Wydajność | Standardowa |
-    | Rodzaj konta | StorageV2 (ogólnego przeznaczenia wersja 2) |
+    | Rodzaj konta | StorageV2 (ogólnego przeznaczenia, wersja 2) |
     | Replikacja | Magazyn lokalnie nadmiarowy (LRS) |
     | Warstwa dostępu | Gorąca |
 
@@ -490,9 +501,13 @@ Gratulacje! Bezserwerowa aplikacja czatu w czasie rzeczywistym została wdrożon
 
 ![Demonstracja](media/signalr-tutorial-authenticate-azure-functions/signalr-serverless-chat.gif)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów za pomocą witryny Azure Portal.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -500,3 +515,6 @@ W niniejszym samouczku zawarto informacje na temat sposobu używania usługi Azu
 
 > [!div class="nextstepaction"]
 > [Kompilowanie aplikacji w czasie rzeczywistym za pomocą Azure Functions](signalr-concept-azure-functions.md)
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsauth)
+

@@ -1,6 +1,6 @@
 ---
-title: 'Szybki Start: Tworzenie Apache Spark dla notesu usługi Azure Synapse Analytics'
-description: Ten przewodnik Szybki Start przedstawia sposób używania narzędzi sieci Web do tworzenia puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics i uruchamiania zapytania Spark SQL.
+title: 'Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web'
+description: Ten przewodnik Szybki Start przedstawia sposób używania narzędzi sieci Web do tworzenia puli Apache Spark w usłudze Azure Synapse Analytics i uruchamiania zapytania Spark SQL.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496251"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049812"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
@@ -98,7 +98,7 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
    SHOW TABLES
    ```
 
-   W przypadku korzystania z notesu z pulą Apache Spark usługi Azure Synapse uzyskasz ustawienie wstępne, za pomocą którego `sqlContext` można uruchamiać zapytania przy użyciu platformy Spark SQL. `%%sql`informuje Notes o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania. Zapytanie pobiera 10 najważniejszych wierszy z tabeli systemowej, która jest domyślnie dostarczana z wszystkimi pulami Apache Spark Azure Synapse.
+   W przypadku korzystania z notesu z pulą Apache Spark usługi Azure Synapse uzyskasz ustawienie wstępne, za pomocą którego `sqlContext` można uruchamiać zapytania przy użyciu platformy Spark SQL. `%%sql` informuje Notes o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania. Zapytanie pobiera 10 najważniejszych wierszy z tabeli systemowej, która jest domyślnie dostarczana z wszystkimi pulami Apache Spark Azure Synapse.
 
 2. Uruchom inne zapytanie, aby wyświetlić dane z tabeli `demo_df`.
 

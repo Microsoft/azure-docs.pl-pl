@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: dee6b0b1635880fb50b8d35f1f91ad2bce569cff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8797d17ac439882415a9f5360fded28cb55484d5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928483"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050543"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Szybki Start: Tworzenie pokoju rozmów przy użyciu usługi ASP.NET i sygnalizującego
 
@@ -31,15 +31,21 @@ W tym przewodniku szybki start dowiesz się, jak rozpocząć pracę z usługą A
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET sygnalizujący](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się w [witrynie Azure Portal](https://portal.azure.com/) przy użyciu danych konta Azure.
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 Tryb *bezserwerowy* nie jest obsługiwany w przypadku aplikacji sygnalizujących ASP.NET. Zawsze używaj *domyślnego* lub *klasycznego* wystąpienia usługi Azure Signal Service.
 
 Możesz również utworzyć zasoby platformy Azure używane w tym przewodniku Szybki Start i [utworzyć skrypt usługi sygnalizującej](scripts/signalr-cli-create-service.md).
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
 
 ## <a name="clone-the-sample-application"></a>Klonowanie przykładowej aplikacji
 
@@ -52,6 +58,8 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
 
 ## <a name="configure-and-run-chat-room-web-app"></a>Konfigurowanie i uruchamianie aplikacji sieci Web pokoju rozmów
 
@@ -97,6 +105,8 @@ W czasie, gdy usługa jest wdrażana, przejdźmy do pracy z kodem. Sklonuj [przy
 
 1. Naciśnij klawisz **F5** , aby uruchomić projekt w trybie debugowania. Aplikacja jest uruchamiana lokalnie. Zamiast hostować środowisko uruchomieniowe sygnalizujące przez samą aplikację, teraz nawiązuje połączenie z usługą Azure Signal.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 
@@ -115,9 +125,14 @@ W polu tekstowym **Filtruj według nazwy...** wpisz nazwę grupy zasobów. W ins
 
 Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.
 
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+
 ## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start utworzono nowy zasób usługi Azure Signal Service i użył go z aplikacją sieci Web ASP.NET. Następnie Dowiedz się, jak opracowywać aplikacje w czasie rzeczywistym przy użyciu usługi Azure Signal Service z ASP.NET Core.
 
 > [!div class="nextstepaction"]
 > [Usługa sygnałów platformy Azure z ASP.NET Core](./signalr-quickstart-dotnet-core.md)
+
+[Masz problemy? Daj nam znać.](https://aka.ms/asrs/qsnet)
+

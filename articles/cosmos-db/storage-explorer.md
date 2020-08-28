@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b892e4c5078b50bb865a715ddf12aebc1eb05f57
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d1948ae186662c7f60f4d49c19a4d48b424a38f7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799115"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047483"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Praca z danymi za pomocą Eksploratora usługi Azure Storage
 
@@ -95,7 +95,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 
 * Po kliknięciu prawym przyciskiem myszy konta lub bazy danych usługi Azure Cosmos DB można wybrać polecenie **Otwórz w portalu**, aby zarządzać zasobem w przeglądarce w witrynie Azure Portal.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Otwórz w portalu":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Otwórz w portalu":::
 
 * Do paska **Szybki dostęp** można także dodać konto, bazę danych lub kolekcję usługi Azure Cosmos DB.
 * Opcja **Wyszukaj od tego miejsca** umożliwia wyszukiwanie słów kluczowych w obrębie wybranej ścieżki.
@@ -106,25 +106,25 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 
 #### <a name="create-a-database"></a>Tworzenie bazy danych
 
--   Kliknij prawym przyciskiem myszy konto usługi Azure Cosmos DB, wybierz polecenie **Utwórz bazę danych**, wprowadź nazwę bazy danych, a następnie naciśnij klawisz **Enter**, aby zakończyć procedurę.
+- Kliknij prawym przyciskiem myszy konto usługi Azure Cosmos DB, wybierz polecenie **Utwórz bazę danych**, wprowadź nazwę bazy danych, a następnie naciśnij klawisz **Enter**, aby zakończyć procedurę.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Tworzenie bazy danych na koncie usługi Azure Cosmos":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Tworzenie bazy danych na koncie usługi Azure Cosmos":::
 
 #### <a name="delete-a-database"></a>Usuwanie bazy danych
 
 - Kliknij prawym przyciskiem myszy bazę danych, wybierz pozycję **Usuń bazę danych**, a następnie wybierz pozycję **tak** w oknie podręcznym. Węzeł bazy danych zostanie usunięty, a konto usługi Azure Cosmos DB zostanie odświeżone automatycznie.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Usuwanie pierwszej bazy danych":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Usuwanie pierwszej bazy danych":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Usuń pozostałe bazy danych":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Usuń pozostałe bazy danych":::
 
 #### <a name="create-a-collection"></a>Tworzenie kolekcji
 
 1. Kliknij prawym przyciskiem myszy bazę danych, wybierz polecenie **Utwórz kolekcję**, a następnie podaj następujące informacje, takie jak **identyfikator kolekcji**, **pojemność magazynu**itp. Kliknij przycisk **OK** , aby zakończyć.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Tworzenie pierwszej kolekcji w bazie danych":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Tworzenie pierwszej kolekcji w bazie danych":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Tworzenie drugiej kolekcji w bazie danych":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Tworzenie drugiej kolekcji w bazie danych":::
 
 2. Wybierz pozycję **nieograniczone** , aby określić klucz partycji, a następnie wybierz przycisk **OK** , aby zakończyć.
 
@@ -146,7 +146,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 
 - Aby utworzyć nowy dokument, Otwórz **dokumenty** w lewym oknie, wybierz pozycję **Nowy dokument**, Edytuj zawartość w prawym okienku, a następnie wybierz pozycję **Zapisz**. Możesz również zaktualizować istniejący dokument, a następnie wybrać pozycję **Zapisz**. Aby odrzucić zmiany, kliknij przycisk **Odrzuć**.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Utwórz nowy dokument":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Utwórz nowy dokument":::
 
 #### <a name="delete-a-document"></a>Usuwanie dokumentu
 
@@ -156,7 +156,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 
 - Edytuj filtr dokumentu, wprowadzając [zapytanie SQL](how-to-sql-query.md) , a następnie wybierz pozycję **Zastosuj**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Zapytanie o określone dokumenty":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Zapytanie o określone dokumenty":::
 
 ### <a name="graph-management"></a>Zarządzanie programem Graph
 
@@ -165,7 +165,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 1. Aby utworzyć nowy wierzchołek, Otwórz program **Graph** w okienku po lewej stronie, wybierz pozycję **nowy wierzchołek**, Edytuj zawartość, a następnie wybierz **przycisk OK**.
 2. Aby zmodyfikować istniejący wierzchołek, wybierz ikonę pióra w okienku po prawej stronie.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modyfikowanie wierzchołka wykresu":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modyfikowanie wierzchołka wykresu":::
 
 #### <a name="delete-a-graph"></a>Usuwanie wykresu
 
@@ -175,7 +175,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 
 - Edytuj filtr wykresu, wprowadzając [zapytanie Gremlin](gremlin-support.md) , a następnie wybierz pozycję **Zastosuj filtr**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Uruchamianie zapytania grafu":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Uruchamianie zapytania grafu":::
 
 ### <a name="table-management"></a>Zarządzanie tabelami
 
@@ -184,33 +184,34 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 1. Aby utworzyć nową tabelę, Otwórz **jednostki** w lewym oknie, wybierz pozycję **Dodaj**, Edytuj zawartość w oknie dialogowym **Dodawanie jednostki** , Dodaj właściwość, klikając przycisk **Dodaj właściwość**, a następnie wybierz pozycję **Wstaw**.
 2. Aby zmodyfikować tabelę, wybierz pozycję **Edytuj**, zmodyfikuj zawartość, a następnie wybierz pozycję **Aktualizuj**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Tworzenie i modyfikowanie tabeli":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="Tworzenie i modyfikowanie tabeli":::
 
 #### <a name="import-and-export-table"></a>Importowanie i eksportowanie tabeli
 
 1. Aby zaimportować, wybierz przycisk **Importuj** , a następnie wybierz istniejącą tabelę.
 2. Aby wyeksportować, wybierz przycisk **Eksportuj** i wybierz miejsce docelowe.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importowanie lub eksportowanie tabeli":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importowanie lub eksportowanie tabeli":::
 
 #### <a name="delete-entities"></a>Usuwanie jednostek
 
 - Wybierz jednostki i wybierz przycisk **Usuń**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Usuwanie tabeli":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Usuwanie tabeli":::
 
 #### <a name="query-table"></a>Wykonywanie zapytań dotyczących tabeli
 
 - Kliknij przycisk **zapytania** , warunek zapytania wejściowego, a następnie wybierz przycisk **wykonaj zapytanie** . Zamknij okienko Zapytanie, klikając **Zamknij zapytanie**.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Zapytanie danych z tabeli":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Zapytanie danych z tabeli":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Zarządzanie procedurami składowanymi, wyzwalaczami i funkcjami definiowanymi przez użytkownika (UDF)
 
 * Aby utworzyć procedurę przechowywaną, w lewym drzewie kliknij prawym przyciskiem myszy **procedurę przechowywaną**, wybierz polecenie **Utwórz procedurę składowaną**, wprowadź nazwę po lewej stronie, wpisz skrypty procedury składowanej w prawym oknie, a następnie wybierz pozycję **Utwórz**.
 * Możesz również edytować istniejące procedury składowane, klikając dwukrotnie, wprowadzając aktualizację, a następnie klikając przycisk **Aktualizuj** , aby zapisać, lub wybrać pozycję **Odrzuć** , aby anulować zmianę.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Tworzenie procedur składowanych i zarządzanie nimi":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Tworzenie procedur składowanych i zarządzanie nimi":::
+
 * Operacje dotyczące **wyzwalaczy** i **funkcji definiowanych przez użytkownika** są podobne do **procedur składowanych**.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów

@@ -1,14 +1,14 @@
 ---
 title: Zrozumienie kolejności kolejności wdrażania
 description: Informacje o domyślnej kolejności, w której artefakty są wdrażane w trakcie przypisywania strategii i dostosowywania kolejności wdrażania.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970624"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051478"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Zrozumienie sekwencji wdrożenia w planach platformy Azure
 
@@ -44,7 +44,7 @@ W ramach każdego artefaktu **grupy zasobów** następująca kolejność sekwenc
 
 Podczas redagowania dużych definicji planów może być konieczne utworzenie zasobów w określonej kolejności. Najbardziej typowym wzorcem użycia tego scenariusza jest, gdy definicja strategii obejmuje kilka szablonów ARM. Plany platformy Azure obsługują ten wzorzec, umożliwiając zdefiniowanie kolejności sekwencjonowania.
 
-Kolejność jest realizowana przez zdefiniowanie `dependsOn` właściwości w formacie JSON. Ta właściwość obsługuje definicje strategii, dla grup zasobów i obiektów artefaktów. `dependsOn`jest tablicą ciągów nazw artefaktów, które należy utworzyć przed utworzeniem określonego artefaktu.
+Kolejność jest realizowana przez zdefiniowanie `dependsOn` właściwości w formacie JSON. Ta właściwość obsługuje definicje strategii, dla grup zasobów i obiektów artefaktów. `dependsOn` jest tablicą ciągów nazw artefaktów, które należy utworzyć przed utworzeniem określonego artefaktu.
 
 > [!NOTE]
 > Podczas tworzenia obiektów strategii każdy zasób artefaktów pobiera swoją nazwę z nazwy pliku, jeśli jest używany program [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), lub punkt końcowy adresu URL, jeśli używany jest [interfejs API REST](/rest/api/blueprints/artifacts/createorupdate). odwołania do odwołań do _zasobów_ w artefaktach muszą być zgodne z tymi zdefiniowanymi w definicji strategii.
@@ -141,8 +141,8 @@ Przykładem jest Grupa zasobów, która zależy od zasad na poziomie subskrypcji
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Uzyskaj informacje na temat [cyklu życia strategii](lifecycle.md).
-- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](parameters.md).
-- Dowiedz się, jak używać [blokowania zasobów strategii](resource-locking.md).
+- Uzyskaj informacje na temat [cyklu życia strategii](./lifecycle.md).
+- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](./parameters.md).
+- Dowiedz się, jak używać [blokowania zasobów strategii](./resource-locking.md).
 - Dowiedz się, jak [zaktualizować istniejące przypisania](../how-to/update-existing-assignments.md).
 - Rozwiązywanie problemów podczas przypisywania strategii za pomocą [ogólnych procedur rozwiązywania problemów](../troubleshoot/general.md).

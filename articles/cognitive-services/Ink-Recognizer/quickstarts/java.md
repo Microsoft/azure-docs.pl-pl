@@ -1,24 +1,26 @@
 ---
 title: 'Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST rozpoznawania atramentu i języka Java'
 titleSuffix: Azure Cognitive Services
-description: Użyj interfejsu API rozpoznawania pisma odręcznego, aby rozpocząć rozpoznawanie cyfrowych pociągnięć atramentu w tym przewodniku Szybki Start.
+description: Użyj interfejsu API rozpoznawania pisma odręcznego i języka Java, aby rozpocząć rozpoznawanie cyfrowych pociągnięć atramentu w tym przewodniku Szybki Start.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: 902d8a592893a70b8a694ab888bb3c22c6c9670a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371553"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051580"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Szybki Start: Rozpoznawanie cyfrowego atramentu za pomocą interfejsu API REST rozpoznawania atramentu i języka Java
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z interfejsu API rozpoznawania atramentu na potrzeby pociągnięć atramentów cyfrowych Ta aplikacja Java wysyła żądanie interfejsu API zawierające dane pociągnięcia odręcznego w formacie JSON i pobiera odpowiedź.
 

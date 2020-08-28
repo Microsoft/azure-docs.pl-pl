@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 252f38e289f7b40c673d9048119823348a30a546
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015445"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051302"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Samouczek: opracowywanie aplikacji sieci Web ASP.NET Core MVC z Azure Cosmos DB przy użyciu zestawu SDK platformy .NET
 
@@ -117,36 +117,19 @@ Azure Cosmos DB używa formatu JSON do przenoszenia i przechowywania danych. Mo�
 
 ### <a name="add-views"></a><a name="add-views"></a>Dodawanie widoków
 
-Następnie Utwórzmy następujące trzy widoki.
+Następnie Dodajmy następujące widoki.
 
-* Dodawanie widoku elementu listy
-* Dodawanie widoku nowego elementu
-* Dodawanie widoku edycji elementu
+* Widok tworzenia elementu
+* Widok usuwania elementu
+* Widok służący do pobierania szczegółów elementu
+* Widok edycji elementu
+* Widok, aby wyświetlić listę wszystkich elementów
 
-#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Dodawanie widoku elementu listy
+#### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Widok tworzenia elementu
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **widoki** i wybierz polecenie **Dodaj**  >  **Nowy folder**. Nadaj nazwę *elementowi*folderu.
 
 1. Kliknij prawym przyciskiem myszy folder pusty **element** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
-
-1. W obszarze **Dodaj widok MVC**podaj następujące wartości:
-
-   * W polu **Nazwa widoku**wpisz *index*.
-   * W obszarze **szablon**wybierz pozycję **Lista**.
-   * W obszarze **Klasa modelu**wybierz pozycję **element (do zrobienia. Modele)**.
-   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Dodawanie widoku MVC":::
-
-1. Po dodaniu tych wartości wybierz przycisk **Dodaj**. Program Visual Studio utworzy nowy widok szablonu.
-
-Po zakończeniu program Visual Studio otworzy plik *cshtml* , który tworzy. Możesz zamknąć ten plik w programie Visual Studio. Powrócimy do niego później.
-
-#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>Dodawanie widoku nowego elementu
-
-Podobnie jak w przypadku widoku umożliwiającego wyświetlanie elementów utwórz widok, który pozwala tworzyć elementy. W tym celu wykonaj następujące kroki:
-
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
 
 1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
 
@@ -156,9 +139,44 @@ Podobnie jak w przypadku widoku umożliwiającego wyświetlanie elementów utwó
    * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
    * Wybierz pozycję **Dodaj**.
 
-#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Dodawanie widoku edycji elementu
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Zrzut ekranu przedstawiający okno dialogowe Dodawanie widoku MVC":::
 
-Na koniec wykonaj następujące kroki, aby dodać widok umożliwiający edycję elementu:
+1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Usuń widok elementu
+
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+
+1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
+
+   * W polu **Nazwa widoku** wpisz *delete*.
+   * W polu **szablon** wybierz pozycję **Usuń**.
+   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)**.
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
+   * Wybierz pozycję **Dodaj**.
+
+1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Dodaj widok, aby uzyskać szczegółowe informacje o elemencie
+
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+
+1. W obszarze **Dodaj widok MVC**podaj następujące wartości:
+
+   * W polu **Nazwa widoku**wprowadź *szczegóły*.
+   * W obszarze **szablon**wybierz pozycję **szczegóły**.
+   * W obszarze **Klasa modelu**wybierz pozycję **element (do zrobienia. Modele)**.
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
+
+1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Dodawanie widoku edycji elementu
 
 1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
 
@@ -170,7 +188,29 @@ Na koniec wykonaj następujące kroki, aby dodać widok umożliwiający edycję 
    * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
    * Wybierz pozycję **Dodaj**.
 
-Po wykonaniu tych kroków zamknij wszystkie dokumenty *cshtml* w programie Visual Studio w celu późniejszego powrotu do tych widoków.
+1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="add-a-view-to-list-all-the-items"></a><a name="AddEditIndexView"></a>Dodaj widok, aby wyświetlić listę wszystkich elementów
+
+A wreszcie Dodaj widok, aby uzyskać wszystkie elementy, wykonując następujące czynności:
+
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy folder **elementu** , a następnie wybierz polecenie **Dodaj**  >  **Widok**.
+
+1. W obszarze **Dodaj widok MVC**wprowadź następujące zmiany:
+
+   * W polu **Nazwa widoku** wpisz *Index* (Indeks).
+   * W polu **Szablon** wybierz pozycję **Lista**.
+   * W polu **Klasa modelu** wybierz pozycję **Item (todo.Models)**.
+   * Wybierz pozycję **Użyj strony układu** i wprowadź wartość *~/views/Shared/_Layout. cshtml*.
+   * Wybierz pozycję **Dodaj**.
+
+1. Następnie wybierz pozycję **Dodaj** i Pozwól programowi Visual Studio utworzyć nowy widok szablonu. Zastąp kod w wygenerowanym pliku następującym zawartością:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+Po wykonaniu tych kroków zamknij wszystkie dokumenty *cshtml* w programie Visual Studio.
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Zadeklaruj i zainicjuj usługi
 
@@ -288,7 +328,7 @@ Innym rozwiązaniem jest utworzenie nowego profilu:
 
 W ciągu kilku sekund program Visual Studio opublikuje aplikację sieci Web i uruchomi przeglądarkę, w której można zobaczyć swój projekt uruchomiony na platformie Azure.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób tworzenia aplikacji sieci Web ASP.NET Core MVC. Aplikacja może uzyskiwać dostęp do danych przechowywanych w Azure Cosmos DB. Teraz możesz kontynuować z następującymi zasobami:
 

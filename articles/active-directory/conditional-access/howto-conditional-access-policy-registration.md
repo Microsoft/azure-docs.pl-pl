@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf17f4cef43fe4221781deedb130ef587208550
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83993749"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049098"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Dostęp warunkowy: Zabezpieczanie rejestracji informacji zabezpieczających
 
@@ -45,7 +45,7 @@ Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, któ
 1. W obszarze **Kontrola dostępu**  >  **Udziel**.
    1. Wybierz pozycję **Blokuj dostęp**.
    1. Następnie kliknij pozycję **Wybierz**.
-1. Ustaw pozycję **Włącz zasady** na wartość **Włączone**.
+1. Ustaw przełącznik **Włącz zasady** na wartość **Włączone**.
 1. Następnie wybierz pozycję **Zapisz**.
 
 W kroku 6 tych zasad organizacje mają odpowiednie opcje. Powyższe zasady wymagają rejestracji z zaufanej lokalizacji sieciowej. Organizacje mogą zdecydować się na korzystanie z jakichkolwiek dostępnych warunków zamiast **lokalizacji**. Należy pamiętać, że te zasady są zasadami blokowania, aby wszystkie dołączone elementy były blokowane i wszystkie elementy, które nie pasują do dołączenia, są dozwolone. 
@@ -67,6 +67,6 @@ Niektóre z nich mogą korzystać z stanu urządzenia zamiast lokalizacji w krok
 
 [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 
-[Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
+[Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-insights-reporting.md)
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)

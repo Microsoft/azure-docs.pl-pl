@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/21/2020
-ms.openlocfilehash: 135993a39a3b06bdabfff4a219df92d41c736a51
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 08/28/2020
+ms.openlocfilehash: c7b91fb8d283402cf8bda43c707d0ce2c8a1498b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718258"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051257"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiowanie danych z lub do usługi Azure File Storage za pomocą usługi Azure Data Factory
 
@@ -62,9 +62,9 @@ Data Factory obsługuje następujące właściwości uwierzytelniania klucza kon
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type musi mieć wartość: **AzureFileStorage**. | Tak |
-| Parametry połączenia | Określ informacje konieczne do nawiązania połączenia z usługą Azure File Storage. <br/> Możesz również umieścić klucz konta w Azure Key Vault i ściągnąć `accountKey` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz następujące przykłady i [poświadczenia sklepu w artykule Azure Key Vault](store-credentials-in-key-vault.md) . |Tak |
-| Udziału | Określ udział plików. | Tak |
+| typ | Właściwość Type musi mieć wartość: **AzureFileStorage**. | Yes |
+| Parametry połączenia | Określ informacje konieczne do nawiązania połączenia z usługą Azure File Storage. <br/> Możesz również umieścić klucz konta w Azure Key Vault i ściągnąć `accountKey` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz następujące przykłady i [poświadczenia sklepu w artykule Azure Key Vault](store-credentials-in-key-vault.md) . |Yes |
+| Udziału | Określ udział plików. | Yes |
 | migawka | Określ datę [migawki udziału plików](../storage/files/storage-snapshots-files.md) , która ma być kopiowana z migawki. | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
@@ -122,9 +122,9 @@ Data Factory obsługuje następujące właściwości używane do uwierzytelniani
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type musi mieć wartość: **AzureFileStorage**. | Tak |
-| sasUri | Określ identyfikator URI sygnatury dostępu współdzielonego do zasobów. <br/>Oznacz to pole jako **SecureString** , aby bezpiecznie przechowywać je w Data Factory. Można również umieścić token sygnatury dostępu współdzielonego w Azure Key Vault, aby użyć instrukcji AutoRotation i usunąć część tokenu. Aby uzyskać więcej informacji, zobacz następujące przykłady i [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
-| Udziału | Określ udział plików. | Tak |
+| typ | Właściwość Type musi mieć wartość: **AzureFileStorage**. | Yes |
+| sasUri | Określ identyfikator URI sygnatury dostępu współdzielonego do zasobów. <br/>Oznacz to pole jako **SecureString** , aby bezpiecznie przechowywać je w Data Factory. Można również umieścić token sygnatury dostępu współdzielonego w Azure Key Vault, aby użyć instrukcji AutoRotation i usunąć część tokenu. Aby uzyskać więcej informacji, zobacz następujące przykłady i [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| Udziału | Określ udział plików. | Yes |
 | migawka | Określ datę [migawki udziału plików](../storage/files/storage-snapshots-files.md) , która ma być kopiowana z migawki. | Nie |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
@@ -184,10 +184,10 @@ Data Factory obsługuje następujące właściwości używane do uwierzytelniani
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type musi mieć wartość: **AzureFileStorage**. | Tak |
-| host | Określa punkt końcowy usługi Azure File Storage jako: <br/>— Używanie interfejsu użytkownika: Określ `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Using JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"` . | Tak |
-| userid | Określ użytkownika, który ma uzyskać dostęp do usługi Azure File Storage jako: <br/>— Używanie interfejsu użytkownika: Określ `AZURE\<storage name>`<br/>-Using JSON: `"userid": "AZURE\\<storage name>"` . | Tak |
-| hasło | Określ klucz dostępu do magazynu. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| typ | Właściwość Type musi mieć wartość: **AzureFileStorage**. | Yes |
+| host | Określa punkt końcowy usługi Azure File Storage jako: <br/>— Używanie interfejsu użytkownika: Określ `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Using JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"` . | Yes |
+| userid | Określ użytkownika, który ma uzyskać dostęp do usługi Azure File Storage jako: <br/>— Używanie interfejsu użytkownika: Określ `AZURE\<storage name>`<br/>-Using JSON: `"userid": "AZURE\\<storage name>"` . | Yes |
+| hasło | Określ klucz dostępu do magazynu. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie dla źródła, tak dla ujścia |
 
 **Przykład:**
@@ -223,7 +223,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
 
 | Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Właściwość Type w `location` elemencie DataSet musi być ustawiona na wartość **FileServerLocation**. | Tak      |
+| typ       | Właściwość Type w `location` elemencie DataSet musi być ustawiona na wartość **FileServerLocation**. | Yes      |
 | folderPath | Ścieżka do folderu. Jeśli chcesz użyć symboli wieloznacznych do filtrowania folderów, pomiń to ustawienie i określ ustawienia źródła działania. | Nie       |
 | fileName   | Nazwa pliku pod podanym folderPath. Jeśli chcesz użyć symboli wieloznacznych do filtrowania plików, pomiń to ustawienie i określ ustawienia źródła działania. | Nie       |
 
@@ -265,18 +265,20 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
 
 | Właściwość                 | Opis                                                  | Wymagane                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **FileServerReadSettings**. | Tak                                           |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **FileServerReadSettings**. | Yes                                           |
 | ***Zlokalizuj pliki do skopiowania:*** |  |  |
 | Opcja 1: ścieżka statyczna<br> | Kopiuj z podanego folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie pliki z folderu, należy również określić `wildcardFileName` jako `*` . |  |
 | Opcja 2: prefiks pliku<br>-prefix | Prefiks nazwy pliku w danym udziale plików skonfigurowanym w zestawie danych do filtrowania plików źródłowych. Pliki o nazwie zaczynające się od `fileshare_in_linked_service/this_prefix` są zaznaczone. Wykorzystuje filtr po stronie usługi dla File Storage platformy Azure, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych. Ta funkcja nie jest obsługiwana w przypadku korzystania ze [starszego modelu połączonej usługi](#legacy-model). | Nie                                                          |
 | Opcja 3: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
-| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod daną folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
+| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod daną folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Yes |
 | OPCJA 4: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować, jeden plik w wierszu, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
 | ***Ustawienia dodatkowe:*** |  | |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
 | deleteFilesAfterCompletion | Wskazuje, czy pliki binarne zostaną usunięte z magazynu źródłowego po pomyślnym przeniesieniu do magazynu docelowego. Plik jest usuwany dla każdego pliku, więc w przypadku niepowodzenia działania kopiowania niektóre pliki zostały już skopiowane do lokalizacji docelowej i usunięte ze źródła, podczas gdy inne nadal pozostają w magazynie źródłowym. <br/>Ta właściwość jest prawidłowa tylko w scenariuszu kopiowania plików binarnych, w którym magazyny źródeł danych to obiekty blob, ADLS Gen1, ADLS Gen2, S3, magazyn w chmurze Google, plik, plik platformy Azure, SFTP lub FTP. Wartość domyślna: false. |Nie |
 | modifiedDatetimeStart    | Filtr plików oparty na atrybucie: ostatnio modyfikowane. <br>Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime `modifiedDatetimeEnd` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, zostaną zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime `modifiedDatetimeStart` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.<br/>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . | Nie                                            |
 | modifiedDatetimeEnd      | Tak samo jak powyżej.                                               | Nie                                            |
+| enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Fałsz                                            |
+| partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Fałsz                                            |
 | maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie                                            |
 
 **Przykład:**
@@ -328,7 +330,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
 
 | Właściwość                 | Opis                                                  | Wymagane |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **FileServerWriteSettings**. | Tak      |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **FileServerWriteSettings**. | Yes      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
 | maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie       |
 
@@ -422,8 +424,8 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type zestawu danych musi być ustawiona na **wartość:** dataudział |Tak |
-| folderPath | Ścieżka do folderu. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany, dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do wyjścia, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Przykłady: RootFolder/subfolder/, Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na **wartość:** dataudział |Yes |
+| folderPath | Ścieżka do folderu. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany, dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do wyjścia, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Przykłady: RootFolder/subfolder/, Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Yes |
 | fileName | **Nazwa lub filtr symboli wieloznacznych** dla plików w ramach określonego elementu "folderPath". Jeśli nie określisz wartości dla tej właściwości, zestaw danych wskazuje wszystkie pliki w folderze. <br/><br/>W przypadku filtru dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1: `"fileName": "*.csv"`<br/>-Przykład 2: `"fileName": "???20180427.txt"`<br/>Użyj `^` , aby wyjść, jeśli rzeczywista nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli nazwa pliku nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, działanie kopiowania automatycznie generuje nazwę pliku z następującym wzorcem: "*Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]*", na przykład" Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. gz "; Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to "*[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]*", na przykład" MyTable.csv ". |Nie |
 | modifiedDatetimeStart | Filtr plików oparty na atrybucie: ostatnio modyfikowane. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że będzie to miało wpływ na ogólną wydajność przenoszenia danych przez włączenie tego ustawienia, jeśli chcesz, aby filtr plików był objęty dużą ilością plików. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime `modifiedDatetimeEnd` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, zostaną zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime `modifiedDatetimeStart` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
 | modifiedDatetimeEnd | Filtr plików oparty na atrybucie: ostatnio modyfikowane. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że będzie to miało wpływ na ogólną wydajność przenoszenia danych przez włączenie tego ustawienia, jeśli chcesz, aby filtr plików był objęty dużą ilością plików. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime `modifiedDatetimeEnd` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, zostaną zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime `modifiedDatetimeStart` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
@@ -470,7 +472,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **FileSystemSource** |Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **FileSystemSource** |Yes |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Uwaga gdy wartość cykliczna jest ustawiona na wartość true, a obiekt sink jest magazynem opartym na plikach, pusty folder/podfolder nie zostanie skopiowany/utworzony w ujścia.<br/>Dozwolone wartości to: **true** (wartość domyślna), **Fałsz** | Nie |
 | maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
 
@@ -510,7 +512,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type ujścia działania Copy musi być ustawiona na wartość: **FileSystemSink** |Tak |
+| typ | Właściwość Type ujścia działania Copy musi być ustawiona na wartość: **FileSystemSink** |Yes |
 | copyBehavior | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie wygenerowaną nazwę. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scaloną nazwą pliku będzie określona nazwa; w przeciwnym razie zostanie automatycznie wygenerowana nazwa pliku. | Nie |
 | maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
 

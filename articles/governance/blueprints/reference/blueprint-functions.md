@@ -1,14 +1,14 @@
 ---
 title: Funkcje planów platformy Azure
 description: Zawiera opis funkcji dostępnych do użycia z artefaktami strategii w definicjach i przypisaniach platformy Azure.
-ms.date: 05/22/2020
+ms.date: 08/27/2020
 ms.topic: reference
-ms.openlocfilehash: 7a52901060466692e7094cf74fa5acfcded5f1da
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: fe984ee7664b0d50fb891d946f9f40a200ccce09
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422848"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050764"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funkcje do użycia z planami platformy Azure
 
@@ -36,7 +36,7 @@ Zwraca obiekt właściwości wypełniony przez dane wyjściowe artefaktów planu
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| artefaktname |Tak |ciąg |Nazwa artefaktu planu. |
+| artefaktname |Yes |ciąg |Nazwa artefaktu planu. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -109,10 +109,10 @@ Przykłady pobierania danych z przykładu _myTemplateArtifact_ są następujące
 | Wyrażenie | Typ | Wartość |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Tablica | \["pierwszy", "s"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | pierwszego |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "wartość my ciągu" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Ciąg | pierwszego |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | Ciąg | "wartość my ciągu" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Obiekt | {"noproperty": "My Value", "anotherProperty": true} |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "Moja wartość" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Ciąg | "Moja wartość" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Wartość logiczna | Prawda |
 
 ## <a name="concat"></a>concat
@@ -125,7 +125,7 @@ Przykłady pobierania danych z przykładu _myTemplateArtifact_ są następujące
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| ciąg1 |Tak |ciąg |Pierwsza wartość dla łączenia. |
+| ciąg1 |Yes |ciąg |Pierwsza wartość dla łączenia. |
 | dodatkowe argumenty |Nie |ciąg |Dodatkowe wartości w kolejności sekwencyjnej dla łączenia |
 
 ### <a name="return-value"></a>Wartość zwracana
@@ -150,7 +150,7 @@ Zwraca wartość parametru planu. Określona nazwa parametru musi być zdefiniow
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| parameterName |Tak |ciąg |Nazwa parametru do zwrócenia. |
+| parameterName |Yes |ciąg |Nazwa parametru do zwrócenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -271,7 +271,7 @@ Zwraca obiekt, który reprezentuje określony artefakt grupy zasobów. W przeciw
 
 | Parametr | Wymagane | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| Symbol zastępczy |Tak |ciąg |Nazwa symbolu zastępczego artefaktu grupy zasobów do zwrócenia. |
+| Symbol zastępczy |Yes |ciąg |Nazwa symbolu zastępczego artefaktu grupy zasobów do zwrócenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
 

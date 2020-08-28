@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037733"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046854"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informacje o metrykach dla chmury wiosennej platformy Azure
 
@@ -109,7 +109,7 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >| JVM. GC. Pause. Total. Count | JVM. GC. Pause (łącznie-Count) | Liczba | Łączna liczba GC po rozpoczęciu tego JMV, w tym w przypadku młodych i starych wykazów GC. |
 >| JVM. GC. Pause. Total. Time | JVM. GC. Pause (całkowity czas) | ) | Łączny czas, zużyty przez GC po rozpoczęciu tego JMV, w tym dla młodych i starych WYKAZów. |
 
-### <a name="request"></a>Request
+### <a name="request"></a>Żądanie
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
@@ -130,6 +130,8 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Liczba | Liczba aktywnych sesji Tomcat |
 
 ## <a name="see-also"></a>Zobacz też
+* [Szybki Start: monitorowanie aplikacji w chmurze platformy Azure z użyciem dzienników, metryk i śledzenia](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Wprowadzenie do Eksploratora metryk platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn wirtualnych AWS na
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 386f5cbefe8ad6a375437eea7fea75b5fb5a7f65
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762423"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048537"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure
 
@@ -20,6 +20,7 @@ W tym samouczku pokazano, jak odkrywać, oceniać i migrować maszyny wirtualne 
 
 Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
+>
 > * Sprawdź wymagania wstępne dotyczące migracji.
 > * Przygotowywanie zasobów platformy Azure za pomocą Azure Migrate: Migracja serwera. Skonfiguruj uprawnienia dla konta i zasobów platformy Azure do pracy z Azure Migrate.
 > * Przygotuj wystąpienia usługi AWS EC2 do migracji.
@@ -57,7 +58,7 @@ Chociaż zalecamy wypróbowanie oceny, wykonanie oceny nie jest obowiązkowym kr
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-- Upewnij się, że maszyny wirtualne AWS, które chcesz zmigrować, mają obsługiwaną wersję systemu operacyjnego. Maszyny wirtualne AWS są traktowane jak maszyny fizyczne na potrzeby migracji. Zapoznaj się z [obsługiwanymi systemami operacyjnymi](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) dla przepływu pracy migracji serwera fizycznego. Zalecamy wykonanie migracji testowej (test pracy w trybie failover), aby sprawdzić, czy maszyna wirtualna działa zgodnie z oczekiwaniami przed kontynuowaniem rzeczywistej migracji.
+- Upewnij się, że maszyny wirtualne AWS, które chcesz zmigrować, mają obsługiwaną wersję systemu operacyjnego. Maszyny wirtualne AWS są traktowane jak maszyny fizyczne na potrzeby migracji. Zapoznaj się z [obsługiwanymi systemami operacyjnymi i wersjami jądra](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) dla przepływu pracy migracji serwera fizycznego. Możesz użyć standardowych poleceń, takich jak *hostnamectl* lub *uname-a* , aby sprawdzić wersje systemu operacyjnego i jądra dla maszyn wirtualnych z systemem Linux.  Zalecamy wykonanie migracji testowej (test pracy w trybie failover), aby sprawdzić, czy maszyna wirtualna działa zgodnie z oczekiwaniami przed kontynuowaniem rzeczywistej migracji.
 - Upewnij się, że maszyny wirtualne AWS są zgodne z [obsługiwanymi konfiguracjami](./migrate-support-matrix-physical-migration.md#physical-server-requirements) migracji na platformę Azure.
 - Sprawdź, czy maszyny wirtualne AWS replikowane na platformę Azure są zgodne z [wymaganiami maszyny wirtualnej platformy Azure.](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)
 - Przed przeprowadzeniem migracji na platformę Azure potrzebne są pewne zmiany na maszynach wirtualnych.
@@ -171,7 +172,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
 9. Uruchom plik instalacyjny urządzenia replikacji, zgodnie z opisem w następnej procedurze.  
     9.1. W obszarze **Przed rozpoczęciem** wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**, a następnie wybierz opcję **Dalej**.   
     9,2 w **licencji na oprogramowanie innych**firm wybierz opcję **Akceptuję Umowę licencyjną innej firmy**, a następnie wybierz przycisk **dalej**.   
-    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz pozycję **Dalej**.  
+    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz pozycję **Next** (Dalej).  
     9,4 w obszarze **Ustawienia internetowe**wybierz opcję **Połącz z Azure Site Recovery bez serwera proxy**, a następnie wybierz przycisk **dalej**.  
     9,5 na stronie **Sprawdzanie wymagań wstępnych** są uruchamiane sprawdzenia kilku elementów. Po zakończeniu wybierz opcję **Dalej**.  
     9,6 w obszarze **Konfiguracja programu MySQL**Podaj hasło dla bazy danych MySQL, a następnie wybierz przycisk **dalej**.  
@@ -179,7 +180,7 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
     9,8 w **lokalizacji instalacji**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,9 w **obszarze Wybór sieci**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,10 w obszarze **Podsumowanie**wybierz pozycję **Zainstaluj**.   
-    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz przycisk **OK**.   
+    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Kliknij przycisk **OK**.   
     9,12 następnie w oknie zostanie wyświetlony komunikat dotyczący hasła połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i Zapisz hasło w tymczasowym pliku tekstowym na źródłowych maszynach wirtualnych. To hasło będzie potrzebne później, podczas procesu instalacji usługi mobilności.
 10. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej. Poniżej przedstawiono szczegółowe informacje na temat tworzenia fikcyjnego konta "Gość" jako przyjaznej nazwy, "username" jako nazwy użytkownika i hasła do konta. Będziesz używać tego fikcyjnego konta na etapie włączania replikacji. 
 11. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.
@@ -252,7 +253,7 @@ Agent usługi mobilności musi być zainstalowany na źródłowej maszyny wirtua
 4. W obszarze **serwer przetwarzania**wybierz nazwę urządzenia replikacji. 
 5. W obszarze **poświadczenia gościa**wybierz konto fikcyjne utworzone wcześniej podczas [instalacji Instalatora replikacji](#download-the-replication-appliance-installer) , aby ręcznie zainstalować usługę mobilności (instalacja wypychana nie jest obsługiwana). Następnie kliknij przycisk **Dalej: maszyny wirtualne**.   
  
-    ![Replikowanie maszyn wirtualnych](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Ustawienia replikacji](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. W **Virtual Machines**w **ustawieniach migracji importu z oceny?** pozostaw ustawienie domyślne **nie, określ ustawienia migracji ręcznie**.
 7. Sprawdź wszystkie maszyny wirtualne, które chcesz zmigrować. Następnie kliknij przycisk **Dalej: ustawienia docelowe**.
 
@@ -381,11 +382,23 @@ Po zweryfikowaniu, że migracja testowa działa zgodnie z oczekiwaniami, można 
 **Pytanie:** Otrzymuję komunikat o błędzie "nie można pobrać identyfikatora GUID systemu BIOS" podczas próby odnalezienia maszyn wirtualnych AWS   
 **Odpowiedź:** Zawsze używaj nazwy logowania głównego na potrzeby uwierzytelniania, a nie dla każdego z nich. Przejrzyj również obsługiwane systemy operacyjne dla maszyn wirtualnych AWS.  
 
-**Pytanie:** Mój stan replikacji nie jest postępem    
+**Pytanie:** Mój stan replikacji nie jest postępem   
 **Odpowiedź:** Sprawdź, czy urządzenie do replikacji spełnia wymagania. Upewnij się, że włączono wymagane porty na porcie TCP 9443 i HTTPS 443 dla transportu danych. Upewnij się, że nie ma żadnych starych zduplikowanych wersji urządzenia replikacji połączonego z tym samym projektem.   
 
 **Pytanie:** Nie mogę wykryć wystąpień usługi AWS przy użyciu Azure Migrate ze względu na kod stanu HTTP 504 z zdalnej usługi zarządzania systemu Windows    
-**Odpowiedź:** Zapoznaj się z wymaganiami dotyczącymi migracji na platformę Azure i potrzebami dostępu do adresów URL. Upewnij się, że żadne ustawienia serwera proxy nie blokują rejestracji urządzenia.   
+**Odpowiedź:** Zapoznaj się z wymaganiami dotyczącymi migracji na platformę Azure i potrzebami dostępu do adresów URL. Upewnij się, że żadne ustawienia serwera proxy nie blokują rejestracji urządzenia.
+
+**Pytanie:** Czy muszę wprowadzić wszelkie zmiany przed migracją maszyn wirtualnych AWS na platformę Azure   
+**Odpowiedź:** Przed migracją maszyn wirtualnych EC2 na platformę Azure może być konieczne wprowadzenie tych zmian:
+
+- Jeśli używasz funkcji Cloud-init do inicjowania obsługi maszyn wirtualnych, przed replikacją na platformę Azure można wyłączyć funkcję Cloud-init na maszynie wirtualnej. Kroki inicjowania obsługi wykonywane przez funkcję Cloud-init na maszynie wirtualnej mogą być AWS określone i nie będą prawidłowe po migracji do platformy Azure. 
+- Jeśli maszyna wirtualna jest MASZYNą wirtualną PV (z użyciem wieloakapitu) i nie HVM maszyny wirtualnej, możesz nie być w stanie uruchomić jej jako na platformie Azure, ponieważ maszyny wirtualne z wieloliterą używają niestandardowej sekwencji rozruchowej w AWS. Przed przeprowadzeniem migracji na platformę Azure może być możliwe przełączenie tego żądania przez odinstalowanie sterowników PV.  
+- Zawsze zalecamy przeprowadzenie migracji testowej przed ostateczną migracją.  
+
+
+**Pytanie:** Czy można migrować maszyny wirtualne AWS z systemem operacyjnym Amazon Linux  
+**Odpowiedź:** Maszyn wirtualnych z systemem Amazon Linux nie można migrować, ponieważ system operacyjny Amazon Linux jest obsługiwany tylko w systemie AWS.
+Aby migrować obciążenia działające w systemie Amazon Linux, można uruchomić maszynę wirtualną CentOS/RHEL na platformie Azure i przeprowadzić migrację obciążenia uruchomionego na maszynie z systemem AWS Linux przy użyciu odpowiedniego podejścia do migracji obciążeń. Na przykład w zależności od obciążenia mogą istnieć narzędzia specyficzne dla obciążenia, które ułatwiają migrację — na przykład w przypadku baz danych lub narzędzi wdrażania w przypadku serwerów sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki
 

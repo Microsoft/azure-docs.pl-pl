@@ -3,12 +3,12 @@ title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 7a72986d8ffe64953e68ff166de9a02a15fb9c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548315"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047059"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -235,7 +235,7 @@ Identyfikator definicji zasad dla utworzonej definicji zasad powinien wyglądać
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 
-Aby uzyskać więcej informacji o sposobach zarządzania zasadami zasobów przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [zasady zasobów interfejsu wiersza polecenia platformy Azure](/cli/azure/policy?view=azure-cli-latest).
+Aby uzyskać więcej informacji o sposobach zarządzania zasadami zasobów przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [zasady zasobów interfejsu wiersza polecenia platformy Azure](/cli/azure/policy).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -243,6 +243,6 @@ Zapoznaj się z następującymi artykułami, aby uzyskać więcej informacji na 
 
 - [Zasoby interfejsu API REST platformy Azure](/rest/api/resources/)
 - [Moduły Azure PowerShell](/powershell/module/az.resources/#policies)
-- [Poleceń zasad interfejsu wiersza polecenia platformy Azure](/cli/azure/policy?view=azure-cli-latest)
+- [Poleceń zasad interfejsu wiersza polecenia platformy Azure](/cli/azure/policy)
 - [Dokumentacja interfejsu API REST dostawcy zasobów usługi Azure Policy Insights](/rest/api/policy-insights)
 - [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../../management-groups/overview.md).

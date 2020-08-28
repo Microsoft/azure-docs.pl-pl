@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: Ochrona nowych zasobów przy użyciu blokad'
 description: W tym samouczku użyto opcji blokowania zasobów usługi Azure Plans tylko do odczytu i nie usuwaj, aby chronić nowo wdrożone zasoby.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85969645"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048574"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans
 
@@ -215,7 +215,7 @@ Zabezpieczenia dla grupy zasobów pokazują, że przypisanie planu nie ma już d
 
 Po wyświetleniu powiadomienia portalu **usuwanie przypisania strategii powiodło** się przejdź do następnego kroku.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Usuń następujące zasoby:
 

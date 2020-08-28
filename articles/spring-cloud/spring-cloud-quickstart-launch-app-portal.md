@@ -7,16 +7,18 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 09820da3fcebe3614852f36180a29f35505039b8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 163940095c4a3a25123706ca47a7d059897cad20
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496852"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046871"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal
 
 W tym przewodniku szybki start przedstawiono sposób wdrażania istniejącej aplikacji ze sprężyną w chmurze na platformie Azure. Chmura sprężynowa platformy Azure umożliwia łatwe uruchamianie aplikacji mikrousług opartych na chmurze na platformie Azure. 
+
+Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
 
 Kod przykładowej aplikacji użyty w tym samouczku można znaleźć w naszym [repozytorium przykładów usługi GitHub](https://github.com/Azure-Samples/PiggyMetrics). Po zakończeniu udostępniona Przykładowa aplikacja będzie dostępna w trybie online i będzie gotowa do zarządzania za pośrednictwem Azure Portal.
 
@@ -53,11 +55,11 @@ Aby ukończyć ten przewodnik Szybki start:
 
 3. Z wyników wybierz **chmurę ze sprężyną Azure** .
 
- ![Ikona ASC](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+ ![Początek ASC](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
 4. Na stronie chmura Wiosenna Azure kliknij pozycję **+ Dodaj**.
 
- ![Ikona ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+ ![Dodaj do ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Wypełnij formularz na stronie **Tworzenie** chmury Azure wiosennej.  Należy wziąć pod uwagę następujące wytyczne:
     - **Subskrypcja**: wybierz subskrypcję, dla której chcesz naliczać opłaty za ten zasób.  Upewnij się, że ta subskrypcja została dodana do naszej listy dozwolonych chmur Azure wiosennej.
@@ -78,7 +80,7 @@ Aby ukończyć ten przewodnik Szybki start:
 9. Możesz ustawić **opcję Włącz śledzenie** na *wartość tak* lub *nie* zgodnie z wymaganiami.  Jeśli ustawisz opcję **Włącz śledzenie** na wartość tak, zaznacz również pozycję istniejąca aplikacja usługi Application Insights lub Utwórz nową. Bez specyfikacji **Application Insights** wystąpi błąd walidacji.
 
 
-    ![Śledzenie](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+    ![Widok śledzenia](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
 
 10. Kliknij pozycję **Przejrzyj i utwórz**.
 
@@ -98,7 +100,7 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
 
 3. Wybierz pozycję **Zastosuj**, aby zapisać zmiany.
 
-    ![Zrzut ekranu przedstawiający Portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
@@ -164,11 +166,11 @@ Wdrożenie usługi wymaga około 5 minut.  Po jego wdrożeniu zostanie wyświetl
 
 3. Wybierz pozycję **Przypisz punkt końcowy** , aby przypisać publiczny punkt końcowy do bramy. Może to potrwać kilka minut.
 
-    ![Zrzut ekranu przedstawiający Portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+    ![Punkt końcowy portalu ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
 4. Wprowadź przypisany publiczny punkt końcowy (oznaczony jako **adres URL**) do przeglądarki, aby wyświetlić uruchomioną aplikację.
 
-    ![Zrzut ekranu przedstawiający Portal ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
+    ![Przykładowa aplikacja portalu ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)

@@ -1,14 +1,14 @@
 ---
 title: Zrozumienie blokowania zasobów
 description: Dowiedz się więcej na temat opcji blokowania w planach platformy Azure w celu ochrony zasobów podczas przypisywania planu.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383587"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051506"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Zrozumienie blokowania zasobów w planach platformy Azure
 
@@ -28,7 +28,7 @@ Zasoby utworzone przez artefakty w przypisaniu planu mają cztery stany: **nie z
 |-|-|-|-|
 |Nie blokuj|*|Niezablokowane|Zasoby nie są chronione przez plany platformy Azure. Ten stan jest również używany w przypadku zasobów dodanych do elementu " **tylko do odczytu** " lub nie **usuwaj** artefaktu grupy zasobów spoza przypisania planu.|
 |Tylko do odczytu|Grupa zasobów|Nie można edytować/usunąć|Grupa zasobów jest tylko do odczytu i nie można modyfikować tagów w grupie zasobów. **Niezablokowane** zasoby mogą być dodawane, przenoszone, zmieniane lub usuwane z tej grupy zasobów.|
-|Tylko do odczytu|Grupa niezasobów|Tylko do odczytu|Nie można zmienić zasobu w jakikolwiek sposób — brak zmian i nie można go usunąć.|
+|Tylko do odczytu|Grupa niezasobów|Tylko do odczytu|Nie można zmienić zasobu w jakikolwiek sposób. Nie wprowadzono żadnych zmian i nie można go usunąć.|
 |Nie usuwaj|*|Nie można usunąć|Zasoby można zmienić, ale nie można ich usunąć. **Niezablokowane** zasoby mogą być dodawane, przenoszone, zmieniane lub usuwane z tej grupy zasobów.|
 
 ## <a name="overriding-locking-states"></a>Zastępowanie Stanów blokowania
@@ -182,8 +182,8 @@ Chociaż **excludedPrincipals** musi być jawne, wpisy **excludedActions** mogą
 ## <a name="next-steps"></a>Następne kroki
 
 - Postępuj zgodnie z samouczkiem [Ochrona nowych zasobów](../tutorials/protect-new-resources.md) .
-- Uzyskaj informacje na temat [cyklu życia strategii](lifecycle.md).
-- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](parameters.md).
-- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](sequencing-order.md).
+- Uzyskaj informacje na temat [cyklu życia strategii](./lifecycle.md).
+- Dowiedz się, jak używać [parametrów statycznych i dynamicznych](./parameters.md).
+- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](./sequencing-order.md).
 - Dowiedz się, jak [zaktualizować istniejące przypisania](../how-to/update-existing-assignments.md).
 - Rozwiązywanie problemów podczas przypisywania strategii za pomocą [ogólnych procedur rozwiązywania problemów](../troubleshoot/general.md).

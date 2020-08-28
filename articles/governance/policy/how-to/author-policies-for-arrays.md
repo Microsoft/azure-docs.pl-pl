@@ -3,12 +3,12 @@ title: Tworzenie zasad dla właściwości tablicy zasobów
 description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń języka tablicowego, oszacować alias [*] i dołączać elementy z regułami definicji Azure Policy.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: f3ba5179ca7acc60042d23e88d42a504d4d05f08
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544591"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048486"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
 
@@ -95,7 +95,7 @@ Format wartości parametru jest różny w przypadku korzystania z interfejsu wie
 
 Aby użyć tego ciągu z każdym zestawem SDK, użyj następujących poleceń:
 
-- Interfejs wiersza polecenia platformy Azure: polecenie [AZ Policy przypisanie Create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) **z parametrem** Parameter
+- Interfejs wiersza polecenia platformy Azure: polecenie [AZ Policy przypisanie Create](/cli/azure/policy/assignment#az-policy-assignment-create) **z parametrem** Parameter
 - Azure PowerShell: polecenie cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) z parametrem **PolicyParameter**
 - Interfejs API REST: w operacji _Put_ [Create](/rest/api/resources/policyassignments/create) jako część treści żądania jako wartość właściwości **Properties. Parameters**
 

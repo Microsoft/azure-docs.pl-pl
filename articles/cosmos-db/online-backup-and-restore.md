@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853931"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047632"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Kopia zapasowa online i przywracanie danych na żądanie w Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby zmienić domyślne opcje tworzenia kopii zapaso
 
    * **Przechowywanie kopii zapasowych** — reprezentuje okres, w którym każda kopia zapasowa jest zachowywana. Możesz ją skonfigurować w godzinach lub dniach. Minimalny okres przechowywania nie może być krótszy niż dwa razy dłuższy niż interwał wykonywania kopii zapasowych (w godzinach) i nie może być większy niż 720 godzin.
 
-   * **Kopie przechowywanych danych** — domyślnie dwie kopie zapasowe danych są oferowane bezpłatnie. Jeśli potrzebne są dodatkowe kopie, należy utworzyć żądanie pomocy technicznej za pomocą Azure Portal i opłaty za dodatkowe kopie. Zapoznaj się z sekcją zużyty magazyn na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby poznać dokładną cenę za dodatkowe kopie.
+   * **Kopie przechowywanych danych** — domyślnie dwie kopie zapasowe danych są oferowane bezpłatnie. Jeśli potrzebujesz więcej niż dwóch kopii, występuje dodatkowa opłata. Zapoznaj się z sekcją zużyty magazyn na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby poznać dokładną cenę za dodatkowe kopie.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Konfigurowanie interwału i przechowywania kopii zapasowych dla istniejącego konta usługi Azure Cosmos" border="true":::
 

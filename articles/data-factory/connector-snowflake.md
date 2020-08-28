@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
-ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529504"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048180"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Kopiuj dane z i do płatne za pomocą Azure Data Factory
 
@@ -36,7 +36,7 @@ W przypadku działania kopiowania ten łącznik płatny śnieg obsługuje nastę
 - Skopiuj dane z płatnych śniegów, które wykorzystują kopiowanie śniegu [do polecenia [Location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) w celu osiągnięcia najlepszej wydajności.
 - Skopiuj dane do płatnych śniegów, które wykorzystują kopiowanie płatne [do [Table] w](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) celu uzyskania najlepszej wydajności. Obsługuje ona płatki śnieg na platformie Azure.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,8 +48,8 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
 
 | Właściwość         | Opis                                                  | Wymagane |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| typ             | Właściwość Type musi mieć wartość **Płatne**.              | Tak      |
-| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem płatnego śniegu. Możesz wybrać opcję umieszczenia hasła lub całego ciągu połączenia w Azure Key Vault. Aby uzyskać więcej informacji, zapoznaj się z przykładami poniżej tabeli oraz [poświadczeniami sklepu w Azure Key Vault](store-credentials-in-key-vault.md) artykule.<br><br>Niektóre typowe ustawienia:<br>- **Nazwa konta:** [Pełna nazwa konta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) Twojego konta płatnego śniegu (w tym dodatkowe segmenty, które identyfikują region i platformę chmury), np. xy12345. wschód-US-2. Azure.<br/>- **Nazwa użytkownika:** Nazwa logowania użytkownika dla połączenia.<br>- **Hasło:** Hasło użytkownika.<br>- **Baza danych:** Domyślna baza danych do użycia po nawiązaniu połączenia. Powinna to być istniejąca baza danych, dla której określona rola ma uprawnienia.<br>- **Magazyn:** Magazyn wirtualny, który ma być używany po nawiązaniu połączenia. Powinien być istniejącym magazynem, dla którego określona rola ma uprawnienia.<br>- **Rola:** Domyślna rola kontroli dostępu do użycia w sesji płatnych śniegu. Określona rola powinna być istniejącą rolą, która została już przypisana do określonego użytkownika. Rola domyślna to PUBLIC. | Tak      |
+| typ             | Właściwość Type musi mieć wartość **Płatne**.              | Yes      |
+| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem płatnego śniegu. Możesz wybrać opcję umieszczenia hasła lub całego ciągu połączenia w Azure Key Vault. Aby uzyskać więcej informacji, zapoznaj się z przykładami poniżej tabeli oraz [poświadczeniami sklepu w Azure Key Vault](store-credentials-in-key-vault.md) artykule.<br><br>Niektóre typowe ustawienia:<br>- **Nazwa konta:**  [Pełna nazwa konta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) Twojego konta płatnego śniegu (w tym dodatkowe segmenty, które identyfikują region i platformę chmury), np. xy12345. wschód-US-2. Azure.<br/>- **Nazwa użytkownika:** Nazwa logowania użytkownika dla połączenia.<br>- **Hasło:** Hasło użytkownika.<br>- **Baza danych:** Domyślna baza danych do użycia po nawiązaniu połączenia. Powinna to być istniejąca baza danych, dla której określona rola ma uprawnienia.<br>- **Magazyn:** Magazyn wirtualny, który ma być używany po nawiązaniu połączenia. Powinien być istniejącym magazynem, dla którego określona rola ma uprawnienia.<br>- **Rola:** Domyślna rola kontroli dostępu do użycia w sesji płatnych śniegu. Określona rola powinna być istniejącą rolą, która została już przypisana do określonego użytkownika. Rola domyślna to PUBLIC. | Yes      |
 | Właściwością connectvia       | [Środowisko Integration Runtime](concepts-integration-runtime.md) , które jest używane do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnego środowiska Azure Integration Runtime. | Nie       |
 
 **Przykład:**
@@ -104,7 +104,7 @@ Następujące właściwości są obsługiwane dla zestawu danych płatka śniegu
 
 | Właściwość  | Opis                                                  | Wymagane                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Tak                         |
+| typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Yes                         |
 | schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
 | table | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
 
@@ -142,11 +142,11 @@ Aby skopiować dane z płatnych śniegów, w sekcji **Źródło** działania kop
 
 | Właściwość                     | Opis                                                  | Wymagane |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SnowflakeSource**. | Tak      |
+| typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SnowflakeSource**. | Yes      |
 | query          | Określa zapytanie SQL służące do odczytywania danych z płatki śniegu.<br>Wykonywanie procedury składowanej nie jest obsługiwane. | Nie       |
 | exportSettings | Ustawienia zaawansowane używane do pobierania danych z płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie       |
 | ***W obszarze `exportSettings` :*** |  |  |
-| typ | Typ polecenia eksportu, ustawiony na **SnowflakeExportCopyCommand**. | Tak |
+| typ | Typ polecenia eksportu, ustawiony na **SnowflakeExportCopyCommand**. | Yes |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: MAX_FILE_SIZE, Zastąp. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku, które są dostępne do kopiowania polecenia jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Nie |
 
@@ -160,14 +160,14 @@ Jeśli magazyn danych ujścia i format spełniają kryteria opisane w tej sekcji
 
     - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość None**, **przyciąganie**lub **LZO**.
     - Format **tekstu rozdzielanego** :
-        - `rowDelimiter`jest **\r\n**lub pojedynczym znakiem.
-        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
-        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
-        - `quoteChar`jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem** lub **pustym ciągiem** (bez cudzysłowu).
+        - `rowDelimiter` jest **\r\n**lub pojedynczym znakiem.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
+        - `quoteChar` jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem**lub **pustym ciągiem** (bez cudzysłowu).
     - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, gdy źródłowa tabela płatnych lub wynik zapytania zawiera tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object**lub **Array**.
-        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
-        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
-        - `filePattern`w obszarze ujścia działania kopiowania jest pozostawiona wartość domyślna lub ustawiona na **setOfObjects**.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
+        - `filePattern` w obszarze ujścia działania kopiowania jest pozostawiona wartość domyślna lub ustawiona na **setOfObjects**.
 
 - W źródle działania kopiowania `additionalColumns` nie określono.
 - Nie określono mapowania kolumn.
@@ -273,11 +273,11 @@ Aby skopiować dane do płatnych śniegów, w sekcji **ujścia** działania kopi
 
 | Właściwość          | Opis                                                  | Wymagane                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| typ              | Właściwość Type ujścia działania Copy ustawiona na wartość **SnowflakeSink**. | Tak                                           |
+| typ              | Właściwość Type ujścia działania Copy ustawiona na wartość **SnowflakeSink**. | Yes                                           |
 | preCopyScript     | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych do śniegu w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie                                            |
 | importSettings | Ustawienia zaawansowane służące do zapisywania danych w płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie |
 | ***W obszarze `importSettings` :*** |                                                              |  |
-| typ | Typ polecenia importowania, ustawiony na **SnowflakeImportCopyCommand**. | Tak |
+| typ | Typ polecenia importowania, ustawiony na **SnowflakeImportCopyCommand**. | Yes |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku dostarczone do polecenia COPY, dostarczone jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Nie |
 
@@ -292,20 +292,20 @@ Jeśli źródłowy magazyn danych i format spełniają kryteria opisane w tej se
     - W przypadku formatu **Parquet** kompresji koder-dekoder ma **wartość Brak**lub **przyciąganie**.
 
     - Format **tekstu rozdzielanego** :
-        - `rowDelimiter`jest **\r\n**lub pojedynczym znakiem. Jeśli ogranicznik wiersza nie jest "\r\n", `firstRowAsHeader` musi mieć **wartość false**i `skipLineCount` nie został określony.
-        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
-        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na wartość "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "Windows-1250", "Windows-1251", "Windows-1252", "Windows-1253", "Windows-1254"
-        - `quoteChar`jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem** lub **pustym ciągiem** (bez cudzysłowu).
+        - `rowDelimiter` jest **\r\n**lub pojedynczym znakiem. Jeśli ogranicznik wiersza nie jest "\r\n", `firstRowAsHeader` musi mieć **wartość false**i `skipLineCount` nie został określony.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName` jest pozostawiony jako domyślny lub ustawiony na wartość "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "Windows-1250", "Windows-1251", "Windows-1252", "Windows-1253", "Windows-1254"
+        - `quoteChar` jest **podwójnym cudzysłowem**, **pojedynczym cudzysłowem**lub **pustym ciągiem** (bez cudzysłowu).
     - W przypadku formatu **JSON** kopia bezpośrednia obsługuje tylko przypadek, w którym tylko tabela "ujścia płatne" ma tylko jedną kolumnę, a typ danych tej kolumny to **Variant**, **Object**lub **Array**.
-        - `compression`nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
-        - `encodingName`jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
+        - `compression` nie może to być **kompresja**, **gzip**, **bzip2**lub **Wklęśnięcie**.
+        - `encodingName` jest pozostawiony jako domyślny lub ustawiony na **UTF-8**.
         - Nie określono mapowania kolumn.
 
 - W źródle działania kopiowania: 
 
-   -  `additionalColumns`nie została określona.
+   -  `additionalColumns` nie została określona.
    - Jeśli źródło jest folderem, `recursive` jest ustawione na wartość true.
-   - `prefix`, `modifiedDateTimeStart` , `modifiedDateTimeEnd` nie są określone.
+   - `prefix`, `modifiedDateTimeStart` , `modifiedDateTimeEnd` i `enablePartitionDiscovery` nie są określone.
 
 **Przykład:**
 

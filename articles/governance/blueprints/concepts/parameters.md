@@ -1,14 +1,14 @@
 ---
 title: Używanie parametrów do tworzenia planów dynamicznych
 description: Poznaj parametry statyczne i dynamiczne oraz sposób ich używania do tworzenia bezpiecznych i dynamicznych planów.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970641"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051563"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Tworzenie dynamicznych planów za poorednictwem parametrów
 
@@ -55,11 +55,11 @@ Wartość parametru zdefiniowana w definicji strategii jest nazywana **parametre
 
 1. Wybierz pozycję **definicje** strategii ze strony po lewej stronie.
 
-1. Kliknij istniejący plan, a następnie kliknij pozycję **Edytuj plan** lub kliknij pozycję **+ Utwórz plan** i Wypełnij informacje na karcie **podstawy** .
+1. Wybierz istniejący plan, a następnie wybierz pozycję **Edytuj plan** lub wybierz pozycję **+ Utwórz plan** i Wypełnij informacje na karcie **podstawy** .
 
-1. Kliknij przycisk **Dalej: artefakty** lub kliknij kartę **artefakty** .
+1. Wybierz pozycję **Dalej: artefakty** lub wybierz kartę **artefakty** .
 
-1. Artefakty dodawane do planu, który ma opcje parametrów, są wyświetlane **parametry X z Y wypełnione** w kolumnie **Parameters** . Kliknij wiersz artefaktu, aby edytować parametry artefaktu.
+1. Artefakty dodawane do planu, który ma opcje parametrów, są wyświetlane **parametry X z Y wypełnione** w kolumnie **Parameters** . Wybierz wiersz artefaktu, aby edytować parametry artefaktu.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parametry strategii w definicji planu" border="false":::
 
@@ -172,7 +172,7 @@ Przeciwieństwem parametru statycznego jest **parametr dynamiczny**. Ten paramet
 
 1. Wybierz pozycję **definicje** strategii ze strony po lewej stronie.
 
-1. Kliknij prawym przyciskiem myszy strategię, którą chcesz przypisać. Wybierz pozycję **Przypisz plan** lub kliknij plan, który chcesz przypisać, a następnie kliknij przycisk **Przypisz plan** .
+1. Kliknij prawym przyciskiem myszy strategię, którą chcesz przypisać. Wybierz pozycję **Przypisz plan** lub wybierz plan, który chcesz przypisać, a następnie użyj przycisku **Przypisz plan** .
 
 1. Na stronie **Przypisz plan** Znajdź sekcję **Parametry artefaktu** . Każdy artefakt z co najmniej jednym **parametrem dynamicznym** wyświetla artefakt i opcje konfiguracji. Podaj wymagane wartości parametrów przed przypisaniem planu. W poniższym przykładzie _Nazwa_ jest **parametrem dynamicznym** , który musi być zdefiniowany, aby można było wykonać przypisanie do planu.
 
@@ -234,8 +234,8 @@ Ustawienie **parametrów dynamicznych** podczas przypisywania jest wykonywane pr
 ## <a name="next-steps"></a>Następne kroki
 
 - Zobacz listę [funkcji](../reference/blueprint-functions.md)strategii.
-- Uzyskaj informacje na temat [cyklu życia strategii](lifecycle.md).
-- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](sequencing-order.md).
-- Dowiedz się, jak używać [blokowania zasobów strategii](resource-locking.md).
+- Uzyskaj informacje na temat [cyklu życia strategii](./lifecycle.md).
+- Dowiedz się, jak dostosować [kolejność sekwencjonowania strategii](./sequencing-order.md).
+- Dowiedz się, jak używać [blokowania zasobów strategii](./resource-locking.md).
 - Dowiedz się, jak [zaktualizować istniejące przypisania](../how-to/update-existing-assignments.md).
 - Rozwiązywanie problemów podczas przypisywania strategii za pomocą [ogólnych procedur rozwiązywania problemów](../troubleshoot/general.md).

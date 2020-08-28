@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835888"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049693"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Rozwiązywanie problemów z łącznością sieciową na platformie Azure na platformie Azure
 
@@ -21,7 +21,7 @@ Aby replikacja Site Recovery działała, do maszyny wirtualnej wymagane jest po�
 | **Nazwa**                  | **Commercial**                               | **Instytucje rządowe**                                 | **Opis** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Magazyn                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Wymagane, aby dane mogły być zapisywane na koncie magazynu pamięci podręcznej w regionie źródłowym z poziomu maszyny wirtualnej. Jeśli znasz wszystkie konta magazynu pamięci podręcznej dla maszyn wirtualnych, możesz użyć listy dozwolonych adresów URL dla określonych kont magazynu. Na przykład, `cache1.blob.core.windows.net` a `cache2.blob.core.windows.net` nie `*.blob.core.windows.net` . |
-| Usługa Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Wymagany do autoryzacji i uwierzytelniania do adresów URL usługi Site Recovery. |
 | Replikacja               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Wymagane, aby komunikacja z usługą Site Recovery mogła się odbywać z poziomu maszyny wirtualnej. Można użyć odpowiedniego _adresu IP Site Recovery_ , jeśli serwer proxy zapory obsługuje adresy IP. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Wymagane, aby dane dotyczące monitorowania i diagnostyki Site Recovery mogły być zapisywane z poziomu maszyny wirtualnej. W przypadku, gdy serwer proxy zapory obsługuje adresy IP, można użyć odpowiedniego _Site Recovery monitorowania_ . |
 
@@ -80,11 +80,8 @@ Ten przykład pokazuje, jak skonfigurować reguły sieciowej grupy zabezpieczeń
 
      :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="AAD — tag":::
 
-1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji docelowej:
-
-   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
-   | --- | --- | --- |
-   | Central US | 40.69.144.231 | 52.165.34.144 |
+1. Podobnie jak w przypadku powyższych reguł zabezpieczeń, Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "EventHub. środkowe" w sieciowej grupy zabezpieczeń, który odpowiada lokalizacji docelowej. Pozwala to na dostęp do monitorowania Site Recovery.
+1. Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "AzureSiteRecovery" w sieciowej grupy zabezpieczeń. Pozwala to na dostęp do usługi Site Recovery w dowolnym regionie.
 
 #### <a name="nsg-rules---central-us"></a>Reguły sieciowej grupy zabezpieczeń — środkowe stany USA
 
@@ -100,11 +97,8 @@ Na potrzeby tego przykładu reguły sieciowej grupy zabezpieczeń są wymagane, 
    - **Tag usługi docelowej**: _usługi azureactivedirectory_
    - **Docelowe zakresy portów**: _443_
 
-1. Utwórz reguły ruchu wychodzącego portu HTTPS 443 dla adresów IP Site Recovery, które odpowiadają lokalizacji źródłowej:
-
-   | Lokalizacja | Site Recovery adres IP | Site Recovery monitorowania adresu IP |
-   | --- | --- | --- |
-   | East US | 13.82.88.226 | 104.45.147.24 |
+1. Podobnie jak powyżej reguły zabezpieczeń, Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "EventHub. Wschód" w sieciowej grupy zabezpieczeń, który odpowiada lokalizacji źródłowej. Pozwala to na dostęp do monitorowania Site Recovery.
+1. Utwórz wychodzącą regułę zabezpieczeń HTTPS (443) dla elementu "AzureSiteRecovery" w sieciowej grupy zabezpieczeń. Pozwala to na dostęp do usługi Site Recovery w dowolnym regionie.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguracja Site Recovery nie powiodła się (151197)
 
@@ -128,7 +122,7 @@ Niestandardowe ustawienia serwera proxy są nieprawidłowe, a Agent usługi mobi
 1. Jeśli wolisz ustawić serwer proxy tylko dla usługi mobilności Azure Site Recovery, możesz podać szczegóły serwera proxy w _ProxyInfo. conf_ znajdującym się w:
 
    - System **Linux**:`/usr/local/InMage/config/`
-   - **System Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **System Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. _ProxyInfo. conf_ powinna mieć ustawienia serwera proxy w następującym formacie _ini_ :
 

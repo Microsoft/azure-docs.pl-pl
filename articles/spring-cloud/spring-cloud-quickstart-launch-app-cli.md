@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 53e27e4fafaf4468c9c2f4a1ce24ace3d317dada
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 305a12de05ca934f5f8fd8b86746608d7fa32712
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503263"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046973"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Szybki Start: uruchamianie aplikacji ze sprężyną Java przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Chmura sprężynowa platformy Azure umożliwia łatwe uruchamianie aplikacji mikrousług opartych na rozruchu wiosny na platformie Azure.
+Chmura sprężynowa platformy Azure umożliwia łatwe uruchamianie aplikacji mikrousług opartych na rozruchu wiosny na platformie Azure.  Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
 
 W tym przewodniku szybki start przedstawiono sposób wdrażania istniejącej aplikacji w chmurze ze sprężyną Java na platformie Azure. Po zakończeniu można nadal zarządzać aplikacją za pośrednictwem interfejsu wiersza polecenia platformy Azure lub przełączać się do korzystania z Azure Portal.
 
@@ -160,16 +160,16 @@ az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Przejdź do adresu URL podanego przez poprzednie polecenie, aby uruchomić aplikację PiggyMetrics.
-    ![Zrzut ekranu przedstawiający PiggyMetrics uruchomiony](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+    ![PiggyMetrics uruchomione](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 Możesz również przejść do Azure Portal, aby znaleźć adres URL. 
 1. Przejdź do usługi
 2. Wybierz **aplikacje**
 3. Wybierz **bramę**
 
-    ![Zrzut ekranu przedstawiający PiggyMetrics uruchomiony](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+    ![PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
-4. Znajdź adres URL na stronie **Przegląd bramy** ![ zrzut ekranu przedstawiający PiggyMetrics uruchomione](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+4. Znajdź adres URL na stronie **przeglądu bramy**  ![ PiggyMetrics Nawigacja 2](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [Wystąpił problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
