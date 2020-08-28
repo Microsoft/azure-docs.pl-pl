@@ -186,6 +186,8 @@
               displayName: 'managed identity, identities, authenticate'
         - name: Szyfrowanie danych
           href: data-protection.md
+        - name: Nadmiarowość geograficzna
+          href: geo-redundancy.md
     - name: Tworzenie rozwiązań
       items:
         - name: Analiza tonacji w usłudze Twitter

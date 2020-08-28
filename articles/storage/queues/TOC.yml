@@ -58,7 +58,15 @@
             - name: Uwierzytelnianie i autoryzacja przy użyciu usługi Azure AD
               href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autoryzacja przy użyciu klucza wspólnego
-              href: /rest/api/storageservices/authorize-with-shared-key
+              items:
+                - name: Wyświetlanie kluczy kont i zarządzanie nimi
+                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Konfigurowanie parametrów połączenia
+                  href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Uniemożliwianie autoryzacji za pomocą klucza wspólnego
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Korzystanie z interfejsu API REST usługi Azure Storage
+                  href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autoryzacja przy użyciu sygnatury dostępu współdzielonego
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autoryzowanie operacji zarządzania
@@ -150,6 +158,8 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Korzystanie z interfejsu API REST usługi Azure Storage
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Uniemożliwianie autoryzacji za pomocą klucza wspólnego
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Zarządzanie szyfrowaniem w usłudze Azure Storage
           items:
             - name: 'Tworzenie konta, które obsługuje klucze zarządzane przez klienta'

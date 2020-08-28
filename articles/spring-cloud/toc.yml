@@ -10,14 +10,21 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Uruchamianie aplikacji Spring Cloud — portal
-      href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Uruchamianie aplikacji Spring Cloud — interfejs wiersza polecenia platformy Azure
-      href: spring-cloud-quickstart-launch-app-cli.md
-    - name: Uruchamianie aplikacji Spring Cloud — źródło
-      href: spring-cloud-launch-from-source.md
-    - name: Uruchamianie aplikacji Spring Cloud — Maven
-      href: spring-cloud-quickstart-launch-app-maven.md
+    - name: Uruchamianie pierwszej aplikacji
+      href: spring-cloud-quickstart.md
+    - name: Kompilowanie i uruchamianie mikrousług
+      expanded: true
+      items:
+        - name: Wprowadzenie do przykładowych aplikacji
+          href: spring-cloud-quickstart-sample-app-introduction.md
+        - name: Aprowizacja usługi Azure Spring Cloud
+          href: spring-cloud-quickstart-provision-service-instance.md
+        - name: Konfigurowanie serwera konfiguracji
+          href: spring-cloud-quickstart-setup-config-server.md
+        - name: Kompilowanie i wdrażanie aplikacji
+          href: spring-cloud-quickstart-deploy-apps.md
+        - name: 'Korzystanie z dzienników, metryk i śledzenia'
+          href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Samouczki
   items:
     - name: Ręczne skalowanie aplikacji

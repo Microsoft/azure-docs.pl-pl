@@ -59,6 +59,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Databricks
       href: ../../azure-databricks/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Azure DNS
+      href: ../../dns/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Firewall
       href: ../../firewall/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Azure Functions
