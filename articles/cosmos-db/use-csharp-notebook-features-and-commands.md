@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.custom: devx-track-python
-ms.openlocfilehash: 6c095083f88c00f706d19d1c652e19da007c6542
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876431"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019270"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach C# (wersja zapoznawcza)
 
@@ -59,7 +59,7 @@ Aby dowiedzieć się więcej, zobacz [przykłady zestawu SDK dla platformy .NET 
 > [!IMPORTANT]
 > Wbudowany zestaw SDK Azure Cosmos DB .NET jest obsługiwany tylko w przypadku kont interfejsu API SQL (Core). W przypadku innych interfejsów API konieczne będzie [zainstalowanie odpowiedniego sterownika .NET](#install-a-new-nuget-package) ODPOWIADAJĄCego interfejsowi API. 
 
-## <a name="set-custom-options-using-cosmosclientoptions"></a>Ustawianie opcji niestandardowych przy użyciu``CosmosClientOptions``
+## <a name="set-custom-options-using-cosmosclientoptions"></a>Ustawianie opcji niestandardowych przy użyciu ``CosmosClientOptions``
 Aby uzyskać większą elastyczność, można ustawić właściwość niestandardową ``CosmosClientOptions`` i przekazać ją do ``CosmosClient`` wystąpienia. Tej właściwości można użyć do:
 
 - W polu Nazwa aplikacji ustaw sufiks User-Agent, aby uwzględnić go w każdym żądaniu.
@@ -162,7 +162,7 @@ Aby zresetować obszar roboczy notesy do ustawień domyślnych, wybierz pozycję
 
 :::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Resetuj obszar roboczy notesów":::
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - Poznaj zalety [Azure Cosmos DB notesów Jupyter](cosmosdb-jupyter-notebooks.md)
 - Dowiedz się więcej o [interfejsie API programu Azure Cosmos DB .NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3)

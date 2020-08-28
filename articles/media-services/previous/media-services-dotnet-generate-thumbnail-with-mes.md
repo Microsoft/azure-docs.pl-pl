@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 22a79f75fa795226e45e54947f410db4c2a57a7c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836449"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020664"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET 
 
@@ -407,7 +408,7 @@ Poniższy przykład kodu używa Media Services .NET SDK do wykonywania następuj
 
 * Utwórz zadanie kodowania.
 * Pobierz odwołanie do kodera Media Encoder Standard.
-* Załaduj wstępnie zdefiniowane dane [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) , które zawierają ustawienia wstępne kodowania, a także informacje konieczne do generowania miniatur. Możesz zapisać ten plik [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [kod JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) w pliku i użyć następującego kodu do załadowania pliku.
+* Załaduj wstępnie zdefiniowane dane [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) , które zawierają ustawienia wstępne kodowania, a także informacje konieczne do generowania miniatur. Możesz zapisać ten plik  [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) lub [kod JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) w pliku i użyć następującego kodu do załadowania pliku.
 
     ```csharp
     // Load the XML (or JSON) from the local file.
@@ -564,14 +565,14 @@ Obowiązują następujące zastrzeżenia:
   * Wartości domyślne: początek: {Najlepsza}
 * Format danych wyjściowych musi być jawnie podany dla każdego formatu obrazu: JPG/PNG/BmpFormat. Gdy jest obecny, MES pasuje do JpgVideo JpgFormat i tak dalej. OutputFormat wprowadza nowy obraz — specyficzne dla kodera-dekoder makro: {index}, które musi być obecne (raz i tylko raz) dla formatów danych wyjściowych obrazu.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Postęp zadania](media-services-check-job-progress.md) można sprawdzić, gdy zadanie kodowania jest w stanie oczekiwania.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zobacz też

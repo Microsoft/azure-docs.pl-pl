@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79f85473f4eb1839a283ce4fc0d3311defaa741e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439612"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999627"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu 
 
@@ -115,7 +116,7 @@ Poniżej znajdują się ogólne czynności związane z generowaniem kluczy zawar
     ---|---
     Id | Identyfikator ContentKey jest generowany w następującym formacie: "NB: dzieciak: UUID: \<NEW GUID> ".
     ContentKeyType | Typ klucza zawartości jest liczbą całkowitą, która definiuje klucz. W przypadku formatu szyfrowania magazynu wartość jest równa 1.
-    EncryptedContentKey | Tworzymy nową wartość klucza zawartości, która jest 256-bitową (32 bajtów). Klucz jest szyfrowany przy użyciu certyfikatu X. 509 szyfrowania magazynu pobranego z Microsoft Azure Media Services przez wykonanie żądania HTTP GET dla metod GetProtectionKeyId i GetProtectionKey. Na przykład, zobacz następujący kod platformy .NET: Metoda **EncryptSymmetricKeyData** zdefiniowana [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Tworzymy nową wartość klucza zawartości, która jest 256-bitową (32 bajtów). Klucz jest szyfrowany przy użyciu certyfikatu X. 509 szyfrowania magazynu pobranego z Microsoft Azure Media Services przez wykonanie żądania HTTP GET dla metod GetProtectionKeyId i GetProtectionKey. Na przykład, zobacz następujący kod platformy .NET: Metoda  **EncryptSymmetricKeyData** zdefiniowana [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Jest to identyfikator klucza ochrony dla certyfikatu X. 509 szyfrowania magazynu, który został użyty do zaszyfrowania naszego klucza zawartości.
     ProtectionKeyType | Jest to typ szyfrowania klucza ochrony, który został użyty do szyfrowania klucza zawartości. Ta wartość jest StorageEncryption (1) dla naszego przykładu.
     Suma kontrolna |Obliczona suma kontrolna MD5 dla klucza zawartości. Jest on obliczany przez zaszyfrowanie identyfikatora zawartości kluczem zawartości. Przykładowy kod demonstruje, jak obliczyć sumę kontrolną.

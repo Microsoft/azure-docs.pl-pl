@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: cb598f9a9b8d078c86e9911fa64d872788f47b4b
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447692"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003358"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
@@ -103,7 +103,7 @@ Przyczyną tego problemu mogą być lokalne problemy z konfiguracją lub niepraw
 
 1. Uruchom narzędzie do rozwiązywania problemów dla [systemu Windows](update-agent-issues.md#troubleshoot-offline) lub [Linux](update-agent-issues-linux.md#troubleshoot-offline), w zależności od systemu operacyjnego.
 
-2. Upewnij się, że komputer jest raportowany do prawidłowego obszaru roboczego. Aby uzyskać wskazówki dotyczące weryfikacji tego aspektu, zobacz [Weryfikowanie łączności agenta z log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Upewnij się również, że ten obszar roboczy jest połączony z kontem Azure Automation. Aby potwierdzić, przejdź do konta usługi Automation i wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
+2. Upewnij się, że komputer jest raportowany do prawidłowego obszaru roboczego. Aby uzyskać wskazówki dotyczące weryfikacji tego aspektu, zobacz [Weryfikowanie łączności agenta z Azure monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Upewnij się również, że ten obszar roboczy jest połączony z kontem Azure Automation. Aby potwierdzić, przejdź do konta usługi Automation i wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
 
 3. Upewnij się, że maszyny są widoczne w obszarze roboczym Log Analytics połączonym z kontem usługi Automation. Uruchom następujące zapytanie w obszarze roboczym Log Analytics.
 
@@ -534,7 +534,7 @@ Jeśli zobaczysz wynik HRESULT, kliknij dwukrotnie wyjątek wyświetlany na czer
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Wskazują one problemy z łącznością sieciową. Upewnij się, że maszyna ma łączność sieciową z Update Management. Lista wymaganych portów i adresów znajduje się w sekcji [Planowanie sieci](../update-management/update-mgmt-overview.md#ports) .        |
 |`0x8024001E`| Operacja aktualizacji nie została ukończona, ponieważ trwa zamykanie usługi lub systemu.|
 |`0x8024002E`| Usługa Windows Update jest wyłączona.|
-|`0x8024402C`     | W przypadku korzystania z serwera programu WSUS upewnij się, że wartości rejestru dla `WUServer` i `WUStatusServer` w `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` kluczu rejestru określają prawidłowy serwer WSUS.        |
+|`0x8024402C`     | W przypadku korzystania z serwera programu WSUS upewnij się, że wartości rejestru dla `WUServer` i `WUStatusServer` w  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` kluczu rejestru określają prawidłowy serwer WSUS.        |
 |`0x80072EE2`|Występuje problem z łącznością sieciową lub problem podczas rozmowy ze skonfigurowanym serwerem WSUS. Sprawdź ustawienia usług WSUS i upewnij się, że usługa jest dostępna z poziomu klienta.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Upewnij się, że usługa Windows Update (wuauserv) jest uruchomiona i nie jest wyłączona.        |
 |`0x80070005`| Błąd odmowy dostępu może być spowodowany jedną z następujących czynności:<br> Zainfekowany komputer<br> Ustawienia Windows Update niepoprawnie skonfigurowane<br> Błąd uprawnień pliku w folderze%WinDir%\SoftwareDistribution<br> Za mało miejsca na dysku systemowym (C:).
@@ -603,7 +603,7 @@ Wdrażanie aktualizacji w systemie Linux według klasyfikacji („Aktualizacje k
 
 KB2267602 to [aktualizacja definicji usługi Windows Defender](https://www.microsoft.com/wdsi/definitions). Jest ona aktualizowana codziennie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Jeśli nie widzisz swojego problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną.
 

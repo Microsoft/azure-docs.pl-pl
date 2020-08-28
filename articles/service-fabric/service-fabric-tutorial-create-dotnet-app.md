@@ -3,13 +3,13 @@ title: Tworzenie aplikacji .NET na Service Fabric na platformie Azure
 description: W tym samouczku znajdziesz informacje o sposobie tworzenia aplikacji za pomocą frontonu platformy ASP.NET Core i niezawodnej stanowej usługi zaplecza, a także o sposobie wdrażania aplikacji w klastrze.
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 03320fe41bcac8b99a3475b52fcf1b41ea5aed89
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: mvc, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 847bd2e30977c5a14f8294f6709cbd6d376a8211
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428357"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016278"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Samouczek: tworzenie i wdrażanie aplikacji przy użyciu usługi frontonu platformy ASP.NET Core z internetowym interfejsem API oraz stanowej usługi zaplecza
 
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 
 Po utworzeniu usługi frontonu VotingWeb program Visual Studio losowo wybiera port, na którym usługa będzie nasłuchiwała.  Usługa VotingWeb działa jako fronton dla tej aplikacji i akceptuje ruch zewnętrzny, dlatego warto powiązać ją z ustalonym i dobrze znanym portem.  [Manifest usługi](service-fabric-application-and-service-manifests.md) deklaruje punkty końcowe usługi.
 
-W Eksplorator rozwiązań Otwórz *VotingWeb/PackageRoot/ServiceManifest.xml*.  W sekcji **Resources** znajdź element **Endpoint** i zmień wartość elementu **Port** na **8080**. Aby wdrożyć i uruchomić aplikację lokalnie, port nasłuchujący aplikacji musi być otwarty i dostępny na komputerze.
+W Eksplorator rozwiązań Otwórz  *VotingWeb/PackageRoot/ServiceManifest.xml*.  W sekcji **Resources** znajdź element **Endpoint** i zmień wartość elementu **Port** na **8080**. Aby wdrożyć i uruchomić aplikację lokalnie, port nasłuchujący aplikacji musi być otwarty i dostępny na komputerze.
 
 ```xml
 <Resources>
@@ -630,7 +630,7 @@ Aby zobaczyć, co się stanie w kodzie, wykonaj następujące kroki:
 
 Aby zatrzymać sesję debugowania, naciśnij klawisze **Shift+F5**.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tej części samouczka zawarto informacje na temat wykonywania następujących czynności:
 

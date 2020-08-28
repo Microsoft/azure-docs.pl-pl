@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067277"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001063"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi (wersja zapoznawcza)
 
@@ -156,7 +157,7 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 }
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
 - [Soft delete for Azure Storage blobs](soft-delete-overview.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)

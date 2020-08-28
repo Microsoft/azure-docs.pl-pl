@@ -5,12 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 751af36c630d1b0faa0c07bdd3a8b7519bd328c9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 59c8202b03bf1be2be5a68b75a1d7c7404b2213d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241934"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020205"
 ---
 # <a name="report-and-check-service-health"></a>Tworzenie raportów i sprawdzanie kondycji usług
 Gdy usługi napotykają problemy, zdolność do reagowania na zdarzenia i przestoje zależy od możliwości szybkiego wykrywania problemów. W przypadku zgłaszania problemów i błędów do programu Azure Service Fabric Health Manager z kodu usługi można użyć standardowych narzędzi do monitorowania kondycji, które Service Fabric zapewniają, aby sprawdzić stan kondycji.
@@ -19,7 +20,7 @@ Istnieją trzy sposoby raportowania kondycji usługi:
 
 * Użyj [partycji](/dotnet/api/system.fabric.istatefulservicepartition) lub obiektów [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) .  
   Za pomocą `Partition` obiektów i można `CodePackageActivationContext` raportować kondycję elementów, które są częścią bieżącego kontekstu. Na przykład kod, który jest uruchamiany jako część repliki, może zgłosić kondycję tylko dla tej repliki, partycji, do której należy, i aplikacji, z którą jest częścią.
-* Użyj witryny `FabricClient`.   
+* Użyj polecenia `FabricClient`.   
   Programu można użyć `FabricClient` do raportowania kondycji kodu usługi, Jeśli klaster nie jest [zabezpieczony](service-fabric-cluster-security.md) lub jeśli usługa jest uruchomiona z uprawnieniami administratora. Większość scenariuszy rzeczywistych nie korzysta z klastrów niezabezpieczonych lub zapewniają uprawnienia administratora. Za pomocą programu `FabricClient` można raportować kondycję wszystkich jednostek, które są częścią klastra. W idealnym przypadku kod usługi powinien jednak wysyłać tylko raporty powiązane ze swoimi kondycjami.
 * Użyj interfejsów API REST na poziomie klastra, aplikacji, wdrożonej aplikacji, usługi, pakietu usług, partycji, repliki lub poziomu węzła. Ta wartość może służyć do raportowania kondycji z kontenera.
 
@@ -131,7 +132,7 @@ HealthInformation healthInformation = new HealthInformation("ServiceCode", "Stat
 this.Partition.ReportPartitionHealth(healthInformation);
 ```
 
-Aby zgłosić kondycję w systemach `Application` , `DeployedApplication` , i `DeployedServicePackage` , użyj `CodePackageActivationContext` .
+Aby zgłosić kondycję w systemach `Application` , `DeployedApplication` , i `DeployedServicePackage` , użyj  `CodePackageActivationContext` .
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
@@ -139,7 +140,7 @@ var activationContext = FabricRuntime.GetActivationContext();
 activationContext.ReportApplicationHealth(healthInformation);
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 * [Głębokie szczegółowe na Service Fabric kondycji](service-fabric-health-introduction.md)
 * [Interfejs API REST dla kondycji usługi raportowania](/rest/api/servicefabric/report-the-health-of-a-service)
 * [Interfejs API REST dla kondycji aplikacji raportowania](/rest/api/servicefabric/report-the-health-of-an-application)

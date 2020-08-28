@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: e9c29edb28700d0f2d3411925c0985adc0f53e92
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225805"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006469"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Samouczek: wyświetlanie zdalnie renderowanego modelu
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -42,7 +43,7 @@ W tym samouczku są potrzebne:
 
 Aby uzyskać dostęp do usługi zdalnego renderowania na platformie Azure, musisz najpierw [utworzyć konto](../../../how-tos/create-an-account.md#create-an-account).
 
-## <a name="create-a-new-unity-project"></a>Utwórz nowy projekt aparatu Unity
+## <a name="create-a-new-unity-project"></a>Tworzenie nowego projektu aparatu Unity
 
 > [!TIP]
 > [Repozytorium przykładów ARR](https://github.com/Azure/azure-remote-rendering) zawiera projekt ze wszystkimi wykonanymi samouczkami, może służyć jako odwołanie. Poszukaj w *Unity\Tutorial-Complete* całego projektu środowiska Unity.
@@ -838,7 +839,7 @@ Mamy teraz cały kod wymagany do wyświetlenia zdalnie renderowanego modelu, wsz
 > [!NOTE]
 > Model zdalny nigdy nie będzie widoczny w widoku sceny, tylko w widoku gry. Wynika to z faktu, że ARR renderuje ramki zdalnie, w odniesieniu do perspektywy aparatu wyświetlania gier i nie ma informacji o aparacie edytora (używanym do renderowania widoku sceny).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 ![Załadowano model](./media/test-model-rendered.png)
 

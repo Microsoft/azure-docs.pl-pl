@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: laobri
 ms.date: 07/17/2020
 ms.topic: reference
-ms.openlocfilehash: ac56e2e69cf62c8afae73e0a7616e7e7f80c0493
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d5f541dec14eebc944e4eac11dbe569b38cb277e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816324"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001624"
 ---
 # <a name="reference-retirements-of-dsvm-images"></a>Dokumentacja: wycofania obrazów DSVM
 
@@ -50,18 +50,3 @@ Istniejące DSVM zainicjowane obrazy w subskrypcji będą nadal działać po dac
 >
 > Szablony ARM, które nie zostały zaktualizowane przy użyciu nowych szczegółów obrazu DSVM, zakończą się niepowodzeniem po dacie wycofania.
 
-## <a name="mitigating-upcoming-retirements"></a>Łagodzenie nadchodzących emerytur
-
-W tej sekcji omówiono środki zaradcze dla nadchodzących emerytur.
-
-### <a name="upgrade-windows-2016-dsvm"></a>Uaktualnij system Windows 2016 DSVM
-
-Aby przeprowadzić migrację dysku danych z istniejącego systemu Windows 2016 DSVM do systemu Windows 2019 DSVM, wykonaj następujące czynności:
-
-1. Utwórz nowy system Windows 2019 DSVM, postępując zgodnie z instrukcjami przedstawionymi [tutaj](./provision-vm.md#create-your-dsvm).
-1. Odłącz istniejące dyski danych z obrazu systemu Windows 2016, korzystając z [tych instrukcji](../../virtual-machines/windows/detach-disk.md).
-1. Dołącz dysk z poprzedniego kroku do obrazu systemu Windows 2019, korzystając z [tych instrukcji](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-
-### <a name="upgrade-ubuntu-1604-dsvm"></a>Uaktualnij Ubuntu 16,04 DSVM
-
-Zalecamy uaktualnienie istniejących Ubuntu 16,04 DSVMs do [wersji Ubuntu 18,04 DSVM](./dsvm-ubuntu-intro.md).

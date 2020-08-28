@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: bc0d5b0cdf616904ee7ed61fdc681ba60bff8f75
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 705c7dd602d9c908ec9048d131ba66b21c5b2103
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480292"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006520"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Wprowadzenie SQL Server zawsze dostępnych grup dostępności na platformie Azure Virtual Machines
 
@@ -41,9 +41,10 @@ Aby zwiększyć nadmiarowość i wysoką dostępność, SQL Server maszyny wirtu
 
 |  | Wersja systemu Windows Server | Wersja SQL Server | SQL Server Edition | Konfiguracja kworum usługi WSFC | Odzyskiwanie po awarii z obsługą wieloregionu | Obsługa wielopodsieci | Obsługa istniejącej usługi AD | Odzyskiwanie po awarii z wielostrefowym regionem | Obsługa funkcji ROZKŁ-AG bez domeny usługi AD | Obsługa funkcji ROZKŁ-AG bez klastrów |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[INTERFEJS WIERSZA POLECENIA MASZYNY WIRTUALNEJ SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Enterprise | Monitor w chmurze | Nie | Tak | Tak | Tak | Nie | Nie |
-| **[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Enterprise | Monitor w chmurze | Nie | Tak | Tak | Tak | Nie | Nie |
-| **[Ręczne](availability-group-manually-configure-prerequisites-tutorial.md)** | Wszystkie | Wszystkie | Wszystkie | Wszystkie | Tak | Tak | Tak | Tak | Tak | Tak |
+| **[Azure Portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Enterprise | Monitor w chmurze | Nie | Tak | Tak | Tak | Nie | Nie |
+| **[Interfejs wiersza polecenia platformy Azure/PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Enterprise | Monitor w chmurze | Nie | Tak | Tak | Tak | Nie | Nie |
+| **[Szablony szybkiego startu](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Enterprise | Monitor w chmurze | Nie | Tak | Tak | Tak | Nie | Nie |
+| **[Ręczne](availability-group-manually-configure-prerequisites-tutorial.md)** | Wszystko | Wszystko | Wszystko | Wszystko | Tak | Tak | Tak | Tak | Tak | Tak |
 
 Szablon **SQL Server AlwaysOn (wersja zapoznawcza)** został usunięty z portalu Azure Marketplace i nie jest już dostępny. 
 
@@ -75,6 +76,6 @@ Możesz również samodzielnie tworzyć maszyny wirtualne bez szablonu. Najpierw
 
 - [Utwórz zawsze włączona Grupa dostępności, aby zwiększyć dostępność i odzyskiwanie po awarii](availability-group-manually-configure-tutorial.md)
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [SQL Server Skonfiguruj zawsze dostępną grupę dostępności na platformie Azure Virtual Machines w różnych regionach](availability-group-manually-configure-multiple-regions.md)

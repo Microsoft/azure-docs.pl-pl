@@ -8,12 +8,13 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 718f4c0b41400ae2e35b88820b2d4154dab23111
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 78d3cbac28a85452f23e4a7c7ba3904fe3d1f488
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272828"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997884"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Samouczek: wysyłanie danych za pośrednictwem niewidocznej bramy
 
@@ -219,7 +220,7 @@ Dodaliśmy proste narzędzie wiersza polecenia do odczytywania pliku Avro i zwra
    }
    ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz Eksplorowanie zasobów używanych przez ten kompleksowy samouczek, zaczekaj na ukończenie czyszczenia utworzonych zasobów. W przeciwnym razie wykonaj następujące kroki, aby je usunąć:
 
@@ -231,7 +232,7 @@ Jeśli planujesz Eksplorowanie zasobów używanych przez ten kompleksowy samoucz
 
 1. Jeśli certyfikaty zostały utworzone lokalnie, Usuń folder c: \\ edgeCertificates.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 W tym artykule użyto naszej maszyny wirtualnej do programowania, aby symulować dane dotyczące czujnika i danych operacyjnych urządzenia liścia na naszym urządzeniu IoT Edge. Sprawdzono, że moduły na urządzeniu są kierowane, sklasyfikowane i utrwalane oraz przekazane do danych przez badanie działania urządzenia brzegowego w czasie rzeczywistym i przeglądanie plików przekazanych do konta magazynu.
 

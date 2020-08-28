@@ -5,16 +5,17 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 3753c809d8222030a885693ede800fe17c08b14b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ebadaf51a7dfbb286dac0bbdb0c3c8437ae2356f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224547"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022228"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Samouczek: interfejsy i modele niestandardowe
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -296,7 +297,7 @@ Wykonaj kroki opisane w [przewodniku szybki start: konwertowanie modelu do rende
 
 1. Usuń niestandardowy obiekt modelu z sceny. Najlepszym doświadczeniem w tym samouczku będzie użycie modelu testowego. Chociaż wiele modeli jest na pewno obsługiwane w ARR, ten samouczek został zapisany w celu zapewnienia najlepszej obsługi pojedynczego modelu zdalnego w danym momencie.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Teraz możesz ładować własne modele do zdalnego renderowania platformy Azure i wyświetlać je w swojej aplikacji. Następnie przeprowadzimy Cię przez proces manipulowania modelami.
 

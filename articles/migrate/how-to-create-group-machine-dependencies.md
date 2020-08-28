@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności opartej na agentach w ocenie serwera 
 description: W tym artykule opisano sposób konfigurowania analizy zależności opartej na agentach w ramach oceny serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: c41f8eb82cf912fc566975f833fc73589f17be98
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829921"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022381"
 ---
 # <a name="set-up-dependency-visualization"></a>Konfigurowanie wizualizacji zależności
 
@@ -82,9 +82,9 @@ Aby zainstalować agenta na komputerze z systemem Windows:
 5. Kliknij przycisk **Dodaj** , aby dodać nowy obszar roboczy log Analytics. Wklej w obszarze Identyfikator i klucz obszaru roboczego skopiowane z portalu. Kliknij przycisk **Dalej**.
 
 Agenta można zainstalować z wiersza polecenia lub przy użyciu metody zautomatyzowanej, takiej jak Configuration Manager lub [Intigua](https://www.intigua.com/intigua-for-azure-migration).
-- [Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) na temat korzystania z tych metod w celu zainstalowania agenta MMA.
+- [Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#installation-options) na temat korzystania z tych metod w celu zainstalowania agenta MMA.
 - Agenta programu MMA można również zainstalować za pomocą [tego](https://go.microsoft.com/fwlink/?linkid=2104394) skryptu.
-- [Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) o systemach operacyjnych Windows obsługiwanych przez MMA.
+- [Dowiedz się więcej](../azure-monitor/platform/agents-overview.md#supported-operating-systems) o systemach operacyjnych Windows obsługiwanych przez MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Instalowanie MMA na komputerze z systemem Linux
 
@@ -95,7 +95,7 @@ Aby zainstalować MMA na komputerze z systemem Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Dowiedz się więcej](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) o obsłudze systemu operacyjnego Linux przez program MMA. 
+[Dowiedz się więcej](../azure-monitor/platform/agents-overview.md#supported-operating-systems) o obsłudze systemu operacyjnego Linux przez program MMA. 
 
 ## <a name="install-the-dependency-agent"></a>Instalowanie agenta zależności
 
@@ -147,7 +147,7 @@ Po utworzeniu grupy zalecamy zainstalowanie agentów na wszystkich komputerach w
 Możesz badać dane zależności przechwycone przez Service Map w obszarze roboczym Log Analytics skojarzonym z projektem Azure Migrate. Log Analytics służy do zapisywania i uruchamiania zapytań dziennika Azure Monitor.
 
 - [Dowiedz się, jak](../azure-monitor/insights/service-map.md#log-analytics-records) wyszukiwać Service map dane w log Analytics.
-- [Zapoznaj się z omówieniem](../azure-monitor/log-query/get-started-queries.md) zapisywania zapytań dzienników w [log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- [Zapoznaj się z omówieniem](../azure-monitor/log-query/get-started-queries.md)  zapisywania zapytań dzienników w [log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 Uruchom zapytanie dotyczące danych zależności w następujący sposób:
 
@@ -205,6 +205,6 @@ VMConnection
 | summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 [Utwórz ocenę](how-to-create-assessment.md) dla grupy.

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring
-ms.openlocfilehash: 98c8bc07e1f5bb790c2f907bbc3c2125cae383a5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: monitoring, devx-track-csharp
+ms.openlocfilehash: 7010e47dd9272ce620f8e057fbfb36e1fd5b26c9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903225"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021174"
 ---
 # <a name="azure-storage-analytics-logging"></a>Rejestrowanie analizy usługi Azure Storage
 
@@ -89,7 +89,7 @@ Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blo
 
 |Atrybut|Opis|
 |---------------|-----------------|
-|`<service-name>`|Nazwa usługi magazynu. Na przykład: `blob` , `table` , lub`queue`|
+|`<service-name>`|Nazwa usługi magazynu. Na przykład: `blob` , `table` , lub `queue`|
 |`YYYY`|Czterocyfrowy rok dla dziennika. Na przykład: `2011`|
 |`MM`|Dwucyfrowy miesiąc dla dziennika. Na przykład: `07`|
 |`DD`|Dzień dwa cyfry dla dziennika. Na przykład: `31`|
@@ -105,7 +105,7 @@ Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blo
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- Gdy żądanie magazynu zostanie zarejestrowane, powstająca Nazwa dziennika jest skorelowana na godzinę, gdy żądana operacja została ukończona. Na przykład jeśli żądanie GetBlob zostało wykonane w dniu 6:30 na 7/31/2011, Dziennik zostanie zapisany z następującym prefiksem:`blob/2011/07/31/1800/`
+ Gdy żądanie magazynu zostanie zarejestrowane, powstająca Nazwa dziennika jest skorelowana na godzinę, gdy żądana operacja została ukończona. Na przykład jeśli żądanie GetBlob zostało wykonane w dniu 6:30 na 7/31/2011, Dziennik zostanie zapisany z następującym prefiksem: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Metadane dziennika
 
@@ -113,7 +113,7 @@ Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blo
 
 |Atrybut|Opis|
 |---------------|-----------------|
-|`LogType`|Opisuje, czy dziennik zawiera informacje dotyczące operacji odczytu, zapisu lub usuwania. Ta wartość może zawierać jeden typ lub kombinację wszystkich trzech, rozdzielonych przecinkami.<br /><br /> Przykład 1:`write`<br /><br /> Przykład 2:`read,write`<br /><br /> Przykład 3:`read,write,delete`|
+|`LogType`|Opisuje, czy dziennik zawiera informacje dotyczące operacji odczytu, zapisu lub usuwania. Ta wartość może zawierać jeden typ lub kombinację wszystkich trzech, rozdzielonych przecinkami.<br /><br /> Przykład 1: `write`<br /><br /> Przykład 2: `read,write`<br /><br /> Przykład 3: `read,write,delete`|
 |`StartTime`|Najwcześniejsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ` . Na przykład: `2011-07-31T18:21:46Z`|
 |`EndTime`|Najnowsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ` . Na przykład: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Wersja formatu dziennika.|
@@ -208,7 +208,7 @@ Aby dowiedzieć się więcej o pobieraniu określonych plików, zobacz [pobieran
 
 Po pobraniu danych dziennika można wyświetlić wpisy dziennika w plikach. Te pliki dzienników używają rozdzielanego formatu tekstu, który umożliwia przeanalizowanie wielu narzędzi do odczytywania dzienników, w tym programu Microsoft Message Analyzer (Aby uzyskać więcej informacji, zobacz [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Różne narzędzia mają różne pomieszczenia do formatowania, filtrowania, sortowania, wyszukiwania w usłudze AD zawartości plików dziennika. Aby uzyskać więcej informacji na temat formatu i zawartości pliku dziennika rejestrowania magazynu, zobacz [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format) i [analityka magazynu zarejestrowanych operacji i komunikatów o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * [analityka magazynu format dziennika](/rest/api/storageservices/storage-analytics-log-format)
 * [analityka magazynu zarejestrowane operacje i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)

@@ -3,18 +3,18 @@ title: Informacje o kopii zapasowej maszyny wirtualnej platformy Azure
 description: W tym artykule dowiesz się, jak usługa Azure Backup wykonuje kopie zapasowe maszyn wirtualnych platformy Azure oraz jak postępować zgodnie z najlepszymi rozwiązaniami.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587501"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014646"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Omówienie kopii zapasowej maszyny wirtualnej platformy Azure
 
 W tym artykule opisano, jak [usługa Azure Backup](./backup-overview.md) wykonuje kopie zapasowe maszyn wirtualnych platformy Azure.
 
-Azure Backup zapewnia niezależne i izolowane kopie zapasowe do ochrony przed niezamierzonym zniszczeniem danych na maszynach wirtualnych. Kopie zapasowe są przechowywane w magazynie Recovery Services przy użyciu wbudowanego zarządzania punktami odzyskiwania. Konfiguracja i skalowanie są proste, kopie zapasowe są optymalizowane i można je łatwo przywrócić w razie potrzeby.
+Usługa Azure Backup zapewnia niezależne i odizolowane kopie zapasowe zapewniające ochronę przed niezamierzonym zniszczeniem danych na maszynach wirtualnych. Kopie zapasowe są przechowywane w magazynie usługi Recovery Services z wbudowanymi funkcjami zarządzania punktami odzyskiwania. Konfiguracja i skalowanie są proste, kopie zapasowe są optymalizowane i w razie potrzeby można je łatwo przywrócić.
 
 W ramach procesu tworzenia kopii zapasowej [jest wykonywana migawka](#snapshot-creation), a dane są przesyłane do magazynu Recovery Services bez wpływu na obciążenia produkcyjne. Migawka zawiera różne poziomy spójności, zgodnie z opisem w [tym miejscu](#snapshot-consistency).
 
@@ -22,7 +22,7 @@ Azure Backup również oferuje wyspecjalizowane oferty dla obciążeń bazy dany
 
 ## <a name="backup-process"></a>Proces tworzenia kopii zapasowej
 
-Oto jak Azure Backup wykonuje kopię zapasową maszyn wirtualnych platformy Azure:
+Usługa Azure Backup wykonuje kopię zapasową maszyn wirtualnych platformy Azure w następujący sposób:
 
 1. W przypadku maszyn wirtualnych platformy Azure wybranych do utworzenia kopii zapasowej Azure Backup uruchamia zadanie tworzenia kopii zapasowej zgodnie z określonym harmonogramem tworzenia kopii zapasowych.
 1. Podczas pierwszej kopii zapasowej, rozszerzenie kopii zapasowej jest instalowane na maszynie wirtualnej, jeśli maszyna wirtualna jest uruchomiona.
@@ -33,9 +33,9 @@ Oto jak Azure Backup wykonuje kopię zapasową maszyn wirtualnych platformy Azur
     - Jeśli kopia zapasowa nie może pobrać migawki spójnej na poziomie aplikacji, zostanie przeprowadzona spójna z plikiem migawka magazynu (ponieważ nie ma żadnych zapisów aplikacji podczas zatrzymania maszyny wirtualnej).
 1. W przypadku maszyn wirtualnych z systemem Linux kopia zapasowa pobiera kopię zapasową spójną na poziomie plików. W przypadku migawek spójnych z aplikacjami należy ręcznie dostosować skrypty poprzedzające i końcowe.
 1. Gdy kopia zapasowa pobiera migawkę, przesyła dane do magazynu.
-    - Kopia zapasowa jest zoptymalizowana przez utworzenie kopii zapasowej każdego dysku maszyny wirtualnej równolegle.
-    - Dla każdego dysku, którego kopia zapasowa jest tworzona, Azure Backup odczytuje bloki na dysku i identyfikuje i transferuje tylko te bloki danych, które uległy zmianie (różnica) od czasu utworzenia poprzedniej kopii zapasowej.
-    - Dane migawki mogą nie być od razu kopiowane do magazynu. W godzinach szczytu może upłynąć kilka godzin. Łączny czas wykonywania kopii zapasowej maszyny wirtualnej będzie krótszy niż 24 godziny dla codziennych zasad tworzenia kopii zapasowych.
+    - Operacja tworzenia kopii zapasowej jest zoptymalizowana tak, aby kopie zapasowe poszczególnych dysków maszyny wirtualnej były tworzone równolegle.
+    - W przypadku każdego dysku, którego kopia zapasowa jest tworzona, usługa Azure Backup odczytuje bloki danych na dysku, a następnie identyfikuje i przenosi tylko te z nich, które uległy zmianie (przyrost) od czasu utworzenia poprzedniej kopii zapasowej.
+    - Dane migawki mogą nie być natychmiast kopiowane do magazynu. W godzinach szczytu może upłynąć kilka godzin. W przypadku zasad codziennego tworzenia kopii zapasowych łączny czas tworzenia kopii zapasowej maszyny wirtualnej jest krótszy niż 24 godziny.
 1. Zmiany wprowadzone do maszyny wirtualnej z systemem Windows po włączeniu Azure Backup są następujące:
     - Pakiet redystrybucyjny Microsoft Visual C++ 2013 (x64) — 12.0.40660 jest zainstalowany na maszynie wirtualnej
     - Typ uruchamiania usługi kopiowania woluminów w tle (VSS) zmieniony na automatyczny przy użyciu instrukcji Manual
@@ -83,7 +83,7 @@ W poniższej tabeli objaśniono różne typy spójności migawek:
 **Spójny na poziomie awarii** | Migawki spójne z awarią są zwykle wykonywane, gdy maszyna wirtualna platformy Azure jest zamykana w momencie tworzenia kopii zapasowej. Przechwytywane i tworzone są kopie zapasowe tylko danych istniejących na dysku w momencie tworzenia kopii zapasowej. | Rozpoczyna się od procesu rozruchu maszyny wirtualnej, po którym następuje sprawdzenie dysku, aby naprawić błędy uszkodzeń. Wszelkie operacje dotyczące danych w pamięci lub zapisu, które nie zostały przekazane do dysku przed utratą awarii. Aplikacje implementują własne weryfikacje danych. Na przykład aplikacja bazy danych może użyć dziennika transakcji do weryfikacji. Jeśli w dzienniku transakcji znajdują się wpisy, które nie znajdują się w bazie danych, oprogramowanie bazy danych przenosi transakcje z powrotem do momentu spójności danych. | Maszyna wirtualna jest w stanie zamykania (zatrzymano/cofnięto przydział).
 
 >[!NOTE]
-> W przypadku **pomyślnego**stanu aprowizacji Azure Backup pobiera spójne kopie zapasowe systemu plików. Jeśli stan aprowizacji jest **niedostępny** lub **zakończył się niepowodzeniem**, tworzone są kopie zapasowe spójne z awarią. Jeśli stan aprowizacji jest **tworzony** lub **usuwany**, oznacza to, że usługa Azure Backup ponawia operacje.
+> W przypadku **pomyślnego**stanu aprowizacji Azure Backup pobiera spójne kopie zapasowe systemu plików. Jeśli stan aprowizacji jest **niedostępny** lub **zakończył się niepowodzeniem**, tworzone są kopie zapasowe spójne z awarią. Jeśli stan aprowizacji jest **tworzony** lub **usuwany**, oznacza to, że Azure Backup próbuje wykonać operację ponownie.
 
 ## <a name="backup-and-restore-considerations"></a>Zagadnienia dotyczące tworzenia kopii zapasowych i przywracania
 
@@ -138,6 +138,6 @@ Dysk danych 2 | 32 TB | 0 GB
 
 Rzeczywistą wielkością maszyny wirtualnej w tym przypadku jest 17 GB + 30 GB + 0 GB = 47 GB. Ten rozmiar chronionego wystąpienia (47 GB) stanowi podstawę dla rachunku miesięcznego. Wraz ze wzrostem ilości danych w maszynie wirtualnej rozmiar chronionego wystąpienia używany do zmiany rozliczeń jest zgodny.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 - [Przygotowanie do tworzenia kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-vms-prepare.md).

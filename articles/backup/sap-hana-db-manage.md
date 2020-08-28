@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi baz danych SAP HANAymi na maszynach wirtu
 description: W tym artykule przedstawiono typowe zadania związane z zarządzaniem i monitorowaniem SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 6de1144237366806bb06c28a0777f62d69004e8b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826705"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006569"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
 
@@ -84,7 +84,7 @@ Te kopie zapasowe na żądanie również zostaną wyświetlone na liście punkt�
 
 Przywrócenie wyzwalane przez klientów platformy HANA Native (przy użyciu **BACKINT**) do przywrócenia na tym samym komputerze może być [monitorowane](#monitor-manual-backup-jobs-in-the-portal) ze strony **zadania tworzenia kopii zapasowej** .
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Uruchamianie SAP HANA natywnej kopii zapasowej klienta w bazie danych z włączoną usługą Azure Backup
+### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Uruchamianie SAP HANA natywnej kopii zapasowej klienta w bazie danych z włączoną funkcją Azure Backup
 
 Jeśli chcesz utworzyć lokalną kopię zapasową (przy użyciu platformy HANA Studio/Panel sterowania) dla bazy danych, której kopia zapasowa jest tworzona przy użyciu Azure Backup, wykonaj następujące czynności:
 
@@ -240,6 +240,6 @@ Czasami rozszerzenie obciążenia maszyny wirtualnej może mieć wpływ na jedn�
 
 Użyj tej opcji z przestrogą: po wyzwoleniu na maszynie wirtualnej z rozszerzeniem w dobrej kondycji ta operacja spowoduje ponowne uruchomienie rozszerzenia. Może to spowodować niepowodzenie wszystkich zadań w toku. Przed wyzwoleniem operacji ponownego rejestrowania Sprawdź, czy nie ma jednego lub kilku [objawów](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) .
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 * Dowiedz się, jak [rozwiązywać typowe problemy podczas tworzenia kopii zapasowych baz danych SAP HANA.](./backup-azure-sap-hana-database-troubleshoot.md)

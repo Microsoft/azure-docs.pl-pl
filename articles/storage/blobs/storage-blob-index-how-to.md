@@ -8,12 +8,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
-ms.openlocfilehash: 57366011c93065803162164c03c7878e1610af9f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-csharp
+ms.openlocfilehash: adc510ef89a912e6d76949794aacbf130a8f066d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500389"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018879"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Korzystanie z tagów indeksu obiektów BLOB (wersja zapoznawcza) w celu zarządzania danymi w usłudze Azure Blob Storage i znajdowania ich
 
@@ -34,7 +35,7 @@ Ponieważ indeks obiektów BLOB jest w publicznej wersji zapoznawczej, pakiet pr
 
 1. Skonfiguruj projekt programu Visual Studio, aby rozpocząć pracę z biblioteką klienta usługi Azure Blob Storage V12 dla platformy .NET. Aby dowiedzieć się więcej, zobacz [.NET — szybki start](storage-quickstart-blobs-dotnet.md)
 
-2. W Menedżerze pakietów NuGet Znajdź pakiet **Azure. Storage. blob** i Zainstaluj wersję **12.5.0-Preview. 6** lub nowszą dla projektu. Możesz również uruchomić polecenie```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
+2. W Menedżerze pakietów NuGet Znajdź pakiet **Azure. Storage. blob** i Zainstaluj wersję **12.5.0-Preview. 6** lub nowszą dla projektu. Możesz również uruchomić polecenie ```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
 
    Aby dowiedzieć się, jak to zrobić, zobacz [Znajdowanie i instalowanie pakietu](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
@@ -296,7 +297,7 @@ Zasady [zarządzania cyklem życia](storage-lifecycle-management-concepts.md) s�
 
 ---
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Dowiedz się więcej o indeksie obiektów BLOB. Zobacz temat [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md )
 

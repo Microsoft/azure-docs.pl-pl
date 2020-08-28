@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 44d4e5b6d3e96d2bafa9a7e22f36c6544eaff151
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918340"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999550"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Użyj Azure Media Analytics do przekonwertowania zawartości tekstowej w plikach wideo na tekst cyfrowy  
 
@@ -33,7 +34,7 @@ W połączeniu z aparatem wyszukiwania można łatwo indeksować multimedia wed�
 
 Procesor multimediów **usługi Azure Media OCR** jest obecnie w wersji zapoznawczej.
 
-Ten artykuł zawiera szczegółowe informacje na temat **usługi Azure Media OCR** i pokazuje, jak używać jej z zestawem SDK Media Services dla platformy .NET. Aby uzyskać więcej informacji i przykładów, zobacz [ten blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Ten artykuł zawiera szczegółowe informacje na temat  **usługi Azure Media OCR** i pokazuje, jak używać jej z zestawem SDK Media Services dla platformy .NET. Aby uzyskać więcej informacji i przykładów, zobacz [ten blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>Pliki wejściowe OCR
 Pliki wideo. Obecnie obsługiwane są następujące formaty: MP4, MOV i WMV.
@@ -113,9 +114,9 @@ Dane wyjściowe zawierają następujące atrybuty:
 | Przesunięcie |przesunięcie czasu dla sygnatur czasowych. W wersji 1,0 interfejsów API wideo zawsze będzie równa 0. |
 | Framerate |Klatki na sekundę filmu wideo |
 | szerokość |Szerokość filmu wideo w pikselach |
-| height |wysokość filmu wideo w pikselach |
+| wysokość |wysokość filmu wideo w pikselach |
 | Fragments |Tablica fragmentów wideo opartych na czasie, w których fragmenty metadanych są podzielone |
-| rozpoczynanie |Godzina rozpoczęcia fragmentu w "taktach" |
+| start |Godzina rozpoczęcia fragmentu w "taktach" |
 | czas trwania |Długość fragmentu w "taktach" |
 | interval |interwał każdego zdarzenia w danym fragmencie |
 | zdarzenia |Tablica zawierająca regiony |

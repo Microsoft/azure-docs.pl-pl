@@ -3,12 +3,12 @@ title: Wprowadzenie
 description: Poznaj funkcje i korzyści płynące z rozwiązań VMware platformy Azure w celu wdrażania obciążeń opartych na oprogramowaniu VMware na platformie Azure i zarządzania nimi.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d39cb759190eef535519decccec943ab66de2c7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752131"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005058"
 ---
 # <a name="what-is-azure-vmware-solution-preview"></a>Co to jest wersja zapoznawcza rozwiązania Azure VMware?
 
@@ -46,9 +46,9 @@ Regularne uaktualnianie chmury prywatnej i oprogramowania VMware na platformie A
 
 ## <a name="monitoring-your-private-cloud"></a>Monitorowanie chmury prywatnej
 
-Korzystając z [dzienników w Azure monitor](../azure-monitor/overview.md) , można zbierać dzienniki na maszynach wirtualnych działających w chmurze prywatnej rozwiązania Azure VMware. [Agenta MMA można pobrać i zainstalować](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) na maszynach wirtualnych z systemem Linux i Windows uruchomionym w chmurach prywatnych rozwiązań VMware platformy Azure, korzystając z tych samych zapytań, które są uruchamiane na lokalnych maszynach wirtualnych. Można uruchamiać te same zapytania, które normalnie są uruchamiane na maszynach wirtualnych. Aby dowiedzieć się więcej na temat tworzenia zapytań, zobacz [jak pisać zapytania](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Korzystając z [dzienników w Azure monitor](../azure-monitor/overview.md) , można zbierać dzienniki na maszynach wirtualnych działających w chmurze prywatnej rozwiązania Azure VMware. [Agenta MMA można pobrać i zainstalować](../azure-monitor/platform/log-analytics-agent.md#installation-options) na maszynach wirtualnych z systemem Linux i Windows uruchomionym w chmurach prywatnych rozwiązań VMware platformy Azure, korzystając z tych samych zapytań, które są uruchamiane na lokalnych maszynach wirtualnych. Można uruchamiać te same zapytania, które normalnie są uruchamiane na maszynach wirtualnych. Aby dowiedzieć się więcej na temat tworzenia zapytań, zobacz [jak pisać zapytania](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 
 Następnym krokiem jest zapoznanie się z najważniejszymi [pojęciami dotyczącymi chmury prywatnej i klastra](concepts-private-clouds-clusters.md).
 
