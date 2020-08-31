@@ -13,7 +13,7 @@ ms.locfileid: "80673272"
 ---
 ## <a name="update-the-tests"></a>Aktualizowanie testów
 
-Ponieważ Archetype również tworzy zestaw testów, należy zaktualizować te testy, aby obsłużyć nowy `msg` parametr w podpisie `run` metody.  
+Ponieważ Archetype również tworzy zestaw testów, należy zaktualizować te testy, aby obsłużyć nowy `msg` parametr w `run` podpisie metody.  
 
 Przejdź do lokalizacji kodu testu w obszarze _src/test/Java_, Otwórz plik projektu *Functions. Java* i Zastąp wiersz kodu `//Invoke` następującym kodem.
 

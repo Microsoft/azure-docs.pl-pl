@@ -1,118 +1,115 @@
 ---
-title: Identyfikator URI sygnatury dostępu współdzielonego dla obrazów maszyn wirtualnych — Azure Marketplace
+title: Pobieranie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej — Azure Marketplace
 description: Wygeneruj identyfikator URI sygnatury dostępu współdzielonego (SAS) dla wirtualnych dysków twardych (VHD) w witrynie Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/29/2020
-ms.openlocfilehash: 2bc129fc37347bd108ad62409490c5ce31b7728f
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/14/2020
+ms.openlocfilehash: a84f287c6303e093d68dd462ccc5cecc34b463cd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538935"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144530"
 ---
-# <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
+# <a name="get-a-sas-uri-for-your-vm-image"></a>Pobierz identyfikator URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
 
-W tym artykule opisano sposób generowania Uniform Resource Identifier (SAS) sygnatury dostępu współdzielonego dla każdego wirtualnego dysku twardego (VHD).
+Podczas procesu publikowania należy podać identyfikator URI sygnatury dostępu współdzielonego (Shared Access Signature) dla każdego wirtualnego dysku twardego skojarzonego z planami (wcześniej nazywanymi jednostkami SKU). Firma Microsoft potrzebuje dostępu do tych wirtualnych dysków twardych podczas procesu certyfikacji. Ten identyfikator URI zostanie wprowadzony na karcie **plany** w centrum partnerskim.
 
-Podczas procesu publikowania należy podać identyfikator URI dla każdego wirtualnego dysku twardego skojarzonego z planami (dawniej jednostki SKU). Firma Microsoft potrzebuje dostępu do tych wirtualnych dysków twardych podczas procesu certyfikacji. Ten identyfikator URI zostanie wprowadzony na karcie **plany** w centrum partnerskim.
+Generowanie identyfikatorów URI sygnatury dostępu współdzielonego dla wirtualnych dysków twardych ma następujące wymagania:
 
-Podczas generowania identyfikatorów URI sygnatury dostępu współdzielonego dla wirtualnych dysków twardych wykonaj następujące wymagania:
-
-* Obsługiwane są tylko niezarządzane wirtualne dyski twarde.
-* Tylko `List` i `Read` uprawnienia są wymagane. Nie zapewniaj dostępu do zapisu ani usuwania.
-* Czas trwania dostępu (Data wygaśnięcia) powinien mieć co najmniej trzy tygodnie od momentu utworzenia identyfikatora URI SAS.
-* Aby chronić przed zmianami czasu UTC, ustaw datę rozpoczęcia na jeden dzień przed bieżącą datą. Na przykład, jeśli bieżąca data to 6 października 2019, wybierz pozycję 10/5/2019.
+- Obsługują one tylko niezarządzane wirtualne dyski twarde.
+- Wymagane są tylko uprawnienia do wyświetlania i odczytu. Nie zapewniaj dostępu do zapisu ani usuwania.
+- Czas trwania dostępu (Data wygaśnięcia) powinien mieć co najmniej trzy tygodnie od momentu utworzenia identyfikatora URI SAS.
+- Aby chronić przed zmianami czasu UTC, ustaw datę rozpoczęcia na jeden dzień przed bieżącą datą. Na przykład, jeśli bieżąca data to 16 czerwca 2020, wybierz pozycję 6/15/2020.
 
 ## <a name="generate-the-sas-address"></a>Generuj adres SAS
 
 Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
-* **Eksplorator usługi Microsoft Azure Storage** — narzędzie graficzne dostępne w Azure Portal.
-* **Interfejs wiersza polecenia Microsoft Azure** — zalecane dla systemów operacyjnych innych niż Windows oraz zautomatyzowanych lub ciągłych środowisk integracji.
+1. **Microsoft Eksplorator usługi Storage** — narzędzie graficzne dostępne dla systemów Windows, MacOS i Linux.
+2. **Interfejs wiersza polecenia Microsoft Azure** — zalecane dla systemów operacyjnych innych niż Windows oraz zautomatyzowanych lub ciągłych środowisk integracji.
 
-### <a name="use-microsoft-azure-storage-explorer"></a>Użyj Eksplorator usługi Microsoft Azure Storage
+### <a name="using-tool-1-microsoft-storage-explorer"></a>Korzystanie z narzędzia 1: Microsoft Eksplorator usługi Storage
 
-1. Przejdź do swojego konta magazynu w Azure Portal.
-2. W okienku Eksploratora po lewej stronie Otwórz narzędzie **Eksplorator usługi Storage** (wersja zapoznawcza).
-3. Kliknij prawym przyciskiem myszy dysk VHD, a następnie wybierz pozycję **Pobierz sygnaturę dostępu współdzielonego**.
-4. Zostanie wyświetlone okno dialogowe **sygnatura dostępu współdzielonego** . Wypełnij następujące pola:
+1. Pobierz i zainstaluj [Eksplorator usługi Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
+2. Otwórz Eksploratora i w menu po lewej stronie wybierz pozycję **Dodaj konto**.
+3. W oknie dialogowym **łączenie z usługą Azure Storage** wybierz pozycję **Dodaj konto platformy Azure** i zaloguj się do konta platformy Azure.
+4. W okienku po lewej stronie rozwiń węzeł **konta magazynu** .
+5. Kliknij prawym przyciskiem myszy wirtualny dysk twardy i wybierz pozycję **Pobierz sygnaturę dostępu do udziału**.
+6. W oknie dialogowym **sygnatura dostępu współdzielonego** wypełnij następujące pola:
 
-    * **Czas rozpoczęcia** — Data rozpoczęcia uprawnienia dostępu do dysku VHD. Podaj datę, która jest dniem poprzedzającym bieżącą datę.
-    * **Czas wygaśnięcia** — Data wygaśnięcia uprawnień dla dostępu do dysku VHD. Podaj datę, która jest co najmniej trzy tygodnie poza bieżącą datą.
-    * **Uprawnienia** — wybierz uprawnienia do odczytu i listy.
-    * Na **poziomie kontenera** — sprawdź pole wyboru **Generuj identyfikator URI sygnatury dostępu współdzielonego na poziomie kontenera** .
+    1. Czas rozpoczęcia — data rozpoczęcia uprawnienia dostępu do dysku VHD. Podaj datę, która jest dniem poprzedzającym bieżącą datę.
+    2. Czas wygaśnięcia — Data wygaśnięcia uprawnień dla dostępu do dysku VHD. Podaj datę z co najmniej trzech tygodni poza bieżącą datą.
+    3. Uprawnienia — wybierz uprawnienia do odczytu i listy.
+    4. Na poziomie kontenera — sprawdź pole wyboru Generuj identyfikator URI sygnatury dostępu współdzielonego na poziomie kontenera.
 
-        :::image type="content" source="media/create-sas-uri-storage-explorer.png" alt-text="Ilustruje okno dialogowe sygnatura dostępu współdzielonego":::
+    ![Okno dialogowe sygnatura dostępu współdzielonego.](media/vm/create-sas-uri-storage-explorer.png)
 
-5. Aby utworzyć skojarzony identyfikator URI sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego, wybierz pozycję **Utwórz**. Okno dialogowe odświeża i pokazuje szczegółowe informacje o tej operacji.
-6. Skopiuj **Identyfikator URI** i Zapisz go w pliku tekstowym w bezpiecznej lokalizacji.
+7. Aby utworzyć skojarzony identyfikator URI sygnatury dostępu współdzielonego dla tego wirtualnego dysku twardego, wybierz pozycję **Utwórz**. Okno dialogowe odświeża i pokazuje szczegółowe informacje o tej operacji.
 
-    :::image type="content" source="media/create-sas-uri-shared-access-signature-details.png" alt-text="Ilustruje pole szczegóły sygnatury dostępu współdzielonego":::
-7. Powtórz te kroki dla każdego wirtualnego dysku twardego w planach, które będą publikowane.
+8. Skopiuj identyfikator URI i Zapisz go w pliku tekstowym w bezpiecznej lokalizacji.
 
-### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+    ![Kopiowanie identyfikatora URI.](media/vm/create-sas-uri-shared-access-signature-details.png)
 
-1. Pobierz i zainstaluj [interfejs wiersza polecenia Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Wersje są dostępne dla systemów Windows, macOS i różnych dystrybucje systemu Linux.
+    Ten wygenerowany identyfikator URI SAS dotyczy dostępu na poziomie kontenera. Aby wprowadzić właściwe informacje, edytuj plik tekstowy, aby dodać nazwę dysku VHD.
+
+9. Wstaw nazwę wirtualnego dysku twardego po ciągu VHD w identyfikatorze URI sygnatury dostępu współdzielonego (w tym ukośniku). Końcowy identyfikator URI sygnatury dostępu współdzielonego powinien wyglądać następująco:
+
+    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
+
+1. Powtórz te kroki dla każdego wirtualnego dysku twardego w planach, które będą publikowane.
+
+### <a name="using-tool-2-azure-cli"></a>Korzystanie z narzędzia 2: interfejs wiersza polecenia platformy Azure
+
+1. Pobierz i zainstaluj [Microsoft Azure CL](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)i. Wersje są dostępne dla systemów Windows, macOS i różnych dystrybucje systemu Linux.
 2. Utwórz plik programu PowerShell (rozszerzenie pliku ps1), Skopiuj poniższy kod, a następnie zapisz go lokalnie.
 
-    ```PowerShell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+    ```JSON
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
-3. Edytuj plik, aby użyć następujących wartości parametrów. Podaj daty w formacie daty/godziny UTC, np `2020-04-01T00:00:00Z` ..
+3. Edytuj plik, aby użyć następujących wartości parametrów. Podaj daty w formacie daty/godziny UTC, takie jak 2020-04-01T00:00:00Z.
 
-    * `<account-name>`— Nazwa konta usługi Azure Storage
-    * `<account-key>`— Klucz konta usługi Azure Storage
-    * `<vhd-name>`— Nazwa wirtualnego dysku twardego
-    * `<start-date>`— Data rozpoczęcia uprawnienia dostępu do dysku VHD. Podaj datę o jeden dzień przed bieżącą datą.
-    * `<expiry-date>`— Data wygaśnięcia uprawnień dla dostępu do dysku VHD. Podaj datę z co najmniej trzech tygodni od bieżącej daty.
+    - Nazwa konta — Nazwa konta usługi Azure Storage.
+    - klucz konta — klucz konta usługi Azure Storage.
+    - Nazwa wirtualnego dysku twardego — nazwa wirtualnego dysku twardego.
+    - Data rozpoczęcia — Data początkowa uprawnienia dostępu do dysku VHD. Podaj datę o jeden dzień przed bieżącą datą.
+    - Data wygaśnięcia — Data wygaśnięcia uprawnień dla dostępu do dysku VHD. Podaj datę z co najmniej trzech tygodni od bieżącej daty.
 
-    Ten przykład przedstawia poprawne wartości parametrów (w czasie pisania):
+    Oto przykład prawidłowych wartości parametrów (w czasie pisania):
 
-    ```PowerShell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2020-04-01T00:00:00Z' --expiry '2021-04-01T00:00:00Z'
-    ```
+    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
 
-4. Zapisz zmiany.
-5. Korzystając z jednej z następujących metod, Uruchom ten skrypt z uprawnieniami administracyjnymi, aby utworzyć **Parametry połączenia sygnatury dostępu współdzielonego** na poziomie kontenera:
+1. Zapisz zmiany.
+2. Korzystając z jednej z następujących metod, Uruchom ten skrypt z uprawnieniami administracyjnymi, aby utworzyć parametry połączenia sygnatury dostępu współdzielonego na poziomie kontenera:
 
-    * Uruchom skrypt z konsoli programu. W systemie Windows kliknij prawym przyciskiem myszy skrypt, a następnie wybierz polecenie **Uruchom jako administrator**.
-    * Uruchom skrypt z edytora skryptów programu PowerShell, takiego jak [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Ten ekran przedstawia tworzenie parametrów połączenia sygnatury dostępu współdzielonego w ramach tego edytora:
+    - Uruchom skrypt z konsoli programu. W systemie Windows kliknij prawym przyciskiem myszy skrypt, a następnie wybierz polecenie **Uruchom jako administrator**.
+    - Uruchom skrypt z edytora skryptów programu PowerShell, takiego jak [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Ten ekran przedstawia tworzenie parametrów połączenia sygnatury dostępu współdzielonego w ramach tego edytora:
 
-     :::image type="content" source="media/create-sas-uri-power-shell-ise.png" alt-text="Ilustruje tworzenie parametrów połączenia sygnatury dostępu współdzielonego za pomocą Windows PowerShell ISE":::
+    [![Tworzenie parametrów połączenia sygnatury dostępu współdzielonego w edytorze programu PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 
 6. Skopiuj parametry połączenia sygnatury dostępu współdzielonego i Zapisz je w pliku tekstowym w bezpiecznej lokalizacji. Edytuj ten ciąg, aby dodać informacje o lokalizacji wirtualnego dysku twardego w celu utworzenia końcowego identyfikatora URI sygnatury dostępu współdzielonego.
 7. W Azure Portal przejdź do magazynu obiektów blob, który zawiera dysk VHD skojarzony z nowym identyfikatorem URI.
-8. Skopiuj adres URL **BLOB Service punktu końcowego**, jak pokazano na poniższym zrzucie ekranu
+8. Skopiuj adres URL punktu końcowego usługi thebBlob:
 
-    :::image type="content" source="media/create-sas-uri-blob-endpoint.png" alt-text="Ilustruje Blob service punkt końcowy":::
+    ![Kopiowanie adresu URL punktu końcowego usługi BLOB Service.](media/vm/create-sas-uri-blob-endpoint.png)
 
 9. Edytuj plik tekstowy przy użyciu parametrów połączenia sygnatury dostępu współdzielonego z kroku 6. Utwórz pełny identyfikator URI sygnatury dostępu współdzielonego przy użyciu tego formatu:
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
 
-    Jeśli na przykład nazwa wirtualnego dysku twardego to `TestRGVM2.vhd` , identyfikator URI sygnatury dostępu współdzielonego będzie:
-
-    `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-Powtórz te kroki dla każdego wirtualnego dysku twardego w planach, które będą publikowane.
-
 ## <a name="verify-the-sas-uri"></a>Weryfikowanie identyfikatora URI sygnatury dostępu współdzielonego
 
-Przejrzyj każdy utworzony identyfikator URI SYGNATURy dostępu współdzielonego za pomocą poniższej listy kontrolnej, aby sprawdzić, czy:
+Sprawdź identyfikator URI sygnatury dostępu współdzielonego przed opublikowaniem w centrum partnerskim, aby uniknąć problemów związanych z przesłaniem żądania przez identyfikator URI sygnatury dostępu współdzielonego. Ten proces jest opcjonalny, ale zalecany.
 
-* Identyfikator URI wygląda następująco:`<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
-* Identyfikator URI zawiera nazwę pliku obrazu VHD, w tym rozszerzenie nazwy pliku ". VHD".
-* `sp=rl`pojawia się blisko środka identyfikatora URI. Ten ciąg pokazuje, że `Read` i `List` jest określony dostęp.
-* Gdy jest `sr=c` wyświetlany, oznacza to, że jest określony dostęp na poziomie kontenera.
-* Skopiuj i wklej identyfikator URI do przeglądarki w celu przetestowania i pobrania obiektu BLOB (możesz anulować operację przed ukończeniem pobierania).
+- Identyfikator URI zawiera nazwę pliku obrazu VHD, łącznie z rozszerzeniem nazwy pliku `.vhd` .
+- `Sp=rl` pojawia się blisko środka identyfikatora URI. Ten ciąg zawiera określony dostęp do odczytu i listy.
+- Gdy jest `sr=c` wyświetlany, oznacza to, że jest określony dostęp na poziomie kontenera.
+- Skopiuj i wklej identyfikator URI do przeglądarki w celu przetestowania i pobrania obiektu BLOB (możesz anulować operację przed ukończeniem pobierania).
 
 ## <a name="next-step"></a>Następny krok
 
-Jeśli masz problemy z tworzeniem identyfikatora URI sygnatury dostępu współdzielonego, zobacz [typowe problemy dotyczące adresów URL SAS](common-sas-uri-issues.md). W przeciwnym razie Zapisz identyfikatory URI sygnatury dostępu współdzielonego w bezpiecznej lokalizacji do późniejszego użycia. Będzie ona potrzebna do opublikowania oferty maszyny wirtualnej w centrum partnerskim.
-
-* [Tworzenie oferty maszyny wirtualnej platformy Azure](azure-vm-create-offer.md)
+- Przeczytaj temat [Tworzenie oferty maszyny wirtualnej platformy Azure](azure-vm-create-offer.md).

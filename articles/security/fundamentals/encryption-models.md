@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 105d867b4eafe37ca6555e3f6b54dc521a7264fe
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227310"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89143737"
 ---
 # <a name="data-encryption-models"></a>Modele szyfrowania danych
 
@@ -159,9 +159,9 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Tłumaczenie tekstu w usłudze Translator                  | Tak                | Tak                | -                  |
 | Power BI                         | Tak                | Wersja zapoznawcza, RSA 2048-bit | -                  |
 | **Analiza**                    |                    |                    |                    |
-| Usługa Azure Stream Analytics           | Tak                | Nie dotyczy\*            | -                  |
-| Event Hubs                       | Tak                | Tak, wszystkie długości RSA. | -                  |
-| Functions                        | Tak                | Tak, wszystkie długości RSA. | -                  |
+| Usługa Azure Stream Analytics           | Tak                | NIE DOTYCZY\*              | -                  |
+| Event Hubs                       | Tak                | Tak                | -                  |
+| Funkcje                        | Tak                | Tak                | -                  |
 | Azure Analysis Services          | Tak                | -                  | -                  |
 | Azure Data Catalog               | Tak                | -                  | -                  |
 | Azure HDInsight                  | Tak                | Wszystko                | -                  |
@@ -175,9 +175,9 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Container Instances              | Tak                | Tak                | -                  |
 | Container Registry               | Tak                | Tak                | -                  |
 | **Środowisko obliczeniowe**                      |                    |                    |                    |
-| Virtual Machines                 | Tak                | Tak, RSA 2048-bit  | -                  |
-| Zestaw skalowania maszyn wirtualnych        | Tak                | Tak, RSA 2048-bit  | -                  |
-| SAP HANA                         | Tak                | Tak, RSA 2048-bit  | -                  |
+| Virtual Machines                 | Tak                | Tak                | -                  |
+| Zestaw skalowania maszyn wirtualnych        | Tak                | Tak                | -                  |
+| SAP HANA                         | Tak                | Tak                | -                  |
 | App Service                      | Tak                | Opcję\*\*            | -                  |
 | Automatyzacja                       | Tak                | Opcję\*\*            | -                  |
 | Azure Functions                  | Tak                | Opcję\*\*            | -                  |
@@ -187,23 +187,23 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Service Bus                      | Tak                | Tak                | -                  |
 | Site Recovery                    | Tak                | Tak                | -                  |
 | **Bazy danych**                    |                    |                    |                    |
-| Program SQL Server w usłudze Virtual Machines   | Tak                | Tak, RSA 2048-bit  | Tak                |
-| Azure SQL Database               | Tak                | Tak, RSA 2048-bit  | Tak                |
+| Program SQL Server w usłudze Virtual Machines   | Tak                | Tak                | Tak                |
+| Azure SQL Database               | Tak                | Tak, RSA 3072-bit  | Tak                |
 | Azure SQL Database MariaDB   | Tak                | -                  | -                  |
 | Azure SQL Database dla programu MySQL     | Tak                | Tak                | -                  |
 | Azure SQL Database PostgreSQL | Tak               | Tak                | -                  |
-| Azure Synapse Analytics          | Tak                | Tak, RSA 2048-bit  | -                  |
-| SQL Server Stretch Database      | Tak                | Tak, RSA 2048-bit  | Tak                |
+| Azure Synapse Analytics          | Tak                | Tak, RSA 3072-bit  | -                  |
+| SQL Server Stretch Database      | Tak                | Tak, RSA 3072-bit  | Tak                |
 | Table Storage                    | Tak                | Tak                | Tak                |
 | Azure Cosmos DB                  | Tak                | Tak                | -                  |
 | Azure Databricks                 | Tak                | Tak                | -                  |
-| Azure Database Migration Service | Tak                | Nie dotyczy\*              | -                  |
+| Azure Database Migration Service | Tak                | NIE DOTYCZY\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Usługa Azure DevOps Services            | Tak                | -                  | Tak                |
 | Azure Repos                      | Tak                | -                  | Tak                |
 | **Tożsamość**                     |                    |                    |                    |
-| Azure Active Directory           | Tak                | -                  | -                  |
-| Azure Active Directory Domain Services | Tak          | Tak, RSA 2048-bit  | -                  |
+| Usługa Azure Active Directory           | Tak                | -                  | -                  |
+| Usługi Azure Active Directory Domain Services | Tak          | Tak                | -                  |
 | **Integracja**                  |                    |                    |                    |
 | Service Bus                      | Tak                | Tak                | Tak                |
 | Event Grid                       | Tak                | -                  | -                  |
@@ -220,20 +220,20 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Azure Security Center dla IoT    | Tak                | Tak                | -                  |
 | Usługa Azure Sentinel                   | Tak                | Tak                | -                  |
 | **Storage**                      |                    |                    |                    |
-| Blob Storage                     | Yes                | Tak, RSA 2048-bit  | Tak                |
-| Blob Storage Premium             | Tak                | Tak, RSA 2048-bit  | Tak                |
+| Blob Storage                     | Yes                | Tak                | Tak                |
+| Blob Storage Premium             | Tak                | Tak                | Tak                |
 | Disk Storage                     | Tak                | Tak                | -                  |
 | Ultra Disk Storage               | Tak                | Tak                | -                  |
 | Zarządzana Disk Storage             | Tak                | Tak                | -                  |
-| File Storage                     | Yes                | Tak, RSA 2048-bit  | -                  |
-| Premium Storage pliku             | Tak                | Tak, RSA 2048-bit  | -                  |
-| Usługa File Sync                        | Tak                | Tak, RSA 2048-bit  | -                  |
+| File Storage                     | Yes                | Tak                | -                  |
+| Premium Storage pliku             | Tak                | Tak                | -                  |
+| Usługa File Sync                        | Tak                | Tak                | -                  |
 | Queue Storage                    | Tak                | Tak                | Tak                |
 | Avere vFXT                       | Tak                | -                  | -                  |
-| Azure Cache for Redis            | Tak                | Nie dotyczy\*              | -                  |
+| Azure Cache for Redis            | Tak                | NIE DOTYCZY\*              | -                  |
 | Azure NetApp Files               | Tak                | Tak                | -                  |
-| Archive Storage                  | Tak                | Tak, RSA 2048-bit  | -                  |
-| StorSimple                       | Tak                | Tak, RSA 2048-bit  | Tak                |
+| Archive Storage                  | Tak                | Tak                | -                  |
+| StorSimple                       | Tak                | Tak                | Tak                |
 | Azure Backup                     | Tak                | Tak                | Tak                |
 | Data Box                         | Tak                | -                  | Tak                |
 | Data Box Edge                    | Tak                | Tak                | -                  |

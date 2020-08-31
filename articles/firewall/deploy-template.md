@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie zapory platformy Azure przy użyciu szablonu Strefy dostępności-Menedżer zasobów'
-description: Wdróż zaporę platformy Azure przy użyciu szablonu. Sieć wirtualna ma jedną sieć wirtualną z trzema podsieciami. Wdrożono dwie maszyny wirtualne z systemem Windows Server; pole skoku i serwer.
+description: W tym przewodniku szybki start wdrożono zaporę platformy Azure przy użyciu szablonu. Sieć wirtualna ma jedną sieć wirtualną z trzema podsieciami. Wdrożono dwie maszyny wirtualne z systemem Windows Server; pole skoku i serwer.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705133"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071724"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Szybki Start: wdrażanie zapory platformy Azure przy użyciu szablonu Strefy dostępności-ARM
 
@@ -78,7 +78,7 @@ Poznaj zasoby, które zostały utworzone za pomocą zapory.
 
 Aby dowiedzieć się więcej o składni i właściwościach JSON zapory w szablonie, zobacz [Microsoft. Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie są już potrzebne, możesz usunąć grupę zasobów, zaporę i wszystkie powiązane zasoby, uruchamiając `Remove-AzResourceGroup` polecenie programu PowerShell. Aby usunąć grupę zasobów o nazwie Moja *zasobów*, uruchom polecenie:
 

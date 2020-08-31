@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120783"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068477"
 ---
 # <a name="publisher-verification-preview"></a>Weryfikacja wydawcy (wersja zapoznawcza)
 
@@ -42,13 +42,13 @@ Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których 
 
 -  IDENTYFIKATOR MPN dla prawidłowego konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) . To konto MPN musi być [kontem globalnym partnera (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) dla Twojej organizacji. 
 
--  Dzierżawa usługi Azure AD z [domeną niestandardową](../fundamentals/add-custom-domain.md)zweryfikowaną przez system DNS. Domena niestandardowa musi być zgodna z domeną adresu e-mail używanego podczas weryfikacji w poprzednim kroku. 
+-  Aplikacja zarejestrowana w dzierżawie usługi Azure AD z skonfigurowaną [domeną wydawcy](howto-configure-publisher-domain.md) .
 
--  Aplikacja zarejestrowana w dzierżawie usługi Azure AD z [domeną wydawcy](howto-configure-publisher-domain.md) skonfigurowaną przy użyciu tej samej domeny, która została wcześniej użyta. 
+-  Domena adresu e-mail używanego podczas weryfikacji konta MPN musi być zgodna z domeną wydawcy skonfigurowaną w aplikacji lub [domeną niestandardową](../fundamentals/add-custom-domain.md) zweryfikowaną przez system DNS dodaną do dzierżawy usługi Azure AD. 
 
 -  Użytkownik wykonujący weryfikację musi mieć autoryzację, aby wprowadzić zmiany w rejestracji aplikacji w usłudze Azure AD i koncie MPN w centrum partnerskim. 
 
-    -  W usłudze Azure AD ten użytkownik musi być właścicielem aplikacji lub mieć jedną z następujących [ról](../users-groups-roles/directory-assign-admin-roles.md): Administrator aplikacji, administrator aplikacji w chmurze, Administrator globalny. 
+    -  W usłudze Azure AD ten użytkownik musi być członkiem jednej z następujących [ról](../users-groups-roles/directory-assign-admin-roles.md): Administrator aplikacji, administrator aplikacji w chmurze lub Administrator globalny. 
 
     -  W centrum partnerskim ten użytkownik musi mieć następujące [role](/partner-center/permissions-overview): Administrator MPN, administrator kont lub Administrator globalny (jest to rola udostępniona w usłudze Azure AD).
     

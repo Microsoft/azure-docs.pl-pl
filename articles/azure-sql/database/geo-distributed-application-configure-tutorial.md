@@ -4,19 +4,19 @@ description: Dowiedz się, jak skonfigurować bazę danych w Azure SQL Database 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 90bfe3f6e8d5ed19380ab2b48aa38e598c3f109a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bdc03d93654fdb0ae90600f8dad279f0fc8efbe9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501614"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070840"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Samouczek: implementowanie rozproszonej geograficznie bazy danych (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Aby ukończyć ten samouczek, upewnij się, że zainstalowano następujące elem
 - Pojedyncza baza danych w Azure SQL Database. Aby utworzyć jedno użycie,
   - [Witryna Azure Portal](single-database-create-quickstart.md)
   - [Interfejs wiersza polecenia platformy Azure](az-cli-script-samples-content-guide.md)
-  - [PowerShell](powershell-script-content-guide.md)
+  - [Program PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
   > Samouczek używa przykładowej bazy danych *AdventureWorksLT* .
@@ -60,7 +60,7 @@ Aby ukończyć ten samouczek, upewnij się, że zainstalowano następujące elem
 
 Korzystając z Azure PowerShell, Utwórz [grupy trybu failover](auto-failover-group-overview.md) między istniejącym serwerem a nowym serwerem w innym regionie. Następnie Dodaj przykładową bazę danych do grupy trybu failover.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
@@ -319,7 +319,7 @@ Ustawienia replikacji geograficznej można także zmienić w Azure Portal, wybie
 
 Uruchom następujące skrypty, aby zasymulować pracę w trybie failover i obserwować wyniki aplikacji. Zwróć uwagę, jak niektóre operacje INSERT i Select będą kończyć się niepowodzeniem podczas migracji bazy danych.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Podczas testu można sprawdzić rolę serwera odzyskiwania po awarii za pomocą następującego polecenia:
 

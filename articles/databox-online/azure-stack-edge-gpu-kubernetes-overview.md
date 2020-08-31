@@ -1,0 +1,116 @@
+---
+title: Omówienie klastra Kubernetes Microsoft Azure Stack na urządzeniu brzegowym | Microsoft Docs
+description: Opisuje, w jaki sposób Kubernetes jest implementowany na urządzeniu brzegowym Azure Stack.
+services: databox
+author: alkohli
+ms.service: databox
+ms.subservice: edge
+ms.topic: conceptual
+ms.date: 08/28/2020
+ms.author: alkohli
+ms.openlocfilehash: b85586a431a20102035e253537fc45c8a8a54796
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89085401"
+---
+# <a name="kubernetes-on-your-azure-stack-edge-device"></a>Kubernetes na urządzeniu brzegowym Azure Stack
+
+Kubernetes to popularna platforma typu "open source" służąca do organizowania aplikacji w kontenerze. Ten artykuł zawiera omówienie Kubernetes, a następnie opisuje sposób, w jaki Kubernetes działa na urządzeniu brzegowym Azure Stack. 
+
+## <a name="about-kubernetes"></a>Informacje o Kubernetes 
+
+Kubernetes zapewnia łatwą i niezawodną platformę do zarządzania aplikacjami opartymi na kontenerach i związanymi z nimi składnikami sieci i magazynu. Możesz szybko tworzyć, dostarczać i skalować aplikacje z kontenerami za pomocą Kubernetes.
+
+Jako otwarta platforma można używać Kubernetes do kompilowania aplikacji przy użyciu preferowanego języka programowania, bibliotek systemu operacyjnego lub magistrali obsługi komunikatów. Do zaplanowania i wdrożenia wydań Kubernetes można zintegrować z istniejącymi narzędziami ciągłej integracji i ciągłego dostarczania.
+
+Aby uzyskać więcej informacji, zobacz [jak działa Kubernetes](https://www.youtube.com/watch?v=q1PcAawa4Bg&list=PLLasX02E8BPCrIhFrc_ZiINhbRkYMKdPT&index=2&t=0s).
+
+## <a name="kubernetes-on-azure-stack-edge"></a>Kubernetes na Azure Stack Edge
+
+Na urządzeniu Azure Stack Edge można utworzyć klaster Kubernetes, konfigurując obliczenia. Po skonfigurowaniu roli obliczeniowej klaster Kubernetes obejmujący węzły główne i procesy robocze są wdrażane i konfigurowane. Ten klaster jest następnie używany do wdrażania obciążeń za pośrednictwem `kubectl` , IoT Edge lub Azure Arc.
+
+Urządzenie brzegowe Azure Stack jest dostępne jako Konfiguracja 1-węzłowa, która stanowi klaster infrastruktury. Klaster Kubernetes jest oddzielony od klastra infrastruktury i wdrażany w oparciu o klaster infrastruktury. Klaster infrastruktury zapewnia trwały magazyn dla Azure Stack urządzenia brzegowego, natomiast klaster Kubernetes jest odpowiedzialny wyłącznie za aranżację aplikacji. 
+
+Klaster Kubernetes w tym przypadku ma węzeł główny i węzeł procesu roboczego. Węzły Kubernetes w klastrze są maszynami wirtualnymi, na których działają aplikacje i przepływy pracy w chmurze. 
+
+Główny węzeł Kubernetes jest odpowiedzialny za utrzymywanie żądanego stanu klastra. Węzeł główny kontroluje również węzeł procesu roboczego, który z kolei uruchamia aplikacje kontenerowe. 
+
+Na poniższym diagramie przedstawiono implementację Kubernetes na 1-węzłowym urządzeniu brzegowym Azure Stack. Urządzenie z 1 węzłem nie ma wysokiej dostępności, a jeśli jeden węzeł ulegnie awarii, urządzenie zostanie wyłączone. Klaster Kubernetes również ulegnie awarii.
+
+![Architektura Kubernetes na 1-Azure Stack węzłowym urządzeniu brzegowym](media/azure-stack-edge-gpu-kubernetes-overview/kubernetes-architecture-1-node.png)
+
+Aby uzyskać więcej informacji na temat architektury klastra Kubernetes, przejdź do [podstawowych pojęć związanych z Kubernetes](https://kubernetes.io/docs/concepts/architecture/).
+
+
+<!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
+
+- *kubeapiserver* that is the front end of the Kubernetes API and exposes the API.
+- *etcd* that is a highly available key value store that backs up all the Kubernetes cluster data.
+- *kube-scheduler* that makes scheduling decisions.
+- *kube-controller-manager* that runs controller processes such as those for node controllers, replications controllers, endpoint controllers, and service account and token controllers. -->
+
+## <a name="storage-volume-provisioning"></a>Inicjowanie obsługi woluminu magazynu
+
+W celu obsługi obciążeń aplikacji można zainstalować woluminy magazynu dla danych trwałych na Azure Stack udziałach urządzeń brzegowych. Mogą być używane woluminy statyczne i dynamiczne. 
+
+Aby uzyskać więcej informacji, zobacz Opcje aprowizacji magazynu dla aplikacji w [Kubernetes Storage dla urządzenia brzegowego Azure Stack](azure-stack-edge-gpu-kubernetes-storage.md).
+
+## <a name="networking"></a>Networking
+
+Usługa Kubernetes Networking pozwala na skonfigurowanie komunikacji w sieci Kubernetes, w tym między innymi sieciami kontenera-kontenerów, sieciami opartymi na usłudze, sieciami i sieciami internetowymi. Aby uzyskać więcej informacji, zobacz model sieci w [sieci Kubernetes dla urządzenia brzegowego Azure Stack](azure-stack-edge-gpu-kubernetes-networking.md).
+
+## <a name="updates"></a>Aktualizacje
+
+Ponieważ nowe wersje Kubernetes staną się dostępne, klaster można uaktualnić przy użyciu standardowych aktualizacji dostępnych dla urządzenia brzegowego Azure Stack. Aby zapoznać się z instrukcjami dotyczącymi sposobu uaktualniania, zobacz [apply Updates for the Azure Stack Edge](azure-stack-edge-gpu-install-update.md).
+
+## <a name="access-monitoring"></a>Dostęp, monitorowanie
+
+Klaster Kubernetes na urządzeniu brzegowym Azure Stack umożliwia kontrolę dostępu opartą na rolach (RBAC). Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach dla klastra Kubernetes na urządzeniu brzegowym Azure Stack](azure-stack-edge-gpu-kubernetes-rbac.md).
+
+Możesz również monitorować kondycję klastra i zasobów za pośrednictwem pulpitu nawigacyjnego Kubernetes. Dzienniki kontenerów są również dostępne. Aby uzyskać więcej informacji, zobacz [Korzystanie z pulpitu nawigacyjnego Kubernetes do monitorowania kondycji klastra Kubernetes na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+
+Azure Monitor jest również dostępna jako dodatek do zbierania danych o kondycji z kontenerów, węzłów i kontrolerów. Aby uzyskać więcej informacji, zobacz [Azure monitor przegląd](../azure-monitor/overview.md)
+
+<!--## Private container registry
+
+Kubernetes on Azure Stack Edge device allows for the private storage of your images by providing a local container registry.-->
+
+## <a name="application-management"></a>Zarządzanie aplikacjami
+
+Po utworzeniu klastra Kubernetes na urządzeniu brzegowym Azure Stack można zarządzać aplikacjami wdrożonymi w tym klastrze za pomocą dowolnej z następujących metod:
+
+- Dostęp natywny za pośrednictwem `kubectl`
+- IoT Edge 
+- Azure Arc
+
+Te metody zostały wyjaśnione w poniższych sekcjach.
+
+
+### <a name="kubernetes-and-kubectl"></a>Kubernetes i polecenia kubectl
+
+Po wdrożeniu klastra Kubernetes można zarządzać aplikacjami wdrożonymi w klastrze lokalnie z komputera klienckiego. Aby korzystać z aplikacji, należy użyć natywnego narzędzia, takiego jak *polecenia kubectl* . 
+
+Aby uzyskać więcej informacji na temat wdrażania klastra Kubernetes, przejdź do [wdrożenia klastra Kubernetes na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Aby uzyskać informacje na temat zarządzania, przejdź do [usługi polecenia kubectl do zarządzania klastrem Kubernetes na urządzeniu brzegowym Azure Stack](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+
+
+### <a name="kubernetes-and-iot-edge"></a>Kubernetes i IoT Edge
+
+Kubernetes można także zintegrować z obciążeniami IoT Edge na Azure Stack urządzeniu brzegowym, gdzie Kubernetes zapewnia skalę, a ekosystem i IoT zapewniają ekosystem skoncentrowany na IoT. Warstwa Kubernetes jest używana jako warstwa infrastruktury do wdrażania obciążeń Azure IoT Edge. Okres istnienia modułu i równoważenie obciążenia sieciowego są zarządzane przez program Kubernetes, podczas gdy platforma aplikacji brzegowych jest zarządzana przez IoT Edge.
+
+Aby uzyskać więcej informacji na temat wdrażania aplikacji w klastrze Kubernetes za pomocą IoT Edge, przejdź do: 
+
+- [Uwidacznianie bezstanowych aplikacji na Azure Stack urządzeniu brzegowym za pośrednictwem IoT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+
+
+### <a name="kubernetes-and-azure-arc"></a>Kubernetes i Azure — łuk
+
+Azure Arc to narzędzie do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Usługa Azure Arc umożliwia także używanie Azure Monitor do kontenerów do wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure-Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview). Aby uzyskać informacje na temat cen usługi Azure ARC, przejdź do [cennika usługi Azure Arc](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+
+## <a name="next-steps"></a>Następne kroki
+
+- Dowiedz się więcej o magazynie Kubernetes na [urządzeniu Azure Stack Edge](azure-stack-edge-gpu-kubernetes-storage.md).
+- Poznaj model sieci Kubernetes na [urządzeniu Azure Stack Edge](azure-stack-edge-gpu-kubernetes-networking.md).
+- Wdróż [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) w Azure Portal.

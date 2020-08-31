@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049251"
+ms.locfileid: "89068630"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Dostęp warunkowy: Blokuj starsze uwierzytelnianie
 
@@ -37,7 +37,7 @@ Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz pozycję **wszystkie aplikacje w chmurze**.
    1. Kliknij **Gotowe**.
 1. W obszarze **warunki**  >  **aplikacje klienckie**ustaw opcję **Skonfiguruj** na **wartość tak**.
-   1. Sprawdź tylko pola **klienci programu Exchange ActiveSync** i **innych klientów**.
+   1. Sprawdź tylko pola **klienci programu Exchange ActiveSync** i **innych klientów**. Aby wdrożyć zasady dostępu warunkowego programu Exchange ActiveSync na platformie Azure, użytkownik musi być również administratorem globalnym.
    1. Kliknij **Gotowe**.
 1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz opcję **Blokuj dostęp**.
    1. Wybierz pozycję **Wybierz**.

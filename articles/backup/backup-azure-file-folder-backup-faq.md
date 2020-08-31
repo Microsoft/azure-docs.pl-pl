@@ -3,12 +3,12 @@ title: Agent Microsoft Azure Recovery Services (MARS) — często zadawane pytan
 description: Rozwiązuje często zadawane pytania dotyczące tworzenia kopii zapasowych plików i folderów za pomocą Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: ca2753e4d6da7e2e3079f234a3facac27fd5f098
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874626"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144468"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Często zadawane pytania — agent Microsoft Azure Recovery Services (MARS)
 
@@ -22,7 +22,7 @@ Najnowszy Agent MARS używany podczas tworzenia kopii zapasowych komputerów z s
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>Gdzie można pobrać plik poświadczeń magazynu?
 
-W Azure Portal przejdź do **Właściwości** magazynu. W obszarze **poświadczenia kopii zapasowej**zaznacz pole wyboru za **pomocą najnowszego agenta Recovery Services**. Kliknij pozycję **Pobierz**.
+W Azure Portal przejdź do **Właściwości** magazynu. W obszarze **poświadczenia kopii zapasowej**zaznacz pole wyboru za **pomocą najnowszego agenta Recovery Services**. Wybierz pozycję **Pobierz**.
 
 ![Pobierz poświadczenia](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -109,7 +109,7 @@ Rozmiar folderu pamięci podręcznej określa ilość danych, których kopia zap
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Jak sprawdzić, czy folder z katalogiem tymczasowym jest prawidłowy i dostępny?
 
-1. Domyślnie folder tymczasowy znajduje się w lokalizacji`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+1. Domyślnie folder tymczasowy znajduje się w lokalizacji `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Upewnij się, że ścieżka lokalizacji folderu tymczasowego jest zgodna z wartościami wpisów kluczy rejestru wymienionych poniżej:
 
     | Ścieżka rejestru | Klucz rejestru | Wartość |
@@ -123,7 +123,7 @@ Rozmiar folderu pamięci podręcznej określa ilość danych, których kopia zap
 
     ```Net stop obengine```
 2. Jeśli skonfigurowano kopię zapasową stanu systemu, Otwórz przystawkę Zarządzanie dyskami i Odinstaluj dyski z nazwami w formacie `"CBSSBVol_<ID>"` .
-3. Domyślnie folder tymczasowy znajduje się w lokalizacji`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+3. Domyślnie folder tymczasowy znajduje się w lokalizacji `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Skopiuj cały `\Scratch` folder na inny dysk, na którym jest wystarczająca ilość miejsca. Upewnij się, że zawartość jest kopiowana, a nie przeniesiona.
 5. Zaktualizuj następujące wpisy rejestru ze ścieżką nowo przeniesionego folderu tymczasowego.
 
@@ -199,7 +199,7 @@ Jeśli masz takie samo hasło (podane podczas rejestracji) oryginalnego komputer
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Zadania tworzenia kopii zapasowej kończą się niepowodzeniem lub nie działają przez długi czas. Upłynął okres przechowywania. Czy nadal mogę przywrócić?
 
-Ze względów bezpieczeństwa Azure Backup zachowuje ostatni punkt odzyskiwania, nawet jeśli jest wcześniejszy niż okres przechowywania. Po wznowieniu tworzenia kopii zapasowych i udostępnieniu nowych punktów odzyskiwania starszy punkt odzyskiwania zostanie usunięty zgodnie z określonym przechowywaniem.
+Ze względu na bezpieczeństwo, Azure Backup będzie zachować najnowszy punkt odzyskiwania, nawet jeśli jest wcześniejszy niż okres przechowywania. Po wznowieniu tworzenia kopii zapasowych i udostępnieniu nowych punktów odzyskiwania starszy punkt odzyskiwania zostanie usunięty zgodnie z określonym przechowywaniem.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Co się stanie w przypadku anulowania trwającego zadania przywracania?
 

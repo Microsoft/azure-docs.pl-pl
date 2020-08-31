@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 32905383b046148893492640fe42fc721d1944dd
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4d4f6ff7819ef3cd0cf8e6a4c504a9b89dd5fda9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810245"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070670"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Podstawa zabezpieczeń platformy Azure dla Azure Functions
 
@@ -179,7 +179,7 @@ Alternatywnie istnieje wiele opcji portalu Marketplace, takich jak Barracuda WAF
 - aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS
 - Najnowsza wersja protokołu TLS powinna być używana w aplikacja funkcji
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) na platformie Azure i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
@@ -595,9 +595,9 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj funkcji kontroli dostępu opartej na ROLACH (RBAC) w usłudze Azure Active Directory (AD), aby kontrolować dostęp do płaszczyzny kontroli funkcji platformy Azure (Azure Portal). 
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli funkcji platformy azure (Azure Portal). 
 
-- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -896,7 +896,7 @@ Jak utworzyć wewnętrzny ASE:
 
 **Wskazówki**: bezpieczne przechowywanie i zarządzanie szablonami ARM oraz niestandardowymi definicjami zasad platformy Azure w kontroli źródła.
 
-- [Czym jest infrastruktura jako kod](/azure/devops/learn/what-is-infrastructure-as-code)
+- [Co to jest infrastruktura jako kod](/azure/devops/learn/what-is-infrastructure-as-code)
 
 - [Projektowanie zasad jako przepływów pracy kodu](../governance/policy/concepts/policy-as-code.md)
 

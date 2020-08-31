@@ -11,12 +11,12 @@ metadata:
   author: bmitchell287
   ms.author: brendm
   ms.date: 09/26/2019
-  ms.openlocfilehash: fd012e58928b7844b122a826769167cb525f5ba1
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 277d058427cc9527e6ed71ed252a4930489353fd
+  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77138194"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89049897"
 landingContent:
 - title: Informacje o usłudze Azure Spring Cloud
   linkLists:
@@ -30,10 +30,10 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Uruchamianie aplikacji Java Spring przy użyciu portalu
-      url: spring-cloud-quickstart-launch-app-portal.md
-    - text: Uruchamianie aplikacji Java Spring przy użyciu interfejsu wiersza polecenia platformy Azure
-      url: spring-cloud-quickstart-launch-app-cli.md
+    - text: Szybki start — wdrażanie pierwszej aplikacji w usłudze Azure Spring Cloud
+      url: spring-cloud-quickstart.md
+    - text: Wprowadzenie do aplikacji przykładowej Piggy Metrics
+      url: spring-cloud-quickstart-sample-app-introduction.md
   - linkListType: tutorial
     links:
     - text: Przygotowywanie aplikacji Java Spring do wdrożenia
@@ -76,7 +76,7 @@ landingContent:
       url: spring-cloud-tutorial-bind-mysql.md
     - text: Wiązanie aplikacji z usługą Azure CosmosDB
       url: spring-cloud-tutorial-bind-cosmos.md
-- title: Dokumentacja interfejsu API
+- title: Odwołanie API
   linkLists:
   - linkListType: reference
     links:

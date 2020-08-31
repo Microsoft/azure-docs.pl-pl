@@ -212,16 +212,10 @@
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Błąd zgody użytkownika
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problemy podczas logowania się z poziomu niestandardowego portalu
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problemy podczas logowania się z poziomu panelu dostępu
+            - name: Problemy podczas logowania się z poziomu sekcji Moje aplikacje
               href: application-sign-in-other-problem-access-panel.md
             - name: Błąd na stronie logowania aplikacji
               href: application-sign-in-problem-application-error.md
-            - name: Problem z logowaniem jednokrotnym przy użyciu hasła — aplikacja spoza galerii
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: Problem z logowaniem jednokrotnym przy użyciu hasła — aplikacja z galerii
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problem podczas logowania się do aplikacji firmy Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
             - name: Problem z federacyjnym logowaniem jednokrotnym — aplikacja spoza galerii
@@ -232,14 +226,12 @@
               href: application-sign-in-problem-custom-dev.md
         - name: Rozwiązywanie problemów z logowaniem jednokrotnym
           items:
+            - name: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach
+              href: troubleshoot-password-based-sso.md
             - name: Typowe problemy podczas konfigurowania federacji — aplikacje z galerii
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: Typowe problemy podczas konfigurowania federacji — aplikacje spoza galerii
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: Typowe problemy podczas konfigurowania hasła — aplikacje z galerii
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: Typowe problemy podczas konfigurowania hasła — aplikacje spoza galerii
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Rozwiązywanie problemów z listą aplikacji i przypisaniem
           items:
             - name: Zarządzanie listą aplikacji dla Twojej dzierżawy
@@ -248,16 +240,10 @@
               href: ways-users-get-assigned-to-applications.md
         - name: Rozwiązywanie problemów z sekcją Moje aplikacje
           items:
-            - name: Zarządzanie rozszerzeniem przeglądarki
-              href: manage-access-panel-browser-extension.md
             - name: Aplikacja nie jest wyświetlana
               href: access-panel-troubleshoot-application-not-appearing.md
             - name: Nieoczekiwane wyświetlanie aplikacji
               href: access-panel-troubleshoot-unexpected-application.md
-            - name: Nie można się zalogować
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Błąd podczas używania dostępu do aplikacji samoobsługowej
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Rozwiązywanie problemów z aplikacjami lokalnymi
           items:
             - name: Rozwiązywanie problemów z serwerem proxy aplikacji

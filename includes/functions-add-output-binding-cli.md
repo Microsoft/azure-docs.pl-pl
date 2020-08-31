@@ -16,7 +16,7 @@ ms.locfileid: "80673344"
 Chociaż funkcja może mieć tylko jeden wyzwalacz, może mieć wiele powiązań wejściowych i wyjściowych, które umożliwiają łączenie się z innymi usługami i zasobami platformy Azure bez konieczności pisania niestandardowego kodu integracji. 
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-Te powiązania deklaruje się w pliku *Function. JSON* w folderze funkcji. Z poprzedniego przewodnika Szybki Start plik *Function. JSON* w folderze *HttpExample* zawiera dwa powiązania w `bindings` kolekcji:  
+Te powiązania należy zadeklarować w *function.js* pliku w folderze funkcji. Z poprzedniego przewodnika Szybki Start *function.js* w pliku w folderze *HttpExample* zawiera dwa powiązania w `bindings` kolekcji:  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -32,33 +32,33 @@ Te powiązania deklaruje się w pliku *Function. JSON* w folderze funkcji. Z pop
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript, programming-language-powershell, programming-language-typescript"  
-Każde powiązanie ma co najmniej typ, kierunek i nazwę. W powyższym przykładzie pierwsze powiązanie jest typu `httpTrigger` z kierunkiem. `in` Dla `in` kierunku `name` określa nazwę parametru wejściowego, który jest wysyłany do funkcji po wywołaniu przez wyzwalacz.  
+Każde powiązanie ma co najmniej typ, kierunek i nazwę. W powyższym przykładzie pierwsze powiązanie jest typu `httpTrigger` z kierunkiem `in` . Dla `in` kierunku `name` określa nazwę parametru wejściowego, który jest wysyłany do funkcji po wywołaniu przez wyzwalacz.  
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Drugie powiązanie w kolekcji ma nazwę `res`. To `http` powiązanie jest powiązaniem wyjściowym`out`(), które jest używane do zapisywania odpowiedzi HTTP. 
+Drugie powiązanie w kolekcji ma nazwę `res` . To `http` powiązanie jest powiązaniem wyjściowym ( `out` ), które jest używane do zapisywania odpowiedzi HTTP. 
 
-Aby zapisać do kolejki usługi Azure Storage przy użyciu tej funkcji, Dodaj `out` powiązanie typu `queue` z nazwą `msg`, jak pokazano w poniższym kodzie:
+Aby zapisać do kolejki usługi Azure Storage przy użyciu tej funkcji, Dodaj `out` powiązanie typu `queue` z nazwą `msg` , jak pokazano w poniższym kodzie:
 
 :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
-Drugie powiązanie `http` w kolekcji jest typu z kierunkiem `out`, a w takim przypadku specjalna `name` wartość `$return` wskazuje, że to powiązanie używa wartości zwracanej funkcji zamiast dostarczać parametr wejściowy.
+Drugie powiązanie w kolekcji jest typu `http` z kierunkiem `out` , a w takim przypadku specjalna `name` `$return` wartość wskazuje, że to powiązanie używa wartości zwracanej funkcji zamiast dostarczać parametr wejściowy.
 
-Aby zapisać do kolejki usługi Azure Storage przy użyciu tej funkcji, Dodaj `out` powiązanie typu `queue` z nazwą `msg`, jak pokazano w poniższym kodzie:
+Aby zapisać do kolejki usługi Azure Storage przy użyciu tej funkcji, Dodaj `out` powiązanie typu `queue` z nazwą `msg` , jak pokazano w poniższym kodzie:
 
 :::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  
-Drugie powiązanie w kolekcji ma nazwę `res`. To `http` powiązanie jest powiązaniem wyjściowym`out`(), które jest używane do zapisywania odpowiedzi HTTP. 
+Drugie powiązanie w kolekcji ma nazwę `res` . To `http` powiązanie jest powiązaniem wyjściowym ( `out` ), które jest używane do zapisywania odpowiedzi HTTP. 
 
-Aby zapisać do kolejki usługi Azure Storage przy użyciu tej funkcji, Dodaj `out` powiązanie typu `queue` z nazwą `msg`, jak pokazano w poniższym kodzie:
+Aby zapisać do kolejki usługi Azure Storage przy użyciu tej funkcji, Dodaj `out` powiązanie typu `queue` z nazwą `msg` , jak pokazano w poniższym kodzie:
 
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-W tym przypadku `msg` jest przyznany do funkcji jako argument wyjściowy. Dla `queue` typu należy również określić nazwę kolejki w `queueName` i podać *nazwę* połączenia usługi Azure Storage (z pliku *Local. Settings. JSON*) w `connection`temacie. 
+W tym przypadku `msg` jest przyznany do funkcji jako argument wyjściowy. Dla `queue` typu należy również określić nazwę kolejki w `queueName` i podać *nazwę* połączenia usługi Azure Storage (z *local.settings.json*) w temacie `connection` . 
 ::: zone-end  
