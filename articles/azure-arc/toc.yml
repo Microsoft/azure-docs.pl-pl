@@ -3,7 +3,7 @@
 - name: Omówienie
   items:
     - name: Informacje o usłudze Azure Arc
-      href: arc-overview.md
+      href: overview.md
 - name: Serwery z obsługą usługi Arc >
   href: ./servers/overview.md
 - name: Platforma Kubernetes z obsługą usługi Arc >

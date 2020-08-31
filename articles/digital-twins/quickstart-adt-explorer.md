@@ -1,5 +1,5 @@
 ---
-title: Eksploruj przykładowy scenariusz
+title: Zapoznawanie się z przykładowym scenariuszem
 titleSuffix: Azure Digital Twins
 description: Użyj przykładu ADT Explorer, aby wizualizować i eksplorować wstępnie skompilowany scenariusz.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 6b0a024dde1c96610a637ec51fd29e4a23dadc53
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008560"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055468"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Eksplorowanie przykładowego scenariusza usługi Azure Digital bliźniaczych reprezentacji za pomocą Eksploratora ADT
 
@@ -26,6 +26,10 @@ Przewodnik Szybki Start zawiera następujące główne kroki:
 1. Przekazywanie wstępnie utworzonych modeli i danych grafu w celu skonstruowania przykładowego scenariusza
 1. Eksplorowanie grafu scenariusza, który został utworzony
 1. Wprowadzanie zmian do grafu
+
+Przykładowy Graf, z którym będziesz pracować, reprezentuje Kompilowanie z dwiema podłogami i dwoma pomieszczeń. Wykres będzie wyglądać następująco:
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Widok grafu przedstawiający 4 węzły cykliczne połączone za pomocą strzałek. Okrąg oznaczony etykietą "Floor1" jest połączony przez strzałkę o nazwie "Contains" z kółkiem o nazwie "Room1"; okrąg oznaczony etykietą "Floor0" jest połączony przez strzałkę o nazwie "Contains" z kółkiem o nazwie "Room0". "Floor1" i "Floor0" nie są połączone.":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,7 +60,7 @@ Następnie przygotuj utworzone wystąpienie usługi Azure Digital bliźniaczych 
 
 Wybierz pozycję *uwierzytelnianie* z menu Rejestracja i naciśnij pozycję *+ Dodaj platformę*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Azure Portal stronie szczegółów uwierzytelniania dla rejestracji aplikacji. Zostanie wyróżniony przycisk Dodaj platformę" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Azure Portal stronie szczegółów uwierzytelniania dla rejestracji aplikacji. Zostanie wyróżniony przycisk "Dodaj platformę"" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 Na stronie *Konfigurowanie platform* poniżej wybierz pozycję *Sieć Web*.
 Wypełnij szczegóły konfiguracji w następujący sposób:
@@ -137,14 +141,14 @@ W polu *Widok modelu* kliknij ikonę *Przekaż model* .
 3. Postępuj zgodnie z wyskakującym oknem dialogowym z prośbą o zalogowanie się do konta platformy Azure.
 
 >[!NOTE]
->Jeśli zostanie wyświetlony następujący komunikat o błędzie: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Odczyt podręczny błąd: błąd podczas pobierania modeli: ClientAuthError: błąd otwierania okna podręcznego. Taka sytuacja może wystąpić, jeśli używasz programu IE lub w przeglądarce są blokowane okienka wyskakujące." border="false"::: 
+>Jeśli zostanie wyświetlony następujący komunikat o błędzie: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Odczyt podręczny "błąd: błąd podczas pobierania modeli: ClientAuthError: błąd otwierania okna podręcznego. Taka sytuacja może wystąpić, jeśli używasz programu IE lub w przeglądarce są blokowane okienka wyskakujące." border="false"::: 
 > Spróbuj wyłączyć blokowanie wyskakujących okienek lub użyć innej przeglądarki.
 
 Program ADT Explorer przekaże teraz te pliki modelu do wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Powinny one być wyświetlane w polu *Widok modelu* , wyświetlając ich przyjazne nazwy i pełne identyfikatory modeli. Możesz kliknąć bąbelki informacje o *modelu* , aby zobaczyć kod DTDL za nimi.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Widok pola model widoku z dwoma definicjami modelu wymienionymi w obszarze (dtmi: example; 1) i pokoju (dtmi: przykład: Pokój; 1). Ikona widok modelu przedstawiająca literę i w okręgu jest wyróżniona dla każdego modelu." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Widok pola "model widoku" z dwoma definicjami modelu wymienionymi w obszarze (dtmi: example; 1) i pokoju (dtmi: przykład: Pokój; 1). Ikona "widok modelu" przedstawiająca literę "i" w okręgu jest wyróżniona dla każdego modelu." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -188,7 +192,7 @@ Eksplorator ADT będzie teraz używał przekazanego pliku do utworzenia żądane
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik Import został pomyślnie odczytany. 49 bliźniaczych reprezentacji zaimportowano. 50 relacji importowanych." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik "Import" został pomyślnie odczytany. 49 bliźniaczych reprezentacji zaimportowano. 50 relacji importowanych. '" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -198,7 +202,7 @@ Eksplorator ADT będzie teraz używał przekazanego pliku do utworzenia żądane
 
 Wykres został teraz przekazany do Eksploratora ADT. Aby wyświetlić wykres, należy kliknąć przycisk *Uruchom zapytanie* w oknie *Eksplorator wykresu* w górnej części okna Eksploratora ADT. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu uruchom zapytanie w górnej części okna" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu "uruchom zapytanie" w górnej części okna" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 Spowoduje to uruchomienie zapytania domyślnego w celu wybrania i wyświetlenia wszystkich bliźniaczych reprezentacji cyfrowych. Eksplorator ADT pobiera wszystkie bliźniaczych reprezentacji i relacje z usługi i rysuje wykres zdefiniowany przez nich w polu *Widok wykresu* .
 
@@ -206,7 +210,7 @@ Spowoduje to uruchomienie zapytania domyślnego w celu wybrania i wyświetlenia 
 
 Teraz można zobaczyć przekazany Graf przykładowego scenariusza:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Widok widok wykresu z wykresem bliźniaczym wewnątrz. Okrąg oznaczony etykietą floor1 jest połączony przez strzałkę o nazwie Contains z kółkiem o nazwie room1; okrąg oznaczony etykietą floor0 jest połączony przez strzałkę o nazwie Contains z kółkiem o nazwie room0.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Widok "widok wykresu" z wykresem bliźniaczym wewnątrz. Okrąg oznaczony etykietą "floor1" jest połączony przez strzałkę o nazwie "Contains" z kółkiem o nazwie "room1"; okrąg oznaczony etykietą "floor0" jest połączony przez strzałkę o nazwie "Contains" z kółkiem o nazwie "room0".":::
 
 Okręgi ("węzły grafu") reprezentują bliźniaczych reprezentacjiy cyfrowe, a wiersze reprezentują relacje. Zobaczysz, że *Floor0* bliźniaczy zawiera *Room0*, a *Floor1a* zawiera *Room1*.
 
@@ -220,7 +224,7 @@ Oto właściwości *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Zaznacz wokół pola Eksplorator właściwości właściwości Room0, w tym (między innymi) pole $dtId Room0, pole temperatury 70 i pole wilgotności 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Zaznacz wokół pola "Eksplorator właściwości" właściwości Room0, w tym (między innymi) pole $dtId "Room0", pole temperatury 70 i pole wilgotności 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -232,7 +236,7 @@ Oto właściwości *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Zaznacz wokół pola Eksplorator właściwości właściwości Room1, w tym (między innymi) pole $dtId Room1, pole temperatury 80 i pole wilgotności 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Zaznacz wokół pola "Eksplorator właściwości" właściwości Room1, w tym (między innymi) pole $dtId "Room1", pole temperatury 80 i pole wilgotności 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -271,7 +275,7 @@ Właściwości na tej liście są edytowalne. Wybierz wartość temperatury **70
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Pole Eksplorator właściwości wyświetla właściwości dla Room0. Wartość temperatury jest polem edytowalnym pokazującym 76 i wyróżnieniem wokół ikony zapisywania." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Pole "Eksplorator właściwości" wyświetla właściwości dla Room0. Wartość temperatury jest polem edytowalnym pokazującym 76 i wyróżnieniem wokół ikony zapisywania." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -314,7 +318,7 @@ Jeśli planujesz kontynuować korzystanie z samouczków Digital bliźniaczych re
 
 Na koniec Usuń przykładowe foldery projektu pobrane na maszynę lokalną (_**ADT_Explorer.zip**_ i _**Azure_Digital_Twins_samples.zip**_).
 
-## <a name="next-steps"></a>Kolejne kroki 
+## <a name="next-steps"></a>Następne kroki 
 
 Następnie przejdź do samouczków Digital bliźniaczych reprezentacji systemu Azure, aby utworzyć własny scenariusz i narzędzia interakcji dotyczące platformy Azure Digital bliźniaczych reprezentacji.
 

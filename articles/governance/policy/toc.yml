@@ -167,7 +167,11 @@
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Rozwiązywanie problemów
-  href: ./troubleshoot/general.md
+  items:
+    - name: Typowe problemy
+      href: ./troubleshoot/general.md
+    - name: Znane problemy
+      href: 'https://github.com/azure/azure-policy#known-issues'
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -189,9 +193,9 @@
     - name: Zestaw Azure SDK dla języka Java
       items:
         - name: Przypisania
-          href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.policyassignment
         - name: Definicje zasad
-          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
     - name: Zestaw Azure SDK dla języka JavaScript
       items:
         - name: Zasady
@@ -234,31 +238,45 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Zasoby
   items:
-    - name: Znane problemy
-      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: GitHub — przykłady dla usługi Azure Policy
       href: 'https://github.com/Azure/azure-policy'
-    - name: GitHub — repozytorium Community-Policy
-      href: 'https://github.com/Azure/Community-Policy'
-    - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Policy
-      href: /answers/topics/azure-policy.html
-    - name: Kanał dotyczący nadzoru w usłudze YouTube
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Konfiguracja gościa — filmy
+    - name: Narzędzia społeczności
       items:
-        - name: Getting Started
-          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-        - name: Informacje o inicjatywach
-          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-        - name: Przypisywanie zasad
-          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-        - name: Zadanie korygowania
-          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: Klip wideo — konferencja Ignite 2019
-      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: GitHub — repozytorium Community-Policy
+          href: 'https://github.com/Azure/Community-Policy'
+        - name: Akcja usługi GitHub służąca do skanowania pod kątem zgodności z usługą Azure Policy
+          href: 'https://github.com/marketplace/actions/azure-policy-compliance-scan'
+        - name: Pulpit nawigacyjny ładu Azure dla dyrektora CCO
+          href: 'https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages'
+        - name: AzAdvertizer
+          href: 'https://www.azadvertizer.net/'
+        - name: Wizualizator ładu Azure
+          href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+    - name: Opinie i pomoc techniczna
+      items:
+        - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Policy
+          href: /answers/topics/azure-policy.html
+        - name: Bilet pomocy technicznej platformy Azure
+          href: 'https://azure.microsoft.com/support/create-ticket/'
+        - name: UserVoice
+          href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'
+    - name: Filmy wideo
+      items:
+        - name: Kanał dotyczący nadzoru w usłudze YouTube
+          href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+        - name: Klip wideo — konferencja Ignite 2019
+          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: Konfiguracja gościa — filmy
+          items:
+            - name: Getting Started
+              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
+            - name: Informacje o inicjatywach
+              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
+            - name: Przypisywanie zasad
+              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
+            - name: Zadanie korygowania
+              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'

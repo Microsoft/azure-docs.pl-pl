@@ -19,8 +19,8 @@ func new --name HttpExample --template "HTTP trigger"
 ```  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-`func new`tworzy plik kodu HttpExample.cs.
+`func new` tworzy plik kodu HttpExample.cs.
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
-`func new`tworzy podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *Function. JSON*.
+`func new` tworzy podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
 ::: zone-end

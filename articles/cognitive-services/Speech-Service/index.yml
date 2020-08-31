@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 74fd89633e4add1c577e44b822f1f90a86b3f498
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.openlocfilehash: 17cc7914c8e02d3b38e2527e1c0bff3afb885b0b
+  ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88167780"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89055100"
 highlightedContent:
   items:
   - title: Czym jest usługa rozpoznawania mowy?
@@ -65,15 +65,12 @@ conceptualContent:
       url: index-text-to-speech.yml
   - title: Tłumaczenie mowy
     links:
+    - itemType: overview
+      text: Informacje o tłumaczeniu mowy
+      url: speech-translation.md
     - itemType: quickstart
-      text: Tłumaczenie mowy na tekst
-      url: quickstarts/translate-speech-to-text.md
-    - itemType: quickstart
-      text: Tłumaczenie mowy na wiele języków
-      url: quickstarts/translate-speech-to-text-multiple-languages.md
-    - itemType: how-to-guide
-      text: Podstawy tłumaczenia mowy
-      url: speech-translation-basics.md
+      text: Wprowadzenie do tłumaczenia mowy
+      url: get-started-speech-translation.md
     footerLink:
       text: Więcej
       url: index-speech-translation.yml

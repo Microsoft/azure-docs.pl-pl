@@ -29,16 +29,16 @@ W tej sekcji utworzysz aplikację funkcji i powiązane zasoby w ramach subskrypc
 
     + **Wybierz subskrypcję**: wybierz subskrypcję do użycia. Nie zobaczysz tego, jeśli masz tylko jedną subskrypcję.
 
-    + **Wybierz Aplikacja funkcji na platformie Azure**: `+ Create new Function App`wybierz opcję. (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
+    + **Wybierz Aplikacja funkcji na platformie Azure**: wybierz opcję `+ Create new Function App` . (Nie należy wybierać `Advanced` opcji, która nie jest objęta tym artykułem).
       
     + **Wprowadź globalnie unikatową nazwę aplikacji funkcji**: wpisz nazwę, która jest prawidłowa w ścieżce URL. Wpisana nazwa zostanie sprawdzona, aby upewnić się, że jest ona unikatowa w Azure Functions. 
     
     ::: zone pivot="programming-language-python"
-    + **Wybierz środowisko uruchomieniowe**: Wybierz wersję języka Python, która była uruchomiona lokalnie. Możesz użyć polecenia, `python --version` aby sprawdzić wersję.
+    + **Wybierz środowisko uruchomieniowe**: Wybierz wersję języka Python, która była uruchomiona lokalnie. Możesz użyć polecenia, `python --version` Aby sprawdzić wersję.
     ::: zone-end
 
     ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    + **Wybierz środowisko uruchomieniowe**: Wybierz wersję środowiska Node. js, która została uruchomiona lokalnie. Możesz użyć polecenia, `node --version` aby sprawdzić wersję.
+    + **Wybierz środowisko uruchomieniowe**: wybierz wersję Node.js, która była uruchomiona lokalnie. Możesz użyć polecenia, `node --version` Aby sprawdzić wersję.
     ::: zone-end
 
     + **Wybierz lokalizację dla nowych zasobów**: Aby uzyskać lepszą wydajność, wybierz [region](https://azure.microsoft.com/regions/) w sąsiedztwie. 

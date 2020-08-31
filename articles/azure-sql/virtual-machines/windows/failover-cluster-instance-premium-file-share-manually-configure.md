@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: befab4dfb8d414743b70c535d041112bd9ccb700
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: cbc6b2af98905a09324a58c92cafca0075d8a01d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964162"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055145"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Tworzenie FCI z udziałem plików w warstwie Premium (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Przed wykonaniem instrukcji przedstawionych w tym artykule należy posiadać nas
 1. Użyj Remote Desktop Protocol (RDP), aby nawiązać połączenie z maszyną wirtualną SQL Server przy użyciu konta, które będzie używane przez SQL Server FCI dla konta usługi.
 1. Otwórz konsolę administracyjną poleceń programu PowerShell.
 1. Uruchom polecenia zapisane wcześniej podczas pracy z portalem.
-1. Przejdź do udziału za pomocą Eksploratora plików lub okna dialogowego **Uruchamianie** (wybierz pozycję Windows + R). Użyj ścieżki sieciowej `\\storageaccountname.file.core.windows.net\filesharename` . Na przykład: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Przejdź do udziału za pomocą Eksploratora plików lub okna dialogowego **Uruchamianie** (wybierz pozycję Windows + R). Użyj ścieżki sieciowej `\\storageaccountname.file.core.windows.net\filesharename` . Na przykład `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Utwórz co najmniej jeden folder w nowo połączonym udziale plików, w którym mają zostać umieszczone pliki danych SQL.
 1. Powtórz te kroki na każdej maszynie SQL Server VM, która będzie uczestniczyć w klastrze.
@@ -90,15 +90,15 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz pozycję **Next** (Dalej).
 1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
 1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz pozycję **Next** (Dalej).
 1. W obszarze **wybór testu**zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania**, jak pokazano poniżej:
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Wybierz testy weryfikacji klastra":::
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz pozycję **Next** (Dalej).
 1. W obszarze **potwierdzenie**wybierz pozycję **dalej**.
 
 Kreator **weryfikacji konfiguracji** uruchamia testy weryfikacyjne.
@@ -204,7 +204,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurowanie łączności 
 
-Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Możesz utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 i systemu Windows Server 2019, możesz zamiast tego wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
+Aby skierować ruch odpowiednio do bieżącego węzła podstawowego, należy skonfigurować opcję łączności, która jest odpowiednia dla danego środowiska. Można utworzyć [moduł równoważenia obciążenia platformy Azure](hadr-vnn-azure-load-balancer-configure.md) lub, jeśli używasz SQL Server 2019 i systemu Windows Server 2016 (lub nowszego), zamiast tego można wyświetlić podgląd funkcji [nazwy sieci rozproszonej](hadr-distributed-network-name-dnn-configure.md) . 
 
 ## <a name="limitations"></a>Ograniczenia
 

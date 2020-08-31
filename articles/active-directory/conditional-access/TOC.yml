@@ -33,8 +33,6 @@
           href: concept-conditional-access-grant.md
         - name: Sesja
           href: concept-conditional-access-session.md
-    - name: Analizy i raportowanie
-      href: howto-conditional-access-insights-reporting.md
     - name: Tryb samego raportu
       href: concept-conditional-access-report-only.md
     - name: Zależności usługi
@@ -78,6 +76,8 @@
           href: howto-conditional-access-policy-block-access.md
     - name: Blokowanie starszego uwierzytelniania
       href: block-legacy-authentication.md
+    - name: Konfigurowanie trybu tylko raportowania
+      href: howto-conditional-access-insights-reporting.md
     - name: Wymaganie zatwierdzonych aplikacji klienckich
       href: app-based-conditional-access.md
     - name: Wymaganie zasad ochrony aplikacji
@@ -88,12 +88,8 @@
       href: untrusted-networks.md
     - name: Wymaganie warunków użytkowania
       href: terms-of-use.md
-    - name: Konfigurowanie trybu samego raportu
-      href: howto-conditional-access-report-only.md
     - name: Kontrolki częstotliwości logowania i trwałości przeglądarki
       href: howto-conditional-access-session-lifetime.md
-    - name: Migrowanie zasad klasycznych
-      href: policy-migration-mfa.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z logowaniem
@@ -102,6 +98,8 @@
           href: troubleshoot-conditional-access-what-if.md
         - name: Często zadawane pytania
           href: faqs.md
+    - name: Migrowanie zasad klasycznych
+      href: policy-migration-mfa.md
 - name: Dokumentacja
   items:
     - name: Interfejsy Graph API w wersji beta

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607143"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055672"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Pulpit nawigacyjny usługi Marketplace Insights w centrum partnerskim
 
@@ -67,6 +67,9 @@ Wyświetlaj komercyjne wskaźniki rynkowe na różne sposoby:
 ## <a name="marketplace-insights-summary"></a>Podsumowanie informacji o portalu Marketplace
 
 Sekcja podsumowania usługi Marketplace Insights zawiera liczbę **odwiedzin stron**, **wywołań akcji**i **unikatowych odwiedzających** dla wybranego zakresu dat.
+
+>[!NOTE]
+>Pulpit nawigacyjny usługi Marketplace Insights zawiera dane strumienia kliknięć, które nie powinny być skorelowane z potencjalnymi klientami wygenerowanymi w docelowym punkcie końcowym lidera.
 
 ### <a name="page-visits"></a>Wizyty stron
 

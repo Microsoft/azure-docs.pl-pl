@@ -11,17 +11,17 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673303"
 ---
-W projekcie Java powiązania są zdefiniowane jako adnotacje wiążące dla metody Function. Plik *Function. JSON* jest następnie generowany automatycznie na podstawie tych adnotacji.
+W projekcie Java powiązania są zdefiniowane jako adnotacje wiążące dla metody Function. *function.jsna* pliku jest następnie generowany automatycznie na podstawie tych adnotacji.
 
-Przejdź do lokalizacji kodu funkcji w obszarze _src/Main/Java_, Otwórz plik projektu *Functions. Java* i Dodaj następujący parametr do definicji `run` metody:
+Przejdź do lokalizacji kodu funkcji w obszarze _src/Main/Java_, Otwórz plik projektu *Functions. Java* i Dodaj następujący parametr do `run` definicji metody:
 
 ```java
 @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
 ```
 
-`msg` Parametr jest [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) typem, który reprezentuje kolekcję ciągów, które są zapisywane jako komunikaty do powiązania danych wyjściowych po zakończeniu działania funkcji. W takim przypadku dane wyjściowe są kolejki magazynu o nazwie `outqueue`. Parametry połączenia dla konta magazynu są ustawiane przez `connection` metodę. Zamiast parametrów połączenia należy przekazać ustawienie aplikacji, które zawiera parametry połączenia konta magazynu.
+`msg`Parametr jest [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) typem, który reprezentuje kolekcję ciągów, które są zapisywane jako komunikaty do powiązania danych wyjściowych po zakończeniu działania funkcji. W takim przypadku dane wyjściowe są kolejki magazynu o nazwie `outqueue` . Parametry połączenia dla konta magazynu są ustawiane przez `connection` metodę. Zamiast parametrów połączenia należy przekazać ustawienie aplikacji, które zawiera parametry połączenia konta magazynu.
 
-Definicja `run` metody powinna teraz wyglądać podobnie do poniższego przykładu:  
+`run`Definicja metody powinna teraz wyglądać podobnie do poniższego przykładu:  
 
 ```java
 @FunctionName("HttpTrigger-Java")

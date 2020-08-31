@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 4c448b8ed50863457da69db3f74b959f04e26ec1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131858"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055315"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Usługa mowy: co nowego w dokumentacji
 
@@ -48,9 +48,6 @@ Aby dowiedzieć się więcej na temat aktualizacji usługi mowy, zestawu Speech 
 * [Szybki Start: Konfigurowanie środowiska deweloperskiego](quickstarts/setup-platform.md) — dodano instrukcje języka JavaScript do dokumentacji.
 * [Szybki Start: synteza mowy w pliku audio](quickstarts/text-to-speech-audio-file.md) — dodano instrukcje języka JavaScript do dokumentacji.
 * [Szybki Start: synteza mowy z](quickstarts/text-to-speech.md) instrukcją języka JavaScript dodaną przez prelegenta do dokumentacji.
-* [Szybki Start: Tłumaczenie mowy na mowę](quickstarts/translate-speech-to-speech.md) — dodano instrukcje języka JavaScript do dokumentacji.
-* [Szybki Start: Tłumaczenie mowy na wiele języków](quickstarts/translate-speech-to-text-multiple-languages.md) — dodano instrukcje języka JavaScript do dokumentacji.
-* [Szybki Start: translacja zamiany mowy na tekst](quickstarts/translate-speech-to-text.md) — instrukcje języka JavaScript zostały dodane do dokumentacji.
 * [Co to jest słowo kluczowe?](custom-keyword-overview.md) -Dodano zawartość i linki do wprowadzenia.
 * [Określ język źródłowy na potrzeby zamiany mowy na tekst](how-to-specify-source-language.md) — instrukcje języka JavaScript i celu dodanego do dokumentacji.
 
@@ -77,7 +74,7 @@ Ta tabela jest aktualizowana co miesiąc i odzwierciedla problemy otwarte w prog
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Uruchamianie kontenerów usługi rozpoznawania mowy kończy się niepowodzeniem|2020-05-13|Otwarte|Problem|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|Manish-95|Przykład pliku wymowy|2020-05-11|Otwarte|Problem|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Przykład Java jest niepoprawny.|2020-05-10|Otwarte|Problem|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Nie można pobrać wyniku wymowa|2020-05-08|Zamknięte|Problem|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Nie można pobrać wyniku wymowy|2020-05-08|Zamknięte|Problem|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Szablon pliku YAML|2020-05-07|Zamknięte|Problem|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|Przykładowy kod w języku C# nie monituje użytkownika o rozmowę.|2020-05-06|Zamknięte|Problem|
 |[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Uaktualnij funkcję TTS z wersji 1.3 do wersji 1.4|2020-05-05|Zamknięte|Żądanie ściągnięcia|

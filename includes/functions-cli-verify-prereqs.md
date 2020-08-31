@@ -13,12 +13,12 @@ ms.locfileid: "80673116"
 ---
 ### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
 
-+ W terminalu lub oknie poleceń Uruchom `func --version` polecenie, aby sprawdzić, czy Azure Functions Core Tools jest w wersji 2.7.1846 lub nowszej.
++ W terminalu lub oknie poleceń Uruchom polecenie, `func --version` Aby sprawdzić, czy Azure Functions Core Tools jest w wersji 2.7.1846 lub nowszej.
 
-+ Uruchom `az --version` , aby sprawdzić, czy wersja interfejsu wiersza polecenia platformy Azure to 2.0.76 lub nowszego.
++ Uruchom, `az --version` Aby sprawdzić, czy wersja interfejsu wiersza polecenia platformy Azure to 2.0.76 lub nowszego.
 
-+ Uruchom `az login` , aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
++ Uruchom, `az login` Aby zalogować się do platformy Azure i zweryfikować aktywną subskrypcję.
 
 ::: zone pivot="programming-language-python"  
-+ Uruchom `python --version` polecenie (Linux/MacOS) `py --version` lub (Windows), aby sprawdzić raporty wersji języka Python 3.8. x, 3.7. x lub 3.6. x.
++ Uruchom polecenie `python --version` (Linux/MacOS) lub `py --version` (Windows), aby sprawdzić raporty wersji języka Python 3.8. x, 3.7. x lub 3.6. x.
 ::: zone-end

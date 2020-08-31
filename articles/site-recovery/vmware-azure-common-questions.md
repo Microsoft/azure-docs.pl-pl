@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii oprogramowania
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odzyskiwania po awarii lokalnych maszyn wirtualnych VMware na platformę Azure przy użyciu Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086153"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054975"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Typowe pytania dotyczące replikacji z programu VMware do platformy Azure
 
@@ -114,7 +114,7 @@ Site Recovery replikuje lokalne maszyny wirtualne VMware i serwery fizyczne do d
 
 Nie. Począwszy od marca 2019, w Azure Portal można replikować tylko do usługi Azure Managed Disks.
 
-Replikacja nowych maszyn wirtualnych do konta magazynu jest dostępna tylko przy użyciu programu PowerShell lub interfejsu API REST (wersja 2018-01-10 lub 2016-08-10).
+Replikacja nowych maszyn wirtualnych do konta magazynu jest dostępna tylko przy użyciu programu PowerShell ([AZ. RecoveryServices Module Version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) lub interfejsu API REST (wersja 2018-01-10 lub 2016-08-10). [Dowiedz się, jak](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) skonfigurować replikację za pomocą poleceń programu PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Jakie korzyści wiążą się z replikacją do dysków zarządzanych?
 

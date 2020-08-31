@@ -13,12 +13,13 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
-ms.openlocfilehash: e7729318e6121b0072546b8e111a8b782e95906d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 05ec19fd2351b3a9ac1f383ce4747404eeead936
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183430"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067828"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Uruchamianie pakietu SSIS za pomocą działania Procedura składowana w usłudze Azure Data Factory
 
@@ -97,7 +98,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory do utworzenia potoku. 
         ![Połączona usługa Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. W oknie właściwości przejdź do karty **procedura składowana** na karcie **konto SQL** i wykonaj następujące czynności: 
 
-    1. Wybierz pozycję **Edit** (Edytuj). 
+    1. Kliknij pozycję **Edytuj**. 
     2. W polu **nazwa procedury składowanej** wprowadź wartość `sp_executesql` . 
     3. Kliknij pozycję **+ Nowy** w sekcji **parametry procedury składowanej** . 
     4. W polu **Nazwa** parametru wprowadź **stmt**. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 73c0eeb718bb6ede8215ed3a87e246185a248ffd
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800374"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054992"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -42,8 +42,8 @@ Wschodnie stany USA, zachodnie stany USA 2, Europa Zachodnia i Azja Południowo-
 
 W wersji zapoznawczej chmura sprężynowa platformy Azure ma następujące znane ograniczenia:
 
-* `spring.application.name`zostanie przesłonięty przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
-* `server.port`wartość domyślna to Ports 80/443. Jeśli jakakolwiek inna wartość zostanie zastosowana, zostanie ona zastąpiona do 80/443.
+* `spring.application.name` zostanie przesłonięty przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
+* `server.port` wartość domyślna to Ports 80/443. Jeśli jakakolwiek inna wartość zostanie zastosowana, zostanie ona zastąpiona do 80/443.
 * Szablony Azure Portal i Azure Resource Manager nie obsługują przekazywania pakietów aplikacji. Pakiety aplikacji można przekazywać tylko przez wdrożenie aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Jakie warstwy cenowe są dostępne? 
@@ -88,6 +88,12 @@ Tak.
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Czy po usunięciu/przeniesieniu wystąpienia usługi w chmurze Azure wiosny czy zasoby rozszerzeń będą również usuwane lub przenoszone?
 
 Jest to zależne od logiki dostawców zasobów, którzy są właścicielami zasobów rozszerzenia. Zasoby rozszerzenia `Microsoft.AppPlatform` wystąpienia nie należą do tej samej przestrzeni nazw, więc zachowanie zależy od dostawcy zasobów. Na przykład operacja usuwania/przenoszenia nie zostanie przeniesiona do zasobów **ustawień diagnostycznych** . Jeśli nowe wystąpienie chmury Azure wiosny jest obsługiwane przy użyciu tego samego identyfikatora zasobu, który został usunięty, lub jeśli poprzednie wystąpienie chmury sieci platformy Azure zostanie przeniesione z powrotem, poprzednie zasoby **ustawień diagnostycznych** kontynuują jego rozszerzanie.
+
+Ustawienia diagnostyczne chmury wiosennej można usunąć za pomocą interfejsu wiersza polecenia platformy Azure:
+
+```azurecli
+ az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+```
 
 ## <a name="java-runtime-and-os-versions"></a>Środowisko uruchomieniowe Java i wersje systemu operacyjnego
 

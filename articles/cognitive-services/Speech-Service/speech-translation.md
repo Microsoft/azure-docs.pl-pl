@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/27/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934501"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055536"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
@@ -30,25 +30,14 @@ Obecnie firma Microsoft używa usługi NMT do tłumaczenia na najpopularniejsze 
 
 ## <a name="core-features"></a>Podstawowe funkcje
 
-Poniżej przedstawiono funkcje dostępne za pośrednictwem zestawu Speech SDK i interfejsów API REST:
+* Tłumaczenie zamiany mowy na tekst z wynikami rozpoznawania.
+* Tłumaczenie mowy na mowę.
+* Obsługa tłumaczenia na wiele języków docelowych.
+* Tymczasowe rozpoznawanie i wyniki tłumaczenia.
 
-| Przypadek użycia | SDK | REST |
-|----------|-----|------|
-| Tłumaczenie zamiany mowy na tekst z wynikami rozpoznawania. | Yes | Nie |
-| Tłumaczenie mowy na mowę. | Yes | Nie |
-| Tymczasowe rozpoznawanie i wyniki tłumaczenia. | Yes | Nie |
+## <a name="get-started"></a>Wprowadzenie 
 
-## <a name="get-started-with-speech-translation"></a>Wprowadzenie do tłumaczenia mowy
-
-Oferujemy Przewodniki Szybki Start zaprojektowane do uruchamiania kodu w mniej niż 10 minut. Ta tabela zawiera listę przewodników szybki start dotyczących tłumaczenia mowy uporządkowanych według języka.
-
-| Szybki start | Platforma | Dokumentacja interfejsu API |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Przeglądaj](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Przeglądaj](https://aka.ms/csspeech/csharpref) |
-| [C#, PLATFORMY UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Przeglądaj](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Przeglądaj](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Przeglądaj](https://aka.ms/csspeech/javaref) |
+Zapoznaj się z [przewodnikiem Szybki Start](get-started-speech-translation.md) , aby rozpocząć tłumaczenie mowy. Usługa tłumaczenia mowy jest dostępna za pośrednictwem [zestawu Speech SDK](speech-sdk.md) i [interfejsu wiersza polecenia mowy](spx-overview.md).
 
 ## <a name="sample-code"></a>Przykładowy kod
 
@@ -72,5 +61,6 @@ Jeśli Twoje aplikacje, narzędzia lub produkty używają [interfejs API tłumac
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Ukończ Tłumaczenie mowy — [Szybki Start](get-started-speech-translation.md)
 * [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](get-started.md)
 * [Pobieranie zestawu Speech SDK](speech-sdk.md)

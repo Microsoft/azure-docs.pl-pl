@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3e5431481cba0d2d806d60ba5d7a291d1b2b69
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810120"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055332"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Przewodnik dla deweloperów Azure Functions JavaScript
 
@@ -20,7 +20,7 @@ Jako Express.js, Node.js lub programista JavaScript, jeśli dopiero zaczynasz Az
 
 | Wprowadzenie | Pojęcia| Nauka z przewodnikiem |
 | -- | -- | -- | 
-| <ul><li>[FunkcjaNode.js przy użyciu Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[FunkcjaNode.js z terminalem/wierszem polecenia](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[Funkcje języka TypeScript](#typescript)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Refaktoryzacja Node.js i Express API do bezserwerowych interfejsów API](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[ FunkcjaNode.js przy użyciu Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ FunkcjaNode.js z terminalem/wierszem polecenia](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Przewodnik dla deweloperów](functions-reference.md)</li><li>[Opcje hostingu](functions-scale.md)</li><li>[Funkcje języka TypeScript](#typescript)</li><li>[&nbsp;Zagadnienia dotyczące wydajności](functions-best-practices.md)</li></ul> | <ul><li>[Tworzenie aplikacji bezserwerowych](/learn/paths/create-serverless-applications/)</li><li>[Refaktoryzacja Node.js i Express API do bezserwerowych interfejsów API](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Podstawowe funkcje języka JavaScript
 
@@ -183,15 +183,38 @@ Aby zdefiniować typ danych dla powiązania wejściowego, należy użyć `dataTy
 Opcje dla `dataType` : `binary` , `stream` , i `string` .
 
 ## <a name="context-object"></a>obiekt kontekstu
-Środowisko uruchomieniowe używa `context` obiektu do przekazywania danych do i z funkcji oraz do komunikowania się ze środowiskiem uruchomieniowym. Obiektu kontekstu można używać do odczytywania i ustawiania danych z powiązań, pisania dzienników i używania `context.done` wywołania zwrotnego, gdy eksportowana funkcja jest synchroniczna.
 
-`context`Obiekt jest zawsze pierwszym parametrem funkcji. Powinna być uwzględniona, ponieważ ma ważne metody, takie jak `context.done` i `context.log` . Obiekt można nazwać w dowolny sposób (na przykład `ctx` lub `c` ).
+Środowisko uruchomieniowe używa `context` obiektu do przekazywania danych do i z funkcji oraz środowiska uruchomieniowego. Używany do odczytywania i ustawiania danych z powiązań i zapisywania w dziennikach, `context` obiekt jest zawsze pierwszym parametrem przekazaną do funkcji.
+
+W przypadku funkcji z kodem synchronicznym obiekt kontekstu zawiera `done` wywołanie zwrotne, które jest wywoływane po zakończeniu przetwarzania funkcji. Jawne wywołanie `done` jest niepotrzebne podczas pisania kodu asynchronicznego; `done` wywołanie zwrotne jest wywoływana niejawnie.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+Kontekst przekazaną do funkcji uwidacznia `executionContext` Właściwość, która jest obiektem o następujących właściwościach:
+
+| Nazwa właściwości  | Typ  | Opis |
+|---------|---------|---------|
+| `invocationId` | Ciąg | Zapewnia unikatowy identyfikator dla konkretnego wywołania funkcji. |
+| `functionName` | Ciąg | Zawiera nazwę działającej funkcji |
+| `functionDirectory` | Ciąg | Udostępnia katalog aplikacji usługi Functions. |
+
+Poniższy przykład pokazuje, jak zwrócić `invocationId` .
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 
@@ -201,7 +224,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Zwraca nazwany obiekt, który jest używany do odczytywania lub przypisywania danych powiązań. Dostęp do danych wejściowych i wyzwalaczy można uzyskać, odczytując właściwości w `context.bindings` . Dane wyjściowe powiązania mogą być przypisywane przez dodanie danych do`context.bindings`
+Zwraca nazwany obiekt, który jest używany do odczytywania lub przypisywania danych powiązań. Dostęp do danych wejściowych i wyzwalaczy można uzyskać, odczytując właściwości w `context.bindings` . Dane wyjściowe powiązania mogą być przypisywane przez dodanie danych do `context.bindings`
 
 Na przykład następujące definicje powiązań w function.jsumożliwiają dostęp do zawartości kolejki z `context.bindings.myInput` i przypisywanie danych wyjściowych do kolejki przy użyciu `context.bindings.myOutput` .
 
@@ -395,7 +418,7 @@ Podczas pracy z wyzwalaczami HTTP można uzyskiwać dostęp do obiektów żądan
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Tylko odpowiedź]_ Przez wywołanie metody `context.res.send(body?: any)` .** Odpowiedź HTTP jest tworzona z danymi wejściowymi `body` jako treść odpowiedzi. `context.done()`jest wywoływana niejawnie.
++ **_[Tylko odpowiedź]_ Przez wywołanie metody `context.res.send(body?: any)` .** Odpowiedź HTTP jest tworzona z danymi wejściowymi `body` jako treść odpowiedzi. `context.done()` jest wywoływana niejawnie.
 
 + **_[Tylko odpowiedź]_ Przez wywołanie metody `context.done()` .** Specjalny typ powiązania HTTP zwraca odpowiedź, która jest przesyłana do `context.done()` metody. Następujące powiązanie wyjściowe HTTP definiuje `$return` parametr wyjściowy:
 
@@ -500,7 +523,7 @@ W przypadku uruchamiania lokalnego ustawienia aplikacji są odczytywane z [local
 
 Domyślnie funkcja języka JavaScript jest wykonywana z `index.js` , plik, który współużytkuje ten sam katalog nadrzędny co odpowiadający mu `function.json` .
 
-`scriptFile`można go użyć, aby uzyskać strukturę folderów, która wygląda podobnie do poniższego przykładu:
+`scriptFile` można go użyć, aby uzyskać strukturę folderów, która wygląda podobnie do poniższego przykładu:
 
 ```
 FunctionApp
@@ -647,7 +670,7 @@ Podczas opracowywania Azure Functions w modelu hostingu bezserwerowego zimny sta
 
 W przypadku korzystania z klienta specyficznego dla usługi w aplikacji Azure Functions nie należy tworzyć nowego klienta przy każdym wywołaniu funkcji. Zamiast tego należy utworzyć pojedynczego, statycznego klienta w zakresie globalnym. Aby uzyskać więcej informacji, zobacz [Zarządzanie połączeniami w Azure Functions](manage-connections.md).
 
-### <a name="use-async-and-await"></a>Użyj `async` i`await`
+### <a name="use-async-and-await"></a>Użyj `async` i `await`
 
 Podczas pisania Azure Functions w języku JavaScript, należy napisać kod przy użyciu `async` `await` słów kluczowych i. Pisanie kodu przy użyciu `async` i `await` zamiast wywołań zwrotnych lub `.then` i `.catch` z niesie obietnice zwiększeniaą pomaga uniknąć dwóch typowych problemów:
  - Zgłaszanie nieprzechwyconych wyjątków, które [uległy awarii procesu Node.js](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), mogą mieć wpływ na wykonywanie innych funkcji.

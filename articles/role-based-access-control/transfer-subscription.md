@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029981"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055655"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
 
@@ -28,12 +28,15 @@ Organizacje mogą mieć kilka subskrypcji platformy Azure. Każda subskrypcja je
 
 W tym artykule opisano podstawowe czynności, które można wykonać w celu przeniesienia subskrypcji do innego katalogu usługi Azure AD i ponownego utworzenia niektórych zasobów po przeniesieniu.
 
+> [!NOTE]
+> W przypadku subskrypcji CSP platformy Azure zmiana katalogu usługi Azure AD dla subskrypcji nie jest obsługiwana.
+
 ## <a name="overview"></a>Omówienie
 
 Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD to złożony proces, który musi być starannie planowany i wykonywany. Wiele usług platformy Azure wymaga, aby podmioty zabezpieczeń (tożsamości) działały normalnie lub nawet zarządzać innymi zasobami platformy Azure. Ten artykuł próbuje uwzględnić większość usług platformy Azure, które są zależne od podmiotów zabezpieczeń, ale nie są wyczerpujące.
 
 > [!IMPORTANT]
-> Transfer subskrypcji wymaga przestoju, aby ukończyć proces.
+> W niektórych scenariuszach transfer subskrypcji może wymagać przestoju w celu ukończenia procesu. Dokładne planowanie jest wymagane do oceny, czy przestój będzie wymagany dla migracji.
 
 Na poniższym diagramie przedstawiono podstawowe kroki, które należy wykonać w przypadku przeniesienia subskrypcji do innego katalogu.
 
@@ -66,22 +69,23 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 
 | Usługa lub zasób | Wpływ na | Odzyskiwaln | Czy na pewno chcesz mieć wpływ? | Co możesz zrobić |
 | --------- | --------- | --------- | --------- | --------- |
-| Przypisania ról | Tak | Yes | [Lista przypisań ról](#save-all-role-assignments) | Wszystkie przypisania ról są trwale usuwane. Należy zamapować użytkowników, grupy i jednostki usługi na odpowiednie obiekty w katalogu docelowym. Należy ponownie utworzyć przypisania ról. |
-| Role niestandardowe | Tak | Yes | [Wyświetlanie ról niestandardowych](#save-custom-roles) | Wszystkie role niestandardowe są trwale usuwane. Należy ponownie utworzyć role niestandardowe i dowolnych przypisań ról. |
-| Zarządzane tożsamości przypisane do systemu | Tak | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy wyłączyć i ponownie włączyć zarządzane tożsamości. Należy ponownie utworzyć przypisania ról. |
-| Tożsamości zarządzane przypisane przez użytkownika | Tak | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy usunąć, utworzyć ponownie i dołączyć zarządzane tożsamości do odpowiedniego zasobu. Należy ponownie utworzyć przypisania ról. |
-| Azure Key Vault | Tak | Yes | [Wyświetlanie listy zasad dostępu Key Vault](#list-other-known-resources) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
-| Bazy danych SQL Azure z uwierzytelnianiem w usłudze Azure AD | Yes | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-other-known-resources) |  |  |
-| Usługa Azure Storage i Azure Data Lake Storage Gen2 | Tak | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
-| Azure Data Lake Storage Gen1 | Tak |  |  | Należy ponownie utworzyć wszystkie listy ACL. |
-| Azure Files | Tak | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
-| Azure File Sync | Tak | Yes |  |  |
-| Dyski zarządzane platformy Azure | Tak | Nie dotyczy |  |  |
-| Azure Container Services dla Kubernetes | Tak | Yes |  |  |
-| Azure Active Directory Domain Services | Yes | Nie |  |  |
-| Rejestracje aplikacji | Tak | Tak |  |  |
+| Przypisania ról | Yes | Yes | [Lista przypisań ról](#save-all-role-assignments) | Wszystkie przypisania ról są trwale usuwane. Należy zamapować użytkowników, grupy i jednostki usługi na odpowiednie obiekty w katalogu docelowym. Należy ponownie utworzyć przypisania ról. |
+| Role niestandardowe | Yes | Yes | [Wyświetlanie ról niestandardowych](#save-custom-roles) | Wszystkie role niestandardowe są trwale usuwane. Należy ponownie utworzyć role niestandardowe i dowolnych przypisań ról. |
+| Zarządzane tożsamości przypisane do systemu | Yes | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy wyłączyć i ponownie włączyć zarządzane tożsamości. Należy ponownie utworzyć przypisania ról. |
+| Tożsamości zarządzane przypisane przez użytkownika | Yes | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy usunąć, utworzyć ponownie i dołączyć zarządzane tożsamości do odpowiedniego zasobu. Należy ponownie utworzyć przypisania ról. |
+| W usłudze Azure Key Vault | Yes | Yes | [Wyświetlanie listy zasad dostępu Key Vault](#list-other-known-resources) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
+| Bazy danych SQL Azure z włączoną integracją uwierzytelniania usługi Azure AD | Yes | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Usługa Azure Storage i Azure Data Lake Storage Gen2 | Yes | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
+| Azure Data Lake Storage Gen1 | Tak | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
+| Azure Files | Yes | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
+| Azure File Sync | Yes | Yes |  |  |
+| Dyski zarządzane platformy Azure | Yes | Nie dotyczy |  |  |
+| Azure Container Services dla Kubernetes | Yes | Yes |  |  |
+| Usługi Azure Active Directory Domain Services | Yes | Nie |  |  |
+| Rejestracje aplikacji | Yes | Yes |  |  |
 
-Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który nie znajduje się w tej samej subskrypcji, która jest transferowana, może prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
+> [!IMPORTANT]
+> Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, a zasób ma zależność od magazynu kluczy, który *nie* znajduje się w transferowanej subskrypcji, może wystąpić nieodwracalny błąd. W takiej sytuacji należy użyć innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć nieodwracalnego błędu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -199,9 +203,9 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja zostanie przetra
 
     | Kryteria | Typ tożsamości zarządzanej |
     | --- | --- |
-    | `alternativeNames`Właściwość obejmuje`isExplicit=False` | Przypisane przez system |
-    | `alternativeNames`Właściwość nie zawiera`isExplicit` | Przypisane przez system |
-    | `alternativeNames`Właściwość obejmuje`isExplicit=True` | Przypisane przez użytkownika |
+    | `alternativeNames` Właściwość obejmuje `isExplicit=False` | Przypisane przez system |
+    | `alternativeNames` Właściwość nie zawiera `isExplicit` | Przypisane przez system |
+    | `alternativeNames` Właściwość obejmuje `isExplicit=True` | Przypisane przez użytkownika |
 
     Możesz również użyć [AZ Identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) , aby tylko wyświetlić tożsamości zarządzane przypisane przez użytkownika. Aby uzyskać więcej informacji, zobacz [Tworzenie, wyświetlanie lub usuwanie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu interfejsu wiersza polecenia platformy Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
@@ -217,8 +221,8 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja zostanie przetra
 
 Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym IDENTYFIKATORem dzierżawy Azure Active Directory dla subskrypcji, w której został utworzony. Wszystkie wpisy zasad dostępu również zostają powiązane z tym identyfikatorem dzierżawy. Aby uzyskać więcej informacji, zobacz [Przechodzenie Azure Key Vault do innej subskrypcji](../key-vault/general/move-subscription.md).
 
-> [!WARNING]
-> Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który nie znajduje się w tej samej subskrypcji, która jest transferowana, może to prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
+> [!IMPORTANT]
+> Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, a zasób ma zależność od magazynu kluczy, który *nie* znajduje się w transferowanej subskrypcji, może wystąpić nieodwracalny błąd. W takiej sytuacji należy użyć innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć nieodwracalnego błędu.
 
 - Jeśli masz Magazyn kluczy, użyj AZ Key [magazynu show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) , aby wyświetlić listę zasad dostępu. Aby uzyskać więcej informacji, zobacz temat [zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -228,7 +232,7 @@ Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym 
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Wyświetlanie listy baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD
 
-- Użyj polecenia [AZ SQL Server AD-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) i [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension, aby zobaczyć, czy używasz baz danych Azure SQL Database z uwierzytelnianiem w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim przy użyciu programu SQL Server](../sql-database/sql-database-aad-authentication-configure.md).
+- Użyj polecenia [AZ SQL Server AD-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) i [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension, aby zobaczyć, czy używasz baz danych Azure SQL Database z uwierzytelnianiem w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim przy użyciu programu SQL Server](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)

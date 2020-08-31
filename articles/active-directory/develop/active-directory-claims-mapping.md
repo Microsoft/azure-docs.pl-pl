@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853361"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068647"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -302,7 +302,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | streetaddress | Ulica i numer |
 | Użytkownik | pocztowy | Postal Code |
 | Użytkownik | preferredlanguange | Preferowany język |
-| Użytkownik | onpremisesuserprincipalname | Lokalna nazwa UPN |
+| Użytkownik | onpremisesuserprincipalname | Lokalna nazwa UPN |*
 | Użytkownik | mailNickname | Pseudonim poczty |
 | Użytkownik | extensionattribute1 | Atrybut rozszerzenia 1 |
 | Użytkownik | extensionattribute2 | Atrybut rozszerzenia 2 |
@@ -340,6 +340,8 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 
 - JwtClaimType musi zawierać nazwę żądania, które ma być emitowane w JWTs.
 - SamlClaimType musi zawierać identyfikator URI żądania, które ma być emitowane w tokenach SAML.
+
+* **atrybut onPremisesUserPrincipalName:** W przypadku używania alternatywnego identyfikatora Atrybut userPrincipalName jest synchronizowany z atrybutem usługi Azure AD onPremisesUserPrincipalName. Ten atrybut jest dostępny tylko wtedy, gdy jest skonfigurowany alternatywny identyfikator, ale jest również dostępny za poorednictwem programu MS Graph beta: https://graph.microsoft.com/beta/me/ .
 
 > [!NOTE]
 > Nazwy i identyfikatory URI oświadczeń w zestawie oświadczeń z ograniczeniami nie mogą być używane dla elementów typu oświadczenia. Aby uzyskać więcej informacji, zobacz sekcję "wyjątki i ograniczenia" w dalszej części tego artykułu.

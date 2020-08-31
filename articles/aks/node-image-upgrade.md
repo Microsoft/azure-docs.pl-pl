@@ -6,12 +6,12 @@ ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654280"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055689"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uaktualnianie obrazu węzła usługi Azure Kubernetes Service (AKS)
 
@@ -20,6 +20,10 @@ Program AKS obsługuje uaktualnianie obrazów w węźle, dzięki czemu jesteś a
 Jeśli interesują Cię informacje o najnowszych obrazach dostarczonych przez AKS, zapoznaj się z informacjami o [wersji AKS](https://github.com/Azure/AKS/releases) , aby uzyskać więcej szczegółów.
 
 Aby uzyskać informacje na temat uaktualniania wersji Kubernetes dla klastra, zobacz [Uaktualnianie klastra AKS][upgrade-cluster].
+
+## <a name="limitations"></a>Ograniczenia
+
+* Klaster AKS musi używać zestawów skalowania maszyn wirtualnych dla węzłów.
 
 ## <a name="install-the-aks-cli-extension"></a>Instalowanie rozszerzenia interfejsu wiersza polecenia AKS
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615115"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067709"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Jednostki zapytań w usłudze Azure Digital bliźniaczych reprezentacji 
 
@@ -20,7 +20,9 @@ Usługa Azure Digital bliźniaczych reprezentacji **Query Unit (Qu)** jest jedno
 
 Umożliwia ona poddzielenie zasobów systemowych, takich jak procesor CPU, operacje we/wy i pamięć, które są wymagane do wykonywania operacji zapytania obsługiwane przez usługę Azure Digital bliźniaczych reprezentacji, co pozwala na śledzenie użycia w jednostkach zapytań.
 
-Złożoność zapytania wpływa na liczbę QUs używanych do wykonania tej kwerendy. 
+Liczba jednostek zapytania zużytych do wykonania zapytania jest zależna od...
+* złożoność zapytania 
+* rozmiar zestawu wyników (dlatego zapytanie zwracające 10 wyników będzie zużywać więcej QUs niż zapytanie o podobną złożoność zwracającą tylko jeden wynik)
 
 W tym artykule wyjaśniono, jak zrozumieć jednostki zapytań i śledzić użycie jednostek zapytań.
 
