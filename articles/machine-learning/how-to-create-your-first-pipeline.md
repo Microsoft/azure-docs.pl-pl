@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0d917ea686c2003bf46b6fca872ef67fb0363107
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144077"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228923"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -56,10 +56,8 @@ Utwórz zasoby wymagane do uruchomienia potoku ML:
 * Skonfiguruj obiekt w taki `Dataset` sposób, aby wskazywał trwałe dane, które znajdują się w, lub jest dostępny w magazynie danych. Skonfiguruj `PipelineData` obiekt dla danych tymczasowych przesyłanych między krokami potoku. 
 
     > [!TIP]
-    > Ulepszona obsługa przekazywania danych tymczasowych między etapami potoku jest dostępna w publicznej wersji zapoznawczej  `OutputFileDatasetConfig` .  Ta klasa jest eksperymentalną funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
-    > 
-    >Aby uzyskać więcej informacji na temat funkcji eksperymentalnych, zobacz https://aka.ms/azuremlexperimental .
-    
+    > Ulepszona obsługa przekazywania danych tymczasowych między etapami potoku jest dostępna w publicznej wersji zapoznawczej  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) .  Ta klasa jest [eksperymentalną](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
+
 * Skonfiguruj [cele obliczeń](concept-azure-machine-learning-architecture.md#compute-targets) , na których będą uruchamiane kroki potoku.
 
 ### <a name="set-up-a-datastore"></a>Konfigurowanie magazynu danych

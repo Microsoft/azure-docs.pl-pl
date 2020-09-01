@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854540"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228634"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Aby kompleksowo chronić dane obiektów blob, firma Microsoft zaleca włączenie
 
 - Usuwanie nietrwałe kontenera, aby chronić przed przypadkowym usunięciem lub zastąpieniem kontenera. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe kontenera, zobacz [Włączanie i zarządzanie usuwaniem nietrwałym dla kontenerów](soft-delete-container-enable.md).
 - Usuwanie nietrwałe obiektów blob, aby chronić przed przypadkowym usunięciem lub zastępowaniem pojedynczego obiektu BLOB. Aby dowiedzieć się, jak włączyć usuwanie nietrwałe obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md).
-- Przechowywanie wersji obiektów BLOB (wersja zapoznawcza) w celu automatycznego zachowywania poprzednich wersji obiektu BLOB. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane. Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
+- Przechowywanie wersji obiektów BLOB w celu automatycznego zachowywania poprzednich wersji obiektu BLOB. Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane. Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
 
 > [!WARNING]
 > Nie można cofnąć usunięcia konta magazynu. Usuwanie nietrwałe nie chroni przed usunięciem konta magazynu. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę **CannotDelete** dla zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
@@ -123,4 +123,4 @@ Nie ma dodatkowej opłaty za włączenie usuwania nietrwałego kontenera. Opłat
 
 - [Konfiguruj usuwanie nietrwałe kontenera](soft-delete-container-enable.md)
 - [Usuwanie nietrwałe dla obiektów blob](soft-delete-blob-overview.md)
-- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

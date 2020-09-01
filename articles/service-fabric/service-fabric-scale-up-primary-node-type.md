@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować klaster Service Fabric, dodając typ w�
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: b34f3f77dab6c4dcd8b7653f552c32a669d257c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: a18a40cc9e467b089ea9d6be3d0ca81a21d2c474
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854622"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228719"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Skaluj w górę typ węzła podstawowego klastra Service Fabric, dodając typ węzła
 W tym artykule opisano sposób skalowania w górę typu węzła podstawowego klastra Service Fabric przez dodanie dodatkowego typu węzła do klastra. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno.
@@ -124,6 +124,134 @@ JEDNOSTKA SKU SYSTEMU OPERACYJNEGO
     "version": "[parameters('vmImageVersion1')]"
 }
 ```
+
+Poniższy fragment kodu stanowi przykład nowego zasobu zestawu skalowania maszyn wirtualnych, który jest używany do tworzenia nowego typu węzła dla klastra Service Fabric. Należy upewnić się, że zawarto dodatkowe rozszerzenia, które są wymagane dla obciążenia. 
+
+```json
+    {
+      "apiVersion": "[variables('vmssApiVersion')]",
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "name": "[variables('vmNodeType1Name')]",
+      "location": "[variables('computeLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType1Name')))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+      ],
+      "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+          "mode": "Automatic"
+        },
+        "virtualMachineProfile": {
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType1Name'))]",
+                "properties": {
+                  "type": "ServiceFabricNode",
+                  "autoUpgradeMinorVersion": true,
+                  "protectedSettings": {
+                    "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                    "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                  },
+                  "publisher": "Microsoft.Azure.ServiceFabric",
+                  "settings": {
+                    "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                    "nodeTypeRef": "[variables('vmNodeType1Name')]",
+                    "dataPath": "D:\\SvcFab",
+                    "durabilityLevel": "Bronze",
+                    "enableParallelJobs": true,
+                    "nicPrefixOverride": "[variables('subnet1Prefix')]",
+                    "certificate": {
+                      "thumbprint": "[parameters('certificateThumbprint')]",
+                      "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
+                  "typeHandlerVersion": "1.0"
+                }
+              }
+            ]
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[concat(variables('nicName'), '-1')]",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "name": "[concat(variables('nicName'),'-',1)]",
+                      "properties": {
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[variables('lbPoolID1')]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[variables('lbNatPoolID1')]"
+                          }
+                        ],
+                        "subnet": {
+                          "id": "[variables('subnet1Ref')]"
+                        }
+                      }
+                    }
+                  ],
+                  "primary": true
+                }
+              }
+            ]
+          },
+          "osProfile": {
+            "adminPassword": "[parameters('adminPassword')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "computernamePrefix": "[variables('vmNodeType1Name')]",
+            "secrets": [
+              {
+                "sourceVault": {
+                  "id": "[parameters('sourceVaultValue')]"
+                },
+                "vaultCertificates": [
+                  {
+                    "certificateStore": "[parameters('certificateStoreValue')]",
+                    "certificateUrl": "[parameters('certificateUrlValue')]"
+                  }
+                ]
+              }
+            ]
+          },
+          "storageProfile": {
+            "imageReference": {
+              "publisher": "[parameters('vmImagePublisher1')]",
+              "offer": "[parameters('vmImageOffer1')]",
+              "sku": "[parameters('vmImageSku1')]",
+              "version": "[parameters('vmImageVersion1')]"
+            },
+            "osDisk": {
+              "caching": "ReadOnly",
+              "createOption": "FromImage",
+              "managedDisk": {
+                "storageAccountType": "[parameters('storageAccountType')]"
+              }
+            }
+          }
+        }
+      },
+      "sku": {
+        "name": "[parameters('vmNodeType1Size')]",
+        "capacity": "[parameters('nt1InstanceCount')]",
+        "tier": "Standard"
+      },
+      "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+      }
+    },
+
+```
+
 5. Dodaj nowy typ węzła do klastra, który odwołuje się do zestawu skalowania maszyn wirtualnych, który został utworzony powyżej. Właściwość **isprimary** tego typu węzła powinna mieć wartość true. 
 ```json
 "name": "[variables('vmNodeType1Name')]",
@@ -339,7 +467,7 @@ W przypadku klastrów Silver i wyższych trwałości należy zaktualizować zas�
 ```
 10. Usuń wszystkie inne zasoby związane z oryginalnym typem węzła z szablonu ARM. Zapoznaj się z tematem [Service Fabric-nowy węzeł typu węzła](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) dla szablonu z usuniętymi wszystkimi oryginalnymi zasobami.
 
-11. Wdróż zmodyfikowany szablon Azure Resource Manager. * * Ten krok zajmie trochę czasu, zwykle maksymalnie dwie godziny. To uaktualnienie spowoduje zmianę ustawień na InfrastructureService, w związku z czym wymagane jest ponowne uruchomienie węzła. W tym przypadku forceRestart jest ignorowane. Parametr upgradeReplicaSetCheckTimeout określa maksymalny czas, który Service Fabric czeka, aż partycja będzie w stanie bezpiecznym, jeśli nie jest jeszcze w stanie bezpiecznym. Gdy sprawdzanie bezpieczeństwa zostanie zakończone dla wszystkich partycji w węźle, Service Fabric kontynuuje uaktualnianie w tym węźle. Wartość parametru upgradeTimeout można zmniejszyć do 6 godzin, ale w celu zapewnienia maksymalnego poziomu bezpieczeństwa 12 godzin powinno być używane.
+11. Wdróż zmodyfikowany szablon Azure Resource Manager. * * Ten krok zajmie trochę czasu, zwykle maksymalnie dwie godziny. To uaktualnienie spowoduje zmianę ustawień na InfrastructureService; w związku z tym wymagane jest ponowne uruchomienie węzła. W tym przypadku forceRestart jest ignorowana. Parametr upgradeReplicaSetCheckTimeout określa maksymalny czas, który Service Fabric czeka, aż partycja będzie w stanie bezpiecznym, jeśli nie jest jeszcze w stanie bezpiecznym. Gdy sprawdzanie bezpieczeństwa zostanie zakończone dla wszystkich partycji w węźle, Service Fabric kontynuuje uaktualnianie w tym węźle. Wartość parametru upgradeTimeout można zmniejszyć do 6 godzin, ale w celu zapewnienia maksymalnego poziomu bezpieczeństwa 12 godzin powinno być używane.
 Następnie sprawdź, czy zasób Service Fabric w portalu jest wyświetlany jako gotowy. 
 
 ```powershell

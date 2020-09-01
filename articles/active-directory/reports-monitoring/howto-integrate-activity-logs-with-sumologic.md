@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c3b1216d5ced766a77bb1fb63e41eaedb8220d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ccdfa99a36635e72fc97820ec6b852e36a50ec2
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608980"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229790"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrowanie dzienników Azure Active Directory z usługą SumoLogic przy użyciu Azure Monitor
 
@@ -30,13 +30,13 @@ W tym artykule dowiesz się, jak zintegrować dzienniki usługi Azure Active Dir
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby używać tej funkcji, potrzebujesz następujących elementów:
-* Centrum zdarzeń platformy Azure, które zawiera dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+Do korzystania z tej funkcji są potrzebne następujące elementy:
+* Centrum zdarzeń platformy Azure, które zawiera dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 * Subskrypcja z włączonym logowaniem jednokrotnym w usłudze SumoLogic.
 
 ## <a name="steps-to-integrate-azure-ad-logs-with-sumologic"></a>Kroki umożliwiające integrację dzienników usługi Azure AD z usługą SumoLogic 
 
-1. Najpierw należy [przesłać strumieniowo dzienniki usługi Azure AD do centrum zdarzeń platformy Azure](quickstart-azure-monitor-stream-logs-to-event-hub.md).
+1. Najpierw należy [przesłać strumieniowo dzienniki usługi Azure AD do centrum zdarzeń platformy Azure](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 2. Skonfiguruj wystąpienie usługi SumoLogic, aby [zbierać dzienniki dla Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
 3. [Zainstaluj aplikację usługi Azure AD SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) , aby korzystać z wstępnie skonfigurowanych pulpitów nawigacyjnych, które zapewniają analizę w czasie rzeczywistym środowiska.
 

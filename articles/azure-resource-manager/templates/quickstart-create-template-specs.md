@@ -2,15 +2,15 @@
 title: Tworzenie i wdrażanie specyfikacji szablonu
 description: Dowiedz się, jak utworzyć specyfikację szablonu na podstawie szablonu ARM. Następnie wdróż specyfikację szablonu w grupie zasobów w subskrypcji.
 author: tfitzmac
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 84422862cfa73c2cbb27411bf0c1a7fb3fab9b35
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 47791455c63852bfc6f8a7e3152fabe18d303ecb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962659"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227733"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Szybki Start: Tworzenie i wdrażanie specyfikacji szablonu (wersja zapoznawcza)
 
@@ -75,7 +75,7 @@ Te opcje są pokazane poniżej.
 1. Następnie utwórz specyfikację szablonu w tej grupie zasobów. Nowy szablon daje nazwę **storageSpec**.
 
     ```azurecli
-    az template-specs create \
+    az ts create \
       --name storageSpec \
       --version "1.0" \
       --resource-group templateSpecRG \
@@ -205,7 +205,7 @@ Te opcje są pokazane poniżej.
 
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
-Teraz można wdrożyć specyfikację szablonu. wdrożenie specyfikacji szablonu jest tak samo samo jak wdrożenie szablonu zawartego w szablonie, z wyjątkiem tego, że został przekazany identyfikator zasobu specyfikacji szablonu. Używasz tych samych poleceń wdrażania i w razie potrzeby Przekaż wartości parametrów dla specyfikacji szablonu.
+Teraz można wdrożyć specyfikację szablonu. Wdrożenie specyfikacji szablonu jest tak samo samo jak wdrażanie szablonu, który zawiera, z tą różnicą, że identyfikator zasobu specyfikacji szablonu jest przekazywany. Używasz tych samych poleceń wdrażania i w razie potrzeby Przekaż wartości parametrów dla specyfikacji szablonu.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -253,7 +253,7 @@ Teraz można wdrożyć specyfikację szablonu. wdrożenie specyfikacji szablonu 
 1. Pobierz identyfikator zasobu specyfikacji szablonu.
 
     ```azurecli
-    id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
     ```
 
     > [!NOTE]
@@ -352,6 +352,6 @@ Aby wyczyścić zasób wdrożony w tym przewodniku Szybki Start, Usuń grupy zas
 
 1. Z górnego menu wybierz pozycję Usuń grupę zasobów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej o tworzeniu specyfikacji szablonu zawierającej połączone szablony, zobacz [Tworzenie specyfikacji szablonu połączonego szablonu](template-specs-create-linked.md).

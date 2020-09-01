@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826875"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229875"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -34,8 +34,8 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Dzienniki aprowizacji** — zapewniają działania systemowe dotyczące użytkowników, grup i ról, które są obsługiwane przez usługę aprowizacji usługi Azure AD. 
 
 - **Bezpieczeństwo** 
-    - **Ryzykowne logowania** — [ryzykowne logowanie](concept-risky-sign-ins.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
-    - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](concept-user-at-risk.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
+    - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
+    - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
 Ten temat zawiera omówienie raportu aprowizacji.
 
@@ -94,7 +94,7 @@ Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie 
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
-- Data
+- Date
 - Stan
 - Akcja
 
@@ -218,7 +218,7 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 
 - Obecnie nie ma obsługi usługi log Analytics.
 
-- W przypadku uzyskiwania dostępu do dzienników aprowizacji z kontekstu aplikacji nie są automatycznie filtrowane zdarzenia do konkretnej aplikacji w sposób, w jaki dzienniki inspekcji.
+- W przypadku użytkowników, którzy nie znajdują się w zakresie, mogą zostać wyświetlone pominięte zdarzenia. Jest to oczekiwane, szczególnie w przypadku, gdy zakres synchronizacji jest ustawiony na wszystkich użytkowników i grupy. Nasza usługa oceni wszystkie obiekty w dzierżawie, nawet te, które znajdują się poza zakresem. 
 
 ## <a name="error-codes"></a>Kody błędów
 
@@ -226,28 +226,26 @@ Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy
 
 |Kod błędu|Opis|
 |---|---|
-|Konflikt, EntryConflict|Popraw wartości atrybutów powodujących konflikt w usłudze Azure AD lub aplikacji albo sprawdź zgodną konfigurację atrybutów, jeśli powodujące konflikt konto użytkownika ma zostać dopasowane i przejęte. Zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) , aby uzyskać więcej informacji na temat konfigurowania pasujących atrybutów.|
+|Konflikt, EntryConflict|Popraw wartości atrybutów powodujących konflikt w usłudze Azure AD lub aplikacji albo sprawdź zgodną konfigurację atrybutów, jeśli powodujące konflikt konto użytkownika ma zostać dopasowane i przejęte. Zapoznaj się z poniższą [dokumentacją](../app-provisioning/customize-application-attributes.md) , aby uzyskać więcej informacji na temat konfigurowania pasujących atrybutów.|
 |TooManyRequests|Aplikacja docelowa odrzuciła próbę zaktualizowania użytkownika, ponieważ jest przeciążona i otrzymuje zbyt wiele żądań. Nie ma nic do zrobienia. Ta próba zostanie automatycznie wycofana. Firma Microsoft otrzymała również powiadomienie o tym problemie.|
 |InternalServerError |Aplikacja docelowa zwróciła nieoczekiwany błąd. Może wystąpić problem z usługą w aplikacji docelowej, która uniemożliwia wykonanie tej pracy. Ta próba zostanie automatycznie wycofana w ciągu 40 minut.|
-|InsufficientRights, MethodNotAllowed, NotPermitted, nieautoryzowane| Usługa Azure AD mogła uwierzytelnić się w aplikacji docelowej, ale nie ma autoryzacji do wykonania tej aktualizacji. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplikacji.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, nieautoryzowane| Usługa Azure AD mogła uwierzytelnić się w aplikacji docelowej, ale nie ma autoryzacji do wykonania tej aktualizacji. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](../saas-apps/tutorial-list.md)aplikacji.|
 |UnprocessableEntity|Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji docelowej może być niepoprawna lub wystąpił problem z aplikacją docelową, która uniemożliwia wykonywanie tego działania.|
 |WebExceptionProtocolError |Wystąpił błąd protokołu HTTP podczas nawiązywania połączenia z aplikacją docelową. Nie ma nic do zrobienia. Ta próba zostanie automatycznie wycofana w ciągu 40 minut.|
-|InvalidAnchor|Użytkownik, który został wcześniej utworzony lub dopasowany przez usługę aprowizacji, już nie istnieje. Sprawdź, czy użytkownik istnieje. Aby wymusić ponowne dopasowanie wszystkich użytkowników, należy [ponownie uruchomić zadanie](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)przy użyciu programu MS interfejs API programu Graph. Należy pamiętać, że ponowne uruchomienie aprowizacji wywoła cykl początkowy, co może zająć trochę czasu. Powoduje również usunięcie pamięci podręcznej używanej przez usługę aprowizacji do działania, co oznacza, że wszyscy użytkownicy i grupy w dzierżawie będą musieli ponownie ocenić i można porzucić pewne zdarzenia aprowizacji.|
-|Nie zaimplementowano | Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji może być niepoprawna lub wystąpił problem z usługą dla aplikacji docelowej, która uniemożliwia wykonanie tej pracy. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)aplikacji. |
-|MandatoryFieldsMissing, MissingValues |Nie można utworzyć użytkownika, ponieważ brakuje wymaganych wartości. Popraw brakujące wartości atrybutów w rekordzie źródłowym lub przejrzyj zgodną konfigurację atrybutów, aby upewnić się, że wymagane pola nie zostały pominięte. [Dowiedz się więcej](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) o konfigurowaniu pasujących atrybutów.|
-|SchemaAttributeNotFound |Nie można wykonać operacji, ponieważ określono atrybut, który nie istnieje w aplikacji docelowej. Zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) dotyczącą dostosowywania atrybutów i upewnij się, że konfiguracja jest poprawna.|
+|InvalidAnchor|Użytkownik, który został wcześniej utworzony lub dopasowany przez usługę aprowizacji, już nie istnieje. Sprawdź, czy użytkownik istnieje. Aby wymusić ponowne dopasowanie wszystkich użytkowników, należy [ponownie uruchomić zadanie](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta)przy użyciu programu MS interfejs API programu Graph. Należy pamiętać, że ponowne uruchomienie aprowizacji wywoła cykl początkowy, co może zająć trochę czasu. Powoduje również usunięcie pamięci podręcznej używanej przez usługę aprowizacji do działania, co oznacza, że wszyscy użytkownicy i grupy w dzierżawie będą musieli ponownie ocenić i można porzucić pewne zdarzenia aprowizacji.|
+|Nie zaimplementowano | Aplikacja docelowa zwróciła nieoczekiwaną odpowiedź. Konfiguracja aplikacji może być niepoprawna lub wystąpił problem z usługą dla aplikacji docelowej, która uniemożliwia wykonanie tej pracy. Przejrzyj wszelkie instrukcje dostarczone przez aplikację docelową oraz odpowiedni [samouczek](../saas-apps/tutorial-list.md)aplikacji. |
+|MandatoryFieldsMissing, MissingValues |Nie można utworzyć użytkownika, ponieważ brakuje wymaganych wartości. Popraw brakujące wartości atrybutów w rekordzie źródłowym lub przejrzyj zgodną konfigurację atrybutów, aby upewnić się, że wymagane pola nie zostały pominięte. [Dowiedz się więcej](../app-provisioning/customize-application-attributes.md) o konfigurowaniu pasujących atrybutów.|
+|SchemaAttributeNotFound |Nie można wykonać operacji, ponieważ określono atrybut, który nie istnieje w aplikacji docelowej. Zapoznaj się z [dokumentacją](../app-provisioning/customize-application-attributes.md) dotyczącą dostosowywania atrybutów i upewnij się, że konfiguracja jest poprawna.|
 |InternalError |Wystąpił wewnętrzny błąd usługi w usłudze Azure AD Provisioning. Nie ma nic do zrobienia. Ta próba zostanie ponowiona automatycznie w ciągu 40 minut.|
 |InvalidDomain |Nie można wykonać operacji z powodu wartości atrybutu zawierającej nieprawidłową nazwę domeny. Zaktualizuj nazwę domeny użytkownika lub Dodaj ją do listy dozwolonych w aplikacji docelowej. |
 |Limit czasu |Nie można ukończyć operacji, ponieważ aplikacja docelowa zbyt długo nie odpowiadała. Nie ma nic do zrobienia. Ta próba zostanie ponowiona automatycznie w ciągu 40 minut.|
 |LicenseLimitExceeded|Nie można utworzyć użytkownika w aplikacji docelowej, ponieważ nie ma żadnych dostępnych licencji dla tego użytkownika. Uzyskaj dodatkowe licencje dla aplikacji docelowej lub przejrzyj przypisania użytkowników i konfigurację mapowania atrybutów, aby upewnić się, że poprawni użytkownicy są przypisani przy użyciu poprawnych atrybutów.|
-|DuplicateTargetEntries  |Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika w aplikacji docelowej ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika z aplikacji docelowej lub ponownie skonfiguruj mapowania atrybutów zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
-|DuplicateSourceEntries | Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika lub Zmień konfigurację mapowań atrybutów zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateTargetEntries  |Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika w aplikacji docelowej ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika z aplikacji docelowej lub ponownie skonfiguruj mapowania atrybutów zgodnie z opisem w [tym miejscu](../app-provisioning/customize-application-attributes.md).|
+|DuplicateSourceEntries | Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika lub Zmień konfigurację mapowań atrybutów zgodnie z opisem w [tym miejscu](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Podczas oceniania każdego użytkownika podjęto próbę zaimportowania użytkownika z systemu źródłowego. Ten błąd występuje często, gdy importowany użytkownik nie ma pasującej właściwości zdefiniowanej w mapowaniu atrybutów. Bez wartości znajdującej się w obiekcie użytkownika dla pasującego atrybutu nie można obliczyć zakresu, dopasowywania ani eksportowania zmian. Należy zauważyć, że obecność tego błędu nie wskazuje, że użytkownik należy do zakresu, ponieważ nie oceniamy jeszcze zakresu dla użytkownika.|
 |EntrySynchronizationSkipped | Usługa aprowizacji pomyślnie zbadał system źródłowy i zidentyfikował użytkownika. Nie wykonano żadnych dalszych akcji dla użytkownika i zostały one pominięte. Pominięcie mogą być spowodowane brakiem zakresu lub użytkownikiem już istniejącym w systemie docelowym bez konieczności wprowadzania dalszych zmian.|
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Sprawdź stan aprowizacji użytkowników](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
-* [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
-
-
+* [Sprawdź stan aprowizacji użytkowników](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
+* [Wystąpił problem podczas konfigurowania aprowizacji użytkowników w aplikacji z galerii usługi Azure AD](../app-provisioning/application-provisioning-config-problem.md)

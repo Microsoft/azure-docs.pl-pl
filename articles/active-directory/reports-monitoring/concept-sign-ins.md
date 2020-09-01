@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816086"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228770"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące logowań w portalu Azure Active Directory
 
@@ -32,8 +32,8 @@ Architektura raportowania w Azure Active Directory (Azure AD) składa się z nas
     - **Logowania** — informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników.
     - **Dzienniki inspekcji**  -  [Dzienniki inspekcji](concept-audit-logs.md) zapewniają informacje o aktywności systemu dotyczące zarządzania użytkownikami i grupami, zarządzanych aplikacji i działań związanych z katalogiem.
 - **Bezpieczeństwo** 
-    - **Ryzykowne logowania** — [ryzykowne logowanie](concept-risky-sign-ins.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
-    - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](concept-user-at-risk.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
+    - **Ryzykowne logowania** — [ryzykowne logowanie](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania przez kogoś, kto nie jest uprawnionym właścicielem konta użytkownika.
+    - **Użytkownicy oflagowani do ryzyka** — [ryzykowny użytkownik](../identity-protection/overview-identity-protection.md) jest wskaźnikiem konta użytkownika, które mogło zostać naruszone.
 
 Ten artykuł zawiera omówienie raportu logowania.
 
@@ -59,7 +59,7 @@ Raport logowania użytkownika zawiera odpowiedzi na następujące pytania:
 
 W menu [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**lub wyszukaj i wybierz pozycję **Azure Active Directory** z dowolnej strony.
 
-![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Wybierz Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Usługa Azure Active Directory")
 
 W obszarze **monitorowanie**wybierz pozycję **logowania** , aby otworzyć [raport logowania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
@@ -149,7 +149,7 @@ Najpierw Zawężanie danych raportowanych do poziomu, który się do Ciebie spra
 |Exchange ActiveSync| |Ten filtr przedstawia wszystkie próby logowania, w przypadku których podjęto próbę wykonania protokołu EAS.|
 |Przeglądarka|![Zaznacz](./media/concept-sign-ins/check.png)|Pokazuje wszystkie próby logowania od użytkowników przy użyciu przeglądarek sieci Web|
 |Exchange ActiveSync| | Pokazuje wszystkie próby logowania użytkowników z aplikacjami klienckimi przy użyciu programu Exchange ActiceSync w celu nawiązania połączenia z usługą Exchange Online|
-|Exchange Online PowerShell| |Służy do nawiązywania połączenia z usługą Exchange Online przy użyciu zdalnego programu PowerShell. Jeśli zablokujesz uwierzytelnianie podstawowe dla programu Exchange Online PowerShell, musisz użyć modułu programu PowerShell w usłudze Exchange Online, aby nawiązać połączenie. Aby uzyskać instrukcje, zobacz [nawiązywanie połączenia z programem Exchange Online PowerShell przy użyciu uwierzytelniania wieloskładnikowego](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Online PowerShell| |Służy do nawiązywania połączenia z usługą Exchange Online przy użyciu zdalnego programu PowerShell. Jeśli zablokujesz uwierzytelnianie podstawowe dla programu Exchange Online PowerShell, musisz użyć modułu programu PowerShell w usłudze Exchange Online, aby nawiązać połączenie. Aby uzyskać instrukcje, zobacz [nawiązywanie połączenia z programem Exchange Online PowerShell przy użyciu uwierzytelniania wieloskładnikowego](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Exchange Web Services| |Interfejs programowania używany przez program Outlook, program Outlook dla komputerów Mac i aplikacje innych firm.|
 |PROTOKOŁÓW| |Starsza wersja klienta poczty używającej protokołu IMAP do pobierania poczty e-mail.|
 |Interfejs MAPI przez HTTP| |Używany przez program Outlook 2010 i nowsze.|
@@ -234,7 +234,7 @@ Klikając pozycję, można uzyskać więcej szczegółowych informacji na temat 
 - Klient
 - Lokalizacja
 - Adres IP
-- Data
+- Date
 - Wymagane uwierzytelnianie wieloskładnikowe
 - Stan logowania
 
@@ -271,13 +271,12 @@ Opcja **Logowania** umożliwia pełny przegląd zdarzeń logowania do aplikacji.
 
 ## <a name="office-365-activity-logs"></a>Dzienniki aktywności pakietu Office 365
 
-Dzienniki aktywności pakietu Office 365 można wyświetlić w [centrum administracyjnym Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Należy wziąć pod uwagę, że usługa Office 365 i dzienniki aktywności usługi Azure AD dzielą znaczną liczbę zasobów katalogu. Tylko Microsoft 365 centrum administracyjnego zapewnia pełny wgląd w dzienniki aktywności pakietu Office 365. 
+Dzienniki aktywności pakietu Office 365 można wyświetlić w [centrum administracyjnym Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Należy wziąć pod uwagę, że usługa Office 365 i dzienniki aktywności usługi Azure AD dzielą znaczną liczbę zasobów katalogu. Tylko Microsoft 365 centrum administracyjnego zapewnia pełny wgląd w dzienniki aktywności pakietu Office 365. 
 
-Możesz również programowo uzyskać dostęp do dzienników aktywności pakietu Office 365 przy użyciu [interfejsów API zarządzania pakietu office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Możesz również programowo uzyskać dostęp do dzienników aktywności pakietu Office 365 przy użyciu [interfejsów API zarządzania pakietu office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Kody błędów raportów działań związanych z logowaniem](reference-sign-ins-error-codes.md)
 * [Zasady przechowywania danych usługi Azure AD](reference-reports-data-retention.md)
 * [Opóźnienia raportów usługi Azure AD](reference-reports-latencies.md)
-

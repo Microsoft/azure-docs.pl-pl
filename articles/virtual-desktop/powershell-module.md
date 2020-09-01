@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 11742b00b62437b3acd6fa804a668cf83c2860f6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c99aa1bdb246d242c4c1cbd33672367b66f923ea
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007262"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229977"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Konfigurowanie modułu programu PowerShell dla pulpitu wirtualnego systemu Windows
 
@@ -40,6 +40,12 @@ Następnie uruchom następujące polecenie cmdlet, aby nawiązać połączenie z
 ```powershell
 Connect-AzAccount
 ```
+
+>! WAŻNE Jeśli łączysz się z portalem US Gov, Uruchom to polecenie cmdlet:
+> 
+> ```powershell
+> Connect-AzAccount -EnvironmentName AzureUSGovernment
+> ```
 
 Zalogowanie się do konta platformy Azure wymaga kodu, który jest generowany po uruchomieniu polecenia cmdlet Connect. Aby się zalogować, przejdź do <https://microsoft.com/devicelogin> , wprowadź kod, a następnie zaloguj się przy użyciu poświadczeń administratora platformy Azure.
 

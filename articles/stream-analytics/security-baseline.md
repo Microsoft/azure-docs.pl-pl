@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 03b1d43eeaffe4449d85d384e669ba0950442ab9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003386"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229008"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Stream Analytics
 
@@ -860,7 +860,7 @@ Za pomocą funkcji zarządzania cyklem życia można także tworzyć kopie zapas
 
 * [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
 
-Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage:https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 

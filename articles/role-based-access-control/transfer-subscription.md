@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177282"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227036"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
 
@@ -42,7 +42,7 @@ Na poniższym diagramie przedstawiono podstawowe kroki, które należy wykonać 
 
 1. Przygotuj do przeniesienia
 
-1. Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
+1. Przenoszenie subskrypcji platformy Azure do innego katalogu
 
 1. Ponowne tworzenie zasobów w katalogu docelowym, takich jak przypisania ról, role niestandardowe i zarządzane tożsamości
 
@@ -269,7 +269,7 @@ W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docel
 > [!WARNING]
 > Po przeniesieniu subskrypcji wszystkie przypisania ról w katalogu źródłowym są **trwale** usuwane i nie można ich przywrócić. Po przeniesieniu subskrypcji nie można jej cofnąć. Przed wykonaniem tego kroku upewnij się, że wykonano poprzednie kroki.
 
-1. Określ, czy chcesz również przetransferować własność rozliczeń.
+1. Określ, czy chcesz również przetransferować własność rozliczeń na inne konto.
 
 1. Przenieś subskrypcję do innego katalogu.
 

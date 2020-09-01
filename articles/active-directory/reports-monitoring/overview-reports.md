@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ae9e7654fa468d499ca6ef8543b98b1e372ca
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85481395"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229520"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Co to są raporty usługi Azure Active Directory?
 
@@ -44,9 +44,9 @@ Architektura raportów opiera się na dwóch głównych filarach:
 
 Raporty dotyczące zabezpieczeń pomagają chronić tożsamości w organizacji. Istnieją dwa typy raportów dotyczących zabezpieczeń:
 
-- **Użytkownicy oflagowani w związku z ryzykiem** — [raport zabezpieczeń dotyczący użytkowników oflagowanych w związku z ryzykiem](concept-user-at-risk.md) zawiera omówienie kont użytkowników, których zabezpieczenia mogły zostać naruszone.
+- **Użytkownicy oflagowani w związku z ryzykiem** — [raport zabezpieczeń dotyczący użytkowników oflagowanych w związku z ryzykiem](../identity-protection/overview-identity-protection.md) zawiera omówienie kont użytkowników, których zabezpieczenia mogły zostać naruszone.
 
-- **Ryzykowne logowania** — [raport zabezpieczeń dotyczący ryzykownych logowań](concept-risky-sign-ins.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
+- **Ryzykowne logowania** — [raport zabezpieczeń dotyczący ryzykownych logowań](../identity-protection/overview-identity-protection.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu zabezpieczeń?  
 
@@ -81,7 +81,7 @@ Raporty dotyczące działań ułatwiają zrozumienie zachowania użytkowników w
 
 #### <a name="what-azure-ad-license-do-you-need-to-access-the-audit-logs-report"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu dzienników inspekcji?  
 
-Raport dzienników inspekcji jest dostępny w przypadku funkcji, do których masz licencje. Jeśli masz licencję określonej funkcji, masz również dostęp do informacji z dotyczącego jej dziennika inspekcji. Na [stronie cennika Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)można zobaczyć porównanie funkcji deatiled zgodnie z [różnymi typami licencji](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#what-are-the-azure-ad-licenses) . Aby uzyskać więcej informacji, zobacz [Funkcje i możliwości usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#which-features-work-in-azure-ad).
+Raport dzienników inspekcji jest dostępny w przypadku funkcji, do których masz licencje. Jeśli masz licencję określonej funkcji, masz również dostęp do informacji z dotyczącego jej dziennika inspekcji. Na [stronie cennika Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)można zobaczyć porównanie funkcji deatiled zgodnie z [różnymi typami licencji](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) . Aby uzyskać więcej informacji, zobacz [Funkcje i możliwości usługi Azure Active Directory](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### <a name="sign-ins-report"></a>Raport dotyczący logowań
 
@@ -101,6 +101,6 @@ Oprócz interfejsu użytkownika usługa Azure AD zapewnia [dostęp programowy](c
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Raport dotyczący ryzykownych logowań](concept-risky-sign-ins.md)
+- [Raport dotyczący ryzykownych logowań](../identity-protection/overview-identity-protection.md)
 - [Raport dotyczący dzienników inspekcji](concept-audit-logs.md)
 - [Raport dotyczący dzienników logowania](concept-sign-ins.md)

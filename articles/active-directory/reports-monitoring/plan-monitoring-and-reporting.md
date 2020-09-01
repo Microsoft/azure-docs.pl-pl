@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 870027637d9c45d0d5150db12046e454146ff169
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 20b83291dc37c6248761214654f99d3ce214b551
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829634"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229756"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planowanie wdrożenia Azure Active Directory raportowanie i monitorowanie
 
@@ -47,9 +47,9 @@ Usługa Azure AD monitoring umożliwia kierowanie dzienników do:
 * centrum zdarzeń platformy Azure, w którym można przeprowadzić integrację z istniejącymi narzędziami SIEM, takimi jak Splunk, SumoLogic lub QRadar.
 
 > [!NOTE]
-Ostatnio rozpoczęto korzystanie z dzienników Azure Monitor, a nie Log Analytics. Dane dziennika nadal są przechowywane w obszarze roboczym Log Analytics i są nadal zbierane i analizowane przez tę samą usługę Log Analytics. Aktualizujemy terminologię, aby lepiej odzwierciedlić rolę [dzienników w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection). Aby uzyskać szczegółowe informacje, zobacz [Azure monitor terminologia](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand) .
+Ostatnio rozpoczęto korzystanie z dzienników Azure Monitor, a nie Log Analytics. Dane dziennika nadal są przechowywane w obszarze roboczym Log Analytics i są nadal zbierane i analizowane przez tę samą usługę Log Analytics. Aktualizujemy terminologię, aby lepiej odzwierciedlić rolę [dzienników w Azure monitor](../../azure-monitor/platform/data-platform.md). Aby uzyskać szczegółowe informacje, zobacz [Azure monitor terminologia](../../azure-monitor/terminology.md) .
 
-[Dowiedz się więcej na temat zasad przechowywania raportów](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention).
+[Dowiedz się więcej na temat zasad przechowywania raportów](./reference-reports-data-retention.md).
 
 ### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licencjonowanie i wymagania wstępne związane z raportowaniem i monitorowaniem usługi Azure AD
 
@@ -61,7 +61,7 @@ Aby wdrożyć monitorowanie i raportowanie usługi Azure AD, będziesz potrzebow
 
 W zależności od ostatecznego miejsca docelowego danych dziennika potrzebne są następujące elementy:
 
-* Konto usługi Azure Storage, do którego masz uprawnienia ListKeys. Zalecamy używanie konta magazynu ogólnego, a nie konta magazynu obiektów blob. Aby uzyskać informacje o cenach magazynu, zobacz [kalkulator cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage).
+* Konto usługi Azure Storage, do którego masz uprawnienia ListKeys. Zalecamy używanie konta magazynu ogólnego, a nie konta magazynu obiektów blob. Informacje o cenach magazynu można znaleźć na stronie [kalkulatora cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage).
 
 * Przestrzeń nazw Event Hubs platformy Azure do integracji z rozwiązaniami SIEM innych firm.
 
@@ -115,25 +115,25 @@ Usługa Azure AD monitoring umożliwia kierowanie dzienników aktywności usług
 
 #### <a name="archive-logs-in-a-storage-account"></a>Archiwizowanie dzienników na koncie magazynu
 
-Dzięki routingu dzienników do konta usługi Azure Storage można przechowywać je dłużej niż domyślny okres przechowywania przedstawiony w [zasadach przechowywania](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention). Tej metody należy użyć, jeśli trzeba zarchiwizować dzienniki, ale nie musimy zintegrować ich z systemem SIEM i nie potrzebują bieżących zapytań i analizy. Można nadal wykonywać wyszukiwania na żądanie.
+Dzięki routingu dzienników do konta usługi Azure Storage można przechowywać je dłużej niż domyślny okres przechowywania przedstawiony w [zasadach przechowywania](./reference-reports-data-retention.md). Tej metody należy użyć, jeśli trzeba zarchiwizować dzienniki, ale nie musimy zintegrować ich z systemem SIEM i nie potrzebują bieżących zapytań i analizy. Można nadal wykonywać wyszukiwania na żądanie.
 
-Dowiedz się, jak [kierować dane do konta magazynu](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
+Dowiedz się, jak [kierować dane do konta magazynu](./quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Wysyłanie dzienników do dzienników usługi Azure Monitor
 
-[Dzienniki Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) konsolidują dane monitorowania z różnych źródeł. Udostępnia także język zapytań i aparat analityczny, który zapewnia wgląd w działanie aplikacji i korzystanie z zasobów. Wysyłanie dzienników aktywności usługi Azure AD do dzienników Azure Monitor umożliwia szybkie pobieranie, monitorowanie i zgłaszanie alertów dotyczących zebranych danych. Użyj tej metody, jeśli nie masz istniejącego rozwiązania SIEM, do którego chcesz wysłać dane bezpośrednio, ale Zażądaj zapytań i analizy. Gdy dane znajdują się w Azure Monitor dziennikach, można wysłać je do centrum zdarzeń i z tego miejsca do SIEM, jeśli chcesz.
+[Dzienniki Azure monitor](../../azure-monitor/log-query/log-query-overview.md) konsolidują dane monitorowania z różnych źródeł. Udostępnia także język zapytań i aparat analityczny, który zapewnia wgląd w działanie aplikacji i korzystanie z zasobów. Wysyłanie dzienników aktywności usługi Azure AD do dzienników Azure Monitor umożliwia szybkie pobieranie, monitorowanie i zgłaszanie alertów dotyczących zebranych danych. Użyj tej metody, jeśli nie masz istniejącego rozwiązania SIEM, do którego chcesz wysłać dane bezpośrednio, ale Zażądaj zapytań i analizy. Gdy dane znajdują się w Azure Monitor dziennikach, można wysłać je do centrum zdarzeń i z tego miejsca do SIEM, jeśli chcesz.
 
-Dowiedz się, jak [wysyłać dane do dzienników usługi Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+Dowiedz się, jak [wysyłać dane do dzienników usługi Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md).
 
 Możesz również zainstalować wstępnie skompilowane widoki dzienników aktywności usługi Azure AD, aby monitorować typowe scenariusze związane z logowaniem i inspekcją zdarzeń.
 
-Dowiedz się, jak [zainstalować widoki analizy dzienników dla dzienników aktywności usługi Azure AD i używać ich](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
+Dowiedz się, jak [zainstalować widoki analizy dzienników dla dzienników aktywności usługi Azure AD i używać ich](./howto-install-use-log-analytics-views.md).
 
 #### <a name="stream-logs-to-your-azure-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń platformy Azure
 
 Dzienniki routingu do centrum zdarzeń platformy Azure umożliwiają integrację z narzędziami SIEM innych firm. Ta integracja pozwala połączyć dane dzienników aktywności usługi Azure AD z innymi danymi zarządzanymi przez rozwiązania SIEM, co zapewnia lepszy wgląd w środowisko. 
 
-Dowiedz się, jak [wysyłać strumieniowo dzienniki do centrum zdarzeń](https://docs.microsoft.com//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Dowiedz się, jak [wysyłać strumieniowo dzienniki do centrum zdarzeń](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planowanie operacji i zabezpieczeń na potrzeby raportowania i monitorowania usługi Azure AD
 
@@ -151,9 +151,9 @@ Następujące role mogą odczytywać raporty usługi Azure AD:
 
 * Czytelnik raportów
 
-Dowiedz się więcej na temat [ról administracyjnych usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Dowiedz się więcej na temat [ról administracyjnych usługi Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-*Zawsze stosuj koncepcję najniższych uprawnień, aby zmniejszyć ryzyko złamania zabezpieczeń konta*. Rozważ zaimplementowanie [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) , aby lepiej zabezpieczyć organizację.
+*Zawsze stosuj koncepcję najniższych uprawnień, aby zmniejszyć ryzyko złamania zabezpieczeń konta*. Rozważ zaimplementowanie [Privileged Identity Management](../privileged-identity-management/pim-configure.md) , aby lepiej zabezpieczyć organizację.
 
 ##  
 
@@ -163,27 +163,27 @@ W zależności od decyzji podjętych wcześniej przy użyciu powyższych wytyczn
 
 ### <a name="consume-and-archive-azure-ad-logs"></a>Korzystanie z dzienników usługi Azure AD i archiwizowanie ich
 
-[Znajdowanie raportów dotyczących aktywności w witrynie Azure Portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
+[Znajdowanie raportów dotyczących aktywności w witrynie Azure Portal](./howto-find-activity-reports.md)
 
-[Archiwizowanie dzienników usługi Azure AD na koncie usługi Azure Storage](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
+[Archiwizowanie dzienników usługi Azure AD na koncie usługi Azure Storage](./quickstart-azure-monitor-route-logs-to-storage-account.md)
 
 ### <a name="implement-monitoring-and-analytics"></a>Implementowanie monitorowania i analizy
 
-[Wyślij dzienniki do Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+[Wyślij dzienniki do Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md)
 
-[Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
+[Instalowanie i Używanie widoków usługi log Analytics na potrzeby Azure Active Directory](./howto-install-use-log-analytics-views.md)
 
-[Analizowanie dzienników aktywności usługi Azure AD za pomocą dzienników Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
+[Analizowanie dzienników aktywności usługi Azure AD za pomocą dzienników Azure Monitor](./howto-analyze-activity-logs-log-analytics.md)
 
-* [Interpretuj schemat dzienników inspekcji w Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
+* [Interpretuj schemat dzienników inspekcji w Azure Monitor](./reference-azure-monitor-audit-log-schema.md)
 
-* [Interpretuj schemat logowania dzienników w Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
+* [Interpretuj schemat logowania dzienników w Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
 
- * [Przesyłanie strumieniowe dzienników usługi Azure AD do centrum zdarzeń platformy Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
+ * [Przesyłanie strumieniowe dzienników usługi Azure AD do centrum zdarzeń platformy Azure](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
-* [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem Splunk przy użyciu usługi Azure Monitor)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk)
+* [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem Splunk przy użyciu usługi Azure Monitor)](./howto-integrate-activity-logs-with-splunk.md)
 
-* [Integrate Azure AD logs with SumoLogic by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem SumoLogic przy użyciu usługi Azure Monitor)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic)
+* [Integrate Azure AD logs with SumoLogic by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem SumoLogic przy użyciu usługi Azure Monitor)](./howto-integrate-activity-logs-with-sumologic.md)
 
  
 
@@ -191,6 +191,6 @@ W zależności od decyzji podjętych wcześniej przy użyciu powyższych wytyczn
 
 ## <a name="next-steps"></a>Następne kroki
 
-Rozważ zaimplementowanie [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
+Rozważ zaimplementowanie [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 
 
-Rozważ zaimplementowanie [kontroli dostępu opartej na rolach (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Rozważ zaimplementowanie [kontroli dostępu opartej na rolach (Azure RBAC)](../../role-based-access-control/overview.md)

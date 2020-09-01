@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: e78044faabfd5ff3dccb1e7ea04149fbef212c01
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843712"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228889"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps dla potoku pozyskiwania danych
 
@@ -64,7 +64,7 @@ Na przykład kod będzie przechowywany w repozytorium Azure DevOps, GitHub lub G
 Inżynierowie danych współpracują z kodem źródłowym notesu języka Python lokalnie w środowisku IDE (na przykład [Visual Studio Code](https://code.visualstudio.com)) lub bezpośrednio w obszarze roboczym datakosteks. Po zakończeniu wprowadzania zmian w kodzie zostaną one scalone z repozytorium po rozgałęzieniu zasad.
 
 > [!TIP] 
-> Zalecamy przechowywanie kodu w plikach, `.py` a nie w `.ipynb` formacie notesu Jupyter. Zwiększa czytelność kodu i umożliwia automatyczne sprawdzanie jakości kodu w procesie CI.
+> Zalecamy przechowywanie kodu w plikach, `.py` a nie w `.ipynb` formacie Jupyter Notebook. Zwiększa czytelność kodu i umożliwia automatyczne sprawdzanie jakości kodu w procesie CI.
 
 ### <a name="azure-data-factory-source-code"></a>Azure Data Factory kod źródłowy
 

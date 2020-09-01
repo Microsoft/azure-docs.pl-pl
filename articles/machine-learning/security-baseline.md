@@ -6,13 +6,13 @@ ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 203ca95368d313055d7c715a3a3becbc1061582c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 168aec49dc9b14af57df98ebc4c997f8dfb27c9e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015088"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228362"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Podstawa zabezpieczeń platformy Azure dla Azure Machine Learning
 
@@ -1190,7 +1190,7 @@ Ponadto należy oznaczyć subskrypcje przy użyciu tagów i utworzyć system naz
 
 **Odpowiedzialność**: udostępnione
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Zobacz [test porównawczy zabezpieczeń platformy Azure](/azure/security/benchmarks/overview)
 - Dowiedz się więcej o [punktach odniesienia zabezpieczeń platformy Azure](/azure/security/benchmarks/security-baselines-overview)

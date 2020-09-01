@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 55a4f06b93aafbd1e94a3bf6573ba39dc25022b5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f84298c2c43afbb9e0379516be1e83002a7e3926
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077011"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228685"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -45,7 +45,6 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Migawki|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Migawki obiektów BLOB](snapshots-overview.md)|
 |Statyczne witryny internetowe|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Hostowanie statycznej witryny internetowej w usłudze Azure Storage](storage-blob-static-website.md)|
 |Niezmienny magazyn|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](storage-blob-immutable-storage.md)|
-|Zasady zarządzania cyklem życia|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Usuwanie nietrwałe kontenera|Wersja zapoznawcza|Wersja zapoznawcza|[Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md)|
 |Usuwanie nietrwałe obiektów BLOB|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Usuwanie nietrwałe dla obiektów blob](storage-blob-soft-delete.md)|
 |Blobfuse|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Jak zainstalować magazyn obiektów BLOB jako system plików za pomocą blobfuse](storage-how-to-mount-container-linux.md)|

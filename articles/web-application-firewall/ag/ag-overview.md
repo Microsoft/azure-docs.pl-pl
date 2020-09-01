@@ -1,21 +1,21 @@
 ---
-title: Wprowadzenie do zapory aplikacji sieci Web platformy Azure
+title: Co to jest Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway?
 titleSuffix: Azure Web Application Firewall
 description: Ten artykuł zawiera omówienie zapory aplikacji sieci Web (WAF) na Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.topic: conceptual
+ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142855"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227002"
 ---
-# <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Application Gateway
+# <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Co to jest Zapora aplikacji sieci Web platformy Azure w usłudze Azure Application Gateway?
 
 Zapora aplikacji sieci Web platformy Azure (WAF) na platformie Azure Application Gateway zapewnia scentralizowaną ochronę aplikacji sieci Web przed typowymi atakami i lukami w zabezpieczeniach. Aplikacje sieci Web są coraz bardziej przeznaczone dla złośliwych ataków wykorzystujących często znane luki w zabezpieczeniach. Iniekcja kodu SQL i skryptów między lokacjami są między Najczęściej spotykanymi atakami.
 
@@ -36,7 +36,7 @@ Ulepszenia zabezpieczeń Application Gateway obejmują zarządzanie zasadami pro
 
 W tej sekcji opisano podstawowe korzyści, które WAF na Application Gateway.
 
-### <a name="protection"></a>Ochrona
+### <a name="protection"></a>Protection
 
 * Ochrona aplikacji sieci Web przed lukami w zabezpieczeniach i atakami w sieci Web bez konieczności modyfikowania kodu zaplecza.
 
@@ -98,7 +98,7 @@ Aby uzyskać więcej informacji na temat reguł niestandardowych, zobacz [reguł
 
 ### <a name="bot-mitigation-preview"></a>Bot (wersja zapoznawcza)
 
-Zarządzany zestaw reguł ochrony bot można włączyć dla WAF, aby blokować lub rejestrować żądania ze znanych złośliwych adresów IP obok zarządzanego zestawu reguł. Adresy IP pochodzą ze źródła analizy zagrożeń firmy Microsoft. Intelligent Security Graph zapewnia program Microsoft Threat Intelligence i jest używany przez wiele usług, w tym Azure Security Center.
+Zarządzany zestaw reguł ochrony bot można włączyć dla WAF, aby blokować lub rejestrować żądania ze znanych złośliwych adresów IP obok zarządzanego zestawu reguł. Adresy IP pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft. System Intelligent Security Graph obsługuje analizę zagrożeń firmy Microsoft i jest używany przez wiele usług, w tym Azure Security Center.
 
 > [!NOTE]
 > Zestaw reguł ochrony bot jest obecnie w publicznej wersji zapoznawczej i jest dostarczany z umową dotyczącą poziomu usług w wersji zapoznawczej. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -125,7 +125,7 @@ W trybie oceniania anomalii ruch pasujący do dowolnej reguły nie jest natychmi
 
 |Ważność  |Wartość  |
 |---------|---------|
-|Krytyczny     |5|
+|Krytyczne     |5|
 |Error        |4|
 |Ostrzeżenie      |3|
 |Wzory       |2|
@@ -151,14 +151,14 @@ Dzienniki Application Gateway są zintegrowane z [Azure monitor](../../azure-mon
 
 ![Okno przeglądu Security Center](../media/ag-overview/figure1.png)
 
-#### <a name="azure-sentinel"></a>Azure Sentinel
+#### <a name="azure-sentinel"></a>Usługa Azure Sentinel
 
 Microsoft Azure wskaźnikiem wydajności jest skalowalne i natywne rozwiązanie do zarządzania zdarzeniami zabezpieczeń (SIEM) i o (Security Orchestration). Platforma Azure — wskaźnik przedstawia inteligentne rozwiązania w zakresie zabezpieczeń i analizy zagrożeń w całym przedsiębiorstwie, zapewniając jedno rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia.
 
 Korzystając z wbudowanego skoroszytu WAF zdarzeń zapory platformy Azure, możesz zapoznać się z omówieniem zdarzeń zabezpieczeń w WAF. Obejmuje to zdarzenia, dopasowane i zablokowane reguły oraz wszystkie inne, które są rejestrowane w dziennikach zapory. Zobacz więcej na temat rejestrowania poniżej. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Skoroszyt zdarzeń zapory platformy Azure WAF](../media/ag-overview/sentinel.png)
 
 #### <a name="logging"></a>Rejestrowanie
 
@@ -206,10 +206,12 @@ Application Gateway WAF udostępnia szczegółowe raporty dotyczące każdego wy
 
 Modele cen są różne dla WAF_v1 i WAF_v2 jednostek SKU. Aby dowiedzieć się więcej, zobacz stronę z [cennikiem Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) . 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="whats-new"></a>Co nowego
 
-- Rozpocznij od [utworzenia zasad WAFymi](create-waf-policy-ag.md)
+Aby dowiedzieć się, co nowego w zaporze aplikacji sieci Web platformy Azure, zobacz [aktualizacje platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+
+## <a name="next-steps"></a>Następne kroki
+
 - Dowiedz się więcej o [regułach zarządzanych przez WAF](application-gateway-crs-rulegroups-rules.md)
 - Dowiedz się więcej na temat [reguł niestandardowych](custom-waf-rules-overview.md)
 - Dowiedz się więcej o [zaporze aplikacji sieci Web na platformie Azure — drzwi](../afds/afds-overview.md)
-

@@ -10,12 +10,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2840e82508ee4f4046aec8f23c00a5c275bf5b67
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07a1e81f2fe63ea8d34f362627ad79ab6729f3f0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074461"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229127"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ Przywracanie do punktu w czasie wymaga włączenia następujących funkcji usłu
 
 - [Usuwanie nietrwałe](soft-delete-overview.md)
 - [Źródło zmian (wersja zapoznawcza)](storage-blob-change-feed.md)
-- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
 
 Te funkcje należy włączyć dla konta magazynu przed włączeniem przywracania do punktu w czasie. Pamiętaj, aby zarejestrować się w celu uzyskania źródła zmian i wersji zapoznawczych obiektów BLOB przed ich włączeniem.
 
@@ -105,7 +105,7 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

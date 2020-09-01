@@ -1,6 +1,6 @@
 ---
-title: Wizualizowanie danych w Eksploratorze Gen2 — Azure Time Series Insights Gen2 | Microsoft Docs
-description: Dowiedz się więcej o funkcjach i opcjach dostępnych w Eksploratorze Azure Time Series Insights Gen2.
+title: Wizualizowanie danych w Eksploratorze TSI — Azure Time Series Insights Gen2 | Microsoft Docs
+description: Dowiedz się więcej o funkcjach i opcjach dostępnych w Eksploratorze Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,22 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164159"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227053"
 ---
-# <a name="azure-time-series-insights-gen2-explorer"></a>Azure Time Series Insights Explorer Gen2
+# <a name="azure-time-series-insights-explorer"></a>Eksplorator Azure Time Series Insights
 
 W tym artykule opisano różne funkcje i opcje dostępne w [środowisku demonstracyjnym](https://insights.timeseries.azure.com/preview/demo)Azure Time Series Insights Gen2.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć pracę z programem Azure Time Series Insights Gen2 Explorer, musisz:
+Aby rozpocząć pracę z Eksploratorem Azure Time Series Insights, musisz:
 
 * Zainicjowano środowisko Azure Time Series Insights Gen2. Dowiedz się więcej o aprowizacji wystąpienia, odczytując samouczek [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
 * [Zapewnianie dostępu do danych](./time-series-insights-data-access.md) do środowiska Azure Time Series Insights Gen2 utworzonego dla konta. Możesz zapewnić dostęp do innych osób, jak również do siebie.
@@ -31,11 +31,11 @@ Aby rozpocząć pracę z programem Azure Time Series Insights Gen2 Explorer, mus
   * Dowiedz się [, jak nawiązać połączenie z centrum zdarzeń](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Dowiedz się, [jak nawiązać połączenie z usługą IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Eksplorowanie Azure Time Series Insights Gen2 Explorer
+## <a name="explore-the-azure-time-series-insights-explorer"></a>Eksplorowanie Azure Time Series Insights Explorer
 
-Eksplorator Azure Time Series Insights Gen2 składa się z następujących siedmiu elementów:
+Eksplorator Azure Time Series Insights składa się z następujących siedmiu elementów:
 
-[![Przegląd Azure Time Series Insights Gen2 Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Przegląd Azure Time Series Insights Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Panel środowiska](#1-environment-panel): wyświetla wszystkie Azure Time Series Insights środowiska Gen2.
 1. [Pasek nawigacyjny](#2-navigation-bar): umożliwia przełączenie między stronami **Analizowanie** i **modelem** .
@@ -193,7 +193,7 @@ Aby wybrać nowy motyw, wybierz ikonę profilu znajdującą się w prawym górny
 > [!TIP]
 > Wybór języka jest również dostępny przez wybranie ikony profilu.
 
-Azure Time Series Insights Explorer Gen2 obsługuje dwa motywy:
+Eksplorator Azure Time Series Insights obsługuje dwa motywy:
 
 * **Motyw jasny**: motyw domyślny pokazywany w tym dokumencie.
 * **Ciemny motyw**: renderuje Eksploratora, jak pokazano poniżej:
@@ -204,7 +204,7 @@ Azure Time Series Insights Explorer Gen2 obsługuje dwa motywy:
 
 ### <a name="gen2-terms-panel"></a>Panel warunków Gen2
 
-Ta sekcja ma zastosowanie tylko do istniejących środowisk generacji 1, które próbują użyć Eksploratora w zaktualizowanym interfejsie użytkownika. Możesz chcieć użyć produktu generacji 1 i produktu Gen2. Dodaliśmy pewne funkcje z istniejącego interfejsu użytkownika do zaktualizowanego Eksploratora, ale możesz uzyskać pełne środowisko interfejsu użytkownika dla środowiska Gen 1 w nowym Azure Time Series Insights Gen2 Explorer.
+Ta sekcja ma zastosowanie tylko do istniejących środowisk generacji 1, które próbują użyć Eksploratora w zaktualizowanym interfejsie użytkownika. Możesz chcieć użyć produktu generacji 1 i produktu Gen2. Dodaliśmy pewne funkcje z istniejącego interfejsu użytkownika do zaktualizowanego Eksploratora, ale w nowym Eksploratorze Azure Time Series Insights można uzyskać pełne środowisko interfejsu użytkownika dla środowiska generacji 1.
 
 Zamiast hierarchii zostanie wyświetlony panel Azure Time Series Insights postanowień Gen2. Panel warunki pozwala definiować zapytania w danym środowisku. Umożliwia ona również filtrowanie danych na podstawie predykatu.
 
@@ -219,7 +219,7 @@ Azure Time Series Insights panel Edytor warunków Gen2 przyjmuje następujące p
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Ciąg, bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | Ciąg, bool, Double, DateTime, TimeSpan, NULL | Wszystkie operandy powinny być tego samego typu lub być stałe o wartości NULL. |
-| `HAS` | Ciąg | Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i wartość NULL są niedozwolone. |
+| `HAS` | String | Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i wartość NULL są niedozwolone. |
 
 Aby dowiedzieć się więcej o obsługiwanych operacjach zapytań i typach danych, zobacz [wyrażenie szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 

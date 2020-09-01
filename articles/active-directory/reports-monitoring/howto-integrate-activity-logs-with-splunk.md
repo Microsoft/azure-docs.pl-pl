@@ -17,12 +17,12 @@ ms.date: 03/10/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a17f0a0c9c6a6c8bd466114e98b2b8c6ee5e9f8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61cae487c588c7649de638d9ea6d3111bfbe9e1a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608164"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229688"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Instrukcje: Integrowanie dzienników Azure Active Directory z Splunk za pomocą Azure Monitor
 
@@ -30,9 +30,9 @@ W tym artykule dowiesz się, jak zintegrować dzienniki usługi Azure Active Dir
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby używać tej funkcji, potrzebujesz następujących elementów:
+Do korzystania z tej funkcji są potrzebne następujące elementy:
 
-- Centrum zdarzeń platformy Azure, które zawiera dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+- Centrum zdarzeń platformy Azure, które zawiera dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 
 -  [Microsoft Azure dodać do usługi Splunk](https://splunkbase.splunk.com/app/3757/). 
 

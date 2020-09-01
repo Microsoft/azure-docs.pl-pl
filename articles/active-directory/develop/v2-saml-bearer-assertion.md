@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949358"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227920"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity platform i OAuth 2,0 SAML Flow Assertion
 Przepływ potwierdzenia elementu "OAuth 2,0 SAML" umożliwia żądanie tokenu dostępu OAuth przy użyciu potwierdzenia SAML, gdy klient musi używać istniejącej relacji zaufania. Sygnatura zastosowana do potwierdzenia SAML zapewnia uwierzytelnianie autoryzowanej aplikacji. Potwierdzenie SAML to token zabezpieczający XML wystawiony przez dostawcę tożsamości i używany przez dostawcę usług. Dostawca usług opiera się na swojej zawartości, aby zidentyfikować podmiot potwierdzenia dla celów związanych z zabezpieczeniami.
@@ -27,7 +27,7 @@ Przepływ potwierdzenia okaziciela języka SAML jest przydatny podczas pobierani
 
 W przypadku aplikacji, które wykonują interaktywne logowanie oparte na przeglądarce w celu uzyskania potwierdzenia SAML, a następnie chcesz dodać dostęp do chronionego interfejsu API protokołu OAuth (na przykład Microsoft Graph), możesz utworzyć żądanie OAuth w celu uzyskania tokenu dostępu do interfejsu API. Gdy przeglądarka zostanie przekierowana do usługi Azure AD w celu uwierzytelnienia użytkownika, przeglądarka zostanie pobrana z logowania przy użyciu protokołu SAML, a użytkownik nie musi wprowadzać ich poświadczeń.
 
-Przepływ potwierdzeń okaziciela protokołu OAuth jest również obsługiwany w przypadku użytkowników uwierzytelniających się przy użyciu dostawców tożsamości, takich jak federacyjne Active Directory Federation Services (ADFS) do Azure Active Directory.  Potwierdzenie SAML uzyskane z usług AD FS może być używane w przepływie protokołu OAuth w celu uwierzytelnienia użytkownika.
+Przepływ potwierdzenia okaziciela protokołu OAuth jest obsługiwany tylko w przypadku użytkowników uwierzytelnianych przy użyciu dostawców tożsamości, takich jak federacyjne Active Directory Federation Services (ADFS) do Azure Active Directory.  Potwierdzenie SAML uzyskane z usług AD FS może być używane w przepływie protokołu OAuth w celu uwierzytelnienia użytkownika.
 
 ![Przepływ OAuth](./media/v2-saml-bearer-assertion/1.png)
 
@@ -88,6 +88,6 @@ Po odebraniu tokenu dostępu Wywołaj interfejsy API programu Graph (zadania w p
 
 1. Po pomyślnym żądaniu otrzymasz odpowiedź JSON.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Poznaj różne [przepływy uwierzytelniania i scenariusze aplikacji](authentication-flows-app-scenarios.md).

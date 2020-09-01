@@ -1,20 +1,20 @@
 ---
 title: Serwery z włączonym usługą Azure ARC (wersja zapoznawcza) — Omówienie
-description: Dowiedz się, jak używać serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) do zarządzania maszynami hostowanymi poza platformą Azure, tak jakby były to zasoby platformy Azure.
+description: Dowiedz się, jak korzystać z serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) w celu zarządzania serwerami hostowanymi poza platformą Azure, takimi jak
 keywords: Azure Automation, DSC, PowerShell, Konfiguracja żądanego stanu, zarządzanie aktualizacjami, śledzenie zmian, spis, elementy Runbook, Python, graficzne, hybrydowe
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: dfc4d8e046cef5af7c3eaf0d31ce2d6120dfc8f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: c368307df911f5143541bb5337eb76a208416909
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211325"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228091"
 ---
 # <a name="what-is-azure-arc-enabled-servers-preview"></a>Co to są serwery z włączonym usługą Azure ARC (wersja zapoznawcza)?
 
-Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) umożliwiają zarządzanie maszynami z systemami Windows i Linux obsługiwanymi poza platformą Azure w sieci firmowej lub innym dostawcy chmury, podobnie jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure. Gdy maszyna hybrydowa jest połączona z platformą Azure, zostanie ona podłączona i jest traktowana jako zasób na platformie Azure. Każdy połączony komputer ma identyfikator zasobu, który jest zarządzany jako część grupy zasobów w ramach subskrypcji, i korzyści ze standardowych konstrukcji platformy Azure, takich jak Azure Policy i stosowanie tagów.
+Serwery z obsługą usługi Azure ARC (wersja zapoznawcza) umożliwiają zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure, w sieci firmowej lub w innym dostawcy chmury, podobnie jak w przypadku zarządzania natywnymi maszynami wirtualnymi platformy Azure. Gdy maszyna hybrydowa jest połączona z platformą Azure, zostanie ona podłączona i jest traktowana jako zasób na platformie Azure. Każdy połączony komputer ma identyfikator zasobu, który jest zarządzany jako część grupy zasobów w ramach subskrypcji, i korzyści ze standardowych konstrukcji platformy Azure, takich jak Azure Policy i stosowanie tagów.
 
 Aby zapewnić to środowisko dla maszyn hybrydowych hostowanych poza platformą Azure, należy zainstalować agenta maszyny połączonej z platformą Azure na każdym komputerze, na którym ma zostać nawiązane połączenie z platformą Azure. Ten agent nie dostarcza żadnych innych funkcji i nie zastępuje [agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md)platformy Azure. Agent Log Analytics dla systemów Windows i Linux jest wymagany, gdy użytkownik chce aktywnie monitorować system operacyjny i obciążenia uruchomione na komputerze, zarządzać nim za pomocą elementów Runbook usługi Automation lub rozwiązań, takich jak Update Management, lub używać innych usług platformy Azure, takich jak [Azure Security Center](../../security-center/security-center-intro.md).
 
@@ -51,4 +51,4 @@ Agent połączonej maszyny wysyła do usługi zwykły komunikat pulsu co 5 minut
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przed dokonaniem oceny lub włączeniem serwerów z obsługą łuku (wersja zapoznawcza) na wielu maszynach hybrydowych zapoznaj się z artykułem [Omówienie agenta połączonej maszyny](agent-overview.md) , aby zrozumieć, co jest wymagane, szczegółowe informacje techniczne na temat agenta i metody wdrażania.
+Przed dokonaniem oceny lub włączeniem serwerów z obsługą łuku (wersja zapoznawcza) na wielu maszynach hybrydowych Przejrzyj [Omówienie agenta połączonej maszyny](agent-overview.md) , aby poznać wymagania, szczegóły techniczne dotyczące agenta i metod wdrażania.

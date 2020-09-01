@@ -1,18 +1,18 @@
 ---
 title: Samouczek — Konfigurowanie ról Azure Analysis Services | Microsoft Docs
-description: Dowiedz się, jak skonfigurować Azure Analysis Services administratorów i ról użytkowników przy użyciu Azure Portal lub SQL Server Management Studio.
+description: W tym samouczku dowiesz się, jak skonfigurować Azure Analysis Services administratorów i ról użytkowników przy użyciu Azure Portal lub SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84016393"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229365"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Samouczek: konfigurowanie ról administratora i użytkowników serwera
 
@@ -52,7 +52,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
 
 1. W programie SSMS wybierz pozycję **Eksplorator obiektów**, a następnie kliknij pozycję **Połącz** > **Analysis Services**.
 
-    ![Połącz](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Connect](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. W oknie dialogowym **Połączenie z serwerem** w polu **Nazwa serwera** skopiuj i wklej nazwę serwera skopiowaną z portalu. W polu **Uwierzytelnianie** wybierz pozycję **Active Directory — Uniwersalne z obsługą uwierzytelniania wieloskładnikowego**, a następnie wprowadź nazwę konta użytkownika i naciśnij przycisk **Połącz**.
    
@@ -63,7 +63,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
 
 3. W **Eksploratorze obiektów** rozwiń serwer, aby wyświetlić obiekty serwera. Kliknij prawym przyciskiem myszy, aby wyświetlić właściwości serwera.
    
-    ![Nawiązywanie połączenia w programie SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    ![Eksplorator obiektów w programie SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Dodawanie konta użytkownika do roli administratora serwera
 
@@ -134,7 +134,7 @@ W tym zadaniu użyjesz polecenia [Create](https://docs.microsoft.com/analysis-se
 
     ![Sprawdzenie w Eksploratorze obiektów](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy konta i role użytkownika lub grupy nie są już potrzebne, można je usunąć. W tym celu należy użyć **Role Properties**  >  **przynależności** do właściwości roli, aby usunąć konta użytkowników, lub kliknij prawym przyciskiem myszy rolę, a następnie kliknij pozycję **Usuń**.
 

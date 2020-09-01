@@ -17,14 +17,14 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261027"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229858"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Dzienniki aktywności usługi Azure AD w Azure Monitor
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Dzienniki aktywności usługi Azure AD w usłudze Azure Monitor
 
 Dzienniki aktywności usługi Azure Active Directory (Azure AD) można kierować do kilku punktów końcowych w celu długoterminowego przechowywania i wglądu w dane. Ta funkcja umożliwia:
 
@@ -50,7 +50,7 @@ Dzienniki inspekcji usługi Azure AD i dzienniki logowania można kierować do k
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby używać tej funkcji, potrzebujesz następujących elementów:
+Do korzystania z tej funkcji są potrzebne następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/).
 * [Licencja](https://azure.microsoft.com/pricing/details/active-directory/) usługi Azure AD w warstwie Bezpłatna, Podstawowa, Premium 1 lub Premium 2, aby uzyskać dostęp do dzienników inspekcji usługi Azure AD w witrynie Azure Portal. 
@@ -60,11 +60,11 @@ Aby używać tej funkcji, potrzebujesz następujących elementów:
 
 W zależności od tego, gdzie chcesz przekierować dane dziennika inspekcji, będziesz potrzebować dowolnego spośród poniższych elementów:
 
-* Konto usługi Azure Storage, do którego masz uprawnienia *ListKeys*. Zalecamy używanie konta magazynu ogólnego, a nie konta magazynu obiektów blob. Aby uzyskać informacje o cenach magazynu, zobacz [kalkulator cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* Konto usługi Azure Storage, do którego masz uprawnienia *ListKeys*. Zalecamy używanie konta magazynu ogólnego, a nie konta magazynu obiektów blob. Informacje o cenach magazynu można znaleźć na stronie [kalkulatora cen usługi Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Przestrzeń nazw usługi Azure Event Hubs potrzeby integracji z rozwiązaniami innych firm.
 * Obszar roboczy usługi Azure Log Analytics do wysyłania dzienników do Azure Monitor dzienników.
 
-## <a name="cost-considerations"></a>Kwestie związane z kosztami
+## <a name="cost-considerations"></a>Zagadnienia dotyczące kosztów
 
 Jeśli masz już licencję usługi Azure AD, potrzebujesz subskrypcji platformy Azure do skonfigurowania magazynu konta i centrum zdarzeń. Subskrypcja platformy Azure jest dostępna bezpłatnie, ale trzeba płacić za korzystanie z zasobów platformy Azure, w tym konto magazynu używane na potrzeby archiwizacji oraz centrum zdarzeń używane do przesyłania strumieniowego. Ilość danych, a w związku z tym koszt, może różnić się znacznie w zależności od rozmiaru dzierżawy. 
 
@@ -103,7 +103,7 @@ Poniższa tabela zawiera szacowane koszty miesięcznie w przypadku podstawowego 
 | Kategoria dziennika | Liczba użytkowników | Zdarzenia na sekundę | Zdarzenia na pięciominutowy interwał | Wolumen na interwał | Komunikaty na interwał | Komunikaty na miesiąc | Koszt za miesiąc (szac.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Inspekcja | 100 000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
-| Inspekcja | 1000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 USD |
+| Inspekcja | 1000 | 0,1 | 52 | 104 KB | 1 | 8640 | 10,80 USD |
 | Logowania | 100 000 | 18000 | 5 400 000 | 10,8 GB | 42188 | 364 504 320 | $23,9 |  
 | Logowania | 1000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
@@ -126,7 +126,7 @@ Poniższa tabela zawiera szacowane koszty miesięcznie w przypadku podstawowego 
 
 
 
-Aby zapoznać się z kosztami związanymi z zarządzaniem dziennikami Azure Monitor, zobacz [Zarządzanie kosztami, kontrolując ilość danych i przechowywanie w dziennikach Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Aby zapoznać się z kosztami związanymi z zarządzaniem dziennikami Azure Monitor, zobacz [Zarządzanie kosztami, kontrolując ilość danych i przechowywanie w dziennikach Azure monitor](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -180,13 +180,13 @@ Odp **.: nowe**zasady przechowywania zostaną zastosowane do dzienników zebrany
 
 **Pytanie: Jakie narzędzia SIEM są obecnie obsługiwane?** 
 
-Odp. **A** **: obecnie**Azure monitor jest obsługiwany przez [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm i Logz.IO. Aby uzyskać więcej informacji na temat sposobu działania łączników, zobacz [Stream Azure monitoring data to an event hub for consumption by an external tool (Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń do użycia przez zewnętrzne narzędzie)](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Odp. **A** **: obecnie**Azure monitor jest obsługiwany przez [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm i Logz.IO. Aby uzyskać więcej informacji na temat sposobu działania łączników, zobacz [Stream Azure monitoring data to an event hub for consumption by an external tool (Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń do użycia przez zewnętrzne narzędzie)](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
 **Pytanie: Jak mogę zintegrować dzienniki aktywności usługi Azure AD z moim wystąpieniem usługi Splunk?**
 
-**Odpowiedź**: Najpierw [przekieruj dzienniki aktywności usługi Azure AD do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md), a następnie postępuj zgodnie z podanymi instrukcjami, aby [zintegrować dzienniki aktywności z usługą Splunk](tutorial-integrate-activity-logs-with-splunk.md).
+**Odpowiedź**: Najpierw [przekieruj dzienniki aktywności usługi Azure AD do centrum zdarzeń](./tutorial-azure-monitor-stream-logs-to-event-hub.md), a następnie postępuj zgodnie z podanymi instrukcjami, aby [zintegrować dzienniki aktywności z usługą Splunk](./howto-integrate-activity-logs-with-splunk.md).
 
 ---
 
@@ -198,7 +198,7 @@ Odp. **A** **: obecnie**Azure monitor jest obsługiwany przez [Splunk](tutorial-
 
 **Pytanie: Czy można uzyskać dostęp do danych z centrum zdarzeń bez użycia zewnętrznego narzędzia SIEM?** 
 
-Odp **.: tak**. Aby uzyskać dostęp do dzienników z aplikacji niestandardowej, możesz użyć [interfejsu API usługi Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md). 
+Odp **.: tak**. Aby uzyskać dostęp do dzienników z aplikacji niestandardowej, możesz użyć [interfejsu API usługi Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md). 
 
 ---
 
@@ -206,5 +206,5 @@ Odp **.: tak**. Aby uzyskać dostęp do dzienników z aplikacji niestandardowej,
 ## <a name="next-steps"></a>Następne kroki
 
 * [Archiwizowanie dzienników aktywności na koncie magazynu](quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Kierowanie dzienników aktywności do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Kierowanie dzienników aktywności do centrum zdarzeń](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrowanie dzienników aktywności z Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

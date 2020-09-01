@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146423"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229399"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Używanie Azure Pipelines do kompilowania i wdrażania rozwiązań HPC
 
@@ -29,7 +29,7 @@ W tym przykładzie utworzymy potok kompilacji i wydania w celu wdrożenia infras
 Aby wykonać kroki opisane w tym artykule, potrzebna jest organizacja usługi Azure DevOps i projekt zespołowy.
 
 * [Tworzenie organizacji usługi Azure DevOps](/azure/devops/organizations/accounts/create-organization)
-* [Tworzenie projektu na platformie Azure DevOps](/azure/devops/organizations/projects/create-projects)
+* [Tworzenie projektu na platformie Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### <a name="source-control-for-your-environment"></a>Kontrola źródła dla danego środowiska
 
@@ -325,7 +325,7 @@ W tym przykładzie nastąpi skoncentrowanie na folderze **HPC-Application** . **
 
     a. [Przy użyciu projektanta wizualnego](/azure/devops/pipelines/get-started-designer). Aby użyć tego polecenia, kliknij pozycję "Użyj projektanta wizualizacji" na stronie **Nowy potok** .
 
-    b. [Korzystanie z kompilacji YAML](/azure/devops/pipelines/get-started-yamls). Nowy potok YAML można utworzyć, klikając opcję Azure Repos lub GitHub na stronie nowe potoku. Możesz również zapisać Poniższy przykład w kontroli źródła i odwołać się do istniejącego pliku YAML, klikając w projektancie wizualizacji, a następnie używając szablonu YAML.
+    b. [Korzystanie z kompilacji YAML](/azure/devops/pipelines/get-started-yaml). Nowy potok YAML można utworzyć, klikając opcję Azure Repos lub GitHub na stronie nowe potoku. Możesz również zapisać Poniższy przykład w kontroli źródła i odwołać się do istniejącego pliku YAML, klikając w projektancie wizualizacji, a następnie używając szablonu YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to

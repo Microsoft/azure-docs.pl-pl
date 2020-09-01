@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 04a50d37606754ff4540d1056e378d46388e2592
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e67e6911eeac29036dee2b68c19395b34e1d11da
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590722"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228039"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Dane wiosenne Azure Cosmos DB v3 for Core (SQL) API: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Artefakt, który jest zależny od struktury danych wiosennych v 2.3:
 
 # <a name="connect"></a>[Połącz](#tab/connect)
 
-### <a name="connect"></a>Połącz
+### <a name="connect"></a>Connect
 
 Określ konto Azure Cosmos DB i szczegóły kontenera. Dane sprężynowe Azure Cosmos DB automatycznie tworzą klienta i łączą się z kontenerem.
 
@@ -129,6 +129,8 @@ cosmos.queryMetricsEnabled=true
 |**Samouczek**| [Samouczek dotyczący sprężyny danych Azure Cosmos DB w witrynie GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-2-cosmos-java-getting-started) | [Samouczek dotyczący sprężyny danych Azure Cosmos DB w witrynie GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-3-cosmos-java-getting-started) |
 
 ## <a name="release-history"></a>Historia wersji
+
+### <a name="300-beta2-unreleased"></a>3.0.0 — wersja beta. 2 (nieopublikowana)
 
 ### <a name="300-beta1-2020-08-17"></a>3.0.0 — beta. 1 (2020-08-17)
 #### <a name="new-features"></a>Nowe funkcje

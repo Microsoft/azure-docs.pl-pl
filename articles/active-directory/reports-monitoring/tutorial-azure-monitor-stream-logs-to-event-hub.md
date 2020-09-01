@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 4cf35b2c15c0d85c93e69ef4e3b6c76932cbd75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74007651"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229382"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Samouczek: przesyłanie strumieniowe dzienników Azure Active Directory do centrum zdarzeń platformy Azure
 
@@ -35,7 +35,7 @@ Do korzystania z tej funkcji są potrzebne następujące elementy:
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, możesz skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/).
 * Dzierżawa usługi Azure AD.
 * Użytkownik będący *administratorem globalnym* lub *administratorem zabezpieczeń* dla tej dzierżawy usługi Azure AD.
-* Przestrzeń nazw usługi Event Hubs i centrum zdarzeń w ramach subskrypcji platformy Azure. Dowiedz się, jak [utworzyć centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Przestrzeń nazw usługi Event Hubs i centrum zdarzeń w ramach subskrypcji platformy Azure. Dowiedz się, jak [utworzyć centrum zdarzeń](../../event-hubs/event-hubs-create.md).
 
 ## <a name="stream-logs-to-an-event-hub"></a>Przesyłanie strumieniowe dzienników do centrum zdarzeń
 
@@ -79,19 +79,19 @@ Po wyświetleniu danych w centrum zdarzeń możesz uzyskać dostęp do danych i 
     
     * **ArcSight**: Aby uzyskać więcej informacji na temat integrowania dzienników usługi Azure AD z usługą Splunk, zobacz [integrowanie dzienników Azure Active Directory z ArcSight przy użyciu Azure monitor](howto-integrate-activity-logs-with-arcsight.md).
     
-    * **Splunk**: aby uzyskać więcej informacji na temat sposobu integracji dzienników usługi Azure AD z narzędziem Splunk, zobacz [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure Active Directory z narzędziem Splunk za pomocą usługi Azure Monitor)](tutorial-integrate-activity-logs-with-splunk.md).
+    * **Splunk**: aby uzyskać więcej informacji na temat sposobu integracji dzienników usługi Azure AD z narzędziem Splunk, zobacz [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure Active Directory z narzędziem Splunk za pomocą usługi Azure Monitor)](./howto-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar**: składniki Microsoft Azure DSM i Microsoft Azure Event Hub Protocol są dostępne do pobrania w witrynie pomocy technicznej firmy [IBM](https://www.ibm.com/support). Aby uzyskać więcej informacji na temat integracji z platformą Azure, przejdź do witryny [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
     
     * **Sumo Logic**: aby skonfigurować narzędzie Sumo Logic do pracy z danymi z centrum zdarzeń, zobacz [Install the Azure AD app and view the dashboards (Instalowanie aplikacji usługi Azure AD i wyświetlanie pulpitów nawigacyjnych)](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 
-* **Skonfiguruj niestandardowe narzędzia**. Jeśli Twoje bieżące narzędzie SIEM nie jest jeszcze obsługiwane w diagnostyce usługi Azure Monitor, możesz skonfigurować narzędzia niestandardowe przy użyciu interfejsów API usługi Event Hubs. Aby dowiedzieć się więcej, zobacz [Wprowadzenie do odbierania komunikatów z centrum zdarzeń](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
+* **Skonfiguruj niestandardowe narzędzia**. Jeśli Twoje bieżące narzędzie SIEM nie jest jeszcze obsługiwane w diagnostyce usługi Azure Monitor, możesz skonfigurować narzędzia niestandardowe przy użyciu interfejsów API usługi Event Hubs. Aby dowiedzieć się więcej, zobacz [Wprowadzenie do odbierania komunikatów z centrum zdarzeń](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Integrowanie dzienników Azure Active Directory z usługą ArcSight przy użyciu Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
-* [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem Splunk przy użyciu usługi Azure Monitor)](tutorial-integrate-activity-logs-with-splunk.md)
+* [Integrate Azure AD logs with Splunk by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem Splunk przy użyciu usługi Azure Monitor)](./howto-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor (Integrowanie dzienników usługi Azure AD z narzędziem SumoLogic przy użyciu usługi Azure Monitor)](howto-integrate-activity-logs-with-sumologic.md)
 * [Interpretuj schemat dzienników inspekcji w Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure Monitor (Interpretowanie schematu dzienników logowania w usłudze Azure Monitor)](reference-azure-monitor-sign-ins-log-schema.md)

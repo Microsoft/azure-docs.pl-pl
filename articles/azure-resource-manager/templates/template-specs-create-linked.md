@@ -2,13 +2,13 @@
 title: Tworzenie specyfikacji szablonu z połączonymi szablonami
 description: Dowiedz się, jak utworzyć specyfikację szablonu z połączonymi szablonami.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: a70d4be2810b8d5a19fa9d806444cac1674e1a05
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.date: 08/31/2020
+ms.openlocfilehash: f1808be73981c3ab4d53fd2a651822b93b5fb790
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959225"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228005"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Samouczek: Tworzenie specyfikacji szablonu z połączonymi szablonami (wersja zapoznawcza)
 
@@ -186,7 +186,7 @@ az group create \
   --name templateSpecRG \
   --location westus2
 
-az template-specs create \
+az ts create \
   --name webSpec \
   --version "1.0.0.0" \
   --resource-group templateSpecRG \
@@ -207,14 +207,14 @@ Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-cli)
 
 ```azurecli
-az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
 ```
 
 ---
 
 ## <a name="deploy-template-spec"></a>Wdróż specyfikację szablonu
 
-Teraz można wdrożyć specyfikację szablonu. wdrożenie specyfikacji szablonu jest tak samo samo jak wdrożenie szablonu zawartego w szablonie, z wyjątkiem tego, że został przekazany identyfikator zasobu specyfikacji szablonu. Używasz tych samych poleceń wdrażania i w razie potrzeby Przekaż wartości parametrów dla specyfikacji szablonu.
+Teraz można wdrożyć specyfikację szablonu. Wdrożenie specyfikacji szablonu jest tak samo samo jak wdrażanie szablonu, który zawiera, z tą różnicą, że identyfikator zasobu specyfikacji szablonu jest przekazywany. Używasz tych samych poleceń wdrażania i w razie potrzeby Przekaż wartości parametrów dla specyfikacji szablonu.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -249,6 +249,6 @@ az deployment group create \
 
 ---
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej o wdrażaniu specyfikacji szablonu jako połączonego szablonu, zobacz [Samouczek: wdrażanie specyfikacji szablonu jako połączonego szablonu](template-specs-deploy-linked-template.md).
