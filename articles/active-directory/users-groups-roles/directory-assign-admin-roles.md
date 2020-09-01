@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180086"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269679"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -27,7 +27,7 @@ Za pomocą Azure Active Directory (Azure AD) można wyznaczyć ograniczonych adm
 
 ## <a name="limit-use-of-global-administrator"></a>Ograniczanie użycia administratora globalnego
 
-Użytkownicy przypisani do roli administratora globalnego mogą odczytywać i modyfikować każde ustawienie administracyjne w organizacji usługi Azure AD. Domyślnie osoba, która zarejestruje się w celu uzyskania subskrypcji platformy Azure, ma przypisaną rolę administratora globalnego dla organizacji usługi Azure AD. Tylko Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą delegować role administratorów. Aby zmniejszyć ryzyko dla Twojej firmy, zalecamy przypisanie tej roli do najmniejszej możliwej liczby osób w organizacji.
+Użytkownicy przypisani do roli administratora globalnego mogą odczytywać i modyfikować każde ustawienie administracyjne w organizacji usługi Azure AD. Domyślnie, gdy użytkownik loguje się do usługi w chmurze firmy Microsoft, zostaje utworzona dzierżawa usługi Azure AD, a użytkownik jest członkiem roli Administratorzy globalni. Po dodaniu subskrypcji do istniejącej dzierżawy nie jest ona przypisana do roli administratora globalnego. Tylko Administratorzy globalni i Administratorzy ról uprzywilejowanych mogą delegować role administratorów. Aby zmniejszyć ryzyko dla Twojej firmy, zalecamy przypisanie tej roli do najmniejszej możliwej liczby osób w organizacji.
 
 Najlepszym rozwiązaniem jest przypisanie tej roli do mniej niż pięciu osób w organizacji. Jeśli masz więcej niż pięć administratorów przypisanych do roli administratora globalnego w organizacji, Oto kilka sposobów na zmniejszenie jej użycia.
 

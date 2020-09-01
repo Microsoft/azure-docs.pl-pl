@@ -1,7 +1,7 @@
 ---
 title: Pomoc techniczna dotycząca licencji na Media Services i Apple FairPlay — Azure | Microsoft Docs
 description: Ten temat zawiera omówienie wymagań i konfiguracji licencji firmy Apple FairPlay.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0c2a699a57ce43b4d0b6f02c850dbda8082fbaea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cded51fa1cc1a1411f59915382f3c310660f8b19
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009733"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269305"
 ---
-# <a name="apple-fairplay-license-requirements-and-configuration"></a>Wymagania licencyjne i konfiguracja technologii FairPlay firmy Apple 
+# <a name="apple-fairplay-license-requirements-and-configuration"></a>Wymagania licencyjne i konfiguracja technologii FairPlay firmy Apple
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services umożliwia zaszyfrowanie zawartości HLS za pomocą **Apple FairPlay** (CBC AES-128). Media Services udostępnia również usługę do dostarczania licencji FairPlay. Gdy gracz podejmie próbę odtworzenia zawartości chronionej przez FairPlay, żądanie jest wysyłane do usługi dostarczania licencji w celu uzyskania licencji. Jeśli usługa licencji zatwierdzi żądanie, wystawia licencję, która jest wysyłana do klienta i służy do odszyfrowania i odtworzenia określonej zawartości.
 
@@ -118,6 +120,6 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z tematem [Ochrona przy użyciu technologii DRM](protect-with-drm.md)

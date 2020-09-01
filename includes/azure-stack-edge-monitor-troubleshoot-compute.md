@@ -2,16 +2,51 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313204"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89272152"
 ---
-Na urządzeniu brzegowym Azure Stack, na którym skonfigurowano rolę COMPUTE, podzbiór poleceń platformy Docker jest dostępny do monitorowania i rozwiązywania problemów z modułami. Aby wyświetlić listę dostępnych poleceń, Połącz się [z interfejsem programu PowerShell](#connect-to-the-powershell-interface) i Użyj `dkrdbe` funkcji.
+Na urządzeniu brzegowym Azure Stack, na którym skonfigurowano rolę obliczeniową, można rozwiązywać problemy lub monitorować urządzenie przy użyciu dwóch różnych zestawów poleceń.
+
+- Korzystanie z `iotedge` poleceń. Te polecenia są dostępne dla podstawowych operacji na urządzeniu.
+- Korzystanie z `dkrdbe` poleceń. Te polecenia są dostępne dla obszernego zestawu operacji dla urządzenia.
+
+Aby wykonać jeden z powyższych zestawów poleceń, należy [nawiązać połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
+
+### <a name="use-iotedge-commands"></a>Użyj `iotedge` poleceń
+
+Aby wyświetlić listę dostępnych poleceń, Połącz się [z interfejsem programu PowerShell](#connect-to-the-powershell-interface) i Użyj `iotedge` funkcji.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
+
+Commands:
+   check
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+W poniższej tabeli znajduje się krótki opis poleceń dostępnych dla `iotedge` :
+
+|command  |Opis |
+|---------|---------|
+|`check`     | Przeprowadzaj automatyczne sprawdzanie typowych problemów z konfiguracją i połączeniem       |
+|`list`     | Wyświetlanie listy modułów         |
+|`logs`     | Pobieranie dzienników modułu        |
+|`restart`     | Zatrzymywanie i ponowne uruchamianie modułu         |
+
+
+### <a name="use-dkrdbe-commands"></a>Użyj `dkrdbe` poleceń
+
+Aby wyświetlić listę dostępnych poleceń, Połącz się [z interfejsem programu PowerShell](#connect-to-the-powershell-interface) i Użyj `dkrdbe` funkcji.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -39,7 +74,7 @@ W poniższej tabeli znajduje się krótki opis poleceń dostępnych dla `dkrdbe`
 
 |command  |Opis |
 |---------|---------|
-|`image`     | Zarządzanie obrazami. Aby usunąć nieużywane obrazy, użyj:`dkrdbe image prune -a -f`       |
+|`image`     | Zarządzanie obrazami. Aby usunąć nieużywane obrazy, użyj: `dkrdbe image prune -a -f`       |
 |`images`     | Wyświetlanie obrazów         |
 |`inspect`     | Zwracanie informacji niskiego poziomu dotyczących obiektów platformy Docker         |
 |`login`     | Logowanie do rejestru platformy Docker         |
@@ -89,14 +124,14 @@ Aby uzyskać listę wszystkich kontenerów (łącznie z wstrzymanymi), uruchom `
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
 CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
 [10.100.10.10]: PS>
 ```
 
-Jeśli wystąpił błąd podczas tworzenia obrazu kontenera lub podczas ściągania obrazu, uruchom polecenie `logs edgeAgent` .  `EdgeAgent`jest kontenerem środowiska uruchomieniowego IoT Edge, który jest odpowiedzialny za obsługę innych kontenerów.
+Jeśli wystąpił błąd podczas tworzenia obrazu kontenera lub podczas ściągania obrazu, uruchom polecenie `logs edgeAgent` .  `EdgeAgent` jest kontenerem środowiska uruchomieniowego IoT Edge, który jest odpowiedzialny za obsługę innych kontenerów.
 
 Ponieważ powoduje `logs edgeAgent` zrzut wszystkich dzienników, dobrym sposobem na wyświetlenie ostatnich błędów jest użycie opcji `--tail 20` .
 
@@ -127,10 +162,10 @@ Aby uzyskać dzienniki dla określonego kontenera, najpierw utwórz listę konte
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
     CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
 3. Zanotuj identyfikator kontenera dla kontenera, dla którego są potrzebne dzienniki.

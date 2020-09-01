@@ -1,7 +1,7 @@
 ---
 title: Schemat metadanych wejścia Azure Media Services v3
 description: Ten artykuł zawiera omówienie schematu metadanych wejścia Azure Media Services v3.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2020
-ms.author: juliako
-ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095600"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269152"
 ---
-# <a name="input-metadata"></a>Metadane wejściowe 
+# <a name="input-metadata"></a>Metadane wejściowe
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Zadanie kodowania jest skojarzone z wejściowym zasobem (lub zasobami), na którym mają zostać wykonane pewne zadania kodowania.  Po zakończeniu zadania tworzony jest wyjściowy element zawartości. Element zawartości wyjściowej zawiera wideo, audio, miniatury, manifest i inne pliki. 
 
@@ -69,8 +71,8 @@ Zawiera kolekcję elementów AssetFile dla zadania kodowania.
 | **Profil** |Profil ścieżki wideo. <br /><br />Przykład: `"Profile": "Main"`|
 | **Poziomie** |Poziom ścieżki wideo. <br /><br />Przykład: `"Level": "3.2"`|
 | **PixelFormat** |Format piksela ścieżki wideo. <br /><br />Przykład: `"PixelFormat": "yuv420p"`|
-| **impulsów**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|
-| **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.<br /><br />Przykład: `"Height": "720"` |
+| **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|
+| **Height**<br />Wymagane |Zakodowana wysokość wideo w pikselach.<br /><br />Przykład: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Wymagane |Licznik współczynnik proporcji wyświetlania wideo.<br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo. <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Przykładowy współczynnik proporcji filmu wideo. <br /><br />Przykład: `"SampleAspectRatioNumerator": 1.0`|

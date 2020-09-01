@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55c22a58ea76c268c40894c0ea64d43312b1ba27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564860"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269101"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Osadzanie plików wideo adaptacyjnego przesyłania strumieniowego MPEG-DASH w aplikacji HTML5 z implementacją DASH.js  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Osadzanie plików wideo adaptacyjnego przesyłania strumieniowego MPEG-DASH w aplikacji HTML5 z implementacją DASH.js
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 ## <a name="overview"></a>Omówienie
 MPEG-KRESKa to standard ISO do adaptacyjnego przesyłania strumieniowego zawartości wideo, który oferuje znaczące korzyści dla deweloperów, którzy chcą dostarczać wysokiej jakości dane wyjściowe przesyłania strumieniowego wideo. W przypadku używania standardu MPEG strumień wideo dostosowuje się automatycznie do niższej definicji, gdy sieć zostanie przeciążona. Pozwala to zmniejszyć prawdopodobieństwo wyświetlenia "wstrzymanego" filmu wideo, gdy gracz pobierze kolejne kilka sekund do odtworzenia (oznacza to, że zmniejsza prawdopodobieństwo buforowania). W miarę zmniejszania przeciążenia sieci odtwarzacz wideo powraca do strumienia o wyższej jakości. Możliwość dostosowania wymaganej przepustowości powoduje skrócenie czasu rozpoczęcia wideo. Oznacza to, że pierwsze kilka sekund można odtworzyć w szybkim, dynamicznym segmencie o niższej jakości, a następnie przejść do wyższej jakości, gdy wystarczająca zawartość jest buforowana.

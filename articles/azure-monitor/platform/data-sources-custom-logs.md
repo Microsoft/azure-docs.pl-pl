@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112004"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269492"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Dzienniki niestandardowe w usłudze Azure Monitor
 
@@ -158,7 +158,7 @@ Używamy prostego zapytania o *MyApp_CL* , aby zwrócić wszystkie rekordy z zeb
 
 
 ## <a name="alternatives-to-custom-logs"></a>Alternatywy dla dzienników niestandardowych
-Dzienniki niestandardowe są przydatne, jeśli dane są zgodne z kryteriami na liście, ale istnieją przypadki takie jak następujące, w których jest potrzebna inna strategia:
+Chociaż dzienniki niestandardowe są przydatne, jeśli dane są zgodne z kryteriami wymienionymi powyżej, istnieją przypadki takie jak następujące, w których jest potrzebna inna strategia:
 
 - Dane nie mieszczą się w wymaganej strukturze, takiej jak sygnatura czasowa w innym formacie.
 - Plik dziennika nie jest zgodny z wymaganiami, takimi jak kodowanie plików lub nieobsługiwana struktura folderów.

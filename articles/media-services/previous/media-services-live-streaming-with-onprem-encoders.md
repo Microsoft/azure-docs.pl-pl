@@ -14,14 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 746fe9132dcb06678e2a0a975c8eed0aba6c3fad
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560001"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269628"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Praca z kanałami odbierającymi strumień na żywo o wysokiej szybkości transmisji bitów z koderów lokalnych
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Od 12 maja 2018 kanały na żywo nie będą już obsługiwać protokołu pozyskiwania strumienia transportowego RTP/MPEG-2. Przeprowadź migrację z protokołów RTP/MPEG-2 do protokołu RTMP lub pofragmentowanych plików MP4 (Smooth Streaming).
@@ -141,7 +143,7 @@ Można zdefiniować adresy IP, które mogą publikować wideo w tym kanale. Dozw
 Jeśli nie określono adresów IP i nie ma definicji reguły, adres IP nie jest dozwolony. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.
 
 ### <a name="channel-preview"></a>Podgląd kanału
-#### <a name="preview-urls"></a>Podgląd adresów URL
+#### <a name="preview-urls"></a>Adresy URL podglądu
 Kanały zapewniają punkt końcowy (wersja zapoznawcza), który służy do wyświetlania podglądu i weryfikowania strumienia przed dalszem przetwarzaniem i dostarczaniem.
 
 Możesz uzyskać adres URL wersji zapoznawczej podczas tworzenia kanału. Aby uzyskać adres URL, kanał nie musi znajdować się w stanie **uruchomionym** . Po rozpoczęciu pobierania danych przez kanał można wyświetlić podgląd strumienia.
@@ -187,20 +189,20 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 | Stan kanału | Wskaźniki interfejsu użytkownika portalu | Rozliczane? |
 | --- | --- | --- |
 | **Uruchamianie** |**Uruchamianie** |Nie (stan przejściowy) |
-| **Uruchomiono** |**Gotowe** (brak uruchomionych programów)<p><p>lub<p>**Przesyłanie strumieniowe** (co najmniej jeden uruchomiony program) |Tak |
+| **Uruchomiono** |**Gotowe** (brak uruchomionych programów)<p><p>lub<p>**Przesyłanie strumieniowe** (co najmniej jeden uruchomiony program) |Yes |
 | **Zatrzymywanie** |**Zatrzymywanie** |Nie (stan przejściowy) |
 | **Zatrzymano** |**Zatrzymano** |Nie |
 
 ## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Napisy i wstawianie AD
 W poniższej tabeli przedstawiono obsługiwane standardy dla podpisów kodowanych i wstawiania do usługi AD.
 
-| Standardowa (Standard) | Uwagi |
+| Standard | Uwagi |
 | --- | --- |
 | CEA-708 i EIA-608 (708/608) |CEA-708 i EIA-608 to standardy zamykania podpisów dla Stany Zjednoczone i Kanady.<p><p>Obecnie podpisy są obsługiwane tylko wtedy, gdy są wykonywane w zakodowanym strumieniu wejściowym. Musisz użyć kodera multimediów na żywo, który może wstawić 608 lub 708 podpisy w zakodowanym strumieniu, który jest wysyłany do Media Services. Media Services dostarcza zawartość z wstawionymi napisami do Twoich przeglądających. |
 | TTML wewnątrz. ISMT (Smooth Streaming ścieżek tekstowych) |Media Services dynamiczne pakowanie umożliwia klientom przesyłanie strumieniowe zawartości w jednym z następujących formatów: PAUZy, HLS lub Smooth Streaming. Jeśli jednak pozyskasz pofragmentowany plik MP4 (Smooth Streaming) z napisami wewnątrz. ISMT (Smooth Streaming ścieżki tekstowe), możesz dostarczyć strumień tylko do Smooth Streaming klientów. |
 | SCTE-35 |SCTE-35 to system sygnałów cyfrowych, który służy do sygnalizowania wstawiania reklamowego. Odbiorniki podrzędne używają sygnału do łączenia reklamy ze strumieniem przez przydzielony czas. SCTE-35 musi być wysłany jako ścieżka rozrzedzona w strumieniu wejściowym.<p><p>Obecnie jedynym obsługiwanym formatem strumienia wejściowego, który ma sygnały usługi AD, jest fragmentacja MP4 (Smooth Streaming). Jedynym obsługiwanym formatem danych wyjściowych jest również Smooth Streaming. |
 
-## <a name="considerations"></a><a id="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a><a id="considerations"></a>Zagadnienia do rozważenia
 Jeśli używasz lokalnego kodera na żywo do wysyłania strumienia o większej szybkości transmisji bitów do kanału, mają zastosowanie następujące ograniczenia:
 
 * Upewnij się, że masz wystarczającą liczbę bezpłatnych połączeń z Internetem, aby wysyłać dane do punktów pozyskiwania.

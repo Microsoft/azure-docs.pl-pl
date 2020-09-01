@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925349"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269577"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrukcje: planowanie implementacji dołączania hybrydowego Azure Active Directory
 
@@ -26,13 +26,13 @@ Podobnie jak w przypadku użytkownika, urządzenie jest kolejną tożsamością 
 - Dołączenie hybrydowe do usługi Azure AD
 - Rejestracja w usłudze Azure AD
 
-Przenosząc urządzenia do usługi Azure AD, można zmaksymalizować wydajność użytkowników dzięki zastosowaniu logowania jednokrotnego (SSO) w zasobach chmury i zasobach lokalnych. W tym samym czasie można zabezpieczyć dostęp do zasobów w chmurze i lokalnych przy użyciu [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md).
+Przenosząc urządzenia do usługi Azure AD, można zmaksymalizować wydajność użytkowników dzięki zastosowaniu logowania jednokrotnego (SSO) w zasobach chmury i zasobach lokalnych. W tym samym czasie można zabezpieczyć dostęp do zasobów w chmurze i lokalnych przy użyciu [dostępu warunkowego](../conditional-access/overview.md).
 
 Jeśli masz lokalne środowisko Active Directory (AD) i chcesz dołączyć komputery przyłączone do domeny usługi AD do usługi Azure AD, możesz to zrobić, wykonując sprzężenie hybrydowe usługi Azure AD. Ten artykuł zawiera powiązane kroki umożliwiające zaimplementowanie hybrydowego sprzężenia usługi Azure AD w środowisku. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym artykule założono, że znasz już [wprowadzenie do zarządzania tożsamościami urządzeń w Azure Active Directory](../device-management-introduction.md).
+W tym artykule założono, że znasz już [wprowadzenie do zarządzania tożsamościami urządzeń w Azure Active Directory](./overview.md).
 
 > [!NOTE]
 > Minimalna wymagana wersja kontrolera domeny dla hybrydowego sprzężenia usługi Azure AD systemu Windows 10 to Windows Server 2008 R2.
@@ -100,7 +100,7 @@ Jeśli urządzenia przyłączone do domeny systemu Windows 10 są zarejestrowane
 > Mimo że system Windows 10 automatycznie usunie zarejestrowany stan usługi Azure AD lokalnie, obiekt urządzenia w usłudze Azure AD nie zostanie natychmiast usunięty, jeśli jest zarządzany przez usługę Intune. Możesz sprawdzić poprawność usuwania zarejestrowanego stanu usługi Azure AD, uruchamiając dsregcmd/status i Rozważmy, aby urządzenie nie było zarejestrowane w usłudze Azure AD na podstawie tego programu.
 
 ### <a name="additional-considerations"></a>Dodatkowe zagadnienia
-- Jeśli środowisko używa infrastruktury pulpitów wirtualnych (VDI), zobacz [tożsamość urządzenia i Wirtualizacja pulpitu](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Jeśli środowisko używa infrastruktury pulpitów wirtualnych (VDI), zobacz [tożsamość urządzenia i Wirtualizacja pulpitu](./howto-device-identity-virtual-desktop-infrastructure.md).
 
 - Hybrydowe dołączanie usługi Azure AD jest obsługiwane w przypadku modułu TPM zgodnego ze standardem FIPS 2,0 i nie jest obsługiwane dla modułu TPM 1,2 Jeśli urządzenia są zgodne ze standardem FIPS 1,2, należy je wyłączyć przed przejściem do hybrydowego sprzężenia usługi Azure AD. Firma Microsoft nie udostępnia żadnych narzędzi do wyłączania trybu FIPS dla moduły TPM, ponieważ jest on zależny od producenta modułu TPM. Aby uzyskać pomoc techniczną, skontaktuj się z producentem OEM. 
 
@@ -118,19 +118,19 @@ Sprzężenie hybrydowe usługi Azure AD współdziała z systemami, zarządzanym
 
 ### <a name="managed-environment"></a>Środowisko zarządzane
 
-Środowisko zarządzane można wdrożyć przy użyciu opcji [Synchronizacja skrótów haseł (PHS)](/azure/active-directory/hybrid/whatis-phs) lub [uwierzytelnianie przekazywane (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) z [bezproblemowym logowaniem jednokrotnym](/azure/active-directory/hybrid/how-to-connect-sso).
+Środowisko zarządzane można wdrożyć przy użyciu opcji [Synchronizacja skrótów haseł (PHS)](../hybrid/whatis-phs.md) lub [uwierzytelnianie przekazywane (PTA)](../hybrid/how-to-connect-pta.md) z [bezproblemowym logowaniem jednokrotnym](../hybrid/how-to-connect-sso.md).
 
 Te scenariusze nie wymagają konfigurowania serwera federacyjnego na potrzeby uwierzytelniania.
 
 > [!NOTE]
-> [Uwierzytelnianie w chmurze przy użyciu wdrożenia etapowego](/azure/active-directory/hybrid/how-to-connect-staged-rollout) jest obsługiwane tylko po uruchomieniu aktualizacji systemu Windows 10 1903
+> [Uwierzytelnianie w chmurze przy użyciu wdrożenia etapowego](../hybrid/how-to-connect-staged-rollout.md) jest obsługiwane tylko po uruchomieniu aktualizacji systemu Windows 10 1903
 
 ### <a name="federated-environment"></a>Środowisko federacyjne
 
 Środowisko federacyjne powinno mieć dostawcę tożsamości, który obsługuje poniższe wymagania. Jeśli masz środowisko federacyjne wykorzystujące Active Directory Federation Services (AD FS), poniższe wymagania są już obsługiwane.
 
 - **WIAORMULTIAUTHN:** To żądanie jest wymagane do hybrydowego przyłączenia do usługi Azure AD dla urządzeń niższego poziomu systemu Windows.
-- **Protokół WS-Trust:** Ten protokół jest wymagany do uwierzytelniania bieżących urządzeń przyłączonych hybrydowo usługi Azure AD za pomocą usługi Azure AD. W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe protokołu WS-Trust:`/adfs/services/trust/2005/windowstransport`  
+- **Protokół WS-Trust:** Ten protokół jest wymagany do uwierzytelniania bieżących urządzeń przyłączonych hybrydowo usługi Azure AD za pomocą usługi Azure AD. W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe protokołu WS-Trust: `/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -152,9 +152,9 @@ W zależności od scenariusza, który jest zgodny z infrastrukturą tożsamości
 
 ## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Zapoznaj się z lokalną obsługą UPN lokalnych użytkowników usługi AD w celu dołączania hybrydowej usługi Azure AD
 
-Czasami nazwy UPN lokalnych użytkowników usługi AD mogą różnić się od nazw UPN usługi Azure AD. W takich przypadkach hybrydowe dołączenie usługi Azure AD systemu Windows 10 zapewnia ograniczoną obsługę lokalnych nazw UPN usługi AD na podstawie [metody uwierzytelniania](/azure/security/fundamentals/choose-ad-authn), typu domeny i wersji systemu Windows 10. Istnieją dwa typy lokalnych nazw UPN usługi AD, które mogą istnieć w Twoim środowisku:
+Czasami nazwy UPN lokalnych użytkowników usługi AD mogą różnić się od nazw UPN usługi Azure AD. W takich przypadkach hybrydowe dołączenie usługi Azure AD systemu Windows 10 zapewnia ograniczoną obsługę lokalnych nazw UPN usługi AD na podstawie [metody uwierzytelniania](../hybrid/choose-ad-authn.md), typu domeny i wersji systemu Windows 10. Istnieją dwa typy lokalnych nazw UPN usługi AD, które mogą istnieć w Twoim środowisku:
 
-- Nazwa UPN użytkowników z obsługą routingu: nazwa UPN z routingiem ma poprawną zweryfikowaną domenę, która jest zarejestrowana w rejestratorze domeny. Na przykład jeśli contoso.com jest domeną podstawową w usłudze Azure AD, contoso.org jest domeną podstawową w lokalnej usłudze AD należącej do firmy Contoso i [zweryfikowaną w usłudze Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
+- Nazwa UPN użytkowników z obsługą routingu: nazwa UPN z routingiem ma poprawną zweryfikowaną domenę, która jest zarejestrowana w rejestratorze domeny. Na przykład jeśli contoso.com jest domeną podstawową w usłudze Azure AD, contoso.org jest domeną podstawową w lokalnej usłudze AD należącej do firmy Contoso i [zweryfikowaną w usłudze Azure AD](../fundamentals/add-custom-domain.md)
 - Nazwa UPN użytkowników bez obsługi routingu: nazwa UPN bez routingu nie ma zweryfikowanej domeny. Ma to zastosowanie tylko w sieci prywatnej organizacji. Na przykład jeśli contoso.com jest domeną podstawową w usłudze Azure AD, contoso. local jest domeną podstawową w lokalnej usłudze AD, ale nie jest domeną zweryfikowaną w Internecie i używaną tylko w sieci firmy Contoso.
 
 > [!NOTE]
@@ -166,8 +166,8 @@ Poniższa tabela zawiera szczegółowe informacje na temat pomocy technicznej do
 | ----- | ----- | ----- | ----- |
 | Wzajemn | Federacyjni | Od wersji 1703 | Ogólnie dostępne |
 | Bez obsługi routingu | Federacyjni | Od wersji 1803 | Ogólnie dostępne |
-| Wzajemn | Zarządzani | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
-| Bez obsługi routingu | Zarządzani | Nieobsługiwane | |
+| Wzajemn | Zarządzany | Od wersji 1803 | Ogólnie dostępna usługa Azure AD SSPR w systemie Windows ekranu blokady nie jest obsługiwana |
+| Bez obsługi routingu | Zarządzany | Nieobsługiwane | |
 
 ## <a name="next-steps"></a>Następne kroki
 

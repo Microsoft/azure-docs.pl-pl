@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065492"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269594"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Przesyłanie strumieniowe przy użyciu technologii Widevine w trybie offline dla systemu Android  
+# <a name="offline-widevine-streaming-for-android"></a>Przesyłanie strumieniowe przy użyciu technologii Widevine w trybie offline dla systemu Android
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję Media Services:"]
 > * [Wersja 3](../latest/offline-widevine-for-android.md)
@@ -71,7 +73,7 @@ W przypadku konfigurowania ochrony Widevine w ramach elementu zawartości w Medi
 
 Aby włączyć tryb **offline** dla licencji Widevine, należy skonfigurować [szablon licencji Widevine](media-services-widevine-license-template-overview.md). W obiekcie **policy_overrides** ustaw właściwość **can_persist** na **true** (wartość domyślna to false). 
 
-Poniższy przykład kodu używa platformy .NET do włączenia trybu **offline** dla licencji Widevine. Kod jest oparty na [Widevine Common Encryption dynamicznym w języku PlayReady i/lub na platformie .NET](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) . 
+Poniższy przykład kodu używa platformy .NET do włączenia trybu **offline** dla licencji Widevine. Kod jest oparty na [ Widevine Common Encryption dynamicznym w języku PlayReady i/lub na platformie .NET](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) . 
 
 ```
 private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl)
@@ -131,7 +133,7 @@ Deweloperzy powinni odwoływać się do [przewodnika dla deweloperów ExoPlayer]
 
 W przypadku niektórych starszych urządzeń z systemem Android należy ustawić wartości następujących **policy_overrides** właściwości (zdefiniowane w [szablonie licencji Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**i **license_duration_seconds**. Alternatywnie można ustawić je na zero, co oznacza nieskończony/nieograniczony czas trwania.  
 
-Wartości muszą być ustawione tak, aby uniknąć błędów przepełnienia liczby całkowitej. Aby uzyskać więcej informacji o tym problemie, zobacz https://github.com/google/ExoPlayer/issues/3150 i https://github.com/google/ExoPlayer/issues/3112 . <br/>Jeśli nie ustawisz jawnie wartości, zostaną przypisane bardzo duże wartości dla **PlaybackDurationRemaining** i **LicenseDurationRemaining** , (na przykład 9223372036854775807, która jest maksymalną wartością dodatnią dla 64-bitowej liczby całkowitej). W związku z tym licencja Widevine zostanie wyświetlona, a więc odszyfrowywanie nie zostanie wykonane. 
+Wartości muszą być ustawione tak, aby uniknąć błędów przepełnienia liczby całkowitej. Aby uzyskać więcej informacji o tym problemie, zobacz https://github.com/google/ExoPlayer/issues/3150 i https://github.com/google/ExoPlayer/issues/3112 . <br/>Jeśli nie ustawisz jawnie wartości, zostaną przypisane bardzo duże wartości dla  **PlaybackDurationRemaining** i **LicenseDurationRemaining** , (na przykład 9223372036854775807, która jest maksymalną wartością dodatnią dla 64-bitowej liczby całkowitej). W związku z tym licencja Widevine zostanie wyświetlona, a więc odszyfrowywanie nie zostanie wykonane. 
 
 Ten problem nie występuje w przypadku systemu Android 5,0 Lizak lub nowszego, ponieważ system Android 5,0 to pierwsza wersja systemu Android, która została zaprojektowana w celu zapewnienia pełnej obsługi ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) i 64-bitowych platform, podczas gdy system Android 4,4 KitKat został pierwotnie zaprojektowany do obsługi platform architektury armv7 i 32-bit, jak w przypadku innych starszych wersji systemu Android.
 
@@ -157,7 +159,7 @@ W przypadku uaktualnienia przeglądarki Mobile Chrome do v62 (lub nowszej) na te
 
 Powyższa aplikacja PWA Open Source została utworzona w Node.js. Jeśli chcesz hostować własną wersję na serwerze Ubuntu, pamiętaj o następujących typowych problemach, które mogą uniemożliwić odtwarzanie:
 
-1. Problem CORS: Przykładowe wideo w przykładowej aplikacji jest hostowane w programie https://storage.googleapis.com/biograf-video-files/videos/ . Firma Google skonfigurował mechanizm CORS dla wszystkich próbek testowych hostowanych w przedziale magazynu Google Cloud. Są one obsługiwane z nagłówkami CORS, określając jawnie wpis CORS: `https://biograf-155113.appspot.com` (domena, w której jest hostowana przez firmę Google), uniemożliwiając dostęp przez inne lokacje. Jeśli spróbujesz, zobaczysz następujący błąd HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+1. Problem CORS: Przykładowe wideo w przykładowej aplikacji jest hostowane w programie https://storage.googleapis.com/biograf-video-files/videos/ . Firma Google skonfigurował mechanizm CORS dla wszystkich próbek testowych hostowanych w przedziale magazynu Google Cloud. Są one obsługiwane z nagłówkami CORS, określając jawnie wpis CORS: `https://biograf-155113.appspot.com` (domena, w której jest hostowana przez firmę Google), uniemożliwiając dostęp przez inne lokacje. Jeśli spróbujesz, zobaczysz następujący błąd HTTP: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problem z certyfikatem: począwszy od programu Chrome v 58, EME for Widevine wymaga protokołu HTTPS. W związku z tym należy hostować przykładową aplikację za pośrednictwem protokołu HTTPS z certyfikatem x509. Zwykły certyfikat testowy nie działa z powodu następujących wymagań: należy uzyskać certyfikat spełniający następujące wymagania minimalne:
     - Przeglądarki Chrome i Firefox wymagają ustawienia alternatywnej nazwy podmiotu (SAN) w certyfikacie
     - Certyfikat musi mieć zaufany urząd certyfikacji, a certyfikat programistyczny z podpisem własnym nie działa

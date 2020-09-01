@@ -3,7 +3,7 @@ title: Monitoruj Media Services dzienników diagnostycznych za pomocą Azure Mon
 description: W tym artykule przedstawiono sposób kierowania i wyświetlania dzienników diagnostycznych za pośrednictwem Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 837113c11f24eda91a62cc68fdc68180951eee16
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501239"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269459"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorowanie dzienników diagnostycznych Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji oraz sprawdzić, dlaczego warto używać Azure Media Services metryki i dzienniki diagnostyczne, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
 
@@ -30,7 +32,7 @@ W tym artykule pokazano, jak skierować dane do konta magazynu, a następnie wy�
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Utwórz konto Media Services](./create-account-howto.md).
-- Przegląd [metryk Media Services monitorów i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
+- Przegląd  [metryk Media Services monitorów i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Kierowanie danych do konta magazynu przy użyciu portalu
 
@@ -179,7 +181,7 @@ Może upłynąć nawet pięć minut, zanim zdarzenie pojawi się na koncie magaz
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Metryki Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor dzienników diagnostycznych](../../azure-monitor/platform/platform-logs-overview.md)

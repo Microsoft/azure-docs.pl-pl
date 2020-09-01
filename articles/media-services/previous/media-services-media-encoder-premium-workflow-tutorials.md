@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 55d9d9191dc62d7397c5de944985d5653eff4e13
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057470"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269832"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Zaawansowane samouczki dotyczące usługi Media Encoder Premium Workflow
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Omówienie
-Ten dokument zawiera instruktaże, które pokazują, jak dostosować przepływy pracy za pomocą **Projektant przepływu pracy**. Rzeczywiste pliki przepływu pracy można znaleźć [tutaj](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
+Ten dokument zawiera instruktaże, które pokazują, jak dostosować przepływy pracy za pomocą  **Projektant przepływu pracy**. Rzeczywiste pliki przepływu pracy można znaleźć [tutaj](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>TREŚCI
 Omówiono następujące tematy:
@@ -462,7 +465,7 @@ W porównaniu z naszym wideo MP4 składnik programu JPG Encoder wyprowadza więc
 
 *Wprowadzenie do edytora plików JPG przeszukiwania sceny*
 
-Skonfiguruj Właściwość ścieżki folderu danych wyjściowych za pomocą wyrażenia:`${ROOT_outputWriteDirectory}`
+Skonfiguruj Właściwość ścieżki folderu danych wyjściowych za pomocą wyrażenia: `${ROOT_outputWriteDirectory}`
 
 i Właściwość prefiksu filename z:
 

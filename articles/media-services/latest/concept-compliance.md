@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: af9f1f745f58e9d51ff7c5755d24b819ed9443f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147466"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269730"
 ---
 # <a name="media-services-regulatory-compliance"></a>Media Services zgodności z przepisami
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Media Services spełnia wymagania związane z programem zarządzania autoryzacją Stanów Zjednoczonych (USA) & (FedRAMP) oraz Departamentu Obrony STANów Zjednoczonych, z poziomu wpływu na informacje od 2 do 5. Przez wdrożenie chronionych usług, w tym Azure Government, 365 urzędy administracji Stanów Zjednoczonych (USA) dla instytucji rządowych i Dynamics 365 w organizacji, mogą korzystać z bogatej tablicy zgodnych usług.
 

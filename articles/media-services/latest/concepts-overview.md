@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Poznaj terminologię i koncepcje dotyczące Azure Media Services.
 services: media-servicesgit
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/18/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5f0436394d6d45e8a8e112cc59bc7be50356ce10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 895e29608a9f0d80b8e03c3bc95c3c74005f7c4c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092103"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269713"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services Terminologia i koncepcje
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ten temat zawiera krótkie omówienie Azure Media Services terminologii i koncepcji. Artykuł zawiera również linki do artykułów z szczegółowym wyjaśnieniem pojęć związanych z Media Services v3.
 
@@ -34,7 +36,7 @@ Podstawowe koncepcje opisane w tych tematach należy przejrzeć przed rozpoczęc
 
 ## <a name="media-services-v3-terminology"></a>Terminologia Media Services v3
 
-|Termin|Opis|
+|Okres|Opis|
 |---|---|
 |Wydarzenie na żywo|**Wydarzenie na żywo** reprezentuje potok do pozyskiwania, transkodowania (opcjonalnie) i tworzenia pakietów na żywo strumieni wideo, audio i metadanych w czasie rzeczywistym.<br/><br/>W przypadku klientów migrowania z Media Services V2 API **zdarzenie na żywo** zastępuje jednostkę **kanału** w wersji 2. Aby uzyskać więcej informacji, zobacz [Migrowanie z wersji 2 do V3](migrate-from-v2-to-v3.md).|
 |Punkt końcowy przesyłania strumieniowego/pakowanie/Źródło|**Punkt końcowy przesyłania strumieniowego** reprezentuje dynamiczny (just-in-Time) pakiet i pierwotną usługę, która umożliwia dostarczanie zawartości na żywo i na żądanie bezpośrednio do aplikacji odtwarzacza klienckiego. Używa jednego z typowych protokołów multimediów przesyłania strumieniowego (HLS lub KRESKi). Ponadto **punkt końcowy przesyłania strumieniowego** zapewnia dynamiczne (just-in-Time) szyfrowanie do wiodących w branży systemów zarządzania prawami cyfrowymi (protokołów DRM).<br/><br/>W branży przesyłania strumieniowego multimediów ta usługa jest często określana jako **Pakowarka** lub **Źródło**.  Inne typowe warunki w branży dla tej możliwości obejmują JITP ("just-in-Time-deJITEd") lub (just-in-Time-Encryption).

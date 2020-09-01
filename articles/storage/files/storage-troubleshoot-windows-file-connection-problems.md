@@ -4,15 +4,15 @@ description: Rozwiązywanie problemów z Azure Files w systemie Windows. Zobacz 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 05/31/2019
+ms.date: 08/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3bd059e59bebe9ae1ecc8f2f00dd63f873e08944
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797789"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269373"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -344,14 +344,13 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyczące niepowodzeń:
-1. CheckPort445Connectivity: Sprawdź, czy port 445 jest otwarty dla połączenia SMB
-2. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD
-3. CheckADObject: Upewnij się, że w Active Directory znajduje się obiekt, który reprezentuje konto magazynu i ma poprawną nazwę SPN (główna nazwa usługi).
-4. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu 
-5. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem konta magazynu kerb1 lub kerb2.
-6. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych.
-7. CheckAadUserHasSid: Sprawdź, czy użytkownik usługi Azure AD ma identyfikator SID w usłudze AD, to sprawdzenie wymaga od użytkownika wprowadzenia identyfikatora obiektu użytkownika usługi Azure AD z parametrem ObjectId. 
-8. CheckStorageAccountDomainJoined: Sprawdź właściwości konta magazynu, aby zobaczyć, że włączono uwierzytelnianie usługi AD i wypełnianie właściwości usługi AD konta.
+1. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem konta magazynu kerb1 lub kerb2. Jeśli hasło jest niepoprawne, można uruchomić polecenie [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) w celu zresetowania hasła. 
+2. CheckADObject: Upewnij się, że w Active Directory znajduje się obiekt, który reprezentuje konto magazynu i ma poprawną nazwę SPN (główna nazwa usługi). Jeśli nazwa SPN nie została prawidłowo skonfigurowana, uruchom polecenie cmdlet Set-AD zwrócone w poleceniu cmdlet Debug, aby skonfigurować nazwę SPN.
+3. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD. Jeśli komputer nie jest przyłączony do usługi AD, zapoznaj się z tym [artykułem](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) , aby uzyskać instrukcje dotyczące przyłączania do domeny.
+4. CheckPort445Connectivity: Sprawdź, czy port 445 jest otwarty dla połączenia SMB. Jeśli wymagany port nie jest otwarty, Skorzystaj z narzędzia do rozwiązywania problemów [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) w przypadku problemów z łącznością z Azure Files.
+5. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych. 
+6. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu. Jeśli nie ma prawidłowego tokenu Kerberos, uruchom polecenie cmdlet Klist-CIFS/Storage-account-name. plik. Core. Windows. NET i Przeanalizuj kod błędu do katalogu głównego — spowoduje to niepowodzenie pobierania biletu.
+7. CheckStorageAccountDomainJoined: Sprawdź, czy uwierzytelnianie usługi AD zostało włączone i czy są wypełniane właściwości usługi AD konta. W przeciwnym razie zapoznaj się z instrukcją w [tym miejscu](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) , aby włączyć uwierzytelnianie AD DS w Azure Files. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Nie można skonfigurować uprawnień na poziomie katalogu/pliku (listy ACL systemu Windows) przy użyciu Eksploratora plików systemu Windows
 

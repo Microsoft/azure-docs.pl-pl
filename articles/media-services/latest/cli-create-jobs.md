@@ -3,7 +3,7 @@ title: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — twor
 description: Skrypt interfejsu wiersza polecenia platformy Azure w tym temacie pokazuje sposób przesyłania zadania do prostego przekształcenia kodowania przy użyciu adresu URL protokołu HTTPS.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,17 +12,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c89fe37bb443dbdbb312f2c930a4df8a708bb597
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ccf4d37cd7216b1a4a3e02d3505fd7a4164c5c8a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500695"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269798"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Przykład interfejsu wiersza polecenia: tworzenie i przesyłanie zadania
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W przypadku usługi Media Services 3 po przesłaniu zadań w celu przetworzenia wideo należy poinformować usługę Media Services o tym, gdzie można znaleźć wejściowe wideo. Jedną z opcji jest określenie adresu URL HTTPS jako dane wejściowe zadania (jak pokazano w tym artykule). 
 

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658528"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269645"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Szybki Start: udostępnianie danych za pomocą udziału danych platformy Azure w Azure Portal
 
@@ -47,7 +47,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
 
-## <a name="create-a-data-share"></a>Tworzenie udziału danych
+## <a name="create-a-share"></a>Tworzenie udziału
 
 1. Przejdź do strony Przegląd udostępniania danych.
 
@@ -55,17 +55,17 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
-1. Wypełnij szczegóły dotyczące udziału danych. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
+1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
    ![EnterShareDetails](./media/enter-share-details.png "Wprowadź szczegóły udostępniania") 
 
 1. Wybierz pozycję **Continue** (Kontynuuj).
 
-1. Aby dodać zbiory danych do swojego udziału, wybierz pozycję **Dodaj zestawy**. 
+1. Aby dodać zestawy danych do udziału, wybierz pozycję **Dodaj zestawy danych**. 
 
-   ![Zestawy danych](./media/datasets.png "Zestawy danych")
+   ![Dodawanie zestawów danych do udziału](./media/datasets.png "Zestawy danych")
 
 1. Wybierz typ zestawu danych, który chcesz dodać. Zostanie wyświetlona inna lista typów zestawów danych w zależności od typu udziału (migawka lub miejsce w miejscu) wybranej w poprzednim kroku. W przypadku udostępniania z poziomu Azure SQL Database lub Azure SQL Data Warehouse zostanie wyświetlony monit o podanie pewnych poświadczeń SQL. Uwierzytelnianie przy użyciu użytkownika utworzonego w ramach wymagań wstępnych.
 
@@ -89,11 +89,11 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Continue** (Kontynuuj).
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasób nie jest już wymagany, przejdź do strony **Przegląd udziału danych** i wybierz pozycję **Usuń** , aby go usunąć.
 
