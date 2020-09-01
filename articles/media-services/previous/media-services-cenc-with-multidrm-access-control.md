@@ -15,14 +15,16 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a4f436f6f5542db289ed219a240a68db5c2065b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021531"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258609"
 ---
-# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyciu Azure Media Services 
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Projektowanie systemu ochrony zawartości z kontrolą dostępu przy użyciu Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Omówienie
 
@@ -219,7 +221,7 @@ Implementacja obejmuje następujące kroki:
     | **PlayReady** |Microsoft Edge lub Internet Explorer 11 w systemie Windows 10 |Połączyć |Niepowodzenie |
     | **Widevine** |Chrome, Firefox, Opera |Połączyć |Niepowodzenie |
     | **FairPlay** |Safari w witrynie macOS      |Połączyć |Niepowodzenie |
-    | **AES — 128** |Większość nowoczesnych przeglądarek  |Połączyć |Niepowodzenie |
+    | **AES-128** |Większość nowoczesnych przeglądarek  |Połączyć |Niepowodzenie |
 
 Aby uzyskać informacje na temat sposobu konfigurowania usługi Azure AD dla aplikacji odtwarzacza ASP.NET MVC, zobacz [Integrowanie aplikacji opartej na platformie mvc Azure Media Services Owin z Azure Active Directory i ograniczanie dostarczania kluczy zawartości na podstawie oświadczeń JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 

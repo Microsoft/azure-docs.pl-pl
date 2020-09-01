@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 006e312e67f5f4014248c44a799c2dde826801c2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422100"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258847"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Samouczek: Kompleksowa ochrona zawartości przy użyciu usługi Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Korzystając z tego samouczka i dostarczonego przykładu odtwarzacza, można skonfigurować kompleksowy podsystem ochrony zawartości multimedialnej na Azure Media Services (AMS) i Azure Active Directory (AAD) do przesyłania strumieniowego zawartości multimedialnej ze wszystkimi obsługiwanymi protokołami DRM/AES-128, przesyłania strumieniowego, koderem-dekoder i formatami kontenerów. Przykład jest wystarczająco ogólny, aby zabezpieczyć dostęp do dowolnego interfejsu API REST chronionego przez uwierzytelnianie OAuth 2 za pomocą przepływu kodu autoryzacji z kluczem testowym dla wymiany kodu (PKCE). (Usługa dostarczania licencji Azure Media Services jest tylko jedną z nich). Działa również w przypadku interfejsu API Microsoft Graph lub dowolnego niestandardowego interfejsu API REST zabezpieczonego za pomocą przepływu kodu autoryzacji OAuth 2. Jest to dokument towarzyszący do [przykładowego kodu](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
@@ -64,7 +66,7 @@ Jest to opcjonalne, ale zalecane jest zapoznanie się z następującymi pojęcia
 * Instalacja Node.js. Pobierz Node.js tym miejscu [https://nodejs.org](https://nodejs.org) . NPM jest dostarczany z instalacją.
 * [Subskrypcja platformy Azure](https://azure.microsoft.com/free/).
 * Konto Azure Media Services (AMS).
-* @azure/msal-browserWersja 2.0 — jeden z członków rodziny SDK [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) dla różnych platform klienckich
+* @azure/msal-browser Wersja 2.0 — jeden z członków rodziny SDK [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) dla różnych platform klienckich
 * Najnowsza wersja [Azure Media Player](https://github.com/Azure-Samples/azure-media-player-samples)(uwzględnionych w przykładach).
 * Poświadczenia FPS od firmy Apple, jeśli chcesz dołączyć FairPlay DRM i certyfikat aplikacji hostowanej za pomocą mechanizmu CORS, który jest dostępny za pośrednictwem JavaScript po stronie klienta.
 
@@ -106,7 +108,7 @@ Zapoznaj się z artykułem [Projektowanie systemu ochrony zawartości z wieloma 
 Aplikacja odtwarzacza jest aplikacją jednostronicową (SPA) opracowaną w Visual Studio Code przy użyciu:
 
 * Node.js przy użyciu programu ES 6 JavaScript
-* @azure/msal-browser2,0 beta
+* @azure/msal-browser 2,0 beta
 * Zestaw SDK Azure Media Player
 * Przepływ OAuth 2 do punktów końcowych usługi Azure AD v2 (platforma tożsamości firmy Microsoft)
 
@@ -171,7 +173,7 @@ Wybierz dzierżawę usługi Azure AD, która ma być używana na potrzeby komple
 | Opis zgody administratora * * | *Zakres zasobów zaplecza dostarczania licencji DRM* | Szczegółowy opis zakresu, który jest wyświetlany, gdy administratorzy dzierżawy rozszerzają zakres na ekranie wyrażania zgody. |
 | Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika | *Zastosowanie. License. Delivery* | Zakres, który zostanie wywołany na ekranie wyrażania zgody, gdy użytkownicy wyrażają zgodę na ten zakres. |
 | Opis na potrzeby wyrażenia zgody przez użytkownika | *Zakres zasobów zaplecza dostarczania licencji DRM* | Jest to szczegółowy opis zakresu, który jest wyświetlany, gdy użytkownicy rozszerzają zakres na ekranie wyrażania zgody. |
-| State | *Włączono* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
+| Stan | *Włączone* | Określa, czy ten zakres jest dostępny dla klientów do żądania. Ustaw na wartość "wyłączone" dla zakresów, które nie mają być widoczne dla klientów. Można usuwać tylko wyłączone zakresy, a firma Microsoft zaleca oczekiwanie co najmniej tygodnia od momentu wyłączenia zakresu przed jego usunięciem, aby upewnić się, że żaden klient nadal go używa. |
 
 ## <a name="register-the-client-app"></a>Rejestrowanie aplikacji klienckiej
 
@@ -372,7 +374,7 @@ Klient może następnie przejść do konfiguracji, zalogować się przy użyciu 
 
 Twoje przykładowe rozwiązanie można skonfigurować w dzierżawie firmy Microsoft z subskrypcją firmy Microsoft lub niestandardową dzierżawą z subskrypcją firmy Microsoft. Wystąpienie usługi Azure Media Service może należeć do innej subskrypcji z dzierżawcą.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!WARNING]
 > Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń zasoby utworzone w ramach tego samouczka. W przeciwnym razie zostanie naliczona opłata za te opłaty.

@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Dowiedz się więcej na temat filtrowania, porządkowania i stronicowania jednostek Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4fbd587b99875690a8c95952ce6b11d41e402726
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96f08f75d0921fdf88b71c8e8dd2398a6b85ec6d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009886"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258473"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrowanie, porządkowanie i stronicowanie jednostek Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W tym temacie omówiono opcje zapytania OData i obsługa podziału na strony dostępne podczas wyświetlania listy jednostek Azure Media Services v3.
 
@@ -180,7 +182,7 @@ W poniższej tabeli przedstawiono sposób stosowania opcji filtrowania i porząd
 || Właściwości. utworzone      | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
 || Właściwości. lastModified | `gt`, `ge`, `lt`, `le`| `asc` i `desc`|
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Wyświetl listę zasobów](/rest/api/media/assets/list)
 * [Wyświetl listę zasad dotyczących kluczy zawartości](/rest/api/media/contentkeypolicies/list)

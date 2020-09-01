@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: f5ca4496b9de25d6e95f37076f679eacff28af81
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7b11d7f577f0a2ceb7284d9f78ccf83a64c72fd3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954977"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258116"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj kodera Wirecast, aby wysłać strumień na żywo o pojedynczej szybkości transmisji bitów 
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Użyj kodera Wirecast, aby wysłać strumień na żywo o pojedynczej szybkości transmisji bitów
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Narzędzie Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
@@ -73,7 +76,7 @@ Podczas uruchamiania kanału można [skonfigurować koder](media-services-config
 ## <a name="configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Konfigurowanie kodera Wirecast Telestream
 W tym samouczku używane są następujące ustawienia wyjściowe. W dalszej części tej sekcji opisano kroki konfiguracji bardziej szczegółowo.
 
-**Film wideo**:
+**Wideo**:
 
 * Koder-dekoder: H.264
 * Profil: wysoki (poziom 4.0)
@@ -132,7 +135,7 @@ W tym samouczku używane są następujące ustawienia wyjściowe. W dalszej czę
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-1. Wybierz przycisk **OK**.
+1. Wybierz pozycję **OK**.
 2. Na głównym ekranie **Wirecast** upewnij się, że źródła danych wejściowych dla wideo i audio są gotowe, a następnie kliknij pozycję **strumień** w lewym górnym rogu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)

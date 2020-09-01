@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482587"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258439"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Omówienie tokenów w Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ W poniższej tabeli wymieniono oświadczenia, których można oczekiwać w token
 | Zakres | `scp` | `Read`| Uprawnienia przyznane do zasobu dla tokenu dostępu. Wiele przyznanych uprawnień jest rozdzielonych spacją. |
 | Uprawniony podmiot | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | **Identyfikator aplikacji** klienckiej, która zainicjowała żądanie. |
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Następujące właściwości są używane do [zarządzania okresami istnienia tokenów zabezpieczających](configure-tokens.md) emitowanych przez Azure AD B2C:
 
@@ -119,7 +119,7 @@ Nagłówek tokenu zawiera informacje na temat metody klucza i szyfrowania użyte
 }
 ```
 
-Wartość **alg** jest algorytmem, który został użyty do podpisania tokenu. Wartość **żądania jest** kluczem publicznym, który został użyty do podpisania tokenu. W dowolnym momencie Azure AD B2C może podpisać token przy użyciu dowolnego zestawu par kluczy publiczny-prywatny. Azure AD B2C okresowo obracać możliwy zestaw kluczy. Aplikacja powinna być zapisywana, aby automatycznie obsługiwać te zmiany kluczy. Rozsądna częstotliwość sprawdzania dostępności aktualizacji kluczy publicznych używanych przez Azure AD B2C wynosi co 24 godziny.
+Wartość **alg** jest algorytmem, który został użyty do podpisania tokenu. Wartość **żądania jest** kluczem publicznym, który został użyty do podpisania tokenu. W dowolnym momencie Azure AD B2C może podpisać token przy użyciu dowolnego zestawu par kluczy publiczny-prywatny. Azure AD B2C okresowo obracać możliwy zestaw kluczy. Aplikacja powinna być zapisywana, aby automatycznie obsługiwać te zmiany kluczy. Rozsądna częstotliwość sprawdzania dostępności aktualizacji kluczy publicznych używanych przez Azure AD B2C wynosi co 24 godziny. Aby obsłużyć nieoczekiwane zmiany w kluczach, aplikacja powinna zostać zapisywana w celu ponownego pobrania kluczy publicznych, Jeśli odbierze nieoczekiwaną wartość dla **dzieci** .
 
 Azure AD B2C ma punkt końcowy metadanych połączenia OpenID Connect. Za pomocą tego punktu końcowego aplikacje mogą zażądać informacji o Azure AD B2C w czasie wykonywania. Te informacje obejmują punkty końcowe, zawartość tokenu i klucze podpisywania tokenu. Dzierżawca Azure AD B2C zawiera dokument metadanych JSON dla każdej zasady. Dokument metadanych jest obiektem JSON, który zawiera kilka przydatnych informacji. Metadane zawierają **jwks_uri**, które dają lokalizację zestawu kluczy publicznych, które są używane do podpisywania tokenów. Ta lokalizacja jest tutaj dostępna, ale najlepiej jest pobrać lokalizację dynamicznie przy użyciu dokumentu metadanych i analizy **jwks_uri**:
 

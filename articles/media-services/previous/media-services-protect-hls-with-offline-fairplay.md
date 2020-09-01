@@ -16,14 +16,16 @@ ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df84761edf605f1dda087569f95749e5b9c5c7b6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5e003e17490c2e35ef3f8adfdef6de0377cda7d5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021106"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259714"
 ---
-# <a name="offline-fairplay-streaming-for-ios"></a>Przesyłanie strumieniowe w trybie offline przy użyciu technologii FairPlay na potrzeby systemu iOS 
+# <a name="offline-fairplay-streaming-for-ios"></a>Przesyłanie strumieniowe w trybie offline przy użyciu technologii FairPlay na potrzeby systemu iOS
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję Media Services:"]
 > * [Wersja 3](../latest/offline-fairplay-for-ios.md)
@@ -258,6 +260,6 @@ Ten dokument zawiera następujące kroki i informacje, których można użyć do
 * Przykładowe wideo FPS służy do testowania trybu offline i przesyłania strumieniowego online.
 * Często zadawane pytania dotyczące trybu offline FPS.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: be7ac4073bb332a7595dcf211feb7087d0734854
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 958bfa605e0195b5f4fde2c0ff53a8ce567f50a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082736"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257147"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Używanie uwierzytelniania usługi Azure AD do uzyskiwania dostępu do interfejsu API usługi Media Services za pomocą architektury REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
@@ -168,7 +170,7 @@ W tej sekcji pokazano, jak uzyskać dostęp do interfejsu API **zasobów** przy 
 
 1. Otwórz **notkę**.
 2. Wybierz pozycję **GET**.
-3. Wklej punkt końcowy interfejsu API REST (na przykładhttps://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Wklej punkt końcowy interfejsu API REST (na przykład https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Wybierz kartę **autoryzacja** . 
 5. Wybierz **token elementu nośnego**.
 6. Wklej token, który został utworzony w poprzedniej sekcji.

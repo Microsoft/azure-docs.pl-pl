@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604389"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259357"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Tożsamość urządzenia i Wirtualizacja pulpitu
 
@@ -48,10 +48,10 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 
 | Typ tożsamości urządzenia | Infrastruktura tożsamości | Urządzenia z systemem Windows | Wersja platformy VDI | Obsługiwane |
 | --- | --- | --- | --- | --- |
-| hybrydowym dołączonym do usługi Azure AD. | Federacyjna<sup>3</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Tak |
+| hybrydowym dołączonym do usługi Azure AD. | Federacyjna<sup>3</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Yes |
 |   |   | Bieżące dla systemu Windows | Nietrwałe | Tak<sup>5</sup> |
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
-|   | Zarządzany<sup>4</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Tak |
+|   | Zarządzany<sup>4</sup> | System Windows — bieżące i Windows niższe poziomy | Stale | Yes |
 |   |   | Bieżące dla systemu Windows | Nietrwałe | Nie |
 |   |   | System Windows niższego poziomu | Nietrwałe | Tak<sup>6</sup> |
 | Dołączone do usługi Azure AD | Federacyjni | Bieżące dla systemu Windows | Stale | Nie |
@@ -68,7 +68,7 @@ Przed skonfigurowaniem tożsamości urządzeń w usłudze Azure AD dla środowis
 
 <sup>4</sup> **zarządzane** środowisko infrastruktury tożsamości reprezentuje środowisko z usługą Azure AD jako dostawcę tożsamości wdrożonego za pomocą jednej [synchronizacji skrótów haseł (PHS)](../hybrid/whatis-phs.md) lub [uwierzytelniania przekazywanego (PTA)](../hybrid/how-to-connect-pta.md) z [bezproblemowym logowaniem jednokrotnym](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> **Obsługa nietrwałości dla bieżącego systemu Windows** wymaga dodatkowej uwagi, jak opisano poniżej w sekcji wskazówki.
+<sup>5</sup> **Obsługa nietrwałości dla bieżącego systemu Windows** wymaga dodatkowej uwagi, jak opisano poniżej w sekcji wskazówki. W tym scenariuszu jest wymagany system Windows 10 1803, Windows Server 2019 lub Windows Server (półroczny kanał) w wersji 1803
 
 <sup>6</sup> **Obsługa nietrwałości dla systemu Windows niższego poziomu** wymaga dodatkowej uwagi, jak opisano poniżej w sekcji wskazówki.
 

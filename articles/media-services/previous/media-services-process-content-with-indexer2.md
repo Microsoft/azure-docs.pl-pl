@@ -15,14 +15,16 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 82c69d67d261c493d89f259720e1f903824d6ef8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 34f71242b5d9c607d0b27dca3abd3c441ddad36e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013609"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259765"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indeksowanie plików multimedialnych z Azure Media Indexer 2 wersja zapoznawcza
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Procesor multimediów **Azure Media Indexer 2** zostanie wycofany. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje ten starszy procesor nośnika. Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).

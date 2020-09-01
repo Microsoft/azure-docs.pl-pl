@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 18d6331c666e547c06a573dc970cf05aba8fbea1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604584"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258597"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamiczne pakowanie w Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Microsoft Azure Media Services może służyć do kodowania wielu formatów plików źródłowych multimediów. Udostępnia je za pośrednictwem różnych protokołów przesyłania strumieniowego z ochroną zawartości lub bez niej, aby dotrzeć do wszystkich głównych urządzeń (takich jak urządzenia z systemem iOS lub Android). Ci klienci rozumieją różne protokoły. Na przykład system iOS wymaga dostarczania strumieni w formacie HTTP Live Streaming (HLS), a urządzenia z systemem Android obsługują HLS, a także KRESKę MPEG.
 

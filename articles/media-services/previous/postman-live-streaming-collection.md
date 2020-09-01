@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 69b5e8721b320e799fbdfb31ff83f2e78e513b40
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 13a82aaa31734e98377d9f68c59c25c83a5d5f8a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047501"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259136"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importowanie kolekcji ogłoszeń z użyciem operacji przesyłania strumieniowego na żywo 
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importowanie kolekcji ogłoszeń z użyciem operacji przesyłania strumieniowego na żywo
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Ten artykuł zawiera definicję kolekcji programu **Poster** zawierającą pogrupowane żądania HTTP, które wywołują interfejsy API usługi **Live Streaming** Azure Media Services. Aby uzyskać informacje o sposobie konfigurowania programu **Poster** , aby można było go użyć do wywołania interfejsów api REST Media Services, zobacz temat [Konfigurowanie programu poster dla Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md) .
 

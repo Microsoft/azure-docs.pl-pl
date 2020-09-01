@@ -3,7 +3,7 @@ title: Kodowanie filmów wideo przy użyciu kodera standardowego w Media Service
 description: W tym temacie pokazano, jak używać standardowego kodera w Media Services do kodowania wejściowego wideo z automatycznie wygenerowaną drabiną szybkości transmisji bitów na podstawie rozdzielczości wejścia i szybkości transmisji bitów.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60733321"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258830"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Koduj z automatycznie wygenerowaną drabiną szybkości transmisji bitów
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Omówienie
 
@@ -40,7 +42,7 @@ W tej sekcji przedstawiono trzy przykłady wyjściowych warstw wideo wytwarzanyc
 ### <a name="example-1"></a>Przykład 1
 Źródło o wysokości "1080" i szybkości klatek "29,970" tworzą 6 warstw wideo:
 
-|Warstwa|Właściwość Height|impulsów|Szybkość transmisji bitów (KB/s)|
+|Warstwa|Height|Width|Szybkość transmisji bitów (KB/s)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -52,7 +54,7 @@ W tej sekcji przedstawiono trzy przykłady wyjściowych warstw wideo wytwarzanyc
 ### <a name="example-2"></a>Przykład 2
 Źródło o wysokości "720" i szybkości klatek "23,970" produkuje 5 warstw wideo:
 
-|Warstwa|Właściwość Height|impulsów|Szybkość transmisji bitów (KB/s)|
+|Warstwa|Height|Width|Szybkość transmisji bitów (KB/s)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -63,7 +65,7 @@ W tej sekcji przedstawiono trzy przykłady wyjściowych warstw wideo wytwarzanyc
 ### <a name="example-3"></a>Przykład 3
 Źródło o wysokości "360" i szybkości klatek "29,970" tworzą 3 warstwy wideo:
 
-|Warstwa|Właściwość Height|impulsów|Szybkość transmisji bitów (KB/s)|
+|Warstwa|Height|Width|Szybkość transmisji bitów (KB/s)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

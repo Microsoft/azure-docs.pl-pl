@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 353024513885651cbc791548d8b91def3de65d90
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 32eab0f729280ad25f45853e05ea982b60a6d9f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013473"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259340"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Migrowanie z Azure Media Encoder do Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 W tym artykule omówiono procedurę migrowania ze starszej wersji procesora nośnika z Azure Media Encoder (AZWA) (która jest wycofywana) do Media Encoder Standard procesora multimediów. Aby uzyskać daty wycofania, zobacz temat ten [starszy składnik](legacy-components.md) .
 
@@ -73,7 +75,7 @@ Media Encoder Standard jest bardziej niezawodna, niezawodna, ma lepszą wydajno�
 * Media Encoder Standard tworzy pliki wyjściowe z inną konwencją nazewnictwa niż AZWA.
 * Media Encoder Standard tworzy artefakty, takie jak pliki zawierające [metadane plików wejściowych](media-services-input-metadata-schema.md) i [metadane plików wyjściowych](media-services-output-metadata-schema.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Starsze składniki](legacy-components.md)
 * [Strona cennika](https://azure.microsoft.com/pricing/details/media-services/#encoding)

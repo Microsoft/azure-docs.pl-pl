@@ -14,14 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5e8318b480cfa0d399a7fb2a0e7f6ebed1488397
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6ac638d9062f31b68d3e1954688dde7ed40c4d2c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836500"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258303"
 ---
-# <a name="azure-media-services-community"></a>Społeczność usługi Azure Media Services  
+# <a name="azure-media-services-community"></a>Społeczność usługi Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Ta strona społeczności Azure Media Services (AMS) omawia różne sposoby uzyskiwania aktualizacji dotyczących AMS. Możesz również wyświetlać nowe wideo i transmisje, zadawać pytania i wyrażać opinię.   
 

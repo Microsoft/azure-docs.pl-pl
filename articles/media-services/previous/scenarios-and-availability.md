@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 81d1c86bc5130d616712d022efd4b111b8b939dd
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542382"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259187"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenariusze i dostępność funkcji usługi Media Services w centrach danych
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
@@ -179,8 +181,8 @@ Klienci usługi Media Services mogą wybrać **Standardowy** punkt końcowy prze
 
 |Nazwa|Stan|Centra danych
 |---|---|---|
-|Standard|Ogólna dostępność|Wszystkie|
-|Premium|Ogólna dostępność|Wszystkie|
+|Standard|Ogólna dostępność|Wszystko|
+|Premium|Ogólna dostępność|Wszystko|
 
 ### <a name="live-encoding"></a>Kodowanie na żywo
 
@@ -196,7 +198,7 @@ Usługa AMS oferuje dwa kodery na żądanie: **Media Encoder Standard** i **Medi
 
 |Nazwa procesora multimediów|Stan|Centra danych
 |---|---|---|
-|Usługa Media Encoder Standard|Ogólna dostępność|Wszystkie|
+|Usługa Media Encoder Standard|Ogólna dostępność|Wszystko|
 |Przepływ pracy usługi Media Encoder w warstwie Premium|Ogólna dostępność|Wszystkie z wyjątkiem Chin|
 
 ### <a name="analytics-media-processors"></a>Procesory multimediów usługi analizy
@@ -210,14 +212,14 @@ Analiza multimediów to kolekcja składników mowy i obrazu, które ułatwiają 
 
 |Nazwa procesora multimediów|Stan|Centra danych
 |---|---|---|
-|Azure Media Face Detector|Wersja zapoznawcza|Wszystkie|
-|Azure Media Indexer|Ogólna dostępność|Wszystkie|
-|Azure Media Motion Detector|Wersja zapoznawcza|Wszystkie|
-|Azure Media OCR|Wersja zapoznawcza|Wszystkie|
-|Azure Media Redactor|Ogólna dostępność|Wszystkie|
-|Azure Media Video Thumbnails|Wersja zapoznawcza|Wszystkie|
+|Azure Media Face Detector|Wersja zapoznawcza|Wszystko|
+|Azure Media Indexer|Ogólna dostępność|Wszystko|
+|Azure Media Motion Detector|Wersja zapoznawcza|Wszystko|
+|Azure Media OCR|Wersja zapoznawcza|Wszystko|
+|Azure Media Redactor|Ogólna dostępność|Wszystko|
+|Azure Media Video Thumbnails|Wersja zapoznawcza|Wszystko|
 
-### <a name="protection"></a>Ochrona
+### <a name="protection"></a>Protection
 
 Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów od momentu wysłania danych z komputera w ramach procesów przechowywania, przetwarzania i dostarczania. Aby uzyskać więcej informacji, zobacz temat [Ochrona zawartości usługi AMS](media-services-content-protection-overview.md).
 
@@ -225,10 +227,10 @@ Usługi Microsoft Azure Media Services umożliwiają zabezpieczenie multimediów
 
 |Szyfrowanie|Stan|Centra danych|
 |---|---|---| 
-|Magazyn|Ogólna dostępność|Wszystkie|
-|Klucze AES-128|Ogólna dostępność|Wszystkie|
-|FairPlay|Ogólna dostępność|Wszystkie|
-|PlayReady|Ogólna dostępność|Wszystkie|
+|Storage|Ogólna dostępność|Wszystko|
+|Klucze AES-128|Ogólna dostępność|Wszystko|
+|FairPlay|Ogólna dostępność|Wszystko|
+|PlayReady|Ogólna dostępność|Wszystko|
 |Widevine|Ogólna dostępność|Wszystkie regiony z wyjątkiem Niemiec, Rządu Federalnego i Chin.
 
 ### <a name="reserved-units-rus"></a>Jednostki zarezerwowane (RU)
@@ -251,7 +253,7 @@ Aby uzyskać więcej informacji, zobacz sekcję opisującą [skalowanie](#scalin
 
 |Nazwa typu jednostki zarezerwowanej|Stan|Centra danych
 |---|---|---|
-|S1|Ogólna dostępność|Wszystkie|
+|S1|Ogólna dostępność|Wszystko|
 |S2|Ogólna dostępność|Wszystkie regiony z wyjątkiem Brazylii Południowej i Indii Zachodnich|
 |S3|Ogólna dostępność|Wszystkie regiony z wyjątkiem Indii Zachodnich|
 
@@ -265,5 +267,5 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

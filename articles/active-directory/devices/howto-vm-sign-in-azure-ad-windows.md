@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180341"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259374"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -191,9 +191,9 @@ az role assignment create \
 
 Aby uzyskać więcej informacji na temat korzystania z usługi Azure RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz następujące artykuły:
 
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
-- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Korzystanie z dostępu warunkowego
 
@@ -339,7 +339,7 @@ Jeśli po zainicjowaniu połączenia pulpitu zdalnego z maszyną wirtualną zoba
 
 ![Twoje poświadczenia nie działają](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Należy sprawdzić, czy komputer z systemem Windows 10 używany do inicjowania połączenia pulpitu zdalnego jest przyłączony do usługi Azure AD, czy też hybrydowa usługa Azure AD przyłączona do tego samego katalogu usługi Azure AD, do którego jest dołączona maszyna wirtualna. Aby uzyskać więcej informacji na temat tożsamości urządzeń, zobacz artykuł [co to jest tożsamość urządzenia](/azure/active-directory/devices/overview).
+Należy sprawdzić, czy komputer z systemem Windows 10 używany do inicjowania połączenia pulpitu zdalnego jest przyłączony do usługi Azure AD, czy też hybrydowa usługa Azure AD przyłączona do tego samego katalogu usługi Azure AD, do którego jest dołączona maszyna wirtualna. Aby uzyskać więcej informacji na temat tożsamości urządzeń, zobacz artykuł [co to jest tożsamość urządzenia](./overview.md).
 
 > [!NOTE]
 > System Windows 10 Build 20H1 dodaliśmy obsługę zarejestrowanego komputera z usługą Azure AD w celu zainicjowania połączenia RDP z maszyną wirtualną. W przypadku korzystania z rejestracji usługi Azure AD (nie dołączonej do usługi Azure AD lub hybrydowej usługi Azure AD) jako klienta RDP do inicjowania połączeń z maszyną wirtualną należy wprowadzić poświadczenia w formacie AzureAD\UPn (np. AzureAD\john@contoso.com ).
@@ -367,4 +367,4 @@ Podziel się swoją opinią na temat tej funkcji w wersji zapoznawczej lub zgło
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat Azure Active Directory, zobacz [co to jest Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+Aby uzyskać więcej informacji na temat Azure Active Directory, zobacz [co to jest Azure Active Directory](../fundamentals/active-directory-whatis.md)

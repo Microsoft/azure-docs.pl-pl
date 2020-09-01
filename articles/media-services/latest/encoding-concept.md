@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: W tym artykule wyjaśniono, jak zakodować wideo i dźwięk przy użyciu Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: a54f86081774ffb9ac2fe23a72c8ba83e3d6845c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2e4db27f268d0d49696fd2a7dacc200942fa4477
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053332"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258983"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Kodowanie wideo i audio przy użyciu Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Termin kodowanie w Media Services ma zastosowanie do procesu konwertowania plików zawierających cyfrowe wideo i/lub dźwięk z jednego formatu standardowego na inny, w celu zmniejszenia rozmiaru plików i/lub (b) tworzenia formatu zgodnego z szeroką gamą urządzeń i aplikacji. Ten proces jest również nazywany kompresją wideo lub transkodowaniem. Zapoznaj się z [kompresją danych](https://en.wikipedia.org/wiki/Data_compression) i [kodowaniem i transkodowaniem?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) , aby uzyskać więcej informacji na temat pojęć.
 

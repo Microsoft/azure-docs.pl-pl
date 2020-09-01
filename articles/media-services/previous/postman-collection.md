@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d3bf8b43bc12a2a8a193ea2708ab1668235edde
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5f7a40cb72e1ae58f7962c4c8b80195a82ebdc5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047583"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259272"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importowanie kolekcji ogłoszeń z użyciem operacji przesyłania strumieniowego na żądanie 
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importowanie kolekcji ogłoszeń z użyciem operacji przesyłania strumieniowego na żądanie
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Ten artykuł zawiera definicję kolekcji **ogłoszeń** , która zawiera pogrupowane żądania HTTP, które wywołują Azure Media Services interfejsy API REST. Aby uzyskać informacje o sposobie konfigurowania programu **Poster** , aby można było go użyć do wywołania interfejsów api REST Media Services, zobacz temat [Konfigurowanie programu poster dla Media Services wywołań interfejsu API REST](media-rest-apis-with-postman.md) .
 

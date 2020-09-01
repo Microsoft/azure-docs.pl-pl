@@ -6,12 +6,12 @@ author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258601"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259017"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Obsługiwane magazyny danych w udziale danych platformy Azure
 
@@ -26,8 +26,8 @@ Poniższa tabela zawiera szczegółowe informacje o obsługiwanych źródłach d
 | Magazyn danych | Udostępnianie oparte na migawce | Udostępnianie w miejscu 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ | |
-| Azure Data Lake Storage Gen1 |✓ | |
-| Azure Data Lake Storage Gen2 |✓ ||
+| Usługa Azure Data Lake Storage 1. generacji |✓ | |
+| Usługa Azure Data Lake Storage 2. generacji |✓ ||
 | Azure SQL Database |Publiczna wersja zapoznawcza | |
 | Azure Synapse Analytics (dawniej: Azure SQL DW) |Publiczna wersja zapoznawcza | |
 | Azure Data Explorer | |✓ |
@@ -41,8 +41,8 @@ Poniższa tabela zawiera szczegółowe informacje o różnych kombinacjach i wyb
 | Magazyn danych | Azure Blob Storage | Usługa Azure Data Lake Storage 1. generacji | Usługa Azure Data Lake Storage 2. generacji | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage | ✓ || ✓ ||
-| Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
-| Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
+| Usługa Azure Data Lake Storage 1. generacji | ✓ | | ✓ ||
+| Usługa Azure Data Lake Storage 2. generacji | ✓ | | ✓ ||
 | Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
 | Azure Synapse Analytics (dawniej: Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
 | Azure Data Explorer |||||| ✓ |
@@ -50,19 +50,22 @@ Poniższa tabela zawiera szczegółowe informacje o różnych kombinacjach i wyb
 ## <a name="share-from-a-storage-account"></a>Udostępnianie z konta magazynu
 Udział danych platformy Azure obsługuje udostępnianie plików, folderów i systemów plików z Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje także udostępnianie obiektów blob, folderów i kontenerów z usługi Azure Blob Storage. Obecnie jest obsługiwany tylko blokowy obiekt BLOB. Gdy systemy plików, kontenery lub foldery są udostępniane w ramach udostępniania opartego na migawce, konsument danych może wybrać pełną kopię danych udziału lub użyć funkcji przyrostowej migawki w celu skopiowania tylko nowych lub zaktualizowanych plików. Przyrostowa migawka jest określana na podstawie czasu ostatniej modyfikacji plików. Istniejące pliki o tej samej nazwie zostaną zastąpione.
 
+Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie i odbieranie danych z usługi Azure Blob Storage i Azure Data Lake Storage](how-to-share-from-storage.md) .
+
 ## <a name="share-from-a-sql-based-source"></a>Udostępnianie z poziomu źródła opartego na języku SQL
-Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Store Gen2 lub Blob Storage platformy Azure jako pliku CSV lub Parquet. Należy pamiętać, że domyślnie formaty plików to CSV. Odbiorca danych może wybrać, aby w razie potrzeby odbierać dane w formacie Parquet. Można to zrobić w ustawieniach mapowania zestawu danych podczas otrzymywania danych. 
+Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Storage Gen2 lub Blob Storage platformy Azure jako plików CSV lub Parquet, a także w Azure SQL Database i Azure Synapse Analytics jako tabele.
 
-W przypadku przyjmowania danych do Azure Data Lake Store Gen2 lub Azure Blob Storage, pełne migawki zastępują zawartość pliku docelowego. 
+Gdy akceptujesz dane do Azure Data Lake Store Gen2 lub Azure Blob Storage, pełne migawki zastąpią zawartość pliku docelowego, jeśli już istnieje.
+Gdy dane są odbierane do tabeli, a tabela docelowa jeszcze nie istnieje, udział danych platformy Azure tworzy tabelę SQL ze schematem źródłowym. Jeśli tabela docelowa już istnieje o tej samej nazwie, zostanie porzucona i zastąpiona najnowszą pełną migawką. Migawki przyrostowe nie są obecnie obsługiwane.
 
-Odbiorca danych może wybrać otrzymywanie danych do wybranej tabeli. Jeśli w tym scenariuszu tabela docelowa jeszcze nie istnieje, udział danych platformy Azure utworzy tabelę SQL ze schematem źródłowym. Jeśli tabela docelowa już istnieje o tej samej nazwie, zostanie porzucona i zastąpiona najnowszą pełną migawką. Podczas mapowania tabeli docelowej można określić alternatywny schemat i nazwę tabeli. Migawki przyrostowe nie są obecnie obsługiwane. 
+Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie i odbieranie danych z Azure SQL Database i usługi Azure Synapse Analytics](how-to-share-from-sql.md) .
 
-Udostępnianie ze źródeł opartych na języku SQL ma wymagania wstępne związane z regułami i uprawnieniami zapory. Aby uzyskać szczegółowe informacje, zapoznaj się z sekcją wymagania wstępne w samouczku [udostępnianie danych](share-your-data.md) .
-
-## <a name="share-from-azure-data-explorer"></a>Udostępnianie z usługi Azure Eksplorator danych
+## <a name="share-from-azure-data-explorer"></a>Udostępnianie z usługi Azure Data Explorer
 Udział danych platformy Azure umożliwia udostępnianie baz danych w miejscu z klastrów Eksplorator danych platformy Azure. Dostawca danych może współdzielić na poziomie bazy danych lub klastra. Po udostępnieniu na poziomie bazy danych konsument danych będzie mógł uzyskać dostęp do określonych baz danych udostępnionych przez dostawcę danych. Po udostępnieniu na poziomie klastra konsument danych może uzyskać dostęp do wszystkich baz danych z klastra dostawcy, w tym wszystkich przyszłych baz danych utworzonych przez dostawcę danych.
 
 Aby uzyskać dostęp do udostępnionych baz danych, konsument danych musi mieć własny klaster Eksplorator danych platformy Azure. Klaster danych platformy Azure dla użytkowników Eksplorator danych musi znajdować się w tym samym centrum danych platformy Azure co klaster usługi Azure Eksplorator danych dostawcy danych. Po ustanowieniu relacji udostępniania udział danych platformy Azure tworzy link symboliczny między klastrami Eksplorator danych platformy Azure dostawcy i klientem. Dane pozyskiwane przy użyciu trybu wsadowego w źródłowym klastrze Eksplorator danych platformy Azure będą widoczne w klastrze docelowym w ciągu kilku sekund do kilku minut.
+
+Aby uzyskać szczegółowe informacje, zapoznaj się z tematem [udostępnianie i odbieranie danych z usługi Azure Eksplorator danych](/azure/data-explorer/data-share) . 
 
 ## <a name="next-steps"></a>Następne kroki
 
