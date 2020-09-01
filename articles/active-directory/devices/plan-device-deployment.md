@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541876"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268812"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -48,11 +48,11 @@ Najważniejsze zalety nadawania urządzeniom tożsamości usługi Azure AD:
 
 * Ulepsz środowisko użytkownika — z tożsamościami urządzeń w usłudze Azure AD możesz zapewnić użytkownikom łatwy dostęp do zasobów w chmurze w organizacji zarówno z urządzeń osobistych, jak i firmowych. Administratorzy mogą włączać [Enterprise State roaming](enterprise-state-roaming-overview.md) w celu zapewnienia ujednoliconego środowiska na wszystkich urządzeniach z systemem Windows.
 
-* Uproszczenie wdrażania i zarządzania — Zarządzanie tożsamościami urządzeń upraszcza proces przenoszenia urządzeń do usługi Azure AD przy użyciu funkcji automatycznego [pilotażu systemu Windows](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot), [aprowizacji zbiorczego](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll)i samoobsługowego [korzystania z usługi Box (OOBE)](../user-help/user-help-join-device-on-network.md). Tymi urządzeniami można zarządzać przy użyciu narzędzi do zarządzania urządzeniami przenośnymi (MDM), takich jak [Microsoft Intune](https://docs.microsoft.com/mem/intune/fundamentals/what-is-intune), oraz ich tożsamości w [Azure Portal](https://portal.azure.com/).
+* Uproszczenie wdrażania i zarządzania — Zarządzanie tożsamościami urządzeń upraszcza proces przenoszenia urządzeń do usługi Azure AD przy użyciu funkcji automatycznego [pilotażu systemu Windows](/windows/deployment/windows-autopilot/windows-10-autopilot), [aprowizacji zbiorczego](/mem/intune/enrollment/windows-bulk-enroll)i samoobsługowego [korzystania z usługi Box (OOBE)](../user-help/user-help-join-device-on-network.md). Tymi urządzeniami można zarządzać przy użyciu narzędzi do zarządzania urządzeniami przenośnymi (MDM), takich jak [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), oraz ich tożsamości w [Azure Portal](https://portal.azure.com/).
 
 ### <a name="training-resources"></a>Zasoby szkoleniowe
 
-Wideo: [dostęp warunkowy z kontrolkami urządzeń](https://youtu.be/NcONUf-jeS4)
+Wideo:  [dostęp warunkowy z kontrolkami urządzeń](https://youtu.be/NcONUf-jeS4)
 
 Często zadawane pytania: NZP i [Ustawienia](enterprise-state-roaming-faqs.md) [usługi Azure AD Device Management](faq.md) 
 
@@ -112,7 +112,7 @@ urządzenia z systemami iOS i Android mogą być zarejestrowane wyłącznie w us
 | Hasło| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Numer PIN urządzenia| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![zaznaczone](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello dla firm| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
+| Windows Hello for Business| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Klucze zabezpieczeń FIDO 2,0| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Aplikacja Microsoft Authenticator (bezhaseł)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 |**Najważniejsze możliwości**| | |  |
@@ -127,21 +127,21 @@ Dostęp warunkowy <br>(Wymagaj hybrydowych urządzeń przyłączonych do usługi
 
 ## <a name="azure-ad-registration"></a>Rejestracja w usłudze Azure AD 
 
-Zarejestrowane urządzenia są często zarządzane przy użyciu [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Urządzenia są zarejestrowane w usłudze Intune na wiele sposobów, w zależności od systemu operacyjnego. 
+Zarejestrowane urządzenia są często zarządzane przy użyciu [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Urządzenia są zarejestrowane w usłudze Intune na wiele sposobów, w zależności od systemu operacyjnego. 
 
 Zarejestrowane urządzenia usługi Azure AD zapewniają obsługę logowania do zasobów w chmurze na urządzeniach z systemem (BYOD) i należących do firmy. Dostęp do zasobów jest oparty na [zasadach urzędu certyfikacji](../conditional-access/require-managed-devices.md) usługi Azure AD stosowanych do urządzenia i użytkownika.
 
 ### <a name="registering-devices"></a>Rejestrowanie urządzeń
 
-Zarejestrowane urządzenia są często zarządzane przy użyciu [Microsoft Intune](https://docs.microsoft.com/mem/intune/enrollment/device-enrollment). Urządzenia są zarejestrowane w usłudze Intune na wiele sposobów, w zależności od systemu operacyjnego. 
+Zarejestrowane urządzenia są często zarządzane przy użyciu [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Urządzenia są zarejestrowane w usłudze Intune na wiele sposobów, w zależności od systemu operacyjnego. 
 
 Urządzenia przenośne BYOD i należące do firmy są rejestrowane przez użytkowników instalujących aplikację Portal firmy.
 
-* [iOS](https://docs.microsoft.com/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
+* [iOS](/mem/intune/user-help/install-and-sign-in-to-the-intune-company-portal-app-ios)
 
-* [Android](https://docs.microsoft.com/mem/intune/user-help/enroll-device-android-company-portal)
+* [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 
-* [Windows 10](https://docs.microsoft.com/mem/intune/user-help/enroll-windows-10-device)
+* [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
 
 Jeśli zarejestrowanie urządzeń jest najlepszą opcją dla Twojej organizacji, zobacz następujące zasoby:
 
@@ -171,9 +171,9 @@ Jeśli masz system Windows 10 Professional lub Windows 10 Enterprise zainstalowa
 
 * [Środowisko Windows out of Box (OOBE) lub ustawienia systemu Windows](../user-help/user-help-join-device-on-network.md)
 
-* [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot)
+* [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 
-* [Rejestracja Zbiorcza](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll)
+* [Rejestracja Zbiorcza](/mem/intune/enrollment/windows-bulk-enroll)
 
 Po dokładnym [porównaniu z tymi podejściami](azureadjoin-plan.md)wybierz swoją procedurę wdrażania.
 
@@ -216,7 +216,7 @@ Możesz określić, że usługa Azure AD Join jest najlepszym rozwiązaniem dla 
 | Bieżący stan urządzenia| Żądany stan urządzenia| Porady |
 | - | - | - |
 | Lokalne przyłączanie do domeny| Sprzężenie hybrydowe usługi Azure AD| Używanie programu Azure AD Connect lub AD FS do przyłączania do platformy Azure |
-| Lokalna grupa robocza dołączona lub Nowa| Sprzężenie hybrydowe usługi Azure AD| Obsługiwane w przypadku używania [autopilotażu systemu Windows](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). W przeciwnym razie urządzenie musi być domeną lokalną przyłączoną przed dołączeniem do hybrydowej usługi Azure AD |
+| Lokalna grupa robocza dołączona lub Nowa| Sprzężenie hybrydowe usługi Azure AD| Obsługiwane w przypadku używania [autopilotażu systemu Windows](/windows/deployment/windows-autopilot/windows-autopilot). W przeciwnym razie urządzenie musi być domeną lokalną przyłączoną przed dołączeniem do hybrydowej usługi Azure AD |
 | Dołączone do usługi Azure AD| Sprzężenie hybrydowe usługi Azure AD| Odłączanie od usługi Azure AD, która umieszcza ją w lokalnej grupie roboczej lub nowym stanie. |
 | Rejestracja w usłudze Azure AD| Sprzężenie hybrydowe usługi Azure AD| Zależy od wersji systemu Windows. [Zobacz te zagadnienia](hybrid-azuread-join-plan.md). |
 
@@ -239,13 +239,13 @@ Przejrzyj obsługiwane i nieobsługiwane platformy dla urządzeń zintegrowanych
 
 | Narzędzia do zarządzania urządzeniami| Zarejestrowane w usłudze Azure AD| Dołączenie do usługi Azure AD| Dołączenie hybrydowe do usługi Azure AD|
 | - | - | - | - |
-| [Zarządzanie urządzeniami przenośnymi (MDM)](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Przykład: Microsoft Intune| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)|  |
-| [Zarządzanie przy użyciu Microsoft Intune i Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(System Windows 10 i nowsze)| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)|  |
-| [Zasady grupy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Tylko system Windows)| | | ![zaznaczone](./media/plan-device-deployment/check.png)|  |
+| [Zarządzanie urządzeniami przenośnymi (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Przykład: Microsoft Intune| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)|  |
+| [Zarządzanie przy użyciu Microsoft Intune i Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(System Windows 10 i nowsze)| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)|  |
+| [Zasady grupy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Tylko system Windows)| | | ![zaznaczone](./media/plan-device-deployment/check.png)|  |
 
 
 
- Zalecamy rozważenie [Microsoft Intune zarządzania aplikacjami mobilnymi (mam)](https://docs.microsoft.com/mem/intune/apps/app-management) z zarządzaniem urządzeniami z systemem iOS lub Android lub bez niego.
+ Zalecamy rozważenie [Microsoft Intune zarządzania aplikacjami mobilnymi (mam)](/mem/intune/apps/app-management) z zarządzaniem urządzeniami z systemem iOS lub Android lub bez niego.
 
  Administratorzy mogą również [wdrażać platformy infrastruktury pulpitu wirtualnego (VDI)](howto-device-identity-virtual-desktop-infrastructure.md) , które obsługują systemy operacyjne Windows w swoich organizacjach, aby usprawnić zarządzanie i ograniczyć koszty dzięki konsolidacji i scentralizowaniu zasobów. 
 

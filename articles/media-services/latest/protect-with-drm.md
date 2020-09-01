@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Dowiedz się, jak korzystać z szyfrowania dynamicznego DRM i usługi dostarczania licencji, aby dostarczać strumienie szyfrowane za pomocą licencji firmy Microsoft PlayReady, Google Widevine lub Apple FairPlay.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 8ab8a3ce0718cac3135bfdac67088d36fcd4f184
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97011222593d249461719e3492dd5b54fb63baff
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060615"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267143"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Samouczek: używanie dynamicznego szyfrowania DRM i usługi dostarczania licencji
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
@@ -114,7 +116,7 @@ Klucz zawartości zapewnia bezpieczny dostęp do elementów zawartości. Należy
 
 Należy ustawić wymagania (ograniczenia) dotyczące **zasad kluczy zawartości** , które muszą zostać spełnione, aby dostarczyć klucze z określoną konfiguracją. W tym przykładzie ustawimy następujące konfiguracje i wymagania:
 
-* Konfigurowanie
+* Konfiguracja
 
     Licencje [PlayReady](playready-license-template-overview.md) i [Widevine](widevine-license-template-overview.md) są skonfigurowane tak, aby można było dostarczać je przy użyciu usługi dostarczania licencji w usłudze Media Services. Mimo że ta Przykładowa aplikacja nie konfiguruje licencji [FairPlay](fairplay-license-overview.md) , zawiera metodę, której można użyć do skonfigurowania FairPlay. Konfigurację FairPlay można dodać jako inną opcję.
 

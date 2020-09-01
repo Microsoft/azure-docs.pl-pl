@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837044"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267857"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
 
@@ -128,7 +128,7 @@ $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 # If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
 # Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
 # Build the protected settings (storage account SAS token)
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
@@ -233,8 +233,8 @@ Wersja 3,0 rozszerzenia diagnostycznego systemu Linux obsługuje dwa typy ujści
 
 Wpis "adresie sasurl" zawiera pełny adres URL, łącznie z tokenem sygnatury dostępu współdzielonego, dla centrum zdarzeń, do którego powinny zostać opublikowane dane. LAD wymaga nazewnictwa sygnatury dostępu współdzielonego, które umożliwia wysłanie żądania. Przykład:
 
-* Utwórz Event Hubsą przestrzeń nazw o nazwie`contosohub`
-* Utwórz centrum zdarzeń w przestrzeni nazw o nazwie`syslogmsgs`
+* Utwórz Event Hubsą przestrzeń nazw o nazwie `contosohub`
+* Utwórz centrum zdarzeń w przestrzeni nazw o nazwie `syslogmsgs`
 * Tworzenie zasad dostępu współdzielonego w centrum zdarzeń o nazwie `writer` , które umożliwia wysyłanie żądania
 
 Jeśli utworzono sygnaturę dostępu współdzielonego do północy czasu UTC 1 stycznia 2018, wartość adresie sasurl może być:
@@ -367,9 +367,9 @@ displayName | Etykieta (w języku określonym przez skojarzone ustawienie region
 
 CounterSpecifier jest dowolnym identyfikatorem. Odbiorcy metryk, takie jak Azure Portal wykresy i funkcja alertów, używają counterSpecifier jako klucza, który identyfikuje metrykę lub wystąpienie metryki. W przypadku `builtin` metryk zalecamy korzystanie z wartości counterSpecifier, które zaczynają się od `/builtin/` . W przypadku zbierania określonego wystąpienia metryki Zalecamy dołączenie identyfikatora wystąpienia do wartości counterSpecifier. Oto niektóre przykłady:
 
-* `/builtin/Processor/PercentIdleTime`-Bezczynny czas średni dla wszystkich procesorów wirtualnych vCPU
-* `/builtin/Disk/FreeSpace(/mnt)`-Wolne miejsce dla systemu plików/mnt
-* `/builtin/Disk/FreeSpace`-Wolne miejsce średnie dla wszystkich zainstalowanych systemów plików
+* `/builtin/Processor/PercentIdleTime` -Bezczynny czas średni dla wszystkich procesorów wirtualnych vCPU
+* `/builtin/Disk/FreeSpace(/mnt)` -Wolne miejsce dla systemu plików/mnt
+* `/builtin/Disk/FreeSpace` -Wolne miejsce średnie dla wszystkich zainstalowanych systemów plików
 
 Ani LAD, ani Azure Portal nie oczekuje, że wartość counterSpecifier będzie zgodna z żadnym wzorcem. Spójne w sposobie konstruowania wartości counterSpecifier.
 

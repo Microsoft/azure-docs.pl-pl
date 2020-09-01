@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 873f8bfda5dcfbc41d1bdc73bb4f0de97f775f15
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a26be590d5f7b467f57e8e18eac54ce57be24094
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013405"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266599"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Przesyłanie strumieniowe przy użyciu technologii PlayReady w trybie offline dla systemu Windows 10  
+# <a name="offline-playready-streaming-for-windows-10"></a>Przesyłanie strumieniowe przy użyciu technologii PlayReady w trybie offline dla systemu Windows 10
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję Media Services:"]
 > * [Wersja 3](../latest/offline-plaready-streaming-for-windows-10.md)
@@ -131,6 +133,6 @@ Podsumowując, osiągnięto tryb offline na Azure Media Services:
 
 * Widevine to usługa świadczona przez firmę Google Inc. z zastrzeżeniem warunków użytkowania i zasad zachowania poufności informacji w firmie Google, Inc.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Projekt hybrydowego systemu DRM](hybrid-design-drm-sybsystem.md)

@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Informacje o ochronie zawartości przy użyciu szyfrowania dynamicznego, protokołów przesyłania strumieniowego i typów szyfrowania w Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e21aba7b06e6c692337344477bfb52e7f7acb27c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 81ec96d244c36c0328134b415465d632ef6c1dd5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012199"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267925"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Ochrona zawartości przy użyciu szyfrowania dynamicznego Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Użyj Azure Media Services, aby pomóc w zabezpieczeniu nośnika od momentu, gdy komputer przejdzie przez cały proces w ramach magazynu, przetwarzania i dostarczania. Za pomocą Media Services można dostarczyć zawartość dynamiczną i na żądanie zaszyfrowaną dynamicznie przy użyciu Advanced Encryption Standard (AES-128) lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. Jeśli zawartość jest zaszyfrowana przy użyciu klucza Clear AES i jest wysyłana za pośrednictwem protokołu HTTPS, nie jest to jasne, dopóki nie osiągnie klienta. 
 
@@ -259,7 +261,7 @@ Jeśli pojawią się błędy, upewnij się `_NOT_SPECIFIED_IN_URL` , że w adres
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Ochrona przy użyciu szyfrowania AES](protect-with-aes128.md)
 * [Ochrona przy użyciu technologii DRM](protect-with-drm.md)

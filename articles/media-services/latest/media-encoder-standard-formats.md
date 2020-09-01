@@ -3,7 +3,7 @@ title: Formaty koderów standardowych i kodery-dekoder na platformie Azure
 description: Ten artykuł zawiera listę najpopularniejszych formatów importu i eksportu plików, których można używać z programem StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: dd8c38f9f08bbcaccc39d2f0d1843af720c12932
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8c111d046bfaefac11df576e455162d20acecd0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053236"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266565"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Standardowe formaty i kodeki kodera
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ten artykuł zawiera listę najpopularniejszych formatów importu i eksportu plików, których można używać z programem [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Aby uzyskać informacje na temat tworzenia niestandardowych ustawień wstępnych przy użyciu programu **StandardEncoderPreset**, zobacz [Tworzenie przekształcenia z niestandardowym ustawieniem wstępnym](customize-encoder-presets-how-to.md).
 
@@ -29,17 +31,17 @@ Ten artykuł zawiera listę najpopularniejszych formatów importu i eksportu pli
 
 | Formaty plików (rozszerzenia nazw plików) | Obsługiwane |
 | --- | --- |
-| FLV (z koderami-dekoderami H.264 i AAC) (flv) |Tak |
-| MXF (mxf) |Tak |
-| GXF (gxf) |Tak |
-| MPEG2-PS, MPEG2-TS, 3GP (ts, ps, 3gp, 3gpp, mpg) |Tak |
-| Windows Media Video (WMV)/ASF (wmv, asf) |Tak |
-| AVI (nieskompresowany 8-bitowy/10-bitowy) (avi) |Tak |
-| MP4 (mp4, m4a, m4v)/ISMV (isma, ismv) |Tak |
-| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (dvr-ms) |Tak |
-| Matroska/WebM (mkv) |Tak |
-| WAVE/WAV (wav) |Tak |
-| QuickTime (mov) |Tak |
+| FLV (z koderami-dekoderami H.264 i AAC) (flv) |Yes |
+| MXF (mxf) |Yes |
+| GXF (gxf) |Yes |
+| MPEG2-PS, MPEG2-TS, 3GP (ts, ps, 3gp, 3gpp, mpg) |Yes |
+| Windows Media Video (WMV)/ASF (wmv, asf) |Yes |
+| AVI (nieskompresowany 8-bitowy/10-bitowy) (avi) |Yes |
+| MP4 (mp4, m4a, m4v)/ISMV (isma, ismv) |Yes |
+| [Microsoft Digital Video Recording (DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (dvr-ms) |Yes |
+| Matroska/WebM (mkv) |Yes |
+| WAVE/WAV (wav) |Yes |
+| QuickTime (mov) |Yes |
 
 ### <a name="audio-formats-in-input-containers"></a>Formaty audio w kontenerach wejściowych
 
@@ -55,37 +57,37 @@ lub
 | Kodery-dekoder wideo | Obsługiwane |
 | --- | --- |
 | AVC 8-bitowy/10-bitowy, do 4:2:2, wraz z AVCIntra |8-bitowy 4:2:0 oraz 4:2:2 |
-| Avid DNxHD (w pliku MXF) |Tak |
-| DVCPro/DVCProHD (w pliku MXF) |Tak |
-| Digital video (DV) (w plikach AVI) |Tak |
-| JPEG 2000 |Tak |
+| Avid DNxHD (w pliku MXF) |Yes |
+| DVCPro/DVCProHD (w pliku MXF) |Yes |
+| Digital video (DV) (w plikach AVI) |Yes |
+| JPEG 2000 |Yes |
 | MPEG-2 (maksymalny profil 422 i wysoki poziom; wraz z wariantami, takimi jak XDCAM, XDCAM HD, XDCAM IMX, CableLabs® oraz D10) |Maksymalnie profil 422 |
-| MPEG-1 |Tak |
-| VC-1/WMV9 |Tak |
+| MPEG-1 |Yes |
+| VC-1/WMV9 |Yes |
 | Canopus HQ/HQX |Nie |
-| MPEG-4 część 2 |Tak |
-| [Theora](https://en.wikipedia.org/wiki/Theora) |Tak |
-| YUV420 bez kompresji lub mezzanine |Tak |
-| Apple ProRes 422 |Tak |
-| Apple ProRes 422 LT |Tak |
-| Apple ProRes 422 HQ |Tak |
-| Apple ProRes Proxy |Tak |
-| Apple ProRes 4444 |Tak |
-| Apple ProRes 4444 XQ |Tak |
+| MPEG-4 część 2 |Yes |
+| [Theora](https://en.wikipedia.org/wiki/Theora) |Yes |
+| YUV420 bez kompresji lub mezzanine |Yes |
+| Apple ProRes 422 |Yes |
+| Apple ProRes 422 LT |Yes |
+| Apple ProRes 422 HQ |Yes |
+| Apple ProRes Proxy |Yes |
+| Apple ProRes 4444 |Yes |
+| Apple ProRes 4444 XQ |Yes |
 | HEVC/H. 265| Profil główny|
 
 ## <a name="input-audio-codecs"></a>Kodery-dekoder Audio Input
 | Kodery-dekodery wejściowych danych audio | Obsługiwane |
 | --- | --- |
-| AAC (AAC-LC, AAC-HE oraz AAC-HEv2; maksymalnie 5.1) |Tak |
-| MPEG Layer 2 |Tak |
-| MP3 (MPEG-1 Audio Layer 3) |Tak |
-| Windows Media Audio |Tak |
-| WAV/PCM |Tak |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Tak |
-| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Tak |
-| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Tak |
-| AMR (Adaptive Multi-Rate) |Tak |
+| AAC (AAC-LC, AAC-HE oraz AAC-HEv2; maksymalnie 5.1) |Yes |
+| MPEG Layer 2 |Yes |
+| MP3 (MPEG-1 Audio Layer 3) |Yes |
+| Windows Media Audio |Yes |
+| WAV/PCM |Yes |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Yes |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
+| [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Yes |
+| AMR (Adaptive Multi-Rate) |Yes |
 | AES (SMPTE 331M oraz 302M, AES3-2003) |Nie |
 | Dolby® E |Nie |
 | Dolby® Digital (AC3) |Nie |

@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 89b640e1a23123fcac335ee0bf02ef078227e633
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5e4ad7ba75edd1899cbe2d7cd7d3b1b6c124ce35
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016813"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267653"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>Jak generować miniatury przy użyciu standardu Encoder w programie .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Za pomocą Media Encoder Standard można wygenerować jeden lub więcej miniatur z wejściowego filmu wideo w formatach plików obrazów [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics)lub [BMP](https://en.wikipedia.org/wiki/BMP_file_format) .
 
@@ -93,5 +95,5 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 [Generuj miniatury przy użyciu REST](media-services-generate-thumbnails-rest.md)

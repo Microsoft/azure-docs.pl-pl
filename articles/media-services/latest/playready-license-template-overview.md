@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3 z szablonem licencji Microsoft PlayReady
 description: Ten temat zawiera omówienie szablonu licencji PlayReady, który jest używany do konfigurowania licencji PlayReady.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 302c938aa3a778f4e1b0ca7884f82943edf43ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b4131ff0cb2169660b231cdf136f52c3f26a02dc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998972"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267160"
 ---
-# <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 z szablonem licencji PlayReady 
+# <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 z szablonem licencji PlayReady
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services umożliwia szyfrowanie zawartości za pomocą **oprogramowania Microsoft PlayReady**. Media Services udostępnia również usługę do dostarczania licencji PlayReady. Za pomocą interfejsów API Media Services można konfigurować licencje PlayReady. Gdy gracz podejmie próbę odtworzenia zawartości chronionej przez program PlayReady, żądanie jest wysyłane do usługi dostarczania licencji w celu uzyskania licencji. Jeśli usługa licencji zatwierdzi żądanie, wystawia licencję, która jest wysyłana do klienta i służy do odszyfrowania i odtworzenia określonej zawartości.
 
@@ -314,6 +316,6 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 </xs:schema>
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z tematem [Ochrona przy użyciu technologii DRM](protect-with-drm.md)

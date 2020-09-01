@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9f583e7956cba0de06e5b3277bfea13c463019d9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7bdffa607a1cbe47b940590d19f6140238d31bf0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171979"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266497"
 ---
-# <a name="widevine-license-template-overview"></a>Omówienie szablonu licencji Widevine 
+# <a name="widevine-license-template-overview"></a>Omówienie szablonu licencji Widevine
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Za pomocą Azure Media Services można konfigurować i żądać licencji usługi Google Widevine. Gdy gracz podejmie próbę odtworzenia zawartości chronionej przez Widevine, żądanie jest wysyłane do usługi dostarczania licencji w celu uzyskania licencji. Jeśli usługa licencji zatwierdzi żądanie, usługa wystawia licencję. Jest on wysyłany do klienta i jest używany do odszyfrowywania i odtwarzania określonej zawartości.
 
 Żądanie licencji Widevine jest sformatowane jako komunikat JSON.  

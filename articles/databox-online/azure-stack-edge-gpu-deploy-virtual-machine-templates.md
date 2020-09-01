@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 330186b12efcc31e9f99d7c4bdbff3e081311c23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085492"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268163"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-via-templates"></a>Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge za pośrednictwem szablonów
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu szablonów
 
 W tym samouczku opisano, jak utworzyć maszynę wirtualną na urządzeniu Azure Stack Edge i zarządzać nią przy użyciu szablonów. Te szablony są plikami JavaScript Object Notation (JSON), które definiują infrastrukturę i konfigurację maszyny wirtualnej. W tych szablonach należy określić zasoby do wdrożenia oraz właściwości tych zasobów.
 
@@ -185,11 +185,11 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Łączenie z usługą Azure Storage 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Next** (Dalej).
+5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia z usługą Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. W oknie **łączenie z nazwą i kluczem**Podaj **nazwę wyświetlaną**, **nazwę konta magazynu**i **klucz konta**usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Next** (Dalej).
+6. W oknie **łączenie z nazwą i kluczem**Podaj **nazwę wyświetlaną**, **nazwę konta magazynu**i **klucz konta**usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Dalej**.
 
     ![Nawiązywanie połączenia przy użyciu nazwy i klucza](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182058"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268038"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Kubernetes zarządzanie obciążeniami na urządzeniu brzegowym Azure Stack
 
@@ -47,11 +47,11 @@ Istnieją trzy podstawowe sposoby wdrażania obciążeń. Każda z tych metod wd
 
 ![Wdrożenie obciążenia Kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Lokalne wdrożenie**: jest to za poorednictwem narzędzia dostępu do wiersza polecenia, takiego jak `kubectl` , które pozwala na wdrożenie K8 `yamls` . Nawiąż połączenie z klastrem K8 na krawędzi Azure Stack utworzonej przy użyciu `kubeconfig` pliku. Aby uzyskać więcej informacji, przejdź do [obszaru dostęp do klastra Kubernetes za pośrednictwem usługi polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Lokalne wdrożenie**: jest to za poorednictwem narzędzia dostępu do wiersza polecenia, takiego jak `kubectl` , które pozwala na wdrożenie Kubernetes `yamls` . Nawiąż połączenie z klastrem Kubernetes na krawędzi Azure Stack utworzonej przy użyciu `kubeconfig` pliku. Aby uzyskać więcej informacji, przejdź do [obszaru dostęp do klastra Kubernetes za pośrednictwem usługi polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem K8 Azure Stack na urządzeniu brzegowym za pośrednictwem `iotedge` przestrzeni nazw. IoT Edge agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
+- **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem Kubernetes Azure Stack na urządzeniu brzegowym za pośrednictwem `iotedge` przestrzeni nazw. IoT Edge agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
 
-- **Wdrożenie platformy Azure/Arc**: usługa Azure Arc jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach K8. Klaster K8 można połączyć na urządzeniu brzegowym Azure Stack za pośrednictwem `azure-arc namespace` . Agenci są wdrażani w tej przestrzeni nazw, które są odpowiedzialne za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. Usługa Azure Arc umożliwi także używanie Azure Monitor do kontenerów w celu wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure-Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Wdrożenie platformy Azure/Arc**: usługa Azure Arc jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach Kubernetes. Klaster Kubernetes można połączyć na urządzeniu brzegowym Azure Stack za pośrednictwem `azure-arc namespace` . Agenci są wdrażani w tej przestrzeni nazw, które są odpowiedzialne za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. Usługa Azure Arc umożliwi także używanie Azure Monitor do kontenerów w celu wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure-Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## <a name="choose-the-deployment-type"></a>Wybierz typ wdrożenia
 

@@ -1,20 +1,20 @@
 ---
 title: Samouczek umożliwiający aktywowanie Azure Stack urządzenia brzegowego za pomocą procesora GPU w Azure Portal | Microsoft Docs
-description: Samouczek wdrażania Azure Stack Edge instruuje o aktywowaniu urządzenia fizycznego.
+description: Samouczek wdrażania Azure Stack Edge procesora GPU powoduje aktywację urządzenia fizycznego.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: be3e7c7f9a5a8c48d8644eefef42b7020e2b37f4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 88be4d9753e48f70dae5666e800a54209ed6ba3f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088129"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267942"
 ---
 # <a name="tutorial-activate-azure-stack-edge-with-gpu"></a>Samouczek: aktywowanie Azure Stack Edge z procesorem GPU
 

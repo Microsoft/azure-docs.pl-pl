@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428375"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268557"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Samouczek: ręczne konfigurowanie urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
@@ -39,7 +39,7 @@ Jeśli masz lokalne środowisko usługi Active Directory i chcesz dołączyć do
 
 W tym samouczku założono, że znasz następujące zagadnienia:
 
-* [Wprowadzenie do zarządzania urządzeniami w usłudze Azure Active Directory](../device-management-introduction.md)
+* [Wprowadzenie do zarządzania urządzeniami w usłudze Azure Active Directory](./overview.md)
 * [Planowanie implementacji z hybrydowym dołączaniem do usługi Azure Active Directory](hybrid-azuread-join-plan.md)
 * [Kontrolowanie dołączania Twoich urządzeń do hybrydowej usługi Azure AD](hybrid-azuread-join-control.md)
 
@@ -94,7 +94,7 @@ Skorzystaj z poniższej tabeli, aby uzyskać przegląd kroków wymaganych dla da
 
 Urządzenia używają obiektu punktu połączenia usługi podczas rejestracji do odnajdywania informacji o dzierżawie usługi Azure AD. W lokalnym wystąpieniu usługi Active Directory obiekt punktu połączenia usługi dla urządzeń dołączonych hybrydowo do usługi Azure AD musi istnieć w partycji kontekstu nazewnictwa konfiguracji lasu komputera. Każdy las ma tylko jeden kontekst nazewnictwa konfiguracji. W konfiguracji usługi Active Directory z wieloma lasami punkt połączenia usługi musi istnieć we wszystkich lasach, które zawierają komputery dołączone do domeny.
 
-Aby pobrać kontekst nazewnictwa konfiguracji danego lasu, możesz użyć polecenia cmdlet [**Get ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx).  
+Aby pobrać kontekst nazewnictwa konfiguracji danego lasu, możesz użyć polecenia cmdlet [**Get ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)).  
 
 W przypadku lasu z nazwą domeny usługi Active Directory *fabrikam.com* kontekst nazewnictwa konfiguracji jest następujący:
 
@@ -167,7 +167,7 @@ W przypadku kontrolerów domeny z systemem Windows Server 2008 i jego wcześniej
 
 W poprzednim skrypcie symbol zastępczy to `$verifiedDomain = "contoso.com"`. Zastąp go jedną ze zweryfikowanych nazw domen w usłudze Azure AD. Musisz być właścicielem domeny, aby móc jej używać.
 
-Aby uzyskać więcej informacji na temat zweryfikowanych nazw domen, zobacz [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../active-directory-domains-add-azure-portal.md).
+Aby uzyskać więcej informacji na temat zweryfikowanych nazw domen, zobacz [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../fundamentals/add-custom-domain.md).
 
 Aby uzyskać listę swoich zweryfikowanych domen firmowych, możesz użyć polecenia cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
 
@@ -326,7 +326,7 @@ Oświadczenie`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` 
 
 W poprzednim oświadczeniu symbol zastępczy to `<verified-domain-name>`. Zastąp go jedną ze zweryfikowanych nazw domen w usłudze Azure AD. Użyj na przykład nazwy `Value = "http://contoso.com/adfs/services/trust/"`.
 
-Aby uzyskać więcej informacji na temat zweryfikowanych nazw domen, zobacz [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
+Aby uzyskać więcej informacji na temat zweryfikowanych nazw domen, zobacz [Dodawanie niestandardowej nazwy domeny do usługi Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
 Aby uzyskać listę zweryfikowanych domen firmowych, możesz użyć polecenia cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
 
@@ -614,7 +614,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Jeśli wystąpią problemy z ukończeniem hybrydowego łączenia z usługą Azure AD dla przyłączonych do domeny urządzeń z systemem Windows, zobacz:
 
-- [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
 - [Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu](troubleshoot-hybrid-join-windows-legacy.md)
 

@@ -3,23 +3,25 @@ title: Zasady kluczy zawartości w Media Services — Azure | Microsoft Docs
 description: Ten artykuł zawiera wyjaśnienie zasad kluczy zawartości i sposobu ich użycia przez Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/26/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 49226ba703e8ade963b368616102db035b3c07ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6d907e987cb57836997cab43e9bfa9e919bf67d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092069"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268292"
 ---
 # <a name="content-key-policies"></a>Zasady kluczy zawartości
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Za pomocą Media Services można dostarczyć zawartość dynamiczną i na żądanie zaszyfrowaną dynamicznie przy użyciu Advanced Encryption Standard (AES-128) lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. 
 

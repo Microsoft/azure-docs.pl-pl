@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bcf6d99511f744b321a7a47913b44dc376143f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016142"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266293"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Uzyskiwanie tokenu przy użyciu biblioteki Microsoft. Azure. Services. AppAuthentication dla platformy .NET
 
-W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z tożsamościami zarządzanymi dla zasobów platformy Azure jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)lub zintegrowanego uwierzytelniania Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication](/azure/key-vault/service-to-service-authentication). W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
+W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z tożsamościami zarządzanymi dla zasobów platformy Azure jest pakiet Microsoft. Azure. Services. AppAuthentication. Ta biblioteka umożliwia również testowanie kodu lokalnie na komputerze deweloperskim przy użyciu konta użytkownika z programu Visual Studio, [interfejsu wiersza polecenia platformy Azure](/cli/azure?view=azure-cli-latest)lub zintegrowanego uwierzytelniania Active Directory. Aby uzyskać więcej informacji na temat lokalnych opcji tworzenia w tej bibliotece, zobacz [odwołanie Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md). W tej sekcji pokazano, jak rozpocząć pracę z biblioteką w kodzie.
 
 1. Dodaj odwołania do pakietów NuGet [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) i [Microsoft. Azure.](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 
@@ -141,7 +141,7 @@ W przypadku aplikacji i funkcji platformy .NET Najprostszym sposobem pracy z to�
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Aby dowiedzieć się więcej na temat Microsoft. Azure. Services. AppAuthentication i wykonywanych przez niego operacji, zobacz artykuł [Microsoft. Azure. Services. AppAuthentication](/azure/key-vault/service-to-service-authentication) , a [App Service i Magazyn kluczy z tożsamościami zarządzanymi dla przykładu .NET zasobów platformy Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Aby dowiedzieć się więcej na temat Microsoft. Azure. Services. AppAuthentication i wykonywanych przez niego operacji, zobacz artykuł [Microsoft. Azure. Services. AppAuthentication](../../key-vault/general/service-to-service-authentication.md) , a [App Service i Magazyn kluczy z tożsamościami zarządzanymi dla przykładu .NET zasobów platformy Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Uzyskiwanie tokenu przy użyciu języka C #
 
@@ -371,7 +371,7 @@ Jeśli wystąpi błąd, odpowiadająca treść odpowiedzi HTTP zawiera kod JSON 
 
 Ta sekcja dokumentuje możliwe odpowiedzi na błędy. Stan "200 OK" jest pomyślną odpowiedzią, a token dostępu jest zawarty w kodzie JSON treści odpowiedzi, w elemencie access_token.
 
-| Kod stanu | Error | Opis błędu | Rozwiązanie |
+| Kod stanu | Błąd | Opis błędu | Rozwiązanie |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Nieprawidłowe żądanie | invalid_resource | AADSTS50001: Nazwa aplikacji *\<URI\>* nie została znaleziona w dzierżawie o nazwie *\<TENANT-ID\>* . Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub żaden użytkownik w dzierżawie nie wyraził odpowiedniej zgody. Być może wysłano żądanie uwierzytelnienia do niewłaściwej dzierżawy. \ | (Tylko system Linux) |
 | 400 Nieprawidłowe żądanie | bad_request_102 | Nie określono wymaganego nagłówka metadanych | `Metadata`W żądaniu brakuje pola nagłówka żądania lub jest ono sformatowane nieprawidłowo. Wartość musi być określona jako `true` , we wszystkich małych przypadkach. Zapoznaj się z przykładem "Przykładowe żądanie" w poprzedniej sekcji REST.|
@@ -381,7 +381,7 @@ Ta sekcja dokumentuje możliwe odpowiedzi na błędy. Stan "200 OK" jest pomyśl
 |           | access_denied | Właściciel zasobu lub serwer autoryzacji odrzucił żądanie. |  |
 |           | unsupported_response_type | Serwer autoryzacji nie obsługuje uzyskiwania tokenu dostępu przy użyciu tej metody. |  |
 |           | invalid_scope | Żądany zakres jest nieprawidłowy, nieznany lub źle sformułowany. |  |
-| 500 Wewnętrzny błąd serwera | unknown | Nie można pobrać tokenu z usługi Active Directory. Aby uzyskać szczegółowe informacje, zobacz dzienniki *\<file path\>* | Sprawdź, czy na maszynie wirtualnej została włączona tożsamość zarządzana dla zasobów platformy Azure. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .<br><br>Sprawdź również, czy identyfikator URI żądania HTTP GET jest poprawnie sformatowany, szczególnie identyfikator URI zasobu określony w ciągu zapytania. Zapoznaj się z sekcją "Przykładowe żądanie" w poprzedniej sekcji REST, aby zapoznać się z przykładem lub [usługami platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](services-support-msi.md) w celu uzyskania listy usług i odpowiednich identyfikatorów zasobów.
+| 500 Wewnętrzny błąd serwera | unknown | Nie można pobrać tokenu z usługi Active Directory. Aby uzyskać szczegółowe informacje, zobacz dzienniki *\<file path\>* | Sprawdź, czy na maszynie wirtualnej została włączona tożsamość zarządzana dla zasobów platformy Azure. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .<br><br>Sprawdź również, czy identyfikator URI żądania HTTP GET jest poprawnie sformatowany, szczególnie identyfikator URI zasobu określony w ciągu zapytania. Zapoznaj się z sekcją "Przykładowe żądanie" w poprzedniej sekcji REST, aby zapoznać się z przykładem lub [usługami platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](./services-support-managed-identities.md) w celu uzyskania listy usług i odpowiednich identyfikatorów zasobów.
 
 ## <a name="retry-guidance"></a>Wskazówki dotyczące ponawiania prób 
 
@@ -397,17 +397,9 @@ W przypadku ponowienia próby zalecamy następujące strategie:
 
 ## <a name="resource-ids-for-azure-services"></a>Identyfikatory zasobów dla usług platformy Azure
 
-Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](services-support-msi.md) , aby uzyskać listę zasobów, które obsługują usługę Azure AD i zostały przetestowane przy użyciu tożsamości zarządzanych dla zasobów platformy Azure oraz ich identyfikatorów zasobów.
+Zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](./services-support-managed-identities.md) , aby uzyskać listę zasobów, które obsługują usługę Azure AD i zostały przetestowane przy użyciu tożsamości zarządzanych dla zasobów platformy Azure oraz ich identyfikatorów zasobów.
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby włączyć zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md).
-
-
-
-
-
-
-
-

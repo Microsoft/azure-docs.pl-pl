@@ -16,14 +16,16 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0e342e5509aaba05228c7d1032023a6f4710f1f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e6810e20373aa6fcaab447d6b6be51a47f400e24
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999516"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268591"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Użyj Azure Media Video Thumbnails, aby utworzyć podsumowanie wideo  
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Użyj Azure Media Video Thumbnails, aby utworzyć podsumowanie wideo
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Procesor multimediów **Azure Media Video thumbnails** zostanie wycofany. Aby uzyskać datę wycofania, zobacz temat [starsze składniki](legacy-components.md) .

@@ -1,6 +1,6 @@
 ---
-title: Włącz usługę Azure Arc w witrynie Kubernetes na urządzeniu Azure Stack Edge | Microsoft Docs
-description: Zawiera opis sposobu włączania usługi Azure Arc w istniejącym klastrze Kubernetes na urządzeniu brzegowym Azure Stack.
+title: Włącz usługę Azure Arc w systemie Kubernetes na urządzeniu z systemem Azure Stack Edge Microsoft Docs
+description: Opisuje sposób włączania usługi Azure Arc w istniejącym klastrze Kubernetes na urządzeniu z systemem Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 03bf2a01ad4c1d5d017d881bf171806fa33e8799
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086111"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268197"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-device"></a>Włącz usługę Azure Arc w klastrze Kubernetes Azure Stack na urządzeniu brzegowym
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Włącz usługę Azure Arc w klastrze Kubernetes na urządzeniu z systemem Azure Stack Edge
 
 W tym artykule opisano sposób włączania usługi Azure Arc w istniejącym klastrze Kubernetes Azure Stack na urządzeniu brzegowym. 
 
@@ -132,7 +132,7 @@ Dostawców zasobów można rejestrować również za pośrednictwem `az cli` . A
     Aby uzyskać więcej informacji na temat tworzenia nazwy głównej usługi i wykonywania przypisania roli, zobacz kroki opisane w temacie [Tworzenie jednostki usługi dołączania z włączoną funkcją Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal).
 
 
-## <a name="enable-arc-on-kubernetes-cluster"></a>Włącz łuk w klastrze Kubernetes
+## <a name="enable-arc-on-kubernetes-cluster"></a>Włączanie usługi Arc w klastrze platformy Kubernetes
 
 Wykonaj następujące kroki, aby skonfigurować klaster Kubernetes na potrzeby zarządzania usługą Azure ARC:
 

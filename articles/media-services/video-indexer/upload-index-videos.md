@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011875"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268829"
 ---
 # <a name="upload-and-index-your-videos"></a>Przekazywanie i indeksowanie plików wideo  
 
@@ -167,7 +167,7 @@ Jeśli parametr `videoUrl` nie zostanie określony, usługa Video Indexer oczeku
 
 W poniższym fragmencie kodu języka C# pokazano używanie wszystkich interfejsów API usługi Video Indexer razem.
 
-#### <a name="instructions-for-running-this-code-sample"></a>Instrukcje dotyczące uruchamiania tego przykładu kodu
+**Instrukcje dotyczące uruchamiania następującego przykładu kodu**
 
 Po skopiowaniu tego kodu na platformę programistyczną należy podać dwa parametry: API Management klucz uwierzytelniania i adres URL wideo.
 
@@ -365,6 +365,6 @@ Kody stanu wymienione w poniższej tabeli mogą być zwracane przez operację pr
 |400|VIDEO_ALREADY_FAILED|Tego samego pliku wideo nie udało się przetworzyć w ramach danego konta mniej niż 2 godziny temu. Klienci interfejsu API powinni poczekać co najmniej 2 godziny przed ponownym przekazaniem pliku wideo.|
 |429||Konta próbne są dozwolone 5 operacji przekazywania na minutę. Płatne konta są dozwolone 50 przekazywania na minutę.|
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Sprawdzanie danych wyjściowych platformy Azure Video Indexer utworzonych przez interfejs API](video-indexer-output-json-v2.md)

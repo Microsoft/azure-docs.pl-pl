@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/12/2020
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4d629351ae7b6154b332a1b1f99374de1187518
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744606"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267874"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Co to jest Azure Media Services Video Indexer?
 
 Video Indexer (VI) to rozwiązanie Azure Media Services AI i część marki Cognitive Services platformy Azure. Video Indexer zapewnia możliwość wyodrębnienia szczegółowego wglądu (bez konieczności analizowania danych lub umiejętności kodowania) przy użyciu modeli uczenia maszynowego na podstawie wielu kanałów (Voice, vocals, Wizualizacja). Modele można dostosowywać i wyszkolić. Usługa umożliwia głębokie wyszukiwanie, zmniejsza koszty operacyjne, udostępnia nowe możliwości zysków i tworzy nowe środowisko użytkownika w dużych archiwach filmów wideo (z niskimi ograniczeniami wejścia).
 
 Aby rozpocząć wyodrębnianie szczegółowych informacji z Video Indexer, musisz utworzyć konto i przekazać wideo. Po przekazaniu wideo do Video Indexer, analizuje wizualizacje i dźwięk, uruchamiając różne modele AI. Ponieważ Video Indexer analizuje wideo, szczegółowe informacje, które są wyodrębniane przez modele AI.
+
+Po utworzeniu konta Video Indexer i nawiązaniu połączenia z Media Services pliki multimediów i metadanych są przechowywane na koncie usługi Azure Storage skojarzonym z tym kontem Media Services. Aby uzyskać więcej informacji, zobacz [Tworzenie konta Video Indexer połączonego z platformą Azure](connect-to-azure.md).
 
 Na poniższym diagramie przedstawiono ilustrację, a nie objaśnienie techniczne sposobu działania Video Indexer w zapleczu.
 
@@ -70,9 +72,9 @@ Na poniższej liście przedstawiono szczegółowe informacje, które można pobr
 
 ### <a name="audio-insights"></a>Szczegółowe informacje o usłudze audio
 
-* **Transkrypcja audio**: konwertuje mowę na tekst w 12 językach i zezwala na rozszerzenia. Obsługiwane języki to angielski, hiszpański, francuski, niemiecki, włoski, mandarynki, chiński, japoński, arabski, rosyjski, portugalski, hindi i koreański.
-* **Automatyczne wykrywanie języka**: automatycznie rozpoznaje dominujący język mówiony. Obsługiwane języki to angielski, hiszpański, francuski, niemiecki, włoski, mandarynki chiński, japoński, rosyjski i portugalski. Jeśli nie można zidentyfikować języka z pewnością, Video Indexer zakłada, że język mówiony jest w języku angielskim. Aby uzyskać więcej informacji, zobacz [Language Identification model](language-identification-model.md).
-* **Identyfikacja i transkrypcja mowy w wielu językach** (wersja zapoznawcza): automatycznie identyfikuje język mówiony w różnych segmentach z dźwiękiem. Wysyła każdy segment pliku nośnika jako uzyskanego, a następnie łączy transkrypcję z powrotem do jednego ujednoliconego transkrypcji. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrypcja zawartości w wielu językach](multi-language-identification-transcription.md).
+* **Transkrypcja audio**: konwertuje mowę na tekst w 12 językach i zezwala na rozszerzenia. Obsługiwane języki: angielski, arabski, chiński mandaryński, francuski, hiszpański, hindi, japoński, koreański, niemiecki, portugalski, rosyjski i włoski.
+* **Automatyczne wykrywanie języka**: automatycznie rozpoznaje dominujący język mówiony. Obsługiwane języki: angielski, chiński mandaryński, francuski, hiszpański, japoński, niemiecki, portugalski, rosyjski i włoski. Jeśli nie można z pewnością zidentyfikować języka, usługa Video Indexer zakłada, że język mówiony to język angielski. Aby uzyskać więcej informacji, zobacz [Model identyfikacji języka](language-identification-model.md).
+* **Identyfikacja i transkrypcja mowy w wielu językach** (wersja zapoznawcza): automatycznie identyfikuje język mówiony w różnych segmentach z dźwiękiem. Wysyła każdy segment pliku multimedialnego do transkrypcji, a następnie łączy transkrypcję z powrotem z jedną ujednoliconą transkrypcją. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrybowanie zawartości w wielu językach](multi-language-identification-transcription.md).
 * **Napisy (transkrypcja)**: tworzy napisy w trzech formatach: VTT, TTML i SRT.
 * **Przetwarzanie dwóch kanałów**: automatycznie wykrywa odrębne transkrypcje i scala do pojedynczej osi czasu.
 * **Redukcja szumu**: czyści nagranie audio lub szumów z dźwiękiem (na podstawie filtrów Skype).

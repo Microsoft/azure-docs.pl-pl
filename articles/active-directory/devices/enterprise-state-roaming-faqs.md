@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274089"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268540"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Roaming ustawień i danych — często zadawane pytania
 
@@ -37,7 +37,7 @@ W tym artykule znajdują się odpowiedzi na pytania, które mogą być dostępne
 > [!NOTE]
 > Ten artykuł ma zastosowanie do starszej przeglądarki opartej na języku HTML Microsoft Edge, która została uruchomiona z systemem Windows 10 w lipcu 2015. Artykuł nie ma zastosowania do nowej przeglądarki opartej na formacie chromu Microsoft Edge wydanej 15 stycznia 2020. Aby uzyskać więcej informacji na temat zachowania synchronizacji dla nowej przeglądarki Microsoft Edge, zobacz artykuł [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dane aplikacji**: Aplikacje uniwersalne systemu Windows mogą zapisywać dane ustawień w folderze mobilnym, a wszystkie dane zapisane w tym folderze zostaną automatycznie zsynchronizowane. Aby skorzystać z tej możliwości, można zaprojektować aplikację przy użyciu poszczególnych deweloperów aplikacji. Aby uzyskać więcej informacji na temat sposobu tworzenia uniwersalnej aplikacji systemu Windows, która korzysta z roamingu, zobacz blog [interfejsu API magazynu AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) i [Windows 8 AppData mobilnego dewelopera](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
+**Dane aplikacji**: Aplikacje uniwersalne systemu Windows mogą zapisywać dane ustawień w folderze mobilnym, a wszystkie dane zapisane w tym folderze zostaną automatycznie zsynchronizowane. Aby skorzystać z tej możliwości, można zaprojektować aplikację przy użyciu poszczególnych deweloperów aplikacji. Aby uzyskać więcej informacji na temat sposobu tworzenia uniwersalnej aplikacji systemu Windows, która korzysta z roamingu, zobacz blog [interfejsu API magazynu AppData](/windows/uwp/design/app-settings/store-and-retrieve-app-data) i [Windows 8 AppData mobilnego dewelopera](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Jakie konto jest używane na potrzeby synchronizacji ustawień?
 
@@ -86,9 +86,9 @@ Gdy wiele kont usługi Azure AD z różnych dzierżaw usługi Azure AD znajduje 
 Roaming działa tylko w przypadku aplikacji uniwersalnych systemu Windows. Dostępne są dwie opcje włączania roamingu w istniejącej aplikacji klasycznej systemu Windows:
 
 * [Mostek Desktop](https://aka.ms/desktopbridge) ułatwia przenoszenie istniejących aplikacji klasycznych systemu Windows do platforma uniwersalna systemu Windows. W tym miejscu wymagane są minimalne zmiany w kodzie, aby móc korzystać z roamingu danych aplikacji usługi Azure AD. Mostek Desktop oferuje aplikacje z tożsamością aplikacji, która jest wymagana do włączenia roamingu danych aplikacji dla istniejących aplikacji klasycznych.
-* [Wirtualizacja środowiska użytkownika (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) pomaga utworzyć niestandardowy szablon ustawień dla istniejących aplikacji klasycznych systemu Windows i włączyć roaming dla aplikacji Win32. Ta opcja nie wymaga, aby Deweloper aplikacji zmienił kod aplikacji. W przypadku klientów, którzy kupili pakiet Microsoft Desktop Optimization Pack, są ograniczone do lokalnego Active Directory roamingu.
+* [Wirtualizacja środowiska użytkownika (UE-V)](/previous-versions//dn458947(v=vs.85)) pomaga utworzyć niestandardowy szablon ustawień dla istniejących aplikacji klasycznych systemu Windows i włączyć roaming dla aplikacji Win32. Ta opcja nie wymaga, aby Deweloper aplikacji zmienił kod aplikacji. W przypadku klientów, którzy kupili pakiet Microsoft Desktop Optimization Pack, są ograniczone do lokalnego Active Directory roamingu.
 
-Administratorzy mogą skonfigurować program UE-V do roamingu danych aplikacji klasycznych systemu Windows, zmieniając roaming ustawień systemu operacyjnego Windows i danych aplikacji uniwersalnej za pomocą [zasad grupy UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), w tym:
+Administratorzy mogą skonfigurować program UE-V do roamingu danych aplikacji klasycznych systemu Windows, zmieniając roaming ustawień systemu operacyjnego Windows i danych aplikacji uniwersalnej za pomocą [zasad grupy UE-V](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), w tym:
 
 * Roaming zasad grupy ustawień systemu Windows
 * Nie Synchronizuj zasad grupy aplikacji systemu Windows

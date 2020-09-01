@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09d0e53840c2bf7a0d67c7c7fb0b224f9f77c587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042812"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268309"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Od 12 maja 2018 kanały na żywo nie będą już obsługiwać protokołu pozyskiwania strumienia transportowego RTP/MPEG-2. Przeprowadź migrację z protokołów RTP/MPEG-2 do protokołu RTMP lub pofragmentowanych plików MP4 (Smooth Streaming).
@@ -219,12 +221,12 @@ Określa ustawienie wstępne, które ma być używane przez koder na żywo w ram
 
 | Multimedia | Width | Height | MaxFPS | Profil | Nazwa strumienia wyjściowego |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Wys. |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Wys. |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Wys. |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Wys. |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Wys. |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Wys. |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Wysoki |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Wysoki |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Wysoki |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Wysoki |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Wysoki |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Wysoki |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Wyjściowy strumień audio
 
@@ -313,7 +315,7 @@ W poniższej tabeli przedstawiono sposób, w jaki Stany kanałów mapują się d
 | Stan kanału | Wskaźniki interfejsu użytkownika portalu | Rozliczane? |
 | --- | --- | --- |
 | Uruchamianie |Uruchamianie |Nie (stan przejściowy) |
-| Uruchomiono |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |Tak |
+| Uruchomiono |Gotowe (brak uruchomionych programów)<br/>lub<br/>Przesyłanie strumieniowe (co najmniej jeden uruchomiony program) |Yes |
 | Zatrzymywanie |Zatrzymywanie |Nie (stan przejściowy) |
 | Zatrzymano |Zatrzymano |Nie |
 

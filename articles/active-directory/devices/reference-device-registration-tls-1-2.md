@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbfbad53fd2361752824292e0ade82f3ac231916
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2bb8c6c64e0a68f5176c4eb0c0177c5220394695
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098020"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268761"
 ---
 # <a name="enforce-tls-12-for-the-azure-ad-registration-service"></a>Wymuś protokół TLS 1,2 dla usługi rejestracji w usłudze Azure AD
 
@@ -52,7 +52,7 @@ Wszystkie maszyny, które działają jako serwery proxy między urządzeniami a 
 
 ## <a name="update-ad-fs-servers"></a>Aktualizowanie serwerów AD FS
 
-Wszystkie serwery AD FS używane do komunikacji z usługą rejestracji urządzeń usługi Azure AD muszą mieć pewność, że protokół TLS 1,2 jest włączony. Aby uzyskać informacje na temat włączania/weryfikowania tej konfiguracji [, zobacz Zarządzanie protokołami SSL/TLS i mechanizmami szyfrowania dla AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) .
+Wszystkie serwery AD FS używane do komunikacji z usługą rejestracji urządzeń usługi Azure AD muszą mieć pewność, że protokół TLS 1,2 jest włączony. Aby uzyskać informacje na temat włączania/weryfikowania tej konfiguracji [, zobacz Zarządzanie protokołami SSL/TLS i mechanizmami szyfrowania dla AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) .
 
 ## <a name="client-updates"></a>Aktualizacje klienta
 
@@ -68,4 +68,4 @@ Następujący klienci nie mogą obsługiwać protokołu TLS 1,2. Zaktualizuj kli
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Omówienie protokołu TLS/SSL (Dostawca SSP Schannel)](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview)
+[Omówienie protokołu TLS/SSL (Dostawca SSP Schannel)](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)

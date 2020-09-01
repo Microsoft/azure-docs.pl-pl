@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.reviewer: juliako
-ms.openlocfilehash: ce2fbe8c706870250973974c7a73a3964dedd04a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831893"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266905"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Konstrukcja hybrydowa podsystemów DRM 
+# <a name="hybrid-design-of-drm-subsystems"></a>Konstrukcja hybrydowa podsystemów DRM
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 W tym temacie omówiono hybrydowe projektowanie podsystemów DRM przy użyciu Azure Media Services.
 
@@ -97,35 +99,35 @@ Na podstawie wyjaśnień w poprzedniej sekcji, następujące pięć scenariuszy 
 
 |**Źródło & hostingu zawartości**|**Szyfrowanie DRM**|**Dostarczanie licencji DRM**|**Konfiguruj klucz zawartości**|**Konfigurowanie zasad dostarczania elementów zawartości**|**Przykład**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|Tak|Tak|Przykład 1|
-|AMS|AMS|Inne firmy|Tak|Tak|Przykład 2|
-|AMS|Inne firmy|AMS|Tak|Nie|Przykład 3|
+|AMS|AMS|AMS|Yes|Yes|Przykład 1|
+|AMS|AMS|Inne firmy|Yes|Yes|Przykład 2|
+|AMS|Inne firmy|AMS|Yes|Nie|Przykład 3|
 |AMS|Inne firmy|Dział|Nie|Nie|Przykład 4|
-|Inne firmy|Inne firmy|AMS|Tak|Nie|    
+|Inne firmy|Inne firmy|AMS|Yes|Nie|    
 
 W tych przykładach ochrona PlayReady działa w przypadku obu KRESek i płynnego przesyłania strumieniowego. Adresy URL wideo poniżej to płynne adresy URL przesyłania strumieniowego. Aby uzyskać odpowiednie KRESKi URL, po prostu Dołącz wartość "(format = MPD-Time-CSF)". Możesz użyć [odtwarzacza testowego multimediów Azure](https://aka.ms/amtest) do testowania w przeglądarce. Umożliwia skonfigurowanie używanego protokołu przesyłania strumieniowego, w którym należy przeprowadzić techniczne. IE11 i Microsoft Edge w systemie Windows 10 obsługują oprogramowanie PlayReady w EME. Aby uzyskać więcej informacji, zobacz [szczegółowe informacje o narzędziu testowym](./offline-playready-streaming-windows-10.md).
 
 ### <a name="sample-1"></a>Przykład 1
 
-* Źródłowy adres URL (podstawowy):`https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest` 
-* LA_URL PlayReady (gładki &):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
-* Widevine LA_URL (PAUZa):`https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4` 
-* FairPlay LA_URL (HLS):`https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8` 
+* Źródłowy adres URL (podstawowy): `https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest` 
+* LA_URL PlayReady (gładki &): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
+* Widevine LA_URL (PAUZa): `https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4` 
+* FairPlay LA_URL (HLS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8` 
 
 ### <a name="sample-2"></a>Przykład 2
 
-* Źródłowy adres URL (podstawowy):https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* LA_URL PlayReady (gładki &):`http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
+* Źródłowy adres URL (podstawowy): https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* LA_URL PlayReady (gładki &): `http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### <a name="sample-3"></a>Przykład 3
 
-* Źródłowy adres URL:https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* LA_URL PlayReady (gładki &):`https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
+* Źródłowy adres URL: https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
+* LA_URL PlayReady (gładki &): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
 
 ### <a name="sample-4"></a>Przykład 4
 
-* Źródłowy adres URL:https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* LA_URL PlayReady (gładki &):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
+* Źródłowy adres URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
+* LA_URL PlayReady (gładki &): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
 
 ## <a name="additional-notes"></a>Uwagi dodatkowe
 
@@ -140,5 +142,5 @@ Wyświetl ścieżki uczenia Media Servicesowego.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

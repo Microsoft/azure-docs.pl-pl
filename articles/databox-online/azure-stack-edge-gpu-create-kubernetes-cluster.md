@@ -1,21 +1,21 @@
 ---
-title: Tworzenie klastra Kubernetes Microsoft Azure Stack na urządzeniu brzegowym i zarządzanie nim Microsoft Docs
-description: Opisuje sposób tworzenia klastra Kubernetes Microsoft Azure Stack na urządzeniu brzegowym i zarządzania nim za pomocą interfejsu programu Windows PowerShell.
+title: Tworzenie klastra Kubernetes i zarządzanie nim na urządzeniu Azure Stack Edge GPU Microsoft Docs
+description: Opisuje sposób tworzenia klastra Kubernetes Azure Stack na urządzeniu z systemem Windows Edge i zarządzania nim za pośrednictwem interfejsu programu PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 74f86ed48f363031fcab5d9d89046c349a1c3667
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 95663553bc68d34eebd90be0d4032ee53900479b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181396"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267962"
 ---
-# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-device"></a>Nawiązywanie połączenia z klastrem Kubernetes i zarządzanie nim za pośrednictwem polecenia kubectl na urządzeniu z Azure Stack Edge
+# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Nawiązywanie połączenia z klastrem Kubernetes i zarządzanie nim za pośrednictwem polecenia kubectl na urządzeniu z procesorem GPU Azure Stack Edge
 
 Na urządzeniu Azure Stack Edge tworzony jest klaster Kubernetes podczas konfigurowania roli obliczeniowej. Po utworzeniu klastra Kubernetes można nawiązać połączenie z klastrem i zarządzać nim lokalnie z komputera klienckiego za pomocą narzędzia macierzystego, takiego jak *polecenia kubectl*.
 

@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654841"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265885"
 ---
-# <a name="get-credentials-to-access-media-services-api"></a>Uzyskiwanie poświadczeń w celu uzyskania dostępu do interfejsu API Media Services  
+# <a name="get-credentials-to-access-media-services-api"></a>Uzyskiwanie poświadczeń w celu uzyskania dostępu do interfejsu API Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W przypadku korzystania z uwierzytelniania usługi Azure AD w celu uzyskania dostępu do interfejsu API Azure Media Services dostępne są dwie opcje uwierzytelniania:
 

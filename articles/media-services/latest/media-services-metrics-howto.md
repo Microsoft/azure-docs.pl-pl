@@ -3,7 +3,7 @@ title: Wyświetl metryki z Azure Monitor
 description: W tym artykule przedstawiono sposób monitorowania metryk przy użyciu wykresów Azure Portal i interfejsu wiersza polecenia platformy Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 154e5b5d9639203810e9d16dec4e2907fe5ee80a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc532df51b4bbe2e7da1b47dfcc8d2e05e42f796
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504300"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267591"
 ---
 # <a name="monitor-media-services-metrics"></a>Monitorowanie metryk usług Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Azure monitor](../../azure-monitor/overview.md) umożliwia monitorowanie metryk i dzienników diagnostycznych, które ułatwiają zrozumienie sposobu działania aplikacji. Aby uzyskać szczegółowy opis tej funkcji oraz sprawdzić, dlaczego warto używać Azure Media Services metryki i dzienniki diagnostyczne, zobacz [monitorowanie Media Services metryk i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md).
 
@@ -30,7 +32,7 @@ Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Tworzenie konta usługi Media Services](./create-account-howto.md)
-- Przegląd [metryk Media Services monitora i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md)
+- Przegląd  [metryk Media Services monitora i dzienników diagnostycznych](media-services-metrics-diagnostic-logs.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Wyświetlanie metryk w Azure Portal
 
@@ -68,7 +70,7 @@ az monitor metrics list --resource \
 
 Aby uzyskać inne metryki, Zastąp ciąg "wychodzące" dla nazwy metryki, która Cię interesuje.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Metryki Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Twórz i wyświetlaj alerty metryk i zarządzaj nimi za pomocą Azure monitor](../../azure-monitor/platform/alerts-metric.md).

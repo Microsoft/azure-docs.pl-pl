@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Dowiedz się, jak tworzyć filtry przy użyciu Pakowarki dynamicznego do filtrowania i selektywnego przesyłania strumieniowego manifestów.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
-ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 4a2464cbb47291f35cd4d7e20b555356e3e9aa8b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705206"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266463"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrowanie manifestów przy użyciu Pakowarki dynamicznej
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W przypadku dostarczania zawartości przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów do urządzeń czasami konieczne jest opublikowanie wielu wersji manifestu w celu uwzględnienia konkretnych możliwości urządzenia lub dostępnej przepustowości sieci. [Pakowarka dynamiczna](dynamic-packaging-overview.md) pozwala określić filtry, które mogą odfiltrować określone kodery-de, rozdzielczości, szybkości transmisji bitów i kombinacje ścieżek audio na bieżąco. To filtrowanie eliminuje konieczność tworzenia wielu kopii. Wystarczy opublikować nowy adres URL z określonym zestawem filtrów skonfigurowanym dla urządzeń docelowych (iOS, Android, biznesu SmartTV lub przeglądarki) oraz możliwości sieci (scenariusze o wysokiej przepustowości, mobilnych lub niskiej przepustowości). W takim przypadku klienci mogą manipulować przesyłaniem strumieniowym zawartości za pośrednictwem ciągu zapytania (przez określenie dostępnych [filtrów zasobów lub filtrów kont](filters-concept.md)) i używać filtrów do przesyłania strumieniowego określonych sekcji strumienia.
 

@@ -3,7 +3,7 @@ title: Zarządzanie punktami końcowymi przesyłania strumieniowego z Azure Medi
 description: W tym artykule pokazano, jak zarządzać punktami końcowymi przesyłania strumieniowego z Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: d8b5f79d9c9050eeb7957ddcf28021e3c8b3dd94
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 08730961d81cd14b5ba8af0778d2de4078398bff
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010651"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266548"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Zarządzanie punktami końcowymi przesyłania strumieniowego z Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Po utworzeniu konta Media Services zostanie do niego dodany **domyślny** [punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) w stanie **zatrzymanym** . Aby rozpocząć przesyłanie strumieniowe zawartości i korzystać z [dynamicznego tworzenia pakietów](dynamic-packaging-overview.md) i [szyfrowania dynamicznego](content-protection-overview.md), punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi być w stanie **uruchomienia** .
 
@@ -104,7 +106,7 @@ Zobacz kompletny [przykład kodu platformy .NET](https://github.com/Azure-Sample
 
 ---
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Media Services v3 — Specyfikacja OpenAPI (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
 * [Operacje punktów końcowych przesyłania strumieniowego](/rest/api/media/streamingendpoints)

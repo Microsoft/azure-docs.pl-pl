@@ -1,22 +1,23 @@
 ---
 title: Instalowanie aktualizacji na urządzeniu z systemem Azure Stack Edge Microsoft Docs
-description: Opisuje sposób stosowania aktualizacji przy użyciu Azure Portal i lokalnego interfejsu użytkownika sieci Web na potrzeby Azure Stack urządzenia brzegowego GPU.
+description: Zawiera opis sposobu stosowania aktualizacji przy użyciu Azure Portal i lokalnego interfejsu użytkownika sieci Web na potrzeby Azure Stack urządzenia brzegowego procesora GPU i klastra Kubernetes na urządzeniu.
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: article
-ms.date: 06/12/2020
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e973e41493b8e84f31a82d5379a01a0e851a48d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085432"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268248"
 ---
 # <a name="update-your-azure-stack-edge-with-gpu"></a>Aktualizowanie Azure Stack krawędzi z procesorem GPU 
 
-W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure Stack Edge z procesorem GPU za pośrednictwem lokalnego interfejsu użytkownika sieci Web i za pośrednictwem Azure Portal. Aktualizacje oprogramowania lub poprawki są stosowane w celu zapewnienia aktualności urządzenia Azure Stack Edge. 
+W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure Stack Edge z procesorem GPU za pośrednictwem lokalnego interfejsu użytkownika sieci Web i za pośrednictwem Azure Portal. Należy zastosować aktualizacje oprogramowania lub poprawki, aby zapewnić aktualność urządzenia Azure Stack Edge i skojarzonych Kubernetes cluaster na urządzeniu. 
 
 > [!IMPORTANT]
 > - Aktualizacja **2008** jest zgodna z wersją oprogramowania **2.1.1328.1904** na urządzeniu. Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](azure-stack-edge-gpu-2008-release-notes.md).

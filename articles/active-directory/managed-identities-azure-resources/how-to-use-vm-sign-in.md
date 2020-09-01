@@ -16,12 +16,12 @@ ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 02815003bf5167a73c1e2362d9270deb867c84b7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999414"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266327"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu logowania 
 
@@ -34,7 +34,7 @@ W tym artykule przedstawiono przykłady skryptów programu PowerShell i interfej
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Jeśli planujesz Azure PowerShell używanie przykładów interfejsu wiersza polecenia platformy Azure w tym artykule, Zadbaj o zainstalowanie najnowszej wersji [Azure PowerShell](/powershell/azure/install-az-ps) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Jeśli planujesz Azure PowerShell używanie przykładów interfejsu wiersza polecenia platformy Azure w tym artykule, Zadbaj o zainstalowanie najnowszej wersji [Azure PowerShell](/powershell/azure/install-az-ps) lub [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - We wszystkich przykładowych skryptach w tym artykule przyjęto założenie, że klient wiersza polecenia działa na maszynie wirtualnej z włączonymi tożsamościami zarządzanymi dla zasobów platformy Azure. Użyj funkcji "Połącz" maszyny wirtualnej w Azure Portal, aby zdalnie nawiązać połączenie z maszyną wirtualną. Aby uzyskać szczegółowe informacje na temat włączania tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md)lub jednego z artykułów wariantów (przy użyciu programu PowerShell, interfejsu wiersza polecenia, szablonu lub zestawu Azure SDK). 
@@ -97,12 +97,6 @@ Jeśli zostanie wyświetlony jeden z tych błędów, Wróć do maszyny wirtualne
 
 Jeśli jeden z nich jest nieprawidłowy, może być konieczne ponowne wdrożenie zarządzanych tożsamości dla zasobów platformy Azure w ramach zasobu lub Rozwiązywanie problemów z błędem wdrożenia. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby włączyć zarządzane tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure, zobacz [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell](qs-configure-powershell-windows-vm.md)lub [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy](qs-configure-cli-windows-vm.md) Azure
-
-
-
-
-
-

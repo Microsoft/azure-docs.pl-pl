@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df59d556edb6faea221e2afd799e95796d74648e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d465419dfe36fd5dd67abdef22a6f54fba69a98e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007404"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267466"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej na maszynie wirtualnej z systemem Linux do uzyskiwania dostępu do usługi Azure Data Lake Store
 
@@ -28,7 +28,7 @@ ms.locfileid: "89007404"
 
 W tym samouczku pokazano, jak za pomocą tożsamości zarządzanej przypisanej przez system do maszyny wirtualnej z systemem Linux (VM) uzyskać dostęp do Azure Data Lake Store. Omawiane kwestie: 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Udzielanie maszynie wirtualnej praw dostępu do usługi Azure Data Lake Store.
@@ -40,7 +40,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-W tej sekcji pokazano, jak przydzielić MASZYNom wirtualnym dostęp do plików i folderów w Azure Data Lake Store. W tym kroku możesz użyć istniejącego wystąpienia usługi Data Lake Store lub utworzyć nowe. Aby utworzyć wystąpienie usługi Data Lake Store przy użyciu witryny Azure Portal, wykonaj czynności opisane w [przewodniku Szybki start dotyczącym usługi Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). W [dokumentacji usługi Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) są również dostępne przewodniki Szybki start, które używają interfejsu wiersza polecenia platformy Azure oraz programu Azure PowerShell.
+W tej sekcji pokazano, jak przydzielić MASZYNom wirtualnym dostęp do plików i folderów w Azure Data Lake Store. W tym kroku możesz użyć istniejącego wystąpienia usługi Data Lake Store lub utworzyć nowe. Aby utworzyć wystąpienie usługi Data Lake Store przy użyciu witryny Azure Portal, wykonaj czynności opisane w [przewodniku Szybki start dotyczącym usługi Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md). W [dokumentacji usługi Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md) są również dostępne przewodniki Szybki start, które używają interfejsu wiersza polecenia platformy Azure oraz programu Azure PowerShell.
 
 W usłudze Data Lake Store utwórz nowy folder, a następnie przyznaj przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux uprawnienia do odczytu, zapisu i wykonywania plików w tym folderze:
 
@@ -56,18 +56,18 @@ W usłudze Data Lake Store utwórz nowy folder, a następnie przyznaj przypisane
 10. Podobnie jak w kroku 5, wybierz pozycję **Dodaj**. W polu **Wybierz** wprowadź nazwę maszyny wirtualnej. Wybierz maszynę wirtualną spośród wyników wyszukiwania, a następnie kliknij pozycję **Wybierz**.
 11. Podobnie jak w kroku 6, wybierz pozycję **Wybierz uprawnienia**. Wybierz pozycje **Odczyt**, **Zapis** i **Wykonywanie**, dodaj do pozycji **Ten folder** i dodaj jako **Wpis uprawnień dostępu i wpis uprawnień domyślnych**. Wybierz przycisk **OK**.  Dodawanie uprawnienia powinno zakończyć się pomyślnie.
 
-Tożsamości zarządzane dla zasobów platformy Azure mogą teraz wykonywać wszystkie operacje na plikach w utworzonym folderze. Aby uzyskać więcej informacji na temat zarządzania dostępem do usługi Data Lake Store, zobacz [Kontrola dostępu w usłudze Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Tożsamości zarządzane dla zasobów platformy Azure mogą teraz wykonywać wszystkie operacje na plikach w utworzonym folderze. Aby uzyskać więcej informacji na temat zarządzania dostępem do usługi Data Lake Store, zobacz [Kontrola dostępu w usłudze Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="get-an-access-token"></a>Pobranie tokenu dostępu 
 
-W tej sekcji pokazano, jak uzyskać token dostępu i wywołać system plików Data Lake Store. Usługa Azure Data Lake Store natywnie obsługuje uwierzytelnianie usługi Azure AD, więc może bezpośrednio akceptować tokeny dostępu pozyskane przy użyciu tożsamości zarządzanych dla zasobów platformy Azure. Aby uwierzytelniać w systemie plików Data Lake Store, wysyłasz token dostępu wystawiony przez usługę Azure AD do punktu końcowego systemu plików usługi Data Lake Store. Token dostępu znajduje się w nagłówku autoryzacji w formacie "Bearer \<ACCESS_TOKEN_VALUE\> ".  Aby dowiedzieć się więcej na temat obsługi usługi Data Lake Store na potrzeby uwierzytelniania usługi Azure AD, zobacz [Authentication with Data Lake Store using Azure Active Directory (Uwierzytelnianie w usłudze Data Lake Store za pomocą usługi Azure Active Directory)](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+W tej sekcji pokazano, jak uzyskać token dostępu i wywołać system plików Data Lake Store. Usługa Azure Data Lake Store natywnie obsługuje uwierzytelnianie usługi Azure AD, więc może bezpośrednio akceptować tokeny dostępu pozyskane przy użyciu tożsamości zarządzanych dla zasobów platformy Azure. Aby uwierzytelniać w systemie plików Data Lake Store, wysyłasz token dostępu wystawiony przez usługę Azure AD do punktu końcowego systemu plików usługi Data Lake Store. Token dostępu znajduje się w nagłówku autoryzacji w formacie "Bearer \<ACCESS_TOKEN_VALUE\> ".  Aby dowiedzieć się więcej na temat obsługi usługi Data Lake Store na potrzeby uwierzytelniania usługi Azure AD, zobacz [Authentication with Data Lake Store using Azure Active Directory (Uwierzytelnianie w usłudze Data Lake Store za pomocą usługi Azure Active Directory)](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 
 W tym samouczku uwierzytelniasz się w interfejsie API REST dla systemu plików Data Lake Store przy użyciu programu cURL w celu wysłania żądań REST.
 
 > [!NOTE]
 > Zestawy SDK klientów dla systemu plików usługi Data Lake Store jeszcze nie obsługują tożsamości zarządzanych dla zasobów platformy Azure.
 
-Aby wykonać te kroki, potrzebujesz klienta SSH. Jeśli używasz systemu Windows, możesz użyć klienta SSH w pozycji [Podsystem Windows dla systemu Linux](https://msdn.microsoft.com/commandline/wsl/about). Jeśli potrzebujesz pomocy przy konfigurowaniu kluczy klienta SSH, zobacz [jak używać kluczy SSH w systemie Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md) lub [jak utworzyć i używać pary kluczy publicznych i prywatnych SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Aby wykonać te kroki, potrzebujesz klienta SSH. Jeśli używasz systemu Windows, możesz użyć klienta SSH w pozycji [Podsystem Windows dla systemu Linux](/windows/wsl/about). Jeśli potrzebujesz pomocy przy konfigurowaniu kluczy klienta SSH, zobacz [jak używać kluczy SSH w systemie Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md) lub [jak utworzyć i używać pary kluczy publicznych i prywatnych SSH dla maszyn wirtualnych z systemem Linux na platformie Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. W portalu przejdź do maszyny wirtualnej z systemem Linux. W obszarze **Omówienie** wybierz pozycję **Połącz**.  
 2. Połącz się z maszyną wirtualną przy użyciu wybranego klienta protokołu SSH. 
@@ -150,9 +150,9 @@ Aby wykonać te kroki, potrzebujesz klienta SSH. Jeśli używasz systemu Windows
 
 Za pomocą innych interfejsów API w systemie plików Data Lake Store można dołączać do plików, plików do pobrania i innych elementów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób używania przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Linux w celu uzyskania dostępu do usługi Azure Data Lake Store. Aby dowiedzieć się więcej o usłudze Azure Data Lake Store, zobacz:
 
 > [!div class="nextstepaction"]
->[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+>[Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md)

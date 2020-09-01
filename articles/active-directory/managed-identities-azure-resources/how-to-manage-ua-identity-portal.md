@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9672984bca42fc855476bf5b97ff5610ba6081
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014204"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266391"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Utwórz, Wyświetl, Usuń lub Przypisz rolę do zarządzanej tożsamości przypisanej przez użytkownika przy użyciu Azure Portal
 
@@ -35,7 +35,7 @@ W tym artykule dowiesz się, jak utworzyć, wyświetlić, usunąć lub przypisa�
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Tworzenie tożsamości zarządzanej przypisanej przez użytkownika
 
-Do utworzenia tożsamości zarządzanej przypisanej przez użytkownika konto wymaga przypisania roli [współautor zarządzanej tożsamości](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
+Do utworzenia tożsamości zarządzanej przypisanej przez użytkownika konto wymaga przypisania roli [współautor zarządzanej tożsamości](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure w celu utworzenia tożsamości zarządzanej przypisanej przez użytkownika.
 2. W polu wyszukiwania wpisz *tożsamości zarządzane*, a w obszarze **usługi**kliknij pozycję **tożsamości zarządzane**.
@@ -50,7 +50,7 @@ Do utworzenia tożsamości zarządzanej przypisanej przez użytkownika konto wym
 
 ## <a name="list-user-assigned-managed-identities"></a>Wyświetlanie tożsamości zarządzanych przypisanych przez użytkownika
 
-Aby wyświetlić/odczytać tożsamość zarządzaną przypisaną przez użytkownika, Twoje konto wymaga [operatora zarządzanej tożsamości](/azure/role-based-access-control/built-in-roles#managed-identity-operator) lub przypisania roli [współautor zarządzanej tożsamości](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
+Aby wyświetlić/odczytać tożsamość zarządzaną przypisaną przez użytkownika, Twoje konto wymaga [operatora zarządzanej tożsamości](../../role-based-access-control/built-in-roles.md#managed-identity-operator) lub przypisania roli [współautor zarządzanej tożsamości](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, aby wyświetlić listę zarządzanych tożsamości przypisanych do użytkownika.
 2. W polu wyszukiwania wpisz *tożsamości zarządzane*, a w obszarze usługi kliknij pozycję **tożsamości zarządzane**.
@@ -60,9 +60,9 @@ Aby wyświetlić/odczytać tożsamość zarządzaną przypisaną przez użytkown
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Usuwanie tożsamości zarządzanej przypisanej przez użytkownika
 
-Aby usunąć tożsamość zarządzaną przypisaną przez użytkownika, Twoje konto wymaga przypisania roli [współautor zarządzanej tożsamości](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
+Aby usunąć tożsamość zarządzaną przypisaną przez użytkownika, Twoje konto wymaga przypisania roli [współautor zarządzanej tożsamości](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) .
 
-Usunięcie tożsamości przypisanej przez użytkownika nie powoduje usunięcia jej z maszyny wirtualnej lub zasobu, do którego została przypisana.  Aby usunąć tożsamość przypisaną przez użytkownika z maszyny wirtualnej, zobacz temat [usuwanie tożsamości zarządzanej przypisanej przez użytkownika z maszyny wirtualnej](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
+Usunięcie tożsamości przypisanej przez użytkownika nie powoduje usunięcia jej z maszyny wirtualnej lub zasobu, do którego została przypisana.  Aby usunąć tożsamość przypisaną przez użytkownika z maszyny wirtualnej, zobacz temat [usuwanie tożsamości zarządzanej przypisanej przez użytkownika z maszyny wirtualnej](./qs-configure-portal-windows-vm.md#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure w celu usunięcia tożsamości zarządzanej przypisanej przez użytkownika.
 2. Wybierz tożsamość zarządzaną przypisaną przez użytkownika, a następnie kliknij pozycję **Usuń**.
@@ -72,7 +72,7 @@ Usunięcie tożsamości przypisanej przez użytkownika nie powoduje usunięcia j
 
 ## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Przypisywanie roli do tożsamości zarządzanej przypisanej przez użytkownika 
 
-Aby przypisać rolę do tożsamości zarządzanej przypisanej przez użytkownika, Twoje konto musi mieć przypisaną rolę [administratora dostępu użytkownika](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
+Aby przypisać rolę do tożsamości zarządzanej przypisanej przez użytkownika, Twoje konto musi mieć przypisaną rolę [administratora dostępu użytkownika](../../role-based-access-control/built-in-roles.md#user-access-administrator) .
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta skojarzonego z subskrypcją platformy Azure, aby wyświetlić listę zarządzanych tożsamości przypisanych do użytkownika.
 2. W polu wyszukiwania wpisz *tożsamości zarządzane*, a w obszarze usługi kliknij pozycję **tożsamości zarządzane**.
@@ -86,4 +86,4 @@ Aby przypisać rolę do tożsamości zarządzanej przypisanej przez użytkownika
    - **Przypisywanie dostępu do**  zasobu do przypisywania tożsamości zarządzanej przypisanej przez użytkownika
    - **Wybierz** — element członkowski, do którego ma zostać przypisany dostęp
    
-   ![Zarządzana przez użytkownika IAM tożsamości](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
+   ![Zarządzana przez użytkownika IAM tożsamości](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)

@@ -10,14 +10,17 @@ ms.workload: media
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7a6a717f663e6e1ee5c2371c35557c7c374246fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060359"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266038"
 ---
 # <a name="deliver-content-to-customers"></a>Dostarczanie zawartości klientom
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Gdy dostarczasz klientom zawartość przesyłania strumieniowego lub wideo na żądanie, celem jest dostarczanie wysokiej jakości wideo do różnych urządzeń w różnych warunkach sieciowych.
 
 Aby osiągnąć ten cel, możesz:

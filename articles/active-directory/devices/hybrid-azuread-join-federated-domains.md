@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cf30324371043d8b702d3e22ec3ecd98e114ba6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3a37353615e35cd75c126c268de71d10077a9071
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428576"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268438"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen federacyjnych
 
@@ -32,7 +32,7 @@ Przełączenie urządzeń do usługi Azure AD maksymalizuje produktywność uży
 
 - **WIAORMULTIAUTHN:** To żądanie jest wymagane do hybrydowego przyłączenia do usługi Azure AD dla urządzeń niższego poziomu systemu Windows.
 - **Protokół WS-Trust:** Ten protokół jest wymagany do uwierzytelniania bieżących urządzeń przyłączonych hybrydowo usługi Azure AD za pomocą usługi Azure AD.
-  W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe protokołu WS-Trust:`/adfs/services/trust/2005/windowstransport`
+  W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe protokołu WS-Trust: `/adfs/services/trust/2005/windowstransport`
    `/adfs/services/trust/13/windowstransport`
    `/adfs/services/trust/2005/usernamemixed`
    `/adfs/services/trust/13/usernamemixed`
@@ -79,7 +79,7 @@ Hybrydowe dołączenie usługi Azure AD wymaga, aby urządzenia miały dostęp d
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - Usługa tokenu zabezpieczającego (STS) organizacji (dla domen federacyjnych)
-- `https://autologon.microsoftazuread-sso.com`(Jeśli używasz lub planujesz korzystanie z bezproblemowego logowania jednokrotnego)
+- `https://autologon.microsoftazuread-sso.com` (Jeśli używasz lub planujesz korzystanie z bezproblemowego logowania jednokrotnego)
 
 > [!WARNING]
 > Jeśli Twoja organizacja korzysta z serwerów proxy, które przechwytuje ruch SSL w scenariuszach takich jak ochrona przed utratą danych lub ograniczenia dzierżawy usługi Azure AD, upewnij się, że ruch do elementu " https://device.login.microsoftonline.com " jest wykluczony z funkcji Break-and-Inspekcja TLS. Niepowodzenie wykluczenia " https://device.login.microsoftonline.com " może spowodować zakłócenia przy użyciu uwierzytelniania certyfikatu klienta, powodując problemy dotyczące rejestracji urządzeń i dostępu warunkowego opartego na urządzeniach.
@@ -88,7 +88,7 @@ Począwszy od systemu Windows 10 1803, jeśli natychmiastowe dołączenie hybryd
 
 Jeśli Twoja organizacja wymaga dostępu do Internetu za pośrednictwem serwera proxy wychodzącego, firma Microsoft zaleca [zaimplementowanie funkcji autowykrywania serwera proxy sieci Web (WPAD)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) w celu umożliwienia komputerom z systemem Windows 10 rejestracji urządzeń w usłudze Azure AD. Jeśli wystąpią problemy podczas konfigurowania usługi WPAD i zarządzania nią, zobacz [Rozwiązywanie problemów z automatycznym wykryciem](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
-Jeśli nie korzystasz z usługi WPAD i chcesz skonfigurować ustawienia serwera proxy na komputerze, możesz to zrobić, rozpoczynając od systemu Windows 10 1709. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień WinHTTP przy użyciu obiektu zasad grupy (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Jeśli nie korzystasz z usługi WPAD i chcesz skonfigurować ustawienia serwera proxy na komputerze, możesz to zrobić, rozpoczynając od systemu Windows 10 1709. Aby uzyskać więcej informacji, zobacz [Konfigurowanie ustawień WinHTTP przy użyciu obiektu zasad grupy (GPO)](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > W przypadku skonfigurowania ustawień serwera proxy na komputerze przy użyciu ustawień usługi WinHTTP wszystkie komputery, które nie mogą nawiązać połączenia ze skonfigurowanym serwerem proxy, nie będą mogły połączyć się z Internetem.
@@ -167,7 +167,7 @@ Aby pomyślnie zakończyć dołączanie hybrydowej usługi Azure AD do urządze�
 
 - `https://device.login.microsoftonline.com`
 - Usługa STS w organizacji (dla domen federacyjnych)
-- `https://autologon.microsoftazuread-sso.com`(W celu bezproblemowego logowania jednokrotnego)
+- `https://autologon.microsoftazuread-sso.com` (W celu bezproblemowego logowania jednokrotnego)
 
 Należy również włączyć opcję **Zezwalaj na aktualizacje na pasku stanu za pomocą skryptu** w strefie Lokalny intranet użytkownika.
 
@@ -193,7 +193,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 ### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 1. Przejdź do strony urządzenia za pomocą [linku bezpośredniego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Informacje dotyczące sposobu lokalizowania urządzenia można znaleźć w temacie [jak zarządzać tożsamościami urządzeń za pomocą Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Informacje dotyczące sposobu lokalizowania urządzenia można znaleźć w temacie [jak zarządzać tożsamościami urządzeń za pomocą Azure Portal](./device-management-azure-portal.md).
 3. Jeśli **zarejestrowana** kolumna znajduje się w **stanie oczekiwania**, wówczas hybrydowe dołączenie do usługi Azure AD nie zostało ukończone. W środowiskach federacyjnych może to mieć miejsce tylko wtedy, gdy nie udało się zarejestrować, a program AAD Connect jest skonfigurowany do synchronizacji urządzeń.
 4. Jeśli **zarejestrowana** kolumna zawiera **datę/godzinę**, dołączenie do hybrydowej usługi Azure AD zostało zakończone.
 
@@ -243,7 +243,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Jeśli wystąpią problemy z ukończeniem hybrydowego przyłączania do usługi Azure AD dla przyłączonych do domeny urządzeń z systemem Windows, zobacz:
 
-- [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Rozwiązywanie problemów z funkcją hybrydowego przyłączania do usługi Azure AD](troubleshoot-hybrid-join-windows-current.md)
 - [Rozwiązywanie problemów z funkcją hybrydowego przyłączania do usługi Azure AD](troubleshoot-hybrid-join-windows-legacy.md)
 

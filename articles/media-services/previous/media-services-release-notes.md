@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4ac0b0e0a9c372aebc51af1840491d0f53f9f8f9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010306"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268659"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Te informacje o wersji Azure Media Services podsumowują zmiany z poprzednich wersji i znanych problemów.
 
@@ -372,7 +374,7 @@ Metadane REST Media Services są teraz w wersji 2,7. Aby uzyskać więcej inform
 
 Zestaw Media Services SDK dla platformy .NET jest teraz w wersji 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Fundamentalne zmiany
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Zmiany powodujące niezgodność
 * Zmieniono nazwę pochodzenia na [StreamingEndpoint].
 * Zmiana została wprowadzona w domyślnym zachowaniu w przypadku używania Azure Portal do kodowania i publikowania plików MP4.
 

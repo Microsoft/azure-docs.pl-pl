@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: dbd460b584789aa7d40de9ba6430ff6202c3764b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052530"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265919"
 ---
 # <a name="streaming-endpoints-overview"></a>Omówienie punktów końcowych przesyłania strumieniowego  
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
@@ -39,9 +41,9 @@ Ten temat zawiera omówienie głównych funkcji udostępnianych przez punkty ko�
 
 ## <a name="naming-conventions"></a>Konwencje nazewnictwa
 
-Dla domyślnego punktu końcowego:`{AccountName}.streaming.mediaservices.windows.net`
+Dla domyślnego punktu końcowego: `{AccountName}.streaming.mediaservices.windows.net`
 
-Dla wszystkich dodatkowych punktów końcowych:`{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
+Dla wszystkich dodatkowych punktów końcowych: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Typy i wersje przesyłania strumieniowego
 
@@ -53,7 +55,7 @@ Począwszy od wersji 2017 stycznia Media Services, istnieją dwa typy przesyłan
 |Typ|Opis|
 |--------|--------|  
 |**Standardowa**|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** , można go zmienić na typ Premium przez dostosowanie jednostek przesyłania strumieniowego.|
-|**Tytułu** |Ta opcja jest odpowiednia dla profesjonalnych scenariuszy, które wymagają wyższego poziomu skalowania lub kontroli. Przechodzenie do typu **Premium** przez dostosowanie jednostek przesyłania strumieniowego.<br/>Dedykowane punkty końcowe przesyłania strumieniowego na żywo w środowisku izolowanym i nie konkurują o zasoby.|
+|**Premium** |Ta opcja jest odpowiednia dla profesjonalnych scenariuszy, które wymagają wyższego poziomu skalowania lub kontroli. Przechodzenie do typu **Premium** przez dostosowanie jednostek przesyłania strumieniowego.<br/>Dedykowane punkty końcowe przesyłania strumieniowego na żywo w środowisku izolowanym i nie konkurują o zasoby.|
 
 W przypadku klientów chcących dostarczyć zawartość do dużych odbiorców internetowych zalecamy włączenie usługi CDN w punkcie końcowym przesyłania strumieniowego.
 
@@ -77,10 +79,10 @@ Jeśli w **wersji "1,0"** punkt końcowy przesyłania strumieniowego ma >= 1 Pre
 
 |Typ|StreamingEndpointVersion|ScaleUnits|CDN|Rozliczenia|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Klasyczny|1.0|0|Nie dotyczy|Bezpłatna|
-|Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2,0|0|Tak|Święcona|
-|Jednostki przesyłania strumieniowego w warstwie Premium|1.0|>0|Tak|Święcona|
-|Jednostki przesyłania strumieniowego w warstwie Premium|2,0|>0|Tak|Święcona|
+|Klasyczny|1,0|0|Nie dotyczy|Bezpłatna|
+|Standardowy punkt końcowy przesyłania strumieniowego (wersja zapoznawcza)|2,0|0|Yes|Święcona|
+|Jednostki przesyłania strumieniowego w warstwie Premium|1,0|>0|Yes|Święcona|
+|Jednostki przesyłania strumieniowego w warstwie Premium|2,0|>0|Yes|Święcona|
 
 ### <a name="features"></a>Funkcje
 
@@ -89,11 +91,11 @@ Cechy|Standardowa (Standard)|Premium
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
 Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
-Szyfrowanie dynamiczne|Tak|Tak
-Dynamiczne tworzenie pakietów|Tak|Tak
+Szyfrowanie dynamiczne|Yes|Yes
+Dynamiczne tworzenie pakietów|Yes|Yes
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe jednostki przesyłania strumieniowego.
-Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Tak|Tak
-Pobieranie progresywne|Tak|Tak
+Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Yes|Yes
+Pobieranie progresywne|Yes|Yes
 Zalecane użycie |Zalecane w przypadku większości scenariuszy przesyłania strumieniowego.|Profesjonalne użycie. 
 
 <sup>1</sup> używany bezpośrednio w punkcie końcowym przesyłania strumieniowego, gdy sieć CDN nie jest włączona w punkcie końcowym.<br/>

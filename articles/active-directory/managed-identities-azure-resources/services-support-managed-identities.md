@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 1d9bd6ccc0f92ab28088e886c5bd17d79bc6cea3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e62fc34ad02303f61214f754f6506c39af76fc94
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007631"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267449"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -30,7 +30,7 @@ Zarządzane tożsamości dla zasobów platformy Azure zapewniają usługi platfo
 Następujące usługi platformy Azure obsługują tożsamości zarządzane dla zasobów platformy Azure:
 
 
-### <a name="azure-api-management"></a>Azure API Management
+### <a name="azure-api-management"></a>Usługa Azure API Management
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -39,7 +39,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure API Management (w regionach, w których są dostępne):
 
-- [Szablon usługi Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Szablon Azure Resource Manager](../../api-management/api-management-howto-use-managed-service-identity.md)
 
 
 ### <a name="azure-app-service"></a>Azure App Service
@@ -51,10 +51,10 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure App Service (w regionach, w których są dostępne):
 
-- [Witryna Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
-- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Witryna Azure Portal](../../app-service/overview-managed-identity.md#using-the-azure-portal)
+- [Interfejs wiersza polecenia platformy Azure](../../app-service/overview-managed-identity.md#using-the-azure-cli)
+- [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
+- [Szablon Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Platforma Kubernetes z włączoną usługą Azure Arc
 
@@ -63,7 +63,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 | Przypisana przez system | Wersja zapoznawcza | Niedostępne | Niedostępne | Niedostępne | 
 | Przypisana przez użytkownika | Niedostępne | Niedostępne | Niedostępne | Niedostępne |
 
-Usługa Azure ARC z włączonym Kubernetes obecnie [obsługuje tożsamość przypisaną do systemu](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#azure-arc-agents-for-kubernetes). Certyfikat tożsamości usługi zarządzanej jest używany przez wszystkich agentów Kubernetes z obsługą usługi Azure Arc na potrzeby komunikacji z platformą Azure.
+Usługa Azure ARC z włączonym Kubernetes obecnie [obsługuje tożsamość przypisaną do systemu](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). Certyfikat tożsamości usługi zarządzanej jest używany przez wszystkich agentów Kubernetes z obsługą usługi Azure Arc na potrzeby komunikacji z platformą Azure.
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
 
@@ -103,7 +103,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Container Instances (w regionach, w których są dostępne):
 
 - [Interfejs wiersza polecenia platformy Azure](~/articles/container-instances/container-instances-managed-identity.md)
-- [Szablon usługi Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Szablon Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
@@ -165,10 +165,10 @@ Typ tożsamości zarządzanej |Wszystkie ogólnie dostępne<br>Globalne regiony 
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Functions (w regionach, w których są dostępne):
 
-- [Witryna Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
-- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Witryna Azure Portal](../../app-service/overview-managed-identity.md#using-the-azure-portal)
+- [Interfejs wiersza polecenia platformy Azure](../../app-service/overview-managed-identity.md#using-the-azure-cli)
+- [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
+- [Szablon Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
 ### <a name="azure-iot-hub"></a>Azure IoT Hub
 
@@ -196,7 +196,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 | Przypisana przez użytkownika | ![Dostępne][check] | ![Dostępne][check] | Niedostępne | ![Dostępne][check] |
 
 
-Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-managed-identity).
+Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service](../../aks/use-managed-identity.md).
 
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
@@ -209,8 +209,8 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Logic Apps (w regionach, w których są dostępne):
 
-- [Witryna Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Szablon usługi Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Witryna Azure Portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
+- [Szablon Azure Resource Manager](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 
 ### <a name="azure-policy"></a>Azure Policy
@@ -224,14 +224,14 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 
 - [Witryna Azure Portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [Program PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
-- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- [Szablony usługi Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyassignments)
-- [REST](https://docs.microsoft.com/rest/api/resources/policyassignments/create)
+- [Interfejs wiersza polecenia platformy Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Szablony usługi Azure Resource Manager](/azure/templates/microsoft.authorization/policyassignments)
+- [REST](/rest/api/resources/policyassignments/create)
 
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-[Tożsamość zarządzana dla aplikacji Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) jest dostępna we wszystkich regionach.
+[Tożsamość zarządzana dla aplikacji Service Fabric](../../service-fabric/concepts-managed-identity.md) jest dostępna we wszystkich regionach.
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -240,7 +240,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla aplikacji Service Fabric platformy Azure we wszystkich regionach:
 
-- [Szablon usługi Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+- [Szablon Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ### <a name="azure-spring-cloud"></a>Azure Spring Cloud
 
@@ -291,10 +291,10 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 | Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Przypisana przez system | Niedostępny | Niedostępny | Niedostępny | Niedostępny | 
-| Przypisana przez użytkownika | [Dostępne w obsługiwanych regionach](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Niedostępny | Niedostępny | Niedostępny |
+| Przypisana przez użytkownika | [Dostępne w obsługiwanych regionach](../../virtual-machines/windows/image-builder-overview.md#regions) | Niedostępny | Niedostępny | Niedostępny |
 
-Aby dowiedzieć się, jak skonfigurować tożsamość zarządzaną dla konstruktora obrazów maszyn wirtualnych platformy Azure (w regionach, w których jest dostępna), zobacz [Omówienie konstruktora obrazów](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
-### <a name="azure-signalr-service"></a>Azure SignalR Service
+Aby dowiedzieć się, jak skonfigurować tożsamość zarządzaną dla konstruktora obrazów maszyn wirtualnych platformy Azure (w regionach, w których jest dostępna), zobacz [Omówienie konstruktora obrazów](../../virtual-machines/windows/image-builder-overview.md#permissions).
+### <a name="azure-signalr-service"></a>Usługa Azure SignalR Service
 
 Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony platformy Azure | Azure Government | Azure (Niemcy) | Azure w Chinach — 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -303,7 +303,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować zarządzaną tożsamość usługi Azure Signal Service (w regionach, w których są dostępne):
 
-- [Szablon usługi Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
+- [Szablon Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD
 
@@ -397,7 +397,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 | Azure w Chinach — 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Dostępne][check] |
 
 > [!Note]
-> Program Microsoft Power BI [obsługuje również zarządzane tożsamości](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
+> Program Microsoft Power BI [obsługuje również zarządzane tożsamości](../../stream-analytics/powerbi-output-managed-identity.md).
 
 
 [check]: media/services-support-managed-identities/check.png "Udostępnione"

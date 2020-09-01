@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Informacje o regułach, które są stosowane do jednostek i interfejsów API podczas tworzenia z Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/21/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dcec4d0bc93433c768faf10e4520131aeecc5e77
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 6cb771b8df4ab81ff9c538a38b084856b1dfbc39
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719193"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267279"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsu API usługi Media Services w wersji 3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Programista może używać Media Services [interfejsów API REST](/rest/api/media/) lub bibliotek klienckich, które umożliwiają współpracę z interfejsem API REST w celu łatwego tworzenia, zarządzania i obsługi niestandardowych przepływów pracy w multimediach. Interfejs API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) jest oparty na specyfikacji openapi (znanej wcześniej jako Swagger).
 
@@ -127,7 +129,7 @@ Tylko jedna długotrwała operacja jest obsługiwana dla danego zdarzenia na ży
 |[Zestaw SDK dla języka Go](https://aka.ms/ams-v3-go-sdk) |[Dokumentacja języka Go](https://aka.ms/ams-v3-go-ref)|
 |[Zestaw SDK dla języka Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Zobacz także
+### <a name="see-also"></a>Zobacz też
 
 - [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -146,7 +148,7 @@ Zobacz [filtrowanie, porządkowanie, stronicowanie jednostek Azure Media Service
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](./access-api-howto.md).
 

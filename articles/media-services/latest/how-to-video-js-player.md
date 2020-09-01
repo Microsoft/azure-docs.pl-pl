@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 39c790ea3c7799c59d4b49e3ce3284fb96b8b254
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2730c6ce523e618110cd29b13ba2f37115e2cbd0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422967"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267687"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Jak używać odtwarzacza Video.js z Azure Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Omówienie
 
@@ -73,10 +75,10 @@ Przykładowy kod dla tego artykułu jest dostępny na [platformie Azure — przy
 
 Uruchom `addRemoteTextTrack` metodę i Zastąp:
 
-- `subtitleKind`z albo `"captions"` , `"subtitles"` , `"descriptions"` lub`"metadata"`  
-- `caption`ze ścieżką pliku. VTT (plik VTT musi znajdować się na tym samym hoście, aby uniknąć błędu CORS)
-- `subtitleLang`za pomocą kodu BCP 47 dla języka, na przykład `"eng"` w przypadku języka angielskiego lub `"es"` hiszpańskiego
-- `subtitleLabel`z żądaną nazwą wyświetlaną podpisu
+- `subtitleKind` z albo `"captions"` , `"subtitles"` , `"descriptions"` lub `"metadata"`  
+- `caption` ze ścieżką pliku. VTT (plik VTT musi znajdować się na tym samym hoście, aby uniknąć błędu CORS)
+- `subtitleLang` za pomocą kodu BCP 47 dla języka, na przykład `"eng"` w przypadku języka angielskiego lub `"es"` hiszpańskiego
+- `subtitleLabel` z żądaną nazwą wyświetlaną podpisu
 
 ```javascript
 videojs.players.video.addRemoteTextTrack({

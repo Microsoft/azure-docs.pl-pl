@@ -3,22 +3,24 @@ title: Informacje o wersji Azure Media Services v3 | Microsoft Docs
 description: Aby zachować aktualność wraz z najnowszymi zmianami, ten artykuł zawiera najnowsze aktualizacje na Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072145"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267510"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie tego adresu URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` do czytnika źródła danych RSS.
 
@@ -141,7 +143,7 @@ Media Services v3 zapowiedźuje Podgląd 24 godzin x 365 dni aktywnego kodowania
 
 #### <a name="deprecation-of-media-processors"></a>Wycofanie procesorów multimediów
 
-Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji zapoznawczej*. Aby uzyskać daty wycofania, zobacz temat [starsze składniki](../previous/legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
+Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji zapoznawczej*. Aby uzyskać daty wycofania, zobacz temat  [starsze składniki](../previous/legacy-components.md) . [Azure Media Services Video Indexer](../video-indexer/index.yml) zastępuje te starsze procesory nośników.
 
 Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -205,7 +207,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Usprawnienia wydajności
+### <a name="performance-improvements"></a>Ulepszenia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -270,31 +272,31 @@ Moduł interfejsu wiersza polecenia 2,0 jest teraz dostępny dla [Azure Media Se
 
 #### <a name="asset-commands"></a>Polecenia zasobów
 
-- ```--storage-account```i ```--container``` Dodano argumenty.
+- ```--storage-account``` i ```--container``` Dodano argumenty.
 - Wartości domyślne dla czasu wygaśnięcia (teraz + 23h) i uprawnienia (odczyt) w ```az ams asset get-sas-url``` poleceniu.
 
 #### <a name="job-commands"></a>Polecenia zadań
 
-- ```--correlation-data```i ```--label``` Dodano argumenty
-- ```--output-asset-names```Zmieniono nazwę na ```--output-assets``` . Teraz akceptuje ona rozdzieloną spacjami listę elementów zawartości w formacie "assetname = Label". Element zawartości bez etykiety może być wysyłany w następujący sposób: "assetname =".
+- ```--correlation-data``` i ```--label``` Dodano argumenty
+- ```--output-asset-names``` Zmieniono nazwę na ```--output-assets``` . Teraz akceptuje ona rozdzieloną spacjami listę elementów zawartości w formacie "assetname = Label". Element zawartości bez etykiety może być wysyłany w następujący sposób: "assetname =".
 
 #### <a name="streaming-locator-commands"></a>Polecenia lokalizatora przesyłania strumieniowego
 
-- ```az ams streaming locator```polecenie podstawowe zostało zastąpione przez ```az ams streaming-locator``` .
-- ```--streaming-locator-id```i ```--alternative-media-id support``` Dodano argumenty.
-- ```--content-keys argument```argument został zaktualizowany.
-- ```--content-policy-name```Zmieniono nazwę na ```--content-key-policy-name``` .
+- ```az ams streaming locator``` polecenie podstawowe zostało zastąpione przez ```az ams streaming-locator``` .
+- ```--streaming-locator-id``` i ```--alternative-media-id support``` Dodano argumenty.
+- ```--content-keys argument``` argument został zaktualizowany.
+- ```--content-policy-name``` Zmieniono nazwę na ```--content-key-policy-name``` .
 
 #### <a name="streaming-policy-commands"></a>Polecenia zasad przesyłania strumieniowego
 
-- ```az ams streaming policy```polecenie podstawowe zostało zastąpione przez ```az ams streaming-policy``` .
+- ```az ams streaming policy``` polecenie podstawowe zostało zastąpione przez ```az ams streaming-policy``` .
 - Obsługa parametrów szyfrowania została ```az ams streaming-policy create``` dodana.
 
 #### <a name="transform-commands"></a>Przekształcenia — polecenia
 
-- ```--preset-names```argument został zastąpiony przez ```--preset``` . Teraz można jednocześnie ustawić 1 wartość wyjściową/ustawienie wstępne (aby dodać więcej informacji, które trzeba uruchomić ```az ams transform output add``` ). Ponadto można ustawić niestandardowe StandardEncoderPreset przez przekazanie ścieżki do niestandardowego kodu JSON.
-- ```az ams transform output remove```można wykonać, przekazując indeks danych wyjściowych do usunięcia.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```dodano argumenty w ```az ams transform create``` ```az ams transform output add``` poleceniach i.
+- ```--preset-names``` argument został zastąpiony przez ```--preset``` . Teraz można jednocześnie ustawić 1 wartość wyjściową/ustawienie wstępne (aby dodać więcej informacji, które trzeba uruchomić ```az ams transform output add``` ). Ponadto można ustawić niestandardowe StandardEncoderPreset przez przekazanie ścieżki do niestandardowego kodu JSON.
+- ```az ams transform output remove``` można wykonać, przekazując indeks danych wyjściowych do usunięcia.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` dodano argumenty w ```az ams transform create``` ```az ams transform output add``` poleceniach i.
 
 ## <a name="october-2018---ga"></a>Październik 2018 — GA
 

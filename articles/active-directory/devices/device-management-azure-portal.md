@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce09bd2a3f5f474ad5c6e6eb73865e2b2dc9fe3a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4f12b4e1d64db097730494da746b44479a791f9d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541966"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268642"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -32,7 +32,7 @@ Strona **wszystkie urządzenia** umożliwia:
 - Zidentyfikuj urządzenia, w tym:
    - Urządzenia, które zostały dołączone lub zarejestrowane w usłudze Azure AD.
    - Urządzenia wdrożone przy użyciu funkcji [autopilotażu systemu Windows](/windows/deployment/windows-autopilot/windows-autopilot).
-   - Drukarki korzystające z funkcji [drukowania uniwersalnego](https://docs.microsoft.com/universal-print/fundamentals/universal-print-getting-started)
+   - Drukarki korzystające z funkcji [drukowania uniwersalnego](/universal-print/fundamentals/universal-print-getting-started)
 - Wykonywanie zadań zarządzania tożsamościami urządzeń, takich jak Włączanie, wyłączanie, usuwanie i zarządzanie.
    - [Drukarki](/universal-print/fundamentals/) i urządzenia z [systemem Windows](/windows/deployment/windows-autopilot/windows-autopilot) , które mają ograniczoną opcje zarządzania w usłudze Azure AD. Muszą one być zarządzane z odpowiednich interfejsów administratora.
 - Skonfiguruj ustawienia tożsamości urządzenia.
@@ -156,7 +156,7 @@ Aby zarządzać tożsamościami urządzeń za pomocą portalu usługi Azure AD, 
 
 - **Dodatkowi Administratorzy lokalni na urządzeniach dołączonych do usługi Azure AD** — możesz wybrać użytkowników, którym udzielono uprawnień administratora lokalnego na urządzeniu. Ci użytkownicy są dodawani do roli *Administratorzy urządzenia* w usłudze Azure AD. Administratorzy globalni w usłudze Azure AD i właściciele urządzeń mają domyślnie przyznane prawa administratora lokalnego. Ta opcja to funkcja wersji Premium dostępna za pomocą produktów, takich jak Azure AD — wersja Premium lub pakiet Enterprise Mobility Suite (EMS).
 - **Użytkownicy mogą zarejestrować swoje urządzenia w usłudze Azure AD** — należy skonfigurować to ustawienie, aby zezwolić na rejestrację urządzeń z systemem Windows 10 Personal, iOS, Android i macOS w usłudze Azure AD. W przypadku wybrania opcji **Brak**urządzenia nie mogą zarejestrować się w usłudze Azure AD. Rejestracja przy użyciu Microsoft Intune lub zarządzania urządzeniami przenośnymi (MDM) dla pakietu Office 365 wymaga rejestracji. W przypadku skonfigurowania jednej z tych usług jest zaznaczona opcja **wszystkie** nie **jest dostępna** .
-- **Wymagaj uwierzytelniania wieloskładnikowego do dołączania urządzeń** — możesz określić, czy użytkownicy muszą podać dodatkowy czynnik uwierzytelniania, aby przyłączyć urządzenie do usługi Azure AD. Wartość domyślna to **nie**. Zalecamy wymaganie uwierzytelniania wieloskładnikowego podczas rejestrowania urządzenia. Przed włączeniem uwierzytelniania wieloskładnikowego dla tej usługi należy się upewnić, że uwierzytelnianie wieloskładnikowe jest skonfigurowane dla użytkowników, którzy rejestrują swoje urządzenia. Aby uzyskać więcej informacji na temat różnych usług Azure wieloskładnikowe Authentication, zobacz [wprowadzenie do usługi Azure](../authentication/concept-mfa-whichversion.md)MFA. 
+- **Wymagaj uwierzytelniania wieloskładnikowego do dołączania urządzeń** — możesz określić, czy użytkownicy muszą podać dodatkowy czynnik uwierzytelniania, aby przyłączyć urządzenie do usługi Azure AD. Wartość domyślna to **nie**. Zalecamy wymaganie uwierzytelniania wieloskładnikowego podczas rejestrowania urządzenia. Przed włączeniem uwierzytelniania wieloskładnikowego dla tej usługi należy się upewnić, że uwierzytelnianie wieloskładnikowe jest skonfigurowane dla użytkowników, którzy rejestrują swoje urządzenia. Aby uzyskać więcej informacji na temat różnych usług Azure wieloskładnikowe Authentication, zobacz [wprowadzenie do usługi Azure](../authentication/concept-mfa-howitworks.md)MFA. 
 
 > [!NOTE]
 > Ustawienie **Wymagaj uwierzytelniania wieloskładnikowego do dołączania urządzeń** ma zastosowanie do urządzeń, które są dołączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD. To ustawienie nie dotyczy urządzeń przyłączonych do hybrydowej usługi Azure AD.

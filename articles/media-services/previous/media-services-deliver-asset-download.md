@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f22d2022ae095ea7178859b1c036f78e39c10152
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5ad40feacdccc847ed66caed3d586db2490b0b50
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019457"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266531"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Instrukcje: dostarczanie elementu zawartości przez pobranie  
+# <a name="how-to-deliver-an-asset-by-download"></a>Instrukcje: dostarczanie elementu zawartości przez pobranie
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 W tym artykule omówiono opcje dostarczania zawartości multimedialnej przekazanej do Media Services. Zawartość Media Services można dostarczyć w wielu scenariuszach aplikacji. Po kodowaniu Pobierz wygenerowane zasoby multimedialne lub uzyskaj do nich dostęp przy użyciu lokalizatora przesyłania strumieniowego. Aby zwiększyć wydajność i skalowalność, można również dostarczyć zawartość przy użyciu Content Delivery Network (CDN).
 
 Ten przykład przedstawia sposób pobierania zasobów multimedialnych z Media Services na komputer lokalny. Kod wysyła zapytania do zadań skojarzonych z kontem Media Services według identyfikatora zadania i uzyskuje dostęp do swojej kolekcji **OutputMediaAssets** (czyli zestawu co najmniej jednego wyjściowego zasobu multimedialnego, który wynika z uruchamiania zadania). Ten przykład pokazuje, jak pobrać wyjściowe zasoby multimedialne z zadania, ale można zastosować takie samo podejście do pobierania innych zasobów.

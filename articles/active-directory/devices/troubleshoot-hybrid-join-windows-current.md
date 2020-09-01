@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611317"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268778"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
@@ -28,8 +28,8 @@ W przypadku innych klientów z systemem Windows Zapoznaj się z artykułem [Rozw
 W tym artykule przyjęto założenie, że [skonfigurowano urządzenia hybrydowe Azure Active Directory dołączone](hybrid-azuread-join-plan.md) do obsługi następujących scenariuszy:
 
 - Dostęp warunkowy oparty na urządzeniach
-- [Roaming ustawień przedsiębiorstwa](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello dla firm](../active-directory-azureadjoin-passport-deployment.md)
+- [Roaming ustawień przedsiębiorstwa](./enterprise-state-roaming-overview.md)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Ten dokument zawiera wskazówki dotyczące rozwiązywania problemów w celu rozwiązania potencjalnych problemów.
 
@@ -42,7 +42,7 @@ W przypadku systemów Windows 10 i Windows Server 2016 sprzężenie hybrydowe Az
 **Aby pobrać stan sprzężenia:**
 
 1. Otwórz wiersz polecenia jako administrator
-2. Wpisz polecenie `dsregcmd /status`
+2. Wpisz `dsregcmd /status`
 
 ```
 +----------------------------------------------------------------------+
@@ -170,7 +170,7 @@ Możliwe przyczyny niepowodzenia:
 - **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607)
    - Przyczyna: błąd wykrywania ogólnego. Nie można pobrać metadanych odnajdywania z DRS.
    - Rozwiązanie: Znajdź poniżej Poniższy błąd, aby dokładniej zbadać.
-- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
+- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
    - Przyczyna: upłynął limit czasu operacji podczas odnajdywania.
    - Rozwiązanie: Upewnij się, że `https://enterpriseregistration.windows.net` jest dostępny w kontekście systemu. Aby uzyskać więcej informacji, zapoznaj się z sekcją [wymagania dotyczące łączności sieciowej](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
@@ -387,7 +387,7 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Krok 5. zbieranie dzienników i pomoc techniczna firmy Microsoft kontaktów
 
-Pobierz Auth.zip pliku z[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Pobierz Auth.zip pliku z [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
 1. Rozpakuj pliki i Zmień nazwy uwzględnionych plików **start-auth.txt** i **stop-auth.txt** do **Start-auth. cmd** i **stop-auth. cmd**.
 1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **Start-auth. cmd**.

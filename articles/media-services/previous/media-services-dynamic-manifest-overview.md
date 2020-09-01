@@ -14,14 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d86cca609f0a494bb012d3393facc14ec23dbbe2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054699"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266922"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtry i manifesty dynamiczne
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję Media Services:"]
 > * [Wersja 2](media-services-dynamic-manifest-overview.md)
@@ -75,14 +77,14 @@ Oto przykład pliku manifestu:
 ```
 
 ### <a name="dynamic-manifests"></a>Manifesty dynamiczne
-Istnieją [scenariusze](media-services-dynamic-manifest-overview.md#scenarios) , w których klient potrzebuje większej elastyczności niż opisywany w pliku manifestu domyślnego elementu zawartości. Przykład:
+Istnieją [scenariusze](media-services-dynamic-manifest-overview.md#scenarios) , w których klient potrzebuje większej elastyczności niż opisywany w pliku manifestu domyślnego elementu zawartości. Na przykład:
 
 * Specyficzne dla urządzenia: dostarcza tylko określone wersje i/lub określone ścieżki języka, które są obsługiwane przez urządzenie używane do odtwarzania zawartości ("filtrowanie wersji"). 
 * Skróć manifest, aby pokazać podrzędny klip zdarzenia na żywo ("filtrowanie podklipu").
 * Przytnij początek filmu wideo ("przycinanie filmu wideo").
 * Dostosuj okno prezentacji (DVR), aby zapewnić ograniczoną długość okna DVR w odtwarzaczu ("Dostosowywanie okna prezentacji").
 
-Aby osiągnąć tę elastyczność, Media Services oferuje **dynamiczne manifesty** na podstawie wstępnie zdefiniowanych [filtrów](media-services-dynamic-manifest-overview.md#filters).  Po zdefiniowaniu filtrów klienci mogą używać ich do przesyłania strumieniowego określonych plików lub podklipów wideo. Określają one filtry w adresie URL przesyłania strumieniowego. Filtry mogą być stosowane do protokołów przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów obsługiwanej przez [pakowanie dynamiczne](media-services-dynamic-packaging-overview.md): HLS, MPEG-kreska i Smooth Streaming. Przykład:
+Aby osiągnąć tę elastyczność, Media Services oferuje **dynamiczne manifesty** na podstawie wstępnie zdefiniowanych [filtrów](media-services-dynamic-manifest-overview.md#filters).  Po zdefiniowaniu filtrów klienci mogą używać ich do przesyłania strumieniowego określonych plików lub podklipów wideo. Określają one filtry w adresie URL przesyłania strumieniowego. Filtry mogą być stosowane do protokołów przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów obsługiwanej przez [pakowanie dynamiczne](media-services-dynamic-packaging-overview.md): HLS, MPEG-kreska i Smooth Streaming. Na przykład:
 
 Adres URL KRESKi MPEG z filtrem
 

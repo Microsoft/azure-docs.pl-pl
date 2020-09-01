@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 56b0685dee518399ae8328ddac18f03e82918a38
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428467"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268421"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Samouczek: konfigurowanie dołączania hybrydowego do usługi Azure Active Directory dla domen zarządzanych
 
@@ -68,14 +68,14 @@ Hybrydowe dołączenie usługi Azure AD wymaga, aby urządzenia miały dostęp d
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- `https://autologon.microsoftazuread-sso.com`(Jeśli używasz lub planujesz korzystanie z bezproblemowego logowania jednokrotnego)
+- `https://autologon.microsoftazuread-sso.com` (Jeśli używasz lub planujesz korzystanie z bezproblemowego logowania jednokrotnego)
 
 > [!WARNING]
 > Jeśli Twoja organizacja korzysta z serwerów proxy, które przechwytuje ruch SSL w scenariuszach takich jak ochrona przed utratą danych lub ograniczenia dzierżawy usługi Azure AD, upewnij się, że ruch do elementu " https://device.login.microsoftonline.com " jest wykluczony z funkcji Break-and-Inspekcja TLS. Niepowodzenie wykluczenia " https://device.login.microsoftonline.com " może spowodować zakłócenia przy użyciu uwierzytelniania certyfikatu klienta, powodując problemy dotyczące rejestracji urządzeń i dostępu warunkowego opartego na urządzeniach.
 
-Jeśli Twoja organizacja wymaga dostępu do Internetu za pośrednictwem wychodzącego serwera proxy, można użyć [implementującego funkcję autowykrywania serwera proxy sieci Web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) w celu umożliwienia komputerom z systemem Windows 10 rejestracji urządzeń w usłudze Azure AD. Aby rozwiązać problemy dotyczące konfigurowania usługi WPAD i zarządzania nią, zobacz [Rozwiązywanie problemów z automatycznym wykryciem](/previous-versions/tn-archive/cc302643(v=technet.10)). W przypadku urządzeń z systemem Windows 10 przed aktualizacją 1709 usługa WPAD jest jedyną dostępną opcją w celu skonfigurowania serwera proxy do pracy z hybrydowym sprzężeniem usługi Azure AD. 
+Jeśli Twoja organizacja wymaga dostępu do Internetu za pośrednictwem wychodzącego serwera proxy, można użyć [implementującego funkcję autowykrywania serwera proxy sieci Web (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) w celu umożliwienia komputerom z systemem Windows 10 rejestracji urządzeń w usłudze Azure AD. Aby rozwiązać problemy dotyczące konfigurowania usługi WPAD i zarządzania nią, zobacz [Rozwiązywanie problemów z automatycznym wykryciem](/previous-versions/tn-archive/cc302643(v=technet.10)). W przypadku urządzeń z systemem Windows 10 przed aktualizacją 1709 usługa WPAD jest jedyną dostępną opcją w celu skonfigurowania serwera proxy do pracy z hybrydowym sprzężeniem usługi Azure AD. 
 
-Jeśli nie korzystasz z usługi WPAD, możesz skonfigurować ustawienia serwera proxy WinHTTP na komputerze, rozpoczynając od systemu Windows 10 1709. Aby uzyskać więcej informacji, zobacz [Ustawienia serwera proxy WinHTTP wdrożone przez obiekt zasad grupy](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Jeśli nie korzystasz z usługi WPAD, możesz skonfigurować ustawienia serwera proxy WinHTTP na komputerze, rozpoczynając od systemu Windows 10 1709. Aby uzyskać więcej informacji, zobacz [Ustawienia serwera proxy WinHTTP wdrożone przez obiekt zasad grupy](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > W przypadku skonfigurowania ustawień serwera proxy na komputerze przy użyciu ustawień usługi WinHTTP wszystkie komputery, które nie mogą nawiązać połączenia ze skonfigurowanym serwerem proxy, nie będą mogły połączyć się z Internetem.
@@ -174,7 +174,7 @@ Oto trzy sposoby lokalizowania i weryfikowania stanu urządzenia:
 ### <a name="using-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 1. Przejdź do strony urządzenia za pomocą [linku bezpośredniego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Informacje dotyczące sposobu lokalizowania urządzenia można znaleźć w temacie [jak zarządzać tożsamościami urządzeń za pomocą Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Informacje dotyczące sposobu lokalizowania urządzenia można znaleźć w temacie [jak zarządzać tożsamościami urządzeń za pomocą Azure Portal](./device-management-azure-portal.md).
 3. Jeśli **zarejestrowana** kolumna znajduje się w **stanie oczekiwania**, wówczas hybrydowe dołączenie do usługi Azure AD nie zostało ukończone.
 4. Jeśli **zarejestrowana** kolumna zawiera **datę/godzinę**, dołączenie do hybrydowej usługi Azure AD zostało zakończone.
 
@@ -224,7 +224,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Jeśli wystąpią problemy z ukończeniem hybrydowego łączenia z usługą Azure AD dla przyłączonych do domeny urządzeń z systemem Windows, zobacz:
 
-- [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
 - [Rozwiązywanie problemów z Azure Active Directory hybrydowymi podłączonymi do urządzeń niższego poziomu](troubleshoot-hybrid-join-windows-legacy.md)
 

@@ -14,14 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b28e200cab2edb4c1f603e4c67264cdc1c46d7f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042854"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265971"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Omówienie przesyłania strumieniowego na żywo przy użyciu Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
@@ -81,9 +83,9 @@ Poniższa tabela zawiera Przewodnik porównujący dwa typy kanałów obsługiwan
 | Maksymalny czas działania |24x7 |8 godzin |
 | Obsługa wstawiania przednich |Nie |Yes |
 | Obsługa sygnalizowania AD |Nie |Yes |
-| Podpisy CEA 608/708 |Tak |Tak |
-| Obsługa niejednorodnych danych wejściowych GOPs |Tak |Nie — dane wejściowe muszą być stałe 2sec GOPs |
-| Obsługa danych wejściowych stawki ramki zmiennej |Tak |Nie — dane wejściowe muszą być stałym wskaźnikiem ramki.<br/>Niewielkie wahania są tolerowane, na przykład podczas wysokiego poziomu ruchów. Jednak koder nie może porzucić 10 klatek na sekundę. |
+| Podpisy CEA 608/708 |Yes |Yes |
+| Obsługa niejednorodnych danych wejściowych GOPs |Yes |Nie — dane wejściowe muszą być stałe 2sec GOPs |
+| Obsługa danych wejściowych stawki ramki zmiennej |Yes |Nie — dane wejściowe muszą być stałym wskaźnikiem ramki.<br/>Niewielkie wahania są tolerowane, na przykład podczas wysokiego poziomu ruchów. Jednak koder nie może porzucić 10 klatek na sekundę. |
 | Autoshutoff kanałów, gdy źródło danych wejściowych jest tracone |Nie |Po upływie 12 godzin, jeśli nie jest uruchomiony żaden program |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Praca z kanałami odbierającymi strumień na żywo o różnych szybkościach transmisji bitów z koderów lokalnych (przekazujących)

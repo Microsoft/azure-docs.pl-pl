@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi baz danych SAP HANAymi na maszynach wirtu
 description: W tym artykule przedstawiono typowe zadania związane z zarządzaniem i monitorowaniem SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 6de1144237366806bb06c28a0777f62d69004e8b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40761415042cc619893ab3a712a763d4fb046e38
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006569"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267483"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
 
@@ -65,6 +65,8 @@ Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową m
 2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie kliknij pozycję **Utwórz kopię zapasową teraz**.
 3. W obszarze **kopia zapasowa**wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie kliknij przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
 4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
+
+Domyślnie przechowywanie kopii zapasowych na żądanie to 45 dni.
 
 ### <a name="hana-native-client-integration"></a>Integracja z klientem platformy HANA Native
 
@@ -240,6 +242,6 @@ Czasami rozszerzenie obciążenia maszyny wirtualnej może mieć wpływ na jedn�
 
 Użyj tej opcji z przestrogą: po wyzwoleniu na maszynie wirtualnej z rozszerzeniem w dobrej kondycji ta operacja spowoduje ponowne uruchomienie rozszerzenia. Może to spowodować niepowodzenie wszystkich zadań w toku. Przed wyzwoleniem operacji ponownego rejestrowania Sprawdź, czy nie ma jednego lub kilku [objawów](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [rozwiązywać typowe problemy podczas tworzenia kopii zapasowych baz danych SAP HANA.](./backup-azure-sap-hana-database-troubleshoot.md)

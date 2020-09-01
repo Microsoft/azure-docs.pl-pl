@@ -3,22 +3,24 @@ title: Schematy Azure Event Grid dla zdarzeń Media Services
 description: Opisuje właściwości, które są dostępne dla zdarzeń Media Services z Azure Event Grid
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: 3733a641bc116b57556c5ad4f5750bec69e10e9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: f7c9f3b000973868c003477e58de14634b139cae
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81393730"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267670"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schematy Azure Event Grid dla zdarzeń Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Ten artykuł zawiera informacje o schematach i właściwościach zdarzeń Media Services.
 
@@ -137,7 +139,7 @@ Obiekt danych ma następujące właściwości:
 | Właściwość | Typ | Opis |
 | -------- | ---- | ----------- |
 | previousState | ciąg | Stan zadania przed zdarzeniem. |
-| state | ciąg | Nowy stan zadania, które jest zgłaszane w tym zdarzeniu. Na przykład "zaplanowane: zadanie jest gotowe do rozpoczęcia" lub "zakończone: zadanie zostało zakończone".|
+| stan | ciąg | Nowy stan zadania, które jest zgłaszane w tym zdarzeniu. Na przykład "zaplanowane: zadanie jest gotowe do rozpoczęcia" lub "zakończone: zadanie zostało zakończone".|
 
 Gdzie stan zadania może być jedną z wartości: *kolejkowane*, *zaplanowane*, *przetwarzane*, *zakończone*, *błąd*, *anulowano*, *Anulowanie*
 
@@ -609,7 +611,7 @@ Obiekt danych ma następujące właściwości:
 | discontinuityCount | liczba całkowita | Liczba nietrzymań zaobserwowanych w ciągu ostatnich 20 sekund. |
 | nonIncreasingCount | liczba całkowita | Liczba fragmentów danych z sygnaturami czasowymi w przeszłości została odebrana w ciągu ostatnich 20 sekund. |
 | unexpectedBitrate | bool | Jeśli oczekiwane i rzeczywiste szybkości transmisji bitów różnią się o więcej niż dozwolony limit w ciągu ostatnich 20 sekund. Prawda, jeśli i tylko wtedy, gdy, incomingBitrate >= 2 * szybkość transmisji bitów lub incomingBitrate <= szybkość transmisji bitów/2 lub IncomingBitrate = 0. |
-| state | ciąg | Stan zdarzenia na żywo. |
+| stan | ciąg | Stan zdarzenia na żywo. |
 | dobrej kondycji | bool | Wskazuje, czy pozyskiwanie jest w dobrej kondycji na podstawie liczby i flag. Dobra kondycja ma wartość true, jeśli overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
@@ -659,7 +661,7 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | -------- | ---- | ----------- |
 | temat | ciąg | Temat EventGrid. Ta właściwość ma identyfikator zasobu dla konta Media Services. |
 | Temat | ciąg | Ścieżka zasobu dla Media Services kanału w ramach konta Media Services. Łączenie tematu i tematu zapewnia identyfikator zasobu dla zadania. |
-| Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft. Media. JobStateChange". |
+| eventType | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. Na przykład "Microsoft. Media. JobStateChange". |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
 | identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
 | dane | object | Media Services dane zdarzenia. |
@@ -670,7 +672,7 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 
 [Rejestrowanie zdarzeń zmiany stanu zadania](job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [EventGrid .NET SDK zawierający zdarzenia usługi Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definicje zdarzeń Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

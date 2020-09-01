@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4f69904954286f15d2fda13ddd26ee64c81776f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c6c1dcb0af500c47aabbd8e8193c066bb4a921c5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019388"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267772"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Używanie usługi Azure queue storage do monitorowania powiadomień dotyczących zadań Media Services za pomocą platformy .NET 
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Używanie usługi Azure queue storage do monitorowania powiadomień dotyczących zadań Media Services za pomocą platformy .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)

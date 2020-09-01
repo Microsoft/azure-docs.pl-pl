@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Dowiedz się, jak szyfrować wideo przy użyciu szyfrowania AES 128-bitowego oraz jak korzystać z usługi Key Delivery w Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2020
-ms.author: juliako
-ms.openlocfilehash: 45bb8637d37c9c3789a962c9f5ac42227d547637
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: d8bc270549f702f9ba277b3514a3332d16b52d8d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022824"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267177"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Samouczek: szyfrowanie wideo przy użyciu algorytmu AES-128 i korzystanie z usługi dostarczania kluczy
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Mimo że w samouczku są używane przykłady [zestawu SDK platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsów API REST](/rest/api/media/liveevents), interfejsu [wiersza polecenia](/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).

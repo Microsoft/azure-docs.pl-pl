@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 46041e963fc57467b0445db5857acfd4b0e28ed7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 1ea52c393ec9897d43714d69ff448038b65ee555
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147018"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268795"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge"></a>Zarządzanie obliczeniami na Azure Stackej krawędzi
+# <a name="manage-compute-on-your-azure-stack-edge-gpu"></a>Zarządzanie obliczeniami na serwerze Azure Stack Edge GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

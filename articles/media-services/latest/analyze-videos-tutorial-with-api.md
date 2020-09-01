@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Dowiedz się, jak analizować wideo przy użyciu Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 07/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: e5c74f6356c8b07cfef923dfb5e12547aa4693ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7bdc658ab5db9a3ffb27f3c155272f8928bbfb04
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053566"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265868"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Samouczek: analizowanie filmów wideo z Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Mimo że w tym samouczku są używane przykłady [zestawu SDK dla platformy .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) , ogólne kroki są takie same dla [interfejsu API REST](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event?view=azure-cli-latest)lub innych obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
@@ -110,7 +112,7 @@ Podczas kodowania lub przetwarzania zawartości w Media Services jest to typowy 
 
 #### <a name="transform"></a>Przekształcanie
 
-Podczas tworzenia nowego wystąpienia obiektu [Transform](/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. **TransformOutput** jest wymaganym parametrem. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania docelowego obiektu **TransformOutput**. W tym przykładzie używane jest ustawienie wstępne **VideoAnalyzerPreset** i język ("en-us") jest przenoszona do jego konstruktora ( `new VideoAnalyzerPreset("en-US")` ). To ustawienie wstępne umożliwia przeprowadzenie wielu analiz dźwięku i wideo tworzących plik wideo. Istnieje możliwość użycia ustawienia wstępnego **AudioAnalyzerPreset**, jeśli jest potrzebne przeprowadzenie wielu analiz dźwięku w pliku wideo.
+Podczas tworzenia nowego wystąpienia obiektu [Transform](/rest/api/media/transforms) należy określić, jakie dane wyjściowe ma ono tworzyć. **TransformOutput**  jest wymaganym parametrem. Każdy obiekt **TransformOutput** zawiera element **Preset**. Element **Preset** zawiera szczegółowe instrukcje operacji przetwarzania wideo i/lub dźwięku używanych do wygenerowania docelowego obiektu **TransformOutput**. W tym przykładzie używane jest ustawienie wstępne **VideoAnalyzerPreset** i język ("en-us") jest przenoszona do jego konstruktora ( `new VideoAnalyzerPreset("en-US")` ). To ustawienie wstępne umożliwia przeprowadzenie wielu analiz dźwięku i wideo tworzących plik wideo. Istnieje możliwość użycia ustawienia wstępnego **AudioAnalyzerPreset**, jeśli jest potrzebne przeprowadzenie wielu analiz dźwięku w pliku wideo.
 
 Podczas tworzenia **przekształcenia**Sprawdź pierwsze, jeśli już istnieje przy użyciu metody **Get** , jak pokazano w poniższym kodzie. W przypadku usługi Media Services 3 metody **Get** wywołane dla obiektów zwracają **wartość null**, jeśli obiekt nie istnieje (sprawdzana jest nazwa bez uwzględniania wielkości liter).
 

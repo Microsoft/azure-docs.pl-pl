@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948304"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266582"
 ---
 # <a name="custom-controls-preview"></a>Formanty niestandardowe (wersja zapoznawcza)
 
 Kontrolki niestandardowe są funkcją w wersji zapoznawczej Azure Active Directory. W przypadku korzystania z kontrolek niestandardowych użytkownicy są przekierowywani do zgodnej usługi, aby spełnić wymagania dotyczące uwierzytelniania poza Azure Active Directory. W celu zapewnienia zgodności z tą kontrolą przeglądarka użytkownika zostanie przekierowana do usługi zewnętrznej, wykonuje wymagane uwierzytelnianie i zostanie przekierowana z powrotem do Azure Active Directory. Azure Active Directory weryfikuje odpowiedź i, jeśli użytkownik został pomyślnie uwierzytelniony lub zweryfikowany, użytkownik kontynuuje w przepływie dostępu warunkowego.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o zmianach, które są planowane dla funkcji kontrolki niestandardowej, zobacz [Aktualizacja aktualizacji](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls)z lutego 2020.
+> Aby uzyskać więcej informacji o zmianach, które są planowane dla niestandardowej kontroli, zapoznaj się z archiwum luty 2020, [Aby](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls)poznać nowości.
 
 ## <a name="creating-custom-controls"></a>Tworzenie niestandardowych formantów
 
@@ -55,7 +55,7 @@ Aby edytować kontrolkę niestandardową, należy usunąć bieżącą kontrolkę
 
 Kontrolki niestandardowe nie mogą być używane z automatyzacją usługi Identity Protection wymagającą usługi Azure Multi-Factor Authentication, samoobsługowego resetowania hasła w usłudze Azure AD (SSPR), spełniając wymagania dotyczące uwierzytelniania wieloskładnikowego w celu podniesienia poziomu ról w programie Privileged Identity Manager (PIM) w ramach rejestracji urządzeń w usłudze Intune lub dołączania urządzeń do usługi Azure AD.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Wspólne zasady dostępu warunkowego](concept-conditional-access-policy-common.md)
 

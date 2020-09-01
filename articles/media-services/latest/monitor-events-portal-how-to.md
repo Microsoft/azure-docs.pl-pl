@@ -3,7 +3,7 @@ title: Monitorowanie zdarzeń Azure Media Services przy użyciu Event Grid z por
 description: W tym artykule pokazano, jak subskrybować Event Grid w celu monitorowania zdarzeń Azure Media Services.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -13,16 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/21/2020
-ms.author: juliako
-ms.openlocfilehash: 602ff0a29f3fd8717e581b6ac15d493e3ad475f7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 26e6e56d7c14cfa0ab54776003ae4489bb254094
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542399"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265851"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Tworzenie i monitorowanie zdarzeń usługi Media Services za pomocą usługi Event Grid przy użyciu witryny Azure Portal
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. Ta usługa używa [subskrypcji zdarzeń](../../event-grid/concepts.md#event-subscriptions) do kierowania komunikatów o zdarzeniach do subskrybentów. Zdarzenia Media Services zawierają wszystkie informacje potrzebne do reagowania na zmiany danych. Możesz zidentyfikować zdarzenie Media Services, ponieważ właściwość eventType zaczyna się od "Microsoft. Media.". Aby uzyskać więcej informacji, zobacz [Media Services schematów zdarzeń](media-services-event-schemas.md).
 
@@ -32,7 +34,7 @@ Po zakończeniu przekonasz się, że dane zdarzenia zostały wysłane do aplikac
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-* Mieć aktywną subskrypcję platformy Azure.
+* Aktywna subskrypcja platformy Azure.
 * Utworzenie nowego konta usługi Azure Media Services zgodnie z opisem w [tym przewodniku Szybki start](./create-account-howto.md).
 
 ## <a name="create-a-message-endpoint"></a>Tworzenie punktu końcowego komunikatów

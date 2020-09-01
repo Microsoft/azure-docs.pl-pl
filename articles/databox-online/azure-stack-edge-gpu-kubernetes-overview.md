@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: b85586a431a20102035e253537fc45c8a8a54796
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be7e01644d7d1f232c50b1efbadf100671a262fe
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085401"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268112"
 ---
-# <a name="kubernetes-on-your-azure-stack-edge-device"></a>Kubernetes na urządzeniu brzegowym Azure Stack
+# <a name="kubernetes-on-your-azure-stack-edge-gpu-device"></a>Kubernetes na urządzeniu GPU Azure Stack Edge
 
 Kubernetes to popularna platforma typu "open source" służąca do organizowania aplikacji w kontenerze. Ten artykuł zawiera omówienie Kubernetes, a następnie opisuje sposób, w jaki Kubernetes działa na urządzeniu brzegowym Azure Stack. 
 
@@ -57,7 +57,7 @@ W celu obsługi obciążeń aplikacji można zainstalować woluminy magazynu dla
 
 Aby uzyskać więcej informacji, zobacz Opcje aprowizacji magazynu dla aplikacji w [Kubernetes Storage dla urządzenia brzegowego Azure Stack](azure-stack-edge-gpu-kubernetes-storage.md).
 
-## <a name="networking"></a>Networking
+## <a name="networking"></a>Sieć
 
 Usługa Kubernetes Networking pozwala na skonfigurowanie komunikacji w sieci Kubernetes, w tym między innymi sieciami kontenera-kontenerów, sieciami opartymi na usłudze, sieciami i sieciami internetowymi. Aby uzyskać więcej informacji, zobacz model sieci w [sieci Kubernetes dla urządzenia brzegowego Azure Stack](azure-stack-edge-gpu-kubernetes-networking.md).
 

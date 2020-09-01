@@ -3,23 +3,25 @@ title: Kodowanie przekształcenia niestandardowego przy użyciu Media Services v
 description: W tym temacie przedstawiono sposób kodowania niestandardowego przekształcenia przy użyciu programu .NET w programie Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/03/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 28525c198bb6863e942f5ff33d17226769efdc21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8557a11a4768b547096fb56371f0f358c890f883
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001149"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266990"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Jak kodować przy użyciu przekształcenia niestandardowego — .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień predefiniowanych na podstawie najlepszych rozwiązań branżowych, jak pokazano w samouczku [pliki przesyłania strumieniowego](stream-files-tutorial-with-api.md) . Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 

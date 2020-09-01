@@ -1,7 +1,7 @@
 ---
 title: Schemat metadanych danych wyjściowych Azure Media Services | Microsoft Docs
 description: Ten artykuł zawiera omówienie schematu metadanych danych wyjściowych Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 79bf6c50c1b0b1c8454999cbefa8c933a73eae8e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080928"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267211"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Zadanie kodowania jest skojarzone z wejściowym zasobem (lub zasobami), na którym mają zostać wykonane pewne zadania kodowania. Na przykład Koduj plik MP4 do H. 264 zestawy adaptacyjnej szybkości transmisji bitów. Utwórz miniaturę; Utwórz nakładki. Po zakończeniu zadania tworzony jest wyjściowy element zawartości.  Element zawartości wyjściowej zawiera wideo, audio, miniatury i inne pliki. Wyjściowy element zawartości zawiera również plik z metadanymi dotyczącymi wyjściowego elementu zawartości. Nazwa pliku JSON metadanych ma następujący format: `<source_file_name>_manifest.json` (na przykład `BigBuckBunny_manifest.json` ). Aby znaleźć nazwę pliku źródłowego (bez obcięcia), należy przeprowadzić skanowanie w poszukiwaniu dowolnego znaku * _metadata.jsi zbadać ciąg FilePath w programie.
 
@@ -36,7 +38,7 @@ Kolekcja wpisów AssetFile dla zadania kodowania.
 
 | Nazwa | Opis |
 | --- | --- |
-| **Źródeł** |Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile.<br />Przykład: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
+| **Źródła** |Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile.<br />Przykład: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wideo z przeplotem do odpowiedniego formatu kontenera. <br />Zobacz [VideoTracks](#videotracks). |
 | **AudioTracks**|Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek audio przeplatanych w odpowiedni format kontenera. To jest kolekcja wszystkich ścieżek audio.<br /> Aby uzyskać więcej informacji, zobacz [AudioTracks](#audiotracks). |
 | **Nazwa**<br />Wymagane |Nazwa pliku zasobów nośnika. <br /><br />Przykład: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
@@ -54,7 +56,7 @@ Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wide
 | **Profil** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264).  <br /><br />Przykład: `"Profile": "High"` |
 | **Poziomie** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec).  <br /><br />Przykład: `"Level": "3.2"`|
 | **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
-| **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|
+| **Height**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Wymagane|Licznik współczynnik proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|
 | **Framerate**<br />Wymagane |Mierzona szybkość klatek wideo w formacie. 3F.  <br /><br />Przykład: `"Framerate": 29.970`|

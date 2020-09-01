@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 7d4822f453e27a5e2fa7b97d77056b6bee1041d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912f8bdf90e2b45932a73e5bd99190f58cf546a7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086238"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265953"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 ## <a name="overview"></a>Omówienie
 Microsoft Smooth Streaming Clienting Kit (**SSPK** for Short) to Smooth Streaming implementacja klienta, która została zoptymalizowana pod kątem pomocy producentom urządzeń osadzonych, operatorom telewizji kablowej i mobilnemu, dostawcom usług zawartości, producentom słuchawek, niezależnym dostawcom oprogramowania i dostawcom rozwiązań tworzenie produktów i usług na potrzeby przesyłania strumieniowego zawartości w formacie Smooth Streaming. SSPK to oparta na urządzeniach i niezależna od platformy implementacja klienta Smooth Streaming, którą można przenieść na dowolne urządzenie i platformę. 
 

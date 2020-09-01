@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604543"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267245"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Rozwiązywanie problemów Enterprise State Roaming ustawień w Azure Active Directory
 
@@ -108,7 +108,7 @@ Upewnij się, że klient systemu Windows 10 v1511 ma aktualizację zbiorczą 201
 
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>Nie można zsynchronizować motywu, a także danych chronionych za pomocą systemu Windows Information Protection 
 
-Aby zapobiec wyciekom danych, dane chronione za pomocą [systemu windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) nie będą synchronizowane za pośrednictwem Enterprise State roaming dla urządzeń korzystających z rocznicowej aktualizacji systemu Windows 10.
+Aby zapobiec wyciekom danych, dane chronione za pomocą [systemu windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) nie będą synchronizowane za pośrednictwem Enterprise State roaming dla urządzeń korzystających z rocznicowej aktualizacji systemu Windows 10.
 
 **Zalecana akcja**  
 Brak. Przyszłe aktualizacje systemu Windows mogą rozwiązać ten problem.
@@ -159,8 +159,8 @@ Jeśli użytkownik ma mieszane nazwy UPN przypadku (na przykład UserName zamias
 Użytkownik będzie musiał odłączyć urządzenie i ponownie dołączyć je do chmury. Aby to zrobić, zaloguj się jako administrator lokalny i Odłączaj urządzenie, przechodząc do **ustawień**  >  **system**  >  **About** i wybierz pozycję "Zarządzaj lub odłącz od pracy lub szkoły". Wyczyść poniższe pliki, a następnie ponownie Dołącz urządzenie do usługi Azure AD w obszarze **Ustawienia**  >  **system**  >  **About** i wybierz pozycję "Połącz z siecią firmową lub szkołą". Kontynuuj dołączanie urządzenia do Azure Active Directory i dokończ przepływ.
 
 W kroku oczyszczania Oczyść następujące pliki:
-- Settings. dat w`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Wszystkie pliki w folderze`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- Settings. dat w `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Wszystkie pliki w folderze `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

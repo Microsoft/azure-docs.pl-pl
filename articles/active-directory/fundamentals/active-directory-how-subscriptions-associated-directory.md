@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 08/31/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbc1286b6c434d1c7a110c75dd5085de2043012d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6cd095939009c39c48456d330f975303f06a841a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179100"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267534"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji
 
@@ -28,6 +28,8 @@ Wiele subskrypcji może ufać temu samemu katalogowi usługi Azure AD. Każda su
 
 Jeśli subskrypcja wygaśnie, utracisz dostęp do wszystkich innych zasobów skojarzonych z subskrypcją. Jednak katalog usługi Azure AD pozostaje na platformie Azure. Możesz skojarzyć katalog i zarządzać nim przy użyciu innej subskrypcji platformy Azure.
 
+Domyślnie, gdy użytkownik loguje się do usługi w chmurze firmy Microsoft, zostaje utworzona dzierżawa usługi Azure AD, a użytkownik jest członkiem roli Administratorzy globalni. Gdy dodajesz subskrypcję do istniejącego katalogu, nie masz przypisanej do roli administratora globalnego.
+
 Wszyscy użytkownicy mają jeden katalog *macierzysty* na potrzeby uwierzytelniania. Użytkownicy mogą również być Gośćmi w innych katalogach. Dla każdego użytkownika w usłudze Azure AD można zobaczyć zarówno katalog macierzysty, jak i gość.
 
 > [!Important]
@@ -36,7 +38,6 @@ Wszyscy użytkownicy mają jeden katalog *macierzysty* na potrzeby uwierzytelnia
 > Przypisania zasad są również usuwane z subskrypcji, gdy subskrypcja jest kojarzona z innym katalogiem.
 >
 > Przeniesienie klastra usługi Azure Kubernetes Service (AKS) do innej subskrypcji lub przeniesienie subskrypcji będącej właścicielem klastra do nowej dzierżawy powoduje utratę funkcjonalności klastra z powodu utraty przypisań ról i uprawnień jednostki usługi. Aby uzyskać więcej informacji na temat AKS, zobacz [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
-
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -66,19 +67,19 @@ Aby skojarzyć istniejącą subskrypcję z katalogiem usługi Azure AD, wykonaj 
 
 1. Wybierz pozycję **Zmień katalog**.
 
-    ![Strona subskrypcje z wyróżnioną opcją zmiany katalogu](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   ![Strona subskrypcje z wyróżnioną opcją zmiany katalogu](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
 
 1. Przejrzyj wszystkie wyświetlone ostrzeżenia, a następnie wybierz pozycję **Zmień**.
 
-    ![Zmień stronę katalogu, pokazując katalog do zmiany](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   ![Zmień stronę katalogu, pokazując katalog do zmiany](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    Po zmianie katalogu dla subskrypcji zostanie wyświetlony komunikat o powodzeniu.
+   Po zmianie katalogu dla subskrypcji zostanie wyświetlony komunikat o powodzeniu.
 
-  1. Wybierz pozycję **Przełącz katalogi** na stronie subskrypcja, aby przejść do nowego katalogu. 
+1. Wybierz pozycję **Przełącz katalogi** na stronie subskrypcja, aby przejść do nowego katalogu.
 
-      ![Strona przełączników katalogów z przykładowymi informacjami](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   ![Strona przełączników katalogów z przykładowymi informacjami](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-      Poprawne wyświetlanie wszystkiego może potrwać kilka godzin. Jeśli wydaje się, że trwa zbyt długo, sprawdź **globalny filtr subskrypcji**. Upewnij się, że przeniesiona subskrypcja nie jest ukryta. Może być konieczne wylogowanie się z Azure Portal i ponowne zalogowanie się w celu wyświetlenia nowego katalogu.
+   Poprawne wyświetlanie wszystkiego może potrwać kilka godzin. Jeśli wydaje się, że trwa zbyt długo, sprawdź **globalny filtr subskrypcji**. Upewnij się, że przeniesiona subskrypcja nie jest ukryta. Może być konieczne wylogowanie się z Azure Portal i ponowne zalogowanie się w celu wyświetlenia nowego katalogu.
 
 Zmiana katalogu subskrypcji jest operacją na poziomie usługi, więc nie ma ona wpływu na własność rozliczeń subskrypcji. Administrator konta nadal może zmienić administratora usługi z [centrum konta](https://account.azure.com/subscriptions). Aby usunąć oryginalny katalog, należy przenieść własność rozliczeń subskrypcji do nowego administratora konta. Aby dowiedzieć się więcej na temat przenoszenia własności rozliczeń, zobacz [przenoszenie własności subskrypcji platformy Azure na inne konto](../../cost-management-billing/manage/billing-subscription-transfer.md).
 

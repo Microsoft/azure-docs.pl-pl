@@ -12,17 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b603b800dfdfb96e9b6b1074dc1e39d31b994c06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a1e85f37a0dfdbb7ff10db13e53b1998ef391caa
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997782"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267196"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Widevine przesyłania strumieniowego w trybie offline dla systemu Android z Media Services v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Oprócz ochrony zawartości w ramach przesyłania strumieniowego online, subskrypcji zawartości multimedialnej i usług najmu można pobrać zawartość, która działa, gdy nie masz połączenia z Internetem. Może być konieczne pobranie zawartości na telefonie lub tablecie do odtwarzania w trybie samolotowym, gdy napływa odłączony od sieci. Dodatkowe scenariusze, w których warto pobrać zawartość:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689048"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266786"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory często zadawane pytania dotyczące zarządzania urządzeniami
 
@@ -62,7 +62,7 @@ Odp **.:** Na urządzeniach z systemem Windows 10 dołączonych lub zarejestrowa
 - Użytkownik wyłącza urządzenie w portalu My Apps. 
 - Administrator (lub użytkownik) usuwa lub wyłącza urządzenie w Azure Portal lub przy użyciu programu PowerShell
 - Tylko dołączona do hybrydowej usługi Azure AD: Administrator usuwa z zakresu synchronizacji urządzenia poza zakresem, co spowodowało usunięcie urządzeń z usługi Azure AD.
-- Uaktualnianie programu Azure AD Connect do wersji 1.4. XX. x. [Zrozumienie Azure AD Connect 1.4. XX. x i znikanie urządzenia](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Uaktualnianie programu Azure AD Connect do wersji 1.4. XX. x. [Zrozumienie Azure AD Connect 1.4. XX. x i znikanie urządzenia](../hybrid/reference-connect-device-disappearance.md).
 
 
 Poniżej znajdują się informacje o tym, jak można skorygować te akcje.
@@ -82,14 +82,14 @@ Odp **.:** Ta operacja jest zaprojektowana. W takim przypadku urządzenie nie ma
       Aby ponownie zarejestrować hybrydowe urządzenia z systemem Windows 10 i Windows Server 2016/2019 dołączone do usługi Azure AD, wykonaj następujące czynności:
 
       1. Otwórz wiersz polecenia jako administrator.
-      1. Wprowadź polecenie `dsregcmd.exe /debug /leave`.
+      1. Wprowadź `dsregcmd.exe /debug /leave`.
       1. Wyloguj się i zaloguj się, aby wyzwolić zaplanowane zadanie, które ponownie rejestruje urządzenie w usłudze Azure AD. 
 
       W przypadku wersji systemu operacyjnego Windows niższego poziomu, które są dołączone do hybrydowej usługi Azure AD, wykonaj następujące czynności:
 
       1. Otwórz wiersz polecenia jako administrator.
-      1. Wprowadź polecenie `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-      1. Wprowadź polecenie `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+      1. Wprowadź `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+      1. Wprowadź `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
       W przypadku urządzeń z systemem Windows 10 przyłączonych do usługi Azure AD wykonaj następujące czynności:
 
@@ -312,7 +312,7 @@ Odp **.:** Tak, ale tylko w przypadku usługi rejestracji urządzeń platformy A
 Odp **.:** Wykonaj następujące czynności:
 
 1.    [Tworzenie zasad zgodności](/intune/compliance-policy-create-mac-os)
-1.    [Definiowanie zasad dostępu warunkowego dla urządzeń macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Definiowanie zasad dostępu warunkowego dla urządzeń macOS](../conditional-access/overview.md) 
 
 **Uwagi**
 

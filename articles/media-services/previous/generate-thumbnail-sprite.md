@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d05e73bc9aa51bf20121790de94b1b6d0e26615
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61229054"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268574"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Generowanie sprite’u miniatury  
+# <a name="generate-a-thumbnail-sprite"></a>Generowanie sprite’u miniatury
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Za pomocą Media Encoder Standard można wygenerować miniaturkę Sprite, czyli plik JPEG, który zawiera wiele miniatur małych rozdzielczości połączonych w jeden (duży) obraz wraz z plikiem VTT. Ten plik VTT określa zakres czasu w wejściowym wideo, który reprezentuje każda miniatura, wraz z rozmiarem i współrzędnymi tej miniatury w dużym pliku JPEG. Odtwarzacze wideo wykorzystują plik VTT i Sprite Image do wyświetlania "wizualnego" elementu SeekBar, oferując podgląd z wizualną opinią podczas szybkiej kontroli i przesyłania dalej wzdłuż osi czasu wideo.
 

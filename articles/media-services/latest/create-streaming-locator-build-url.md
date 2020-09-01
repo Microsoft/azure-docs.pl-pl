@@ -3,23 +3,25 @@ title: Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompila
 description: W tym artykule pokazano, jak utworzyć lokalizator przesyłania strumieniowego i adresy URL kompilacji.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/04/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9eae2b0d8b5bebc027dd46afd17a37b8a19b422
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c00729e236cb314f47df8f622db2e19438af61ab
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012164"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267908"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Tworzenie lokalizatora przesyłania strumieniowego i adresów URL kompilacji
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W Azure Media Services, aby utworzyć adres URL przesyłania strumieniowego, należy najpierw utworzyć [lokalizator przesyłania strumieniowego](streaming-locators-concept.md). Następnie można połączyć nazwę hosta [punktu końcowego przesyłania strumieniowego](/rest/api/media/streamingendpoints) i ścieżkę **lokalizatora przesyłania strumieniowego** . W tym przykładzie jest używany *domyślny* **punkt końcowy przesyłania strumieniowego**. Podczas pierwszego tworzenia konta usługi multimediów ten *domyślny* **punkt końcowy przesyłania strumieniowego** będzie w stanie zatrzymania, więc musisz wywołać polecenie **Rozpocznij** , aby rozpocząć przesyłanie strumieniowe.
 
@@ -167,6 +169,6 @@ Zobacz pełny kod przykład: [EncodingWithMESPredefinedPreset](https://github.co
 * [Tworzenie filtrów za pomocą wzorca REST](filters-dynamic-manifest-rest-howto.md)
 * [Tworzenie filtrów za pomocą interfejsu wiersza polecenia](filters-dynamic-manifest-cli-howto.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Ochrona zawartości za pomocą technologii DRM](protect-with-drm.md).

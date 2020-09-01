@@ -4,22 +4,24 @@ titleSuffix: Azure Media Services
 description: Dowiedz się, jak utworzyć konto usługi Azure Storage do użycia z usługą Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/01/2019
-ms.author: juliako
-ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 120bd403d84f9912bd309f965f3b69306fabcc24
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072000"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267075"
 ---
 # <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Aby rozpocząć zarządzanie, szyfrowanie, kodowanie, analizowanie i przesyłanie strumieniowe zawartości multimedialnej na platformie Azure, musisz utworzyć konto Media Services. Podczas tworzenia konta usługi Media Services musisz podać nazwę zasobu konta usługi Azure Storage. Podane konto magazynu jest dołączane do konta usługi Media Services.
 

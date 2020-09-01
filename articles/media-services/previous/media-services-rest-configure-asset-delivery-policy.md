@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0704913bf3158067c96eeaa69729792cfe63bf37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 49fc67bcd45d0c364f47276a9b47676a65f6d837
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010257"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268676"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Konfigurowanie zasad dostarczania elementów zawartości
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
 Jeśli planujesz dostarczanie dynamicznie szyfrowanych zasobów, jeden z kroków w przepływie pracy Media Services dostarczania zawartości konfiguruje zasady dostarczania dla zasobów. Zasady dostarczania elementów zawartości mówią, Media Services jak chcesz, aby zasób został dostarczony: w jakim protokole przesyłania strumieniowego powinien być dynamicznie spakowany pakiet zawartości (na przykład MPEG PAUZy, HLS, Smooth Streaming lub wszystkie), czy chcesz dynamicznie szyfrować element zawartości i jak (koperta lub typowe szyfrowanie).

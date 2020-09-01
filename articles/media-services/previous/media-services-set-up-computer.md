@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 4422c7d360db401233d0cf4c072e88cd4aff16b5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 67cf46fbe86dfd8388c61f3a55b4068e57d0b538
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086272"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266514"
 ---
-# <a name="set-up-your-media-services-development-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Media Services  
+# <a name="set-up-your-media-services-development-environment"></a>Konfigurowanie środowiska deweloperskiego usługi Media Services 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)

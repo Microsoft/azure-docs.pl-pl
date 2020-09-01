@@ -3,23 +3,25 @@ title: Kodowanie przekształcenia niestandardowego przy użyciu Media Services w
 description: W tym temacie pokazano, jak używać Azure Media Services v3 do kodowania niestandardowej transformacji przy użyciu interfejsu REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 9bdea0998b5d6b4c10a96d2ef593f46d6b7c02bf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053325"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267007"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Jak kodować przy użyciu niestandardowej transformacji
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Przy kodowaniu przy użyciu Azure Media Services można szybko rozpocząć pracę z jednym z zalecanych wbudowanych ustawień wstępnych, opartych na najlepszych rozwiązaniach branżowych, jak pokazano w samouczku [pliki przesyłania strumieniowego](stream-files-tutorial-with-rest.md#create-a-transform) . Możesz również utworzyć niestandardowe ustawienie wstępne, aby określić wymagania dotyczące określonego scenariusza lub urządzenia.
 
