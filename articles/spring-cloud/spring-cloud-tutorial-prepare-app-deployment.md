@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ff797f8b6fd375a940f77b4e0400bcb7a74450c4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179763"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260327"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
@@ -41,8 +41,8 @@ Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprę
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
 2.1 | Greenwich. RELEASE
-2.2 | Hoxton. RELEASE
-2.3 | Hoxton.SR5
+2.2 | Hoxton.SR8
+2.3 | Hoxton.SR8
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
 
@@ -62,7 +62,7 @@ W przypadku rozruchu sprężynowego w wersji 2,1 Dodaj następujące zależnośc
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR4</version>
+                <version>Greenwich.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -88,7 +88,7 @@ W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależnośc
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR1</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -113,7 +113,7 @@ W przypadku rozruchu sprężynowego w wersji 2,3 Dodaj następujące zależnośc
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Hoxton.SR5</version>
+                <version>Hoxton.SR8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -122,49 +122,23 @@ W przypadku rozruchu sprężynowego w wersji 2,3 Dodaj następujące zależnośc
 ```
 ## <a name="azure-spring-cloud-client-dependency"></a>Zależność klienta chmury ze sprężyną Azure
 
-Usługa Azure wiosny Cloud hostuje i zarządza składnikami chmury Wiosnowej. Składniki obejmują rejestr usługi w chmurze ze sprężyną i wiosną serwerów konfiguracji chmury. Uwzględnij w zależnościach bibliotekę kliencką chmury platformy Azure, aby umożliwić komunikację z wystąpieniem usługi w chmurze ze sprężyną Azure.
+Usługa Azure wiosny Cloud hostuje i zarządza składnikami chmury Wiosnowej. Składniki obejmują rejestr usługi w chmurze ze sprężyną i wiosną serwerów konfiguracji chmury. Zalecane jest użycie sprężyny Boot 2,2 lub 2,3. W przypadku rozruchu sprężynowego 2,1 należy uwzględnić w zależnoście bibliotekę kliencką chmury Azure wiosny, aby umożliwić komunikację z wystąpieniem usługi w chmurze ze sprężyną na platformie Azure.
 
 W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla aplikacji, które korzystają z chmury rozruchowej i sprężyny.
 
-Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja chmury wiosennej platformy Azure
+Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja początkowa klienta usługi Azure wiosny Cloud
 ---|---|---
-2.1 | Greenwich. RELEASE | 2.1
-2.2 | Hoxton. RELEASE | 2.2
-2.3 | Hoxton.SR5 | 2.3
+2.1 | Greenwich. RELEASE | 2.1.2
+2.2 | Hoxton.SR8 | Nie jest wymagany
+2.3 | Hoxton.SR8 | Nie jest wymagany
 
-Uwzględnij jedną z następujących zależności w pliku pom.xml. Wybierz zależność, której wersja chmury sieci Azure ze sprężyną jest zgodna z własnymi.
-
-### <a name="dependency-for-azure-spring-cloud-version-21"></a>Zależność dla chmury wiosennej platformy Azure w wersji 2,1
-
-W przypadku rozruchu sprężynowego w wersji 2,1 Dodaj następujący zależność do pliku pliku pom aplikacji.
+Jeśli używasz sieci z rozruchem sprężynowym 2,1, Dołącz następujący dependenciy do pliku pom.xml.
 
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
         <version>2.1.2</version>
-</dependency>
-```
-
-### <a name="dependency-for-azure-spring-cloud-version-22"></a>Zależność dla chmury wiosennej platformy Azure w wersji 2,2
-
-W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujący zależność do pliku pliku pom aplikacji.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.1</version>
-</dependency>
-```
-
-W przypadku rozruchu sprężynowego w wersji 2,3 Dodaj następujący zależność do pliku pliku pom aplikacji.
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.3.0</version>
 </dependency>
 ```
 

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bc8233110c02775e208470591c3e0c6eb619294
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74462617"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260989"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analizowanie multimediów za pomocą Azure Portal 
+# <a name="analyze-your-media-using-the-azure-portal"></a>Analizowanie multimediów za pomocą Azure Portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!IMPORTANT]
 > Zapoznaj się z [planami wycofania](media-services-analytics-overview.md#retirement-plans) niektórych procesorów multimedialnych.

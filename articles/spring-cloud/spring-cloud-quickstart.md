@@ -1,18 +1,18 @@
 ---
 title: Szybki start — wdrażanie pierwszej aplikacji w usłudze Azure Spring Cloud
-description: W tym przewodniku szybki start wdrożono aplikację Hello w chmurze ze sprężyną w chmurze sieci platformy Azure.
+description: W tym przewodniku szybki start wdrożono aplikację w chmurze ze sprężyną w chmurze sieci platformy Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6a7a489367aa7348a3449a72de6889476e5d38db
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 245516e0a54865d3a6097c4bb566b850cb738ad6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177603"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260554"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -37,7 +37,7 @@ Aby ukończyć ten przewodnik Szybki start:
 * Obowiązkowe [Zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.0.67 lub nowszej](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) oraz rozszerzenie chmury wiosennej platformy Azure z poleceniem: `az extension add --name spring-cloud`
 * Obowiązkowe [Zainstaluj Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) i [Zaloguj się](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
-## <a name="generate-a-spring-cloud-hello-project"></a>Generowanie projektu Hello w chmurze wiosny
+## <a name="generate-a-spring-cloud-project"></a>Generowanie projektu wiosennej chmury
 
 Zacznij od [Initializr sprężyny](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) , aby wygenerować przykładowy projekt z zalecanymi zależnościami dla chmury wiosennej platformy Azure. Na poniższej ilustracji przedstawiono Initializr skonfigurowany dla tego przykładowego projektu.
 ```url
@@ -125,7 +125,7 @@ Poniższa procedura umożliwia kompilację i wdrożenie aplikacji przy użyciu i
 
 Poniższa procedura używa wtyczki IntelliJ dla chmury wiosennej platformy Azure do wdrożenia przykładowej aplikacji na POMYSŁie IntelliJ.  
 
-### <a name="import-hello-project"></a>Importuj projekt Hello
+### <a name="import-project"></a>Importowanie projektu
 
 1. Otwórz okno dialogowe **powitalne** IntelliJ, a następnie wybierz pozycję **Importuj projekt** , aby otworzyć Kreatora importu.
 1. Wybierz `hellospring` folder.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 73c0eeb718bb6ede8215ed3a87e246185a248ffd
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: fcd9f0759ae885199347cc23d93e8f1c00251387
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054992"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260530"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -40,10 +40,10 @@ Wschodnie stany USA, zachodnie stany USA 2, Europa Zachodnia i Azja Południowo-
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Jakie są znane ograniczenia chmury wiosennej platformy Azure?
 
-W wersji zapoznawczej chmura sprężynowa platformy Azure ma następujące znane ograniczenia:
-
+Chmura Wiosnowa platformy Azure ma następujące znane ograniczenia:
+    
 * `spring.application.name` zostanie przesłonięty przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
-* `server.port` wartość domyślna to Ports 80/443. Jeśli jakakolwiek inna wartość zostanie zastosowana, zostanie ona zastąpiona do 80/443.
+* `server.port` wartość domyślna to port 1025. Jeśli jakakolwiek inna wartość zostanie zastosowana, zostanie ona zastąpiona do 1025.
 * Szablony Azure Portal i Azure Resource Manager nie obsługują przekazywania pakietów aplikacji. Pakiety aplikacji można przekazywać tylko przez wdrożenie aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Jakie warstwy cenowe są dostępne? 
@@ -140,7 +140,7 @@ Używana jest Najnowsza wersja programu Ubuntu LTS, a obecnie [Ubuntu 20,04 LTS 
 Poprawki zabezpieczeń dotyczące chmury z użyciem usługi Azure wiosennej zostaną przeprowadzone do produkcji co miesiąc.
 Krytyczne poprawki zabezpieczeń (ocena w wersji CVE >= 9) dotyczące usługi Azure wiosny są dostępne najszybciej, jak to możliwe.
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>Wdrażanie
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Czy usługa Azure Wiosenna Cloud obsługuje wdrożenie Blue-Green?
 Tak. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska przejściowego](spring-cloud-howto-staging-environment.md).

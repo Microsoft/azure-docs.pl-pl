@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 67e7f8890923dec2dca369b6a57399232c0198cc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018380"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260190"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Jak zatrzymać korzystanie z rozszerzenia tożsamości zarządzanej maszyny wirtualnej i zacząć korzystać z usługi Azure Instance Metadata Service
 
@@ -35,7 +35,7 @@ Ze względu na kilka ograniczeń przedstawionych w następnej sekcji rozszerzeni
 
 ### <a name="provision-the-extension"></a>Inicjowanie obsługi rozszerzenia 
 
-Podczas konfigurowania maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w celu posiadania tożsamości zarządzanej można opcjonalnie zainicjować obsługę administracyjną tożsamości dla rozszerzenia maszyny wirtualnej zasobów platformy Azure za pomocą `-Type` parametru polecenia cmdlet [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) . Można przekazać albo `ManagedIdentityExtensionForWindows` , w `ManagedIdentityExtensionForLinux` zależności od typu maszyny wirtualnej, i nazwać ją przy użyciu `-Name` parametru. `-Settings`Parametr określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenu:
+Podczas konfigurowania maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych w celu posiadania tożsamości zarządzanej można opcjonalnie zainicjować obsługę administracyjną tożsamości dla rozszerzenia maszyny wirtualnej zasobów platformy Azure za pomocą `-Type` parametru polecenia cmdlet [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) . Można przekazać albo `ManagedIdentityExtensionForWindows` , w `ManagedIdentityExtensionForLinux` zależności od typu maszyny wirtualnej, i nazwać ją przy użyciu `-Name` parametru. `-Settings`Parametr określa port używany przez punkt końcowy tokenu OAuth do pozyskiwania tokenu:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -96,7 +96,7 @@ Aby zainicjować obsługę rozszerzenia zestawu skalowania maszyn wirtualnych pr
 Inicjowanie obsługi rozszerzenia maszyny wirtualnej może zakończyć się niepowodzeniem z powodu błędów wyszukiwania DNS. Jeśli tak się stanie, uruchom ponownie maszynę wirtualną, a następnie spróbuj ponownie. 
 
 ### <a name="remove-the-extension"></a>Usuwanie rozszerzenia 
-Aby usunąć rozszerzenie, użyj polecenia `-n ManagedIdentityExtensionForWindows` lub `-n ManagedIdentityExtensionForLinux` przełączaj (w zależności od typu maszyny wirtualnej) za pomocą polecenia [AZ VM Extension Delete](https://docs.microsoft.com/cli/azure/vm/)lub [AZ VMSS Extension Delete](https://docs.microsoft.com/cli/azure/vmss) dla zestawów skalowania maszyn wirtualnych przy użyciu platformy Azure lub `Remove-AzVMExtension` dla programu PowerShell:
+Aby usunąć rozszerzenie, użyj polecenia `-n ManagedIdentityExtensionForWindows` lub `-n ManagedIdentityExtensionForLinux` przełączaj (w zależności od typu maszyny wirtualnej) za pomocą polecenia [AZ VM Extension Delete](/cli/azure/vm/)lub [AZ VMSS Extension Delete](/cli/azure/vmss) dla zestawów skalowania maszyn wirtualnych przy użyciu platformy Azure lub `Remove-AzVMExtension` dla programu PowerShell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -196,7 +196,7 @@ Istnieje kilka istotnych ograniczeń dotyczących używania rozszerzenia maszyny
 
 ## <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-[Azure instance Metadata Service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) to punkt końcowy REST, który zawiera informacje o uruchomionych wystąpieniach maszyn wirtualnych, które mogą służyć do zarządzania maszynami wirtualnymi i ich konfigurowania. Punkt końcowy jest dostępny w dobrze znanym adresie IP bez obsługi routingu ( `169.254.169.254` ), do którego można uzyskać dostęp tylko z poziomu maszyny wirtualnej.
+[Azure instance Metadata Service (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) to punkt końcowy REST, który zawiera informacje o uruchomionych wystąpieniach maszyn wirtualnych, które mogą służyć do zarządzania maszynami wirtualnymi i ich konfigurowania. Punkt końcowy jest dostępny w dobrze znanym adresie IP bez obsługi routingu ( `169.254.169.254` ), do którego można uzyskać dostęp tylko z poziomu maszyny wirtualnej.
 
 Korzystanie z usługi Azure IMDS do żądania tokenów ma kilka zalet. 
 
@@ -212,4 +212,4 @@ Z tego względu usługa Azure IMDS będzie niedrogim sposobem żądania tokenów
 ## <a name="next-steps"></a>Następne kroki
 
 * [Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu](how-to-use-vm-token.md)
-* [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md)

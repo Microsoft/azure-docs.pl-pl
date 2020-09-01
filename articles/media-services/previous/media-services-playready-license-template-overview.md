@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1fcb935a7a07629ba3d7424a39f6c8542628a842
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df28078363162496672232ecdebe02fc99ce50f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084623"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261057"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Omówienie szablonu licencji PlayReady usługi Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Azure Media Services teraz udostępnia usługę do dostarczania licencji PlayReady. Gdy gracz (na przykład Silverlight) próbuje odtworzyć zawartość chronioną przy użyciu oprogramowania PlayReady, do usługi dostarczania licencji jest wysyłane żądanie w celu uzyskania licencji. Jeśli usługa licencji zatwierdzi żądanie, wystawia licencję, która jest wysyłana do klienta i służy do odszyfrowania i odtworzenia określonej zawartości.
 
 Media Services udostępnia również interfejsy API, których można użyć do konfigurowania licencji PlayReady. Licencje zawierają prawa i ograniczenia, które mają być wymuszane przez środowisko uruchomieniowe zarządzania prawami cyfrowymi (DRM) PlayReady, gdy użytkownik próbuje odtworzyć chronioną zawartość.

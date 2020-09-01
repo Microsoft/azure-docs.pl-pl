@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a53027ec1f775c240164f67e7ee0473a44690964
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72801941"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262689"
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Tworzenie zaawansowanych przepływów pracy kodowania za pomocą projektanta przepływu pracy  
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Tworzenie zaawansowanych przepływów pracy kodowania za pomocą projektanta przepływu pracy
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Omówienie
 **Projektant przepływu pracy** to narzędzie pulpitu systemu Windows, które służy do projektowania i tworzenia niestandardowych przepływów pracy dla kodowania z **Media Encoder Premium Workflow**.
 Korzystając z możliwości narzędzia Projektant przepływu pracy, można projektować i tworzyć złożone przepływy pracy, które będą uruchamiane w usłudze **Media Encoder Premium**.  

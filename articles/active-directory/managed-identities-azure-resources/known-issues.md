@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ffc6ba2725a8ce9e3eeb4202ed7d10dd3d1937a8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4bcd36a1ce38d4d9eb6a0faec470f7427852894b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997476"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260224"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -86,8 +86,8 @@ Nie. Tożsamości zarządzane nie obsługują obecnie scenariuszy między katalo
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Jakie uprawnienia RBAC platformy Azure są wymagane do zarządzania tożsamościami w zasobie? 
 
-- Tożsamość zarządzana przypisana przez system: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Ta akcja jest uwzględniona w rolach wbudowanych specyficznych dla zasobów, takich jak [współautor maszyny wirtualnej](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Tożsamość zarządzana przypisana przez użytkownika: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Oprócz przypisywania roli [operatora tożsamości zarządzanej](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) przez zarządzaną tożsamość.
+- Tożsamość zarządzana przypisana przez system: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Ta akcja jest uwzględniona w rolach wbudowanych specyficznych dla zasobów, takich jak [współautor maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Tożsamość zarządzana przypisana przez użytkownika: wymagane są uprawnienia do zapisu dla zasobu. Na przykład w przypadku maszyn wirtualnych potrzebne jest uprawnienie Microsoft.Compute/virtualMachines/write. Oprócz przypisywania roli [operatora tożsamości zarządzanej](../../role-based-access-control/built-in-roles.md#managed-identity-operator) przez zarządzaną tożsamość.
 
 
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: da1fa8306630fe84efeb208883fb9ed3979be491
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1aadccde8ed0c4e8257482ccca3c9992cc961d11
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504589"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260513"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Szybki Start: uruchamianie aplikacji w chmurze wiosny z poziomu kodu źródłowego
 
@@ -30,9 +30,6 @@ Postępując zgodnie z tym przewodnikiem Szybki Start, dowiesz się, jak:
 > * Przypisywanie publicznego punktu końcowego dla aplikacji
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
->[!Note]
-> Chmura Wiosenna platformy Azure jest obecnie oferowana jako publiczna wersja zapoznawcza. Oferty publicznej wersji zapoznawczej umożliwiają klientom eksperymentowanie z nowymi funkcjami przed ich oficjalną wersją.  Funkcje i usługi publicznej wersji zapoznawczej nie są przeznaczone do użytku produkcyjnego.  Aby uzyskać więcej informacji na temat pomocy technicznej w przypadku wersji zapoznawczych, zapoznaj się z naszymi [często zadawanymi pytaniami](https://azure.microsoft.com/support/faq/) lub zapoznaj się z [support requestą](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
 
 Przed rozpoczęciem upewnij się, że Twoja subskrypcja platformy Azure ma wymagane zależności:
 

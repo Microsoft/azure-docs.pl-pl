@@ -5,12 +5,12 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 227849380d543f6ea5bc1c0ae9cd6dfbf8de69b0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 343dc5f0b8475a9fad3d9834f97cff0d0f4c75f6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934212"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260088"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>Szybki Start: Tworzenie bazy wiedzy w QnA Maker przy użyciu języka C# z usługą REST
 
@@ -59,7 +59,7 @@ Build succeeded.
 
 Na początku pliku Program.cs zastąp pojedynczą instrukcję using następującymi wierszami, aby dodać do projektu niezbędne zależności:
 
-[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=1-11 "Add the required dependencies")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Dodawanie wymaganych stałych
 
@@ -70,26 +70,26 @@ Ustaw następujące wartości w zmiennych środowiskowych:
 * `QNA_MAKER_SUBSCRIPTION_KEY` - **Klucz** jest ciągiem znaków 32 i jest dostępny w Azure Portal na QNA Maker zasobu na stronie szybkiego startu. Ta wartość nie jest taka sama jak klucz punktu końcowego przewidywania.
 * `QNA_MAKER_ENDPOINT` - **Punkt końcowy** to adres URL do tworzenia w formacie `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` . Nie jest to ten sam adres URL służący do wykonywania zapytań dotyczących punktu końcowego przewidywania.
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-26 "Add the required constants")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="constants":::
 
 ## <a name="add-the-kb-definition"></a>Dodawanie definicji bazy wiedzy
 
 Po dodaniu stałych dodaj następującą definicję bazy wiedzy:
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=28-58 "Add the knowledge base definition")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="kb":::
 
 ## <a name="add-supporting-functions-and-structures"></a>Dodawanie pomocniczych funkcji i struktur
 Dodaj następujący blok kodu wewnątrz klasy Program:
 
-[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=60-99 "Add supporting functions and structures")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="support":::
 
 ## <a name="add-a-post-request-to-create-kb"></a>Dodawanie żądania POST w celu utworzenia bazy wiedzy
 
 Poniższy kod umożliwia wysłanie żądania HTTPS do interfejsu API usługi QnA Maker w celu utworzenia bazy wiedzy oraz odebranie odpowiedzi:
 
-[!code-csharp[Add PostCreateKB to request via POST](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=145-165 "Add PostCreateKB to request via POST")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="post":::
 
-[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=101-122 "Add a POST request to create KB")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="post_create_kb":::
 
 To wywołanie interfejsu API zwraca odpowiedź w formacie JSON, która zawiera identyfikator operacji. Użyj tego identyfikatora operacji, aby określić, czy baza wiedzy została pomyślnie utworzona.
 
@@ -107,9 +107,9 @@ To wywołanie interfejsu API zwraca odpowiedź w formacie JSON, która zawiera i
 
 Sprawdź stan operacji.
 
-[!code-csharp[Add GetStatus to request via GET](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=167-187 "Add GetStatus to request via GET")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="get":::
 
-[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=124-143 "Add GET request to determine creation status")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="get_status":::
 
 To wywołanie interfejsu API zwraca odpowiedź w formacie JSON, która zawiera stan operacji:
 
@@ -140,13 +140,13 @@ Powtarzaj wywołanie do momentu uzyskania stanu powodzenia lub niepowodzenia:
 
 Poniższa metoda tworzy bazę wiedzy i powtarza sprawdzanie stanu.  **Identyfikator operacji** _tworzenia_ jest zwracany w **lokalizacji**pola nagłówka odpowiedzi post, a następnie używany jako część trasy w żądaniu get. Tworzenie bazy wiedzy może nieco potrwać, dlatego musisz powtarzać wywołania sprawdzenia stanu do czasu uzyskania stanu powodzenia lub niepowodzenia. Po pomyślnym zakończeniu operacji identyfikator bazy wiedzy jest zwracany w elemencie **resourceLocation**.
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=189-254 "Add CreateKB method")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="create_kb":::
 
 ## <a name="add-the-createkb-method-to-main"></a>Dodawanie metody CreateKB do metody Main
 
 Zmień metodę Main, aby wywołać metodę CreateKB:
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=256-265 "Add CreateKB method")]
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/QnAMaker/rest/create-kb.cs" id="main":::
 
 ## <a name="build-and-run-the-program"></a>Kompilowanie i uruchamianie programu
 

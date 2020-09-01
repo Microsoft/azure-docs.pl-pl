@@ -16,14 +16,16 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ead605462eeb92b31181ce9bba3100df521b471b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90b4680c725f3b5b7fcb6b988e52410c572b2cfa
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004426"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262411"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Kodowanie elementu zawartości za pomocą Media Encoder Standard przy użyciu platformy .NET  
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Kodowanie elementu zawartości za pomocą Media Encoder Standard przy użyciu platformy .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Zadania kodowania są jedną z najczęstszych operacji przetwarzania w Media Services. Tworzysz zadania kodowania, aby przekonwertować pliki multimedialne z jednego kodowania na inne. Podczas kodowania można użyć Media Services wbudowanego kodera multimediów. Można również użyć kodera dostarczonego przez partnera Media Services; kodery innych firm są dostępne w portalu Azure Marketplace. 
 
@@ -210,7 +212,7 @@ namespace MediaEncoderStandardSample
 ## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 [Jak wygenerować miniaturę przy użyciu Media Encoder Standard z platformą .NET](media-services-dotnet-generate-thumbnail-with-mes.md) 
  [Omówienie kodowania Media Services](media-services-encode-asset.md)
 

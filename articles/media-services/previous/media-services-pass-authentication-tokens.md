@@ -16,14 +16,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a15afcba26c8c8dcc8b023e57d05b04dfa5e3e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 498e6d9e38468b126dbe10e0d0f59f54f1816ff0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016720"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261045"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Dowiedz się, jak klienci przekazują tokeny do usługi dostarczania kluczy Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Klienci często pytają, jak gracz może przekazać tokeny do usługi dostarczania kluczy Azure Media Services w celu weryfikacji, aby odtwarzacz mógł uzyskać klucz. Media Services obsługuje formaty Simple Web token (SWT) i token sieci Web JSON (JWT). Uwierzytelnianie tokenu jest stosowane do dowolnego typu klucza, bez względu na to, czy w systemie jest używane szyfrowanie oparte na standardowym szyfrowaniu lub Advanced Encryption Standard (AES).
 
  W zależności od odtwarzacza i platformy docelowej można przekazać token z odtwarzaczem w następujący sposób:
@@ -55,6 +58,6 @@ Ta opcja jest używana tylko w przypadku pozyskiwania licencji PlayReady przy u�
 
 - Przy użyciu alternatywnej listy odtwarzania HTTP Live Streaming (HLS). W przypadku konieczności skonfigurowania uwierzytelniania tokenów na potrzeby odtwarzania AES + HLS w systemie iOS/Safari nie istnieje sposób, w jaki można wysłać bezpośrednio w tokenie. Aby uzyskać więcej informacji na temat sposobu zamiany listy odtwarzania w celu włączenia tego scenariusza, zobacz ten [wpis w blogu](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

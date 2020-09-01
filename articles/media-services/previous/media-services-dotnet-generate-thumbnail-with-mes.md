@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22a79f75fa795226e45e54947f410db4c2a57a7c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3988bbb46782f6dbc703823135f5bda4e2539bd8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020664"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262264"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET 
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Generowanie miniatur przy użyciu usługi Media Encoder Standard za pomocą platformy .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Za pomocą Media Encoder Standard można wygenerować jeden lub więcej miniatur z wejściowego filmu wideo w formatach plików obrazów [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics)lub [BMP](https://en.wikipedia.org/wiki/BMP_file_format) . Można przesłać zadania, które tworzą tylko obrazy, lub można połączyć Generowanie miniatur z kodowaniem. W tym artykule przedstawiono kilka przykładowych ustawień wstępnych miniatur XML i JSON dla takich scenariuszy. Na końcu tego artykułu znajduje się [przykładowy kod](#code_sample) , który pokazuje, jak używać zestawu SDK programu Media Services .NET do wykonywania zadań kodowania.
 
@@ -565,7 +567,7 @@ Obowiązują następujące zastrzeżenia:
   * Wartości domyślne: początek: {Najlepsza}
 * Format danych wyjściowych musi być jawnie podany dla każdego formatu obrazu: JPG/PNG/BmpFormat. Gdy jest obecny, MES pasuje do JpgVideo JpgFormat i tak dalej. OutputFormat wprowadza nowy obraz — specyficzne dla kodera-dekoder makro: {index}, które musi być obecne (raz i tylko raz) dla formatów danych wyjściowych obrazu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Postęp zadania](media-services-check-job-progress.md) można sprawdzić, gdy zadanie kodowania jest w stanie oczekiwania.
 

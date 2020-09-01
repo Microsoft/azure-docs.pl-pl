@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b47bba00b3eb09b643e3cc0d8f610557cc1f211
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9ab1adeac5f8c67e06682f49fdded88e6a350e7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000893"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262677"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Skonfiguruj zarządzane tożsamości dla zasobów platformy Azure w zestawie skalowania maszyn wirtualnych przy użyciu Azure Portal
 
@@ -37,7 +37,7 @@ W tym artykule, korzystając z programu PowerShell, dowiesz się, jak wykonywać
     > [!NOTE]
     > Nie są wymagane żadne dodatkowe przypisania ról w katalogu usługi Azure AD.
 
-    - [Współautor maszyny wirtualnej](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) w celu włączenia i usunięcia tożsamości zarządzanej przypisanej przez system z zestawu skalowania maszyn wirtualnych.
+    - [Współautor maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) w celu włączenia i usunięcia tożsamości zarządzanej przypisanej przez system z zestawu skalowania maszyn wirtualnych.
 
 ## <a name="system-assigned-managed-identity"></a>Tożsamość zarządzana przypisana przez system
 
@@ -102,6 +102,6 @@ Obecnie Azure Portal nie obsługuje przypisywania tożsamości zarządzanej przy
    ![Usuwanie tożsamości przypisanej przez użytkownika z VMSS](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Korzystając z Azure Portal, nadaj zestawowi skalowania maszyn wirtualnych platformy Azure [dostęp do tożsamości zarządzanej do innego zasobu platformy Azure](howto-assign-access-portal.md).

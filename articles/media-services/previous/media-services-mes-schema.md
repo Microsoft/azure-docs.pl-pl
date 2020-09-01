@@ -13,24 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 622f14beabb1f2f109dff5d28c1591ffdd5aa000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901450"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261516"
 ---
 # <a name="media-encoder-standard-schema"></a>Schemat usługi Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 W tym artykule opisano niektóre elementy i typy schematu XML, na których bazują [Ustawienia wstępne Media Encoder Standard](media-services-mes-presets-overview.md) . Artykuł zawiera wyjaśnienie elementów i ich prawidłowe wartości.  
 
-## <a name="preset-root-element"></a><a name="Preset"></a>Ustawienie wstępne (element główny)
+## <a name="preset-root-element"></a><a name="Preset"></a> Ustawienie wstępne (element główny)
 Definiuje ustawienie wstępne kodowania.  
 
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Element główny wskazuje, że źródła danych wejściowych są kodowane. |
+| **Kodowanie** |[Kodowanie](media-services-mes-schema.md#Encoding) |Element główny wskazuje, że źródła danych wejściowych są kodowane. |
 | **Dane wyjściowe** |[Dane wyjściowe](media-services-mes-schema.md#Output) |Kolekcja żądanych plików wyjściowych. |
 | **Rozciąganie**<br/>minOccurs = "0"<br/>wartość domyślna = "AutoSize|XS: ciąg|Kontrolowanie wyjściowego rozmiaru ramki wideo, dopełnienia, piksela lub wyświetlania współczynnika proporcji. Funkcja **rozciągamode** może być jedną z następujących wartości: **none**, **AutoSize** (default) lub **Autodopasowanie**.<br/><br/>**Brak**: ściśle postępuj zgodnie z rozdzielczością wyjściową (na przykład **Szerokość** i **wysokość** w ustawieniu wstępnym) bez uwzględnienia współczynnika proporcji pikseli lub współczynnika proporcji obrazu wejściowego. Zalecane w scenariuszach takich jak [przycinanie](media-services-crop-video.md), gdzie wyjściowe wideo ma inny współczynnik proporcji w porównaniu do danych wejściowych. <br/><br/>**Autodopasowanie rozmiaru**: Rozdzielczość wyjściowa będzie mieści się w oknie (szerokość * wysokość) określona przez ustawienie wstępne. Koder generuje jednak wyjściowy film wideo o współczynniku proporcji kwadratu (1:1). W związku z tym można zastąpić szerokość wyjściową lub wysokość wyjściową, aby dopasować współczynnik proporcji danych wejściowych bez wypełnienia. Na przykład, jeśli dane wejściowe to 1920 x 1080, a ustawienia wstępne kodowania pytają o 1280x1280, wartość Height w ustawieniu wstępnym jest zastępowana, a dane wyjściowe będą znajdować się w 1280x720, co zachowuje współczynnik proporcji danych 16:9. <br/><br/>**Autodopasowanie**: w razie potrzeby Uzupełnij wyjściowy film wideo (z letterbox lub pillarbox) w celu zagwarantowania pożądanej rozdzielczości wyjściowej, przy zapewnieniu, że aktywny region wideo w danych wyjściowych ma ten sam współczynnik proporcji co dane wejściowe. Załóżmy na przykład, że dane wejściowe to 1920 x 1080, a ustawienie wstępne kodowania monituje o 1280x1280. Następnie wyjściowy film wideo będzie miał wartość 1280x1280, ale będzie zawierać wewnętrzny prostokąt 1280x720 z "aktywnego wideo" z współczynnik proporcji 16:9 i letterbox regiony 280 pikseli na górze i u dołu. W innym przykładzie, jeśli dane wejściowe to 1440x1080, a dla ustawienia wstępnego kodowania zostanie wyświetlony monit o 1280x720, dane wyjściowe będą znajdować się na 1280x720, który zawiera wewnętrzny prostokąt 960x720 przy współczynniku proporcji 4:3, a słupki pola filaru 160 pikseli w lewo i w prawo. 
 
@@ -40,7 +43,7 @@ Definiuje ustawienie wstępne kodowania.
 | --- | --- | --- |
 | **Wersja**<br/><br/> Wymagane |**XS: decimal** |Wersja wstępna. Obowiązują następujące ograniczenia: xs: fractionDigits Value = "1" i xs: minInclusive Value = "1" na przykład, **Version = "1.0"**. |
 
-## <a name="encoding"></a><a name="Encoding"></a>Kody
+## <a name="encoding"></a><a name="Encoding"></a> Kody
 Zawiera sekwencję następujących elementów:  
 
 ### <a name="elements"></a>Elementy
@@ -53,7 +56,7 @@ Zawiera sekwencję następujących elementów:
 | **PngImage** |[PngImage](media-services-mes-schema.md#PngImage) |Ustawienia dla obrazu PNG. |
 | **JpgImage** |[JpgImage](media-services-mes-schema.md#JpgImage) |Ustawienia dla obrazu jpg. |
 
-## <a name="h264video"></a><a name="H264Video"></a>H264Video
+## <a name="h264video"></a><a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
@@ -71,7 +74,7 @@ Zawiera sekwencję następujących elementów:
 | --- | --- | --- |
 | **Warunek** |**XS: ciąg** | Gdy dane wejściowe nie zawierają wideo, możesz wymusić, aby koder mógł wstawić czarną ścieżkę wideo. W tym celu należy użyć warunku = "InsertBlackIfNoVideoBottomLayerOnly" (w celu wstawienia filmu wideo tylko o najmniejszej szybkości transmisji bitów) lub warunku = "InsertBlackIfNoVideo" (w celu wstawienia wideo na wszystkie szybkości transmisji bitów). Aby uzyskać więcej informacji, zobacz [ten](media-services-advanced-encoding-with-mes.md#no_video) artykuł.|
 
-## <a name="h264layers"></a><a name="H264Layers"></a>H264Layers
+## <a name="h264layers"></a><a name="H264Layers"></a> H264Layers
 
 Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dźwięk, a nie wideo, wyjściowy element zawartości zawiera tylko pliki z danymi audio. Niektóre odtwarzacze mogą nie być w stanie obsłużyć takich strumieni wyjściowych. Można użyć ustawienia atrybutu H264Video's **InsertBlackIfNoVideo** , aby wymusić, że koder dodaje ścieżkę wideo do danych wyjściowych w tym scenariuszu. Aby uzyskać więcej informacji, zobacz [ten](media-services-advanced-encoding-with-mes.md#no_video) artykuł.
               
@@ -81,7 +84,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs = "0" maxOccurs = "niepowiązane" |[H264Layer](media-services-mes-schema.md#H264Layer) |Kolekcja warstw wielokrotna H264. |
 
-## <a name="h264layer"></a><a name="H264Layer"></a>H264Layer
+## <a name="h264layer"></a><a name="H264Layer"></a> H264Layer
 > [!NOTE]
 > Limity wideo są oparte na wartościach opisanych w tabeli [poziomów wielokrotna H264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) .  
 > 
@@ -96,8 +99,8 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 | **Multimedia**<br/><br/> minOccurs = "0" |**XS: int** |Szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **MaxBitrate**<br/><br/> minOccurs = "0" |**XS: int** |Maksymalna szybkość transmisji bitów użyta dla tej warstwy wideo określona w KB/s. |
 | **BufferWindow**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "00:00:05" |**XS: godzina** |Długość buforu wideo. |
-| **impulsów**<br/><br/> minOccurs = "0" |**XS: int** |Szerokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby. |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** |Wysokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby.|
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** |Szerokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby. |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** |Wysokość wyjściowej ramki wideo (w pikselach).<br/><br/> Obecnie należy określić szerokość i wysokość. Szerokość i wysokość muszą być parzyste liczby.|
 | **BFrames**<br/><br/> minOccurs = "0" |**XS: int** |Liczba klatek między ramkami referencyjnymi. |
 | **ReferenceFrames**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "3" |**XS: int** |Liczba ramek odwołań w grupę GOP. |
 | **Entropia**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "CABAC" |**XS: ciąg** |Może to być jedna z następujących wartości: **CABAC** i **Cavlc**. |
@@ -105,7 +108,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 | **AdaptiveBFrame**<br/><br/> minOccurs = "0" |**XS: wartość logiczna** |Kopiowanie z usługi Azure Media Encoder |
 | **Wycinki**<br/><br/> minOccurs = "0"<br/><br/> wartość domyślna = "0" |**XS: int** |Określa liczbę wycinków, do których jest podzielona ramka. Zaleca się użycie domyślnego. |
 
-## <a name="aacaudio"></a><a name="AACAudio"></a>AACAudio
+## <a name="aacaudio"></a><a name="AACAudio"></a> AACAudio
  Zawiera sekwencję następujących elementów i grup.  
 
  Aby uzyskać więcej informacji na temat AAC, zobacz [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
@@ -128,7 +131,7 @@ Domyślnie, Jeśli wysyłasz dane wejściowe do kodera, który zawiera tylko dź
 | --- | --- |
 | [Audio](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs = "0" |Zobacz opis obiektu [audio](media-services-mes-schema.md#AudioGroup) , aby poznać odpowiednią liczbę kanałów, częstotliwość próbkowania i szybkość transmisji bitów, które można ustawić dla każdego profilu. |
 
-## <a name="audiogroup"></a><a name="AudioGroup"></a>Audio
+## <a name="audiogroup"></a><a name="AudioGroup"></a> Audio
 Aby uzyskać szczegółowe informacje o tym, jakie wartości są prawidłowe dla każdego profilu, zobacz poniższą tabelę "Szczegóły kodera audio".  
 
 ### <a name="elements"></a>Elementy
@@ -147,7 +150,7 @@ Koder-dekoder audio|Szczegóły
 **HEAACV1** |1.<br/><br/> -22050: szybkość transmisji bitów = 8<br/><br/> -24000:8 &lt; = szybkość transmisji bitów &lt; = 10<br/><br/> -32000:12 &lt; = szybkość transmisji bitów &lt; = 64<br/><br/> -44100:20 &lt; = szybkość transmisji bitów &lt; = 64<br/><br/> -48000:20 &lt; = szybkość transmisji bitów &lt; = 64<br/><br/> -88200: szybkość transmisji bitów = 64<br/><br/> 2.<br/><br/> -32000:16 &lt; = szybkość transmisji bitów &lt; = 128<br/><br/> -44100:16 &lt; = szybkość transmisji bitów &lt; = 128<br/><br/> -48000:16 &lt; = szybkość transmisji bitów &lt; = 128<br/><br/> -88200:96 &lt; = szybkość transmisji bitów &lt; = 128<br/><br/> -96000:96 &lt; = szybkość transmisji bitów &lt; = 128<br/><br/> 5/6:<br/><br/> -32000:64 &lt; = szybkość transmisji bitów &lt; = 320<br/><br/> -44100:64 &lt; = szybkość transmisji bitów &lt; = 320<br/><br/> -48000:64 &lt; = szybkość transmisji bitów &lt; = 320<br/><br/> -88200:256 &lt; = szybkość transmisji bitów &lt; = 320<br/><br/> -96000:256 &lt; = szybkość transmisji bitów &lt; = 320<br/><br/> 8.<br/><br/> -32000:96 &lt; = szybkość transmisji bitów &lt; = 448<br/><br/> -44100:96 &lt; = szybkość transmisji bitów &lt; = 448<br/><br/> -48000:96 &lt; = szybkość transmisji bitów &lt; = 448<br/><br/> -88200:384 &lt; = szybkość transmisji bitów &lt; = 448<br/><br/> -96000:384 &lt; = szybkość transmisji bitów &lt; = 448  
 **HEAACV2** |2.<br/><br/> -22050:8 &lt; = szybkość transmisji bitów &lt; = 10<br/><br/> -24000:8 &lt; = szybkość transmisji bitów &lt; = 10<br/><br/> -32000:12 &lt; = szybkość transmisji bitów &lt; = 64<br/><br/> -44100:20 &lt; = szybkość transmisji bitów &lt; = 64<br/><br/> -48000:20 &lt; = szybkość transmisji bitów &lt; = 64<br/><br/> -88200:64 &lt; = szybkość transmisji bitów &lt; = 64  
   
-## <a name="clip"></a><a name="Clip"></a>Obiekt
+## <a name="clip"></a><a name="Clip"></a> Obiekt
 ### <a name="attributes"></a>Atrybuty
 
 | Nazwa | Typ | Opis |
@@ -155,12 +158,12 @@ Koder-dekoder audio|Szczegóły
 | **Rozpoczęcia** |**XS: czas trwania** |Określa godzinę rozpoczęcia prezentacji. Wartość StartTime musi odpowiadać bezwzględnym znacznikom czasu wejściowego wideo. Na przykład, jeśli pierwsza klatka wejściowego filmu wideo ma sygnaturę czasową 12:00:10.000, wartość StartTime powinna wynosić co najmniej 12:00:10.000 lub większą. |
 | **Czas trwania** |**XS: czas trwania** |Określa czas trwania prezentacji (na przykład wygląd nakładki w filmie wideo). |
 
-## <a name="output"></a><a name="Output"></a>Rozdzielczości
+## <a name="output"></a><a name="Output"></a> Rozdzielczości
 ### <a name="attributes"></a>Atrybuty
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **Nazwa pliku** |**XS: ciąg** |Nazwa pliku wyjściowego.<br/><br/> Można użyć makr opisanych w poniższej tabeli, aby utworzyć nazwy plików wyjściowych. Przykład:<br/><br/> **"Dane wyjściowe": [{"FileName": "{basename}*{Solution}*{szybkość}. mp4", "format": {"Type": "MP4Format"}}]** |
+| **Nazwa pliku** |**XS: ciąg** |Nazwa pliku wyjściowego.<br/><br/> Można użyć makr opisanych w poniższej tabeli, aby utworzyć nazwy plików wyjściowych. Na przykład:<br/><br/> **"Dane wyjściowe": [{"FileName": "{basename}*{Solution}*{szybkość}. mp4", "format": {"Type": "MP4Format"}}]** |
 
 ### <a name="macros"></a>Makra
 
@@ -175,7 +178,7 @@ Koder-dekoder audio|Szczegóły
 | **Rozszerzenia** |Dziedziczy po właściwości "Type" pliku wyjściowego. Nazwa pliku wyjściowego ma rozszerzenie, które jest jednym z: "MP4", "TS", "jpg", "png" lub "BMP". |
 | **Indeks** |Obowiązkowe dla miniatury. Powinien być obecny tylko raz. |
 
-## <a name="video-complex-type-inherits-from-codec"></a><a name="Video"></a>Wideo (typ złożony dziedziczy po koderze-dekoder)
+## <a name="video-complex-type-inherits-from-codec"></a><a name="Video"></a> Wideo (typ złożony dziedziczy po koderze-dekoder)
 ### <a name="attributes"></a>Atrybuty
 
 | Nazwa | Typ | Opis |
@@ -185,7 +188,7 @@ Koder-dekoder audio|Szczegóły
 | **Zakresu** |**XS: ciąg** | |
 | **PreserveResolutionAfterRotation** |**XS: wartość logiczna** |Szczegółowe wyjaśnienie można znaleźć w następującej sekcji: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
-### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a>PreserveResolutionAfterRotation
+### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
 Zaleca się użycie flagi **PreserveResolutionAfterRotation** w połączeniu z wartościami rozdzielczości wyrażonymi w postaci wartości procentowych (width = "100%", Height = "100%").  
 
 Domyślnie ustawienia rozpoznawania kodowania (szerokość, wysokość) w ustawieniach wstępnych Media Encoder Standard (MES) są stosowane do filmów wideo z rotacją 0 stopni. Na przykład, jeśli wejściowy film wideo jest 1280x720 z rotacją zero stopni, domyślne ustawienia wstępne zapewniają, że dane wyjściowe mają takie samo rozwiązanie.  
@@ -200,7 +203,7 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
-## <a name="formatgroup-group"></a><a name="FormatGroup"></a>Format grupy (Grupa)
+## <a name="formatgroup-group"></a><a name="FormatGroup"></a> Format grupy (Grupa)
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
@@ -209,13 +212,13 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 | **PngFormat** |**PngFormat** | |
 | **JpgFormat** |**JpgFormat** | |
 
-## <a name="bmplayer"></a><a name="BmpLayer"></a>BmpLayer
+## <a name="bmplayer"></a><a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Element
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **impulsów**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -223,13 +226,13 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 | --- | --- | --- |
 | **Warunek** |**XS: ciąg** | |
 
-## <a name="pnglayer"></a><a name="PngLayer"></a>PngLayer
+## <a name="pnglayer"></a><a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Element
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **impulsów**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Atrybuty
 
@@ -237,13 +240,13 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 | --- | --- | --- |
 | **Warunek** |**XS: ciąg** | |
 
-## <a name="jpglayer"></a><a name="JpgLayer"></a>JpgLayer
+## <a name="jpglayer"></a><a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Element
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| **impulsów**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Proporcj**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Width**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Height**<br/><br/> minOccurs = "0" |**XS: int** | |
 | **Jakość**<br/><br/> minOccurs = "0" |**XS: int** |Prawidłowe wartości: 1 (najgorszy) — 100 (Najlepsza) |
 
 ### <a name="attributes"></a>Atrybuty
@@ -252,42 +255,42 @@ Alternatywnie można użyć flagi **PreserveResolutionAfterRotation** i ustawić
 | --- | --- | --- |
 | **Warunek** |**XS: ciąg** | |
 
-## <a name="pnglayers"></a><a name="PngLayers"></a>PngLayers
+## <a name="pnglayers"></a><a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs = "0" maxOccurs = "niepowiązane" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
-## <a name="bmplayers"></a><a name="BmpLayers"></a>BmpLayers
+## <a name="bmplayers"></a><a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs = "0" maxOccurs = "niepowiązane" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
-## <a name="jpglayers"></a><a name="JpgLayers"></a>JpgLayers
+## <a name="jpglayers"></a><a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs = "0" maxOccurs = "niepowiązane" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
-## <a name="bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a>BmpImage (typ złożony dziedziczy z wideo)
+## <a name="bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a> BmpImage (typ złożony dziedziczy z wideo)
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs = "0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Warstwy PNG |
 
-## <a name="jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a>JpgImage (typ złożony dziedziczy z wideo)
+## <a name="jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a> JpgImage (typ złożony dziedziczy z wideo)
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs = "0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Warstwy PNG |
 
-## <a name="pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a>PngImage (typ złożony dziedziczy z wideo)
+## <a name="pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a> PngImage (typ złożony dziedziczy z wideo)
 ### <a name="elements"></a>Elementy
 
 | Nazwa | Typ | Opis |

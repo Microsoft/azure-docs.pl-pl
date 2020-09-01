@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b9b234f0d701ae2ef269b53c3b3c0276ca31f7f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020613"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262124"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Opracowywanie Azure Functions z Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 W tym artykule pokazano, jak rozpocząć tworzenie Azure Functions korzystających z Media Services. Funkcja platformy Azure zdefiniowana w tym artykule monitoruje kontener konta magazynu o nazwie **Input** dla nowych plików MP4. Gdy plik zostanie usunięty do kontenera magazynu, wyzwalacz obiektu BLOB wykonuje funkcję. Aby zapoznać się z usługą Azure Functions, zobacz  [Omówienie](../../azure-functions/functions-overview.md) i inne tematy w sekcji **usługi Azure Functions** .
 
@@ -73,7 +75,7 @@ Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Az
 
 4. Kliknij przycisk **Utwórz**. 
 
-## <a name="files"></a>Files
+## <a name="files"></a>Pliki
 
 Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Gdy używasz Azure Portal do tworzenia funkcji, **function.json** i **Run. CSX** są tworzone dla Ciebie. Musisz dodać lub przekazać **project.js** pliku. Pozostała część tej sekcji zawiera krótkie wyjaśnienie poszczególnych plików i pokazuje ich definicje.
 
@@ -341,7 +343,7 @@ Aby przetestować funkcję, należy przekazać plik MP4 do kontenera **wejściow
 >[!NOTE]
 > W przypadku korzystania z wyzwalacza obiektu BLOB w planie zużycia może wystąpić maksymalnie 10 minut opóźnienia w przetwarzaniu nowych obiektów BLOB po przejściu aplikacji funkcji do trybu bezczynności. Po uruchomieniu aplikacji funkcji obiekty blob są przetwarzane natychmiast. Aby uzyskać więcej informacji, zobacz [wyzwalacze i powiązania usługi BLOB Storage](../../azure-functions/functions-bindings-storage-blob.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz możesz rozpocząć tworzenie aplikacji Media Services. 
  

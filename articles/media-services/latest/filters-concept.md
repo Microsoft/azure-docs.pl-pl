@@ -3,7 +3,7 @@ title: Definiowanie filtrów w Azure Media Services
 description: W tym temacie opisano sposób tworzenia filtrów, aby klient mógł używać ich do przesyłania strumieniowego określonych sekcji strumienia. Media Services tworzy dynamiczne manifesty do osiągnięcia tego selektywnego przesyłania strumieniowego.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/23/2019
-ms.author: juliako
-ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8cc3bc176798efda46f03c80fe9cce2edd7daf6b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023232"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262638"
 ---
 # <a name="filters"></a>Filtry
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Podczas dostarczania zawartości do klientów (zdarzeń przesyłania strumieniowego na żywo lub wideo na żądanie) klient może potrzebować większej elastyczności niż to, co opisano w pliku manifestu domyślnego elementu zawartości. Azure Media Services oferuje [dynamiczne manifesty](filters-dynamic-manifest-overview.md) na podstawie wstępnie zdefiniowanych filtrów. 
 

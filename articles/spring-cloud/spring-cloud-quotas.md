@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cda22c63a70c5121e6a6972c66bdc0a4bb5158fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d47311385848f96a12a50c1dcf8b8284869c71d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089468"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260360"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Limity przydziału i plany usług dla chmury wiosennej platformy Azure
 
@@ -27,9 +27,6 @@ Pamięć | 2 GB na wystąpienie usługi | 8 GB na wystąpienie usługi
 Wystąpienia usługi w chmurze ze sprężyną na platformie Azure na region na subskrypcję | 10 | 10
 Łączna liczba wystąpień aplikacji na usługę Azure sprężynowego wystąpienia usługi w chmurze | 25 | 500
 Trwałe woluminy | 1 GB/aplikacje dla aplikacji x 10 | 50 GB/aplikacje aplikacji x 10
-
-
-W trakcie okresu zapoznawczego chmura Wiosenna platformy Azure oferuje tylko jedną warstwę usług. Po osiągnięciu limitu zostanie wyświetlony komunikat o błędzie 400: "Przekroczono limit przydziału *subskrypcji w* regionie regionu, w *którym jest tworzona usługa w chmurze platformy Azure*.
 
 ## <a name="next-steps"></a>Następne kroki
 

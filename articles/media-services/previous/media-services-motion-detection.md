@@ -15,14 +15,16 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17b325ab15f55a8fc02729c6f5ed0cb0330ecca2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5e9a978cd96da47e91434c7146eb3e258d77d8ee
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016839"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261346"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Wykrywaj ruchy przy użyciu Azure Media Analytics
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Procesor multimediów **Azure Media Motion Detector** zostanie wycofany. Aby uzyskać datę wycofania, zobacz temat [starsze składniki](legacy-components.md) .
@@ -46,7 +48,7 @@ Podczas tworzenia zadania z **Azure Media Motion Detector**należy określić us
 ### <a name="parameters"></a>Parametry
 Można użyć następujących parametrów:
 
-| Nazwa | Opcje | Opis | Domyślny |
+| Nazwa | Opcje | Opis | Domyślne |
 | --- | --- | --- | --- |
 | sensitivityLevel |Ciąg: "Low", "medium", "High" |Ustawia poziom czułości, przy którym są raportowane ruchy. Dostosuj ten sposób, aby dopasować liczbę fałszywie dodatnich. |średniookresow |
 | frameSamplingValue |Dodatnia liczba całkowita |Ustawia częstotliwość uruchamiania algorytmu. 1 równa się każdej klatce, 2 oznacza każdą klatkę i tak dalej. |1 |
