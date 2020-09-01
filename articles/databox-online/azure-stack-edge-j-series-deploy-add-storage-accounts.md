@@ -1,6 +1,6 @@
 ---
-title: Samouczek dotyczący transferu danych do konta magazynu za pomocą Azure Stack Edge | Microsoft Docs
-description: Dowiedz się, jak dodawać konta magazynu i łączyć się z nimi na urządzeniu Azure Stack Edge.
+title: Samouczek dotyczący transferu danych do konta magazynu za pomocą Azure Stack Edge GPU | Microsoft Docs
+description: Dowiedz się, jak dodawać konta magazynu i łączyć się z nimi na urządzeniu z systemem Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5e22a04dc8d60a472809bdd3c5f79ad3de6f929c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7289498516664228e569d821032eeefeb6c65be4
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087789"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146253"
 ---
-# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge"></a>Samouczek: przesyłanie danych za pomocą kont magazynu z Azure Stack Edge
+# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge"></a>Samouczek: przesyłanie danych za pomocą kont magazynu z Azure Stack Edge 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

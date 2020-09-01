@@ -3,12 +3,12 @@ title: Tworzenie puli z określonymi publicznymi adresami IP
 description: Dowiedz się, jak utworzyć pulę wsadową korzystającą z własnych publicznych adresów IP.
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.openlocfilehash: 630da3ff9c1f2318c7ed4da0e8f4b5ee8212f389
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 158facaf1fd5052c3626f065a69bfbd134ca4c3e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023759"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146491"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Utwórz pulę Azure Batch z określonymi publicznymi adresami IP
 
@@ -24,7 +24,7 @@ Aby uzyskać informacje na temat tworzenia pul bez publicznych adresów IP, prze
 
 - **Sieć wirtualna platformy Azure**. Musisz użyć [sieci wirtualnej](batch-virtual-network.md) z tej samej subskrypcji platformy Azure, w której tworzysz pulę i adresy IP. Można używać tylko sieci wirtualnych opartych na Azure Resource Manager. Upewnij się, że sieć wirtualna spełnia wszystkie [Ogólne wymagania](batch-virtual-network.md#vnet-requirements).
 
-- **Co najmniej jeden publiczny adres IP platformy Azure**. Aby utworzyć co najmniej jeden publiczny adres IP, możesz użyć [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [interfejsu wiersza polecenia platformy Azure](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)lub [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Pamiętaj, aby postępować zgodnie z wymaganiami wymienionymi poniżej.
+- **Co najmniej jeden publiczny adres IP platformy Azure**. Aby utworzyć co najmniej jeden publiczny adres IP, możesz użyć [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [interfejsu wiersza polecenia platformy Azure](/cli/azure/network/public-ip#az-network-public-ip-create)lub [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Pamiętaj, aby postępować zgodnie z wymaganiami wymienionymi poniżej.
 
 > [!NOTE]
 > Funkcja Batch automatycznie przydziela dodatkowe zasoby sieciowe do grupy zasobów zawierającej publiczne adresy IP. W przypadku każdego dedykowanego węzła 100 usługa Batch zazwyczaj przydziela jedną siećową grupę zabezpieczeń (sieciowej grupy zabezpieczeń) i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez przydziały zasobów subskrypcji. W przypadku korzystania z większych pul może być konieczne [zażądanie zwiększenia limitu przydziału](batch-quota-limit.md#increase-a-quota) dla co najmniej jednego z tych zasobów.

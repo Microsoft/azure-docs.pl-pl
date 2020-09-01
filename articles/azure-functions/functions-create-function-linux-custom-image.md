@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: e5b7211ffc72c4752008f36ebb266373c919025b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f068f91a104c15099809343438cc925fb8856248
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076025"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146865"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -81,17 +81,19 @@ W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usł
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 # <a name="cmd"></a>[Cmd](#tab/cmd)
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 ---
+
+`-DjavaVersion`Parametr informuje środowisko uruchomieniowe funkcji, którego wersja języka Java ma używać. Użyj, `-DjavaVersion=11` Jeśli chcesz, aby działały na platformie Java 11, która jest w wersji zapoznawczej. Jeśli nie określisz `-DjavaVersion` , Maven domyślnie Java 8. Aby uzyskać więcej informacji, zobacz [wersje Java](functions-reference-java.md#java-versions).
 
 Maven prosi o podanie wartości, które są potrzebne, aby zakończyć Generowanie projektu przy wdrożeniu.   
 Po wyświetleniu monitu podaj następujące wartości:
@@ -106,8 +108,6 @@ Po wyświetleniu monitu podaj następujące wartości:
 Wpisz `Y` lub naciśnij klawisz ENTER, aby potwierdzić.
 
 Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions` . 
-
-Aby uruchomić program Java 11 na platformie Azure, należy zmodyfikować wartości w pliku pom.xml. Aby dowiedzieć się więcej, zobacz [wersje Java](functions-reference-java.md#java-versions).
 ::: zone-end
 `--docker`Opcja generuje `Dockerfile` dla projektu, który definiuje odpowiedni kontener niestandardowy do użycia z Azure Functions i wybranym środowiskiem uruchomieniowym.
 
@@ -159,14 +159,6 @@ Użyj **klawisza Ctrl** - **C** , aby zatrzymać hosta.
 ## <a name="build-the-container-image-and-test-locally"></a>Kompiluj obraz kontenera i przetestuj go lokalnie
 
 Obowiązkowe Zapoznaj się z *pliku dockerfile* w folderze głównym folderu projektu. Pliku dockerfile opisuje środowisko wymagane do uruchomienia aplikacji funkcji w systemie Linux.  Pełną listę obsługiwanych obrazów podstawowych dla Azure Functions można znaleźć na [stronie Azure Functions Image Base](https://hub.docker.com/_/microsoft-azure-functions-base).
-
-::: zone pivot="programming-language-java"  
-Jeśli używasz programu Java 11 (wersja zapoznawcza), Zmień `JAVA_VERSION` argument Build w wygenerowanym pliku dockerfile na następujący: 
-
-```docker
-ARG JAVA_VERSION=11
-```
-::: zone-end
     
 W folderze głównym projektu uruchom polecenie [Docker Build](https://docs.docker.com/engine/reference/commandline/build/) i podaj nazwę, `azurefunctionsimage` i tag `v1.0.0` . Zastąp ciąg `<DOCKER_ID>` identyfikatorem konta usługi Docker Hub. To polecenie powoduje skompilowanie obrazu platformy Docker dla kontenera.
 
@@ -311,17 +303,17 @@ W przypadku obrazu wdrożonego w aplikacji funkcji na platformie Azure można te
 
     1. W lewym panelu nawigacyjnym wybierz pozycję **funkcje**, a następnie wybierz funkcję, którą chcesz zweryfikować.
 
-        ![Polecenie Pobierz adres URL funkcji na Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+        ![Wybierz funkcję w Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
     1. Wybierz pozycję **Pobierz adres URL funkcji**.
 
-        ![Polecenie Pobierz adres URL funkcji na Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+        ![Pobierz adres URL funkcji z Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
     
     1. W oknie podręcznym wybierz pozycję **domyślne (klawisz funkcji)** , a następnie skopiuj adres URL do Schowka. Klucz jest ciągiem znaków poniżej `?code=` .
 
-        ![Polecenie Pobierz adres URL funkcji na Azure Portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+        ![Wybierz domyślny klucz dostępu do funkcji](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
 
 
     > [!NOTE]  

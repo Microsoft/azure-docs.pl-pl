@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8a0853d4a863f6b7677f665513bdac9ca8e6b673
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853402"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144111"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python (wersja zapoznawcza)
 
@@ -73,8 +73,8 @@ Poniższy przykład pokazuje, jak używać pakietu interpretera na komputerze os
    * Aby ułatwić wyjaśnienie i wizualizacje więcej informacji, możesz wybrać opcję przekazywania nazw funkcji i nazw klas wyjściowych w przypadku klasyfikacji.
 
    Poniższe bloki kodu pokazują, jak utworzyć wystąpienie obiektu wyjaśniającego z `TabularExplainer` , `MimicExplainer` i `PFIExplainer` lokalnie.
-   * `TabularExplainer`wywołuje jeden z trzech objaśnień kształtu poniżej ( `TreeExplainer` , `DeepExplainer` , lub `KernelExplainer` ).
-   * `TabularExplainer`automatycznie wybiera najbardziej odpowiedni dla przypadku użycia, ale można wywoływać każdego z trzech podstawowych objaśnień bezpośrednio.
+   * `TabularExplainer` wywołuje jeden z trzech objaśnień kształtu poniżej ( `TreeExplainer` , `DeepExplainer` , lub `KernelExplainer` ).
+   * `TabularExplainer` automatycznie wybiera najbardziej odpowiedni dla przypadku użycia, ale można wywoływać każdego z trzech podstawowych objaśnień bezpośrednio.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -147,7 +147,7 @@ global_explanation.get_feature_importance_dict()
 ### <a name="explain-an-individual-prediction-local-explanation"></a>Wyjaśnij pojedyncze prognozowanie (lokalne wyjaśnienie)
 Pobierz wartości ważności poszczególnych funkcji różnych punktów, wywołując wyjaśnienia dla pojedynczego wystąpienia lub grupy wystąpień.
 > [!NOTE]
-> `PFIExplainer`nie obsługuje lokalnych objaśnień.
+> `PFIExplainer` nie obsługuje lokalnych objaśnień.
 
 ```python
 # get explanation for the first data point in the test set
@@ -275,7 +275,7 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` Aby w
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Skonfiguruj Azure Machine Learning obliczenia jako element docelowy obliczeń i prześlij swój przebieg szkoleniowy. Instrukcje można znaleźć w temacie [Konfigurowanie obiektów docelowych obliczeń dla szkolenia modeli](how-to-set-up-training-targets.md#amlcompute) . Przydatne może być również znalezienie [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) .
+1. Skonfiguruj Azure Machine Learning obliczenia jako element docelowy obliczeń i prześlij swój przebieg szkoleniowy. Aby uzyskać instrukcje, zobacz [Tworzenie obiektów docelowych obliczeń za pomocą zestawu SDK języka Python](how-to-create-attach-compute-sdk.md#amlcompute) . Przydatne może być również znalezienie [przykładowych notesów](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) .
 
 1. Pobierz wyjaśnienie w lokalnym notesie Jupyter.
 

@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191804"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146542"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -29,12 +29,12 @@ W tym artykule omówiono zbiór najlepszych rozwiązań związanych z wydajnym i
     Nie ma gwarancji, że poszczególne węzły są zawsze dostępne. Nietypowe błędy sprzętowe, aktualizacje systemu operacyjnego i hosta innych problemów mogą spowodować, że poszczególne węzły przestaną być w trybie offline. Jeśli obciążenie wsadowe wymaga deterministycznego, gwarantowanego postępu, należy przydzielić pule z wieloma węzłami.
 
 - **Nie należy ponownie używać nazw zasobów.**
-    Zasoby wsadowe (zadania, pule itp.) często zaczynają się i są dostępne w czasie. Można na przykład utworzyć pulę w poniedziałek, usunąć ją we wtorek, a następnie utworzyć kolejną pulę w czwartek. Każdy nowy tworzony zasób powinien mieć unikatową nazwę, która nie została wcześniej użyta. Można to zrobić przy użyciu identyfikatora GUID (jako całej nazwy zasobu lub jego części) lub osadzania czasu utworzenia zasobu w nazwie zasobu. Funkcja Batch obsługuje [Właściwość DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), która może być używana do nadawania zasobowi czytelnej nazwy, nawet jeśli rzeczywisty identyfikator zasobu to coś, co nie jest przyjazne dla człowieka. Używanie unikatowych nazw ułatwia odróżnienie określonego zasobu w dziennikach i metrykach. Powoduje również usunięcie niejednoznaczności, jeśli kiedykolwiek trzeba było korzystać z pomocy technicznej dla zasobu.
+    Zasoby wsadowe (zadania, pule itp.) często zaczynają się i są dostępne w czasie. Można na przykład utworzyć pulę w poniedziałek, usunąć ją we wtorek, a następnie utworzyć kolejną pulę w czwartek. Każdy nowy tworzony zasób powinien mieć unikatową nazwę, która nie została wcześniej użyta. Można to zrobić przy użyciu identyfikatora GUID (jako całej nazwy zasobu lub jego części) lub osadzania czasu utworzenia zasobu w nazwie zasobu. Funkcja Batch obsługuje [Właściwość DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), która może być używana do nadawania zasobowi czytelnej nazwy, nawet jeśli rzeczywisty identyfikator zasobu to coś, co nie jest przyjazne dla człowieka. Używanie unikatowych nazw ułatwia odróżnienie określonego zasobu w dziennikach i metrykach. Powoduje również usunięcie niejednoznaczności, jeśli kiedykolwiek trzeba było korzystać z pomocy technicznej dla zasobu.
 
 - **Ciągłość podczas konserwacji i niepowodzenia puli.**
     Najlepszym rozwiązaniem jest dynamiczne korzystanie z pul przez zadania. Jeśli zadania korzystają z tej samej puli dla wszystkich elementów, istnieje możliwość, że zadania nie będą działać, jeśli coś się nie dzieje z pulą. Jest to szczególnie ważne w przypadku obciążeń zależnych od czasu. Aby rozwiązać ten problem, wybierz lub Utwórz pulę dynamicznie przy zaplanowaniu każdego zadania lub aby zastąpić nazwę puli, aby można było ominąć pulę w złej kondycji.
 
-- **Ciągłość działania podczas konserwacji i niepowodzenia puli** Istnieje wiele możliwych przyczyn, które mogą uniemożliwić zwiększenie ilości puli do wymaganego rozmiaru, takiego jak błędy wewnętrzne, ograniczenia pojemności itd. Z tego powodu należy być gotowy do przekierowania zadań w innej puli (prawdopodobnie z innym rozmiarem maszyny wirtualnej — partia ta obsługuje tę funkcję za pośrednictwem [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)), w razie potrzeby. Należy unikać używania identyfikatora puli statycznej z oczekiwaniami, który nigdy nie zostanie usunięty, i nigdy nie ulegnie zmianie.
+- **Ciągłość działania podczas konserwacji i niepowodzenia puli** Istnieje wiele możliwych przyczyn, które mogą uniemożliwić zwiększenie ilości puli do wymaganego rozmiaru, takiego jak błędy wewnętrzne, ograniczenia pojemności itd. Z tego powodu należy być gotowy do przekierowania zadań w innej puli (prawdopodobnie z innym rozmiarem maszyny wirtualnej — partia ta obsługuje tę funkcję za pośrednictwem [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)), w razie potrzeby. Należy unikać używania identyfikatora puli statycznej z oczekiwaniami, który nigdy nie zostanie usunięty, i nigdy nie ulegnie zmianie.
 
 ### <a name="pool-lifetime-and-billing"></a>Okres istnienia puli i rozliczenia
 
@@ -63,7 +63,7 @@ Podczas tworzenia puli Azure Batch przy użyciu konfiguracji maszyny wirtualnej 
 
 ### <a name="third-party-images"></a>Obrazy innych firm
 
-Pule można tworzyć przy użyciu obrazów innych firm opublikowanych w portalu Azure Marketplace. Przy użyciu kont usługi Batch w trybie subskrypcji użytkownika może zostać wyświetlony komunikat o błędzie "Alokacja nie powiodła się z powodu sprawdzania uprawnień do zakupu w witrynie Marketplace" podczas tworzenia puli z niektórymi obrazami innych firm. Aby rozwiązać ten problem, zaakceptuj warunki określone przez wydawcę obrazu. Można to zrobić za pomocą [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
+Pule można tworzyć przy użyciu obrazów innych firm opublikowanych w portalu Azure Marketplace. Przy użyciu kont usługi Batch w trybie subskrypcji użytkownika może zostać wyświetlony komunikat o błędzie "Alokacja nie powiodła się z powodu sprawdzania uprawnień do zakupu w witrynie Marketplace" podczas tworzenia puli z niektórymi obrazami innych firm. Aby rozwiązać ten problem, zaakceptuj warunki określone przez wydawcę obrazu. Można to zrobić za pomocą [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Zależność regionu platformy Azure
 
@@ -83,7 +83,7 @@ W związku z tym upewnij się, że nie zaprojektowano rozwiązania usługi Batch
 
 Zadanie usługi Batch ma czas nieokreślony, dopóki nie zostanie usunięty z systemu. Jego stan określa, czy może akceptować więcej zadań związanych z planowaniem, czy nie.
 
-Zadanie nie przejdzie automatycznie do stanu ukończenia, chyba że zostanie jawnie zakończone. Może to być automatycznie wyzwalane za pomocą właściwości [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) lub [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
+Zadanie nie przejdzie automatycznie do stanu ukończenia, chyba że zostanie jawnie zakończone. Może to być automatycznie wyzwalane za pomocą właściwości [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) lub [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
 
 Istnieje domyślny [limit przydziału aktywnego zadania i harmonogramu zadań](batch-quota-limit.md#resource-quotas). Zadania i harmonogramy zadań w stanie ukończone nie są wliczane do tego przydziału.
 
@@ -99,7 +99,7 @@ Usługa Batch została zintegrowana z obsługą usługi Azure Storage w celu prz
 
 ### <a name="manage-task-lifetime"></a>Zarządzanie okresem istnienia zadania
 
-Usuń zadania, gdy nie są już potrzebne, lub ustaw ograniczenie zadania [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Jeśli `retentionTime` jest ustawiona, program Batch automatycznie czyści miejsce na dysku używane przez zadanie po `retentionTime` wygaśnięciu.
+Usuń zadania, gdy nie są już potrzebne, lub ustaw ograniczenie zadania [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime) . Jeśli `retentionTime` jest ustawiona, program Batch automatycznie czyści miejsce na dysku używane przez zadanie po `retentionTime` wygaśnięciu.
 
 Usuwanie zadań ma dwie rzeczy. Gwarantuje to, że nie masz kompilacji zadań w zadaniu, co może utrudnić wykonanie zapytania/znalezienie żądanego zadania (ponieważ należy przefiltrować zakończone zadania). Czyści również odpowiednie dane zadania w węźle (dostarczony `retentionTime` nie został jeszcze trafiony). Pozwala to zagwarantować, że węzły nie wypełniają danych zadania i nie zabraknie miejsca na dysku.
 
@@ -113,7 +113,7 @@ Zadanie wsadowe obsługuje zadania związane z subskrypcją w węzłach (wykonyw
 
 ### <a name="design-for-retries-and-re-execution"></a>Projektowanie na potrzeby ponownych prób i ponownego wykonywania
 
-Zadania mogą być automatycznie ponawiane przez partię. Istnieją dwa typy ponownych prób: sterowane przez użytkownika i wewnętrzne. Ponowne próby sterowane przez użytkownika są określane przez [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)zadania. Gdy program określony w zadaniu zostanie zakończony z kodem zakończenia innym niż zero, zadanie zostanie ponowione w celu uzyskania wartości `maxTaskRetryCount` .
+Zadania mogą być automatycznie ponawiane przez partię. Istnieją dwa typy ponownych prób: sterowane przez użytkownika i wewnętrzne. Ponowne próby sterowane przez użytkownika są określane przez [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount)zadania. Gdy program określony w zadaniu zostanie zakończony z kodem zakończenia innym niż zero, zadanie zostanie ponowione w celu uzyskania wartości `maxTaskRetryCount` .
 
 Chociaż rzadko, zadanie może być ponawiane wewnętrznie ze względu na błędy w węźle obliczeniowym, na przykład nie można zaktualizować stanu wewnętrznego lub awarii w węźle, gdy zadanie jest uruchomione. Zadanie zostanie ponowione w tym samym węźle obliczeniowym, jeśli jest to możliwe, do wewnętrznego limitu przed zapisaniem zadania i oddanie zadania do ponownego zaplanowania przez partię, potencjalnie w innym węźle obliczeniowym.
 
@@ -192,7 +192,7 @@ Jeśli żądania odbierają odpowiedzi HTTP na poziomie 5xx i istnieje nagłówe
 
 ### <a name="retry-requests-automatically"></a>Automatycznie ponów żądania
 
-Upewnij się, że klienci usługi Batch mają odpowiednie zasady ponawiania prób w celu automatycznego ponowienia żądań, nawet w trakcie normalnej operacji, a nie wyłącznie w okresach czasu konserwacji usługi. Te zasady ponawiania powinny obejmować interwał wynoszący co najmniej 5 minut. Funkcje automatycznego ponawiania prób są dostarczane z różnymi zestawami SDK partii, takimi jak [Klasa .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Upewnij się, że klienci usługi Batch mają odpowiednie zasady ponawiania prób w celu automatycznego ponowienia żądań, nawet w trakcie normalnej operacji, a nie wyłącznie w okresach czasu konserwacji usługi. Te zasady ponawiania powinny obejmować interwał wynoszący co najmniej 5 minut. Funkcje automatycznego ponawiania prób są dostarczane z różnymi zestawami SDK partii, takimi jak [Klasa .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider).
 
 ### <a name="static-public-ip-addresses"></a>Statyczne publiczne adresy IP
 

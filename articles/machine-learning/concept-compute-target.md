@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141929"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146740"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning? 
 
@@ -27,13 +27,13 @@ W typowym cyklu projektowania modelu można:
 
 Zasoby obliczeniowe używane dla obiektów docelowych obliczeń są dołączone do [obszaru roboczego](concept-workspace.md). Zasoby obliczeniowe inne niż maszyna lokalna są współużytkowane przez użytkowników obszaru roboczego.
 
-## <a name="training-compute-targets"></a><a name="train"></a>Szkoleniowe cele obliczeniowe
+## <a name="training-compute-targets"></a><a name="train"></a> Szkoleniowe cele obliczeniowe
 
 Azure Machine Learning ma różne wsparcie dla różnych zasobów obliczeniowych.  Możesz również dołączyć własny zasób obliczeniowy, chociaż obsługa różnych scenariuszy może się różnić.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Dowiedz się więcej o [konfigurowaniu elementu docelowego obliczeń i korzystaniu z niego do uczenia modelu](how-to-set-up-training-targets.md).
+Dowiedz się więcej o [korzystaniu z elementu docelowego obliczeń do uczenia modelu](how-to-set-up-training-targets.md).
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>Cele wdrożenia
 
@@ -46,11 +46,11 @@ Dowiedz się [, gdzie i jak wdrożyć model w miejscu docelowym obliczeń](how-t
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning COMPUTE (zarządzane)
 
-Zarządzany zasób obliczeniowy jest tworzony i zarządzany przez Azure Machine Learning. To obliczenie jest zoptymalizowane pod kątem obciążeń uczenia maszynowego. Azure Machine Learning klastrami obliczeniowymi i [wystąpieniami obliczeniowymi](concept-compute-instance.md) są jedyne zarządzane obliczenia. W przyszłości mogą zostać dodane dodatkowe zarządzane zasoby obliczeniowe.
+Zarządzany zasób obliczeniowy jest tworzony i zarządzany przez Azure Machine Learning. To obliczenie jest zoptymalizowane pod kątem obciążeń uczenia maszynowego. Azure Machine Learning klastrami obliczeniowymi i [wystąpieniami obliczeniowymi](concept-compute-instance.md) są jedyne zarządzane obliczenia. 
 
 Można tworzyć Azure Machine Learning wystąpienia obliczeniowe lub Klastry obliczeniowe z:
-* Studio uczenia maszynowego Azure
-* Witryna Azure Portal
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+* Azure Portal
 * Klasy [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) i [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) zestawu SDK języka Python
 * [Zestaw SDK języka R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (wersja zapoznawcza)
 * Szablon Menedżer zasobów. Aby zapoznać się z przykładowym szablonem, zobacz [create Azure Machine Learning COMPUTE Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
@@ -68,7 +68,7 @@ Po utworzeniu te zasoby obliczeniowe są automatycznie częścią obszaru robocz
 
 
 > [!NOTE]
-> Gdy klaster obliczeniowy jest bezczynny, automatycznie skaluje się do 0 węzłów, więc nie płacisz, gdy nie jest używany.  Jednak *wystąpienie*obliczeniowe jest zawsze włączone i nie Skalowanie automatyczne.  [Wystąpienie obliczeniowe należy zatrzymać,](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) gdy nie jest używane, aby uniknąć dodatkowych kosztów.
+> Gdy klaster obliczeniowy jest bezczynny, automatycznie skaluje się do 0 węzłów, więc nie płacisz, gdy nie jest używany.  Jednak *wystąpienie*obliczeniowe jest zawsze włączone i nie Skalowanie automatyczne.  [Wystąpienie obliczeniowe należy zatrzymać,](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) gdy nie jest używane, aby uniknąć dodatkowych kosztów. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Obsługiwane serie maszyn wirtualnych i rozmiary
 
@@ -107,5 +107,5 @@ Niezarządzany cel obliczeń *nie* jest zarządzany przez Azure Machine Learning
 ## <a name="next-steps"></a>Następne kroki
 
 Instrukcje:
-* [Skonfiguruj cel obliczeń do uczenia modelu](how-to-set-up-training-targets.md)
+* [Używanie elementu docelowego obliczeń do uczenia modelu](how-to-set-up-training-targets.md)
 * [Wdrażanie modelu w obiekcie docelowym obliczeń](how-to-deploy-and-where.md)

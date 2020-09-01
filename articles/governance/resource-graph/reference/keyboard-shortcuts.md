@@ -4,12 +4,12 @@ description: Eksplorator wykresów zasobów platformy Azure w Azure Portal obsł
 ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: f5995498f2b95828a7c03dbcd5669491e62de2e7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848912"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146440"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Skróty klawiaturowe dla Eksploratora Azure Resource Graph
 
@@ -22,7 +22,6 @@ W tym artykule przedstawiono skróty klawiaturowe, które działają na stronie 
 |Skomentuj/Usuń komentarz |<kbd>PRZYTRZYMAJ</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Zmniejsz wcięcie |<kbd>Ctrl</kbd> + <kbd>[</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>[</kbd> |
 |Zwiększ wcięcie |<kbd>Ctrl</kbd> + <kbd>]</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>]</kbd> |
-|Zaznacz wszystko |<kbd>Ctrl</kbd> + <kbd>A</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>A</kbd> |
 |Przesuń wiersz w dół |<kbd>Alt</kbd> + <kbd>↓</kbd> |<kbd>Opcja</kbd> + <kbd>↓</kbd> |
 |Przesuń wiersz w górę |<kbd>Alt</kbd> + <kbd>↑</kbd> |<kbd>Opcja</kbd> + <kbd>↑</kbd> |
 |Zamień |<kbd>Ctrl</kbd> + <kbd>F</kbd> |<kbd>Polecenie cmd</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd> |

@@ -4,12 +4,12 @@ description: Dowiedz się, jak przetwarzać obciążenia równoległe obliczenio
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: c4dd74a3f2b27680de81c6295f1f27fbcdac16c9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6cd8a13d67c1ce169e6c9300f7ee017fd3a59d96
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919441"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146338"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Inicjowanie obsługi węzłów obliczeniowych systemu Linux w pulach wsadowym
 
@@ -35,7 +35,7 @@ Konfigurując odwołanie do obrazu maszyny wirtualnej, należy określić właś
 
 | **Właściwości odwołania do obrazu** | **Przykład** |
 | --- | --- |
-| Publisher |Canonical |
+| Wydawca |Canonical |
 | Oferta |UbuntuServer |
 | SKU |18,04 – LTS |
 | Wersja |najnowsza |
@@ -294,11 +294,11 @@ W przypadku wdrażania aplikacji w węzłach usługi Batch przy użyciu [pakiet�
 [github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.com
 [net_cloudpool]: /dotnet/api/microsoft.azure.batch.cloudpool
-[net_computenodeuser]: /dotnet/api/microsoft.azure.batch.computenodeuser?view=azure-dotnet
+[net_computenodeuser]: /dotnet/api/microsoft.azure.batch.computenodeuser
 [net_imagereference]: /dotnet/api/microsoft.azure.batch.imagereference
 [net_list_supported_images]: /dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages
 [net_pool_ops]: /dotnet/api/microsoft.azure.batch.pooloperations
-[net_ssh_key]: /dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey?view=azure-dotnet#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey
+[net_ssh_key]: /dotnet/api/microsoft.azure.batch.computenodeuser.sshpublickey#Microsoft_Azure_Batch_ComputeNodeUser_SshPublicKey
 [nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: /rest/api/batchservice/pool/add
 [py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
@@ -307,6 +307,6 @@ W przypadku wdrażania aplikacji w węzłach usługi Batch przy użyciu [pakiet�
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: /python/api/azure-batch/azure.batch.models.computenodeuser
 [py_imagereference]: /python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference
-[py_list_supported_images]: /python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python
+[py_list_supported_images]: /python/api/azure-batch/azure.batch.operations.AccountOperations
 [vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

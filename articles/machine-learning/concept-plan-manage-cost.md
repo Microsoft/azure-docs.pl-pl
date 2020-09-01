@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3173f81f84463cde488dcbf0242f8d65c5b9c9fe
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012692"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144995"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -69,7 +69,7 @@ Dzięki ciągłej zmianie danych potrzebne są szybkie i usprawnione szkolenia m
 
 Azure Machine Learning użytkownicy mogą korzystać z zarządzanego Azure Machine Learning klastra obliczeniowego, nazywanego również AmlCompute. AmlCompute obsługuje wiele opcji procesora GPU i procesorów. AmlCompute jest wewnętrznie hostowana w imieniu subskrypcji przez Azure Machine Learning. Zapewnia to takie samo bezpieczeństwo, zgodność i zarządzanie, na platformie Azure IaaS w skali chmury.
 
-Ponieważ te pule obliczeniowe należą do infrastruktury IaaS platformy Azure, można wdrożyć, skalować i zarządzać szkoleniami z tymi samymi wymaganiami dotyczącymi zabezpieczeń i zgodności, co w przypadku reszty infrastruktury.  Te wdrożenia są wykonywane w ramach subskrypcji i przestrzegają reguł zarządzania. Dowiedz się więcej na temat [Azure Machine Learning obliczeń](how-to-set-up-training-targets.md#amlcompute).
+Ponieważ te pule obliczeniowe należą do infrastruktury IaaS platformy Azure, można wdrożyć, skalować i zarządzać szkoleniami z tymi samymi wymaganiami dotyczącymi zabezpieczeń i zgodności, co w przypadku reszty infrastruktury.  Te wdrożenia są wykonywane w ramach subskrypcji i przestrzegają reguł zarządzania. Dowiedz się więcej na temat [Azure Machine Learning obliczeń](how-to-create-attach-compute-sdk.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Konfigurowanie klastrów szkoleniowych na potrzeby automatycznego skalowania
 
@@ -105,9 +105,9 @@ W niektórych przypadkach należy skonfigurować przebiegi szkoleniowe, aby ogra
 Oto kilka opcji, których dysponujesz:
 * Zdefiniuj parametr wywoływany `max_run_duration_seconds` w RunConfiguration, aby kontrolować maksymalny czas trwania uruchomienia w ramach wybranego obliczenia (lokalnie lub w chmurze).
 * W przypadku [dostrajania parametrów](how-to-tune-hyperparameters.md#early-termination)należy zdefiniować zasady wczesnego zakończenia na podstawie zasad Banditymi, średniego zatrzymywania zasad lub zasad wyboru obcinania. Aby dodatkowo kontrolować odchylenia parametrów, użyj parametrów takich jak `max_total_runs` lub `max_duration_minutes` .
-* Aby [zautomatyzować automatyczne Uczenie maszynowe](how-to-configure-auto-train.md#exit), ustaw podobne zasady kończenia przy użyciu `enable_early_stopping` flagi. Należy również użyć właściwości, takich jak `iteration_timeout_minutes` i, `experiment_timeout_minutes` Aby kontrolować maksymalny czas trwania przebiegu lub dla całego eksperymentu.
+* Aby [zautomatyzować automatyczne Uczenie maszynowe](how-to-configure-auto-train.md#exit), ustaw podobne zasady kończenia przy użyciu  `enable_early_stopping` flagi. Należy również użyć właściwości, takich jak `iteration_timeout_minutes` i, `experiment_timeout_minutes` Aby kontrolować maksymalny czas trwania przebiegu lub dla całego eksperymentu.
 
-## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>Korzystanie z maszyn wirtualnych o niskim priorytecie
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Korzystanie z maszyn wirtualnych o niskim priorytecie
 
 System Azure umożliwia korzystanie z nadmiarowej niewykorzystanej pojemności jako maszyn wirtualnych o niskim priorytecie w ramach zestawów skalowania maszyn wirtualnych, partii i usługi Machine Learning. Te przydziały są wstępnie emptible, ale mają obniżoną cenę w porównaniu do dedykowanych maszyn wirtualnych. Ogólnie rzecz biorąc, zalecamy korzystanie z maszyn wirtualnych o niskim priorytecie dla obciążeń wsadowych. Należy również użyć ich w przypadku, gdy przerwy są odzyskiwane za pomocą ponownych przesyłania (dla usługi Batch Inferencing) lub przez ponowne uruchomienie (w przypadku szkolenia głębokiego uczenia się z punktem kontrolnym).
 
@@ -124,7 +124,7 @@ Azure Machine Learning COMPUTE obsługuje zarezerwowane wystąpienia. W przypadk
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 * [Zarządzanie i zwiększanie przydziałów zasobów](how-to-manage-quotas.md)
 * [Zarządzanie kosztami przy użyciu analizy kosztów](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* [Azure Machine Learning obliczeń](how-to-set-up-training-targets.md#amlcompute).
+* Utwórz Azure Machine Learning COMPUTE przy użyciu [zestawu SDK](how-to-create-attach-compute-sdk.md#amlcompute) lub w programie [Studio](how-to-create-attach-compute-studio.md#amlcompute).

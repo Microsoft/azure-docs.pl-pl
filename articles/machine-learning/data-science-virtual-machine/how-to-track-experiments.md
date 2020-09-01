@@ -1,7 +1,7 @@
 ---
-title: Śledzenie eksperymentów i wdrażanie modeli
+title: Śledzenie eksperymentu i wdrażanie modeli
 titleSuffix: Azure Data Science Virtual Machine
-description: Dowiedz się, jak śledzić i rejestrować eksperymenty z DSVM za pomocą usługi Azure Machine Learning i/lub MLFlow.
+description: Dowiedz się, jak śledzić i rejestrować eksperymenty z DSVM za pomocą Azure Machine Learning i/lub MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817729"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146899"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>Śledź eksperymenty i wdrażaj modele na platformie Azure
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Śledź eksperymenty i wdrażaj modele w Azure Machine Learning
 
 Usprawnij proces tworzenia modelu, śledząc eksperymenty i monitorowane metryki. W tym artykule dowiesz się, jak dodać kod rejestrowania do skryptu szkoleniowego za pomocą interfejsu API [MLflow](https://mlflow.org/) i śledzić eksperyment w Azure Machine Learning.
 
@@ -165,7 +165,7 @@ Aby wdrożyć model cukrzycą, przejdź do menu po lewej stronie w [Azure Machin
 
 Następnie kliknij przycisk __Wdróż__ w okienku szczegółów modelu:
 
-![Wdróż](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Wdrażanie](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 Zostanie wdrożony model do klastra wnioskowania (usługa Azure Kubernetes), który został utworzony w kroku 1. Podaj poniższe informacje szczegółowe, podając nazwę usługi i nazwę klastra AKS COMPUTE (utworzonego w kroku 1). Zalecamy również zwiększenie __pojemności rezerwowej procesora CPU__ do 1 (od 0,1) i __pojemności rezerwowej pamięci__ do 1 (od 0,5) — można to zrobić, klikając pozycję __Zaawansowane__ i wypełniając szczegóły. Następnie kliknij przycisk __Wdróż__.
 

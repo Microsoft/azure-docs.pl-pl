@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure i ich 
 description: Dowiedz się, jak zarządzać kopiami zapasowymi maszyny wirtualnej platformy Azure i monitorować je za pomocą usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 707558b8ad28f7a8a17e24e57f97fda064d0f238
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999346"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145437"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Zarządzanie kopiami zapasowymi maszyn wirtualnych platformy Azure za pomocą usługi Azure Backup
 
@@ -121,7 +121,7 @@ Istnieją dwa sposoby na zatrzymanie ochrony maszyny wirtualnej:
 * **Zatrzymaj ochronę i Usuń dane kopii zapasowej**. Ta opcja spowoduje zatrzymanie wszystkich przyszłych zadań tworzenia kopii zapasowej z ochrony maszyny wirtualnej i usunięcie wszystkich punktów odzyskiwania. Nie będzie można przywrócić maszyny wirtualnej ani użyć opcji *Wznów tworzenie kopii zapasowej* .
 
 >[!NOTE]
->Jeśli usuniesz źródło danych bez zatrzymywania kopii zapasowych, nowe kopie zapasowe zakończą się niepowodzeniem. Stare punkty odzyskiwania wygasną zgodnie z zasadami, ale jeden ostatni punkt odzyskiwania będzie zawsze utrzymywany do momentu zatrzymania wykonywania kopii zapasowych i usunięcia danych.
+>Jeśli usuniesz źródło danych bez zatrzymywania kopii zapasowych, nowe kopie zapasowe zakończą się niepowodzeniem. Stare punkty odzyskiwania wygasną zgodnie z zasadami, ale najnowszy punkt odzyskiwania będzie zawsze utrzymany do momentu zatrzymania wykonywania kopii zapasowych i usunięcia danych.
 >
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Zatrzymywanie ochrony i zachowywanie danych kopii zapasowej
@@ -187,10 +187,10 @@ Aby chronić dane, Azure Backup obejmuje funkcję usuwania nietrwałego. W przyp
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Element kopii zapasowej, w którym podstawowe źródło danych już nie istnieje
 
 * Jeśli maszyny wirtualne platformy Azure skonfigurowane dla Azure Backup są usuwane lub przenoszone bez zatrzymywania ochrony, wówczas zarówno zaplanowane zadania tworzenia kopii zapasowej, jak i zadania tworzenia kopii zapasowych na żądanie (ad hoc) zakończą się niepowodzeniem z powodu błędu UserErrorVmNotFoundV2. Wstępne sprawdzanie kopii zapasowej będzie wyświetlane jako krytyczne tylko dla nieudanych zadań tworzenia kopii zapasowej na żądanie (zakończone niepowodzeniem zaplanowane zadania nie są wyświetlane).
-* Te elementy kopii zapasowej pozostają aktywne w systemie zgodnie z zasadami tworzenia kopii zapasowych i przechowywania ustawionych przez użytkownika. Dane kopii zapasowej dla tych maszyn wirtualnych platformy Azure będą przechowywane zgodnie z zasadami przechowywania. Wygasłe punkty odzyskiwania (z wyjątkiem ostatniego punktu odzyskiwania) są czyszczone zgodnie z zakresem przechowywania określonym w zasadach tworzenia kopii zapasowych.
-* Zalecamy usunięcie elementów kopii zapasowej, w których pierwotne źródło danych już nie istnieje, aby uniknąć dodatkowego kosztu, jeśli element/dane kopii zapasowej dla operacji usuwania nie są już wymagane, ponieważ ostatni punkt odzyskiwania jest zachowywany w nieskończoność, a użytkownik jest obciążany zgodnie z cenami za tworzenie kopii zapasowych.
+* Te elementy kopii zapasowej pozostają aktywne w systemie zgodnie z zasadami tworzenia kopii zapasowych i przechowywania ustawionych przez użytkownika. Dane kopii zapasowej dla tych maszyn wirtualnych platformy Azure będą przechowywane zgodnie z zasadami przechowywania. Wygasłe punkty odzyskiwania (z wyjątkiem najnowszego punktu odzyskiwania) są czyszczone zgodnie z zakresem przechowywania określonym w zasadach tworzenia kopii zapasowych.
+* Zalecamy usunięcie elementów kopii zapasowej, w których pierwotne źródło danych już nie istnieje, aby uniknąć dodatkowego kosztu, jeśli element/dane kopii zapasowej dla zasobów usuwania nie są już wymagane, ponieważ ostatni punkt odzyskiwania jest zachowywany w nieskończoność, a użytkownik jest obciążany zgodnie z obowiązującymi cenami.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [utworzyć kopię zapasową maszyn wirtualnych platformy Azure z ustawień maszyny wirtualnej](backup-azure-vms-first-look-arm.md).
 * Dowiedz się, jak [przywrócić maszyny wirtualne](backup-azure-arm-restore-vms.md).

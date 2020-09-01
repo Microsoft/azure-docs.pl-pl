@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017723"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146627"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planowanie wdrożenia Azure Active Directory moje aplikacje
 
@@ -55,11 +55,8 @@ Moje aplikacje w usłudze Azure AD są korzystne dla firm w następujący sposó
 Moje aplikacje są bezpłatne i nie wymagają licencji do użycia na poziomie podstawowym. Jednak liczba obiektów w katalogu oraz dodatkowe funkcje, które mają zostać wdrożone, mogą wymagać dodatkowych licencji. Niektóre typowe scenariusze dotyczące usługi Azure AD, które mają wymagania dotyczące licencjonowania, obejmują następujące funkcje zabezpieczeń:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Członkostwo oparte na grupach](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Samoobsługowe resetowanie haseł](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Ochrona tożsamości w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 Zobacz [Pełny przewodnik dotyczący licencjonowania usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -69,7 +66,6 @@ Zobacz [Pełny przewodnik dotyczący licencjonowania usługi Azure AD](https://a
 Przed rozpoczęciem tego projektu należy spełnić następujące wymagania wstępne:
 
 * [Integrowanie logowania jednokrotnego aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Zarządzanie infrastrukturą użytkowników i grup usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planowanie wdrożenia usługi Azure AD my Apps
@@ -121,16 +117,16 @@ Od mojej aplikacji wprowadzono użytkowników do portalu jako typowe miejsce na 
 
 W poniższej tabeli wymieniono kilka ważnych konfiguracji aplikacji oraz typowe wartości, których można użyć:
 
-| Konfigurowanie| Typowe wartości |
+| Konfiguracja| Typowe wartości |
 | - | - |
 | Określanie grup pilotażowych| Zidentyfikuj grupę zabezpieczeń usługi Azure AD, która ma zostać użyta, i upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Określ grupę lub grupy, które mają być włączone dla środowiska produkcyjnego.| Określ grupy zabezpieczeń usługi Azure AD lub grupy Active Directory synchronizowane z usługą Azure AD, które mają być używane. Upewnij się, że wszyscy członkowie zespołu pilotażowego są częścią grupy. |
 | Zezwalaj użytkownikom na korzystanie z rejestracji jednokrotnej w niektórych typach aplikacji| Federacyjne Logowanie jednokrotne, uwierzytelnianie OAuth, logowanie jednokrotne, serwer proxy aplikacji |
-| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego resetowania hasła | Tak |
-| Zezwalaj użytkownikom na korzystanie z Multi-Factor Authentication| Tak |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego resetowania hasła | Yes |
+| Zezwalaj użytkownikom na korzystanie z Multi-Factor Authentication| Yes |
 | Zezwalaj użytkownikom na korzystanie z samoobsługowego zarządzania grupami dla niektórych typów grup| Grupy zabezpieczeń, Microsoft 365 grupy |
-| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego zarządzania aplikacjami| Tak |
-| Zezwalaj użytkownikom na korzystanie z przeglądów dostępu| Tak |
+| Zezwalaj użytkownikom na korzystanie z funkcji samoobsługowego zarządzania aplikacjami| Yes |
+| Zezwalaj użytkownikom na korzystanie z przeglądów dostępu| Yes |
 
 ### <a name="plan-consent-strategy"></a>Planowanie strategii wyrażania zgody
 
@@ -139,7 +135,6 @@ Użytkownicy lub Administratorzy muszą wyrazić zgodę na warunki użytkowania 
 Aby korzystać z zgody administratora, musisz być administratorem globalnym organizacji, a aplikacje muszą mieć jedną z tych opcji:
 
 * Zarejestrowane w organizacji
-
 * Zarejestrowane w innej organizacji usługi Azure AD i wcześniej wysłane przez co najmniej jednego użytkownika
 
 Aby uzyskać więcej informacji, zobacz [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikację w Azure Active Directory](configure-user-consent.md).
@@ -180,9 +175,7 @@ Gdy użytkownicy logują się do aplikacji logowania jednokrotnego opartego na h
 W przypadku konieczności integrowania aplikacji logowania jednokrotnego opartego na hasłach należy zdefiniować mechanizm wdrażania rozszerzenia na dużą skalę z [obsługiwanymi przeglądarkami](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Dostępne opcje:
 
 * [zasady grupy programu Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager programu Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [Pobieranie i Konfigurowanie sterowane przez użytkownika dla programu Chrome, Firefox, Microsoft Edge lub IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Użytkownicy, którzy nie korzystają z aplikacji logowania jednokrotnego opartego na hasłach, również korzystają z rozszerzenia. Te korzyści obejmują możliwość uruchamiania dowolnej aplikacji z paska wyszukiwania, znajdowania dostępu do ostatnio używanych aplikacji i posiadania linku do strony Moje aplikacje.
@@ -294,7 +287,6 @@ Poniższe testy powinny być przeprowadzane zarówno w przypadku urządzeń nale
 
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Przykłady przypadków testowych funkcji samoobsługi aplikacji
 
-
 | Przypadek biznesowy| Oczekiwany wynik |
 | - | - |
 | Użytkownik może zarządzać członkostwem w aplikacji| Użytkownik może dodawać/usuwać członków, którzy mają dostęp do aplikacji |
@@ -319,22 +311,5 @@ Użyj najmniejszej roli uprzywilejowanej, aby wykonać wymagane zadanie w Azure 
 
 Za pomocą [Privileged Identity Management](../privileged-identity-management/pim-configure.md) można zarządzać rolami w celu zapewnienia dodatkowej inspekcji, kontroli i przeglądu dostępu użytkownikom z uprawnieniami do katalogów.
 
-### <a name="troubleshoot-my-apps-issues"></a>Rozwiązywanie problemów z aplikacjami
-
-Utwórz przewodniki dotyczące rozwiązywania problemów dla organizacji pomocy technicznej z typowymi scenariuszami, które wskazują dokumentację firmy Microsoft w swoich rozwiązaniach. Możesz chcieć utworzyć prowadnice, które dzielą obsługę na warstwy używane przez organizację.
-
-Zapoznaj się z następującymi przewodnikami rozwiązywania problemów:
-
-[Niewyświetlane aplikacje](access-panel-troubleshoot-application-not-appearing.md)
-
-[Pojawiły się nieoczekiwane aplikacje](access-panel-troubleshoot-unexpected-application.md)
-
-[Użytkownik nie może zalogować się do aplikacji](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problemy przy użyciu samoobsługowego dostępu do aplikacji](access-panel-troubleshoot-self-service-access.md)
-
-[Problemy z rozszerzeniem przeglądarki](manage-access-panel-browser-extension.md)
-
-## <a name="next-steps"></a>Kolejne kroki
-
+## <a name="next-steps"></a>Następne kroki
 [Planowanie wdrożenia usługi Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

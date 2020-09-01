@@ -1,19 +1,19 @@
 ---
-title: Używanie certyfikatów z Azure Stack Edge | Microsoft Docs
-description: Opisuje korzystanie z certyfikatów z urządzeniem Azure Stack Edge, z uwzględnieniem użycia, typów i sposobu przekazywania certyfikatów na urządzeniu.
+title: Używanie certyfikatów z Azure Stack Edge GPU | Microsoft Docs
+description: Opisuje użycie certyfikatów z urządzeniem z systemem Azure Stack Edge na zewnątrz, w tym do użycia, które typy i sposób przekazywania certyfikatów na urządzeniu.
 services: Azure Stack Edge
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e257ecbcc608dfc6ecb9aedae69eeef083395836
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7742d036857525ce6be64a53234f7aa717d4bdca
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086348"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147086"
 ---
 # <a name="use-certificates-with-azure-stack-edge-series"></a>Używanie certyfikatów z serią Azure Stack Edge 
 
@@ -385,7 +385,7 @@ Kopia zapasowa pliku PFX jest teraz zapisywana w wybranej lokalizacji i jest got
 
     ![Eksportuj certyfikat 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
-2. Zostanie otwarty Kreator certyfikatów. Wybierz format formacie **X. 509 szyfrowany binarnie algorytmem DER (CER)**. Wybierz pozycję **Next** (Dalej).
+2. Zostanie otwarty Kreator certyfikatów. Wybierz format formacie **X. 509 szyfrowany binarnie algorytmem DER (CER)**. Wybierz pozycję **Dalej**.
 
     ![Eksportuj certyfikat 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 

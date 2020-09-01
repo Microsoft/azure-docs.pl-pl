@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d1402bcc0c46003429e1809e8d09e9662218cd82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 146a257a9b8f31e79283d71ede1e1c5c0355765c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334770"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147790"
 ---
 | Zasób | Limit |
 | --- | --- |
@@ -24,11 +24,13 @@ ms.locfileid: "80334770"
 | Maksymalna liczba tras anonsowanych z prywatnej komunikacji równorzędnej Azure z przestrzeni adresowej sieci wirtualnej dla połączenia ExpressRoute |200 |
 | Maksymalna liczba tras anonsowanych do komunikacji równorzędnej firmy Microsoft przy użyciu standardu ExpressRoute |200 |
 | Maksymalna liczba tras anonsowanych w komunikacji równorzędnej firmy Microsoft z dodatkiem ExpressRoute Premium |200 |
-| Maksymalna liczba obwodów usługi ExpressRoute połączonych z tą samą siecią wirtualną w tej samej lokalizacji komunikacji równorzędnej |4 |
-| Maksymalna liczba obwodów usługi ExpressRoute połączonych z tą samą siecią wirtualną w różnych lokalizacjach komunikacji równorzędnej |4 |
+| Maksymalna liczba obwodów usługi ExpressRoute połączonych z bramą Standardowa wydajność/ErGw1AZ |4 | 
+| Maksymalna liczba obwodów usługi ExpressRoute podłączonych do bramy o wysokiej wydajności/ErGw2AZ |8 | 
+| Maksymalna liczba obwodów usługi ExpressRoute połączonych z bramą Ultra Performance/ErGw3AZ |16 | 
+| Maksymalna liczba obwodów usługi ExpressRoute połączonych z tą samą siecią wirtualną w różnych lokalizacjach komunikacji równorzędnej (wszystkie jednostki SKU) |4 |
 | Liczba dozwolonych linków sieci wirtualnej na obwód ExpressRoute |Zobacz [liczbę sieci wirtualnych na tabelę obwodu ExpressRoute](#vnetpercircuit) .  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a>Liczba sieci wirtualnych na obwód ExpressRoute
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a><a name="vnetpercircuit"></a> Liczba sieci wirtualnych na obwód ExpressRoute
 | **Rozmiar obwodu** | **Liczba linków sieci wirtualnej dla warstwy Standardowa** | **Liczba linków sieci wirtualnej z dodatkiem Premium** |
 | --- | --- | --- |
 | 50 Mb/s |10 |20 |

@@ -4,12 +4,12 @@ description: W tym artykule przedstawiono sposób przenoszenia niestandardowych 
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: f33636f7033495a1e437715cc89c492889e4dfe0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086251"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145347"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Przenoszenie Azure Event Grid niestandardowych tematów do innego regionu
 Możesz chcieć przenieść zasoby do innego regionu z kilku powodów. Na przykład, aby skorzystać z nowego regionu platformy Azure, spełnić wymagania wewnętrzne zasad i zarządzania lub w odpowiedzi na wymagania dotyczące planowania pojemności. 
@@ -63,7 +63,7 @@ Wdróż szablon, aby utworzyć niestandardowy temat w regionie docelowym.
 1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W obszarze **Wyszukaj w portalu Marketplace**wpisz **wdrożenie szablonu**, a następnie naciśnij klawisz **Enter**.
 3. Wybierz **Template Deployment**.
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Wybierz opcję **Kompiluj własny szablon w edytorze**.
 6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 7. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
@@ -80,6 +80,8 @@ Wdróż szablon, aby utworzyć niestandardowy temat w regionie docelowym.
 ## <a name="verify"></a>Weryfikacja
 
 1. Po pomyślnym wdrożeniu wybierz pozycję **Przejdź do zasobu**. 
+
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Przejdź do zasobu":::
 1. Upewnij się, że na stronie **tematu Event Grid** nie ma widocznego tematu niestandardowego.   
 1. Wykonaj kroki opisane w temacie [trasy niestandardowe zdarzenia do punktu końcowego sieci Web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) , aby wysłać zdarzenia do tematu. Sprawdź, czy program obsługi zdarzeń elementu webhook jest wywoływany. 
 

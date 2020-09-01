@@ -4,12 +4,12 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893072"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145573"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -173,7 +173,7 @@ Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia k
 
 W tej sekcji omówiono scenariusz, w którym maszyna źródłowa chroniona za pomocą usług MARS nie jest już dostępna, ponieważ została usunięta, uszkodzona, zainfekowana przez oprogramowanie chroniące przed złośliwym oprogramowaniem lub zlikwidowane.
 
-W przypadku tych maszyn usługa Azure Backup zapewnia, że ostatni punkt odzyskiwania nie wygaśnie (oznacza to, że nie jest oczyszczany) zgodnie z regułami przechowywania określonymi w zasadach tworzenia kopii zapasowych. W związku z tym można bezpiecznie przywrócić maszynę.  Należy wziąć pod uwagę następujące scenariusze, które można wykonać na danych kopii zapasowej:
+W przypadku tych maszyn usługa Azure Backup zapewnia, że najnowszy punkt odzyskiwania nie wygaśnie (oznacza to, że nie zostanie oczyszczony) zgodnie z regułami przechowywania określonymi w zasadach tworzenia kopii zapasowych. W związku z tym można bezpiecznie przywrócić maszynę.  Należy wziąć pod uwagę następujące scenariusze, które można wykonać na danych kopii zapasowej:
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Scenariusz 1: maszyna źródłowa jest niedostępna i nie jest już konieczne zachowywanie danych kopii zapasowej
 

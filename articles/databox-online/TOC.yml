@@ -154,7 +154,7 @@
         - name: Rozwiązywanie problemów
           items:
             - name: Problemy z urządzeniem
-              href: azure-stack-edge-troubleshoot.md
+              href: azure-stack-edge-gpu-troubleshoot.md
             - name: Porządkowanie problemów
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: Kontakt z pomocą techniczną firmy Microsoft

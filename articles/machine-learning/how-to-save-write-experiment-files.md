@@ -12,19 +12,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319579"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144043"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Miejsce zapisywania i zapisywania plików do Azure Machine Learning eksperymentów
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, gdzie zapisywać pliki wejściowe i gdzie zapisywać pliki wyjściowe z eksperymentów, aby zapobiec błędom limitu magazynu i opóźnieniu eksperymentów.
 
-Podczas uruchamiania szkoleń w [obiekcie docelowym obliczeń](how-to-set-up-training-targets.md)są one odizolowane od środowisk zewnętrznych. Celem tego projektu jest zapewnienie odtwarzalności i przenośności eksperymentu. W przypadku uruchomienia tego samego skryptu dwa razy w tym samym lub innym elemencie docelowym obliczeń otrzymujesz te same wyniki. Ten projekt umożliwia traktowanie obiektów docelowych obliczeń jako bezstanowych zasobów obliczeniowych, z których każdy nie ma koligacji do zadań, które są uruchomione po zakończeniu.
+Podczas uruchamiania szkoleń w [obiekcie docelowym obliczeń](concept-compute-target.md)są one odizolowane od środowisk zewnętrznych. Celem tego projektu jest zapewnienie odtwarzalności i przenośności eksperymentu. W przypadku uruchomienia tego samego skryptu dwa razy w tym samym lub innym elemencie docelowym obliczeń otrzymujesz te same wyniki. Ten projekt umożliwia traktowanie obiektów docelowych obliczeń jako bezstanowych zasobów obliczeniowych, z których każdy nie ma koligacji do zadań, które są uruchomione po zakończeniu.
 
 ## <a name="where-to-save-input-files"></a>Gdzie należy zapisywać pliki wejściowe
 
@@ -79,4 +79,4 @@ Jeśli nie jest wymagane przechowywanie danych, Zapisz pliki w `./outputs` folde
 
 * Dowiedz się więcej o [uzyskiwaniu dostępu do danych z Twoich magazynów](how-to-access-data.md).
 
-* Dowiedz się więcej [na temat konfigurowania celów szkoleniowych](how-to-set-up-training-targets.md).
+* Dowiedz się więcej na temat tworzenia obiektów docelowych obliczeń za pomocą [zestawu SDK języka Python](how-to-create-attach-compute-sdk.md) lub programu [Studio](how-to-create-attach-compute-studio.md).

@@ -1,6 +1,6 @@
 ---
 title: Odwoływanie dostępu użytkownika w nagłej sytuacji Azure Active Directory | Microsoft Docs
-description: Dodaj użytkowników zbiorczo w centrum administracyjnym usługi Azure AD w Azure Active Directory
+description: Jak odwołać wszystkie prawa dostępu dla użytkownika w Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc4a29c9d4b5ae93df81de5b77cb6355947813d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 76a2e4cb170ca5bee41c0ae8f3e0557eab19562e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798418"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147137"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Odwołaj dostęp użytkownika w Azure Active Directory
 
@@ -38,7 +38,7 @@ Tokeny dostępu i tokeny odświeżania są często używane w przypadku aplikacj
 
 Usługa Azure AD następnie ponownie oceni swoje zasady autoryzacji. Jeśli użytkownik nadal jest autoryzowany, usługa Azure AD wystawia nowy token dostępu i Odśwież token.
 
-Tokeny dostępu mogą stanowić zagrożenie bezpieczeństwa, jeśli dostęp musi zostać odwołany w czasie krótszym niż okres istnienia tokenu, który zwykle trwa około godziny. Z tego powodu firma Microsoft aktywnie pracuje nad przeprowadzeniem [ciągłej oceny dostępu](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) do aplikacji pakietu Office 365, co pomaga zapewnić unieważnienie tokenów dostępu w czasie niemal rzeczywistym.  
+Tokeny dostępu mogą stanowić zagrożenie bezpieczeństwa, jeśli dostęp musi zostać odwołany w czasie krótszym niż okres istnienia tokenu, który zwykle trwa około godziny. Z tego powodu firma Microsoft aktywnie pracuje nad przeprowadzeniem [ciągłej oceny dostępu](../conditional-access/concept-continuous-access-evaluation.md) do aplikacji pakietu Office 365, co pomaga zapewnić unieważnienie tokenów dostępu w czasie niemal rzeczywistym.  
 
 ## <a name="session-tokens-cookies"></a>Tokeny sesji (pliki cookie)
 

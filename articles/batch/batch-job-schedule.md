@@ -4,12 +4,12 @@ description: Użyj planowania zadań, aby zarządzać zadaniami.
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 89881808e48b3fbe44fbcd5352a15afc4eb427ef
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7da3c78e00f5d7e41a5396603cf4885a50cb6e5c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964349"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146355"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Planowanie zadań pod kątem wydajności
 
@@ -67,7 +67,7 @@ Po wybraniu opcji **Zapisz**, jeśli przejdziesz do **harmonogramów zadań** w 
 
 ## <a name="for-more-information"></a>Więcej informacji
 
-Aby zarządzać zadaniem przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [AZ Batch Job-Schedule](/cli/azure/batch/job-schedule?view=azure-cli-latest).
+Aby zarządzać zadaniem przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [AZ Batch Job-Schedule](/cli/azure/batch/job-schedule).
 
 ## <a name="next-steps"></a>Następne kroki
 

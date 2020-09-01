@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 900e36ec3e508f9d3616cf0c0d19ea4ff067f775
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852156"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144791"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -248,7 +248,6 @@ automl_config = AutoMLConfig(task='forecasting',
 Aby włączyć DNN dla eksperymentu AutoML utworzonego w Azure Machine Learning Studio, zapoznaj się z [ustawieniami typu zadania w programie Studio How to-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 Automatyczna ML zapewnia użytkownikom zarówno natywne, jak i bogate modele uczenia w ramach systemu rekomendacji. 
-
 
 Modele| Opis | Korzyści
 ----|----|---

@@ -1,5 +1,5 @@
 ---
-title: Szybki Start — wdrażanie pierwszej aplikacji w chmurze Azure wiosny
+title: Szybki start — wdrażanie pierwszej aplikacji w usłudze Azure Spring Cloud
 description: W tym przewodniku szybki start wdrożono aplikację Hello w chmurze ze sprężyną w chmurze sieci platformy Azure.
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: e4813f5c8c156fdf381a55ae450cf0ee35cedfa7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 067195cfef35863a7bcc314a55b4bf1ff8a3ccd7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048209"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146977"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Szybki Start: wdrażanie pierwszej aplikacji w chmurze Azure wiosny
 
@@ -147,23 +147,24 @@ Aby wdrożyć platformę Azure, musisz zalogować się przy użyciu konta platfo
 
 1. Kliknij prawym przyciskiem myszy projekt w Eksploratorze projektów IntelliJ, a następnie wybierz pozycję **Azure**  ->  **Deploy w chmurze Azure wiosennej**.
 
-    ![Wdrażanie na platformie Azure 1](media/spring-cloud-quickstart-java/intellij-deploy-azure.png)
+    [![Wdrażanie na platformie Azure 1 ](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png)](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
 
 1. Zaakceptuj nazwę aplikacji w polu **Nazwa** . **Nazwa** odwołuje się do konfiguracji, a nie nazwy aplikacji. Użytkownicy zazwyczaj nie muszą go zmieniać.
 1. W polu tekstowym **artefaktu** wybierz pozycję *hellospring-0.0.1-Snapshot. jar*.
 1. W polu tekstowym **subskrypcja** Sprawdź swoją subskrypcję.
 1. W polu tekstowym **chmura Wiosenna** wybierz wystąpienie chmury Azure wiosennej, która została utworzona w ramach aprowizacji [wystąpienia chmury wiosennej platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. Ustaw **publiczny punkt końcowy** , aby *włączyć*.
 1. W polu tekstowym **aplikacja:** wybierz pozycję **Utwórz aplikację..**..
 1. Wprowadź *hellospring*, a następnie kliknij przycisk **OK**.
 
-    ![Wdróż na platformie Azure](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)
+    [![Wdróż na platformie Azure ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
 
 1. Rozpocznij wdrażanie, klikając przycisk **Uruchom** w dolnej części okna dialogowego **wdrażanie aplikacji w chmurze Azure ze sprężyną** . Wtyczka uruchomi polecenie `mvn package` w `hellospring` aplikacji i Wdróż plik JAR wygenerowany przez `package` polecenie.
 ---
 
 Po zakończeniu wdrażania możesz uzyskać dostęp do aplikacji w witrynie `https://<service instance name>-hellospring.azuremicroservices.io/` .
 
-  ![Dostęp do aplikacji z przeglądarki](media/spring-cloud-quickstart-java/access-app-browser.png)
+  [![Dostęp do aplikacji z przeglądarki ](media/spring-cloud-quickstart-java/access-app-browser.png)](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
 
 ## <a name="streaming-logs-in-real-time"></a>Dzienniki przesyłania strumieniowego w czasie rzeczywistym
 
@@ -187,16 +188,13 @@ Dzienniki są wyświetlane w wynikach:
 1. Wybierz opcję **Eksplorator platformy Azure**, a następnie pozycję **chmura Wiosenna**.
 1. Kliknij prawym przyciskiem myszy działającą aplikację.
 1. Z listy rozwijanej wybierz pozycję **dzienniki przesyłania strumieniowego** .
-
-    ![Wybieranie dzienników przesyłania strumieniowego](media/spring-cloud-intellij-howto/streaming-logs.png)
-
 1. Wybierz wystąpienie.
 
-    ![Wybierz wystąpienie](media/spring-cloud-intellij-howto/select-instance.png)
+    [![Wybieranie dzienników ](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png) przesyłania strumieniowego](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)
 
 1. Dziennik przesyłania strumieniowego będzie widoczny w oknie danych wyjściowych.
 
-    ![Dane wyjściowe dziennika przesyłania strumieniowego](media/spring-cloud-intellij-howto/streaming-log-output.png)
+    [![Dane wyjściowe ](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png) dziennika przesyłania strumieniowego](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
 ---
 
 Aby uzyskać zaawansowane funkcje analizy dzienników, odwiedź kartę **dzienniki** w menu na [Azure Portal](https://portal.azure.com/). Dzienniki mają opóźnienie kilka minut.

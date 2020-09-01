@@ -1,7 +1,7 @@
 ---
 title: Bezpieczny dostęp do danych w chmurze
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak bezpiecznie łączyć się z danymi za pomocą Azure Machine Learning oraz jak używać zestawów danych i magazynów danych dla zadań w usłudze ML. Magazyny danych mogą przechowywać dane z obiektu blob platformy Azure, Azure Data Lake Gen 1 & 2, SQL DB, datakosteks,...
+description: Dowiedz się, jak bezpiecznie łączyć się z danymi za pomocą Azure Machine Learning oraz jak używać zestawów danych i magazynów danych dla zadań w usłudze ML. Magazyny danych mogą przechowywać dane z obiektu blob platformy Azure, Azure Data Lake Gen 1 & 2, SQL DB i Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 04/24/2020
+ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651798"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146693"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
 Azure Machine Learning ułatwia łączenie się z danymi w chmurze.  Zapewnia warstwę abstrakcji za pośrednictwem podstawowej usługi magazynu, dzięki czemu można bezpiecznie uzyskać dostęp do danych i korzystać z nich bez konieczności pisania kodu specyficznego dla typu magazynu. Azure Machine Learning udostępnia również następujące możliwości danych:
 
+*    Współdziałanie z Pandas i Spark dataframes
 *    Przechowywanie wersji i śledzenie elementów odnoszących się do danych
 *    Etykietowanie danych 
 *    Monitorowanie dryfu danych
-*    Współdziałanie z Pandas i Spark dataframes
-
+    
 ## <a name="data-workflow"></a>Przepływ danych
 
 Gdy wszystko będzie gotowe do użycia danych w rozwiązaniu do magazynowania w chmurze, zalecamy wykonanie następującego przepływu pracy dostarczania danych. W tym przepływie pracy założono, że masz [konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) i dane w usłudze magazynu w chmurze na platformie Azure. 
@@ -67,13 +67,19 @@ Obsługiwane usługi magazynu w chmurze na platformie Azure, które mogą być r
 
 ## <a name="datasets"></a>Zestawy danych
 
-Azure Machine Learning zestawy danych to odwołania wskazujące na dane w usłudze magazynu. Nie są one kopiami danych, więc nie są naliczane żadne dodatkowe koszty związane z magazynem i integralność oryginalnych źródeł danych nie są zagrożone.
+Azure Machine Learning zestawy danych to odwołania wskazujące na dane w usłudze magazynu. Nie są to kopie dataBy, które tworzą zestaw danych Azure Machine Learning, utworzysz odwołanie do lokalizacji źródła danych wraz z kopią jej metadanych. 
 
- Aby móc korzystać z danych w magazynie, [Utwórz zestaw danych](how-to-create-register-datasets.md) , który będzie pakować dane do obiektu, który można wywoływać, w celu wykonywania zadań uczenia maszynowego. Zarejestruj zestaw danych w obszarze roboczym, aby udostępnić go i ponownie użyć w różnych eksperymentach bez złożonych danych.
+Ponieważ zestawy danych są opóźnieniem oceniane, a dane pozostają w istniejącej lokalizacji, należy
 
-Zestawy danych mogą być tworzone na podstawie plików lokalnych, publicznych adresów URL, [otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/)lub usług Azure Storage za pośrednictwem magazynów danych. Aby utworzyć zestaw danych na podstawie Pandas pamięci Dataframe, Zapisz dane w lokalnym pliku, takim jak Parquet, i Utwórz zestaw danych z tego pliku.  
+* Nie Powiąż dodatkowego kosztu magazynowania.
+* Nie ryzykuj przypadkowego zmiany oryginalnych źródeł danych.
+* Zwiększ szybkość działania przepływu pracy w usłudze ML.
 
-Obsługujemy 2 typy zestawów danych: 
+Aby móc korzystać z danych w magazynie, [Utwórz zestaw danych](how-to-create-register-datasets.md) , który będzie pakować dane do obiektu, który można wywoływać, w celu wykonywania zadań uczenia maszynowego. Zarejestruj zestaw danych w obszarze roboczym, aby udostępnić go i ponownie użyć w różnych eksperymentach bez złożonych danych.
+
+Zestawy danych mogą być tworzone na podstawie plików lokalnych, publicznych adresów URL, [otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/)lub usług Azure Storage za pośrednictwem magazynów danych. 
+
+Istnieją dwa typy zestawów danych: 
 
 + [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
 

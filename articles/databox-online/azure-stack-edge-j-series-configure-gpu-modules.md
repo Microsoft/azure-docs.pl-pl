@@ -1,5 +1,5 @@
 ---
-title: Uruchamianie modułu GPU na Microsoft Azure Stack urządzeniu brzegowym | Microsoft Docs
+title: Uruchamianie modułu GPU na urządzeniu Microsoft Azure Stack Edge z procesorem GPU | Microsoft Docs
 description: Opisuje sposób konfigurowania i uruchamiania modułu na procesorach GPU na urządzeniu Azure Stack Edge za pośrednictwem Azure Portal.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 307cfde3d983c5d821090e5b03e9bf4e9dd6f5fa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 19b6001e7bf5038b4c5e6112266d1e5dfc0a792b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085092"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146321"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-device"></a>Konfigurowanie i uruchamianie modułu na procesorach GPU na Azure Stack urządzeniu brzegowym
 

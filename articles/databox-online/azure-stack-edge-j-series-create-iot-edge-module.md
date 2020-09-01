@@ -1,19 +1,19 @@
 ---
-title: Moduł IoT Edge C# dla Azure Stack Edge | Microsoft Docs
-description: Dowiedz się, jak opracowywać moduł IoT Edge C#, który można wdrożyć na Azure Stack brzegowej.
+title: Moduł IoT Edge C# dla Azure Stack Edge z procesorem GPU | Microsoft Docs
+description: Dowiedz się, jak opracowywać moduł IoT Edge C#, który można wdrożyć na urządzeniu z systemem Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: a6fb02033d7f242649907eaed8bf01aa23b3cbbe
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: cef6524bd228d5fed342cabfb2959e5d8ab8954e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084985"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146236"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Opracowywanie modułu IoT Edge C# w celu przenoszenia plików na Azure Stack Edge
 
@@ -77,7 +77,7 @@ Usługa Azure Container Registry to rejestr prywatny platformy Docker na platfor
 
       ![Tworzenie rejestru kontenerów](./media/azure-stack-edge-j-series-create-iot-edge-module/create-container-registry-1.png)
  
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. Po utworzeniu rejestru kontenerów przejdź do niego i wybierz pozycję **Klucze dostępu**.
 
     ![Pobierz klucze dostępu](./media/azure-stack-edge-j-series-create-iot-edge-module/get-access-keys-1.png)

@@ -41,6 +41,8 @@
       href: location-condition.md
     - name: Narzędzie analizy warunkowej
       href: what-if-tool.md
+    - name: Ciągła weryfikacja dostępu
+      href: concept-continuous-access-evaluation.md
     - name: Kontrolki niestandardowe
       href: controls.md
     - name: Migrowanie zasad klasycznych

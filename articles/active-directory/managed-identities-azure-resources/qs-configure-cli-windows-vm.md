@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b003c3362e2fb22a36985eb29b1a537bbffb28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994fe7e711210d9eb676b41cb70ff695c6456006
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002406"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145386"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -113,6 +113,10 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 W tej sekcji dowiesz się, jak dodać i usunąć tożsamość zarządzaną przez użytkownika z maszyny wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 
+      > [!NOTE]
+      > If you create your user-assigned managed identity in a different RG than your VM. You'll have to use the URL of your managed identity to assign it to your VM.
+      >i.e. --identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"
+
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Przypisywanie tożsamości zarządzanej przypisanej przez użytkownika podczas tworzenia maszyny wirtualnej platformy Azure
 
 Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualnej podczas jej tworzenia wymagane są przypisania ról współautor i [operator tożsamości zarządzanej](/azure/role-based-access-control/built-in-roles#managed-identity-operator) [maszyny wirtualnej](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) . Nie są wymagane żadne dodatkowe przypisania ról w katalogu usługi Azure AD.
@@ -182,7 +186,7 @@ Do przypisywania tożsamości przypisanej przez użytkownika do maszyny wirtualn
    }
    ```
 
-2. Przypisz tożsamość przypisaną przez użytkownika do maszyny wirtualnej przy użyciu polecenia [AZ VM Identity Assign](/cli/azure/vm). Upewnij się, że parametry `<RESOURCE GROUP>` i `<VM NAME>` zostały zastąpione własnymi wartościami. `<USER ASSIGNED IDENTITY NAME>`Jest to właściwość zasobu tożsamości zarządzanej przypisanej przez użytkownika `name` , jak została utworzona w poprzednim kroku:
+2. Przypisz tożsamość przypisaną przez użytkownika do maszyny wirtualnej przy użyciu polecenia [AZ VM Identity Assign](/cli/azure/vm). Upewnij się, że parametry `<RESOURCE GROUP>` i `<VM NAME>` zostały zastąpione własnymi wartościami. `<USER ASSIGNED IDENTITY NAME>`Jest to właściwość zasobu tożsamości zarządzanej przypisanej przez użytkownika `name` , jak została utworzona w poprzednim kroku. Jeśli została utworzona tożsamość zarządzana przypisana przez użytkownika w innym RG niż maszyna wirtualna. Konieczne będzie użycie adresu URL tożsamości zarządzanej.
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
@@ -213,7 +217,7 @@ Jeśli maszyna wirtualna ma zarówno tożsamość przypisaną do systemu, jak i 
 az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 - [Zarządzanie tożsamościami dla zasobów platformy Azure — omówienie](overview.md)
 - Aby zapoznać się z pełnymi przewodnikami szybki start tworzenia maszyn wirtualnych platformy Azure, zobacz: 
   - [Tworzenie maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia](../../virtual-machines/windows/quick-create-cli.md)  

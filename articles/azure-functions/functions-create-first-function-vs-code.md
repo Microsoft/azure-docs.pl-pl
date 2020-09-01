@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b5f3a6b8b8a04cca9543a5343d4496524a166c39
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: db5b28ae0bffa16b17cb63471b8d5ba6b5ac94ed
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919611"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146576"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki start: Tworzenie funkcji na platformie Azure przy użyciu programu Visual Studio Code
 
@@ -120,6 +120,8 @@ W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure 
 
     ::: zone pivot="programming-language-java"  
     + **Wybierz język projektu funkcji**: Wybierz `Java` .
+
+    + **Wybierz wersję środowiska Java**: Wybierz `Java 8` lub `Java 11 (preview)` , na których funkcja działa na platformie Azure. Wybierz wersję języka Java, która została zweryfikowana lokalnie.
 
     + **Podaj identyfikator grupy**: Wybierz `com.function` .
 

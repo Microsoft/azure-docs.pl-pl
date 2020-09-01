@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475196"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144621"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Obsługiwane wersje rozwiązania Kubernetes w usłudze Azure Kubernetes Service)
 
@@ -135,18 +135,18 @@ Aby uzyskać historię wcześniejszych wersji, zobacz [tutaj](https://en.wikiped
 
 |  Wersja K8s | Wersja nadrzędna  | AKS wersja zapoznawcza  | AKS GA  | Koniec okresu istnienia |
 |--------------|-------------------|--------------|---------|-------------|
-| 1,17  | Gru-09-19  | 19 stycznia   | 20 lipca  | 1,20 GA | 
-| 1,18  | Mar-23-20  | 20 maja   | 20 sierpnia  | 1,21 GA | 
-| 1,19  | Sie-04-20  | 20 sierpnia   | 20 list  | 1,22 GA | 
-| 1,20  | * Lis 20    | * Gru 20   | * Sty 21  | 1,23 GA | 
+| 1,17  | Gru-09-19  | Sty 2019   | Lip 2020  | 1,20 GA | 
+| 1,18  | Mar-23-20  | Maj 2020 r.   | 2020 sie  | 1,21 GA | 
+| 1,19  | Sie-04-20  | 2020 sie   | Lis 2020  | 1,22 GA | 
+| 1,20  | * Lis 2020    | * Dec 2020   | * Sty 2021  | 1,23 GA | 
 
-\*Oczekiwanie na potwierdzenie daty wydania nadrzędnego.
+\* Oczekiwanie na potwierdzenie daty wydania nadrzędnego.
 
 ## <a name="faq"></a>Często zadawane pytania
 
 **Co się stanie, gdy użytkownik uaktualnia klaster Kubernetes z nieobsługiwaną wersją pomocniczą?**
 
-Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Na przykład:
+Jeśli korzystasz z wersji *n-3* lub starszej, oznacza to, że użytkownik jest poza pomocą techniczną i zostanie poproszony o uaktualnienie. Gdy uaktualnienie z wersji n-3 do n-2 powiedzie się, nastąpi powrót do naszych zasad pomocy technicznej. Przykład:
 
 - Jeśli najstarsza obsługiwana wersja AKS to *1.15. a* i jesteś w wersji *1.14. b* lub starszej, jesteś poza pomocą techniczną.
 - Gdy uaktualnienie z wersji *1.14. b* do *1.15. a* lub nowsze, nastąpi powrót do naszych zasad pomocy technicznej.

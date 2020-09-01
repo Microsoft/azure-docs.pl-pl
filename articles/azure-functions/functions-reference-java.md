@@ -4,12 +4,12 @@ description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810092"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144927"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -144,14 +144,16 @@ W poniższej tabeli przedstawiono bieżące obsługiwane wersje języka Java dla
 
 | Wersja funkcji | Wersje Java (Windows) | Wersje Java (Linux) |
 | ----- | ----- | --- |
-| wersji | 11 (wersja zapoznawcza)<br/>0,8<sup>\*</sup> | 11 (wersja zapoznawcza)<br/>8 |
+| wersji | 11 (wersja zapoznawcza)<br/>8 | 11 (wersja zapoznawcza)<br/>8 |
 | 2.x | 8 | nie dotyczy |
 
-<sup>\*</sup>Jest to bieżąca wartość domyślna pom.xml wygenerowanej przez Maven Archetype.
+O ile nie zostanie określona wersja języka Java dla danego wdrożenia, Maven Archetype domyślnie język Java 8 podczas wdrażania na platformie Azure.
 
 ### <a name="specify-the-deployment-version"></a>Określ wersję wdrożenia
 
-Obecnie Maven Archetype generuje pom.xml, który jest przeznaczony dla języka Java 8. Następujące elementy w pom.xml muszą zostać zaktualizowane, aby można było utworzyć aplikację funkcji, w której działa środowisko Java 11.
+Za pomocą parametru można kontrolować wersję języka Java wskazywaną przez Maven Archetype `-DjavaVersion` . Wartością tego parametru może być Eter `8` lub `11` . Obsługa języka Java 11 jest obecnie dostępna w wersji zapoznawczej. 
+
+Maven Archetype generuje pom.xml, który jest przeznaczony dla określonej wersji języka Java. Następujące elementy w pom.xml wskazują wersję języka Java do użycia:
 
 | Element |  Wartość Java 8 | Wartość Java 11 | Opis |
 | ---- | ---- | ---- | --- |
@@ -320,7 +322,7 @@ Aby otrzymać wsadowe dane wejściowe, można powiązać z `String[]` , `POJO[]`
 
 ```
 
-Ta funkcja jest wyzwalana za każdym razem, gdy w skonfigurowanym centrum zdarzeń są nowe dane. Ponieważ `cardinality` jest ustawiona na `MANY` , funkcja otrzymuje partie komunikatów z centrum zdarzeń. `EventData`z centrum zdarzeń zostanie przekonwertowane na `TestEventData` potrzeby wykonywania funkcji.
+Ta funkcja jest wyzwalana za każdym razem, gdy w skonfigurowanym centrum zdarzeń są nowe dane. Ponieważ `cardinality` jest ustawiona na `MANY` , funkcja otrzymuje partie komunikatów z centrum zdarzeń. `EventData` z centrum zdarzeń zostanie przekonwertowane na `TestEventData` potrzeby wykonywania funkcji.
 
 ### <a name="output-binding-example"></a>Przykład powiązania danych wyjściowych
 

@@ -1,19 +1,19 @@
 ---
-title: Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge za pośrednictwem interfejsu wiersza polecenia platformy Azure i języka Python
-description: Opisuje sposób tworzenia maszyn wirtualnych i zarządzania nimi na Azure Stack urządzeniu brzegowym przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python.
+title: Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge GPU za pośrednictwem interfejsu wiersza polecenia platformy Azure i języka Python
+description: Opisuje sposób tworzenia maszyn wirtualnych i zarządzania nimi na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 898e10f4cc6d1e85a5d44fff41bede885b914a18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 77251148bed76f672adc2fffe2db688b33786022
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088391"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147120"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651764"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144842"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -55,7 +55,7 @@ Możesz rozpocząć od konfiguracji uruchamiania komputera lokalnego, a następn
 * [Co to jest Konfiguracja przebiegu?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Samouczek: uczenie swojego pierwszego modelu ML](tutorial-1st-experiment-sdk-train.md)
 * [Przykłady: Jupyter Notebook Przykładowe modele szkoleniowe](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
-* [Instrukcje: Konfigurowanie celów obliczeniowych i używanie ich do uczenia modelu](how-to-set-up-training-targets.md)
+* [Instrukcje: użycie obiektów docelowych obliczeń do szkolenia modelu](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>Zautomatyzowane uczenie maszynowe
 
@@ -160,4 +160,4 @@ Za pomocą rozszerzenia VS Code można uruchamiać zadania szkoleniowe i zarząd
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak [skonfigurować środowiska szkoleniowe](how-to-set-up-training-targets.md).
+Dowiedz się, jak [używać obiektów docelowych obliczeń do uczenia modelu](how-to-set-up-training-targets.md).

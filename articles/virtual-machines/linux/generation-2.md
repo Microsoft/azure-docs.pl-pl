@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 2a40c6158b5d29f695360c04a0d4376efd4238f9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 927908fa708e7e687bf82400c10e08fbcccdef19
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288462"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145029"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -29,7 +29,11 @@ Maszyny wirtualne generacji 1 są obsługiwane przez wszystkie rozmiary maszyn w
 * [Seria B](../sizes-b-series-burstable.md)
 * [Seria DCsv2](../dcv2-series.md)
 * Seria [DSv2](../dv2-dsv2-series.md) i [Dsv3](../dv3-dsv3-series.md)
+* [Seria Dsv4](../dv4-dsv4-series.md)
+* [Seria Ddsv4](../ddv4-ddsv4-series.md)
+* [Seria Dasv4](../dav4-dasv4-series.md)
 * [Seria Esv3](../ev3-esv3-series.md)
+* [Seria Easv4](../eav4-easv4-series.md)
 * [Seria Fsv2](../fsv2-series.md)
 * [Seria GS](../sizes-previous-gen.md#gs-series)
 * [Seria HB](../hb-series.md)
@@ -72,7 +76,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Cechy | Pierwsza generacja | Druga generacja |
+| Cecha | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Rozruch             | PCAT         | UEFI |
 | Kontrolery dysków | IDE          | SCSI |
@@ -104,7 +108,7 @@ Poniżej przedstawiono procedurę tworzenia maszyny wirtualnej generacji 2 (Gen2
 1. Wybierz pozycję **Utwórz zasób**.
 1. Po lewej stronie kliknij pozycję **Zobacz wszystko** w witrynie Azure Marketplace.
 1. Wybierz obraz, który obsługuje Gen2.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 1. Na karcie **Zaawansowane** w sekcji **generacja maszyny wirtualnej** wybierz opcję **generacji 2** .
 1. Na karcie **podstawowe** w obszarze **szczegóły wystąpienia**przejdź do pozycji **rozmiar** i Otwórz blok **Wybieranie rozmiaru maszyny wirtualnej** .
 1. Wybierz [obsługiwaną maszynę wirtualną generacji 2](#generation-2-vm-sizes).

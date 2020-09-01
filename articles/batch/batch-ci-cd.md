@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145261"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146423"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Używanie Azure Pipelines do kompilowania i wdrażania rozwiązań HPC
 
@@ -28,8 +28,8 @@ W tym przykładzie utworzymy potok kompilacji i wydania w celu wdrożenia infras
 
 Aby wykonać kroki opisane w tym artykule, potrzebna jest organizacja usługi Azure DevOps i projekt zespołowy.
 
-* [Tworzenie organizacji usługi Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Tworzenie projektu na platformie Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Tworzenie organizacji usługi Azure DevOps](/azure/devops/organizations/accounts/create-organization)
+* [Tworzenie projektu na platformie Azure DevOps](/azure/devops/organizations/projects/create-projects)
 
 ### <a name="source-control-for-your-environment"></a>Kontrola źródła dla danego środowiska
 
@@ -48,7 +48,7 @@ Struktura codebase użyta w tym przykładzie jest podobna do następującej:
 
 W tej sekcji założono, że znasz kontrolę wersji i projektujesz szablony Menedżer zasobów. Jeśli nie znasz tych pojęć, zobacz następujące strony, aby uzyskać więcej informacji.
 
-* [Co to jest kontrola źródła?](/azure/devops/user-guide/source-control?view=azure-devops)
+* [Co to jest kontrola źródła?](/azure/devops/user-guide/source-control)
 * [Zrozumienie struktury i składni szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Szablony usługi Azure Resource Manager
@@ -309,7 +309,7 @@ Teraz, gdy kod źródłowy został skonfigurowany, możemy rozpocząć pierwszą
 
 ## <a name="continuous-integration"></a>Ciągła integracja
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), w Azure DevOps Services, pomaga zaimplementować potok kompilacji, testowania i wdrażania aplikacji.
+[Azure Pipelines](/azure/devops/pipelines/get-started/), w Azure DevOps Services, pomaga zaimplementować potok kompilacji, testowania i wdrażania aplikacji.
 
 Na tym etapie potoku testy są zwykle uruchamiane w celu weryfikacji kodu i tworzenia odpowiednich fragmentów oprogramowania. Liczba i typy testów oraz wszelkie dodatkowe zadania, które są uruchamiane, zależą od szerszej strategii kompilowania i wydawania.
 
@@ -323,9 +323,9 @@ W tym przykładzie nastąpi skoncentrowanie na folderze **HPC-Application** . **
 
 1. Do utworzenia potoku kompilacji są dostępne dwie opcje:
 
-    a. [Przy użyciu projektanta wizualnego](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Aby użyć tego polecenia, kliknij pozycję "Użyj projektanta wizualizacji" na stronie **Nowy potok** .
+    a. [Przy użyciu projektanta wizualnego](/azure/devops/pipelines/get-started-designer). Aby użyć tego polecenia, kliknij pozycję "Użyj projektanta wizualizacji" na stronie **Nowy potok** .
 
-    b. [Korzystanie z kompilacji YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Nowy potok YAML można utworzyć, klikając opcję Azure Repos lub GitHub na stronie nowe potoku. Możesz również zapisać Poniższy przykład w kontroli źródła i odwołać się do istniejącego pliku YAML, klikając w projektancie wizualizacji, a następnie używając szablonu YAML.
+    b. [Korzystanie z kompilacji YAML](/azure/devops/pipelines/get-started-yamls). Nowy potok YAML można utworzyć, klikając opcję Azure Repos lub GitHub na stronie nowe potoku. Możesz również zapisać Poniższy przykład w kontroli źródła i odwołać się do istniejącego pliku YAML, klikając w projektancie wizualizacji, a następnie używając szablonu YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,7 +357,7 @@ W tym przykładzie nastąpi skoncentrowanie na folderze **HPC-Application** . **
     ![Wyświetlanie danych wyjściowych na żywo z kompilacji](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Jeśli używasz aplikacji klienckiej do wykonywania aplikacji wsadowej HPC, musisz utworzyć oddzielną definicję kompilacji dla tej aplikacji. W dokumentacji [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops) można znaleźć kilka przewodników związanych z założeniami.
+> Jeśli używasz aplikacji klienckiej do wykonywania aplikacji wsadowej HPC, musisz utworzyć oddzielną definicję kompilacji dla tej aplikacji. W dokumentacji [Azure Pipelines](/azure/devops/pipelines/get-started/index) można znaleźć kilka przewodników związanych z założeniami.
 
 ## <a name="continuous-deployment"></a>Ciągłe wdrażanie
 
@@ -440,7 +440,7 @@ Istnieje kilka kroków związanych z wdrażaniem infrastruktury. W przypadku uż
     * **Grupa zasobów**: $ (resourceGroupName)
     * **Lokalizacja**: $ (lokalizacja)
     * **Szablon**: $ (System. ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/ARM-templates/deployment.json
-    * **Przesłoń parametry szablonu**:```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
+    * **Przesłoń parametry szablonu**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Typowym sposobem jest użycie zadań Azure Key Vault. Jeśli nazwa główna usługi (połączenie z subskrypcją platformy Azure) ma odpowiednie zasady dostępu, można pobrać klucze tajne z Azure Key Vault i używać ich jako zmiennych w potoku. Nazwa wpisu tajnego zostanie ustawiona z skojarzoną wartością. Na przykład wpis tajny sshPassword może być przywoływany przy użyciu $ (sshPassword) w definicji wydania.
 
@@ -450,7 +450,7 @@ Typowym sposobem jest użycie zadań Azure Key Vault. Jeśli nazwa główna usł
     * **Nazwa wyświetlana:** Tworzenie aplikacji na koncie Azure Batch
     * **Subskrypcja platformy Azure:** Wybierz odpowiednią subskrypcję platformy Azure
     * **Lokalizacja skryptu**: skrypt wbudowany
-    * **Skrypt wbudowany**:```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **Skrypt wbudowany**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. Drugi krok służy do przekazywania skojarzonych pakietów do aplikacji. W naszym przypadku pliki narzędzia FFmpeg.
 
@@ -458,7 +458,7 @@ Typowym sposobem jest użycie zadań Azure Key Vault. Jeśli nazwa główna usł
     * **Nazwa wyświetlana:** Przekaż pakiet do konta Azure Batch
     * **Subskrypcja platformy Azure:** Wybierz odpowiednią subskrypcję platformy Azure
     * **Lokalizacja skryptu**: skrypt wbudowany
-    * **Skrypt wbudowany**:```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **Skrypt wbudowany**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > Numer wersji pakietu aplikacji jest ustawiony na zmienną. Jest to wygodne, Jeśli zastępowanie poprzednich wersji pakietu działa prawidłowo, a jeśli chcesz ręcznie kontrolować numer wersji pakietu wypchnięcia do Azure Batch.
@@ -476,7 +476,7 @@ Po skonfigurowaniu środowiska upewnij się, że następujące testy mogą zosta
 Połącz się z nowym kontem Azure Batch przy użyciu interfejsu wiersza polecenia platformy Azure z wiersza poleceń programu PowerShell.
 
 * Zaloguj się do konta platformy Azure przy użyciu `az login` i postępuj zgodnie z instrukcjami dotyczącymi uwierzytelniania.
-* Teraz uwierzytelniaj konto w usłudze Batch:`az batch account login -g <resourceGroup> -n <batchAccount>`
+* Teraz uwierzytelniaj konto w usłudze Batch: `az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Wyświetl listę dostępnych aplikacji
 

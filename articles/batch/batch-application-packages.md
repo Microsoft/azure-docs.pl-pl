@@ -4,12 +4,12 @@ description: Funkcja pakietów aplikacji programu Azure Batch umożliwia łatwe 
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 8d0ab6227e232728818afbbc58ca6521d9a417df
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d847dd926d157e455a6ef4e0c58c9dd204a1ecc7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922008"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146474"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -334,8 +334,8 @@ Pakiety aplikacji umożliwiają klientom Wybieranie aplikacji do zadań i okreś
 * [Interfejs API REST usługi Batch][api_rest] zapewnia również obsługę pracy z pakietami aplikacji. Na przykład zobacz element [applicationPackageReferences][rest_add_pool_with_packages] w temacie [Dodawanie puli do konta][rest_add_pool] , aby uzyskać informacje na temat określania pakietów do zainstalowania przy użyciu interfejsu API REST. Aby uzyskać szczegółowe informacje na temat uzyskiwania informacji o aplikacji przy użyciu interfejsu API REST usługi Batch, zobacz [aplikacje][rest_applications] .
 * Dowiedz się, jak programowo [zarządzać kontami i przydziałami Azure Batch przy użyciu programu Batch Management .NET](batch-management-dotnet.md). Biblioteka [platformy .NET zarządzania usługą Batch][api_net_mgmt] może włączyć funkcje tworzenia i usuwania kont dla aplikacji lub usługi Batch.
 
-[api_net]: /dotnet/api/overview/azure/batch/client?view=azure-dotnet
-[api_net_mgmt]: /dotnet/api/overview/azure/batch/management?view=azure-dotnet
+[api_net]: /dotnet/api/overview/azure/batch/client
+[api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_rest]: /rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples

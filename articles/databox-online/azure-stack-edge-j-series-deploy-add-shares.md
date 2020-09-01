@@ -1,20 +1,20 @@
 ---
-title: Samouczek dotyczący transferu danych do udziałów z Azure Stack Edge | Microsoft Docs
-description: Dowiedz się, jak dodawać udziały na Azure Stack urządzeniu brzegowym i łączyć się z nimi.
+title: Samouczek dotyczący transferu danych do udziałów przy użyciu Azure Stack Edge GPU | Microsoft Docs
+description: Dowiedz się, jak dodawać udziały i łączyć się z nimi na Azure Stack Edge na urządzeniu GPU.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: a6e757b18090e86fe1518946b7f630801823fb0e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a033297d0cac044cf39d5765ab30317f3b90b67c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89087797"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146083"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge"></a>Samouczek: przesyłanie danych za pośrednictwem udziałów z Azure Stack Edge
 

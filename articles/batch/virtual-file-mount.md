@@ -4,23 +4,23 @@ description: Dowiedz się, jak zainstalować wirtualny system plików w puli wsa
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 6b42d73954bf7ccaedfec15371cc73115c51198a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921634"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145488"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
 
 Azure Batch teraz obsługuje instalowanie magazynu w chmurze lub zewnętrznego systemu plików w węzłach obliczeniowych systemu Windows lub Linux w pulach usługi Batch. Gdy węzeł obliczeniowy jest przyłączany do puli, wirtualny system plików jest instalowany i traktowany jako dysk lokalny w tym węźle. Można instalować systemy plików, takie jak Azure Files, Azure Blob Storage, Network File System (NFS), w tym [pamięci podręcznej VFXT avere](../avere-vfxt/avere-vfxt-overview.md)lub Common Internet File System (CIFS).
 
-W tym artykule dowiesz się, jak zainstalować wirtualny system plików w puli węzłów obliczeniowych przy użyciu [biblioteki zarządzania usługą Batch dla platformy .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
+W tym artykule dowiesz się, jak zainstalować wirtualny system plików w puli węzłów obliczeniowych przy użyciu [biblioteki zarządzania usługą Batch dla platformy .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
 > Instalowanie wirtualnego systemu plików jest obsługiwane w pulach wsadowym utworzonym w dniu lub po 2019-08-19. Pule wsadowe utworzone przed 2019-08-19 nie obsługują tej funkcji.
 > 
-> Interfejsy API służące do instalowania systemów plików w węźle obliczeniowym są częścią biblioteki usługi [Batch .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet) .
+> Interfejsy API służące do instalowania systemów plików w węźle obliczeniowym są częścią biblioteki usługi [Batch .NET](/dotnet/api/microsoft.azure.batch) .
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Zalety instalowania w puli
 
@@ -160,7 +160,7 @@ Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-outpu
 
 ## <a name="supported-skus"></a>Obsługiwane jednostki SKU
 
-| Publisher | Oferta | SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
+| Wydawca | Oferta | SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
 |---|---|---|---|---|---|---|
 | partia | Renderowanie — centos73 | dawania | :heavy_check_mark: <br>Uwaga: zgodność z CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04 – LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

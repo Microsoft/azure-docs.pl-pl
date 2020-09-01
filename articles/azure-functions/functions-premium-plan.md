@@ -3,15 +3,15 @@ title: Plan Azure Functions Premium
 description: Szczegóły i opcje konfiguracji (Sieć wirtualna, brak nieograniczonego czasu wykonywania) dla planu Azure Functions Premium.
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506200"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145757"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Azure Functions Premium
 
@@ -36,21 +36,42 @@ Po utworzeniu planu możesz użyć [AZ functionapp Create](/cli/azure/functionap
 
 Następujące funkcje są dostępne dla aplikacji funkcjonalnych wdrożonych w planie Premium.
 
-### <a name="pre-warmed-instances"></a>Wystąpienia przed wystąpieniem
+### <a name="always-ready-instances"></a>Zawsze gotowe wystąpienia
 
 Jeśli w planie zużycia nie wystąpiły żadne zdarzenia i wykonania, aplikacja może skalować się do zero wystąpień. Gdy pojawią się nowe zdarzenia, nowe wystąpienie musi być wyspecjalizowane dla działającej aplikacji.  Specjalizacja nowych wystąpień może zająć trochę czasu w zależności od aplikacji.  To dodatkowe opóźnienie pierwszego wywołania jest często nazywane aplikacją zimnego startu.
 
-W planie Premium aplikacja została wstępnie przegrzana na określoną liczbę wystąpień do minimalnej wielkości planu.  Wystąpienia przed obciążeniem umożliwiają również wstępne skalowanie aplikacji. Gdy aplikacja jest skalowana w poziomie, najpierw skaluje się do wygrzanych wystąpień. Dodatkowe wystąpienia kontynuują buforowanie i podgrzewanie natychmiast po przygotowaniu dla następnej operacji skalowania. Dzięki buforowi wstępnie wygrzanych wystąpień można skutecznie uniknąć opóźnień zimnego uruchamiania.  Wystąpienia wstępnie działające to funkcja planu Premium, która wymaga, aby co najmniej jedno wystąpienie było uruchomione i dostępne we wszystkich przypadkach, gdy plan jest aktywny.
+W planie Premium aplikacja zawsze będzie gotowa na określoną liczbę wystąpień.  Maksymalna liczba wystąpień zawsze gotowe jest równa 20.  Gdy zdarzenia rozpoczną wyzwalanie aplikacji, są one najpierw kierowane do zawsze przygotowanych wystąpień.  Gdy funkcja zostanie uaktywniona, kolejne wystąpienia zostaną rozgrzane jako bufor.  Ten bufor zapobiega zimnemu uruchomieniu dla nowych wystąpień wymaganych podczas skalowania.  Te buforowane wystąpienia są nazywane [wstępnie rozgrzanymi wystąpieniami](#pre-warmed-instances).  Wraz z kombinacją zawsze przygotowanych wystąpień i wstępnie wygrzanego buforu aplikacja może skutecznie wyeliminować zimne uruchomienie.
 
-Liczbę wstępnie rozgrzanych wystąpień można skonfigurować w Azure Portal przez wybranie **aplikacja funkcji**, przejście na kartę **funkcje platformy** i wybranie opcji **skalowania w poziomie** . W oknie Edycja aplikacji funkcji, wstępnie rozgrzane wystąpienia są specyficzne dla tej aplikacji, ale minimalne i maksymalne wystąpienia są stosowane do całego planu.
+> [!NOTE]
+> Każdy plan Premium będzie miał wszystkie aktywne i rozliczane wystąpienia przez cały czas.
+
+Liczbę zawsze przygotowanych wystąpień można skonfigurować w Azure Portal przez wybranie **aplikacja funkcji**, przejście na kartę **funkcje platformy** i wybranie opcji **skalowania w poziomie** . W oknie Edycja aplikacji funkcji zawsze gotowe wystąpienia są specyficzne dla tej aplikacji.
 
 ![Ustawienia skalowania elastycznego](./media/functions-premium-plan/scale-out.png)
 
-Możesz również skonfigurować wstępnie rozgrzane wystąpienia dla aplikacji za pomocą interfejsu wiersza polecenia platformy Azure.
+Możesz również skonfigurować zawsze gotowe wystąpienia dla aplikacji za pomocą interfejsu wiersza polecenia platformy Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
 ```
+
+#### <a name="pre-warmed-instances"></a>Wystąpienia przed wystąpieniem
+
+Wystąpienia z góry to liczba wystąpień rozgrzanych jako bufor podczas zdarzeń skalowania i aktywacji.  Wystąpienia przed osiągnięciem maksymalnego limitu skalowania są nadal buforowane.  Domyślna liczba wystąpień wstępnie rozgrzanych to 1, a w przypadku większości scenariuszy powinna pozostać jako 1.  Jeśli aplikacja ma długotrwałą rozgrzewanie (na przykład niestandardowy obraz kontenera), warto zwiększyć ten bufor.  Wystąpienie preinstalowane stanie się aktywne dopiero po wystarczająco wykorzystaniu wszystkich aktywnych wystąpień.
+
+Rozważmy ten przykład, jak zawsze gotowe wystąpienia i wstępnie rozgrzane wystąpienia współpracują ze sobą.  Aplikacja funkcji w warstwie Premium ma skonfigurowane pięć zawsze gotowych wystąpień i domyślnie jedno wystąpienie przedgrzane.  Gdy aplikacja jest bezczynna i żadne zdarzenia nie są wyzwalane, aplikacja zostanie zainicjowana i uruchomiona na pięciu wystąpieniach.  
+
+Zaraz po otrzymaniu pierwszego wyzwalacza, pięć zawsze gotowych wystąpień staje się aktywny i przydzielono dodatkowe wystąpienie z góry.  Aplikacja działa teraz z sześcioma zainicjowanymi wystąpieniami: pięć teraz — aktywne zawsze gotowe wystąpienia i szósty, wstępnie rozgrzany i nieaktywny bufor.  Jeśli szybkość wykonywania nadal rośnie, zostaną ostatecznie wykorzystane pięć aktywnych wystąpień.  Gdy Platforma zdecyduje się na skalowanie ponad pięciu wystąpień, zostanie przeskalowana do wystąpienia sprzed wykonania.  Gdy tak się stanie, będą teraz dostępne sześć aktywnych wystąpień, a siódme wystąpienie zostanie natychmiast zainicjowane i wypełnianie buforu z prefiksem.  Ta sekwencja skalowania i wstępnego rozgrzewania będzie kontynuowana do momentu osiągnięcia maksymalnej liczby wystąpień aplikacji.  Żadne wystąpienia nie zostaną wstępnie rozgrzane lub aktywowane poza wartością maksymalną.
+
+Liczbę wstępnie rozgrzanych wystąpień aplikacji można zmodyfikować przy użyciu interfejsu wiersza polecenia platformy Azure.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+```
+
+#### <a name="maximum-instances-for-an-app"></a>Maksymalna liczba wystąpień aplikacji
+
+Oprócz [maksymalnej liczby wystąpień planu](#plan-and-sku-settings)można skonfigurować wartość maksymalną dla aplikacji.  Maksymalną liczbę aplikacji można skonfigurować przy użyciu [limitu skalowania aplikacji](./functions-scale.md#limit-scale-out).
 
 ### <a name="private-network-connectivity"></a>Łączność sieci prywatnej
 
@@ -68,16 +89,13 @@ Aby dowiedzieć się więcej o tym, jak działa skalowanie, zobacz [Funkcja skal
 
 ### <a name="longer-run-duration"></a>Dłuższy czas trwania
 
-Azure Functions w planie zużycia są ograniczone do 10 minut w przypadku pojedynczego wykonania.  W planie Premium wartość czasu trwania przebiegu jest domyślnie równa 30 minut, aby uniemożliwić przemijające wykonania. Można jednak [zmodyfikować host.jsw konfiguracji](./functions-host-json.md#functiontimeout) , aby nie było to powiązane z aplikacjami planu Premium (gwarantowane 60 minut).
+Azure Functions w planie zużycia są ograniczone do 10 minut w przypadku pojedynczego wykonania.  W planie Premium wartość czasu trwania przebiegu jest domyślnie równa 30 minut, aby uniemożliwić przemijające wykonania. Można jednak [zmodyfikować host.jsw konfiguracji](./functions-host-json.md#functiontimeout) , aby okres trwania nie był powiązany z aplikacjami planu Premium (gwarantowane 60 minut).
 
 ## <a name="plan-and-sku-settings"></a>Ustawienia planu i jednostki SKU
 
-Podczas tworzenia planu można skonfigurować dwa ustawienia: minimalną liczbę wystąpień (lub rozmiar planu) i maksymalny limit.  Minimalna liczba wystąpień jest zarezerwowana i zawsze uruchomiona.
+Podczas tworzenia planu dostępne są dwa ustawienia rozmiaru planu: minimalna liczba wystąpień (lub rozmiar planu) i maksymalny limit.
 
-> [!IMPORTANT]
-> Opłaty są naliczane za każde wystąpienie przydzieloną w minimalnej liczbie wystąpień niezależnie od tego, czy funkcje są wykonywane, czy nie.
-
-Jeśli aplikacja wymaga wystąpień poza rozmiarem planu, można nadal skalować w poziomie, dopóki liczba wystąpień osiągnie maksymalny limit.  Opłaty są naliczane za wystąpienia poza rozmiarem planu, gdy są one uruchomione i dzierżawione.  W celu skalowania aplikacji do zdefiniowanego maksymalnego limitu zostanie osiągnięty najlepszy nakład pracy, podczas gdy minimalne wystąpienia planu są gwarantowane dla aplikacji.
+Jeśli aplikacja wymaga wystąpień poza zawsze gotowymi wystąpieniami, można nadal skalować w poziomie, dopóki liczba wystąpień osiągnie maksymalny limit.  Opłaty są naliczane za wystąpienia poza rozmiarem planu, gdy są one uruchomione i dzierżawione.  W celu skalowania aplikacji do zdefiniowanego maksymalnego limitu zostanie osiągnięty najlepszy nakład pracy.
 
 Rozmiar planu i maksymalne wartości można skonfigurować w Azure Portal, wybierając opcje **skalowania w poziomie** w ramach planu lub aplikacji funkcji wdrożonej w ramach tego planu (w obszarze **funkcje platformy**).
 
@@ -87,11 +105,24 @@ Możesz również zwiększyć maksymalny limit obciążeń z poziomu interfejsu 
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
 ```
 
+Minimum dla każdego planu będzie co najmniej jednym wystąpieniem.  Rzeczywista minimalna liczba wystąpień zostanie automatycznie skonfigurowana dla użytkownika w oparciu o zawsze gotowe wystąpienia wymagane przez aplikacje w planie.  Na przykład jeśli aplikacja A zwróci pięć zawsze gotowe wystąpienia, a aplikacja B żąda dwóch zawsze przygotowanych wystąpień w tym samym planie, minimalny rozmiar planu zostanie obliczony jako pięć.  Aplikacja A będzie działać na wszystkich 5, a aplikacja B będzie działać tylko na 2.
+
+> [!IMPORTANT]
+> Opłaty są naliczane za każde wystąpienie przydzieloną w minimalnej liczbie wystąpień niezależnie od tego, czy funkcje są wykonywane, czy nie.
+
+W większości przypadków wartość minimalna powinna być wystarczająca.  Jednak skalowanie wykraczające poza minimum występuje w najlepszym wysiłku.  Istnieje prawdopodobieństwo, że jest mało prawdopodobne, że w określonym czasie skalowanie może zostać opóźnione, jeśli dodatkowe wystąpienia są niedostępne.  Ustawiając wartość minimalną wyższą niż wartość minimalna obliczana automatycznie, należy zarezerwować wystąpienia z wyprzedzeniem.
+
+Zwiększenie obliczonego minimum dla planu można wykonać przy użyciu interfejsu wiersza polecenia platformy Azure.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+```
+
 ### <a name="available-instance-skus"></a>Dostępne jednostki SKU wystąpienia
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty zostaną naliczone za łączną liczbę rdzeni i zużywaną pamięć na sekundę.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
 
-|Jednostka SKU|Rdzenie|Pamięć|Storage|
+|SKU|Rdzenie|Pamięć|Magazyn|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|
@@ -116,7 +147,7 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Australia Południowo-Wschodnia | 100 | 20 |
 |Brazil South| 60 | 20 |
 |Kanada Środkowa| 100 | 20 |
-|Środkowe stany USA| 100 | 20 |
+|Central US| 100 | 20 |
 |Azja Wschodnia| 100 | 20 |
 |East US | 100 | 20 |
 |Wschodnie stany USA 2| 100 | 20 |
@@ -130,10 +161,10 @@ Zapoznaj się z pełną regionalną dostępnością funkcji tutaj: [Azure.com](h
 |Norwegia Wschodnia| 20 | 20 |
 |South Central US| 100 | 20 |
 |Indie Południowe | 100 | Niedostępny |
-|Azja Południowo-Wschodnia| 100 | 20 |
+|Southeast Asia| 100 | 20 |
 |Południowe Zjednoczone Królestwo| 100 | 20 |
 |Zachodnie Zjednoczone Królestwo| 100 | 20 |
-|Europa Zachodnia| 100 | 20 |
+|West Europe| 100 | 20 |
 |Indie Zachodnie| 100 | 20 |
 |Zachodnio-środkowe stany USA| 20 | 20 |
 |Zachodnie stany USA| 100 | 20 |

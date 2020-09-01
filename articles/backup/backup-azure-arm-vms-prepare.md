@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826314"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145658"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -80,7 +80,7 @@ Skonfiguruj zasady tworzenia kopii zapasowych dla magazynu.
 
       ![Dodaj maszyny wirtualne](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
 
-1. Zostanie otwarte okienko **Wybieranie maszyn wirtualnych** . Wybierz Maszyny wirtualne, których kopię zapasową chcesz utworzyć przy użyciu zasad. Następnie wybierz pozycję **OK**.
+1. Zostanie otwarte okienko **Wybieranie maszyn wirtualnych** . Wybierz Maszyny wirtualne, których kopię zapasową chcesz utworzyć przy użyciu zasad. Następnie wybierz przycisk **OK**.
 
    * Wybrane maszyny wirtualne zostały zweryfikowane.
    * Maszyny wirtualne można wybrać tylko w tym samym regionie, w którym znajduje się magazyn.
@@ -128,7 +128,7 @@ Początkowa kopia zapasowa będzie uruchamiana zgodnie z harmonogramem, ale moż
 2. W obszarze **elementy kopii zapasowej**wybierz pozycję **maszyna wirtualna platformy Azure**.
 3. Na liście **elementy kopii zapasowej** wybierz wielokropek (...).
 4. Wybierz pozycję **Utwórz kopię zapasową teraz**.
-5. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie wybierz pozycję **OK**.
+5. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie wybierz przycisk **OK**.
 6. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru maszyny wirtualnej tworzenie początkowej kopii zapasowej może potrwać pewien czas.
 
 ## <a name="verify-backup-job-status"></a>Sprawdź stan zadania tworzenia kopii zapasowej
@@ -155,7 +155,7 @@ Ukończone | Niepowodzenie | Ukończono z ostrzeżeniem
 Niepowodzenie | Niepowodzenie | Niepowodzenie
 
 Teraz dzięki tej możliwości dla tej samej maszyny wirtualnej dwa kopie zapasowe mogą działać równolegle, ale w każdej fazie (migawka, transfer danych do magazynu) można uruchomić tylko jedno zadanie podrzędne. Tak więc w scenariuszach, w których zadanie tworzenia kopii zapasowej w toku spowodowało niepowodzenie tworzenia kopii zapasowej w następnym dniu, zostanie ono wyeliminowane w tej funkcji. Kopie zapasowe kolejnych dni mogą mieć ukończoną migawkę **, podczas gdy** zadanie tworzenia kopii zapasowej w poprzednim dniu jest pomijane.
-Przyrostowy punkt odzyskiwania utworzony w magazynie będzie przechwytywał wszystkie zmiany z ostatniego punktu odzyskiwania utworzonego w magazynie. Użytkownik nie ma wpływu na koszty.
+Przyrostowy punkt odzyskiwania utworzony w magazynie będzie przechwytywać wszystkie zmiany z najnowszego punktu odzyskiwania utworzonego w magazynie. Użytkownik nie ma wpływu na koszty.
 
 ## <a name="optional-steps"></a>Kroki opcjonalne
 
