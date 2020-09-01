@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7a5b186ebc98babe1baacc9f56f39dc8fbc093
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb1c3bc9f89db3f4b694803a63293a5537d4b98b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80049374"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278756"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>Co to jest federacja w usłudze Azure AD Connect?
 
@@ -35,7 +35,7 @@ Można sfederować środowisko lokalne z usługą Azure AD i użyć tej federacj
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest tożsamość hybrydowa?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [Co to jest tożsamość hybrydowa?](./whatis-hybrid-identity.md)
 - [Co to są Azure AD Connect Health i Connect Health?](whatis-azure-ad-connect.md)
 - [Co to jest synchronizacja skrótów haseł?](whatis-phs.md)
 - [Co to jest federacja?](whatis-fed.md)

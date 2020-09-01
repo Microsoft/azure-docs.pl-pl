@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80631722"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278840"
 ---
 # <a name="what-is-azure-ad-connect"></a>Co to jest program Azure AD Connect?
 
@@ -26,7 +26,7 @@ Azure AD Connect to narzędzie firmy Microsoft, które umożliwia spełnienie wy
 - [Uwierzytelnianie przekazywane](how-to-connect-pta.md) — metoda logowania, która pozwala użytkownikom używać tego samego hasła w infrastrukturze lokalnej i w chmurze, ale nie wymaga dodatkowej infrastruktury w środowisku federacyjnym.
 - [Integracja federacyjna](how-to-connect-fed-whatis.md) — usługi federacyjne to opcjonalny składnik programu Azure AD Connect, za pomocą którego można skonfigurować środowisko hybrydowe przy użyciu lokalnej infrastruktury usług AD FS. Składnik ten udostępnia również funkcje zarządzania usługami AD FS, takie jak odnawianie certyfikatów i dodatkowe wdrożenia serwera usług AD FS.
 - [Synchronizacja](how-to-connect-sync-whatis.md) — odpowiada za tworzenie użytkowników, grup i innych obiektów.  Odpowiada też za zapewnienie zgodności informacji o tożsamości lokalnych użytkowników i grup z informacjami w chmurze.  Synchronizacja dotyczy również skrótów haseł.
-- [Monitorowanie kondycji](whatis-hybrid-identity-health.md) — Azure AD Connect Health może zapewnić niezawodne monitorowanie i zapewnić centralną lokalizację w Azure Portal, aby wyświetlić to działanie. 
+- [Monitorowanie kondycji]() — Azure AD Connect Health może zapewnić niezawodne monitorowanie i zapewnić centralną lokalizację w Azure Portal, aby wyświetlić to działanie. 
 
 
 ![Co to jest program Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -57,7 +57,7 @@ Najważniejsze zalety i najlepsze rozwiązania:
 
 |Najważniejsze korzyści|Najlepsze rozwiązania|
 |-----|-----|
-|Większe bezpieczeństwo|[Trendy związane z blokadą ekstranetu](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Raport dotyczący nieudanych logowań](how-to-connect-health-adfs-risky-ip.md)</br>[W obszarze zgodność z prywatnością](reference-connect-health-user-privacy.md)|
+|Zwiększone zabezpieczenia|[Trendy związane z blokadą ekstranetu](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Raport dotyczący nieudanych logowań](how-to-connect-health-adfs-risky-ip.md)</br>[W obszarze zgodność z prywatnością](reference-connect-health-user-privacy.md)|
 |Otrzymuj alerty dotyczące [wszystkich krytycznych problemów z systemem ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Konfiguracja i dostępność serwera</br>[Wydajność i łączność](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regularna konserwacja|
 |Łatwe wdrażanie i zarządzanie|[Szybka instalacja agenta](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Automatyczne uaktualnianie agenta do najnowszej wersji</br>Dane dostępne w portalu w ciągu kilku minut|
 Zaawansowane [metryki użycia](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Lista najczęściej używanych aplikacji</br>Lokalizacje sieciowe i połączenia TCP</br>Żądania tokenów dla pojedynczych serwerów|
@@ -76,4 +76,4 @@ Zaawansowane [metryki użycia](how-to-connect-health-adfs.md#usage-analytics-for
 - [Sprzęt i wymagania wstępne](how-to-connect-install-prerequisites.md) 
 - [Ustawienia ekspresowe](how-to-connect-install-express.md)
 - [Ustawienia dostosowane](how-to-connect-install-custom.md)
-- [Instalowanie agentów programu Azure AD Connect Health](how-to-connect-health-agent-install.md) 
+- [Instalowanie agentów programu Azure AD Connect Health](how-to-connect-health-agent-install.md)

@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68779845"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278653"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Co to jest tożsamość hybrydowa z Azure Active Directory?
 
@@ -36,7 +36,7 @@ Aby uzyskać tożsamość hybrydową w usłudze Azure AD, można użyć jednej z
 
 Te metody uwierzytelniania oferują również funkcję [logowania jednokrotnego](how-to-connect-sso.md).  Logowanie jednokrotne umożliwia automatyczne logowanie użytkowników, gdy ich urządzenia firmowe są połączone z siecią firmową.
 
-Aby uzyskać więcej informacji, zobacz [Choose the right authentication method for your Azure Active Directory hybrid identity solution (Wybieranie właściwej metody uwierzytelniania w przypadku rozwiązania hybrydowego do obsługi tożsamości w usłudze Azure Active Directory)](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
+Aby uzyskać więcej informacji, zobacz [Choose the right authentication method for your Azure Active Directory hybrid identity solution (Wybieranie właściwej metody uwierzytelniania w przypadku rozwiązania hybrydowego do obsługi tożsamości w usłudze Azure Active Directory)](./choose-ad-authn.md). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Typowe scenariusze i zalecenia 
 
@@ -60,7 +60,7 @@ Poniżej przedstawiono kilka typowych scenariuszy związanych z tożsamościami 
 > 
 > <sup>3</sup> Federacyjne logowanie jednokrotne z użyciem usług AD FS.  
 >  
-> <sup>4</sup> Usługi AD FS można zintegrować z infrastrukturą kluczy publicznych przedsiębiorstwa, aby umożliwić logowanie przy użyciu certyfikatów. Mogą to być certyfikaty programowe wdrażane za pośrednictwem zaufanych kanałów aprowizowania, takich jak zarządzanie danymi głównymi lub obiekt zasad grupy, lub certyfikaty na kartach inteligentnych (w tym na kartach PIV/CAC) albo w usłudze Hello dla firm (zaufanie certyfikatu). Aby uzyskać więcej informacji na temat obsługi uwierzytelniania za pomocą kart inteligentnych, zobacz [ten blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
+> <sup>4</sup> Usługi AD FS można zintegrować z infrastrukturą kluczy publicznych przedsiębiorstwa, aby umożliwić logowanie przy użyciu certyfikatów. Mogą to być certyfikaty programowe wdrażane za pośrednictwem zaufanych kanałów aprowizowania, takich jak zarządzanie danymi głównymi lub obiekt zasad grupy, lub certyfikaty na kartach inteligentnych (w tym na kartach PIV/CAC) albo w usłudze Hello dla firm (zaufanie certyfikatu). Aby uzyskać więcej informacji na temat obsługi uwierzytelniania za pomocą kart inteligentnych, zobacz [ten blog](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
 
 ## <a name="license-requirements-for-using-azure-ad-connect"></a>Wymagania licencyjne dotyczące korzystania z Azure AD Connect
@@ -73,5 +73,4 @@ Poniżej przedstawiono kilka typowych scenariuszy związanych z tożsamościami 
 - [Co to jest synchronizacja skrótów haseł?](whatis-phs.md) 
 - [Co to jest uwierzytelnianie przekazywane?](how-to-connect-pta.md) 
 - [Co to jest federacja?](whatis-fed.md) 
-- [Co to jest logowanie jednokrotne?](how-to-connect-sso.md) 
-
+- [Co to jest logowanie jednokrotne?](how-to-connect-sso.md)

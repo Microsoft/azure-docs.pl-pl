@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "64919011"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279010"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Samouczek: Konfigurowanie PHS jako kopii zapasowej AD FS w Azure AD Connect
 
@@ -33,7 +33,7 @@ Następujący samouczek przeprowadzi Cię przez konfigurowanie synchronizacji sk
 Ten samouczek jest oparty na [samouczku: sfederować pojedyncze środowisko lasu usługi AD z chmurą](tutorial-federation.md) i jest to wymagane przed podjęciem próby wykonania tego samouczka.  Jeśli tamten samouczek nie został wykonany, zrób to przed podjęciem próby wykonania kroków zawartych w tym dokumencie.
 
 >[!IMPORTANT]
->Przed przełączeniem do PHS należy utworzyć kopię zapasową środowiska AD FS.  Można to zrobić za pomocą [narzędzia AD FS szybkie przywracanie](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Przed przełączeniem do PHS należy utworzyć kopię zapasową środowiska AD FS.  Można to zrobić za pomocą [narzędzia AD FS szybkie przywracanie](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Włączanie synchronizacji skrótów haseł w programie Azure AD Connect
 Pierwszym krokiem w środowisku programu Azure AD Connect korzystającym z federacji jest włączenie synchronizacji skrótów haseł i umożliwienie programowi Azure AD Connect synchronizowania skrótów.
