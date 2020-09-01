@@ -6,13 +6,13 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 641cae751b0b87d93235e1272bc5f46f7797d834
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: f0aaa82db61b5f40e42d6dad641bc09d5add9d0f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065134"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078337"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Omówienie integracji usług Azure Service Bus i Event Grid
 
@@ -32,7 +32,7 @@ Do włączenia tej funkcji potrzebne są następujące elementy:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Weryfikowanie dostępu współautora
-Przejdź do przestrzeni nazw Service Bus, a następnie wybierz pozycję **Kontrola dostępu (IAM)**, a następnie wybierz pozycję Karta **przypisania ról** . Sprawdź, czy masz dostęp współautora do przestrzeni nazw. 
+Przejdź do przestrzeni nazw Service Bus, a następnie wybierz pozycję **Kontrola dostępu (IAM)** i wybierz pozycję Karta **przypisania ról** . Sprawdź, czy masz dostęp współautora do przestrzeni nazw. 
 
 ### <a name="events-and-event-schemas"></a>Zdarzenia i schematy zdarzeń
 

@@ -1,20 +1,20 @@
 ---
 title: Custom Vision szyfrowanie danych magazynowanych
 titleSuffix: Azure Cognitive Services
-description: Custom Vision szyfrowanie danych magazynowanych.
+description: Firma Microsoft oferuje klucze szyfrowania zarządzane przez firmę Microsoft, a także umożliwia zarządzanie subskrypcjami Cognitive Services przy użyciu własnych kluczy nazywanych kluczami zarządzanymi przez klienta (CMK). W tym artykule opisano szyfrowanie danych przechowywane dla Custom Vision i sposób włączania usługi CMK oraz zarządzania nią.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 85cf251db69d33f02e928eaea6a848f20ae7d923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310295"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077759"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Custom Vision szyfrowanie danych magazynowanych
 
@@ -31,7 +31,7 @@ Klucze zarządzane przez klienta są obecnie dostępne w następujących regiona
 
 * Południowo-środkowe stany USA
 * Zachodnie stany USA 2
-* Wschodnie stany USA
+* East US
 * US Gov Wirginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]

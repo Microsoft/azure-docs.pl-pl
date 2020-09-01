@@ -1,6 +1,7 @@
 - name: Dokumentacja dotycząca usługi Azure Data Share
   href: index.yml
 - name: Omówienie
+  expanded: true
   items:
     - name: Co to jest usługa Azure Data Share?
       href: overview.md
@@ -36,6 +37,11 @@
       href: samples-powershell.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Udostępnianie i odbieranie danych według źródła
+      items:
+        - name: Udostępnianie z usługi Azure Data Explorer
+          href: /azure/data-explorer/data-share
+          maintainContext: true
     - name: Monitorowanie
       href: how-to-monitor.md
     - name: Rozwiązywanie problemów
@@ -54,9 +60,6 @@
       href: security.md
     - name: Odzyskiwanie po awarii
       href: disaster-recovery.md
-    - name: Udostępnianie danych usług Azure Data Explorer
-      href: /azure/data-explorer/data-share
-      maintainContext: true
 - name: Dokumentacja
   items:
     - name: .NET

@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84710137"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077997"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Samouczek: hostowanie własnej domeny w usłudze Azure DNS
 
 Za pomocą usługi Azure DNS można hostować swoją domenę DNS i zarządzać rekordami DNS. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure.
 
-Załóżmy, że masz zakupioną domenę „contoso.net” od rejestratora nazw domen i tworzysz strefę o nazwie „contoso.net” w usłudze Azure DNS. Ponieważ jesteś właścicielem domeny, rejestrator oferuje Ci opcję skonfigurowania rekordów serwerów nazw (NS) dla domeny. Rejestrator przechowuje rekordy NS w strefie nadrzędnej „.net”. Użytkownicy Internetu na całym świecie są kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie contoso.net.
+Załóżmy, że masz zakupioną domenę „contoso.net” od rejestratora nazw domen i tworzysz strefę o nazwie „contoso.net” w usłudze Azure DNS. Ponieważ jesteś właścicielem domeny, rejestrator oferuje Ci opcję skonfigurowania rekordów serwerów nazw (NS) dla domeny. Rejestrator przechowuje rekordy NS w strefie nadrzędnej platformy .NET. Użytkownicy Internetu na całym świecie są kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie contoso.net.
 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -36,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Musisz mieć nazwę domeny dostępną do przetestowania, aby można było hostować w Azure DNS. Musisz mieć pełną kontrolę nad tą domeną. Pełna kontrola obejmuje możliwość ustawiania dla domeny rekordów serwera nazw (NS).
 
-Przykładową domeną używaną dla tego samouczka jest contoso.net, ale należy użyć własnej nazwy domeny.
+W tym przykładzie odwołujemy się do domeny nadrzędnej jako **contoso.NET**
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
@@ -45,14 +45,19 @@ Przykładową domeną używaną dla tego samouczka jest contoso.net, ale należy
    ![Strefa DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. Wybierz pozycję **Utwórz strefę DNS**.
-1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie wybierz pozycję **Utwórz**:
+1. Na stronie **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie wybierz pozycję **Utwórz**: na przykład **contoso.NET**
+      > [!NOTE] 
+      > Jeśli nowo tworzona strefa jest strefą podrzędną (np. Strefa nadrzędna = contoso.net podrzędne strefy = child.contoso.net), zapoznaj się z naszym [samouczkiem Tworzenie nowej podrzędnej strefy DNS](./tutorial-public-dns-zones-child.md)
 
-   | **Ustawienie** | **Wartość** | **Szczegóły** |
-   |---|---|---|
-   |**Nazwa**|[nazwa Twojej domeny] |Nazwa zakupionej domeny. W tym samouczku używana jest przykładowa nazwa „contoso.net”.|
-   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć strefę.|
-   |**Grupa zasobów**|**Utwórz nową:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji.<br>Lokalizacja grupy zasobów nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.|
-   |**Lokalizacja**|East US||
+    | **Ustawienie** | **Wartość** | **Szczegóły** |
+    |--|--|--|
+    | **Szczegóły projektu:**  |  |  |
+    | **Grupa zasobów**    | ContosoRG | Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w ramach wybranej subskrypcji. Lokalizacja grupy zasobów nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze "globalna" i nie jest wyświetlana. |
+    | **Szczegóły wystąpienia:** |  |  |
+    | **Element podrzędny strefy**        | pozostaw niezaznaczone | Ponieważ ta strefa **nie** jest [strefą podrzędną](./tutorial-public-dns-zones-child.md) , należy pozostawić zaznaczenie tego pola wyboru |
+    | **Nazwa**              | contoso.net | Pole nazwy strefy nadrzędnej      |
+    | **Lokalizacja**          | East US | To pole jest oparte na lokalizacji wybranej w ramach tworzenia grupy zasobów  |
+    
 
 ## <a name="retrieve-name-servers"></a>Pobieranie serwerów nazw
 
@@ -85,7 +90,7 @@ Po zakończeniu delegowania możesz sprawdzić, czy działa, uruchamiając zapyt
 
 Określenie serwerów nazw usługi Azure DNS nie jest konieczne. Jeśli delegowanie zostało skonfigurowane prawidłowo, normalny proces rozpoznawania nazw DNS znajdzie serwery nazw automatycznie.
 
-1. W wierszu polecenia wpisz polecenie nslookup podobne do następującego przykładu:
+1. W wierszu polecenia wprowadź polecenie nslookup podobne do poniższego przykładu:
 
    ```
    nslookup -type=SOA contoso.net
@@ -107,7 +112,7 @@ Określenie serwerów nazw usługi Azure DNS nie jest konieczne. Jeśli delegowa
    default TTL = 300 (5 mins)
    ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz wykonanie następnego samouczka, możesz zachować grupę zasobów **contosoRG**. W przeciwnym razie usuń grupę zasobów **contosoRG**, co spowoduje usunięcie zasobów utworzonych w ramach tego samouczka.
 

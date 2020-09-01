@@ -8,12 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 211b23db56b6deebb519b9eaac4164ea83edabac
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "73494324"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078575"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Samouczek: zapytanie Apache Hive z ODBC i programu PowerShell
 
@@ -57,7 +58,7 @@ Poniższe kroki przedstawiają sposób tworzenia źródła danych Apache Hive OD
    |  Data Source Name (Nazwa źródła danych) |Nadaj nazwę źródła danych. |
    |  Hosty |Wprowadź `CLUSTERNAME.azurehdinsight.net`. Na przykład `myHDICluster.azurehdinsight.net` |
    |  Port |Użyj portu **443**.|
-   |  baza danych |Użyj **domyślnego**. |
+   |  Baza danych |Użyj **domyślnego**. |
    |  Mechanism (Mechanizm) |Wybieranie **usługi HDInsight systemu Windows Azure** |
    |  Nazwa użytkownika |Wprowadź nazwę użytkownika HTTP klastra usługi HDInsight. Domyślna nazwa użytkownika to **admin**. |
    |  Hasło |Wprowadź hasło użytkownika klastra usługi HDInsight. Zaznacz pole wyboru **Zapisz hasło (zaszyfrowane)**.|

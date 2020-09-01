@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e6683746e2a8f274f7260a3d5bb60e956d49d30a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
+ms.openlocfilehash: 098b33491076de5e7e71fed7439cc6090e0183bb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751905"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076799"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Szybki Start: Tworzenie puli Synapse SQL przy użyciu Azure PowerShell
 
@@ -137,7 +137,7 @@ Opcjonalne parametry:
 
 Aby uzyskać więcej informacji na temat opcji parametrów, zobacz polecenie [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Inne samouczki Szybki start w tej kolekcji bazują na tym przewodniku Szybki start.
 

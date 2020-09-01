@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurecli
+ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 531bbf40df4636ae62203d639deeeb9468c7bfe0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9781369e862c74afe5a8a94cafafff7ef35e68e1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498195"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078354"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor
 
@@ -153,10 +153,10 @@ Usługa Azure monitor obsługuje zbieranie i analizowanie metryk wydajności dla
 
 Usługa HDInsight obsługuje inspekcję klastra przy użyciu dzienników Azure Monitor przez zaimportowanie następujących typów dzienników:
 
-* `log_gateway_audit_CL`-Ta tabela zawiera dzienniki inspekcji z węzłów bramy klastra, które pokazują pomyślne i nieudane próby zalogowania.
-* `log_auth_CL`-Ta tabela zawiera dzienniki protokołu SSH z pomyślnymi i nieudanymi próbami logowania.
-* `log_ambari_audit_CL`-Ta tabela zawiera dzienniki inspekcji z Ambari.
-* `log_ranger_audti_CL`-Ta tabela zawiera dzienniki inspekcji z platformy Apache Ranger na klastrach ESP.
+* `log_gateway_audit_CL` -Ta tabela zawiera dzienniki inspekcji z węzłów bramy klastra, które pokazują pomyślne i nieudane próby zalogowania.
+* `log_auth_CL` -Ta tabela zawiera dzienniki protokołu SSH z pomyślnymi i nieudanymi próbami logowania.
+* `log_ambari_audit_CL` -Ta tabela zawiera dzienniki inspekcji z Ambari.
+* `log_ranger_audti_CL` -Ta tabela zawiera dzienniki inspekcji z platformy Apache Ranger na klastrach ESP.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814454"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078201"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Szyfrowanie w usłudze Azure Storage dla danych magazynowanych
 
@@ -47,7 +47,7 @@ Poniższa tabela zawiera porównanie opcji zarządzania kluczami dla szyfrowania
 |--|--|--|--|
 | Operacje szyfrowania/odszyfrowywania | Azure | Azure | Azure |
 | Obsługiwane usługi Azure Storage | Wszystko | BLOB Storage, Azure Files<sup>1, 2</sup> | Blob Storage |
-| Magazyn kluczy | Magazyn kluczy firmy Microsoft | Azure Key Vault | Własny magazyn kluczy klienta |
+| Magazyn kluczy | Magazyn kluczy firmy Microsoft | W usłudze Azure Key Vault | Własny magazyn kluczy klienta |
 | Odpowiedzialność za kluczowe rotacje | Microsoft | Klient | Klient |
 | Klucz — formant | Microsoft | Klient | Klient |
 
@@ -69,6 +69,8 @@ Po utworzeniu zakresu szyfrowania możesz określić ten zakres szyfrowania dla 
 
 > [!NOTE]
 > Zakresy szyfrowania nie są obsługiwane w przypadku magazynu geograficznie nadmiarowego dostępnego do odczytu (RA-GRS) i geograficznie nadmiarowego strefy magazynowej (RA-GZRS) w ramach wersji zapoznawczej.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!IMPORTANT]
 > Wersja zapoznawcza zakresów szyfrowania jest przeznaczona wyłącznie do użycia w trybie nieprodukcyjnym. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.

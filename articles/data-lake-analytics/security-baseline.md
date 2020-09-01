@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 383e135cad867ed8f345b39a6cace6fbbca8bfa0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005127"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076382"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Podstawa zabezpieczeń platformy Azure dla Data Lake Analytics
 
@@ -334,7 +334,7 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD zapewnia kontrolę dostępu opartą na rolach (RBAC) na potrzeby precyzyjnej kontroli dostępu klienta do zasobów Data Lake Analytics.
+**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji. Kontrola dostępu oparta na rolach (RBAC) na platformie Azure zapewnia szczegółową kontrolę nad dostępem klienta do Data Lake Analytics zasobów.
 
 * [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -404,7 +404,7 @@ Możesz również włączyć dostęp just in Time przy użyciu Azure AD Privileg
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: Izoluj systemy przechowujące lub przetwarzające informacje poufne
 
-**Wskazówki**: implementowanie izolacji przy użyciu osobnych subskrypcji, grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak środowisko, czułość danych. Możesz ograniczyć Data Lake Analytics, aby kontrolować poziom dostępu do zasobów Data Lake Analytics, których wymagają Twoje aplikacje i środowiska korporacyjne. Po skonfigurowaniu reguł zapory tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do zasobów Data Lake Analytics. Dostęp do Azure Data Lake Analytics można kontrolować za pośrednictwem usługi Azure AD RBAC.
+**Wskazówki**: implementowanie izolacji przy użyciu osobnych subskrypcji, grup zarządzania dla poszczególnych domen zabezpieczeń, takich jak środowisko, czułość danych. Możesz ograniczyć Data Lake Analytics, aby kontrolować poziom dostępu do zasobów Data Lake Analytics, których wymagają Twoje aplikacje i środowiska korporacyjne. Po skonfigurowaniu reguł zapory tylko aplikacje żądające danych za pośrednictwem określonego zestawu sieci mogą uzyskiwać dostęp do zasobów Data Lake Analytics. Dostęp do Azure Data Lake Analytics można kontrolować za pomocą funkcji RBAC platformy Azure.
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -456,11 +456,11 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Odpowiedzialność**: klient
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Używanie kontroli dostępu opartej na ROLACH (RBAC) do kontrolowania sposobu, w jaki użytkownicy pracują z usługą.
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować sposób, w jaki użytkownicy pracują z usługą.
 
-* [Zarządzanie Access Controlami opartymi na rolach](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Zarządzanie RBAC na platformie Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 

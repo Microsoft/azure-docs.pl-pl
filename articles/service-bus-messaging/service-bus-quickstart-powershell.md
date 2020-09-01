@@ -6,12 +6,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 085eedf3a3ce09689a5a7b7d4c69d1aade42ffb3
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 178f990e46801cd51e9feb88bbd20181842e4400
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185449"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077691"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Użyj Azure PowerShell, aby utworzyć Service Bus przestrzeń nazw i kolejkę
 Ten przewodnik Szybki Start przedstawia sposób tworzenia Service Bus przestrzeni nazw i kolejki przy użyciu Azure PowerShell. Pokazano w nim także, jak uzyskać poświadczenia autoryzacji, które mogą być używane przez aplikację kliencką do wysyłania/odbierania komunikatów z kolejki. 
@@ -27,7 +28,7 @@ W tym przewodniku szybki start użyjesz Azure Cloud Shell, które można uruchom
 
 
 ## <a name="provision-resources"></a>Inicjowanie zasobów
-1. Zaloguj się do [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Uruchom Azure Cloud Shell, wybierając ikonę pokazaną na poniższej ilustracji: 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Cloud Shell uruchamiania":::
@@ -39,7 +40,7 @@ W tym przewodniku szybki start użyjesz Azure Cloud Shell, które można uruchom
     ```azurepowershell-interactive
     New-AzResourceGroup –Name ContosoRG –Location eastus
     ```
-5. Uruchom następujące polecenie, aby utworzyć przestrzeń nazw wiadomości Service Bus. W tym przykładzie `ContosoRG` jest grupą zasobów utworzoną w poprzednim kroku. `ContosoSBusNS`jest nazwą Service Bus przestrzeni nazw utworzonej w tej grupie zasobów. 
+5. Uruchom następujące polecenie, aby utworzyć przestrzeń nazw wiadomości Service Bus. W tym przykładzie `ContosoRG` jest grupą zasobów utworzoną w poprzednim kroku. `ContosoSBusNS` jest nazwą Service Bus przestrzeni nazw utworzonej w tej grupie zasobów. 
 
     ```azurepowershell-interactive
     New-AzServiceBusNamespace -ResourceGroupName ContosoRG -Name ContosoSBusNS -Location eastus

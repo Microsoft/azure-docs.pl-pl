@@ -94,9 +94,11 @@
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Wdrażanie i zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure
           href: cli-samples.md
-        - name: Aprowizowanie usługi Azure Cache for Redis
+        - name: Tworzenie pamięci podręcznej Redis Cache — szablon usługi ARM
+          displayName: Resource Manager
           href: cache-redis-cache-arm-provision.md
-        - name: Aprowizowanie aplikacji internetowej za pomocą usługi Azure Cache for Redis
+        - name: Tworzenie aplikacji internetowej za pomocą pamięci podręcznej Redis Cache — szablon usługi ARM
+          displayName: Resource Manager
           href: cache-web-app-arm-with-redis-cache-provision.md
     - name: Zarządzanie
       items:

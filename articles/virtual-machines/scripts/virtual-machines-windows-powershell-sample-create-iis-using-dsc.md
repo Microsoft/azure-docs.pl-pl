@@ -13,12 +13,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
-ms.openlocfilehash: 8f1dc6eb98edfdf145e4fb09923e06b8e28e8f43
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 63efacf13070822286d4ed15b90a05135883fbc8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010023"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078150"
 ---
 # <a name="use-an-azure-powershell-sample-script-to-create-an-iis-vm"></a>Tworzenie maszyny wirtualnej usług IIS za pomocą przykładowego skryptu Azure PowerShell
 

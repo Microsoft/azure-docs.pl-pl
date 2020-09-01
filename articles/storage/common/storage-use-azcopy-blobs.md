@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f4bf3974cd561626c280dc65aa5fc78d0c9a159b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056503"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077912"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferowanie danych za pomocą AzCopy i magazynu obiektów BLOB
 
@@ -255,6 +255,28 @@ Użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--include-after` op
 | **Przykład** (hierarchiczna przestrzeń nazw) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
 
 Aby uzyskać szczegółowe informacje, zobacz Dokumentacja [AzCopy Copy](storage-ref-azcopy-copy.md) Reference.
+
+#### <a name="download-previous-versions-of-a-blob"></a>Pobierz poprzednie wersje obiektu BLOB
+
+Jeśli włączono obsługę [wersji obiektów BLOB](../blobs/versioning-enable.md), można pobrać co najmniej jedną poprzednią wersję obiektu BLOB. 
+
+Najpierw utwórz plik tekstowy zawierający listę [identyfikatorów wersji](../blobs/versioning-overview.md). Każdy identyfikator wersji musi znajdować się w osobnym wierszu. Na przykład: 
+
+```
+2020-08-17T05:50:34.2199403Z
+2020-08-17T05:50:34.5041365Z
+2020-08-17T05:50:36.7607103Z
+```
+
+Następnie użyj polecenia [copy AzCopy](storage-ref-azcopy-copy.md) z `--list-of-versions` opcją. Określ lokalizację pliku tekstowego zawierającego listę wersji (na przykład: `D:\\list-of-versions.txt` ).  
+
+|    |     |
+|--------|-----------|
+| **Składnia** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-directory-path>' --list-of-versions '<list-of-versions-file>'`|
+| **Przykład** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+| **Przykład** (hierarchiczna przestrzeń nazw) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+
+Nazwa każdego pobranego pliku rozpoczyna się od identyfikatora wersji, po którym następuje nazwa obiektu BLOB. 
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Kopiowanie obiektów blob między kontami magazynu
 

@@ -1,142 +1,84 @@
 ---
-title: Wdróż usługę Azure cache for Redis za pomocą Azure Resource Manager
+title: Wdrażanie usługi Azure cache for Redis przy użyciu szablonu Azure Resource Manager
 description: Dowiedz się, jak użyć szablonu Azure Resource Manager do wdrożenia pamięci podręcznej platformy Azure dla zasobu Redis. Szablony są udostępniane dla typowych scenariuszy.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/23/2017
-ms.openlocfilehash: 2d00a6b7753a61bb2527a56231b2fe054736f1b0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-armqs
+ms.date: 08/18/2020
+ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008580"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078422"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-template"></a>Tworzenie pamięci podręcznej platformy Azure dla usługi Redis przy użyciu szablonu
+# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Tworzenie pamięci podręcznej platformy Azure dla usługi Redis przy użyciu szablonu Menedżer zasobów
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Dowiedz się, jak utworzyć szablon Azure Resource Manager, który wdraża pamięć podręczną platformy Azure dla Redis. Pamięć podręczna może być używana z istniejącym kontem magazynu w celu przechowywania danych diagnostycznych. Dowiesz się również, jak definiować wdrożone zasoby i jak definiować parametry, które są określone podczas wdrażania. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb. Obecnie ustawienia diagnostyczne są udostępniane dla wszystkich pamięci podręcznych w tym samym regionie dla subskrypcji. Aktualizacja jednej pamięci podręcznej w regionie ma wpływ na wszystkie inne pamięci podręczne w regionie.
 
-W tym temacie dowiesz się, jak utworzyć szablon Azure Resource Manager, który wdraża pamięć podręczną platformy Azure dla Redis. Pamięć podręczna może być używana z istniejącym kontem magazynu w celu przechowywania danych diagnostycznych. Dowiesz się również, jak definiować wdrożone zasoby i jak definiować parametry, które są określone podczas wdrażania. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Obecnie ustawienia diagnostyczne są udostępniane dla wszystkich pamięci podręcznych w tym samym regionie dla subskrypcji. Aktualizacja jednej pamięci podręcznej w regionie ma wpływ na wszystkie inne pamięci podręczne w regionie.
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
-Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Aby dowiedzieć się więcej na temat składni i właściwości JSON dla typów zasobów pamięci podręcznej, zobacz [Microsoft. cache — typy zasobów](/azure/templates/microsoft.cache/allversions).
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-Aby zapoznać się z pełnym szablonem, zobacz [pamięć podręczna Azure dla szablonu Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
+## <a name="prerequisites"></a>Wymagania wstępne
 
-> [!NOTE]
-> Dostępne są szablony Menedżer zasobów dla nowej [warstwy Premium](cache-overview.md#service-tiers) . 
-> 
-> * [Tworzenie pamięci podręcznej systemu Azure w warstwie Premium dla Redis przy użyciu klastrowania](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Tworzenie pamięci podręcznej systemu Azure w warstwie Premium dla Redis z trwałością danych](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [Utwórz Redis Cache w warstwie Premium wdrożone w Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
-> 
-> Aby sprawdzić dostępność najnowszych szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) i Wyszukaj `Azure Cache for Redis` .
-> 
-> 
+* **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* **Konto magazynu**: aby je utworzyć, zobacz [Tworzenie konta usługi Azure Storage](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). Konto magazynu jest używane na potrzeby danych diagnostycznych.
 
-## <a name="what-you-will-deploy"></a>Co zostanie wdrożone
-W tym szablonie zostanie wdrożona pamięć podręczna systemu Azure dla usługi Redis, która korzysta z istniejącego konta magazynu dla danych diagnostycznych.
+## <a name="review-the-template"></a>Przegląd szablonu
 
-Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-redis-cache/).
 
-[![Wdrażanie na platformie Azure](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+:::code language="json" source="~/quickstart-templates/101-redis-cache/azuredeploy.json":::
 
-## <a name="parameters"></a>Parametry
-Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie Parameters, która zawiera wszystkie wartości parametrów.
-Parametr powinien obejmować wartości, które różnią się w zależności od wdrażanego projektu lub środowiska, w którym odbywa się wdrożenie. Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Każda wartość parametru używana w szablonie definiuje wdrażane zasoby. 
+Następujące zasoby są zdefiniowane w szablonie:
 
-[!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
+* [Microsoft. cache/Redis](/azure/templates/microsoft.cache/redis)
+* [Microsoft. Insights/diagnosticsettings](/azure/templates/diagnosticsettings)
 
-### <a name="rediscachelocation"></a>redisCacheLocation
-Lokalizacja pamięci podręcznej platformy Azure dla Redis. Aby uzyskać najlepszą wydajność, Użyj tej samej lokalizacji co aplikacja, która ma być używana z pamięcią podręczną.
+Dostępne są również szablony Menedżer zasobów dla nowej [warstwy Premium](cache-overview.md#service-tiers) .
 
-```json
-  "redisCacheLocation": {
-    "type": "string"
-  }
+* [Tworzenie pamięci podręcznej systemu Azure w warstwie Premium dla Redis przy użyciu klastrowania](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
+* [Tworzenie pamięci podręcznej systemu Azure w warstwie Premium dla Redis z trwałością danych](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+* [Utwórz Redis Cache w warstwie Premium wdrożone w Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+
+Aby sprawdzić dostępność najnowszych szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) i Wyszukaj `Azure Cache for Redis` .
+
+## <a name="deploy-the-template"></a>Wdrażanie szablonu
+
+1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon.
+
+    [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+1. Wybierz lub wprowadź następujące wartości:
+
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure używaną do tworzenia udziału danych i innych zasobów.
+    * **Grupa zasobów**: wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów, lub wybierz istniejącą grupę zasobów.
+    * **Lokalizacja**: wybierz lokalizację grupy zasobów. Konto magazynu i pamięć podręczna Redis muszą znajdować się w tym samym regionie. Domyślnie pamięć podręczna Redis używa tej samej lokalizacji co grupa zasobów. Należy więc określić tę samą lokalizację, w której znajduje się konto magazynu.
+    * **Nazwa Redis Cache**: Wprowadź nazwę pamięci podręcznej Redis.
+    * **Istniejące konto magazynu diagnostyki**: Wprowadź identyfikator zasobu konta magazynu. Składnia to **/SUBSCRIPTIONS/ &lt; identyfikatora subskrypcji,>/RESOURCEGROUPS/ &lt; nazwa grupy zasobów>/Providers/Microsoft.Storage/storageaccounts/ &lt; nazwa konta magazynu>**.
+
+    Użyj wartości domyślnej dla pozostałej części ustawień.
+1. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**, a następnie wybierz pozycję **Kup**.
+
+## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Otwórz utworzoną pamięć podręczną Redis.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Gdy grupa zasobów nie będzie już konieczna, usuń ją, co spowoduje usunięcie zasobów z grupy zasobów.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
-### <a name="existingdiagnosticsstorageaccountname"></a>existingDiagnosticsStorageAccountName
-Nazwa istniejącego konta magazynu, które ma być używane na potrzeby diagnostyki. 
+## <a name="next-steps"></a>Następne kroki
 
-```json
-  "existingDiagnosticsStorageAccountName": {
-    "type": "string"
-  }
-```
-
-### <a name="enablenonsslport"></a>enableNonSslPort
-Wartość logiczna wskazująca, czy zezwalać na dostęp za pośrednictwem portów innych niż SSL.
-
-```json
-  "enableNonSslPort": {
-    "type": "bool"
-  }
-```
-
-### <a name="diagnosticsstatus"></a>diagnosticsStatus
-Wartość wskazująca, czy Diagnostyka jest włączona. Użyj opcji włączone lub wyłączone.
-
-```json
-  "diagnosticsStatus": {
-    "type": "string",
-    "defaultValue": "ON",
-    "allowedValues": [
-          "ON",
-          "OFF"
-      ]
-  }
-```
-
-## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
-### <a name="azure-cache-for-redis"></a>Azure Cache for Redis
-Tworzy pamięć podręczną platformy Azure dla Redis.
-
-```json
-  {
-    "apiVersion": "2015-08-01",
-    "name": "[parameters('redisCacheName')]",
-    "type": "Microsoft.Cache/Redis",
-    "location": "[parameters('redisCacheLocation')]",
-    "properties": {
-      "enableNonSslPort": "[parameters('enableNonSslPort')]",
-      "sku": {
-        "capacity": "[parameters('redisCacheCapacity')]",
-        "family": "[parameters('redisCacheFamily')]",
-        "name": "[parameters('redisCacheSKU')]"
-      }
-    },
-    "resources": [
-      {
-        "apiVersion": "2017-05-01-preview",
-        "type": "Microsoft.Cache/redis/providers/diagnosticsettings",
-        "name": "[concat(parameters('redisCacheName'), '/Microsoft.Insights/service')]",
-        "location": "[parameters('redisCacheLocation')]",
-        "dependsOn": [
-          "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
-        ],
-        "properties": {
-          "status": "[parameters('diagnosticsStatus')]",
-          "storageAccountName": "[parameters('existingDiagnosticsStorageAccountName')]"
-        }
-      }
-    ]
-  }
-```
-
-## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell
-    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
-```
-
-### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-
-```azurecli
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
-```
+W tym samouczku przedstawiono sposób tworzenia szablonu Azure Resource Manager, który wdraża pamięć podręczną platformy Azure dla Redis. Aby dowiedzieć się, jak utworzyć szablon Azure Resource Manager, który wdraża aplikację internetową platformy Azure w usłudze Azure cache for Redis, zobacz [Tworzenie aplikacji sieci Web i usługi Azure cache for Redis przy użyciu szablonu](./cache-web-app-arm-with-redis-cache-provision.md).

@@ -3,12 +3,13 @@ title: Zasoby, role i kontrola dostępu na platformie Azure Application Insights
 description: Właściciele, współautorzy i czytelnicy w sprawie wglądu w dane organizacji.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926505"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076688"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Zasoby, role i kontrola dostępu w Application Insights
 
@@ -37,7 +38,7 @@ Najpierw niektóre definicje:
 * [**Subskrypcja**](https://portal.azure.com) — aby używać Application Insights lub innych zasobów platformy Azure, zaloguj się do subskrypcji platformy Azure. Każda grupa zasobów należy do jednej subskrypcji platformy Azure, w której jest wybierany pakiet cenowy, a jeśli jest to subskrypcja organizacji, wybierz członków i ich uprawnienia dostępu.
 * [**Konto Microsoft**][account] — nazwa użytkownika i hasło, których używasz do logowania się w usłudze Microsoft Azure subscriptions, Xbox Live, Outlook.com i innych usługach firmy Microsoft.
 
-## <a name="control-access-in-the-resource-group"></a><a name="access"></a>Kontrola dostępu w grupie zasobów
+## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Kontrola dostępu w grupie zasobów
 
 Ważne jest, aby zrozumieć, że oprócz zasobu utworzonego dla aplikacji istnieją również oddzielne zasoby dla alertów i testów sieci Web. Są one dołączone do tej samej [grupy zasobów](#resource-group) co zasób Application Insights. W tym miejscu mogą być również umieszczone inne usługi platformy Azure, takie jak witryny sieci Web lub magazyn.
 

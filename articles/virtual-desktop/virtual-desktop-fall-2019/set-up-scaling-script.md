@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005588"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078184"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji pulpitu wirtualnego systemu Windows (klasycznych) przy użyciu Azure Automation
 
@@ -21,10 +21,6 @@ ms.locfileid: "88005588"
 Możesz zmniejszyć łączny koszt wdrożenia pulpitu wirtualnego systemu Windows, przeskalując maszyny wirtualne. Oznacza to wyłączenie i cofnięcie przydziału maszyn wirtualnych hosta sesji w godzinach użycia poza szczytem, a następnie włączenie ich z powrotem i ich ponowne przypisanie w godzinach szczytu.
 
 Ten artykuł zawiera informacje na temat narzędzia do skalowania utworzonego za pomocą konta Azure Automation i aplikacji logiki platformy Azure, która automatycznie skaluje maszyny wirtualne hosta sesji w środowisku pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak korzystać z narzędzia do skalowania, przejdź do sekcji [wymagania wstępne](#prerequisites).
-
-## <a name="report-issues"></a>Zgłaszanie problemów
-
-Raporty o problemach narzędzia do skalowania są obecnie obsługiwane w usłudze GitHub, a nie pomoc techniczna firmy Microsoft. Jeśli wystąpią problemy z narzędziem skalowania, Uzyskaj niezbędne informacje zgodnie z opisem w sekcji [problemy z raportowaniem](#reporting-issues) , a następnie otwórz problem usługi GitHub z etykietą "4a-WVD-logicapps" na [stronie usług pulpitu zdalnego](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Jak działa narzędzie skalowania
 
@@ -362,3 +358,7 @@ Jeśli zamierzasz używać Log Analytics, możesz wyświetlić wszystkie dane dz
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## <a name="report-issues"></a>Zgłaszanie problemów
+
+Raporty o problemach narzędzia do skalowania są obecnie obsługiwane przez pomoc techniczna firmy Microsoft. Podczas tworzenia raportu o problemie upewnij się, że postępuj zgodnie z instrukcjami w temacie [problemy z raportowaniem](#reporting-issues). Jeśli masz opinię na temat tego narzędzia lub chcesz zażądać nowych funkcji, Otwórz problem z usługą GitHub o nazwie "4-WVD-skalowanie-narzędzie" na [stronie usług pulpitu zdalnego](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool)w serwisie GitHub.

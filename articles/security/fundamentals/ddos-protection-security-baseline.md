@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: daff4d1e43f5cc27e52e8bf26f48f30147800ae8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 63c476e7ad8c7bab38ad4adfb6197b845106458c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839888"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077980"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Podstawy zabezpieczeń platformy Azure dla Azure DDoS Protection Standard
 
@@ -262,11 +262,11 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Odpowiedzialność**: klient
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
 **Wskazówki**: aby współpracować z planami Azure DDoS Protection, Twoje konto musi być przypisane do roli współautor sieci lub do roli niestandardowej przypisanej do określonych akcji.
 
-- [Zarządzanie kontrolą dostępu opartą na rolach w Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
+- [Zarządzanie kontrolą dostępu opartą na rolach (Azure RBAC) w Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

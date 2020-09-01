@@ -6,12 +6,13 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 520022be8ee2054d6c0c89ee3f027de9094ae1af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 74211df6f925aaa09a4c87a518056e8ef3206b87
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055252"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078405"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Przykłady programu Azure Monitor PowerShell
 W tym artykule przedstawiono przykładowe polecenia programu PowerShell ułatwiające dostęp do funkcji Azure Monitor.
@@ -96,10 +97,10 @@ Następujące polecenie pobiera ostatnie 1000 zdarzeń z dziennika aktywności:
 Get-AzLog -MaxRecord 10
 ```
 
-`Get-AzLog`obsługuje wiele innych parametrów. Więcej informacji można znaleźć w `Get-AzLog` dokumentacji.
+`Get-AzLog` obsługuje wiele innych parametrów. Więcej informacji można znaleźć w `Get-AzLog` dokumentacji.
 
 > [!NOTE]
-> `Get-AzLog`zawiera tylko 15 dni historii. Użycie parametru **-MaxRecords** umożliwia wykonywanie zapytań dotyczących ostatnich N zdarzeń, po upływie 15 dni. Aby uzyskać dostęp do zdarzeń starszych niż 15 dni, użyj interfejsu API REST lub zestawu SDK (przykładowego w języku C# przy użyciu zestawu SDK). Jeśli nie dołączysz wartości **StartTime**, wartość domyślna to **Endtime** minus jedna godzina. Jeśli nie dołączysz **Endtime**, wartość domyślna to bieżąca godzina. Wszystkie czasy są w formacie UTC.
+> `Get-AzLog` zawiera tylko 15 dni historii. Użycie parametru **-MaxRecords** umożliwia wykonywanie zapytań dotyczących ostatnich N zdarzeń, po upływie 15 dni. Aby uzyskać dostęp do zdarzeń starszych niż 15 dni, użyj interfejsu API REST lub zestawu SDK (przykładowego w języku C# przy użyciu zestawu SDK). Jeśli nie dołączysz wartości **StartTime**, wartość domyślna to **Endtime** minus jedna godzina. Jeśli nie dołączysz **Endtime**, wartość domyślna to bieżąca godzina. Wszystkie czasy są w formacie UTC.
 > 
 > 
 
@@ -139,12 +140,12 @@ Pobieranie wszystkich reguł alertów ustawionych dla zasobu docelowego. Na przy
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule`obsługuje inne parametry. Aby uzyskać więcej informacji, zobacz [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) .
+`Get-AzAlertRule` obsługuje inne parametry. Aby uzyskać więcej informacji, zobacz [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) .
 
 ## <a name="create-metric-alerts"></a>Tworzenie alertów dotyczących metryk
 Za pomocą `Add-AlertRule` polecenia cmdlet można tworzyć, aktualizować lub wyłączać regułę alertu.
 
-Możesz tworzyć właściwości poczty e-mail i elementu webhook `New-AzAlertRuleEmail` odpowiednio przy użyciu i `New-AzAlertRuleWebhook` . W oknie polecenia cmdlet reguły alertu Przypisz te właściwości jako akcje do właściwości **Actions** reguły alertu.
+Możesz tworzyć właściwości poczty e-mail i elementu webhook  `New-AzAlertRuleEmail` odpowiednio przy użyciu i `New-AzAlertRuleWebhook` . W oknie polecenia cmdlet reguły alertu Przypisz te właściwości jako akcje do właściwości **Actions** reguły alertu.
 
 W poniższej tabeli opisano parametry i wartości używane do tworzenia alertu przy użyciu metryki.
 
@@ -154,7 +155,7 @@ W poniższej tabeli opisano parametry i wartości używane do tworzenia alertu p
 | Lokalizacja tej reguły alertu |East US |
 | ResourceGroup |montest |
 | Element targetresourceid |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Wartość metryki alertu, który został utworzony |\PhysicalDisk (_Total) \Bajty zapisy/s. `Get-MetricDefinitions`Aby uzyskać dokładne nazwy metryk, zobacz polecenie cmdlet |
+| Wartość metryki alertu, który został utworzony |\PhysicalDisk (_Total) \Bajty zapisy/s. `Get-MetricDefinitions` Aby uzyskać dokładne nazwy metryk, zobacz polecenie cmdlet |
 | operator |GreaterThan |
 | Wartość progowa (licznik/s w dla tej metryki) |1 |
 | WindowSize (hh: mm: SS) |00:05:00 |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6e5c7bbc850a71cd71d8f826c6a975f552374b7a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562688"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077725"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Podstawa zabezpieczeń platformy Azure dla usługi Automation
 
@@ -146,7 +146,7 @@ Jeśli używasz hybrydowych procesów roboczych elementów Runbook hostowanych n
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla zasobów sieciowych używanych przez Azure Automation z Azure Policy.
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów, takich jak szablony Menedżera zasobów platformy Azure, kontrolki RBAC i zasady, w ramach jednej definicji planu. Możesz zastosować plan do nowych subskrypcji i dostosować kontrolę i zarządzanie przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów, takich jak szablony usługi Azure Resources, formanty RBAC platformy Azure i zasady, w ramach jednej definicji planu. Możesz zastosować plan do nowych subskrypcji i dostosować kontrolę i zarządzanie przy użyciu wersji.
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
@@ -570,11 +570,11 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 **Odpowiedzialność**: klient
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj funkcji RBAC usługi Azure AD, aby kontrolować dostęp do zasobów Azure Automation przy użyciu wbudowanych definicji ról, przypisuj dostęp dla użytkowników, którzy uzyskują dostęp do zasobów usługi Automation po najniższych uprawnieniach lub modelu dostępu "tylko do odczytu". W przypadku korzystania z hybrydowych procesów roboczych elementów Runbook Użyj zarządzanych tożsamości dla tych maszyn wirtualnych, aby uniknąć używania jednostek usługi, w przypadku korzystania z wielu dzierżawców lub hybrydowych procesów roboczych elementów Runbook upewnij się, że zastosowano odpowiednie uprawnienia kontroli RBAC w zakresie tożsamości procesów roboczych elementów Runbook.
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do zasobów Azure Automation przy użyciu wbudowanych definicji ról, przypisując użytkownikom dostęp do zasobów usługi Automation po najniższym poziomie uprzywilejowanym lub modelu dostępu "tylko do odczytu". W przypadku korzystania z hybrydowych procesów roboczych elementów Runbook należy wykorzystać zarządzane tożsamości dla tych maszyn wirtualnych, aby uniknąć korzystania z jednostek usługi, w przypadku korzystania z wielu dzierżawców lub hybrydowych procesów roboczych elementów Runbook upewnij się, że w zakresie tożsamości procesów roboczych elementów Runbook zastosowano odpowiednie uprawnienia kontroli dostępu platformy Azure.
 
-* [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+* [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 * [Uprawnienia elementu Runbook dla hybrydowego procesu roboczego elementu Runbook](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
@@ -968,9 +968,9 @@ W większości scenariuszy szablony maszyn wirtualnych firmy Microsoft połączo
 
 W przypadku korzystania z funkcji hybrydowego procesu roboczego elementu Runbook upewnij się, że masz prawidłowo ograniczenie dostępu do obrazu niestandardowego systemu operacyjnego znajdującego się na koncie magazynu, tak aby tylko autoryzowani użytkownicy mieli dostęp do tego obrazu.
 
-* [Zrozumienie RBAC na platformie Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Opis kontroli RBAC platformy Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
