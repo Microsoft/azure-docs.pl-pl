@@ -7,16 +7,24 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: e2ba5d909a3aa43921f52295d2f7216aac76bc32
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: aca41edeb159a65b27ecbbc27ae568f8bc94cebe
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067090"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181871"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostyka rozruchu platformy Azure
 
 Diagnostyka rozruchu to funkcja debugowania dla maszyn wirtualnych platformy Azure, która umożliwia Diagnozowanie błędów rozruchu maszyn wirtualnych. Diagnostyka rozruchu umożliwia użytkownikowi obserwowanie stanu swojej maszyny wirtualnej w trakcie jej uruchamiania przez zbieranie informacji o dzienniku seryjnym i zrzuty ekranu.
+
+## <a name="boot-diagnostics-storage-account"></a>Konto magazynu diagnostyki rozruchu
+Podczas tworzenia maszyny wirtualnej w Azure Portal Diagnostyka rozruchu jest domyślnie włączona. Zalecanym działaniem diagnostyki rozruchu jest użycie zarządzanego konta magazynu, ponieważ zapewnia ono znaczną poprawę wydajności w czasie tworzenia maszyny wirtualnej platformy Azure. Jest to spowodowane tym, że używane jest konto magazynu zarządzanego przez platformę Azure, usuwając czas potrzebny do utworzenia nowego konta magazynu użytkownika w celu przechowywania danych diagnostycznych rozruchowych.
+
+Alternatywna Obsługa diagnostyki rozruchu polega na użyciu konta magazynu zarządzanego przez użytkownika. Użytkownik może utworzyć nowe konto magazynu lub użyć istniejącego.
+
+> [!IMPORTANT]
+> Klienci platformy Azure nie będą obciążani kosztami usługi Storage associted z użyciem diagnostyki rozruchu przy użyciu zarządzanego konta magazynu do października 2020.
 
 ## <a name="boot-diagnostics-view"></a>Widok diagnostyki rozruchu
 W bloku maszyna wirtualna opcja Diagnostyka rozruchu znajduje się w sekcji *Pomoc techniczna i rozwiązywanie problemów* w Azure Portal. Wybranie opcji Diagnostyka rozruchu spowoduje wyświetlenie zrzutu ekranu i informacji o dzienniku seryjnym. Dziennik seryjny zawiera komunikaty jądra, a zrzut ekranu jest migawką bieżącego stanu maszyn wirtualnych. Na podstawie tego, czy na maszynie wirtualnej jest uruchomiony system Windows lub Linux, decyduje o tym, jak będzie wyglądać oczekiwany zrzut ekranu. W przypadku systemu Windows użytkownicy zobaczą tło pulpitu i system Linux zobaczy monit logowania.

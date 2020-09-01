@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201858"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226577"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Pisanie wyrażeń mapowania atrybutów w Azure Active Directory
 Podczas konfigurowania aprowizacji w chmurze jednym z typów mapowań atrybutów, które można określić, jest mapowanie wyrażenia. 
@@ -138,7 +138,7 @@ Zwraca wartość true, jeśli oba atrybuty mają tę samą wartość.
 Funkcja ConvertFromBase64 konwertuje określoną zakodowaną wartość Base64 na zwykły ciąg.
 
 **Obowiązuje**  
-`str ConvertFromBase64(str source)`-zakłada, że kodowanie Unicode  
+`str ConvertFromBase64(str source)` -zakłada, że kodowanie Unicode  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Źródło: zakodowany ciąg Base64  
@@ -231,7 +231,7 @@ Funkcja DNComponent zwraca wartość określonego składnika DN z lewej strony.
 Jeśli nazwa DN to "CN = Jan, OU =...", zwraca Jan
 
 ---
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 **Opis:**  
 Funkcja Error służy do zwrócenia błędu niestandardowego.
 
@@ -253,7 +253,7 @@ Jeśli atrybut AccountName nie istnieje, zgłoś błąd w obiekcie.
    | Nazwa | Wymagane/powtarzane | Typ | Uwagi |
    | --- | --- | --- | --- |
    | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie źródłowym. |
-   | **inputFormat** |Wymagane |String |Oczekiwany format wartości źródłowej. Obsługiwane formaty można znaleźć w temacie [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) . |
+   | **inputFormat** |Wymagane |String |Oczekiwany format wartości źródłowej. Obsługiwane formaty można znaleźć w temacie [/dotnet/Standard/Base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Wymagane |String |Format daty wyjściowej. |
 
 ---
@@ -472,7 +472,7 @@ Funkcja RemoveDuplicates — przyjmuje ciąg o wartości wielowartościowej i up
 Zwraca oczyszczony atrybut proxyAddress, w którym wszystkie zduplikowane wartości zostały usunięte.
 
 ---
-### <a name="replace"></a>Replace
+### <a name="replace"></a>Zamień
 **Funkcyjn**<br> Replace (Source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, Template)
 
 **Opis:**<br>
@@ -480,7 +480,7 @@ Zamienia wartości w ciągu. Działa inaczej w zależności od podanych parametr
 
 * Gdy są podane **OldValue** i **replacementValue** :
   
-  * Zamienia wszystkie wystąpienia wartości **OldValue** w **źródle** na **replacementValue**
+  * Zamienia wszystkie wystąpienia wartości **OldValue** w **źródle**  na **replacementValue**
 * Gdy jest udostępniana **OldValue** i **szablon** :
   
   * Zamienia wszystkie wystąpienia wartości **OldValue** w **szablonie** na wartość **Source**
@@ -502,7 +502,7 @@ Zamienia wartości w ciągu. Działa inaczej w zależności od podanych parametr
    | **zewnętrz** |Wymagane |String |Zwykle nazwa atrybutu w obiekcie **źródłowym** . |
    | **oldValue** |Opcjonalne |String |Wartość, która ma zostać zastąpiona w **źródle** lub **szablonie**. |
    | **regexPattern** |Opcjonalne |String |Wzorzec wyrażenia regularnego dla wartości, która ma zostać zastąpiona w **źródle**. Lub, gdy **replacementPropertyName** jest używany, wzorzec wyodrębniania wartości z **replacementPropertyName**. |
-   | **regexGroupName** |Opcjonalne |String |Nazwa grupy w **regexPattern**. Tylko wtedy, gdy **replacementPropertyName** jest używany, wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
+   | **regexGroupName** |Opcjonalne |String |Nazwa grupy w **regexPattern**. Tylko wtedy, gdy  **replacementPropertyName** jest używany, wyodrębnimy wartość tej grupy jako **replacementValue** z **replacementPropertyName**. |
    | **replacementValue** |Opcjonalne |String |Nowa wartość, aby zastąpić starą. |
    | **replacementAttributeName** |Opcjonalne |String |Nazwa atrybutu, który ma być używany na potrzeby wartości zamiennej |
    | **formularza** |Opcjonalne |String |Gdy zostanie podana wartość **szablonu** , poszukamy wartości **OldValue** wewnątrz szablonu i Zastąp ją wartością **Source** . |
@@ -631,7 +631,7 @@ Zwraca "test".
 Usuwa spacje wiodące i końcowe dla każdej wartości w atrybucie proxyAddress.
 
 ---
-### <a name="word"></a>Wyraz
+### <a name="word"></a>Word
 **Opis:**  
 Funkcja słowa zwraca słowo zawarte w ciągu, w oparciu o parametry opisujące ograniczniki do użycia i numer wyrazu do zwrócenia.
 

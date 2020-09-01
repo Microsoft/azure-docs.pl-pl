@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 21845b51fdd108221d5e1bce50e953b79084d17d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085360"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182058"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Kubernetes zarządzanie obciążeniami na urządzeniu brzegowym Azure Stack
 
@@ -33,40 +33,13 @@ Dwa popularne typy obciążeń, które można wdrożyć na urządzeniu brzegowym
 
     Wdrożenie Kubernetes można utworzyć w celu wdrożenia aplikacji stanowej. 
 
-## <a name="namespaces-types"></a>Typy przestrzeni nazw
+## <a name="deployment-flow"></a>Przepływ wdrożenia
 
-Zasoby Kubernetes, takie jak grupy miar i wdrożenia, są logicznie pogrupowane w przestrzeni nazw. Dzięki tym grupom można logicznie podzielić klaster Kubernetes i ograniczyć dostęp do tworzenia, wyświetlania i zarządzania zasobami. Użytkownicy mogą korzystać tylko z zasobami w ramach przypisanych przestrzeni nazw.
-
-Przestrzenie nazw są przeznaczone do użycia w środowiskach, w których wielu użytkowników rozprzestrzenia się między wieloma zespołami lub projektami. W przypadku klastrów z niewielką liczbą użytkowników nie trzeba tworzyć ani myśleć o przestrzeniach nazw. Zacznij korzystać z przestrzeni nazw, gdy potrzebujesz udostępnianych funkcji.
-
-Aby uzyskać więcej informacji, zobacz [Kubernetes przestrzenie nazw](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
-
-Urządzenie brzegowe Azure Stack ma następujące przestrzenie nazw:
-
-- **Przestrzeń nazw systemu** — w tym obszarze nazw znajdują się zasoby podstawowe, takie jak usługa DNS i serwer proxy, lub pulpit nawigacyjny Kubernetes. Zwykle nie są wdrażane własne aplikacje w tej przestrzeni nazw. Ta przestrzeń nazw służy do debugowania wszelkich problemów z klastrem Kubernetes. 
-
-    Na urządzeniu istnieje wiele przestrzeni nazw systemu, a nazwy odpowiadające tym systemowym przestrzeniom nazw są zarezerwowane. Poniżej znajduje się lista zarezerwowanych przestrzeni nazw systemu: 
-    - polecenia — system
-    - metallb — system
-    - DBE — przestrzeń nazw
-    - default
-    - Kubernetes — pulpit nawigacyjny
-    - default
-    - polecenia — dzierżawa węzła
-    - polecenia — publiczny
-    - iotedge
-    - Azure — łuk
-
-    Upewnij się, że nie używasz nazw zarezerwowanych dla tworzonych przestrzeni nazw użytkownika. 
-<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
-
-- **Przestrzeń nazw użytkownika** — te przestrzenie nazw można tworzyć za pośrednictwem **polecenia kubectl** do lokalnego wdrażania aplikacji.
+Aby wdrożyć aplikacje na Azure Stack urządzeniu brzegowym, wykonaj następujące kroki: 
  
-- **IoT Edge przestrzeń nazw** — Połącz się z tą `iotedge` przestrzenią nazw, aby wdrażać aplikacje za pośrednictwem IoT Edge.
-
-- **Przestrzeń nazw usługi Azure Arc** — Połącz się z tą `azure-arc` przestrzenią nazw, aby wdrażać aplikacje za pośrednictwem usługi Azure Arc.
-
+1. **Konfigurowanie dostępu**: najpierw użyjesz obszaru działania programu PowerShell, aby utworzyć użytkownika, utworzyć przestrzeń nazw i udzielić użytkownikowi dostępu do tej przestrzeni nazw.
+2. **Konfigurowanie magazynu**: następnie do tworzenia woluminów trwałych przy użyciu statycznej lub dynamicznej obsługi aplikacji stanowych, które zostaną wdrożone, będzie używany zasób Azure Stack Edge w Azure Portal.
+3. **Konfigurowanie sieci**: na koniec należy używać usług do udostępniania aplikacji zewnętrznych i w klastrze Kubernetes.
  
 ## <a name="deployment-types"></a>Typy wdrożeń
 
@@ -78,7 +51,7 @@ Istnieją trzy podstawowe sposoby wdrażania obciążeń. Każda z tych metod wd
 
 - **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem K8 Azure Stack na urządzeniu brzegowym za pośrednictwem `iotedge` przestrzeni nazw. IoT Edge agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
 
-- **Wdrożenie platformy Azure/Arc**: usługa Azure Arc jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach K8. Klaster K8 można połączyć na urządzeniu brzegowym Azure Stack za pośrednictwem `azure-arc namespace` .  Agenci są wdrażani w tej przestrzeni nazw, które są odpowiedzialne za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. Usługa Azure Arc umożliwi także używanie Azure Monitor do kontenerów w celu wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure-Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Wdrożenie platformy Azure/Arc**: usługa Azure Arc jest narzędziem do zarządzania hybrydowego, które umożliwi wdrażanie aplikacji w klastrach K8. Klaster K8 można połączyć na urządzeniu brzegowym Azure Stack za pośrednictwem `azure-arc namespace` . Agenci są wdrażani w tej przestrzeni nazw, które są odpowiedzialne za łączność z platformą Azure. Konfigurację wdrożenia należy zastosować przy użyciu GitOps zarządzania konfiguracją. Usługa Azure Arc umożliwi także używanie Azure Monitor do kontenerów w celu wyświetlania i monitorowania klastrów. Aby uzyskać więcej informacji, przejdź do [co to jest usługa Azure-Arc włączona Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## <a name="choose-the-deployment-type"></a>Wybierz typ wdrożenia
 

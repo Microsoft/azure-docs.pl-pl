@@ -6,13 +6,13 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: b027e44a2ee31b0168ec3b6af717df23dd560abd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007101"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225591"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Podstawa zabezpieczeń platformy Azure dla Virtual Machine Scale Sets
 
@@ -580,7 +580,7 @@ Firma Microsoft korzysta z protokołu Transport Layer Security (TLS) w celu ochr
 
 **Wskazówki**: korzystanie z funkcji kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure umożliwia rozdzielenie obowiązków w zespole i udzielanie użytkownikom tylko dostępu do tych maszyn wirtualnych, których potrzebują do wykonywania swoich zadań. Zamiast udzielać każdemu nieograniczonyemu uprawnienia do maszyny wirtualnej, można zezwolić tylko na niektóre akcje. Można skonfigurować kontrolę dostępu dla maszyny wirtualnej w Azure Portal przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
-* [Kontrola RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Kontrola dostępu na podstawie ról platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Role wbudowane platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
 

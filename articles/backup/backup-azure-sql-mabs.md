@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej SQL Server przy użyciu Azure Backup Server
 description: W tym artykule poznasz konfigurację tworzenia kopii zapasowych SQL Server baz danych przy użyciu serwera Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: caf3d49c9b921cab97054a97ece271e484a734bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b47cb74c6e5dbb868c03f8f7b79c00b0c4ce7886
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005211"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182313"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Tworzenie kopii zapasowych SQL Server na platformie Azure przy użyciu Azure Backup Server
 
@@ -64,7 +64,7 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
 1. W polu Typ grupy ochrony wybierz pozycję **serwery**.
 
     ![Wybierz typ grupy ochrony serwerów](./media/backup-azure-backup-sql/pg-servers.png)
-1. Rozwiń wystąpienie SQL Server, w którym znajdują się bazy danych, których kopię zapasową chcesz utworzyć. Zostaną wyświetlone źródła danych, których kopię zapasową można utworzyć z tego serwera. Rozwiń **wszystkie udziały SQL** , a następnie wybierz bazy danych, dla których chcesz utworzyć kopię zapasową. W tym przykładzie wybieramy polecenie ReportServer $ MSDPM2012 i ReportServer $ MSDPM2012TempDB. Wybierz pozycję **Next** (Dalej).
+1. Rozwiń wystąpienie SQL Server, w którym znajdują się bazy danych, których kopię zapasową chcesz utworzyć. Zostaną wyświetlone źródła danych, których kopię zapasową można utworzyć z tego serwera. Rozwiń **wszystkie udziały SQL** , a następnie wybierz bazy danych, dla których chcesz utworzyć kopię zapasową. W tym przykładzie wybieramy polecenie ReportServer $ MSDPM2012 i ReportServer $ MSDPM2012TempDB. Wybierz pozycję **Dalej**.
 
     ![Wybierz bazę danych SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nadaj nazwę grupie ochrony, a następnie wybierz opcję **Chcę chronić w trybie online**.
@@ -81,7 +81,7 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
    >
    >
 
-1. Wybierz pozycję **Next** (Dalej). SERWERA usługi MAB pokazuje ogólne dostępne miejsce do magazynowania. Pokazuje również potencjalne użycie miejsca na dysku.
+1. Wybierz pozycję **Dalej**. SERWERA usługi MAB pokazuje ogólne dostępne miejsce do magazynowania. Pokazuje również potencjalne użycie miejsca na dysku.
 
     ![Konfigurowanie przydziału dysku w serwera usługi MAB](./media/backup-azure-backup-sql/pg-storage.png)
 
@@ -164,7 +164,7 @@ Aby odzyskać chronioną jednostkę, taką jak baza danych SQL Server, z platfor
 1. Kliknij prawym przyciskiem myszy nazwę bazy danych i wybierz polecenie **Odzyskaj**.
 
     ![Odzyskiwanie bazy danych z platformy Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz pozycję **Next** (Dalej). Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz pozycję **Dalej**.
+1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz pozycję **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz pozycję **Dalej**.
 
     ![Odzyskiwanie bazy danych do jej oryginalnej lokalizacji](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
@@ -178,6 +178,6 @@ Aby odzyskać chronioną jednostkę, taką jak baza danych SQL Server, z platfor
 
     Po zakończeniu odzyskiwania przywrócona baza danych jest spójna z aplikacją.
 
-### <a name="next-steps"></a>Kolejne kroki
+### <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji, zobacz [Azure Backup często zadawane pytania](backup-azure-backup-faq.md).

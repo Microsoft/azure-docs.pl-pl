@@ -19,7 +19,7 @@
 - name: Pojęcia
   items:
     - name: Co to jest synchronizacja skrótów haseł?
-      href: /azure/active-directory/hybrid/whatis-phs?context=azure/active-directory/cloud-provisioning/context/cloud-provisioning-context
+      href: ../hybrid/whatis-phs.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
     - name: 'Informacje o schemacie, atrybutach i wyrażeniach usługi Azure AD'
       href: concept-attributes.md
     - name: Pisanie wyrażeń na potrzeby mapowania atrybutów w usłudze Azure Active Directory
@@ -49,20 +49,20 @@
         - name: Przekształcenia
           href: how-to-transformation.md
         - name: Interfejs API synchronizacji usługi Azure AD
-          href: 'https://docs.microsoft.com/graph/api/resources/synchronization-overview'
+          href: /graph/api/resources/synchronization-overview
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z aprowizacją w chmurze
           href: how-to-troubleshoot.md
         - name: Zduplikowane atrybuty
-          href: 'https://docs.microsoft.com/office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync'
-- name: Dokumentacja
+          href: /office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync
+- name: Tematy pomocy
   items:
     - name: Historia wersji agenta aprowizacji w chmurze programu Azure AD Connect
-      href: /azure/active-directory/manage-apps/provisioning-agent-release-version-history?context=azure/active-directory/cloud-provisioning/context/cp-context
+      href: ../app-provisioning/provisioning-agent-release-version-history.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Często zadawane pytania dotyczące aprowizacji w chmurze programu Azure AD Connect
       href: reference-cloud-provisioning-faq.md
     - name: Synchronizowane atrybuty
-      href: /azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=azure/active-directory/cloud-provisioning/context/cp-context
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=azure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
     - name: Podstawowe środowisko usług Active Directory i Azure AD
       href: tutorial-basic-ad-azure.md

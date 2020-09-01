@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cfafb47e6d5fcde2858e7329b5b8ef3a0e0b241e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c0581a79bda4ae4e311390f5b2d929073e0833d9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088018"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182024"
 ---
 # <a name="tutorial-configure-device-settings-for-azure-stack-edge-with-gpu"></a>Samouczek: Konfigurowanie ustawień urządzenia dla Azure Stack Edge z procesorem GPU
 
@@ -59,16 +59,17 @@ Wykonaj następujące kroki, aby skonfigurować ustawienia dotyczące urządzeń
 
         ![Strona lokalnego interfejsu użytkownika sieci Web "urządzenie"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
-        Jeśli zmieniono nazwę urządzenia i domenę DNS, automatycznie Wygenerowano certyfikaty z podpisem własnym na urządzeniu. Należy wybrać jedną z następujących opcji: 
+        Jeśli zmieniono nazwę urządzenia i domenę DNS, automatycznie Wygenerowano certyfikaty z podpisem własnym na urządzeniu. Podczas konfigurowania certyfikatów należy wybrać jedną z następujących opcji: 
         
         - Generuj i pobieraj certyfikaty urządzeń. 
         - Przenieś własne certyfikaty do urządzenia, w tym łańcuch podpisywania.
+    
 
         ![Strona lokalnego interfejsu użytkownika sieci Web "urządzenie"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
 
-    4. Po zmianie nazwy urządzenia i domeny DNS są tworzone punkty końcowe SMB i NFS. 
+    4. Po zmianie nazwy urządzenia i domeny DNS są tworzone punkty końcowe SMB i NFS.  
 
-    4. Po zastosowaniu ustawień Wróć do pozycji **wprowadzenie**.
+    5. Po zastosowaniu ustawień Wróć do pozycji **wprowadzenie**.
 
 ## <a name="configure-update"></a>Konfigurowanie aktualizacji
 

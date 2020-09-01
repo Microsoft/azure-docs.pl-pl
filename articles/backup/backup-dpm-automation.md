@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych obciążeń p
 description: Dowiedz się, jak wdrażać Azure Backup dla Data Protection Manager (DPM) przy użyciu programu PowerShell i zarządzać nimi
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 7b4e63e94599b1445a7244018e00999df8365cd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4f0364ef218d346149191e168540eed4827001de
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014680"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182466"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Wdrażanie kopii zapasowych serwerów Data Protection Manager (DPM) na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -127,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 Dostępne opcje to:
 
-| Opcja | Szczegóły | Domyślny |
+| Opcja | Szczegóły | Domyślne |
 | --- | --- | --- |
 | /q |Instalacja cicha |- |
 | /p: "Location" |Ścieżka do folderu instalacji agenta Azure Backup. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -262,7 +262,7 @@ Każdy agent programu DPM wie listę źródeł danych na serwerze, na którym je
 3. Pobierz listę wszystkich źródeł danych na serwerze.
 4. Wybierz co najmniej jedno źródło danych i Dodaj je do grupy ochrony
 
-Lista serwerów, na których zainstalowano agenta programu DPM i jest zarządzana przez serwer programu DPM, jest uzyskiwana przy użyciu polecenia cmdlet [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . W tym przykładzie będziemy filtrować i konfigurować tylko program PowerShell o nazwie *ProductionServer01* na potrzeby tworzenia kopii zapasowych.
+Lista serwerów, na których zainstalowano agenta programu DPM i jest zarządzana przez serwer programu DPM, jest uzyskiwana przy użyciu polecenia cmdlet [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) . W tym przykładzie przefiltruje i skonfigurujemy tylko program PowerShell o nazwie *ProductionServer01* na potrzeby tworzenia kopii zapasowych.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
@@ -386,6 +386,6 @@ Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $
 
 Polecenia można łatwo rozszerzyć dla dowolnego typu źródła danych.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać więcej informacji na temat programu DPM do Azure Backup zobacz [wprowadzenie do kopii zapasowej programu DPM](backup-azure-dpm-introduction.md)

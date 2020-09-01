@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271267"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226211"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Samouczek: Konfigurowanie Kreatora usługi log Analytics
 
@@ -41,15 +41,15 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Zapoznaj się z następującymi artykułami:
 
-- [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [Jak zintegrować dzienniki aktywności z Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Jak zintegrować dzienniki aktywności z Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Zarządzanie kontem dostępu awaryjnego w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Zarządzanie kontem dostępu awaryjnego w usłudze Azure AD](../users-groups-roles/directory-emergency-access.md)
 
-- [Krótki przewodnik dla języka KQL](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [Krótki przewodnik dla języka KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor skoroszyty](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Azure Monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
 
 
 

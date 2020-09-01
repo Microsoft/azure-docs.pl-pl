@@ -4,16 +4,16 @@ description: Dowiedz się, jak ograniczyć ruch internetowy za pomocą zapory ap
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50aaf4f2639f48e5536e6eeaba5edbc246b2bba7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: faa46b3ad96e9555a08a662f205a0a130c28bac2
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501069"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225173"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Włączanie zapory aplikacji sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -21,11 +21,10 @@ Ruch na bramie aplikacji można ograniczyć za pomocą [zapory aplikacji sieci W
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
-> * Tworzenie zestawu skalowania maszyn wirtualnych
-> * Tworzenie konta magazynu i konfigurowanie diagnostyki
+ * Konfigurowanie sieci
+ * Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
+ * Tworzenie zestawu skalowania maszyn wirtualnych
+ * Tworzenie konta magazynu i konfigurowanie diagnostyki
 
 ![Przykład zapory aplikacji sieci Web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 

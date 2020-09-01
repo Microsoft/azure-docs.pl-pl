@@ -5,28 +5,32 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286635"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226433"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Wywoływanie punktów końcowych usługi za pośrednictwem protokołu HTTP lub HTTPS z usługi Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanego wyzwalacza http lub akcji można tworzyć automatyczne zadania i przepływy pracy, które wysyłają żądania do punktów końcowych usługi za pośrednictwem protokołu HTTP lub https. Na przykład można monitorować punkt końcowy usługi dla witryny sieci Web, sprawdzając ten punkt końcowy zgodnie z określonym harmonogramem. Po wystąpieniu określonego zdarzenia w tym punkcie końcowym, takim jak witryna sieci Web, zdarzenie wyzwala przepływ pracy aplikacji logiki i uruchamia akcje w tym przepływie pracy. Jeśli zamiast tego chcesz otrzymywać przychodzące wywołania HTTPS i odpowiadać na nie, użyj wbudowanego [wyzwalacza żądań lub akcji odpowiedzi](../connectors/connectors-native-reqres.md).
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanego wyzwalacza http lub akcji można tworzyć automatyczne zadania i przepływy pracy, które mogą wysyłać żądania wychodzące do punktów końcowych w innych usługach i systemach za pośrednictwem protokołu HTTP lub https. Aby zamiast tego odbierać przychodzące wywołania HTTPS i odpowiadać na nie, użyj wbudowanego [wyzwalacza żądań i akcji odpowiedzi](../connectors/connectors-native-reqres.md).
+
+Na przykład można monitorować punkt końcowy usługi dla witryny sieci Web, sprawdzając ten punkt końcowy zgodnie z określonym harmonogramem. Po wystąpieniu określonego zdarzenia w tym punkcie końcowym, takim jak witryna sieci Web, zdarzenie wyzwala przepływ pracy aplikacji logiki i uruchamia akcje w tym przepływie pracy.
 
 * Aby sprawdzić lub *sondować* punkt końcowy zgodnie z cyklicznym harmonogramem, [Dodaj wyzwalacz http](#http-trigger) jako pierwszy krok w przepływie pracy. Za każdym razem, gdy wyzwalacz sprawdza punkt końcowy, wyzwalacz wywołuje lub wysyła *żądanie* do punktu końcowego. Odpowiedź punktu końcowego określa, czy przepływ pracy aplikacji logiki zostanie uruchomiony. Wyzwalacz przekazuje zawartość z odpowiedzi punktu końcowego do akcji w aplikacji logiki.
 
 * Aby wywołać punkt końcowy z dowolnego miejsca w przepływie pracy, [Dodaj akcję http](#http-action). Odpowiedź punktu końcowego określa, jak działają pozostałe akcje przepływu pracy.
 
-W tym artykule opisano sposób dodawania wyzwalacza HTTP lub akcji do przepływu pracy aplikacji logiki.
+W tym artykule pokazano, jak używać wyzwalacza HTTP i akcji HTTP, aby aplikacja logiki mogła wysyłać wywołania wychodzące do innych usług i systemów.
+
+Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań wychodzących z aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanych jako SSL (SSL), certyfikatów z podpisem własnym lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
 * Adres URL docelowego punktu końcowego, który ma zostać wywołany.
 
@@ -96,21 +100,27 @@ Ta wbudowana akcja powoduje wywołanie HTTP do określonego adresu URL dla punkt
 
 1. Gdy skończysz, pamiętaj, aby zapisać aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>Wyzwalacze i wyjścia akcji
 
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacza HTTP lub akcji, która zwraca te informacje:
 
-Na podstawie możliwości docelowego punktu końcowego, wywołania wychodzące obsługują Transport Layer Security (TLS), które były wcześniej SSL (SSL), wersje 1,0, 1,1 i 1,2. Logic Apps negocjuje z punktem końcowym przy użyciu najwyższej obsługiwanej wersji.
+| Właściwość | Typ | Opis |
+|----------|------|-------------|
+| `headers` | Obiekt JSON | Nagłówki żądania |
+| `body` | Obiekt JSON | Obiekt z zawartością treści z żądania |
+| `status code` | Liczba całkowita | Kod stanu z żądania |
+|||
 
-Na przykład, jeśli punkt końcowy obsługuje 1,2, łącznik HTTP najpierw używa 1,2. W przeciwnym razie łącznik używa następnej najwyższej obsługiwanej wersji.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Certyfikaty z podpisem własnym
-
-* W przypadku aplikacji logiki w globalnym, wielodostępnym środowisku platformy Azure łącznik protokołu HTTP nie zezwala na certyfikaty TLS/SSL z podpisem własnym. Jeśli aplikacja logiki wysyła wywołanie HTTP do serwera i przedstawia certyfikat z podpisem własnym protokołu TLS/SSL, wywołanie HTTP kończy się niepowodzeniem z `TrustFailure` powodu błędu.
-
-* W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)łącznik protokołu HTTP zezwala na certyfikaty z podpisem własnym dla UZGADNIANIA protokołów TLS/SSL. Należy jednak najpierw [włączyć obsługę certyfikatów](../logic-apps/create-integration-service-environment-rest-api.md#request-body) z podpisem własnym dla istniejących ISE lub nowych ISE przy użyciu interfejsu API REST Logic Apps i zainstalować certyfikat publiczny w `TrustedRoot` lokalizacji.
+| Kod stanu | Opis |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Zaakceptowano |
+| 400 | Złe żądanie |
+| 401 | Brak autoryzacji |
+| 403 | Forbidden |
+| 404 | Nie znaleziono |
+| 500 | Wewnętrzny błąd serwera. Wystąpił nieznany błąd. |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>Zawartość z typem wieloczęściowym/formularzem danych
 
@@ -231,7 +241,7 @@ Jeśli wyzwalacz lub akcja HTTP zawiera te nagłówki, Logic Apps usuwa te nagł
 
 * `Accept-*`
 * `Allow`
-* `Content-*`z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i`Content-Type`
+* `Content-*` z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i `Content-Type`
 * `Cookie`
 * `Expires`
 * `Host`
@@ -249,29 +259,8 @@ Aby uzyskać więcej informacji na temat wyzwalaczy i parametrów akcji, zobacz 
 * [Parametry wyzwalacza HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parametry akcji HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>Szczegóły danych wyjściowych
-
-Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacza HTTP lub akcji, która zwraca te informacje:
-
-| Właściwość | Typ | Opis |
-|----------|------|-------------|
-| `headers` | Obiekt JSON | Nagłówki żądania |
-| `body` | Obiekt JSON | Obiekt z zawartością treści z żądania |
-| `status code` | Integer | Kod stanu z żądania |
-|||
-
-| Kod stanu | Opis |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Zaakceptowano |
-| 400 | Złe żądanie |
-| 401 | Brak autoryzacji |
-| 403 | Forbidden |
-| 404 | Nie znaleziono |
-| 500 | Wewnętrzny błąd serwera. Wystąpił nieznany błąd. |
-|||
-
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat innych [łączników Logic Apps](../connectors/apis-list.md)
+* [Bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Łączniki dla usługi Logic Apps](../connectors/apis-list.md)
 

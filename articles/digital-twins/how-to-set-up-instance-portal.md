@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 300a11c36b11230d2bd75534f152a0a5955743ed
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234996"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181797"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (Portal)
 
@@ -107,7 +107,7 @@ Zacznij od przechodzenia do [Azure Active Directory](https://portal.azure.com/#b
 Na stronie *zarejestruj aplikację* w następującej kolejności wprowadź żądane wartości:
 * **Nazwa**: Nazwa wyświetlana aplikacji usługi Azure AD, która ma zostać skojarzona z rejestracją
 * **Obsługiwane typy kont**: Wybierz *tylko konta w tym katalogu organizacji (tylko katalog domyślny — pojedynczy dzierżawca)*
-* **Identyfikator URI przekierowania**: *adres URL odpowiedzi aplikacji usługi Azure AD* dla aplikacji usługi Azure AD. Możesz użyć `http://localhost` .
+* **Identyfikator URI przekierowania**: *adres URL odpowiedzi aplikacji usługi Azure AD* dla aplikacji usługi Azure AD. Dodaj identyfikator URI *klienta publicznego/natywnego (mobilnego & pulpitu)* dla `http://localhost` .
 
 Po zakończeniu kliknij przycisk *zarejestruj* .
 

@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 59b795462ff6e033e299c15f4099b7bfd3874451
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 959a88335c581b998e9cf9c2e6df26354e2a5dc3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069397"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226373"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Podstawowa baza zabezpieczeń Azure dla usługi Batch
 

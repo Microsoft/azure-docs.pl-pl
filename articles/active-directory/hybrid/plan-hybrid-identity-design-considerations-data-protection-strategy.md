@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bef7de68084ac3084c0b0179a7bbf6b1c9ca951
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109373"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182449"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiowanie strategii ochrony danych dla rozwiązania do tworzenia tożsamości hybrydowej
 W tym zadaniu zdefiniujemy strategię ochrony danych dla rozwiązania do obsługi tożsamości hybrydowej w celu spełnienia wymagań firmy zdefiniowanych w programie:
@@ -48,7 +48,7 @@ W zależności od odpowiedzi na pytania w temacie [Określanie wymagań dotyczą
 | Szyfrowanie dysków funkcją BitLocker |X |X | |
 | SQL Server szyfrować baz danych |X |X | |
 | Szyfrowanie między MASZYNami wirtualnymi | | |X |
-| PROTOKÓŁ SSL/TLS | | |X |
+| Protokół SSL/TLS | | |X |
 | VPN | | |X |
 
 > [!NOTE]
@@ -121,7 +121,7 @@ Każda interakcja na diagramie pokazuje jeden scenariusz kontroli dostępu, któ
 
 1. Dostęp warunkowy do aplikacji hostowanych lokalnie: można używać zarejestrowanych urządzeń z zasadami dostępu dla aplikacji skonfigurowanych do korzystania z AD FS z systemem Windows Server 2012 R2.
 
-2. Access Control Azure Portal: platforma Azure umożliwia również kontrolowanie dostępu do portalu przy użyciu kontroli dostępu opartej na rolach (RBAC). Ta metoda pozwala firmie ograniczyć liczbę operacji, które może wykonać osoba w Azure Portal. Za pomocą funkcji RBAC do kontrolowania dostępu do portalu Administratorzy IT mogą delegować dostęp przy użyciu następujących metod zarządzania dostępem:
+2. Access Control Azure Portal: platforma Azure umożliwia również kontrolowanie dostępu do portalu przy użyciu kontroli dostępu opartej na rolach (Azure RBAC)). Ta metoda pozwala firmie ograniczyć liczbę operacji, które może wykonać osoba w Azure Portal. Korzystając z funkcji RBAC platformy Azure, aby kontrolować dostęp do portalu, Administratorzy IT mogą delegować dostęp przy użyciu następujących metod zarządzania dostępem:
 
    - Przypisywanie ról oparte na grupach: można przypisać dostęp do grup usługi Azure AD, które można synchronizować z lokalnego Active Directory. Dzięki temu można wykorzystać istniejące inwestycje, które organizacja wprowadziła w narzędzia i procesy do zarządzania grupami. Można również użyć funkcji delegowanej zarządzania grupami programu Azure AD — wersja Premium.
    - Używanie wbudowanych ról na platformie Azure: możesz użyć trzech ról — właściciela, współautora i czytnika, aby upewnić się, że użytkownicy i grupy mają uprawnienia do wykonywania tylko tych zadań, których potrzebują do wykonywania swoich zadań.

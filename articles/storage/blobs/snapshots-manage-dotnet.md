@@ -1,27 +1,27 @@
 ---
 title: Tworzenie migawki obiektu BLOB w programie .NET i zarządzanie nią
 titleSuffix: Azure Storage
-description: Dowiedz się, jak utworzyć migawkę obiektu BLOB w trybie tylko do odczytu, aby utworzyć kopię zapasową danych obiektów BLOB w danym momencie.
+description: Dowiedz się, jak używać biblioteki klienckiej .NET do tworzenia migawki obiektu BLOB w trybie tylko do odczytu w celu utworzenia kopii zapasowej danych obiektu BLOB w danym momencie.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d50357a648d63984ae70a32e0fdd7260a86d6a6a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020817"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226135"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Tworzenie migawki obiektu BLOB w programie .NET i zarządzanie nią
 
 Migawka to wersja obiektu BLOB tylko do odczytu, która jest wykonywana w danym momencie. W tym artykule przedstawiono sposób tworzenia migawek obiektów blob i zarządzania nimi przy użyciu [biblioteki klienta usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Aby uzyskać więcej informacji na temat migawek obiektów BLOB w usłudze Azure Storage, zobacz [Tworzenie migawki obiektu BLOB w programie .NET i zarządzanie nią](snapshots-overview.md).
+Aby uzyskać więcej informacji na temat migawek obiektów BLOB w usłudze Azure Storage, zobacz [migawki obiektów BLOB](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Tworzenie migawki
 
@@ -159,8 +159,8 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 ---
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Migawki obiektów BLOB](snapshots-overview.md)
-- [Wersje obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Wersje obiektów BLOB](versioning-overview.md)
 - [Usuwanie nietrwałe dla obiektów blob](storage-blob-soft-delete.md)

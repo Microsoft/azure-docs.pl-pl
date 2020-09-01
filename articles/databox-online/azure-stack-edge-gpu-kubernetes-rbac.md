@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 310fde15a850214aa1741c9cb587c0edcf570a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 703e67b4829413776dc8d98843888fbd67906baa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085384"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182194"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Kubernetes Access Control oparte na rolach na urządzeniu brzegowym Azure Stack
 
@@ -26,9 +26,43 @@ W tym artykule omówiono system kontroli RBAC zapewniany przez Kubernetes oraz s
 
 Kubernetes RBAC pozwala przypisywać użytkowników lub grupy użytkowników, uprawnienia do wykonywania takich czynności jak tworzenie lub modyfikowanie zasobów lub wyświetlanie dzienników z uruchamiania obciążeń aplikacji. Te uprawnienia mogą być ograniczone do pojedynczej przestrzeni nazw lub przyznawane przez cały klaster. 
 
-Podczas konfigurowania klastra Kubernetes zostaje utworzony jeden użytkownik odpowiadający temu klastrowi i jest on nazywany administratorem klastra.  `kubeconfig`Plik jest skojarzony z użytkownikiem administratora klastra. `kubeconfig`Plik jest plikiem tekstowym zawierającym wszystkie informacje o konfiguracji wymagane do nawiązania połączenia z klastrem w celu uwierzytelnienia użytkownika. 
+Podczas konfigurowania klastra Kubernetes zostaje utworzony jeden użytkownik odpowiadający temu klastrowi i jest on nazywany administratorem klastra.  `kubeconfig`Plik jest skojarzony z użytkownikiem administratora klastra. `kubeconfig`Plik jest plikiem tekstowym zawierającym wszystkie informacje o konfiguracji wymagane do nawiązania połączenia z klastrem w celu uwierzytelnienia użytkownika.
 
-### <a name="namespaces-and-users"></a>Przestrzenie nazw i użytkownicy
+## <a name="namespaces-types"></a>Typy przestrzeni nazw
+
+Zasoby Kubernetes, takie jak grupy miar i wdrożenia, są logicznie pogrupowane w przestrzeni nazw. Dzięki tym grupom można logicznie podzielić klaster Kubernetes i ograniczyć dostęp do tworzenia, wyświetlania i zarządzania zasobami. Użytkownicy mogą korzystać tylko z zasobami w ramach przypisanych przestrzeni nazw.
+
+Przestrzenie nazw są przeznaczone do użycia w środowiskach, w których wielu użytkowników rozprzestrzenia się między wieloma zespołami lub projektami. W przypadku klastrów z niewielką liczbą użytkowników nie trzeba tworzyć ani myśleć o przestrzeniach nazw. Zacznij korzystać z przestrzeni nazw, gdy potrzebujesz udostępnianych funkcji.
+
+Aby uzyskać więcej informacji, zobacz [Kubernetes przestrzenie nazw](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+
+
+Urządzenie brzegowe Azure Stack ma następujące przestrzenie nazw:
+
+- **Przestrzeń nazw systemu** — w tym obszarze nazw znajdują się zasoby podstawowe, takie jak usługa DNS i serwer proxy, lub pulpit nawigacyjny Kubernetes. Zwykle nie są wdrażane własne aplikacje w tej przestrzeni nazw. Ta przestrzeń nazw służy do debugowania wszelkich problemów z klastrem Kubernetes. 
+
+    Na urządzeniu istnieje wiele przestrzeni nazw systemu, a nazwy odpowiadające tym systemowym przestrzeniom nazw są zarezerwowane. Poniżej znajduje się lista zarezerwowanych przestrzeni nazw systemu: 
+    - polecenia — system
+    - metallb — system
+    - DBE — przestrzeń nazw
+    - default
+    - Kubernetes — pulpit nawigacyjny
+    - default
+    - polecenia — dzierżawa węzła
+    - polecenia — publiczny
+    - iotedge
+    - Azure — łuk
+
+    Upewnij się, że nie używasz nazw zarezerwowanych dla tworzonych przestrzeni nazw użytkownika. 
+<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
+
+- **Przestrzeń nazw użytkownika** — te przestrzenie nazw można tworzyć za pośrednictwem **polecenia kubectl** do lokalnego wdrażania aplikacji.
+ 
+- **IoT Edge przestrzeń nazw** — Połącz się z tą `iotedge` przestrzenią nazw, aby wdrażać aplikacje za pośrednictwem IoT Edge.
+
+- **Przestrzeń nazw usługi Azure Arc** — Połącz się z tą `azure-arc` przestrzenią nazw, aby wdrażać aplikacje za pośrednictwem usługi Azure Arc. 
+
+## <a name="namespaces-and-users"></a>Przestrzenie nazw i użytkownicy
 
 W świecie rzeczywistym należy podzielić klaster na wiele przestrzeni nazw. 
 
@@ -43,7 +77,6 @@ Kubernetes ma koncepcje powiązań ról i ról, które umożliwiają Przyznawani
 - **RoleBindings**: po zdefiniowaniu ról można użyć **RoleBindings** do przypisania ról dla danego obszaru nazw. 
 
 Takie podejście umożliwia logicznie segregowanie pojedynczego klastra Kubernetes, dzięki czemu użytkownicy mogą uzyskiwać dostęp do zasobów aplikacji w ich przypisanej przestrzeni nazw. 
-
 
 ## <a name="rbac-on-azure-stack-edge"></a>RBAC na Azure Stack Edge
 
@@ -92,14 +125,6 @@ Podczas pracy z przestrzeniami nazw i użytkownikami na urządzeniach brzegowych
 - Nie można tworzyć żadnych przestrzeni nazw użytkownika o nazwach, które są już używane przez inne przestrzenie nazw użytkownika. Na przykład, jeśli masz `test-ns` utworzony, nie możesz utworzyć kolejnej `test-ns` przestrzeni nazw.
 - Nie masz uprawnień do tworzenia użytkowników z nazwami, które są już zarezerwowane. Na przykład `aseuser` jest zastrzeżonym administratorem klastra i nie można go użyć.
 
-Aby uzyskać więcej informacji na temat Azure Stack przestrzeni nazw krawędzi, zobacz [typy przestrzeni nazw](azure-stack-edge-gpu-kubernetes-workload-management.md#namespaces-types).
-
-
-<!--To deploy applications on an Azure Stack Edge device, use the following :
- 
-- First, you will use the PowerShell runspace to create a user, create a namespace, and grant user access to that namespace.
-- Next, you will use the Azure Stack Edge resource in the Azure portal to create persistent volumes using either static or dynamic provisioning for the stateful applications that you will deploy.
-- Finally, you will use the services to expose applications externally and within the Kubernetes cluster.-->
 
 ## <a name="next-steps"></a>Następne kroki
 

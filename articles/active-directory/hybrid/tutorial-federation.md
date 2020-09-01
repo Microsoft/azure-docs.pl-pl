@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a17eb7fdde6840ce04fb0cbce13ec3f1a121e0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 200cc996acddecbfc1424ff24295d1373cdb3c23
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80673703"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226662"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Samouczek: Sfederować jednego środowiska lasu usługi AD do chmury
 
@@ -140,7 +140,7 @@ Maszyna wirtualna jest już utworzona, ma już właściwą nazwę i adres statyc
 $DatabasePath = "c:\windows\NTDS"
 $DomainMode = "WinThreshold"
 $DomainName = "contoso.com"
-$DomaninNetBIOSName = "CONTOSO"
+$DomainNetBIOSName = "CONTOSO"
 $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"

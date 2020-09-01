@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: f431ca71b4df7b23fdc994689492a937db915686
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e8067f2aa485202412f0f0b6101eafb7768b222a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048333"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181905"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Skopiuj dane z i do serwera SFTP przy użyciu Azure Data Factory
 
@@ -58,12 +58,12 @@ Dla połączonej usługi SFTP są obsługiwane następujące właściwości:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type musi mieć wartość *SFTP*. |Yes |
-| host | Nazwa lub adres IP serwera SFTP. |Yes |
+| typ | Właściwość Type musi mieć wartość *SFTP*. |Tak |
+| host | Nazwa lub adres IP serwera SFTP. |Tak |
 | port | Port, na którym nasłuchuje serwer SFTP.<br/>Dozwolona wartość jest liczbą całkowitą, a wartość domyślna to *22*. |Nie |
 | skipHostKeyValidation | Określ, czy pominąć sprawdzanie poprawności klucza hosta.<br/>Dozwolone wartości to *true* i *false* (wartość domyślna).  | Nie |
 | hostKeyFingerprint | Określ odcisk palca klucza hosta. | Tak, jeśli wartość "skipHostKeyValidation" jest ustawiona na wartość false.  |
-| authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to *Basic* i *SshPublicKey*. Aby uzyskać więcej właściwości, zobacz sekcję [Korzystanie z uwierzytelniania podstawowego](#use-basic-authentication) . Aby zapoznać się z przykładami JSON, zobacz sekcję [używanie uwierzytelniania publicznego klucza SSH](#use-ssh-public-key-authentication) . |Yes |
+| authenticationType | Określ typ uwierzytelniania.<br/>Dozwolone wartości to *Basic* i *SshPublicKey*. Aby uzyskać więcej właściwości, zobacz sekcję [Korzystanie z uwierzytelniania podstawowego](#use-basic-authentication) . Aby zapoznać się z przykładami JSON, zobacz sekcję [używanie uwierzytelniania publicznego klucza SSH](#use-ssh-public-key-authentication) . |Tak |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Aby dowiedzieć się więcej, zobacz sekcję [wymagania wstępne](#prerequisites) . Jeśli środowisko Integration Runtime nie jest określone, usługa używa Azure Integration Runtime domyślnego. |Nie |
 
 ### <a name="use-basic-authentication"></a>Użyj uwierzytelniania podstawowego
@@ -72,8 +72,8 @@ Aby użyć uwierzytelniania podstawowego, należy ustawić właściwość *Authe
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| userName | Użytkownik, który ma dostęp do serwera SFTP. |Yes |
-| hasło | Hasło użytkownika (userName). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). | Yes |
+| userName | Użytkownik, który ma dostęp do serwera SFTP. |Tak |
+| hasło | Hasło użytkownika (userName). Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). | Tak |
 
 **Przykład:**
 
@@ -109,7 +109,7 @@ Aby użyć uwierzytelniania klucza publicznego SSH, ustaw właściwość "Authen
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| userName | Użytkownik, który ma dostęp do serwera SFTP. |Yes |
+| userName | Użytkownik, który ma dostęp do serwera SFTP. |Tak |
 | privateKeyPath | Określ ścieżkę bezwzględną do pliku klucza prywatnego, do którego może uzyskać dostęp środowisko Integration Runtime. Ma to zastosowanie tylko wtedy, gdy typ samodzielnego środowiska Integration Runtime jest określony w "właściwością connectvia". | Określ albo `privateKeyPath` `privateKeyContent` .  |
 | privateKeyContent | Zawartość klucza prywatnego SSH szyfrowanego algorytmem Base64. Klucz prywatny SSH powinien mieć format OpenSSH. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). | Określ albo `privateKeyPath` `privateKeyContent` . |
 | Danym | Określ frazę lub hasło do odszyfrowania klucza prywatnego, jeśli plik klucza lub zawartość klucza są chronione za pomocą frazy Pass. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w fabryce danych, lub [odwoływać się do wpisu tajnego przechowywanego w magazynie kluczy platformy Azure](store-credentials-in-key-vault.md). | Tak, jeśli plik klucza prywatnego lub zawartość klucza jest chroniona za pomocą frazy Pass. |
@@ -186,7 +186,7 @@ Następujące właściwości są obsługiwane w przypadku protokołu SFTP w obsz
 
 | Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Właściwość *Type* w `location` elemencie DataSet musi być ustawiona na wartość *SftpLocation*. | Yes      |
+| typ       | Właściwość *Type* w `location` elemencie DataSet musi być ustawiona na wartość *SftpLocation*. | Tak      |
 | folderPath | Ścieżka do folderu. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania folderu, pomiń to ustawienie i określ ścieżkę w ustawieniach źródła działania. | Nie       |
 | fileName   | Nazwa pliku pod określonym folderPath. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania plików, pomiń to ustawienie i określ nazwę pliku w ustawieniach źródła działania. | Nie       |
 
@@ -228,19 +228,19 @@ Następujące właściwości są obsługiwane w przypadku protokołu SFTP w `sto
 
 | Właściwość                 | Opis                                                  | Wymagane                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Właściwość *Type* w obszarze `storeSettings` musi być ustawiona na wartość *SftpReadSettings*. | Yes                                           |
+| typ                     | Właściwość *Type* w obszarze `storeSettings` musi być ustawiona na wartość *SftpReadSettings*. | Tak                                           |
 | ***Znajdź pliki do skopiowania*** |  |  |
 | Opcja 1: ścieżka statyczna<br> | Skopiuj ze ścieżki folderu/pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie pliki z folderu, należy również określić `wildcardFileName` jako `*` . |  |
 | Opcja 2: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub jeden znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Aby uzyskać więcej przykładów, zobacz [przykłady dotyczące folderów i plików](#folder-and-file-filter-examples). | Nie                                            |
-| Opcja 2: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod określonym folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub jeden znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Aby uzyskać więcej przykładów, zobacz [przykłady dotyczące folderów i plików](#folder-and-file-filter-examples). | Yes |
+| Opcja 2: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod określonym folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub jeden znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Aby uzyskać więcej przykładów, zobacz [przykłady dotyczące folderów i plików](#folder-and-file-filter-examples). | Tak |
 | Opcja 3: Lista plików<br>- fileListPath | Wskazuje na skopiowanie określonego zestawu plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować (jeden plik w wierszu, ze ścieżką względną do ścieżki skonfigurowanej w zestawie danych).<br/>Korzystając z tej opcji, nie należy określać nazwy pliku w zestawie danych. Aby uzyskać więcej przykładów, zobacz [przykłady plików z listą](#file-list-examples). |Nie |
 | ***Ustawienia dodatkowe*** |  | |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to *true* (wartość domyślna) i *false*.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
 | deleteFilesAfterCompletion | Wskazuje, czy pliki binarne zostaną usunięte z magazynu źródłowego po pomyślnym przeniesieniu do magazynu docelowego. Plik jest usuwany dla każdego pliku, więc w przypadku niepowodzenia działania kopiowania niektóre pliki zostały już skopiowane do lokalizacji docelowej i usunięte ze źródła, podczas gdy inne nadal pozostają w magazynie źródłowym. <br/>Ta właściwość jest prawidłowa tylko w scenariuszu kopiowania plików binarnych, w którym magazyny źródeł danych to obiekty blob, ADLS Gen1, ADLS Gen2, S3, magazyn w chmurze Google, plik, plik platformy Azure, SFTP lub FTP. Wartość domyślna: false. |Nie |
 | modifiedDatetimeStart    | Pliki są filtrowane na podstawie *ostatnio modyfikowanego*atrybutu. <br>Pliki są wybierane, jeśli ich czas ostatniej modyfikacji mieści się w zakresie od `modifiedDatetimeStart` do `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie *2018 r-12-01T05:00:00Z*. <br> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone.<br/>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . | Nie                                            |
 | modifiedDatetimeEnd      | Tak samo jak powyżej.                                               | Nie                                            |
-| enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Fałsz                                            |
-| partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Fałsz                                            |
+| enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
+| partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
 | maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu współbieżnie. Określ wartość tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie                                            |
 
 **Przykład:**
@@ -292,7 +292,7 @@ Następujące właściwości są obsługiwane w przypadku protokołu SFTP w obsz
 
 | Właściwość                 | Opis                                                  | Wymagane |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Właściwość *Type* w obszarze `storeSettings` musi być ustawiona na wartość *SftpWriteSettings*. | Yes      |
+| typ                     | Właściwość *Type* w obszarze `storeSettings` musi być ustawiona na wartość *SftpWriteSettings*. | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
 | maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu współbieżnie. Określ wartość tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie       |
 | useTempFileRename | Wskaż, czy przekazywać do plików tymczasowych i zmieniać ich nazwy, czy bezpośrednio zapisywać do folderu docelowego lub lokalizacji plików. Domyślnie Azure Data Factory pierwsze zapis do plików tymczasowych, a następnie zmienia nazwy po zakończeniu przekazywania. Ta sekwencja pomaga (1) uniknąć konfliktów, które mogą spowodować uszkodzenie pliku, jeśli istnieją inne procesy zapisujące do tego samego pliku, a (2) Upewnij się, że w trakcie transferu istnieje oryginalna wersja pliku. Jeśli serwer SFTP nie obsługuje operacji zmiany nazwy, wyłącz tę opcję i upewnij się, że nie masz współbieżnego zapisu w pliku docelowym. Aby uzyskać więcej informacji, zobacz Wskazówki dotyczące rozwiązywania problemów na końcu tej tabeli. | Nie. Wartość domyślna to *true*. |
@@ -376,8 +376,8 @@ Informacje o usuwaniu właściwości działania znajdują się [w temacie Usuwan
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość *Type* zestawu danych musi być ustawiona na wartość *udziału*. |Yes |
-| folderPath | Ścieżka do folderu. Obsługiwany jest filtr symboli wieloznacznych. Dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub jeden znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Przykłady: RootFolder/subfolder/, Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Yes |
+| typ | Właściwość *Type* zestawu danych musi być ustawiona na wartość *udziału*. |Tak |
+| folderPath | Ścieżka do folderu. Obsługiwany jest filtr symboli wieloznacznych. Dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub jeden znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Przykłady: RootFolder/subfolder/, Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Tak |
 | fileName |  **Nazwa lub filtr symboli wieloznacznych** dla plików pod określonym "folderPath". Jeśli nie określisz wartości dla tej właściwości, zestaw danych wskazuje wszystkie pliki w folderze. <br/><br/>W przypadku filtru dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub jeden znak).<br/>-Przykład 1: `"fileName": "*.csv"`<br/>-Przykład 2: `"fileName": "???20180427.txt"`<br/>Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. |Nie |
 | modifiedDatetimeStart | Pliki są filtrowane na podstawie *ostatnio modyfikowanego*atrybutu. Pliki są wybierane, jeśli ich czas ostatniej modyfikacji mieści się w zakresie od `modifiedDatetimeStart` do `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie *2018 r-12-01T05:00:00Z*. <br/><br/> Włączenie tego ustawienia będzie miało wpływ na ogólną wydajność przenoszenia danych, co pozwala na filtrowanie plików z dużej liczby plików. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone.| Nie |
 | modifiedDatetimeEnd | Pliki są filtrowane na podstawie *ostatnio modyfikowanego*atrybutu. Pliki są wybierane, jeśli ich czas ostatniej modyfikacji mieści się w zakresie od `modifiedDatetimeStart` do `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie *2018 r-12-01T05:00:00Z*. <br/><br/> Włączenie tego ustawienia będzie miało wpływ na ogólną wydajność przenoszenia danych, co pozwala na filtrowanie plików z dużej liczby plików. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone.| Nie |
@@ -425,7 +425,7 @@ Informacje o usuwaniu właściwości działania znajdują się [w temacie Usuwan
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość *Type* źródła działania Copy musi być ustawiona na wartość *FileSystemSource* |Yes |
+| typ | Właściwość *Type* źródła działania Copy musi być ustawiona na wartość *FileSystemSource* |Tak |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy wartość cykliczna jest ustawiona na *wartość true* , a ujścia jest magazynem opartym na plikach, puste foldery i podfoldery nie będą kopiowane ani tworzone w ujściach.<br/>Dozwolone wartości to *true* (wartość domyślna) i *Fałsz* | Nie |
 | maxConcurrentConnections | Liczba połączeń, które mogą łączyć się z magazynem magazynu jednocześnie. Określ liczbę tylko wtedy, gdy chcesz ograniczyć współbieżne połączenia z magazynem danych. | Nie |
 

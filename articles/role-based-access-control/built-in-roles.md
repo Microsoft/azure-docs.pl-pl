@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/16/2020
+ms.date: 08/31/2020
 ms.custom: generated
-ms.openlocfilehash: 44b4134404d5af3a8dde7028ffa1b43258df7558
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: b58316cf5a56eae46c81056a78446dc6c3d10764
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271995"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226764"
 ---
 # <a name="azure-built-in-roles"></a>Role wbudowane platformy Azure
 
@@ -153,7 +153,15 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Współautor usługi Azure Sentinel](#azure-sentinel-contributor) | Współautor usługi Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Czytelnik usługi Azure Sentinel](#azure-sentinel-reader) | Czytelnik usługi Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Obiekt odpowiadający usługi Azure Sentinel](#azure-sentinel-responder) | Obiekt odpowiadający usługi Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Współautor Key Vault](#key-vault-contributor) | Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nich dostępu. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Administrator Key Vault (wersja zapoznawcza)](#key-vault-administrator-preview) | Wykonaj wszystkie operacje płaszczyzny danych w magazynie kluczy i wszystkie obiekty w nim, w tym certyfikaty, klucze i wpisy tajne. Nie można zarządzać zasobami magazynu kluczy ani zarządzać przypisaniami ról. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Oficer certyfikatów Key Vault (wersja zapoznawcza)](#key-vault-certificates-officer-preview) | Wykonaj dowolną akcję dotyczącą certyfikatów magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Współautor Key Vault](#key-vault-contributor) | Zarządzanie magazynami kluczy, ale nie umożliwia przypisywania ról w usłudze Azure RBAC i nie pozwala na dostęp do wpisów tajnych, kluczy lub certyfikatów. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Key Vault oficer kryptograficzny (wersja zapoznawcza)](#key-vault-crypto-officer-preview) | Wykonaj dowolną akcję dotyczącą kluczy magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza)](#key-vault-crypto-service-encryption-preview) | Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Użytkownik kryptografii Key Vault (wersja zapoznawcza)](#key-vault-crypto-user-preview) | Wykonywanie operacji kryptograficznych przy użyciu kluczy. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Key Vault Reader (wersja zapoznawcza)](#key-vault-reader-preview) | Odczytywanie metadanych magazynów kluczy oraz jego certyfikatów, kluczy i wpisów tajnych. Nie można odczytać wartości poufnych, takich jak zawartość wpisu tajnego lub materiał klucza. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Key Vault tajemnicy (wersja zapoznawcza)](#key-vault-secrets-officer-preview) | Wykonaj wszelkie działania dotyczące wpisów tajnych magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+> | [Użytkownik Key Vault Secret (wersja zapoznawcza)](#key-vault-secrets-user-preview) | Odczytaj zawartość wpisu tajnego. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Administrator zabezpieczeń](#security-admin) | Wyświetl i zaktualizuj uprawnienia dla Security Center. Te same uprawnienia, jak rola czytelnik zabezpieczeń, mogą także aktualizować zasady zabezpieczeń i odrzucać alerty i zalecenia. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Współautor oceny zabezpieczeń](#security-assessment-contributor) | Umożliwia wypychanie ocen do Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (starsza wersja)](#security-manager-legacy) | Jest to Starsza rola. Zamiast tego należy użyć administratora zabezpieczeń. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
@@ -2569,7 +2577,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 }
 ```
 
-## <a name="web"></a>Internet
+## <a name="web"></a>Sieć Web
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
@@ -2776,7 +2784,7 @@ Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie
 }
 ```
 
-## <a name="containers"></a>Kontenery
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -6066,7 +6074,7 @@ Odczytaj i przypisz tożsamość przypisanych do użytkownika [Dowiedz się wię
 }
 ```
 
-## <a name="security"></a>Bezpieczeństwo
+## <a name="security"></a>Zabezpieczenia
 
 
 ### <a name="azure-sentinel-contributor"></a>Współautor usługi Azure Sentinel
@@ -6276,9 +6284,129 @@ Obiekt odpowiadający usługi Azure wskaźnikowej [Dowiedz się więcej](../sent
 }
 ```
 
+### <a name="key-vault-administrator-preview"></a>Administrator Key Vault (wersja zapoznawcza)
+
+Wykonaj wszystkie operacje płaszczyzny danych w magazynie kluczy i wszystkie obiekty w nim, w tym certyfikaty, klucze i wpisy tajne. Nie można zarządzać zasobami magazynu kluczy ani zarządzać przypisaniami ról. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | /CheckNameAvailability/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Sprawdza, czy nazwa magazynu kluczy jest prawidłowa i czy nie jest używana |
+> | /DeletedVaults/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl właściwości usuniętych nietrwałych magazynów kluczy |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Locations/— Magazyn kluczy */Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/— Magazyn kluczy */Read |  |
+> | /Operations/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetla listę operacji dostępnych w ramach dostawcy zasobów Microsoft. |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/— Magazyn kluczy * |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on certificates, keys and secrets of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483",
+  "name": "00482a5a-887f-4fb3-b363-3b7fe8e74483",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Administrator (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-certificates-officer-preview"></a>Oficer certyfikatów Key Vault (wersja zapoznawcza)
+
+Wykonaj dowolną akcję dotyczącą certyfikatów magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | /CheckNameAvailability/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Sprawdza, czy nazwa magazynu kluczy jest prawidłowa i czy nie jest używana |
+> | /DeletedVaults/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl właściwości usuniętych nietrwałych magazynów kluczy |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Locations/— Magazyn kluczy */Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/— Magazyn kluczy */Read |  |
+> | /Operations/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetla listę operacji dostępnych w ramach dostawcy zasobów Microsoft. |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/certificatecas/— Magazyn kluczy * |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Certificates/— Magazyn kluczy * |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the certificates of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a4417e6f-fecd-4de8-b567-7b0420556985",
+  "name": "a4417e6f-fecd-4de8-b567-7b0420556985",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/certificatecas/*",
+        "Microsoft.KeyVault/vaults/certificates/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Certificates Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="key-vault-contributor"></a>Współautor Key Vault
 
-Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nich dostępu. [Dowiedz się więcej](../key-vault/general/secure-your-key-vault.md)
+Zarządzanie magazynami kluczy, ale nie umożliwia przypisywania ról w usłudze Azure RBAC i nie pozwala na dostęp do wpisów tajnych, kluczy lub certyfikatów. [Dowiedz się więcej](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
 > | Akcje | Opis |
@@ -6324,6 +6452,324 @@ Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nic
     }
   ],
   "roleName": "Key Vault Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-officer-preview"></a>Key Vault oficer kryptograficzny (wersja zapoznawcza)
+
+Wykonaj dowolną akcję dotyczącą kluczy magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | /CheckNameAvailability/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Sprawdza, czy nazwa magazynu kluczy jest prawidłowa i czy nie jest używana |
+> | /DeletedVaults/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl właściwości usuniętych nietrwałych magazynów kluczy |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Locations/— Magazyn kluczy */Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/— Magazyn kluczy */Read |  |
+> | /Operations/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetla listę operacji dostępnych w ramach dostawcy zasobów Microsoft. |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/— Magazyn kluczy * |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the keys of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
+  "name": "14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-service-encryption-preview"></a>Key Vault szyfrowanie usługi kryptograficznej (wersja zapoznawcza)
+
+Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | *brak* |  |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | /Vaults/Keys/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl listę kluczy w określonym magazynie lub Odczytaj właściwości i materiał publiczny klucza. W przypadku kluczy asymetrycznych ta operacja ujawnia klucz publiczny i obejmuje możliwość wykonywania algorytmów kluczy publicznych, takich jak szyfrowanie i Weryfikowanie podpisu. Klucze prywatne i klucze symetryczne nigdy nie są ujawniane. |
+> | /Vaults/Keys/Wrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Zawiń klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, tę operację można wykonać z dostępem do odczytu. |
+> | /Vaults/Keys/Unwrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odpakuj klucz symetryczny z kluczem Key Vault. |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read metadata of keys and perform wrap/unwrap operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e147488a-f6f5-4113-8e2d-b22465e65bf6",
+  "name": "e147488a-f6f5-4113-8e2d-b22465e65bf6",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/read",
+        "Microsoft.KeyVault/vaults/keys/wrap/action",
+        "Microsoft.KeyVault/vaults/keys/unwrap/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto Service Encryption (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-user-preview"></a>Użytkownik kryptografii Key Vault (wersja zapoznawcza)
+
+Wykonywanie operacji kryptograficznych przy użyciu kluczy. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | *brak* |  |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | /Vaults/Keys/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl listę kluczy w określonym magazynie lub Odczytaj właściwości i materiał publiczny klucza. W przypadku kluczy asymetrycznych ta operacja ujawnia klucz publiczny i obejmuje możliwość wykonywania algorytmów kluczy publicznych, takich jak szyfrowanie i Weryfikowanie podpisu. Klucze prywatne i klucze symetryczne nigdy nie są ujawniane. |
+> | /Vaults/Keys/Update/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Aktualizuje określone atrybuty skojarzone z danym kluczem. |
+> | /Vaults/Keys/Backup/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Utwórz plik kopii zapasowej klucza. Plik może zostać użyty do przywrócenia klucza w Key Vault tej samej subskrypcji. Mogą być stosowane ograniczenia. |
+> | /Vaults/Keys/Encrypt/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Szyfruj zwykły tekst za pomocą klucza. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | /Vaults/Keys/Decrypt/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odszyfruj tekst szyfrowany przy użyciu klucza. |
+> | /Vaults/Keys/Wrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Zawiń klucz symetryczny z kluczem Key Vault. Należy pamiętać, że jeśli klucz Key Vault jest asymetryczny, tę operację można wykonać z dostępem do odczytu. |
+> | /Vaults/Keys/Unwrap/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Odpakuj klucz symetryczny z kluczem Key Vault. |
+> | /Vaults/Keys/Sign/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Podpisz skrót przy użyciu klucza. |
+> | /Vaults/Keys/verify/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Sprawdź skrót. Należy pamiętać, że jeśli klucz jest asymetryczny, ta operacja może być wykonywana przez podmioty zabezpieczeń z dostępem do odczytu. |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform cryptographic operations on keys and certificates.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/12338af0-0e69-4776-bea7-57ae8d297424",
+  "name": "12338af0-0e69-4776-bea7-57ae8d297424",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/read",
+        "Microsoft.KeyVault/vaults/keys/update/action",
+        "Microsoft.KeyVault/vaults/keys/backup/action",
+        "Microsoft.KeyVault/vaults/keys/encrypt/action",
+        "Microsoft.KeyVault/vaults/keys/decrypt/action",
+        "Microsoft.KeyVault/vaults/keys/wrap/action",
+        "Microsoft.KeyVault/vaults/keys/unwrap/action",
+        "Microsoft.KeyVault/vaults/keys/sign/action",
+        "Microsoft.KeyVault/vaults/keys/verify/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto User (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-reader-preview"></a>Key Vault Reader (wersja zapoznawcza)
+
+Odczytywanie metadanych magazynów kluczy oraz jego certyfikatów, kluczy i wpisów tajnych. Nie można odczytać wartości poufnych, takich jak zawartość wpisu tajnego lub materiał klucza. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | /CheckNameAvailability/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Sprawdza, czy nazwa magazynu kluczy jest prawidłowa i czy nie jest używana |
+> | /DeletedVaults/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl właściwości usuniętych nietrwałych magazynów kluczy |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Locations/— Magazyn kluczy */Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/— Magazyn kluczy */Read |  |
+> | /Operations/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetla listę operacji dostępnych w ramach dostawcy zasobów Microsoft. |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/— Magazyn kluczy */Read |  |
+> | /Vaults/Secrets/readMetadata/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetlaj listę lub Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read metadata of key vaults and its certificates, keys and secrets. Cannot read sensitive values such as secret contents or key material.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/21090545-7ca7-4776-b22c-e363652d74d2",
+  "name": "21090545-7ca7-4776-b22c-e363652d74d2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/vaults/secrets/readMetadata/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Reader (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-secrets-officer-preview"></a>Key Vault tajemnicy (wersja zapoznawcza)
+
+Wykonaj wszelkie działania dotyczące wpisów tajnych magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Tworzenie i zarządzanie alertem dotyczącego klasycznej metryki |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/Read | Pobiera lub wyświetla listę grup zasobów. |
+> | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
+> | /CheckNameAvailability/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Sprawdza, czy nazwa magazynu kluczy jest prawidłowa i czy nie jest używana |
+> | /DeletedVaults/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetl właściwości usuniętych nietrwałych magazynów kluczy |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Locations/— Magazyn kluczy */Read |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/— Magazyn kluczy */Read |  |
+> | /Operations/Read [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetla listę operacji dostępnych w ramach dostawcy zasobów Microsoft. |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | [Microsoft.](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/— Magazyn kluczy * |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the secrets of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+  "name": "b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/secrets/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Secrets Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-secrets-user-preview"></a>Użytkownik Key Vault Secret (wersja zapoznawcza)
+
+Odczytaj zawartość wpisu tajnego. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure.
+
+> [!div class="mx-tableFixed"]
+> | Akcje | Opis |
+> | --- | --- |
+> | *brak* |  |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | /Vaults/Secrets/getSecret/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Pobierz wartość wpisu tajnego. |
+> | /Vaults/Secrets/readMetadata/Action [magazynu kluczy firmy Microsoft](resource-provider-operations.md#microsoftkeyvault) | Wyświetlaj listę lub Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read secret contents.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+  "name": "4633458b-17de-408a-b874-0445c86b69e6",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/secrets/getSecret/action",
+        "Microsoft.KeyVault/vaults/secrets/readMetadata/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Secrets User (preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

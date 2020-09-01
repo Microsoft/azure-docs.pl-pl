@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fff90777c63820b54a1cb37156021c894de19c8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78299333"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226934"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Informacje o schemacie usługi Azure AD
 Obiekt w Azure Active Directory (Azure AD), podobnie jak każdy katalog, to programowa konstrukcja danych wysokiego poziomu, która reprezentuje takie elementy jak użytkownicy, grupy i kontakty. Gdy tworzysz nowego użytkownika lub kontakt w usłudze Azure AD, tworzysz nowe wystąpienie tego obiektu. Te wystąpienia można rozróżnić w zależności od ich właściwości.
@@ -51,7 +51,7 @@ Na przykład, jeśli masz atrybut poczty " john.smith@contoso.com " i jest wymag
 * **Dane wejściowe** (poczta): " john.smith@contoso.com "
 * **Dane wyjściowe**: "Jan. Kowalski"
 
-Aby uzyskać więcej informacji na temat pisania wyrażeń niestandardowych i składni, zobacz [Pisanie wyrażeń pod kątem mapowań atrybutów w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Aby uzyskać więcej informacji na temat pisania wyrażeń niestandardowych i składni, zobacz [Pisanie wyrażeń pod kątem mapowań atrybutów w Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 
 W poniższej tabeli wymieniono typowe atrybuty i sposób ich synchronizacji z usługą Azure AD.
 

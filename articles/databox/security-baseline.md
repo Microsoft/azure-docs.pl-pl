@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 1961aa3ee21d5b04108b3107731560d747a2c963
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: d8a1b2192784c26ed17b31be262b22efbf935d84
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075566"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225608"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Box
 

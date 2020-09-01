@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ec492466e107eb6f4821f0e6d2caed9daa141a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608954"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226985"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Jak używać Azure Monitor skoroszytów dla raportów Azure Active Directory
 
@@ -42,13 +42,13 @@ Czy chcesz:
 
 - Uzyskaj dokładniejsze informacje o zapytaniach dziennika logowania, w tym skoroszycie przedstawiono liczbę użytkowników, którym udzielono lub odmówiono dostępu, a także liczbę użytkowników, których zasady dostępu warunkowego zostały pominięte podczas uzyskiwania dostępu do zasobów.
 
-- Aby ułatwić rozwiązanie tych pytań, Azure Active Directory udostępnia skoroszyty do monitorowania. [Azure monitor skoroszyty](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) łączą teksty, zapytania analityczne, metryki i parametry w rozbudowanych raportach interaktywnych.
+- Aby ułatwić rozwiązanie tych pytań, Azure Active Directory udostępnia skoroszyty do monitorowania. [Azure monitor skoroszyty](../../azure-monitor/platform/workbooks-overview.md) łączą teksty, zapytania analityczne, metryki i parametry w rozbudowanych raportach interaktywnych.
 
 
 
 W tym artykule:
 
-- Przyjęto założenie, że wiesz już, jak [tworzyć interaktywne raporty przy użyciu skoroszytów monitorowania](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+- Przyjęto założenie, że wiesz już, jak [tworzyć interaktywne raporty przy użyciu skoroszytów monitorowania](../../azure-monitor/platform/workbooks-overview.md).
 
 - Wyjaśnia, jak używać skoroszytów do monitorowania, aby zrozumieć wpływ zasad dostępu warunkowego, rozwiązywać problemy z błędami logowania i identyfikować starsze uwierzytelnienia.
  
@@ -58,11 +58,11 @@ W tym artykule:
 
 Aby używać skoroszytów monitorowania, potrzebne są:
 
-- Dzierżawa Azure Active Directory z licencją premium (P1 lub P2). Dowiedz się [, jak uzyskać licencję Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Dzierżawa Azure Active Directory z licencją premium (P1 lub P2). Dowiedz się [, jak uzyskać licencję Premium](../fundamentals/active-directory-get-started-premium.md).
 
-- [Obszar roboczy log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- [Obszar roboczy usługi Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 
-- [Dostęp](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) do obszaru roboczego usługi log Analytics
+- [Dostęp](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) do obszaru roboczego usługi log Analytics
 - Poniższe role w Azure Active Directory (Jeśli uzyskujesz dostęp do Log Analytics za poorednictwem portalu Azure Active Directory)
     - Administrator zabezpieczeń
     - Czytelnik zabezpieczeń
@@ -70,7 +70,7 @@ Aby używać skoroszytów monitorowania, potrzebne są:
     - Administrator globalny
 
 ## <a name="roles"></a>Role
-Aby zarządzać skoroszytami, musisz mieć jedną z następujących ról oraz mieć [dostęp do podstawowego](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) obszaru roboczego log Analytics:
+Aby zarządzać skoroszytami, musisz mieć jedną z następujących ról oraz mieć [dostęp do podstawowego](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) obszaru roboczego log Analytics:
 -   Administrator globalny
 -   Administrator zabezpieczeń
 -   Czytelnik zabezpieczeń
@@ -107,7 +107,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Aplikacje
+- Apps
 
 - Użytkownicy
 
@@ -141,7 +141,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Aplikacje
+- Apps
 
 - Użytkownicy
 
@@ -165,7 +165,7 @@ Ten skoroszyt zawiera trendy dotyczące wyłączonych logowań. Każdy trend mo�
 
 - Przedział czasu
 
-- Aplikacje
+- Apps
 
 - Użytkownicy
 
@@ -238,7 +238,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Aplikacje
+- Apps
 
 - Użytkownicy
 
@@ -278,7 +278,7 @@ Każdy trend można filtrować według następujących kategorii:
 
 - Przedział czasu
 
-- Aplikacje
+- Apps
 
 - Użytkownicy
 
@@ -302,4 +302,4 @@ Aby pomóc w rozwiązywaniu problemów z logowaniem, Azure Monitor zapewnia podz
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Twórz interaktywne raporty przy użyciu skoroszytów monitorowania](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+[Twórz interaktywne raporty przy użyciu skoroszytów monitorowania](../../azure-monitor/platform/workbooks-overview.md).

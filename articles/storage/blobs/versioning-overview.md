@@ -1,25 +1,25 @@
 ---
-title: Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)
+title: Przechowywanie wersji obiektów BLOB
 titleSuffix: Azure Storage
-description: Przechowywanie wersji magazynu obiektów BLOB (wersja zapoznawcza) automatycznie zachowuje poprzednie wersje obiektu i identyfikuje je za pomocą sygnatur czasowych. Można przywrócić wcześniejsze wersje obiektu BLOB w celu odzyskania danych w przypadku ich błędnej modyfikacji lub usunięcia.
+description: Obsługa wersji magazynu obiektów BLOB automatycznie zachowuje poprzednie wersje obiektu i identyfikuje je za pomocą sygnatur czasowych. Można przywrócić wcześniejsze wersje obiektu BLOB w celu odzyskania danych w przypadku ich błędnej modyfikacji lub usunięcia.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074538"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226267"
 ---
-# <a name="blob-versioning-preview"></a>Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)
+# <a name="blob-versioning"></a>Przechowywanie wersji obiektów BLOB
 
-Możesz włączyć przechowywanie wersji magazynu obiektów BLOB (wersja zapoznawcza), aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
+Możesz włączyć przechowywanie wersji magazynu obiektów blob, aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
 
 Obsługa wersji obiektów BLOB jest włączona na koncie magazynu i ma zastosowanie do wszystkich obiektów BLOB na koncie magazynu. Po włączeniu obsługi wersji obiektów BLOB dla konta magazynu usługa Azure Storage automatycznie obsługuje wersje dla każdego obiektu BLOB na koncie magazynu.
 
@@ -41,6 +41,10 @@ Podczas tworzenia obiektu BLOB z włączoną obsługą wersji, nowy obiekt BLOB 
 Po usunięciu obiektu BLOB z włączoną obsługą wersji usługa Azure Storage tworzy wersję, która przechwytuje stan obiektu BLOB przed jego usunięciem. Bieżąca wersja obiektu BLOB jest następnie usuwana, ale wersje obiektu BLOB są utrwalane, dzięki czemu można je ponownie utworzyć w razie potrzeby. 
 
 Wersje obiektów BLOB są niezmienne. Nie można zmodyfikować zawartości ani metadanych istniejącej wersji obiektu BLOB.
+
+Obsługa wersji obiektów BLOB jest dostępna dla kont ogólnego przeznaczenia w wersji 2, blokowych obiektów blob i BLOB Storage. Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są obecnie obsługiwane.
+
+W wersji 2019-10-10 i nowszej interfejsu API REST usługi Azure Storage obsługiwane jest przechowywanie wersji obiektów BLOB.
 
 ### <a name="version-id"></a>Identyfikator wersji
 
@@ -108,7 +112,7 @@ Aby zautomatyzować proces przechodzenia blokowych obiektów BLOB do odpowiednie
 
 ## <a name="enable-or-disable-blob-versioning"></a>Włączanie lub wyłączanie obsługi wersji obiektów BLOB
 
-Aby dowiedzieć się, jak włączyć lub wyłączyć przechowywanie wersji obiektów blob, zobacz [Włączanie lub wyłączanie obsługi wersji obiektów BLOB](versioning-enable.md).
+Aby dowiedzieć się, jak włączyć lub wyłączyć przechowywanie wersji obiektów blob, zobacz [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md).
 
 Wyłączenie obsługi wersji obiektów BLOB nie powoduje usunięcia istniejących obiektów blob, wersji ani migawek. Po wyłączeniu obsługi wersji obiektów BLOB wszystkie istniejące wersje pozostają dostępne na koncie magazynu. Nie są następnie tworzone żadne nowe wersje.
 
@@ -196,134 +200,95 @@ W poniższej tabeli przedstawiono uprawnienia wymagane przez sygnaturę dostępu
 |----------------|----------------|------------------------|
 | Usuń         | x              | Usuń wersję obiektu BLOB. |
 
-## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
-
-Wersja programu BLOB jest dostępna w wersji zapoznawczej w następujących regionach:
-
-- Wschodnie stany USA 2
-- Central US
-- Europa Północna
-- Europa Zachodnia
-- Francja Środkowa
-- Kanada Wschodnia
-- Kanada Środkowa
-
-> [!IMPORTANT]
-> Wersja zapoznawcza usługi BLOB jest przeznaczona wyłącznie do użytku nieprodukcyjnego. Umowy dotyczące poziomu usług produkcyjnych (umowy SLA) nie są obecnie dostępne.
-
-W wersji 2019-10-10 i nowszej interfejsu API REST usługi Azure Storage obsługiwane jest przechowywanie wersji obiektów BLOB.
-
-### <a name="storage-account-support"></a>Obsługa kont magazynu
-
-Dostępna jest wersja obiektów BLOB dla następujących typów kont magazynu:
-
-- Konta magazynu ogólnego przeznaczenia w wersji 2
-- Blokuj konta magazynu obiektów BLOB
-- Konta usługi Blob Storage
-
-Jeśli konto magazynu jest kontem ogólnego przeznaczenia w wersji 1, użyj Azure Portal, aby przeprowadzić uaktualnienie do konta ogólnego przeznaczenia w wersji 2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
-
-Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure Data Lake Storage Gen2 nie są obecnie obsługiwane.
-
-### <a name="register-for-the-preview"></a>Zarejestruj się w wersji zapoznawczej
-
-Aby zarejestrować się w wersji zapoznawczej usługi BLOB, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure w celu przesłania żądania zarejestrowania tej funkcji w ramach subskrypcji. Po zatwierdzeniu żądania można włączyć obsługę wersji obiektów BLOB przy użyciu dowolnego nowego lub istniejącego konta programu ogólnego przeznaczenia w wersji 2, BLOB Storage lub Premium Storage blokowych obiektów BLOB.
-
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
-
-Aby zarejestrować się w programie PowerShell, wywołaj polecenie [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
-
-```powershell
-# Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-Aby zarejestrować się w interfejsie wiersza polecenia platformy Azure, wywołaj polecenie [AZ Feature Register](/cli/azure/feature#az-feature-register) .
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Sprawdź stan rejestracji
-
-Aby sprawdzić stan rejestracji, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
-
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
-
-Aby sprawdzić stan rejestracji w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
-Aby sprawdzić stan rejestracji w interfejsie wiersza polecenia platformy Azure, wywołaj polecenie [AZ Feature](/cli/azure/feature#az-feature-show) .
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name Versioning
-```
-
----
-
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
 Włączenie obsługi wersji obiektów BLOB może spowodować naliczenie dodatkowych opłat za magazyn danych dla Twojego konta. Podczas projektowania aplikacji ważne jest, aby mieć świadomość, jak te opłaty mogą zostać naliczone, aby można było zminimalizować koszty.
 
-Wersje obiektów blob, takie jak migawki obiektów blob, są rozliczane według tej samej stawki co aktywne dane. Jeśli wersja udostępnia bloki lub strony z podstawowym obiektem BLOB, płacisz tylko za wszelkie dodatkowe bloki lub strony, które nie są współużytkowane przez wersję i podstawowy obiekt BLOB.
+Wersje obiektów blob, takie jak migawki obiektów blob, są rozliczane według tej samej stawki co aktywne dane. Sposób rozliczania wersji zależy od tego, czy jawnie ustawiono warstwę dla podstawowego obiektu BLOB, czy dla którejkolwiek z jego wersji (lub migawek). Aby uzyskać więcej informacji na temat warstw obiektów blob, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md).
+
+Jeśli nie zmieniono warstwy obiektu BLOB lub wersji, opłaty są naliczane za unikatowe bloki danych w ramach tego obiektu BLOB, jego wersje oraz wszystkie migawki, które mogą mieć. Aby uzyskać więcej informacji, zobacz [rozliczenia, gdy warstwa obiektów BLOB nie została jawnie ustawiona](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+W przypadku zmiany warstwy obiektu BLOB lub wersji, opłaty są naliczane za cały obiekt, bez względu na to, czy obiekt BLOB i wersja znajdują się ostatecznie w tej samej warstwie. Aby uzyskać więcej informacji, zobacz [rozliczenia, gdy warstwa obiektów BLOB została ustawiona jawnie](#billing-when-the-blob-tier-has-been-explicitly-set).
 
 > [!NOTE]
 > Włączenie obsługi wersji danych, które są często zastępowane, może spowodować zwiększenie opłat za pojemność magazynu i zwiększenie opóźnień podczas tworzenia listy. Aby wyeliminować te problemy, przechowuj często zastąpione dane na oddzielnym koncie magazynu z wyłączonymi wersjami.
 
-### <a name="important-billing-considerations"></a>Ważne zagadnienia dotyczące rozliczeń
+Aby uzyskać więcej informacji na temat szczegółów rozliczeń dla migawek obiektów blob, zobacz [migawki obiektów BLOB](snapshots-overview.md).
 
-Podczas włączania obsługi wersji obiektów BLOB należy wziąć pod uwagę następujące kwestie:
+### <a name="billing-when-the-blob-tier-has-not-been-explicitly-set"></a>Rozliczanie, gdy warstwa obiektów BLOB nie została jawnie ustawiona
 
-- Konto magazynu wiąże się z opłatami za unikatowe bloki lub strony, niezależnie od tego, czy znajdują się w obiekcie blob, czy w poprzedniej wersji obiektu BLOB. Twoje konto nie wiąże się z dodatkowymi opłatami za wersje skojarzone z obiektem BLOB do momentu zaktualizowania obiektu BLOB, na którym się znajdują. Po zaktualizowaniu obiektu BLOB jest on rozbieżny od jego poprzednich wersji. W takim przypadku opłata jest naliczana za unikatowe bloki lub strony w każdym obiekcie blob lub w wersji.
-- Gdy zastąpisz blok w blokowym obiekcie blob, ten blok jest następnie naliczany jako unikatowy blok. Jest to prawdziwe, nawet jeśli blok ma ten sam identyfikator bloku i te same dane, które znajdują się w wersji. Po ponownym zatwierdzeniu bloku jest on rozbieżny od jego odpowiednika w dowolnej wersji i zostanie naliczona opłata za swoje dane. Te same wartości mają wartość true dla strony w obiekcie blob stronicowania, która jest aktualizowana o identyczne dane.
-- Usługa BLOB Storage nie ma metody, aby określić, czy dwa bloki zawierają identyczne dane. Każdy przekazany i zatwierdzony blok jest traktowany jako unikatowy, nawet jeśli ma takie same dane i ten sam identyfikator bloku. Ze względu na to, że opłaty są naliczane dla unikatowych bloków, należy wziąć pod uwagę, że aktualizacja obiektu BLOB po włączeniu obsługi wersji spowoduje utworzenie dodatkowych unikatowych bloków i dodatkowych opłat.
-- Po włączeniu obsługi wersji obiektów BLOB Zaprojektuj operacje aktualizacji w blokowych obiektach Blob, aby zaktualizować możliwie najmniejszą liczbę bloków. Operacje zapisu, które zezwalają na szczegółową kontrolę nad blokami, powodują [umieszczenie bloku](/rest/api/storageservices/put-block) i [umieszczenie listy zablokowanych](/rest/api/storageservices/put-block-list). Z drugiej strony operacja [Put obiektu BLOB](/rest/api/storageservices/put-blob) zastępuje całą zawartość obiektu BLOB, co może prowadzić do dodatkowych opłat.
+Jeśli nie ustawisz jawnie warstwy obiektu BLOB dla podstawowego obiektu BLOB lub żadnej z jej wersji, naliczanie opłat za unikatowe bloki lub strony w obiekcie blob, jego wersje oraz wszystkie migawki, które mogą mieć. Dane, które są współużytkowane przez obiekt BLOB i jego wersje, są naliczone tylko raz. Po zaktualizowaniu obiektu BLOB dane w bazowym obiekcie BLOB są rozbieżne od danych przechowywanych w jego wersjach, a opłaty za dane unikatowe są naliczone na blok lub na stronie.
 
-### <a name="versioning-billing-scenarios"></a>Scenariusze rozliczania wersji
+Gdy zastąpisz blok w blokowym obiekcie blob, ten blok jest następnie naliczany jako unikatowy blok. Jest to prawdziwe, nawet jeśli blok ma ten sam identyfikator bloku i te same dane, które znajdują się w poprzedniej wersji. Po ponownym zatwierdzeniu bloku jest on rozbieżny od jego odpowiednikiem w poprzedniej wersji i zostanie naliczona opłata za swoje dane. Te same wartości mają wartość true dla strony w obiekcie blob stronicowania, która jest aktualizowana o identyczne dane.
 
-W poniższych scenariuszach pokazano, jak naliczane są opłaty za blokowy obiekt BLOB i jego wersje.
+Usługa BLOB Storage nie ma metody, aby określić, czy dwa bloki zawierają identyczne dane. Każdy przekazany i zatwierdzony blok jest traktowany jako unikatowy, nawet jeśli ma takie same dane i ten sam identyfikator bloku. Ze względu na to, że opłaty są naliczane dla unikatowych bloków, należy pamiętać, że aktualizacja obiektu BLOB po włączeniu obsługi wersji spowoduje dodanie dodatkowych unikatowych bloków i dodatkowych opłat.
+
+Po włączeniu obsługi wersji obiektów BLOB należy wywoływać operacje aktualizacji w blokowych obiektach Blob, aby zaktualizować możliwie najmniejszą liczbę bloków. Operacje zapisu, które zezwalają na szczegółową kontrolę nad blokami, powodują [umieszczenie bloku](/rest/api/storageservices/put-block) i [umieszczenie listy zablokowanych](/rest/api/storageservices/put-block-list). Z drugiej strony operacja [Put obiektu BLOB](/rest/api/storageservices/put-blob) zastępuje całą zawartość obiektu BLOB, co może prowadzić do dodatkowych opłat.
+
+W poniższych scenariuszach pokazano, jak naliczane są opłaty za blokowy obiekt BLOB i jego wersje, gdy warstwa obiektu BLOB nie została jawnie ustawiona.
 
 #### <a name="scenario-1"></a>Scenariusz 1
 
 W scenariuszu 1 obiekt BLOB ma poprzednią wersję. Obiekt BLOB nie został zaktualizowany od czasu utworzenia wersji, więc opłaty są naliczane tylko dla unikatowych bloków 1, 2 i 3.
 
-![Zasoby usługi Azure Storage](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagram 1 pokazujący rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i poprzedniej wersji](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenariusz 2
 
 W scenariuszu 2 został zaktualizowany jeden blok (blok 3 na diagramie) w obiekcie blob. Mimo że zaktualizowany blok zawiera te same dane i ten sam identyfikator, nie jest on taki sam jak blok 3 w poprzedniej wersji. W związku z tym konto jest obciążane czterema blokami.
 
-![Zasoby usługi Azure Storage](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagram 2 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w poprzedniej wersji](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenariusz 3
 
 W scenariuszu 3 obiekt BLOB został zaktualizowany, ale wersja nie została. Blok 3 został zastąpiony blokiem 4 w podstawowym obiekcie blob, ale Poprzednia wersja nadal odzwierciedla blok 3. W związku z tym konto jest obciążane czterema blokami.
 
-![Zasoby usługi Azure Storage](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagram 3 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w poprzedniej wersji](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenariusz 4
 
-W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych bloków &mdash; cztery w podstawowym obiekcie blob i cztery w poprzedniej wersji. Ten scenariusz może wystąpić, jeśli piszesz do obiektu BLOB za pomocą operacji Put obiektu BLOB, ponieważ zastępuje całą zawartość podstawowego obiektu BLOB.
+W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych bloków &mdash; cztery w podstawowym obiekcie blob i cztery w poprzedniej wersji. Ten scenariusz może wystąpić, jeśli piszesz do obiektu BLOB za pomocą operacji [Put obiektu BLOB](/rest/api/storageservices/put-blob) , ponieważ zastępuje całą zawartość podstawowego obiektu BLOB.
 
-![Zasoby usługi Azure Storage](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagram 4 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w poprzedniej wersji](./media/versioning-overview/versions-billing-scenario-4.png)
+
+### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Rozliczanie, gdy warstwa obiektu BLOB została jawnie ustawiona
+
+Jeśli jawnie ustawisz warstwę obiektów BLOB dla obiektu BLOB lub wersji (lub migawki), zostanie naliczona opłata za pełną długość zawartości obiektu w nowej warstwie, bez względu na to, czy ma on udział w blokach z obiektem w warstwie pierwotnej. Opłata jest naliczana również za pełną długość zawartości najstarszej wersji w oryginalnej warstwie. Wszystkie inne poprzednie wersje lub migawki, które pozostają w oryginalnej warstwie, są obciążane opłatami za unikatowe bloki, które mogą być współużytkowane, zgodnie z opisem w [rozliczeniach, gdy warstwa obiektów BLOB nie została jawnie ustawiona](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+#### <a name="moving-a-blob-to-a-new-tier"></a>Przeniesienie obiektu BLOB do nowej warstwy
+
+W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB lub wersji, gdy jest on przenoszony do nowej warstwy.
+
+| Gdy warstwa obiektów BLOB jest ustawiona jawnie w... | Następnie opłaty są naliczane za... |
+|-|-|
+| Podstawowy obiekt BLOB z poprzednią wersją | Podstawowy obiekt BLOB w nowej warstwie i najstarsza wersja w oryginalnej warstwie oraz wszystkie unikatowe bloki w innych wersjach. <sup>1</sup> |
+| Podstawowy obiekt BLOB z poprzednią wersją i migawką | Podstawowy obiekt BLOB w nowej warstwie, najstarsza wersja w oryginalnej warstwie oraz najstarsza migawka w oryginalnej warstwie oraz wszystkie unikatowe bloki w innych wersjach lub migawek<sup>1</sup>. |
+| Poprzednia wersja | Wersja nowej warstwy i podstawowy obiekt BLOB w oryginalnej warstwie oraz wszystkie unikatowe bloki w innych wersjach. <sup>1</sup> |
+
+<sup>1</sup> Jeśli istnieją inne poprzednie wersje lub migawki, które nie zostały przeniesione z oryginalnej warstwy, te wersje lub migawki są rozliczane na podstawie liczby unikatowych bloków, zgodnie z opisem w [rozliczeniach, gdy warstwa obiektu BLOB nie została jawnie ustawiona](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Jawnie Ustawianie warstwy dla obiektu BLOB, wersji lub migawki nie można cofnąć. Jeśli przeniesiesz obiekt BLOB do nowej warstwy, a następnie przeniesiesz go z powrotem do jego oryginalnej warstwy, naliczona zostanie opłata za pełną długość zawartości obiektu nawet wtedy, gdy współużytkuje bloki z innymi obiektami w pierwotnej warstwie.
+
+Operacje, które jawnie ustawiają warstwę obiektu BLOB, wersji lub migawki, obejmują:
+
+- [Ustawianie warstwy obiektu blob](/rest/api/storageservices/set-blob-tier)
+- [Umieść obiekt BLOB](/rest/api/storageservices/put-blob) z określoną warstwą
+- [Umieść listę zablokowanych](/rest/api/storageservices/put-block-list) z określoną warstwą
+- [Kopiuj obiekt BLOB](/rest/api/storageservices/copy-blob) z określoną warstwą
+
+#### <a name="deleting-a-blob-when-soft-delete-is-enabled"></a>Usuwanie obiektu BLOB po włączeniu usuwania nietrwałego
+
+Po włączeniu usuwania nietrwałego obiektu BLOB, jeśli usuniesz lub zastąpisz podstawowy obiekt BLOB, dla którego ustawiono warstwę jawnie, wszystkie poprzednie wersje obiektu BLOB usuniętego przez program są rozliczane z pełną długością zawartości. Aby uzyskać więcej informacji na temat współdziałania wersji obiektów blob i usuwania nietrwałego, zobacz [przechowywanie wersji obiektów blob i usuwanie nietrwałe](#blob-versioning-and-soft-delete).
+
+W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB, który jest usuwany nietrwale, w zależności od tego, czy włączono lub wyłączono obsługę wersji. Po włączeniu obsługi wersji jest tworzona wersja, gdy obiekt BLOB jest usuwany w sposób nietrwały. Gdy obsługa wersji jest wyłączona, usuwanie obiektów BLOB powoduje utworzenie nietrwałej migawki.
+
+| W przypadku zastąpienia bazowego obiektu BLOB z ustawioną jawnie jego warstwą... | Następnie opłaty są naliczane za... |
+|-|-|
+| Jeśli są włączone trwałe usuwanie i przechowywanie wersji obiektów BLOB | Wszystkie istniejące wersje o pełnej długości zawartości niezależnie od warstwy. |
+| Jeśli usuwanie nietrwałe obiektów BLOB jest włączone, ale przechowywanie wersji jest wyłączone | Wszystkie istniejące nietrwałe migawki usuwania w pełnej długości zawartości niezależnie od warstwy. |
 
 ## <a name="see-also"></a>Zobacz też
 
-- [Włączanie obsługi wersji obiektów blob](versioning-enable.md)
+- [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)
 - [Tworzenie migawki obiektu BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](storage-blob-soft-delete.md)

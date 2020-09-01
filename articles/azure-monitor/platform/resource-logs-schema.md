@@ -4,12 +4,12 @@ description: Poznaj obsługiwane usługi i schemat zdarzeń dla dzienników zaso
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2dc4030816ab0b31befe46ac60d5e96fdae917
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: acd661467e90b4915daa2f3eb31f34fd350dc9f5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782128"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226467"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Wspólny schemat dotyczący dzienników zasobów platformy Azure
 
@@ -48,15 +48,12 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 
 | Usługa | Dokumentacja & schematu |
 | --- | --- |
-| Azure Active Directory | [Przegląd](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schemat dziennika inspekcji](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) i [schemat logowania](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Usługa Azure Active Directory | [Przegląd](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schemat dziennika inspekcji](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) i [schemat logowania](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
 | API Management | [Dzienniki zasobów API Management](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Bramy aplikacji |[Rejestrowanie Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics dla Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Rejestrowanie Azure Batch](../../batch/batch-diagnostics.md) |
-| Azure Database for MySQL | [Azure Database for MySQL dzienników diagnostycznych](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Dzienniki Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Data Explorer | [Dzienniki usługi Azure Eksplorator danych](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Rejestrowanie w usłudze Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Rejestrowanie Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Dzienniki platformy Azure dla usługi CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -64,12 +61,16 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | Data Factory | [Monitorowanie fabryk danych przy użyciu Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Uzyskiwanie dostępu do dzienników dla Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Uzyskiwanie dostępu do dzienników dla Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Azure Data Explorer | [Dzienniki usługi Azure Eksplorator danych](/azure/data-explorer/using-diagnostic-logs) |
+| Azure Database for MySQL | [Azure Database for MySQL dzienników diagnostycznych](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Dzienniki Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Rejestrowanie diagnostyczne w usłudze Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
+| Digital Twins | [Konfigurowanie diagnostyki Digital bliźniaczych reprezentacji](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Dzienniki usługi Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schemat jest niedostępny. |
 | Azure Firewall | Schemat jest niedostępny. |
 | Usługa IoT Hub | [Operacje IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Rejestrowanie Azure Key Vault](../../key-vault/general/logging.md) |
+| Usługa Key Vault |[Rejestrowanie Azure Key Vault](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Rejestrowanie usługi Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
 | Moduł równoważenia obciążenia |[Analiza dzienników dotyczących usługi Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps — niestandardowy schemat śledzenia B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
@@ -77,13 +78,14 @@ Schemat dzienników zasobów różni się w zależności od kategorii zasobów i
 | Ochrona przed atakami DDOS | [Zarządzanie Azure DDoS Protection Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI — warstwa Dedykowana | [Rejestrowanie Power BI Embedded na platformie Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Model danych dla Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Wyszukaj |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |
+| Wyszukiwanie |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |
 | Service Bus |[Dzienniki Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Baza danych SQL | [Rejestrowanie Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Dzienniki zadań](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Traffic Manager schematu dziennika](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Sieci wirtualne | Schemat jest niedostępny. |
 | Bramy sieci wirtualnej | Schemat jest niedostępny. |
+
 
 
 ## <a name="next-steps"></a>Następne kroki

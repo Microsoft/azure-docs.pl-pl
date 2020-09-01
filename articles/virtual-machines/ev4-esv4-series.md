@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 6e35e32c92535a408c8df22d7306895150a59519
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b8a6e1013c131778bacb11bd885b9280fb6c6077
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050152"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182177"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 i Esv4
 
@@ -28,9 +28,6 @@ Seria Ev4 i Esv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum
 Rozmiary serii Ev4 są uruchamiane w technologii Intel Xeon &reg; Platinum 8272CL (Kaskada Lake). Wystąpienia serii Ev4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Maszyny wirtualne z serii Ev4 są wyposażone w &reg; technologię wielowątkowości Intel.
 
 Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych. Aby korzystać z dysków magazynu Premium Storage, użyj rozmiarów Esv4. Liczniki cen i rozliczeń dla rozmiarów Esv4 są takie same jak dla serii Ev4.
-
-> [!IMPORTANT]
-> Te nowe rozmiary są obecnie dostępne tylko w publicznej wersji zapoznawczej. W [tym miejscu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)możesz wyEv4ać te serie i Esv4. 
 
 ACU: 195 – 210
 
@@ -58,9 +55,6 @@ Aktualizacje z zachowaniem pamięci: obsługiwane
 
 Rozmiary serii Esv4 są uruchamiane w technologii Intel &reg; Xeon &reg; Platinum 8272CL (Kaskada Lake). Wystąpienia serii Esv4 są idealne dla aplikacji korporacyjnych intensywnie korzystających z pamięci. Maszyny wirtualne z serii Evs4 są wyposażone w &reg; technologię wielowątkowości Intel. Magazyn danych zdalnych jest rozliczany osobno od maszyn wirtualnych.
 
-> [!IMPORTANT]
-> Te nowe rozmiary są obecnie dostępne tylko w publicznej wersji zapoznawczej. W [tym miejscu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)możesz wyEv4ać te serie i Esv4. 
-
 ACU: 195-210
 
 Premium Storage: obsługiwane
@@ -71,16 +65,16 @@ Migracja na żywo: obsługiwane
 
 Aktualizacje z zachowaniem pamięci: obsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność pamięci podręcznej: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v4  | 2 | 16  | Tylko Magazyn zdalny | 4 | 19000/120 (50) | 3200/48 | 2|1000  |
-| Standard_E4s_v4  | 4 | 32  | Tylko Magazyn zdalny | 8 | 38500/242 (100) | 6400/96 | 2|2000  |
-| Standard_E8s_v4  | 8 | 64  | Tylko Magazyn zdalny | 16 | 77000/485 (200) | 12800/192 | 4|4000 |
-| Standard_E16s_v4 | 16 | 128 | Tylko Magazyn zdalny | 32 | 154000/968 (400) | 25600/384 | 8|8000 |
-| Standard_E20s_v4 | 20 | 160 | Tylko Magazyn zdalny | 32 | 193000/1211 (500) | 32000/480  | 8|10 000 |
-| Standard_E32s_v4 | 32 | 256 | Tylko Magazyn zdalny | 32 | 308000/1936 (800) | 51200/768  | 8|16000 |
-| Standard_E48s_v4 | 48 | 384 | Tylko Magazyn zdalny | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
-| Standard_E64s_v4 <sup>1</sup> | 64 | 504| Tylko Magazyn zdalny | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność dysku w pamięci podręcznej: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych|Oczekiwana przepustowość sieci (MB/s) |
+|---|---|---|---|---|---|---|---|
+| Standard_E2s_v4  | 2 | 16  | Tylko Magazyn zdalny | 4 | 3200/48 | 2|1000  |
+| Standard_E4s_v4  | 4 | 32  | Tylko Magazyn zdalny | 8 | 6400/96 | 2|2000  |
+| Standard_E8s_v4  | 8 | 64  | Tylko Magazyn zdalny | 16 | 12800/192 | 4|4000 |
+| Standard_E16s_v4 | 16 | 128 | Tylko Magazyn zdalny | 32 | 25600/384 | 8|8000 |
+| Standard_E20s_v4 | 20 | 160 | Tylko Magazyn zdalny | 32 | 32000/480  | 8|10 000 |
+| Standard_E32s_v4 | 32 | 256 | Tylko Magazyn zdalny | 32 | 51200/768  | 8|16000 |
+| Standard_E48s_v4 | 48 | 384 | Tylko Magazyn zdalny | 32 | 76800/1152 | 8|24000 |
+| Standard_E64s_v4 <sup>1</sup> | 64 | 504| Tylko Magazyn zdalny | 32 | 80000/1200 | 8|30000 |
 
 dostępne są <sup>1</sup> [ograniczone rozmiary rdzeni](./constrained-vcpu.md).
 

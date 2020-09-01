@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 254732630dcf28b90413a1269a34d3aa388cb06c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997867"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226747"
 ---
 # <a name="supported-data-types"></a>Obsługiwane typy danych
 
@@ -23,7 +23,7 @@ Poniższa tabela zawiera listę typów danych obsługiwanych przez Azure Time Se
 | Typ danych | Opis | Przykład | [Składnia wyrażenia szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nazwa kolumny właściwości w Parquet
 |---|---|---|---|---|
 | **bool** | Typ danych, który ma jeden z dwóch stanów: `true` lub `false` . | `"isQuestionable" : true` | `$event.isQuestionable.Bool` lub `$event['isQuestionable'].Bool` | `isQuestionable_bool`
-| **datę** | Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wyrażony w formacie [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . Właściwości DateTime są zawsze przechowywane w formacie UTC. Przesunięcia strefy czasowej (w przypadku prawidłowego formatowania) zostaną zastosowane, a następnie wartości przechowywane w formacie UTC. Zapoznaj się z [tą](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) sekcją, aby uzyskać więcej informacji na temat właściwości sygnatury czasowej środowiska i przesunięcia DateTime | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Jeśli "eventProcessedLocalTime" jest sygnaturą czasową źródła zdarzeń: `$event.$ts` . Jeśli jest to inna Właściwość JSON: `$event.eventProcessedLocalTime.DateTime` lub `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
+| **datetime** | Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wyrażony w formacie [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . Właściwości DateTime są zawsze przechowywane w formacie UTC. Przesunięcia strefy czasowej (w przypadku prawidłowego formatowania) zostaną zastosowane, a następnie wartości przechowywane w formacie UTC. Zapoznaj się z [tą](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) sekcją, aby uzyskać więcej informacji na temat właściwości sygnatury czasowej środowiska i przesunięcia DateTime | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Jeśli "eventProcessedLocalTime" jest sygnaturą czasową źródła zdarzeń: `$event.$ts` . Jeśli jest to inna Właściwość JSON: `$event.eventProcessedLocalTime.DateTime` lub `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
 | **liczba o podwójnej precyzji** | Numer 64-bitowy o podwójnej precyzji  | `"value": 31.0482941` | `$event.value.Double` lub `$event['value'].Double` |  `value_double`
 | **liczba długa** | 64-bitowa liczba całkowita ze znakiem  | `"value" : 31` | `$event.value.Long` lub `$event['value'].Long` |  `value_long`
 | **parametry** | Wartości tekstowe muszą zawierać prawidłowy format UTF-8. Ciągi o wartości null i puste są traktowane jako takie same. |  `"site": "DIM_MLGGG"`| `$event.site.String` lub `$event['site'].String`| `site_string`
@@ -34,9 +34,10 @@ Poniższa tabela zawiera listę typów danych obsługiwanych przez Azure Time Se
 
 > [!NOTE]
 > Typ **ciągu** nie dopuszcza wartości null:
->   * [Wyrażenie szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) wyrażone w [zapytaniu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) porównujące wartość pustego ciągu (**""**) z **wartością null** , będzie w ten sam sposób zachowywać się w taki sam sposób: `$event.siteid.String = NULL` jest równoważne `$event.siteid.String = ''` .
->   * Interfejs API może zwracać wartości **null** nawet wtedy, gdy oryginalne zdarzenia zawierają puste ciągi.
->   * Nie należy podejmować zależności od wartości **null** w kolumnach **ciągów** do wykonywania porównań ani ocen, Traktuj je w taki sam sposób, jak puste ciągi.
+>
+> * [Wyrażenie szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) wyrażone w [zapytaniu szeregów czasowych](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) porównujące wartość pustego ciągu (**""**) z **wartością null** , będzie w ten sam sposób zachowywać się w taki sam sposób: `$event.siteid.String = NULL` jest równoważne `$event.siteid.String = ''` .
+> * Interfejs API może zwracać wartości **null** nawet wtedy, gdy oryginalne zdarzenia zawierają puste ciągi.
+> * Nie należy podejmować zależności od wartości **null** w kolumnach **ciągów** do wykonywania porównań ani ocen, Traktuj je w taki sam sposób, jak puste ciągi.
 
 ## <a name="sending-mixed-data-types"></a>Wysyłanie mieszanych typów danych
 
@@ -50,7 +51,7 @@ Eksplorator Azure Time Series Insights umożliwia szybkie łączenia oddzielnych
 
 Można wysyłać złożone typy, takie jak obiekty i tablice, w ramach ładunku zdarzenia. Obiekty zagnieżdżone zostaną spłaszczone i tablice będą przechowywane jako `dynamic` lub spłaszczone w celu utworzenia wielu zdarzeń w zależności od konfiguracji środowiska i kształtu JSON. Aby dowiedzieć się więcej na temat [reguł spłaszczania i ucieczki JSON](./concepts-json-flattening-escaping-rules.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Przeczytaj [reguły spłaszczania i ucieczki JSON](./concepts-json-flattening-escaping-rules.md) , aby zrozumieć, jak będą przechowywane zdarzenia.
 

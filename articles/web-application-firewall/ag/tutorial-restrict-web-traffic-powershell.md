@@ -5,15 +5,15 @@ description: Dowiedz się, jak ograniczyć ruch internetowy za pomocą zapory ap
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: 1e2fb98d83d1246c54ccb37d68d9b4282701677e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74046292"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225190"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Włącz zaporę aplikacji sieci Web przy użyciu Azure PowerShell
 
@@ -21,11 +21,10 @@ Ruch na bramie aplikacji można ograniczyć za pomocą [zapory aplikacji sieci W
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
-> * Tworzenie zestawu skalowania maszyn wirtualnych
-> * Tworzenie konta magazynu i konfigurowanie diagnostyki
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
+* Tworzenie zestawu skalowania maszyn wirtualnych
+* Tworzenie konta magazynu i konfigurowanie diagnostyki
 
 ![Przykład zapory aplikacji internetowych](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

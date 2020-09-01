@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256870"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226951"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Rozwiązywanie problemów z obsługą chmury
 
@@ -43,7 +43,7 @@ Te elementy można zweryfikować w Azure Portal i na serwerze lokalnym, na któr
 
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure i jest w dobrej kondycji, wykonaj następujące kroki.
 
-1. Zaloguj się w witrynie Azure Portal.
+1. Zaloguj się do witryny Azure Portal.
 1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1. Na ekranie **Azure AD Provisioning (wersja zapoznawcza)** wybierz pozycję **Przejrzyj wszystkich agentów**.
 
@@ -120,7 +120,7 @@ Podczas instalowania agenta aprowizacji w chmurze może zostać wyświetlony kom
 
 Ten problem jest zwykle spowodowany tym, że Agent nie może wykonać skryptów rejestracji programu PowerShell z powodu lokalnych zasad wykonywania programu PowerShell.
 
-Aby rozwiązać ten problem, Zmień zasady wykonywania programu PowerShell na serwerze. Zasady komputera i użytkownika muszą mieć ustawioną wartość *undefined* lub *RemoteSigned*. Jeśli są ustawione jako *nieograniczone*, zobaczysz ten błąd. Aby uzyskać więcej informacji, zobacz [zasady wykonywania programu PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Aby rozwiązać ten problem, Zmień zasady wykonywania programu PowerShell na serwerze. Zasady komputera i użytkownika muszą mieć ustawioną wartość *undefined* lub *RemoteSigned*. Jeśli są ustawione jako *nieograniczone*, zobaczysz ten błąd. Aby uzyskać więcej informacji, zobacz [zasady wykonywania programu PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### <a name="log-files"></a>Pliki dziennika
 
@@ -195,7 +195,7 @@ Po wybraniu stanu można wyświetlić dodatkowe informacje o kwarantannie. Może
 
   ![Ponowne uruchamianie aprowizacji](media/how-to-troubleshoot/quarantine3.png)
 
-- Użyj Microsoft Graph, aby [ponownie uruchomić zadanie aprowizacji](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Będziesz mieć pełną kontrolę nad tym, co zostało ponownie uruchomione. Możesz wyczyścić:
+- Użyj Microsoft Graph, aby [ponownie uruchomić zadanie aprowizacji](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Będziesz mieć pełną kontrolę nad tym, co zostało ponownie uruchomione. Możesz wyczyścić:
   - Usługa Escrow umożliwia ponowne uruchomienie licznika Escrow, który naliczy się na stan kwarantanny.
   - Kwarantanna, aby usunąć aplikację z kwarantanny.
   - Znaki wodne. 
@@ -208,6 +208,3 @@ Po wybraniu stanu można wyświetlić dodatkowe informacje o kwarantannie. Może
 
 - [Co to jest aprowizacja?](what-is-provisioning.md)
 - [Co to jest aprowizacja w chmurze programu Azure AD Connect?](what-is-cloud-provisioning.md)
-
-
-

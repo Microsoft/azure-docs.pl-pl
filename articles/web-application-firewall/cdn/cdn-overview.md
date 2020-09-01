@@ -4,15 +4,15 @@ description: Dowiedz się, jak usługa Zapora aplikacji sieci Web platformy Azur
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 03/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: victorh
-ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6949c1e8f83ebf47878a3d449796ccc03920756a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87278628"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225156"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Content Delivery Network
 
@@ -25,7 +25,7 @@ WAF na Azure CDN to globalne i scentralizowane rozwiązanie. Jest ona wdrażana 
 
 Zasady WAF łatwo łączą się z dowolnym punktem końcowym usługi CDN w ramach subskrypcji. Nowe reguły można wdrożyć w ciągu kilku minut, dzięki czemu można szybko reagować na zmiany wzorców zagrożeń.
 
-![Zapora aplikacji sieci Web platformy Azure](../media/cdn-overview/waf-cdn-overview.png)
+![Zapora aplikacji internetowej platformy Azure](../media/cdn-overview/waf-cdn-overview.png)
 
 ## <a name="waf-policy-and-rules"></a>Zasady i reguły WAF
 
@@ -104,7 +104,7 @@ Domyślny zestaw reguł jest domyślnie włączony w trybie *wykrywania* w zasad
 
 Reguły niestandardowe są zawsze stosowane przed oceną reguł w domyślnym zestawie reguł. Jeśli żądanie jest zgodne z regułą niestandardową, zostanie zastosowana odpowiednia akcja reguły. Żądanie jest blokowane lub przenoszone do zaplecza. Nie są przetwarzane żadne inne reguły niestandardowe lub reguły w domyślnym zestawie reguł. Można również usunąć domyślny zestaw reguł z zasad WAFymi.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Można skonfigurować i wdrożyć wszystkie typy reguł WAF za pomocą Azure Portal, interfejsów API REST, szablonów Azure Resource Manager i Azure PowerShell.
 

@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373866"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226900"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Wymagania wstępne dotyczące Azure AD Connect aprowizacji w chmurze
 Ten artykuł zawiera wskazówki dotyczące sposobu wybierania i używania usługi Azure Active Directory (Azure AD) w celu nawiązania połączenia z chmurą jako rozwiązania do obsługi tożsamości.
@@ -27,7 +27,7 @@ Ten artykuł zawiera wskazówki dotyczące sposobu wybierania i używania usług
 Aby skorzystać z Azure AD Connect aprowizacji w chmurze, potrzebne są następujące elementy:
     
 - Konto administratora tożsamości hybrydowej dla dzierżawy usługi Azure AD, które nie jest użytkownikiem-gościem.
-- Serwer lokalny dla agenta aprowizacji z systemem Windows 2012 R2 lub nowszym.  Ten serwer powinien być serwerem warstwy 0 na podstawie [Active Directory modelu warstwy administracyjnej](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Serwer lokalny dla agenta aprowizacji z systemem Windows 2012 R2 lub nowszym.  Ten serwer powinien być serwerem warstwy 0 na podstawie [Active Directory modelu warstwy administracyjnej](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Lokalne konfiguracje zapory.
 
 >[!NOTE]
@@ -37,12 +37,12 @@ Pozostała część dokumentu zawiera instrukcje krok po kroku dotyczące tych w
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>W centrum administracyjnym Azure Active Directory
 
-1. Utwórz konto administratora tożsamości hybrydowej z tylko chmurą w dzierżawie usługi Azure AD. W ten sposób możesz zarządzać konfiguracją dzierżawy, jeśli usługi lokalne zakończą się niepowodzeniem lub staną się niedostępne. Dowiedz się [, jak dodać konto administratora tożsamości hybrydowej tylko do chmury](../active-directory-users-create-azure-portal.md). Zakończenie tego kroku ma na celu upewnienie się, że dzierżawa nie została zablokowana.
-1. Dodaj co najmniej jedną [niestandardową nazwę domeny](../active-directory-domains-add-azure-portal.md) do dzierżawy usługi Azure AD. Użytkownicy mogą logować się przy użyciu jednej z tych nazw domen.
+1. Utwórz konto administratora tożsamości hybrydowej z tylko chmurą w dzierżawie usługi Azure AD. W ten sposób możesz zarządzać konfiguracją dzierżawy, jeśli usługi lokalne zakończą się niepowodzeniem lub staną się niedostępne. Dowiedz się [, jak dodać konto administratora tożsamości hybrydowej tylko do chmury](../fundamentals/add-users-azure-active-directory.md). Zakończenie tego kroku ma na celu upewnienie się, że dzierżawa nie została zablokowana.
+1. Dodaj co najmniej jedną [niestandardową nazwę domeny](../fundamentals/add-custom-domain.md) do dzierżawy usługi Azure AD. Użytkownicy mogą logować się przy użyciu jednej z tych nazw domen.
 
 ### <a name="in-your-directory-in-active-directory"></a>W katalogu w Active Directory
 
-Uruchom [Narzędzie IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) , aby przygotować atrybuty katalogu do synchronizacji.
+Uruchom [Narzędzie IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) , aby przygotować atrybuty katalogu do synchronizacji.
 
 ### <a name="in-your-on-premises-environment"></a>W środowisku lokalnym
 
@@ -96,4 +96,3 @@ Aby włączyć protokół TLS 1,2, wykonaj następujące kroki.
 
 - [Co to jest aprowizacja?](what-is-provisioning.md)
 - [Co to jest aprowizacja w chmurze programu Azure AD Connect?](what-is-cloud-provisioning.md)
-

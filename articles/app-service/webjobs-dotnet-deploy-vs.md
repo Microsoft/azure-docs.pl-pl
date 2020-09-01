@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959905"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226033"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Opracowywanie i wdrażanie zadań WebJob za pomocą programu Visual Studio
 
@@ -184,9 +184,9 @@ Informacje o wdrożeniu Zadania WebJob:
 
 Typ zadania WebJob może być *wyzwalany* lub *ciągły*:
 
-- Wyzwolone (domyślnie): wyzwolone zadanie WebJob zaczyna się na podstawie zdarzenia powiązania, zgodnie z [harmonogramem](#scheduling-a-triggered-webjob)lub po jego wyzwoleniu ręcznie (na żądanie). Jest ona uruchamiana na wszystkich wystąpieniach, na których działa aplikacja sieci Web, ale można opcjonalnie ograniczyć zadanie WebJob do jednego wystąpienia.
+- Wyzwolone (domyślnie): wyzwolone zadanie WebJob zaczyna się na podstawie zdarzenia powiązania, zgodnie z [harmonogramem](#scheduling-a-triggered-webjob)lub po jego wyzwoleniu ręcznie (na żądanie). Jest on uruchamiany na jednym wystąpieniu, na którym działa aplikacja sieci Web.
 
-- Ciągłe: [ciągłe](#continuous-execution) zadanie WebJob jest uruchamiane natychmiast po utworzeniu zadania WebJob. Ten typ zadania WebJob jest najlepszy dla niepowiązanych lub długotrwałych zadań. Jeśli zadanie zakończy się, możesz uruchomić je ponownie.  
+- Ciągłe: [ciągłe](#continuous-execution) zadanie WebJob jest uruchamiane natychmiast po utworzeniu zadania WebJob. Jest ono wykonywane domyślnie dla wszystkich wystąpień skalowania aplikacji sieci Web, ale można je skonfigurować do uruchamiania jako pojedyncze wystąpienie za pośrednictwem *ustawień. job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
@@ -239,7 +239,7 @@ Jeśli włączysz opcję **zawsze włączone** na platformie Azure, możesz uży
 
 1. Wybierz pozycję **Publikuj** na karcie **Publikowanie** , aby ponownie opublikować zadanie WebJob ze zaktualizowanymi ustawieniami.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o zestawie SDK zadań WebJob](webjobs-sdk-how-to.md)

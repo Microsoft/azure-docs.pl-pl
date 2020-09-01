@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 30d040cfc608f0d11d3d59f52cd59c1a946bcc19
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.date: 08/31/2020
+ms.openlocfilehash: 584aafccf146f3f261a7d375ecb57dcde18d03d5
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050989"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182549"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon Simple Storage Service przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -66,9 +66,9 @@ Dla połączonej usługi Amazon S3 są obsługiwane następujące właściwości
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **AmazonS3**. | Yes |
-| accessKeyId | Identyfikator klucza dostępu tajnego. |Yes |
-| secretAccessKey | Sam klucz dostępu tajnego. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AmazonS3**. | Tak |
+| accessKeyId | Identyfikator klucza dostępu tajnego. |Tak |
+| secretAccessKey | Sam klucz dostępu tajnego. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
 | serviceUrl | Określ niestandardowy punkt końcowy S3, jeśli kopiujesz dane z dostawcy magazynu zgodnego ze standardem S3, innego niż Oficjalna usługa Amazon S3. Na przykład, aby skopiować dane z magazynu Google Cloud Storage, określ `https://storage.googleapis.com` . | Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
@@ -109,8 +109,8 @@ Następujące właściwości są obsługiwane w przypadku usługi Amazon S3 w ob
 
 | Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Właściwość **typu** w `location` elemencie DataSet musi być ustawiona na **AmazonS3Location**. | Yes      |
-| zasobnikname | Nazwa zasobnika S3.                                          | Yes      |
+| typ       | Właściwość **typu** w `location` elemencie DataSet musi być ustawiona na **AmazonS3Location**. | Tak      |
+| zasobnikname | Nazwa zasobnika S3.                                          | Tak      |
 | folderPath | Ścieżka do folderu w danym przedziale. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania folderu, pomiń to ustawienie i określ je w ustawieniach źródła działania. | Nie       |
 | fileName   | Nazwa pliku w podanym przedziale i ścieżce folderu. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania plików, pomiń to ustawienie i określ je w ustawieniach źródła działania. | Nie       |
 | version | Wersja obiektu S3, jeśli włączono obsługę wersji S3. Jeśli nie zostanie określona, zostanie pobrana najnowsza wersja. |Nie |
@@ -154,20 +154,20 @@ Następujące właściwości są obsługiwane w przypadku usługi Amazon S3 w ob
 
 | Właściwość                 | Opis                                                  | Wymagane                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AmazonS3ReadSettings**. | Yes                                                         |
+| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AmazonS3ReadSettings**. | Tak                                                         |
 | ***Zlokalizuj pliki do skopiowania:*** |  |  |
 | Opcja 1: ścieżka statyczna<br> | Kopiuj z podanego zasobnika lub folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie pliki z przedziału lub folderu, należy również określić `wildcardFileName` jako `*` . |  |
 | Opcja 2. prefiks S3<br>-prefix | Prefiks nazwy klucza S3 w danym zasobniku skonfigurowanym w zestawie danych do filtrowania źródłowych plików S3. Klucze S3, których nazwy rozpoczynają `bucket_in_dataset/this_prefix` się od są zaznaczone. Wykorzystuje filtr po stronie usługi S3's, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych. | Nie |
 | Opcja 3: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi w ramach danego zasobnika skonfigurowanych w zestawie danych do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
-| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi w danym przedziale i ścieżce folderu (lub ścieżki do symboli wieloznacznych) do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Yes |
+| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi w danym przedziale i ścieżce folderu (lub ścieżki do symboli wieloznacznych) do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
 | OPCJA 4: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować, jeden plik w wierszu, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
 | ***Ustawienia dodatkowe:*** |  | |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
 | deleteFilesAfterCompletion | Wskazuje, czy pliki binarne zostaną usunięte z magazynu źródłowego po pomyślnym przeniesieniu do magazynu docelowego. Plik jest usuwany dla każdego pliku, więc w przypadku niepowodzenia działania kopiowania niektóre pliki zostały już skopiowane do lokalizacji docelowej i usunięte ze źródła, podczas gdy inne nadal pozostają w magazynie źródłowym. <br/>Ta właściwość jest prawidłowa tylko w scenariuszu kopiowania plików binarnych, w którym magazyny źródeł danych to obiekty blob, ADLS Gen1, ADLS Gen2, S3, magazyn w chmurze Google, plik, plik platformy Azure, SFTP lub FTP. Wartość domyślna: false. |Nie |
 | modifiedDatetimeStart    | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. <br>Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br> Właściwości mogą mieć **wartość null**, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null**, to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null**, pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.<br/>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . | Nie                                            |
 | modifiedDatetimeEnd      | Tak samo jak powyżej.                                               | Nie                                                          |
-| enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Fałsz                                            |
-| partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/>— Jeśli używasz prefiksu, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed ostatnią "/". <br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Fałsz                                            |
+| enablePartitionDiscovery | W przypadku plików, które są partycjonowane, określ, czy przeanalizować partycje ze ścieżki pliku i dodać je jako dodatkowe kolumny źródłowe.<br/>Dozwolone wartości to **false** (wartość domyślna) i **true**. | Nie                                            |
+| partitionRootPath | Gdy odnajdywanie partycji jest włączone, określ bezwzględną ścieżkę katalogu głównego, aby odczytać partycjonowane foldery jako kolumny danych.<br/><br/>Jeśli nie jest określony, domyślnie,<br/>— Jeśli używasz ścieżki pliku w zestawie danych lub liście plików w źródle, ścieżka katalogu głównego partycji jest ścieżką skonfigurowaną w zestawie danych.<br/>— Jeśli używasz wieloznacznego filtru folderów, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed pierwszym symbolem wieloznacznym.<br/>— Jeśli używasz prefiksu, ścieżka katalogu głównego partycji jest ścieżką podrzędną przed ostatnią "/". <br/><br/>Na przykład przy założeniu, że ścieżka w zestawie danych jest konfigurowana jako "root/folder/Year = 2020/miesiąc = 08/Day = 27":<br/>— W przypadku określenia ścieżki katalogu głównego partycji jako "root/folder/Year = 2020" działanie Copy (kopiowanie) wygeneruje dwie kolejne kolumny `month` i `day` wartości "08" i "27" (oprócz kolumn wewnątrz plików).<br/>— Jeśli ścieżka katalogu głównego partycji nie zostanie określona, nie zostanie wygenerowane żadne dodatkowe kolumny. | Nie                                            |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie                                                          |
 
 **Przykład:**
@@ -257,7 +257,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AmazonS3Object**. |Yes |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AmazonS3Object**. |Tak |
 | zasobnikname | Nazwa zasobnika S3. Filtr symboli wieloznacznych nie jest obsługiwany. |Tak dla działania kopiowania lub wyszukiwania — nie dla działania GetMetadata |
 | key | Nazwa lub filtr symboli wieloznacznych klucza obiektu S3 w określonym przedziale. Stosuje się tylko wtedy, gdy nie określono właściwości **prefix** . <br/><br/>Filtr symboli wieloznacznych jest obsługiwany dla części folderu i części nazwy pliku. Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Przykład 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Zobacz więcej przykładowych [przykładów w folderach i filtrach plików](#folder-and-file-filter-examples). Użyj `^` , aby wyjść, jeśli rzeczywista nazwa folderu lub pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. |Nie |
 | prefiks | Prefiks klucza obiektu S3. Zaznaczone obiekty, których klucze zaczynają się od tego prefiksu. Ma zastosowanie tylko wtedy, gdy właściwość **klucza** nie została określona. |Nie |
@@ -337,7 +337,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **FileSystemSource**. |Yes |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **FileSystemSource**. |Tak |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie zostanie skopiowany ani utworzony w zlewie.<br/>Dozwolone wartości to **true** (wartość domyślna) i **false**. | Nie |
 | maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
 

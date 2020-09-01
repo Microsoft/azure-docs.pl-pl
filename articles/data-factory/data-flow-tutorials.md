@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 3400bc8799a7db966b5d6adc79a196932bd01eaa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067855"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226254"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
 
@@ -106,8 +106,6 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 ## <a name="optimizing-mapping-data-flows"></a>Optymalizowanie przepływów danych mapowania
 
 [Pochodzenie danych](https://www.youtube.com/watch?v=5KvqYF-y93s)
-
-[Porady dotyczące optymalizacji](https://www.youtube.com/watch?v=a2KtwUJngHo)
 
 [Iterowanie plików z parametrami](http://youtu.be/uEgz0ptYRDM?hd=1)
 

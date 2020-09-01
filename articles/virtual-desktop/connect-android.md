@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007764"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226118"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta systemu Android
 
@@ -36,6 +36,7 @@ Aby subskrybować źródło danych:
 2. Wprowadź adres URL źródła danych w polu **adres URL źródła danych** . Adres URL źródła danych może być adresem URL lub adresem e-mail.
    - Jeśli używasz adresu URL, użyj tego administratora, zwykle <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Klient będzie szukać adresu URL skojarzonego z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
+   - Aby nawiązać połączenie za pomocą portalu US Gov, użyj <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Naciśnij pozycję **DALEJ**.
 4. Po wyświetleniu monitu podaj swoje poświadczenia.
    - W polu **Nazwa użytkownika**Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.

@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1e95f635cfb354487298b340f8f25b15c3ca146a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 004702d52245893f4746ce8e4b4a2cc36aad6a67
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088038"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181854"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Samouczek: przygotowanie do wdrożenia Azure Stack Edge  
+# <a name="tutorial-prepare-to-deploy-azure-stack-edge-with-gpu"></a>Samouczek: przygotowanie do wdrożenia Azure Stack Edge z procesorem GPU 
 
-Jest to pierwszy samouczek z serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia Azure Stack Edge. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego.
+Jest to pierwszy samouczek z serii samouczków wdrażania, które są wymagane do całkowitego wdrożenia Azure Stack Edge z procesorem GPU. W tym samouczku opisano sposób przygotowania Azure Portal w celu wdrożenia Azure Stackego zasobu brzegowego.
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
@@ -46,8 +46,9 @@ W celu wdrożenia Azure Stack Edge należy najpierw przygotować swoje środowis
 |**[5. Skonfiguruj ustawienia urządzenia dla Azure Stack Edge](azure-stack-edge-gpu-deploy-set-up-device-update-time.md)** |Przypisz nazwę urządzenia i domenę DNS, skonfiguruj serwer aktualizacji i godzinę urządzenia. |
 |**[6. Skonfiguruj ustawienia zabezpieczeń dla Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Skonfiguruj certyfikaty dla urządzenia. Użyj certyfikatów wygenerowanych przez urządzenia lub Przenieś własne certyfikaty.   |
 |**[7. Aktywuj Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md)** |Aktywuj urządzenie przy użyciu klucza aktywacji z usługi. Urządzenie jest gotowe do skonfigurowania udziałów SMB lub NFS lub łączenia się za pośrednictwem interfejsu REST. |
-|**[pozycji. Transferowanie danych za pomocą udziałów brzegowych](azure-stack-edge-j-series-deploy-add-shares.md)** |Dodaj udziały i nawiąż z nimi połączenie za pomocą protokołu SMB lub NFS. |
-|**[8b. Transferowanie danych za pomocą kont magazynu Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Dodawanie kont magazynu i nawiązywanie połączenia z usługą BLOB Storage za pośrednictwem interfejsów API REST. |
+|**[8. Konfigurowanie obliczeń](azure-stack-edge-gpu-deploy-configure-compute.md)** |Skonfiguruj rolę obliczeń na urządzeniu. Spowoduje to również utworzenie klastra Kubernetes. |
+|**[9a. Transferowanie danych za pomocą udziałów brzegowych](azure-stack-edge-j-series-deploy-add-shares.md)** |Dodaj udziały i nawiąż z nimi połączenie za pomocą protokołu SMB lub NFS. |
+|**[9b. Transferowanie danych za pomocą kont magazynu Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md)** |Dodawanie kont magazynu i nawiązywanie połączenia z usługą BLOB Storage za pośrednictwem interfejsów API REST. |
 
 
 Teraz możesz zacząć zbierać informacje dotyczące konfiguracji oprogramowania dla urządzenia Azure Stack Edge.
@@ -104,7 +105,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
 1. Użyj poświadczeń Microsoft Azure, aby zalogować się do Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
 
-2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz pozycję **Utwórz**.
+2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz przycisk **Utwórz**. Jeśli zobaczysz jakiekolwiek problemy, przejdź do obszaru [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
 
 3. Wybierz subskrypcję, która ma być używana na potrzeby urządzenia Azure Stack Edge. Wybierz kraj, w którym chcesz wysłać to urządzenie fizyczne. Wybierz pozycję **Pokaż urządzenia**.
 
@@ -118,7 +119,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     ![Tworzenie zasobu 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
-5. Po włączeniu subskrypcji powinno być możliwe przeprowadzenie operacji tworzenia zasobów. W bloku **Wybierz typ urządzenia** wybierz **pozycję Wybierz**. 
+5. Po włączeniu subskrypcji powinno być możliwe przeprowadzenie operacji tworzenia zasobów. W bloku **Wybierz typ urządzenia** wybierz **pozycję Wybierz**.
 
     ![Tworzenie zasobu 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
@@ -156,7 +157,7 @@ Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure 
 
     ![Tworzenie zasobu 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
 
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 
 Tworzenie zasobu trwa kilka minut. Po pomyślnym utworzeniu i wdrożeniu zasobu zostanie wyświetlone powiadomienie. Wybierz pozycję **Przejdź do zasobu**.
 
@@ -165,6 +166,8 @@ Tworzenie zasobu trwa kilka minut. Po pomyślnym utworzeniu i wdrożeniu zasobu 
 Po złożeniu zamówienia firma Microsoft przegląda zamówienie i dotrze do Ciebie (za pośrednictwem poczty e-mail), podając szczegóły dotyczące wysyłki.
 
 ![Powiadomienie na potrzeby przeglądu Azure Stack kolejności krawędzi](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+W przypadku wystąpienia problemów występujących w procesie zamówienia zobacz [Rozwiązywanie problemów z kolejnością](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Uzyskiwanie klucza aktywacji
 

@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/16/2020
-ms.openlocfilehash: adbe3ceb72d88c2a6441c04d876d92ac2ab85930
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/18/2020
+ms.openlocfilehash: 0f6b1789a5148af37ddd2d0895cec348c27f663a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522775"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182500"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformacja źródła w strumieniu danych mapowania 
 
@@ -37,7 +37,7 @@ Aby użyć wbudowanego zestawu danych, wybierz odpowiedni format w selektorze **
 
 ![Wbudowany zestaw danych](media/data-flow/inline-selector.png "Wbudowany zestaw danych")
 
-##  <a name="supported-source-types"></a><a name="supported-sources"></a>Obsługiwane typy źródeł
+##  <a name="supported-source-types"></a><a name="supported-sources"></a> Obsługiwane typy źródeł
 
 Mapowanie przepływu danych odbywa się zgodnie z podejściem wyodrębniania, ładowania, przekształcania (ELT) i współdziała z *tymczasowymi* zestawami danych, które są wszystkie na platformie Azure. Obecnie następujące zestawy danych mogą być używane w transformacji źródłowej:
 
@@ -49,6 +49,7 @@ Mapowanie przepływu danych odbywa się zgodnie z podejściem wyodrębniania, ł
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (interfejs API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 Ustawienia specyficzne dla tych łączników znajdują się na karcie **Opcje źródła** . Przykłady skryptów informacji i przepływu danych dotyczące tych ustawień znajdują się w dokumentacji łącznika. 
 

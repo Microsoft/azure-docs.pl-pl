@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056801"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182126"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie z publicznej usługa Load Balancer w warstwie Standardowa w usłudze Azure Kubernetes Service (AKS)
 
@@ -267,16 +267,15 @@ Jeśli spodziewasz się wielu krótkich połączeń i nie ma żadnych połącze�
 *outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
 Na przykład jeśli masz 3 *nodeVMs*i 50 000 *desiredAllocatedOutboundPorts*, musisz mieć co najmniej 3 *outboundIPs*. Zaleca się dołączenie dodatkowej pojemności wychodzącego adresu IP poza potrzebami. Ponadto należy uwzględnić automatyczne skalowanie klastra i możliwość uaktualniania puli węzłów przy obliczaniu wydajności wychodzącego adresu IP. W przypadku automatycznego skalowania klastra sprawdź bieżącą liczbę węzłów i maksymalną liczbę węzłów i użyj wyższej wartości. W przypadku uaktualniania należy uwzględnić dodatkową maszynę wirtualną węzłową dla każdej puli węzłów, która umożliwia uaktualnianie.
- 
+
 - Podczas ustawiania *IdleTimeoutInMinutes* na inną wartość niż domyślnie 30 minut należy wziąć pod uwagę, jak długo obciążenia będą wymagały połączenia wychodzącego. Należy również wziąć pod uwagę domyślną wartość limitu czasu dla usługi równoważenia obciążenia w *warstwie Standardowa* używanej poza AKS wynosi 4 minuty. Wartość *IdleTimeoutInMinutes* , która dokładniej odzwierciedla Twoje określone obciążenie AKS może pomóc w zmniejszeniu wyczerpania spalin spowodowanych przez nawiązanie połączeń, które nie są już używane.
 
 > [!WARNING]
 > Zmiana wartości parametrów *AllocatedOutboundPorts* i *IdleTimeoutInMinutes* może znacząco zmienić zachowanie reguły ruchu wychodzącego dla modułu równoważenia obciążenia i nie powinno być wykonywane w sposób jasny, bez zrozumienia kompromisów i wzorców połączeń aplikacji, zapoznaj się z [sekcją Rozwiązywanie problemów dotyczących translatora adresów sieciowych][troubleshoot-snat] i przejrzyj [Load Balancer reguły wychodzące][azure-lb-outbound-rules-overview] i [połączenia wychodzące na platformie Azure][azure-lb-outbound-connections] przed zaktualizowaniem tych wartości, aby w pełni zrozumieć wpływ zmian.
 
-
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>Ogranicz ruch przychodzący do określonych zakresów adresów IP
 
-Grupa zabezpieczeń sieci (sieciowej grupy zabezpieczeń) skojarzona z siecią wirtualną dla usługi równoważenia obciążenia domyślnie ma regułę zezwalającą na cały ruch przychodzący zewnętrzny. Tę regułę można zaktualizować tak, aby zezwalać tylko na określone zakresy adresów IP dla ruchu przychodzącego. Następujący manifest używa *loadBalancerSourceRanges* , aby określić nowy zakres adresów IP dla przychodzącego ruchu zewnętrznego:
+Następujący manifest używa *loadBalancerSourceRanges* , aby określić nowy zakres adresów IP dla przychodzącego ruchu zewnętrznego:
 
 ```yaml
 apiVersion: v1
@@ -292,6 +291,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> Ruch przychodzący zewnętrznych przepływów z modułu równoważenia obciążenia do sieci wirtualnej klastra AKS. Sieć wirtualna ma grupę zabezpieczeń sieci (sieciowej grupy zabezpieczeń), która umożliwia cały ruch przychodzący z modułu równoważenia obciążenia. Ten sieciowej grupy zabezpieczeń używa [tagu usługi][service-tags] typu *równoważenia* obciążenia, aby zezwalać na ruch z modułu równoważenia obciążenia.
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Obsługuj adres IP klienta w połączeniach przychodzących
 
@@ -322,7 +324,7 @@ Poniżej znajduje się lista adnotacji obsługiwanych przez usługi Kubernetes S
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nazwa etykiety DNS dla publicznych adresów IP   | Określ nazwę etykiety DNS dla usługi **publicznej** . Jeśli jest ustawiona na pusty ciąg, wpis DNS w publicznym adresie IP nie będzie używany.
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` lub `false`                     | Określ, że usługa powinna być udostępniona przy użyciu reguły zabezpieczeń platformy Azure, która może być współużytkowana z inną usługą i specyfiką handlową reguł w celu zwiększenia liczby usług, które mogą być ujawnione. Ta adnotacja opiera się na funkcji [rozszerzone reguły zabezpieczeń](../virtual-network/security-overview.md#augmented-security-rules) platformy Azure w grupach zabezpieczeń sieci. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nazwa grupy zasobów            | Określ grupę zasobów publicznych adresów IP usługi równoważenia obciążenia, które nie znajdują się w tej samej grupie zasobów co infrastruktura klastra (Grupa zasobów węzła).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista dozwolonych tagów usługi          | Określ listę dozwolonych [tagów usługi](../virtual-network/security-overview.md#service-tags) oddzielonych przecinkami.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista dozwolonych tagów usługi          | Określ listę dozwolonych [tagów usługi][service-tags] oddzielonych przecinkami.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Limity czasu bezczynności protokołu TCP w minutach          | Określ czas (w minutach) limitów czasu bezczynności połączenia TCP, które mają być wykonywane w ramach modułu równoważenia obciążenia. Wartość domyślna i minimalna to 4. Wartość maksymalna to 30. Musi być liczbą całkowitą.
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Wyłącz `enableTcpReset` dla modułu równoważenia
 
@@ -424,3 +426,4 @@ Dowiedz się więcej o używaniu wewnętrznego Load Balancer dla ruchu przychodz
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/security-overview.md#service-tags

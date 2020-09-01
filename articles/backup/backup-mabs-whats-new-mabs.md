@@ -3,12 +3,12 @@ title: Co nowego w usłudze Microsoft Azure Backup Server
 description: Serwer Microsoft Azure Backup zapewnia ulepszone możliwości tworzenia kopii zapasowych w celu ochrony maszyn wirtualnych, plików i folderów, obciążeń i nie tylko.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fb47d2f14ca686e04cd2d9e3dec27d3ca4a30f5c
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893191"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182143"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Co nowego w programie Microsoft Azure Backup Server (serwera usługi MAB)
 

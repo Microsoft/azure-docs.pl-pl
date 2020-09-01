@@ -17,18 +17,18 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608266"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226968"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Wymagania wstępne dotyczące uzyskiwania dostępu do interfejsu API raportowania Azure Active Directory
 
-[Interfejsy API raportowania usługi Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) umożliwiają dostęp programowy do danych za pomocą zestawu interfejsów API opartych na architekturze REST. Te interfejsy API można wywoływać z języków programowania i narzędzi.
+[Interfejsy API raportowania usługi Azure Active Directory (Azure AD)](./concept-reporting-api.md) umożliwiają dostęp programowy do danych za pomocą zestawu interfejsów API opartych na architekturze REST. Te interfejsy API można wywoływać z języków programowania i narzędzi.
 
-Interfejs API raportowania używa protokołu [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) do autoryzacji dostępu do interfejsów API sieci Web.
+Interfejs API raportowania używa protokołu [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) do autoryzacji dostępu do interfejsów API sieci Web.
 
 Aby przygotować dostęp do interfejsu API raportowania, musisz:
 
@@ -85,7 +85,7 @@ Aby skonfigurować katalog do uzyskiwania dostępu do interfejsu API raportowani
 
     b. W polu **Typ obsługiwanych kont**wybierz opcję **konta tylko w tej organizacji**.
 
-    c. W polu tekstowym **adres URL przekierowania** wybierz pozycję **Sieć Web** wpisz `https://localhost` .
+    c. W polu tekstowym **adres URL przekierowania**  wybierz pozycję **Sieć Web** wpisz `https://localhost` .
 
     d. Wybierz pozycję **Zarejestruj**. 
 
@@ -225,5 +225,5 @@ Wykonaj kroki opisane w sekcji [wymagania wstępne, aby uzyskać dostęp do inte
 ## <a name="next-steps"></a>Następne kroki
 
 * [Pobieranie danych przy użyciu interfejsu API raportowania usługi Azure Active Directory z certyfikatami](tutorial-access-api-with-certificates.md)
-* [Dokumentacja interfejsu API inspekcji](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Dokumentacja interfejsu API raportów działań związanych z logowaniem](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Dokumentacja interfejsu API inspekcji](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Dokumentacja interfejsu API raportów działań związanych z logowaniem](/graph/api/resources/signin?view=graph-rest-beta)

@@ -5,18 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289432"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226518"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanej akcji wyzwalacza żądania i odpowiedzi można tworzyć zautomatyzowane zadania i przepływy pracy, które odbierają i reagują na przychodzące żądania HTTPS. Na przykład możesz mieć aplikację logiki:
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanej akcji wyzwalacza żądania i odpowiedzi można tworzyć automatyczne zadania i przepływy pracy, które mogą odbierać przychodzące żądania za pośrednictwem protokołu HTTPS. Aby zamiast tego wysyłać żądania wychodzące, należy użyć wbudowanego [wyzwalacza http lub akcji http](../connectors/connectors-native-http.md).
+
+Na przykład możesz mieć aplikację logiki:
 
 * Odbieraj żądania HTTPS dotyczące danych i odpowiadaj na nie w lokalnej bazie danych.
 
@@ -24,47 +26,28 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanej
 
 * Odbieraj i odpowiadaj na wywołanie HTTPS z innej aplikacji logiki.
 
-Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie](../active-directory/develop/index.yml) (Azure AD OAuth) do autoryzacji wywołań przychodzących do aplikacji logiki. Aby uzyskać więcej informacji na temat włączania tego uwierzytelniania, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — Włącz uwierzytelnianie OAuth usługi Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+W tym artykule pokazano, jak używać wyzwalacza żądań i akcji odpowiedzi, aby aplikacja logiki mogła odbierać wywołania przychodzące i odpowiadać na nie.
+
+Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań przychodzących do aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL) lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [zarejestrować się w celu uzyskania bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [zarejestrować się w celu uzyskania bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Podstawowa wiedza na temat [aplikacji logiki](../logic-apps/logic-apps-overview.md). Jeśli dopiero zaczynasz tworzyć aplikacje logiki, Dowiedz się, [jak utworzyć pierwszą aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-<a name="tls-support"></a>
-
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
-
-* Wywołania przychodzące obsługują *tylko* Transport Layer Security (TLS) 1,2. W przypadku uzyskiwania błędów uzgadniania protokołu TLS upewnij się, że używasz protokołu TLS 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](/security/solving-tls1-problem). Wywołania wychodzące obsługują protokoły TLS 1,0, 1,1 i 1,2 na podstawie możliwości docelowego punktu końcowego.
-
-* Wywołania przychodzące obsługują następujące mechanizmy szyfrowania:
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md). Jeśli jesteś nowym sposobem logiki aplikacji, zapoznaj [się z tematem Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 <a name="add-request"></a>
 
 ## <a name="add-request-trigger"></a>Dodaj wyzwalacz żądania
 
-Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcowy HTTPS, który może odbierać *tylko* przychodzące żądania HTTPS. Po wystąpieniu tego zdarzenia wyzwalacz uruchamia i uruchamia aplikację logiki. Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi https w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+Ten wbudowany wyzwalacz tworzy ręcznie wywołujący punkt końcowy, który może obsługiwać *tylko* żądania przychodzące za pośrednictwem protokołu HTTPS. Gdy wywołujący wysyła żądanie do tego punktu końcowego, [wyzwalacz żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) uruchamia i uruchamia aplikację logiki. Aby uzyskać więcej informacji o sposobie wywoływania tego wyzwalacza, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych https w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#request-limits). Przy założeniu, że aplikacja logiki zawiera [akcję odpowiedzi](#add-response), jeśli aplikacja logiki nie wyśle odpowiedzi z powrotem do obiektu wywołującego po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` stan do obiektu wywołującego. Jeśli aplikacja logiki nie zawiera akcji odpowiedzi, 
+> Aplikacja logiki natychmiast zwróci `202 ACCEPTED` stan do obiektu wywołującego.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Tworzenia pustej aplikacji logiki.
 
-1. Gdy zostanie otwarty projektant aplikacji logiki, w polu wyszukiwania wprowadź `http request` jako filtr. Z listy Wyzwalacze wybierz wyzwalacz **po odebraniu żądania HTTP** , który jest pierwszym krokiem w przepływie pracy aplikacji logiki.
+1. Gdy zostanie otwarty projektant aplikacji logiki, w polu wyszukiwania wprowadź `http request` jako filtr. Z listy Wyzwalacze wybierz wyzwalacz **po odebraniu żądania HTTP** .
 
    ![Wybierz wyzwalacz żądania](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -144,11 +127,11 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
    1. W wyzwalaczu żądania wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
 
-      ![Generuj schemat na podstawie ładunku](./media/connectors-native-reqres/generate-from-sample-payload.png)
+      ![Zrzut ekranu z wybranym elementem "Użyj przykładowego ładunku do wygenerowania schematu"](./media/connectors-native-reqres/generate-from-sample-payload.png)
 
    1. Wprowadź przykładowy ładunek i wybierz pozycję **gotowe**.
 
-      ![Generuj schemat na podstawie ładunku](./media/connectors-native-reqres/enter-payload.png)
+      ![Wprowadź przykładowy ładunek, aby wygenerować schemat](./media/connectors-native-reqres/enter-payload.png)
 
       Oto przykład ładunku:
 
@@ -206,15 +189,13 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
    ![Adres URL używany do wyzwalania aplikacji logiki](./media/connectors-native-reqres/generated-url.png)
 
    > [!NOTE]
-   > Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI podczas wykonywania wywołania wyzwalacza żądania, Użyj tej zakodowanej wersji:`%25%23`
+   > Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI podczas wykonywania wywołania wyzwalacza żądania, Użyj tej zakodowanej wersji: `%25%23`
 
 1. Aby wyzwolić aplikację logiki, Wyślij HTTP POST do wygenerowanego adresu URL.
 
-   Na przykład można użyć narzędzia, takiego jak [ogłośer](https://www.getpostman.com/) , aby wysłać wpis http. Jeśli [włączono Azure Active Directory otwierania uwierzytelniania](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) do autoryzacji wywołań przychodzących do wyzwalacza żądania, wywołaj wyzwalacz przy użyciu [adresu URL sygnatury dostępu współdzielonego (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) lub przy użyciu tokenu uwierzytelniania, ale nie możesz użyć obu tych opcji. Token uwierzytelniania musi określać `Bearer` Typ w nagłówku autoryzacji. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — dostęp do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   Na przykład można użyć narzędzia, takiego jak [ogłośer](https://www.getpostman.com/) , aby wysłać wpis http. Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz te tematy, [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi http w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz te tematy, [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi http w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
-
-### <a name="trigger-outputs"></a>Wyjściowe wyzwalacza
+## <a name="trigger-outputs"></a>Wyjściowe wyzwalacza
 
 Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacza żądania:
 
@@ -228,15 +209,13 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 
 ## <a name="add-a-response-action"></a>Dodaj akcję odpowiedzi
 
-Możesz użyć akcji odpowiedzi, aby odpowiedzieć na ładunek (dane) do przychodzącego żądania HTTPS, ale tylko w aplikacji logiki, która jest wyzwalana przez żądanie HTTPS. Akcję odpowiedzi można dodać w dowolnym momencie w przepływie pracy. Aby uzyskać więcej informacji na temat podstawowej definicji JSON dla tego wyzwalacza, zobacz [Typ akcji odpowiedź](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
-
-Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#request-limits). Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
+Korzystając z wyzwalacza żądania do obsługi żądań przychodzących, można modelować odpowiedź i wysyłać do niej wyniki z powrotem do obiektu wywołującego za pomocą wbudowanej [akcji odpowiedzi](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action). Akcja odpowiedzi może być używana *tylko* z wyzwalaczem żądania. Ta kombinacja z wyzwalaczem żądania i akcją odpowiedzi tworzy [wzorzec żądanie-odpowiedź](https://en.wikipedia.org/wiki/Request%E2%80%93response). Z wyjątkiem wewnątrz pętli Foreach i do pętli, a gałęzie równoległe, można dodać akcję odpowiedzi w dowolnym miejscu w przepływie pracy.
 
 > [!IMPORTANT]
 > Jeśli akcja odpowiedzi zawiera te nagłówki, Logic Apps usuwa te nagłówki z wygenerowanego komunikatu odpowiedzi bez wyświetlania ostrzeżenia lub błędu:
 >
 > * `Allow`
-> * `Content-*`z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i`Content-Type`
+> * `Content-*` z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i `Content-Type`
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`
@@ -253,7 +232,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
    Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
-1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź "odpowiedź" jako filtr, a następnie wybierz akcję **odpowiedź** .
+1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź `response` jako filtr, a następnie wybierz akcję **odpowiedź** .
 
    ![Wybierz akcję odpowiedzi](./media/connectors-native-reqres/select-response-action.png)
 
@@ -286,5 +265,5 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [Łączniki dla usługi Logic Apps](../connectors/apis-list.md)
-

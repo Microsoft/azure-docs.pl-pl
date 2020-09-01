@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718088"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226679"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opcje uwierzytelniania bezhasło dla Azure Active Directory
 
@@ -28,13 +28,13 @@ Funkcje, takie jak uwierzytelnianie wieloskładnikowe (MFA), to doskonały spos�
 
 Każda organizacja ma inne potrzeby związane z uwierzytelnianiem. Firma Microsoft oferuje następujące trzy opcje uwierzytelniania bez hasła, które integrują się z usługą Azure Active Directory (Azure AD):
 
-- Windows Hello dla firm
+- Windows Hello for Business
 - Aplikacja Microsoft Authenticator
 - FIDO2 klucze zabezpieczeń
 
 ![Uwierzytelnianie: zabezpieczenia i wygoda](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello dla firm
+## <a name="windows-hello-for-business"></a>Windows Hello for Business
 
 Funkcja Windows Hello dla firm jest idealna w przypadku pracowników przetwarzających informacje, którzy mają własne Wyznaczeni komputery z systemem Windows. Poświadczenia biometryczne i numery PIN są bezpośrednio powiązane z komputerem użytkownika, co uniemożliwia dostęp od nikogo innego niż właściciel. Dzięki integracji infrastruktury kluczy publicznych (PKI) i wbudowanej obsłudze logowania jednokrotnego (SSO) usługa Windows Hello dla firm zapewnia wygodną metodę bezproblemowego uzyskiwania dostępu do zasobów firmy lokalnie i w chmurze.
 
@@ -115,6 +115,8 @@ Klucz zabezpieczeń **musi** implementować następujące funkcje i rozszerzenia
 | 3 | HMAC-Secret | To rozszerzenie zapewnia możliwość zalogowania się na urządzeniu, gdy jest ono wyłączone lub w trybie samolotowym. |
 | 4 | Wiele kont na jednostkę UZALEŻNIONą | Ta funkcja zapewnia, że można użyć tego samego klucza zabezpieczeń dla wielu usług, takich jak konto Microsoft i Azure Active Directory. |
 
+### <a name="fido2-security-key-providers"></a>FIDO2 dostawcy kluczy zabezpieczeń
+
 Następujący dostawcy oferują klucze zabezpieczeń FIDO2 różnego rodzaju, które są znane jako zgodne z funkcją bezhaseł. Zachęcamy do ocenienia właściwości zabezpieczeń tych kluczy, kontaktując się z dostawcą oraz FIDO Alliance.
 
 | Dostawca | Kontakt |
@@ -157,7 +159,7 @@ Wybór między tymi trzema opcjami bezhaseł zależy od zabezpieczeń, platformy
 
 Oto kilka czynników, które należy wziąć pod uwagę podczas wybierania technologii bezhasło Microsoft:
 
-||**Windows Hello dla firm**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
+||**Windows Hello for Business**|**Logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator**|**FIDO2 klucze zabezpieczeń**|
 |:-|:-|:-|:-|
 |**Wymagania wstępne**| Windows 10, wersja 1809 lub nowsza<br>Usługa Azure Active Directory| Aplikacja Microsoft Authenticator<br>Telefon (urządzenia z systemem iOS i Android z systemem Android 6,0 lub nowszym)|Windows 10, wersja 1809 lub nowsza<br>Usługa Azure Active Directory|
 |**Tryb**|Platforma|Oprogramowanie|Sprzęt|

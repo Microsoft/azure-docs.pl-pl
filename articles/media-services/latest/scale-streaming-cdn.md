@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Dowiedz się więcej na temat przesyłania strumieniowego zawartości z integracją z usługą CDN, a także pobierania i pochodzenie do usługi CDN — pobieranie z wyprzedzeniem.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: inhenkel
+ms.openlocfilehash: abf4b8dffc69cfee9332d18e59d0a2852fa7617e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799353"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226152"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Przesyłanie strumieniowe zawartości z integracją z usługą CDN
 
@@ -29,14 +29,19 @@ Popularna zawartość będzie obsługiwana bezpośrednio z pamięci podręcznej 
 
 Należy również wziąć pod uwagę sposób działania adaptacyjnego przesyłania strumieniowego. Każdy pojedynczy fragment wideo jest buforowany jako jego własny obiekt. Na przykład załóżmy, że po raz pierwszy oglądasz film wideo. Jeśli podgląd pominie około zaledwie kilku sekund, a tylko fragmenty wideo skojarzone z tym, co ktoś ogląda w pamięci podręcznej w usłudze CDN. Dzięki adaptacyjnemu przesyłaniu strumieniowym zazwyczaj masz od 5 do 7 różnych szybkości transmisji wideo. Jeśli jedna osoba ogląda jedną szybkość transmisji bitów, a inna osoba ogląda inną szybkość transmisji bitów, to każda z nich jest buforowana osobno w sieci CDN. Nawet jeśli dwie osoby oglądają tę samą szybkość transmisji bitów, mogą one być przesyłane strumieniowo za pośrednictwem różnych protokołów. Każdy protokół (HLS, MPEG-KRESKa, Smooth Streaming) jest buforowany osobno. Dlatego każda szybkość transmisji bitów i protokół są buforowane oddzielnie, a tylko te fragmenty wideo, które zostały żądane, są buforowane.
 
-Przy podejmowaniu decyzji o tym, czy włączyć usługę CDN w [punkcie końcowym przesyłania strumieniowego](streaming-endpoint-concept.md)Media Services, weź pod uwagę liczbę zaplanowanych osób przeglądających. Sieć CDN jest pomocna tylko w przypadku, gdy oczekujesz wielu podglądów zawartości. Jeśli maksymalna współbieżność przeglądających jest niższa niż 500, zaleca się wyłączenie usługi CDN, ponieważ usługa CDN jest optymalna dla współbieżności.
+Z wyjątkiem środowiska testowego zalecamy włączenie usługi CDN dla punktów końcowych przesyłania strumieniowego w warstwach Standardowa i Premium. Każdy typ punktu końcowego przesyłania strumieniowego ma inny obsługiwany limit przepływności.
+Trudno jest precyzyjnie obliczyć maksymalną liczbę współbieżnych strumieni obsługiwanych przez punkt końcowy przesyłania strumieniowego, ponieważ istnieją różne czynniki, które należy wziąć pod uwagę. Należą do nich następujące elementy:
+
+- Maksymalna szybkość transmisji bitów użyta na potrzeby przesyłania strumieniowego
+- Zachowanie przed buforowaniem i przełączeniem odtwarzacza. Gracze próbują połączyć segmenty ze źródła i wykorzystać szybkość ładowania do obliczenia przełączania z adaptacyjną szybkością transmisji bitów. Jeśli punkt końcowy przesyłania strumieniowego zostanie zbliżony do nasycenia, czasy odpowiedzi mogą się różnić, a gracze zaczynają przełączać się do niższej jakości. Ponieważ zmniejsza to obciążenie odtwarzaczy punktów końcowych przesyłania strumieniowego, można skalować z powrotem do wyższej jakości, tworząc niepożądane wyzwalacze.
+Ogólnie można bezpiecznie oszacować maksymalne współbieżne strumienie, przyjmując maksymalną przepływność punktów końcowych przesyłania strumieniowego i dzieląc ją przez maksymalną szybkość transmisji bitów (przy założeniu, że wszyscy gracze używają najwyższej szybkości transmisji bitów). Można na przykład mieć standardowy punkt końcowy przesyłania strumieniowego, który jest ograniczony do 600 MB/s i największą szybkość transmisji bitów 3Mbp. W takim przypadku na najwyższej szybkości transmisji bitów są obsługiwane około 200 współbieżnych strumieni. Pamiętaj, aby również uwzględnić czynniki w wymaganiach dotyczących przepustowości audio. Mimo że strumień audio może być przesyłany strumieniowo na 128 ochrony klucza, łączny czas przesyłania strumieniowego jest szybko dodawany, gdy zostanie pomnożony przez liczbę współbieżnych strumieni.
 
 W tym temacie omówiono Włączanie integracji z siecią [CDN](#enable-azure-cdn-integration). Opisano w nim również wstępne pobieranie (aktywne buforowanie) i koncepcję z [wyprzedzeniem](#origin-assist-cdn-prefetch) dotyczącej usługi CDN.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
-* [Punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) `hostname` i adres URL przesyłania strumieniowego pozostają takie same niezależnie od tego, czy jest włączona sieć CDN.
-* Jeśli potrzebujesz możliwości testowania zawartości z użyciem usługi CDN lub bez niej, Utwórz inny punkt końcowy przesyłania strumieniowego, który nie jest włączony w sieci CDN.
+- [Punkt końcowy przesyłania strumieniowego](streaming-endpoint-concept.md) `hostname` i adres URL przesyłania strumieniowego pozostają takie same niezależnie od tego, czy jest włączona sieć CDN.
+- Jeśli potrzebujesz możliwości testowania zawartości z użyciem usługi CDN lub bez niej, Utwórz inny punkt końcowy przesyłania strumieniowego, który nie jest włączony w sieci CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Włącz integrację Azure CDN
 

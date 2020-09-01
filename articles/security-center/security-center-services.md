@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ebc921e319b5ac16cb39001b5ffba5de48727d84
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607121"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181939"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -30,48 +30,48 @@ Na dwóch poniższych kartach przedstawiono funkcje Azure Security Center, któr
 
 |**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny spoza platformy Azure**|**Cennik**
 |----|:----:|:----:|:----:|:----:|
-|[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Standardowa (Standard)|
-|[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](threat-protection.md)|✔|✔|✔|Standardowa (Standard)|
-|[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|✔|✔|✔|Standardowa (Standard)|
-|[Alerty zabezpieczeń oparte na sieci](threat-protection.md#network-layer)|✔|✔|-|Standardowa (Standard)|
-|[Dostęp do maszyny wirtualnej just in Time](security-center-just-in-time.md)|✔|-|-|Standardowa (Standard)|
-|[Ocena natywnych luk w zabezpieczeniach](built-in-vulnerability-assessment.md)|✔|-|-|Standardowa (Standard)|
-|[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standardowa (Standard)|
-|[Funkcje adaptacyjnego sterowania aplikacjami](security-center-adaptive-application.md)|✔|-|✔|Standardowa (Standard)|
-|[Mapa sieci](security-center-network-recommendations.md#network-map)|✔|✔|-|Standardowa (Standard)|
-|[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Standardowa (Standard)|
-|[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Standardowa (Standard)|
-|Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|-|-|-|Standardowa (Standard)|
+|[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Standard|
+|[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](threat-protection.md)|✔|✔|✔|Standard|
+|[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[Alerty zabezpieczeń oparte na sieci](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Dostęp do maszyny wirtualnej just in Time](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Ocena natywnych luk w zabezpieczeniach](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
+|[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Funkcje adaptacyjnego sterowania aplikacjami](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Mapa sieci](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|-|-|-|Standard|
 |Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: Standard|
 |Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: Standard|
 |[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: Standard|
-|Ocena szyfrowania dysku|✔|✔|-|Jest bezpłatna|
-|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Jest bezpłatna|
-|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Jest bezpłatna|
+|Ocena szyfrowania dysku|✔|✔|-|Bezpłatna|
+|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Bezpłatna|
+|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Bezpłatna|
 
 
 ### <a name="linux-machines"></a>[**Maszyny z systemem Linux**](#tab/features-linux)
 
 |**Funkcja**|**Azure Virtual Machines**|**Zestawy skalowania maszyn wirtualnych platformy Azure**|**Maszyny spoza platformy Azure**|**Cennik**
 |----|:----:|:----:|:----:|:----:|
-|[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Standardowa (Standard)|
-|[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](security-center-alerts-iaas.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Standardowa (Standard)|
-|[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|-|-|-|Standardowa (Standard)|
-|[Alerty zabezpieczeń oparte na sieci](threat-protection.md#network-layer)|✔|✔|-|Standardowa (Standard)|
-|[Dostęp do maszyny wirtualnej just in Time](security-center-just-in-time.md)|✔|-|-|Standardowa (Standard)|
-|[Ocena natywnych luk w zabezpieczeniach](built-in-vulnerability-assessment.md)|✔|-|-|Standardowa (Standard)|
-|[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standardowa (Standard)|
-|[Funkcje adaptacyjnego sterowania aplikacjami](security-center-adaptive-application.md)|✔|-|✔|Standardowa (Standard)|
-|[Mapa sieci](security-center-network-recommendations.md#network-map)|✔|✔|-|Standardowa (Standard)|
-|[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Standardowa (Standard)|
-|[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Standardowa (Standard)|
-|Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|✔|✔|✔|Standardowa (Standard)|
+|[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Standard|
+|[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](security-center-alerts-iaas.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Standard|
+|[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[Alerty zabezpieczeń oparte na sieci](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Dostęp do maszyny wirtualnej just in Time](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Ocena natywnych luk w zabezpieczeniach](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
+|[Monitorowanie integralności plików](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Funkcje adaptacyjnego sterowania aplikacjami](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Mapa sieci](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Adaptacyjne wzmocnienie zabezpieczeń sieci](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|[& raporty dotyczące pulpitu nawigacyjnego zgodności z przepisami](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Zalecenia i ochrona przed zagrożeniami w kontenerach IaaS hostowanych przez platformę Docker|✔|✔|✔|Standard|
 |Brak oceny poprawek systemu operacyjnego|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: Standard|
 |Ocena niezgodności konfiguracji zabezpieczeń|✔|✔|✔|Azure: bezpłatnie<br><br>Nie na platformie Azure: Standard|
-|[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Jest bezpłatna|
-|Ocena szyfrowania dysku|✔|✔|-|Jest bezpłatna|
-|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Jest bezpłatna|
-|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Jest bezpłatna|
+|[Ocena programu Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Bezpłatna|
+|Ocena szyfrowania dysku|✔|✔|-|Bezpłatna|
+|Ocena luk w zabezpieczeniach innych firm|✔|-|-|Bezpłatna|
+|[Ocena zabezpieczeń sieci](security-center-network-recommendations.md)|✔|✔|-|Bezpłatna|
 
 --- 
 

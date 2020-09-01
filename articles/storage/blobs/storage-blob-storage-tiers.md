@@ -3,17 +3,17 @@ title: Warstwy dostępu gorąca, chłodna i archiwalna dla obiektów Blob — Az
 description: Przeczytaj o warstwach dostępu gorąca, chłodna i archiwalna dla usługi Azure Blob Storage. Przejrzyj konta magazynu obsługujące obsługę warstw. Porównaj opcje magazynu blokowych obiektów BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009614"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226186"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum
 
@@ -121,7 +121,7 @@ W poniższej tabeli przedstawiono porównanie magazynu obiektów BLOB wydajnośc
 |                                           | **Wydajność warstwy Premium**   | **Warstwa gorąca** | **Warstwa chłodna**       | **Warstwa Archiwum**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Dostępność**                          | 99,9%                     | 99,9%        | 99%                 | Tryb offline           |
-| **Dostępność** <br> **(odczyty RA-GRS)**  | Nie dotyczy                       | 99,99%       | 99,9%               | Tryb offline           |
+| **Dostępność** <br> **(odczyty RA-GRS)**  | Brak                       | 99,99%       | 99,9%               | Tryb offline           |
 | **Opłaty za użycie**                         | Wyższe koszty magazynowania, niższy dostęp i koszt transakcji | Wyższe koszty magazynowania, niższy dostęp i koszty transakcji | Niższe koszty magazynowania, wyższego poziomu dostępu i kosztów transakcji | Najniższe koszty magazynowania, najwyższy poziom dostępu i koszty transakcji |
 | **Minimalny rozmiar obiektu**                   | NIE DOTYCZY                       | NIE DOTYCZY          | NIE DOTYCZY                 | NIE DOTYCZY               |
 | **Minimalny czas magazynowania**              | NIE DOTYCZY                       | NIE DOTYCZY          | 30 dni<sup>1</sup> | 180 dni
@@ -156,7 +156,7 @@ W tej sekcji przedstawiono następujące scenariusze przy użyciu Azure Portal i
 
 1. Kliknij przycisk **Zapisz** u góry.
 
-![Zmień warstwę konta magazynu](media/storage-tiers/account-tier.png)
+![Zmień domyślną warstwę konta w Azure Portal](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Za pomocą poniższego skryptu programu PowerShell można zmienić warstwę konta. `$rgName`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. 
@@ -186,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Wybierz pozycję **Zapisz** u dołu.
 
-![Zmień warstwę konta magazynu](media/storage-tiers/blob-access-tier.png)
+![Zmień warstwę obiektów BLOB w Azure Portal](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Za pomocą poniższego skryptu programu PowerShell można zmienić warstwę obiektów BLOB. `$rgName`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. `$containerName`Zmienna musi być zainicjowana przy użyciu nazwy kontenera. `$blobName`Zmienna musi być zainicjowana przy użyciu nazwy obiektu BLOB. 
@@ -219,6 +219,8 @@ Wszystkie konta magazynu używają modelu cen dla magazynu blokowych obiektów B
 - **Koszty transferu danych replikacji geograficznej**: ta opłata dotyczy tylko kont ze skonfigurowaną replikacją geograficzną, w tym GRS i RA-GRS. Transfer danych w ramach replikacji geograficznej powoduje naliczanie opłaty za każdy gigabajt.
 - **Koszty transferu danych wychodzących**: transfery danych wychodzących (dane przesyłane poza region platformy Azure) powodują naliczanie opłat za zużycie przepustowości za każdy gigabajt, co jest spójne z kontami magazynu ogólnego przeznaczenia.
 - **Zmiana warstwy dostępu**: zmiana warstwy dostępu do konta spowoduje naliczanie opłat za zmianę warstwy dla _odroczonych obiektów BLOB warstwy dostępu_ przechowywanych na koncie, które nie mają jawnie ustawionej warstwy. Aby uzyskać informacje na temat zmiany warstwy dostępu dla pojedynczego obiektu BLOB, zapoznaj się z [rozliczeniami warstwowymi na poziomie obiektów BLOB](#blob-level-tiering-billing).
+
+    Zmiana warstwy dostępu dla obiektu BLOB, gdy jest włączona obsługa wersji, lub jeśli obiekt BLOB zawiera migawki, może spowodować naliczenie dodatkowych opłat. Aby uzyskać więcej informacji na temat sposobu rozliczania, gdy jest włączone przechowywanie wersji obiektów blob i jawnie zmienisz warstwę obiektu BLOB, zobacz [Cennik i rozliczenia](versioning-overview.md#pricing-and-billing) w dokumentacji dotyczącej przechowywania wersji obiektów BLOB. Aby uzyskać więcej informacji na temat sposobu rozliczania, gdy obiekt BLOB ma migawki i jawnie zmienisz warstwę obiektu BLOB, zobacz [Cennik i rozliczenia](snapshots-overview.md#pricing-and-billing) w dokumentacji dotyczącej migawek obiektów BLOB.
 
 > [!NOTE]
 > Aby uzyskać więcej informacji na temat cen blokowych obiektów blob, zobacz stronę z [cennikiem usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) . Więcej informacji dotyczących opłat za transfer danych wychodzących można znaleźć na stronie [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -277,7 +279,7 @@ Następujące rozwiązania: witryna Azure Portal, program PowerShell, narzędzia
 
 Magazyn danych oraz inne limity są ustawiane na poziomie konta, a nie na warstwie dostępu. Możesz użyć wszystkich limitów w jednej warstwie lub we wszystkich trzech warstwach. Aby uzyskać więcej informacji, zobacz [cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Oceń gorące, chłodne i archiwalne na kontach GPv2 i BLOB Storage
 

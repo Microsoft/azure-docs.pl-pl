@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80b7d5ca67751cf7ece775331cc13cfbac10395b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518326"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182398"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalowanie i uruchamianie kontenerów usługi mowy (wersja zapoznawcza)
 
@@ -28,10 +28,10 @@ Kontenery usługi Mowa umożliwiają klientom tworzenie architektury aplikacji m
 
 | Funkcja | Funkcje | Najnowsza |
 |--|--|--|
-| Zamiana mowy na tekst | Analizuje tonacji i przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio wsadowe z wynikami pośrednimi.  | ppkt |
-| Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | ppkt |
-| Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.5.0 |
-| Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.5.0 |
+| Zamiana mowy na tekst | Analizuje tonacji i przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio wsadowe z wynikami pośrednimi.  | 2.4.0 |
+| Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | 2.4.0 |
+| Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.6.0 |
+| Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.6.0 |
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -165,7 +165,7 @@ Wszystkie Tagi, z wyjątkiem programu, `latest` są w następującym formacie i 
 Następujący tag jest przykładem formatu:
 
 ```
-2.3.1-amd64-en-us-preview
+2.4.0-amd64-en-us-preview
 ```
 
 W przypadku wszystkich obsługiwanych ustawień regionalnych kontenera **zamiany mowy na tekst** należy zapoznać się [ze znacznikami obrazu zamiany mowy na tekst](../containers/container-image-tags.md#speech-to-text).
@@ -207,7 +207,7 @@ Wszystkie Tagi, z wyjątkiem programu, `latest` są w następującym formacie i 
 Następujący tag jest przykładem formatu:
 
 ```
-1.5.0-amd64-en-us-ariarus-preview
+1.6.0-amd64-en-us-ariarus-preview
 ```
 
 W przypadku wszystkich obsługiwanych ustawień regionalnych i odpowiadających im głosów kontenera **zamiany tekstu na mowę** należy zapoznać się ze [znacznikami obrazu zamiany tekstu na mowę](../containers/container-image-tags.md#text-to-speech).
@@ -423,6 +423,8 @@ Aby uzyskać więcej informacji na temat korzystania z protokołów WSS i HTTPS,
 #### <a name="analyze-sentiment"></a>Analiza tonacji
 
 Jeśli podano poświadczenia interfejs API analizy tekstu [do kontenera](#analyze-sentiment-on-the-speech-to-text-output), można użyć zestawu Speech SDK, aby wysyłać żądania rozpoznawania mowy z analizą tonacji. Można skonfigurować odpowiedzi interfejsu API w taki sposób, aby korzystały z *prostego* lub *szczegółowego* formatu.
+> [!NOTE]
+> Funkcja v 1.13 zestawu SDK języka Python usługi rozpoznawania mowy ma zidentyfikowany problem z analizą tonacji. Użyj programu v 1.12. x lub starszej wersji, jeśli używasz analizy tonacji w zestawie SDK języka Python usługi Speech Service.
 
 # <a name="simple-format"></a>[Format prosty](#tab/simple-format)
 

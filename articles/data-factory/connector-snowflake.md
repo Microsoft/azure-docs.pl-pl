@@ -1,6 +1,6 @@
 ---
-title: Kopiuj dane z i do płatka śniegu
-description: Dowiedz się, jak kopiować dane z i do płatnych śniegów przy użyciu Azure Data Factory.
+title: Kopiowanie i Przekształcanie danych w śniegu
+description: Informacje o kopiowaniu i przekształcaniu danych w śniegu przy użyciu Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,30 +11,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048180"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181888"
 ---
-# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Kopiuj dane z i do płatne za pomocą Azure Data Factory
+# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Skopiuj i Przekształć dane w śniegu przy użyciu Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano sposób korzystania z działania kopiowania w Azure Data Factory do kopiowania danych z i do płatka śniegu. Aby uzyskać więcej informacji na temat Data Factory, zobacz [artykuł wprowadzający](introduction.md).
+W tym artykule opisano sposób korzystania z działania kopiowania w Azure Data Factory do kopiowania danych z i do płaty śnieg oraz do przekształcania danych w płatki śniegu. Aby uzyskać więcej informacji na temat Data Factory, zobacz [artykuł wprowadzający](introduction.md).
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
 Ten łącznik płatnego śniegu jest obsługiwany dla następujących działań:
 
 - [Działanie kopiowania](copy-activity-overview.md) z obsługiwaną tabelą [źródłową/odujścia](copy-activity-overview.md)
+- [Mapowanie przepływu danych](concepts-data-flow-overview.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
 
 W przypadku działania kopiowania ten łącznik płatny śnieg obsługuje następujące funkcje:
 
 - Skopiuj dane z płatnych śniegów, które wykorzystują kopiowanie śniegu [do polecenia [Location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) w celu osiągnięcia najlepszej wydajności.
-- Skopiuj dane do płatnych śniegów, które wykorzystują kopiowanie płatne [do [Table] w](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) celu uzyskania najlepszej wydajności. Obsługuje ona płatki śnieg na platformie Azure.
+- Skopiuj dane do płatnych śniegów, które wykorzystują kopiowanie płatne [do [Table] w](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) celu uzyskania najlepszej wydajności. Obsługuje ona płatki śnieg na platformie Azure. 
+
+W przypadku korzystania z obszaru roboczego usługi Azure Synapse Analytics jest nieobsługiwany płata śniegu.
 
 ## <a name="get-started"></a>Wprowadzenie
 
@@ -48,8 +51,8 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
 
 | Właściwość         | Opis                                                  | Wymagane |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| typ             | Właściwość Type musi mieć wartość **Płatne**.              | Yes      |
-| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem płatnego śniegu. Możesz wybrać opcję umieszczenia hasła lub całego ciągu połączenia w Azure Key Vault. Aby uzyskać więcej informacji, zapoznaj się z przykładami poniżej tabeli oraz [poświadczeniami sklepu w Azure Key Vault](store-credentials-in-key-vault.md) artykule.<br><br>Niektóre typowe ustawienia:<br>- **Nazwa konta:**  [Pełna nazwa konta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) Twojego konta płatnego śniegu (w tym dodatkowe segmenty, które identyfikują region i platformę chmury), np. xy12345. wschód-US-2. Azure.<br/>- **Nazwa użytkownika:** Nazwa logowania użytkownika dla połączenia.<br>- **Hasło:** Hasło użytkownika.<br>- **Baza danych:** Domyślna baza danych do użycia po nawiązaniu połączenia. Powinna to być istniejąca baza danych, dla której określona rola ma uprawnienia.<br>- **Magazyn:** Magazyn wirtualny, który ma być używany po nawiązaniu połączenia. Powinien być istniejącym magazynem, dla którego określona rola ma uprawnienia.<br>- **Rola:** Domyślna rola kontroli dostępu do użycia w sesji płatnych śniegu. Określona rola powinna być istniejącą rolą, która została już przypisana do określonego użytkownika. Rola domyślna to PUBLIC. | Yes      |
+| typ             | Właściwość Type musi mieć wartość **Płatne**.              | Tak      |
+| Parametry połączenia | Określa informacje, które są konieczne do nawiązania połączenia z wystąpieniem płatnego śniegu. Możesz wybrać opcję umieszczenia hasła lub całego ciągu połączenia w Azure Key Vault. Aby uzyskać więcej informacji, zapoznaj się z przykładami poniżej tabeli oraz [poświadczeniami sklepu w Azure Key Vault](store-credentials-in-key-vault.md) artykule.<br><br>Niektóre typowe ustawienia:<br>- **Nazwa konta:**  [Pełna nazwa konta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) Twojego konta płatnego śniegu (w tym dodatkowe segmenty, które identyfikują region i platformę chmury), np. xy12345. wschód-US-2. Azure.<br/>- **Nazwa użytkownika:** Nazwa logowania użytkownika dla połączenia.<br>- **Hasło:** Hasło użytkownika.<br>- **Baza danych:** Domyślna baza danych do użycia po nawiązaniu połączenia. Powinna to być istniejąca baza danych, dla której określona rola ma uprawnienia.<br>- **Magazyn:** Magazyn wirtualny, który ma być używany po nawiązaniu połączenia. Powinien być istniejącym magazynem, dla którego określona rola ma uprawnienia.<br>- **Rola:** Domyślna rola kontroli dostępu do użycia w sesji płatnych śniegu. Określona rola powinna być istniejącą rolą, która została już przypisana do określonego użytkownika. Rola domyślna to PUBLIC. | Tak      |
 | Właściwością connectvia       | [Środowisko Integration Runtime](concepts-integration-runtime.md) , które jest używane do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, używa domyślnego środowiska Azure Integration Runtime. | Nie       |
 
 **Przykład:**
@@ -104,9 +107,9 @@ Następujące właściwości są obsługiwane dla zestawu danych płatka śniegu
 
 | Właściwość  | Opis                                                  | Wymagane                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Yes                         |
-| schema | Nazwa schematu. |Nie dla źródła, tak dla ujścia  |
-| table | Nazwa tabeli/widoku. |Nie dla źródła, tak dla ujścia  |
+| typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Tak                         |
+| schema | Nazwa schematu. Należy pamiętać, że w nazwie schematu jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
+| table | Nazwa tabeli/widoku. Zwróć uwagę na to, że w nazwie tabeli jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**
 
@@ -142,11 +145,11 @@ Aby skopiować dane z płatnych śniegów, w sekcji **Źródło** działania kop
 
 | Właściwość                     | Opis                                                  | Wymagane |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SnowflakeSource**. | Yes      |
-| query          | Określa zapytanie SQL służące do odczytywania danych z płatki śniegu.<br>Wykonywanie procedury składowanej nie jest obsługiwane. | Nie       |
+| typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SnowflakeSource**. | Tak      |
+| query          | Określa zapytanie SQL służące do odczytywania danych z płatki śniegu. Jeśli nazwy schematu, tabeli i kolumn zawierają małe litery, należy pomniejszyć identyfikator obiektu w kwerendzie, np. `select * from "schema"."myTable"` .<br>Wykonywanie procedury składowanej nie jest obsługiwane. | Nie       |
 | exportSettings | Ustawienia zaawansowane używane do pobierania danych z płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie       |
 | ***W obszarze `exportSettings` :*** |  |  |
-| typ | Typ polecenia eksportu, ustawiony na **SnowflakeExportCopyCommand**. | Yes |
+| typ | Typ polecenia eksportu, ustawiony na **SnowflakeExportCopyCommand**. | Tak |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: MAX_FILE_SIZE, Zastąp. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku, które są dostępne do kopiowania polecenia jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Nie |
 
@@ -194,7 +197,7 @@ Jeśli magazyn danych ujścia i format spełniają kryteria opisane w tej sekcji
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -273,11 +276,11 @@ Aby skopiować dane do płatnych śniegów, w sekcji **ujścia** działania kopi
 
 | Właściwość          | Opis                                                  | Wymagane                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| typ              | Właściwość Type ujścia działania Copy ustawiona na wartość **SnowflakeSink**. | Yes                                           |
+| typ              | Właściwość Type ujścia działania Copy ustawiona na wartość **SnowflakeSink**. | Tak                                           |
 | preCopyScript     | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych do śniegu w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie                                            |
 | importSettings | Ustawienia zaawansowane służące do zapisywania danych w płatki śniegu. Można skonfigurować te obsługiwane przez KOPIę w poleceniu, które Data Factory zostanie przekazane po wywołaniu instrukcji. | Nie |
 | ***W obszarze `importSettings` :*** |                                                              |  |
-| typ | Typ polecenia importowania, ustawiony na **SnowflakeImportCopyCommand**. | Yes |
+| typ | Typ polecenia importowania, ustawiony na **SnowflakeImportCopyCommand**. | Tak |
 | additionalCopyOptions | Dodatkowe opcje kopiowania, które są dostępne jako słownik par klucz-wartość. Przykłady: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Aby uzyskać więcej informacji, zobacz [Opcje kopiowania płatka śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Nie |
 | additionalFormatOptions | Dodatkowe opcje formatu pliku dostarczone do polecenia COPY, dostarczone jako słownik par klucz-wartość. Przykłady: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Aby uzyskać więcej informacji, zobacz [Opcje formatu śniegu](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Nie |
 
@@ -396,6 +399,83 @@ Aby użyć tej funkcji, Utwórz [połączoną usługę Azure Blob Storage](conne
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
+
+Podczas przekształcania danych w mapowaniu przepływu danych można odczytywać i zapisywać w tabelach w śniegu. Aby uzyskać więcej informacji, zobacz [przekształcenie źródłowe](data-flow-source.md) i [przekształcanie ujścia](data-flow-sink.md) w mapowaniu przepływów danych. Możesz wybrać użycie zestawu danych płatnych śniegu lub [wbudowanego zestawu danych](data-flow-source.md#inline-datasets) jako źródła i typu ujścia.
+
+### <a name="source-transformation"></a>Transformacja źródła
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło śniegu. Można edytować te właściwości na karcie **Opcje źródła** . Łącznik używa [wewnętrznego transferu danych](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)w postaci śniegu.
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Jeśli wybierzesz opcję tabela jako dane wejściowe, przepływ danych pobierze wszystkie dane z tabeli określonej w zestawie danych płatnych śniegu lub w opcjach źródła przy użyciu wbudowanego zestawu danych. | Nie | String | *(tylko w przypadku wbudowanego zestawu danych)*<br>tableName<br>schemaName |
+| Zapytanie | Jeśli wybierzesz pozycję zapytanie jako dane wejściowe, wprowadź zapytanie w celu pobrania danych z płatnej. To ustawienie przesłania każdą tabelę wybraną w zestawie danych.<br>Jeśli nazwy schematu, tabeli i kolumn zawierają małe litery, należy pomniejszyć identyfikator obiektu w kwerendzie, np. `select * from "schema"."myTable"` . | Nie | String | query |
+
+#### <a name="snowflake-source-script-examples"></a>Przykłady skryptów źródłowych płatnych śniegów
+
+W przypadku użycia zestawu danych płatnych śniegu jako typu źródła skojarzony skrypt przepływu danych jest:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SnowflakeSource
+```
+
+Jeśli używasz wbudowanego zestawu danych, skojarzony skrypt przepływu danych to:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'select * from MYTABLE',
+    store: 'snowflake') ~> SnowflakeSource
+```
+
+### <a name="sink-transformation"></a>Przekształcanie ujścia
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia śniegu. Te właściwości można edytować na karcie **Ustawienia** . W przypadku korzystania z wbudowanego zestawu danych zostaną wyświetlone dodatkowe ustawienia, które są takie same jak właściwości opisane w sekcji [Właściwości zestawu danych](#dataset-properties) . Łącznik używa [wewnętrznego transferu danych](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)w postaci śniegu.
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update — Metoda | Określ, które operacje są dozwolone w miejscu docelowym płatka śniegu.<br>Aby zaktualizować, upsert lub usunąć wiersze, [przekształcenie ALTER Row](data-flow-alter-row.md) jest wymagane, aby można było oznaczyć wiersze dla tych działań. | Tak | `true` lub `false` | usuwaln <br/>wstawialny <br/>aktualizowalne <br/>upsertable |
+| Kolumny klucza | W przypadku aktualizacji, upserts i usunięć należy ustawić kolumnę klucza lub kolumny, aby określić, który wiersz ma być zmieniany. | Nie | Tablica | keys |
+| Akcja tabeli | Określa, czy należy ponownie utworzyć lub usunąć wszystkie wiersze z tabeli docelowej przed zapisem.<br>- **Brak**: w tabeli nie zostanie wykonana żadna akcja.<br>- **Utwórz ponownie**: tabela zostanie porzucona i utworzona ponownie. Wymagane w przypadku dynamicznego tworzenia nowej tabeli.<br>- **Obcinanie**: wszystkie wiersze z tabeli docelowej zostaną usunięte. | Nie | `true` lub `false` | Utwórz ponownie<br/>obciąć |
+
+#### <a name="snowflake-sink-script-examples"></a>Przykłady skryptów ujścia płatka śniegu
+
+W przypadku używania zestawu danych płatnych śniegu jako typu ujścia, skojarzony skrypt przepływu danych to:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:false,
+    keys:['movieId'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
+
+Jeśli używasz wbudowanego zestawu danych, skojarzony skrypt przepływu danych to:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    tableName: 'table',
+    schemaName: 'schema',
+    deletable: true,
+    insertable: true,
+    updateable: true,
+    upsertable: false,
+    store: 'snowflake',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

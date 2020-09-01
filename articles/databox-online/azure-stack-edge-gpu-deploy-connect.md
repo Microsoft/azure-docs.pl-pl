@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: c98d6644dba0b3ca51f07f01ec27fee697369f2b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 90f9fcc7bbac3164b4e620674bd64d026c11badb
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088050"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181837"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Samouczek: łączenie się z Azure Stack Edge z procesorem GPU
 
@@ -45,9 +45,11 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z proceso
 
     ![Płyta montażowa okablowanego urządzenia](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
+    Plan przedplanu urządzenia może wyglądać nieco inaczej w zależności od modelu, który otrzymasz.
+
 
 3. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika sieci Web urządzenia pod adresem `https://192.168.100.10` .  
-    Ta akcja może potrwać kilka minut po włączeniu urządzenia. 
+    Ta akcja może potrwać kilka minut po włączeniu urządzenia.
 
     Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie wskazujący, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web. 
    

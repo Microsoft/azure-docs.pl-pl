@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 905229cde0d2b3dde7f0f2192860c33fc69e5fb2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 401b7c7a44e2f8009baca96862817b3d14f35c94
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088029"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181820"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Samouczek: Instalowanie Azure Stack Edge z procesorem GPU
 
@@ -37,7 +37,7 @@ Wymagania wstępne dotyczące instalacji urządzenia fizycznego są następując
 
 Przed rozpoczęciem upewnij się, że:
 
-* Wykonano wszystkie kroki z sekcji [przygotowanie do wdrożenia Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md).
+* Wykonano wszystkie kroki z sekcji [przygotowanie do wdrożenia Azure Stack Edge z procesorem GPU](azure-stack-edge-gpu-deploy-prep.md).
     * Utworzono zasób Azure Stack Edge, aby wdrożyć urządzenie.
     * Klucz aktywacji został wygenerowany w celu aktywowania urządzenia przy użyciu zasobu brzegowego Azure Stack.
 
@@ -48,11 +48,11 @@ Przed wdrożeniem urządzenia:
 
 - Upewnij się, że urządzenie zostało bezpiecznie umieszczone na płaskiej, stabilnej i poziomej powierzchni roboczej.
 - Sprawdź, czy lokacja, w której chcesz zamontować urządzenie, ma:
-    - standardowe zasilanie prądem przemiennym z niezależnego źródła
+    - Standardowa moc AC z niezależnego źródła.
 
         — Lub —
-    - jednostkę dystrybucji zasilania na stojaku (PDU, rack power distribution unit) z zasilaczem UPS
-    - Dostępne gniazdo 1U w stojaku, na którym zamierzasz zainstalować urządzenie
+    - jednostkę dystrybucji zasilania na stojaku (PDU, rack power distribution unit) z zasilaczem UPS.
+    - Dostępne miejsce 1U w stojaku, w którym zamierzasz zainstalować urządzenie.
 
 ### <a name="for-the-network-in-the-datacenter"></a>Sieć w centrum danych
 
@@ -75,7 +75,7 @@ To urządzenie jest dostarczane w jednym pudełku. Aby rozpakować urządzenie, 
     - Jeden zestaw szyn
     - Książeczka bezpieczeństwa, środowiska i informacji prawnych
 
-Jeśli wszystkie elementy wymienione w tym miejscu nie zostały odebrane, skontaktuj się z pomocą techniczną Azure Stack Edge. Następnym krokiem jest zamontowanie urządzenia na stojaku.
+Jeśli wszystkie elementy wymienione w tym miejscu nie zostały odebrane, [skontaktuj się z firmą pomoc techniczna firmy Microsoft](azure-stack-edge-contact-microsoft-support.md). Następnym krokiem jest zamontowanie urządzenia na stojaku.
 
 
 ## <a name="rack-the-device"></a>Montowanie urządzenia na stojaku
@@ -166,7 +166,7 @@ Aby można było rozpocząć podłączanie kabli urządzenia, potrzebne są nast
 - Co najmniej jeden kabel sieciowy 1-GbE RJ-45 służący do łączenia z interfejsem zarządzania. Istnieją dwa interfejsy sieciowe 1-GbE: jeden do zarządzania i drugi stanowiący interfejs danych w urządzeniu.
 - Jeden miedziany kabel 25-GbE SFP+ dla każdego interfejsu sieciowego danych do skonfigurowania. Co najmniej jeden sieciowy interfejs danych — PORT 2, PORT 3, PORT 4, PORT 5 lub PORT 6 — musi być połączony z Internetem (umożliwiając łączność z platformą Azure).  
 - Dostęp do dwóch jednostek dystrybucji zasilania (zalecane).
-- Co najmniej jeden przełącznik sieciowy 1 GbE, aby połączyć z Internetem interfejs sieciowy z 1 GbE. W przypadku korzystania z interfejsu 25/10 GbE dla danych potrzebny jest przełącznik z 25 GbE lub 10 GbE. 
+- Co najmniej jeden przełącznik sieciowy 1 GbE, aby połączyć z Internetem interfejs sieciowy z 1 GbE. Lokalny interfejs użytkownika sieci Web nie będzie dostępny, jeśli przełącznik podłączony nie ma co najmniej 1 GbE. W przypadku korzystania z interfejsu 25/10 GbE dla danych potrzebny jest przełącznik z 25 GbE lub 10 GbE. 
 
 > [!NOTE]
 > - Jeśli łączysz tylko jeden interfejs sieciowy danych, zalecamy użycie interfejsu sieciowego 25/10 GbE, takiego jak PORT 3, PORT 4, PORT 5 lub PORT 6 do wysyłania danych do platformy Azure. 

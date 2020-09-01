@@ -1,7 +1,7 @@
 ---
 title: Wskazówki dotyczące znakowania aplikacji | Azure
 titleSuffix: Microsoft identity platform
-description: Kompletny przewodnik dotyczący zasobów dla deweloperów usługi Azure Active Directory
+description: Dowiedz się więcej na temat wytycznych dotyczących znakowania aplikacji dla platformy tożsamości firmy Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/31/2020
 ms.author: ryanwi
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117298"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226645"
 ---
 # <a name="branding-guidelines-for-applications"></a>Wytyczne dotyczące oznaczania aplikacji marką
 
-Podczas opracowywania aplikacji przy użyciu usługi Azure Active Directory (Azure AD) będziesz musieć udzielać pomocy klientom, którzy chcą używać konta służbowego zarządzanego przez usługę Azure AD lub konta osobistego na potrzeby tworzenia konta i logowania w aplikacji.
+Podczas tworzenia aplikacji za pomocą platformy tożsamości firmy Microsoft należy skierować klientów do korzystania z konta służbowego (zarządzanego w usłudze Azure AD) lub konta osobistego na potrzeby rejestracji i logowania do aplikacji.
 
 W tym artykule opisano następujące czynności:
 
 - Poznasz dwa rodzaje kont użytkowników zarządzanych przez firmę Microsoft i dowiesz się, jak odwoływać się do konta usługi Azure AD w aplikacji.
-- Dowiesz się, co jest potrzebne, aby dodać logo firmy Microsoft do użycia w aplikacji.
+- Dowiedz się, co należy zrobić, aby dodać logo firmy Microsoft do użycia w aplikacji
 - Pobierzesz oficjalne obrazy **Zaloguj się** lub **Zaloguj się przy użyciu konta Microsoft** do wykorzystania w aplikacji.
 - Poznasz zalecenia oraz zakazy dotyczące znakowania i nawigacji.
 
@@ -38,7 +38,7 @@ Firma Microsoft zarządza dwoma rodzajami kont użytkowników:
 - **Konta osobiste** (wcześniej konta Windows Live ID). Te konta reprezentują relację między *poszczególnymi* użytkownikami i firmą Microsoft oraz umożliwiają uzyskiwanie dostępu do urządzeń klientów i usług firmy Microsoft. Te konta są przeznaczone do użytku osobistego.
 - **Konta służbowe.** Te konta są zarządzane przez firmę Microsoft w imieniu organizacji, która używa usługi Azure Active Directory. Te konta umożliwiają logowanie się do usługi Office 365 i innych usług biznesowych firmy Microsoft.
 
-Konta służbowe firmy Microsoft zwykle są przypisane do użytkowników końcowych (pracowników, uczniów, studentów, pracowników federalnych) przez ich organizacje (firmy, szkoły, agencje rządowe). Te konta są zarządzane bezpośrednio w chmurze (na platformie Azure AD) lub synchronizowane z usługą Azure AD z poziomu katalogu lokalnego, takiego jak usługa Active Directory systemu Windows Server. Firma Microsoft jest *nadzorcą* kont służbowych, ale należą one do organizacji i są przez nią kontrolowane.
+Konta służbowe firmy Microsoft zwykle są przypisane do użytkowników końcowych (pracowników, uczniów, studentów, pracowników federalnych) przez ich organizacje (firmy, szkoły, agencje rządowe). Te konta są główne bezpośrednio w chmurze (na platformie Azure AD) lub zsynchronizowane z usługą Azure AD z katalogu lokalnego, takiego jak Windows Server Active Directory. Firma Microsoft jest *nadzorcą* kont służbowych, ale należą one do organizacji i są przez nią kontrolowane.
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Odwoływanie się do kont usługi Azure AD w aplikacji
 

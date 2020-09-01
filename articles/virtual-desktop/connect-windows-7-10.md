@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85e0c1b146cfba0cb95a6612f33e42a465bfd20b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008750"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226713"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Łączenie się z klientem klasycznym systemu Windows
 
@@ -61,8 +61,9 @@ Istnieją dwa sposoby subskrybowania obszaru roboczego. Klient może próbować 
 1. Na stronie głównej klienta wybierz opcję **Subskrybuj z adresem URL**.
 2. Wprowadź adres URL obszaru roboczego lub adres e-mail:
    - Jeśli używasz **adresu URL obszaru roboczego**, użyj tego administratora. W przypadku uzyskiwania dostępu do zasobów z pulpitu wirtualnego systemu Windows można użyć jednego z następujących adresów URL:
-     - Pulpit wirtualny systemu Windows (klasyczny):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Pulpit wirtualny systemu Windows:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Pulpit wirtualny systemu Windows (klasyczny): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Pulpit wirtualny systemu Windows: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Pulpit wirtualny systemu Windows (US Gov): `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
    - Jeśli zamiast tego używasz pola **e-mail** , wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował [odnajdywanie poczty e-mail](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Wybierz pozycję **Dalej**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.

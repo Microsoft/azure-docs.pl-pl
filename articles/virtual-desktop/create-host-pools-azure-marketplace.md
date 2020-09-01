@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 466180535b3fe7c7d0155c8b19ac287930341ee7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755487"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226101"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -47,6 +47,8 @@ Jeśli nie masz jeszcze subskrypcji platformy Azure, przed rozpoczęciem wykonyw
 Aby rozpocząć tworzenie nowej puli hostów:
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com/).
+   
+   >! KORYGUJĄC Jeśli logujesz się do portalu US Gov, przejdź do [https://portal.azure.us/](https://portal.azure.us/) zamiast tego.
 
 2. Na pasku wyszukiwania przejdź do **pulpitu wirtualnego systemu Windows** , a następnie Znajdź i wybierz pozycję **pulpit wirtualny systemu Windows** w obszarze usługi.
 
@@ -72,7 +74,7 @@ Aby rozpocząć tworzenie nowej puli hostów:
       > [!div class="mx-imgBorder"]
       > ![Zrzut ekranu przedstawiający menu rozwijane pole typu przypisania. Użytkownik wybrał automatyczne.](media/assignment-type-field.png)
 
-9. W przypadku wybrania **puli**wprowadź następujące informacje:
+9.  W przypadku wybrania **puli**wprowadź następujące informacje:
 
      - W polu **limit liczby sesji**wprowadź maksymalną liczbę użytkowników, które mają być zrównoważone obciążenie, na jeden Host sesji.
      - W obszarze **algorytm równoważenia obciążenia**wybierz pozycję szerokość pierwszej lub głębokość — na podstawie wzorca użycia.

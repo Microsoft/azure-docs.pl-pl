@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 9f5e8d9efdacf6d5c281cabebc08bd525d517f9d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: b470fa72518f805c10403931280bdec96bda0fbe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074716"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226543"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Podstawa zabezpieczeń Azure dla usługi Azure Application Gateway
 
