@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05278213e30aa6d31873e93025b5a4f1bc36a5a1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d576fb4f5dea10a2adf0d7488aa422e1397fd6d1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018539"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255753"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej systemu Windows w celu uzyskania dostępu do usługi Azure SQL
 
@@ -44,7 +44,7 @@ W tym samouczku pokazano, jak uzyskać dostęp do Azure SQL Database za pomocą 
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
-Aby udzielić dostępu do maszyny wirtualnej do bazy danych w Azure SQL Database, można użyć istniejącego [logicznego serwera SQL](../../azure-sql/database/logical-servers.md) lub utworzyć nowy. Aby utworzyć nowy serwer i bazę danych przy użyciu witryny Azure Portal, wykonaj ten [przewodnik Szybki start usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). W [dokumentacji usługi Azure SQL ](https://docs.microsoft.com/azure/sql-database/) dostępne są również przewodniki Szybki start, które używają interfejsu wiersza polecenia platformy Azure oraz programu Azure PowerShell.
+Aby udzielić dostępu do maszyny wirtualnej do bazy danych w Azure SQL Database, można użyć istniejącego [logicznego serwera SQL](../../azure-sql/database/logical-servers.md) lub utworzyć nowy. Aby utworzyć nowy serwer i bazę danych przy użyciu witryny Azure Portal, wykonaj ten [przewodnik Szybki start usługi Azure SQL](../../azure-sql/database/single-database-create-quickstart.md). W [dokumentacji usługi Azure SQL ](/azure/sql-database/) dostępne są również przewodniki Szybki start, które używają interfejsu wiersza polecenia platformy Azure oraz programu Azure PowerShell.
 
 Istnieją dwa kroki związane z udzielaniem maszynie wirtualnej dostępu do bazy danych:
 
@@ -53,7 +53,7 @@ Istnieją dwa kroki związane z udzielaniem maszynie wirtualnej dostępu do bazy
 
 ### <a name="enable-azure-ad-authentication"></a>Włączanie uwierzytelniania w usłudze Azure AD
 
-**Aby [skonfigurować uwierzytelnianie usługi Azure AD](/azure/sql-database/sql-database-aad-authentication-configure):**
+**Aby [skonfigurować uwierzytelnianie usługi Azure AD](../../azure-sql/database/authentication-aad-configure.md):**
 
 1. W witrynie Azure Portal wybierz opcję **Serwery SQL** z lewego paska nawigacyjnego.
 2. Kliknij serwer SQL, aby włączyć go do uwierzytelniania usługi Azure AD.
@@ -64,10 +64,10 @@ Istnieją dwa kroki związane z udzielaniem maszynie wirtualnej dostępu do bazy
 
 ### <a name="create-contained-user"></a>Utwórz zawartego użytkownika
 
-W tej sekcji przedstawiono sposób tworzenia zawartego użytkownika w bazie danych, który reprezentuje tożsamość przypisanej do systemu maszyny wirtualnej. Ten krok wymaga [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Przed rozpoczęciem pomocne może być sprawdzenie następujących artykułów, aby uzyskać podstawowe informacje o integracji usługi Azure AD:
+W tej sekcji przedstawiono sposób tworzenia zawartego użytkownika w bazie danych, który reprezentuje tożsamość przypisanej do systemu maszyny wirtualnej. Ten krok wymaga [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Przed rozpoczęciem pomocne może być sprawdzenie następujących artykułów, aby uzyskać podstawowe informacje o integracji usługi Azure AD:
 
-- [Uniwersalne uwierzytelnianie przy użyciu usług SQL Database i Azure Synapse Analytics (Obsługa programu SSMS dla usługi MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Konfigurowanie i Zarządzanie uwierzytelnianiem Azure Active Directory przy użyciu SQL Database lub usługi Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Uniwersalne uwierzytelnianie przy użyciu usług SQL Database i Azure Synapse Analytics (Obsługa programu SSMS dla usługi MFA)](../../azure-sql/database/authentication-mfa-ssms-overview.md)
+- [Konfigurowanie i Zarządzanie uwierzytelnianiem Azure Active Directory przy użyciu SQL Database lub usługi Azure Synapse Analytics](../../azure-sql/database/authentication-aad-configure.md)
 
 Usługa SQL Database wymaga unikatowych nazw wyświetlanych usługi AAD. W związku z tym konta usługi AAD, takie jak użytkownicy, grupy i jednostki usług (aplikacje) i nazwy maszyn wirtualnych z włączoną tożsamością zarządzaną, muszą być jednoznacznie zdefiniowane w usłudze AAD w odniesieniu do ich nazw wyświetlanych. Baza danych SQL sprawdza nazwę wyświetlaną usługi AAD podczas tworzenia tych użytkowników przez T-SQL, a jeśli nie jest unikatowa, polecenie nie powiedzie się, aby podać unikatową nazwę wyświetlaną usługi AAD dla danego konta.
 
@@ -203,9 +203,9 @@ Sprawdź wartość `$DataSet.Tables[0]`, aby wyświetlić wyniki zapytania.
 
 [!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób korzystania z tożsamości zarządzanej przypisanej przez system w celu uzyskania dostępu do Azure SQL Database. Aby dowiedzieć się więcej na temat Azure SQL Database, zobacz:
 
 > [!div class="nextstepaction"]
-> [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)
+> [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)

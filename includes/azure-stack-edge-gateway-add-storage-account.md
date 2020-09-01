@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 12/31/2019
+ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 509f141939001e672112c9ff32124402174c70d2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 30ca4d330d9b16214396ac81e5ab5722ca0e7569
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084958"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254302"
 ---
 1. W [Azure Portal](https://portal.azure.com/)wybierz Azure Stack zasobów brzegowych, a następnie przejdź do **omówienia**. Urządzenie powinno być w trybie online.
 

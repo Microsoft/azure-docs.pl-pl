@@ -1,6 +1,6 @@
 ---
 title: Samouczek umożliwiający nawiązanie połączenia z usługą, skonfigurowanie, aktywowanie Azure Stack urządzenia brzegowego za pomocą procesora GPU w Azure Portal | Microsoft Docs
-description: Samouczek wdrażania Azure Stack Edge powoduje nawiązanie połączenia, skonfigurowanie i aktywowanie urządzenia fizycznego.
+description: Samouczek wdrażania Azure Stack Edge procesora GPU powoduje nawiązanie połączenia, skonfigurowanie i aktywowanie urządzenia fizycznego.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: c0581a79bda4ae4e311390f5b2d929073e0833d9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 41055fbd455d3f7b9da63ee8f7420f008ea75a00
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182024"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254512"
 ---
 # <a name="tutorial-configure-device-settings-for-azure-stack-edge-with-gpu"></a>Samouczek: Konfigurowanie ustawień urządzenia dla Azure Stack Edge z procesorem GPU
 

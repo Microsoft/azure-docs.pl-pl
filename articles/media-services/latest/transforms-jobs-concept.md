@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Dowiedz się, jak utworzyć przekształcenia, aby opisać reguły przetwarzania filmów wideo w Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: d45d802456345eab857f571d2d52793c8be691eb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: inhenkel
+ms.openlocfilehash: 103509de90d8819b19c46ebba7ae2dcc6071ac33
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543065"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256073"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformacje i zadania w Media Services
 
@@ -114,7 +114,7 @@ Aby uzyskać szczegółowe informacje, zobacz [Skalowanie przetwarzania multimed
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Kody błędów](/rest/api/media/jobs/get#joberrorcode)
 * [Filtrowanie, porządkowanie, stronicowanie jednostek Media Services](entities-overview.md)

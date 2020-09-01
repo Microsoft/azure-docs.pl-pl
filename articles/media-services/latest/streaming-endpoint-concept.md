@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Dowiedz się więcej na temat punktów końcowych przesyłania strumieniowego (pochodzenia), dynamicznego tworzenia pakietów i usługi przesyłania strumieniowego, które dostarczają zawartość bezpośrednio do aplikacji odtwarzacza klienta lub Content Delivery Network (CDN).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: inhenkel
+ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446203"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256501"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services
 
@@ -54,7 +54,7 @@ Tabela zawiera opis typów:
 |Typ|Jednostki skalowania|Opis|
 |--------|--------|--------|  
 |**Standardowa**|0|Domyślny punkt końcowy przesyłania strumieniowego jest typem **standardowym** — można go zmienić na typ Premium przez dostosowanie `scaleUnits` .|
-|**Tytułu**|>0|Wersja **Premium** Punkty końcowe przesyłania strumieniowego są odpowiednie dla zaawansowanych obciążeń i zapewniają dedykowaną i skalowalną przepustowość. Przechodzenie do typu **Premium** przez dostosowanie `scaleUnits` (jednostki przesyłania strumieniowego). `scaleUnits`Zapewnij dedykowaną pojemność wyjściową, którą można zakupić w przyrostach wynoszących 200 MB/s. W przypadku korzystania z typu **Premium** każda włączona jednostka zapewnia dodatkową przepustowość dla aplikacji. |
+|**Premium**|>0|Wersja **Premium** Punkty końcowe przesyłania strumieniowego są odpowiednie dla zaawansowanych obciążeń i zapewniają dedykowaną i skalowalną przepustowość. Przechodzenie do typu **Premium** przez dostosowanie `scaleUnits` (jednostki przesyłania strumieniowego). `scaleUnits` Zapewnij dedykowaną pojemność wyjściową, którą można zakupić w przyrostach wynoszących 200 MB/s. W przypadku korzystania z typu **Premium** każda włączona jednostka zapewnia dodatkową przepustowość dla aplikacji. |
 
 > [!NOTE]
 > W przypadku klientów chcących dostarczyć zawartość do dużych odbiorców internetowych zalecamy włączenie usługi CDN w punkcie końcowym przesyłania strumieniowego.
@@ -68,11 +68,11 @@ Cechy|Standardowa (Standard)|Premium
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
 Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
-Szyfrowanie dynamiczne|Tak|Tak
-Dynamiczne tworzenie pakietów|Tak|Tak
+Szyfrowanie dynamiczne|Yes|Yes
+Dynamiczne tworzenie pakietów|Yes|Yes
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe usługi SUs
-Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Tak|Tak
-Pobieranie progresywne|Tak|Tak
+Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Yes|Yes
+Pobieranie progresywne|Yes|Yes
 Zalecane użycie |Zalecane w przypadku większości scenariuszy przesyłania strumieniowego.|Profesjonalne użycie.
 
 <sup>1</sup> używany bezpośrednio w punkcie końcowym przesyłania strumieniowego, gdy sieć CDN nie jest włączona w punkcie końcowym.<br/>
@@ -92,8 +92,8 @@ Ta sekcja zawiera szczegółowe informacje dotyczące niektórych właściwości
 
     Jeśli zostanie wyświetlony ten błąd, centrum danych nie będzie go obsługiwać. Wypróbuj inne centrum danych.
 
-- `cdnProfile`: Gdy `cdnEnabled` ma wartość true, można również przekazać `cdnProfile` wartości. `cdnProfile`jest nazwą profilu CDN, w którym zostanie utworzony punkt końcowy usługi CDN. Możesz podać istniejący cdnProfile lub użyć nowego. Jeśli wartość jest RÓWNa NULL i `cdnEnabled` ma wartość true, zostanie użyta wartość domyślna "AzureMediaStreamingPlatformCdnProfile". Jeśli podane `cdnProfile` już istnieje, jest w nim tworzony punkt końcowy. Jeśli profil nie istnieje, zostanie automatycznie utworzony nowy profil.
-- `cdnProvider`: Gdy Usługa CDN jest włączona, można również przekazać `cdnProvider` wartości. `cdnProvider`kontroluje, który dostawca będzie używany. Obecnie obsługiwane są trzy wartości: "StandardVerizon", "PremiumVerizon" i "StandardAkamai". Jeśli nie podano wartości i `cdnEnabled` ma wartość true, używana jest wartość "StandardVerizon" (to jest domyślna).
+- `cdnProfile`: Gdy `cdnEnabled` ma wartość true, można również przekazać `cdnProfile` wartości. `cdnProfile` jest nazwą profilu CDN, w którym zostanie utworzony punkt końcowy usługi CDN. Możesz podać istniejący cdnProfile lub użyć nowego. Jeśli wartość jest RÓWNa NULL i `cdnEnabled` ma wartość true, zostanie użyta wartość domyślna "AzureMediaStreamingPlatformCdnProfile". Jeśli podane `cdnProfile` już istnieje, jest w nim tworzony punkt końcowy. Jeśli profil nie istnieje, zostanie automatycznie utworzony nowy profil.
+- `cdnProvider`: Gdy Usługa CDN jest włączona, można również przekazać `cdnProvider` wartości. `cdnProvider` kontroluje, który dostawca będzie używany. Obecnie obsługiwane są trzy wartości: "StandardVerizon", "PremiumVerizon" i "StandardAkamai". Jeśli nie podano wartości i `cdnEnabled` ma wartość true, używana jest wartość "StandardVerizon" (to jest domyślna).
 - `crossSiteAccessPolicies`: Służy do określania zasad dostępu między lokacjami dla różnych klientów. Aby uzyskać więcej informacji, zobacz [specyfikację plików zasad między domenami](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) i [udostępnianie usługi w granicach domen](/previous-versions/azure/azure-services/gg185950(v=azure.100)). Ustawienia dotyczą tylko Smooth Streaming.
 - `customHostNames`: Służy do konfigurowania punktu końcowego przesyłania strumieniowego w celu akceptowania ruchu kierowanego do niestandardowej nazwy hosta. Ta właściwość jest prawidłowa dla punktów końcowych przesyłania strumieniowego w warstwie Standardowa i Premium i można ją ustawić w przypadku `cdnEnabled` : false.
 
@@ -122,7 +122,7 @@ Ta sekcja zawiera szczegółowe informacje dotyczące niektórych właściwości
 
     Obecnie Media Services nie obsługuje protokołu TLS z domenami niestandardowymi.
 
-- `maxCacheAge`-Zastępuje domyślny maksymalny nagłówek sterowania pamięcią podręczną HTTP ustawiony przez punkt końcowy przesyłania strumieniowego dla fragmentów nośnika i manifestów na żądanie. Wartość jest ustawiona w sekundach.
+- `maxCacheAge` -Zastępuje domyślny maksymalny nagłówek sterowania pamięcią podręczną HTTP ustawiony przez punkt końcowy przesyłania strumieniowego dla fragmentów nośnika i manifestów na żądanie. Wartość jest ustawiona w sekundach.
 - `resourceState` -
 
     - Zatrzymano: początkowy stan punktu końcowego przesyłania strumieniowego po utworzeniu
@@ -165,7 +165,7 @@ Zobacz następujące artykuły:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
 

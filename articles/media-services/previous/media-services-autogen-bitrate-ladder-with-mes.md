@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0309579a674533ebd056c8493b149cc78beef607
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896014"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254077"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Użyj Media Encoder Standard, aby automatycznie wygenerować drabinę szybkości transmisji bitów  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Użyj Media Encoder Standard, aby automatycznie wygenerować drabinę szybkości transmisji bitów
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## <a name="overview"></a>Omówienie
 
@@ -174,7 +176,7 @@ W tej sekcji przedstawiono trzy przykłady warstw wyjściowych produkowanych prz
 ### <a name="example-1"></a>Przykład 1
 Źródło o wysokości "1080" i szybkości klatek "29,970" tworzą 6 warstw wideo:
 
-|Warstwa|Właściwość Height|impulsów|Szybkość transmisji bitów (KB/s)|
+|Warstwa|Height|Width|Szybkość transmisji bitów (KB/s)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +188,7 @@ W tej sekcji przedstawiono trzy przykłady warstw wyjściowych produkowanych prz
 ### <a name="example-2"></a>Przykład 2
 Źródło o wysokości "720" i szybkości klatek "23,970" produkuje 5 warstw wideo:
 
-|Warstwa|Właściwość Height|impulsów|Szybkość transmisji bitów (KB/s)|
+|Warstwa|Height|Width|Szybkość transmisji bitów (KB/s)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +199,7 @@ W tej sekcji przedstawiono trzy przykłady warstw wyjściowych produkowanych prz
 ### <a name="example-3"></a>Przykład 3
 Źródło o wysokości "360" i szybkości klatek "29,970" tworzą 3 warstwy wideo:
 
-|Warstwa|Właściwość Height|impulsów|Szybkość transmisji bitów (KB/s)|
+|Warstwa|Height|Width|Szybkość transmisji bitów (KB/s)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

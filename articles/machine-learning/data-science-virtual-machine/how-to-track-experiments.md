@@ -1,7 +1,7 @@
 ---
 title: Śledzenie eksperymentu i wdrażanie modeli
 titleSuffix: Azure Data Science Virtual Machine
-description: Dowiedz się, jak śledzić i rejestrować eksperymenty z DSVM za pomocą Azure Machine Learning i/lub MLFlow.
+description: Dowiedz się, jak śledzić i rejestrować eksperymenty z Data Science Virtual Machine za pomocą Azure Machine Learning i/lub MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146899"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254804"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Śledź eksperymenty i wdrażaj modele w Azure Machine Learning
 
@@ -26,7 +26,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konieczne będzie [udostępnienie obszar roboczy usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* Musisz [zainicjować obsługę administracyjną obszar roboczy usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Tworzenie nowego notesu
 
@@ -40,7 +40,7 @@ Przejdź do [Azure Portal](https://portal.azure.com) i wybierz obszar roboczy, k
 
 ![Pobierz plik konfiguracji](./media/how-to-track-experiments/experiment-tracking-2.png)
 
-Konfiguracja zawiera informacje, takie jak nazwa obszaru roboczego, subskrypcja itp., ale nie jest konieczne, aby nie trzeba było nawiązać tego kodu.
+Konfiguracja zawiera informacje, takie jak nazwa obszaru roboczego, subskrypcja itp. i nie jest konieczne, aby nie trzeba było twardych kodów.
 
 ## <a name="track-dsvm-runs"></a>Śledź uruchomienia DSVM
 
@@ -123,7 +123,7 @@ Powinien pojawić się komunikat o błędzie z błędami kwadratowymi (MSE):
 
 ![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-Po kliknięciu przebiegu zobaczysz inne szczegóły, a także model wyboru w __dziennikach Output + Logs__
+Jeśli klikniesz przebieg, zobaczysz inne szczegóły, a także model wybierany w __dziennikach Output +__
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Wdróż model w Azure Machine Learning
 
@@ -131,11 +131,11 @@ W tej sekcji opisano sposób wdrażania modeli przeszkolonych na DSVM do Azure M
 
 ### <a name="step-1-create-inference-compute"></a>Krok 1. tworzenie obliczeń wnioskowania
 
-W menu po lewej stronie w programie [Azure Studio](https://ml.azure.com) kliknij pozycję __obliczenia__ , a następnie kartę __klastry wnioskowania__ . Następnie kliknij pozycję __+ Nowy__ jako przeguby poniżej:
+W menu po lewej stronie w programie [Azure Studio](https://ml.azure.com) kliknij pozycję __obliczenia__ , a następnie kartę __klastry wnioskowania__ . Następnie kliknij pozycję __+ Nowy__ , jak opisano poniżej:
 
 ![Tworzenie obliczeń wnioskowania](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-W okienku __nowy klaster wnioskowania__ Uzupełnij szczegóły dotyczące:
+W okienku __nowe informacje o klastrze wnioskowania__ o:
 
 * Nazwa obliczeniowa
 * Usługa Kubernetes — wybierz pozycję Utwórz nowe
@@ -151,7 +151,7 @@ Następnie kliknij pozycję __Utwórz__.
 
 ### <a name="step-2-deploy-no-code-inference-service"></a>Krok 2. wdrażanie usługi wnioskowania bez kodu
 
-Po zarejestrowaniu modelu w naszym kodzie przy użyciu `register_model` określenia struktury jako skryptu sklearn. Azure Machine Learning nie obsługuje wdrożeń kodu dla następujących platform:
+Po zarejestrowaniu modelu w naszym kodzie przy użyciu programu `register_model` określono strukturę jako skryptu sklearn. Azure Machine Learning nie obsługuje wdrożeń kodu dla następujących platform:
 
 * scikit-learn
 * Tensorflow SaveModel
@@ -165,9 +165,9 @@ Aby wdrożyć model cukrzycą, przejdź do menu po lewej stronie w [Azure Machin
 
 Następnie kliknij przycisk __Wdróż__ w okienku szczegółów modelu:
 
-![Wdrażanie](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Wdróż](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-Zostanie wdrożony model do klastra wnioskowania (usługa Azure Kubernetes), który został utworzony w kroku 1. Podaj poniższe informacje szczegółowe, podając nazwę usługi i nazwę klastra AKS COMPUTE (utworzonego w kroku 1). Zalecamy również zwiększenie __pojemności rezerwowej procesora CPU__ do 1 (od 0,1) i __pojemności rezerwowej pamięci__ do 1 (od 0,5) — można to zrobić, klikając pozycję __Zaawansowane__ i wypełniając szczegóły. Następnie kliknij przycisk __Wdróż__.
+Zostanie wdrożony model do klastra wnioskowania (usługa Azure Kubernetes), który został utworzony w kroku 1. Wypełnij poniższe informacje, podając nazwę usługi i nazwę klastra AKS COMPUTE (utworzonego w kroku 1). Zalecamy również zwiększenie __pojemności rezerwy procesora CPU__ do 1 (od 0,1) i __pojemności rezerwowej pamięci__ do 1 (od 0,5) — można zwiększyć ten wzrost, klikając pozycję __Zaawansowane__ i wypełniając szczegóły. Następnie kliknij przycisk __Wdróż__.
 
 ![Wdróż szczegóły](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
@@ -177,9 +177,9 @@ Po pomyślnym wdrożeniu modelu powinny zostać wyświetlone następujące eleme
 
 ![Korzystanie z modelu](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-Należy zauważyć, że stan wdrożenia przechodzi od __przejścia__ do __dobrej kondycji__. Dodatkowo ta sekcja zawiera informacje o punktach końcowych REST i adresach URL programu Swagger, które mogą być używane przez dewelopera aplikacji do integrowania modelu sieci z ich aplikacjami.
+Powinieneś zobaczyć, że stan wdrożenia przechodzi od __przejścia__ do __dobrej kondycji__. Ponadto ta sekcja zawiera informacje o punktach końcowych REST i adresach URL programu Swagger, które mogą być używane przez dewelopera aplikacji do integrowania modelu ML z aplikacjami.
 
-Punkt końcowy można testować za pomocą programu [Poster](https://www.postman.com/), Alternatywnie można użyć zestawu Azure SDK:
+Punkt końcowy można przetestować przy użyciu programu [Poster](https://www.postman.com/)lub użyć zestawu Azure SDK:
 
 ```python
 from azureml.core import Webservice
@@ -200,7 +200,7 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>Krok 4. Czyszczenie
 
-Należy usunąć obliczenia wnioskowania, które zostało utworzone w kroku 1, aby nie naliczane były stałe opłaty za obliczenia. W menu po lewej stronie w Azure Machine Learning Studio kliknij pozycję zasoby obliczeniowe > klastrów > wybierz pozycję obliczenia > Usuń.
+Usuń obliczenia wnioskowania utworzone w kroku 1, tak aby nie były naliczane stałe opłaty za obliczenia. W menu po lewej stronie w Azure Machine Learning Studio kliknij pozycję zasoby obliczeniowe > klastrów > wybierz pozycję obliczenia > Usuń.
 
 ## <a name="next-steps"></a>Następne kroki
 

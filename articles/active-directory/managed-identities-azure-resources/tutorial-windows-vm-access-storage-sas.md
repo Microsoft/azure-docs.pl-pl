@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a7c9580d48f70d4bc2391e5c13c8571c38feae
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa04247aca777612c05a7531dc5b36e7af40e60e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018590"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255855"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Samouczek: używanie tożsamości zarządzanej przypisanej przez system Windows VM do uzyskiwania dostępu do usługi Azure Storage za pośrednictwem poświadczeń SYGNATURy dostępu współdzielonego
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-W tym samouczku przedstawiono sposób użycia tożsamości przypisanej do systemu dla maszyny wirtualnej z systemem Windows (VM) w celu uzyskania poświadczeń sygnatury dostępu współdzielonego (SAS) magazynu. W szczególności [poświadczeń SAS usługi](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+W tym samouczku przedstawiono sposób użycia tożsamości przypisanej do systemu dla maszyny wirtualnej z systemem Windows (VM) w celu uzyskania poświadczeń sygnatury dostępu współdzielonego (SAS) magazynu. W szczególności [poświadczeń SAS usługi](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 SYGNATURa dostępu współdzielonego usługi umożliwia przyznanie ograniczonego dostępu do obiektów na koncie magazynu, przez ograniczony czas i konkretną usługę (w naszym przypadku usługa BLOB Service) bez ujawniania klucza dostęp do konta. Możesz użyć poświadczeń SAS w zwykły sposób wykorzystywany podczas wykonywania operacji magazynu, np. podczas używania zestawu SDK usługi Storage. W tym samouczku przedstawiono przekazywanie i pobieranie obiektu BLOB przy użyciu programu PowerShell usługi Azure Storage. Poznasz następujące czynności:
 
@@ -83,7 +83,7 @@ Usługa Azure Storage nie zapewnia natywnej obsługi uwierzytelniania usługi Az
 
 W pozostałej części tego samouczka będziemy pracować z poziomu wcześniej utworzonej maszyny wirtualnej.
 
-W tej części będzie wymagane użycie poleceń cmdlet programu PowerShell w usłudze Azure Resource Manager.  Jeśli nie masz zainstalowanego [programu, Pobierz najnowszą wersję](https://docs.microsoft.com/powershell/azure/) przed kontynuowaniem.
+W tej części będzie wymagane użycie poleceń cmdlet programu PowerShell w usłudze Azure Resource Manager.  Jeśli nie masz zainstalowanego [programu, Pobierz najnowszą wersję](/powershell/azure/) przed kontynuowaniem.
 
 1. W witrynie Azure Portal przejdź do pozycji **Maszyny wirtualne**, przejdź do maszyny wirtualnej z systemem Windows, a następnie na stronie **Przegląd** kliknij opcję **Połącz** u góry.
 2. Wprowadź **nazwę użytkownika** i **hasło** dodane podczas tworzenia maszyny wirtualnej z systemem Windows. 
@@ -200,11 +200,9 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób użycia tożsamości zarządzanej przypisanej do systemu Windows maszyny wirtualnej w celu uzyskania dostępu do usługi Azure Storage przy użyciu poświadczeń SYGNATURy dostępu współdzielonego.  Aby dowiedzieć się więcej o sygnaturze dostępu współdzielonego usługi Azure Storage, zobacz:
 
 > [!div class="nextstepaction"]
->[Używanie sygnatury dostępu współdzielonego (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-
-
+>[Używanie sygnatury dostępu współdzielonego (SAS)](../../storage/common/storage-sas-overview.md)

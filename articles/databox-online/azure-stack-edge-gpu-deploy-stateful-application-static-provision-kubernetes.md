@@ -1,6 +1,6 @@
 ---
 title: Użyj polecenia kubectl do wdrożenia aplikacji stanowej Kubernetes za pośrednictwem udziału statycznego na Azure Stack urządzeniu brzegowym | Microsoft Docs
-description: Zawiera opis sposobu tworzenia i zarządzania wdrożeniem aplikacji stanowych Kubernetes za pośrednictwem statycznego udziału z polecenia kubectl na urządzeniu brzegowym Microsoft Azure Stack.
+description: Zawiera opis sposobu tworzenia i zarządzania wdrożeniem aplikacji stanowych Kubernetes za pośrednictwem statycznego udziału z polecenia kubectl na urządzeniu z systemem Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: cabd27849445c0eab93a6649d228a172b66bd1a4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085804"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254376"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z PersistentVolume na urządzeniu Azure Stack Edge
 

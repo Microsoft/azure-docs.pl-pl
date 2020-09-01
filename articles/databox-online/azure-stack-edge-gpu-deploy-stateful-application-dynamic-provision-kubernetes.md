@@ -1,6 +1,6 @@
 ---
-title: Użyj polecenia kubectl do wdrożenia aplikacji stanowej Kubernetes za pośrednictwem dynamicznego udostępniania na Azure Stack urządzeniu brzegowym | Microsoft Docs
-description: Opisuje sposób tworzenia i zarządzania wdrożeniem aplikacji stanowych Kubernetes za pośrednictwem dynamicznego udostępniania udziałów przy użyciu usługi polecenia kubectl na urządzeniu brzegowym Microsoft Azure Stack.
+title: Użyj polecenia kubectl do wdrożenia aplikacji stanowej Kubernetes za pośrednictwem dynamicznie przystosowanego udziału na urządzeniu Azure Stack Edge procesor GPU | Microsoft Docs
+description: Opisuje sposób tworzenia i zarządzania wdrożeniem aplikacji stanowych Kubernetes za pośrednictwem dynamicznego udostępniania udziałów przy użyciu usługi polecenia kubectl na urządzeniu z systemem Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: e83b2b1cb7013b9d72bd2c2de8c7636d5c9d8773
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085708"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254325"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z StorageClass na urządzeniu Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z StorageClass na urządzeniu z systemem Azure Stack Edge
 
 W tym artykule pokazano, jak wdrożyć aplikację stanową pojedynczego wystąpienia w programie Kubernetes przy użyciu StorageClass do dynamicznego aprowizacji magazynu i wdrożenia. Wdrożenie używa `kubectl` poleceń w istniejącym klastrze Kubernetes i wdraża aplikację MySQL. 
 

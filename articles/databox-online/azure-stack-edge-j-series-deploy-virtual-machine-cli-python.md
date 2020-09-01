@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 77251148bed76f672adc2fffe2db688b33786022
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147120"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255532"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 

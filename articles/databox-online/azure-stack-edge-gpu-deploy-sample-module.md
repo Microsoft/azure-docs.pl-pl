@@ -1,23 +1,23 @@
 ---
-title: Wdrażanie modułu GPU na urządzeniu Microsoft Azure Stack Edge | Microsoft Docs
+title: Wdrażanie modułu GPU na urządzeniu z systemem Azure Stack Edge Microsoft Docs
 description: Opisuje sposób włączania obliczeń i wprowadzania Azure Stack obliczeń urządzenia brzegowego za pośrednictwem lokalnego interfejsu użytkownika.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 68badb1524c869309a0e2d96eaf6c9e490111bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085809"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254563"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-device"></a>Wdrażanie modułu IoT z włączonym procesorem GPU na urządzeniu Azure Stack Edge
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Wdrażanie modułu IoT z włączonym procesorem GPU na urządzeniu Azure Stack Edge GPU
 
-W tym artykule opisano sposób wdrażania modułu IoT Edge z włączonym procesorem GPU na urządzeniu brzegowym Azure Stack. 
+W tym artykule opisano sposób wdrażania modułu IoT Edge z włączonym procesorem GPU na urządzeniu z systemem Azure Stack Edge. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
   - Przygotuj Azure Stack krawędź do uruchomienia modułu GPU.

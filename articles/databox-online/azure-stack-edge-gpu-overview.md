@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge — Omówienie | Microsoft Docs
-description: Opisuje Azure Stack Edge, rozwiązanie magazynu, które korzysta z urządzenia fizycznego na potrzeby transferu sieciowego na platformę Azure.
+title: Microsoft Azure Stack krawędzi z omówieniem procesora GPU | Microsoft Docs
+description: Opisuje Azure Stack Edge z procesorem GPU, rozwiązaniem magazynu korzystającym z urządzenia fizycznego na potrzeby transferu sieciowego na platformę Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: e3caf4e0e60b8ef9fb0b30b599b22e0f07d8998c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a8e1c83573de53962b3646304389023d91ab6dd3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088396"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256246"
 ---
 # <a name="what-is-azure-stack-edge-with-gpu-preview"></a>Co to jest Azure Stack Edge z procesorem GPU (wersja zapoznawcza)?
 

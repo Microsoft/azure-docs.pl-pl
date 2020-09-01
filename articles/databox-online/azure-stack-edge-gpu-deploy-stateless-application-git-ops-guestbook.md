@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie aplikacji w języku PHP w systemie ARC z włączonym Kubernetes na urządzeniu Azure Stack Edge | Microsoft Docs
+title: Wdrażanie aplikacji w języku PHP w systemie ARC z włączonym Kubernetes na urządzeniu z systemem Azure Stack Edge Microsoft Docs
 description: Opisuje sposób wdrażania bezstanowej aplikacji w języku PHP przy użyciu usługi Redis za pomocą GitOps w klastrze z włączonym centrum Kubernetes na urządzeniu Azure Stack Edge.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 46cef291a447a7c243ee9ef66ee64e9c6264ad23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085768"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254223"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis w przypadku Kubernetes klastra z włączoną funkcją Arc na Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis w klastrze Kubernetes z włączonym procesorem GPU na Azure Stack Edge
 
 W tym artykule pokazano, jak skompilować i wdrożyć prostą wielowarstwową aplikację sieci Web przy użyciu Kubernetes i Azure Arc. Ten przykład składa się z następujących składników:
 

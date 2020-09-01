@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008968"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256535"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementowanie przesyłania strumieniowego trybu failover z Media Services V2
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 W tym instruktażu przedstawiono sposób kopiowania zawartości (obiektów BLOB) z jednego zasobu do drugiego w celu obsługi nadmiarowości na potrzeby przesyłania strumieniowego na żądanie. Ten scenariusz jest przydatny, jeśli chcesz skonfigurować usługę Azure Content Delivery Network w celu przełączenia w tryb failover między dwoma centrami danych, w przypadku awarii w jednym centrum danych. W tym instruktażu jest używany zestaw SDK Azure Media Services, interfejs API REST Azure Media Services i zestaw SDK usługi Azure Storage w celu przedstawienia następujących zadań:
 
@@ -757,7 +759,7 @@ Aby uzyskać więcej informacji na temat ochrony zawartości, zobacz [Korzystani
 
 [Monitorowanie powiadomień dotyczących zadań Media Services za pomocą elementów webhook platformy Azure](media-services-dotnet-check-job-progress-with-webhooks.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Za pomocą Menedżera ruchu można teraz kierować żądania między dwoma centrami danych, a tym samym przechodzić w tryb failover w przypadku awarii.
 

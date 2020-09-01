@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie siecią obliczeniową na Azure Stack Edge w celu uzyskania dostępu do modułów | Microsoft Docs
-description: Opisuje sposób rozszerzenia sieci obliczeniowej na Azure Stackej krawędzi w celu uzyskania dostępu do modułów za pośrednictwem zewnętrznego adresu IP.
+title: Wdróż bezstanową aplikację Kubernetes na Azure Stack Edge GPU przy użyciu modułu IoT Edge | Microsoft Docs
+description: Opisuje sposób wdrażania aplikacji bezstanowej Kubernetes na urządzeniu GPU Azure Stack Edge przy użyciu modułu IoT Edge, do którego dostęp jest uzyskiwany za pośrednictwem zewnętrznego adresu IP.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 8de3dbd754cd0cbef947d2cde44542f9f3f77a08
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085653"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254172"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Używanie modułu IoT Edge do uruchamiania aplikacji bezstanowej Kubernetes na urządzeniu brzegowym Azure Stack
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>Używanie modułu IoT Edge do uruchamiania aplikacji bezstanowej Kubernetes na urządzeniu z systemem Azure Stack Edge
 
 W tym artykule opisano, jak można użyć modułu IoT Edge do wdrożenia aplikacji bezstanowej na urządzeniu brzegowym Azure Stack.
 
@@ -78,7 +78,7 @@ Wykonaj następujące kroki, aby dodać moduł aplikacji sieci WebServer na urz�
 
         ![Określ informacje o porcie w bloku modułu IoT Edge niestandardowego](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-module-status-1.png)
 
-    4. Wybierz pozycję **Przeglądanie + tworzenie**. Przejrzyj szczegóły modułu i wybierz pozycję **Utwórz**.
+    4. Wybierz pozycję **Przejrzyj i utwórz**. Przejrzyj szczegóły modułu i wybierz pozycję **Utwórz**.
 
 ## <a name="verify-module-access"></a>Weryfikuj dostęp do modułu
 

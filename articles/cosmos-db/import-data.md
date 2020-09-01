@@ -4,14 +4,14 @@ description: 'Samouczek: informacje na temat używania narzędzi do migracji dan
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 9992d6f1f9f1d0aad6f451d6a974f4df9f655881
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85118767"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255991"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Samouczek: Migrowanie danych do Azure Cosmos DB za pomocą narzędzia do migracji danych
 
@@ -40,6 +40,9 @@ Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że zostały 
 * **Zwiększenie przepływności:** czas trwania migracji danych zależy od przepływności skonfigurowanej dla pojedynczej kolekcji lub dla zestawu kolekcji. Pamiętaj o zwiększeniu przepływności w przypadku większych migracji danych. Po ukończeniu migracji zmniejsz przepływność, aby ograniczyć koszty. Aby uzyskać więcej informacji na temat zwiększania przepływności w Azure Portal, zobacz [poziomy wydajności](performance-levels.md) i [warstwy cenowe](https://azure.microsoft.com/pricing/details/cosmos-db/) w Azure Cosmos DB.
 
 * **Utworzenie zasobów usługi Azure Cosmos DB:** przed rozpoczęciem migracji danych utwórz wstępnie wszystkie kolekcje w witrynie Azure Portal. Aby przeprowadzić migrację do konta Azure Cosmos DB, które ma przepływność na poziomie bazy danych, należy podać klucz partycji podczas tworzenia kontenerów usługi Azure Cosmos.
+
+> [!IMPORTANT]
+> Aby upewnić się, że narzędzie do migracji danych używa Transport Layer Security (TLS) 1,2 podczas nawiązywania połączenia z kontami usługi Azure Cosmos, użyj .NET Framework wersji 4,7 lub postępuj zgodnie z instrukcjami zawartymi w [tym artykule](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 
 ## <a name="overview"></a><a id="Overviewl"></a>Omówienie
 
