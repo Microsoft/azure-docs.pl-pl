@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79db3db5a46700f55c1dc759443cae194660372d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 87bb2cc53ce056552e8f44aac4ade96e603a8787
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007645"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230045"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta systemu iOS
 
@@ -36,6 +36,7 @@ Aby subskrybować źródło danych:
 2. Wprowadź adres URL źródła danych w polu **adres URL źródła danych** . Adres URL źródła danych może być adresem URL lub adresem e-mail.
    - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest to adres URL <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
+   - Aby nawiązać połączenie za pomocą portalu US Gov, użyj <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Naciśnij opcję **Dalej**.
 4. Po wyświetleniu monitu podaj swoje poświadczenia.
    - W polu **Nazwa użytkownika**Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.

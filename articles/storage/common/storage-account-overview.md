@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4fe353467a11e9581db76ec495194878414f4dfb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034655"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230691"
 ---
 # <a name="storage-account-overview"></a>Omówienie kont magazynu
 
@@ -129,10 +129,10 @@ Konto magazynu zapewnia unikatową przestrzeń nazw na platformie Azure dla dany
 
 Na przykład jeśli Twoje konto magazynu ogólnego przeznaczenia ma nazwę *mojekontomagazynu*, domyślne punkty końcowe dla tego konta są następujące:
 
-- Magazyn obiektów blob:`https://*mystorageaccount*.blob.core.windows.net`
-- Magazyn tabel:`https://*mystorageaccount*.table.core.windows.net`
-- Kolejka magazynu:`https://*mystorageaccount*.queue.core.windows.net`
-- Azure Files:`https://*mystorageaccount*.file.core.windows.net`
+- Magazyn obiektów blob: `https://*mystorageaccount*.blob.core.windows.net`
+- Magazyn tabel: `https://*mystorageaccount*.table.core.windows.net`
+- Kolejka magazynu: `https://*mystorageaccount*.queue.core.windows.net`
+- Azure Files: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > Blokowe obiekty blob i BLOB Storage uwidaczniają tylko Blob service punkt końcowy.
@@ -164,7 +164,7 @@ Firma Microsoft udostępnia narzędzia i biblioteki do importowania danych z lok
 
 Po uaktualnieniu do konta ogólnego przeznaczenia w wersji 2 z poziomu konta ogólnego przeznaczenia w wersji 1 lub magazynu obiektów BLOB dane zostaną automatycznie zmigrowane. Firma Microsoft zaleca tej ścieżki do uaktualnienia konta. Jeśli jednak zdecydujesz się przenieść dane z konta ogólnego przeznaczenia w wersji 1 do konta usługi BLOB Storage, Przeprowadź migrację danych ręcznie przy użyciu narzędzi i bibliotek opisanych poniżej.
 
-### <a name="azcopy"></a>AzCopy
+### <a name="azcopy"></a>Narzędzie AzCopy
 
 Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Można użyć AzCopy do kopiowania danych do konta usługi BLOB Storage z istniejącego konta magazynu ogólnego zastosowania lub do przekazywania danych z lokalnych urządzeń magazynujących. Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 

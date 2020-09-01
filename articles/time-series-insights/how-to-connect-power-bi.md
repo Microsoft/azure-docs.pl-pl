@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: b9d91921fc375a1209e8fa8df6e3c6ff56e55be0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: f15686cf07bae4aee41095c970cd8a474724c2ed
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046711"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230980"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Wizualizuj dane z Azure Time Series Insights w Power BI
 
@@ -52,24 +52,24 @@ Aby połączyć środowisko Azure Time Series Insights z Power BI, wykonaj nast�
 
 Aby rozpocząć:
 
-1. Otwórz Eksploratora Azure Time Series Insights Gen2 i zanadzoruj swoje dane.
+1. Otwórz Eksploratora Azure Time Series Insights i zanadzoruj swoje dane.
 1. Po utworzeniu widoku, którego jesteś zadowolony, przejdź do menu rozwijanego **więcej akcji** i wybierz polecenie **Połącz z Power BI**.
 
-    [![Azure Time Series Insights eksportu Eksploratora Gen2](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Eksport Azure Time Series Insights Explorer](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Ustaw parametry na tej karcie:
 
    1. Określ względną przedział czasu do wyświetlenia. Jeśli jesteś zadowolony z istniejącego widoku, pozostaw ten okres jako **istniejący przedział czasu**.
-   
-   1. Wybierz między **zagregowanymi** a **nieprzetworzonymi zdarzeniami**. 
-   
+
+   1. Wybierz między **zagregowanymi** a **nieprzetworzonymi zdarzeniami**.
+
        > [!NOTE]
-       > Dane można zawsze agregować w dalszej części Power BI, ale nie będzie można przywrócić danych pierwotnych po agregacji. 
-       
+       > Dane można zawsze agregować w dalszej części Power BI, ale nie będzie można przywrócić danych pierwotnych po agregacji.
+
        > [!NOTE]
        > Istnieje limit liczby zdarzeń 250 000 dla danych na poziomie nieprzetworzonych zdarzeń.
 
-       [![Połącz](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Connect](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. Jeśli środowisko Azure Time Series Insights nie zostało skonfigurowane z **magazynem ciepłym**, zostanie wyświetlone ostrzeżenie.
 
@@ -89,7 +89,7 @@ Aby rozpocząć:
     [![Połącz Power BI z Azure Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
 
     Alternatywnie przejdź do karty **Azure** , wybierz pozycję **Azure Time Series Insights (beta)**, a następnie **Połącz się**.
-    
+
 1. Zostanie wyświetlone okno dialogowe komunikatu z pytaniem o uprawnienia do łączenia się z zasobami innych firm. Wybierz pozycję **Kontynuuj**.
 
     [![Wybierz pozycję Utwórz zapytanie niestandardowe](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
@@ -112,17 +112,17 @@ Teraz, gdy dane zostały zaimportowane do Power BI, można utworzyć raport z wi
 
     [![Wybierz widok raportu](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
-1.  W kolumnie **wizualizacje** wybierz swoją wizualizację. Na przykład wybierz pozycję **Wykres liniowy**. Spowoduje to dodanie pustego wykresu liniowego do kanwy.
+1. W kolumnie **wizualizacje** wybierz swoją wizualizację. Na przykład wybierz pozycję **Wykres liniowy**. Spowoduje to dodanie pustego wykresu liniowego do kanwy.
 
-1.  Na liście **pola** wybierz pozycję **_Timestamp** i przeciągnij ją do pola **oś** , aby wyświetlić elementy wzdłuż osi X. Upewnij się, że **_Timestamp** jako wartość **osi** (domyślnie **Hierarchia dat**).
+1. Na liście **pola** wybierz pozycję **_Timestamp** i przeciągnij ją do pola **oś** , aby wyświetlić elementy wzdłuż osi X. Upewnij się, że **_Timestamp** jako wartość **osi** (domyślnie **Hierarchia dat**).
 
     [![Wybierz widok raportu](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
-1.  Na liście **pola** wybierz pozycję **TimeSeriesId** i przeciągnij ją do pola **wartości** , aby wyświetlić elementy wzdłuż osi Y.
+1. Na liście **pola** wybierz pozycję **TimeSeriesId** i przeciągnij ją do pola **wartości** , aby wyświetlić elementy wzdłuż osi Y.
 
     [![Tworzenie wykresu liniowego](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Aby dodać kolejny wykres do kanwy, zaznacz dowolne miejsce na kanwie poza wykresem liniowym i powtórz ten proces.
+1. Aby dodać kolejny wykres do kanwy, zaznacz dowolne miejsce na kanwie poza wykresem liniowym i powtórz ten proces.
 
     [![Utwórz dodatkowe wykresy do udostępnienia](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 

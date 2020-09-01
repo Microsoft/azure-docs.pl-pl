@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 3431ad88a27da9d83b75ed3661d6129f157b9b1f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 99985ba8540a347977b9eaf2e733a308fa777b97
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531510"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231405"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Podstawa zabezpieczeń platformy Azure dla Cosmos DB
 
@@ -34,13 +34,13 @@ Możesz również użyć punktów końcowych usługi do zabezpieczenia konta us�
 
 Możesz również zabezpieczyć dane przechowywane na koncie usługi Azure Cosmos za pomocą zapór IP. Azure Cosmos DB obsługuje kontrolę dostępu opartą na protokole IP na potrzeby obsługi zapory przychodzącej. Zaporę IP można ustawić na koncie usługi Azure Cosmos za pomocą Azure Portal, Azure Resource Manager szablonów lub za pośrednictwem interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
-Omówienie linku prywatnego platformy Azure:https://docs.microsoft.com/azure/private-link/private-link-overview
+Omówienie linku prywatnego platformy Azure: https://docs.microsoft.com/azure/private-link/private-link-overview
 
-Jak skonfigurować prywatny punkt końcowy dla Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints 
+Jak skonfigurować prywatny punkt końcowy dla Azure Cosmos DB:  https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints 
 
-Jak utworzyć sieciową grupę zabezpieczeń z konfiguracją zabezpieczeń:https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+Jak utworzyć sieciową grupę zabezpieczeń z konfiguracją zabezpieczeń:  https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-Jak skonfigurować zaporę IP w Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall
+Jak skonfigurować zaporę IP w Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -52,11 +52,11 @@ Jak skonfigurować zaporę IP w Cosmos DB:https://docs.microsoft.com/azure/cosmo
 
 Gdy maszyny wirtualne są wdrażane w tej samej sieci wirtualnej co konto usługi Azure Cosmos, można użyć sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) w celu zmniejszenia ryzyka eksfiltracji danych. Włącz dzienniki przepływu sieciowej grupy zabezpieczeń i Wyślij dzienniki do konta usługi Azure Storage na potrzeby inspekcji ruchu. Możesz również wysłać dzienniki przepływu sieciowej grupy zabezpieczeń do obszaru roboczego Log Analytics i użyć Analiza ruchu, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. Niektóre zalety Analiza ruchu to możliwość wizualizacji aktywności sieciowej i identyfikowania aktywnych punktów, identyfikowania zagrożeń bezpieczeństwa, zrozumienia wzorców przepływu ruchu i wyznaczania konfiguracji sieci.
 
-Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
+Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Jak włączyć i używać Analiza ruchu:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Jak włączyć i używać Analiza ruchu: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -66,7 +66,7 @@ Jak włączyć i używać Analiza ruchu:https://docs.microsoft.com/azure/network
 
 **Wskazówki**: Użyj funkcji udostępniania zasobów między źródłami (CORS), aby umożliwić aplikacji sieci Web działającej w ramach jednej domeny dostęp do zasobów w innej domenie. Przeglądarki sieci Web implementują ograniczenie zabezpieczeń nazywane zasadami tego samego źródła, które uniemożliwiają stronie sieci Web wywoływanie interfejsów API w innej domenie. Jednak mechanizm CORS zapewnia bezpieczny sposób, aby umożliwić domenie pochodzenia wywoływanie interfejsów API w innej domenie. Po włączeniu obsługi mechanizmu CORS dla konta usługi Azure Cosmos są oceniane tylko uwierzytelnione żądania, aby określić, czy są dozwolone zgodnie z określonymi regułami.
 
-Skonfiguruj współużytkowanie zasobów między źródłami:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-cross-origin-resource-sharing
+Skonfiguruj współużytkowanie zasobów między źródłami: https://docs.microsoft.com/azure/cosmos-db/how-to-configure-cross-origin-resource-sharing
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -78,11 +78,11 @@ Skonfiguruj współużytkowanie zasobów między źródłami:https://docs.micros
 
 Włącz DDoS Protection standard w sieciach wirtualnych skojarzonych z wystąpieniami Azure Cosmos DB, aby chronić przed atakami DDoS. Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP.
 
-Jak skonfigurować Azure Cosmos DB zaawansowanej ochrony przed zagrożeniami:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Jak skonfigurować Azure Cosmos DB zaawansowanej ochrony przed zagrożeniami: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
-Jak skonfigurować ochronę DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Jak skonfigurować ochronę DDoS: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-Opis Azure Security Center zintegrowanej analizy zagrożeń:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Opis Azure Security Center zintegrowanej analizy zagrożeń: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -92,9 +92,9 @@ Opis Azure Security Center zintegrowanej analizy zagrożeń:https://docs.microso
 
 **Wskazówki**: Włączanie dzienników przepływu sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) i wysyłanie dzienników do konta magazynu na potrzeby inspekcji ruchu. Dzienniki przepływu sieciowej grupy zabezpieczeń można wysyłać do obszaru roboczego Log Analytics i używać Analiza ruchu, aby uzyskać wgląd w przepływ ruchu w chmurze platformy Azure. Niektóre zalety Analiza ruchu to możliwość wizualizacji aktywności sieciowej i identyfikowania aktywnych punktów, identyfikowania zagrożeń bezpieczeństwa, zrozumienia wzorców przepływu ruchu i wyznaczania konfiguracji sieci.
 
-Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Jak włączyć i używać Analiza ruchu:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Jak włączyć i używać Analiza ruchu: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -104,7 +104,7 @@ Jak włączyć i używać Analiza ruchu:https://docs.microsoft.com/azure/network
 
 **Wskazówki**: Użyj zaawansowanej ochrony przed zagrożeniami (ATP) dla Azure Cosmos DB. Usługa ATP dla Azure Cosmos DB stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont usługi Azure Cosmos lub korzystania z nich. Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń i integrowanie ich z systemami monitorowania zabezpieczeń centralnych. 
 
-Jak skonfigurować Cosmos DB zaawansowanej ochrony przed zagrożeniami:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Jak skonfigurować Cosmos DB zaawansowanej ochrony przed zagrożeniami: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -123,7 +123,7 @@ Jak skonfigurować Cosmos DB zaawansowanej ochrony przed zagrożeniami:https://d
 
 **Wskazówki**: dla zasobów, które wymagają dostępu do konta usługi Azure Cosmos, użyj tagów usługi Virtual Network, aby zdefiniować kontrolę dostępu do sieci dla sieciowych grup zabezpieczeń lub zapory platformy Azure. Podczas tworzenia reguł zabezpieczeń można użyć tagów usługi zamiast konkretnych adresów IP. Określając nazwę tagu usługi (np. AzureCosmosDB) w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy.
 
-Aby uzyskać więcej informacji na temat używania tagów usługi:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Aby uzyskać więcej informacji na temat używania tagów usługi: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -139,9 +139,9 @@ Aby uzyskać więcej informacji na temat używania tagów usługi:https://docs.m
 
 Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak utworzyć Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Jak utworzyć Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -151,7 +151,7 @@ Jak utworzyć Azure Blueprint:https://docs.microsoft.com/azure/governance/bluepr
 
 **Wskazówki**: Użyj tagów dla zasobów sieciowych skojarzonych z wdrożeniem Azure Cosmos DB, aby logicznie zorganizować je w taksonomię.
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -161,9 +161,9 @@ Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-man
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z wystąpieniami Azure Cosmos DB. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych. 
 
-Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Jak utworzyć alerty w Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Jak utworzyć alerty w Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -186,9 +186,9 @@ Jak utworzyć alerty w Azure Monitor:https://docs.microsoft.com/azure/azure-moni
 
 **Wskazówki**: pobieranie dzienników przy użyciu Azure monitor do agregowania danych zabezpieczeń wygenerowanych przez Azure Cosmos DB. W ramach Azure Monitor należy używać Log Analytics obszarów roboczych do wykonywania zapytań i wykonywania analiz oraz używania kont magazynu do przechowywania długoterminowego/archiwizowania. Alternatywnie możesz włączyć i zarejestrować dane na platformie Azure wskaźnikowej lub zdarzeniu zabezpieczeń innych firm (SIEM). 
 
-Jak włączyć dzienniki diagnostyczne dla Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/logging
+Jak włączyć dzienniki diagnostyczne dla Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/logging
 
-Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Jak dołączyć wskaźnik na platformie Azure: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -198,9 +198,9 @@ Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/s
 
 **Wskazówki**: Włączanie ustawień diagnostycznych dla Azure Cosmos DB i wysyłanie dzienników do log Analytics obszaru roboczego lub konta magazynu. Ustawienia diagnostyczne w Azure Cosmos DB są używane do zbierania dzienników zasobów. Te dzienniki są przechwytywane na żądanie i są również określane jako "dzienniki płaszczyzny danych". Niektóre przykłady operacji na płaszczyźnie danych obejmują usuwanie, wstawianie i odczytywanie. Możesz również włączyć ustawienia diagnostyki dziennika aktywności platformy Azure i wysłać je do tego samego obszaru roboczego Log Analytics.
 
-Jak włączyć ustawienia diagnostyczne dla Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/logging
+Jak włączyć ustawienia diagnostyczne dla Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/logging
 
-Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -218,7 +218,7 @@ Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azur
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania dziennika dla log Analytics obszarów roboczych skojarzonych z wystąpieniami Azure Cosmos DB zgodnie z regulacjami zgodności w organizacji.
 
-Jak ustawić parametry przechowywania dziennika:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Jak ustawić parametry przechowywania dziennika: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -228,7 +228,7 @@ Jak ustawić parametry przechowywania dziennika:https://docs.microsoft.com/azure
 
 **Wskazówki**: możesz wykonywać zapytania w log Analytics obszarze roboczym, aby wyszukiwać terminy, identyfikować trendy, analizować wzorce i udostępniać wiele innych szczegółowych informacji na podstawie zebranych dzienników Azure Cosmos DB.
 
-Jak wykonywać zapytania dotyczące Azure Cosmos DB w Log Analytics obszarach roboczych:https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db
+Jak wykonywać zapytania dotyczące Azure Cosmos DB w Log Analytics obszarach roboczych: https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -242,11 +242,11 @@ Jak wykonywać zapytania dotyczące Azure Cosmos DB w Log Analytics obszarach ro
 
 Możesz również dołączyć obszar roboczy Log Analytics do funkcji wskaźnikowej platformy Azure, ponieważ zapewnia ona rozwiązanie do automatycznej reakcji aranżacji zabezpieczeń (o). Pozwala to na tworzenie i używanie automatycznych rozwiązań elementy PlayBook w celu korygowania problemów z zabezpieczeniami. Ponadto można utworzyć niestandardowe alerty dzienników w obszarze roboczym Log Analytics przy użyciu Azure Monitor.
 
-Lista alertów dotyczących ochrony przed zagrożeniami dla Azure Cosmos DB:https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos
+Lista alertów dotyczących ochrony przed zagrożeniami dla Azure Cosmos DB: https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos
 
-Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Jak dołączyć wskaźnik na platformie Azure: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log
+Tworzenie i wyświetlanie alertów dzienników oraz zarządzanie nimi za pomocą Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -292,17 +292,17 @@ Przy użyciu modułu Azure AD PowerShell można również wykonywać zapytania a
 
 Ponadto niektóre akcje w Azure Cosmos DB mogą być kontrolowane za pomocą kluczy głównych Azure Active Directory i specyficznych dla konta.  Użyj ustawienia konta "disableKeyBasedMetadataWriteAccess", aby kontrolować dostęp do klucza.
 
-Informacje na temat kontroli dostępu opartej na rolach w Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Informacje na temat kontroli dostępu opartej na rolach w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
-Tworzenie własnych ról niestandardowych przy użyciu akcji Azure Cosmos DB (przestrzeń nazw Microsoft.DocumentDB):https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
+Tworzenie własnych ról niestandardowych przy użyciu akcji Azure Cosmos DB (przestrzeń nazw Microsoft.DocumentDB): https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb
 
-Utwórz nową rolę w Azure Active Directory:https://docs.microsoft.com/azure/role-based-access-control/custom-roles
+Utwórz nową rolę w Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Jak uzyskać rolę katalogu w Azure Active Directory przy użyciu programu PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Jak uzyskać rolę katalogu w Azure Active Directory przy użyciu programu PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-Jak uzyskać członków roli katalogu w Azure Active Directory przy użyciu programu PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Jak uzyskać członków roli katalogu w Azure Active Directory przy użyciu programu PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-Ogranicz dostęp użytkowników tylko do operacji związanych z danymi:https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
+Ogranicz dostęp użytkowników tylko do operacji związanych z danymi: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -312,11 +312,11 @@ Ogranicz dostęp użytkowników tylko do operacji związanych z danymi:https://d
 
 **Wskazówki**: pojęcie domyślnego lub pustego hasła nie istnieje w odniesieniu do usługi Azure AD lub Azure Cosmos DB. Zamiast tego Azure Cosmos DB używa dwóch typów kluczy do uwierzytelniania użytkowników i zapewniania dostępu do danych i zasobów; klucze główne i tokeny zasobów. Klucze można generować w dowolnym momencie.
 
-Informacje o bezpiecznym dostępie do danych w Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
+Informacje o bezpiecznym dostępie do danych w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
-Jak ponownie wygenerować klucze Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/manage-with-powershell#regenerate-keys
+Jak ponownie wygenerować klucze Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/manage-with-powershell#regenerate-keys
 
-Jak programowo uzyskać dostęp do klawiszy przy użyciu Azure Active Directory:https://docs.microsoft.com/azure/cosmos-db/certificate-based-authentication
+Jak programowo uzyskać dostęp do klawiszy przy użyciu Azure Active Directory: https://docs.microsoft.com/azure/cosmos-db/certificate-based-authentication
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -336,9 +336,9 @@ Jak programowo uzyskać dostęp do klawiszy przy użyciu Azure Active Directory:
 
 **Wskazówki**: Azure Cosmos DB używa dwóch typów kluczy do autoryzowania użytkowników i nie obsługuje logowania jednokrotnego na poziomie płaszczyzny danych. Dostęp do płaszczyzny kontroli dla Cosmos DB jest dostępny za pośrednictwem interfejsu API REST i obsługuje logowanie jednokrotne. Aby przeprowadzić uwierzytelnianie, należy ustawić nagłówek autoryzacji dla żądań na token sieci Web JSON uzyskany z Azure Active Directory.
 
-Informacje na temat interfejsu API REST usługi Azure Database for Cosmos DB:https://docs.microsoft.com/rest/api/cosmos-db/
+Informacje na temat interfejsu API REST usługi Azure Database for Cosmos DB: https://docs.microsoft.com/rest/api/cosmos-db/
 
-Opis logowania jednokrotnego za pomocą Azure Active Directory:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Opis logowania jednokrotnego za pomocą Azure Active Directory: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -348,9 +348,9 @@ Opis logowania jednokrotnego za pomocą Azure Active Directory:https://docs.micr
 
 **Wskazówki**: włączanie Azure Active Directory Multi-Factor Authentication i postępuj zgodnie z zaleceniami związanymi z zarządzaniem tożsamościami i dostępem Azure Security Center.
 
-Jak włączyć usługę MFA na platformie Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Jak włączyć usługę MFA na platformie Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Jak monitorować tożsamość i dostęp w Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Jak monitorować tożsamość i dostęp w Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -360,9 +360,9 @@ Jak monitorować tożsamość i dostęp w Azure Security Center:https://docs.mic
 
 **Wskazówki**: Używanie stacji roboczych dostępu uprzywilejowanego (dostępem uprzywilejowanym) z Multi-Factor Authentication skonfigurowany do logowania się i konfigurowania zasobów platformy Azure.
 
-Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
-Jak włączyć usługę MFA na platformie Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Jak włączyć usługę MFA na platformie Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -376,9 +376,9 @@ Ponadto można użyć Azure Active Directory (AD) Privileged Identity Management
 
 Użyj funkcji wykrywania ryzyka usługi Azure AD, aby wyświetlać alerty i raporty na temat ryzykownego zachowania użytkowników.
 
-Jak wdrożyć Privileged Identity Management (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Jak wdrożyć Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Informacje o wykrywaniu ryzyka usługi Azure AD:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Informacje o wykrywaniu ryzyka usługi Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -388,7 +388,7 @@ Informacje o wykrywaniu ryzyka usługi Azure AD:https://docs.microsoft.com/azure
 
 **Wskazówki**: Skonfiguruj warunek lokalizacji zasad dostępu warunkowego i Zarządzaj nazwanymi lokalizacjami. Przy użyciu nazwanych lokalizacji można tworzyć logiczne grupowania zakresów adresów IP lub krajów i regionów. Można ograniczyć dostęp do poufnych zasobów, takich jak wystąpienia Azure Cosmos DB, do skonfigurowanych lokalizacji nazwanych.
 
-Jak skonfigurować nazwane lokalizacje na platformie Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Jak skonfigurować nazwane lokalizacje na platformie Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -398,9 +398,9 @@ Jak skonfigurować nazwane lokalizacje na platformie Azure:https://docs.microsof
 
 **Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji. Usługa Azure AD chroni dane przy użyciu silnego szyfrowania danych przechowywanych i przesyłanych. Usługa Azure AD również Sole, skróty i bezpieczne przechowywanie poświadczeń użytkownika.
 
-Jak utworzyć i skonfigurować wystąpienie Azure Active Directory:https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
+Jak utworzyć i skonfigurować wystąpienie Azure Active Directory: https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
-Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim przy użyciu usługi Azure SQL:https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure
+Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim przy użyciu usługi Azure SQL: https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -410,7 +410,7 @@ Jak skonfigurować uwierzytelnianie Azure Active Directory i zarządzać nim prz
 
 **Wskazówki**: Azure Active Directory zawiera dzienniki ułatwiające wykrywanie starych kont. Ponadto można korzystać z przeglądów dostępu do tożsamości platformy Azure w celu wydajnego zarządzania członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkownika może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp.
 
-Jak korzystać z przeglądów dostępu do tożsamości platformy Azure:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Jak korzystać z przeglądów dostępu do tożsamości platformy Azure: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -420,7 +420,7 @@ Jak korzystać z przeglądów dostępu do tożsamości platformy Azure:https://d
 
 **Wskazówki**: można utworzyć ustawienia diagnostyczne dla Azure Active Directory kont użytkowników, wysłać dzienniki inspekcji i dzienniki logowania do log Analytics obszaru roboczego, w którym można skonfigurować żądane alerty.
 
-Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -432,11 +432,11 @@ Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor:https://d
 
 Możesz również użyć funkcji Azure AD Identity Protection i wykrywania ryzyka, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z tożsamościami użytkowników. Ponadto można pozyskiwanie dzienników na platformie Azure — badanie wskaźnikowe.
 
-Jak wyświetlić Azure Active Directory ryzykowne logowania:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+Jak wyświetlić Azure Active Directory ryzykowne logowania: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Jak dołączyć wskaźnik na platformie Azure: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -446,7 +446,7 @@ Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/s
 
 **Wskazówki**: obecnie niedostępne; Nie Skrytka klienta jeszcze obsługiwane w przypadku usługi Azure Database for Cosmos DB.
 
-Lista obsługiwanych usług Skrytka klienta:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista obsługiwanych usług Skrytka klienta: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -460,7 +460,7 @@ Lista obsługiwanych usług Skrytka klienta:https://docs.microsoft.com/azure/sec
 
 **Wskazówki**: Użyj tagów, aby pomóc w śledzeniu wystąpień Azure Cosmos DB, które przechowują lub przetwarzają informacje poufne.
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -470,15 +470,15 @@ Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-man
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Wystąpienia Azure Cosmos DB są rozdzielone przez sieć wirtualną/podsieć, odpowiednio otagowane i zabezpieczone w sieciowej grupie zabezpieczeń (sieciowej grupy zabezpieczeń) lub na zaporze platformy Azure. Wystąpienia Azure Cosmos DB, w których są przechowywane poufne dane, powinny być izolowane. Za pomocą linku prywatnego platformy Azure można nawiązać połączenie z kontem wystąpienia Azure Cosmos DB za pośrednictwem prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w podsieci w sieci wirtualnej. Następnie możesz ograniczyć dostęp do wybranych prywatnych adresów IP. 
 
-Jak utworzyć dodatkowe subskrypcje platformy Azure:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Jak utworzyć dodatkowe subskrypcje platformy Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Tworzenie grup zarządzania:https://docs.microsoft.com/azure/governance/management-groups/create
+Tworzenie grup zarządzania: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Jak skonfigurować prywatny punkt końcowy dla Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints
+Jak skonfigurować prywatny punkt końcowy dla Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints
 
-Jak utworzyć sieciową grupę zabezpieczeń z konfiguracją zabezpieczeń:https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+Jak utworzyć sieciową grupę zabezpieczeń z konfiguracją zabezpieczeń: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -494,9 +494,9 @@ Jak utworzyć sieciową grupę zabezpieczeń z konfiguracją zabezpieczeń:https
 
 Ponadto w przypadku korzystania z maszyn wirtualnych do uzyskiwania dostępu do wystąpień Azure Cosmos DB należy używać prywatnych linków, zapór, sieciowych grup zabezpieczeń i tagów usług, aby ograniczyć możliwość eksfiltracji danych. Firma Microsoft zarządza podstawową infrastrukturą dla Azure Cosmos DB i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-Jak skonfigurować Cosmos DB zaawansowanej ochrony przed zagrożeniami:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+Jak skonfigurować Cosmos DB zaawansowanej ochrony przed zagrożeniami: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
-Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -506,7 +506,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 **Wskazówki**: wszystkie połączenia do Azure Cosmos DB obsługują protokół https. Azure Cosmos DB obsługuje również protokół TLS 1.2. Istnieje możliwość wymuszenia minimalnej wersji protokołu TLS po stronie serwera. Aby to zrobić, skontaktuj się z firmą [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com) .
 
-Omówienie zabezpieczeń Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/database-security
+Omówienie zabezpieczeń Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-security
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -520,7 +520,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 Indeksuj Azure Cosmos DB dane przy użyciu platformy Azure Wyszukiwanie poznawcze: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&amp ; BC =/azure/cosmos-db/breadcrumb/toc.jsna
 
-Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -530,7 +530,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 **Wskazówki**: Azure Cosmos DB zapewnia wbudowaną kontrolę dostępu opartą na ROLACH (RBAC) dla typowych scenariuszy zarządzania w programie Azure Cosmos DB. Osoba mająca profil w Azure Active Directory może przypisywać te role platformy Azure do użytkowników, grup, nazw podmiotów usług lub tożsamości zarządzanych w celu udzielania lub odmawiania dostępu do zasobów i operacji na zasobach Azure Cosmos DB. Przypisania ról są objęte zakresem tylko dostępu do płaszczyzny kontroli, który obejmuje dostęp do kont usługi Azure Cosmos, baz danych, kontenerów i ofert (przepływności).
 
-Jak zaimplementować RBAC w Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
+Jak zaimplementować RBAC w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -542,7 +542,7 @@ Jak zaimplementować RBAC w Azure Cosmos DB:https://docs.microsoft.com/azure/cos
 
 Firma Microsoft zarządza podstawową infrastrukturą dla Cosmos DB i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -554,11 +554,11 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 Domyślnie firma Microsoft zarządza kluczami, które są używane do szyfrowania danych na koncie usługi Azure Cosmos. Opcjonalnie możesz dodać drugą warstwę szyfrowania przy użyciu własnych kluczy.
 
-Informacje na temat szyfrowania Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
+Informacje na temat szyfrowania Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Informacje na temat zarządzania Kluczami na potrzeby szyfrowania Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/cosmos-db-security-controls
+Informacje na temat zarządzania Kluczami na potrzeby szyfrowania Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-security-controls
 
-Jak skonfigurować klucze zarządzane przez klienta dla konta Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk
+Jak skonfigurować klucze zarządzane przez klienta dla konta Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -568,9 +568,9 @@ Jak skonfigurować klucze zarządzane przez klienta dla konta Azure Cosmos DB:ht
 
 **Wskazówki**: Użyj Azure monitor w dzienniku aktywności platformy Azure, aby utworzyć alerty, kiedy zmiany mają miejsce w wystąpieniach produkcyjnych Azure Cosmos DB.
 
-Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
-Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -586,7 +586,7 @@ Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure:https://
 
 Firma Microsoft wykonuje stosowanie poprawek i luk w zabezpieczeniach na podstawowych hostach, które obsługują wystąpienia Azure Cosmos DB. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-Obsługiwane funkcje dostępne w Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows
+Obsługiwane funkcje dostępne w Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -638,11 +638,11 @@ Obsługiwane funkcje dostępne w Azure Security Center:https://docs.microsoft.co
 
 Mimo że klasyczne zasoby platformy Azure mogą zostać odnalezione za pośrednictwem grafu zasobów, zdecydowanie zaleca się tworzenie i używanie Azure Resource Manager zasobów do przodu.
 
-Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Jak wyświetlić subskrypcje platformy Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Jak wyświetlić subskrypcje platformy Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Informacje na temat kontroli dostępu opartej na rolach na platformie Azure:https://docs.microsoft.com/azure/role-based-access-control/overview
+Informacje na temat kontroli dostępu opartej na rolach na platformie Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -652,9 +652,9 @@ Informacje na temat kontroli dostępu opartej na rolach na platformie Azure:http
 
 **Wskazówki**: Zastosuj znaczniki do wystąpień Azure Cosmos DB i powiązanych zasobów przy użyciu metadanych, aby logicznie zorganizować je w taksonomię.
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Które zasoby Azure Cosmos DB obsługują Tagi:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support#microsoftdocumentdb
+Które zasoby Azure Cosmos DB obsługują Tagi: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support#microsoftdocumentdb
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -664,11 +664,11 @@ Które zasoby Azure Cosmos DB obsługują Tagi:https://docs.microsoft.com/azure/
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji, gdzie jest to konieczne, do organizowania i śledzenia zasobów, w tym między innymi zasobów Azure Cosmos DB. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
 
-Jak utworzyć dodatkowe subskrypcje platformy Azure:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Jak utworzyć dodatkowe subskrypcje platformy Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Jak utworzyć Grupy zarządzania:https://docs.microsoft.com/azure/governance/management-groups/create
+Jak utworzyć Grupy zarządzania: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -692,9 +692,9 @@ Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-man
 
 Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasobów w ramach subskrypcji.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak tworzyć zapytania za pomocą usługi Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Jak tworzyć zapytania za pomocą usługi Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -735,9 +735,9 @@ Jak tworzyć zapytania za pomocą usługi Azure Graph:https://docs.microsoft.com
 
 - Dozwolone typy zasobów
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Jak odmówić określonego typu zasobu Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -756,7 +756,7 @@ Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/a
 
 **Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość współpracy użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management". Może to uniemożliwić tworzenie i wprowadzanie zmian w zasobach w środowisku o wysokim poziomie zabezpieczeń.
 
-Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -792,9 +792,9 @@ Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resourc
 
 - Cosmos DB powinien używać punktu końcowego usługi sieci wirtualnej
 
-Jak wyświetlić dostępne aliasy Azure Policy:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Jak wyświetlić dostępne aliasy Azure Policy: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -813,9 +813,9 @@ Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/az
 
 **Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia dla zasobów platformy Azure.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Opis efektów Azure Policy:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Opis efektów Azure Policy: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -852,7 +852,7 @@ Dokumentacja Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?vi
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft.DocumentDB", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -870,7 +870,7 @@ Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/az
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft.DocumentDB", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla wystąpień Azure Cosmos DB i powiązanych zasobów. 
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -888,11 +888,11 @@ Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/az
 
 **Wskazówki**: w przypadku maszyn wirtualnych platformy Azure lub aplikacji sieci Web działających na Azure App Service używanym do uzyskiwania dostępu do wystąpień Azure Cosmos DB Użyj tożsamość usługi zarządzanej w połączeniu z Azure Key Vault, aby uprościć i zabezpieczyć Azure Cosmos DB zarządzaniem kluczami tajnymi. Upewnij się, że Key Vault usuwanie trwałe jest włączone.
 
-Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Jak utworzyć Key Vault:https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Jak utworzyć Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:https://docs.microsoft.com/azure/key-vault/managed-identity
+Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej: https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -904,9 +904,9 @@ Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:
 
 Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (AD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
 
-Jak skonfigurować tożsamości zarządzane:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Jak skonfigurować tożsamości zarządzane: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -916,7 +916,7 @@ Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę 
 
 **Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
 
-Jak skonfigurować skaner poświadczeń:https://secdevtools.azurewebsites.net/helpcredscan.html
+Jak skonfigurować skaner poświadczeń: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -963,7 +963,7 @@ Ponosisz odpowiedzialność za wstępne skanowanie wszystkich plików przekazywa
 
 **Wskazówki**: Azure Cosmos DB wykonuje migawki danych co cztery godziny. Wszystkie kopie zapasowe są przechowywane oddzielnie w usłudze magazynu, a te kopie zapasowe są replikowane globalnie w celu odporności na awarie regionalne. W danym momencie tylko ostatnie dwie migawki są zachowywane. Jeśli jednak kontener lub baza danych zostanie usunięta, usługa Azure Cosmos DB zachowuje istniejące migawki danego kontenera lub bazy danych przez 30 dni. Aby przywrócić kopię zapasową, skontaktuj się z pomocą techniczną platformy Azure.
 
-Informacje o Azure Cosmos DB zautomatyzowanych kopii zapasowych:https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
+Informacje o Azure Cosmos DB zautomatyzowanych kopii zapasowych: https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -975,11 +975,11 @@ Informacje o Azure Cosmos DB zautomatyzowanych kopii zapasowych:https://docs.mic
 
 W przypadku używania Key Vault do przechowywania poświadczeń dla wystąpień Cosmos DB należy zapewnić regularne automatyczne tworzenie kopii zapasowych kluczy.
 
-Informacje o Azure Cosmos DB zautomatyzowanych kopii zapasowych:https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
+Informacje o Azure Cosmos DB zautomatyzowanych kopii zapasowych: https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore
 
-Jak przywrócić dane w Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
+Jak przywrócić dane w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
-Jak utworzyć kopię zapasową kluczy Key Vault:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
+Jak utworzyć kopię zapasową kluczy Key Vault: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -1013,9 +1013,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 Włącz nietrwałe usuwanie w Key Vault, aby chronić klucze przed przypadkowym lub złośliwym usunięciem.
 
-Poznaj szyfrowanie danych w Azure Cosmos DB:https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
+Poznaj szyfrowanie danych w Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Jak włączyć usuwanie nietrwałe w Key Vault:https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Jak włączyć usuwanie nietrwałe w Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1029,13 +1029,13 @@ Jak włączyć usuwanie nietrwałe w Key Vault:https://docs.microsoft.com/azure/
 
 **Wskazówki**: Tworzenie przewodnika odpowiedzi na zdarzenia dla organizacji. Upewnij się, że istnieją zarejestrowane plany reakcji na zdarzenia, które definiują wszystkie role pracowników, a także etapy obsługi zdarzeń/zarządzania z wykrywania do oceny po zdarzeniu.
 
-Możesz również wykorzystać Przewodnik obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia:https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+Możesz również wykorzystać Przewodnik obsługi zdarzeń związanych z bezpieczeństwem programu NIST, aby pomóc w tworzeniu własnego planu reagowania na zdarzenia: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
-Jak skonfigurować automatyzację przepływu pracy w ramach Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+Jak skonfigurować automatyzację przepływu pracy w ramach Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Wskazówki dotyczące tworzenia własnego procesu reagowania na zdarzenia zabezpieczeń: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Anatomia w centrum Microsoft Security Response:https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+Anatomia w centrum Microsoft Security Response: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
 
 **Monitorowanie Azure Security Center**: nie dotyczy
@@ -1056,7 +1056,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 **Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
 
-Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1066,7 +1066,7 @@ Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ć
 
 **Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę.  Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane.
 
-Jak ustawić Azure Security Center kontaktu zabezpieczeń:https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Jak ustawić Azure Security Center kontaktu zabezpieczeń: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1076,9 +1076,9 @@ Jak ustawić Azure Security Center kontaktu zabezpieczeń:https://docs.microsoft
 
 **Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center, aby przesłać strumieniowo wskaźnik do alertów.
 
-Jak skonfigurować eksport ciągły:https://docs.microsoft.com/azure/security-center/continuous-export
+Jak skonfigurować eksport ciągły: https://docs.microsoft.com/azure/security-center/continuous-export
 
-Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowej:https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowej: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1088,7 +1088,7 @@ Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowej:https://docs.m
 
 **Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
 
-Jak skonfigurować automatyzację przepływu pracy i Logic Apps:https://docs.microsoft.com/azure/security-center/workflow-automation
+Jak skonfigurować automatyzację przepływu pracy i Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1100,9 +1100,9 @@ Jak skonfigurować automatyzację przepływu pracy i Logic Apps:https://docs.mic
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń w ciągu 60 dni
 
-**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft:https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-Aby uzyskać więcej informacji na temat strategii i sposobu działania tworzenia zespołu Red-and-testowego na żywo w oparciu o infrastrukturę, usługi i aplikacje chmurowe zarządzane przez firmę Microsoft, należy tutaj:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Aby uzyskać więcej informacji na temat strategii i sposobu działania tworzenia zespołu Red-and-testowego na żywo w oparciu o infrastrukturę, usługi i aplikacje chmurowe zarządzane przez firmę Microsoft, należy tutaj:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

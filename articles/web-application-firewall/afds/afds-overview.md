@@ -4,15 +4,15 @@ description: Dowiedz się, jak Zapora aplikacji sieci Web platformy Azure w usł
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: e3b3b7a058fbd1235619c01e0dca24a3de9036db
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816373"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231439"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure
 
@@ -22,7 +22,7 @@ WAF na wierzchu drzwi to globalne i scentralizowane rozwiązanie. Jest ona wdra�
 
 WAF zapobiega złośliwym atakom blisko źródeł ataków przed wprowadzeniem do sieci wirtualnej. Na dużą skalę możesz uzyskać ochronę globalną, bez obniżania wydajności. Zasady WAF łatwo łączą się z dowolnym profilem drzwi do przodu w ramach subskrypcji. Nowe reguły można wdrożyć w ciągu kilku minut, dzięki czemu można szybko reagować na zmiany wzorców zagrożeń.
 
-![Zapora aplikacji sieci Web platformy Azure](../media/overview/wafoverview.png)
+![Zapora aplikacji internetowej platformy Azure](../media/overview/wafoverview.png)
 
 ## <a name="waf-policy-and-rules"></a>Zasady i reguły WAF
 
@@ -117,7 +117,7 @@ Nieznane botów są klasyfikowane przez opublikowanych agentów użytkownika bez
 
 Jeśli ochrona bot jest włączona, przychodzące żądania zgodne z regułami bot są rejestrowane w dzienniku FrontdoorWebApplicationFirewallLog. Użytkownik może uzyskać dostęp do dzienników WAF z konta magazynu, centrum zdarzeń lub usługi log Analytics.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Można skonfigurować i wdrożyć wszystkie typy reguł WAF za pomocą Azure Portal, interfejsów API REST, szablonów Azure Resource Manager i Azure PowerShell.
 

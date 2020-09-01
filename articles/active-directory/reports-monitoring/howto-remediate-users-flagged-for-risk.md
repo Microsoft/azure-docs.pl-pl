@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608929"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231167"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Rozwiązywanie problemów dotyczących użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory
 
@@ -40,7 +40,7 @@ Raport dotyczący użytkowników oflagowanych w ramach ryzyka można wykonać na
 - Wymagać od użytkownika bezpiecznego zresetowania hasła przy następnym logowaniu
 - Odrzucić ryzyko związane z użytkownikiem bez podejmowania żadnej akcji korygowania.
 
-Aby uzyskać więcej informacji, zobacz Raport dotyczący [użytkowników oflagowanych w celu zabezpieczenia](concept-user-at-risk.md).
+Aby uzyskać więcej informacji, zobacz Raport dotyczący [użytkowników oflagowanych w celu zabezpieczenia](../identity-protection/overview-identity-protection.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Subskrypcja usługi Azure AD dla klientów usługi Office 365
 
@@ -91,5 +91,5 @@ Ponadto wykonaj następujące czynności:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Ochrona tożsamości w usłudze Azure Active Directory](../active-directory-identityprotection.md)
-* [Użytkownicy oflagowani w związku z ryzykiem](concept-user-at-risk.md)
+* [Ochrona tożsamości w usłudze Azure Active Directory](../identity-protection/overview-identity-protection.md)
+* [Użytkownicy oflagowani w związku z ryzykiem](../identity-protection/overview-identity-protection.md)

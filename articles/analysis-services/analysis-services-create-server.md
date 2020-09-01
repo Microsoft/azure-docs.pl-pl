@@ -1,18 +1,18 @@
 ---
 title: Szybki Start — Tworzenie serwera Analysis Services w Azure Portal | Microsoft Docs
-description: Dowiedz się, jak szybko utworzyć wystąpienie serwera Azure Analysis Services przy użyciu Azure Portal.
+description: W tym przewodniku szybki start opisano sposób tworzenia wystąpienia serwera Azure Analysis Services przy użyciu Azure Portal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 36899aa789f4947fe860621bc1795bfbe2ff1ecf
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697473"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230784"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Szybki start: tworzenie serwera — portal
 
@@ -20,7 +20,7 @@ W tym przewodniku Szybki start opisano, jak utworzyć zasób serwera usług Anal
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-* **Subskrypcja platformy Azure**: odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), aby utworzyć konto.
+* **Subskrypcja platformy Azure**: Przejdź do [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) , aby utworzyć konto.
 * **Azure Active Directory**: subskrypcja musi być skojarzona z dzierżawą usługi Azure Active Directory. Ponadto musisz zalogować się na platformie Azure przy użyciu konta należącego do tej dzierżawy usługi Azure Active Directory. Aby dowiedzieć się więcej, zobacz [Authentication and user permissions (Uwierzytelnianie i uprawnienia użytkownika)](analysis-services-manage-users.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal 
@@ -58,6 +58,4 @@ Gdy serwer nie będzie już potrzebny, usuń go. Na stronie **Przegląd** serwer
 W tym przewodniku Szybki Start przedstawiono sposób tworzenia serwera w ramach subskrypcji platformy Azure. Teraz, po utworzeniu serwera, możesz go zabezpieczyć, konfigurując (opcjonalną) zaporę serwera. Możesz też dodać do serwera podstawowy przykładowy model danych bezpośrednio w portalu. Przykładowy model służy do zdobywania wiedzy na temat konfigurowania ról modelowej bazy danych oraz testowania połączeń klienckich. Aby dowiedzieć się więcej, przejdź do samouczka dotyczącego dodawania przykładowego modelu.
 
 > [!div class="nextstepaction"]
-> [Szybki Start: Konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   
-> [!div class="nextstepaction"]
-> [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md) (Samouczek: dodawanie przykładowego modelu do serwera)
+> [Szybki start: konfigurowanie zapory serwera — Portal](analysis-services-qs-firewall.md)   

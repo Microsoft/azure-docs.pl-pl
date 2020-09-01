@@ -1,29 +1,27 @@
 ---
-title: Włączanie obsługi wersji obiektów blob i zarządzanie nimi (wersja zapoznawcza)
+title: Włączanie obsługi wersji obiektów blob i zarządzanie nimi
 titleSuffix: Azure Storage
-description: Dowiedz się, jak włączyć obsługę wersji obiektów BLOB (wersja zapoznawcza) w Azure Portal lub przy użyciu szablonu Azure Resource Manager.
+description: Dowiedz się, jak włączyć obsługę wersji obiektów BLOB w Azure Portal lub przy użyciu szablonu Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1df7afb5a029ff7770a64d6bf698a462c8ab9735
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074410"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230674"
 ---
-# <a name="enable-and-manage-blob-versioning-preview"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi (wersja zapoznawcza)
+# <a name="enable-and-manage-blob-versioning"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi
 
-Możesz włączyć przechowywanie wersji magazynu obiektów BLOB (wersja zapoznawcza), aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
+Możesz włączyć przechowywanie wersji magazynu obiektów blob, aby automatycznie obsługiwać poprzednie wersje obiektu.  Po włączeniu obsługi wersji obiektów BLOB można przywrócić wcześniejszą wersję obiektu BLOB, aby odzyskać dane, jeśli są one błędnie modyfikowane lub usuwane.
 
-W tym artykule przedstawiono sposób włączania lub wyłączania obsługi wersji obiektów BLOB dla konta magazynu przy użyciu szablonu Azure Portal lub Azure Resource Manager.
-
-Musisz zarejestrować się w celu uzyskania podglądu przed włączeniem obsługi wersji obiektów BLOB. Aby dowiedzieć się więcej na temat przechowywania wersji obiektów blob, w tym sposobu rejestracji w wersji zapoznawczej, zobacz temat [wersja usługi BLOB](versioning-overview.md).
+W tym artykule przedstawiono sposób włączania lub wyłączania obsługi wersji obiektów BLOB dla konta magazynu przy użyciu szablonu Azure Portal lub Azure Resource Manager. Aby dowiedzieć się więcej na temat przechowywania wersji obiektów blob, zobacz temat [przechowywanie wersji obiektów BLOB](versioning-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -75,7 +73,7 @@ Aby uzyskać więcej informacji na temat wdrażania zasobów przy użyciu szablo
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modyfikowanie obiektu BLOB w celu wyzwolenia nowej wersji
 
-Poniższy przykład kodu pokazuje, jak wyzwolić Tworzenie nowej wersji za pomocą biblioteki klienta usługi Azure Storage dla platformy .NET w wersji [12.5.0-Preview. 5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) lub nowszej. Przed uruchomieniem tego przykładu upewnij się, że włączono obsługę wersji dla konta magazynu.
+Poniższy przykład kodu pokazuje, jak wyzwolić Tworzenie nowej wersji za pomocą biblioteki klienta usługi Azure Storage dla platformy .NET w wersji [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) lub nowszej. Przed uruchomieniem tego przykładu upewnij się, że włączono obsługę wersji dla konta magazynu.
 
 Przykład tworzy blokowy obiekt BLOB, a następnie aktualizuje metadane obiektu BLOB. Aktualizacja metadanych obiektu BLOB wyzwala Tworzenie nowej wersji. Przykład Pobiera wersję początkową i bieżącą wersję oraz pokazuje, że tylko bieżąca wersja zawiera metadane.
 
@@ -161,5 +159,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
 - [Soft delete for Azure Storage blobs](soft-delete-overview.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)

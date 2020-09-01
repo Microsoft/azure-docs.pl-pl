@@ -6,13 +6,13 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: f7da9b1779ed2cf46cb29b21215a9415cbaef494
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004490"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231286"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Podstawa zabezpieczeń platformy Azure dla Security Center
 
@@ -394,7 +394,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 **Wskazówki**: Azure Security Center używa skonfigurowanego log Analytics obszaru roboczego do przechowywania danych, alertów i zaleceń, które generuje. Skonfiguruj klucz zarządzany przez klienta (CMK) dla obszaru roboczego, który został skonfigurowany na potrzeby zbierania danych Security Center. CMK umożliwia szyfrowanie wszystkich danych zapisanych lub wysyłanych do obszaru roboczego przy użyciu klucza Azure Key Vault utworzonego i należącego do użytkownika. 
 
-- [Azure Monitor klucz zarządzany przez klienta](../azure-monitor/platform/customer-managed-keys.md)
+- [Klucz zarządzany przez klienta usługi Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -596,7 +596,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań dotyczących zasob�
 
 **Wskazówki**: Azure Security Center używa skonfigurowanego log Analytics obszaru roboczego do przechowywania danych, alertów i zaleceń, które generuje. Skonfiguruj klucz zarządzany przez klienta (CMK) dla obszaru roboczego, który został skonfigurowany na potrzeby zbierania danych Security Center. CMK umożliwia szyfrowanie wszystkich danych zapisanych lub wysyłanych do obszaru roboczego przy użyciu klucza Azure Key Vault utworzonego i należącego do użytkownika. 
 
-- [Azure Monitor klucz zarządzany przez klienta](../azure-monitor/platform/customer-managed-keys.md)
+- [Klucz zarządzany przez klienta usługi Azure Monitor](../azure-monitor/platform/customer-managed-keys.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

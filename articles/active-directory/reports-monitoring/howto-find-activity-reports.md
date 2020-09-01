@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608215"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230623"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Znajdowanie raportów dotyczących aktywności w witrynie Azure Portal
 
@@ -55,7 +55,7 @@ Kategorie obejmują:
 - Wszystko
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- Uwierzytelnianie
 - Autoryzacja
 - Kontakt
 - Urządzenie
@@ -114,12 +114,12 @@ Możesz użyć raportu logowania, aby wyświetlić szczegółowe informacje o u�
 
 Raporty o nietypowych działaniach zawierają informacje dotyczące wykrywania zagrożeń związanych z zabezpieczeniami, które usługa Azure AD może wykrywać i raportować.
 
-W poniższej tabeli przedstawiono raporty o nietypowych działaniach związanych z usługą Azure AD oraz odpowiednie typy wykrywania ryzyka w Azure Portal. Aby uzyskać więcej informacji, zobacz [Azure Active Directory wykrywania zagrożeń](concept-risk-events.md).  
+W poniższej tabeli przedstawiono raporty o nietypowych działaniach związanych z usługą Azure AD oraz odpowiednie typy wykrywania ryzyka w Azure Portal. Aby uzyskać więcej informacji, zobacz [Azure Active Directory wykrywania zagrożeń](../identity-protection/overview-identity-protection.md).  
 
 
 | Raport o nietypowej aktywności usługi Azure AD |  Typ wykrywania ryzyka ochrony tożsamości|
 | :--- | :--- |
-| Użytkownicy z ujawnionymi poświadczeniami | Nieujawnione poświadczenia |
+| Użytkownicy z ujawnionymi poświadczeniami | Ujawnione poświadczenia |
 | Nieregularne działania związane z logowaniem | Niemożliwa podróż do nietypowych lokalizacji |
 | Logowania z urządzeń, które mogą być zainfekowane | Logowania z zainfekowanych urządzeń|
 | Logowania z nieznanych źródeł | Logowania z anonimowych adresów IP |
@@ -136,8 +136,8 @@ Następujące raporty o zabezpieczeniach nietypowej aktywności usługi Azure AD
 
 Można uzyskać dostęp do raportów dotyczących wykrywania wykrytych zagrożeń w sekcji **zabezpieczenia** w bloku **Azure Active Directory** w [Azure Portal](https://portal.azure.com). Wykryte wykrywania ryzyka są śledzone w następujących raportach:   
 
-- [Narażeni użytkownicy](concept-user-at-risk.md)
-- [Ryzykowne logowania](concept-risky-sign-ins.md)
+- [Narażeni użytkownicy](../identity-protection/overview-identity-protection.md)
+- [Ryzykowne logowania](../identity-protection/overview-identity-protection.md)
 
     ![Raporty dotyczące zabezpieczeń](./media/howto-find-activity-reports/04.png "Raporty dotyczące zabezpieczeń")
 
@@ -213,7 +213,7 @@ Nie mogę wyświetlić danych logowania i inspekcji obejmujących więcej niż 3
 
 W zależności od licencji w obszarze akcji usługi Azure Active Directory raporty aktywności są przechowywane przez następujący okres:
 
-| Raport           | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — warstwa Premium P1 | Usługa Azure AD — warstwa Premium P2 |
+| Raport           | Usługa Azure AD — warstwa Bezpłatna | Usługa Azure AD — wersja Premium P1 | Usługa Azure AD — wersja Premium P2 |
 | ---              | ---           | ---                 | ---
 | Inspekcja katalogu  | 7 dni        | 30 dni             | 30 dni             |
 | Aktywność związana z logowaniem | Niedostępne. Możesz uzyskać dostęp do własnych logowań przez 7 dni z poziomu bloku profilu użytkownika | 30 dni | 30 dni             |
@@ -228,4 +228,4 @@ Dostępne są dwie opcje przechowywania danych przez czas dłuższy niż 30 dni.
 
 * [Przegląd dzienników inspekcji](concept-audit-logs.md)
 * [Przegląd logowania](concept-sign-ins.md)
-* [Omówienie ryzykownych zdarzeń](concept-risk-events.md)
+* [Omówienie ryzykownych zdarzeń](../identity-protection/overview-identity-protection.md)

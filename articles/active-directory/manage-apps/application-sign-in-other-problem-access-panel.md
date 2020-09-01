@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9dd407ce2727582039089c0abe31b68bfe5d0f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070330"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231184"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Rozwiązywanie problemów z logowaniem do aplikacji z usługi Azure AD moje aplikacje
 
@@ -27,10 +27,16 @@ Aby dowiedzieć się więcej o korzystaniu z usługi Azure AD jako dostawcy toż
 Te aplikacje są konfigurowane w imieniu użytkownika w portalu usługi Azure AD. Aplikacja musi być poprawnie skonfigurowana i przypisana do użytkownika lub grupy, do której należy użytkownik, aby wyświetlić aplikację w obszarze Moje aplikacje. 
 
 Typ aplikacji widocznych dla użytkownika można podzielić na następujące kategorie:
--   Aplikacje pakietu Office 365
+-   Microsoft 365 i aplikacje pakietu Office 365
 -   Aplikacje firmy Microsoft i innych firm skonfigurowane z logowaniem jednokrotnym opartym na Federacji
 -   Aplikacje logowania jednokrotnego oparte na hasłach
 -   Aplikacje z istniejącymi rozwiązaniami logowania jednokrotnego
+
+Oto kilka rzeczy, aby sprawdzić, czy aplikacja jest wyświetlana lub nie pojawia się.
+- Upewnij się, że aplikacja została dodana do usługi Azure AD i upewnij się, że użytkownik jest przypisany. Aby dowiedzieć się więcej, zobacz [Przewodnik Szybki Start dotyczący zarządzania aplikacjami](view-applications-portal.md).
+- Jeśli aplikacja została niedawno dodana, należy wylogować się i ponownie z powrotem. 
+- Jeśli aplikacja wymaga licencji, takiej jak pakiet Office, upewnij się, że użytkownik ma przypisaną odpowiednią licencję.
+- Czas potrzebny na zmiany licencjonowania może się różnić w zależności od rozmiaru i złożoności grupy.
 
 ## <a name="general-issues-to-check-first"></a>Ogólne problemy do sprawdzenia w pierwszej kolejności
 

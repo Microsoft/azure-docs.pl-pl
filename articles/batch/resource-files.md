@@ -3,12 +3,12 @@ title: Tworzenie i używanie plików zasobów
 description: Dowiedz się, jak tworzyć pliki zasobów usługi Batch z różnych źródeł danych wejściowych. W tym artykule opisano kilka typowych metod tworzenia i umieszczania ich na maszynie wirtualnej.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146304"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230946"
 ---
 # <a name="creating-and-using-resource-files"></a>Tworzenie i używanie plików zasobów
 
@@ -99,7 +99,7 @@ Jeśli każde zadanie ma wiele plików unikatowych dla tego zadania, najlepiej j
 
 Jeśli w zadaniu określono kilka plików zasobów, partia może odrzucić zadanie jako zbyt duże. Najlepszym rozwiązaniem jest utrzymywanie zadań przez zminimalizowanie liczby plików zasobów w samym zadaniu.
 
-Jeśli nie ma możliwości zminimalizowania liczby plików potrzebnych do wykonania zadania, można zoptymalizować zadanie, tworząc jeden plik zasobu, który odwołuje się do kontenera magazynu plików zasobów. W tym celu należy umieścić pliki zasobów w kontenerze usługi Azure Storage i użyć różnych [metod](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) "Container" dla plików zasobów. Użyj opcji prefiksu obiektu BLOB, aby określić kolekcje plików do pobrania dla zadań.
+Jeśli nie ma możliwości zminimalizowania liczby plików potrzebnych do wykonania zadania, można zoptymalizować zadanie, tworząc jeden plik zasobu, który odwołuje się do kontenera magazynu plików zasobów. W tym celu należy umieścić pliki zasobów w kontenerze usługi Azure Storage i użyć różnych [metod](/dotnet/api/microsoft.azure.batch.resourcefile#methods) "Container" dla plików zasobów. Użyj opcji prefiksu obiektu BLOB, aby określić kolekcje plików do pobrania dla zadań.
 
 ## <a name="next-steps"></a>Następne kroki
 

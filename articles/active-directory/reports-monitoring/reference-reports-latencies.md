@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74007699"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231065"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting latencies (Opóźnienia raportowania w usłudze Azure Active Directory)
 
@@ -54,15 +54,15 @@ Jeśli masz już dane dotyczące działań z bezpłatną licencją, zobaczysz j�
 
 Istnieją dwa typy raportów dotyczących zabezpieczeń:
 
-- [Ryzykowne logowania](concept-risky-sign-ins.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
-- [Użytkownicy oflagowani w związku z ryzykiem](concept-user-at-risk.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
+- [Ryzykowne logowania](../identity-protection/overview-identity-protection.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
+- [Użytkownicy oflagowani w związku z ryzykiem](../identity-protection/overview-identity-protection.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
 
 W poniższej tabeli wymieniono informacje o opóźnieniu dla raportów zabezpieczeń.
 
-| Raport | Minimalne | Średnia | Maksimum |
+| Raport | Minimum | Średnia | Maksimum |
 | :-- | --- | --- | --- |
-| Narażeni użytkownicy          | 5 minut   | 15 minut  | 2 godziny  |
-| Ryzykowne logowania         | 5 minut   | 15 minut  | 2 godziny  |
+| Narażeni użytkownicy          | 5 min   | 15 minut  | 2 godziny  |
+| Ryzykowne logowania         | 5 min   | 15 minut  | 2 godziny  |
 
 ## <a name="risk-detections"></a>Wykrycia ryzyka
 
@@ -70,12 +70,12 @@ Usługa Azure AD używa adaptacyjnych algorytmów uczenia maszynowego i heurysty
 
 W poniższej tabeli wymieniono informacje o opóźnieniu dotyczące wykrywania zagrożeń.
 
-| Raport | Minimalne | Średnia | Maksimum |
+| Raport | Minimum | Średnia | Maksimum |
 | :-- | --- | --- | --- |
-| Logowania z anonimowych adresów IP |5 minut |15 minut |2 godziny |
-| Logowania z nieznanych lokalizacji |5 minut |15 minut |2 godziny |
+| Logowania z anonimowych adresów IP |5 min |15 minut |2 godziny |
+| Logowania z nieznanych lokalizacji |5 min |15 minut |2 godziny |
 | Użytkownicy z ujawnionymi poświadczeniami |2 godziny |4 godziny |8 godzin |
-| Niemożliwa podróż do nietypowych lokalizacji |5 minut |1 godzina |8 godzin  |
+| Niemożliwa podróż do nietypowych lokalizacji |5 min |1 godzina |8 godzin  |
 | Logowania z zainfekowanych urządzeń |2 godziny |4 godziny |8 godzin  |
 | Logowania z adresów IP związanych z podejrzanymi działaniami |2 godziny |4 godziny |8 godzin  |
 
@@ -84,4 +84,4 @@ W poniższej tabeli wymieniono informacje o opóźnieniu dotyczące wykrywania z
 
 * [Przegląd raportów usługi Azure AD](overview-reports.md)
 * [Programistyczny dostęp do raportów usługi Azure AD](concept-reporting-api.md)
-* [Azure Active Directory wykrywania ryzyka](concept-risk-events.md)
+* [Azure Active Directory wykrywania ryzyka](../identity-protection/overview-identity-protection.md)

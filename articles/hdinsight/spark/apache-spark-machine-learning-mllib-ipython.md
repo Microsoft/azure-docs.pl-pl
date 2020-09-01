@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: 2ab996c3f3310656e7b85dded8e57a129b901660
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873810"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230419"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Użyj Apache Spark MLlib, aby skompilować aplikację uczenia maszynowego i analizować zestaw danych
 
@@ -44,7 +44,7 @@ W poniższych krokach opracowujesz model, aby zobaczyć, co jest potrzebne do pr
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Tworzenie aplikacji Apache Spark MLlib Machine Learning
 
-1. Utwórz notes Jupyter przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie notesu Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Utwórz notes Jupyter przy użyciu jądra PySpark. Aby uzyskać instrukcje, zobacz [Tworzenie pliku notesu Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Zaimportuj typy wymagane dla tej aplikacji. Skopiuj i wklej następujący kod do pustej komórki, a następnie naciśnij klawisze **SHIFT + ENTER**.
 
@@ -84,7 +84,7 @@ Użyj kontekstu Spark, aby ściągnąć nieprzetworzone dane CSV do pamięci jak
     inspections.take(1)
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     [['413707',
@@ -108,7 +108,7 @@ Użyj kontekstu Spark, aby ściągnąć nieprzetworzone dane CSV do pamięci jak
 
     Dane wyjściowe dają pomysł na Schemat pliku wejściowego. Zawiera nazwę każdego zakładu i typ zakładu. Również adres, dane inspekcji i lokalizacja, między innymi.
 
-3. Uruchom Poniższy kod, aby utworzyć element Dataframe (*DF*) i tabelę tymczasową (*CountResults*) z kilkoma kolumnami, które są przydatne do analizy predykcyjnej. `sqlContext`służy do przekształcania danych ze strukturą.
+3. Uruchom Poniższy kod, aby utworzyć element Dataframe (*DF*) i tabelę tymczasową (*CountResults*) z kilkoma kolumnami, które są przydatne do analizy predykcyjnej. `sqlContext` służy do przekształcania danych ze strukturą.
 
     ```PySpark
     schema = StructType([
@@ -129,7 +129,7 @@ Użyj kontekstu Spark, aby ściągnąć nieprzetworzone dane CSV do pamięci jak
     df.show(5)
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     +------+--------------------+-------+--------------------+
@@ -153,7 +153,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
     df.select('results').distinct().show()
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     +--------------------+
@@ -176,7 +176,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
 
     Magiczna Metoda polega na `%%sql` `-o countResultsdf` tym, że dane wyjściowe zapytania są utrwalane lokalnie na serwerze Jupyter (zazwyczaj węzła głównego klastra). Dane wyjściowe są utrwalane jako ramka [dataPandas](https://pandas.pydata.org/) o określonej nazwie **countResultsdf**. Aby uzyskać więcej informacji na temat `%%sql` Magic i innych magicznych PySpark jądra, zobacz [jądra dostępne w notesach Jupyter z klastrami usługi HDInsight Apache Spark](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ![Dane wyjściowe zapytania SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Dane wyjściowe zapytania SQL")
 
@@ -227,7 +227,7 @@ Zacznijmy od tego, co zawiera zestaw danych.
     labeledData.take(1)
     ```
 
-    Dane wyjściowe wyglądają następująco:
+    Dane wyjściowe są następujące:
 
     ```
     [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]

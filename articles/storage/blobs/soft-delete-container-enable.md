@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066665"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230079"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Włącz i Zarządzaj usuwaniem nietrwałym dla kontenerów (wersja zapoznawcza)
 
@@ -22,7 +22,7 @@ Usuwanie nietrwałe kontenera (wersja zapoznawcza) chroni dane przed przypadkowy
 
 Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego kontenera. W tym artykule przedstawiono sposób włączania usuwania nietrwałego dla kontenerów. Aby uzyskać więcej informacji na temat usuwania nietrwałego kontenera, w tym sposobu rejestracji w wersji zapoznawczej, zobacz [usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md).
 
-Aby zapewnić kompleksową ochronę danych, firma Microsoft zaleca również włączenie usuwania nietrwałego dla obiektów blob i obsługi wersji obiektów BLOB (wersja zapoznawcza). Aby dowiedzieć się, jak również włączyć usuwanie nietrwałe dla obiektów blob, zobacz [Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB](soft-delete-blob-enable.md). Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz temat [przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md).
+Aby zapewnić kompleksową ochronę danych, firma Microsoft zaleca również włączenie usuwania nietrwałego dla obiektów blob i obsługi wersji obiektów BLOB. Aby dowiedzieć się, jak również włączyć usuwanie nietrwałe dla obiektów blob, zobacz [Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB](soft-delete-blob-enable.md). Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz temat [przechowywanie wersji obiektów BLOB](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Włącz usuwanie nietrwałe kontenera
 
@@ -100,5 +100,5 @@ Można przywrócić usunięty trwale kontener i jego zawartość w okresie przec
 ## <a name="next-steps"></a>Następne kroki
 
 - [Usuwanie nietrwałe dla kontenerów (wersja zapoznawcza)](soft-delete-container-overview.md)
-- [Usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md)
-- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Usuwanie nietrwałe dla obiektów blob](soft-delete-blob-overview.md)
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

@@ -1,23 +1,24 @@
 ---
 title: Używanie łącznika Ethereum łańcucha bloków z usługą Azure Logic Apps platformy Azure łańcucha bloków
 description: Użyj łącznika łańcucha bloków Ethereum z Azure Logic Apps, aby wyzwolić funkcje kontraktu inteligentnego i odpowiedzieć na zdarzenia inteligentne kontraktu.
-ms.date: 10/14/2019
+ms.date: 08/31/2020
 ms.topic: how-to
-ms.reviewer: chrisseg
-ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: caleteet
+ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077034"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230538"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Używanie łącznika Ethereum łańcucha bloków z Azure Logic Apps
 
-Użyj [łącznika łańcucha bloków Ethereum](/connectors/blockchainethereum/) z [Azure Logic Apps](../../logic-apps/index.yml) , aby wykonywać inteligentne akcje kontraktowe i odpowiadać na zdarzenia inteligentnego kontraktu. Załóżmy na przykład, że chcesz utworzyć mikrousługi opartej na protokole REST, która zwraca informacje z księgi łańcucha bloków. Za pomocą aplikacji logiki można akceptować żądania HTTP, które wysyłają zapytania do informacji przechowywanych w księdze łańcucha bloków.
+Użyj [łącznika łańcucha bloków Ethereum](/connectors/blockchainethereum/) z [Azure Logic Apps](../../logic-apps/index.yml) , aby wykonywać inteligentne akcje kontraktowe i odpowiadać na zdarzenia inteligentnego kontraktu. W tym artykule wyjaśniono, jak można użyć łącznika Ethereum łańcucha bloków do wysyłania informacji łańcucha bloków do innej usługi lub wywołania funkcji łańcucha bloków. Załóżmy na przykład, że chcesz utworzyć mikrousługi opartej na protokole REST, która zwraca informacje z księgi łańcucha bloków. Za pomocą aplikacji logiki można akceptować żądania HTTP, które wysyłają zapytania do informacji przechowywanych w księdze łańcucha bloków.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Wykonaj opcjonalne wymagania wstępne [szybkiego startu: użyj Visual Studio Code, aby nawiązać połączenie z siecią konsorcjum usługi Azure łańcucha bloków](connect-vscode.md). Przewodnik Szybki Start przeprowadzi Cię przez instalację [usługi Azure łańcucha bloków Development Kit dla Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) i skonfigurowanie środowiska deweloperskiego łańcucha bloków.
+- Wykonaj opcjonalne wymagania wstępne [szybkiego startu: użyj Visual Studio Code, aby nawiązać połączenie z siecią konsorcjum usługi Azure łańcucha bloków](connect-vscode.md). Przewodnik Szybki Start przeprowadzi Cię przez instalację [usługi Azure łańcucha bloków Development Kit dla Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) i skonfigurowanie środowiska deweloperskiego łańcucha bloków.
+- Jeśli dopiero zaczynasz Azure Logic Apps, rozważ przejrzenie Microsoft Learn modułów, [aby Azure Logic Apps](/learn/modules/intro-to-logic-apps/) i [wywołać interfejs API z poziomu przepływu pracy Logic Apps przy użyciu łącznika niestandardowego](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## <a name="create-a-logic-app"></a>Tworzenie aplikacji logiki
 
@@ -33,7 +34,7 @@ Azure Logic Apps pomaga zaplanować i zautomatyzować procesy biznesowe i przep�
 
 Każda aplikacja logiki musi rozpoczynać się od wyzwalacza, który jest aktywowany w momencie wystąpienia konkretnego zdarzenia lub spełnienia określonego warunku. Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki uruchamiającej i wykonującej przepływ pracy.
 
-Łącznik Ethereum łańcucha bloków ma jeden wyzwalacz i kilka akcji. Używany wyzwalacz lub akcja zależy od danego scenariusza.
+Łącznik Ethereum łańcucha bloków ma jeden wyzwalacz i kilka akcji. Używany wyzwalacz lub akcja zależy od danego scenariusza. Postępuj zgodnie z sekcją w tym artykule, która najlepiej odpowiada Twojemu scenariuszowi.
 
 Jeśli przepływ pracy:
 

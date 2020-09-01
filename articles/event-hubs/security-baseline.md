@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: e49a6b8000def0fe175930629b33203adec1b0f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: a6beb1023b3c934cdbb4b7dc479d87e23a7c96be
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537058"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230368"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Podstawa zabezpieczeń platformy Azure dla Event Hubs
 
@@ -36,13 +36,13 @@ Możesz również utworzyć prywatny punkt końcowy, który jest interfejsem sie
 
 Możesz również zabezpieczyć przestrzeń nazw platformy Azure Event Hubs przy użyciu zapór. Usługa Azure Event Hubs obsługuje kontrolę dostępu opartą na protokole IP na potrzeby obsługi zapory przychodzącej. Reguły zapory można ustawiać przy użyciu Azure Portal, Azure Resource Manager szablonów lub interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
-Jak korzystać z punktów końcowych usługi sieci wirtualnej w usłudze Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
+Jak korzystać z punktów końcowych usługi sieci wirtualnej w usłudze Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
 
 Aby uzyskać więcej informacji, zobacz Integrowanie usługi Azure Event Hubs z prywatnym łączem platformy Azure: https://docs.microsoft.com/azure/event-hubs/private-link-service .
 
-Włącz integrację i zapory sieci wirtualnych w Event Hubs przestrzeni nazw:https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls
+Włącz integrację i zapory sieci wirtualnych w Event Hubs przestrzeni nazw: https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls
 
-Jak skonfigurować reguły zapory IP dla przestrzeni nazw platformy Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
+Jak skonfigurować reguły zapory IP dla przestrzeni nazw platformy Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -52,9 +52,9 @@ Jak skonfigurować reguły zapory IP dla przestrzeni nazw platformy Azure Event 
 
 **Wskazówki**: Użyj Azure Security Center i postępuj zgodnie z zaleceniami dotyczącymi ochrony sieci, aby zabezpieczyć zasoby Event Hubs na platformie Azure. W przypadku korzystania z usługi Azure Virtual Machines w celu uzyskania dostępu do centrów zdarzeń Włącz dzienniki przepływu sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) i Wyślij dzienniki do konta magazynu na potrzeby inspekcji ruchu.
 
-Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
+Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -72,9 +72,9 @@ Informacje o zabezpieczeniach sieci zapewnianych przez Azure Security Center:htt
 
 **Wskazówki**: Włączanie standardu DDoS Protection w sieciach wirtualnych skojarzonych z centrami zdarzeń, aby chronić przed rozproszonymi atakami typu "odmowa usługi" (DDoS). Użyj Azure Security Center zintegrowanej analizy zagrożeń, aby odmówić komunikacji ze znanymi złośliwymi lub nieużywanymi adresami IP.
 
-Jak skonfigurować ochronę DDoS:[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+Jak skonfigurować ochronę DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
 
-Aby uzyskać więcej informacji na temat Azure Security Center zintegrowanej analizy zagrożeń:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Aby uzyskać więcej informacji na temat Azure Security Center zintegrowanej analizy zagrożeń: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -86,11 +86,11 @@ Aby uzyskać więcej informacji na temat Azure Security Center zintegrowanej ana
 
 Jeśli jest to wymagane do badania nietypowego działania, Włącz funkcję przechwytywania pakietów Network Watcher.
 
-Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń:https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Jak włączyć dzienniki przepływu sieciowej grupy zabezpieczeń: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Jak włączyć i używać Analiza ruchu:https://docs.microsoft.com/azure/network-watcher/traffic-analytics
+Jak włączyć i używać Analiza ruchu: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
-Jak włączyć Network Watcher:https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+Jak włączyć Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -134,17 +134,17 @@ Jak dodać regułę zapory w Event Hubs dla określonego adresu IP:
 
 - Centrum zdarzeń powinno korzystać z punktu końcowego usługi sieci wirtualnej.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Wbudowane zasady platformy Azure dla Event Hubs przestrzeni nazw:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
-
-
-
-Przykłady Azure Policy dla sieci:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
+Wbudowane zasady platformy Azure dla Event Hubs przestrzeni nazw:  https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 
 
-Jak utworzyć Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+Przykłady Azure Policy dla sieci: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
+
+
+
+Jak utworzyć Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -154,7 +154,7 @@ Jak utworzyć Azure Blueprint:https://docs.microsoft.com/azure/governance/bluepr
 
 **Wskazówki**: używanie tagów dla sieci wirtualnych i innych zasobów związanych z zabezpieczeniami sieci i przepływem ruchu, które są skojarzone z centrami zdarzeń.
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -164,9 +164,9 @@ Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-man
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z usługą Azure Event Hubs. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Jak utworzyć alerty w Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Jak utworzyć alerty w Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -188,9 +188,9 @@ Jak utworzyć alerty w Azure Monitor:https://docs.microsoft.com/azure/azure-moni
 
 **Wskazówki**: w Azure monitor Skonfiguruj dzienniki dotyczące centrów zdarzeń w ustawieniach diagnostycznych dziennika aktywności i centrum zdarzeń, aby wysyłać dzienniki do log Analytics obszaru roboczego, w którym mają być wysyłane zapytania lub do konta magazynu w celu długoterminowego przechowywania danych archiwalnych.
 
-Jak skonfigurować ustawienia diagnostyczne dla Event Hubs platformy Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
+Jak skonfigurować ustawienia diagnostyczne dla Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
 
-Informacje o dzienniku aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
+Informacje o dzienniku aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -202,9 +202,9 @@ Informacje o dzienniku aktywności platformy Azure:https://docs.microsoft.com/az
 
 Ponadto możesz włączyć ustawienia diagnostyki dziennika aktywności platformy Azure i wysłać je do konta usługi Azure Storage, centrum zdarzeń lub obszaru roboczego Log Analytics. Dzienniki aktywności zapewniają wgląd w operacje wykonywane na Event Hubsach i innych zasobach platformy Azure. Korzystając z dzienników aktywności, można określić "co, kto i kiedy" dla operacji zapisu (PUT, POST, DELETE) podejmowanych w przestrzeniach nazw platformy Azure Event Hubs.
 
-Jak włączyć ustawienia diagnostyczne dla Event Hubs platformy Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
+Jak włączyć ustawienia diagnostyczne dla Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
 
-Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -222,7 +222,7 @@ Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azur
 
 **Wskazówki**: w Azure monitor ustawić okres przechowywania log Analytics obszaru roboczego zgodnie z regulacjami zgodności organizacji, aby przechwytywać i przeglądać zdarzenia związane z centrum zdarzeń.
 
-Jak ustawić parametry przechowywania dziennika dla obszarów roboczych Log Analytics:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Jak ustawić parametry przechowywania dziennika dla obszarów roboczych Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -233,11 +233,11 @@ Jak ustawić parametry przechowywania dziennika dla obszarów roboczych Log Anal
 **Wskazówki**: analizowanie i monitorowanie dzienników pod kątem nietypowego zachowania oraz regularnego przeglądania wyników związanych z centrami zdarzeń. Użyj Log Analytics Azure Monitor, aby przejrzeć dzienniki i wykonywać zapytania dotyczące danych dziennika. Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej lub SIEM innych firm.
  
 
-Aby uzyskać więcej informacji na temat obszaru roboczego Log Analytics:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Aby uzyskać więcej informacji na temat obszaru roboczego Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
-Jak wykonywać niestandardowe zapytania w Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+Jak wykonywać niestandardowe zapytania w Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
-Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Jak dołączyć wskaźnik na platformie Azure: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -249,13 +249,13 @@ Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/s
 
 Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikowej. 
 
-Informacje o dzienniku aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
+Informacje o dzienniku aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
-Jak skonfigurować ustawienia diagnostyczne dla Event Hubs platformy Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
+Jak skonfigurować ustawienia diagnostyczne dla Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
 
-Jak otrzymywać alerty dotyczące Log Analytics danych dziennika obszaru roboczego:https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
+Jak otrzymywać alerty dotyczące Log Analytics danych dziennika obszaru roboczego: https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Jak dołączyć wskaźnik na platformie Azure: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorowanie Azure Security Center**: nie jest jeszcze dostępne
 
@@ -293,9 +293,9 @@ Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/s
 
 **Wskazówki**: Azure Active Directory (AD) ma wbudowane role, które muszą być jawnie przypisane i są queryable. Za pomocą modułu Azure AD PowerShell można wykonywać zapytania ad hoc w celu odnajdywania kont należących do grup administracyjnych. 
 
-Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Jak uzyskać rolę katalogu w usłudze Azure AD przy użyciu programu PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -307,7 +307,7 @@ Jak uzyskać członków roli katalogu w usłudze Azure AD przy użyciu programu 
 
 Dostęp do Event Hubs płaszczyzny danych jest kontrolowany za pomocą usługi Azure AD z tożsamościami zarządzanymi lub Rejestracje aplikacji, a także sygnaturami dostępu współdzielonego. Sygnatury dostępu współdzielonego są używane przez klientów łączących się z centrami zdarzeń i mogą być ponownie generowane w dowolnym momencie.
 
-Informacje o sygnaturach dostępu współdzielonego dla Event Hubs:https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
+Informacje o sygnaturach dostępu współdzielonego dla Event Hubs: https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -325,9 +325,9 @@ Ponadto, aby ułatwić śledzenie dedykowanych kont administracyjnych, można u�
 
 - Konta zewnętrzne z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
 
-Jak używać Azure Security Center do monitorowania tożsamości i dostępu (wersja zapoznawcza):https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Jak używać Azure Security Center do monitorowania tożsamości i dostępu (wersja zapoznawcza): https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Jak używać Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak używać Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -337,9 +337,9 @@ Jak używać Azure Policy:https://docs.microsoft.com/azure/governance/policy/tut
 
 **Wskazówki**: Microsoft Azure zapewnia zintegrowane zarządzanie kontrolą dostępu dla zasobów i aplikacji na podstawie Azure Active Directory (AD). Główną zaletą korzystania z usługi Azure AD z usługą Azure Event Hubs jest to, że nie musisz już przechowywać poświadczeń w kodzie. Zamiast tego można zażądać tokenu dostępu OAuth 2,0 z platformy tożsamości firmy Microsoft. Nazwa zasobu do żądania tokenu to https: \/ /eventhubs.Azure.NET/. Usługa Azure AD uwierzytelnia podmiot zabezpieczeń (użytkownika, grupę lub nazwę główną usługi), na którym działa aplikacja. W przypadku pomyślnego uwierzytelnienia usługa Azure AD zwraca token dostępu do aplikacji, a następnie może użyć tokenu dostępu do autoryzowania żądania do zasobów usługi Azure Event Hubs.
 
-Jak uwierzytelnić aplikację przy użyciu usługi Azure AD w celu uzyskania dostępu do Event Hubs zasobów:https://docs.microsoft.com/azure/event-hubs/authenticate-application
+Jak uwierzytelnić aplikację przy użyciu usługi Azure AD w celu uzyskania dostępu do Event Hubs zasobów: https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
-Informacje o logowaniu jednokrotne za pomocą usługi Azure AD:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Informacje o logowaniu jednokrotne za pomocą usługi Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -349,9 +349,9 @@ Informacje o logowaniu jednokrotne za pomocą usługi Azure AD:https://docs.micr
 
 **Wskazówki**: włączanie usługi Azure Active Directory Multi-Factor Authentication (MFA) i przestrzeganie Azure Security Center zaleceń dotyczących zarządzania tożsamościami i dostępem w celu ułatwienia ochrony zasobów z obsługą centrum zdarzeń.
 
-Jak włączyć usługę MFA na platformie Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Jak włączyć usługę MFA na platformie Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-Jak monitorować tożsamość i dostęp w Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Jak monitorować tożsamość i dostęp w Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -361,9 +361,9 @@ Jak monitorować tożsamość i dostęp w Azure Security Center:https://docs.mic
 
 **Wskazówki**: Użyj stacji roboczych dostępu uprzywilejowanego (dostępem uprzywilejowanym) z usługą Multi-Factor Authentication (MFA) skonfigurowaną w celu logowania się i konfigurowania zasobów z obsługą centrum zdarzeń.
 
-Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Dowiedz się więcej o stacjach roboczych uprzywilejowanego dostępu: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
 
-Jak włączyć usługę MFA na platformie Azure:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Jak włączyć usługę MFA na platformie Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -373,11 +373,11 @@ Jak włączyć usługę MFA na platformie Azure:https://docs.microsoft.com/azure
 
 **Wskazówki**: Użyj Azure Active Directory (AD) PRIVILEGED Identity Management (PIM) do generowania dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku. Użyj funkcji wykrywania ryzyka usługi Azure AD, aby wyświetlać alerty i raporty na temat ryzykownego zachowania użytkowników. Aby uzyskać dodatkowe rejestrowanie, Wyślij Azure Security Center alerty wykrywania ryzyka do Azure Monitor i skonfiguruj niestandardowe alerty/powiadomienia przy użyciu grup akcji.
 
-Jak wdrożyć Privileged Identity Management (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Jak wdrożyć Privileged Identity Management (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Informacje o wykrywaniu ryzyka usługi Azure AD:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Informacje o wykrywaniu ryzyka usługi Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień:https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
+Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -389,7 +389,7 @@ Jak skonfigurować grupy akcji dla niestandardowych alertów i powiadomień:http
 
 
 
-Jak skonfigurować nazwane lokalizacje na platformie Azure:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Jak skonfigurować nazwane lokalizacje na platformie Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -399,9 +399,9 @@ Jak skonfigurować nazwane lokalizacje na platformie Azure:https://docs.microsof
 
 **Wskazówki**: Użyj Azure Active Directory (AD) jako centralnego systemu uwierzytelniania i autoryzacji dla zasobów platformy Azure, takich jak Event Hubs. Umożliwia to kontrolę dostępu opartą na rolach (RBAC) do poufnych zasobów administracyjnych.
 
- Jak utworzyć i skonfigurować wystąpienie usługi Azure AD:https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+ Jak utworzyć i skonfigurować wystąpienie usługi Azure AD: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
-Aby dowiedzieć się, jak platforma Azure Event Hubs integruje się z usługą Azure Active Directory (AAD), zobacz temat autoryzowanie dostępu do Event Hubs zasobów przy użyciu Azure Active Directory:https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Aby dowiedzieć się, jak platforma Azure Event Hubs integruje się z usługą Azure Active Directory (AAD), zobacz temat autoryzowanie dostępu do Event Hubs zasobów przy użyciu Azure Active Directory: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -413,11 +413,11 @@ Aby dowiedzieć się, jak platforma Azure Event Hubs integruje się z usługą A
 
 Dodatkowo należy regularnie obrócić sygnatury dostępu współdzielonego Event Hubs ".
 
-Informacje o raportowaniu usługi Azure AD:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Informacje o raportowaniu usługi Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-Jak korzystać z przeglądów dostępu do tożsamości platformy Azure:https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+Jak korzystać z przeglądów dostępu do tożsamości platformy Azure: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-Informacje o sygnaturach dostępu współdzielonego dla Event Hubs:https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
+Informacje o sygnaturach dostępu współdzielonego dla Event Hubs: https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -429,9 +429,9 @@ Informacje o sygnaturach dostępu współdzielonego dla Event Hubs:https://docs.
 
 Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytkowników usługi Azure AD i wysyłając dzienniki inspekcji i dzienniki logowania do obszaru roboczego Log Analytics. Żądane alerty dzienników można skonfigurować w ramach Log Analytics.
 
-Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Jak zintegrować dzienniki aktywności platformy Azure z Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory:https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -441,11 +441,11 @@ Autoryzuj dostęp do zasobów Event Hubs przy użyciu Azure Active Directory:htt
 
 **Wskazówki**: Użyj funkcji ochrony tożsamości i wykrywania ryzyka Azure Active Directory, aby skonfigurować automatyczne odpowiedzi na wykryte podejrzane działania związane z zasobami z obsługą Event Hubs. Aby zaimplementować odpowiedzi na zabezpieczenia organizacji, należy włączyć automatyczne odpowiedzi za pomocą wskaźnikowego platformy Azure.
 
-Jak wyświetlić ryzykowne logowania usługi Azure AD:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+Jak wyświetlić ryzykowne logowania usługi Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Jak skonfigurować i włączyć zasady dotyczące ryzyka związanego z ochroną tożsamości: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Jak dołączyć wskaźnik na platformie Azure: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -455,7 +455,7 @@ Jak dołączyć wskaźnik na platformie Azure:https://docs.microsoft.com/azure/s
 
 **Wskazówki**: obecnie niedostępne; Skrytka klienta nie jest jeszcze obsługiwana dla Event Hubs.
 
-Lista usług obsługiwanych przez Skrytka klienta:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista usług obsługiwanych przez Skrytka klienta: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -469,7 +469,7 @@ Lista usług obsługiwanych przez Skrytka klienta:https://docs.microsoft.com/azu
 
 **Wskazówki**: Użyj tagów dotyczących zasobów związanych z Event Hubs, aby pomóc w śledzeniu zasobów platformy Azure, które przechowują lub przetwarzają informacje poufne.
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -481,15 +481,15 @@ Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-man
 
 Możesz również zabezpieczyć przestrzeń nazw platformy Azure Event Hubs przy użyciu zapór. Usługa Azure Event Hubs obsługuje kontrolę dostępu opartą na protokole IP na potrzeby obsługi zapory przychodzącej. Reguły zapory można ustawiać przy użyciu Azure Portal, Azure Resource Manager szablonów lub interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
-Jak utworzyć dodatkowe subskrypcje platformy Azure:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Jak utworzyć dodatkowe subskrypcje platformy Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Jak utworzyć Grupy zarządzania:https://docs.microsoft.com/azure/governance/management-groups/create
+Jak utworzyć Grupy zarządzania: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Skonfiguruj reguły zapory adresów IP dla przestrzeni nazw platformy Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
+Skonfiguruj reguły zapory adresów IP dla przestrzeni nazw platformy Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
-Jak tworzyć Tagi i korzystać z nich:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Jak tworzyć Tagi i korzystać z nich: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Jak utworzyć Virtual Network:https://docs.microsoft.com/azure/virtual-network/quick-create-portal
+Jak utworzyć Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -501,15 +501,15 @@ Jak utworzyć Virtual Network:https://docs.microsoft.com/azure/virtual-network/q
 
 Firma Microsoft zarządza podstawową infrastrukturą dla systemu Azure Event Hubs i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-Skonfiguruj reguły zapory adresów IP dla przestrzeni nazw platformy Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
+Skonfiguruj reguły zapory adresów IP dla przestrzeni nazw platformy Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
-Informacje na temat punktów końcowych usługi Virtual Network za pomocą usługi Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
+Informacje na temat punktów końcowych usługi Virtual Network za pomocą usługi Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
 
-Integracja usługi Azure Event Hubs z usługą Azure Private link:https://docs.microsoft.com/azure/event-hubs/private-link-service
+Integracja usługi Azure Event Hubs z usługą Azure Private link: https://docs.microsoft.com/azure/event-hubs/private-link-service
 
-Poznaj sieciowe grupy zabezpieczeń i Tagi usług:https://docs.microsoft.com/azure/virtual-network/security-overview
+Poznaj sieciowe grupy zabezpieczeń i Tagi usług: https://docs.microsoft.com/azure/virtual-network/security-overview
 
-Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -519,7 +519,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 **Wskazówki**: usługa Azure Event Hubs domyślnie wymusza komunikację z szyfrowanym protokołem TLS. Protokoły TLS w wersji 1,0, 1,1 i 1,2 są obecnie obsługiwane. Jednak protokoły TLS 1,0 i 1,1 znajdują się na ścieżce, aby wycofać całe branże, więc Użyj protokołu TLS 1,2, jeśli jest to możliwe.
 
-Aby zrozumieć funkcje zabezpieczeń Event Hubs, zobacz Zabezpieczenia sieci:https://docs.microsoft.com/azure/event-hubs/network-security
+Aby zrozumieć funkcje zabezpieczeń Event Hubs, zobacz Zabezpieczenia sieci:  https://docs.microsoft.com/azure/event-hubs/network-security
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -531,7 +531,7 @@ Aby zrozumieć funkcje zabezpieczeń Event Hubs, zobacz Zabezpieczenia sieci:htt
 
 W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Microsoft traktuje całą zawartość klienta jako poufną i nadaje im dużą długość, aby chronić przed utratą i narażeniem danych przez klienta. Aby zapewnić bezpieczeństwo danych klienta na platformie Azure, firma Microsoft wdrożyła i utrzymuje pakiet niezawodnych kontroli i możliwości ochrony danych.
 
-Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -541,7 +541,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 **Wskazówki**: usługa Azure Event Hubs obsługuje używanie Azure Active Directory (AD) do autoryzacji żądań Event Hubs zasobów. Za pomocą usługi Azure AD można używać kontroli dostępu opartej na rolach (RBAC) do udzielania uprawnień podmiotowi zabezpieczeń, który może być użytkownikiem lub podmiotem usługi aplikacji.
 
-Informacje na temat funkcji RBAC i ról dostępnych w usłudze Azure AD dla Event Hubs platformy Azure:https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Informacje na temat funkcji RBAC i ról dostępnych w usłudze Azure AD dla Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -553,7 +553,7 @@ Informacje na temat funkcji RBAC i ról dostępnych w usłudze Azure AD dla Even
 
 Firma Microsoft zarządza podstawową infrastrukturą dla Event Hubs i ma zaimplementowane ścisłe kontrole, aby zapobiec utracie lub narażeniu danych klientów.
 
-Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Zrozumienie ochrony danych klientów na platformie Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -563,7 +563,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 **Wskazówki**: usługa Azure Event Hubs obsługuje szyfrowanie danych przechowywanych przy użyciu kluczy zarządzanych przez firmę Microsoft lub kluczy zarządzanych przez klienta. Ta funkcja umożliwia tworzenie, obracanie, wyłączanie i odwoływanie dostępu do kluczy zarządzanych przez klienta, które są używane do szyfrowania danych Event Hubs platformy Azure.
 
-Jak skonfigurować klucze zarządzane przez klienta do szyfrowania Event Hubs platformy Azure:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
+Jak skonfigurować klucze zarządzane przez klienta do szyfrowania Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -573,7 +573,7 @@ Jak skonfigurować klucze zarządzane przez klienta do szyfrowania Event Hubs pl
 
 **Wskazówki**: Użyj Azure monitor z dziennikiem aktywności platformy Azure, aby utworzyć alerty dla sytuacji, w których zmiany są wprowadzane do wystąpień produkcyjnych platformy Azure Event Hubs i innych krytycznych lub powiązanych zasobów.
 
-Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -631,11 +631,11 @@ Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure:https://
 
 **Wskazówki**: Użyj grafu zasobów platformy Azure do wykonywania zapytań i odnajdywania wszystkich zasobów (w tym przestrzeni nazw platformy Azure Event Hubs) w ramach subskrypcji. Upewnij się, że masz odpowiednie uprawnienia (odczyt) w dzierżawie i że można wyliczyć wszystkie subskrypcje platformy Azure oraz zasoby w ramach subskrypcji.
 
-Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Jak tworzyć zapytania przy użyciu grafu zasobów platformy Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Jak wyświetlić subskrypcje platformy Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Jak wyświetlić subskrypcje platformy Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Opis kontroli RBAC platformy Azure:https://docs.microsoft.com/azure/role-based-access-control/overview
+Opis kontroli RBAC platformy Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -645,7 +645,7 @@ Opis kontroli RBAC platformy Azure:https://docs.microsoft.com/azure/role-based-a
 
 **Wskazówki**: stosowanie tagów do zasobów platformy Azure, dzięki czemu metadane są logicznie zorganizowane w taksonomię.
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -655,11 +655,11 @@ Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-man
 
 **Wskazówki**: używanie tagowania, grup zarządzania i oddzielnych subskrypcji, gdzie to konieczne, do organizowania i śledzenia przestrzeni nazw i powiązanych zasobów platformy Azure Event Hubs. Regularnie Uzgadniaj spis i zapewnij, że nieautoryzowane zasoby są usuwane z subskrypcji w odpowiednim czasie.
 
-Jak utworzyć dodatkowe subskrypcje platformy Azure:https://docs.microsoft.com/azure/billing/billing-create-subscription
+Jak utworzyć dodatkowe subskrypcje platformy Azure: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Jak utworzyć Grupy zarządzania:https://docs.microsoft.com/azure/governance/management-groups/create
+Jak utworzyć Grupy zarządzania: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Tworzenie i używanie tagów: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -683,9 +683,9 @@ Tworzenie i używanie tagów:https://docs.microsoft.com/azure/azure-resource-man
 
 Ponadto za pomocą usługi Azure Resource Graph można wykonywać zapytania/odnajdywać zasoby w ramach subskrypcji.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak tworzyć zapytania za pomocą usługi Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Jak tworzyć zapytania za pomocą usługi Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -723,9 +723,9 @@ Jak tworzyć zapytania za pomocą usługi Azure Graph:https://docs.microsoft.com
 
 - Dozwolone typy zasobów
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Jak odmówić określonego typu zasobu Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -743,7 +743,7 @@ Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/a
 
 **Wskazówki**: Skonfiguruj dostęp warunkowy platformy Azure, aby ograniczyć możliwość korzystania przez użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
 
-Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -777,11 +777,11 @@ Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resourc
 
 - Centrum zdarzeń powinno używać punktu końcowego usługi sieci wirtualnej
 
-Wbudowane zasady platformy Azure dla Event Hubs przestrzeni nazw:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
+Wbudowane zasady platformy Azure dla Event Hubs przestrzeni nazw: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Jak wyświetlić dostępne aliasy Azure Policy:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Jak wyświetlić dostępne aliasy Azure Policy: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -799,10 +799,10 @@ Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/az
 
 **Wskazówki**: Użyj Azure Policy [Odmów] i [Wdróż, jeśli nie istnieje], aby wymusić bezpieczne ustawienia w ramach zasobów z włączoną obsługą Event Hubs. 
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
  
-Aby uzyskać więcej informacji na temat efektów Azure Policy:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Aby uzyskać więcej informacji na temat efektów Azure Policy:  https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -820,9 +820,9 @@ Aby uzyskać więcej informacji na temat efektów Azure Policy:https://docs.micr
 
 **Wskazówki**: Jeśli używasz niestandardowych definicji Azure Policy dla Event Hubs lub powiązanych zasobów, użyj Azure Repos, aby bezpiecznie przechowywać kod i zarządzać nim.
 
-Jak przechowywać kod w usłudze Azure DevOps:https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Jak przechowywać kod w usłudze Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Dokumentacja Azure Repos:https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Dokumentacja Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -840,7 +840,7 @@ Dokumentacja Azure Repos:https://docs.microsoft.com/azure/devops/repos/index?vie
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. EventHub", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Dodatkowo opracowuj proces i potok na potrzeby zarządzania wyjątkami zasad.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -858,7 +858,7 @@ Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/az
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. EventHub", aby utworzyć zasady niestandardowe na potrzeby alertów, inspekcji i wymuszania konfiguracji systemu. Użyj Azure Policy [Audit], [Odmów] i [Wdróż, jeśli nie istnieje], aby automatycznie wymuszać konfiguracje dla wdrożeń Event Hubs platformy Azure i powiązanych zasobów.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -876,15 +876,15 @@ Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/az
 
 **Wskazówki**: w przypadku maszyn wirtualnych platformy Azure lub aplikacji sieci Web działających na Azure App Service używanym do uzyskiwania dostępu do centrów zdarzeń należy używać tożsamość usługi zarządzanej w połączeniu z Azure Key Vault, aby uprościć i zabezpieczyć zarządzanie sygnaturami dostępu współdzielonego dla wdrożeń Event Hubs platformy Azure. Upewnij się, Key Vault jest włączona funkcja usuwania nietrwałego.
 
-Uwierzytelniaj tożsamość zarządzaną za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs:https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest
+Uwierzytelniaj tożsamość zarządzaną za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs: https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest
 
-Skonfiguruj klucze zarządzane przez klienta dla Event Hubs:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
+Skonfiguruj klucze zarządzane przez klienta dla Event Hubs: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
 
-Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Jak utworzyć Key Vault:https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Jak utworzyć Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:https://docs.microsoft.com/azure/key-vault/managed-identity
+Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej: https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -896,13 +896,13 @@ Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:
 
 Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure Active Directory (AD). Tożsamości zarządzane umożliwiają uwierzytelnianie w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, w tym Azure Key Vault, bez żadnych poświadczeń w kodzie.
 
-Uwierzytelniaj tożsamość zarządzaną za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs:https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest 
+Uwierzytelniaj tożsamość zarządzaną za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs: https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest 
 
-Skonfiguruj klucze zarządzane przez klienta dla Event Hubs:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
+Skonfiguruj klucze zarządzane przez klienta dla Event Hubs: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
 
-Jak skonfigurować tożsamości zarządzane:https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Jak skonfigurować tożsamości zarządzane: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -912,7 +912,7 @@ Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę 
 
 **Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault.
 
-Jak skonfigurować skaner poświadczeń:https://secdevtools.azurewebsites.net/helpcredscan.html
+Jak skonfigurować skaner poświadczeń: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -958,7 +958,7 @@ Oprogramowanie chroniące przed złośliwym oprogramowaniem firmy Microsoft jest
 
 **Wskazówki**: Konfigurowanie odzyskiwania geograficznego po awarii dla Event Hubs platformy Azure. W przypadku awarii całego regionu platformy Azure lub centrów danych (jeśli nie są używane strefy dostępności) nie ma możliwości zapewnienia przestoju w celu przeprowadzenia działania w innym regionie lub w centrum. W związku z tym odzyskiwanie geograficzne i replikacja geograficzna są ważnymi funkcjami dla każdego przedsiębiorstwa. Usługa Azure Event Hubs obsługuje zarówno odzyskiwanie geograficzne po awarii, jak i replikację geograficzną, na poziomie przestrzeni nazw. 
 
-Informacje na temat odzyskiwania po awarii geograficznej dla Event Hubs platformy Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
+Informacje na temat odzyskiwania po awarii geograficznej dla Event Hubs platformy Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -970,9 +970,9 @@ Informacje na temat odzyskiwania po awarii geograficznej dla Event Hubs platform
 
 Zadbaj o regularne automatyczne tworzenie kopii zapasowych danych tajnych Key Vault za pomocą następującego polecenia programu PowerShell: Backup-AzKeyVaultSecret
 
-Jak skonfigurować klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure w spoczynku:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
+Jak skonfigurować klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure w spoczynku: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
-Jak utworzyć kopię zapasową Key Vault Secret:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
+Jak utworzyć kopię zapasową Key Vault Secret: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -984,7 +984,7 @@ Jak utworzyć kopię zapasową Key Vault Secret:https://docs.microsoft.com/power
 
  
 
-Jak przywrócić klucze magazynu kluczy na platformie Azure:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Jak przywrócić klucze magazynu kluczy na platformie Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -996,11 +996,11 @@ Jak przywrócić klucze magazynu kluczy na platformie Azure:https://docs.microso
 
 Skonfiguruj nietrwałe usuwanie dla konta usługi Azure Storage używanego do przechwytywania danych Event Hubs. Należy pamiętać, że ta funkcja nie jest jeszcze obsługiwana w przypadku Azure Data Lake Storage generacji 2.
 
-Jak włączyć usuwanie nietrwałe w Key Vault:https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Jak włączyć usuwanie nietrwałe w Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-Skonfiguruj Magazyn kluczy z kluczami:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
+Skonfiguruj Magazyn kluczy z kluczami: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
-Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage:https://docs.microsoft.com//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage: https://docs.microsoft.com//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1014,7 +1014,7 @@ Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage:https://docs.micros
 
 **Wskazówki**: Upewnij się, że istnieją plany odpowiedzi na zdarzenia, które definiują role pracowników, a także fazy obsługi zdarzeń/zarządzania.
 
-Jak skonfigurować automatyzację przepływu pracy w ramach Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+Jak skonfigurować automatyzację przepływu pracy w ramach Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
 
 
@@ -1034,7 +1034,7 @@ Jak skonfigurować automatyzację przepływu pracy w ramach Azure Security Cente
 
 **Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
 
-Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1044,7 +1044,7 @@ Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ć
 
 **Wskazówki**: informacje kontaktowe dotyczące zdarzenia zabezpieczeń będą używane przez firmę Microsoft do skontaktowania się z Tobą, jeśli firma Microsoft Security Response Center (MSRC) wykryje, że dostęp do danych klienta został uzyskany przez nielegalną lub nieautoryzowaną osobę.  Przejrzyj zdarzenia po fakcie, aby upewnić się, że problemy zostały rozwiązane. 
 
-Jak ustawić Azure Security Center kontaktu zabezpieczeń:https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+Jak ustawić Azure Security Center kontaktu zabezpieczeń: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1054,9 +1054,9 @@ Jak ustawić Azure Security Center kontaktu zabezpieczeń:https://docs.microsoft
 
 **Wskazówki**: eksportowanie alertów i zaleceń dotyczących Azure Security Center przy użyciu funkcji eksportu ciągłego. Eksport ciągły umożliwia wyeksportowanie alertów i zaleceń ręcznie lub w stały sposób ciągły. Możesz użyć łącznika danych Azure Security Center, aby przesłać strumieniowo wskaźnik do alertów.
 
-Jak skonfigurować eksport ciągły:https://docs.microsoft.com/azure/security-center/continuous-export
+Jak skonfigurować eksport ciągły: https://docs.microsoft.com/azure/security-center/continuous-export
 
-Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowej:https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowej: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1066,7 +1066,7 @@ Jak przesłać strumieniowo alerty do usługi Azure wskaźnikowej:https://docs.m
 
 **Wskazówki**: Użyj funkcji automatyzacji przepływu pracy w programie Azure Security Center, aby automatycznie wyzwalać odpowiedzi za pośrednictwem "Logic Apps" na temat alertów zabezpieczeń i zaleceń.
 
-Jak skonfigurować automatyzację przepływu pracy i Logic Apps:https://docs.microsoft.com/azure/security-center/workflow-automation
+Jak skonfigurować automatyzację przepływu pracy i Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1079,7 +1079,7 @@ Jak skonfigurować automatyzację przepływu pracy i Logic Apps:https://docs.mic
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń w ciągu 60 dni
 
 **Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 .
-Aby uzyskać więcej informacji na temat strategii firmy Microsoft i wykonywania testów z zakresu tworzenia zespołu Red-site i testowania aplikacji na żywo, należy wykonać następujące działania:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Aby uzyskać więcej informacji na temat strategii firmy Microsoft i wykonywania testów z zakresu tworzenia zespołu Red-site i testowania aplikacji na żywo, należy wykonać następujące działania: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitorowanie Azure Security Center**: tak
 

@@ -3,12 +3,12 @@ title: Obsługiwane typy zasobów za poorednictwem Azure Resource Health | Micro
 description: Obsługiwane typy zasobów za pomocą usługi Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611946"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230164"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy zasobów i kontrole kondycji w usłudze Azure Resource Health
 Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zasoby według typów zasobów.
@@ -22,6 +22,11 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 |Wykonane sprawdzenia|
 |---|
 |<ul><li>Czy usługa API Management jest uruchomiona i działa?</li></ul>|
+
+## <a name="microsoftappplatformspring"></a>Microsoft. AppPlatform/Sprężyna
+|Wykonane sprawdzenia|
+|---|
+|<ul><li>Czy wystąpienie chmury wiosennej platformy Azure jest dostępne?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |Wykonane sprawdzenia|
@@ -56,12 +61,17 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 ## <a name="microsoftcomputehostgroupshosts"></a>Microsoft. COMPUTE/hostgroups/hosty
 |Wykonane sprawdzenia|
 |---|
-|<ul><li>Czy host jest uruchomiony i działa</li><li>Czy sprzęt hosta jest obniżony?</li><li>Czy nie cofnięto przydziału hosta?</li><li>Czy usługa sprzętowa hosta została zaleczona innym sprzętem?</li></ul>|
+|<ul><li>Czy host jest uruchomiony i działa?</li><li>Czy sprzęt hosta jest obniżony?</li><li>Czy nie cofnięto przydziału hosta?</li><li>Czy usługa sprzętowa hosta została zaleczona innym sprzętem?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft. COMPUTE/virtualmachines
 |Wykonane sprawdzenia|
 |---|
 |<ul><li>Czy serwer hostujący tę maszynę wirtualną w górę i w działaniu?</li><li>Czy ukończono rozruch systemu operacyjnego hosta?</li><li>Czy kontener maszyny wirtualnej został zainicjowany i włączony?</li><li>Czy istnieje połączenie sieciowe między hostem a kontem magazynu?</li><li>Czy ukończono rozruch systemu operacyjnego gościa?</li><li>Czy nadal trwa planowana konserwacja?</li><li>Czy sprzęt hosta został obniżony i przewidziany do niepowodzenia?</li></ul>|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft. ContainerService/managedClusters
+|Wykonane sprawdzenia|
+|---|
+|<ul><li>Czy klaster jest uruchomiony i działa?</li><li>Czy w klastrze są dostępne podstawowe usługi?</li><li>Czy wszystkie węzły klastra są gotowe?</li><li>Czy nazwa główna usługi jest bieżąca i ważna?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft. DataFactory/fabryki
 |Wykonane sprawdzenia|
@@ -124,10 +134,20 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 |---|
 |<ul><li>Czy usługi podstawowe są dostępne w klastrze HDInsight?</li><li>Czy klaster usługi HDInsight może uzyskać dostęp do klucza szyfrowania BYOK w spoczynku?</li></ul>|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
+|Wykonane sprawdzenia|
+|---|
+|<ul><li>Czy IoT Central jest dostępna aplikacja?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft./magazyny kluczy
 |Wykonane sprawdzenia|
 |---|
 |<ul><li>Czy żądania do magazynu kluczy kończą się niepowodzeniem ze względu na problemy z platformą Azure Key magazynu?</li><li>Czy żądania kierowane do magazynu kluczy są ograniczone ze względu na zbyt wiele żądań wykonywanych przez klienta?</li></ul>|
+
+## <a name="microsoftkustoclusters"></a>Microsoft. Kusto/klastry
+|Wykonane sprawdzenia|
+|---|
+|<ul><li>Czy w klastrze występują niskie stawki za pomyślne pozyskiwanie?</li><li>Czy klaster ma duże opóźnienie pozyskiwania?</li><li>Czy w klastrze występuje duża liczba błędów zapytania?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft. MachineLearning/WebServices
 |Wykonane sprawdzenia|
@@ -164,6 +184,11 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 |---|
 |<ul><li>Czy punkty końcowe równoważenia obciążenia są dostępne?</li></ul>|
 
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. Network/trafficmanagerprofiles
+|Wykonane sprawdzenia|
+|---|
+|<ul><li>Czy istnieją jakieś problemy mające wpływ na profil Traffic Manager?</li></ul>|
+
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft. Network/virtualNetworkGateways
 |Wykonane sprawdzenia|
 |---|
@@ -183,11 +208,6 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 |Wykonane sprawdzenia|
 |---|
 |<ul><li>Czy zasób wydajności jest uruchomiony i działa?</li><li>Czy wszystkie obciążenia są uruchomione i działają?</li></ul>|
-
-## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft. PowerBI/workspaceCollections
-|Wykonane sprawdzenia|
-|---|
-|<ul><li>Czy system operacyjny hosta jest uruchomiony?</li><li>Czy obszar roboczycollection jest dostępny spoza centrum danych?</li><li>Czy dostawca zasobów Power BI jest dostępny?</li><li>Czy usługa Power BI jest dostępna w odpowiednim regionie?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft. Search/searchServices
 |Wykonane sprawdzenia|

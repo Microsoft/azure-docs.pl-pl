@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 7315ef68b3562a28ee2515077c1e7d2f23c3803f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041323"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230436"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Podstawa zabezpieczeń platformy Azure dla usługi HDInsight
 
@@ -32,9 +32,9 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 Aby zmniejszyć ryzyko utraty danych za pośrednictwem usługi eksfiltracji, Ogranicz wychodzący ruch sieciowy dla klastrów usługi Azure HDInsight przy użyciu zapory platformy Azure.
 
-Jak wdrożyć usługę Azure HDInsight w ramach Virtual Network i zabezpieczyć grupę zabezpieczeń sieci:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Jak wdrożyć usługę Azure HDInsight w ramach Virtual Network i zabezpieczyć grupę zabezpieczeń sieci: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Jak ograniczyć ruch wychodzący dla klastrów usługi Azure HDInsight za pomocą zapory platformy Azure:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Jak ograniczyć ruch wychodzący dla klastrów usługi Azure HDInsight za pomocą zapory platformy Azure: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -108,11 +108,11 @@ Istnieje kilka zależności dotyczących usługi Azure HDInsight, które wymagaj
 
 Aby zmniejszyć ryzyko utraty danych za pośrednictwem usługi eksfiltracji, Ogranicz wychodzący ruch sieciowy dla klastrów usługi Azure HDInsight przy użyciu zapory platformy Azure.
 
-Jak wdrożyć usługę HDInsight w ramach Virtual Network i zabezpieczyć ją przy użyciu sieciowej grupy zabezpieczeń:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Jak wdrożyć usługę HDInsight w ramach Virtual Network i zabezpieczyć ją przy użyciu sieciowej grupy zabezpieczeń: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Informacje o zależnościach i użyciu zapory usługi HDInsight:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Informacje o zależnościach i użyciu zapory usługi HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-Adresy IP zarządzania usługą HDInsight:https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
+Adresy IP zarządzania usługą HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -192,7 +192,7 @@ Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-Jak utworzyć alerty w Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Jak utworzyć alerty w Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -526,7 +526,7 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 
 **Wskazówki**: niedostępne; Usługa Azure HDInsight nie Skrytka klienta jeszcze obsługiwana.
 
-Lista obsługiwanych usług Skrytka klienta:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista obsługiwanych usług Skrytka klienta: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 
@@ -840,9 +840,9 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasoby w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak tworzyć zapytania za pomocą usługi Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Jak tworzyć zapytania za pomocą usługi Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 
@@ -887,9 +887,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 - Dozwolone typy zasobów
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Jak odmówić określonego typu zasobu Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
@@ -909,7 +909,7 @@ Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/a
 
 **Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość korzystania przez użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
 
-Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
@@ -1290,7 +1290,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-Aby uzyskać więcej informacji na temat strategii firmy Microsoft i wykonywania testów z zakresu tworzenia zespołu Red-site i testowania aplikacji na żywo, należy wykonać następujące działania:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Aby uzyskać więcej informacji na temat strategii firmy Microsoft i wykonywania testów z zakresu tworzenia zespołu Red-site i testowania aplikacji na żywo, należy wykonać następujące działania: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

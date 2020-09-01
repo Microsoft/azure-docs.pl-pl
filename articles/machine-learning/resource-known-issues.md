@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018726"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230385"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
@@ -318,6 +318,26 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Zautomatyzowane uczenie maszynowe
 
+* **Ostatnie uaktualnienie zależności AutoML do nowszych wersji spowoduje przerwanie compatibilitity**: w przypadku wersji 1.13.0 zestawu SDK modele nie będą ładowane w starszych zestawach SDK ze względu na niezgodność między starszymi wersjami przypiętymi w naszych poprzednich pakietach i nowszymi wersjami. Zobaczysz błąd, taki jak:
+  * Nie znaleziono modułu: ex. `No module named 'sklearn.decomposition._truncated_svd` ,
+  * Błędy importowania: ex. `ImportError: cannot import name 'RollingOriginValidator'` ,
+  * Błędy atrybutów: ex. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  Aby obejść ten problem, wykonaj jedną z następujących czynności, w zależności od wersji szkoleniowej zestawu AutoML SDK:
+  1. Jeśli wersja szkoleniowa zestawu AutoML SDK jest nowsza niż 1.13.0, potrzebne są `pandas == 0.25.1` i `sckit-learn==0.22.1` . Jeśli występuje niezgodność wersji, Uaktualnij scikit-Dowiedz się i/lub Pandas, aby uzyskać poprawną wersję, jak pokazano poniżej:
+  
+  ```bash
+     pip install --upgrade pandas==0.25.1
+     pip install --upgrade scikit-learn==0.22.1
+  ```
+  
+  2. Jeśli wersja szkoleniowa zestawu AutoML SDK jest mniejsza lub równa 1.12.0, potrzebne są `pandas == 0.23.4` i `sckit-learn==0.20.3` . Jeśli występuje niezgodność wersji, scikit obniżanie poziomu i/lub Pandas do prawidłowej wersji, jak pokazano poniżej:
+  
+  ```bash
+    pip install --upgrade pandas==0.23.4
+    pip install --upgrade scikit-learn==0.20.3
+  ```
+ 
 * **TensorFlow**: w wersji 1.5.0 zestawu SDK automatyczne Uczenie maszynowe nie domyślnie instaluje modeli TensorFlow. Aby zainstalować TensorFlow i używać go z zautomatyzowanymi eksperymentami ML, zainstaluj TensorFlow = = 1.12.0 za pośrednictwem CondaDependecies. 
  
    ```python
@@ -451,7 +471,7 @@ Za pomocą kontroli dostępu opartej na rolach platformy Azure można ograniczy�
 
 Aby uzyskać więcej informacji, zobacz [Zarządzanie użytkownikami i rolami](how-to-assign-roles.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zobacz więcej artykułów do rozwiązywania problemów dotyczących Azure Machine Learning:
 

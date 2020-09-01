@@ -36,11 +36,11 @@
     - name: Raport użycia i szczegółowych informacji
       href: concept-usage-insights-report.md
     - name: Ryzykowne logowania
-      href: concept-risky-sign-ins.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Wykrycia ryzyka
-      href: concept-risk-events.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Narażeni użytkownicy
-      href: concept-user-at-risk.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Dzienniki aprowizowania
       href: concept-provisioning-logs.md
     - name: Interfejsy API raportowania
@@ -94,9 +94,9 @@
     - name: Polecenia cmdlet programu PowerShell usługi Azure AD do raportowania
       href: reference-powershell-reporting.md
     - name: Dokumentacja interfejsu API dzienników inspekcji
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+      href: /graph/api/resources/directoryaudit?view=graph-rest-beta
     - name: Dokumentacja interfejsu API dzienników logowania
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+      href: /graph/api/resources/signin?view=graph-rest-beta
     - name: Działania dotyczące inspekcji
       href: reference-audit-activities.md
     - name: Zasady przechowywania danych

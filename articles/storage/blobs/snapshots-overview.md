@@ -1,27 +1,27 @@
 ---
 title: Migawki obiektów BLOB
 titleSuffix: Azure Storage
-description: Dowiedz się, jak utworzyć migawkę obiektu BLOB w trybie tylko do odczytu, aby utworzyć kopię zapasową danych obiektów BLOB w danym momencie.
+description: Informacje na temat działania migawek obiektów blob i sposobu ich rozliczania.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/19/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4c6c2774e0d71ec33449565efab797c040aa264f
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 8a1c61b77ab799cead319bfaf6cfa7ebd6af431b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640603"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230337"
 ---
 # <a name="blob-snapshots"></a>Migawki obiektów BLOB
 
 Migawka to wersja obiektu BLOB tylko do odczytu, która jest wykonywana w danym momencie.
 
 > [!NOTE]
-> Przechowywanie wersji obiektów BLOB (wersja zapoznawcza) oferuje alternatywny sposób obsługi poprzednich wersji obiektu BLOB. Aby uzyskać więcej informacji, zobacz temat [przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md).
+> Przechowywanie wersji obiektów BLOB oferuje znakomitą metodę obsługi poprzednich wersji obiektu BLOB. Aby uzyskać więcej informacji, zobacz [przechowywanie wersji obiektów BLOB](versioning-overview.md).
 
 ## <a name="about-blob-snapshots"></a>Informacje o migawek obiektów BLOB
 
@@ -31,7 +31,6 @@ Migawka obiektu BLOB jest taka sama jak jego podstawowy obiekt BLOB, z tą róż
 
 > [!NOTE]
 > Wszystkie migawki korzystają z identyfikatora URI podstawowego obiektu BLOB. Jedyną różnicą między bazowym obiektem blob a migawką jest dołączona wartość **DateTime** .
->
 
 Obiekt BLOB może zawierać dowolną liczbę migawek. Migawki zachowują się do momentu usunięcia ich jawnie, niezależnie lub jako część operacji [usuwania obiektu BLOB](/rest/api/storageservices/delete-blob) dla podstawowego obiektu BLOB. Można wyliczyć migawki skojarzone z podstawowym obiektem BLOB w celu śledzenia bieżących migawek.
 
@@ -42,8 +41,6 @@ Wszystkie dzierżawy skojarzone z podstawowym obiektem BLOB nie mają wpływu na
 Plik VHD jest używany do przechowywania bieżących informacji i stanu dla dysku maszyny wirtualnej. Możesz odłączyć dysk od maszyny wirtualnej lub zamknąć maszynę wirtualną, a następnie wykonać migawkę jego pliku VHD. Możesz użyć tego pliku migawek później, aby pobrać plik VHD w tym momencie i ponownie utworzyć maszynę wirtualną.
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>Zrozumienie, jak naliczane są opłaty za migawki
-
-Utworzenie migawki, która jest kopią tylko do odczytu obiektu BLOB, może spowodować naliczenie dodatkowych opłat za magazyn danych dla Twojego konta. Podczas projektowania aplikacji ważne jest, aby mieć świadomość, jak te opłaty mogą zostać naliczone, aby można było zminimalizować koszty.
 
 ### <a name="important-billing-considerations"></a>Ważne zagadnienia dotyczące rozliczeń
 
@@ -65,34 +62,95 @@ Zalecamy staranne zarządzanie migawkami, aby uniknąć dodatkowych opłat. Poni
 
 W poniższych scenariuszach pokazano, jak naliczane są opłaty za blokowy obiekt BLOB i jego migawki.
 
+## <a name="pricing-and-billing"></a>Cennik i rozliczenia
+
+Utworzenie migawki, która jest kopią tylko do odczytu obiektu BLOB, może spowodować naliczenie dodatkowych opłat za magazyn danych dla Twojego konta. Podczas projektowania aplikacji ważne jest, aby mieć świadomość, jak te opłaty mogą zostać naliczone, aby można było zminimalizować koszty.
+
+Migawki obiektów blob, takie jak wersje obiektów blob, są rozliczane według tej samej stawki co aktywne dane. Sposób rozliczania migawek zależy od tego, czy użytkownik jawnie ustawił warstwę dla podstawowego obiektu BLOB, czy dla którejkolwiek z jego migawek (lub wersji). Aby uzyskać więcej informacji na temat warstw obiektów blob, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md).
+
+Jeśli nie zmieniono warstwy obiektu BLOB lub migawki, opłaty są naliczane za unikatowe bloki danych w ramach tego obiektu BLOB, jego migawki i wszystkie wersje, które mogą mieć. Aby uzyskać więcej informacji, zobacz [rozliczenia, gdy warstwa obiektów BLOB nie została jawnie ustawiona](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Jeśli zmieniono warstwę obiektu BLOB lub migawki, opłaty są naliczane za cały obiekt, niezależnie od tego, czy obiekt BLOB i migawka znajdują się ostatecznie w tej samej warstwie. Aby uzyskać więcej informacji, zobacz [rozliczenia, gdy warstwa obiektów BLOB została ustawiona jawnie](#billing-when-the-blob-tier-has-been-explicitly-set).
+
+Aby uzyskać więcej informacji na temat szczegółów rozliczeń dla wersji obiektów blob, zobacz temat [przechowywanie wersji obiektów BLOB](versioning-overview.md).
+
+### <a name="billing-when-the-blob-tier-has-not-been-explicitly-set"></a>Rozliczanie, gdy warstwa obiektów BLOB nie została jawnie ustawiona
+
+Jeśli nie ustawisz jawnie warstwy obiektu BLOB dla podstawowego obiektu BLOB lub żadnej z jej migawek, naliczanie opłat za unikatowe bloki lub strony w obiekcie blob, jego migawki i wszystkie wersje, które mogą mieć. Dane, które są współużytkowane przez obiekt BLOB i jego migawki, są naliczone tylko raz. Po zaktualizowaniu obiektu BLOB dane w bazowym obiekcie BLOB są rozbieżne od danych przechowywanych w jego migawkach, a opłaty za unikatowe dane są naliczone na blok lub na stronie.
+
+Gdy zastąpisz blok w blokowym obiekcie blob, ten blok jest następnie naliczany jako unikatowy blok. Jest to prawdziwe, nawet jeśli blok ma ten sam identyfikator bloku i te same dane, które znajdują się w migawce. Po ponownym zatwierdzeniu bloku jest on rozbieżny od jego odpowiednika w migawce i zostanie naliczona opłata za swoje dane. Te same wartości mają wartość true dla strony w obiekcie blob stronicowania, która jest aktualizowana o identyczne dane.
+
+Usługa BLOB Storage nie ma metody, aby określić, czy dwa bloki zawierają identyczne dane. Każdy przekazany i zatwierdzony blok jest traktowany jako unikatowy, nawet jeśli ma takie same dane i ten sam identyfikator bloku. Ze względu na to, że opłaty są naliczane dla unikatowych bloków, należy pamiętać, że aktualizacja obiektu BLOB, gdy ten obiekt BLOB ma migawki lub wersje, spowoduje powstanie dodatkowych unikatowych bloków i dodatkowych opłat.
+
+Gdy obiekt BLOB ma migawki, wywołaj operacje aktualizacji na blokowych obiektów blob, aby zaktualizować możliwie najmniejszą liczbę bloków. Operacje zapisu, które zezwalają na szczegółową kontrolę nad blokami, powodują [umieszczenie bloku](/rest/api/storageservices/put-block) i [umieszczenie listy zablokowanych](/rest/api/storageservices/put-block-list). Z drugiej strony operacja [Put obiektu BLOB](/rest/api/storageservices/put-blob) zastępuje całą zawartość obiektu BLOB, co może prowadzić do dodatkowych opłat.
+
+W poniższych scenariuszach pokazano, jak naliczane są opłaty za blokowy obiekt BLOB i jego migawki, gdy warstwa obiektu BLOB nie została jawnie ustawiona.
+
 #### <a name="scenario-1"></a>Scenariusz 1
 
 W scenariuszu 1 podstawowy obiekt BLOB nie został zaktualizowany po wykonaniu migawki, więc opłaty są naliczane tylko dla unikatowych bloków 1, 2 i 3.
 
-![Zasoby usługi Azure Storage](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![Diagram 1 pokazujący rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenariusz 2
 
 W scenariuszu 2 podstawowy obiekt BLOB został zaktualizowany, ale migawka nie jest. Blok 3 został zaktualizowany, a mimo to zawiera te same dane i ten sam identyfikator, ale nie jest taki sam jak blok 3 w migawce. W związku z tym konto jest obciążane czterema blokami.
 
-![Zasoby usługi Azure Storage](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![Diagram 2 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenariusz 3
 
 W scenariuszu 3 podstawowy obiekt BLOB został zaktualizowany, ale migawka nie jest. Blok 3 został zastąpiony blokiem 4 w podstawowym obiekcie blob, ale migawka nadal odzwierciedla blok 3. W związku z tym konto jest obciążane czterema blokami.
 
-![Zasoby usługi Azure Storage](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![Diagram 3 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenariusz 4
 
 W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych bloków.
 
-![Zasoby usługi Azure Storage](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![Diagram 4 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > Należy unikać wywoływania metod, które zastępują cały obiekt BLOB, a zamiast tego aktualizować poszczególne bloki, aby zachować niskie koszty.
 
+### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Rozliczanie, gdy warstwa obiektu BLOB została jawnie ustawiona
+
+Jeśli jawnie ustawisz warstwę obiektów BLOB dla obiektu BLOB lub migawki (lub wersji), zostanie naliczona opłata za pełną długość zawartości obiektu w nowej warstwie, bez względu na to, czy ma on udział w blokach z obiektem w warstwie pierwotnej. Opłata jest naliczana również za pełną długość zawartości najstarszej wersji w oryginalnej warstwie. W przypadku wszystkich wersji lub migawek, które pozostaną w oryginalnej warstwie, są naliczane opłaty za unikatowe bloki, które mogą być udostępniane, zgodnie z opisem w temacie [rozliczenia, gdy warstwa obiektów BLOB nie została jawnie ustawiona](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+#### <a name="moving-a-blob-to-a-new-tier"></a>Przeniesienie obiektu BLOB do nowej warstwy
+
+W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB lub migawki po przeniesieniu ich do nowej warstwy.
+
+| Gdy warstwa obiektów BLOB jest ustawiona jawnie w... | Następnie opłaty są naliczane za... |
+|-|-|
+| Podstawowy obiekt BLOB z migawką | Podstawowy obiekt BLOB w nowej warstwie i najstarszej migawce w oryginalnej warstwie oraz wszelkich unikatowych bloków w innych migawkach. <sup>1</sup> |
+| Podstawowy obiekt BLOB z poprzednią wersją i migawką | Podstawowy obiekt BLOB w nowej warstwie, najstarsza wersja w oryginalnej warstwie oraz najstarsza migawka w oryginalnej warstwie oraz wszystkie unikatowe bloki w innych wersjach lub migawek<sup>1</sup>. |
+| Migawka | Migawka w nowej warstwie i podstawowy obiekt BLOB w oryginalnej warstwie oraz wszystkie unikatowe bloki w innych migawkach. <sup>1</sup> |
+
+<sup>1</sup> Jeśli istnieją inne poprzednie wersje lub migawki, które nie zostały przeniesione z oryginalnej warstwy, te wersje lub migawki są rozliczane na podstawie liczby unikatowych bloków, zgodnie z opisem w [rozliczeniach, gdy warstwa obiektu BLOB nie została jawnie ustawiona](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Jawnie Ustawianie warstwy dla obiektu BLOB, wersji lub migawki nie można cofnąć. Jeśli przeniesiesz obiekt BLOB do nowej warstwy, a następnie przeniesiesz go z powrotem do jego oryginalnej warstwy, naliczona zostanie opłata za pełną długość zawartości obiektu nawet wtedy, gdy współużytkuje bloki z innymi obiektami w pierwotnej warstwie.
+
+Operacje, które jawnie ustawiają warstwę obiektu BLOB, wersji lub migawki, obejmują:
+
+- [Ustawianie warstwy obiektu blob](/rest/api/storageservices/set-blob-tier)
+- [Umieść obiekt BLOB](/rest/api/storageservices/put-blob) z określoną warstwą
+- [Umieść listę zablokowanych](/rest/api/storageservices/put-block-list) z określoną warstwą
+- [Kopiuj obiekt BLOB](/rest/api/storageservices/copy-blob) z określoną warstwą
+
+#### <a name="deleting-a-blob-when-soft-delete-is-enabled"></a>Usuwanie obiektu BLOB po włączeniu usuwania nietrwałego
+
+Po włączeniu usuwania nietrwałego obiektu BLOB, jeśli usuniesz lub zastąpisz podstawowy obiekt BLOB, dla którego ustawiono warstwę jawnie, wówczas wszystkie poprzednie wersje lub migawki obiektu BLOB usuniętego z nietrwałego są rozliczane z pełną długością zawartości. Aby uzyskać więcej informacji na temat współdziałania wersji obiektów blob i usuwania nietrwałego, zobacz [przechowywanie wersji obiektów blob i usuwanie nietrwałe](versioning-overview.md#blob-versioning-and-soft-delete).
+
+W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB, który jest usuwany nietrwale, w zależności od tego, czy włączono lub wyłączono obsługę wersji. Po włączeniu obsługi wersji jest tworzona nowa wersja, gdy obiekt BLOB jest usuwany w sposób nietrwały. Gdy obsługa wersji jest wyłączona, usuwanie obiektów BLOB powoduje utworzenie nietrwałej migawki.
+
+| W przypadku zastąpienia bazowego obiektu BLOB z ustawioną jawnie jego warstwą... | Następnie opłaty są naliczane za... |
+|-|-|
+| Jeśli są włączone trwałe usuwanie i przechowywanie wersji obiektów BLOB | Wszystkie istniejące wersje o pełnej długości zawartości niezależnie od warstwy. |
+| Jeśli usuwanie nietrwałe obiektów BLOB jest włączone, ale przechowywanie wersji jest wyłączone | Wszystkie istniejące nietrwałe migawki usuwania w pełnej długości zawartości niezależnie od warstwy. |
+
 ## <a name="next-steps"></a>Następne kroki
 
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)
 - [Tworzenie migawki obiektu BLOB w programie .NET i zarządzanie nią](snapshots-manage-dotnet.md)
 - [Tworzenie kopii zapasowych niezarządzanych dysków maszyny wirtualnej platformy Azure przy użyciu migawek przyrostowych](../../virtual-machines/windows/incremental-snapshots.md)

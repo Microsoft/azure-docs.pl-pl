@@ -1,44 +1,39 @@
 ---
-title: Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki
+title: Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki przy użyciu wyzwalaczy żądań
 description: Konfigurowanie punktów końcowych HTTPS do wywoływania, wyzwalania lub zagnieżdżania przepływów pracy aplikacji logiki w Azure Logic Apps
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078664"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230810"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
-Aby umożliwić aplikacji logiki wywoływanie za pośrednictwem adresu URL, dzięki czemu aplikacja logiki może odbierać przychodzące żądania z innych usług, można natywnie uwidocznić synchroniczny punkt końcowy HTTPS jako wyzwalacz w tej aplikacji logiki. Po skonfigurowaniu tej funkcji można także zagnieżdżać aplikację logiki wewnątrz innych aplikacji logiki, co umożliwia tworzenie wzorców wywoływanych punktów końcowych.
+Aby umożliwić aplikacji logiki wywoływanie przy użyciu adresu URL i odbierać żądania przychodzące z innych usług, można natywnie uwidocznić synchroniczny punkt końcowy HTTPS przy użyciu wyzwalacza opartego na żądaniach w aplikacji logiki. Dzięki tej funkcji można wywołać aplikację logiki z innych aplikacji logiki i utworzyć wzorzec wywoływanych punktów końcowych. Aby skonfigurować możliwy do wywołania punkt końcowy do obsługi wywołań przychodzących, można użyć dowolnego z tych typów wyzwalaczy:
 
-Aby skonfigurować możliwy do nadania punkt końcowy, można użyć dowolnego z tych typów wyzwalaczy, które umożliwiają aplikacjom logiki Odbieranie przychodzących żądań:
-
-* [Request](../connectors/connectors-native-reqres.md)
+* [Żądanie](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 * Wyzwalacze łączników zarządzanych, które mają [Typ ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i mogą odbierać przychodzące żądania https
 
-> [!NOTE]
-> W tych przykładach użyto wyzwalacza żądania, ale można użyć dowolnego wyzwalacza opartego na żądaniach HTTPS, który znajduje się na poprzedniej liście. Wszystkie zasady identycznie stosują się do tych innych typów wyzwalacza.
+W tym artykule pokazano, jak utworzyć możliwy do wywołania punkt końcowy w aplikacji logiki przy użyciu wyzwalacza żądania i wywołać ten punkt końcowy z innej aplikacji logiki. Wszystkie zasady są stosowane identycznie z innymi typami wyzwalaczy, których można użyć do odbierania żądań przychodzących.
 
-Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zobacz [co to jest Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Aby uzyskać informacje na temat szyfrowania, zabezpieczeń i autoryzacji wywołań przychodzących do aplikacji logiki, takich jak [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanej jako SSL (SSL) lub [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), zobacz [bezpieczny dostęp i dostęp do danych dla wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+* Konto i subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Aplikacja logiki, w której ma zostać użyty wyzwalacz do utworzenia możliwego do przetworzenia punktu końcowego. Możesz zacząć od pustej aplikacji logiki lub istniejącej aplikacji logiki, w której chcesz zastąpić bieżący wyzwalacz. Ten przykład rozpoczyna się od pustej aplikacji logiki.
+* Aplikacja logiki, w której ma zostać użyty wyzwalacz do utworzenia możliwego do przetworzenia punktu końcowego. Możesz zacząć od pustej aplikacji logiki lub istniejącej aplikacji logiki, w której można zastąpić bieżący wyzwalacz. Ten przykład rozpoczyna się od pustej aplikacji logiki. Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zobacz [co to jest Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-callable-endpoint"></a>Utwórz możliwy do nawoływać punkt końcowy
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz i Otwórz pustą aplikację logiki w Projektancie aplikacji logiki.
-
-   W tym przykładzie użyto wyzwalacza żądania, ale można użyć dowolnego wyzwalacza, który może odbierać przychodzące żądania HTTPS. Wszystkie zasady identycznie stosują te wyzwalacze. Aby uzyskać więcej informacji na temat wyzwalacza żądania, zobacz [Odbieranie i odpowiadanie na przychodzące wywołania HTTPS przy użyciu Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
 1. W polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `request` jako filtr. Z listy Wyzwalacze wybierz opcję **po odebraniu żądania HTTP**.
 
@@ -200,7 +195,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   Przeglądarka zwróci odpowiedź z tym tekstem:`Postal Code: 123456`
+   Przeglądarka zwróci odpowiedź z tym tekstem: `Postal Code: 123456`
 
    ![Odpowiedź od wysłania żądania do adresu URL wywołania zwrotnego](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
@@ -210,12 +205,12 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    Ten przykład pokazuje adres URL wywołania zwrotnego z przykładową nazwą parametru i wartością `postalCode=123456` w różnych pozycjach w adresie URL:
 
-   * Pozycja 1:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * Pozycja 1: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   * drugie położenie:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * drugie położenie: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 > [!NOTE]
-> Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI, zamiast tego użyj tej kodowanej wersji:`%25%23`
+> Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI, zamiast tego użyj tej kodowanej wersji: `%25%23`
 
 <a name="relative-path"></a>
 
@@ -257,12 +252,12 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 1. Aby przetestować możliwy do przetestowania punkt końcowy, skopiuj zaktualizowany adres URL wywołania zwrotnego z wyzwalacza żądania, wklej adres URL do innego okna przeglądarki, Zastąp ciąg `{postalCode}` w adresie URL `123456` , a następnie naciśnij klawisz ENTER.
 
-   Przeglądarka zwróci odpowiedź z tym tekstem:`Postal Code: 123456`
+   Przeglądarka zwróci odpowiedź z tym tekstem: `Postal Code: 123456`
 
    ![Odpowiedź od wysłania żądania do adresu URL wywołania zwrotnego](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
 > [!NOTE]
-> Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI, zamiast tego użyj tej kodowanej wersji:`%25%23`
+> Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI, zamiast tego użyj tej kodowanej wersji: `%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Wywoływanie aplikacji logiki przy użyciu adresu URL punktu końcowego
 
@@ -408,3 +403,4 @@ Odp **.: tak**, punkty końcowe HTTPS obsługują bardziej zaawansowaną konfigu
 ## <a name="next-steps"></a>Następne kroki
 
 * [Odbieraj przychodzące wywołania HTTPS i odpowiadaj na nie przy użyciu Azure Logic Apps](../connectors/connectors-native-reqres.md)
+* [Bezpieczny dostęp i dane w Azure Logic Apps dostęp do wywołań przychodzących do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c3c597c172c7ec21c2d46e89602abf87d750127
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc7bcab04da005fd0d46d18e7b708dcb1c9d58e5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608181"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230521"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrowanie dzienników Azure Active Directory z usługą ArcSight przy użyciu Azure Monitor
 
@@ -32,8 +32,8 @@ W tym artykule dowiesz się, jak kierować dzienniki usługi Azure AD do ArcSigh
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby używać tej funkcji, potrzebujesz następujących elementów:
-* Centrum zdarzeń platformy Azure, które zawiera dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+Do korzystania z tej funkcji są potrzebne następujące elementy:
+* Centrum zdarzeń platformy Azure, które zawiera dzienniki aktywności usługi Azure AD. Dowiedz się, jak [przesyłać strumieniowo dzienniki aktywności do centrum zdarzeń](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 * Skonfigurowane wystąpienie ArcSight dziennika systemu SmartConnector demona (SmartConnector) lub ArcSight Load Balancer. Jeśli zdarzenia są wysyłane do ArcSight Load Balancer, są w związku z tym wysyłane do SmartConnector przez Load Balancer.
 
 Pobierz i Otwórz [Przewodnik konfiguracji dla usługi ArcSight SmartConnector dla Azure monitor centrum zdarzeń](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). Ten przewodnik zawiera kroki, które należy wykonać, aby zainstalować i skonfigurować ArcSight SmartConnector dla Azure Monitor. 

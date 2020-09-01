@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 649176a363b1a721fede68c5db2a736d5304f485
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007622"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230878"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta macOS
 
@@ -24,7 +24,7 @@ Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urzą
 
 ## <a name="install-the-client"></a>Instalacja klienta
 
-Aby rozpocząć, [Pobierz](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)   i zainstaluj klienta programu na urządzeniu macOS.
+Aby rozpocząć, [Pobierz](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) i zainstaluj klienta programu na urządzeniu macOS.
 
 ## <a name="subscribe-to-a-feed"></a>Subskrybowanie kanału informacyjnego
 
@@ -36,6 +36,7 @@ Aby subskrybować źródło danych:
 2. Wprowadź adres URL źródła danych. Może to być adres URL lub adres e-mail:
    - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest to adres URL <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
+   - Aby nawiązać połączenie za pomocą portalu US Gov, użyj <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Wybierz pozycję **Dodaj**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.
 

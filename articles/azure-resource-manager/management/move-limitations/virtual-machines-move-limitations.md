@@ -2,13 +2,13 @@
 title: Przenoszenie maszyn wirtualnych platformy Azure do nowej subskrypcji lub grupy zasobów
 description: Użyj Azure Resource Manager, aby przenieść maszyny wirtualne do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/31/2020
+ms.openlocfilehash: 3878113f6874c40953bec87518a89519bdc6cb1a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933243"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230963"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Wskazówki dotyczące przenoszenia maszyn wirtualnych
 
@@ -48,7 +48,7 @@ Jeśli [usuwanie nietrwałe](../../../backup/backup-azure-security-feature-cloud
 2. Aby przenieść maszyny wirtualne skonfigurowane przy użyciu Azure Backup, wykonaj następujące czynności:
 
    1. Znajdź lokalizację maszyny wirtualnej.
-   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` . Na przykład *AzureBackupRG_westus2_1*
+   2. Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<VM location>_1` . Na przykład nazwa jest w formacie *AzureBackupRG_westus2_1*.
    3. W Azure Portal zaznacz opcję **Pokaż ukryte typy**.
    4. Znajdź zasób z typem **Microsoft. COMPUTE/restorePointCollections** , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
@@ -59,19 +59,41 @@ Jeśli [usuwanie nietrwałe](../../../backup/backup-azure-security-feature-cloud
 
 ### <a name="powershell"></a>PowerShell
 
-* Znajdź lokalizację maszyny wirtualnej.
-* Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` na przykład AzureBackupRG_westus2_1
-* Jeśli w programie PowerShell, użyj `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` polecenia cmdlet
-* Znajdź zasób z typem `Microsoft.Compute/restorePointCollections` , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
+1. Znajdź lokalizację maszyny wirtualnej.
+
+1. Znajdź grupę zasobów ze wzorcem nazewnictwa — `AzureBackupRG_<VM location>_1` . Na przykład może to być nazwa `AzureBackupRG_westus2_1` .
+
+1. Użyj następującego polecenia do pobrania kolekcji punktów przywracania.
+
+   ```azurepowershell
+   $RestorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+1. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
+
+   ```azurepowershell
+   Remove-AzResource -ResourceId $RestorePointCollection.ResourceId -Force
+   ```
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-* Znajdź lokalizację maszyny wirtualnej.
-* Znajdź grupę zasobów o następującym wzorcu nazewnictwa: `AzureBackupRG_<location of your VM>_1` na przykład AzureBackupRG_westus2_1
-* Jeśli w interfejsie wiersza polecenia, użyj polecenia `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Znajdź zasób z typem `Microsoft.Compute/restorePointCollections` , który ma wzorzec nazewnictwa `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
+1. Znajdź lokalizację maszyny wirtualnej.
+
+1. Znajdź grupę zasobów ze wzorcem nazewnictwa — `AzureBackupRG_<VM location>_1` . Na przykład może to być nazwa `AzureBackupRG_westus2_1` .
+
+1. Użyj poniższego polecenia, aby pobrać kolekcję punktów przywracania.
+
+   ```azurecli
+   az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections
+   ```
+
+1. Znajdź identyfikator zasobu dla zasobu z wzorcem nazewnictwa `AzureBackup_<VM name>_###########`
+
+1. Usuń ten zasób. Ta operacja usuwa tylko natychmiastowe punkty odzyskiwania, a nie kopię zapasową danych w magazynie.
+
+   ```azurecli
+   az resource delete --ids /subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/restorePointCollections/<name>
+   ```
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,5 +1,5 @@
 ---
-title: Usuwanie nietrwałe dla obiektów BLOB
+title: Usuwanie nietrwałe dla obiektów blob
 titleSuffix: Azure Storage
 description: Nietrwałe usuwanie obiektów BLOB chroni dane, dzięki czemu można łatwiej odzyskać dane, gdy są one błędnie modyfikowane lub usuwane przez aplikację lub przez innego użytkownika konta magazynu.
 services: storage
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2e390c9d5d2fa7c6551ed661c6c25096732eefd5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057327"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230113"
 ---
-# <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów BLOB
+# <a name="soft-delete-for-blobs"></a>Usuwanie nietrwałe dla obiektów blob
 
-Nietrwałe usuwanie obiektów BLOB chroni dane przed przypadkowym lub błędnym modyfikacją lub usunięciem. Gdy usuwanie nietrwałe dla obiektów BLOB jest włączone dla konta magazynu, obiekty blob, wersje obiektów BLOB (wersja zapoznawcza) i migawki na tym koncie magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania określonym przez użytkownika.
+Nietrwałe usuwanie obiektów BLOB chroni dane przed przypadkowym lub błędnym modyfikacją lub usunięciem. Gdy usuwanie nietrwałe dla obiektów BLOB jest włączone dla konta magazynu, obiekty blob, wersje obiektów blob i migawki na tym koncie magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania określonym przez użytkownika.
 
 Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego. Aby uzyskać więcej informacji na temat włączania usuwania nietrwałego, zobacz [enable and Manage unsoft Delete for Blobs](soft-delete-enable.md).
 
@@ -28,7 +28,7 @@ Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane l
 
 Po włączeniu usuwania nietrwałego dla obiektów BLOB na koncie magazynu można odzyskiwać obiekty po ich usunięciu w określonym okresie przechowywania danych. Ta ochrona rozciąga się na wszystkie obiekty blob (blokowe obiekty blob, Dołącz obiekty blob lub stronicowe obiekty blob), które są wymazywane jako wynik zastępowania.
 
-Jeśli dane w istniejącym obiekcie blob lub migawce zostaną usunięte podczas włączania usuwania nietrwałego, ale nie włączono obsługi wersji obiektów BLOB (wersja zapoznawcza), zostanie wygenerowana nietrwała migawka, która zapisze stan nadpisanych danych. Po upływie określonego okresu przechowywania obiekt zostanie trwale usunięty.
+Jeśli dane w istniejącym obiekcie blob lub migawce zostaną usunięte podczas włączania usuwania nietrwałego obiektów blob, ale funkcja obsługi wersji obiektów BLOB nie jest włączona, zostanie wygenerowana nietrwała migawka w celu zapisania stanu nadpisanych danych. Po upływie określonego okresu przechowywania obiekt zostanie trwale usunięty.
 
 Jeśli na koncie magazynu są włączone wersje obiektów blob i usuwanie nietrwałego obiektu BLOB, usunięcie obiektu BLOB spowoduje utworzenie nowej wersji zamiast migawki nieusuniętej. Nowa wersja nie jest usuwana nietrwale i nie jest usuwana po wygaśnięciu okresu przechowywania nietrwałego. W okresie przechowywania można przywrócić nietrwałe wersje obiektów BLOB przez wywołanie operacji [usuwania obiektu BLOB](/rest/api/storageservices/undelete-blob) . Obiekt BLOB można następnie przywrócić z jednej z jego wersji, wywołując operację [kopiowania obiektu BLOB](/rest/api/storageservices/copy-blob) . Aby uzyskać więcej informacji o korzystaniu z funkcji przechowywania wersji obiektów blob i usuwania nietrwałego, zobacz [przechowywanie wersji obiektów blob i usuwanie nietrwałe](versioning-overview.md#blob-versioning-and-soft-delete).
 
@@ -193,5 +193,5 @@ Można korzystać z usuwania nietrwałego niezależnie od używanej wersji inter
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Włącz usuwanie nietrwałe dla obiektów BLOB](soft-delete-enable.md)
-- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Włączanie usuwania nietrwałego dla obiektów blob](soft-delete-enable.md)
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

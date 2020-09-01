@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a4c68454807cb26ac62799b598f146680e37c42
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445444"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230181"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -48,7 +48,7 @@ Aby uzyskać więcej informacji o instalowaniu Azure PowerShell, zobacz [Install
 
 Przed włączeniem i skonfigurowaniem przywracania do punktu w czasie należy włączyć jego wymagania wstępne dla konta magazynu: usuwanie nietrwałe, Źródło zmian i przechowywanie wersji obiektów BLOB. Aby uzyskać więcej informacji na temat włączania każdej z tych funkcji, zobacz następujące artykuły:
 
-- [Włącz usuwanie nietrwałe dla obiektów BLOB](soft-delete-enable.md)
+- [Włączanie usuwania nietrwałego dla obiektów blob](soft-delete-enable.md)
 - [Włączanie i wyłączanie kanału informacyjnego zmiany](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)
 
@@ -184,4 +184,4 @@ $job | Wait-Job
 - [Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)](point-in-time-restore-overview.md)
 - [Usuwanie nietrwałe](soft-delete-overview.md)
 - [Źródło zmian (wersja zapoznawcza)](storage-blob-change-feed.md)
-- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

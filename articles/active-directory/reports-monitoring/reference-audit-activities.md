@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80891513"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231150"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informacje o działaniach inspekcji usługi Azure AD
 
@@ -35,8 +35,8 @@ Architektura raportowania w usłudze Azure AD obejmuje następujące składniki:
     - [Dzienniki inspekcji](concept-audit-logs.md) — udostępnia możliwość śledzenia wszystkich zmian wprowadzanych przez różne funkcje usługi Azure AD za pomocą dzienników. 
     
 - **Raporty dotyczące zabezpieczeń** 
-    - [Ryzykowne logowania](concept-risky-sign-ins.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
-    - [Użytkownicy oflagowani w związku z ryzykiem](concept-user-at-risk.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
+    - [Ryzykowne logowania](../identity-protection/overview-identity-protection.md) — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
+    - [Użytkownicy oflagowani w związku z ryzykiem](../identity-protection/overview-identity-protection.md) — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
 
 W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w dziennikach inspekcji.
 
@@ -135,11 +135,11 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |Zarządzanie aplikacjami|AdminPolicyDatas-SetResources|
 |Zarządzanie aplikacjami|AdminUserJourneys-GetResources|
 |Zarządzanie aplikacjami|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|Tworzenie dostawcy IdentityProvider|
-|Authentication|Tworzenie aplikacji w wersji 1|
-|Authentication|Tworzenie aplikacji w wersji 2|
-|Authentication|Tworzenie domen niestandardowych w ramach dzierżawy|
+|Uwierzytelnianie|AdminUserJourneys-SetResources|
+|Uwierzytelnianie|Tworzenie dostawcy IdentityProvider|
+|Uwierzytelnianie|Tworzenie aplikacji w wersji 1|
+|Uwierzytelnianie|Tworzenie aplikacji w wersji 2|
+|Uwierzytelnianie|Tworzenie domen niestandardowych w ramach dzierżawy|
 |Autoryzacja|Tworzenie nowego elementu AdminUserJourney|
 |Autoryzacja|Tworzenie zlokalizowanego pliku JSON zasobu|
 |Autoryzacja|Tworzenie nowego niestandardowego dostawcy tożsamości|
@@ -474,7 +474,7 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |Zarządzanie użytkownikami|Dodawanie roli z szablonu|
 |Zarządzanie użytkownikami|Dodawanie członka w zakresie do roli|
 |Zarządzanie użytkownikami|Dodane|
-|Zarządzanie użytkownikami|Przypisanie|
+|Zarządzanie użytkownikami|Przypisz|
 |Zarządzanie użytkownikami|Tworzenie zbiorcze użytkowników — rozpoczęto|
 |Zarządzanie użytkownikami|Tworzenie zbiorczo użytkowników — zakończono|
 |Zarządzanie użytkownikami|Usuwanie zbiorcze użytkowników — rozpoczęto|
@@ -558,7 +558,7 @@ W tym artykule wymieniono działania inspekcji, które mogą być rejestrowane w
 |PIM|ActivationRequested|
 |PIM|Dodane|
 |PIM|AddedOutsidePIM|
-|PIM|Przypisanie|
+|PIM|Przypisz|
 |PIM|DismissAlert|
 |PIM|Podnoszenie poziomu uprawnień|
 |PIM|ReactivateAlert|

@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656539"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231320"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) za pomocą interfejsu API REST Logic Apps
 
-W tym artykule przedstawiono sposób tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) za pomocą interfejsu API REST Logic Apps w scenariuszach, w których aplikacje logiki i konta integracji muszą mieć dostęp do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). Środowisko usługi integracji (ISE) to dedykowane środowisko, korzystające z dedykowanego magazynu i innych zasobów, które są oddzielone od „globalnej” wielodostępnej usługi Logic Apps. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. ISE udostępnia także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
+W tym artykule przedstawiono sposób tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) za pomocą interfejsu API REST Logic Apps w scenariuszach, w których aplikacje logiki i konta integracji muszą mieć dostęp do [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). Środowisko usługi integracji (ISE) to dedykowane środowisko, korzystające z dedykowanego magazynu i innych zasobów, które są oddzielone od „globalnej” wielodostępnej usługi Logic Apps. Ta separacja również zmniejsza wpływ innych dzierżawców platformy Azure na wydajność aplikacji. Środowisko ISE zapewnia Ci także własne statyczne adresy IP. Te adresy IP są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w publicznej, wielodostępnej usłudze.
 
 Możesz również utworzyć ISE za pomocą [przykładowego Azure Resource Manager szablonu szybkiego startu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) lub przy użyciu [Azure Portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
@@ -58,7 +58,7 @@ W nagłówku żądania uwzględnij następujące właściwości:
 
 ## <a name="request-body"></a>Treść żądania
 
-Poniżej przedstawiono składnię treści żądania opisującą właściwości używane podczas tworzenia ISE. Aby utworzyć ISE, który zezwala na używanie certyfikatu z podpisem własnym, który jest zainstalowany w danej `TrustedRoot` lokalizacji, Uwzględnij `certificates` obiekt wewnątrz sekcji definicji ISE `properties` . W przypadku istniejącej ISE można wysłać żądanie PATCH tylko dla `certificates` obiektu. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz również [łącznik protokołu HTTP — certyfikaty](../connectors/connectors-native-http.md#self-signed)z podpisem własnym.
+Poniżej przedstawiono składnię treści żądania opisującą właściwości używane podczas tworzenia ISE. Aby utworzyć ISE, który zezwala na używanie certyfikatu z podpisem własnym, który jest zainstalowany w danej `TrustedRoot` lokalizacji, Uwzględnij `certificates` obiekt wewnątrz sekcji definicji ISE `properties` . W przypadku istniejącej ISE można wysłać żądanie PATCH tylko dla `certificates` obiektu. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz [bezpieczny dostęp i dostęp do danych dla wywołań wychodzących do innych usług i systemów](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {

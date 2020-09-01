@@ -17,12 +17,12 @@ ms.date: 04/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92f6f32298dcccca4eba08fd25de0504416e5560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608147"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89244725"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrukcje: Zarządzanie kontami nieaktywnych użytkowników w usłudze Azure AD
 
@@ -43,9 +43,9 @@ Ostatnim pomyślnym zalogowaniem jest uzyskanie potencjalnego wglądu w ciągłe
 
 Wykryjesz nieaktywne konta, oceniając Właściwość **lastSignInDateTime** uwidocznioną przez typ zasobu **signInActivity** interfejsu API **Microsoft Graph** . Korzystając z tej właściwości, można zaimplementować rozwiązanie dla następujących scenariuszy:
 
-- **Użytkownicy według nazwy**: w tym scenariuszu wyszukiwanie określonego użytkownika według nazwy, który umożliwia ocenę lastSignInDateTime:`https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
+- **Użytkownicy według nazwy**: w tym scenariuszu wyszukiwanie określonego użytkownika według nazwy, który umożliwia ocenę lastSignInDateTime: `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
-- **Użytkownicy według daty**: w tym scenariuszu żądasz listy użytkowników z lastSignInDateTime przed określoną datą:`https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
+- **Użytkownicy według daty**: w tym scenariuszu żądasz listy użytkowników z lastSignInDateTime przed określoną datą: `https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
 
 
@@ -58,7 +58,7 @@ Ta sekcja zawiera informacje o tym, co należy wiedzieć o właściwości lastSi
 
 ### <a name="how-can-i-access-this-property"></a>Jak mogę uzyskać dostęp do tej właściwości?
 
-Właściwość **lastSignInDateTime** jest udostępniana przez [Typ zasobu SIGNINACTIVITY](https://docs.microsoft.com/graph/api/resources/signinactivity?view=graph-rest-beta) [interfejsu API REST Microsoft Graph](https://docs.microsoft.com/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+Właściwość **lastSignInDateTime** jest udostępniana przez [Typ zasobu SIGNINACTIVITY](/graph/api/resources/signinactivity?view=graph-rest-beta) [interfejsu API REST Microsoft Graph](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>Czy właściwość lastSignInDateTime jest dostępna za pomocą polecenia cmdlet Get-AzureAdUser?
 
@@ -91,5 +91,5 @@ Aby wygenerować sygnaturę czasową lastSignInDateTime, konieczne jest pomyśln
 ## <a name="next-steps"></a>Następne kroki
 
 * [Pobieranie danych przy użyciu interfejsu API raportowania usługi Azure Active Directory z certyfikatami](tutorial-access-api-with-certificates.md)
-* [Dokumentacja interfejsu API inspekcji](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Dokumentacja interfejsu API raportów działań związanych z logowaniem](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Dokumentacja interfejsu API inspekcji](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Dokumentacja interfejsu API raportów działań związanych z logowaniem](/graph/api/resources/signin?view=graph-rest-beta)

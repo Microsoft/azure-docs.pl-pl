@@ -16,24 +16,24 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 897762e523a2d20445c3a25e612cf138e021f633
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b6deda5a9a0a2d2e2caeaac95952b0ad91eb1e03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739723"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230555"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Szybki start: konfigurowanie nazwanych lokalizacji w usłudze Azure Active Directory
 
 Za pomocą nazwanych lokalizacji możesz oznaczać etykietą zakresy zaufanych adresów IP w Twojej organizacji. Usługa Azure AD używa nazwanych lokalizacji w następujących celach:
-- Wykrywaj fałszywie dodatnie [wykrycia zagrożeń](concept-risk-events.md). Logowanie z zaufanej lokalizacji obniża ryzyko użytkownika związane z logowaniem.   
+- Wykrywaj fałszywie dodatnie [wykrycia zagrożeń](../identity-protection/overview-identity-protection.md). Logowanie z zaufanej lokalizacji obniża ryzyko użytkownika związane z logowaniem.   
 - Konfigurowanie [dostępu warunkowego opartego na lokalizacji](../conditional-access/location-condition.md).
 
 W tym przewodniku Szybki start dowiesz się, jak skonfigurować nazwane lokalizacje w swoim środowisku.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
+Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są następujące elementy:
 
 * Dzierżawa usługi Azure AD. Zarejestruj się, aby skorzystać z [bezpłatnej wersji próbnej](https://azure.microsoft.com/trial/get-started-active-directory/). 
 * Użytkownik będący administratorem globalnym dzierżawy.
@@ -64,4 +64,4 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 Aby uzyskać więcej informacji, zobacz:
 
 - [Lokalizacja jako warunek dostępu warunkowego](../conditional-access/concept-conditional-access-conditions.md#locations).
-- [Raport dotyczący ryzykownych logowań](concept-risky-sign-ins.md)  
+- [Raport dotyczący ryzykownych logowań](../identity-protection/overview-identity-protection.md)

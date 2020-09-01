@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998938"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230470"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalowanie agenta Log Analytics na komputerach z systemem Linux
 Ten artykuł zawiera szczegółowe informacje dotyczące instalowania agenta Log Analytics na komputerach z systemem Linux przy użyciu następujących metod:
@@ -51,11 +51,19 @@ Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany 
  - Ubuntu, Debian: `apt-get install -y python2`
  - SZŁO `zypper install -y python2`
 
-Plik wykonywalny python2 musi mieć alias "Python" przy użyciu następującego polecenia:
+Plik wykonywalny python2 musi mieć alias do języka *Python*. Oto jedna z metod, których można użyć do ustawienia tego aliasu:
 
-```
-alternatives --set python `which python2`
-```
+1. Uruchom następujące polecenie, aby usunąć istniejące aliasy.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Uruchom następujące polecenie, aby utworzyć alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## <a name="supported-linux-hardening"></a>Obsługiwane Ograniczanie poziomu systemu Linux
 Agent pakietu OMS ma ograniczoną obsługę dostosowywania dla systemu Linux. 
@@ -64,7 +72,8 @@ Obecnie obsługiwane są następujące elementy:
 - Trybu
 
 Następujące elementy są planowane, ale nie są jeszcze obsługiwane:
-- CIS — SELINUX
+- SIC
+- SELINUX
 
 Inne metody ograniczania i dostosowywania nie są obsługiwane ani planowane dla agenta pakietu OMS.  
 
@@ -211,7 +220,7 @@ Agent próbuje przekazać co 20 sekund. Jeśli to się nie powiedzie, będzie oc
 Domyślny rozmiar pamięci podręcznej wynosi 10 MB, ale można go zmodyfikować w [pliku omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z tematem [Zarządzanie agentem log Analytics dla systemów Windows i Linux oraz ich obsługiwanie](agent-manage.md) , aby dowiedzieć się, jak ponownie skonfigurować, uaktualnić lub usunąć agenta z maszyny wirtualnej.
 

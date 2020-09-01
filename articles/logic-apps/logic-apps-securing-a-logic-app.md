@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 08/27/2020
+ms.openlocfilehash: 442b5acf3a6786b9fcaf0a96015a6df31215653c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719533"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231422"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Zabezpieczanie dostępu i danych w Azure Logic Apps
 
@@ -19,11 +19,11 @@ Azure Logic Apps korzysta z [usługi Azure Storage](../storage/index.yml) , aby 
 
 Aby dodatkowo kontrolować dostęp i chronić poufne dane w Azure Logic Apps, można skonfigurować dodatkowe zabezpieczenia w następujących obszarach:
 
-* [Dostęp do wyzwalaczy opartych na żądaniach](#secure-triggers)
+* [Dostęp do wywołań przychodzących do wyzwalaczy opartych na żądaniach](#secure-inbound-requests)
 * [Dostęp do operacji aplikacji logiki](#secure-operations)
 * [Dostęp do danych wejściowych i wyjściowych historii uruchamiania](#secure-run-history)
 * [Dostęp do danych wejściowych parametrów](#secure-action-parameters)
-* [Dostęp do usług i systemów wywoływanych z usługi Logic Apps](#secure-outbound-requests)
+* [Dostęp do wychodzących wywołań do innych usług i systemów](#secure-outbound-requests)
 * [Blokuj tworzenie połączeń dla określonych łączników](#block-connections)
 * [Wskazówki dotyczące izolacji aplikacji logiki](#isolation-logic-apps)
 * [Podstawa zabezpieczeń platformy Azure dla Azure Logic Apps](../logic-apps/security-baseline.md)
@@ -34,18 +34,29 @@ Aby uzyskać więcej informacji o zabezpieczeniach na platformie Azure, zobacz n
 * [Szyfrowanie danych platformy Azure — w spoczynku](../security/fundamentals/encryption-atrest.md)
 * [Test porównawczy zabezpieczeń platformy Azure](../security/benchmarks/overview.md)
 
-<a name="secure-triggers"></a>
+<a name="secure-inbound-requests"></a>
 
-## <a name="access-to-request-based-triggers"></a>Dostęp do wyzwalaczy opartych na żądaniach
+## <a name="access-for-inbound-calls-to-request-based-triggers"></a>Dostęp do wywołań przychodzących do wyzwalaczy opartych na żądaniach
 
-Jeśli aplikacja logiki korzysta z wyzwalacza opartego na żądaniach, który odbiera przychodzące wywołania lub żądania, takie jak wyzwalacz [żądania](../connectors/connectors-native-reqres.md) lub [elementu webhook](../connectors/connectors-native-webhook.md) , można ograniczyć dostęp, tak aby tylko autoryzowani klienci mogli wywołać aplikację logiki. Wszystkie żądania odebrane przez aplikację logiki są szyfrowane i zabezpieczone przy użyciu protokołu Transport Layer Security (TLS), wcześniej znanego jako SSL (SSL).
+Wywołania przychodzące, które aplikacja logiki odbiera za pośrednictwem wyzwalacza opartego na żądaniach, takie jak wyzwalacz [żądania](../connectors/connectors-native-reqres.md) lub wyzwalacz [elementu webhook protokołu HTTP](../connectors/connectors-native-webhook.md) , obsługują szyfrowanie i są zabezpieczone przy użyciu [Transport Layer Security (TLS) 1,2 w minimalnej](https://en.wikipedia.org/wiki/Transport_Layer_Security), znanej wcześniej jako SSL (SSL). Logic Apps wymusza tę wersję podczas otrzymywania wywołania przychodzącego do wyzwalacza żądania lub wywołania zwrotnego do wyzwalacza lub akcji elementu webhook protokołu HTTP. W przypadku uzyskiwania błędów uzgadniania protokołu TLS upewnij się, że używasz protokołu TLS 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](/security/solving-tls1-problem).
 
-Poniżej przedstawiono opcje, które mogą pomóc w zabezpieczeniu dostępu do tego typu wyzwalacza:
+Wywołania przychodzące obsługują następujące mechanizmy szyfrowania:
 
-* [Generowanie sygnatur dostępu współdzielonego](#sas)
+* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+Poniżej przedstawiono dodatkowe sposoby ograniczenia dostępu do wyzwalaczy, które odbierają wywołania przychodzące do aplikacji logiki, tak aby tylko autoryzowani klienci mogli wywołać aplikację logiki:
+
+* [Generowanie sygnatur dostępu współdzielonego (SAS)](#sas)
 * [Włącz Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)](#enable-oauth)
+* [Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management](#azure-api-management)
 * [Ogranicz przychodzące adresy IP](#restrict-inbound-ip-addresses)
-* [Dodaj Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth) lub inne zabezpieczenia](#add-authentication)
 
 <a name="sas"></a>
 
@@ -108,9 +119,21 @@ W treści należy uwzględnić `KeyType` Właściwość jako `Primary` lub `Seco
 
 <a name="enable-oauth"></a>
 
-### <a name="enable-azure-active-directory-oauth"></a>Włącz Azure Active Directory OAuth
+### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Włącz Azure Active Directory Otwórz uwierzytelnianie (Azure AD OAuth)
 
-Jeśli aplikacja logiki rozpoczyna się od [wyzwalacza żądania](../connectors/connectors-native-reqres.md), można włączyć [Azure Active Directory otwartego uwierzytelniania](../active-directory/develop/index.yml) (Azure AD OAuth) przez zdefiniowanie lub dodanie zasad autoryzacji dla wywołań przychodzących do wyzwalacza żądania. Gdy aplikacja logiki otrzymuje żądanie przychodzące, które zawiera token uwierzytelniania, Azure Logic Apps porównuje oświadczenia tokenu dotyczące oświadczeń w poszczególnych zasadach autoryzacji. Jeśli istnieje dopasowanie między oświadczeniami tokenu a wszystkimi oświadczeniami w co najmniej jednym z zasad, autoryzacja powiedzie się dla żądania przychodzącego. Token może mieć więcej oświadczeń niż liczba określona przez zasady autoryzacji.
+Jeśli aplikacja logiki rozpoczyna się od [wyzwalacza żądania](../connectors/connectors-native-reqres.md), można włączyć [Azure Active Directory otwartego uwierzytelniania (Azure AD OAuth)](../active-directory/develop/index.yml) przez zdefiniowanie lub dodanie zasad autoryzacji dla wywołań przychodzących do wyzwalacza żądania.
+
+Przed włączeniem tego uwierzytelniania zapoznaj się z następującymi kwestiami:
+
+* Wywołanie przychodzące do wyzwalacza żądania może używać tylko jednego schematu autoryzacji, uwierzytelniania OAuth usługi Azure AD przy użyciu tokenu uwierzytelniania, który jest obsługiwany tylko dla wyzwalacza żądania lub przy użyciu [adresu URL sygnatury dostępu współdzielonego (SAS)](#sas) , nie można używać obu tych schematów.
+
+  Chociaż użycie jednego schematu nie powoduje wyłączenia innego schematu, użycie obu jednocześnie powoduje błąd, ponieważ usługa nie wie, który schemat wybrać. Ponadto dla tokenów uwierzytelniania OAuth są obsługiwane tylko schematy autoryzacji [typu okaziciela](../active-directory/develop/active-directory-v2-protocols.md#tokens) , które są obsługiwane tylko dla wyzwalacza żądania. Token uwierzytelniania musi być określony `Bearer-type` w nagłówku autoryzacji.
+
+* Twoja aplikacja logiki jest ograniczona do maksymalnej liczby zasad autoryzacji. Każda zasada autoryzacji ma również maksymalną liczbę [oświadczeń](../active-directory/develop/developer-glossary.md#claim). Aby uzyskać więcej informacji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Zasady autoryzacji muszą zawierać co najmniej element Claim **wystawcy** , który ma wartość rozpoczynającą się od znaku `https://sts.windows.net/` lub `https://login.microsoftonline.com/` (OAuth v2) jako identyfikator wystawcy usługi Azure AD. Aby uzyskać więcej informacji o tokenach dostępu, zobacz [tokeny dostępu platformy tożsamości firmy Microsoft](../active-directory/develop/access-tokens.md).
+
+Gdy aplikacja logiki odbiera żądanie przychodzące, które zawiera token uwierzytelniania OAuth, Azure Logic Apps porównuje oświadczenia tokenu dotyczące oświadczeń w poszczególnych zasadach autoryzacji. Jeśli istnieje dopasowanie między oświadczeniami tokenu a wszystkimi oświadczeniami w co najmniej jednym z zasad, autoryzacja powiedzie się dla żądania przychodzącego. Token może mieć więcej oświadczeń niż liczba określona przez zasady autoryzacji.
 
 Załóżmy na przykład, że aplikacja logiki ma zasady autoryzacji, które wymagają dwóch typów, **wystawców** i **odbiorców**. Ten przykładowy zdekodowany [token dostępu](../active-directory/develop/access-tokens.md) obejmuje zarówno te typy roszczeń:
 
@@ -154,16 +177,6 @@ Załóżmy na przykład, że aplikacja logiki ma zasady autoryzacji, które wyma
    "ver": "1.0"
 }
 ```
-
-#### <a name="considerations-for-enabling-azure-oauth"></a>Zagadnienia dotyczące włączania uwierzytelniania OAuth platformy Azure
-
-Przed włączeniem tego uwierzytelniania zapoznaj się z następującymi kwestiami:
-
-* Wywołanie przychodzące do aplikacji logiki może korzystać tylko z jednego schematu autoryzacji, uwierzytelniania OAuth usługi Azure AD lub [sygnatur dostępu współdzielonego (SAS)](#sas). Użycie jednego schematu nie powoduje wyłączenia drugiego, ale użycie obu jednocześnie powoduje błąd, ponieważ usługa nie wie, który schemat wybrać. Tylko schematy autoryzacji [typu okaziciela](../active-directory/develop/active-directory-v2-protocols.md#tokens) są obsługiwane w przypadku tokenów OAuth, które są obsługiwane tylko dla wyzwalacza żądania.
-
-* Twoja aplikacja logiki jest ograniczona do maksymalnej liczby zasad autoryzacji. Każda zasada autoryzacji ma również maksymalną liczbę [oświadczeń](../active-directory/develop/developer-glossary.md#claim). Aby uzyskać więcej informacji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* Zasady autoryzacji muszą zawierać co najmniej element Claim **wystawcy** , który ma wartość rozpoczynającą się od znaku `https://sts.windows.net/` lub `https://login.microsoftonline.com/` (OAuth v2) jako identyfikator wystawcy usługi Azure AD. Aby uzyskać więcej informacji o tokenach dostępu, zobacz [tokeny dostępu platformy tożsamości firmy Microsoft](../active-directory/develop/access-tokens.md).
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -242,6 +255,12 @@ Aby włączyć usługę Azure AD OAuth w szablonie ARM na potrzeby wdrażania ap
 
 Aby uzyskać więcej informacji na temat `accessControl` sekcji, zobacz [ograniczanie zakresów adresów IP dla ruchu przychodzącego w szablonie Azure Resource Manager](#restrict-inbound-ip-template) i [Dokumentacja szablonu przepływów pracy Microsoft. Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
+<a name="azure-api-management"></a>
+
+### <a name="expose-your-logic-app-with-azure-api-management"></a>Uwidacznianie aplikacji logiki za pomocą usługi Azure API Management
+
+Aby dodać więcej [protokołów uwierzytelniania](../active-directory/develop/authentication-vs-authorization.md) do aplikacji logiki, rozważ użycie usługi [Azure API Management](../api-management/api-management-key-concepts.md) . Ta usługa ułatwia uwidocznienie aplikacji logiki jako interfejsu API i oferuje zaawansowane monitorowanie, zabezpieczenia, zasady i dokumentację dla dowolnego punktu końcowego. API Management może uwidaczniać publiczny lub prywatny punkt końcowy dla aplikacji logiki. Aby autoryzować dostęp do tego punktu końcowego, można użyć uwierzytelniania OAuth usługi Azure AD, [certyfikatu klienta](#client-certificate-authentication)lub innych standardów zabezpieczeń w celu autoryzowania dostępu do tego punktu końcowego. Gdy API Management odbiera żądanie, usługa wysyła żądanie do aplikacji logiki, a także przeprowadza wszelkie niezbędne przekształcenia lub ograniczenia. Aby umożliwić API Management wywoływanie aplikacji logiki, możesz [ograniczyć przychodzące adresy IP aplikacji logiki](#restrict-inbound-ip).
+
 <a name="restrict-inbound-ip"></a>
 
 ### <a name="restrict-inbound-ip-addresses"></a>Ogranicz przychodzące adresy IP
@@ -311,12 +330,6 @@ W przypadku [automatyzowania wdrażania aplikacji logiki za pomocą szablonów M
    "outputs": {}
 }
 ```
-
-<a name="add-authentication"></a>
-
-### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Dodawanie Azure Active Directory otwieranie uwierzytelniania lub inne zabezpieczenia
-
-Aby dodać więcej protokołów [uwierzytelniania](../active-directory/develop/authentication-vs-authorization.md) do aplikacji logiki, rozważ użycie usługi [Azure API Management](../api-management/api-management-key-concepts.md) . Ta usługa ułatwia uwidocznienie aplikacji logiki jako interfejsu API i oferuje zaawansowane monitorowanie, zabezpieczenia, zasady i dokumentację dla dowolnego punktu końcowego. API Management może uwidaczniać publiczny lub prywatny punkt końcowy dla aplikacji logiki. Aby autoryzować dostęp do tego punktu końcowego, można użyć [Azure Active Directory Otwórz uwierzytelnianie](#azure-active-directory-oauth-authentication) (Azure AD OAuth), [certyfikat klienta](#client-certificate-authentication)lub inne standardy zabezpieczeń do autoryzowania dostępu do tego punktu końcowego. Gdy API Management odbiera żądanie, usługa wysyła żądanie do aplikacji logiki, a także przeprowadza wszelkie niezbędne przekształcenia lub ograniczenia. Aby umożliwić API Management Wyzwól aplikację logiki, możesz użyć ustawień zakresu przychodzącego adresu IP aplikacji logiki.
 
 <a name="secure-operations"></a>
 
@@ -719,13 +732,21 @@ Ten przykładowy szablon, który ma wiele zabezpieczonych definicji parametrów,
 
 <a name="secure-outbound-requests"></a>
 
-## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Dostęp do usług i systemów wywoływanych z usługi Logic Apps
+## <a name="access-for-outbound-calls-to-other-services-and-systems"></a>Dostęp do wychodzących wywołań do innych usług i systemów
 
-Oto kilka sposobów zabezpieczania punktów końcowych, które odbierają wywołania lub żądania z aplikacji logiki:
+W oparciu o możliwości docelowego punktu końcowego, wywołania wychodzące wysyłane przez [wyzwalacz http lub akcję http](../connectors/connectors-native-http.md), obsługują szyfrowanie i są zabezpieczone za pomocą [Transport Layer Security (TLS) 1,0, 1,1 lub 1,2](https://en.wikipedia.org/wiki/Transport_Layer_Security), wcześniej znanych jako SSL (SSL). Logic Apps negocjuje z docelowym punktem końcowym przy użyciu najwyższej możliwej wersji, która jest obsługiwana. Na przykład jeśli docelowy punkt końcowy obsługuje 1,2, wyzwalacz HTTP lub akcja używa najpierw 1,2. W przeciwnym razie łącznik używa następnej najwyższej obsługiwanej wersji.
 
-* Dodawanie uwierzytelniania do żądań wychodzących.
+Poniżej przedstawiono informacje na temat certyfikatów z podpisem własnym protokołu TLS/SSL:
 
-  W przypadku użycia wyzwalacza lub akcji opartej na protokole HTTP, która wykonuje wywołania wychodzące, na przykład HTTP, można dodać uwierzytelnianie do żądania wysyłanego przez aplikację logiki. Można na przykład wybrać następujące typy uwierzytelniania:
+* W przypadku aplikacji logiki w globalnym, wielodostępnym środowisku platformy Azure łącznik protokołu HTTP nie zezwala na certyfikaty TLS/SSL z podpisem własnym. Jeśli aplikacja logiki wysyła wywołanie HTTP do serwera i przedstawia certyfikat z podpisem własnym protokołu TLS/SSL, wywołanie HTTP kończy się niepowodzeniem z `TrustFailure` powodu błędu.
+
+* W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)łącznik protokołu HTTP zezwala na certyfikaty z podpisem własnym dla UZGADNIANIA protokołów TLS/SSL. Należy jednak najpierw [włączyć obsługę certyfikatów](../logic-apps/create-integration-service-environment-rest-api.md#request-body) z podpisem własnym dla istniejących ISE lub nowych ISE przy użyciu interfejsu API REST Logic Apps i zainstalować certyfikat publiczny w `TrustedRoot` lokalizacji.
+
+Oto więcej sposobów zabezpieczania punktów końcowych, które obsługują wywołania wysyłane z aplikacji logiki:
+
+* [Dodawanie uwierzytelniania do żądań wychodzących](#add-authentication-outbound).
+
+  W przypadku wysyłania wywołań wychodzących przy użyciu wyzwalacza HTTP lub akcji można dodać uwierzytelnianie do żądania wysyłanego przez aplikację logiki. Można na przykład wybrać następujące typy uwierzytelniania:
 
   * [Uwierzytelnianie podstawowe](#basic-authentication)
 
@@ -734,8 +755,6 @@ Oto kilka sposobów zabezpieczania punktów końcowych, które odbierają wywoł
   * [Active Directory uwierzytelniania OAuth](#azure-active-directory-oauth-authentication)
 
   * [Uwierzytelnianie tożsamości zarządzanej](#managed-identity-authentication)
-
-  Aby uzyskać więcej informacji, zobacz [Dodawanie uwierzytelniania do wywołań wychodzących](#add-authentication-outbound) w dalszej części tego tematu.
 
 * Ogranicz dostęp z adresów IP aplikacji logiki.
 
@@ -776,7 +795,7 @@ Oto kilka sposobów zabezpieczania punktów końcowych, które odbierają wywoł
 
 <a name="add-authentication-outbound"></a>
 
-## <a name="add-authentication-to-outbound-calls"></a>Dodawanie uwierzytelniania do wywołań wychodzących
+### <a name="add-authentication-to-outbound-calls"></a>Dodawanie uwierzytelniania do wywołań wychodzących
 
 Punkty końcowe HTTP i HTTPS obsługują różne rodzaje uwierzytelniania. W przypadku niektórych wyzwalaczy i akcji, które są używane do wysyłania wywołań wychodzących lub żądań do tych punktów końcowych, można określić typ uwierzytelniania. W Projektancie aplikacji logiki wyzwalacze i akcje obsługujące wybór typu uwierzytelniania mają właściwość **Authentication** . Jednak ta właściwość może nie zawsze być wyświetlana domyślnie. W takich przypadkach na wyzwalaczu lub akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz pozycję **uwierzytelnianie**.
 
@@ -803,7 +822,7 @@ Jeśli opcja [podstawowa](../active-directory-b2c/secure-rest-api.md) jest dost�
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|
-| **Uwierzytelnianie** | `type` | Tak | Podstawowy | Typ uwierzytelniania do użycia |
+| **Uwierzytelnianie** | `type` | Tak | Podstawowe | Typ uwierzytelniania do użycia |
 | **Nazwa użytkownika** | `username` | Tak | <*Nazwa użytkownika*>| Nazwa użytkownika służąca do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 | **Hasło** | `password` | Tak | <*hasło*> | Hasło do uwierzytelniania dostępu do docelowego punktu końcowego usługi |
 ||||||
@@ -869,7 +888,7 @@ Aby uzyskać więcej informacji na temat zabezpieczania usług przy użyciu uwie
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Otwórz uwierzytelnianie
 
-Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po [skonfigurowaniu zasad autoryzacji usługi Azure AD](#enable-oauth) dla aplikacji logiki przy użyciu [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth). Dla wszystkich innych wyzwalaczy i akcji, które zapewniają **Active Directory** typ uwierzytelniania OAuth do wybrania, określ następujące wartości właściwości:
+Wyzwalacze żądań umożliwiają uwierzytelnianie wywołań przychodzących po [skonfigurowaniu zasad autoryzacji usługi Azure AD](#enable-oauth) dla aplikacji logiki przy użyciu [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml). Dla wszystkich innych wyzwalaczy i akcji, które zapewniają **Active Directory** typ uwierzytelniania OAuth do wybrania, określ następujące wartości właściwości:
 
 | Właściwość (Projektant) | Właściwość (JSON) | Wymagane | Wartość | Opis |
 |---------------------|-----------------|----------|-------|-------------|

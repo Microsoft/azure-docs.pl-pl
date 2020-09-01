@@ -10,16 +10,16 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020851"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230232"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
-Usuwanie nietrwałe obiektów BLOB chroni dane przed przypadkowym lub błędnym modyfikacją lub usunięciem. Po włączeniu usuwania nietrwałego obiektów BLOB dla konta magazynu obiekty blob, wersje obiektów BLOB (wersja zapoznawcza) i migawki na tym koncie magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania określonym przez użytkownika.
+Usuwanie nietrwałe obiektów BLOB chroni dane przed przypadkowym lub błędnym modyfikacją lub usunięciem. Po włączeniu usuwania nietrwałego obiektów BLOB dla konta magazynu, obiektów blob, wersji obiektów blob i migawek w ramach tego konta magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania określonym przez użytkownika.
 
 Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego obiektu BLOB. W tym artykule pokazano, jak włączyć usuwanie nietrwałe dla obiektów BLOB. Aby uzyskać więcej informacji na temat usuwania nietrwałego obiektów blob, zobacz [usuwanie nietrwałe dla obiektów BLOB](soft-delete-blob-overview.md).
 
@@ -192,7 +192,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Usuwanie nietrwałe dla magazynu obiektów BLOB](soft-delete-overview.md)
-- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
+- [Przechowywanie wersji obiektów BLOB](versioning-overview.md)

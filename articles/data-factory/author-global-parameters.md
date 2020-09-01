@@ -7,13 +7,13 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 08/05/2020
-ms.openlocfilehash: 052f502ed27db9ade0fd2916f91d6922c52a5a98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/31/2020
+ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854354"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230838"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parametry globalne w Azure Data Factory
 
@@ -41,13 +41,28 @@ Parametry globalne mogą być używane w dowolnym [wyrażeniu potoku](control-fl
 
 ![Używanie parametrów globalnych](media/author-global-parameters/expression-global-parameters.png)
 
-## <a name="global-parameters-in-cicd"></a><a name="cicd"></a>Parametry globalne w ciągłej integracji/ciągłego dostarczania
+## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> Parametry globalne w ciągłej integracji/ciągłego dostarczania
 
-Parametry globalne mają unikatowy proces ciągłej integracji/ciągłego wdrażania względem innych jednostek w Azure Data Factory. Podczas publikowania fabryki lub eksportowania szablonu ARM z parametrami globalnymi folder o nazwie *globalParameters* jest tworzony przy użyciu pliku o nazwie *your-factory-name_GlobalParameters.json*. Ten plik jest obiektem JSON, który zawiera wszystkie typy i wartości parametrów globalnych w opublikowanej fabryce.
+Istnieją dwa sposoby integrowania parametrów globalnych w rozwiązaniu ciągłej integracji i wdrażania:
+
+* Uwzględnij parametry globalne w szablonie ARM
+* Wdrażanie parametrów globalnych za pośrednictwem skryptu programu PowerShell
+
+W przypadku większości przypadków użycia zaleca się uwzględnienie parametrów globalnych w szablonie ARM. Ta integracja zostanie zintegrowana z rozwiązaniem przedstawionym w [dokumencie Ci/CD](continuous-integration-deployment.md). Parametry globalne zostaną dodane jako parametr szablonu ARM domyślnie, ponieważ często zmieniają się ze środowiska na środowisko. Dołączanie parametrów globalnych do szablonu ARM można włączyć z poziomu centrum zarządzania.
+
+![Uwzględnij w szablonie ARM](media/author-global-parameters/include-arm-template.png)
+
+Dodanie parametrów globalnych do szablonu ARM powoduje dodanie ustawienia poziomu fabryki, które może zastąpić inne ustawienia na poziomie fabryki, takie jak klucz zarządzany przez klienta lub konfiguracja Git w innych środowiskach. Jeśli te ustawienia są włączone w środowisku z podwyższonym poziomem uprawnień, takim jak przeprowadzających lub PROD, lepiej jest wdrożyć parametry globalne za pośrednictwem skryptu programu PowerShell w poniższych krokach.
+
+### <a name="deploying-using-powershell"></a>Wdrażanie przy użyciu programu PowerShell
+
+Poniższe kroki przedstawiają sposób wdrażania parametrów globalnych za pośrednictwem programu PowerShell. Jest to przydatne, gdy fabryka docelowa ma ustawienia poziomu fabryki, takie jak klucz zarządzany przez klienta.
+
+Podczas publikowania fabryki lub eksportowania szablonu ARM z parametrami globalnymi folder o nazwie *globalParameters* jest tworzony przy użyciu pliku o nazwie *your-factory-name_GlobalParameters.json*. Ten plik jest obiektem JSON, który zawiera wszystkie typy i wartości parametrów globalnych w opublikowanej fabryce.
 
 ![Publikowanie parametrów globalnych](media/author-global-parameters/global-parameters-adf-publish.png)
 
-Jeśli wdrażasz program do nowego środowiska, takiego jak TEST lub PRODUKCYJNy, zaleca się utworzenie kopii tego pliku parametrów globalnych i zastępowanie odpowiednich wartości specyficznych dla środowiska. Po ponownym opublikowaniu oryginalnego pliku parametrów globalnych zostanie on nadpisany, ale kopia dla tego środowiska będzie niedostępna.
+W przypadku wdrażania do nowego środowiska, takiego jak TEST lub PRODUKCYJNy, zaleca się utworzenie kopii tego pliku parametrów globalnych i zastępowanie odpowiednich wartości specyficznych dla środowiska. Po ponownym opublikowaniu oryginalnego pliku parametrów globalnych zostanie on nadpisany, ale kopia dla tego środowiska będzie niedostępna.
 
 Na przykład jeśli masz fabrykę o nazwie "ADF-DEV" i parametr globalny typu String o nazwie "Environment" z wartością "dev", podczas publikowania pliku o nazwie *ADF-DEV_GlobalParameters.jsna* zostanie wygenerowany. W przypadku wdrażania do fabryki testowej o nazwie "ADF_TEST" Utwórz kopię pliku JSON (na przykład nazwane ADF-TEST_GlobalParameters.json) i Zastąp wartości parametrów wartościami specyficznymi dla środowiska. Parametr "Environment" może mieć teraz wartość "test". 
 

@@ -238,12 +238,6 @@
               href: application-types.md
             - name: Przypisano nieoczekiwanego użytkownika
               href: ways-users-get-assigned-to-applications.md
-        - name: Rozwiązywanie problemów z sekcją Moje aplikacje
-          items:
-            - name: Aplikacja nie jest wyświetlana
-              href: access-panel-troubleshoot-application-not-appearing.md
-            - name: Nieoczekiwane wyświetlanie aplikacji
-              href: access-panel-troubleshoot-unexpected-application.md
         - name: Rozwiązywanie problemów z aplikacjami lokalnymi
           items:
             - name: Rozwiązywanie problemów z serwerem proxy aplikacji
