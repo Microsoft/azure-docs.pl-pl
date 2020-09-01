@@ -35,8 +35,6 @@
           href: identity-secure-score.md
         - name: Chronienie pracowników zdalnych
           href: concept-secure-remote-workers.md
-        - name: Ciągła weryfikacja dostępu
-          href: concept-fundamentals-continuous-access-evaluation.md
     - name: Grupy i użytkownicy
       items:
         - name: Zarządzanie grupami i dostępem

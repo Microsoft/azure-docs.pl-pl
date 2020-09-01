@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117230"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178947"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
@@ -55,7 +55,7 @@ Aby sprawdzić uprawnienia do subskrypcji:
 
 1. Wyszukaj i wybierz pozycję **subskrypcje**lub wybierz pozycję **subskrypcje** na stronie **głównej** .
 
-   ![Wyszukaj](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Wyszukiwanie](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Wybierz subskrypcję, w której chcesz utworzyć nazwę główną usługi.
 
@@ -87,7 +87,7 @@ Utworzono aplikację usługi Azure AD i nazwę główną usługi.
 
 ## <a name="assign-a-role-to-the-application"></a>Przypisywanie roli do aplikacji
 
-Aby uzyskać dostęp do zasobów w ramach subskrypcji, musisz przypisać rolę do aplikacji. Zdecyduj, która rola oferuje odpowiednie uprawnienia dla aplikacji. Aby dowiedzieć się więcej na temat dostępnych ról, zobacz [RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md).
+Aby uzyskać dostęp do zasobów w ramach subskrypcji, musisz przypisać rolę do aplikacji. Zdecyduj, która rola oferuje odpowiednie uprawnienia dla aplikacji. Aby dowiedzieć się więcej na temat dostępnych ról, zobacz [role wbudowane platformy Azure](../../role-based-access-control/built-in-roles.md).
 
 Zakres można ustawić na poziomie subskrypcji, grupy zasobów lub zasobu. Uprawnienia są dziedziczone do niższych poziomów zakresu. Na przykład dodanie aplikacji do roli *czytelnik* dla grupy zasobów oznacza, że może ona odczytać grupę zasobów i wszystkie zawarte w niej zasoby.
 
@@ -163,7 +163,7 @@ Aby przekazać certyfikat:
 
 Po zarejestrowaniu certyfikatu w aplikacji w portalu rejestracji aplikacji należy włączyć użycie tego certyfikatu w kodzie aplikacji klienta.
 
-### <a name="create-a-new-application-secret"></a>Utwórz nowy klucz tajny aplikacji
+### <a name="create-a-new-application-secret"></a>Tworzenie nowego klucza tajnego aplikacji
 
 Jeśli zdecydujesz się nie używać certyfikatu, możesz utworzyć nowy klucz tajny aplikacji.
 

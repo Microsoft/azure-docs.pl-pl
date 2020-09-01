@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055655"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177282"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
 
@@ -29,14 +29,14 @@ Organizacje mogą mieć kilka subskrypcji platformy Azure. Każda subskrypcja je
 W tym artykule opisano podstawowe czynności, które można wykonać w celu przeniesienia subskrypcji do innego katalogu usługi Azure AD i ponownego utworzenia niektórych zasobów po przeniesieniu.
 
 > [!NOTE]
-> W przypadku subskrypcji CSP platformy Azure zmiana katalogu usługi Azure AD dla subskrypcji nie jest obsługiwana.
+> W przypadku subskrypcji dostawców usług w chmurze platformy Azure zmiana katalogu usługi Azure AD dla subskrypcji nie jest obsługiwana.
 
 ## <a name="overview"></a>Omówienie
 
 Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD to złożony proces, który musi być starannie planowany i wykonywany. Wiele usług platformy Azure wymaga, aby podmioty zabezpieczeń (tożsamości) działały normalnie lub nawet zarządzać innymi zasobami platformy Azure. Ten artykuł próbuje uwzględnić większość usług platformy Azure, które są zależne od podmiotów zabezpieczeń, ale nie są wyczerpujące.
 
 > [!IMPORTANT]
-> W niektórych scenariuszach transfer subskrypcji może wymagać przestoju w celu ukończenia procesu. Dokładne planowanie jest wymagane do oceny, czy przestój będzie wymagany dla migracji.
+> W niektórych scenariuszach transfer subskrypcji może wymagać przestoju w celu ukończenia procesu. Dokładne planowanie jest wymagane do oceny, czy na potrzeby transferu będzie wymagane przestoje.
 
 Na poniższym diagramie przedstawiono podstawowe kroki, które należy wykonać w przypadku przeniesienia subskrypcji do innego katalogu.
 
@@ -69,23 +69,23 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 
 | Usługa lub zasób | Wpływ na | Odzyskiwaln | Czy na pewno chcesz mieć wpływ? | Co możesz zrobić |
 | --------- | --------- | --------- | --------- | --------- |
-| Przypisania ról | Yes | Yes | [Lista przypisań ról](#save-all-role-assignments) | Wszystkie przypisania ról są trwale usuwane. Należy zamapować użytkowników, grupy i jednostki usługi na odpowiednie obiekty w katalogu docelowym. Należy ponownie utworzyć przypisania ról. |
-| Role niestandardowe | Yes | Yes | [Wyświetlanie ról niestandardowych](#save-custom-roles) | Wszystkie role niestandardowe są trwale usuwane. Należy ponownie utworzyć role niestandardowe i dowolnych przypisań ról. |
-| Zarządzane tożsamości przypisane do systemu | Yes | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy wyłączyć i ponownie włączyć zarządzane tożsamości. Należy ponownie utworzyć przypisania ról. |
-| Tożsamości zarządzane przypisane przez użytkownika | Yes | Yes | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy usunąć, utworzyć ponownie i dołączyć zarządzane tożsamości do odpowiedniego zasobu. Należy ponownie utworzyć przypisania ról. |
-| W usłudze Azure Key Vault | Yes | Yes | [Wyświetlanie listy zasad dostępu Key Vault](#list-other-known-resources) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
-| Bazy danych SQL Azure z włączoną integracją uwierzytelniania usługi Azure AD | Yes | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
-| Usługa Azure Storage i Azure Data Lake Storage Gen2 | Yes | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
-| Azure Data Lake Storage Gen1 | Tak | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
-| Azure Files | Yes | Yes |  | Należy ponownie utworzyć wszystkie listy ACL. |
-| Azure File Sync | Yes | Yes |  |  |
-| Dyski zarządzane platformy Azure | Yes | Nie dotyczy |  |  |
-| Azure Container Services dla Kubernetes | Yes | Yes |  |  |
-| Usługi Azure Active Directory Domain Services | Yes | Nie |  |  |
-| Rejestracje aplikacji | Yes | Yes |  |  |
+| Przypisania ról | Tak | Tak | [Lista przypisań ról](#save-all-role-assignments) | Wszystkie przypisania ról są trwale usuwane. Należy zamapować użytkowników, grupy i jednostki usługi na odpowiednie obiekty w katalogu docelowym. Należy ponownie utworzyć przypisania ról. |
+| Role niestandardowe | Tak | Tak | [Wyświetlanie ról niestandardowych](#save-custom-roles) | Wszystkie role niestandardowe są trwale usuwane. Należy ponownie utworzyć role niestandardowe i dowolnych przypisań ról. |
+| Zarządzane tożsamości przypisane do systemu | Tak | Tak | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy wyłączyć i ponownie włączyć zarządzane tożsamości. Należy ponownie utworzyć przypisania ról. |
+| Tożsamości zarządzane przypisane przez użytkownika | Tak | Tak | [Wyświetl listę tożsamości zarządzanych](#list-role-assignments-for-managed-identities) | Należy usunąć, utworzyć ponownie i dołączyć zarządzane tożsamości do odpowiedniego zasobu. Należy ponownie utworzyć przypisania ról. |
+| W usłudze Azure Key Vault | Tak | Tak | [Wyświetlanie listy zasad dostępu Key Vault](#list-key-vaults) | Musisz zaktualizować identyfikator dzierżawy skojarzony z magazynami kluczy. Należy usunąć i dodać nowe zasady dostępu. |
+| Bazy danych SQL Azure z włączoną integracją uwierzytelniania usługi Azure AD | Tak | Nie | [Sprawdzanie baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Usługa Azure Storage i Azure Data Lake Storage Gen2 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
+| Azure Data Lake Storage Gen1 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
+| Azure Files | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
+| Azure File Sync | Tak | Tak |  |  |
+| Dyski zarządzane platformy Azure | Tak | Brak |  |  |
+| Azure Container Services dla Kubernetes | Tak | Tak |  |  |
+| Usługi Azure Active Directory Domain Services | Tak | Nie |  |  |
+| Rejestracje aplikacji | Tak | Tak |  |  |
 
-> [!IMPORTANT]
-> Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, a zasób ma zależność od magazynu kluczy, który *nie* znajduje się w transferowanej subskrypcji, może wystąpić nieodwracalny błąd. W takiej sytuacji należy użyć innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć nieodwracalnego błędu.
+> [!WARNING]
+> Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który **nie** znajduje się w tej samej subskrypcji, która jest transferowana, może prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -221,8 +221,8 @@ Tożsamości zarządzane nie są aktualizowane, gdy subskrypcja zostanie przetra
 
 Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym IDENTYFIKATORem dzierżawy Azure Active Directory dla subskrypcji, w której został utworzony. Wszystkie wpisy zasad dostępu również zostają powiązane z tym identyfikatorem dzierżawy. Aby uzyskać więcej informacji, zobacz [Przechodzenie Azure Key Vault do innej subskrypcji](../key-vault/general/move-subscription.md).
 
-> [!IMPORTANT]
-> Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, a zasób ma zależność od magazynu kluczy, który *nie* znajduje się w transferowanej subskrypcji, może wystąpić nieodwracalny błąd. W takiej sytuacji należy użyć innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć nieodwracalnego błędu.
+> [!WARNING]
+> Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który **nie** znajduje się w tej samej subskrypcji, która jest transferowana, może prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
 
 - Jeśli masz Magazyn kluczy, użyj AZ Key [magazynu show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) , aby wyświetlić listę zasad dostępu. Aby uzyskać więcej informacji, zobacz temat [zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -232,7 +232,7 @@ Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym 
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Wyświetlanie listy baz danych Azure SQL Database przy użyciu uwierzytelniania usługi Azure AD
 
-- Użyj polecenia [AZ SQL Server AD-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) i [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension, aby zobaczyć, czy używasz baz danych Azure SQL Database z uwierzytelnianiem w usłudze Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim przy użyciu programu SQL Server](../azure-sql/database/authentication-aad-configure.md).
+- Użyj polecenia [AZ SQL Server AD-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) i [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension, aby sprawdzić, czy są używane bazy danych Azure SQL Database z włączoną integracją uwierzytelniania usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uwierzytelniania Azure Active Directory i zarządzanie nim przy użyciu programu SQL Server](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -262,16 +262,21 @@ Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym 
     --subscriptions $subscriptionId --output table
     ```
 
-## <a name="step-2-transfer-billing-ownership"></a>Krok 2: przeniesienie własności rozliczeń
+## <a name="step-2-transfer-the-subscription"></a>Krok 2. przeniesienie subskrypcji
 
-W tym kroku przeniesiesz własność rozliczeń subskrypcji z katalogu źródłowego do katalogu docelowego.
+W tym kroku przeniesiesz subskrypcję z katalogu źródłowego do katalogu docelowego. Kroki będą się różnić w zależności od tego, czy chcesz również przenieść własność rozliczeń.
 
 > [!WARNING]
-> Po przeniesieniu własności rozliczeń subskrypcji wszystkie przypisania ról w katalogu źródłowym są **trwale** usuwane i nie można ich przywrócić. Po przeniesieniu własności rozliczeń subskrypcji nie można wrócić. Przed wykonaniem tego kroku upewnij się, że wykonano poprzednie kroki.
+> Po przeniesieniu subskrypcji wszystkie przypisania ról w katalogu źródłowym są **trwale** usuwane i nie można ich przywrócić. Po przeniesieniu subskrypcji nie można jej cofnąć. Przed wykonaniem tego kroku upewnij się, że wykonano poprzednie kroki.
 
-1. Postępuj zgodnie z instrukcjami w sekcji [przenoszenie własności rozliczeń subskrypcji platformy Azure na inne konto](../cost-management-billing/manage/billing-subscription-transfer.md). Aby przenieść subskrypcję do innego katalogu usługi Azure AD, musisz zaznaczyć pole wyboru **subskrypcja subskrypcji usługi Azure AD** .
+1. Określ, czy chcesz również przetransferować własność rozliczeń.
 
-1. Po zakończeniu transferu własności Wróć do tego artykułu, aby ponownie utworzyć zasoby w katalogu docelowym.
+1. Przenieś subskrypcję do innego katalogu.
+
+    - Jeśli chcesz zachować bieżącą własność rozliczeń, postępuj zgodnie z instrukcjami w temacie [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - Jeśli chcesz również przetransferować własność rozliczeń, postępuj zgodnie z instrukcjami w sekcji [przenoszenie własności rozliczeń subskrypcji platformy Azure na inne konto](../cost-management-billing/manage/billing-subscription-transfer.md). Aby przenieść subskrypcję do innego katalogu, należy zaznaczyć pole wyboru **subskrypcja usługi Azure AD** .
+
+1. Po zakończeniu transferu subskrypcji Wróć do tego artykułu, aby ponownie utworzyć zasoby w katalogu docelowym.
 
 ## <a name="step-3-re-create-resources"></a>Krok 3. ponowne tworzenie zasobów
 

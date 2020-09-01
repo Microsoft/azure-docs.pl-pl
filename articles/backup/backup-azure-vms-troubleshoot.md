@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 65662af2bad5475b024366a2ff550ff30e6c0e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014663"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178015"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -103,18 +103,60 @@ Operacja tworzenia kopii zapasowej nie powiodła się z powodu problemu z aplika
 Kod błędu: ExtensionFailedVssWriterInBadState <br/>
 Komunikat o błędzie: operacja migawki nie powiodła się z powodu nieprawidłowego stanu składników zapisywania usługi VSS.
 
-Uruchom ponownie składniki zapisywania usługi VSS, które są w złej kondycji. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie ```vssadmin list writers``` . Dane wyjściowe zawierają wszystkie składniki zapisywania usługi VSS i ich stan. Dla każdego składnika zapisywania usługi VSS o stanie, który nie jest **[1] stabilny**, aby ponownie uruchomić składnik zapisywania usługi VSS, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+Ten błąd występuje z powodu nieprawidłowego stanu składników zapisywania usługi VSS. Rozszerzenia Azure Backup współpracują z składnikami zapisywania usługi VSS w celu wykonania migawek dysków. Aby rozwiązać ten problem, wykonaj poniższe czynności:
 
-* ```net stop serviceName```
-* ```net start serviceName```
+Uruchom ponownie składniki zapisywania usługi VSS, które są w złej kondycji.
+- W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie ```vssadmin list writers``` .
+- Dane wyjściowe zawierają wszystkie składniki zapisywania usługi VSS i ich stan. W przypadku każdego składnika zapisywania usługi VSS o stanie nieprzekraczającym **[1]** należy ponownie uruchomić usługę składnika zapisywania usługi VSS. 
+- Aby ponownie uruchomić usługę, uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
-Kolejną procedurą, która może pomóc, jest uruchomienie następującego polecenia w wierszu polecenia z podwyższonym poziomem uprawnień (jako administrator).
+ ```net stop serviceName``` <br>
+ ```net start serviceName```
+
+> [!NOTE]
+> Ponowne uruchomienie niektórych usług może mieć wpływ na środowisko produkcyjne. Upewnij się, że proces zatwierdzania jest przestrzegany, a usługa zostanie uruchomiona ponownie po zaplanowanym przestoju.
+ 
+   
+Jeśli ponowne uruchomienie składnika zapisywania usługi VSS nie rozwiązało problemu, a problem nadal występuje z powodu przekroczenia limitu czasu, wówczas:
+- Uruchom następujące polecenie w wierszu polecenia z podwyższonym poziomem uprawnień (jako administrator), aby zapobiec tworzeniu wątków dla migawek obiektów BLOB.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Dodanie tego klucza rejestru spowoduje, że nie zostaną utworzone wątki dla migawek obiektów blob i uniemożliwić przekroczenie limitu czasu.
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState — operacja migawki nie powiodła się z powodu nieprawidłowego stanu usługi VSS (kopiowania woluminów w tle)
+
+Kod błędu: ExtensionFailedVssServiceInBadState <br/>
+Komunikat o błędzie: operacja migawki nie powiodła się z powodu nieprawidłowego stanu usługi VSS (kopiowania woluminów w tle).
+
+Ten błąd występuje, ponieważ usługa VSS była w nieprawidłowym stanie. Rozszerzenia Azure Backup współpracują z usługą VSS w celu wykonania migawek dysków. Aby rozwiązać ten problem, wykonaj poniższe czynności:
+
+Uruchom ponownie usługę VSS (kopiowania woluminów w tle).
+- Przejdź do programu Services. msc i uruchom ponownie "Usługa kopiowania woluminów w tle".<br>
+oraz<br>
+- Uruchom następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
+
+ ```net stop VSS``` <br>
+ ```net start VSS```
+
+ 
+Jeśli problem nadal występuje, uruchom ponownie maszynę wirtualną przy zaplanowanym przestoju.
+
+### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable — Tworzenie maszyny wirtualnej nie powiodło się, ponieważ wybrany rozmiar maszyny wirtualnej jest niedostępny
+
+Kod błędu: UserErrorSkuNotAvailable komunikat o błędzie: Tworzenie maszyny wirtualnej nie powiodło się, ponieważ wybrany rozmiar maszyny wirtualnej jest niedostępny. 
+ 
+Ten błąd występuje, ponieważ rozmiar maszyny wirtualnej wybrany podczas operacji przywracania jest nieobsługiwany. <br>
+
+Aby rozwiązać ten problem, użyj opcji [Przywróć dyski](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) podczas operacji przywracania. Użyj tych dysków do utworzenia maszyny wirtualnej z listy [dostępnych rozmiarów maszyn wirtualnych](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+
+### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported — Tworzenie maszyny wirtualnej nie powiodło się z powodu nieobecności żądania zakupu miejsca na rynku
+
+Kod błędu: UserErrorMarketPlaceVMNotSupported komunikat o błędzie: Tworzenie maszyny wirtualnej nie powiodło się z powodu nieobecności żądania zakupu miejsca na rynku. 
+ 
+Azure Backup obsługuje tworzenie kopii zapasowych i przywracanie maszyn wirtualnych, które są dostępne w witrynie Azure Marketplace. Ten błąd występuje, gdy próbujesz przywrócić maszynę wirtualną (z określonym ustawieniem planu/wydawcy), które nie jest już dostępne w witrynie Azure Marketplace, [Dowiedz się więcej tutaj](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+- Aby rozwiązać ten problem, należy użyć opcji [Przywróć dyski](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) podczas operacji przywracania, a następnie użyć poleceń cmdlet [programu PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) , aby utworzyć maszynę wirtualną przy użyciu najnowszych informacji z witryny Marketplace odpowiadających maszynie wirtualnej.
+- Jeśli Wydawca nie zawiera żadnych informacji o witrynie Marketplace, możesz użyć dysków danych do pobrania danych i dołączyć je do istniejącej maszyny wirtualnej.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure — błąd podczas analizowania konfiguracji dla rozszerzenia kopii zapasowej
 

@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 298c5b96951ed616b324535cf3fe2585180789a1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117247"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178828"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Słownik oprogramowania Microsoft Identity platform dla deweloperów
 
@@ -164,7 +164,7 @@ Podobnie jak [zakresy](#scopes), role umożliwiają [serwerowi zasobów](#resour
 
 Role są ciągami zdefiniowanymi przez zasób (na przykład "osoba zatwierdzająca wydatki", "tylko do odczytu", "katalog. ReadWrite. wszystkie"), zarządzane w [Azure Portal][AZURE-portal] za pośrednictwem [manifestu aplikacji](#application-manifest)zasobu i przechowywane we [Właściwości appRoles][Graph-Sp-Resource]zasobu. Azure Portal jest również używany do przypisywania użytkowników do ról "użytkownika" i konfigurowania [uprawnień aplikacji](#permissions) klienckich w celu uzyskania dostępu do roli "aplikacja".
 
-Aby uzyskać szczegółową dyskusję na temat ról aplikacji udostępnianych przez interfejs API Microsoft Graph, zobacz [interfejs API programu Graph zakresów uprawnień][Graph-Perm-Scopes]. Aby zapoznać się z przykładem implementacji krok po kroku, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure Portal][AAD-RBAC].
+Aby uzyskać szczegółową dyskusję na temat ról aplikacji udostępnianych przez interfejs API Microsoft Graph, zobacz [interfejs API programu Graph zakresów uprawnień][Graph-Perm-Scopes]. Aby zapoznać się z przykładem implementacji krok po kroku, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal][AAD-RBAC].
 
 ## <a name="scopes"></a>scopes
 

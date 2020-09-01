@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f9adf6ce4559234eec74c92f09aa752eb1f9ab51
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386066"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177333"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Model rozliczeń dla Azure Active Directory B2C
 
@@ -58,7 +59,7 @@ Oto jak włączyć MAU rozliczeń dla istniejącego zasobu Azure AD B2C:
 
 Pomiar oparty na MAU jest włączony zaraz po wykonaniu tej subskrypcji/właściciela zasobu, potwierdzić zmianę. Rachunek miesięczny będzie uwzględniać jednostki uwierzytelniania, które są rozliczane do momentu zmiany, oraz nowe jednostki MAU rozpoczynające się od zmiany.
 
-Użytkownicy nie są podwójnie zliczane w miesiącu przejścia. Unikatowi aktywni użytkownicy, którzy uwierzytelniają się przed zmianą, są obciążani stawką za uwierzytelnianie w miesiącu kalendarzowym. Ci użytkownicy nie są uwzględnieni w obliczeniach MAU dla pozostałej części cyklu rozliczeniowego subskrypcji. Przykład:
+Użytkownicy nie są podwójnie zliczane w miesiącu przejścia. Unikatowi aktywni użytkownicy, którzy uwierzytelniają się przed zmianą, są obciążani stawką za uwierzytelnianie w miesiącu kalendarzowym. Ci użytkownicy nie są uwzględnieni w obliczeniach MAU dla pozostałej części cyklu rozliczeniowego subskrypcji. Na przykład:
 
 * Dzierżawa contoso B2C ma 1 000 użytkowników. 250 użytkowników jest aktywnych w danym miesiącu. Administrator subskrypcji zmieni się z uwierzytelniania na comiesięcznych użytkowników aktywnych (MAU) w dziesiątym miesiącu.
 * Naliczanie opłat za 1 dziesiątki jest rozliczane przy użyciu modelu na uwierzytelnianie.
@@ -99,7 +100,7 @@ Subskrypcja połączona z dzierżawą Azure AD B2C może być używana do rozlic
 1. Wybierz **dzierżawę Azure AD B2C** z listy rozwijanej. Wyświetlane są tylko dzierżawy, dla których jesteś administratorem globalnym i które nie są już połączone z subskrypcją. Pole **nazwy zasobu Azure AD B2C** jest wypełniane nazwą domeny wybranej dzierżawy Azure AD B2C.
 1. Wybierz aktywną **subskrypcję** platformy Azure, której jesteś administratorem.
 1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**, a następnie określ **lokalizację grupy zasobów**. Ustawienia grupy zasobów nie mają wpływu na lokalizację dzierżawy Azure AD B2C, wydajność ani stan rozliczeń.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
     ![Strona tworzenia zasobów Azure AD B2C w programie Azure Portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
 Po wykonaniu tych kroków dla dzierżawy Azure AD B2C subskrypcja platformy Azure jest rozliczana zgodnie ze szczegółowymi informacjami dotyczącymi usługi Azure Direct lub Umowa Enterprise, jeśli ma to zastosowanie.
@@ -132,11 +133,24 @@ Skojarzenie między dzierżawą Azure AD B2C i subskrypcją dostawcy usług kryp
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Zmień subskrypcję rozliczeń dzierżawy Azure AD B2C
 
-Dzierżawy Azure AD B2C mogą zostać przeniesione do innej subskrypcji, jeśli subskrypcje źródłowe i docelowe znajdują się w tej samej dzierżawie Azure Active Directory.
+### <a name="move-using-azure-resource-manager"></a>Przenieś przy użyciu Azure Resource Manager
+
+Dzierżawy Azure AD B2C można przenieść do innej subskrypcji przy użyciu Azure Resource Manager, jeśli subskrypcje źródłowe i docelowe istnieją w ramach tej samej dzierżawy Azure Active Directory.
 
 Aby dowiedzieć się, jak przenieść zasoby platformy Azure, takie jak dzierżawa Azure AD B2C do innej subskrypcji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Przed rozpoczęciem przenoszenia należy przeczytać cały artykuł, aby w pełni zrozumieć ograniczenia i wymagania dotyczące takiego przeniesienia. Oprócz instrukcji dotyczących przenoszenia zasobów zawiera informacje o kluczowym znaczeniu, takie jak lista kontrolna przedniesiona i sposób sprawdzania poprawności operacji przenoszenia.
+
+### <a name="move-by-un-linking-and-re-linking"></a>Przenieś przez cofnięcie konsolidacji i ponowne łączenie
+
+Jeśli subskrypcje źródłowe i docelowe są skojarzone z różnymi dzierżawcami Azure Active Directory, nie można wykonać przechodzenia przez Azure Resource Manager, jak wyjaśniono powyżej. Jednak nadal można uzyskać ten sam wynik końcowy przez odłączenie dzierżawy Azure AD B2C z subskrypcji źródłowej i ponowne połączenie jej z subskrypcją docelową. Ta metoda jest bezpieczna, ponieważ jedynym usuwanym obiektem jest *link rozliczenia*, a nie dzierżawa Azure AD B2C. Nie wpłynie to na żadną z użytkowników, aplikacji, przepływów użytkowników itp.
+
+1. W samym katalogu Azure AD B2C [zapraszaj użytkownika-gościa](user-overview.md#guest-user) od docelowej dzierżawy usługi Azure AD (tej, która jest połączona z docelową subskrypcją platformy Azure) i upewnij się, że ten użytkownik ma rolę **administratora globalnego** w programie Azure AD B2C.
+1. Przejdź do *zasobu platformy Azure* reprezentującego Azure AD B2C w źródłowej subskrypcji platformy Azure zgodnie z opisem w sekcji [Zarządzanie zasobami dzierżawy Azure AD B2C](#manage-your-azure-ad-b2c-tenant-resources) powyżej. Nie przełączaj do rzeczywistej dzierżawy Azure AD B2C.
+1. Kliknij przycisk **Usuń** na stronie **Przegląd** . *Nie spowoduje to usunięcia powiązanych* użytkowników lub aplikacji dzierżawy Azure AD B2C. Powoduje tylko usunięcie linku do rozliczeń z subskrypcji źródłowej.
+1. Zaloguj się do Azure Portal przy użyciu konta użytkownika, który został dodany jako administrator w Azure AD B2C w kroku 1. Następnie przejdź do docelowej subskrypcji platformy Azure, która jest połączona z dzierżawą Azure Active Directory docelowej. 
+1. Ponownie Ustanów link rozliczeń w ramach subskrypcji docelowej, wykonując powyższą procedurę [tworzenia łącza](#create-the-link) .
+1. Zasób Azure AD B2C został przeniesiony do docelowej subskrypcji platformy Azure (połączonej z Azure Active Directoryą docelową) i zostanie naliczona za pośrednictwem tej subskrypcji do przodu.
 
 ## <a name="next-steps"></a>Następne kroki
 

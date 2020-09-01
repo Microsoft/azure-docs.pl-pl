@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565727"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177747"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
 Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, w niektórych przypadkach można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
@@ -52,6 +52,8 @@ Następujące wskaźniki wydajności zapytań są dostępne dla każdego wykonyw
 
 ## <a name="total-cpu"></a>Łączny czas procesora
 Rzeczywisty procesor obliczeniowy, który został zainwestowany w celu przetworzenia tego zapytania we wszystkich węzłach przetwarzania zapytań. Ponieważ większość zapytań jest wykonywanych na dużej liczbie węzłów, zwykle będzie znacznie większa niż czas trwania wykonywania zapytania. 
+
+Zapytanie korzystające z ponad 100 sekund procesora CPU jest traktowane jako zapytanie, które zużywa nadmierne zasoby. Zapytanie, które wykorzystuje ponad 1 000 sekund procesora CPU, jest traktowane jako zapytanie nadstosowane i może być ograniczone.
 
 Czas przetwarzania zapytania jest poświęcany na:
 - Pobieranie danych — pobieranie starych danych zajmie więcej czasu niż pobranie ostatnich danych.
@@ -177,6 +179,8 @@ SecurityEvent
 
 Krytycznym czynnikiem w przetwarzaniu zapytania jest ilość danych, które są skanowane i używane do przetwarzania zapytań. Usługa Azure Eksplorator danych korzysta z agresywnych optymalizacji, które znacząco zmniejszają ilość danych w porównaniu z innymi platformami danych. Nadal istnieją kluczowe czynniki w zapytaniu, które mogą mieć wpływ na używany wolumin danych.
 
+Zapytanie, które przetwarza więcej niż 2 000KB danych jest traktowane jako zapytanie, które zużywa nadmierne zasoby. Kwerenda, która przetwarza więcej niż 20 000KB danych jest uważana za zapytanie nadstosowane i może być ograniczone.
+
 W dziennikach Azure Monitor kolumna **TimeGenerated** służy jako sposób indeksowania danych. Ograniczanie wartości **TimeGenerated** do tak wąskiego zakresu, jak to możliwe, spowoduje znaczne zwiększenie wydajności zapytań przez znaczne ograniczenie ilości danych, które należy przetworzyć.
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Unikaj niepotrzebnego użycia operatorów wyszukiwania i złożenia
@@ -300,6 +304,8 @@ SecurityEvent
 
 Wszystkie dzienniki dzienników Azure Monitor są partycjonowane według kolumny **TimeGenerated** . Liczba dostępnych partycji jest bezpośrednio związana z przedziałem czasu. Skrócenie zakresu czasu jest najbardziej wydajnym sposobem zapewnienia wykonywania zapytania o monit.
 
+Zapytanie z przedziałem czasu o więcej niż 15 dni jest traktowane jako zapytanie, które zużywa nadmierne zasoby. Kwerenda z przedziałem czasu przekraczającym 90 dni jest traktowana jako zapytanie nadużycia i może być ograniczone.
+
 Zakres czasu można ustawić za pomocą selektora zakresu czasu na ekranie Log Analytics, zgodnie z opisem w temacie [zakres zapytania dziennika i zakres czasu w Log Analytics Azure monitor](scope.md#time-range). Jest to zalecana metoda, ponieważ wybrany zakres czasu jest przesyłany do zaplecza przy użyciu metadanych zapytania. 
 
 Alternatywną metodą jest jawne uwzględnienie warunku [WHERE](/azure/kusto/query/whereoperator) w **TimeGenerated** w zapytaniu. Tej metody należy użyć, ponieważ gwarantuje to, że przedział czasu jest stały, nawet gdy zapytanie jest używane z innego interfejsu.
@@ -389,6 +395,9 @@ Istnieje kilka przypadków, w których system nie może zapewnić dokładnego po
 ## <a name="age-of-processed-data"></a>Wiek przetworzonych danych
 Usługa Azure Eksplorator danych korzysta z kilku warstw magazynowania: lokalnych dysków SSD i znacznie wolniejszych obiektów blob platformy Azure. Im nowsze dane, tym wyższy jest szansa, że jest ona przechowywana w bardziej wydajnej warstwie z mniejszym opóźnieniem, co skraca czas trwania zapytania i procesor CPU. Oprócz samych danych system ma również pamięć podręczną dla metadanych. Im starsze dane, tym mniej szansa, że metadane będą znajdować się w pamięci podręcznej.
 
+Zapytanie, które przetwarza dane niż jest ponad 14 dni, jest traktowane jako zapytanie, które zużywa nadmierne zasoby.
+
+
 Niektóre zapytania wymagają użycia starych danych, ale zdarzają się sytuacje, w których stare dane są używane przez pomyłkę. Dzieje się tak, gdy zapytania są wykonywane bez podawania zakresu czasu w metadanych, a nie wszystkie odwołania do tabeli obejmują filtr w kolumnie **TimeGenerated** . W takich przypadkach system przeskanuje wszystkie dane, które są przechowywane w tej tabeli. Gdy przechowywanie danych jest długie, może obejmować wiele przedziałów czasu, a tym samym dane, które są tak stare jak okres przechowywania danych.
 
 Takie przypadki mogą być na przykład następujące:
@@ -408,6 +417,8 @@ Istnieje kilka sytuacji, w których pojedyncze zapytanie może być wykonywane w
 Wykonywanie zapytań między regionami wymaga, aby system mógł serializować i przesłać do dużych fragmentów danych pośrednich, które są zwykle znacznie większe niż końcowe wyniki zapytania. Pozwala również ograniczyć możliwość wykonywania optymalizacji, algorytmów heurystycznych i wykorzystania pamięci podręcznych przez system.
 Jeśli nie ma żadnej prawdziwej przyczyny skanowania wszystkich tych regionów, należy dostosować zakres tak, aby obejmował mniejszą liczbę regionów. Jeśli zakres zasobów jest zminimalizowany, ale nadal są używane wiele regionów, może się to zdarzyć z powodu błędu konfiguracji. Na przykład dzienniki inspekcji i ustawienia diagnostyczne są wysyłane do różnych obszarów roboczych w różnych regionach lub wiele konfiguracji ustawień diagnostycznych. 
 
+Kwerenda obejmująca więcej niż 3 regiony jest traktowana jako zapytanie, które zużywa nadmierne zasoby. Kwerenda obejmująca więcej niż 6 regionów jest traktowana jako nadużycie zapytania i może być ograniczona.
+
 > [!IMPORTANT]
 > Gdy zapytanie jest uruchamiane w kilku regionach, pomiary procesora i danych nie będą dokładne i będą przedstawiać pomiar tylko w jednym z regionów.
 
@@ -420,6 +431,8 @@ Użycie wielu obszarów roboczych może wynikać z:
 - Gdy zapytanie o zakres zasobów pobiera dane, a dane są przechowywane w wielu obszarach roboczych.
  
 Wykonywanie zapytań między regionami i między klastrami wymaga, aby system mógł serializować i przesłać do dużych fragmentów danych pośrednich, które są zwykle znacznie większe niż końcowe wyniki zapytania. Pozwala również ograniczyć możliwość wykonywania optymalizacji, algorytmów heurystycznych i wykorzystania pamięci podręcznych przez system.
+
+Kwerenda obejmująca więcej niż 5 obszarów roboczych jest traktowana jako zapytanie, które zużywa nadmierne zasoby. Zapytania nie mogą obejmować więcej niż 100 obszarów roboczych.
 
 > [!IMPORTANT]
 > W niektórych scenariuszach obejmujących wiele obszarów roboczych pomiary procesora i danych nie będą dokładne i będą reprezentować tylko niektóre obszary robocze.

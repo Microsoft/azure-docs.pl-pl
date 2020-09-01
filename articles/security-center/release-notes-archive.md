@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: cebc2c3d364cdb93c4b528c186dcef79c58ac6ea
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7ac2777ffd500082bd0b8a9700d53bffd9d6931
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167015"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177316"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -141,7 +141,7 @@ Nowe możliwości w tej publicznej wersji zapoznawczej obejmują:
 
 Aplikacje zainstalowane na maszynach wirtualnych mogą często mieć luki w zabezpieczeniach, które mogą spowodować naruszenie maszyny wirtualnej. Ogłaszamy, że Security Center warstwa standardowa zawiera wbudowaną ocenę luk w zabezpieczeniach dla maszyn wirtualnych bez dodatkowych opłat. Ocena luk w zabezpieczeniach, obsługiwana przez Qualys w publicznej wersji zapoznawczej, umożliwia ciągłe skanowanie wszystkich zainstalowanych aplikacji na maszynie wirtualnej w celu znalezienia luk w zabezpieczeniach i zaprezentowania wyników w środowisku portalu Security Center. Security Center bierze pod uwagę wszystkie operacje wdrażania, dzięki czemu użytkownik nie wymaga dodatkowej pracy. W przyszłości planujemy udostępnienie opcji oceny luk w zabezpieczeniach w celu obsługi unikatowych potrzeb firmy klientów.
 
-[Dowiedz się więcej o ocenach luk w zabezpieczeniach Virtual Machines platformy Azure](security-center-vulnerability-assessment-recommendations.md).
+[Dowiedz się więcej o ocenach luk w zabezpieczeniach Virtual Machines platformy Azure](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Zaawansowane zabezpieczenia danych dla serwerów SQL w systemie Azure Virtual Machines (wersja zapoznawcza)
