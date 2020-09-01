@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b54b2adb21419de61d2309752987f6e4a48e41
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74969144"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264491"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services 
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Korzystanie z castLabs w celu dostarczania licencji Widevine do usługi Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -33,7 +36,7 @@ ms.locfileid: "74969144"
 
 W tym artykule opisano, jak można użyć Azure Media Services (AMS) do dostarczania strumienia, który jest dynamicznie szyfrowany za pomocą usługi PlayReady i Widevine protokołów DRM. Licencja PlayReady pochodzi z Media Services serwera licencji PlayReady i licencji Widevine jest dostarczana przez serwer licencji **castLabs** .
 
-Aby odtworzyć zawartość strumieniową chronioną przez CENC (PlayReady i/lub Widevine), można użyć [Azure Media Player](https://aka.ms/azuremediaplayer). Szczegóły można znaleźć w [dokumencie amp](https://amp.azure.net/libs/amp/latest/docs/) .
+Aby odtworzyć zawartość strumieniową chronioną przez CENC (PlayReady i/lub Widevine), można użyć  [Azure Media Player](https://aka.ms/azuremediaplayer). Szczegóły można znaleźć w [dokumencie amp](https://amp.azure.net/libs/amp/latest/docs/) .
 
 Na poniższym diagramie przedstawiono architekturę integracji na poziomie Azure Media Services i castLabs.
 
@@ -92,7 +95,7 @@ Aby użyć aplikacji konsolowej:
 4. Użyj AssetId do nazewnictwa elementów zawartości w systemie castLabs (wiersz 44 w pliku Program.cs).
    
    Należy ustawić AssetId dla **castLabs**; musi być unikatowym ciągiem alfanumerycznym.
-5. Uruchom program.
+5. Uruchomisz program.
 
 Aby użyć aplikacji sieci Web (STS):
 

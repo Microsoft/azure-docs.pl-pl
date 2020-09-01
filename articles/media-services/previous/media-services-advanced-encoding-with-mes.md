@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32b3207fc86f9aab7194d63a0e57eea459fd7eac
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018029"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264814"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Wykonaj zaawansowane kodowanie, dostosowując ustawienia wstępne ustawień RYNKOWych 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Wykonaj zaawansowane kodowanie, dostosowując ustawienia wstępne ustawień RYNKOWych
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Omówienie
 
@@ -51,7 +53,7 @@ Podczas generowania miniatur nie jest konieczne, aby zawsze określać szerokoś
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Generowanie miniatur
+## <a name="generate-thumbnails"></a>Generowanie miniatur
 
 W tej sekcji pokazano, jak dostosować ustawienie wstępne, które generuje miniatury. Zdefiniowane poniżej ustawienie wstępne zawiera informacje na temat sposobu kodowania pliku oraz informacje potrzebne do generowania miniatur. W [tej](media-services-mes-presets-overview.md) sekcji można zastosować dowolne ustawienia wstępne, a następnie dodać kod generujący miniatury.  
 
@@ -64,7 +66,7 @@ Informacje o schemacie znajdują się w [tym](media-services-mes-schema.md) tema
 
 Zapoznaj się z sekcją [zagadnienia](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Ustawienia wstępne JSON
+### <a name="json-preset"></a>Ustawienia wstępne JSON
 
 ```json
 {
@@ -166,7 +168,7 @@ Zapoznaj się z sekcją [zagadnienia](#considerations) .
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Ustawienia wstępne XML
+### <a name="xml-preset"></a>Ustawienia wstępne XML
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

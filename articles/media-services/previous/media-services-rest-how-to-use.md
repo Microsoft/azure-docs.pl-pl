@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000051"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264287"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Omówienie interfejsu API REST usługi Media Services Operations 
+# <a name="media-services-operations-rest-api-overview"></a>Omówienie interfejsu API REST usługi Media Services Operations
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](../latest/index.yml). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
@@ -60,12 +62,12 @@ W przypadku korzystania z usługi REST obowiązują następujące zagadnienia.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Standardowe nagłówki żądań HTTP obsługiwane przez Media Services
 Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw wymaganych nagłówków, które należy uwzględnić w żądaniu, a także zestaw opcjonalnych nagłówków, które warto uwzględnić. W poniższej tabeli wymieniono wymagane nagłówki:
 
-| Nagłówek | Typ | Wartość |
+| Header | Typ | Wartość |
 | --- | --- | --- |
 | Autoryzacja |Bearer |Posiadacz jest jedynym zaakceptowanym mechanizmem autoryzacji. Wartość musi również zawierać token dostępu dostarczony przez Azure Active Directory. |
-| x-MS-Version |Wartość dziesiętna |2,17 (lub Najnowsza wersja)|
-| DataServiceVersion |Wartość dziesiętna |3.0 |
-| MaxDataServiceVersion |Wartość dziesiętna |3.0 |
+| x-MS-Version |Liczba dziesiętna |2,17 (lub Najnowsza wersja)|
+| DataServiceVersion |Liczba dziesiętna |3,0 |
+| MaxDataServiceVersion |Liczba dziesiętna |3,0 |
 
 > [!NOTE]
 > Ponieważ Media Services używa protokołu OData do uwidaczniania interfejsów API REST, nagłówki DataServiceVersion i MaxDataServiceVersion powinny być uwzględniane we wszystkich żądaniach. Jeśli jednak tak nie jest, obecnie Media Services zakłada, że wartość DataServiceVersion jest używana, to 3,0.
@@ -74,7 +76,7 @@ Dla każdego wywołania, które wprowadzasz do Media Services, istnieje zestaw w
 
 Poniżej znajduje się zestaw opcjonalnych nagłówków:
 
-| Nagłówek | Typ | Wartość |
+| Header | Typ | Wartość |
 | --- | --- | --- |
 | Data |Data 1123 |Sygnatura czasowa żądania |
 | Zaakceptuj |Typ zawartości |Żądany typ zawartości dla odpowiedzi, na przykład następujące:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Odpowiedzi mogą mieć inny typ zawartości, taki jak pobieranie obiektów blob, gdzie pomyślnie odpowiedź zawiera strumień obiektów BLOB jako ładunek. |
@@ -83,15 +85,15 @@ Poniżej znajduje się zestaw opcjonalnych nagłówków:
 | Accept-Charset |Typ charset, taki jak "UTF-8" |Wartość domyślna to UTF-8. |
 | X-HTTP-Metoda |Metoda HTTP |Zezwala klientom lub zaporom, które nie obsługują metod HTTP, takich jak PUT lub DELETE, do korzystania z tych metod, tunelowanie za pośrednictwem wywołania GET. |
 | Content-Type |Typ zawartości |Typ zawartości treści żądania w żądaniu PUT lub POST. |
-| Identyfikator żądania klienta |String (ciąg) |Wartość zdefiniowana przez obiekt wywołujący, która identyfikuje określone żądanie. Jeśli jest określony, ta wartość zostanie uwzględniona w komunikacie odpowiedzi jako sposób mapowania żądania. <p><p>**Ważne**<p>Wartości powinny być ograniczone w 2096b (2K). |
+| Identyfikator żądania klienta |String |Wartość zdefiniowana przez obiekt wywołujący, która identyfikuje określone żądanie. Jeśli jest określony, ta wartość zostanie uwzględniona w komunikacie odpowiedzi jako sposób mapowania żądania. <p><p>**Ważne**<p>Wartości powinny być ograniczone w 2096b (2K). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standardowe nagłówki odpowiedzi HTTP obsługiwane przez Media Services
 Poniżej znajduje się zestaw nagłówków, które mogą zostać zwrócone do użytkownika w zależności od zasobu, którego dotyczy żądanie, oraz akcji, która ma zostać wykonana.
 
-| Nagłówek | Typ | Wartość |
+| Header | Typ | Wartość |
 | --- | --- | --- |
-| Identyfikator żądania |String (ciąg) |Unikatowy identyfikator bieżącej operacji i wygenerowanej usługi. |
-| Identyfikator żądania klienta |String (ciąg) |Identyfikator określony przez obiekt wywołujący w oryginalnym żądaniu, jeśli jest obecny. |
+| Identyfikator żądania |String |Unikatowy identyfikator bieżącej operacji i wygenerowanej usługi. |
+| Identyfikator żądania klienta |String |Identyfikator określony przez obiekt wywołujący w oryginalnym żądaniu, jeśli jest obecny. |
 | Data |Data 1123 |Data/godzina przetworzenia żądania. |
 | Content-Type |Różnie |Typ zawartości treści odpowiedzi. |
 | Content-Encoding |Różnie |Odpowiednio, gzip lub Wklęśnięcie. |

@@ -2,15 +2,17 @@
 title: Szyfruj zawartość za pomocą Azure Portal
 description: W tym przewodniku szybki start pokazano, jak skonfigurować szyfrowanie zawartości przy użyciu Azure Media Services w Azure Portal.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: 6ff3c14039f9199053d3d43c6ce4488c2692b336
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 08/31/2020
+ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988977"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263641"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Szybki Start: używanie portalu do szyfrowania zawartości
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Użyj Azure Media Services, aby pomóc w zabezpieczeniu nośnika od momentu, gdy komputer przejdzie przez cały proces w ramach magazynu, przetwarzania i dostarczania. Za pomocą Media Services można dostarczyć zawartość dynamiczną i na żądanie zaszyfrowaną dynamicznie przy użyciu Advanced Encryption Standard (AES-128) lub dowolnego z trzech głównych systemów zarządzania prawami cyfrowymi (DRM): Microsoft PlayReady, Google Widevine i Apple FairPlay. Media Services udostępnia również usługi do dostarczania kluczy AES oraz licencji DRM (PlayReady, Widevine i FairPlay) do autoryzowanych klientów. 
  
@@ -19,7 +21,7 @@ Aby określić opcje szyfrowania (jeśli istnieją) w strumieniu, użyj **zasad 
 > [!NOTE]
 > Zasady kluczy zawartości nie są wymagane do wyczyszczenia przesyłania strumieniowego ani pobierania.
 
-Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu klucza Wyczyść AES lub szyfrowania DRM. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy Media Services lub usługi dostarczania kluczy określonej przez użytkownika. Aby zdecydować, czy użytkownik jest autoryzowany do pobrania klucza, usługa szacuje **Zasady kluczy zawartości** określone dla klucza.
+Gdy gracz prosi o przesłanie strumienia, Media Services używa określonego klucza do dynamicznego szyfrowania zawartości przy użyciu klucza Wyczyść AES lub szyfrowania DRM. Aby odszyfrować strumień, odtwarzacz żąda klucza z usługi dostarczania kluczy Media Services lub usługi dostarczania kluczy określonej przez użytkownika. Aby zdecydować, czy użytkownik jest autoryzowany do pobrania klucza, usługa szacuje  **Zasady kluczy zawartości** określone dla klucza.
 
 W tym przewodniku szybki start przedstawiono sposób tworzenia zasad klucza zawartości, w których można określić, jakie szyfrowanie ma być stosowane do zasobu w przypadku przesyłania strumieniowego. Ten przewodnik Szybki Start pokazuje również, jak ustawić skonfigurowane szyfrowanie dla elementu zawartości.
 

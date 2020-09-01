@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a1a506e7e4c4a90ed39f4371b48e47b632918c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021508"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264644"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows  
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Jak utworzyć Smooth Streaming aplikacji ze sklepu Windows
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Zestaw SDK klienta Smooth Streaming dla systemu Windows 8 umożliwia deweloperom tworzenie aplikacji ze sklepu Windows, które mogą odtwarzać zawartość Smooth Streaming na żądanie i na żywo. Oprócz podstawowego odtwarzania zawartości Smooth Streaming, zestaw SDK oferuje także rozbudowane funkcje, takie jak ochrona Microsoft PlayReady, ograniczenie poziomu jakości, połączenie na żywo, przełączanie strumienia audio, nasłuchiwanie aktualizacji stanu (na przykład zmiany poziomu jakości) i zdarzenia błędów itd. Aby uzyskać więcej informacji o obsługiwanych funkcjach, zobacz [Informacje o wersji](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Aby uzyskać więcej informacji, zobacz [Player Framework dla systemu Windows 8](https://playerframework.codeplex.com/). 
 

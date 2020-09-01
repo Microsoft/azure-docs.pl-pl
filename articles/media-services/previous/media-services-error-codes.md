@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6911b16c3fdf5bb94d42a40198943c3b1baa00da
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c30808a46b5cecfaf2e761b3f7a611020cd2cdfb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042827"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263681"
 ---
 # <a name="azure-media-services-error-codes"></a>Kody błędów usługi Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 W przypadku korzystania z Microsoft Azure Media Services można odbierać kody błędów HTTP z usługi w zależności od problemów, takich jak tokeny uwierzytelniania wygasające w przypadku akcji, które nie są obsługiwane w programie Media Services. Poniżej znajduje się lista **kodów błędów HTTP** , które mogą zostać zwrócone przez Media Services i możliwych dla nich przyczyn.  
 
 ## <a name="400-bad-request"></a>400 Nieprawidłowe żądanie

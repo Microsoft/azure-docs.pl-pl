@@ -6,19 +6,21 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 03/25/2020
-ms.openlocfilehash: 459f11844f873a911b3e5702e8c768b1cd22e504
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 08/31/2020
+ms.openlocfilehash: 76bbb980b6430f7cffc23ec078e2c932128dc637
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985001"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265273"
 ---
 # <a name="create-an-azure-media-services-live-stream"></a>Tworzenie Azure Media Services strumienia na żywo
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 Ten przewodnik Szybki Start pomoże Ci utworzyć Azure Media Services strumień na żywo przy użyciu Azure Portal i usługi Wirecast. Przyjęto założenie, że masz subskrypcję platformy Azure i utworzono konto Media Services.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -102,7 +104,7 @@ W następnej procedurze powrócisz do Azure Media Services w przeglądarce, aby 
 4. Przejdź do aplikacji Wirecast i wklej **wejściowy adres URL** do pola **adres** w ustawieniach danych wyjściowych.
 
    ![Wejściowy adres URL Wirecast](media/live-events-wirecast-quickstart/input-url-wirecast.png)
-5. Wybierz przycisk **OK**.
+5. Wybierz pozycję **OK**.
 
 ## <a name="set-up-outputs"></a>Konfigurowanie danych wyjściowych
 
@@ -125,7 +127,7 @@ Ta część skonfiguruje dane wyjściowe i umożliwi zapisanie nagrania strumien
 
 ## <a name="start-the-broadcast"></a>Rozpocznij emitowanie
 
-1. W Wirecast wybierz pozycję **wyjściowe** > **Rozpocznij/Zatrzymaj rozgłaszanie** > **Azure Media Services Start: Azure Media Services** z menu głównego.
+1. W Wirecast wybierz pozycję **wyjściowe**  >  **Rozpocznij/Zatrzymaj rozgłaszanie**  >  **Azure Media Services Start: Azure Media Services** z menu głównego.
 
    ![Elementy menu uruchamiania emisji](media/live-events-wirecast-quickstart/start-broadcast.png)
 
@@ -175,7 +177,7 @@ Utworzone dane wyjściowe są teraz dostępne do przesyłania strumieniowego na 
 1. Wybierz pozycję **Aktualizuj odtwarzacz**.
 1. Wybierz ikonę **odtwarzania** na filmie wideo, aby wyświetlić zasób na żądanie.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!IMPORTANT]
 > Zatrzymaj usługi! Po wykonaniu kroków opisanych w tym przewodniku szybki start Pamiętaj, aby zatrzymać wydarzenie na żywo i punkt końcowy przesyłania strumieniowego, lub naliczanie opłat za czas, w którym pozostaną one uruchomione. Aby zatrzymać wydarzenie na żywo, zobacz procedurę [zatrzymania emisji](#stop-the-broadcast) , kroki 2 i 3.

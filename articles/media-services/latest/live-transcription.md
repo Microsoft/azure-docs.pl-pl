@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 698aa849a82e7c9f9a630ca7040f9d449b3765b3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765016"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264967"
 ---
 # <a name="live-transcription-preview"></a>Transkrypcja dynamiczna (wersja zapoznawcza)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Usługa Azure Media Service oferuje wideo, audio i tekst w różnych protokołach. Gdy publikujesz strumień na żywo przy użyciu formatu MPEG-KRESKowego lub HLS/CMAF, a następnie wideo i audio, Nasza usługa dostarcza tekst uzyskanego w IMSC 1.1 zgodne TTML. Dostarczenie jest spakowane w fragmenty MPEG-4 część 30 (ISO/IEC 14496-30). W przypadku używania dostarczania za pośrednictwem HLS/TS, tekst jest dostarczany jako podzielony VTT.
 
@@ -33,14 +35,14 @@ W tym artykule opisano sposób włączania transkrypcji na żywo podczas przesy�
 
 Transkrypcja na żywo jest dostępna w następujących regionach:
 
-- Azja Południowo-Wschodnia
-- Europa Zachodnia
+- Southeast Asia
+- West Europe
 - Europa Północna
-- Wschodnie stany USA
-- Środkowe stany USA
-- Południowo-środkowe stany USA
+- East US
+- Central US
+- South Central US
 - Zachodnie stany USA 2
-- Brazylia Południowa
+- Brazil South
 
 Jest to lista dostępnych języków, które mogą być uzyskanego, przy użyciu kodu języka w interfejsie API.
 
@@ -135,7 +137,7 @@ Aby włączyć transkrypcje na żywo lub zaktualizować język transkrypcji, nal
 
 Jest to przykładowe wywołanie umożliwiające włączenie transkrypcji na żywo.
 
-WYSŁANA```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+WYSŁANA ```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
 
 ```
 {

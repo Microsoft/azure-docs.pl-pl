@@ -3,7 +3,7 @@ title: LiveEvent Stany i rozliczenia w Azure Media Services | Microsoft Docs
 description: Ten temat zawiera Azure Media Services Omówienie LiveEvent stanów i rozliczeń.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/24/2019
-ms.author: juliako
-ms.openlocfilehash: dd63152776e0268b8f9e3e0ce116fea897cdf4e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 37098b8268d5a451935c925114fb762c574fa55c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000877"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265309"
 ---
 # <a name="live-event-states-and-billing"></a>Stany wydarzeń na żywo i rozliczenia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W Azure Media Services wydarzenie na żywo rozpoczyna rozliczanie od razu po zmianie stanu na **uruchomiony**. Opłaty są naliczane nawet wtedy, gdy nie przepływają w ramach usługi. Aby zatrzymać rozliczanie wydarzenia na żywo, należy zatrzymać wydarzenie na żywo. Transkrypcja na żywo jest rozliczana w taki sam sposób jak w przypadku zdarzenia na żywo.
 

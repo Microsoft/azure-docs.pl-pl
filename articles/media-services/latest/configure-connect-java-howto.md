@@ -3,7 +3,7 @@ title: Nawiązywanie połączenia z interfejsem API Azure Media Services v3 — 
 description: W tym artykule opisano sposób nawiązywania połączenia z interfejsem API programu Azure Media Services v3 przy użyciu języka Java.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 08/31/2020
 ms.custom: devx-track-java
-ms.author: juliako
-ms.openlocfilehash: 098e1db7470124dc7c15b3ee65d6ab9cb3fadabd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: inhenkel
+ms.openlocfilehash: dc667a46d9802332d0f8c8dc673b28a9aeab96ea
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319834"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265630"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — Java
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W tym artykule pokazano, jak nawiązać połączenie z zestawem SDK Java Azure Media Services v3 przy użyciu głównej metody logowania.
 
@@ -59,7 +61,7 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
 ## <a name="add-dependencies"></a>Dodaj zależności
 
 1. W Visual Studio Code Otwórz folder, w którym znajduje się projekt
-1. Znajdź i Otwórz`pom.xml`
+1. Znajdź i Otwórz `pom.xml`
 1. Dodawanie wymaganych zależności
 
     ```xml
@@ -120,7 +122,7 @@ Po uruchomieniu polecenia `pom.xml` `App.java` są tworzone pliki, i.
    ```
 1. Uruchom aplikację.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Koncepcje Media Services](concepts-overview.md)
 - [Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)

@@ -2,18 +2,20 @@
 title: Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości przy użyciu portalu Azure
 description: W tym przewodniku szybki start przedstawiono sposób użycia portalu do przekazywania, kodowania i przesyłania strumieniowego zawartości za pomocą Azure Media Services.
 ms.topic: quickstart
-ms.date: 06/08/2020
+ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 7aebc6e52ec7fac97c6f1e8fb9b30cc63b74e860
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 16a5793f9848a6e16856728877727dbefc3e0805
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605663"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264933"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Szybki Start: przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W tym przewodniku szybki start pokazano, jak używać Azure Portal do przekazywania, kodowania i przesyłania strumieniowego zawartości przy użyciu Azure Media Services.
 

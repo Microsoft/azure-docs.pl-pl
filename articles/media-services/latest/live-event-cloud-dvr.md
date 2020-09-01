@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: W tym artykule opisano, jak używać przesuwania i przesyłania strumieniowego na żywo w celu rejestrowania strumienia na żywo i tworzenia odtwarzania na żądanie.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2020
-ms.author: juliako
-ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: f188d959bf702a2907fe34805b41fa62cae7ee40
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000996"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265392"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Korzystaj z przesunięć czasowych i danych wyjściowych, aby utworzyć odtwarzanie wideo na żądanie
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W Azure Media Services obiekt [danych wyjściowych na żywo](/rest/api/media/liveoutputs) przypomina cyfrowy rejestrator wideo, który będzie przechwytywać i rejestrować strumień na żywo do zasobu na koncie Media Services. Zarejestrowana zawartość jest zachowywana w kontenerze zdefiniowanym [przez zasób zasobów](/rest/api/media/assets) (kontener znajduje się na koncie usługi Azure Storage podłączonym do Twojego konta). Na żywo dane wyjściowe umożliwiają również kontrolowanie niektórych właściwości wychodzącego strumienia na żywo, takich jak część strumienia jest przechowywana w archiwum archiwalnym (na przykład pojemność DVR w chmurze) lub gdy przeglądający mogą zacząć oglądać strumień na żywo. Archiwum na dysku jest archiwum cykliczne "okno", które zawiera tylko ilość zawartości, która jest określona we właściwości **archiveWindowLength** na żywo danych wyjściowych. Zawartość spoza tego okna jest automatycznie odrzucana z kontenera magazynu i nie jest odzyskiwalna. Wartość archiveWindowLength reprezentuje czas trwania przedziału ISO 8601 (na przykład PTHH: MM: SS), który określa pojemność DVR. Wartość można ustawić z co najmniej jednej minuty do maksymalnie 25 godzin.
 

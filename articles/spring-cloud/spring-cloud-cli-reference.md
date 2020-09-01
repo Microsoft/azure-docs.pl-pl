@@ -7,19 +7,16 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 07e7b8db3bf7e1131ec8892a69223eaf4505e8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 10f3856a7c0c0a98ab8b23e20342d745b1966b9b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037750"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263199"
 ---
 # <a name="az-spring-cloud"></a>AZ Sprężyna — chmura
 
 ## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>Zarządzanie chmurą wiosenną platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
-
->[!Note]
-> Chmura Wiosenna platformy Azure jest obecnie w wersji zapoznawczej.  Te polecenia mogą zostać zmienione lub usunięte w przyszłej wersji.
 
 | AZ Sprężyna — chmura | Polecenia |
 |------|------:|
@@ -93,11 +90,11 @@ az spring-cloud create  --name -n
 | Parametry wymagane | Opis |
 | --- | :--- |
 | --Name-n | Nazwa dla tego wystąpienia chmury Azure wiosennej. |
-| --Resource-Group-g | Określa grupę zasobów dla tej aplikacji.  Skonfiguruj grupę domyślną przy użyciu`az configure --defaults group=<name>` |
+| --Resource-Group-g | Określa grupę zasobów dla tej aplikacji.  Skonfiguruj grupę domyślną przy użyciu `az configure --defaults group=<name>` |
 
 | Parametry opcjonalne | Opis |
 | --- | :--- |
-| --Location-l | Określa lokalizację serwera dla tej aplikacji.  Znajdowanie prawidłowych lokalizacji przy użyciu`az account list-locations` |
+| --Location-l | Określa lokalizację serwera dla tej aplikacji.  Znajdowanie prawidłowych lokalizacji przy użyciu `az account list-locations` |
 | --No-wait | Nie należy wykonywać długotrwałych operacji.
 
 ### <a name="examples"></a>Przykłady
@@ -254,7 +251,7 @@ az spring cloud app deploy  --name -n
 | --ENV | Zmienne środowiskowe rozdzielane spacjami w formacie "klucz [= wartość]". |
 | --instance-Count | Liczba wystąpień. |
 | --jar-Path | Jeśli jest podany, wdróż plik JAR na podstawie danej ścieżki. W przeciwnym razie Wdróż bieżący folder jako element pułapki. |
-| --JVM-Options | Ciąg zawierający opcje JVM.  Użyj wyrażenia "=" zamiast "", aby uniknąć błędów analizy powłoki. Np `--jvm-options='-Xms1024m -Xmx2048m` .. |
+| --JVM-Options | Ciąg zawierający opcje JVM.  Użyj wyrażenia "=" zamiast "", aby uniknąć błędów analizy powłoki. Np  `--jvm-options='-Xms1024m -Xmx2048m` .. |
 | --pamięć | Liczba GB pamięci na wystąpienie. |
 | --No-wait | Nie czekaj na zakończenie długotrwałych operacji. |
 | --Runtime-Version | Wersja języka wykonawczego używanego w aplikacji.  Dozwolone wartości: `Java_11` , `Java_8` . |
@@ -504,7 +501,7 @@ az spring-cloud app update --name -n
 | --Enable-persistent-Storage | Typu.  W przypadku wartości true Zainstaluj dysk 50 GB z domyślną ścieżką. |
 | --ENV | Zmienne środowiskowe rozdzielane spacjami w formacie "klucz [= wartość]". |
 | --is-Public | Typu.  W przypadku wartości true Przypisz domenę publiczną do aplikacji. |
-| --JVM-Options | Ciąg zawierający opcje JVM.  Użyj wyrażenia "=" zamiast "", aby uniknąć błędów analizy powłoki. Np `--jvm-options='-Xms1024m -Xmx2048m` .. |
+| --JVM-Options | Ciąg zawierający opcje JVM.  Użyj wyrażenia "=" zamiast "", aby uniknąć błędów analizy powłoki. Np  `--jvm-options='-Xms1024m -Xmx2048m` .. |
 | --No-wait | Nie czekaj na zakończenie długotrwałych operacji. |
 | --Runtime-Version | Wersja języka wykonawczego używanego w aplikacji.  Dozwolone wartości: `Java_11` , `Java_8` . |
 
@@ -739,7 +736,7 @@ Aby wdrożyć kod lub zaktualizować ustawienia do istniejącego wdrożenia, uż
 | --ENV | Zmienne środowiskowe rozdzielane spacjami w formacie "klucz [= wartość]". |
 | --instance-Count | Liczba wystąpień. Wartość domyślna: 1. |
 | --jar-Path | Jeśli jest podany, wdróż plik JAR.  W przeciwnym razie Wdróż bieżący folder jako element pułapki. |
-| --JVM-Options | Ciąg zawierający opcje JVM.  Użyj wyrażenia "=" zamiast "", aby uniknąć błędów analizy powłoki. Np `--jvm-options='-Xms1024m -Xmx2048m` .. |
+| --JVM-Options | Ciąg zawierający opcje JVM.  Użyj wyrażenia "=" zamiast "", aby uniknąć błędów analizy powłoki. Np  `--jvm-options='-Xms1024m -Xmx2048m` .. |
 | --pamięć | Liczba GB pamięci na wystąpienie. |
 | --No-wait | Nie czekaj na zakończenie długotrwałych operacji. |
 | --Runtime-Version | Wersja języka wykonawczego używanego w aplikacji.  Dozwolone wartości: `Java_11` , `Java_8` . |

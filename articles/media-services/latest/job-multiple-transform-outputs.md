@@ -3,23 +3,25 @@ title: Tworzenie zadania Azure Media Services z wieloma wyjściami transformacji
 description: W tym temacie pokazano, jak utworzyć zadanie Azure Media Services z wieloma wyjściami transformacji.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a0592af43987e89556aee57ea44e07dc2c00828
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 63e6da53e542172d474f9ca5de9ab136f38f42f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006792"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265545"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Tworzenie zadania z wieloma wyjściami transformacji
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W tym temacie pokazano, jak utworzyć transformację z dwoma wyjściami transformacji. Pierwsze wywołanie dla danych wejściowych jest kodowane na potrzeby przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów przy użyciu wbudowanego ustawienia wstępnego [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) . Druga z nich wywołuje sygnał audio w wejściowym wideo do przetworzenia przy użyciu [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Po utworzeniu przekształcenia można przesłać zadanie, które będzie odpowiednio przetwarzać wideo. Ponieważ w tym przykładzie określono dwa wyjścia transformacji, należy określić dwa dane wyjściowe zadania. Można zdecydować się na kierowanie obu zadań do tego samego zasobu (jak pokazano poniżej) lub zapisanie wyników w osobnych zasobach.
  
@@ -134,6 +136,6 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 Zobacz [Kody błędów](/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Przykłady Azure Media Services v3 przy użyciu platformy .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/) 

@@ -3,7 +3,7 @@ title: Ustawienia małych opóźnień LiveEvent w Azure Media Services | Microso
 description: Ten temat zawiera omówienie ustawień małych opóźnień LiveEvent i pokazuje, jak ustawić małe opóźnienia.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/22/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e454ce84049f0f7c90da45ed77532f9ba2d90fd4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7f874491f392f320a6cdf833864c7b3eddc2f5e2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018709"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265324"
 ---
 # <a name="live-event-low-latency-settings"></a>Ustawienia niskiego opóźnienia zdarzenia na żywo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W tym artykule przedstawiono sposób ustawiania małych opóźnień dla [zdarzenia na żywo](/rest/api/media/liveevents). Omówiono w nim również typowe wyniki, które są wyświetlane podczas korzystania z ustawień małych opóźnień w różnych graczy. Wyniki różnią się w zależności od czasu oczekiwania na sieć CDN i sieci.
 
@@ -76,7 +78,7 @@ W poniższych tabelach przedstawiono typowe wyniki opóźnienia (gdy flaga LowLa
 > [!NOTE]
 > Opóźnienie end-to-end może się różnić w zależności od warunków sieci lokalnej lub przez wprowadzenie warstwy buforowania sieci CDN. Należy przetestować dokładne konfiguracje.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie przesyłania strumieniowego na żywo](live-streaming-overview.md)
 - [Samouczek przesyłania strumieniowego na żywo](stream-live-tutorial-with-api.md)

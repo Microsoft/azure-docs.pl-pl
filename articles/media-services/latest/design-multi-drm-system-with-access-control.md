@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dba0f82ced5500dc85c3254bea6a2a0066770b1e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039195"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265664"
 ---
-# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu 
+# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Projektowanie systemu ochrony zawartości przy użyciu technologii multi-DRM z kontrolą dostępu
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Projektowanie i kompilowanie podsystemu Digital Rights Management (DRM) dla wieloszczytowego (OTT) lub rozwiązania przesyłania strumieniowego online to złożone zadanie. Operatorzy/dostawcy wideo w trybie online zwykle są źródłem tego zadania do wyspecjalizowanych dostawców usług DRM. Celem tego dokumentu jest zaprezentowanie projektu referencyjnego i implementację referencyjną kompleksowego podsystemu DRM w rozwiązaniu OTT lub online streaming.
 
@@ -205,7 +207,7 @@ Implementacja obejmuje następujące kroki:
     | **PlayReady** |Microsoft Edge lub Internet Explorer 11 w systemie Windows 10 |Połączyć |Niepowodzenie |
     | **Widevine** |Chrome, Firefox, Opera |Połączyć |Niepowodzenie |
     | **FairPlay** |Safari w witrynie macOS      |Połączyć |Niepowodzenie |
-    | **AES — 128** |Większość nowoczesnych przeglądarek  |Połączyć |Niepowodzenie |
+    | **AES-128** |Większość nowoczesnych przeglądarek  |Połączyć |Niepowodzenie |
 
 Aby uzyskać informacje na temat sposobu konfigurowania usługi Azure AD dla aplikacji odtwarzacza ASP.NET MVC, zobacz [Integrowanie aplikacji opartej na platformie mvc Azure Media Services Owin z Azure Active Directory i ograniczanie dostarczania kluczy zawartości na podstawie oświadczeń JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 

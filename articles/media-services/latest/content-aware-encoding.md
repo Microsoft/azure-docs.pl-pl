@@ -3,23 +3,25 @@ title: Ustawienie wstępne dla kodowania z obsługą zawartości — Azure Media
 description: W tym artykule omówiono kodowanie oparte na zawartości w Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c29909d70b0fd55e4b680c79928cdc5d05b494fa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 853381dbccea5374806fbeadb1d29632f0525fdb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003732"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265613"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Aby przygotować zawartość do dostarczenia przez [szybkość przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), należy zakodować wideo przy użyciu wielu szybkości transmisji bitów (wysokiej lub niskiej). Zapewnia to płynne obniżenie jakości, ponieważ zmniejsza się szybkość transmisji bitów, więc jest to rozdzielczość wideo. Takie wiele kodowania bitów korzysta z tak zwanej drabinki kodowania — tabeli rozdzielczości i szybkości transmisji bitów, zapoznaj się z Media Services [wbudowanych ustawień wstępnych kodowania](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -79,7 +81,7 @@ TransformOutput[] output = new TransformOutput[]
 > [!NOTE]
 > Opłaty za zadania kodowania przy użyciu `ContentAwareEncoding` ustawienia wstępnego są rozliczane na podstawie minut danych wyjściowych. 
   
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3](stream-files-tutorial-with-api.md)
 * [Samouczek: Kodowanie pliku zdalnego na podstawie adresu URL i przesyłanie strumieniowe wideo — REST](stream-files-tutorial-with-rest.md)

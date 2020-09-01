@@ -3,7 +3,7 @@ title: Nawiązywanie połączenia z interfejsem API Azure Media Services v3 — 
 description: W tym artykule pokazano, jak nawiązać połączenie z interfejsem API Media Services v3 przy użyciu platformy .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 933342c8917b3219ec858bfc3edc4013863d2c6a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90f5c55922a5fafb29a40faf9af719f77c74c6cf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008118"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265647"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK platformy .NET w wersji 3 Azure Media Services przy użyciu metody nazwy głównej usługi.
 
@@ -227,7 +229,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo — .NET](stream-files-tutorial-with-api.md) 
 - [Samouczek: przesyłanie strumieniowe na żywo z Media Services v3 — .NET](stream-live-tutorial-with-api.md)
