@@ -1,0 +1,107 @@
+---
+title: Opis Access Control opartych na rolach na Azure Stack urządzeniu brzegowym | Microsoft Docs
+description: Opisuje sposób, w jaki Access Control oparte na rolach na urządzeniu brzegowym Azure Stack.
+services: databox
+author: alkohli
+ms.service: databox
+ms.subservice: edge
+ms.topic: conceptual
+ms.date: 08/27/2020
+ms.author: alkohli
+ms.openlocfilehash: 310fde15a850214aa1741c9cb587c0edcf570a37
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89085384"
+---
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Kubernetes Access Control oparte na rolach na urządzeniu brzegowym Azure Stack
+
+
+Na urządzeniu Azure Stack Edge podczas konfigurowania roli obliczeniowej tworzony jest klaster Kubernetes. Za pomocą kontroli dostępu opartej na rolach (RBAC) Kubernetes można ograniczyć dostęp do zasobów klastra na urządzeniu.
+
+W tym artykule omówiono system kontroli RBAC zapewniany przez Kubernetes oraz sposób, w jaki Kubernetes RBAC jest zaimplementowany na urządzeniu Azure Stack Edge. 
+
+## <a name="rbac-for-kubernetes"></a>RBAC dla Kubernetes
+
+Kubernetes RBAC pozwala przypisywać użytkowników lub grupy użytkowników, uprawnienia do wykonywania takich czynności jak tworzenie lub modyfikowanie zasobów lub wyświetlanie dzienników z uruchamiania obciążeń aplikacji. Te uprawnienia mogą być ograniczone do pojedynczej przestrzeni nazw lub przyznawane przez cały klaster. 
+
+Podczas konfigurowania klastra Kubernetes zostaje utworzony jeden użytkownik odpowiadający temu klastrowi i jest on nazywany administratorem klastra.  `kubeconfig`Plik jest skojarzony z użytkownikiem administratora klastra. `kubeconfig`Plik jest plikiem tekstowym zawierającym wszystkie informacje o konfiguracji wymagane do nawiązania połączenia z klastrem w celu uwierzytelnienia użytkownika. 
+
+### <a name="namespaces-and-users"></a>Przestrzenie nazw i użytkownicy
+
+W świecie rzeczywistym należy podzielić klaster na wiele przestrzeni nazw. 
+
+- **Wielu użytkowników**: Jeśli masz wielu użytkowników, wówczas wiele obszarów nazw zezwoli tym użytkownikom na wdrożenie ich aplikacji i usług w określonych przestrzeniach nazw w izolacji ze sobą. 
+- **Pojedynczy użytkownik**: nawet jeśli istnieje pojedynczy użytkownik, wiele przestrzeni nazw zezwoli temu użytkownikowi na uruchamianie wielu wersji aplikacji w tym samym klastrze Kubernetes.
+
+### <a name="roles-and-rolebindings"></a>Role i RoleBindings
+
+Kubernetes ma koncepcje powiązań ról i ról, które umożliwiają Przyznawanie uprawnień użytkownikom lub zasobom na poziomie przestrzeni nazw i na poziomie klastra. 
+
+- **Role**: można zdefiniować uprawnienia dla użytkowników jako **rolę** , a następnie użyć **ról** do udzielenia uprawnień w przestrzeni nazw. 
+- **RoleBindings**: po zdefiniowaniu ról można użyć **RoleBindings** do przypisania ról dla danego obszaru nazw. 
+
+Takie podejście umożliwia logicznie segregowanie pojedynczego klastra Kubernetes, dzięki czemu użytkownicy mogą uzyskiwać dostęp do zasobów aplikacji w ich przypisanej przestrzeni nazw. 
+
+
+## <a name="rbac-on-azure-stack-edge"></a>RBAC na Azure Stack Edge
+
+W bieżącej implementacji RBAC Azure Stack Edge umożliwia wykonywanie następujących akcji w obszarze działania programu PowerShell z ograniczeniami:
+
+- Utwórz przestrzenie nazw.  
+- Utwórz dodatkowych użytkowników.
+- Przyznaj administratorowi dostęp do utworzonych przestrzeni nazw. Należy pamiętać, że nie będziesz mieć dostępu do roli administratora klastra ani widoku zasobów w całym klastrze.
+- Pobierz `kubeconfig` plik z informacjami, aby uzyskać dostęp do klastra Kubernetes.
+
+
+Urządzenie brzegowe Azure Stack ma wiele przestrzeni nazw systemu i można utworzyć przestrzenie nazw użytkowników z `kubeconfig` plikami, aby uzyskać dostęp do tych przestrzeni nazw. Użytkownicy mają pełną kontrolę nad tymi przestrzeniami nazw i mogą tworzyć lub modyfikować użytkowników lub przyznawać dostęp użytkownikom. Tylko administrator klastra ma pełny dostęp do przestrzeni nazw systemu i zasobów cały klaster. `aseuser`Ma dostęp tylko do odczytu do przestrzeni nazw systemu.
+
+Poniżej znajduje się Diagram przedstawiający implementację RBAC na Azure Stack urządzeniu brzegowym.
+
+![Kontrola RBAC na urządzeniu Azure Stack Edge](./media/azure-stack-edge-gpu-kubernetes-rbac/rbac-view-1.png)
+
+Na tym diagramie Alicja, Robert i Jan mają dostęp do przypisanych przestrzeni nazw użytkowników, które w tym przypadku są `ns1` , `ns2` i `ns3` odpowiednio. W tych obszarach nazw mają dostęp administratora. Administrator klastra z drugiej strony ma dostęp administratora do przestrzeni nazw systemu i zasobów cały klaster.
+
+Za pomocą `kubectl` poleceń można tworzyć przestrzenie nazw, przypisywać użytkowników, przypisywać użytkowników lub pobierać `kubeconfig` pliki. Oto przepływ pracy wysokiego poziomu:
+
+1. Utwórz przestrzeń nazw i użytkownika.  
+
+    `New-HcsKubernetesNamespace -Namespace`  
+
+2. Utwórz użytkownika.  
+
+    `New-HcsKubernetesUser -UserName`  
+
+3. Skojarz przestrzeń nazw z utworzonym użytkownikiem.  
+
+    `Grant-HcsKubernetesNamespaceAccess -Namespace -UserName`  
+
+4. Zapisz konfigurację użytkownika w programie `C:\Users\<username>\.kube` .  
+
+5. Instalowanie `kubectl` i uruchamianie wdrażania aplikacji w programie `kubectl` . 
+
+Aby uzyskać szczegółowe instrukcje krok po kroku, przejdź do pozycji [dostęp do klastra Kubernetes za pośrednictwem usługi kuebctl na granicy Azure Stack](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+
+
+Podczas pracy z przestrzeniami nazw i użytkownikami na urządzeniach brzegowych Azure Stack są stosowane następujące zastrzeżenia:
+
+- Nie można wykonywać żadnych operacji, takich jak tworzenie użytkowników, przyznawanie lub odwoływanie dostępu do przestrzeni nazw do użytkownika dla dowolnych przestrzeni nazw systemu. Przykłady przestrzeni nazw systemu obejmują `kube-system` , `metallb-system` , `kubernetes-dashboard` , `default` , `kube-node-lease` , `kube-public` . Przestrzenie nazw systemu obejmują również przestrzenie nazw zarezerwowane dla typów wdrożeń, takich jak `iotedge` (IoT Edge Namespace) i `azure-arc` (przestrzeń nazw usługi Azure ARC).
+- Można utworzyć przestrzenie nazw użytkowników i w ramach tych przestrzeni nazw utworzyć dodatkowych użytkowników i udzielić lub odwołać dostęp do przestrzeni nazw dla tych użytkowników.
+- Nie można utworzyć żadnych przestrzeni nazw o nazwach identycznych z tymi dla każdej przestrzeni nazw systemu. Nazwy systemowych przestrzeni nazw są zastrzeżone.  
+- Nie można tworzyć żadnych przestrzeni nazw użytkownika o nazwach, które są już używane przez inne przestrzenie nazw użytkownika. Na przykład, jeśli masz `test-ns` utworzony, nie możesz utworzyć kolejnej `test-ns` przestrzeni nazw.
+- Nie masz uprawnień do tworzenia użytkowników z nazwami, które są już zarezerwowane. Na przykład `aseuser` jest zastrzeżonym administratorem klastra i nie można go użyć.
+
+Aby uzyskać więcej informacji na temat Azure Stack przestrzeni nazw krawędzi, zobacz [typy przestrzeni nazw](azure-stack-edge-gpu-kubernetes-workload-management.md#namespaces-types).
+
+
+<!--To deploy applications on an Azure Stack Edge device, use the following :
+ 
+- First, you will use the PowerShell runspace to create a user, create a namespace, and grant user access to that namespace.
+- Next, you will use the Azure Stack Edge resource in the Azure portal to create persistent volumes using either static or dynamic provisioning for the stateful applications that you will deploy.
+- Finally, you will use the services to expose applications externally and within the Kubernetes cluster.-->
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby zrozumieć, jak można utworzyć użytkownika, utworzyć obszar nazw i udzielić użytkownikowi dostępu do przestrzeni nazw, zobacz dostęp do [klastra Kubernetes za pośrednictwem polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+

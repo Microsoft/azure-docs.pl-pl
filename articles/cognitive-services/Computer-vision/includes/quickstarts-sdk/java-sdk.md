@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/19/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 9186cb9e8a603330d8fac6003b4b27bffbc29688
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8dce26f6cfa13744c75625ea0240487f1d4f2278
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050288"
+ms.locfileid: "89094213"
 ---
 <a name="HOLTop"></a>
 
@@ -78,13 +78,13 @@ Następnie Dodaj definicję klasy dla **ComputerVisionQuickstarts**.
 
 ### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
-Ten przewodnik Szybki Start używa Menedżera zależności Gradle. Bibliotekę i informacje o kliencie można znaleźć dla innych menedżerów zależności w [repozytorium centralnym Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+Ten przewodnik Szybki Start używa Menedżera zależności Gradle. Bibliotekę i informacje o kliencie można znaleźć dla innych menedżerów zależności w [repozytorium centralnym Maven](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
 
 W pliku *Build. Gradle. KTS* projektu jako zależność należy uwzględnić bibliotekę klienta przetwarzanie obrazów.
 
 ```kotlin
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
 }
 ```
 

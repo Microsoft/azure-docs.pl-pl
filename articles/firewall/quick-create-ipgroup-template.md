@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie zapory platformy Azure i grup adresów IP — szablon Menedżer zasobów'
-description: Dowiedz się, w jaki sposób używać szablonu Azure Resource Manager (szablon ARM) do tworzenia zapory platformy Azure i grup adresów IP.
+description: W tym przewodniku szybki start dowiesz się, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia zapory platformy Azure i grup adresów IP.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/06/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 97d1c14a61e98f98e45e25668841cee1ad9ce0d1
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705473"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079136"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>Szybki Start: Tworzenie zapory platformy Azure i grup adresów IP — szablon ARM
 
@@ -80,7 +80,7 @@ W Azure Portal Przejrzyj wdrożone zasoby, zwłaszcza reguły zapory, które kor
 
 Aby dowiedzieć się więcej o składni i właściwościach JSON zapory w szablonie, zobacz artykuł [Microsoft. Network azureFirewalls Template Reference](/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą zapory, Usuń grupę zasobów. Spowoduje to usunięcie zapory i wszystkich powiązanych zasobów.
 

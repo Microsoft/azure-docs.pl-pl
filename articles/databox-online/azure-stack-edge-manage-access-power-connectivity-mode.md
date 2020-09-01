@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e46d1a923eec5244bf77c201ff0b3189699c9ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339726"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079799"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Azure Stack krawędzi
 
@@ -95,7 +95,7 @@ W przypadku Azure Stack urządzenia brzegowego `Microsoft.DataBoxEdge` należy z
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Aby uzyskać więcej informacji na temat rejestrowania dostawcy zasobów, zobacz [Rozwiązywanie problemów dotyczących rejestracji dostawcy zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Aby uzyskać więcej informacji na temat rejestrowania dostawcy zasobów, zobacz [Rozwiązywanie problemów dotyczących rejestracji dostawcy zasobów](../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="manage-connectivity-mode"></a>Zarządzanie trybem łączności
 
@@ -120,7 +120,7 @@ Aby zmienić tryb urządzenia, wykonaj następujące kroki:
  
 ## <a name="manage-power"></a>Zarządzanie mocą
 
-Możesz zamknąć lub ponownie uruchomić urządzenie fizyczne przy użyciu lokalnego interfejsu użytkownika sieci Web. Zalecamy, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na serwerze danych, a następnie na urządzeniu. Ta akcja minimalizuje wszelką możliwość uszkodzenia danych.
+Urządzenie fizyczne można zamknąć lub ponownie uruchomić przy użyciu lokalnego internetowego interfejsu użytkownika. Zaleca się, aby przed ponownym uruchomieniem przełączyć udziały w tryb offline na serwerze danych, a następnie na urządzeniu. Minimalizuje to ryzyko uszkodzenia danych.
 
 1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja > ustawienia zarządzania**.
 2. Wybierz pozycję **Zamknij** lub **Uruchom ponownie** w zależności od tego, co chcesz zrobić.

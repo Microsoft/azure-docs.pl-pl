@@ -129,6 +129,8 @@
       href: security-hardened-vm-host-image.md
     - name: Omówienie diagnostyki usługi Azure Kubernetes Service
       href: concepts-diagnostics.md
+    - name: Zrównoważona inżynieria oprogramowania
+      href: concepts-sustainable-software-engineering.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Operacje klastra

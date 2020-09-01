@@ -1,20 +1,20 @@
 ---
 title: Szyfrowanie danych w usłudze translator
 titleSuffix: Azure Cognitive Services
-description: Szyfrowanie w usłudze translator danych magazynowanych.
+description: Firma Microsoft umożliwia zarządzanie subskrypcjami Cognitive Services przy użyciu własnych kluczy, nazywanych kluczami zarządzanymi przez klienta (CMK). W tym artykule opisano szyfrowanie danych przechowywane w usłudze translator oraz sposób włączania CMK i zarządzania nim.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310839"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079204"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Szyfrowanie danych w usłudze translator
 
@@ -26,7 +26,7 @@ Dane są szyfrowane i odszyfrowywane przy użyciu zgodności ze standardem [FIPS
 
 ## <a name="about-encryption-key-management"></a>Informacje o zarządzaniu kluczami szyfrowania
 
-Domyślnie Twoja subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. W przypadku korzystania z warstwy cenowej obsługującej klucze zarządzane przez klienta można wyświetlić ustawienia szyfrowania dla zasobu w sekcji **szyfrowanie** [Azure Portal](https://portal.azure.com), jak pokazano na poniższej ilustracji.
+Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. W przypadku korzystania z warstwy cenowej obsługującej klucze zarządzane przez klienta można wyświetlić ustawienia szyfrowania dla zasobu w sekcji **szyfrowanie** [Azure Portal](https://portal.azure.com), jak pokazano na poniższej ilustracji.
 
 ![Wyświetl ustawienia szyfrowania](../media/cognitive-services-encryption/encryptionblade.png)
 
@@ -34,7 +34,7 @@ W przypadku subskrypcji, które obsługują tylko zarządzane przez firmę Micro
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Klucze zarządzane przez klienta za pomocą usługi Azure Key Vault
 
-Istnieje również możliwość zarządzania subskrypcją przy użyciu własnych kluczy. Klucze zarządzane przez klienta (CMK), znane także jako dające własny klucz (BYOK), zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych.
+Domyślnie subskrypcja używa kluczy szyfrowania zarządzanych przez firmę Microsoft. Istnieje również możliwość zarządzania subskrypcją przy użyciu własnych kluczy o nazwie klucze zarządzane przez klienta (CMK). CMK zapewniają większą elastyczność tworzenia, obracania, wyłączania i odwoływania kontroli dostępu. Możesz również przeprowadzać inspekcję kluczy szyfrowania używanych do ochrony danych. Jeśli CMK jest skonfigurowany dla Twojej subskrypcji, zapewniane jest podwójne szyfrowanie, które oferuje drugą warstwę ochrony, a jednocześnie pozwala kontrolować klucz szyfrowania za pomocą Azure Key Vault.
 
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta są dostępne dla wszystkich warstw cenowych usługi Translator. Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij [formularz żądania klucza zarządzanego przez klienta](https://aka.ms/cogsvc-cmk) w ciągu około 3-5 dni roboczych, aby wypróbować stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK z usługą translator należy utworzyć nowy zasób usługi Translator. Po utworzeniu zasobu usługi Translator możesz użyć Azure Key Vault, aby skonfigurować swoją tożsamość zarządzaną.
@@ -44,8 +44,6 @@ Wykonaj następujące kroki, aby włączyć obsługę kluczy zarządzanych przez
 1. Utwórz nowy, regionalny translator lub Cognitive Services regionalny zasób. Nie będzie on działał z zasobem globalnym.
 2. Włączono tożsamość zarządzaną w Azure Portal i Dodaj informacje o kluczu zarządzanym przez klienta.
 3. Utwórz nowy obszar roboczy w usłudze tłumaczenia niestandardowego i skojarz te informacje z subskrypcją.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Włącz klucze zarządzane przez klienta
 

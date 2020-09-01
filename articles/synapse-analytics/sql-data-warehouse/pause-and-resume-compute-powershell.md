@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f502c93b4df6db83756f3fe9853ac598b40074ef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
+ms.openlocfilehash: 9adc994ef9ac3f43f593da010b35ada4a83e424e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212704"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078966"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Szybki Start: Wstrzymywanie i wznawianie obliczeń w puli Synapse SQL z Azure PowerShell
 
 Za pomocą Azure PowerShell można wstrzymywać i wznawiać zasoby obliczeniowe puli SQL (Data Warehouse) Synapse.
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -113,7 +113,7 @@ Aby sprawdzić stan puli SQL, użyj polecenia cmdlet [Get-AzSqlDatabaseActivity]
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w puli SQL. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
 
@@ -124,7 +124,7 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)i kliknij pulę SQL.
 
-    ![Oczyszczanie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Aby wstrzymać obliczenia, kliknij przycisk **Wstrzymaj**. Gdy pula SQL jest wstrzymana, zobaczysz przycisk **Start** .  Aby wznowić obliczenia, kliknij przycisk **Uruchom**.
 

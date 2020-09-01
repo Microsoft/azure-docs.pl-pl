@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f84c73f3fbefddd2972f077826fe1e2a8738ad5a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079051"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079153"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Podstawa zabezpieczeń platformy Azure dla ExpressRoute
 
@@ -240,13 +240,13 @@ Możesz użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 
 **Wskazówki**: przechowywanie spisu kont użytkowników, które mają dostęp administracyjny do płaszczyzny kontroli (np. Azure Portal) zasobów usługi Azure ExpressRoute.
 
-Aby skonfigurować kontrolę dostępu opartą na rolach (RBAC), można użyć okienka tożsamości i kontroli dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory.
+Za pomocą okienka tożsamość i kontrola dostępu (IAM) w Azure Portal subskrypcji możesz skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC). Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory.
 
 Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą zastosować Access Control oparte na rolach do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
 
-* [Zrozumienie RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Wykorzystanie RBAC w INTERFEJSie ExpressRoute Menedżer zasobów partnera](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Korzystanie z usługi Azure RBAC w interfejsie API Menedżer zasobów partnera ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -437,7 +437,7 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 * [Jak skonfigurować lokację do lokacji IPSEC przez ExpressRoute](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)
 
-Jak skonfigurować lokację do lokacji IPSEC w ExpressRoute:https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+Jak skonfigurować lokację do lokacji IPSEC w ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -453,17 +453,17 @@ Jak skonfigurować lokację do lokacji IPSEC w ExpressRoute:https://docs.microso
 
 **Odpowiedzialność**: nie dotyczy
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Aby skonfigurować kontrolę dostępu opartą na ROLACH (RBAC), możesz użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
+**Wskazówki**: możesz użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal subskrypcji, aby skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC). Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
 
 Usługa Azure ExpressRoute ma także właściciela obwodu i role użytkownika obwodu. Użytkownicy obwodu to właściciele bram sieci wirtualnej, którzy nie znajdują się w tej samej subskrypcji co obwód usługi ExpressRoute. Właściciel obwodu ma uprawnienia do modyfikowania i odwoływania autoryzacji w dowolnym momencie. Odwoływanie autoryzacji powoduje usunięcie wszystkich połączeń linków z subskrypcji, której dostęp został odwołany. Użytkownicy obwodów mogą wykorzystać autoryzacje (jedna autoryzacja na sieć wirtualną).
 
 Ponadto partnerzy korzystający z interfejsu API Menedżer zasobów partnera ExpressRoute mogą zastosować Access Control oparte na rolach do zasobu expressRouteCrossConnection. Te kontrolki mogą definiować uprawnienia, dla których konta użytkowników mogą modyfikować zasób expressRouteCrossConnection oraz dodawać/aktualizować i usuwać konfiguracje komunikacji równorzędnej.
 
-* [Zrozumienie RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Wykorzystanie RBAC w INTERFEJSie ExpressRoute Menedżer zasobów partnera](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Korzystanie z usługi Azure RBAC w interfejsie API Menedżer zasobów partnera ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 * [Poznanie ról administracyjnych w ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 

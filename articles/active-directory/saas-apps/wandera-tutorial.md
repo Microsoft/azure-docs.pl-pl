@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: integracja Azure Active Directory z usługą Wandera | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Wandera.
+title: 'Samouczek: integracja Azure Active Directory z administratorem RADARu Wandera | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i administratorem Wandera.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4af2fa415c22abe5cd8ac98d510feb44abab0e97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8ec4b68dc774b52ad621ff3e965481de680b6ff
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523989"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89080003"
 ---
-# <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Samouczek: integracja Wandera z usługą Azure Active Directory
+# <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Samouczek: integracja z Azure Active Directorym administratorem RADARu Wandera
 
-W tym samouczku dowiesz się, jak zintegrować usługę Wandera z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi Wandera z usługą Azure AD można:
+W ramach tego samouczka dowiesz się, jak zintegrować Wanderae z administratorem RADARu z Azure Active Directory (Azure AD). Po zintegrowaniu z usługą Azure AD Wanderaa z administratorem RADARu można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do Wandera.
-* Zezwól użytkownikom na automatyczne logowanie się do usługi Wandera przy użyciu kont w usłudze Azure AD.
+* Kontrolka w usłudze Azure AD, która ma dostęp do administratora RADARu Wandera.
+* Zezwól użytkownikom na automatyczne logowanie do Wanderaego konta usługi Azure AD.
 * Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -33,44 +33,45 @@ Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zo
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Wandera.
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) usługi Wandera.
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Usługa Wandera obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
+* Administrator RADARu Wandera obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
+* Po skonfigurowaniu administratora RADARu Wandera można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-wandera-from-the-gallery"></a>Dodawanie Wandera z galerii
+## <a name="adding-wandera-radar-admin-from-the-gallery"></a>Dodawanie administratora RADARu Wandera z galerii
 
-Aby skonfigurować integrację programu Wandera z usługą Azure AD, musisz dodać Wandera z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację administratora Wandera z usługą Azure AD, musisz dodać administratora RADARu Wandera z galerii do listy zarządzanych aplikacji SaaS.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
 1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
 1. W sekcji **Dodaj z galerii** wpisz **Wandera** w polu wyszukiwania.
-1. Wybierz pozycję **Wandera** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. Wybierz pozycję **administrator radaru Wandera** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Wandera przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Wandera.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą administratora Wandera RADARu przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Administratorze Wandera RADARu.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Wandera, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą administratora Wandera RADARu, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj Logowanie jednokrotne](#configure-wandera-sso)** w usłudze Wandera, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-3. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-5. **[Utwórz użytkownika testowego Wandera](#create-wandera-test-user)** , aby dysponować odpowiednikiem B. Simon w Wandera, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+   * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+   * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. **[Skonfiguruj Logowanie jednokrotne](#configure-wandera-radar-admin-sso)** w usłudze Wandera, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
+   * **[Utwórz użytkownika testowego WANDERA radaru](#create-wandera-radar-admin-test-user)** — aby dysponować odpowiednikiem B. Simon w Administratorze usługi Wandera, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
 Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Wandera** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **administratora Wandera radaru** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
@@ -81,7 +82,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **adres URL odpowiedzi** wpisz adres URL, używając następującego wzorca:  `https://radar.wandera.com/saml/acs/<tenant id>`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zaktualizuj ją, stosując rzeczywisty adres URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zaktualizuj ją, stosując rzeczywisty adres URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej WANDERA radaru klienta](https://www.wandera.com/about-wandera/contact/#supportsection) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **plik XML metadanych Federacji** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -95,33 +96,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     1. Wybierz **algorytm podpisywania** jako **SHA-256**.
 
-1. W sekcji **Konfigurowanie Wandera** skopiuj odpowiednie adresy URL na podstawie wymagania.
+1. W sekcji **Konfigurowanie administratora WANDERA radaru** skopiuj odpowiednie adresy URL na podstawie wymagania.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
-
-### <a name="configure-wandera-sso"></a>Konfigurowanie logowania jednokrotnego Wandera
-
-1. Aby zautomatyzować konfigurację w programie Wandera, należy zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
-
-    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
-
-2. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Setup Wandera** , aby skierować do aplikacji Wandera. Z tego miejsca podaj poświadczenia administratora, aby zalogować się do usługi Wandera. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-4.
-
-    ![Konfiguracja konfiguracji](common/setup-sso.png)
-
-3. Jeśli chcesz ręcznie skonfigurować Wandera, Otwórz nowe okno przeglądarki sieci Web i zaloguj się w witrynie firmy Wandera jako administrator i wykonaj następujące czynności:
-
-4. W prawym górnym rogu strony kliknij pozycję **Ustawienia**  >  **Administracja**  >  **Logowanie jednokrotne** , a następnie zaznacz opcję **Włącz protokół SAML 2,0** , aby wykonać poniższe kroki.
-
-    ![Konfiguracja Wandera](./media/wandera-tutorial/config01.png)
-
-    a. Kliknij **lub ręcznie wprowadź wymagane pola**.
-
-    b. W polu tekstowym **dostawcy tożsamości EntityId** wklej wartość identyfikatora usługi **Azure AD** , która została skopiowana z Azure Portal.
-
-    c. Otwórz plik XML metadanych Federacji w Notatniku, skopiuj jego zawartość i wklej go do pola tekstowego **dostawcy tożsamości publicznego X. 509 certyfikatu** .
-
-    d. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -137,10 +114,10 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Wandera.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do administratora RADARu Wandera.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Na liście Aplikacje wybierz pozycję **Wandera**.
+1. Na liście Aplikacje wybierz pozycję **administrator Wandera**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
@@ -153,17 +130,41 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-### <a name="create-wandera-test-user"></a>Utwórz użytkownika testowego Wandera
+## <a name="configure-wandera-radar-admin-sso"></a>Konfigurowanie rejestracji jednokrotnej administratora Wandera RADARu
 
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w Wandera. Aby dodać użytkowników na platformie Wandera, Pracuj z [zespołem pomocy technicznej Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) . Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+1. Aby zautomatyzować konfigurację w ramach administratora Wandera RADARu, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-### <a name="test-sso"></a>Testuj Logowanie jednokrotne
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
+
+2. Po dodaniu rozszerzenia do przeglądarki kliknij kolejno pozycje **Konfiguracja Wandera — administrator** , który przekierowuje użytkownika do aplikacji administratora Wandera. W tym miejscu podaj poświadczenia administratora, aby zalogować się do administratora RADARu Wandera. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-4.
+
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
+
+3. Jeśli chcesz ręcznie skonfigurować administratora Wandera RADARu, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do firmowej witryny administratora Wandera RADARu jako administrator i wykonaj następujące czynności:
+
+4. W prawym górnym rogu strony kliknij pozycję **Ustawienia**  >  **Administracja**  >  **Logowanie jednokrotne** , a następnie zaznacz opcję **Włącz protokół SAML 2,0** , aby wykonać poniższe kroki.
+
+    ![Konfiguracja administratora RADARu Wandera](./media/wandera-tutorial/config01.png)
+
+    a. Kliknij **lub ręcznie wprowadź wymagane pola**.
+
+    b. W polu tekstowym **dostawcy tożsamości EntityId** wklej wartość identyfikatora usługi **Azure AD** , która została skopiowana z Azure Portal.
+
+    c. Otwórz plik XML metadanych Federacji w Notatniku, skopiuj jego zawartość i wklej go do pola tekstowego **dostawcy tożsamości publicznego X. 509 certyfikatu** .
+
+    d. Kliknij pozycję **Zapisz**.
+
+### <a name="create-wandera-radar-admin-test-user"></a>Utwórz użytkownika testowego Wandera RADARu
+
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w Administratorze Wandera RADAR. Współpraca z [zespołem pomocy technicznej działu Wanderaa](https://www.wandera.com/about-wandera/contact/#supportsection) Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Wandera w panelu dostępu należy automatycznie zalogować się do Wandera, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka administratora Wandera RADARu w panelu dostępu należy automatycznie zalogować się do administratora RADARu Wandera, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

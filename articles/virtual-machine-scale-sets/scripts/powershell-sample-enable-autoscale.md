@@ -7,13 +7,13 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
-ms.custom: avverma
-ms.openlocfilehash: 9ee64f86cba7287af371f856c442d93e9a03d85b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: 9530f34ee919547049df06fb0974971c3ba4b2a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088912"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079629"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Automatyczne skalowanie zestawu skalowania maszyn wirtualnych przy użyciu programu PowerShell
 Ten skrypt tworzy zestaw skalowania maszyn wirtualnych z systemem Windows Server 2016 i wykorzystuje oparte na hoście metryki do automatycznego skalowania w miarę zmian obciążenia procesora CPU.

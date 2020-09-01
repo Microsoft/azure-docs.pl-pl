@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b6509f684e611fbb79184383e1b332d793458b9
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958783"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079034"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -653,7 +653,7 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
   ```
 
   > [!NOTE]
-  > Aby znaleźć aliasy, które mogą być używane z efektem [modyfikacji](./effects.md#modify) , użyj następującego polecenia:
+  > Aby znaleźć aliasy, które mogą być używane z efektem [modyfikacji](./effects.md#modify) , użyj następującego polecenia w Azure PowerShell **4.6.0** lub wyższy:
   >
   > ```azurepowershell-interactive
   > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
@@ -711,7 +711,7 @@ Ta przykładowa reguła sprawdza, czy dla dowolnych dopasowań **ipRules \[ \* \
 
 Aby uzyskać więcej informacji, zobacz [ocenianie \* aliasu []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Zobacz [strukturę definicji inicjatywy](./initiative-definition-structure.md)
 - Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045539"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079000"
 ---
 # <a name="security-control-data-protection"></a>Kontrola zabezpieczeń: Ochrona danych
 
@@ -46,7 +46,7 @@ Zaimplementuj izolację przy użyciu osobnych subskrypcji i grup zarządzania dl
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.3 | 13,3 | Shared |
+| 4.3 | 13,3 | Udostępniona |
 
 Skorzystaj z rozwiązania innej firmy w witrynie Azure Marketplace w sieci obwodowej, które monitoruje do nieautoryzowanego transferu poufnych informacji i blokuje takie transfery podczas powiadamiania specjalistów ds. bezpieczeństwa informacji.
 
@@ -58,7 +58,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.4 | 14,4 | Shared |
+| 4.4 | 14,4 | Udostępniona |
 
 Szyfruj wszystkie poufne informacje podczas przesyłania. Upewnij się, że wszyscy klienci łączący się z zasobami platformy Azure mogą negocjować protokół TLS 1,2 lub nowszy.
 
@@ -70,7 +70,7 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.5 | 14,5 | Shared |
+| 4.5 | 14,5 | Udostępniona |
 
 Jeśli dla konkretnej usługi na platformie Azure nie jest dostępna żadna funkcja, użyj narzędzia do odnajdywania aktywnego innej firmy, aby zidentyfikować wszystkie informacje poufne przechowywane, przetwarzane lub przekazywane przez systemy technologiczne organizacji, w tym te znajdujące się w lokacji lub u dostawcy usług zdalnych, a także aktualizować spis informacji poufnych organizacji.
 
@@ -84,21 +84,21 @@ Użyj usługi Azure SQL Information Protection, aby pomóc w klasyfikacji i etyk
 
 - [Zrozumienie ochrony danych klientów na platformie Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4.6 | 14,6 | Klient |
+| 4,6 | 14,6 | Klient |
 
-Funkcja RBAC usługi Azure AD pozwala kontrolować dostęp do danych i zasobów, w przeciwnym razie używać metod kontroli dostępu specyficznych dla usługi.
+Aby kontrolować dostęp do danych i zasobów przy użyciu kontroli dostępu opartej na rolach (Azure RBAC), w przeciwnym razie użyj metod kontroli dostępu specyficznych dla usługi.
 
-- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4,7: Wymuś kontrolę dostępu przy użyciu ochrony przed utratą danych opartą na hoście
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 4,7 | 14,7 | Shared |
+| 4,7 | 14,7 | Udostępniona |
 
 Jeśli jest to wymagane na potrzeby zgodności zasobów obliczeniowych, zaimplementuj narzędzie innej firmy, takie jak automatyczne rozwiązanie do ochrony przed utratą danych oparte na hoście, aby wymusić kontrolę dostępu do danych nawet wtedy, gdy dane są kopiowane poza system.
 

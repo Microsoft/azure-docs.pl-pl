@@ -94,9 +94,11 @@
       href: configure-automatic-updates.md
     - name: Instalowanie pakietów językowych
       href: language-packs.md
+    - name: Stosowanie zaleceń
+      href: azure-advisor-recommendations.md
 - name: Pojęcia
   items:
-    - name: Authentication
+    - name: Uwierzytelnianie
       href: authentication.md
     - name: Lista bezpiecznych adresów URL
       href: safe-url-list.md

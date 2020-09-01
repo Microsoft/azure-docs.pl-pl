@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 90cda1e8d48e6c7f9e925d6d1b9e11b5d2514e93
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: avverma, devx-track-azurepowershell
+ms.openlocfilehash: e7a4ddaf74df6e04c1597b9c106cd458ddebac55
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080526"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079595"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Wdrażanie aplikacji na zestawach skalowania maszyn wirtualnych
 
@@ -35,7 +35,7 @@ Rozszerzenie niestandardowego skryptu pobiera i wykonuje skrypty na maszynach wi
 
 - [Interfejs wiersza polecenia platformy Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Szablon usługi Azure Resource Manager](tutorial-install-apps-template.md)
+- [Szablon Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Instalowanie aplikacji na maszynie wirtualnej z systemem Windows przy użyciu programu PowerShell DSC
@@ -43,8 +43,8 @@ Rozszerzenie niestandardowego skryptu pobiera i wykonuje skrypty na maszynach wi
 
 Rozszerzenie DSC programu PowerShell umożliwia dostosowywanie wystąpień maszyn wirtualnych w zestawie skalowania przy użyciu programu PowerShell. Poniższy przykład:
 
-- Powoduje, że wystąpienia maszyn wirtualnych pobierają pakiet DSC z usługi GitHub*https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
-- Ustawia rozszerzenie do uruchamiania skryptu instalacji —`configure-http.ps1`
+- Powoduje, że wystąpienia maszyn wirtualnych pobierają pakiet DSC z usługi GitHub *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Ustawia rozszerzenie do uruchamiania skryptu instalacji — `configure-http.ps1`
 - Pobiera informacje o zestawie skalowania za pomocą [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
 - Stosuje rozszerzenie do wystąpień maszyny wirtualnej za pomocą [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
 

@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 076332ac61359bc793615c2f7c9ea0e22c667bcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: be4bab10d369fcefe626bbe890acfff7fc7004b0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700301"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079068"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu programu PowerShell
 
@@ -53,7 +54,7 @@ Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu witryny Azure [Por
 * [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu programu PowerShell](howto-exchange-powershell.md)
 * [Konwertowanie starszej komunikacji równorzędnej programu Exchange z zasobem platformy Azure przy użyciu programu PowerShell](howto-legacy-exchange-powershell.md)
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 Aby uzyskać szczegółowe opisy wszystkich parametrów, należy uruchomić następujące polecenie:
 
 ```powershell

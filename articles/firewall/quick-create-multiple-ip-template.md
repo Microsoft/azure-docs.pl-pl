@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Tworzenie zapory platformy Azure z wieloma publicznymi adresami IP — szablon Menedżer zasobów'
-description: Dowiedz się, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia zapory platformy Azure z wieloma publicznymi adresami IP.
+description: W tym przewodniku szybki start dowiesz się, jak używać szablonu Azure Resource Manager (szablon ARM) do tworzenia zapory platformy Azure z wieloma publicznymi adresami IP.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/14/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 41190cd52e29b187182589f93e9d494d05943cf8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 282ce16c926c61008d0ebd70106b161425a15c9e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705439"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079085"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>Szybki Start: Tworzenie zapory platformy Azure z wieloma publicznymi adresami IP — szablon ARM
 
@@ -73,7 +73,7 @@ W Azure Portal Przejrzyj wdrożone zasoby. Zanotuj publiczne adresy IP zapory.
 
 Użyj Podłączanie pulpitu zdalnego, aby nawiązać połączenie z publicznymi adresami IP zapory. Pomyślne połączenia przedstawiają reguły NAT zapory, które zezwalają na połączenie z serwerami zaplecza.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą zapory, Usuń grupę zasobów. Spowoduje to usunięcie zapory i wszystkich powiązanych zasobów.
 

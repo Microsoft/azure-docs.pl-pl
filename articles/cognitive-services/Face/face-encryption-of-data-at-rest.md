@@ -1,20 +1,20 @@
 ---
 title: Szyfrowanie usługi do obsługi danych w spoczynku
 titleSuffix: Azure Cognitive Services
-description: Szyfrowanie usługi z danymi magazynowanych.
+description: Firma Microsoft oferuje klucze szyfrowania zarządzane przez firmę Microsoft, a także umożliwia zarządzanie subskrypcjami Cognitive Services przy użyciu własnych kluczy nazywanych kluczami zarządzanymi przez klienta (CMK). W tym artykule omówiono szyfrowanie danych w spoczynku i sposób włączania CMK oraz zarządzania nimi.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 33495dd5b092cb51b3421e7204f3b529077d63b3
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: eab90fc2cb30ae8e9f1c19bdbefc6fbc88c32f76
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309037"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079272"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>Szyfrowanie usługi do obsługi danych w spoczynku
 
@@ -24,15 +24,6 @@ Usługa twarzy automatycznie szyfruje dane po utrwaleniu jej w chmurze. Szyfrowa
 
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta są dostępne tylko w warstwie cenowej E0. Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij [formularz żądania klucza zarządzanego przez klienta usługi](https://aka.ms/cogsvc-cmk). Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK z usługą czołową należy utworzyć nowy zasób usługi i wybrać pozycję E0 jako warstwę cenową. Po utworzeniu zasobu platformy z użyciem warstwy cenowej E0 można skonfigurować swoją tożsamość zarządzaną za pomocą Azure Key Vault.
-
-## <a name="regional-availability"></a>Dostępność regionalna
-
-Klucze zarządzane przez klienta są obecnie dostępne w następujących regionach:
-
-* Południowo-środkowe stany USA
-* Zachodnie stany USA 2
-* Wschodnie stany USA
-* US Gov Wirginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

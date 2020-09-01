@@ -3,12 +3,12 @@ title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958766"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079663"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -205,7 +205,7 @@ Przykład: oblicza Virtual Machines, aby określić, czy rozszerzenie chroniące
 }
 ```
 
-## <a name="deny"></a>Deny
+## <a name="deny"></a>Zablokuj
 
 Odmów służy do zapobiegania żądaniu zasobu, który nie jest zgodny ze zdefiniowanymi standardami za pomocą definicji zasad i nie powoduje wykonania żądania.
 
@@ -488,7 +488,7 @@ Następujące operacje są obsługiwane przez modyfikację:
 - Dodaj lub Zastąp wartość zarządzanego typu tożsamości ( `identity.type` ) maszyn wirtualnych i zestawów skalowania maszyn wirtualnych.
 - Dodaj lub Zamień wartości niektórych aliasów (wersja zapoznawcza).
   - Korzystanie z polecenia `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
-    w Azure PowerShell uzyskać listę aliasów, które mogą być używane z modyfikacją.
+    w Azure PowerShell **4.6.0** lub wyższej, aby uzyskać listę aliasów, które mogą być używane z modyfikacją.
 
 > [!IMPORTANT]
 > Jeśli zarządzasz tagami, zaleca się korzystanie z funkcji Modify zamiast Dołącz jako Modyfikuj udostępnia dodatkowe typy operacji i możliwość korygowania istniejących zasobów. Jednakże zaleca się dołączenie, jeśli nie można utworzyć tożsamości zarządzanej lub modyfikacja nie obsługuje jeszcze aliasu dla właściwości zasobu.
@@ -672,7 +672,7 @@ Jeśli zasada 1 i zasady 2 miały wpływ na odmowę, sytuacja zmieni się na:
 
 Każde przypisanie jest oceniane indywidualnie. W związku z tym nie istnieje możliwość poślizgania zasobu przez przerwę od różnic między zakresami. Wynik sieci definicji zasad warstw jest traktowany jako **skumulowany najbardziej restrykcyjny**. Jeśli na przykład zasady 1 i 2 mają skutek odmowy, zasób zostałby zablokowany przez nakładające się i sprzeczne definicje zasad. Jeśli nadal potrzebujesz zasobu, który ma zostać utworzony w zakresie docelowym, przejrzyj wykluczenia poszczególnych przypisań, aby sprawdzić, czy odpowiednie przypisania zasad mają wpływ na właściwe zakresy.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).
 - Przejrzyj temat [Struktura definicji zasad Azure Policy](definition-structure.md).

@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.date: 08/28/2020
+ms.openlocfilehash: e568051bfd5ac58f283eac7f9dc8a72be5c9dbbb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903565"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079680"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Opis i dostosowywanie jednostek przesyłania strumieniowego
 
@@ -20,7 +20,7 @@ Jednostki przesyłania strumieniowego (SUs) reprezentują zasoby obliczeniowe, k
 
 W celu uzyskania małych opóźnień przetwarzania strumieni całe przetwarzanie dla zadań usługi Azure Stream Analytics jest wykonywane w pamięci. W przypadku braku pamięci zadanie przesyłania strumieniowego kończy się niepowodzeniem. W związku z tym ważne jest, aby dla zadania produkcyjnego monitorować użycie zasobów zadania przesyłania strumieniowego i upewnić się, że przydzielono zasoby wystarczające do zachowania zadań 24/7.
 
-Metryka użycia funkcji SU%, która obejmuje wartości z zakresu od 0 do 100%, opisuje użycie pamięci przez obciążenie. W przypadku zadania przesyłania strumieniowego z minimalnym wpływem ta Metryka jest zwykle z przedziału od 10% do 20%. Jeśli użycie funkcji SU% jest niskie i zdarzenia wejściowe są rejestrowane, obciążenie prawdopodobnie wymaga większej ilości zasobów obliczeniowych, co wymaga zwiększenia liczby programów SUs. Najlepiej zachować metrykę SU poniżej 80%, aby uwzględnić sporadyczne osiągnięcia. Firma Microsoft zaleca ustawienie alertu dotyczącego metryki użycia funkcji SU (80%) w celu zapobieżenia wyczerpaniu zasobów. Aby uzyskać więcej informacji, zobacz [Samouczek: Konfigurowanie alertów dla Azure Stream Analytics zadań](stream-analytics-set-up-alerts.md).
+Metryka użycia funkcji SU%, która obejmuje wartości z zakresu od 0 do 100%, opisuje użycie pamięci przez obciążenie. W przypadku zadania przesyłania strumieniowego z minimalnym wpływem ta Metryka jest zwykle z przedziału od 10% do 20%. Jeśli użycie SU% jest wysokie (powyżej 80%) lub jeśli zdarzenia wejściowe są rejestrowane (nawet przy niskim użyciu wartości SU%, ponieważ nie pokazuje użycia procesora), obciążenie prawdopodobnie wymaga większej ilości zasobów obliczeniowych, co wymaga zwiększenia liczby usług SUs. Najlepiej zachować metrykę SU poniżej 80%, aby uwzględnić sporadyczne osiągnięcia. Firma Microsoft zaleca ustawienie alertu dotyczącego metryki użycia funkcji SU (80%) w celu zapobieżenia wyczerpaniu zasobów. Aby uzyskać więcej informacji, zobacz [Samouczek: Konfigurowanie alertów dla Azure Stream Analytics zadań](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Konfigurowanie Stream Analytics jednostek przesyłania strumieniowego (SUs)
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/)
@@ -111,7 +111,7 @@ Liczba niedopasowanych zdarzeń w sprzężeniu wpływa na użycie pamięci przez
 
 W tym przykładzie możliwe jest wyświetlenie wielu reklam, a kilka osób klika je i jest wymagane, aby zachować wszystkie zdarzenia w przedziale czasu. Używana pamięć jest proporcjonalna do wielkości okna i szybkości zdarzeń. 
 
-Aby rozwiązać ten problemy, należy wysłać zdarzenia do centrum zdarzeń partycjonowane przez klucze sprzężenia (w tym przypadku) i skalować zapytanie, umożliwiając systemowi przetworzenie każdej partycji wejściowej osobno przy użyciu **partycji** w następujący sposób:
+Aby rozwiązać ten problemy, należy wysłać zdarzenia do centrum zdarzeń partycjonowane przez klucze sprzężenia (w tym przypadku) i skalować zapytanie, umożliwiając systemowi przetworzenie każdej partycji wejściowej osobno przy użyciu  **partycji** w następujący sposób:
 
    ```sql
    SELECT clicks.id

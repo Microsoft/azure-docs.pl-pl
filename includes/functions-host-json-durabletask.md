@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80116879"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89094227"
 ---
 Ustawienia konfiguracji dla [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
@@ -59,6 +59,7 @@ Ustawienia konfiguracji dla [Durable Functions](../articles/azure-functions/dura
       "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
       "trackingStoreNamePrefix": "DurableTask",
+      "useLegacyPartitionManagement": true,
       "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
@@ -83,9 +84,10 @@ Ustawienia konfiguracji dla [Durable Functions](../articles/azure-functions/dura
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
     "extendedSessionIdleTimeoutInSeconds": 30,
+    "useAppLease": true,
     "useGracefulShutdown": false
   }
-  }
+ }
 }
 
 ```
@@ -98,21 +100,23 @@ Nazwy centrów zadań muszą zaczynać się literą i składać się tylko z lit
 |controlQueueBatchSize|32|Liczba komunikatów do ściągnięcia z kolejki kontroli w danym momencie.|
 |controlQueueBufferThreshold|256|Liczba komunikatów w kolejce sterującej, które mogą być buforowane w pamięci w danym momencie, gdy Dyspozytor będzie oczekiwać przed dekolejkowanie wszelkich dodatkowych komunikatów.|
 |partitionCount |4|Liczba partycji dla kolejki sterującej. Może to być dodatnia liczba całkowita z zakresu od 1 do 16.|
-|controlQueueVisibilityTimeout |5 minut|Przekroczenie limitu czasu widoczności komunikatów w kolejce sterującej.|
-|workItemQueueVisibilityTimeout |5 minut|Przekroczenie limitu czasu widoczności komunikatów w kolejce elementów roboczych.|
+|controlQueueVisibilityTimeout |5 min|Przekroczenie limitu czasu widoczności komunikatów w kolejce sterującej.|
+|workItemQueueVisibilityTimeout |5 min|Przekroczenie limitu czasu widoczności komunikatów w kolejce elementów roboczych.|
 |maxConcurrentActivityFunctions |10X liczbę procesorów na bieżącym komputerze|Maksymalna liczba funkcji działania, które mogą być przetwarzane współbieżnie na jednym wystąpieniu hosta.|
 |maxConcurrentOrchestratorFunctions |10X liczbę procesorów na bieżącym komputerze|Maksymalna liczba funkcji programu Orchestrator, które mogą być przetwarzane współbieżnie na jednym wystąpieniu hosta.|
 |maxQueuePollingInterval|30 sekund|Maksymalny interwał sondowania kolejki elementów roboczych i kontrolki w formacie *gg: mm: SS* . Wyższe wartości mogą skutkować większymi opóźnieniami przetwarzania komunikatów. Niższe wartości mogą spowodować wyższe koszty magazynowania z powodu zwiększonych transakcji magazynu.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|Nazwa ustawienia aplikacji, które zawiera parametry połączenia usługi Azure Storage używane do zarządzania bazowymi zasobami usługi Azure Storage.|
-|trackingStoreConnectionStringName||Nazwa parametrów połączenia do użycia w tabelach historia i wystąpienia. Jeśli nie zostanie określony, `azureStorageConnectionStringName` zostanie użyte połączenie.|
+|trackingStoreConnectionStringName||Nazwa parametrów połączenia do użycia w tabelach historia i wystąpienia. Jeśli nie zostanie określony, `connectionStringName` używane jest połączenie (trwałe 2. x) lub `azureStorageConnectionStringName` (trwałe 1. x).|
 |trackingStoreNamePrefix||Prefiks, który ma być używany dla tabel historii i wystąpień, gdy `trackingStoreConnectionStringName` jest określony. Jeśli nie zostanie ustawiona, domyślną wartością prefiksu będzie `DurableTask` . Jeśli `trackingStoreConnectionStringName` nie zostanie określony, tabele historia i wystąpienia będą używać `hubName` wartości jako ich prefiksu, a wszystkie ustawienia dla `trackingStoreNamePrefix` zostaną zignorowane.|
 |traceInputsAndOutputs |fałsz|Wartość wskazująca, czy należy śledzić dane wejściowe i wyjściowe wywołań funkcji. Zachowanie domyślne podczas śledzenia zdarzeń wykonania funkcji polega na uwzględnieniu liczby bajtów w serializowanych danych wejściowych i wyjściowych dla wywołań funkcji. Takie zachowanie zapewnia minimalną ilość informacji o tym, co się stało z danymi wejściowymi i wyjściowymi, bez przeładowania dzienników lub przypadkowo ujawnia informacje poufne. Ustawienie tej właściwości na wartość true powoduje, że funkcja domyślna rejestrowania w usłudze rejestruje całą zawartość danych wejściowych i wyjściowych funkcji.|
 |logReplayEvents|fałsz|Wartość wskazująca, czy należy zapisywać zdarzenia powtarzania aranżacji do Application Insights.|
 |eventGridTopicEndpoint ||Adres URL Azure Event Grid niestandardowego punktu końcowego tematu. Po ustawieniu tej właściwości zdarzenia powiadomień cyklu życia aranżacji są publikowane w tym punkcie końcowym. Ta właściwość obsługuje rozwiązanie ustawień aplikacji.|
 |eventGridKeySettingName ||Nazwa ustawienia aplikacji zawierającego klucz używany do uwierzytelniania za pomocą Azure Event Grid niestandardowego tematu pod adresem `EventGridTopicEndpoint` .|
 |eventGridPublishRetryCount|0|Liczba ponownych prób w przypadku, gdy publikowanie w temacie Event Grid nie powiedzie się.|
-|eventGridPublishRetryInterval|5 minut|Event Grid publikuje interwał ponawiania prób w formacie *gg: mm: SS* .|
+|eventGridPublishRetryInterval|5 min|Event Grid publikuje interwał ponawiania prób w formacie *gg: mm: SS* .|
 |eventGridPublishEventTypes||Lista typów zdarzeń do opublikowania w Event Grid. Jeśli nie zostanie określony, zostaną opublikowane wszystkie typy zdarzeń. Dozwolone wartości to `Started` , `Completed` , `Failed` , `Terminated` .|
+|useAppLease|true|Po ustawieniu na `true` aplikacje będą wymagały uzyskania dzierżawy obiektu BLOB na poziomie aplikacji przed przetworzeniem komunikatów centrum zadań. Więcej informacji można znaleźć w dokumentacji dotyczącej [odzyskiwania po awarii i dystrybucji geograficznej](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) . Dostępne od 2.3.0.
+|useLegacyPartitionManagement|true|Po ustawieniu na `false` program używa algorytmu zarządzania partycjami, który zmniejsza możliwość duplikowania wykonywania funkcji podczas skalowania w górę.  Dostępne od 2.3.0. Wartość domyślna zostanie zmieniona na `false` w przyszłej wersji.|
 |useGracefulShutdown|fałsz|Przeglądania Włącz bezpieczne zamykanie, aby zmniejszyć prawdopodobieństwo niepowodzenia zamykania funkcji w procesie.|
 
 Wiele z tych ustawień umożliwia optymalizację wydajności. Aby uzyskać więcej informacji, zobacz [wydajność i skalowanie](../articles/azure-functions/durable-functions-perf-and-scale.md).

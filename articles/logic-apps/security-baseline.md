@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2e3b6845b66978b4892303549dabca4034a870b2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836330"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079646"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Podstawa zabezpieczeń platformy Azure dla Logic Apps
 
@@ -182,7 +182,7 @@ Dzienniki diagnostyczne w Logic Apps powinny być włączone
 
 Należy włączyć Standard DDoS Protection
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach na platformie Azure (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
@@ -641,7 +641,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Logic Apps i ma 
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
 **Wskazówki**: można zezwolić tylko określonym użytkownikom lub grupom na uruchamianie określonych zadań, takich jak zarządzanie, edytowanie i wyświetlanie aplikacji logiki. Aby kontrolować ich uprawnienia, użyj funkcji kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby można było przypisywać niestandardowe lub wbudowane role do członków w ramach subskrypcji platformy Azure:
 - Współautor aplikacji logiki: umożliwia zarządzanie aplikacjami logiki, ale nie pozwala na zmianę dostępu do nich.
@@ -877,7 +877,7 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 **Wskazówki**: zasoby związane z Logic Appsami, które są wymagane do działania biznesowego, ale mogą powodować większe ryzyko dla organizacji, powinny być izolowane w ramach własnej maszyny wirtualnej i/lub sieci wirtualnej i dostatecznie zabezpieczone za pomocą zapory platformy Azure lub sieciowej grupy zabezpieczeń.
 
-Logic Apps, które są wymagane do działania biznesowego, ale mogą ponosić większe ryzyko dla organizacji, powinny być izolowane wszędzie tam, gdzie jest to możliwe za pośrednictwem odrębnych grup zasobów z określonymi uprawnieniami i granicami RBAC.
+Logic Apps, które są wymagane do działania biznesowego, ale mogą powodować większe ryzyko dla organizacji, powinny być izolowane wszędzie tam, gdzie jest to możliwe za pośrednictwem odrębnych grup zasobów z określonymi uprawnieniami i granicami RBAC platformy Azure.
 
 * [Jak utworzyć sieć wirtualną](../virtual-network/quick-create-portal.md)
 
@@ -885,7 +885,7 @@ Logic Apps, które są wymagane do działania biznesowego, ale mogą ponosić wi
 
 * [Jak utworzyć Grupy zarządzania](../governance/management-groups/create.md)
 
-* [Jak zabezpieczyć dostęp do Logic Apps za pośrednictwem RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Jak zabezpieczyć dostęp do Logic Apps za pośrednictwem usługi Azure RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitorowanie Azure Security Center**: brak
 

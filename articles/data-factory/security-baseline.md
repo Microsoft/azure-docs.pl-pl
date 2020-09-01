@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 256751e452be539084a7dc022dc56c0f60e910e6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044179"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079187"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
 
@@ -598,15 +598,15 @@ Funkcje odnajdywania i klasyfikowania danych nie są jeszcze dostępne dla innyc
 
 **Odpowiedzialność**: klient
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj Azure Active Directory (AD) kontroli dostępu opartej na ROLACH (RBAC), aby kontrolować dostęp do płaszczyzny kontroli Azure Data Factory (Azure Portal).
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Azure Data Factory (Azure Portal).
 
 Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure.
 
-W przypadku Data Factory źródeł danych, takich jak Azure SQL Database, zapoznaj się z linią bazową zabezpieczeń dla tej usługi, aby uzyskać więcej informacji dotyczących RBAC.
+W przypadku Data Factory źródeł danych, takich jak Azure SQL Database, zapoznaj się z linią bazową zabezpieczeń dla tej usługi, aby uzyskać więcej informacji na temat kontroli RBAC platformy Azure.
 
-* [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 * [Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
@@ -656,7 +656,7 @@ Poświadczenia lub wartości tajne można przechowywać w Azure Key Vault i uży
 
 * [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-* [Rejestrowanie usługi Azure Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+* [Rejestrowanie analityki magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 
@@ -898,7 +898,7 @@ Należy zauważyć, że dotyczy to tylko sytuacji, gdy Integration Runtime jest 
 
 * [Co to jest usługa Azure Web Application Firewall?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
-* [Grupy zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Sieciowe grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
 * [Co to jest platforma Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 
@@ -984,15 +984,15 @@ W przypadku większości scenariuszy szablony maszyn wirtualnych firmy Microsoft
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
-**Wskazówki**: Jeśli używasz obrazów niestandardowych, użyj kontroli dostępu opartej na ROLACH (RBAC), aby upewnić się, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do obrazów. W przypadku obrazów kontenerów Zapisz je w Azure Container Registry i Skorzystaj z RBAC, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.
+**Wskazówki**: Jeśli używasz obrazów niestandardowych, użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom. W przypadku obrazów kontenerów Zapisz je w Azure Container Registry i Skorzystaj z usługi Azure RBAC, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.
 
 Rola współautor Data Factory może służyć do tworzenia fabryk danych i zarządzania nimi, a także w ramach tych zasobów podrzędnych.
 
-* [Zrozumienie RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Opis RBAC dla Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+* [Informacje na temat usługi Azure RBAC dla Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-* [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 * [Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 

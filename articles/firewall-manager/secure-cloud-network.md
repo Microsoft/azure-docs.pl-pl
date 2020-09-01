@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420825"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079119"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure
 
@@ -32,6 +32,10 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Wdrażanie serwerów
 > * Tworzenie zasad zapory i zabezpieczanie centrum
 > * Testowanie zapory
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Tworzenie architektury gwiazdy
 
@@ -80,7 +84,7 @@ Utwórz bezpieczne centrum wirtualne przy użyciu Menedżera zapory.
 5. Wybierz pozycję **Dalej: Zapora platformy Azure**.
 6. Zaakceptuj domyślne ustawienie **zapory platformy Azure** **Enabled** , a następnie wybierz pozycję **Dalej: zaufany partner zabezpieczeń**.
 7. Zaakceptuj ustawienie domyślny **zaufany partner zabezpieczeń** **Disabled** , a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz**.
-8. Wybierz przycisk **Utwórz**. Wdrożenie zajmie około 30 minut.
+8. Wybierz pozycję **Utwórz**. Wdrożenie zajmie około 30 minut.
 
 Teraz możesz uzyskać publiczny adres IP zapory.
 
@@ -102,7 +106,7 @@ Teraz można połączyć równorzędne sieci wirtualne z koncentratorem i szpryc
 5. W przypadku **centrów**wybierz pozycję **Hub-01**.
 6. W obszarze **Grupa zasobów**wybierz pozycję **PD-Manager**.
 7. W obszarze **Sieć wirtualna**wybierz opcję **szprych-01**.
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 
 Powtórz, aby połączyć sieć wirtualną **szprych-02** : Connection Name- **Hub-02**
 
@@ -270,6 +274,10 @@ Teraz Przetestuj regułę sieci.
 
 Teraz sprawdzono, że reguła sieci zapory działa:
 * Pulpit zdalny można połączyć z serwerem znajdującym się w innej sieci wirtualnej.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Po zakończeniu testowania zasobów zapory Usuń grupę zasobów **Menedżer zapory** , aby usunąć wszystkie zasoby związane z zaporą.
 
 ## <a name="next-steps"></a>Następne kroki
 
