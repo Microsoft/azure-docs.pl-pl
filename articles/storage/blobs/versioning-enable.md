@@ -10,12 +10,12 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001063"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074410"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Włączanie obsługi wersji obiektów blob i zarządzanie nimi (wersja zapoznawcza)
 
@@ -24,6 +24,8 @@ Możesz włączyć przechowywanie wersji magazynu obiektów BLOB (wersja zapozna
 W tym artykule przedstawiono sposób włączania lub wyłączania obsługi wersji obiektów BLOB dla konta magazynu przy użyciu szablonu Azure Portal lub Azure Resource Manager.
 
 Musisz zarejestrować się w celu uzyskania podglądu przed włączeniem obsługi wersji obiektów BLOB. Aby dowiedzieć się więcej na temat przechowywania wersji obiektów blob, w tym sposobu rejestracji w wersji zapoznawczej, zobacz temat [wersja usługi BLOB](versioning-overview.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Włączanie obsługi wersji obiektów blob
 
@@ -157,7 +159,7 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
 - [Soft delete for Azure Storage blobs](soft-delete-overview.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)

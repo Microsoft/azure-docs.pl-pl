@@ -6,16 +6,20 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.openlocfilehash: ef9650690435a3770e59326e757ab1c783fa7b23
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 184e856636a74ce5b7ac72b2e8cab3d1f19c4e17
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372760"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074393"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Jak utworzyć maszynę wirtualną z systemem Linux przy użyciu szablonów Azure Resource Manager
 
 Dowiedz się, jak utworzyć maszynę wirtualną z systemem Linux przy użyciu szablonu Azure Resource Manager i interfejsu wiersza polecenia platformy Azure w usłudze Azure Cloud Shell. Aby utworzyć maszynę wirtualną z systemem Windows, zobacz [Tworzenie maszyny wirtualnej z systemem Windows na podstawie szablonu Menedżer zasobów](../windows/ps-template.md).
+
+Alternatywą jest wdrożenie szablonu na podstawie Azure Portal. Aby otworzyć szablon w portalu, wybierz przycisk **Wdróż na platformie Azure** .
+
+[![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-sshkey%2Fazuredeploy.json)
 
 ## <a name="templates-overview"></a>Przegląd szablonów
 

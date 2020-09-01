@@ -8,12 +8,13 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 865263d22d6f92dec74ef2820e80481e1a308804
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b1bf8fbfb6d2c141a2b18c3599631f6383883908
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494557"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074427"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
 
@@ -122,7 +123,7 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 6. Aby uzyskać więcej informacji na temat tego przykładu JSON, zobacz sekcję [zasad](#policy) i [reguł](#rules) .
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Poniższy skrypt programu PowerShell może służyć do dodawania zasad do konta magazynu. `$rgname`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu.
 
@@ -286,7 +287,7 @@ Dostępne są następujące filtry:
 
 | Nazwa filtru | Typ filtru | Uwagi | Jest wymagana |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` . | Tak |
+| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` . | Yes |
 | prefixMatch | Tablica ciągów dla prefiksów, które mają zostać dopasowane. Każda reguła może definiować do 10 prefiksów. Ciąg prefiksu musi rozpoczynać się od nazwy kontenera. Na przykład jeśli chcesz dopasować wszystkie obiekty blob w ramach `https://myaccount.blob.core.windows.net/container1/foo/...` reguły, prefixMatch jest `container1/foo` . | Jeśli nie zdefiniujesz prefixMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu.  | Nie |
 | blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to `{"name": "Project","op": "==","value": "Contoso"}` . | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 
@@ -303,7 +304,7 @@ Zarządzanie cyklem życia obsługuje warstwowe i usuwanie obiektów blob oraz u
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Obsługa obiektów BLOB obecnie w warstwie gorąca         | Nieobsługiwane |
 | tierToArchive | Obsługa obiektów BLOB obecnie w warstwie gorąca lub chłodna | Nieobsługiwane |
-| usunięcie        | Obsługiwane                                   | Obsługiwane     |
+| delete        | Obsługiwane                                   | Obsługiwane     |
 
 >[!NOTE]
 >W przypadku zdefiniowania więcej niż jednej akcji w tym samym obiekcie blob Zarządzanie cyklem życia stosuje najtańszą akcję do obiektu BLOB. Na przykład akcja `delete` jest tańsza niż Akcja `tierToArchive` . Akcja `tierToArchive` jest tańsza niż Akcja `tierToCool` .

@@ -10,13 +10,14 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/24/2020
-  ms.openlocfilehash: 938d54981a8605b28f745c1ae3d6722a644c0320
-  ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+  ms.custom: custom-portals-hub
+  ms.date: 08/28/2020
+  ms.openlocfilehash: fac52ac6cc7018d2ddcaedd663abf26275f4929e
+  ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/26/2020
-  ms.locfileid: "88869919"
+  ms.lasthandoff: 08/28/2020
+  ms.locfileid: "89074699"
 highlightedContent:
   items:
   - title: Co to są usługi Cognitive Services?
@@ -28,19 +29,19 @@ highlightedContent:
   - title: Usługi Cognitive Services i uczenie maszynowe
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
-  - title: Obsługa języków w usługach Cognitive Services
+  - title: Obsługa języków
     itemType: reference
     url: ./language-support.md
-  - title: Tworzenie zasobu usług Cognitive Services
+  - title: Tworzenie zasobu
     itemType: how-to-guide
     url: ./cognitive-services-apis-create-account.md
-  - title: Używanie usług Cognitive Services w kontenerach
+  - title: Używanie w kontenerach
     itemType: concept
     url: ./cognitive-services-container-support.md
-  - title: Sieci wirtualne dla usługi Cognitive Services
+  - title: Sieci wirtualne
     itemType: architecture
     url: cognitive-services-virtual-networks.md
-  - title: Zabezpieczenia usług Cognitive Services
+  - title: Zabezpieczenia
     itemType: concept
     url: cognitive-services-security.md
 conceptualContent:
@@ -62,7 +63,7 @@ conceptualContent:
       text: Rozpoznawanie formularzy
     - url: ./ink-recognizer/index.yml
       itemType: overview
-      text: Rozpoznawanie pisma odręcznego (wersja zapoznawcza)
+      text: Rozpoznawanie pisma odręcznego (wycofywane)
     - url: ../media-services/video-indexer/index.yml
       itemType: overview
       text: Indeksator wideo
@@ -90,6 +91,9 @@ conceptualContent:
     - url: ./speech-service/index.yml
       itemType: overview
       text: Usługa rozpoznawania mowy
+    - url: https://speech.microsoft.com/
+      itemType: overview
+      text: " - Dostosowywanie za pomocą portalu Speech Studio"
   - title: Decyzja
     summary: Twórz aplikacje wyświetlające rekomendacje pozwalające skuteczniej podejmować lepsze decyzje.
     links:
@@ -129,38 +133,41 @@ conceptualContent:
     - url: ./containers/container-faq.md
       itemType: reference
       text: Kontenery usług Cognitive Services — często zadawane pytania
-tools:
-  title: Zestawy SDK
-  summary: Rozpoczynanie pracy z zestawem SDK usług Cognitive Services w ulubionym języku programowania.
-  items:
-  - title: C#
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
-  - title: Przejdź
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
-  - title: JavaScript
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
-  - title: R
-    imageSrc: https://docs.microsoft.com/media/logos/logo_R.svg
-    url: https://github.com/Azure/AzureCognitive
 additionalContent:
   sections:
-  - items:
-    - title: Zasoby dodatkowe
+  - title: Dodatkowe zasoby
+    items:
+    - title: Portale na potrzeby dostosowywania
+      links:
+      - text: Custom Translator
+        url: https://portal.customtranslator.azure.ai/
+      - text: Niestandardowe przetwarzanie obrazów
+        url: https://www.customvision.ai/
+      - text: Language Understanding (LUIS)
+        url: https://luis.ai
+      - text: QnA Maker
+        url: https://www.qnamaker.ai/
+      - text: Speech Studio
+        url: https://speech.microsoft.com/
+    - title: Zestawy SDK i interfejsy API REST
+      links:
+      - text: C#
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+      - text: Przejdź
+        url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+      - text: Java
+        url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+      - text: JavaScript
+        url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+      - text: Python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+      - text: R
+        url: https://github.com/Azure/AzureCognitive
+      - text: Interfejs API REST zarządzania usługami Cognitive Services
+        url: https://docs.microsoft.com/rest/api/cognitiveservices/
+    - title: narzędzia
       links:
       - text: Interfejs wiersza polecenia platformy Azure
         url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
         url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
-    - title: Interfejsy API REST
-      links:
-      - text: Zarządzanie usługami Cognitive Services
-        url: https://docs.microsoft.com/rest/api/cognitiveservices/

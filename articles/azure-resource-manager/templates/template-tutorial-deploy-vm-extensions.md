@@ -5,12 +5,13 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fb99babfd53b26874bed62183871d13ae0ae4baf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f82e0eb45f4bc7c3260554b1b1120025029336bc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86120130"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073646"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów ARM
 
@@ -152,7 +153,7 @@ Wklej adres IP do przeglądarki sieci Web. Zostanie otwarta domyślna strona pow
 
 ![Strona powitalna usług Internet Information Services](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz już zasobów platformy Azure wdrożonych przez Ciebie, wyczyść je, usuwając grupę zasobów.
 

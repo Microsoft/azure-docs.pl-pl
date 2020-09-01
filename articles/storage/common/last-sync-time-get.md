@@ -10,13 +10,13 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 00f6085414e5a48647846830f93ba3fb98c382f2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: cad80a554db0424ad8635e81cbfb4225705e9c89
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502515"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073016"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu
 
@@ -36,7 +36,7 @@ Właściwość **czas ostatniej synchronizacji** jest wartością daty/godziny G
 
 Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby pobrać wartość właściwości **Data ostatniej synchronizacji** .
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą programu PowerShell, należy zainstalować w wersji 1.11.0 lub nowszej modułu [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) . Następnie sprawdź Właściwość **GeoReplicationStats. LastSyncTime** konta magazynu. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami:
 
@@ -61,7 +61,7 @@ $lastSyncTime=$(az storage account show \
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Nadmiarowość usługi Azure Storage](storage-redundancy.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

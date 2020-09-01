@@ -4,15 +4,15 @@ description: Informacje o zasadach Menedżera zapory platformy Azure
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 06/30/2020
+ms.topic: conceptual
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 6e532634fb40eee100e73a333ac6aa7e0a79cf3c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34134f2c790851d34db7b5327aa76350d54d137d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521653"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075467"
 ---
 # <a name="azure-firewall-manager-policy-overview"></a>Omówienie zasad Menedżera zapory platformy Azure
 
@@ -53,10 +53,10 @@ Zapora systemu Azure obsługuje zarówno tradycyjne reguły, jak i zasady. Poni�
 |Chroni     |Wirtualne centra i sieci wirtualne|Tylko sieci wirtualne|
 |Środowisko portalu     |Centralne zarządzanie przy użyciu Menedżera zapory|Środowisko autonomicznej zapory|
 |Obsługa wielu zapór     |Zasady zapory to oddzielne zasoby, które mogą być używane przez zapory|Ręcznie Eksportuj i Importuj reguły lub przy użyciu rozwiązań do zarządzania innych firm |
-|Ceny     |Opłaty są naliczane na podstawie skojarzenia zapory. Zobacz [Cennik](#pricing).|Bezpłatna|
+|Cennik     |Opłaty są naliczane na podstawie skojarzenia zapory. Zobacz [Cennik](#pricing).|Bezpłatna|
 |Obsługiwane mechanizmy wdrażania     |Portal, interfejs API REST, szablony, Azure PowerShell i interfejs wiersza polecenia|Portal, interfejs API REST, szablony, PowerShell i interfejs wiersza polecenia. |
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Zasady są rozliczane na podstawie skojarzeń zapory. Zasady z nierównym lub jednym skojarzeniem zapory są bezpłatne. Zasady z wieloma skojarzeniami zapory są rozliczane według ustalonej stawki. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager/).
 

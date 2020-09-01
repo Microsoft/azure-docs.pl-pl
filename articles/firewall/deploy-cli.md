@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602639"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075430"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -35,13 +35,12 @@ W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema pods
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie testowego środowiska sieciowego
-> * Wdrażanie zapory
-> * Tworzenie trasy domyślnej
-> * Skonfiguruj regułę aplikacji, aby zezwolić na dostęp do www.google.com
-> * Konfigurowanie reguły sieci w celu umożliwienia dostępu do zewnętrznych serwerów DNS
-> * Testowanie zapory
+* Konfigurowanie testowego środowiska sieciowego
+* Wdrażanie zapory
+* Tworzenie trasy domyślnej
+* Skonfiguruj regułę aplikacji, aby zezwolić na dostęp do www.google.com
+* Konfigurowanie reguły sieci w celu umożliwienia dostępu do zewnętrznych serwerów DNS
+* Testowanie zapory
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure Portal](tutorial-firewall-deploy-portal.md) lub [Azure PowerShell](deploy-ps.md).
 

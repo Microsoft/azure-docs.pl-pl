@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 6ec784048d2c30d215fe046ccda39ef6f8a3daa5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 251159c4fcf27ceb4d8b0dddeecbe501c7346e9e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585546"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073237"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z programem PowerShell
 

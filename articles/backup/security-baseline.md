@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: bb4cc150fab388846b35dc9adebfacf7a56e9bbc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890505"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073509"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -480,11 +480,11 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Backup i ma zaim
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Przy użyciu kontroli dostępu opartej na rolach można przeprowadzić segregowanie zadań w ramach zespołu i nadać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań.
+**Wskazówki**: Kontrola dostępu oparta na rolach (Azure RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem na platformie Azure. Przy użyciu kontroli RBAC na platformie Azure można przeprowadzać segregowanie zadań w ramach zespołu i nadawać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań.
 
 Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządzania kopiami zapasowymi: współautor kopii zapasowej, operator kopii zapasowej i czytelnik kopii zapasowej. Wbudowane role kopii zapasowej można mapować na różne akcje zarządzania kopiami zapasowymi.
 
-- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Zarządzanie Azure Backup punktów odzyskiwania przy użyciu Access Control opartych na rolach](./backup-rbac-rs-vault.md)
 

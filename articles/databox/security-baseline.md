@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1961aa3ee21d5b04108b3107731560d747a2c963
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497328"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075566"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Box
 
@@ -216,11 +216,11 @@ Aby uzyskać więcej informacji, zobacz [podstawy zabezpieczeń platformy Azure 
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: obsługa spisu kont administracyjnych
 
-**Wskazówki**: przechowywanie spisu kont użytkowników, które mają dostęp administracyjny do Azure Data Box. Aby skonfigurować kontrolę dostępu opartą na rolach (RBAC), można użyć okienka tożsamości i kontroli dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. można kontrolować, kto może uzyskiwać dostęp do zamówienia podczas pierwszego tworzenia zamówienia. Skonfiguruj role platformy Azure w różnych zakresach, aby kontrolować dostęp do kolejności urządzenie Data Box. Rola platformy Azure określa typ dostępu — do odczytu i zapisu, tylko do odczytu, do odczytu i zapisu do podzbioru operacji.
+**Wskazówki**: przechowywanie spisu kont użytkowników, które mają dostęp administracyjny do Azure Data Box. Za pomocą okienka tożsamość i kontrola dostępu (IAM) w Azure Portal subskrypcji możesz skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC). Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. można kontrolować, kto może uzyskiwać dostęp do zamówienia podczas pierwszego tworzenia zamówienia. Skonfiguruj role platformy Azure w różnych zakresach, aby kontrolować dostęp do kolejności urządzenie Data Box. Rola platformy Azure określa typ dostępu — do odczytu i zapisu, tylko do odczytu, do odczytu i zapisu do podzbioru operacji.
 
 * [Informacje o rolach niestandardowych](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Jak skonfigurować RBAC dla skoroszytów](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Jak skonfigurować usługę Azure RBAC dla skoroszytów](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Informacje na temat konfigurowania kontroli dostępu w kolejności](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
 
@@ -427,7 +427,7 @@ Podczas przekazywania danych na platformę Azure, urządzenie urządzenie Data B
 
 **Odpowiedzialność**: nie dotyczy
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
 **Wskazówki**: Upewnij się, że masz właściciela lub dostęp współautora do subskrypcji, aby utworzyć zamówienie urządzenie Data Box. Można również zdefiniować urządzenie Data Box czytelnik i urządzenie Data Box role współautor na poziomie zasobu.
 

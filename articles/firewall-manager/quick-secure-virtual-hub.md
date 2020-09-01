@@ -1,19 +1,19 @@
 ---
 title: 'Szybki Start: Zabezpieczanie wirtualnego koncentratora przy użyciu Menedżera zapory platformy Azure — Menedżer zasobów szablonu'
-description: Dowiedz się, jak zabezpieczyć koncentrator wirtualny przy użyciu Menedżera zapory platformy Azure.
+description: W tym przewodniku szybki start dowiesz się, jak zabezpieczyć koncentrator wirtualny przy użyciu Menedżera zapory platformy Azure.
 services: firewall-manager
 author: vhorne
-ms.service: firewall
+ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: bfa957d8fb0eeb8020472026e18c41dc6e65fdc3
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 050dfa737ad04127f8c72158fbecb2e8e70e05c1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705762"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075345"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Szybki Start: Zabezpieczanie koncentratora wirtualnego za pomocą Menedżera zapory platformy Azure — szablon ARM
 
@@ -90,7 +90,7 @@ Teraz sprawdzono, że reguły zapory działają:
 
 - Możesz przejść do jednej z dozwolonych nazw FQDN, ale nie do innych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą zapory, Usuń grupę zasobów. Spowoduje to usunięcie zapory i wszystkich powiązanych zasobów.
 

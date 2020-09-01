@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904330"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072962"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Zarządzanie magazynem w chmurach niezależnych platformy Azure przy użyciu programu PowerShell
 
@@ -155,7 +156,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Teraz można używać programu PowerShell do zarządzania kontami magazynu i dostępu do danych obiektów blob, kolejek, plików i tabel. Aby uzyskać więcej informacji, zobacz [AZ. Storage](/powershell/module/az.storage).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli utworzono nową grupę zasobów i konto magazynu dla tego ćwiczenia, można usunąć oba elementy zawartości, usuwając grupę zasobów. Usunięcie grupy zasobów spowoduje usunięcie wszystkich zasobów w tej grupie.
 

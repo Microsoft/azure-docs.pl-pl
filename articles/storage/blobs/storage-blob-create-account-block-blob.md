@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c23c034af40d7db2379f9d02357131a00482bd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 0e312cf49ee54020d0feb8d8e2f4c7a9bb77215a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495747"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074546"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Utwórz konto BlockBlobStorage
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Brak.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 1.2.0 lub nowszego. Uruchom polecenie `Get-Module -ListAvailable Az`, aby określić bieżącą wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -60,13 +60,13 @@ Interfejs wiersza polecenia platformy Azure możesz również zainstalować i u�
 
 ---
 
-## <a name="sign-in-to-azure"></a>Logowanie się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
 
@@ -128,7 +128,7 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
 
 8. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia konta magazynu.
 
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

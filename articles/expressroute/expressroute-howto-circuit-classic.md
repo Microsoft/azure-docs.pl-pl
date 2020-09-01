@@ -7,20 +7,21 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2f2aac6dd7e073634d4114d33fae6bebd51fe176
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 801032e3df9dcb778fa4e591ef37eabc317e997a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736326"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073340"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modyfikowanie obwodu usługi ExpressRoute przy użyciu programu PowerShell (wersja klasyczna)
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
-> * [Szablon usługi Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Szablon Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
 >
@@ -123,7 +124,7 @@ W obwodzie będzie teraz dostępna funkcja dodatku ExpressRoute Premium. Gdy tyl
 >
 >
 
-#### <a name="considerations"></a>Istotne zagadnienia
+#### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Upewnij się, że liczba sieci wirtualnych podłączonych do obwodu jest mniejsza niż 10 przed obniżeniem poziomu warstwy Premium do warstwy Standardowa. Jeśli tego nie zrobisz, żądanie aktualizacji zakończy się niepowodzeniem, a opłaty są naliczane.
 * Należy odłączyć wszystkie sieci wirtualne w innych regionach geopolitycznych. Jeśli tego nie zrobisz, żądanie aktualizacji zakończy się niepowodzeniem, a opłaty są naliczane.
@@ -191,7 +192,7 @@ At line:1 char:1
 
 ## <a name="deprovision-and-delete-a-circuit"></a>Cofanie aprowizacji i usuwanie obwodu
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Aby ta operacja zakończyła się powodzeniem, należy odłączyć wszystkie sieci wirtualne od obwodu usługi ExpressRoute. Sprawdź, czy istnieją sieci wirtualne połączone z obwodem, jeśli ta operacja nie powiedzie się.
 * Jeśli stan aprowizacji dostawcy usługi obwodu ExpressRoute jest inicjowany lub **Zainicjowano obsługę administracyjną** , należy skontaktować się z dostawcą usług w celu **anulowania aprowizacji** obwodu po stronie. Nadal rezerwujemy zasoby i obciążamy Cię, dopóki dostawca usług nie ukończy anulowania aprowizacji obwodu i powiadamia nas.

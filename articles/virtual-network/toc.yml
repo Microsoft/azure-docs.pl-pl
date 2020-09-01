@@ -97,7 +97,11 @@
     - name: Zabezpieczenia
       items:
         - name: Grupy zabezpieczeń sieci
-          href: security-overview.md
+          items:
+            - name: Omówienie
+              href: security-overview.md
+            - name: Jak to działa
+              href: network-security-group-how-it-works.md
         - name: Grupy zabezpieczeń aplikacji
           href: application-security-groups.md
         - name: Tagi usługi

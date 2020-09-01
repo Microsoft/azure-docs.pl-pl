@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 097b3c71b01a8ad0e930d7aa0d7be46a1e835e1a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: edbce017b1090a029d49c9f2f8812e7e65133fcb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495169"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073135"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replikacja obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -31,6 +31,8 @@ Na poniższym diagramie pokazano, jak replikacja obiektów replikuje blokowe obi
 :::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagram przedstawiający sposób działania replikacji obiektów":::
 
 Aby dowiedzieć się, jak skonfigurować replikację obiektów, zobacz [Konfigurowanie replikacji obiektów (wersja zapoznawcza)](object-replication-configure.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="object-replication-policies-and-rules"></a>Zasady i reguły replikacji obiektów
 
@@ -93,7 +95,7 @@ Włączenie kanału informacyjnego zmiany i przechowywanie wersji obiektów BLOB
 
 Możesz zarejestrować się w celu uzyskania podglądu replikacji obiektów przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Upewnij się, że rejestrujesz się również dla podglądów zmian i wersji zapoznawczych obiektów blob, jeśli jeszcze tego nie zrobiono.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zarejestrować się w celu korzystania z wersji zapoznawczej przy użyciu programu PowerShell, uruchom następujące polecenia:
 
@@ -128,7 +130,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 Stan żądań rejestracji można sprawdzić przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby sprawdzić stan żądań rejestracji przy użyciu programu PowerShell, uruchom następujące polecenia:
 

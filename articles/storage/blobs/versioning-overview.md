@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056537"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074538"
 ---
 # <a name="blob-versioning-preview"></a>Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)
 
@@ -29,6 +29,8 @@ Aby dowiedzieć się, jak włączyć obsługę wersji obiektów blob, zobacz [W�
 
 > [!IMPORTANT]
 > Przechowywanie wersji obiektów BLOB nie pozwala na odzyskanie od przypadkowego usunięcia konta magazynu lub kontenera. Aby zapobiec przypadkowemu usunięciu konta magazynu, Skonfiguruj blokadę **CannotDelete** dla zasobu konta magazynu. Aby uzyskać więcej informacji na temat blokowania zasobów platformy Azure, zobacz [blokowanie zasobów, aby zapobiec nieoczekiwanym zmianom](../../azure-resource-manager/management/lock-resources.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-versioning-works"></a>Jak działa wersja obiektów BLOB
 
@@ -163,7 +165,7 @@ Po utworzeniu migawki obiektu BLOB z uruchomioną wersją zostanie utworzona now
 
 Na poniższym diagramie przedstawiono działania wykonywane po utworzeniu migawki obiektu BLOB z wersjami. Na diagramie wersje obiektów blob i migawki z IDENTYFIKATORem wersji 2 i 3 zawierają identyczne dane.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram przedstawiający migawki obiektu BLOB z wersjami":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram przedstawiający migawki obiektu BLOB z wersjami ":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autoryzuj operacje na wersjach obiektów BLOB
 
@@ -320,7 +322,7 @@ W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie 
 
 ![Zasoby usługi Azure Storage](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Włączanie obsługi wersji obiektów blob](versioning-enable.md)
 - [Tworzenie migawki obiektu BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

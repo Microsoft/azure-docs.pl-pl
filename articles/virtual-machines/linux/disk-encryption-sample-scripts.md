@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: ab6ef302d2ac3cbca8bb91c05f994c1ddf19bd1e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: abf805d24d164ba31daa4d77d6360629632bfcf0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370261"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072710"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Azure Disk Encryption przykładowe skrypty dla maszyn wirtualnych z systemem Linux
 
@@ -227,7 +227,7 @@ Skonfiguruj szyfrowanie do pracy z platformą Azure, wykonując następujące cz
     fi
    ```
 
-2. Zmień konfigurację Crypt w */etc/crypttab*. Powinno ono wyglądać następująco:
+2. Zmień konfigurację Crypt w */etc/crypttab*. Powinien on wyglądać następująco:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
@@ -371,7 +371,7 @@ Aby skonfigurować szyfrowanie do pracy z platformą Azure, wykonaj następując
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   na
+   na wartość
    ```bash
     if [ 1 ]; then
    ```

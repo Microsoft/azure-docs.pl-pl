@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
-ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832641"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072744"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -174,11 +174,11 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 
 | Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Tak                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
+| Enterprise Agreement         | Yes                               |
+| Płatność zgodnie z rzeczywistym użyciem                | Yes                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](/partner-center/azure-plan-get-started) |
 | Korzyści                     | Niedostępne                     |
-| Sponsorowan                    | Tak                               |
+| Sponsorowan                    | Yes                               |
 | Bezpłatna wersja próbna                   | Niedostępne                     |
 
 

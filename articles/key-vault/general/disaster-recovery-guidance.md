@@ -7,14 +7,14 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: e4364c3c5bcba1a04837f3f9e7a0576579211c72
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 35814f34550ac7bf4ad85a96d0838df62fe63be6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796599"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073186"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Dostępność i nadmiarowość w usłudze Azure Key Vault
 
@@ -32,8 +32,6 @@ Należy pamiętać o kilku zastrzeżeniach:
 
 * W przypadku przejścia w tryb pracy awaryjnej w celu przełączenia usługi do trybu failover może upłynąć kilka minut. Żądania wykonywane w tym czasie przed przejściem do trybu failover mogą zakończyć się niepowodzeniem.
 * Podczas pracy w trybie failover Magazyn kluczy jest w trybie tylko do odczytu. Żądania obsługiwane w tym trybie są następujące:
-  * Utwórz listę magazynów kluczy
-  * Pobierz właściwości magazynów kluczy
   * Wyświetlanie listy certyfikatów
   * Pobierz certyfikaty
   * Wyświetlanie listy wpisów tajnych

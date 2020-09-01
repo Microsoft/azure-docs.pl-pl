@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 562a0fbd64fca530598a58599160dbdd7e479557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f5e8d9efdacf6d5c281cabebc08bd525d517f9d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485630"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074716"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Podstawa zabezpieczeń Azure dla usługi Azure Application Gateway
 
@@ -156,7 +156,7 @@ Dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) skojarzonych z
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla ustawień sieciowych związanych z wdrożeniami Application Gateway platformy Azure. Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Network", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji sieci bram aplikacji platformy Azure, sieci wirtualnych platformy Azure i sieciowych grup zabezpieczeń. Może być również używana wbudowana definicja zasad.
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) na platformie Azure i zasady w ramach jednej definicji planu. Możesz łatwo zastosować plan do nowych subskrypcji, środowisk i dostrajania kontroli i zarządzania przy użyciu wersji.
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -561,11 +561,11 @@ Firma Microsoft zarządza podstawową infrastrukturą dla systemu Azure Applicat
 
 **Odpowiedzialność**: nie dotyczy
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj Azure Active Directory (AD) kontroli dostępu opartej na ROLACH (RBAC), aby kontrolować dostęp do płaszczyzny kontroli Application Gateway platformy Azure (Azure Portal).
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Application Gateway platformy azure (Azure Portal).
 
-* [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 

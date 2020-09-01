@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086606"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075311"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Użyj usługi ID brokera (wersja zapoznawcza) do zarządzania poświadczeniami
 
@@ -46,7 +46,7 @@ Funkcja brokera identyfikatorów doda do klastra jedną dodatkową maszynę wirt
 
 ![Opcja włączenia brokera identyfikatorów](./media/identity-broker/identity-broker-enable.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Używanie szablonów usługi Azure Resource Manager
+### <a name="using-azure-resource-manager-templates"></a>Korzystanie z szablonów usługi Azure Resource Manager
 Jeśli dodasz nową rolę o nazwie `idbrokernode` z poniższymi atrybutami do profilu obliczeniowego szablonu, klaster zostanie utworzony z włączonym węzłem identyfikatora brokera:
 
 ```json
@@ -98,13 +98,21 @@ Po włączeniu brokera identyfikatora nadal będzie potrzebny skrót hasła prze
 
 Uwierzytelnianie SSH wymaga, aby skrót był dostępny na platformie Azure AD DS. Jeśli chcesz używać protokołu SSH tylko w przypadku scenariuszy administracyjnych, możesz utworzyć jedno konto tylko w chmurze i używać go do protokołu SSH do klastra. Inni użytkownicy nadal mogą używać narzędzi Ambari lub HDInsight (takich jak wtyczka IntelliJ) bez potrzeby używania skrótu hasła na platformie Azure AD DS.
 
+Aby rozwiązać problemy z uwierzytelnianiem, zobacz ten [Przewodnik](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+
 ## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Klienci używający protokołu OAuth do nawiązywania połączenia z bramą usługi HDInsight z konfiguracją brokera
 
 W konfiguracji brokera identyfikatorów można zaktualizować niestandardowe aplikacje i klientów łączących się z bramą w celu uzyskania najpierw wymaganego tokenu OAuth. Możesz wykonać kroki opisane w tym [dokumencie](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) , aby uzyskać token z następującymi informacjami:
 
-*   Identyfikator URI zasobu OAuth:`https://hib.azurehdinsight.net` 
+*   Identyfikator URI zasobu OAuth: `https://hib.azurehdinsight.net` 
 * Identyfikator aplikacji: 7865c1d2-F040-46cc-875f-831a1ef6a28a
 *   Uprawnienie: (nazwa: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+
+Po uzyskiwanie tokenu OAuth można użyć go w nagłówku autoryzacji dla żądania HTTP do bramy klastra (np. <clustername> -int.azurehdinsight.NET). Przykładowo polecenie zwinięcie polecenia do interfejsu API usługi Livy może wyglądać następująco:
+    
+```bash
+curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+``` 
 
 ## <a name="next-steps"></a>Następne kroki
 
