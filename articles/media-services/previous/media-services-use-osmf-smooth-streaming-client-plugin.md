@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0a2f5fbc2139a8340ee763efc51c36a01dd24d0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9b71a2064887cc2b6099ead2e59f9fa3113d2f0b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999586"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269016"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Jak używać wtyczki Microsoft Smooth Streaming dla środowiska multimedialnego firmy Adobe typu open source  
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Jak używać wtyczki Microsoft Smooth Streaming dla środowiska multimedialnego firmy Adobe typu open source
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Omówienie
 Wtyczka Microsoft Smooth Streaming dla programu Open Source Media Framework 2,0 (SS for OSMF) rozszerza domyślne możliwości OSMF i Smooth Streaming dodaje do nowych i istniejących graczy OSMF. Wtyczka dodaje również możliwości odtwarzania Smooth Streaming, aby przeprowadzić lampę odtwarzania multimediów (SMP).
 

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258630"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268897"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: akceptowanie i odbieranie danych za pomocą udziału danych platformy Azure  
 
@@ -38,7 +38,7 @@ Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wy
 * Uprawnienie do zapisu na koncie magazynu, które jest obecne w usłudze *Microsoft. Storage/storageAccounts/Write*. To uprawnienie istnieje w roli współautor. 
 * Uprawnienie do dodawania przypisania roli do konta magazynu, które jest obecne w *firmie Microsoft. Autoryzacja/przypisania ról/zapis*. To uprawnienie istnieje w roli właściciela.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Odbieraj dane w źródle opartym na języku SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Odbieraj dane w miejscu docelowym opartym na języku SQL:
 
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli współautor. 
 * Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub Azure SQL Data Warehouse. Można to zrobić, wykonując następujące czynności: 
@@ -78,7 +78,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
    Aby otworzyć zaproszenie z Azure Portal bezpośrednio, Wyszukaj **zaproszenia udziału danych** w Azure Portal. Spowoduje to przejście do listy zaproszeń udziału danych.
 
-   ![Ogłoszeń](./media/invitations.png "Lista zaproszeń") 
+   ![Lista zaproszeń](./media/invitations.png "Lista zaproszeń") 
 
 1. Wybierz udział, który chcesz wyświetlić. 
 
@@ -104,7 +104,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 ## <a name="configure-received-share"></a>Konfiguruj odebrany udział
 Wykonaj poniższe kroki, aby skonfigurować miejsce, w którym chcesz otrzymywać dane.
 
-1. Wybierz kartę **zestawy** danych. Zaznacz pole wyboru obok elementu DataSet, do którego chcesz przypisać miejsce docelowe. Wybierz pozycję **+ Mapuj, aby** wybrać docelowy magazyn danych. 
+1. Wybierz kartę **zestawy danych** . Zaznacz pole wyboru obok zestawu danych, do którego chcesz przypisać miejsce docelowe. Wybierz pozycję **+ Mapuj, aby** wybrać docelowy magazyn danych. 
 
    ![Mapuj do elementu docelowego](./media/dataset-map-target.png "Mapuj do elementu docelowego") 
 

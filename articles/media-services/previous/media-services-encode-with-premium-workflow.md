@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 42d1d855f5d9e9acafb1c09116cceb35043f18c9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 29a889fc15b1889711d08d3386920652a8bc8f57
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002950"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269050"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Zaawansowane kodowanie za pomocą usługi Media Encoder Premium Workflow
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > Procesor multimediów Media Encoder Premium Workflow omawiany w tym artykule nie jest dostępny w Chinach.
 >
