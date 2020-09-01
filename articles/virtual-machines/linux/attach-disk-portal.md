@@ -4,15 +4,15 @@ description: Użyj portalu, aby dołączyć nowy lub istniejący dysk danych do 
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 82b4bd4444ae73b6a4631bae7efb8110de00f439
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a37ed39f3c663f9f77daa1ed8f6946403348edd0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757709"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072642"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Dołączanie dysku danych do maszyny wirtualnej z systemem Linux przy użyciu portalu 
 W tym artykule opisano sposób dołączania nowych i istniejących dysków do maszyny wirtualnej z systemem Linux za pomocą Azure Portal. Możesz również [dołączyć dysk danych do maszyny wirtualnej z systemem Windows w Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -138,15 +138,17 @@ sudo mount /dev/sdc1 /datadrive
 Aby upewnić się, że dysk zostanie automatycznie zainstalowany po ponownym uruchomieniu, należy dodać go do pliku */etc/fstab* . Zdecydowanie zaleca się również, aby identyfikator UUID (uniwersalny) był używany w */etc/fstab* , aby można było odwołać się do dysku, a nie tylko nazwy urządzenia (na przykład */dev/sdc1*). Jeśli system operacyjny wykryje błąd dysku podczas rozruchu, w przypadku używania identyfikatora UUID w danej lokalizacji nie zostanie zainstalowany nieprawidłowy dysk. Do pozostałych dysków danych zostałyby w takiej sytuacji przypisane te same identyfikatory urządzeń. Identyfikator UUID nowego dysku możesz znaleźć za pomocą narzędzia `blkid`:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 Dane wyjściowe wyglądają podobnie do poniższego przykładu:
 
 ```bash
-/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
-/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
-/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+/dev/sda1: LABEL="cloudimg-rootfs" UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4" PARTUUID="1a1b1c1d-11aa-1234-1a1a1a1a1a1a"
+/dev/sda15: LABEL="UEFI" UUID="BCD7-96A6" TYPE="vfat" PARTUUID="1e1g1cg1h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4" TYPE="ext4" PARTUUID="1a2b3c4d-01"
+/dev/sda14: PARTUUID="2e2g2cg2h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="c1c2c3c4-1234-cdef-asdf3456ghjk"
 ```
 
 > [!NOTE]
@@ -161,7 +163,7 @@ sudo nano /etc/fstab
 W tym przykładzie Użyj wartości UUID dla `/dev/sdc1` urządzenia, które zostało utworzone w poprzednich krokach, i mountpoint `/datadrive` . Dodaj następujący wiersz na końcu `/etc/fstab` pliku:
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
 Używamy edytora nano, więc po zakończeniu edytowania pliku Użyj polecenia, `Ctrl+O` Aby zapisać plik i `Ctrl+X` zamknąć Edytor.
@@ -204,7 +206,7 @@ Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z 
 * Użyj `discard` opcji instalacji w */etc/fstab*, na przykład:
 
     ```bash
-    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
 * W niektórych przypadkach `discard` opcja może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
   

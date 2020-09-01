@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 869c6590146561f6f2f50694c5cc3f79530dad25
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 9b5cc1cdae31039fe3f94bc49fadf848032cfd86
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854403"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069293"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Podstawowa usługa Azure Security dla zapory platformy Azure
 
@@ -74,7 +74,7 @@ Należy pamiętać, że nie można utworzyć własnego tagu usługi ani określi
 
 **Wskazówki**: usługa Azure Policy nie jest jeszcze w pełni obsługiwana dla zapory platformy Azure. Za pomocą Menedżera zapory platformy Azure można uzyskać standaryzację konfiguracji zabezpieczeń.
 
-Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów, takich jak szablony Menedżera zasobów platformy Azure, kontrolki RBAC i zasady, w ramach jednej definicji planu. Możesz zastosować plan do nowych subskrypcji i dostosować kontrolę i zarządzanie przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów, takich jak szablony usługi Azure Resources, formanty RBAC platformy Azure i zasady, w ramach jednej definicji planu. Możesz zastosować plan do nowych subskrypcji i dostosować kontrolę i zarządzanie przy użyciu wersji.
 
 - [Jak skonfigurować Azure Policy i zarządzać nimi](../governance/policy/tutorials/create-and-manage.md)
 
@@ -132,7 +132,7 @@ Uwaga: oba dzienniki mogą być zapisane na koncie magazynu, przesyłane strumie
 
 Lista akcji zasobów w dziennikach aktywności: Azure Resource Manager operacje dostawcy zasobów
 
-- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Jak zbierać dzienniki platformy i metryki za pomocą Azure Monitor ](../azure-monitor/platform/diagnostic-settings.md)
 
 - [Jak dołączyć wskaźnik na platformie Azure](../sentinel/quickstart-onboard.md)
 
@@ -416,11 +416,11 @@ Postępuj zgodnie z zaleceniami Azure Security Center na potrzeby szyfrowania w 
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj Azure Active Directory kontroli dostępu opartej na ROLACH (RBAC), aby kontrolować dostęp do zapory platformy Azure i powiązanych zasobów.
+**Wskazówki**: Używanie kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure w celu kontrolowania dostępu do zapory platformy Azure i powiązanych zasobów.
 
-- [Jak skonfigurować RBAC na platformie Azure](../role-based-access-control/role-assignments-portal.md)
+- [Jak skonfigurować usługę Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
 

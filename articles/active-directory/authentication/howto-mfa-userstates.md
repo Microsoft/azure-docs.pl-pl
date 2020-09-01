@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 433cfa3789aa37f4145982da97719526c0abfc47
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1b1ff8a54037392ac01402056ada0f3040dbd123
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719499"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068936"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włączanie usługi Azure Multi-Factor Authentication dla poszczególnych użytkowników w celu zabezpieczenia zdarzeń logowania
 
@@ -82,7 +83,7 @@ Po włączeniu użytkowników Powiadom ich pocztą e-mail. Poinformuj użytkowni
 
 Aby zmienić stan użytkownika przy użyciu [programu Azure AD PowerShell](/powershell/azure/), należy zmienić `$st.State` parametr dla konta użytkownika. Istnieją trzy możliwe stany konta użytkownika:
 
-* *Włączono*
+* *Włączone*
 * *Enforced (Wymuszony)*
 * *Disabled*  
 

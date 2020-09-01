@@ -3,14 +3,14 @@ title: Dokumentacja dewelopera programu PowerShell dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu programu PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933526"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071163"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Przewodnik dewelopera programu Azure Functions PowerShell
 
@@ -233,7 +233,7 @@ Logowanie w funkcjach programu PowerShell działa jak regularne rejestrowanie pr
 
 | Poziom rejestrowania funkcji | Polecenie cmdlet rejestrowania |
 | ------------- | -------------- |
-| Error | **`Write-Error`** |
+| Błąd | **`Write-Error`** |
 | Ostrzeżenie | **`Write-Warning`**  | 
 | Informacyjny | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informacyjny | Zapisuje dane w dzienniku na poziomie _informacji_ . |
 | Debugowanie | **`Write-Debug`** |

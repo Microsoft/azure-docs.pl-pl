@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611207"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069412"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Wdrażanie i konfigurowanie usługi Azure Firewall w sieci hybrydowej za pomocą programu Azure PowerShell
 
@@ -31,17 +31,16 @@ W tym artykule opisano tworzenie trzech sieci wirtualnych:
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Deklarowanie zmiennych
-> * Tworzenie sieci wirtualnej koncentratora zapory
-> * Tworzenie sieci wirtualnej będącej szprychą
-> * Tworzenie lokalnej sieci wirtualnej
-> * Konfigurowanie i wdrażanie zapory
-> * Tworzenie i łączenie bram sieci VPN
-> * Komunikacja równorzędna pomiędzy sieciami wirtualnymi koncentratora i szprychy
-> * Tworzenie tras
-> * Tworzenie maszyn wirtualnych
-> * Testowanie zapory
+* Deklarowanie zmiennych
+* Tworzenie sieci wirtualnej koncentratora zapory
+* Tworzenie sieci wirtualnej będącej szprychą
+* Tworzenie lokalnej sieci wirtualnej
+* Konfigurowanie i wdrażanie zapory
+* Tworzenie i łączenie bram sieci VPN
+* Komunikacja równorzędna pomiędzy sieciami wirtualnymi koncentratora i szprychy
+* Tworzenie tras
+* Tworzenie maszyn wirtualnych
+* Testowanie zapory
 
 Jeśli chcesz użyć Azure Portal zamiast tego samouczka, zobacz [Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal](tutorial-hybrid-portal.md).
 
@@ -62,7 +61,7 @@ Aby ten scenariusz przebiegał prawidłowo, muszą zostać spełnione trzy podst
 Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym artykule, aby zobaczyć, jak te trasy zostały utworzone.
 
 >[!NOTE]
->Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
+>Usługa Azure Firewall musi mieć bezpośrednie połączenie z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
 >
 >Zaporę platformy Azure można skonfigurować do obsługi wymuszonego tunelowania. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](forced-tunneling.md).
 

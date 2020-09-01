@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 86f501a145ea82f7a4499824dd0b21822c3f1cbd
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: 98cec9fc30b4840a763358c0b3cd76659ff865d7
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961588"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070364"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -520,7 +520,7 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!NOTE]
 > Istnieje również ustawienie aplikacji, które można ustawić, WEBSITE_DISABLE_MSI, co spowoduje jedynie wyłączenie usługi tokenów lokalnych. Jednak opuszcza tożsamość, a funkcja narzędzi nadal będzie wyświetlać tożsamość zarządzaną jako "on" lub "Enabled". W związku z tym nie zaleca się używania tego ustawienia.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Bezpieczny dostęp SQL Database przy użyciu tożsamości zarządzanej](app-service-web-tutorial-connect-msi.md)

@@ -12,17 +12,17 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5d88c685f1e55bd361ac50662d9eaf931cba15c3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: da99468b1582c4acab192ad3b96761172aa69580
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115802"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068664"
 ---
 # <a name="azure-active-directory-graph-api"></a>Interfejs API programu Graph usługi Azure Active Directory
 
 > [!IMPORTANT]
-> Zdecydowanie zalecamy używanie [Microsoft Graph](https://developer.microsoft.com/graph) zamiast usługi Azure AD interfejs API programu Graph do uzyskiwania dostępu do zasobów Azure Active Directory (Azure AD). Obecnie koncentrujemy nasze działania deweloperskie na programie Microsoft Graph i nie planujemy żadnych dodatkowych rozszerzeń dla interfejsu API funkcji Azure AD Graph. Istnieje bardzo ograniczona liczba scenariuszy, w których usługa Azure AD interfejs API programu Graph nadal może być odpowiednia; Aby uzyskać więcej informacji, zapoznaj się z wpisami w blogu [Microsoft Graph lub Azure AD Graph](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) i [Migrowanie aplikacji Azure ad Graph do Microsoft Graph](/graph/migrate-azure-ad-graph-overview).
+> Zdecydowanie zalecamy używanie [Microsoft Graph](https://developer.microsoft.com/graph) zamiast usługi Azure AD interfejs API programu Graph do uzyskiwania dostępu do zasobów Azure Active Directory (Azure AD). Obecnie koncentrujemy nasze działania deweloperskie na programie Microsoft Graph i nie planujemy żadnych dodatkowych rozszerzeń dla interfejsu API funkcji Azure AD Graph. Istnieje bardzo ograniczona liczba scenariuszy, w których usługa Azure AD interfejs API programu Graph nadal może być odpowiednia; Aby uzyskać więcej informacji, zapoznaj się z wpisami w blogu [Microsoft Graph lub Azure AD Graph](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) i [Migrowanie aplikacji Azure ad Graph do Microsoft Graph](/graph/migrate-azure-ad-graph-planning-checklist).
 
 Ten artykuł ma zastosowanie do usługi Azure AD interfejs API programu Graph. Aby poznać podobne informacje dotyczące interfejsu API Microsoft Graph, zobacz [Korzystanie z interfejsu api Microsoft Graph](/graph/use-the-api).
 

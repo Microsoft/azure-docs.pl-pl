@@ -11,14 +11,15 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 252c033c1a9d4d45c3d48256e65ae9ad10a93c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ce6f0e5e6e958e72ddc04608c5f207fedb18daf9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360065"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072268"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Skonfiguruj uprawnienia konta łącznika AD DS 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Azure AD Connect: konfigurowanie konta łącznika usługi AD DS 
 
 Moduł programu PowerShell o nazwie [ADSyncConfig. PSM1](reference-connect-adsyncconfig.md) został wprowadzony z kompilacją 1.1.880.0 (wydana w sierpniu 2018) zawierającym kolekcję poleceń cmdlet, które ułatwiają konfigurowanie odpowiednich uprawnień Active Directory dla wdrożenia Azure AD Connect. 
 
@@ -306,7 +307,7 @@ To polecenie cmdlet ustawi następujące uprawnienia:
 |Zezwalaj |Uwierzytelnieni użytkownicy |Uprawnienia do odczytu |Ten obiekt 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Azure AD Connect: Accounts and permissions](reference-connect-accounts-permissions.md) (Azure AD Connect: konta i uprawnienia)
+- [Azure AD Connect: Konta i uprawnienia](reference-connect-accounts-permissions.md)
 - [Instalacja ekspresowa](how-to-connect-install-express.md)
 - [Instalacja niestandardowa](how-to-connect-install-custom.md)
 - [Informacje o module ADSyncConfig](reference-connect-adsyncconfig.md)

@@ -7,23 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.custom: mvc
-ms.openlocfilehash: 14340138a221dd00aa10651da9e209468b3c8550
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: ea889f48aaf3218ad9f3f286d1cda4f8a761a7ac
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891705"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069973"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Szybki Start: Tworzenie klastra Apache Spark w usłudze Azure HDInsight przy użyciu programu PowerShell
 
 W tym przewodniku szybki start utworzysz Klaster Apache Spark w usłudze Azure HDInsight za pomocą Azure PowerShell. Następnie utworzysz Notes Jupyter i użyjesz go do uruchamiania zapytań Spark SQL w odniesieniu do tabel Apache Hive. Azure HDInsight jest zarządzaną usługą analityczną typu „open source” o szerokim zakresie, z przeznaczeniem dla przedsiębiorstw. Platforma Apache Spark dla usługi Azure HDInsight umożliwia szybkie analizowanie danych i przetwarzanie klastrów przy użyciu przetwarzania w pamięci. Notes Jupyter umożliwia korzystanie z danych, łączenie kodu z tekstem z promocji i przeprowadzeniem prostych wizualizacji.
 
-[Przegląd: Apache Spark w usłudze Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/) | [Jupyter Notebook](https://jupyter.org/)
+[Przegląd: Apache Spark w usłudze Azure HDInsight](apache-spark-overview.md)  |  [Apache Spark](https://spark.apache.org/)  |  [Apache Hive](https://hive.apache.org/)  |  [Jupyter Notebook](https://jupyter.org/)
 
 Jeśli używasz wielu klastrów razem, należy utworzyć sieć wirtualną, a jeśli używasz klastra Spark, należy również użyć łącznika magazynu programu Hive. Aby uzyskać więcej informacji, zobacz [Planowanie sieci wirtualnej dla usługi Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) i [integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive](../interactive-query/apache-hive-warehouse-connector.md).
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Program [PowerShell AZ module](https://docs.microsoft.com/powershell/azure/install-az-ps).
@@ -152,7 +152,7 @@ Jeśli wystąpi problem z tworzeniem klastrów usługi HDInsight, może to oznac
 
    ![Otwórz Jupyter Notebook, aby uruchomić interakcyjne zapytanie Spark SQL](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Otwórz Jupyter Notebook, aby uruchomić interakcyjne zapytanie Spark SQL")
 
-1. Wybierz pozycję **New** > **PySpark** , aby utworzyć Notes.
+1. Wybierz pozycję **New**  >  **PySpark** , aby utworzyć Notes.
 
    ![Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Utwórz Jupyter Notebook do uruchamiania interakcyjnego zapytania Spark SQL")
 
@@ -174,7 +174,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do d
     SHOW TABLES
     ```
 
-    W przypadku korzystania z Jupyter Notebook z klastrem Spark w usłudze HDInsight zostanie wyświetlone ustawienie wstępne `sqlContext` , za pomocą którego można uruchamiać zapytania Hive przy użyciu platformy Spark SQL. Wyrażenie `%%sql` informuje notes Jupyter o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania programu Hive. Zapytanie pobiera pierwszych 10 wierszy z tabeli programu Hive (**hivesampletable**), która jest dostępna domyślnie na wszystkich klastrach usługi HDInsight. Uzyskanie wyników zajmuje około 30 sekund. Dane wyjściowe wyglądają następująco:
+    W przypadku korzystania z Jupyter Notebook z klastrem Spark w usłudze HDInsight zostanie wyświetlone ustawienie wstępne, za pomocą którego `sqlContext` można uruchamiać zapytania Hive przy użyciu platformy Spark SQL. Wyrażenie `%%sql` informuje notes Jupyter o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania programu Hive. Zapytanie pobiera pierwszych 10 wierszy z tabeli programu Hive (**hivesampletable**), która jest dostępna domyślnie na wszystkich klastrach usługi HDInsight. Uzyskanie wyników zajmuje około 30 sekund. Dane wyjściowe wyglądają następująco:
 
     ![Zapytanie Apache Hive w usłudze Spark w usłudze HDInsight](./media/apache-spark-jupyter-spark-sql-use-powershell/hdinsight-spark-get-started-hive-query.png "Zapytanie programu Hive w usłudze HDInsight Spark")
 
@@ -193,7 +193,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do d
 
 1. W menu **File** (Plik) w notesie wybierz pozycję **Close and Halt** (Zamknij i zatrzymaj). Zamknięcie notesu spowoduje zwolnienie zasobów klastra.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usługa HDInsight zapisuje Twoje dane w usłudze Azure Storage lub Azure Data Lake Storage, więc możesz bezpiecznie usunąć klaster, gdy nie jest używany. Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane. Jeśli planujesz natychmiastowe rozpoczęcie pracy z samouczkiem z listy [Następne kroki](#next-steps), warto zachować klaster.
 

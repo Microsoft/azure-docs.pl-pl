@@ -3,13 +3,13 @@ title: Samouczek — wyzwalanie grupy kontenerów przez funkcję platformy Azure
 description: Tworzenie wyzwalanej przez protokół HTTP bezserwerowej funkcji programu PowerShell w celu zautomatyzowania tworzenia wystąpień kontenera platformy Azure
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.custom: ''
-ms.openlocfilehash: 298cf1452e514ede540e23d4e64f6dd1059cceab
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ec4b2273f6be6ea4aabed2b660e0b7553f861d0d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259746"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072047"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Samouczek: Tworzenie grupy kontenerów za pomocą funkcji platformy Azure wyzwalanej przez protokół HTTP
 

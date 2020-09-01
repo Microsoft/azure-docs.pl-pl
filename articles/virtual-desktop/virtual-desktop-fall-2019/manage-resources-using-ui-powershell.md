@@ -5,13 +5,14 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: lizross
-ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d7219751d584eb458cded9f4e30cccb1439dfa1b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005775"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069021"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu programu PowerShell
 
@@ -20,7 +21,7 @@ ms.locfileid: "88005775"
 
 W tym artykule przedstawiono sposób wdrażania narzędzia do zarządzania przy użyciu programu PowerShell.
 
-## <a name="important-considerations"></a>Istotne zagadnienia
+## <a name="important-considerations"></a>Ważne zagadnienia
 
 Każda subskrypcja dzierżawy usługi Azure Active Directory (Azure AD) wymaga oddzielnego wdrożenia narzędzia do zarządzania. To narzędzie nie obsługuje scenariuszy usługi Azure AD Business-to-Business (B2B).
 

@@ -6,12 +6,13 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: d8abf6cdf8506dc491f4e026c9a61ac1391f6ea4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 526287feb93052d10428971dfd8f660d4265c831
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506302"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071265"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Szybki Start: Tworzenie pierwszej funkcji za pomocą Kotlin i Maven
 
@@ -238,7 +239,7 @@ Aby można było korzystać z [wyzwalaczy i powiązań funkcji](functions-trigge
 
 Utworzono aplikację funkcji Kotlin z prostym wyzwalaczem HTTP i wdrożono ją w Azure Functions.
 
-- Zapoznaj się z [przewodnikiem dewelopera usługi Java Functions](functions-reference-java.md) , aby uzyskać więcej informacji na temat opracowywania funkcji Java i Kotlin.
+- Zapoznaj się z  [przewodnikiem dewelopera usługi Java Functions](functions-reference-java.md) , aby uzyskać więcej informacji na temat opracowywania funkcji Java i Kotlin.
 - Dodaj do swojego projektu kolejne funkcje z różnymi wyzwalaczami, używając elementu docelowego `azure-functions:add` narzędzia Maven.
 - Pisanie i debugowanie funkcji lokalnie za pomocą oprogramowania [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) i [Eclipse](functions-create-maven-eclipse.md). 
 - Debuguj funkcje wdrożone na platformie Azure przy użyciu programu Visual Studio Code. Zobacz dokumentację [bezserwerowych aplikacji Java](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) programu Visual Studio Code, aby uzyskać instrukcje.

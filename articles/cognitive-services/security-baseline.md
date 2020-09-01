@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7c6f115597b5b95cd1004f67adec53727736c377
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498348"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072030"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Podstawa zabezpieczeń platformy Azure dla Cognitive Services
 
@@ -151,7 +151,7 @@ Możesz również użyć grup zabezpieczeń aplikacji (ASG), aby uprościć zło
 
 **Wskazówki**: Definiowanie i implementowanie standardowych konfiguracji zabezpieczeń dla zasobów sieciowych związanych z kontenerem Cognitive Services platformy Azure i Azure Policy. Użyj aliasów Azure Policy w przestrzeniach nazw "Microsoft. CognitiveServices" i "Microsoft. Network", aby utworzyć niestandardowe zasady inspekcji lub wymuszania konfiguracji sieci w pamięci podręcznej platformy Azure dla wystąpień Redis.
 
-Za pomocą planów platformy Azure można również uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
+Możesz również użyć planów platformy Azure, aby uprościć wdrożenia platformy Azure na dużą skalę przez pakowanie kluczowych artefaktów środowiska, takich jak szablony Azure Resource Manager, kontrola dostępu oparta na rolach (Azure RBAC) i zasady, w ramach jednej definicji planu. Łatwo stosuj plan do nowych subskrypcji i środowisk, a następnie dostosuj kontrolę i zarządzanie przy użyciu wersji.
 
 * [Jak skonfigurować Azure Policy i zarządzać nimi](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -532,9 +532,9 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: usługa Azure Active Directory (Azure AD) Kontrola dostępu oparta na ROLACH (RBAC) umożliwia kontrolowanie dostępu do płaszczyzny kontroli Cognitive Services platformy Azure (tj. Azure Portal).
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Cognitive Services platformy Azure (np. Azure Portal).
 
 * [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 

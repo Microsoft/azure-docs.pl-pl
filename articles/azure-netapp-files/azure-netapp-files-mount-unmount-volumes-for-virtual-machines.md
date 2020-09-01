@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/06/2020
-ms.openlocfilehash: 4ad3800748330d5c3a6a32c6c0824bc72a05d0ef
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: f9dc54959979d00d57536e3a3fa2262d27e28f96
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533091"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072200"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux 
 
@@ -28,15 +28,17 @@ W razie potrzeby można zainstalować lub odinstalować wolumin dla maszyn wirtu
 
     ![Instrukcje dotyczące instalacji SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
     * Jeśli instalujesz wolumin systemu plików NFS, upewnij się, że używasz `vers` opcji w `mount` poleceniu, aby określić wersję protokołu NFS odpowiadającą woluminowi, który chcesz zainstalować. 
-    * Jeśli używasz NFSv 4.1, użyj następującego polecenia, aby zainstalować system plików:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    * Jeśli używasz NFSv 4.1, użyj następującego polecenia, aby zainstalować system plików:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+        > [!NOTE]
+        > Jeśli używasz NFSv 4.1, upewnij się, że wszystkie maszyny wirtualne instalujące eksport używają unikatowych nazw hostów.
 
 3. Jeśli chcesz, aby wolumin NFS został automatycznie zainstalowany podczas uruchamiania lub ponownego uruchamiania maszyny wirtualnej platformy Azure, Dodaj wpis do `/etc/fstab` pliku na hoście. 
 
     Na przykład: `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
-    * `$ANFIP`jest adresem IP woluminu Azure NetApp Files znalezionym w bloku właściwości woluminu.
-    * `$FILEPATH`jest ścieżką eksportu woluminu Azure NetApp Files.
-    * `$MOUNTPOINT`to katalog utworzony na hoście z systemem Linux służący do instalowania eksportu systemu plików NFS.
+    * `$ANFIP` jest adresem IP woluminu Azure NetApp Files znalezionym w bloku właściwości woluminu.
+    * `$FILEPATH` jest ścieżką eksportu woluminu Azure NetApp Files.
+    * `$MOUNTPOINT` to katalog utworzony na hoście z systemem Linux służący do instalowania eksportu systemu plików NFS.
 
 4. Jeśli chcesz zainstalować wolumin w systemie Windows przy użyciu systemu plików NFS:
 

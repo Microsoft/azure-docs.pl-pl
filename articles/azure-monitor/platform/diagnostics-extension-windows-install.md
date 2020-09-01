@@ -7,13 +7,13 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e38e9ee301d080110e8019e3fe407e7d5cdc026
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499198"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069582"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)
 [Rozszerzenie diagnostyki Azure](diagnostics-extension-overview.md) to agent w Azure monitor, który zbiera dane monitorowania z systemu operacyjnego gościa i obciążeń maszyn wirtualnych platformy Azure i innych zasobów obliczeniowych. Ten artykuł zawiera szczegółowe informacje na temat instalowania i konfigurowania rozszerzenia Diagnostyka systemu Windows oraz opis sposobu przechowywania danych w usłudze i koncie usługi Azure Storage.
@@ -133,7 +133,7 @@ Ustawienia publiczne są definiowane w [elemencie publicznym](diagnostics-extens
 
 
 
-## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
+## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 Programu PowerShell można użyć do wdrożenia rozszerzenia Diagnostyka Azure do istniejącej maszyny wirtualnej przy użyciu polecenia [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) , jak w poniższym przykładzie. 
 
 ```powershell

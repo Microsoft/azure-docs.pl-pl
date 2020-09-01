@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: bae6da2e299065bada3b4e8a9657f00ef07e138b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0eca3f2fea3cf72b05b301ae307c1179f9bca0be
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075552"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072370"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Jak otworzyć porty i punkty końcowe na maszynie wirtualnej na platformie Azure przy użyciu programu PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]

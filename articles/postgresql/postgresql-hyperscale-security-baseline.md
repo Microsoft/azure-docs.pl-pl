@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: debbc47204aca2fbea1307bd4b692921725e5fd0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: a7014e6721cb6985ddff5ddaf773de4e85a048e0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563912"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071503"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linia bazowa zabezpieczeń Azure dla Azure Database for PostgreSQL-ze skalowaniem
 
@@ -347,13 +347,13 @@ W niektórych przypadkach aplikacje innych firm wymagają pliku certyfikatu loka
 
 **Odpowiedzialność**: udostępnione
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj kontroli dostępu opartej na ROLACH (RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Citus (np. Azure Portal). RBAC nie ma wpływu na uprawnienia użytkowników w ramach bazy danych.
+**Wskazówki**: Użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby kontrolować dostęp do płaszczyzny kontroli Citus (np. Azure Portal). Kontrola RBAC platformy Azure nie ma wpływu na uprawnienia użytkowników w ramach bazy danych.
 
 Aby zmodyfikować uprawnienia użytkownika na poziomie bazy danych, użyj standardowych poleceń PostgreSQL przy użyciu narzędzia, takiego jak PgAdmin lub PSQL.
 
-- [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 - [Jak skonfigurować dostęp użytkowników przy użyciu programu SQL dla Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
 
@@ -742,7 +742,7 @@ Dodatkowo jasno Oznacz subskrypcje (na przykład produkcyjny, nieprodukcyjny) i 
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: Przeprowadź regularne testowanie penetracji zasobów platformy Azure i zadbaj o skorygowanie wszystkich krytycznych ustaleń dotyczących zabezpieczeń
 
-**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft:https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
+**Wskazówki**: Postępuj zgodnie z zasadami firmy Microsoft dotyczącymi zaangażowania, aby upewnić się, że testy penetracji nie naruszają zasad firmy Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
 
 - [W tym miejscu znajdziesz więcej informacji na temat strategii i wykonywania trójwymiarowych operacji tworzenia zespołu i testowania aplikacji na żywo w witrynie Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

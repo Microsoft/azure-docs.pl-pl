@@ -10,13 +10,13 @@ ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: e6ae39fea8c3839208fc366ba0ce8d69799357d2
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056724"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070500"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Utwórz konto, które obsługuje klucze zarządzane przez klienta dla tabel i kolejek
 
@@ -217,7 +217,7 @@ Poniższy przykład JSON tworzy konto magazynu ogólnego przeznaczenia w wersji 
 
 Po utworzeniu konta, które opiera się na kluczu szyfrowania konta, zobacz jeden z następujących artykułów, aby skonfigurować klucze zarządzane przez klienta w Azure Key Vault:
 
-- [Skonfiguruj klucze zarządzane przez klienta za pomocą Azure Key Vault przy użyciu Azure Portal](storage-encryption-keys-portal.md)
+- [Skonfiguruj klucze zarządzane przez klienta za pomocą usługi Azure Key Vault przy użyciu witryny Azure Portal](storage-encryption-keys-portal.md)
 - [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu programu PowerShell](storage-encryption-keys-powershell.md)
 - [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](storage-encryption-keys-cli.md)
 

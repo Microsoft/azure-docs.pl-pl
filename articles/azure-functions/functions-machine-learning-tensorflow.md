@@ -5,13 +5,13 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 03f27315a1506a67f41bec929f42f3cf6278f126
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: mvc, devx-track-python, devx-track-azurepowershell
+ms.openlocfilehash: e9bbfd311d6a05d0dd328a63c7d11e14ab0d7e4a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142285"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069616"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Samouczek: stosowanie modeli uczenia maszynowego w Azure Functions przy użyciu języka Python i TensorFlow
 
@@ -79,7 +79,7 @@ Jeśli środowisko Python nie zainstalowało pakietu venv na dystrybucji systemu
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -127,7 +127,7 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     > [!TIP]
     > Ponieważ projekt funkcji jest powiązany z określonym środowiskiem uruchomieniowym, wszystkie funkcje w projekcie muszą być zapisywane w tym samym języku.
 
-1. Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new`Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
+1. Dodaj funkcję do projektu za pomocą następującego polecenia, gdzie `--name` argument jest unikatową nazwą funkcji, a `--template` argument określa wyzwalacz funkcji. `func new` Utwórz podfolder pasujący do nazwy funkcji, która zawiera plik kodu odpowiedni dla wybranego języka projektu i plik konfiguracji o nazwie *function.json*.
 
     ```
     func new --name classify --template "HTTP trigger"
@@ -166,7 +166,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
@@ -190,7 +190,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
@@ -274,7 +274,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
     python -m http.server
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server

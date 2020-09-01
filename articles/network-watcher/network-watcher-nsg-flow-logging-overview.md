@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084368"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070585"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -62,7 +62,7 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 - Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) zawiera listę _reguł zabezpieczeń_ , które zezwalają na ruch sieciowy w zasobach, do których jest podłączony. Sieciowych grup zabezpieczeń można kojarzyć z podsieciami, poszczególnymi maszynami wirtualnymi lub interfejsami sieciowymi (NIC) podłączonymi do maszyn wirtualnych (Menedżer zasobów). Aby uzyskać więcej informacji, zobacz [Omówienie grup zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 - Wszystkie przepływy ruchu w sieci są oceniane przy użyciu reguł w odpowiednich sieciowej grupy zabezpieczeń.
 - Wynikiem tych ocen są dzienniki przepływu sieciowej grupy zabezpieczeń. Dzienniki przepływów są zbierane za pomocą platformy Azure i nie wymagają żadnej zmiany w zasobach klienta.
-- Uwaga: reguły są dwa typy — kończąc & niekończące, z których każdy ma inne zachowanie rejestrowania.
+- Uwaga: reguły są dwa typy — kończąc & niekończący, z których każdy ma inne zachowanie rejestrowania.
 - - Reguły odmowy sieciowej grupy zabezpieczeń są przerywane. SIECIOWEJ grupy zabezpieczeń odmowy ruchu spowoduje zarejestrowanie go w dziennikach przepływów, a przetwarzanie w tym przypadku zostanie zatrzymane po jakimkolwiek sieciowej grupy zabezpieczeń odmówiono ruchu. 
 - - Reguły zezwalania sieciowej grupy zabezpieczeń są niekończące się, co oznacza, że nawet jeśli jeden sieciowej grupy zabezpieczeń ją umożliwia, przetwarzanie będzie kontynuowane do następnego sieciowej grupy zabezpieczeń. Ostatnie sieciowej grupy zabezpieczeń zezwalające na ruch rejestruje ruch do dzienników przepływów.
 - Dzienniki przepływu sieciowej grupy zabezpieczeń są zapisywane na kontach magazynu z lokalizacji, w której można uzyskać do nich dostęp.
@@ -294,7 +294,7 @@ Poniższy tekst jest przykładem dziennika przepływu. Jak widać, istnieje wiel
 ```
 **Objaśniono krotkę dziennika**
 
-![Dzienniki przepływów — Omówienie](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![Kolekcje dzienników przepływów](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Przykładowe Obliczanie przepustowości**
 
@@ -365,7 +365,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Włącz w przypadku krytycznych sieci wirtualnych/podsieci**: dzienniki przepływów powinny być włączone na wszystkich krytycznych sieci wirtualnych/podsieciach w ramach subskrypcji jako najlepsze rozwiązanie w zakresie inspekcji i zabezpieczeń. 
 
-**Włącz rejestrowanie przepływu sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeńach dołączonych do zasobu**: rejestrowanie przepływu na platformie Azure jest konfigurowane na zasobie sieciowej grupy zabezpieczeń. Przepływ zostanie skojarzony tylko z jedną regułą sieciowej grupy zabezpieczeń. W scenariuszach, w których jest używany wiele sieciowych grup zabezpieczeń, zalecamy włączenie dzienników przepływów sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeń zastosowały podsieć lub interfejs sieciowy zasobu, aby upewnić się, że cały ruch jest zarejestrowany. Aby uzyskać więcej informacji, zobacz [jak oceniany jest ruch](../virtual-network/security-overview.md#how-traffic-is-evaluated) w sieciowych grupach zabezpieczeń.
+**Włącz rejestrowanie przepływu sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeńach dołączonych do zasobu**: rejestrowanie przepływu na platformie Azure jest konfigurowane na zasobie sieciowej grupy zabezpieczeń. Przepływ zostanie skojarzony tylko z jedną regułą sieciowej grupy zabezpieczeń. W scenariuszach, w których jest używany wiele sieciowych grup zabezpieczeń, zalecamy włączenie dzienników przepływów sieciowej grupy zabezpieczeń na wszystkich sieciowych grup zabezpieczeń zastosowały podsieć lub interfejs sieciowy zasobu, aby upewnić się, że cały ruch jest zarejestrowany. Aby uzyskać więcej informacji, zobacz [jak oceniany jest ruch](../virtual-network/network-security-group-how-it-works.md) w sieciowych grupach zabezpieczeń.
 
 **Inicjowanie obsługi administracyjnej magazynu**: zainicjowanie obsługi magazynu należy zamieścić z oczekiwanym woluminem dziennika przepływów.
 
@@ -407,7 +407,7 @@ Aby użyć konta magazynu za zaporą, musisz podać wyjątek dla zaufanych usłu
 
 - Przejdź do konta magazynu, wpisując nazwę konta magazynu w wyszukiwaniu globalnym w portalu lub na [stronie konta magazynu](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) .
 - W sekcji **Ustawienia** wybierz pozycję **zapory i sieci wirtualne** .
-- W obszarze **Zezwalaj na dostęp z**wybierz pozycję **wybrane sieci**. Następnie w obszarze **wyjątki**zaznacz pole wyboru obok pozycji * * * * Zezwól zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu * * * *
+- W obszarze **Zezwalaj na dostęp z**wybierz pozycję  **wybrane sieci**. Następnie w obszarze  **wyjątki**zaznacz pole wyboru obok pozycji * * * * Zezwól zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu * * * *
 - Jeśli jest ona już zaznaczona, nie trzeba wprowadzać żadnych zmian.
 - Znajdź swój docelowy sieciowej grupy zabezpieczeń na [stronie Przegląd dzienników przepływów sieciowej grupy zabezpieczeń](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) i Włącz dzienniki przepływu sieciowej grupy zabezpieczeń z wybranym powyższym kontem magazynu.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536933"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069327"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Samouczek: wdrażanie i konfigurowanie usługi Azure Firewall w witrynie Azure Portal
 
@@ -47,6 +47,8 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Testowanie zapory
 
 Jeśli chcesz, możesz wykonać kroki tego samouczka przy użyciu [programu Azure PowerShell](deploy-ps.md).
+
+## <a name="prerequisites"></a>Wymagania wstępne
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -137,7 +139,7 @@ Wdróż zaporę w sieci wirtualnej.
    |Nazwa     |**Test-FW01**|
    |Lokalizacja     |Wybierz tę samą lokalizację, której użyto poprzednio|
    |Wybieranie sieci wirtualnej     |**Użyj istniejącej**: **test-PD-VN**|
-   |Publiczny adres IP     |**Dodaj nowe**<br>**Nazwa**: **PD-PIP**|
+   |Publiczny adres IP     |**Dodaj nowe**<br>**Nazwa**:  **PD-PIP**|
 
 5. Wybierz pozycję **Przeglądanie + tworzenie**.
 6. Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć zaporę.
@@ -188,7 +190,7 @@ Jest to reguła aplikacji zezwalająca na dostęp wychodzący do `www.google.com
 9. W obszarze **Typ źródła**wybierz pozycję **adres IP**.
 10. W obszarze **Źródło**wpisz **10.0.2.0/24**.
 11. W polu **Protocol:port** wpisz wartość **http, https**.
-12. W przypadku **docelowych nazw FQDN**wpisz**`www.google.com`**
+12. W przypadku **docelowych nazw FQDN**wpisz **`www.google.com`**
 13. Wybierz pozycję **Dodaj**.
 
 Usługa Azure Firewall zawiera wbudowaną kolekcję reguł dla nazw FQDN infrastruktury, które domyślnie są dozwolone. Te nazwy FQDN są specyficzne dla platformy i nie można ich używać do innych celów. Aby uzyskać więcej informacji, zobacz [Infrastrukturalne nazwy FQDN](infrastructure-fqdns.md).

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/30/2020
-ms.openlocfilehash: 1de793dc2f4f72efb67c954e60262c3d7f1b74fc
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: d78e9c11ef0c70730fedc0ea9ef4b5a61f7d29c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511977"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072166"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Samouczek: udostępnianie danych za pomocą udziału danych platformy Azure  
 
@@ -73,7 +73,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure.
 
-1. Wybierz przycisk **Utwórz zasób** (+) w lewym górnym rogu portalu.
+1. Wybierz przycisk menu w lewym górnym rogu portalu, a następnie wybierz pozycję **Utwórz zasób** (+).
 
 1. Wyszukaj *udział danych*.
 
@@ -83,13 +83,13 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
      **Ustawienie** | **Sugerowana wartość** | **Opis pola**
     |---|---|---|
-    | Nazwa | *datashareacount* | Określ nazwę konta udziału danych. |
     | Subskrypcja | Twoja subskrypcja | Wybierz subskrypcję platformy Azure, która ma być używana dla konta udziału danych.|
     | Grupa zasobów | *Testuj grupę zasobów* | Użyj istniejącej grupy zasobów lub utwórz nową. |
     | Lokalizacja | *Wschodnie stany USA 2* | Wybierz region dla konta udziału danych.
+    | Nazwa | *datashareaccount* | Określ nazwę konta udziału danych. |
     | | |
 
-1. Wybierz pozycję **Utwórz** , aby zainicjować obsługę administracyjną konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
+1. Wybierz pozycję **Przegląd + Utwórz**, a następnie pozycję **Utwórz** , aby zainicjować obsługę konta udziału danych. Inicjowanie obsługi nowego konta udziału danych zwykle trwa około 2 minuty. 
 
 1. Po zakończeniu wdrażania wybierz pozycję **Przejdź do zasobu**.
 
@@ -101,13 +101,13 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz przycisk **Utwórz**.   
+1. Wybierz pozycję **Utwórz**.   
 
 1. Wypełnij szczegóły dotyczące udziału danych. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Wprowadź szczegóły udostępniania") 
 
-1. Wybierz przycisk **Kontynuuj**
+1. Wybierz pozycję **Continue** (Kontynuuj).
 
 1. Aby dodać zbiory danych do swojego udziału, wybierz pozycję **Dodaj zestawy**. 
 
@@ -125,7 +125,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
     ![Addrecipients](./media/add-recipient.png "Dodawanie adresatów") 
 
-1. Wybierz przycisk **Kontynuuj**
+1. Wybierz pozycję **Continue** (Kontynuuj).
 
 1. W przypadku wybrania typu udziału migawek można skonfigurować harmonogram migawek w taki sposób, aby dostarczał aktualizacje danych do konsumenta danych. 
 
@@ -133,9 +133,9 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz czas rozpoczęcia i interwał cyklu. 
 
-1. Wybierz przycisk **Kontynuuj**
+1. Wybierz pozycję **Continue** (Kontynuuj).
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia. 
 

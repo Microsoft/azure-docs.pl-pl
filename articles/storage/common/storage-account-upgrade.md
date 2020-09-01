@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 029753ecb0afd0cdd02a2f4594a0708cbda06efc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: c80269c949ec97a09584d736371ccd11879fd82b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828221"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069718"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uaktualnienie konta magazynu ogólnego przeznaczenia do wersji 2
 
@@ -36,7 +36,7 @@ Uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2 z poziomu kon
 
     ![Typ konta uaktualnienia](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

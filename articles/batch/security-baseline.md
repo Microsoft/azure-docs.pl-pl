@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 76312a55262d316c679bde2a69e8b98844addcb0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 59b795462ff6e033e299c15f4099b7bfd3874451
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963873"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069397"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Podstawowa baza zabezpieczeń Azure dla usługi Batch
 
@@ -98,7 +98,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-loggin
 
 **Wskazówki**: Jeśli jest to wymagane do celów zgodności, wybierz sieciowe urządzenie wirtualne w portalu Azure Marketplace, które obsługuje systemy wykrywania wtargnięcia (identyfikatory) i systemy zapobiegania włamaniom (IP) z możliwościami inspekcji ładunku.
 
-Jeśli wykrywanie i/lub zapobieganie włamaniu nie są wymagane w oparciu o inspekcję ładunku, można użyć zapory platformy Azure z funkcją analizy zagrożeń. Filtrowanie oparte na analizie zagrożeń na platformie Azure może wysyłać alerty i odrzucać ruch do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft.
+Jeśli wykrywanie i/lub zapobieganie włamaniu nie są wymagane w oparciu o inspekcję ładunku, można użyć zapory platformy Azure z funkcją analizy zagrożeń. Filtrowanie oparte na analizie zagrożeń na platformie Azure może wysyłać alerty i odrzucać ruch do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft.
 
 Wdróż zaporę platformy Azure z publicznym adresem IP w tej samej sieci wirtualnej co węzły puli Azure Batch. Skonfiguruj reguły translacji adresów sieciowych (NAT) między zaufanymi lokalizacjami w Internecie i prywatnymi adresami IP węzłów poszczególnych pul. W obszarze Zapora systemu Azure w obszarze Analiza zagrożeń skonfiguruj opcję "Alert i Odmów", aby blokować alerty i blokować ruch do/z znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft i są uwzględniane tylko najwyższe rekordy zaufania. 
 
@@ -178,9 +178,9 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji zasobów sieciowych i wykrywania zmian zasobów sieciowych związanych z pulami Azure Batch. Tworzenie alertów w ramach Azure Monitor, które będą wyzwalane po wprowadzeniu zmian w krytycznych zasobach sieciowych.
 
-Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
+Jak wyświetlać i pobierać zdarzenia dziennika aktywności platformy Azure: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view 
 
-Jak utworzyć alerty w Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+Jak utworzyć alerty w Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -500,7 +500,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Wskazówki**: niedostępne; Azure Batch nie Skrytka klienta jeszcze obsługiwane.
  
-Lista obsługiwanych usług Skrytka klienta:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Lista obsługiwanych usług Skrytka klienta: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 
@@ -596,13 +596,13 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Azure Active Directory funkcja kontroli dostępu opartej na ROLACH (RBAC) umożliwia kontrolowanie dostępu do płaszczyzny zarządzania zasobów platformy Azure, w tym konta usługi Batch, pul wsadowych i kont magazynu.
+**Wskazówki**: Funkcja kontroli dostępu opartej na rolach (Azure RBAC) umożliwia kontrolowanie dostępu do płaszczyzny zarządzania zasobów platformy Azure, w tym konta usługi Batch, pul wsadowych i kont magazynu.
 
 Opis kontroli RBAC platformy Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-Jak skonfigurować RBAC na platformie Azure:
+Jak skonfigurować usługę Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -778,9 +778,9 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Użyj grafu zasobów platformy Azure, aby wykonywać zapytania/odnajdywać zasoby w ramach subskrypcji. Upewnij się, że wszystkie zasoby platformy Azure obecne w środowisku są zatwierdzone.
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak tworzyć zapytania za pomocą usługi Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Jak tworzyć zapytania za pomocą usługi Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
@@ -821,9 +821,9 @@ Jak tworzyć zapytania za pomocą usługi Azure Graph:https://docs.microsoft.com
 - Niedozwolone typy zasobów
 - Dozwolone typy zasobów
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Jak odmówić określonego typu zasobu Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
@@ -843,7 +843,7 @@ Jak odmówić określonego typu zasobu Azure Policy:https://docs.microsoft.com/a
 
 **Wskazówki**: Użyj dostępu warunkowego platformy Azure, aby ograniczyć możliwość korzystania przez użytkowników z Azure Resource Manager przez skonfigurowanie "blokowania dostępu" dla aplikacji "Microsoft Azure Management".
 
-Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Jak skonfigurować dostęp warunkowy w celu blokowania dostępu do Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna
@@ -907,9 +907,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - Microsoft.Network
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Opis efektów Azure Policy:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Opis efektów Azure Policy: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 
 **Monitorowanie Azure Security Center**: nie dotyczy
@@ -942,13 +942,13 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: bezpieczne przechowywanie niestandardowych obrazów systemu operacyjnego
 
-**Wskazówki**: Jeśli używasz niestandardowych obrazów dla pul Azure Batch, użyj kontroli dostępu opartej na ROLACH (RBAC), aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.
+**Wskazówki**: Jeśli używasz niestandardowych obrazów dla pul Azure Batch, użyj kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure, aby zapewnić dostęp do obrazów tylko autoryzowanym użytkownikom.
 
-Opis RBAC na platformie Azure:
+Opis kontroli RBAC platformy Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-Jak skonfigurować RBAC na platformie Azure:
+Jak skonfigurować usługę Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
@@ -987,9 +987,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - Należy włączyć dzienniki diagnostyczne na kontach wsadowych
 
-Jak wyświetlić dostępne aliasy Azure Policy:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Jak wyświetlić dostępne aliasy Azure Policy: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Jak skonfigurować Azure Policy i zarządzać nimi:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Jak skonfigurować Azure Policy i zarządzać nimi: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 
@@ -1039,7 +1039,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Wskazówki**: Implementuj skaner poświadczeń, aby identyfikować poświadczenia w kodzie. Skaner poświadczeń zachęca również do przemieszczania odnalezionych poświadczeń do bardziej bezpiecznych lokalizacji, takich jak Azure Key Vault. 
 
-Jak skonfigurować skaner poświadczeń:https://secdevtools.azurewebsites.net/helpcredscan.html
+Jak skonfigurować skaner poświadczeń: https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -1169,7 +1169,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Wskazówki**: przeprowadzanie ćwiczeń w celu przetestowania możliwości reagowania na zdarzenia systemu w regularnych erze. Zidentyfikuj słabe punkty i przerwy i popraw plan zgodnie z wymaganiami.
 
-Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+Zapoznaj się z publikacją NIST: Przewodnik dotyczący testowania, uczenia i ćwiczeń programów dla planów i możliwości IT: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

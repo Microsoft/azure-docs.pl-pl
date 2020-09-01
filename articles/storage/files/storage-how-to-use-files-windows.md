@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fcc79a0763d7441a8a3c04723578ccc27cf5fe4e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905758"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071078"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -23,15 +24,15 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 
 | Wersja systemu Windows        | Wersja protokołu SMB | Możliwa instalacja na maszynie wirtualnej platformy Azure | Instalacja lokalna |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Tak | Tak |
-| Windows 10<sup>1</sup> | SMB 3.0 | Tak | Tak |
-| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Tak | Tak |
-| Windows Server 2016 | SMB 3.0 | Tak | Tak |
-| Windows 8.1 | SMB 3.0 | Tak | Tak |
-| Windows Server 2012 z dodatkiem R2 | SMB 3.0 | Tak | Tak |
-| Windows Server 2012 | SMB 3.0 | Tak | Tak |
-| Windows 7<sup>3</sup> | SMB 2.1 | Tak | Nie |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Tak | Nie |
+| Windows Server 2019 | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server 2016 | SMB 3.0 | Yes | Yes |
+| Windows 8.1 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 z dodatkiem R2 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 | SMB 3.0 | Yes | Yes |
+| Windows 7<sup>3</sup> | SMB 2.1 | Yes | Nie |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Nie |
 
 <sup>1</sup> Windows 10, wersje 1507, 1607, 1709, 1803, 1809, 1903 i 1909.  
 <sup>2</sup> System Windows Server, wersje 1809, 1903 i 1909.  
@@ -64,7 +65,7 @@ Aby uzyskać ten skrypt:
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="przyklad":::
 
-1. Wybierz polecenie **Połącz**.
+1. Wybierz pozycję **Połącz**.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Zrzut ekranu przedstawiający ikonę połączenia dla udziału plików.":::
 
@@ -87,7 +88,7 @@ Udział plików platformy Azure został już zainstalowany.
     
     ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Przykład: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
+1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Na przykład: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![Zrzut ekranu przedstawiający okno dialogowe „Mapowanie dysku sieciowego”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

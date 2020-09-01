@@ -11,12 +11,13 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3e845507404e0dd7ec3d11c68aaa553ae75eef0b
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: contperfq1
+ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164499"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069473"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Co to jest logowanie jednokrotne?
 

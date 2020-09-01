@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak wdrożyć i skonfigurować zaporę
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 4/10/2019
+ms.date: 08/28/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 50d870590fa6b8351838af9cb91b7be39b8d30db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610663"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071707"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Wdrażanie i Konfigurowanie zapory platformy Azure przy użyciu Azure PowerShell
 
@@ -35,13 +35,13 @@ W tym artykule utworzysz uproszczoną pojedynczą sieć wirtualną z trzema pods
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie testowego środowiska sieciowego
-> * Wdrażanie zapory
-> * Tworzenie trasy domyślnej
-> * Skonfiguruj regułę aplikacji, aby zezwolić na dostęp do www.google.com
-> * Konfigurowanie reguły sieci w celu umożliwienia dostępu do zewnętrznych serwerów DNS
-> * Testowanie zapory
+
+* Konfigurowanie testowego środowiska sieciowego
+* Wdrażanie zapory
+* Tworzenie trasy domyślnej
+* Skonfiguruj regułę aplikacji, aby zezwolić na dostęp do www.google.com
+* Konfigurowanie reguły sieci w celu umożliwienia dostępu do zewnętrznych serwerów DNS
+* Testowanie zapory
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure Portal](tutorial-firewall-deploy-portal.md).
 

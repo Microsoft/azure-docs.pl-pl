@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8fda0384dacaf1183458e90688b1f6b63cc63a35
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501342"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069663"
 ---
 # <a name="manage-storage-account-access-keys"></a>Zarządzanie kluczami dostępu do konta magazynu
 
@@ -39,7 +39,7 @@ Aby wyświetlić i skopiować klucze dostępu do konta magazynu lub parametry po
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Zrzut ekranu przedstawiający sposób wyświetlania kluczy dostępu w Azure Portal":::
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby pobrać klucze dostępu do konta za pomocą programu PowerShell, wywołaj polecenie [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) .
 
@@ -95,7 +95,7 @@ Aby obrócić klucze dostępu do konta magazynu w Azure Portal:
 1. Zaktualizuj parametry połączenia w kodzie za pomocą odwołania do nowego podstawowego klucza dostępu.
 1. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby obrócić klucze dostępu do konta magazynu za pomocą programu PowerShell:
 

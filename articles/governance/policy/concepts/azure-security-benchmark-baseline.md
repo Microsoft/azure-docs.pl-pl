@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7871099e3e05613bec29a4bfc0824dd9647431e7
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 909d423b31bb76d8d6aaed994d1c9f7372cbc01f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937543"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069786"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Azure Policy podstawy zabezpieczeń dla usługi Azure Security Baseline
 
@@ -72,13 +72,13 @@ Możesz również włączyć rozwiązanie "just-in-Time/" tylko do odczytu, uży
 
 *Aby uzyskać więcej informacji, zobacz [Kontrola zabezpieczeń: Ochrona danych](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Użyj Azure Active Directory kontroli dostępu opartej na ROLACH (RBAC), aby kontrolować dostęp do Azure Policy.
+**Wskazówki**: Kontrola dostępu do Azure Policy przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) na platformie Azure.
 
-* [Uprawnienia RBAC w usłudze Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
+* [Uprawnienia usługi Azure RBAC w Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
 
-* [Jak skonfigurować RBAC na platformie Azure](../../../role-based-access-control/role-assignments-portal.md)
+* [Jak skonfigurować usługę Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Monitorowanie Azure Security Center**: obecnie niedostępna

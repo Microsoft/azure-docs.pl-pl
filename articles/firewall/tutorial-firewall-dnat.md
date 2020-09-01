@@ -1,25 +1,25 @@
 ---
-title: Filtrowanie przychodzącego ruchu internetowego za pomocą usługi Azure firewall DNAT przy użyciu portalu
+title: 'Samouczek: filtrowanie przychodzącego ruchu internetowego za pomocą usługi Azure firewall DNAT przy użyciu portalu'
 description: W ramach tego samouczka dowiesz się, jak wdrożyć i skonfigurować funkcję DNAT usługi Azure Firewall przy użyciu witryny Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251490"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069276"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Samouczek: filtrowanie przychodzącego ruchu internetowego za pomocą usługi Azure firewall DNAT przy użyciu Azure Portal
 
 Możesz skonfigurować funkcję translacji docelowych adresów sieciowych (DNAT) usługi Azure Firewall do wykonywania translacji i filtrowania ruchu internetowego przychodzącego do podsieci. Po skonfigurowaniu DNAT akcja kolekcje reguł translatora adresów sieciowych jest ustawiona na **DNAT**. Każda reguła w kolekcji reguł NAT umożliwia wykonanie translacji publicznego adresu IP i portu zapory na prywatny adres IP i port. Reguły DNAT niejawnie dodają odpowiednią regułę sieci zezwalającą na przetłumaczony ruch. Aby przesłonić to zachowanie, jawnie dodaj kolekcję reguł sieci z regułami odmowy zgodnymi z przetłumaczonym ruchem. Aby dowiedzieć się więcej na temat logiki przetwarzania reguł usługi Azure Firewall, zobacz [Azure Firewall rule processing logic (Logika przetwarzania reguł usługi Azure Firewall)](rule-processing.md).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie testowego środowiska sieciowego
@@ -28,12 +28,11 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Konfigurowanie reguły DNAT
 > * Testowanie zapory
 
+## <a name="prerequisites"></a>Wymagania wstępne
+
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-W tym samouczku utworzysz dwie sieci wirtualne połączone przy użyciu komunikacji równorzędnej:
 
-- **VN-Hub** — w tej sieci wirtualnej znajduje się zapora.
-- **VN-Spoke** — w tej sieci wirtualnej znajduje się serwer obciążeń.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -42,9 +41,14 @@ W tym samouczku utworzysz dwie sieci wirtualne połączone przy użyciu komunika
 3. W polu **Nazwa grupy zasobów** wpisz **RG-DNAT-Test**.
 4. W polu **Subskrypcja** wybierz subskrypcję.
 5. W polu **Lokalizacja grupy zasobów** wybierz lokalizację. Wszystkie kolejne zasoby, które utworzysz, muszą znajdować się w tej samej lokalizacji.
-6. Wybierz przycisk **Utwórz**.
+6. Wybierz pozycję **Utwórz**.
 
 ## <a name="set-up-the-network-environment"></a>Konfigurowanie środowiska sieciowego
+
+W tym samouczku utworzysz dwie sieci wirtualne połączone przy użyciu komunikacji równorzędnej:
+
+- **VN-Hub** — w tej sieci wirtualnej znajduje się zapora.
+- **VN-Spoke** — w tej sieci wirtualnej znajduje się serwer obciążeń.
 
 Najpierw utwórz sieci wirtualne, a następnie połącz je przy użyciu komunikacji równorzędnej.
 
@@ -168,7 +172,7 @@ Na potrzeby podsieci **SN-Workload** skonfiguruj trasę domyślną ruchu wychodz
 5. W polu **Subskrypcja** wybierz subskrypcję.
 6. W obszarze **Grupa zasobów** wybierz pozycję **Użyj istniejącej**, a następnie wybierz pozycję **RG-DNAT-Test**.
 7. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 9. Wybierz pozycję **Odśwież**, a następnie wybierz tabelę tras **RT-FWroute** .
 10. Wybierz pozycję **podsieci**, a następnie wybierz pozycję **Skojarz**.
 11. Wybierz pozycję **Sieć wirtualna**, a następnie wybierz pozycję **VN-szprycha**.

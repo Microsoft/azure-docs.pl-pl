@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 12/19/2019
+ms.date: 08/28/2020
 ms.author: nitinme
-ms.openlocfilehash: 6272d050e6a71032f32c72be696d8c3918fc3d61
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 1ab075d882f073098e015f8b0726743803edc2ca
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223758"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069990"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Co to jest platforma Azure Cognitive Services?
 
@@ -31,8 +31,8 @@ Chcesz zobaczyć, co nowego i Zaktualizowano Cognitive Services dokumentacji? Za
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service")|Custom Vision Service umożliwia tworzenie klasyfikatorów niestandardowych.|
 |[Rozpoznawanie twarzy](https://docs.microsoft.com/azure/cognitive-services/face/ "Rozpoznawanie twarzy")| Usługa kroju obsługi zapewnia dostęp do zaawansowanych algorytmów, co umożliwia wykrywanie i rozpoznawanie atrybutów.|
 |[Aparat rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Rozpoznawanie formularzy") (wersja zapoznawcza)|Aparat rozpoznawania formularzy identyfikuje i wyodrębnia pary klucz-wartość oraz dane tabeli z dokumentów formularzy; następnie dane są wyprowadzane z uwzględnieniem relacji w oryginalnym pliku.|
-|[Aparat rozpoznawania atramentu](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Rozpoznawanie pisma odręcznego") (wersja zapoznawcza)|Aparat rozpoznawania pisma odręcznego pozwala rozpoznawać i analizować dane cyfrowego pociągnięć odręcznych, kształtów i zawartości napisanej ręcznie, a następnie wyprowadzać strukturę dokumentu ze wszystkimi rozpoznanymi obiektami.|
-|[Indeksator wideo](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Indeksator wideo")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
+|[Aparat rozpoznawania atramentu](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Rozpoznawanie pisma odręcznego") (wycofywanie)|Aparat rozpoznawania pisma odręcznego pozwala rozpoznawać i analizować dane cyfrowego pociągnięć odręcznych, kształtów i zawartości napisanej ręcznie, a następnie wyprowadzać strukturę dokumentu ze wszystkimi rozpoznanymi obiektami.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer umożliwia wyodrębnienie szczegółowych informacji z filmu wideo.|
 
 ## <a name="speech-apis"></a>Interfejsy API mowy
 
@@ -63,7 +63,7 @@ Chcesz zobaczyć, co nowego i Zaktualizowano Cognitive Services dokumentacji? Za
 |:-----------|:------------------|
 |[Wyszukiwanie wiadomości (Bing)](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "Wyszukiwanie wiadomości (Bing)")|Wyszukiwanie wiadomości Bing zwraca listę artykułów z wiadomościami ustalonych jako istotne dla zapytania użytkownika.|
 |[Wyszukiwanie klipów wideo w usłudze Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "Wyszukiwanie klipów wideo w usłudze Bing")|Wyszukiwanie wideo Bing zwraca listę filmów wideo, które zostały określone jako istotne dla zapytania użytkownika.|
-|[Wyszukiwanie w sieci Web (Bing)](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Wyszukiwanie w sieci Web (Bing)")|Wyszukiwanie w sieci Web Bing zwraca listę wyników wyszukiwania, które zostały uznane za istotne dla zapytania użytkownika.|
+|[Wyszukiwanie w Internecie Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/ "Wyszukiwanie w Internecie Bing")|Wyszukiwanie w sieci Web Bing zwraca listę wyników wyszukiwania, które zostały uznane za istotne dla zapytania użytkownika.|
 |[Automatyczne sugerowanie Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest "Automatyczne sugerowanie Bing")|Automatyczne sugerowanie Bing umożliwia wysłanie terminu zapytania wyszukiwania częściowego do usługi Bing i odwracanie listy sugerowanych zapytań.|
 |[Wyszukiwanie niestandardowe Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search "Wyszukiwanie niestandardowe Bing")|Wyszukiwanie niestandardowe Bing umożliwia tworzenie dostosowanych środowisk wyszukiwania dla tematów, które Cię interesują.|
 |[Wyszukiwanie jednostek Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Wyszukiwanie jednostek Bing")|Wyszukiwanie jednostek Bing zwraca informacje o jednostkach, które są określane przez usługę Bing, w odniesieniu do zapytania użytkownika.|

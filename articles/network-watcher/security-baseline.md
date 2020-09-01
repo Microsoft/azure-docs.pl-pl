@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a4cba847610ab7d6119c04f9e3b1c32a192d6c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f50310b8494b65ff8e9170d333d7c3e70c82ded
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85256000"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071520"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Podstawa zabezpieczeń platformy Azure dla Network Watcher
 
@@ -234,9 +234,9 @@ Network Watcher powinna być włączona
 
 **Wskazówki**: przechowywanie spisu kont użytkowników, które mają dostęp administracyjny do płaszczyzny kontroli (np. Azure Portal) Network Watcher platformy Azure. Aby można było korzystać z funkcji Network Watcher, konto, które logujesz się do platformy Azure, musi być przypisane do wbudowanych ról współautor, współautor lub sieci lub przypisane do roli niestandardowej przypisanej do określonych funkcji Network Watcher.
 
-Aby skonfigurować kontrolę dostępu opartą na rolach (RBAC), można użyć okienka tożsamości i kontroli dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory.
+Za pomocą okienka tożsamość i kontrola dostępu (IAM) w Azure Portal subskrypcji możesz skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC). Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory.
 
-* [Zrozumienie RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Opis kontroli RBAC platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Uprawnienia kontroli dostępu opartej na rolach wymagane do korzystania z funkcji Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
@@ -443,15 +443,15 @@ Proces ten można usprawnić, tworząc ustawienia diagnostyczne dla kont użytko
 
 **Odpowiedzialność**: nie dotyczy
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: stosowanie kontroli dostępu opartej na rolach w celu kontrolowania dostępu do zasobów
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: korzystanie z usługi Azure RBAC do kontrolowania dostępu do zasobów
 
-**Wskazówki**: Aby skonfigurować kontrolę dostępu opartą na ROLACH (RBAC), możesz użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal dla subskrypcji. Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
+**Wskazówki**: możesz użyć okienka kontrola tożsamości i dostępu (IAM) w Azure Portal subskrypcji, aby skonfigurować kontrolę dostępu opartą na rolach (Azure RBAC). Role są stosowane do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych w Active Directory. Można używać wbudowanych ról lub ról niestandardowych dla użytkowników indywidualnych i grup.
 
 Aby można było korzystać z funkcji Network Watcher, konto, które logujesz się do platformy Azure, musi być przypisane do wbudowanych ról współautor, współautor lub sieci lub przypisane do roli niestandardowej przypisanej do określonych funkcji Network Watcher.
 
-* [Jak skonfigurować RBAC na platformie Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Jak skonfigurować usługę Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Opis uprawnień RBAC w Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Informacje o uprawnieniach usługi Azure RBAC w Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

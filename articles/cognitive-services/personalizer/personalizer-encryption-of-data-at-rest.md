@@ -1,20 +1,20 @@
 ---
 title: Szyfrowanie usługi dla danych w spoczynku
 titleSuffix: Azure Cognitive Services
-description: Usługa personalizacji — szyfrowanie danych magazynowanych.
+description: Firma Microsoft oferuje klucze szyfrowania zarządzane przez firmę Microsoft, a także umożliwia zarządzanie subskrypcjami Cognitive Services przy użyciu własnych kluczy nazywanych kluczami zarządzanymi przez klienta (CMK). W tym artykule opisano szyfrowanie danych przechowywane dla narzędzia Personalizacja oraz sposób włączania CMK i zarządzania nim.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 10eb627a340b45c93b2cfb2973e294d8d5d7c7e5
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: a19f0a204bec1c0a43a84d93c2dc4b70ef6ecbe6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307830"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069916"
 ---
 # <a name="personalizer-service-encryption-of-data-at-rest"></a>Szyfrowanie usługi dla danych w spoczynku
 
@@ -24,8 +24,6 @@ Usługa personalizacji automatycznie szyfruje dane po utrwaleniu jej w chmurze. 
 
 > [!IMPORTANT]
 > Klucze zarządzane przez klienta są dostępne tylko w warstwie cenowej E0. Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij [formularz żądania klucza zarządzanego przez klienta usługi personalizacji](https://aka.ms/cogsvc-cmk). Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK z usługą Personalizujer należy utworzyć nowy zasób narzędzia Personalizacja i wybrać pozycję E0 jako warstwę cenową. Po utworzeniu zasobu personalizacji z warstwą cenową E0 można użyć Azure Key Vault, aby skonfigurować swoją tożsamość zarządzaną.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

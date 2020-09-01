@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 883d0afac5623838e9dde068964b36cfe3b44380
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b9d5a9e071cc1b2ac81e8cacea8c974181fbb3b6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281994"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070398"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -254,7 +254,7 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 
 **--ciąg od do do** , opcjonalnie określa kombinację źródłowej lokalizacji docelowej. Na przykład: `LocalBlob` , `BlobLocal` , `LocalBlobFS` .
 
-**--** Pomoc dotycząca kopiowania.
+**--**  Pomoc dotycząca kopiowania.
 
 **--include-po** ciągu Uwzględnij tylko te pliki, które zostały zmodyfikowane w dniu lub po danej dacie/godzinie. Wartość powinna być w formacie ISO8601. Jeśli nie określono strefy czasowej, zakłada się, że wartość należy do lokalnej strefy czasowej maszyny z systemem AzCopy. na przykład `2020-08-19T15:04:00Z` w przypadku czasu UTC lub `2020-08-19` północy (00:00) w lokalnej strefie czasowej. Podobnie jak w przypadku AzCopy 10,5, ta flaga ma zastosowanie tylko do plików, a nie do folderów, dlatego właściwości folderu nie będą kopiowane w przypadku używania tej flagi z `--preserve-smb-info` lub `--preserve-smb-permissions` .
 
@@ -263,6 +263,8 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 **--include-Path** ciąg Uwzględnij tylko te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: `myFolder;myFolder/subDirName/file.pdf` ).
 
 **--ciąg include-Pattern** zawiera tylko te pliki podczas kopiowania. Ta opcja obsługuje symbole wieloznaczne (*). Oddziel pliki przy użyciu `;` .
+
+**--ciąg listy wersji** określa plik, w którym każdy identyfikator wersji jest wymieniony w osobnym wierszu. Upewnij się, że źródło musi wskazywać na pojedynczy obiekt BLOB, a wszystkie identyfikatory wersji określone w pliku używające tej flagi muszą należeć tylko do źródłowego obiektu BLOB. Program AzCopy pobierze określone wersje w udostępnionym folderze docelowym. Aby uzyskać więcej informacji, zobacz [pobieranie poprzednich wersji obiektu BLOB](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: info (wszystkie żądania/odpowiedzi), ostrzeżenie (wolne odpowiedzi), błąd (tylko Nieudane żądania) i brak (bez dzienników wyjściowych). (wartość domyślna `INFO` ). 
 
@@ -302,6 +304,6 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 
 **--Zaufane — ciąg sufiksów firmy Microsoft** określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [azcopy](storage-ref-azcopy.md)
