@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027703"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179407"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
@@ -25,7 +25,7 @@ Aby dostosować środowisko użytkownika końcowego dla usługi Azure Multi-Fact
 
 Następujące ustawienia usługi Azure Multi-Factor Authentication są dostępne w Azure Portal:
 
-| Cechy | Opis |
+| Cecha | Opis |
 | ------- | ----------- |
 | [Blokada konta](#account-lockout) | Tymczasowo Blokuj konta z używania platformy Azure Multi-Factor Authentication, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
 | [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Zablokuj określonym użytkownikom możliwość otrzymywania żądań Multi-Factor Authentication platformy Azure. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają Zablokowani przez 90 dni od momentu ich zablokowania lub ręcznie odblokowany. |
@@ -200,7 +200,7 @@ Następujące przykładowe skrypty mogą służyć do tworzenia własnych niesta
 | Potwierdzenie oszustwa | Przesłano alert oszustwa. Aby odblokować konto, skontaktuj się z działem pomocy technicznej IT w Twojej firmie. |
 | Pozdrowienie oszustwa (standard) | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. Jeśli weryfikacja nie została zainicjowana, ktoś może próbować uzyskać dostęp do Twojego konta. Naciśnij zero funta, aby przesłać alert oszustwa. Spowoduje to powiadomienie zespołu IT firmy i zablokowanie dalszych prób weryfikacji. |
 | Zgłoszono oszustwo informujące o przesłaniu alertu oszustwa. | Aby odblokować konto, skontaktuj się z działem pomocy technicznej IT w Twojej firmie. |
-| Uaktywnienie | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
+| Aktywacja | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
 | Ponowienie próby uwierzytelnienia | Odmowa weryfikacji. |
 | Ponów próbę (standard) | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
 | Greetings (standard) | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
@@ -220,7 +220,7 @@ Aby użyć własnych wiadomości niestandardowych, wykonaj następujące czynno�
 
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **MFA**  >  **ustawień połączenia telefonicznego**usługi MFA.
 1. Wybierz pozycję **Dodaj powitanie**.
-1. Wybierz **Typ** powitania, takie jak *Greeting (standard)* lub *uwierzytelnianie pomyślne*.
+1. Wybierz **Typ** powitania, takie jak *Greeting (standard)* lub  *uwierzytelnianie pomyślne*.
 1. Wybierz **Język**na podstawie poprzedniej sekcji w temacie [niestandardowe zachowanie języka komunikatów](#custom-message-language-behavior).
 1. Wyszukaj i wybierz plik dźwiękowy *MP3* lub *WAV* , który ma zostać przekazany.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Dodaj**, a następnie **Zapisz**.
@@ -242,12 +242,9 @@ Funkcja _Zaufane adresy IP_ w usłudze Azure Multi-Factor Authentication pomija 
 
 Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwierzytelniania MFA w aplikacjach lokalnych, należy zauważyć, że źródłowy adres IP zawsze będzie serwerem NPS, za pomocą którego nastąpi próba uwierzytelnienia.
 
-| Typ dzierżawy usługi Azure AD | Opcje funkcji zaufanego adresu IP |
-|:--- |:--- |
-| Zarządzani |**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP.|
-| Federacyjni |**Wszyscy użytkownicy zafederacyjnych**: Wszyscy użytkownicy federacyjne, którzy logują się z wewnątrz organizacji, mogą ominąć weryfikację dwuetapową. Użytkownicy pomijają weryfikację przy użyciu roszczeń wydawanych przez Active Directory Federation Services (AD FS).<br/>**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą pomijać weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. |
+| Typ dzierżawy usługi Azure AD | Opcje funkcji zaufanego adresu IP | |:---|:---| dwa kroki | Zarządzane | **Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. Można skonfigurować maksymalnie 50 zaufanych zakresów adresów IP. | | Federacyjne | **Wszyscy użytkownicy federacyjne**: Wszyscy użytkownicy zarejestrowani z wewnątrz organizacji mogą ominąć uwierzytelnianie wieloskładnikowe. Użytkownicy pomijają weryfikację przy użyciu roszczeń wydawanych przez Active Directory Federation Services (AD FS).<br/>**Określony zakres adresów IP**: Administratorzy określają zakres adresów IP, które mogą ominąć uwierzytelnianie wieloskładnikowe dla użytkowników logujących się z firmowej sieci intranet. |
 
-Obejście zaufanego adresu IP działa tylko w intranecie firmy. W przypadku wybrania opcji **Wszyscy użytkownicy Federacji** , a użytkownik loguje się spoza firmowej sieci intranet, użytkownik musi uwierzytelnić się przy użyciu weryfikacji dwuetapowej. Ten proces jest taki sam, nawet jeśli użytkownik prezentuje AD FS.
+Obejście zaufanego adresu IP działa tylko w intranecie firmy. W przypadku wybrania opcji **Wszyscy użytkownicy Federacji** , a użytkownik loguje się spoza firmowej sieci intranet, użytkownik musi uwierzytelnić się przy użyciu uwierzytelniania wieloskładnikowego. Ten proces jest taki sam, nawet jeśli użytkownik prezentuje AD FS.
 
 ### <a name="end-user-experience-inside-of-corpnet"></a>Środowisko użytkownika końcowego w sieci firmowej
 
@@ -268,7 +265,7 @@ Za pomocą reguł dostępu warunkowego można definiować nazwane lokalizacje, w
 1. Wprowadź nazwę lokalizacji.
 1. Wybierz pozycję **Oznacz jako zaufaną lokalizację**.
 1. Wprowadź zakres adresów IP w notacji CIDR dla danego środowiska, na przykład *40.77.182.32/27*.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego
 
@@ -278,14 +275,14 @@ Aby włączyć Zaufane adresy IP przy użyciu zasad dostępu warunkowego, wykona
 1. Wybierz pozycję **Konfiguruj Zaufane adresy IP usługi MFA**.
 1. Na stronie **Ustawienia usługi** w obszarze **Zaufane adresy IP**wybierz jedną z następujących dwóch opcji:
 
-   * **W przypadku żądań od użytkowników federacyjnych pochodzących z mojego intranetu**: aby wybrać tę opcję, zaznacz to pole wyboru. Wszyscy użytkownicy federacyjne, którzy logują się z sieci firmowej, pomijają weryfikację dwuetapową przy użyciu roszczeń wydawanych przez AD FS. Upewnij się, że AD FS ma regułę umożliwiającą dodanie do odpowiedniego ruchu w intranecie. Jeśli reguła nie istnieje, Utwórz następującą regułę w AD FS:
+   * **W przypadku żądań od użytkowników federacyjnych pochodzących z mojego intranetu**: aby wybrać tę opcję, zaznacz to pole wyboru. Wszyscy użytkownicy federacyjne, którzy logują się z sieci firmowej, pomijają uwierzytelnianie wieloskładnikowe przy użyciu roszczeń wystawionych przez AD FS. Upewnij się, że AD FS ma regułę umożliwiającą dodanie do odpowiedniego ruchu w intranecie. Jeśli reguła nie istnieje, Utwórz następującą regułę w AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **W przypadku żądań z określonego zakresu publicznych adresów IP**: aby wybrać tę opcję, wprowadź adresy IP w polu tekstowym przy użyciu notacji CIDR.
       * W przypadku adresów IP, które znajdują się w zakresie od xxx. xxx. xxx. 1 do xxx. xxx. xxx. 254, użyj notacji, takiej jak **xxx. xxx. xxx. 0/24**.
       * Dla pojedynczego adresu IP należy użyć notacji, takiej jak **xxx.xxx.xxx.xxx/32**.
-      * Wprowadź maksymalnie 50 zakresów adresów IP. Użytkownicy logujący się z tych adresów IP pomijają weryfikację dwuetapową.
+      * Wprowadź maksymalnie 50 zakresów adresów IP. Użytkownicy logujący się z tych adresów IP pomijają uwierzytelnianie wieloskładnikowe.
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -298,20 +295,20 @@ Jeśli nie chcesz używać zasad dostępu warunkowego do włączania zaufanych a
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
 1. Na stronie **Ustawienia usługi** w obszarze **Zaufane adresy IP**wybierz jedną z następujących opcji:
 
-   * **W przypadku żądań od użytkowników federacyjnych w moim intranecie**: aby wybrać tę opcję, zaznacz pole wyboru. Wszyscy użytkownicy federacyjne, którzy logują się z sieci firmowej, pomijają weryfikację dwuetapową przy użyciu roszczeń wydawanych przez AD FS. Upewnij się, że AD FS ma regułę umożliwiającą dodanie do odpowiedniego ruchu w intranecie. Jeśli reguła nie istnieje, Utwórz następującą regułę w AD FS:
+   * **W przypadku żądań od użytkowników federacyjnych w moim intranecie**: aby wybrać tę opcję, zaznacz pole wyboru. Wszyscy użytkownicy federacyjne, którzy logują się z sieci firmowej, pomijają uwierzytelnianie wieloskładnikowe przy użyciu roszczeń wystawionych przez AD FS. Upewnij się, że AD FS ma regułę umożliwiającą dodanie do odpowiedniego ruchu w intranecie. Jeśli reguła nie istnieje, Utwórz następującą regułę w AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **W przypadku żądań z określonego zakresu podsieci adresów IP**: aby wybrać tę opcję, wprowadź adresy IP w polu tekstowym przy użyciu notacji CIDR.
       * W przypadku adresów IP, które znajdują się w zakresie od xxx. xxx. xxx. 1 do xxx. xxx. xxx. 254, użyj notacji, takiej jak **xxx. xxx. xxx. 0/24**.
       * Dla pojedynczego adresu IP należy użyć notacji, takiej jak **xxx.xxx.xxx.xxx/32**.
-      * Wprowadź maksymalnie 50 zakresów adresów IP. Użytkownicy logujący się z tych adresów IP pomijają weryfikację dwuetapową.
+      * Wprowadź maksymalnie 50 zakresów adresów IP. Użytkownicy logujący się z tych adresów IP pomijają uwierzytelnianie wieloskładnikowe.
 
 1. Wybierz pozycję **Zapisz**.
 
 ## <a name="verification-methods"></a>Metody weryfikacji
 
-Możesz wybrać metody weryfikacji, które są dostępne dla użytkowników w portalu ustawień usługi. Gdy użytkownicy rejestrują swoje konta dla usługi Azure Multi-Factor Authentication, wybierają ich preferowaną metodę weryfikacji z opcji, które zostały włączone. Wskazówki dotyczące procesu rejestracji użytkownika znajdują się w [sekcji Konfigurowanie mojego konta na potrzeby weryfikacji dwuetapowej](../user-help/multi-factor-authentication-end-user-first-time.md).
+Możesz wybrać metody weryfikacji, które są dostępne dla użytkowników w portalu ustawień usługi. Gdy użytkownicy rejestrują swoje konta dla usługi Azure Multi-Factor Authentication, wybierają ich preferowaną metodę weryfikacji z opcji, które zostały włączone. Wskazówki dotyczące procesu rejestracji użytkownika znajdują się w [sekcji Konfigurowanie mojego konta do uwierzytelniania wieloskładnikowego](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Dostępne są następujące metody weryfikacji:
 
@@ -336,25 +333,25 @@ Aby włączyć lub wyłączyć metody weryfikacyjne, wykonaj następujące czynn
 
 ## <a name="remember-multi-factor-authentication"></a>Pamiętaj Multi-Factor Authentication
 
-Funkcja _pamiętaj Multi-Factor Authentication_ umożliwia użytkownikom ominięcie kolejnych weryfikacji przez określoną liczbę dni po pomyślnym zalogowaniu się na urządzeniu przy użyciu Multi-Factor Authentication. Funkcja rozszerza użyteczność, minimalizując liczbę przypadków, w których użytkownik musi wykonywać uwierzytelnianie wieloskładnikowe na tym samym urządzeniu.
+Funkcja _pamiętaj Multi-Factor Authentication_ umożliwia użytkownikom ominięcie kolejnych weryfikacji przez określoną liczbę dni po pomyślnym zalogowaniu się na urządzeniu przy użyciu Multi-Factor Authentication. Aby zwiększyć użyteczność i zminimalizować liczbę przypadków, w których użytkownik musi wykonywać uwierzytelnianie wieloskładnikowe na tym samym urządzeniu, wybierz czas trwania wynoszący 90 dni lub więcej.
 
 > [!IMPORTANT]
 > W przypadku naruszenia zabezpieczeń konta lub urządzenia zapamiętanie Multi-Factor Authentication dla zaufanych urządzeń może wpłynąć na bezpieczeństwo. Jeśli konto firmowe zostanie złamane lub zostanie utracone lub skradzione, należy [odwołać sesje MFA](howto-mfa-userdevicesettings.md).
 >
-> Akcja Przywróć odwołuje stan zaufany ze wszystkich urządzeń, a użytkownik musi wykonać weryfikację dwuetapową ponownie. Możesz również poinstruować użytkowników, aby mogli przywrócić Multi-Factor Authentication na swoich urządzeniach, jak to zanotowano w [sekcji Zarządzanie ustawieniami weryfikacji dwuetapowej](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> Akcja Przywróć odwołuje stan zaufany ze wszystkich urządzeń, a użytkownik musi ponownie wykonać uwierzytelnianie wieloskładnikowe. Możesz również poinstruować użytkowników, aby mogli przywrócić Multi-Factor Authentication na swoich urządzeniach, jak to zanotowano w temacie [Zarządzanie ustawieniami uwierzytelniania wieloskładnikowego](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Jak działa funkcja
 
 Funkcja Pamiętaj Multi-Factor Authentication ustawia trwały plik cookie w przeglądarce, gdy użytkownik wybierze opcję **nie Monituj ponownie dla X dni** podczas logowania. Użytkownik nie będzie ponownie monitowany o Multi-Factor Authentication z tej samej przeglądarki, dopóki plik cookie nie wygaśnie. Jeśli użytkownik otworzy inną przeglądarkę na tym samym urządzeniu lub wyczyści pliki cookie, zostanie ponownie wyświetlony monit o zweryfikowanie.
 
-Opcja **nie Monituj ponownie dla X dni** nie jest wyświetlana w aplikacjach bez przeglądarki, niezależnie od tego, czy aplikacja obsługuje nowoczesne uwierzytelnianie. Te aplikacje używają _tokenów odświeżania_ , które udostępniają nowe tokeny dostępu co godzinę. Po sprawdzeniu poprawności tokenu odświeżania usługa Azure AD sprawdza, czy Ostatnia weryfikacja dwuetapowa wystąpiła w ciągu określonej liczby dni.
+Opcja **nie Monituj ponownie dla X dni** nie jest wyświetlana w aplikacjach bez przeglądarki, niezależnie od tego, czy aplikacja obsługuje nowoczesne uwierzytelnianie. Te aplikacje używają _tokenów odświeżania_ , które udostępniają nowe tokeny dostępu co godzinę. Po sprawdzeniu poprawności tokenu odświeżania usługa Azure AD sprawdza, czy ostatnie uwierzytelnianie wieloskładnikowe wystąpiło w ciągu określonej liczby dni.
 
-Funkcja zmniejsza liczbę uwierzytelnień w aplikacjach sieci Web, które zwykle monitują się za każdym razem. Ta funkcja zwiększa liczbę uwierzytelnień dla nowoczesnych klientów uwierzytelniania, które zwykle monitują co 90 dni. Może również zwiększyć liczbę uwierzytelnień w połączeniu z zasadami dostępu warunkowego.
+Funkcja zmniejsza liczbę uwierzytelnień w aplikacjach sieci Web, które zwykle monitują się za każdym razem. Funkcja ta może zwiększyć liczbę uwierzytelnień dla nowoczesnych klientów uwierzytelniania, które zwykle monitują co 90 dni, w przypadku skonfigurowania mniejszego czasu trwania. Może również zwiększyć liczbę uwierzytelnień w połączeniu z zasadami dostępu warunkowego.
 
 > [!IMPORTANT]
-> Funkcja **pamiętaj Multi-Factor Authentication** nie jest zgodna z funkcją **Keep ja in in** AD FS, gdy użytkownicy wykonują weryfikację dwuetapową dla AD FS za pomocą usługi Azure serwer Multi-Factor Authentication lub rozwiązania do uwierzytelniania wieloskładnikowego innej firmy.
+> Funkcja **pamiętaj Multi-Factor Authentication** nie jest zgodna z funkcją **Keep ja in in** AD FS, gdy użytkownicy wykonują uwierzytelnianie wieloskładnikowe w przypadku AD FS za pomocą usługi Azure serwer Multi-Factor Authentication lub rozwiązania do uwierzytelniania wieloskładnikowego innej firmy.
 >
-> Jeśli użytkownik wybierze opcję Nie wylogowuj **mnie** na AD FS, a także oznaczy urządzenie jako zaufane dla Multi-Factor Authentication, użytkownik nie zostanie automatycznie zweryfikowany po upływie następującej liczby dni dla opcji **Zapamiętaj uwierzytelnianie wieloskładnikowe** . Usługa Azure AD żąda nowej weryfikacji dwuetapowej, ale AD FS zwraca token z pierwotnym Multi-Factor Authenticationm i datą, a nie ponownie wykonuje weryfikacji dwuetapowej. **Ta reakcja ustawia pętlę weryfikacji między usługą Azure AD a AD FS.**
+> Jeśli użytkownik wybierze opcję Nie wylogowuj **mnie** na AD FS, a także oznaczy urządzenie jako zaufane dla Multi-Factor Authentication, użytkownik nie zostanie automatycznie zweryfikowany po upływie następującej liczby dni dla opcji **Zapamiętaj uwierzytelnianie wieloskładnikowe** . Usługa Azure AD żąda od nowego uwierzytelniania wieloskładnikowego, ale AD FS zwraca token z pierwotnym Multi-Factor Authenticationm i datą, zamiast przeprowadzać ponowne uwierzytelnianie wieloskładnikowe. **Ta reakcja ustawia pętlę weryfikacji między usługą Azure AD a AD FS.**
 >
 > Funkcja **pamiętaj Multi-Factor Authentication** nie jest zgodna z użytkownikami B2B i nie będzie widoczna dla użytkowników B2B podczas logowania się do zaproszonych dzierżawców.
 >
@@ -366,8 +363,8 @@ Aby włączyć i skonfigurować opcję dla użytkowników, którzy będą pamię
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy**.
 1. Wybierz pozycję **Multi-Factor Authentication**.
 1. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
-1. Na stronie **Ustawienia usługi** **Zarządzaj Zapamiętaj uwierzytelnianie wieloskładnikowe**, wybierz opcję **Zezwalaj użytkownikom na zapamiętywanie uwierzytelniania wieloskładnikowego na urządzeniach, które ufają** .
-1. Ustaw liczbę dni, przez które zaufane urządzenia mogą pomijać weryfikację dwuetapową. Wartość domyślna to 14 dni.
+1. Na stronie **Ustawienia usługi** w obszarze **Zapamiętaj uwierzytelnianie wieloskładnikowe**wybierz opcję **Zezwalaj użytkownikom na zapamiętywanie uwierzytelniania wieloskładnikowego na urządzeniach, które ufają** .
+1. Ustaw liczbę dni, przez które zaufane urządzenia mają obejść uwierzytelnianie wieloskładnikowe. Aby zapewnić optymalne środowisko użytkownika, należy zwiększyć czas trwania do *90* lub więcej dni.
 1. Wybierz pozycję **Zapisz**.
 
 ### <a name="mark-a-device-as-trusted"></a>Oznacz urządzenie jako zaufane

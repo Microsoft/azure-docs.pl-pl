@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 673bd211f3271eceacb18e7fabfcc6ace2ded42c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 36d331de3a93e04932c4bce4d14704b33f69fab6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088058"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181548"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Samouczek: Konfigurowanie sieci dla Azure Stack krawędzi z procesorem GPU
 
@@ -84,7 +84,7 @@ Wykonaj następujące kroki, aby skonfigurować sieć dla urządzenia.
      >[!NOTE]
      >
      > * Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznej do protokół DHCP;, chyba że masz inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączania do usługi DHCP nie byłoby możliwe określenie adresu DHCP. Jeśli chcesz zmienić adres DHCP, zaczekaj, aż po aktywowaniu urządzenia za pomocą usługi, a następnie Zmień. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
-     > * W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu brzegowym Azure Stack, zalecamy skonfigurowanie uwierzytelniania serwera proxy sieci Web jako **none**. Uwierzytelnianie NTLM nie jest obsługiwane.
+
 
     Po skonfigurowaniu i zastosowaniu ustawień sieci Wróć do pozycji **wprowadzenie**.
 
@@ -120,7 +120,11 @@ Wykonaj następujące kroki, aby włączyć obliczenia i skonfigurować sieć ob
 
 Jest to opcjonalna konfiguracja.
 
-1. Przejdź do strony wprowadzenie w lokalnym interfejsie użytkownika sieci Web urządzenia.
+> [!IMPORTANT]
+> * W przypadku włączenia modułu obliczeniowego i używania IoT Edge na urządzeniu brzegowym Azure Stack, zalecamy skonfigurowanie uwierzytelniania serwera proxy sieci Web jako **none**. Uwierzytelnianie NTLM nie jest obsługiwane.
+>* Pliki proxy-autoconfig (PAC) nie są obsługiwane. Plik PAC definiuje, w jaki sposób przeglądarki sieci Web i inni agenci użytkowników mogą automatycznie wybierać odpowiedni serwer proxy (metoda dostępu) do pobierania danego adresu URL. Serwery proxy próbujące przechwycić i odczytać cały ruch (a następnie ponownie podpisać wszystko z własnymi certyfikatami) nie są zgodne, ponieważ certyfikat serwera proxy nie jest zaufany. Zazwyczaj przezroczyste serwery proxy działają dobrze z Azure Stack Edge. Nieprzezroczyste proxy sieci Web nie są obsługiwane.
+
+1. Przejdź do strony **wprowadzenie** w lokalnym interfejsie użytkownika sieci Web urządzenia.
 2. Na kafelku **Sieć** Skonfiguruj ustawienia serwera proxy sieci Web. Mimo że konfiguracja serwera proxy sieci Web jest opcjonalna, jeśli używasz serwera proxy sieci Web, możesz go skonfigurować tylko na tej stronie.
 
    ![Strona lokalnego interfejsu użytkownika sieci Web — ustawienia serwera proxy sieci Web](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-1.png)

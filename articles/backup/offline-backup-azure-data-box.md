@@ -3,12 +3,12 @@ title: Kopia zapasowa offline przy użyciu Azure Data Box
 description: Dowiedz się, w jaki sposób można użyć Azure Data Box, aby wypełniać duże dane początkowej kopii zapasowej w trybie offline z agenta MARS do magazynu Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761563"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180936"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup kopii zapasowej offline przy użyciu Azure Data Box
 
@@ -195,7 +195,7 @@ Aby mieć pewność, że urządzenie urządzenie Data Box można zainstalować j
 
     ![Pobierz zadania urządzenie Data Box dla identyfikatora subskrypcji](./media/offline-backup-azure-data-box/fetching-databox-jobs.png)
 
-1. Wybierz poprawną kolejność urządzenie Data Box, dla której masz rozpakowane, połączono i odblokowano dysk urządzenie Data Box. Wybierz pozycję **Dalej**.
+1. Wybierz poprawną kolejność urządzenie Data Box, dla której zostało rozpakowane, połączone i odblokowane urządzenie Data Box dysku. Wybierz pozycję **Dalej**.
 
     ![Wybierz zamówienia urządzenie Data Box](./media/offline-backup-azure-data-box/select-databox-order.png)
 
@@ -310,7 +310,7 @@ Na serwerze, który próbujesz skonfigurować do tworzenia kopii zapasowych w tr
     >- Z poziomu programu PowerShell połączonego z platformą Azure Uruchom `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` polecenie.
     > - Przejdź do ścieżki rejestru `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` o nazwie *CurrentUserId*.
 
-6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Wybierz przycisk **OK**.
+6. Kliknij prawym przyciskiem myszy ciąg dodany w poprzednim kroku, a następnie wybierz polecenie **Modyfikuj**. W polu wartość Podaj odcisk palca certyfikatu wyeksportowanego w kroku 2. Wybierz pozycję **OK**.
 
 7. Aby uzyskać wartość odcisku palca, kliknij dwukrotnie certyfikat. Wybierz kartę **szczegóły** i przewiń w dół do momentu wyświetlenia pola odcisk palca. Wybierz **odcisk palca**i skopiuj wartość.
 

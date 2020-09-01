@@ -1,15 +1,15 @@
 ---
 title: Tworzenie zasad kopii zapasowych przy użyciu interfejsu API REST
-description: W tym artykule przedstawiono sposób tworzenia zasad tworzenia kopii zapasowych i zarządzania nimi (harmonogram i przechowywanie) przy użyciu interfejsu API REST.
+description: W tym artykule dowiesz się, jak tworzyć zasady tworzenia kopii zapasowych i zarządzać nimi (harmonogram i przechowywanie) przy użyciu interfejsu API REST.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 4678c6aaa03d511da35d5efee2b1e75d08546781
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006265"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179610"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Tworzenie zasad usługi Kopia zapasowa Azure Recovery Services przy użyciu interfejsu API REST
 
@@ -260,7 +260,7 @@ Po zakończeniu operacji zwraca 200 (OK) z zawartością zasad w treści odpowie
 
 Jeśli zasady są już używane do ochrony elementu, każda aktualizacja zasad spowoduje [zmodyfikowanie ochrony](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) dla wszystkich takich skojarzonych elementów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Włącz ochronę niechronionej maszyny wirtualnej platformy Azure](backup-azure-arm-userestapi-backupazurevms.md).
 

@@ -94,6 +94,8 @@
       href: configure-automatic-updates.md
     - name: Instalowanie pakietów językowych
       href: language-packs.md
+    - name: Korzystanie z usługi Azure Advisor
+      href: azure-advisor.md
     - name: Stosowanie zaleceń
       href: azure-advisor-recommendations.md
 - name: Pojęcia

@@ -4,12 +4,12 @@ description: Dowiedz się, jak usuwanie nietrwałe może chronić udziały plik�
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282708"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179916"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Przypadkowe usuwanie ochrony udziałów plików platformy Azure przy użyciu Azure Backup
 
@@ -53,7 +53,7 @@ Jeśli masz co najmniej jeden chroniony udział plików na koncie magazynu, ozna
 >Należy wykonać krok 2 przed rozpoczęciem następnego zaplanowanego zadania tworzenia kopii zapasowej w ramach chronionego udziału plików na koncie magazynu. Ponieważ przy każdym uruchomieniu zadania tworzenia kopii zapasowej, umożliwia ono ponowne włączenie usuwania nietrwałego dla wszystkich udziałów plików na koncie magazynu.
 
 >[!WARNING]
->Po wyłączeniu usuwania nietrwałego w kroku 2 wszystkie operacje usuwania wykonane względem udziałów plików są trwałą operacją usuwania. Oznacza to, że jeśli przypadkowo usuniesz udział plików z kopią zapasową po wyłączeniu usuwania nietrwałego, utracisz wszystkie migawki i nie będzie można odzyskać danych.
+>Po wyłączeniu usuwania nietrwałego w kroku 2 wszystkie operacje usuwania wykonane względem udziałów plików są trwałą operacją usuwania. Dlatego jeśli przypadkowo usuniesz udział plików z kopią zapasową po wyłączeniu usuwania nietrwałego, utracisz wszystkie migawki i nie będzie można odzyskać danych.
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>Jakie zmiany są Azure Backup w kontekście ustawienia usuwania nietrwałego udziału plików? czy Wyrejestruj konto magazynu?
 

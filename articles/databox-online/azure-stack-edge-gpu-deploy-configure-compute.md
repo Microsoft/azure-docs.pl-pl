@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 9fd940ec5cfb3eac9d0072c8554ca6bd295a50ec
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8ba460168edc03b1cb491d69010acd03f4a84ae3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088086"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181599"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Samouczek: Konfigurowanie obliczeń na Azure Stack urządzeniach procesora GPU Edge
 
@@ -63,7 +63,7 @@ Aby skonfigurować obliczenia na Azure Stackej krawędzi, utworzysz zasób IoT H
 
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. Wybierz pozycję **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. 
+4. Wybierz przycisk **Utwórz**. Tworzenie zasobów IoT Hub trwa kilka minut. Po utworzeniu zasobu IoT Hub, **Skonfiguruj kafelek Oblicz** aktualizacje, aby pokazać konfigurację obliczeń. 
 
     ![Wprowadzenie do obliczeń](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
@@ -80,7 +80,7 @@ Skonfigurowanie obliczeń może potrwać 20-30 minut, ponieważ w tle są tworzo
 
 Po pomyślnym skonfigurowaniu obliczeń w Azure Portal jest klaster Kubernetes i domyślny użytkownik skojarzony z przestrzenią nazw IoT (systemowa przestrzeń nazw kontrolowana przez Azure Stack Edge) istnieje. 
 
-## <a name="get-kubernetes-api-endpoint"></a>Pobierz punkt końcowy interfejsu API Kubernetes
+## <a name="get-kubernetes-endpoints"></a>Pobierz punkty końcowe Kubernetes
 
 Aby skonfigurować klienta do uzyskiwania dostępu do klastra Kubernetes, wymagany jest punkt końcowy Kubernetes. Wykonaj następujące kroki, aby uzyskać punkt końcowy interfejsu API Kubernetes z lokalnego interfejsu użytkownika urządzenia brzegowego Azure Stack.
 
@@ -91,13 +91,21 @@ Aby skonfigurować klienta do uzyskiwania dostępu do klastra Kubernetes, wymaga
 
 3. Zapisz ciąg punktu końcowego. Będzie on używany później podczas konfigurowania klienta do uzyskiwania dostępu do klastra Kubernetes za pośrednictwem polecenia kubectl.
 
-4. Gdy jesteś w lokalnym interfejsie użytkownika sieci Web, wybierz pozycję **Ustawienia zaawansowane** i Pobierz plik konfiguracji. 
+4. Gdy jesteś w lokalnym interfejsie użytkownika sieci Web, możesz:
 
-    ![Strona urządzenia w lokalnym interfejsie użytkownika](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-1.png)
+    - Przejdź do interfejsu API Kubernetes, wybierz pozycję **Ustawienia zaawansowane** i Pobierz zaawansowany plik konfiguracji dla Kubernetes. 
 
-    Jeśli podano klucz od firmy Microsoft (wybierz opcję Użytkownicy mogą mieć ten element), możesz użyć tego pliku konfiguracji.
+        ![Strona urządzenia w lokalnym interfejsie użytkownika 1](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 
-    ![Strona urządzenia w lokalnym interfejsie użytkownika](./media/azure-stack-edge-j-series-create-kubernetes-cluster/advanced-config-2.png)
+        Jeśli podano klucz od firmy Microsoft (wybierz opcję Użytkownicy mogą mieć ten element), możesz użyć tego pliku konfiguracji.
+
+        ![Strona urządzenia w lokalnym interfejsie użytkownika 2](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-2.png)
+
+    - Możesz również przejść do punktu końcowego **pulpitu nawigacyjnego Kubernetes** i pobrać `aseuser` plik konfiguracji. 
+    
+        ![Strona urządzenia w lokalnym interfejsie użytkownika 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
+
+        `aseuser`Plik konfiguracji umożliwia debugowanie wszelkich problemów związanych z `iotedge` przestrzenią nazw w klastrze Kubernetes. Aby uzyskać więcej informacji, zobacz [debugowanie Kubernetes problemy](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge). 
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -106,7 +114,7 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
-> * Pobierz punkt końcowy interfejsu API Kubernetes
+> * Pobierz punkty końcowe Kubernetes
 
 
 Aby dowiedzieć się, jak administrować urządzeniem brzegowym Azure Stack, zobacz:

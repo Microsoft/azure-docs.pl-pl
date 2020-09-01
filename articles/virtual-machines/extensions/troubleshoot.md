@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 2fa87e860d0f5f5117840b9e230e383cdd6aae7c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ad3197f20428ec751b4e3520af72dc5f8eb9ad28
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187561"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180359"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Rozwiązywanie problemów z błędami rozszerzenia maszyny wirtualnej systemu Windows Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -63,6 +63,7 @@ Extensions:  {
 ```
 
 ## <a name="troubleshooting-extension-failures"></a>Rozwiązywanie problemów z błędami rozszerzeń
+
 ### <a name="rerun-the-extension-on-the-vm"></a>Uruchom ponownie rozszerzenie na maszynie wirtualnej
 W przypadku uruchamiania skryptów na maszynie wirtualnej przy użyciu rozszerzenia niestandardowego skryptu można czasami uruchomić polecenie w przypadku, gdy maszyna wirtualna została utworzona pomyślnie, ale skrypt nie powiódł się. W tych warunkach zalecany sposób odzyskania po tym błędzie polega na usunięciu rozszerzenia i ponownym uruchomieniu szablonu.
 Uwaga: w przyszłości ta funkcja zostanie rozszerzona w celu usunięcia konieczności odinstalowania rozszerzenia.
@@ -74,3 +75,28 @@ Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomS
 
 Po usunięciu rozszerzenia można ponownie wykonać szablon w celu uruchomienia skryptów na maszynie wirtualnej.
 
+### <a name="trigger-a-new-goalstate-to-the-vm"></a>Wyzwalanie nowego GoalState na maszynie wirtualnej
+Można zauważyć, że rozszerzenie nie zostało wykonane lub kończy się niepowodzeniem z powodu braku "generatora certyfikatów CRP systemu Windows Azure" (ten certyfikat jest używany do zabezpieczenia transportu ustawień chronionych przez rozszerzenie).
+Ten certyfikat zostanie automatycznie wygenerowany ponownie przez ponowne uruchomienie agenta gościa systemu Windows od wewnątrz maszyny wirtualnej:
+- Otwórz Menedżera zadań
+- Przejdź do karty szczegóły
+- Lokalizowanie procesu WindowsAzureGuestAgent.exe
+- Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję "Zakończ zadanie". Proces zostanie automatycznie uruchomiony ponownie
+
+
+Możesz również wyzwolić nowe GoalState do maszyny wirtualnej, wykonując "pustą aktualizację":
+
+Azure PowerShell:
+
+```azurepowershell
+$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
+Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+```
+
+Interfejs wiersza polecenia platformy Azure:
+
+```azurecli
+az vm update -g <rgname> -n <vmname>
+```
+
+Jeśli "pusta aktualizacja" nie zadziałała, można dodać nowy pusty dysk danych do maszyny wirtualnej z usługi Azure portal zarządzania, a następnie usunąć go później po dodaniu certyfikatu.

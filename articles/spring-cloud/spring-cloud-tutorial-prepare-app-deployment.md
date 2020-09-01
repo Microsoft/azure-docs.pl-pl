@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1261e36c782068844712908e62a72b77d34ba5af
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ff797f8b6fd375a940f77b4e0400bcb7a74450c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046735"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179763"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
@@ -21,8 +21,8 @@ W tym temacie przedstawiono sposób przygotowania istniejącej aplikacji ze spr�
 Przed uruchomieniem tego przykładu możesz skorzystać z [podstawowego przewodnika Szybki Start](spring-cloud-quickstart.md).
 
 Inne przykłady wyjaśniają sposób wdrażania aplikacji w chmurze Azure sprężynowej po skonfigurowaniu pliku pliku pom. 
-* [Uruchom aplikację przy użyciu Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
-* [Uruchamianie aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md)
+* [Uruchamianie pierwszej aplikacji](spring-cloud-quickstart.md)
+* [Kompilowanie i uruchamianie mikrousług](spring-cloud-quickstart-sample-app-introduction.md)
 
 W tym artykule opisano wymagane zależności oraz sposób ich dodawania do pliku pliku pom.
 
@@ -41,7 +41,7 @@ Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprę
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
 2.1 | Greenwich. RELEASE
-2,2 | Hoxton. RELEASE
+2.2 | Hoxton. RELEASE
 2.3 | Hoxton.SR5
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
@@ -129,7 +129,7 @@ W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla a
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja chmury wiosennej platformy Azure
 ---|---|---
 2.1 | Greenwich. RELEASE | 2.1
-2,2 | Hoxton. RELEASE | 2,2
+2.2 | Hoxton. RELEASE | 2.2
 2.3 | Hoxton.SR5 | 2.3
 
 Uwzględnij jedną z następujących zależności w pliku pom.xml. Wybierz zależność, której wersja chmury sieci Azure ze sprężyną jest zgodna z własnymi.

@@ -3,12 +3,12 @@ title: Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 description: Skonfiguruj ustawienia diagnostyki Log Analytics dla wszystkich magazynów w danym zakresie przy użyciu Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892239"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179984"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 
@@ -78,7 +78,7 @@ Ponadto, jeśli użytkownik ma magazyn z tylko podzbiorem sześciu zdarzeń spec
 >
 > Jeśli magazyn ma istniejące ustawienie diagnostyczne z **podzbiorem kategorii specyficznych dla zasobów** , które zostały skonfigurowane do wysyłania danych do określonego obszaru roboczego La, powiedz "Workspace x", a następnie zadanie korygowania zakończy się niepowodzeniem (dla danego magazynu), jeśli docelowy obszar roboczy La określony w przypisaniu zasad jest **taki sam jak** "Workspace x".
 >
->Wynika to z faktu, że jeśli zdarzenia włączone przez dwa różne ustawienia diagnostyki tego samego zasobu **nakładają** się na niektóre formy, ustawienia nie mogą mieć tego samego obszaru roboczego La jako miejsca docelowego. Konieczne będzie ręczne rozwiązanie tego błędu, przechodzenie do odpowiedniego magazynu i skonfigurowanie ustawienia diagnostyki z innym obszarem roboczym LA jako miejscem docelowym.
+>Wynika to z faktu, że jeśli zdarzenia włączone przez dwa różne ustawienia diagnostyki tego samego zasobu **nakładają** się na niektóre formy, ustawienia nie mogą mieć tego samego obszaru roboczego La jako miejsca docelowego. Musisz ręcznie rozwiązać ten problem, przechodząc do odpowiedniego magazynu i konfigurując ustawienie diagnostyki z innym obszarem roboczym LA jako miejscem docelowym.
 >
 > Należy pamiętać, że zadanie korygujące **nie** powiedzie się, jeśli istniejące ustawienie diagnostyczne AzureBackupReport włączone z obszarem roboczym X jako miejsce docelowe, ponieważ w tym przypadku nie będzie nakładać się między zdarzeniami włączonymi przez istniejące ustawienie i zdarzeniami włączonymi przez ustawienie utworzone przez zadanie korygowania.
 

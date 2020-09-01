@@ -9,17 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2018
+ms.date: 08/28/2020
 ms.author: rogardle
-ms.openlocfilehash: ca40fcb6a2e483e656058835f187dc50bf7bc9ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb4403747a3681abd6023cdb9b5e62fd50af12c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074071"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179644"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Tworzenie Oracle Database na maszynie wirtualnej platformy Azure
 
@@ -82,7 +82,7 @@ ssh azureuser@<publicIpAddress>
 
 Oprogramowanie Oracle jest już zainstalowane w obrazie portalu Marketplace. Utwórz przykładową bazę danych w następujący sposób. 
 
-1.  Przejdź do administratora firmy *Oracle* , a następnie zainicjuj odbiornik do rejestrowania:
+1.  Przejdź do użytkownika *Oracle* , a następnie uruchom odbiornik Oracle:
 
     ```bash
     $ sudo -su oracle
@@ -116,8 +116,13 @@ Oprogramowanie Oracle jest już zainstalowane w obrazie portalu Marketplace. Utw
     The listener supports no services
     The command completed successfully
     ```
+2. Tworzenie katalogu danych dla plików danych Oracle
 
-2.  Utwórz bazę danych:
+    ```bash
+        mkdir /u01/app/oracle/oradata
+    ```
+
+3.  Utwórz bazę danych:
 
     ```bash
     dbca -silent \
@@ -136,28 +141,58 @@ Oprogramowanie Oracle jest już zainstalowane w obrazie portalu Marketplace. Utw
            -databaseType MULTIPURPOSE \
            -automaticMemoryManagement false \
            -storageType FS \
+           -datafileDestination "/u01/app/oracle/oradata/"
            -ignorePreReqs
     ```
 
     Utworzenie bazy danych może potrwać kilka minut.
 
-3. Ustaw zmienne Oracle
+    Zobaczysz dane wyjściowe podobne do następujących:
 
-Przed nawiązaniem połączenia należy ustawić dwie zmienne środowiskowe: *ORACLE_HOME* i *ORACLE_SID*.
+    ```output
+        Copying database files
+        1% complete
+        2% complete
+        8% complete
+        13% complete
+        19% complete
+        27% complete
+        Creating and starting Oracle instance
+        29% complete
+        32% complete
+        33% complete
+        34% complete
+        38% complete
+        42% complete
+        43% complete
+        45% complete
+        Completing Database Creation
+        48% complete
+        51% complete
+        53% complete
+        62% complete
+        70% complete
+        72% complete
+        Creating Pluggable Databases
+        78% complete
+        100% complete
+        Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+    ```
 
-```bash
-ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-ORACLE_SID=cdb1; export ORACLE_SID
-```
+4. Ustaw zmienne Oracle
 
-Można również dodać zmienne ORACLE_HOME i ORACLE_SID do pliku bashrc. Spowoduje to zapisanie zmiennych środowiskowych dla przyszłych logowań. Upewnij się, że dodano następujące instrukcje do `~/.bashrc` pliku za pomocą edytora.
+    Przed nawiązaniem połączenia należy ustawić dwie zmienne środowiskowe: *ORACLE_HOME* i *ORACLE_SID*.
 
-```bash
-# Add ORACLE_HOME. 
-export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
-# Add ORACLE_SID. 
-export ORACLE_SID=cdb1 
-```
+    ```bash
+        ORACLE_SID=cdb1; export ORACLE_SID
+    ```
+
+    Można również dodać zmienne ORACLE_HOME i ORACLE_SID do pliku bashrc. Spowoduje to zapisanie zmiennych środowiskowych dla przyszłych logowań. Upewnij się, że dodano następujące instrukcje do `~/.bashrc` pliku za pomocą edytora.
+
+    ```bash
+    # Add ORACLE_SID. 
+    export ORACLE_SID=cdb1 
+    ```
 
 ## <a name="oracle-em-express-connectivity"></a>Łączność z firmą Oracle EM Express
 

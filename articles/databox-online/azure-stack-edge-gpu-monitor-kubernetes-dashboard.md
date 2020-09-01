@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 9224888a38c86e35df9ad516c761fd7012824c15
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085281"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180681"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Korzystanie z pulpitu nawigacyjnego Kubernetes do monitorowania urządzenia z procesorem GPU Azure Stack Edge
 
@@ -26,6 +26,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > [!div class="checklist"]
 >
 > * Dostęp do pulpitu nawigacyjnego Kubernetes na urządzeniu
+> * Pobierz `aseuser` konfigurację
 > * Wyświetlanie modułów wdrożonych na urządzeniu
 > * Uzyskaj adres IP dla aplikacji wdrożonych na urządzeniu
 > * Wyświetlanie dzienników kontenerów dla modułów wdrożonych na urządzeniu
@@ -33,13 +34,13 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="about-kubernetes-dashboard"></a>Informacje o pulpicie nawigacyjnym Kubernetes
 
-Pulpit nawigacyjny Kubernetes jest interfejsem użytkownika opartym na sieci Web, którego można użyć do rozwiązywania problemów z aplikacjami w kontenerach. Pulpit nawigacyjny Kubernetes jest alternatywną metodą interfejsu `kubectl` wiersza polecenia Kubernetes. 
+Pulpit nawigacyjny Kubernetes jest interfejsem użytkownika opartym na sieci Web, którego można użyć do rozwiązywania problemów z aplikacjami w kontenerach. Pulpit nawigacyjny Kubernetes jest alternatywną metodą interfejsu `kubectl` wiersza polecenia Kubernetes. Aby uzyskać więcej informacji, zobacz [pulpit nawigacyjny Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-Na urządzeniu Azure Stack Edge możesz użyć pulpitu nawigacyjnego Kubernetes w trybie tylko do odczytu, aby uzyskać przegląd aplikacji uruchomionych na urządzeniu brzegowym Azure Stack, wyświetlić stan zasobów klastra Kubernetes i zobaczyć błędy, które wystąpiły na urządzeniu.
+Na urządzeniu Azure Stack Edge możesz użyć pulpitu nawigacyjnego Kubernetes w trybie *tylko do odczytu* , aby uzyskać przegląd aplikacji uruchomionych na urządzeniu brzegowym Azure Stack, wyświetlić stan zasobów klastra Kubernetes i zobaczyć błędy, które wystąpiły na urządzeniu.
 
 ## <a name="access-dashboard"></a>Dostęp do pulpitu nawigacyjnego
 
-Pulpit nawigacyjny Kubernetes jest tylko do odczytu i uruchamiany w węźle głównym Kubernetes na porcie 31000. Wykonaj następujące kroki, aby uzyskać dostęp do pulpitu nawigacyjnego: 
+Pulpit nawigacyjny Kubernetes jest *tylko do odczytu* i uruchamiany w węźle głównym Kubernetes na porcie 31000. Wykonaj następujące kroki, aby uzyskać dostęp do pulpitu nawigacyjnego: 
 
 1. W lokalnym interfejsie użytkownika urządzenia przejdź do pozycji **urządzenie** , a następnie przejdź do obszaru **punkty końcowe urządzenia**. Wybierz adres URL pulpitu nawigacyjnego Kubernetes, aby otworzyć pulpit nawigacyjny w przeglądarce.
 

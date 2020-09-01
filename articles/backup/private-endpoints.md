@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8e9fe46bf3f7528b3a6a08a7c8d90ea6f9117cdd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017672"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179236"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -566,6 +566,6 @@ A. Tak, możesz użyć własnych serwerów DNS. Upewnij się jednak, że wszystk
 PYTANIE: Czy po wykonaniu procesu w tym artykule muszę wykonać wszelkie dodatkowe czynności na serwerze?<br>
 A. Po przeprowadzeniu procedury przedstawionej w tym artykule nie trzeba wykonywać dodatkowych czynności w celu używania prywatnych punktów końcowych w celu tworzenia kopii zapasowych i przywracania.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Przeczytaj o wszystkich [funkcjach zabezpieczeń w programie Azure Backup](security-overview.md)

@@ -7,6 +7,8 @@
     - name: Co nowego w usłudze Media Services
       displayName: release notes
       href: release-notes.md
+    - name: Zgodność z usługą Media Services
+      href: concept-compliance.md
 - name: Przewodniki Szybki start
   items:
     - name: Konfigurowanie środowiska
@@ -45,33 +47,34 @@
           href: encrypt-content-quickstart.md
 - name: Samouczki
   items:
-    - name: Kodowanie pliku zdalnego i strumieniowe przesyłanie wideo
+    - name: .NET
       items:
-        - name: Przy użyciu architektury REST
-          displayName: 'encoding, job, transform'
+        - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — REST
           href: stream-files-tutorial-with-rest.md
-        - name: Przy użyciu interfejsu wiersza polecenia
-          href: stream-files-cli-quickstart.md
-        - name: Przy użyciu platformy .NET
+        - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Przy użyciu środowiska Node.js
+        - name: Kodowanie i przesyłanie strumieniowe przekazanego pliku
+          href: stream-files-tutorial-with-api.md
+        - name: Przesyłanie strumieniowe na żywo
+          href: stream-live-tutorial-with-api.md
+        - name: Analizowanie filmu wideo
+          href: analyze-videos-tutorial-with-api.md
+        - name: Dynamiczne szyfrowanie algorytmem AES-128
+          href: protect-with-aes128.md
+        - name: Dynamiczne szyfrowanie przy użyciu usługi DRM
+          href: protect-with-drm.md
+    - name: Interfejs wiersza polecenia
+      items:
+        - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — interfejs wiersza polecenia
+          href: stream-files-cli-quickstart.md
+    - name: Node.js
+      items:
+        - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — Node.js
           href: stream-files-nodejs-quickstart.md
-    - name: Przechowywanie zdarzeń usługi AMS w usłudze Azure Log Analytics
-      href: tutorial-events-log-analytics.md
-    - name: Kodowanie przekazanego pliku i strumieniowe przesyłanie wideo
-      displayName: 'encode, encoding, job, transform'
-      href: stream-files-tutorial-with-api.md
-    - name: Przesyłanie strumieniowe na żywo
-      href: stream-live-tutorial-with-api.md
-      displayName: 'Live Events, Live Outputs, ingest'
-    - name: Analizowanie filmu wideo
-      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-      href: analyze-videos-tutorial-with-api.md
-    - name: Dynamiczne szyfrowanie algorytmem AES-128
-      href: protect-with-aes128.md
-    - name: Dynamiczne szyfrowanie przy użyciu usługi DRM
-      displayName: 'PlayReady, Widevine, FairPlay'
-      href: protect-with-drm.md
+    - name: Azure Portal
+      items:
+        - name: Przechowywanie zdarzeń usługi AMS w usłudze Azure Log Analytics
+          href: tutorial-events-log-analytics.md
 - name: Samples
   items:
     - name: Przykłady usługi Media Services w wersji 3
@@ -378,7 +381,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Przejdź
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519264"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180851"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integracja rozwiązań zabezpieczeń w usłudze Azure Security Center
 Ten dokument ułatwia zarządzanie rozwiązaniami zabezpieczeń już połączonymi z usługą Azure Security Center i dodawanie nowych.
@@ -35,10 +35,7 @@ Obecnie zintegrowane rozwiązania zabezpieczeń obejmują ocenę luk w zabezpiec
 > [!NOTE]
 > Security Center nie instaluje agenta Log Analytics na urządzeniach wirtualnych partnera, ponieważ większość dostawców zabezpieczeń zabroni zewnętrznych agentów działających na ich urządzeniach.
 
-Aby dowiedzieć się więcej o integracji narzędzi do skanowania luk w zabezpieczeniach z programu Qualys, w tym wbudowanego skanera dostępnego dla klientów korzystających z warstwy Standardowa, zobacz: 
-
-- [Zintegrowany skaner luk w zabezpieczeniach dla maszyn wirtualnych](built-in-vulnerability-assessment.md).
-- [Wdrażanie rozwiązania do skanowania luk w zabezpieczeniach](partner-vulnerability-assessment.md).
+Aby dowiedzieć się więcej o integracji narzędzi do skanowania luk w zabezpieczeniach z programu Qualys, w tym wbudowanego skanera dostępnego dla klientów korzystających z warstwy Standardowa, zobacz [ocenę luk w zabezpieczeniach dla Virtual Machines platformy Azure](deploy-vulnerability-assessment-vm.md).
 
 Security Center oferuje również analizę luk w zabezpieczeniach dla:
 

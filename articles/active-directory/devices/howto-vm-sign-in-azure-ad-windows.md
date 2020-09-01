@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005032"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180341"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -274,7 +274,7 @@ Ten kod zakończenia tłumaczy na DSREG_E_MSI_TENANTID_UNAVAILABLE, ponieważ ro
 
    - Połącz protokół RDP z maszyną wirtualną jako administrator lokalny i sprawdź, czy punkt końcowy zwraca prawidłowy identyfikator dzierżawy, uruchamiając to polecenie w wierszu polecenia z podwyższonym poziomem uprawnień na maszynie wirtualnej:
       
-      - zwinięcie-H metadanych: prawdahttp://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - zwinięcie-H metadanych: prawda http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
 
 1. Administrator maszyny wirtualnej próbuje zainstalować rozszerzenie AADLoginForWindows, ale tożsamość zarządzana przypisana przez system nie została najpierw włączona. Przejdź do bloku tożsamość maszyny wirtualnej. Na karcie przypisane do systemu sprawdź, czy stan jest włączony.
 
@@ -329,7 +329,7 @@ Jeśli po zainicjowaniu połączenia pulpitu zdalnego z maszyną wirtualną zoba
 
 ![Twoje konto jest skonfigurowane tak, aby uniemożliwić korzystanie z tego urządzenia.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Sprawdź, czy [skonfigurowano zasady RBAC](../../virtual-machines/linux/login-using-aad.md) dla maszyny wirtualnej, która udziela użytkownikowi identyfikatora logowania administratora maszyny wirtualnej lub roli logowania użytkownika maszyny wirtualnej:
+Sprawdź, czy [skonfigurowano zasady kontroli RBAC platformy Azure](../../virtual-machines/linux/login-using-aad.md) dla maszyny wirtualnej, która przyznaje użytkownikowi nazwę logowania administratora maszyny wirtualnej lub użytkownika maszyny wirtualnej:
  
 #### <a name="unauthorized-client"></a>Nieautoryzowany klient
 

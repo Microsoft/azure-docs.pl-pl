@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 1204435a5f1d7a48fceb654df10b8394d6f5df50
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: db3bfddd3376a013cc8921f9e0b94bd30bfe041f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146644"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181531"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -29,7 +29,8 @@ Maszyny wirtualne generacji 1 są obsługiwane przez wszystkie rozmiary maszyn w
 
 * [Seria B](../sizes-b-series-burstable.md)
 * [Seria DCsv2](../dcv2-series.md)
-* Seria [DSv2](../dv2-dsv2-series.md) i [Dsv3](../dv3-dsv3-series.md)
+* [Seria DSv2](../dv2-dsv2-series.md) 
+* [Seria Dsv3](../dv3-dsv3-series.md)
 * [Seria Dsv4](../dv4-dsv4-series.md)
 * [Seria Ddsv4](../ddv4-ddsv4-series.md)
 * [Seria Dasv4](../dav4-dasv4-series.md)
@@ -39,10 +40,12 @@ Maszyny wirtualne generacji 1 są obsługiwane przez wszystkie rozmiary maszyn w
 * [Seria GS](../sizes-previous-gen.md#gs-series)
 * [Seria HB](../hb-series.md)
 * [Seria HC](../hc-series.md)
-* Seria [ls](../sizes-previous-gen.md#ls-series) i seria [Lsv2](../lsv2-series.md)
+* [Seria Ls](../sizes-previous-gen.md#ls-series) 
+* [Seria Lsv2](../lsv2-series.md)
 * [Seria M](../m-series.md)
 * [Mv2 — seria](../mv2-series.md)<sup>1</sup>
-* Seria [NCv2](../ncv2-series.md) i [Seria NCV3](../ncv3-series.md)
+* [Seria NCv2](../ncv2-series.md) 
+* [Seria NCv3](../ncv3-series.md)
 * [Seria ND](../nd-series.md)
 * [Seria NVv3](../nvv3-series.md)
 
@@ -84,7 +87,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 |---------|--------------|--------------|
 | Rozruch             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
-| Rozmiary maszyn wirtualnych         | Wszystkie rozmiary maszyn wirtualnych | Tylko maszyny wirtualne obsługujące usługę Premium Storage |
+| Rozmiary maszyn wirtualnych         | Wszystkie rozmiary maszyn wirtualnych | [Zobacz dostępne rozmiary](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Możliwości generacji 1 a generacja 2
 

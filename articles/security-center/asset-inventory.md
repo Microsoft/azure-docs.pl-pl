@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 7fab15ae4e9e58af58a4490beb2d512379976d1c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88264010"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181107"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Eksplorowanie zasobów i zarządzanie nimi za pomocą spisu zasobów i narzędzi do zarządzania
 
@@ -38,9 +38,9 @@ Możliwości zarządzania zasobami dla tego narzędzia są znaczne i nadal rosn�
 |Aspekt|Szczegóły|
 |----|:----|
 |Stan wydania:|Wersja zapoznawcza|
-|Wpisaną|Jest bezpłatna|
+|Wpisaną|Bezpłatna|
 |Wymagane role i uprawnienia:|Wszyscy użytkownicy|
-|Połączeń|![Yes](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 
@@ -102,6 +102,9 @@ Za pomocą [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-ex
 1. Aby można było użyć filtrów **zabezpieczeń** , należy wprowadzić tekst bezpłatny od identyfikatora, sprawdzenia zabezpieczeń lub nazwy CVE luki w zabezpieczeniach wyszukiwania do odpowiednich zasobów:
 
     ![Filtr "wyniki zabezpieczeń zawiera"](./media/asset-inventory/security-findings-contain-elements.png)
+
+    > [!TIP]
+    > **Ustalenia dotyczące zabezpieczeń zawierają** filtry **tagów** , które akceptują tylko jedną wartość. Aby filtrować według więcej niż jednego, użyj **Dodaj filtry**.
 
 1. Aby użyć filtru **warstwy cenowej** , wybierz jedną lub więcej opcji (bezpłatna, częściowa lub standardowa):
 

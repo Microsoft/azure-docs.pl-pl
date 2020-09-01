@@ -5,22 +5,26 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/31/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919679"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179355"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) ma wiele ustawień, które określają, jak często użytkownicy muszą ponownie przeprowadzić uwierzytelnienie. To ponowne uwierzytelnienie może być przy użyciu pierwszego czynnika, takiego jak hasło, FIDO lub bezhasła Microsoft Authenticator lub w celu przeprowadzenia uwierzytelniania wieloskładnikowego (MFA). Te ustawienia ponownego uwierzytelniania można skonfigurować zgodnie z potrzebami w Twoim środowisku i dla użytkownika.
+
+Domyślna konfiguracja usługi Azure AD dla częstotliwości logowania użytkownika to stopniowe okno o 90 dni. Zaproszenie użytkowników o poświadczenia często wygląda na to, że jest to rozsądna czynność, ale może ona zostać zastosowana. Jeśli użytkownicy są przeszkoleni, aby wprowadzić swoje poświadczenia bez zastanawiania się, mogą przypadkowo dostarczyć je do złośliwego monitu o poświadczenia.
+
+Może to spowodować, że dźwięk nie poprosił użytkownika o ponowne zalogowanie się, mimo że zasady IT odwołują sesję. Niektóre przykłady obejmują zmianę hasła, niezgodne urządzenie lub operację wyłączania konta. Możesz również jawnie [odwołać sesje użytkowników przy użyciu programu PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
 Ten artykuł zawiera szczegółowe informacje o zalecanych konfiguracjach oraz o sposobie działania różnych ustawień i współpracy ze sobą.
 
@@ -35,6 +39,7 @@ Aby zapewnić użytkownikom odpowiednie saldo zabezpieczeń i łatwość używan
 * Jeśli masz licencje na aplikacje pakietu Office 365 lub bezpłatną warstwę usługi Azure AD:
     * Włącz logowanie jednokrotne (SSO) w aplikacjach przy użyciu [zarządzanych urządzeń](../devices/overview.md) lub [bezproblemowego logowania jednokrotnego](../hybrid/how-to-connect-sso.md).
     * Pozostaw włączoną opcję *pozostawania zalogowanego* i Poinformuj użytkowników, aby zaakceptowali ją.
+* W przypadku scenariuszy z urządzeniami przenośnymi upewnij się, że użytkownicy korzystają z aplikacji Microsoft Authenticator. Ta aplikacja jest używana jako Broker do innych aplikacji federacyjnych usługi Azure AD i zmniejsza na urządzeniu komunikaty dotyczące uwierzytelniania.
 
 Nasze badania pokazują, że te ustawienia są odpowiednie dla większości dzierżawców. Niektóre kombinacje tych ustawień, takie jak *Pamiętaj MFA* i *pozostają*bez zmian, mogą spowodować, że użytkownicy będą monitowani o zbyt częste uwierzytelnianie. Regularne monity o ponowne uwierzytelnienie są błędne w przypadku produktywności użytkowników i mogą sprawiać, że są one bardziej podatne na ataki.
 
@@ -71,11 +76,11 @@ Aby uzyskać więcej informacji na temat konfigurowania opcji, aby zezwolić uż
 
 ### <a name="remember-multi-factor-authentication"></a>Pamiętaj Multi-Factor Authentication  
 
-To ustawienie umożliwia skonfigurowanie wartości z zakresu od 1-60 dni i ustawienie trwałego pliku cookie w przeglądarce, gdy użytkownik wybierze opcję **nie Monituj ponownie dla X dni** podczas logowania.
+To ustawienie umożliwia skonfigurowanie wartości z zakresu od 1-365 dni i ustawienie trwałego pliku cookie w przeglądarce, gdy użytkownik wybierze opcję **nie Monituj ponownie dla X dni** podczas logowania.
 
 ![Zrzut ekranu przedstawiający przykład monitu o zatwierdzenie żądania logowania](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/approve-sign-in-request.png)
 
-Chociaż to ustawienie zmniejsza liczbę uwierzytelnień w usłudze Web Apps, zwiększa liczbę uwierzytelnień dla nowoczesnych klientów uwierzytelniania, takich jak klienci pakietu Office. Ci klienci zwykle monitują się tylko po zresetowaniu hasła lub nieaktywności przez 90 dni. Jednak maksymalna wartość *Pamiętaj MFA* to 60 dni. W przypadku korzystania z programu w połączeniu z zasadami **pozostawania w** systemie lub dostęp warunkowy może zwiększyć liczbę żądań uwierzytelniania.
+Chociaż to ustawienie zmniejsza liczbę uwierzytelnień w usłudze Web Apps, zwiększa liczbę uwierzytelnień dla nowoczesnych klientów uwierzytelniania, takich jak klienci pakietu Office. Ci klienci zwykle monitują się tylko po zresetowaniu hasła lub nieaktywności przez 90 dni. Ustawienie tej wartości na wartość mniejszą niż 90 dni spowoduje jednak skrócenie domyślnych wierszy usługi MFA dla klientów pakietu Office i wydłużenie częstotliwości uwierzytelniania. W przypadku korzystania z programu w połączeniu z zasadami **pozostawania w** systemie lub dostęp warunkowy może zwiększyć liczbę żądań uwierzytelniania.
 
 Jeśli używasz *zapamiętania MFA* i masz Azure AD — wersja Premium 1 licencje, rozważ migrację tych ustawień do częstotliwości logowania dostępu warunkowego. W przeciwnym razie Rozważ użycie opcji nie *wylogowuj mnie?*
 

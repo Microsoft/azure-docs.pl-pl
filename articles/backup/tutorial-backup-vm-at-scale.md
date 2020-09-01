@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak utworzyć magazyn Recovery Servic
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6556731ed18bd591e930ed89264cd62893fe9ac6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022058"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180579"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Tworzenie kopii zapasowych wielu maszyn wirtualnych za pomocą witryny Azure Portal
 
@@ -189,7 +189,7 @@ Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, nie czyść zasob�
 
     Po usunięciu magazynu powrócisz do listy magazynów Recovery Services.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Podczas pracy z tym samouczkiem wykonano następujące czynności przy użyciu witryny Azure Portal:
 

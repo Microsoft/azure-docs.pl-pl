@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: fcaac4c1efe6507d4f69acd897e456400b1f61f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1f8e0464eb7f513149dd1cfa2ec5dcdc0f193417
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89088122"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181225"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-with-gpu"></a>Samouczek: Konfigurowanie certyfikatów dla Azure Stack krawędzi z procesorem GPU
 
 W tym samouczku opisano sposób konfigurowania certyfikatów dla urządzenia brzegowego Azure Stack za pomocą dołączania procesora GPU przy użyciu lokalnego interfejsu użytkownika sieci Web.
 
-Czas potrzebny na ten krok może się różnić w zależności od wybranej opcji wyboru sposobu, w jaki przepływ certyfikatów jest ustanowiony w środowisku. 
+Czas poświęcony na ten krok może się różnić w zależności od wybranej opcji i sposobu ustanowienia przepływu certyfikatów w środowisku.
 
 Ten samouczek zawiera informacje dotyczące:
 
@@ -36,8 +36,8 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z proceso
 * Urządzenie fizyczne zostało zainstalowane zgodnie z opisem w temacie [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
 * Jeśli planujesz przeprowadzenie własnych certyfikatów:
     - Certyfikaty powinny być gotowe w odpowiednim formacie, łącznie z certyfikatem łańcucha podpisywania.
-    - Jeśli urządzenie zostało wdrożone w Azure Government lub Azure Government Secret lub Azure Government najwyższej poufnej chmurze i nie zostało wdrożone w chmurze publicznej platformy Azure, przed aktywowaniem urządzenia jest wymagany certyfikat łańcucha podpisywania. 
-    Aby uzyskać szczegółowe informacje na temat certyfikatu, przejdź do obszaru [Zarządzanie certyfikatami](azure-stack-edge-j-series-manage-certificates.md).
+<!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
+    For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 
 ## <a name="configure-certificates-for-device"></a>Konfigurowanie certyfikatów dla urządzenia
@@ -55,9 +55,9 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z proceso
 
     - W przypadku zmiany nazwy urządzenia lub domeny DNS, aby pomyślnie aktywować urządzenie, można wybrać jedną z następujących opcji: 
     
-        - Generuj wszystkie certyfikaty urządzeń. **Certyfikaty urządzeń powinny być używane tylko do testowania i nie są używane w przypadku obciążeń produkcyjnych.** Aby uzyskać więcej informacji, przejdź do pozycji [Generuj certyfikaty urządzeń na Azure Stack Edge](#generate-device-certificates).
+        - **Generuj wszystkie certyfikaty urządzeń**. Certyfikaty urządzeń powinny być używane tylko do testowania i nie są używane w przypadku obciążeń produkcyjnych. * * Aby uzyskać więcej informacji, przejdź do pozycji [Generuj certyfikaty urządzeń na Azure Stack Edge](#generate-device-certificates).
 
-        - Przenoszenie własnych certyfikatów. Możesz przenieść własne podpisane certyfikaty punktów końcowych i odpowiednie łańcuchy podpisywania. Najpierw należy dodać łańcuch podpisywania, a następnie przekazać certyfikaty punktów końcowych. **Zalecane jest, aby zawsze przenosić własne certyfikaty do obciążeń produkcyjnych.** Aby uzyskać więcej informacji, przejdź do pozycji [przenoszenie własnych certyfikatów na urządzeniu Azure Stack Edge](#bring-your-own-certificates).
+        - **Przenoszenie własnych certyfikatów**. Możesz przenieść własne podpisane certyfikaty punktów końcowych i odpowiednie łańcuchy podpisywania. Najpierw należy dodać łańcuch podpisywania, a następnie przekazać certyfikaty punktów końcowych. **Zalecane jest, aby zawsze przenosić własne certyfikaty do obciążeń produkcyjnych.** Aby uzyskać więcej informacji, przejdź do pozycji [przenoszenie własnych certyfikatów na urządzeniu Azure Stack Edge](#bring-your-own-certificates).
     
         - Możesz przenieść niektóre własne certyfikaty i wygenerować niektóre certyfikaty urządzeń. Opcja **Generuj certyfikaty** spowoduje ponowne wygenerowanie certyfikatów urządzeń.
 

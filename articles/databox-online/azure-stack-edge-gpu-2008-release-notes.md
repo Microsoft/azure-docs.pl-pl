@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 6c29240aa3267cd93ba0c3de1f0c797ce1a1483c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: de0847beb92ebc95e1998d88cae93dbc19c3fb27
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086161"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180052"
 ---
 # <a name="azure-stack-edge-with-gpu-preview-release-notes"></a>Azure Stack Edge z wersjami zapoznawczymi procesora GPU
 
@@ -46,7 +46,7 @@ Poniższa tabela zawiera podsumowanie znanych problemów dotyczących urządzeni
 |**11.**|Kubernetes |Kubernetes obecnie nie zezwala na wiele protokołów usługi równoważenia obciążenia. Na przykład usługa DNS, która będzie musiała nasłuchiwać zarówno TCP, jak i UDP. |Aby obejść to ograniczenie Kubernetes z MetalLB, można utworzyć dwie usługi (jeden dla TCP, jeden dla UDP) w tym samym selektorze pod. Te usługi używają tego samego klucza udostępniania i specyfikacji loadBalancerIP, aby współużytkować ten sam adres IP. Adresy IP mogą być również udostępniane, jeśli masz więcej usług niż dostępne. <br> Aby uzyskać więcej informacji, zobacz [udostępnianie adresów IP](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**dwunastomiesięcznych.**|Klaster Kubernetes|Istniejące moduły Azure IoT Edge Marketplace nie będą działać w klastrze Kubernetes jako platforma hostingu dla IoT Edge na Azure Stack urządzeniu brzegowym.|Przed wdrożeniem modułów na urządzeniu brzegowym Azure Stack należy zmodyfikować moduły. Aby uzyskać więcej informacji, zobacz Modyfikowanie modułów Azure IoT Edge z witryny Marketplace do uruchamiania na Azure Stack urządzeniu brzegowym.<!-- insert link-->|
 |**trzynast.**|Kubernetes |Instalacje powiązań oparte na plikach nie są obsługiwane w przypadku Azure IoT Edge w usłudze Kubernetes na Azure Stack urządzeniu brzegowym.|IoT Edge używa warstwy translacji do translacji `ContainerCreate` opcji na konstrukcje Kubernetes. Tworzenie `Binds` map do katalogu hostpath lub tworzenie i w ten sposób instalacji powiązań opartych na plikach nie można powiązać ze ścieżkami w kontenerach IoT Edge.|
-
+|**14,5.**|Kubernetes |Jeśli przeniesiesz własne certyfikaty do IoT Edge i dodasz je na urządzeniu brzegowym Azure Stack, nowe certyfikaty nie zostaną pobrane w ramach aktualizacji wykresów Helm.|Aby obejść ten problem, [Nawiąż połączenie z interfejsem programu PowerShell urządzenia](azure-stack-edge-gpu-connect-powershell-interface.md). Uruchom ponownie `iotedged` i `edgehub` zasobniki.|
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,14 +5,14 @@ description: Dowiedz się, co zmieniło się w nowej wersji usługi Azure Digita
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: fdd0cd6995a294be03640693fcca9fb814f3acbe
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6d1786766fc61ed0edfdc53295a50ba212818fc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021701"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181429"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Co to jest nowa usługa Azure Digital bliźniaczych reprezentacji? Czym różni się od poprzedniej wersji (2018)?
 
@@ -40,7 +40,7 @@ Poniższy wykres zawiera szczegółowe informacje o pojęciach, które uległy z
 
 Listę limitów cyfrowych bliźniaczych reprezentacji na platformie Azure w ramach tej publicznej wersji zapoznawczej można znaleźć w temacie [*Reference: Public Preview Service Limits*](reference-service-limits.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Następnie szczegółowe do pracy z usługą Azure Digital bliźniaczych reprezentacji przy użyciu pierwszego samouczka:
 

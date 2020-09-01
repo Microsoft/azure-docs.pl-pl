@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225386"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181446"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemy i rozwiązania podczas certyfikacji maszyny wirtualnej 
 
@@ -63,7 +63,7 @@ Przed przesłaniem oferty upewnij się, że masz rygorystyczne podejście do ini
 
 Problemy z aprowizacjim mogą obejmować następujące scenariusze awarii:
 
-|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
+|Scenariusz|Error|Przyczyna|Rozwiązanie|
 |---|---|---|---|
 |1|Nieprawidłowy wirtualny dysk twardy (VHD)|Jeśli określona wartość pliku cookie w stopce dysku VHD jest niepoprawna, wirtualny dysk twardy będzie uznawany za nieprawidłowy.|Utwórz ponownie obraz i prześlij żądanie.|
 |2|Nieprawidłowy typ obiektu BLOB|Inicjowanie obsługi maszyny wirtualnej nie powiodło się, ponieważ użyty blok jest typem obiektu BLOB, a nie typem strony.|Utwórz ponownie obraz i prześlij żądanie.|
@@ -84,7 +84,7 @@ Jeśli próbujesz zainstalować program Visual Studio lub dowolny produkt licenc
 
 Aby uzyskać więcej informacji na temat wybierania zatwierdzonej bazy, zobacz [Tworzenie zasobów technicznych maszyn wirtualnych platformy Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Wykonanie przypadku testowego zestawu narzędzi nie powiodło się
+## <a name="tool-kit-test-case-execution-failed"></a>Wykonanie przypadku testowego zestawu narzędzi nie powiodło się 
 
 Zestaw narzędzi certyfikacji firmy Microsoft może pomóc w uruchomieniu przypadków testowych i upewnić się, że dysk VHD lub obraz jest zgodny ze środowiskiem platformy Azure.
 
@@ -111,9 +111,9 @@ Poniższa tabela zawiera listę przypadków testowych systemu Linux, które będ
 
 Poniższa tabela zawiera listę typowych błędów znalezionych podczas wykonywania poprzednich przypadków testowych:
  
-|Scenariusz|Przypadek testowy|Błąd|Rozwiązanie|
+|Scenariusz|Przypadek testowy|Error|Rozwiązanie|
 |---|---|---|---|
-|1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2,241 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020.|Aby [przesłać żądanie](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support), należy zaktualizować obraz przy użyciu wymaganej wersji.|
+|1|Przypadek testowy wersji agenta systemu Linux|Minimalna wersja agenta systemu Linux to 2.2.41 lub nowsza. To wymaganie jest obowiązkowe od 1 maja 2020.|Zaktualizuj wersję agenta systemu Linux i powinna być 2,241 lub nowsza. Więcej informacji można znaleźć na [stronie aktualizacji agenta systemu Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Przypadek testowy historii bash|Zobaczysz błąd, jeśli rozmiar historii bash w przesłanym obrazie przekracza 1 kilobajt (KB). Rozmiar jest ograniczony do 1 KB, aby upewnić się, że wszystkie potencjalnie poufne informacje nie są przechwytywane w pliku historii bash.|Aby rozwiązać ten problem, Zainstaluj wirtualny dysk twardy w przypadku dowolnej innej działającej maszyny wirtualnej i wprowadź żądane zmiany (na przykład Usuń pliki historii *. bash* ), aby zmniejszyć rozmiar do 1 KB.|
 |3|Wymagany przypadek testowy parametru jądra|Ten błąd zostanie wyświetlony, gdy wartość dla **konsoli** nie zostanie ustawiona na **ttyS0**. Sprawdź, uruchamiając następujące polecenie:<br>`cat /proc/cmdline`|Ustaw wartość dla **konsoli** na **ttyS0**i ponownie prześlij żądanie.|
 |4|Przypadek testowy interwału ClientAlive|Jeśli wynik zestawu narzędzi daje wynik niepowodzenia dla tego przypadku testowego, istnieje niewłaściwa wartość dla **ClientAliveInterval**.|Dla opcji **ClientAliveInterval** ustaw wartość mniejszą lub równą 235, a następnie prześlij żądanie ponownie.|
@@ -213,7 +213,7 @@ Jeśli obraz nie jest zainstalowany z jedną z następujących wersji jądra, za
 |RHEL i Cent systemu operacyjnego|6,10|2.6.32-754.15.3|
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
-||7.4|3.10.0-693.50.3|
+||7,4|3.10.0-693.50.3|
 ||7,5|3.10.0-862.34.2|
 ||7,6|3.10.0-957.21.3|
 ||7,7|3.10.0-1062.1.1|
@@ -261,7 +261,7 @@ Sprawdź, czy w ramach konta, na którym są uruchomione przypadki samotestowe, 
     
 Zapoznaj się z poniższą tabelą dotyczącą problemów występujących podczas pobierania obrazu maszyny wirtualnej przy użyciu adresu URL sygnatury dostępu współdzielonego (SAS).
 
-|Scenariusz|Błąd|Przyczyna|Rozwiązanie|
+|Scenariusz|Error|Przyczyna|Rozwiązanie|
 |---|---|---|---|
 |1|Nie znaleziono obiektu BLOB|Wirtualny dysk twardy może zostać usunięty lub przeniesiony z określonej lokalizacji.|| 
 |2|Obiekt BLOB w użyciu|Wirtualny dysk twardy jest używany przez inny proces wewnętrzny.|Wirtualny dysk twardy powinien znajdować się w stanie używanym podczas pobierania go przy użyciu adresu URL sygnatury dostępu współdzielonego.|
@@ -304,7 +304,7 @@ Aby uzyskać więcej informacji na temat tego narzędzia, zobacz temat [przygoto
 
 W przypadku rozwiązań błędów, które są związane z dyskiem danych, należy użyć poniższej tabeli:
 
-|Błąd|Przyczyna|Rozwiązanie|
+|Error|Przyczyna|Rozwiązanie|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Ten błąd może wystąpić z powodu nieprawidłowego numeru określonego dla numeru jednostki logicznej (LUN) podczas przesyłania oferty.|Sprawdź, czy sekwencja numerów LUN dla dysku danych znajduje się w centrum partnerskim.|
 |`DataDisk- NotFound:`|Ten błąd może wystąpić z powodu braku lokalizacji dysku danych w określonym adresie URL sygnatury dostępu współdzielonego.|Sprawdź, czy dysk danych znajduje się w adresie URL sygnatury dostępu współdzielonego, który jest określony w żądaniu.|
@@ -363,7 +363,8 @@ Wydawcy muszą skontaktować się z działem pomocy technicznej w [portalu Marke
    4.    Wersja — wersja oferty maszyny wirtualnej, dla której żądany jest wyjątek
    5.   Typ wyjątku — testuje, zablokowano maszynę wirtualną i szablony niestandardowe
    6.   Przyczyna żądania — powód tego wyjątku i informacje dotyczące testów do wykluczenia 
-   7.   Załącznik — Dołącz wszelkie dokumenty z dowodem ważności. W przypadku zablokowanych maszyn wirtualnych Dołącz raport testowy i dla szablonów niestandardowych Podaj niestandardowy szablon ARM jako załącznik. Niepowodzenie dołączenia raportu do zablokowanych maszyn wirtualnych i niestandardowego szablonu ARM dla szablonów niestandardowych spowoduje odmowę żądania
+   7. Oś czasu — Data, do której zażądano tego wyjątku 
+   8.   Załącznik — Dołącz wszelkie dokumenty z dowodem ważności. W przypadku zablokowanych maszyn wirtualnych Dołącz raport testowy i dla szablonów niestandardowych Podaj niestandardowy szablon ARM jako załącznik. Niepowodzenie dołączenia raportu do zablokowanych maszyn wirtualnych i niestandardowego szablonu ARM dla szablonów niestandardowych spowoduje odmowę żądania
 
 
 ## <a name="next-steps"></a>Następne kroki

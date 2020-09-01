@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000723"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181497"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alert monitorowania Azure Backup — często zadawane pytania
 
@@ -19,7 +19,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Jak mogę sprawdzić, czy dane raportowania zaczynają przepływać do obszaru roboczego Log Analytics (LA)?
 
-Przejdź do skonfigurowanego obszaru roboczego LA, przejdź do pozycji menu **dzienniki** i uruchom zapytanie CoreAzureBackup | zajmie 1. Jeśli zobaczysz zwracany rekord, oznacza to, że dane rozpoczęły przepływ do obszaru roboczego. Początkowe wypychanie danych może potrwać do 24 godzin.
+Przejdź do skonfigurowanego obszaru roboczego LA. Przejdź do pozycji menu **dzienniki** i uruchom zapytanie `CoreAzureBackup | take 1` . Jeśli zobaczysz zwracany rekord, oznacza to, że dane rozpoczęły przepływ do obszaru roboczego. Początkowe wypychanie danych może potrwać do 24 godzin.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Jaka jest częstotliwość wypychania danych do obszaru roboczego LA?
 
@@ -66,7 +66,7 @@ Tak. W następujących sytuacjach powiadomienia nie są wysyłane:
 * Gdy zadanie zostało anulowane
 * Jeśli drugie zadanie tworzenia kopii zapasowej zakończy się niepowodzeniem, ponieważ oryginalne zadanie tworzenia kopii zapasowej jest w toku
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z innymi często zadawanymi pytaniami:
 

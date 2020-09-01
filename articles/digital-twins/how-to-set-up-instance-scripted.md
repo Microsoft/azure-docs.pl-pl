@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587997"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181378"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -55,7 +55,7 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
     * Dla wystąpienia: nazwa *grupy zasobów* . Możesz użyć istniejącej grupy zasobów lub wprowadzić nową nazwę, która ma zostać utworzona.
     * Dla wystąpienia: *Nazwa* wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Nazwa nowego wystąpienia musi być unikatowa w obrębie regionu subskrypcji (co oznacza, że jeśli subskrypcja ma inne wystąpienie usługi Azure Digital bliźniaczych reprezentacji w regionie, w którym już korzystasz z wybranej nazwy, zostanie wyświetlony monit o wybranie innej nazwy).
     * W przypadku rejestracji aplikacji: *Nazwa wyświetlana aplikacji usługi Azure AD* , która ma zostać skojarzona z rejestracją. Ta rejestracja aplikacji to miejsce, w którym można skonfigurować uprawnienia dostępu do [interfejsów API Digital bliźniaczych reprezentacji platformy Azure](how-to-use-apis-sdks.md). Później aplikacja kliencka będzie uwierzytelniana względem rejestracji aplikacji i w wyniku przyznania skonfigurowanych uprawnień dostępu do interfejsów API.
-    * Rejestracja aplikacji: *adres URL odpowiedzi aplikacji usługi Azure AD* dla aplikacji usługi Azure AD. Możesz użyć `http://localhost` .
+    * Rejestracja aplikacji: *adres URL odpowiedzi aplikacji usługi Azure AD* dla aplikacji usługi Azure AD. Użyj polecenia `http://localhost`. Skrypt skonfiguruje dla niego identyfikator URI *klienta publicznego/macierzystego (mobile & Desktop)* .
 
 Skrypt utworzy wystąpienie usługi Azure Digital bliźniaczych reprezentacji, przypisze rolę użytkownika platformy Azure *(wersja zapoznawcza)* na tym wystąpieniu i skonfiguruje rejestrację aplikacji usługi Azure AD do użycia.
 

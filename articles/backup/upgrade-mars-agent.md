@@ -3,12 +3,12 @@ title: Uaktualnij agenta Microsoft Azure Recovery Services (MARS)
 description: Dowiedz się, jak uaktualnić agenta Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: c822c75fa1232d2304b5bcb4a0afe4323e52287f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a1ee26db962781643e9599069282647658301bac
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007370"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181480"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>Uaktualnij agenta Microsoft Azure Recovery Services (MARS)
 
@@ -71,7 +71,7 @@ Po zidentyfikowaniu serwerów, które wymagają aktualizacji agenta Azure Backup
 
     ![Kreator uaktualnienia agenta Microsoft Azure Recovery Services](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 
-1. Wybierz pozycję **Next** (Dalej).
+1. Wybierz pozycję **Dalej**.
 
 1. Wybierz pozycję **Uaktualnij**.
 
@@ -91,6 +91,6 @@ Jeśli zainstalowano Azure Backup agentów na serwerach programu System Center D
 
 Powtórz powyższe kroki dla wszystkich serwerów programu DPM w danym środowisku.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Informacje na temat [tworzenia kopii zapasowych maszyn z systemem Windows przy użyciu agenta Azure Backup Mars](backup-windows-with-mars-agent.md)

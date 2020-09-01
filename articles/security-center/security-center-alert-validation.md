@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cf732b92c1a208dd4c312ae442969ef958a021b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791184"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180477"
 ---
-# <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Walidacja alertów (plik testowy EICAR) w usłudze Azure Security Center
+# <a name="alert-validation-in-azure-security-center"></a>Sprawdzanie poprawności alertu w Azure Security Center
 Ten dokument zawiera informacje dotyczące sposobu weryfikacji systemu pod kątem prawidłowej konfiguracji alertów usługi Azure Security Center.
 
 ## <a name="what-are-security-alerts"></a>Czym są alerty zabezpieczeń?
@@ -33,12 +33,12 @@ Aby uzyskać więcej informacji, zobacz [alerty zabezpieczeń w Security Center]
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## <a name="validate-alerts-on-windows-vms"></a>Weryfikowanie alertów na maszynach wirtualnych z systemem Windows<a name="validate-windows"></a>
+## <a name="validate-alerts-on-windows-vms"></a>Weryfikowanie alertów na maszynach wirtualnych z systemem Windows <a name="validate-windows"></a>
 
 Po zainstalowaniu agenta Security Center na komputerze wykonaj następujące kroki na komputerze, na którym ma zostać zaatakowany zasób alertu:
 
 1. Skopiuj plik wykonywalny (na przykład **calc.exe**) na komputer stacjonarny lub inny katalog swojej wygody, a następnie zmień jego nazwę na **ASC_AlertTest_662jfi039N.exe**.
-1. Otwórz wiersz polecenia i wykonaj ten plik z argumentem (tylko fałszywą nazwą argumentu), taką jak:```ASC_AlertTest_662jfi039N.exe -foo```
+1. Otwórz wiersz polecenia i wykonaj ten plik z argumentem (tylko fałszywą nazwą argumentu), taką jak: ```ASC_AlertTest_662jfi039N.exe -foo```
 1. Zaczekaj od 5 do 10 minut, a następnie otwórz alerty usługi Security Center. Powinien zostać wyświetlony alert.
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Po zainstalowaniu agenta Security Center na komputerze wykonaj następujące kro
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## <a name="validate-alerts-on-linux-vms"></a>Weryfikowanie alertów na maszynach wirtualnych z systemem Linux<a name="validate-linux"></a>
+## <a name="validate-alerts-on-linux-vms"></a>Weryfikowanie alertów na maszynach wirtualnych z systemem Linux <a name="validate-linux"></a>
 
 Po zainstalowaniu agenta Security Center na komputerze wykonaj następujące kroki na komputerze, na którym ma zostać zaatakowany zasób alertu:
 1. Skopiuj plik wykonywalny do wygodnej lokalizacji i zmień jego nazwę na **./asc_alerttest_662jfi039n**, na przykład:
@@ -60,7 +60,7 @@ Po zainstalowaniu agenta Security Center na komputerze wykonaj następujące kro
 1. Zaczekaj od 5 do 10 minut, a następnie otwórz alerty usługi Security Center. Powinien zostać wyświetlony alert.
 
 
-## <a name="validate-alerts-on-kubernetes"></a>Weryfikowanie alertów w witrynie Kubernetes<a name="validate-kubernetes"></a>
+## <a name="validate-alerts-on-kubernetes"></a>Weryfikowanie alertów w witrynie Kubernetes <a name="validate-kubernetes"></a>
 
 Jeśli używasz funkcji Security Center w wersji zapoznawczej integracji usługi Azure Kubernetes, uruchom następujące polecenie polecenia kubectl, aby sprawdzić, czy Twoje alerty działają:
 

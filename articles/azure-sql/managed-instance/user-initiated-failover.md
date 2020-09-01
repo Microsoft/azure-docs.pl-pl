@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/31/2020
+ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589507"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181769"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania użytkownika na wystąpienie zarządzane SQL
 
@@ -36,6 +36,15 @@ Rozważ wykonanie [ręcznej pracy awaryjnej](../database/high-availability-sla.m
 > Zagwarantowanie, że aplikacje są odporne na awarie przed wdrożeniem w środowisku produkcyjnym, pomogą ograniczyć ryzyko błędów aplikacji w środowisku produkcyjnym i przyczynić się do dostępności aplikacji dla klientów.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Inicjowanie ręcznego przełączania do trybu failover w wystąpieniu zarządzanym SQL
+
+### <a name="rbac-permissions-required"></a>Wymagane są uprawnienia RBAC
+
+Użytkownik inicjujący tryb failover musi mieć jedną z następujących ról RBAC:
+
+- Rola właściciela subskrypcji lub
+- Rola współautora wystąpienia zarządzanego lub
+- Rola niestandardowa z następującymi uprawnieniami:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>Korzystanie z programu PowerShell
 

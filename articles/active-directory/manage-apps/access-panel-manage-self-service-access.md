@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: c789a5fdd2aed7a904dc71065340b3c921ac9abb
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146610"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181718"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Jak korzystać z samoobsługowego dostępu do aplikacji
 
@@ -28,7 +28,7 @@ Aby dowiedzieć się więcej o używaniu aplikacji z perspektywy użytkowników 
 
 Przy użyciu tej funkcji można:
 
--   Zezwól użytkownikom na samodzielne Odnajdowanie aplikacji z poziomu [panelu dostępu do aplikacji](https://myapps.microsoft.com/) bez BOTHERING grupy IT.
+-   Zezwól użytkownikom na samodzielne odkrywanie aplikacji z [moich aplikacji](https://myapps.microsoft.com/) bez BOTHERING grupy IT.
 -   Dodaj tych użytkowników do wstępnie skonfigurowanej grupy, aby zobaczyć, kto zażądał dostępu, usunąć dostęp i zarządzać przypisanymi do nich rolami.
 -   Opcjonalnie Zezwól komuś na zatwierdzanie żądań dostępu do aplikacji, aby grupa IT nie miała do niej uprawnień.
 -   Opcjonalnie można skonfigurować maksymalnie 10 osób, które mogą zatwierdzać dostęp do tej aplikacji.
@@ -57,14 +57,14 @@ Aby włączyć samoobsługowy dostęp do aplikacji, wykonaj następujące czynno
 13. **Opcjonalne:** **w przypadku aplikacji, które uwidaczniają role**, aby przypisać użytkowników, którzy mają zostać przypisani do roli, wybierz selektor obok elementu, **do którego rola powinna być przypisana do tej aplikacji?** , aby wybrać rolę, do której mają być przypisani użytkownicy.
 14. Wybierz przycisk **Zapisz** znajdujący się u góry, aby zakończyć.
 
-Po zakończeniu konfigurowania aplikacji samoobsługi użytkownicy mogą przechodzić do [panelu dostępu do aplikacji](https://myapps.microsoft.com/) i wybierać przycisk **+ Dodaj** , aby znaleźć aplikacje, dla których włączono samoobsługowy dostęp. Osoby zatwierdzające firmy widzą również powiadomienie w [panelu dostępu do aplikacji](https://myapps.microsoft.com/). Możesz włączyć wiadomość e-mail z powiadomieniem, gdy użytkownik zażądał dostępu do aplikacji, która wymaga zatwierdzenia. 
+Po zakończeniu konfiguracji aplikacji samoobsługi użytkownicy mogą przejść do obszaru [Moje aplikacje](https://myapps.microsoft.com/) i wybrać przycisk **+ Dodaj** , aby znaleźć aplikacje, dla których włączono samoobsługowy dostęp. Osoby zatwierdzające firmy widzą również powiadomienie na stronie [Moje aplikacje](https://myapps.microsoft.com/) . Możesz włączyć wiadomość e-mail z powiadomieniem, gdy użytkownik zażądał dostępu do aplikacji, która wymaga zatwierdzenia. 
 
 Te zatwierdzenia obsługują tylko jednorazowe przepływy pracy zatwierdzania, co oznacza, że jeśli określisz wiele osób zatwierdzających, każda osoba zatwierdzająca może zatwierdzić dostęp do aplikacji.
 
 ## <a name="things-to-check-if-self-service-isnt-working"></a>Elementy do sprawdzenia, czy funkcja samoobsługi nie działa
 -   Upewnij się, że użytkownik lub Grupa została włączona, aby zażądać dostępu do aplikacji samoobsługowej.
--   Upewnij się, że użytkownik jest w odpowiednim miejscu do samoobsługowego dostępu do aplikacji. Użytkownicy mogą przechodzić do [panelu dostępu do aplikacji](https://myapps.microsoft.com/) i wybierać przycisk **+ Dodaj** , aby znaleźć aplikacje, dla których włączono samoobsługowy dostęp.
--   Jeśli dostęp do aplikacji samoobsługi został niedawno skonfigurowany, spróbuj zalogować się i ponownie w panelu dostępu użytkownika po kilku minutach, aby sprawdzić, czy pojawiły się zmiany dostępu samoobsługi.
+-   Upewnij się, że użytkownik jest w odpowiednim miejscu do samoobsługowego dostępu do aplikacji. Użytkownicy mogą przechodzić do strony [Moje aplikacje](https://myapps.microsoft.com/) i wybierać przycisk **+ Dodaj** , aby znaleźć aplikacje, dla których włączono samoobsługowy dostęp.
+-   Jeśli dostęp do aplikacji samoobsługi został niedawno skonfigurowany, spróbuj zalogować się i ponownie w moich aplikacjach użytkownika po kilku minutach, aby sprawdzić, czy pojawiły się zmiany dostępu samoobsługi.
 
 ## <a name="next-steps"></a>Następne kroki
 [Konfigurowanie usługi Azure Active Directory do samoobsługowego zarządzania grupami](../users-groups-roles/groups-self-service-management.md)

@@ -216,6 +216,13 @@
         - name: Używanie szablonu usługi Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
+    - name: Tworzenie zasobów obliczeniowych
+      items:
+        - name: Korzystanie ze studia
+          href: how-to-create-attach-compute-studio.md
+        - name: Korzystanie z zestawu SDK dla języka Python
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-create-attach-compute-sdk.md
     - name: Konfigurowanie środowiska
       items:
         - name: Konfigurowanie środowisk deweloperskich
@@ -265,7 +272,7 @@
         - name: Uzyskiwanie dostępu do danych
           items:
             - name: Łączenie z usługą Azure Storage
-              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
             - name: Pobieranie danych z magazynu danych
               displayName: 'data, data set, register, access data'
@@ -286,7 +293,7 @@
               href: how-to-differential-privacy.md
     - name: Szkolenie modeli
       items:
-        - name: Konfigurowanie środowisk szkoleniowych
+        - name: Przesyłanie przebiegu trenowania
           displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
         - name: Używanie narzędzi do szacowania w uczeniu maszynowym

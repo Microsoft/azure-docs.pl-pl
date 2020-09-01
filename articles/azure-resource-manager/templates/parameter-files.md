@@ -2,13 +2,13 @@
 title: Tworzenie pliku parametrów
 description: Utwórz plik parametrów do przekazywania wartości podczas wdrażania szablonu Azure Resource Manager
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082940"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179627"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów
 
@@ -184,10 +184,30 @@ W poniższym przykładzie przedstawiono formaty różnych typów parametrów.
 
 ## <a name="deploy-template-with-parameter-file"></a>Wdróż szablon z plikiem parametrów
 
-Zobacz:
+Aby przekazać lokalny plik parametrów za pomocą interfejsu wiersza polecenia platformy Azure, użyj @ i nazwy pliku parametrów.
 
-- [Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](./deploy-cli.md#parameters)
-- [Wdrażanie zasobów za pomocą szablonów ARM i Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i interfejsu wiersza polecenia platformy Azure](./deploy-cli.md#parameters).
+
+Aby przekazać lokalny plik parametrów Azure PowerShell, użyj `TemplateParameterFile` parametru.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> Nie można użyć pliku parametrów z blokiem szablonu niestandardowego w portalu.
 
 ## <a name="file-name"></a>Nazwa pliku
 
@@ -199,7 +219,7 @@ Aby wdrożyć w różnych środowiskach, należy utworzyć więcej niż jeden pl
 
 W tej samej operacji wdrażania można używać wbudowanych parametrów i pliku parametrów lokalnych. Na przykład można określić niektóre wartości w lokalnym pliku parametrów i dodać inne wartości w tekście podczas wdrażania. Jeśli podano wartości dla parametru zarówno w pliku parametrów lokalnych, jak i wewnętrznie, wartość śródwierszowa ma pierwszeństwo.
 
-Można użyć zewnętrznego pliku parametrów, dostarczając identyfikator URI do pliku. Gdy to zrobisz, nie można przekazać innych wartości w tekście lub z pliku lokalnego. Wszystkie wbudowane parametry są ignorowane. Podaj wszystkie wartości parametrów w pliku zewnętrznym.
+Można użyć zewnętrznego pliku parametrów, dostarczając identyfikator URI do pliku. W przypadku korzystania z zewnętrznego pliku parametrów nie można przekazać innych wartości wbudowanych lub z pliku lokalnego. Wszystkie wbudowane parametry są ignorowane. Podaj wszystkie wartości parametrów w pliku zewnętrznym.
 
 ## <a name="parameter-name-conflicts"></a>Konflikty nazw parametrów
 

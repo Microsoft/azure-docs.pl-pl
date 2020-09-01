@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496055"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180783"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
 
@@ -24,7 +24,7 @@ Obecnie analiza przedsiębiorstwa wymaga dużej ilości danych, zarówno w przyp
 
 Takie rozwiązania są trudne do kompilowania, konfigurowania, zabezpieczania i konserwowania, które opóźniają szybkie wydobywanie usługi inteligentnego wglądu w szczegółowe dane.
 
-**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas uzyskiwania wglądu w dane ze wszystkich danych w dowolnej skali, między magazynami danych i systemami analizy danych Big Data. Łączy ona najlepsze zalety technologii **SQL** używanych w magazynie danych w przedsiębiorstwie, technologii **Spark** używanych w analizie danych Big Data oraz **potoków** do organizowania działań i przenoszenia danych.
+**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas uzyskiwania wglądu w dane ze wszystkich danych w dowolnej skali, między magazynami danych i systemami analizy danych Big Data. Łączy ona najlepsze zalety technologii **SQL** używanych w magazynie danych w przedsiębiorstwie, technologii **Spark** używanych w analizie danych Big Data oraz **potoków** do integracji danych i ETL/ELT.
 
 Usługa Azure Synapse obejmuje środowisko użytkownika programu **Studio** natywne dla sieci Web, które zapewnia jedno środowisko i model zarządzania, monitorowania, kodowania i zabezpieczeń.
 
@@ -59,13 +59,13 @@ Usługa Azure Synapse usuwa tradycyjne bariery technologiczne między programami
 * SQL i Spark mogą bezpośrednio eksplorować i analizować pliki Parquet, CSV, TSV i JSON przechowywane w usłudze Data Lake.
 * Szybkie skalowalne obciążenie i zwalnianie danych przechodzących między bazami danych SQL i Spark
 
-### <a name="built-in-orchestration-via-pipelines"></a>Wbudowana aranżacja za pośrednictwem potoków
+### <a name="built-in-data-integration-via-pipelines"></a>Wbudowana integracja danych za pośrednictwem potoków
 
-Usługa Azure Synapse jest wbudowana w taki sam aparat integracji danych i środowisko jak Azure Data Factory, co pozwala na tworzenie rozbudowanych potoków danych bez użycia oddzielnego aparatu aranżacji.
+Usługa Azure Synapse jest wbudowana przy użyciu tego samego aparatu integracji danych i środowisk, co Azure Data Factory, co pozwala na tworzenie rozbudowanych potoków ETL na skalę bez opuszczania Synapse Analytics.
 
-* Przenoszenie danych między usługą Azure Synapse i 90 + lokalnymi źródłami danych
-* Organizowanie notesów, potoków, zadań platformy Spark, skryptów SQL i procedur składowanych
+* Pozyskiwanie danych ze źródeł danych 90 +
 * ETL bezpłatny kod z działaniami przepływu danych
+* Organizowanie notesów, zadań platformy Spark, procedur składowanych, skryptów SQL i innych
 
 ### <a name="unified-management-monitoring-and-security"></a>Ujednolicone zarządzanie, monitorowanie i zabezpieczenia
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6d95cb938a341b94a32989e82c42d37956c0a80
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792537"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179848"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Obsługa dokumentów EDIFACT z segmentami UNH 2.5 w Azure Logic Apps
 
@@ -56,8 +56,6 @@ Aby zakodować komunikat przychodzący, skonfiguruj schemat w ustawieniach umowy
 1. Dodaj schemat do konta integracji.
 
 1. Skonfiguruj schemat w ustawieniach wysyłania umowy EDIFACT.
-
-1. Wybierz umowę EDIFACT, a następnie kliknij pozycję **Edytuj jako plik JSON**.  Dodaj wartość UNH 2,5 w umowie Send **schemaReferences**
 
 1. Wybierz umowę EDIFACT i wybierz pozycję **Edytuj jako kod JSON**. Dodaj wartość UNH 2,5 do sekcji z umową wysyłania `schemaReferences` :
 

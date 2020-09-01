@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak przywrócić bazy danych SAP HANA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3887b8e7333b6c581887fcfde7e1bd99200e72ef
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0a6cec234c367ceb1c6032e99d64d6ca5bc4805
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007268"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180273"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Przywracanie SAP HANA baz danych na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -89,7 +89,7 @@ W tym samouczku przywrócisz do poprzedniego punktu przywracania. [Wyświetl lis
 Korzystając z powyższej nazwy punktu przywracania i trybu przywracania, Utwórz teraz obiekt konfiguracji odzyskiwania za pomocą polecenia [AZ Backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) . Przyjrzyjmy się poszczególnym parametrom w tym poleceniu cmdlet:
 
 * **--Target-Item-Name** Jest to nazwa używana przez przywróconą bazę danych. W takim przypadku użyto nazwy *restored_database*.
-* **--Target-Server-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. Na potrzeby tego samouczka będziemy przywracać bazę danych na tym samym serwerze SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
+* **--Target-Server-Name** Jest to nazwa serwera SAP HANA, który został pomyślnie zarejestrowany w magazynie Recovery Services i znajduje się w tym samym regionie, w którym znajduje się baza danych, która ma zostać przywrócona. W tym samouczku będziemy przywracać bazę danych na tym samym serwerze SAP HANA, który został objęty ochroną, o nazwie *hxehost*.
 * **--Target-Server-Type** Aby można było przywrócić SAP HANA baz danych, należy użyć **SapHanaDatabase** .
 
 ```azurecli-interactive
@@ -344,7 +344,7 @@ Przenieś te przywrócone pliki na serwer SAP HANA, na którym chcesz je przywr�
         * `<LogFilesDir>` -folder zawierający kopie zapasowe dziennika
         * `<BackupIdFromJsonFile>` - **BackupId** wyodrębniony w **kroku 3**
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się, jak zarządzać bazami danych SAP HANA, których kopia zapasowa została utworzona przy użyciu interfejsu wiersza polecenia platformy Azure, przejdź do samouczka [Zarządzanie bazą danych SAP HANA na maszynie wirtualnej platformy Azure](tutorial-sap-hana-backup-cli.md)
 

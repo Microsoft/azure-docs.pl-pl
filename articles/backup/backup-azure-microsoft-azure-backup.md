@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001165"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181701"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -275,11 +275,11 @@ Poniżej przedstawiono kroki, które należy wykonać, jeśli chcesz przenieść
 9. W programie SQL Przywróć DPMDB.
 10. Uruchom polecenie CMD (jako administrator) na nowym serwerze. Przejdź do lokalizacji instalacji Microsoft Azure Backup i folderu bin
 
-    Przykład ścieżki: C:\Windows\System32>CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    Przykład ścieżki: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
 11. Aby nawiązać połączenie z Azure Backup, uruchom polecenie `DPMSYNC -SYNC`
 
-    Jeśli **nowe** dyski zostały dodane do puli magazynów programu DPM, a nie przeniesione ze starych, uruchom polecenie `DPMSYNC -Reallocatereplica`
+    Jeśli **nowe** dyski zostały dodane do puli magazynów programu DPM, a nie przeniesione ze starych, uruchom polecenie `DPMSYNC -Reallocatereplica` .
 
 ## <a name="network-connectivity"></a>Łączność sieciowa
 
@@ -360,7 +360,7 @@ Wykonaj następujące kroki, aby uaktualnić program serwera usługi MAB:
 Jeśli w trakcie fazy instalacji (lub tworzenia kopii zapasowej lub przywracania) wystąpi błąd programu Microsoft Azure Backup Server, zapoznaj się z tym [dokumentem kodów błędów](https://support.microsoft.com/kb/3041338)  , aby uzyskać więcej informacji.
 Możesz również odwoływać się do [Azure Backup powiązanych często zadawanych pytań](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym miejscu możesz uzyskać szczegółowe informacje [na temat przygotowywania środowiska programu DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Zawiera również informacje o obsługiwanych konfiguracjach, w których Azure Backup Server można wdrożyć i użyć. Możesz użyć szeregu [poleceń cmdlet programu PowerShell](/powershell/module/dataprotectionmanager/) do wykonywania różnych operacji.
 

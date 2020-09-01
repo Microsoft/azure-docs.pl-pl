@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd189db10b599c0bc6bd5a3dbae2b1bc21b53b0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 033752eed30e898f5306154f73a9ca6741c1f81c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795919"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179576"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -310,11 +310,11 @@ Jeśli Azure Active Directory jest podłączony do Active Directory lokalnych, p
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Sporządzanie spisu kont uprzywilejowanych w hostowanej Virtual Machines
 
-Zazwyczaj nie trzeba udzielać użytkownikom nieograniczonego dostępu do wszystkich subskrypcji lub zasobów platformy Azure. Za pomocą ról administratorów usługi Azure AD Udziel dostępu tylko użytkownikom, którzy muszą wykonywać swoje zadania. Role administratora usługi Azure AD umożliwiają jednemu administratorowi zarządzanie tylko maszynami wirtualnymi w ramach subskrypcji, a inne mogą zarządzać bazami danych SQL w ramach tej samej subskrypcji. Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z Access Controlami opartymi na rolach w Azure Portal](../../role-based-access-control/overview.md).
+Zazwyczaj nie trzeba udzielać użytkownikom nieograniczonego dostępu do wszystkich subskrypcji lub zasobów platformy Azure. Za pomocą ról administratorów usługi Azure AD Udziel dostępu tylko użytkownikom, którzy muszą wykonywać swoje zadania. Role administratora usługi Azure AD umożliwiają jednemu administratorowi zarządzanie tylko maszynami wirtualnymi w ramach subskrypcji, a inne mogą zarządzać bazami danych SQL w ramach tej samej subskrypcji. Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach na platformie Azure](../../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implementacja usług PIM dla administratorów usługi Azure AD
 
-Zarządzanie tożsamościami uprzywilejowanymi przy użyciu ról administratorów usługi Azure AD umożliwia zarządzanie dostępem do zasobów platformy Azure, kontrolowanie ich i monitorowanie. Korzystanie z programu PIM chroni przed obniżeniem czasu ekspozycji uprawnień i zwiększeniem widoczności do użycia w raportach i alertach. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem RBAC do zasobów platformy Azure za pomocą Privileged Identity Management](../../role-based-access-control/best-practices.md).
+Zarządzanie tożsamościami uprzywilejowanymi przy użyciu ról administratorów usługi Azure AD umożliwia zarządzanie dostępem do zasobów platformy Azure, kontrolowanie ich i monitorowanie. Korzystanie z programu PIM chroni przed obniżeniem czasu ekspozycji uprawnień i zwiększeniem widoczności do użycia w raportach i alertach. Aby uzyskać więcej informacji, zobacz [co to jest Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Użyj integracji dzienników platformy Azure w celu wysłania odpowiednich dzienników platformy Azure do systemów SIEM
 
@@ -364,7 +364,7 @@ Zabezpieczanie uprzywilejowanego dostępu jest ważne, aby ustanowić gwarancje 
 * Serwery
 * Aplikacje
 * Komputery
-* Urządzenia
+* Devices
 * Sieć szkieletowa chmury
 
 Podczas zarządzania kontami uprzywilejowanego dostępu zalecamy stosowanie następujących zasad:
