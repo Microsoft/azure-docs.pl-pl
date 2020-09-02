@@ -37,9 +37,6 @@
       href: powershell-samples.md
     - name: Szablony usługi Resource Manager
       href: template-samples.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Ciągłość działalności biznesowej
@@ -226,6 +223,12 @@
               href: ipv6-reserve-public-ip-address-prefix.md
         - name: Adresowanie IP
           items:
+            - name: Tworzenie publicznych adresów IP — portal
+              href: create-public-ip-portal.md
+            - name: Tworzenie publicznych adresów IP — program PowerShell
+              href: create-public-ip-powershell.md
+            - name: Tworzenie publicznych adresów IP — interfejs wiersza polecenia platformy Azure
+              href: create-public-ip-cli.md
             - name: Zarządzanie publicznymi adresami IP
               href: virtual-network-public-ip-address.md
             - name: Zarządzanie prefiksami publicznych adresów IP
@@ -432,6 +435,9 @@
       href: /azure/templates/microsoft.network/allversions
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

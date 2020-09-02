@@ -39,9 +39,6 @@
   items:
     - name: Przykłady kodu dla usługi Key Vault
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Pojęcia
   items:
     - name: Podstawowe pojęcia
@@ -90,6 +87,8 @@
           href: managed-identity.md
         - name: Korzystanie z zasad kontroli dostępu
           href: group-permissions-for-apps.md
+        - name: Korzystanie z kontroli dostępu opartej na rolach na platformie Azure (wersja zapoznawcza)
+          href: rbac-guide.md
         - name: Rozwiązywanie problemów z dostępem
           href: troubleshooting-access-issues.md
     - name: Programowanie
@@ -163,6 +162,9 @@
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

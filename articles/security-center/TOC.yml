@@ -61,8 +61,6 @@
           href: security-center-recommendations.md
         - name: Omówienie zasad zabezpieczeń
           href: tutorial-security-policy.md
-        - name: Wbudowane zasady zabezpieczeń
-          href: security-center-policy-definitions.md
         - name: Używanie zaleceń w celu ulepszania zabezpieczeń
           href: security-center-using-recommendations.md
         - name: Punkt odniesienia zabezpieczeń
@@ -157,7 +155,7 @@
       href: asset-inventory.md
     - name: Integracja z innymi narzędziami i usługami
       items:
-        - name: Integracja z rozwiązaniem Windows Admin Center
+        - name: Ochrona serwerów platformy Windows Admin Center
           href: windows-admin-center-integration.md
         - name: Chronienie aplikacji internetowych i interfejsów API w usłudze Azure App Service
           href: security-center-app-services.md
@@ -211,6 +209,9 @@
       href: security-center-features-retirement-july2019.md
     - name: Rekomendacje i ocena ochrony punktu końcowego
       href: security-center-endpoint-protection.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

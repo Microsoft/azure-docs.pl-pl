@@ -71,17 +71,17 @@
           items:
             - name: Za pomocą narzędzia kubectl
               items:
-                - name: Uzyskiwanie dostępu do klastra platformy Kubernetes
+                - name: Dostęp do klastra platformy Kubernetes
                   href: azure-stack-edge-gpu-create-kubernetes-cluster.md
-                - name: Uwidacznianie aplikacji bezstanowej
+                - name: Aplikacja bezstanowa
                   href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
-                - name: Wdrażanie aplikacji stanowej (aprowidowanej statycznie)
+                - name: Statycznie aprowizowana aplikacja stanowa
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
-                - name: Wdrażanie aplikacji stanowej (aprowidowanej dynamicznie)
+                - name: Dynamicznie aprowizowana aplikacja stanowa
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
             - name: Za pomocą usługi IoT Edge
               items:
-                - name: Uwidacznianie aplikacji bezstanowej
+                - name: Aplikacja bezstanowa
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
             - name: Za pomocą usługi Azure Arc
               items:
@@ -119,8 +119,8 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Rozwiązywanie problemów z błędami certyfikatów
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-            - name: Tworzenie modułu języka C#
-              href: azure-stack-edge-j-series-create-iot-edge-module.md
+        - name: Tworzenie modułu języka C#
+          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Zarządzanie obliczeniami brzegowymi
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Zarządzanie bramą magazynu

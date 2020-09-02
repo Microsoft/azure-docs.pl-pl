@@ -81,6 +81,8 @@
       href: user-profile-attributes.md
     - name: Sesje logowania jednokrotnego
       href: session-overview.md
+    - name: Ochrona tożsamości i dostęp warunkowy
+      href: conditional-access-identity-protection-overview.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Integracja aplikacji
@@ -111,6 +113,8 @@
               href: configure-ropc.md
             - name: Konfigurowanie samoobsługowego resetowania hasła
               href: user-flow-self-service-password-reset.md
+        - name: Dodawanie dostępu warunkowego
+          href: conditional-access-user-flow.md
         - name: Dostosowywanie interfejsu użytkownika
           items:
             - name: Dostosowywanie interfejsu użytkownika
@@ -164,6 +168,8 @@
           href: user-flow-custom-attributes.md
         - name: Przekazywanie zewnętrznego tokenu dostawcy tożsamości
           href: idp-pass-through-user-flow.md
+    - name: Ochrona tożsamości i dostęp warunkowy
+      href: conditional-access-identity-protection-setup.md
     - name: Zasady niestandardowe
       items:
         - name: Tworzenie zasad
@@ -333,6 +339,9 @@
                       href: aad-sspr-technical-profile.md
                     - name: Przekształcanie oświadczeń
                       href: claims-transformation-technical-profile.md
+                    - name: Profil techniczny dostępu warunkowego
+                      href: conditional-access-technical-profile.md
+                      displayName: ca
                     - name: Wystawca tokenu JWT
                       href: jwt-issuer-technical-profile.md
                     - name: OAuth1

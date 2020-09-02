@@ -9,9 +9,9 @@
       href: supported-data-stores.md
 - name: Przewodniki Szybki start
   items:
-    - name: Tworzenie udziału danych — Azure Portal
+    - name: Udostępnianie danych — witryna Azure Portal
       href: share-your-data-portal.md
-    - name: Tworzenie udziału danych — szablon usługi ARM
+    - name: Udostępnianie danych — szablon usługi ARM
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Samouczki
@@ -39,6 +39,10 @@
   items:
     - name: Udostępnianie i odbieranie danych według źródła
       items:
+        - name: Udostępnianie z usługi Azure Storage
+          href: how-to-share-from-storage.md
+        - name: Udostępnianie z usługi Azure SQL Database lub Synapse Analytics
+          href: how-to-share-from-sql.md
         - name: Udostępnianie z usługi Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true
