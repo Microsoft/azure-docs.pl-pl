@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: 60c5431150141a8a2421c80ac4858f85ad41b002
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927106"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292541"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji demonstracyjnej w portalu (Azure Wyszukiwanie poznawcze)
 
@@ -61,7 +61,7 @@ Kreator udostępnia podstawowy układ dla renderowanych wyników wyszukiwania, k
 
 1. W polu Opis wybierz pole, które zawiera szczegółowe informacje, które mogą pomóc komuś zdecydować, czy klikać ten dokument.
 
-   ![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/configure-results.png)
+   ![Skonfiguruj wyniki dla przykładowych danych](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Dodaj pasek boczny
 
@@ -100,7 +100,7 @@ Indeks podstawowy składa się z fikcyjnych, wygenerowanych danych, które zosta
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+W przypadku pracy w ramach własnej subskrypcji warto sprawdzić po zakończeniu projektu, czy dalej potrzebuje się utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

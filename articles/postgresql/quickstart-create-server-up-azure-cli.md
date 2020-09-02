@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 662d34d3ed89a7d440a604de4338de334ea0bd11
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496580"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300021"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: korzystanie z interfejsu wiersza polecenia platformy Azure, AZ Postgres up (wersja zapoznawcza) w celu utworzenia Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -24,7 +24,7 @@ Azure Database for PostgreSQL to usługa zarządzana, która umożliwia uruchami
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby sprawdzić zainstalowaną wersję, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -75,7 +75,7 @@ admin-password | Wygenerowano system | Hasło użytkownika administratora.
 
 Po utworzeniu serwera dostępne są następujące ustawienia:
 
-- Utworzono regułę zapory "devbox". Interfejs wiersza polecenia platformy Azure próbuje wykryć adres IP komputera, `az postgres up` z którego jest uruchamiane polecenie i dozwolonych ten adres IP.
+- Utworzono regułę zapory "devbox". Interfejs wiersza polecenia platformy Azure próbuje wykryć adres IP komputera, `az postgres up` z którego jest uruchamiane polecenie, i zezwala na ten adres IP.
 - "Zezwalaj na dostęp do usług platformy Azure" jest ustawiony na wartość włączone. To ustawienie umożliwia skonfigurowanie zapory serwera do akceptowania połączeń ze wszystkich zasobów platformy Azure, w tym zasobów spoza subskrypcji.
 - Utworzono pustą bazę danych o nazwie "SampleDB"
 - Utworzono nowego użytkownika o nazwie "root" z uprawnieniami do "SampleDB"
@@ -89,7 +89,7 @@ Po zakończeniu działania `az postgres up` polecenia zostanie wykazana lista pa
 
 Aby ponownie wyświetlić te parametry połączenia, można użyć polecenia [AZ Postgres show-Connection-String](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wyczyść wszystkie zasoby utworzone w ramach szybkiego startu przy użyciu następującego polecenia. To polecenie usuwa serwer Azure Database for PostgreSQL i grupę zasobów.
 

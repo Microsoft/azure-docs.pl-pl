@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b3f279b28bf78114556623865a9f132174c6e41
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550544"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297318"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Hightail
 
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Przed skonfigurowaniem logowania jednokrotnego w aplikacji Hightail należy białej liście domen poczty e-mail z zespołem Hightail, tak aby wszyscy użytkownicy korzystający z tej domeny mogli korzystać z funkcji logowania jednokrotnego.
+> Przed skonfigurowaniem logowania jednokrotnego w aplikacji Hightail należy dodać domenę poczty e-mail do listy dozwolonych z zespołem Hightail, tak aby wszyscy użytkownicy korzystający z tej domeny mogli korzystać z funkcji logowania jednokrotnego.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -186,7 +186,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka Hightail w panelu dostępu należy automatycznie zalogować się do Hightail, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

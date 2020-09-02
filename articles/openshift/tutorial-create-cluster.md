@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: d4938d2e4649d62ab656b6854e8176fd82b59a8f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: a581678fdd05dade336f7ca9fcbcf5ad4c92d49a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587739"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300174"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -20,9 +20,11 @@ W tym samouczku część jednej z trzech zostanie przygotowana do utworzenia kla
 > * Skonfiguruj wymagania wstępne i utwórz wymaganą sieć wirtualną i podsieci
 > * Wdrażanie klastra
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+Do utworzenia i uruchomienia klastra OpenShift na platformie Azure Red Hat OpenShift jest wymagany co najmniej 40 rdzeni. Domyślny przydział zasobów platformy Azure dla nowej subskrypcji platformy Azure nie spełnia tego wymagania. Aby zażądać zwiększenia limitu zasobów, zobacz [przydział standardowy: zwiększanie limitów przez serię maszyn wirtualnych](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 ### <a name="verify-your-permissions"></a>Sprawdzanie uprawnień
 
@@ -87,12 +89,15 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
 1. **Utwórz grupę zasobów.**
 
     Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
+    
+> [!NOTE]
+> Usługa Azure Red Hat OpenShift nie jest dostępna we wszystkich regionach, w których można utworzyć grupę zasobów platformy Azure. Zobacz [dostępne regiony](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) , aby uzyskać informacje na temat tego, gdzie jest obsługiwana usługa Azure Red Hat OpenShift.
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
     ```
 
-    Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną grupę zasobów:
+    The following example output shows the resource group created successfully:
 
     ```json
     {

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40f820a32c7848b5370cb664d706e9f20928bc5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495350"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296485"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Szybki Start: Tworzenie Azure Database for MySQL przy użyciu prostego polecenia platformy Azure — polecenie AZ MySQL up (wersja zapoznawcza)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL to usługa zarządzana, która umożliwia uruchamianie 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w wersji 2,0 lub nowszej. Aby sprawdzić zainstalowaną wersję, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -75,7 +75,7 @@ admin-password | Wygenerowano system | Hasło użytkownika administratora.
 
 Po utworzeniu serwera dostępne są następujące ustawienia:
 
-- Utworzono regułę zapory "devbox". Interfejs wiersza polecenia platformy Azure próbuje wykryć adres IP komputera, `az mysql up` z którego jest uruchamiane polecenie i dozwolonych ten adres IP.
+- Utworzono regułę zapory "devbox". Interfejs wiersza polecenia platformy Azure próbuje wykryć adres IP komputera, `az mysql up` z którego jest uruchamiane polecenie, i zezwala na ten adres IP.
 - "Zezwalaj na dostęp do usług platformy Azure" jest ustawiony na wartość włączone. To ustawienie umożliwia skonfigurowanie zapory serwera do akceptowania połączeń ze wszystkich zasobów platformy Azure, w tym zasobów spoza subskrypcji.
 - `wait_timeout`Parametr jest ustawiony na 8 godzin
 - Utworzono pustą bazę danych o nazwie "SampleDB"
@@ -90,7 +90,7 @@ Po zakończeniu działania `az mysql up` polecenia zostanie wykazana lista param
 
 Aby ponownie wyświetlić te parametry połączenia, można użyć polecenia [AZ mysql show-Connection-String](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) .
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wyczyść wszystkie zasoby utworzone w ramach szybkiego startu przy użyciu następującego polecenia. To polecenie usuwa serwer Azure Database for MySQL i grupę zasobów.
 

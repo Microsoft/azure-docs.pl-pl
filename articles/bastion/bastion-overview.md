@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 01/31/2020
+ms.date: 09/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8b27a7c2fd03ed0a80f1775465f1f1bbb44f0202
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 680eb8414696109e8cc15d82d8bd5f2c5740f488
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270346"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291878"
 ---
 # <a name="what-is-azure-bastion"></a>Co to jest usługa Azure Bastion?
 
@@ -26,7 +26,7 @@ Wdrożenie usługi Azure bastionu odbywa się na sieć wirtualną, a nie na subs
 
 Protokoły RDP i SSH stanowią podstawowe metody, za pomocą których można nawiązywać połączenia z obciążeniami działającymi na platformie Azure. Udostępnianie portów protokołu RDP/SSH przez Internet nie jest wymagane i jest widoczne jako znacząca powierzchnia zagrożenia. Jest to często spowodowane lukami w zabezpieczeniach protokołów. Aby można było obsłużyć tę powierzchnię zagrożenia, możesz wdrożyć hosty bastionu (znane również jako serwery przeskoków) po stronie publicznej sieci obwodowej. Serwery hosta bastionu są zaprojektowane i skonfigurowane pod kątem ataków. Serwery bastionu zapewniają również łączność RDP i SSH z obciążeniami znajdującymi się w tle, a także w sieci.
 
-![architektura](./media/bastion-overview/architecture.png)
+![Architektura usługi Azure bastionu](./media/bastion-overview/architecture.png)
 
 Na tym rysunku przedstawiono architekturę wdrożenia usługi Azure bastionu. Na tym diagramie:
 
@@ -46,6 +46,10 @@ Dostępne są następujące funkcje:
 * **Brak problemów z zarządzaniem sieciowych grup zabezpieczeń:** Azure bastionu to w pełni zarządzana usługa platformy PaaS z platformy Azure, która jest używana wewnętrznie w celu zapewnienia bezpiecznej łączności RDP/SSH. Nie musisz stosować żadnych sieciowych grup zabezpieczeń w podsieci usługi Azure bastionu. Ponieważ usługa Azure bastionu łączy się z maszynami wirtualnymi za pośrednictwem prywatnego adresu IP, można skonfigurować sieciowych grup zabezpieczeń, aby zezwalała na używanie protokołu RDP/SSH tylko na platformie Azure bastionu. Pozwala to usunąć problemy związane z zarządzaniem sieciowych grup zabezpieczeń za każdym razem, gdy będzie konieczne bezpieczne łączenie się z maszynami wirtualnymi.
 * **Ochrona przed skanowaniem portów:** Ponieważ nie musisz uwidaczniać maszyn wirtualnych w publicznej sieci Internet, Twoje maszyny wirtualne są chronione przed skanowaniem portów przez nieautoryzowanych i złośliwych użytkowników znajdujących się poza siecią wirtualną.
 * **Ochrona przed atakami na zero dni. Ograniczanie funkcjonalności tylko w jednym miejscu:** Azure bastionu to w pełni zarządzana platforma usługi PaaS. Ponieważ znajduje się on na obrzeżu sieci wirtualnej, nie trzeba martwić się o zabezpieczenia wszystkich maszyn wirtualnych w sieci wirtualnej. Platforma Azure chroni przed wielodniowymi programami wykorzystującymi luki w zabezpieczeniach, utrzymując ochronę systemu Azure bastionu i zawsze na bieżąco.
+
+## <a name="whats-new"></a><a name="new"></a>Co nowego?
+
+Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami funkcji platformy Azure bastionu na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion) .
 
 ## <a name="faq"></a>Często zadawane pytania
 

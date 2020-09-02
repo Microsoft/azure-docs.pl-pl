@@ -1,19 +1,19 @@
 ---
-title: Tworzenie Traffic Manager przy użyciu szablonu Azure Resource Manager (szablon ARM)
-description: Dowiedz się, jak utworzyć profil usługi Azure Traffic Manager przy użyciu szablonu Azure Resource Manager (szablon ARM).
+title: 'Szybki Start: Tworzenie Traffic Manager przy użyciu szablonu Azure Resource Manager (szablon ARM)'
+description: W tym artykule szybki start opisano sposób tworzenia profilu usługi Azure Traffic Manager przy użyciu szablonu Azure Resource Manager (szablon ARM).
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
-ms.date: 08/24/2020
-ms.openlocfilehash: bc7cc3220f228a4c8f15370b7b0fcde56db8186d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/01/2020
+ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237300"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299154"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Szybki Start: Tworzenie profilu Traffic Manager przy użyciu szablonu ARM
 
@@ -105,12 +105,12 @@ Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy wszystko będzie gotowe, Usuń grupy zasobów, aplikacje sieci Web i wszystkie powiązane zasoby za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Jeśli profil Traffic Manager nie jest już potrzebny, Usuń grupę zasobów. Spowoduje to usunięcie profilu Traffic Manager i wszystkich powiązanych zasobów.
+
+Aby usunąć grupę zasobów, wywołaj `Remove-AzResourceGroup` polecenie cmdlet:
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+Remove-AzResourceGroup -Name <your resource group name>
 ```
 
 ## <a name="next-steps"></a>Następne kroki

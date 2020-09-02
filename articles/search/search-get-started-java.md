@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6ac8638efc09efe6d74f634c4042346d738d44ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924201"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290350"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w języku Java przy użyciu interfejsów API REST
 > [!div class="op_single_selector"]
@@ -373,7 +373,7 @@ Zacznij od otwarcia IntelliJ POMYSŁu i skonfigurowania nowego projektu.
 
 1. Sprawdź, czy projekt ma następującą strukturę.
 
-    ![Struktura katalogu projektu](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Struktura katalogów i klasy projektu](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Otwórz okno narzędzia **Maven** i wykonaj ten Maven cel: `verify exec:java` 
  ![ Wykonaj Maven cel: Verify exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
@@ -820,7 +820,7 @@ Teraz, gdy załadowałeś dokumenty hoteli, możesz utworzyć zapytania wyszukiw
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

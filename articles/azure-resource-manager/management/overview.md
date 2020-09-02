@@ -2,13 +2,14 @@
 title: Omówienie usługi Azure Resource Manager
 description: Opis wdrażania zasobów na platformie Azure, kontrolowania dostępu do tych zasobów oraz zarządzania nimi za pomocą usługi Azure Resource Manager.
 ms.topic: overview
-ms.date: 04/21/2020
-ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/01/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087031"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293952"
 ---
 # <a name="what-is-azure-resource-manager"></a>Co to jest Azure Resource Manager?
 
@@ -68,25 +69,33 @@ Szablony można wdrażać dla dzierżawców, grup zarządzania, subskrypcji lub 
 
 Definiując grupę zasobów, należy wziąć pod uwagę pewne ważne czynniki:
 
-* Wszystkie zasoby w grupie powinny mieć ten sam cykl życia. Są one wdrażane, aktualizowane i usuwane razem. Jeśli jeden zasób, taki jak serwer, musi istnieć w innym cyklu wdrażania, powinien znajdować się w innej grupie zasobów.
+* Wszystkie zasoby w grupie zasobów powinny mieć ten sam cykl życia. Są one wdrażane, aktualizowane i usuwane razem. Jeśli jeden zasób, taki jak serwer, musi istnieć w innym cyklu wdrażania, powinien znajdować się w innej grupie zasobów.
 
 * Każdy zasób może znajdować się tylko w jednej grupie zasobów.
-
-* Niektóre zasoby mogą znajdować się poza grupą zasobów. Te zasoby są wdrażane w [subskrypcji](../templates/deploy-to-subscription.md), [grupie zarządzania](../templates/deploy-to-management-group.md)lub [dzierżawie](../templates/deploy-to-tenant.md). W tych zakresach są obsługiwane tylko określone typy zasobów.
 
 * Zasoby w grupie można dodawać i usuwać w dowolnym momencie.
 
 * Zasoby można przenosić między poszczególnymi grupami. Aby uzyskać więcej informacji, zobacz [Move resources to new resource group or subscription](move-resource-group-and-subscription.md) (Przenoszenie zasobów do nowej grupy lub subskrypcji).
 
-* Grupa zasobów może zawierać zasoby, które znajdują się w różnych regionach.
+* Zasoby w grupie zasobów mogą znajdować się w różnych regionach niż grupa zasobów.
 
-* Grupa zasobów może służyć do określania zakresu kontroli dostępu na potrzeby działań administracyjnych.
+* Podczas tworzenia grupy zasobów, należy podać lokalizację dla danej grupy zasobów. Być może zastanawiasz się, „Dlaczego grupa zasobów wymaga określenia lokalizacji? Ponadto dlaczego lokalizacja grupy zasobów jest w ogóle istotna, skoro zasoby mogą znajdować się w innej lokalizacji niż grupa zasobów?” Grupa zasobów przechowuje metadane dotyczące zasobów. W przypadku określania lokalizacji grupy zasobów należy określić miejsce przechowywania metadanych. W celu zapewnienia zgodności może być konieczne upewnienie się, że dane są przechowywane w konkretnym regionie.
 
-* Zasób może wchodzić w interakcję z zasobami znajdującymi się w innych grupach zasobów. Ta interakcja jest typowa, gdy dwa zasoby są ze sobą powiązane, ale nie mają tego samego cyklu życia (na przykład aplikacje internetowe łączące się z bazą danych).
+   Jeśli region grupy zasobów jest tymczasowo niedostępny, nie można zaktualizować zasobów w grupie zasobów, ponieważ metadane są niedostępne. Zasoby w innych regionach będą nadal działać zgodnie z oczekiwaniami, ale nie można ich zaktualizować. Aby uzyskać więcej informacji na temat tworzenia niezawodnych aplikacji, zobacz [projektowanie niezawodnych aplikacji platformy Azure](/azure/architecture/checklist/resiliency-per-service).
 
-Podczas tworzenia grupy zasobów, należy podać lokalizację dla danej grupy zasobów. Być może zastanawiasz się, „Dlaczego grupa zasobów wymaga określenia lokalizacji? Ponadto dlaczego lokalizacja grupy zasobów jest w ogóle istotna, skoro zasoby mogą znajdować się w innej lokalizacji niż grupa zasobów?” Grupa zasobów przechowuje metadane dotyczące zasobów. W przypadku określania lokalizacji grupy zasobów należy określić miejsce przechowywania metadanych. Dla zachowania zgodności może być konieczne upewnienie się, że dane są przechowywane w odpowiednim regionie.
+* Grupa zasobów może służyć do określania zakresu kontroli dostępu na potrzeby działań administracyjnych. Do zarządzania grupą zasobów można przypisywać [Zasady platformy Azure](../../governance/policy/overview.md), [role RBAC](../../role-based-access-control/role-assignments-portal.md)lub [blokady zasobów](lock-resources.md).
 
-Jeśli region grupy zasobów jest tymczasowo niedostępny, nie można zaktualizować zasobów w grupie zasobów, ponieważ metadane są niedostępne. Zasoby w innych regionach będą nadal działać zgodnie z oczekiwaniami, ale nie można ich zaktualizować. Aby uzyskać więcej informacji na temat tworzenia niezawodnych aplikacji, zobacz [projektowanie niezawodnych aplikacji platformy Azure](/azure/architecture/checklist/resiliency-per-service).
+* Możesz [zastosować Tagi](tag-resources.md) do grupy zasobów. Zasoby w grupie zasobów nie dziedziczą tych tagów.
+
+* Zasób może łączyć się z zasobami w innych grupach zasobów. Ten scenariusz jest typowy, gdy dwa zasoby są powiązane, ale nie mają tego samego cyklu życia. Można na przykład mieć aplikację sieci Web, która łączy się z bazą danych w innej grupie zasobów.
+
+* Usunięcie grupy zasobów spowoduje również usunięcie wszystkich zasobów w grupie zasobów. Aby uzyskać informacje o tym, jak Azure Resource Manager organizować te usunięcia, zobacz [Azure Resource Manager grupy zasobów i usuwanie zasobów](delete-resource-group.md).
+
+* W każdej grupie zasobów można wdrożyć maksymalnie 800 wystąpień typu zasobu. Niektóre typy zasobów są [wykluczone z limitu wystąpienia 800](resources-without-resource-group-limit.md).
+
+* Niektóre zasoby mogą znajdować się poza grupą zasobów. Te zasoby są wdrażane w [subskrypcji](../templates/deploy-to-subscription.md), [grupie zarządzania](../templates/deploy-to-management-group.md)lub [dzierżawie](../templates/deploy-to-tenant.md). W tych zakresach są obsługiwane tylko określone typy zasobów.
+
+* Aby utworzyć grupę zasobów, można użyć szablonu [Portal](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [interfejsu wiersza polecenia platformy Azure](manage-resource-groups-cli.md#create-resource-groups)lub [Azure Resource Manager (ARM)](../templates/deploy-to-subscription.md#resource-groups).
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Odporność Azure Resource Manager
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808239"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300123"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Usuwanie aplikacji z dzierżawy usługi Azure Active Directory (Azure AD)
 
@@ -30,10 +30,11 @@ Aby usunąć aplikację z dzierżawy usługi Azure AD, potrzebne są:
 - Opcjonalne: kończenie [wyświetlania aplikacji](view-applications-portal.md).
 - Opcjonalne: kończenie [dodawania aplikacji](add-application-portal.md).
 - Opcjonalne: kończenie [konfigurowania aplikacji](add-application-portal-configure.md).
+- Opcjonalne: kończenie [przypisywania użytkowników do aplikacji](add-application-portal-assign-users.md).
 - Opcjonalne: kończenie [konfigurowania logowania jednokrotnego](add-application-portal-setup-sso.md).
 
 >[!IMPORTANT]
->W celu przetestowania kroków w tym przewodniku szybki start Użyj środowiska nieprodukcyjnego.
+>Przetestuj kroki opisane w tym przewodniku Szybki Start przy użyciu środowiska nieprodukcyjnego.
 
 ## <a name="delete-an-application-from-your-azure-ad-tenant"></a>Usuwanie aplikacji z dzierżawy usługi Azure AD
 
@@ -46,7 +47,7 @@ Aby usunąć aplikację z dzierżawy usługi Azure AD:
 > [!TIP]
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tą serią szybki start Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji zostało omówione w tym przewodniku Szybki Start.
 

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604690"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303973"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -249,9 +249,12 @@ Gdy obwód usługi ExpressRoute jest podłączony do koncentratora wirtualnego, 
 
 Bieżące zachowanie polega na preferowaniu ścieżki obwodu usługi ExpressRoute za pośrednictwem piasty-to-Hub na potrzeby łączności między sieciami wirtualnymi. Nie jest to jednak zalecane w konfiguracji wirtualnej sieci WAN. Wirtualny zespół sieci WAN pracuje nad poprawką, aby włączyć preferencję dla piasty-Hub na ścieżce ExpressRoute. Zalecenie dotyczy wielu obwodów usługi ExpressRoute (różnych dostawców) do łączenia się z jednym koncentratorem i korzystania z łączności między centrami zapewnianą przez wirtualną sieć WAN w przypadku przepływów ruchu między regionami.
 
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Czy centra mogą być tworzone w innej grupie zasobów w wirtualnej sieci WAN?
+Tak. Ta opcja jest obecnie dostępna tylko za pośrednictwem programu PowerShell. Wirtualny Portal sieci WAN jest upoważniony do centrów w tej samej grupie zasobów co zasób wirtualnej sieci WAN.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Czy w wirtualnej sieci WAN jest obsługiwane protokół IPv6?
 
-Protokół IPv6 nie jest obsługiwany w przypadku koncentratora wirtualnego sieci WAN i jego bram. Jeśli masz sieć wirtualną z obsługą protokołu IPv6 i chcesz połączyć sieć wirtualną z wirtualna sieci WAN, ten scenariusz nie jest obecnie obsługiwany.
+Protokół IPv6 nie jest obsługiwany w przypadku koncentratora wirtualnego sieci WAN i jego bram. Jeśli masz sieć wirtualną z obsługą protokołów IPv4 i IPv6 i chcesz podłączyć sieć wirtualną do wirtualnej sieci WAN, ten scenariusz nie jest obecnie obsługiwany. 
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Co to jest zalecana wersja interfejsu API, która ma być używana przez skrypty automatyzując różne wirtualne funkcje sieci WAN?
 

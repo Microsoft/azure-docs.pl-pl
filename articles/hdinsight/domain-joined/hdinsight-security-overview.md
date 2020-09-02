@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367108"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292983"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
 
@@ -33,7 +33,7 @@ Zabezpieczenia obwodowe w usłudze HDInsight są realizowane za poorednictwem [s
 
 Wszystkie klastry wdrożone w sieci wirtualnej również mają prywatny punkt końcowy. Punkt końcowy jest rozpoznawany jako prywatny adres IP w sieci wirtualnej na potrzeby prywatnego dostępu HTTP do bram klastra.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 [Pakiet Enterprise Security](apache-domain-joined-architecture.md) z usługi HDInsight zapewnia uwierzytelnianie oparte na Active Directoryach, obsługa przez wiele użytkowników oraz kontrolę dostępu opartą na rolach. Integracja Active Directory jest realizowana przy użyciu [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Dzięki tym funkcjom można utworzyć klaster usługi HDInsight przyłączony do domeny Active Directory. Następnie skonfiguruj listę pracowników w przedsiębiorstwie, którzy mogą uwierzytelniać się w klastrze.
 
@@ -59,7 +59,7 @@ Aby uzyskać dostęp do dzienników inspekcji oprogramowania Apache Ranger i Amb
 
 Ochrona danych jest istotna dla spełnienia wymagań dotyczących zabezpieczeń i zgodności w organizacji. Wraz z ograniczaniem dostępu do danych przed nieautoryzowanymi pracownikami należy go zaszyfrować.
 
-Usługa Azure Storage i Data Lake Storage Gen1/Gen2 obsługują przezroczyste [szyfrowanie](../../storage/common/storage-service-encryption.md) po stronie serwera w stanie spoczynku. Bezpieczne klastry usługi HDInsight bezproblemowo współpracują z szyfrowaniem danych po stronie serwera.
+Usługa HDInsight obsługuje szyfrowanie danych przechowywane zarówno w przypadku zarządzanych przez platformę, jak i [kluczy zarządzanych przez klienta](../disk-encryption.md). Szyfrowanie danych w trakcie przesyłania jest obsługiwane zarówno przy użyciu protokołów TLS, jak i IPSec. Aby uzyskać więcej informacji, zobacz [szyfrowanie w usłudze Azure HDInsight](encryption-in-transit.md) .
 
 ### <a name="compliance"></a>Zgodność
 
@@ -79,7 +79,7 @@ Poniższa tabela zawiera linki do zasobów dla każdego typu rozwiązania zabezp
 |  | Włącz Właściwość ["wymagany bezpieczny transfer"](../../storage/common/storage-require-secure-transfer.md) na kontach magazynu. | Klient |
 |  | Konfigurowanie zapór i sieci wirtualnych [usługi Azure Storage](../../storage/common/storage-network-security.md) | Klient |
 |  | Konfigurowanie [punktów końcowych usługi sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) dla Cosmos DB i [usługi Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Klient |
-|  | Upewnij się, że [szyfrowanie TLS](../../storage/common/storage-security-tls.md) jest włączone na potrzeby przesyłania danych. | Klient |
+|  | Upewnij się, że funkcja [szyfrowania w ramach przesyłania](./encryption-in-transit.md) jest włączona, aby używać protokołów TLS i IPSec do komunikacji wewnątrz klastra. | Klient |
 |  | Konfigurowanie [kluczy zarządzanych przez klienta](../../storage/common/storage-encryption-keys-portal.md) do szyfrowania za pomocą usługi Azure Storage | Klient |
 |  | Kontroluj dostęp do danych przez pomoc techniczną platformy Azure przy użyciu [skrytki klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Klient |
 | Zabezpieczenia aplikacji i oprogramowania pośredniczącego | Integracja z usługą AAD — DS i [Konfigurowanie uwierzytelniania](apache-domain-joined-configure-using-azure-adds.md) | Klient |
@@ -90,8 +90,8 @@ Poniższa tabela zawiera linki do zasobów dla każdego typu rozwiązania zabezp
 | Bezpieczeństwo sieci | Konfigurowanie [sieci wirtualnej](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Skonfiguruj [reguły sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) dla ruchu przychodzącego](../control-network-traffic.md) | Klient |
 |  | Konfigurowanie [ograniczenia ruchu wychodzącego](../hdinsight-restrict-outbound-traffic.md) za pomocą zapory | Klient |
-| Zwirtualizowana infrastruktura | Nie dotyczy | HDInsight (dostawca usług w chmurze) |
-| Zabezpieczenia infrastruktury fizycznej | Nie dotyczy | HDInsight (dostawca usług w chmurze) |
+| Zwirtualizowana infrastruktura | Brak | HDInsight (dostawca usług w chmurze) |
+| Zabezpieczenia infrastruktury fizycznej | Brak | HDInsight (dostawca usług w chmurze) |
 
 ## <a name="next-steps"></a>Następne kroki
 

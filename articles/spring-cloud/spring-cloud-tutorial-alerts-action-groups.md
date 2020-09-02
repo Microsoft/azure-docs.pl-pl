@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c31c52d278c1e40b18b3308ca154b934d060d403
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071165"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299231"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Samouczek: Jak monitorować zasoby w chmurze wiosny przy użyciu alertów i grup akcji
 
@@ -24,7 +24,7 @@ Aby skonfigurować potok alertów, należy wykonać dwie czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Procedury przedstawione w tym samouczku współpracują ze wdrożonym wystąpieniem chmury Azure wiosną.  Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](spring-cloud-quickstart-launch-app-cli.md) .
+Procedury przedstawione w tym samouczku współpracują ze wdrożonym wystąpieniem chmury Azure wiosną.  Aby rozpocząć, Skorzystaj z [przewodnika Szybki Start](spring-cloud-quickstart.md) .
 
 Poniższe procedury inicjują **grupę akcji** i **alert** , rozpoczynając od opcji **alertów** w okienku nawigacji po lewej stronie wystąpienia chmury wiosnowej. (Procedurę można również uruchomić na stronie **Przegląd monitora** w Azure Portal). 
 
@@ -76,19 +76,19 @@ Aby skonfigurować **alert**, przejdź z powrotem do strony **alerty** , a nast�
 
 1. Wybierz warunek. W tym przykładzie wykorzystuje **procent użycia procesora CPU**.
 
-   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-1.png)
+   ![Portal zrzutów ekranu — Nowa reguła alertu 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. Przewiń w dół okienko **Konfigurowanie logiki sygnału** , aby ustawić **wartość progową** do monitorowania.
 
-   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-2.png)
+   ![Portal zrzutów ekranu — Nowa reguła alertu 3](media/alerts-action-groups/alerts-3-2.png)
 
-1. Kliknij pozycję **Gotowe**.
+1. Kliknij przycisk **Gotowe**.
 
 Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitorowania, zobacz [Opcje metryk portalu użytkowników](spring-cloud-concept-metrics.md#user-metrics-options).
 
  W obszarze **Akcje**kliknij pozycję **Wybierz grupę akcji**. W okienku **Akcje** wybierz wcześniej zdefiniowaną **grupę akcji**.
 
-   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-3.png) 
+   ![Nowy alert dotyczący portalu zrzutu ekranu 4](media/alerts-action-groups/alerts-3-3.png) 
 
 1. Przewiń w dół i w obszarze **szczegóły alertu**Nadaj nazwę regule alertu.
 
@@ -96,15 +96,15 @@ Aby uzyskać szczegółowe informacje na temat warunków dostępnych do monitoro
 
 1. Kliknij pozycję **Utwórz regułę alertu**.
 
-   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-3-4.png)
+   ![Portal zrzutów ekranu — Nowa reguła alertu 5](media/alerts-action-groups/alerts-3-4.png)
 
 Sprawdź, czy Nowa reguła alertu jest włączona.
 
-   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-4.png)
+   ![Portal zrzutów ekranu — Nowa reguła alertu 6](media/alerts-action-groups/alerts-4.png)
 
 Regułę można również utworzyć za pomocą strony **metryki** :
 
-   ![Nowa reguła alertu portalu zrzutu ekranu](media/alerts-action-groups/alerts-5.png)
+   ![Portal zrzutów ekranu — Nowa reguła alertu 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

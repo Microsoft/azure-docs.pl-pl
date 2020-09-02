@@ -3,12 +3,12 @@ title: Kontrolki przykładowe wysokiej strategii FedRAMP
 description: Sterowanie mapowaniem przykładu FedRAMP High plan. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 1b5be2a4dbc6c54e4d8aa69f6be7bc7c60b9a73d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d13b77736c8e58b304b8ae99582ad288f18c433
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926012"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299069"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Sterowanie mapowaniem przykładu FedRAMP High plan
 
@@ -161,19 +161,19 @@ Te wbudowane zasady wymagają określenia tablicy typów zasobów, aby sprawdzi�
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM — 7 (2) — najmniejsza funkcjonalność | Zapobiegaj wykonywaniu programu
 
-Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane kompleksowe rozwiązanie do listy dozwolonych aplikacji, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrolka aplikacji może działać w trybie wymuszania, który uniemożliwia uruchomienie niezatwierdzonej aplikacji. Ten plan przypisuje definicję Azure Policy, która pomaga monitorować maszyny wirtualne, w których aplikacja dozwolonych jest zalecana, ale jeszcze nie została skonfigurowana.
+Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane kompleksowe rozwiązanie do filtrowania aplikacji, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrolka aplikacji może działać w trybie wymuszania, który uniemożliwia uruchomienie niezatwierdzonej aplikacji. Ten plan przypisuje definicję Azure Policy, która pomaga monitorować maszyny wirtualne, w których lista dozwolonych aplikacji jest zalecana, ale nie została jeszcze skonfigurowana.
 
 - Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM — 7 (5) — najmniejsza funkcjonalność | Autoryzowane oprogramowanie/listy dozwolonych
 
-Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane kompleksowe rozwiązanie do listy dozwolonych aplikacji, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrola aplikacji ułatwia tworzenie zatwierdzonych list aplikacji dla maszyn wirtualnych. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować maszyny wirtualne, w których aplikacja dozwolonych jest zalecana, ale jeszcze nie została skonfigurowana.
+Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane kompleksowe rozwiązanie do filtrowania aplikacji, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrola aplikacji ułatwia tworzenie zatwierdzonych list aplikacji dla maszyn wirtualnych. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować maszyny wirtualne, w których lista dozwolonych aplikacji jest zalecana, ale nie została jeszcze skonfigurowana.
 
 - Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji
 
 ## <a name="cm-11-user-installed-software"></a>Program (CM) 11 oprogramowanie zainstalowane przez użytkownika
 
-Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane kompleksowe rozwiązanie do listy dozwolonych aplikacji, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrola aplikacji może ułatwić wymuszanie i monitorowanie zgodności z zasadami ograniczeń oprogramowania. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować maszyny wirtualne, w których aplikacja dozwolonych jest zalecana, ale jeszcze nie została skonfigurowana.
+Adaptacyjna kontrola aplikacji w Azure Security Center to inteligentne, zautomatyzowane kompleksowe rozwiązanie do filtrowania aplikacji, które może blokować uruchamianie określonego oprogramowania na maszynach wirtualnych lub uniemożliwiać jego działanie. Kontrola aplikacji może ułatwić wymuszanie i monitorowanie zgodności z zasadami ograniczeń oprogramowania. Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować maszyny wirtualne, w których lista dozwolonych aplikacji jest zalecana, ale nie została jeszcze skonfigurowana.
 
 - Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji
 

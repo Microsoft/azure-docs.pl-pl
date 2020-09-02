@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 898f63cbfba082f8c268587bcd2ea7f575d07f81
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420332"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299205"
 ---
 # <a name="what-is-azure-load-balancer"></a>Co to jest usługa Azure Load Balancer?
 
@@ -48,7 +48,7 @@ Kluczowe scenariusze, które można wykonać za pomocą usługa Load Balancer w 
 
 - Zwiększ dostępność przez dystrybucję zasobów **[w ramach](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** i **[między](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** strefami.
 
-- Skonfiguruj **[łączność wychodzącą](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** dla maszyn wirtualnych platformy Azure.
+- Skonfiguruj **[łączność wychodzącą ](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** dla maszyn wirtualnych platformy Azure.
 
 - Do monitorowania zasobów o zrównoważonym obciążeniu służy **[sondy kondycji](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** .
 
@@ -74,6 +74,10 @@ Podstawowa Load Balancer jest domyślnie otwarta w Internecie. Ponadto Load Bala
 Aby uzyskać informacje o cenach usługa Load Balancer w warstwie Standardowa, zobacz [Cennik usługi Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 Za użycie modułu równoważenia obciążenia w warstwie Podstawowa nie są naliczane opłaty.
 Zapoznaj się z umową [SLA dla Load Balancer](https://aka.ms/lbsla). Podstawowa Load Balancer nie ma umowy SLA.
+
+## <a name="whats-new"></a>Co nowego?
+
+Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami funkcji Azure Load Balancer na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer) .
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz [uaktualnianie podstawowego Load Balancer](upgrade-basic-standard.md) , aby uaktualnić podstawowe Load Balancer do usługa Load Balancer w warstwie Standardowa.

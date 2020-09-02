@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: 667ee4b362d62cd4b7bd1b6c5a8ecf762adb0730
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936626"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290314"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Samouczek: Tworzenie niestandardowego analizatora dla numerów telefonów
 
@@ -239,7 +239,7 @@ Analizatory składają się z trzech składników:
 
 Na poniższym diagramie można zobaczyć, jak te trzy składniki współpracują ze sobą, aby tokenize zdanie:
 
-  ![Diagram procesu analizatora](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![Diagram procesu analizatora służący do tokenize zdania](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 Tokeny te są następnie przechowywane w odwróconym indeksie, co umożliwia szybkie wyszukiwanie pełnotekstowe.  Odwrócony indeks umożliwia wyszukiwanie pełnotekstowe przez mapowanie wszystkich unikatowych terminów wyodrębnionych podczas analizy leksykalnej do dokumentów, w których występują. Na poniższym diagramie można zobaczyć przykład:
 
@@ -251,7 +251,7 @@ Wszystkie wyszukiwania przechodzą do wyszukiwania warunków przechowywanych w o
 1. Odwrócony indeks jest następnie skanowany pod kątem dokumentów z pasującymi terminami.
 1. Na koniec pobrane dokumenty są klasyfikowane według [algorytmu podobieństwa](index-ranking-similarity.md).
 
-  ![Diagram procesu analizatora](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![Diagram podobieństwa klasyfikacji procesów analizatora](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 Jeśli terminy zapytania nie pasują do warunków w indeksie odwróconym, wyniki nie zostaną zwrócone. Aby dowiedzieć się więcej o działaniu zapytań, zapoznaj się z artykułem dotyczącym [wyszukiwania pełnotekstowego](search-lucene-query-architecture.md).
 
@@ -586,7 +586,7 @@ Analizator zdefiniowany w tym samouczku oferuje łatwe rozwiązanie do wyszukiwa
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy pracujesz nad własną subskrypcją, dobrym pomysłem jest usunięcie zasobów, które nie są już potrzebne na końcu projektu. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Gdy pracujesz nad własną subskrypcją, dobrym pomysłem jest usunięcie zasobów, które nie są już potrzebne na końcu projektu. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie zasoby lub grupy zasobów w okienku nawigacji po lewej stronie.
 

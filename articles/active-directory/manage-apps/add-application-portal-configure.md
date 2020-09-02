@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641861"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300157"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie właściwości aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -31,7 +31,7 @@ Aby skonfigurować właściwości aplikacji w dzierżawie usługi Azure AD, nale
 - Opcjonalne: kończenie [dodawania aplikacji](add-application-portal.md).
 
 >[!IMPORTANT]
->W celu przetestowania kroków w tym przewodniku szybki start Użyj środowiska nieprodukcyjnego.
+>Przetestuj kroki opisane w tym przewodniku Szybki Start przy użyciu środowiska nieprodukcyjnego.
 
 ## <a name="configure-app-properties"></a>Konfigurowanie właściwości aplikacji
 
@@ -87,12 +87,12 @@ Aby użyć logo niestandardowego:
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz kontynuować serii szybkiego startu, Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować Logowanie jednokrotne dla aplikacji.
+Przejdź do następnego artykułu, aby dowiedzieć się, jak przypisać użytkowników do aplikacji.
 > [!div class="nextstepaction"]
-> [Konfigurowanie logowania jednokrotnego](add-application-portal-setup-sso.md)
+> [Przypisywanie użytkowników do aplikacji](add-application-portal-assign-users.md)

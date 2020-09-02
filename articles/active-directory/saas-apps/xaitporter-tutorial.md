@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546308"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Samouczek: integracja Azure Active Directory z usługą XaitPorter
 
@@ -112,7 +112,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą XaitPorter,
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-6. Podaj **adres IP** lub adres **URL metadanych federacji aplikacji** do [zespołu pomocy technicznej SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), dzięki czemu XAITPORTER może zapewnić, że adres IP będzie dostępny z wystąpienia XaitPorter, konfigurując dozwolonych po stronie. 
+6. Podaj **adres IP** lub adres **URL metadanych federacji aplikacji** do [zespołu pomocy technicznej SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), dzięki czemu XAITPORTER może zapewnić, że adres IP będzie dostępny z wystąpienia XaitPorter, konfigurując zatwierdzoną listę po stronie. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Konfigurowanie logowania jednokrotnego XaitPorter
 
@@ -144,7 +144,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą XaitPorter,
 
     c. Wybierz pozycję **Włącz Autotworzenie użytkowników**.
 
-    d. Kliknij pozycję **OK**.
+    d. Kliknij przycisk **OK**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -213,4 +213,3 @@ Po kliknięciu kafelka XaitPorter w panelu dostępu należy automatycznie zalogo
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

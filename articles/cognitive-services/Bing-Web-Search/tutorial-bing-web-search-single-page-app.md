@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6d958cd2fa95cd3c3747afc80b47c17f55e4248a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 251dbf6897f7efe56d968122c2ccad7093d39e44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405538"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300055"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Samouczek: tworzenie aplikacji jednostronicowej przy użyciu interfejsu API wyszukiwania w sieci Web Bing
 
@@ -443,7 +443,7 @@ Zasady zabezpieczeń przeglądarki, takie jak współużytkowanie zasobów międ
 > [!NOTE]
 > W aplikacji internetowej w środowisku produkcyjnym należy mimo to wykonać to żądanie po stronie serwera. W przeciwnym razie należy dołączyć klucz subskrypcji interfejsu API wyszukiwania Bing do strony sieci Web, aby był dostępny dla każdego, kto wyświetli źródło. Płacisz za wszystkie użycia związane z Twoim kluczem subskrypcji interfejsu API, nawet za żądania wykonane przez osoby nieupoważnione, zatem ważne jest, aby nie ujawniać swojego klucza.
 
-W celach programistycznych możesz wykonywać żądania za pośrednictwem serwera proxy CORS. Odpowiedź z serwera proxy tego typu zawiera nagłówek `Access-Control-Expose-Headers`, który zezwala na nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
+W celach programistycznych możesz wykonywać żądania za pośrednictwem serwera proxy CORS. Odpowiedź z tego typu serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który filtruje nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
 
 Zainstalowanie serwera proxy CORS w celu zezwolenia naszej przykładowej aplikacji na dostęp do nagłówka identyfikatora klienta jest proste. Uruchom następujące polecenie:
 

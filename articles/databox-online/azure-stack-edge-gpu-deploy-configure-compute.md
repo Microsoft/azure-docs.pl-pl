@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: a5e0817050f8411dfc7fc64edae21f1b927e4e5c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f4a8786c8d86f43d3433dd51fe7696fd523025a9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262995"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293566"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Samouczek: Konfigurowanie obliczeń na Azure Stack urządzeniach procesora GPU Edge
 
@@ -105,7 +105,7 @@ Aby skonfigurować klienta do uzyskiwania dostępu do klastra Kubernetes, wymaga
     
         ![Strona urządzenia w lokalnym interfejsie użytkownika 3](./media/azure-stack-edge-gpu-deploy-configure-compute/download-aseuser-config-1.png)
 
-        `aseuser`Plik konfiguracji umożliwia debugowanie wszelkich problemów związanych z `iotedge` przestrzenią nazw w klastrze Kubernetes. Aby uzyskać więcej informacji, zobacz [debugowanie Kubernetes problemy](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge). 
+        Ten plik konfiguracji służy do logowania się do pulpitu nawigacyjnego Kubernetes lub debugowania wszelkich problemów w klastrze Kubernetes. Aby uzyskać więcej informacji, zobacz [dostęp do pulpitu nawigacyjnego usługi Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#access-dashboard). 
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 040cc2dfa48f24fff4c7dda2cb6010efb01e9b86
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808392"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300140"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Szybki Start: Konfigurowanie logowania jednokrotnego (SSO) dla aplikacji w dzierżawie usługi Azure Active Directory (Azure AD)
 
@@ -32,10 +32,11 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji, która została dodana d
 - Opcjonalne: kończenie [wyświetlania aplikacji](view-applications-portal.md).
 - Opcjonalne: kończenie [dodawania aplikacji](add-application-portal.md).
 - Opcjonalne: kończenie [konfigurowania aplikacji](add-application-portal-configure.md).
+- Opcjonalne: kończenie [przypisywania użytkowników do aplikacji](add-application-portal-assign-users.md).
 
 
 >[!IMPORTANT]
->W celu przetestowania kroków w tym przewodniku szybki start Użyj środowiska nieprodukcyjnego.
+>Przetestuj kroki opisane w tym przewodniku Szybki Start przy użyciu środowiska nieprodukcyjnego.
 
 
 ## <a name="enable-single-sign-on-for-an-app"></a>Włączanie logowania jednokrotnego dla aplikacji
@@ -65,7 +66,7 @@ Aby skonfigurować Logowanie jednokrotne dla aplikacji:
 > Zarządzanie aplikacjami można zautomatyzować za pomocą interfejs API programu Graph, zobacz [Automatyzowanie zarządzania aplikacjami za pomocą Microsoft Graph interfejsu API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tą serią szybki start Rozważ usunięcie aplikacji w celu oczyszczenia dzierżawy testowej. Usuwanie aplikacji jest omówione w ostatnim przewodniku szybki start w tej serii, zobacz [usuwanie aplikacji](delete-application-portal.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82203271"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295266"
 ---
 # <a name="add-an-api-manually"></a>Ręczne dodawanie interfejsu API
 
@@ -45,7 +45,7 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 W tym momencie nie masz żadnych operacji w API Management, które mapują operacje w interfejsie API zaplecza. Jeśli wywołasz operację, która jest dostępna za pomocą zaplecza, ale nie za pomocą API Management, uzyskasz **404**.
 
 >[!NOTE] 
-> Domyślnie po dodaniu interfejsu API, nawet jeśli został on połączony z usługą zaplecza, usługa APIM nie uwidoczni żadnych operacji do momentu umieszczenia ich na liście dozwolonych. Aby umieścić operację usługi zaplecza na liście dozwolonych, utwórz operację APIM mapowaną na operację zaplecza.
+> Domyślnie po dodaniu interfejsu API, nawet jeśli jest on podłączony do pewnej usługi zaplecza, APIM nie będzie uwidaczniać żadnych operacji, dopóki ich nie zezwolisz. Aby zezwolić na działanie usługi zaplecza, Utwórz operację APIM, która jest mapowana na operację zaplecza.
 
 ## <a name="add-and-test-an-operation"></a>Dodawanie i testowanie operacji
 

@@ -12,12 +12,12 @@ author: David-Engel
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: e9a6c769451385f09706731fcb15de4197ecc063
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5248f43e2b0b1e347c6968678b7f05ba7efa9cf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231662"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299596"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie golang do wykonywania zapytań dotyczących bazy danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ W tym przewodniku szybki start użyjesz języka programowania [golang](https://g
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
+Do wykonania czynności opisanych w tym przewodniku Szybki start potrzebne są następujące elementy:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Baza danych programu Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Aby utworzyć bazę danych, można użyć jednego z tych przewodników szybki start:
@@ -56,7 +56,7 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Przejdź do strony **bazy danych SQL** lub **wystąpienia zarządzane SQL** .
+2. Przejdź do strony **bazy danych SQL**  lub **wystąpienia zarządzane SQL** .
 
 3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
 
@@ -200,7 +200,8 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą 
            return -1, err
        }
 
-       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); select convert(bigint, SCOPE_IDENTITY());"
+       tsql := "INSERT INTO TestSchema.Employees (Name, Location) VALUES (@Name, @Location); "
+       tsql += select isNull(SCOPE_IDENTITY(), -1);"
 
        stmt, err := db.Prepare(tsql)
        if err != nil {

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585020"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300293"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji ASP.NET Core
 
@@ -53,13 +53,11 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 *Klucz wskaźnikowy* jest specjalnym kluczem służącym do sygnalizowania, kiedy konfiguracja została zmieniona. Aplikacja monitoruje klucz wskaźnikowy pod kątem zmian. Po wykryciu zmiany należy odświeżyć wszystkie wartości konfiguracyjne. Takie podejście zmniejsza ogólną liczbę żądań dokonanych przez aplikację do konfiguracji aplikacji w porównaniu do monitorowania wszystkich kluczy pod kątem zmian.
 
 1. W Azure Portal wybierz pozycję **Eksplorator konfiguracji > utwórz > klucz-wartość**.
-
 1. Dla **klucza**wpisz *TestApp: Settings: wskaźnik*. Dla **wartości wprowadź wartość**1. Pozostaw pustą **etykietę** i **Typ zawartości** .
-
 1. Wybierz przycisk **Zastosuj**.
 
-    > [!NOTE]
-    > Jeśli nie używasz klucza wskaźnikowego, musisz ręcznie zarejestrować każdy klucz, który chcesz obejrzeć.
+> [!NOTE]
+> Jeśli nie używasz klucza wskaźnikowego, musisz ręcznie zarejestrować każdy klucz, który ma być monitorowany.
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
@@ -162,9 +160,8 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
     }
     ```
     ---
-
-    > [!TIP]
-    > Aby dowiedzieć się więcej na temat wzorca opcji podczas odczytywania wartości konfiguracyjnych, zobacz [Opcje wzorców w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > Aby dowiedzieć się więcej na temat wzorca opcji podczas odczytywania wartości konfiguracyjnych, zobacz [Opcje wzorców w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Zaktualizuj `Configure` metodę, dodając `UseAzureAppConfiguration` oprogramowanie pośredniczące, aby umożliwić aktualizowanie ustawień konfiguracji na potrzeby odświeżania, gdy aplikacja sieci Web ASP.NET Core nadal otrzymuje żądania.
 
@@ -316,15 +313,15 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
 1. Aby skompilować aplikację przy użyciu interfejs wiersza polecenia platformy .NET Core, uruchom następujące polecenie w powłoce poleceń:
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. Po pomyślnym zakończeniu kompilacji Uruchom następujące polecenie, aby uruchomić aplikację sieci Web lokalnie:
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Otwórz okno przeglądarki i przejdź do adresu URL pokazanego w `dotnet run` danych wyjściowych.
 
@@ -345,7 +342,7 @@ Przed kontynuowaniem najpierw Zakończ [Tworzenie aplikacji ASP.NET Coreej z kon
 
     ![Uruchamianie zaktualizowanej aplikacji szybkiego startu lokalnie](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

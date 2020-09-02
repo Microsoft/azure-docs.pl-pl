@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121242"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299307"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Samouczek: Konfigurowanie geofencingu przy użyciu usługi Azure Maps
 
@@ -56,7 +56,7 @@ W tym samouczku przekażemy geoplikowe dane GEOJSON, które zawierają `FeatureC
 
     Parametr _GEOJSON_ w ścieżce URL reprezentuje format danych przekazywanych danych.
 
-4. Kliknij kartę **treść** **, a następnie pozycję** **JSON** jako format wejściowy. Skopiuj i wklej następujące dane GEOJSON w obszarze tekstu **treści** :
+4. Kliknij kartę **treść** . Wybierz pozycję **RAW**, a następnie wartość **JSON** jako format wejściowy. Skopiuj i wklej następujące dane GEOJSON w obszarze tekstu **treści** :
 
    ```JSON
    {
@@ -258,15 +258,15 @@ Wykonaj poniższe kroki, aby utworzyć subskrypcję dla zdarzeń wjazdu wirtualn
 
 5. Powtórz kroki 1-4 dla punktu końcowego aplikacji logiki, który został utworzony w poprzedniej sekcji. W kroku 3 Upewnij się, że wybrano opcję `Geofence Exited` jako typ zdarzenia.
 
-## <a name="use-search-geofence-get-api"></a>Użyj interfejsu API pobierania geoogrodzenia wyszukiwania
+## <a name="use-spatial-geofence-get-api"></a>Użyj interfejsu API pobierania przestrzennego przestrzenny
 
-Teraz użyjemy [interfejsu API "wyszukiwanie geoogrodzenia](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) " do wysyłania powiadomień e-mail do Operations Manager, gdy sprzęt przejdzie lub wyjdzie z geoogrodzenia.
+Teraz użyjemy [interfejsu API pobierania przestrzennego przestrzenny](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) do wysyłania powiadomień e-mail do Operations Manager, gdy sprzęt przejdzie lub wyjdzie z geoogrodzenia.
 
 Każdy sprzęt ma `deviceId` . W tym samouczku będziemy monitorować pojedynczy fragment sprzętu, którego unikatowy identyfikator to `device_1` .
 
 Na poniższym diagramie przedstawiono pięć lokalizacji wyposażenia w czasie, rozpoczynając od lokalizacji *początkowej* , która znajduje się poza granicami geograficznymi. Na potrzeby tego samouczka lokalizacja *początkowa* nie jest zdefiniowana, ponieważ nie będziemy wysyłać zapytań do urządzenia w tej lokalizacji.
 
-Podczas wykonywania zapytania dotyczącego [interfejsu API pobierania geoogrodzenia wyszukiwania](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) przy użyciu lokalizacji urządzenia, która wskazuje początkowy wpis geoogrodzenia lub wyjście, Event Grid wywoła odpowiedni punkt końcowy aplikacji logiki w celu wysłania powiadomienia e-mail do Operations Manager.
+Podczas wykonywania zapytania dotyczącego [interfejsu API pobierania przestrzennego przestrzenny](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) z lokalizacją urządzenia wskazującą początkowy wpis geoogrodzenia lub wyjście, Event Grid wywoła odpowiedni punkt końcowy aplikacji logiki w celu wysłania powiadomienia e-mail do Operations Manager.
 
 Każda z poniższych sekcji sprawia, że HTTP GET geofencingu żądania interfejsu API przy użyciu pięciu różnych lokalizacji urządzeń.
 

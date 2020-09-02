@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: edbb3c1b2ed3e696c304f72c7b40fa926cae2c54
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3c660c5e301081ee82a12275b6e9125f0fc781b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021192"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289821"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Samouczek: skalowanie aplikacji w chmurze Azure wiosennej
 
@@ -27,7 +27,7 @@ Po zakończeniu dowiesz się, jak wprowadzać szybkie zmiany ręcznie do każdej
 Aby wykonać te procedury, potrzebne są:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-* Wdrożone wystąpienie usługi w chmurze Azure wiosną.  Aby rozpocząć pracę, postępuj zgodnie z [przewodnikiem Szybki Start dotyczącym wdrażania aplikacji za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md) .
+* Wdrożone wystąpienie usługi w chmurze Azure wiosną.  Aby rozpocząć pracę, postępuj zgodnie z [przewodnikiem Szybki Start dotyczącym wdrażania aplikacji za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart.md) .
 * Co najmniej jedna aplikacja została już utworzona w wystąpieniu usługi.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Przejdź do strony skalowanie w Azure Portal
@@ -58,7 +58,7 @@ Upewnij się, że wybrano pozycję **Zapisz** , aby zastosować ustawienia skalo
 
 ![Usługa skalowania w Azure Portal](media/spring-cloud-tutorial-scale-manual/scale-up-out.png)
 
-Po kilku sekundach wprowadzone zmiany zostaną wyświetlone na stronie **Przegląd** zawierającej więcej szczegółów dostępnych na karcie **wystąpienia aplikacji** . skalowanie nie wymaga żadnych zmian w kodzie ani ponownego wdrożenia.
+Po kilku sekundach wprowadzone zmiany zostaną wyświetlone na stronie **Przegląd** zawierającej więcej szczegółów dostępnych na karcie **wystąpienia aplikacji** . Skalowanie nie wymaga żadnych zmian w kodzie ani ponownego wdrożenia.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Zmiana warstwy na wyższą warstwę Standardowa
 Jeśli korzystasz z warstwy Podstawowa i ograniczono jeden lub więcej z tych [limitów](spring-cloud-quotas.md), możesz przeprowadzić uaktualnienie do warstwy Standardowa. W tym celu przejdź do menu Warstwa cenowa, wybierając najpierw kolumnę warstwy Standardowa i klikając przycisk **Uaktualnij** .
