@@ -16,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Monitorowanie maszyny
       href: ./learn/tutorial-enable-vm-insights.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      items:
-        - name: Serwery z obsługą usługi Arc
-          href: policy-samples.md
 - name: Pojęcia
   items:
     - name: Zabezpieczenia
@@ -57,3 +51,6 @@
           href: data-residency.md
         - name: REST
           href: /rest/api/hybridcompute
+        - name: Elementy wbudowane usługi Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: policy-reference.md

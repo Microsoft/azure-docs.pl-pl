@@ -84,11 +84,6 @@
       href: tutorial-firmware-update.md
     - name: Testowanie łączności urządzenia
       href: tutorial-connectivity.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Obsługa protokołu TLS
@@ -461,6 +456,9 @@
       href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Wycofywanie funkcji i interfejsów API
       items:
         - name: Monitorowanie operacji
