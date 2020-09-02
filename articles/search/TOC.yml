@@ -88,9 +88,6 @@
       href: /samples/browse/?languages=python&products=azure-cognitive-search
     - name: Przykłady dla interfejsu REST
       href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Wyszukiwanie pełnotekstowe
@@ -496,6 +493,9 @@
           items:
             - name: Rozpoznawanie jednostek nazwanych
               href: cognitive-search-skill-named-entity-recognition.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Pomoc techniczna w społeczności platformy Azure

@@ -26,11 +26,6 @@
       href: tutorial-custom-role-powershell.md
     - name: Tworzenie roli niestandardowej — interfejs wiersza polecenia
       href: tutorial-custom-role-cli.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Najlepsze rozwiązania
@@ -131,6 +126,9 @@
           href: /azure/templates/microsoft.authorization/roleassignments
         - name: Definicje ról
           href: /azure/templates/microsoft.authorization/roledefinitions
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

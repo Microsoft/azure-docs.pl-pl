@@ -105,9 +105,6 @@
       href: samples/cli-samples.md
     - name: Azure PowerShell
       href: samples/powershell-samples.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: samples/policy-samples.md
 - name: Pojęcia
   items:
     - name: Co można monitorować?
@@ -1298,6 +1295,9 @@
           href: /azure/templates/microsoft.insights/allversions
         - name: Dzienniki usługi Azure Monitor
           href: /azure/templates/microsoft.operationalinsights/allversions
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: samples/policy-reference.md
     - name: Wycofywanie funkcji i interfejsu API
       items:
         - name: Klasyczne autoskalowanie i interfejs API metryk

@@ -90,7 +90,7 @@
     - name: Forum z opiniami na temat platformy Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+      href: /answers/topics/azure-active-directory.html
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Aktualizacje usług

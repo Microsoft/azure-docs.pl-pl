@@ -4,6 +4,8 @@
   items:
     - name: Informacje o serwerach z obsługą usługi Azure Arc
       href: overview.md
+    - name: Co nowego w agencie połączonej maszyny
+      href: agent-release-notes.md
 - name: Przewodniki Szybki start
   items:
     - name: Włączanie agenta serwerów z obsługą usługi Arc

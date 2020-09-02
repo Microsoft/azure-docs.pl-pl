@@ -4,7 +4,7 @@
   items:
     - name: Co to jest Traffic Manager?
       href: traffic-manager-overview.md
-- name: Szybki start
+- name: Przewodniki Szybki start
   items:
     - name: Tworzenie profilu usługi Traffic Manager — portal
       href: quickstart-create-traffic-manager-profile.md
@@ -12,6 +12,9 @@
       href: quickstart-create-traffic-manager-profile-powershell.md
     - name: Tworzenie profilu usługi Traffic Manager — interfejs wiersza polecenia platformy Azure
       href: quickstart-create-traffic-manager-profile-cli.md
+    - name: Tworzenie profilu usługi Traffic Manager — szablon usługi ARM
+      href: quickstart-create-traffic-manager-profile-template.md
+  expanded: true
 - name: Samouczki
   items:
     - name: Kierowanie ruchem w celu uzyskania niskich opóźnień
@@ -59,7 +62,7 @@
       href: traffic-manager-how-it-works.md
     - name: Często zadawane pytania
       href: traffic-manager-FAQs.md
-- name: Instrukcje
+- name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie wydajności na potrzeby routingu w usłudze Traffic Manager
       href: traffic-manager-configure-performance-routing-method.md
@@ -132,7 +135,7 @@
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Limity usługi
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: Umowa SLA

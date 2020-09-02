@@ -26,10 +26,6 @@
       href: resource-manager-template.md
     - name: Rejestrowanie diagnostyczne
       href: diagnostic-logging.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      href: ./policy-samples.md
 - name: Zabezpieczenia
   items:
     - name: Zabezpieczenia usług Cognitive Services
@@ -86,6 +82,11 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: 'Przepis: Eksplorator grafiki'
           href: ./big-data/recipes/art-explorer.md
+- name: Dokumentacja
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

@@ -10,9 +10,6 @@
     - name: Indeks
       displayName: 'template, sample'
       href: ./samples/index.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./samples/policy-samples.md
 - name: Pojęcia
   items:
     - name: Zarządzanie zasobami delegowanymi na platformie Azure
@@ -95,6 +92,9 @@
       href: /rest/api/managedservices/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-reference.md
 - name: Zasoby
   items:
     - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Lighthouse

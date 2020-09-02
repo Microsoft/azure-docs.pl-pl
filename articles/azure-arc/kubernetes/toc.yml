@@ -4,12 +4,6 @@
   items:
     - name: Informacje o platformie Kubernetes z obsługą usługi Azure Arc
       href: overview.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      items:
-        - name: Platforma Kubernetes z obsługą usługi Arc
-          href: policy-samples.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Łączenie z usługą Azure Arc
@@ -34,3 +28,8 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Rozwiązywanie problemów
       href: Troubleshooting.md
+- name: Tematy pomocy
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

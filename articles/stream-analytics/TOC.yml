@@ -40,9 +40,6 @@
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Wybieranie technologii analizy przesyłania strumieniowego
@@ -655,6 +652,9 @@
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/stream-analytics/stream-analytics
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Stream Analytics — wersje zapoznawcze

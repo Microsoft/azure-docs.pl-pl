@@ -38,9 +38,6 @@
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: sample-scripts-azure-cli.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Bazy danych i serwery
@@ -244,6 +241,9 @@
       href: /azure/templates/microsoft.dbformariadb/allversions
     - name: Procedury składowane zarządzania
       href: reference-stored-procedures.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Szablony wdrażania

@@ -44,9 +44,6 @@
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Interfejs wiersza polecenia platformy Azure
       href: cli-samples.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Zabezpieczenia
@@ -268,6 +265,9 @@
           href: batch-task-complete-event.md
         - name: Zdarzenie niepowodzenia zadania
           href: batch-task-fail-event.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Aktualizacje platformy Azure

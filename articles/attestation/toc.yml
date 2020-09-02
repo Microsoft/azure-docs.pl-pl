@@ -1,0 +1,48 @@
+- name: Microsoft Azure Attestation (wersja zapoznawcza)
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o usłudze Microsoft Azure Attestation
+      href: overview.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Szablon ARM
+      href: quickstart-template.md
+    - name: PowerShell
+      href: quickstart-powershell.md
+- name: Samouczki
+  items:
+    - name: Tworzenie i podpisywanie zasad zaświadczania
+      href: author-sign-policy.md
+    - name: Przykłady kodu zaświadczania SGX
+      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+- name: Przykłady
+  items:
+    - name: Zasady zaświadczania
+      href: policy-examples.md
+    - name: Certyfikat osoby podpisującej zasady
+      href: policy-signer-examples.md
+- name: Pojęcia
+  items:
+    - name: Podstawowe pojęcia
+      href: basic-concepts.md
+    - name: Oświadczenia zasad zaświadczania
+      items:
+        - name: Gramatyka reguł oświadczeń
+          href: claim-rule-grammar.md
+        - name: Zestawy oświadczeń
+          href: claim-sets.md
+    - name: Przepływ pracy
+      href: workflow.md
+- name: Odwołania
+  items:
+    - name: Najczęściej zadawane pytania
+      href: faq.md
+    - name: REST
+      href: /rest/api/attestation/
+    - name: Azure PowerShell
+      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    - name: Biblioteka Azure DCAP dla systemu Windows
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
+    - name: Biblioteka Azure DCAP dla systemu Linux
+      href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'

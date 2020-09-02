@@ -273,7 +273,9 @@
               href: msal-net-adfs-support.md
             - name: Migrowanie do platformy MSAL.NET
               href: msal-net-migration.md
-            - name: Migrowanie aplikacji platformy Xamarin do biblioteki MSAL.NET przy użyciu brokerów
+            - name: Migrowanie za pomocą brokera aplikacji Xamarin dla systemu Android do platformy MSAL.NET
+              href: msal-net-migration-android-broker.md
+            - name: Migrowanie za pomocą brokera aplikacji Xamarin dla systemu iOS do platformy MSAL.NET
               href: msal-net-migration-ios-broker.md
             - name: Zagadnienia dotyczące przeglądarki internetowej
               href: msal-net-web-browsers.md
@@ -463,7 +465,7 @@
       items:
         - name: Omówienie
           href: authentication-national-cloud.md
-        - name: Authentication
+        - name: Uwierzytelnianie
           href: msal-national-cloud.md
     - name: Automatyczna aprowizacja użytkowników (SCIM)
       items:

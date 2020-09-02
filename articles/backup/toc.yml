@@ -44,11 +44,6 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA — interfejs wiersza polecenia
           href: tutorial-sap-hana-manage-cli.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Tabele obsługi
@@ -428,6 +423,9 @@
       href: /rest/api/recoveryservices/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Zgodność

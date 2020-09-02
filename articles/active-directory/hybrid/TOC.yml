@@ -31,7 +31,7 @@
         - name: Co to są Azure AD Connect Health i Connect Health?
           href: whatis-azure-ad-connect.md
         - name: Wybieranie odpowiedniego uwierzytelniania
-          href: 'https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn'
+          href: ./choose-ad-authn.md
         - name: Synchronizacja tożsamości i odporność względem zduplikowanych atrybutów
           href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     - name: Synchronizacja skrótów haseł
@@ -339,7 +339,7 @@
     - name: Historia wersji agenta uwierzytelniania przekazywanego usługi Azure AD
       href: reference-connect-pta-version-history.md
     - name: Historia wersji łącznika
-      href: reference-connect-sync-connector-version-history.md
+      href: /microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history
     - name: Konta i uprawnienia
       href: reference-connect-accounts-permissions.md
     - name: Azure AD Connect — Często zadawane pytania

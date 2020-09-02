@@ -107,12 +107,12 @@
           href: update-regulatory-compliance-packages.md
     - name: Skanowanie maszyn wirtualnych pod kątem luk w zabezpieczeniach
       items:
-        - name: Omówienie skanowania pod kątem luk w zabezpieczeniach
-          href: security-center-vulnerability-assessment-recommendations.md
-        - name: Zintegrowany skaner luk w zabezpieczeniach dla maszyn wirtualnych
-          href: built-in-vulnerability-assessment.md
-        - name: Korzystanie ze skanerów zewnętrznych
-          href: partner-vulnerability-assessment.md
+        - name: Wdrażanie zintegrowanego skanera luk w zabezpieczeniach na maszynach wirtualnych
+          href: deploy-vulnerability-assessment-vm.md
+        - name: Wdrażanie rozwiązania do znajdowania luk w zabezpieczeniach typu BYOL na maszynach wirtualnych
+          href: deploy-vulnerability-assessment-byol-vm.md
+        - name: Przeglądanie i korygowanie luk w zabezpieczeniach na maszynach wirtualnych
+          href: remediate-vulnerability-findings-vm.md
     - name: Konfigurowanie ochrony przed zagrożeniami i obsługa alertów
       items:
         - name: Zarządzanie alertami zabezpieczeń

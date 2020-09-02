@@ -22,11 +22,6 @@
       href: data-lake-store-get-started-powershell.md
     - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
       href: data-lake-store-get-started-cli-2.0.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Instrukcje
   items:
     - name: Ładowanie i przenoszenie danych
@@ -177,6 +172,9 @@
       href: /azure/templates/microsoft.datalakestore/allversions
     - name: Interfejs wiersza polecenia platformy Azure
       href: 'https://docs.microsoft.com/cli/azure/dls'
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

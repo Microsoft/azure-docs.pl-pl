@@ -49,20 +49,22 @@
   items:
     - name: .NET
       items:
-        - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — REST
-          href: stream-files-tutorial-with-rest.md
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Kodowanie i przesyłanie strumieniowe przekazanego pliku
+        - name: Kodowanie i przesyłanie strumieniowe przekazanego pliku — .NET
           href: stream-files-tutorial-with-api.md
-        - name: Przesyłanie strumieniowe na żywo
+        - name: Przesyłanie strumieniowe na żywo za pomocą platformy .NET
           href: stream-live-tutorial-with-api.md
-        - name: Analizowanie filmu wideo
+        - name: Analizowanie wideo za pomocą platformy .NET
           href: analyze-videos-tutorial-with-api.md
         - name: Dynamiczne szyfrowanie algorytmem AES-128
           href: protect-with-aes128.md
         - name: Dynamiczne szyfrowanie przy użyciu usługi DRM
           href: protect-with-drm.md
+    - name: REST
+      items:
+        - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — REST
+          href: stream-files-tutorial-with-rest.md
     - name: Interfejs wiersza polecenia
       items:
         - name: Kodowanie i przesyłanie strumieniowe pliku zdalnego — interfejs wiersza polecenia
@@ -381,7 +383,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Przejdź
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.media/allversions

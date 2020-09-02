@@ -657,6 +657,8 @@
           href: instance-metadata-service.md
         - name: Włączanie wirtualizacji zagnieżdżonej
           href: nested-virtualization.md
+        - name: Automatyczne stosowanie poprawki gościa maszyny wirtualnej (wersja zapoznawcza)
+          href: automatic-vm-guest-patching.md
     - name: Obsługa platformy
       items:
         - name: Powiadomienia dotyczące konserwacji

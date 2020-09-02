@@ -72,9 +72,6 @@
   items:
     - name: Przykłady usługi Service Bus
       href: service-bus-samples.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Obsługa komunikatów Premium
@@ -272,6 +269,9 @@
       href: service-bus-messaging-sql-filter.md
     - name: Składnia elementu SQLRuleAction
       href: service-bus-messaging-sql-rule-action.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Często zadawane pytania

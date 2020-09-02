@@ -301,6 +301,8 @@
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/sap-hana/hanainstance
+    - name: Azure PowerShell
+      href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

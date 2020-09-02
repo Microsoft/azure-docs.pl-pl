@@ -40,11 +40,6 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 — Uaktualnianie klastra
       href: tutorial-kubernetes-upgrade-cluster.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Klastry i obciążenia
@@ -388,6 +383,9 @@
       href: /javascript/api/overview/azure/container-service
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

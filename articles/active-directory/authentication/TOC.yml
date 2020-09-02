@@ -116,6 +116,10 @@
               href: howto-authentication-passwordless-security-key-windows.md
             - name: Logowanie jednokrotne do zasobów lokalnych
               href: howto-authentication-passwordless-security-key-on-premises.md
+            - name: Często zadawane pytania dotyczące rozwiązań hybrydowych
+              href: howto-authentication-passwordless-faqs.md
+            - name: Rozwiązywanie problemów z rozwiązaniami hybrydowymi
+              href: howto-authentication-passwordless-troubleshoot.md
         - name: Logowanie za pomocą telefonu bez hasła
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello dla firm
@@ -209,7 +213,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Rozwiązywanie problemów
       items:
-        - name: Rozwiązywanie problemów z samoobsługowym resetowaniem hasła
+        - name: Samoobsługowe resetowanie hasła
           href: active-directory-passwords-troubleshoot.md
         - name: Samoobsługowe resetowanie hasła — często zadawane pytania
           href: active-directory-passwords-faq.md

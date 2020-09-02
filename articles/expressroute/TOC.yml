@@ -4,6 +4,10 @@
   items:
     - name: Co to jest ExpressRoute?
       href: expressroute-introduction.md
+- name: Szybki start
+  items:
+    - name: Tworzenie obwodu usługi ExpressRoute — szablon usługi ARM
+      href: quickstart-create-expressroute-vnet-template.md
 - name: Samouczki
   items:
     - name: Tworzenie i modyfikowanie obwodu

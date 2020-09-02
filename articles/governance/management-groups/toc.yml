@@ -7,12 +7,25 @@
       href: ../azure-management.md
     - name: Grupy zarządzania
       href: ./overview.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Tworzenie grupy zarządzania — portal
+      displayName: hierarchy
+      href: ./create-management-group-portal.md
+    - name: Tworzenie grupy zarządzania — interfejs wiersza polecenia platformy Azure
+      displayName: hierarchy
+      href: ./create-management-group-azure-cli.md
+    - name: Tworzenie grupy zarządzania — Azure PowerShell
+      displayName: hierarchy
+      href: ./create-management-group-powershell.md
+    - name: Tworzenie grupy zarządzania — REST
+      displayName: hierarchy
+      href: ./create-management-group-rest-api.md
 - name: Przewodniki z instrukcjami
   expanded: true
   items:
-    - name: Tworzenie grup zarządzania
-      href: ./create.md
-    - name: Zarządzanie zasobami
+    - name: Zarządzanie hierarchią zasobów
       href: ./manage.md
     - name: Chronienie hierarchii zasobów
       href: ./how-to/protect-resource-hierarchy.md

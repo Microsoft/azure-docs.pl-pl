@@ -52,7 +52,7 @@
       items:
         - name: 1 — Projektowanie bazy danych
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: tutorial-design-database-using-azure-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: tutorial-design-database-using-azure-cli.md
@@ -73,9 +73,6 @@
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: sample-scripts-azure-cli.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Pojedynczy serwer
@@ -239,13 +236,13 @@
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
         - name: Zarządzanie zaporą
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-manage-firewall-using-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-manage-firewall-using-cli.md
         - name: Przywracanie serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-restore-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restore-server-cli.md
@@ -267,7 +264,7 @@
               href: howto-connection-string-powershell.md
         - name: Konfigurowanie parametrów serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-server-parameters-using-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-parameters-using-cli.md
@@ -275,7 +272,7 @@
               href: howto-configure-server-parameters-using-powershell.md
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-auto-grow-storage-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-auto-grow-storage-cli.md
@@ -283,7 +280,7 @@
               href: howto-auto-grow-storage-powershell.md
         - name: Dzienniki dostępu
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-server-logs-in-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-logs-using-cli.md
@@ -303,19 +300,19 @@
               href: howto-database-threat-protection-portal.md
         - name: Virtual Network
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-manage-vnet-using-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-manage-vnet-using-cli.md
         - name: Link prywatny
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-configure-privatelink-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-privatelink-cli.md
         - name: Szyfrowanie danych
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-data-encryption-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-data-encryption-cli.md
@@ -327,7 +324,7 @@
               href: howto-double-encryption.md
         - name: Ponowne uruchamianie serwera
           items:
-            - name: Azure Portal
+            - name: Witryna Azure Portal
               href: howto-restart-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restart-server-cli.md
@@ -393,6 +390,9 @@
           href: reference-hyperscale-parameters.md
         - name: Tabele systemowe
           href: reference-hyperscale-metadata.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

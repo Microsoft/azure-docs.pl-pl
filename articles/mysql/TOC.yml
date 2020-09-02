@@ -74,9 +74,6 @@
       href: sample-scripts-azure-cli.md
     - name: Buforowanie połączeń Java
       href: sample-scripts-java-connection-pooling.md
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Bazy danych i serwery
@@ -332,6 +329,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Procedury składowane zarządzania
       href: reference-stored-procedures.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Szablony wdrażania

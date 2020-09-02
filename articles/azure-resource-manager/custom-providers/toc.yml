@@ -21,11 +21,6 @@
       href: tutorial-custom-providers-create.md
     - name: Rozszerzanie zasobów
       href: tutorial-resource-onboarding.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Usługa Azure Policy na potrzeby skojarzeń
@@ -50,6 +45,9 @@
       href: /rest/api/customproviders/
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/ext/custom-providers/custom-providers/
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

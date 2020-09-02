@@ -3,19 +3,21 @@ title: Dokumentacja usługi Azure Migrate
 summary: Znajdź artykuły ułatwiające odnajdowanie, ocenianie i migrowanie środowiska lokalnego przy użyciu narzędzi w centrum usługi Azure Migrate.
 metadata:
   title: Dokumentacja usługi Azure Migrate
-  description: Dowiedz się, jak za pomocą narzędzi w centrum usługi Azure Migrate odnajdować i oceniać środowisko lokalne oraz migrować je na platformę Azure.
+  description: Znajdź samouczki dotyczące migracji na platformę Azure, zasoby i narzędzia do oceny migracji. Dowiedz się, jak za pomocą narzędzi w centrum usługi Azure Migrate odnajdować i oceniać środowisko lokalne oraz migrować je na platformę Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
   ms.date: 07/08/2020
-  ms.openlocfilehash: a3c9be5e123892d5d1b8d8e4a0677eb520e34dc6
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.custom: seo-azure-migrate
+  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
+  ms.openlocfilehash: b38df4b4a9c9cd0741e9bc4d69e42ebaf2feefb7
+  ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86112667"
+  ms.lasthandoff: 09/01/2020
+  ms.locfileid: "89228345"
 landingContent:
 - title: Informacje o usłudze Azure Migrate
   linkLists:

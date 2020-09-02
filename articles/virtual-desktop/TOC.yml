@@ -166,6 +166,8 @@
       href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
     - name: Przykładowe scenariusze dla platformy Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+    - name: Odnajdowanie poczty e-mail
+      href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Zasoby
   items:
     - name: PowerShell
