@@ -5,12 +5,12 @@ keywords: Azure, sztuczna inteligencja, AI, przetwarzanie języka naturalnego, N
 ms.topic: overview
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 22fe99e1552a9612adfbc455d60852f1591a1a54
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 98d801f6a34feb40d56215f8b6257a68ec628e10
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752152"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320056"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 
@@ -64,7 +64,7 @@ Zaprojektuj model przy użyciu kategorii zamiarów użytkownika o nazwie **[inte
 |`When does your store open?`|StoreHoursAndLocation|open|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
-Skompiluj model przy użyciu interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) lub [**portalu Luis**](https://www.luis.ai)lub obu. Dowiedz się więcej o tym, jak skompilować przy użyciu [portalu](get-started-portal-build-app.md) i [bibliotek klienckich SDK](quickstart-sdk.md).
+Skompiluj model przy użyciu interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) lub [**portalu Luis**](https://www.luis.ai)lub obu. Dowiedz się więcej o tym, jak skompilować przy użyciu [portalu](get-started-portal-build-app.md) i [bibliotek klienckich SDK](azure-sdk-quickstart.md).
 
 ## <a name="step-2-get-the-query-prediction"></a>Krok 2. Uzyskiwanie prognozowania zapytań
 
@@ -126,7 +126,7 @@ LUIS zapewnia funkcjonalność analiza tekstu w ramach istniejących zasobów LU
 
 ## <a name="learn-with-the-quickstarts"></a>Zapoznaj się z przewodnikami Szybki Start
 
-Dowiedz się więcej na temat LUIS z przewodnikami Szybki Start przy użyciu [portalu](get-started-portal-build-app.md) i [bibliotek klienckich SDK](quickstart-sdk.md).
+Dowiedz się więcej na temat LUIS z przewodnikami Szybki Start przy użyciu [portalu](get-started-portal-build-app.md) i [bibliotek klienckich SDK](azure-sdk-quickstart.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

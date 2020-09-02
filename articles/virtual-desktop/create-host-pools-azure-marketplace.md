@@ -3,15 +3,15 @@ title: Pula hostów usług pulpitu wirtualnego systemu Windows Azure Portal — 
 description: Jak utworzyć pulę hostów pulpitu wirtualnego systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 466180535b3fe7c7d0155c8b19ac287930341ee7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226101"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322589"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -131,9 +131,11 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
 7. Wybierz rodzaje dysków systemu operacyjnego, które mają być używane przez maszyny wirtualne: SSD w warstwie Standardowa, SSD w warstwie Premium lub HDD w warstwie Standardowa.
 
-8. W obszarze Sieć i zabezpieczenia wybierz **sieć wirtualną** i **podsieć** , w której chcesz umieścić maszyny wirtualne, które tworzysz. Upewnij się, że sieć wirtualna może połączyć się z kontrolerem domeny, ponieważ należy przyłączyć maszyny wirtualne wewnątrz sieci wirtualnej do domeny. Następnie wybierz, czy chcesz uzyskać publiczny adres IP dla maszyn wirtualnych. Zalecamy wybranie opcji **nie**, ponieważ prywatny adres IP jest bezpieczniejszy.
+8. W obszarze Sieć i zabezpieczenia wybierz **sieć wirtualną** i **podsieć** , w której chcesz umieścić maszyny wirtualne, które tworzysz. Upewnij się, że sieć wirtualna może połączyć się z kontrolerem domeny, ponieważ należy przyłączyć maszyny wirtualne wewnątrz sieci wirtualnej do domeny. Serwery DNS wybranej sieci wirtualnej powinny być skonfigurowane do korzystania z adresu IP kontrolera domeny.
 
-9. Wybierz typ grupy zabezpieczeń: **podstawowy**, **Zaawansowany**lub **Brak**.
+9. Następnie wybierz, czy chcesz uzyskać publiczny adres IP dla maszyn wirtualnych. Zalecamy wybranie opcji **nie** , ponieważ prywatny adres IP jest bezpieczniejszy.
+
+10. Wybierz typ grupy zabezpieczeń: **podstawowy**, **Zaawansowany**lub **Brak**.
 
     W przypadku wybrania opcji **podstawowa**musisz wybrać, czy ma zostać otwarty dowolny port wejściowy. W przypadku wybrania opcji **tak**wybierz z listy standardowych portów, aby zezwolić na połączenia przychodzące.
 
@@ -145,11 +147,13 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
     W przypadku wybrania opcji **Zaawansowane**wybierz istniejącą grupę zabezpieczeń sieci, która została już skonfigurowana.
 
-10. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Opcjonalnie możesz dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne. Jeśli wybierzesz opcję **nie**, maszyny wirtualne zostaną przyłączone do domeny pasującej do sufiksu **UPN domeny usługi AD**.
+11. Następnie wybierz, czy maszyny wirtualne mają być przyłączone do określonej domeny, czy jednostki organizacyjnej. Jeśli wybierzesz opcję **tak**, określ domenę do przyłączenia. Opcjonalnie możesz dodać konkretną jednostkę organizacyjną, w której mają znajdować się maszyny wirtualne. Jeśli wybierzesz opcję **nie**, maszyny wirtualne zostaną przyłączone do domeny pasującej do sufiksu **UPN domeny usługi AD**.
 
-11. W obszarze konto administratora wprowadź poświadczenia dla domena usługi Active Directory administratora wybranej sieci wirtualnej.
+  - Podczas określania jednostki organizacyjnej upewnij się, że używasz pełnej ścieżki (nazwy wyróżniającej) i bez znaków cudzysłowu.
 
-12. Wybierz pozycję **Dalej: obszar roboczy >**.
+12. W obszarze konto administratora wprowadź poświadczenia dla domena usługi Active Directory administratora wybranej sieci wirtualnej. To konto nie może mieć włączonej usługi uwierzytelniania wieloskładnikowego (MFA). Podczas dołączania do domeny Azure Active Directory Domain Services (Azure AD DS) konto musi należeć do grupy administratorów kontrolera domeny usługi Azure AD, a hasło konta musi działać na platformie Azure AD DS.
+
+13. Wybierz pozycję **Dalej: obszar roboczy >**.
 
 Dzięki temu jesteśmy gotowi do rozpoczęcia następnej fazy konfigurowania puli hostów: rejestrowanie grupy aplikacji w obszarze roboczym.
 

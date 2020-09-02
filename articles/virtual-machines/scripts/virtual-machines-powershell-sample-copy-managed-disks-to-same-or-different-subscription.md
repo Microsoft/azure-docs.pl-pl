@@ -10,12 +10,12 @@ ms.topic: sample
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: 666d887429dd0646aa63b2afe5ba0aaf65ec4158
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e682a1546297e7715a00c7c174ad9a17021e6029
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052259"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320483"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Kopiowanie dysków zarządzanych do tej samej lub innej subskrypcji przy użyciu programu PowerShell
 
@@ -44,7 +44,7 @@ Ten skrypt używa następujących poleceń w celu utworzenia nowego dysku zarzą
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie maszyny wirtualnej na podstawie dysku zarządzanego](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Tworzenie maszyny wirtualnej na podstawie dysku zarządzanego](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 Aby uzyskać więcej informacji na temat modułu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/).
 

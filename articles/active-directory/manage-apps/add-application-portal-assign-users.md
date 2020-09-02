@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0e31852b6cf40cec9161c6904ce99798f1ee4996
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303897"
+ms.locfileid: "89322504"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Szybki Start: przypisywanie użytkowników do aplikacji używającej usługi Azure AD jako dostawcy tożsamości
 
@@ -38,7 +38,7 @@ Aby przypisać użytkowników do aplikacji dodanej do dzierżawy usługi Azure A
 1. W portalu usługi Azure AD wybierz pozycję **aplikacje dla przedsiębiorstw**. Następnie Znajdź i wybierz aplikację, którą chcesz skonfigurować.
 2. W menu nawigacji po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
    > [!NOTE]
-   > Jeśli chcesz przypisać użytkowników do aplikacji firmy Microsoft, takich jak aplikacje pakietu Office 365, niektóre z tych aplikacji używają programu PowerShell. 
+   > Niektóre aplikacje Microsoft 365 i Office 365 wymagają użycia programu PowerShell. 
 3. Wybierz przycisk **Dodaj użytkownika** .
 4. W okienku **Dodaj przypisanie** wybierz pozycję **Użytkownicy i grupy**.
 5. Wybierz użytkownika lub grupę, która ma zostać przypisana do aplikacji. Możesz również rozpocząć wpisywanie nazwy użytkownika lub grupy w polu wyszukiwania. Możesz wybrać wielu użytkowników i grupy, a wybrane opcje będą widoczne w obszarze **wybrane elementy**.
@@ -55,6 +55,8 @@ Aby przypisać użytkowników do aplikacji dodanej do dzierżawy usługi Azure A
     > Jeśli aplikacja nie obsługuje wyboru roli, zostanie przypisana domyślna rola dostępu. W takim przypadku aplikacja zarządza poziomem dostępu dostępnym dla użytkowników.
 9. W okienku **Dodaj przypisanie** wybierz przycisk **Przypisz** w dolnej części okienka.
 
+> [!NOTE]
+> Możesz cofnąć przypisanie użytkowników lub grup, korzystając z tej samej procedury. Wybierz użytkownika lub grupę, którą chcesz cofnąć przypisania, a następnie wybierz pozycję **Usuń**. Niektóre aplikacje Microsoft 365 i Office 365 wymagają użycia programu PowerShell. 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

@@ -3,16 +3,17 @@ title: Co nowego w programie Virtual Desktop systemu Windows? — Azure
 description: Nowe funkcje i aktualizacje produktów dla pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 09/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: references_regions
+ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003525"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319818"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Co nowego w programie Virtual Desktop systemu Windows?
 
@@ -24,6 +25,31 @@ Regularnie aktualizacje pulpitu wirtualnego systemu Windows. W tym artykule znaj
 - Poprawki błędów
 
 Ten artykuł jest aktualizowany co miesiąc. Upewnij się, że w tym miejscu często należy zaznaczyć, aby zachować nowe aktualizacje.
+
+## <a name="august-2020"></a>Sierpień 2020 r.
+
+Poniżej przedstawiono zmiany w sierpniu 2020:
+
+- Ulepszono wydajność w celu zmniejszenia opóźnień połączenia w następujących regionach świadczenia usługi Azure: 
+
+    - Zjednoczone Królestwo
+    - Francja
+    - Norwegia
+    - Korea Południowa
+
+   Możesz użyć [szacowania doświadczenia](https://azure.microsoft.com/services/virtual-desktop/assessment/) , aby uzyskać ogólny pomysł na to, jak te zmiany wpłyną na użytkowników.
+
+- Klient Pulpit zdalny Microsoft Store (v 10.2.1522 +) jest teraz ogólnie dostępny! Ta wersja klienta Microsoft Store Pulpit zdalny jest zgodna z pulpitem wirtualnym systemu Windows. Wprowadzono również odświeżone przepływy interfejsu użytkownika w celu ulepszenia środowiska użytkownika. Ta aktualizacja obejmuje tryby projektowania Fluent, jasne i ciemne oraz wiele innych atrakcyjnych zmian. Klient został również ponownie zapisany pod kątem używania tego samego aparatu protokołu RDP (Remote Desktop Protocol) jako klientów z systemem iOS, macOS i Android. Pozwala to nam dostarczać nowe funkcje z większą szybkością na wszystkich platformach. [Pobierz klienta](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) i spróbuj ponownie.
+
+- Rozwiązano problem w programie Teams Client (wersja 1.3.00.21759), w którym klient pokazał tylko strefy czasowej UTC w rozmowie, kanałach i kalendarzu. Zaktualizowany klient wyświetla teraz strefę czasową sesji zdalnej.
+
+- Azure Advisor jest teraz częścią pulpitu wirtualnego systemu Windows. Podczas uzyskiwania dostępu do pulpitu wirtualnego systemu Windows za pomocą Azure Portal można zobaczyć zalecenia dotyczące optymalizowania środowiska pulpitu wirtualnego systemu Windows. Więcej informacji znajduje się w [Azure Advisor](azure-advisor.md).
+
+- Interfejs wiersza polecenia platformy Azure obsługuje teraz pulpit wirtualny systemu Windows ( `az desktopvirtualization` ), aby ułatwić automatyzację wdrożeń pulpitów wirtualnych systemu Windows. Zapoznaj się z [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) , aby uzyskać listę poleceń rozszerzenia.
+
+- Zaktualizowaliśmy szablony wdrażania, aby zapewnić ich pełną zgodność z interfejsami Azure Resource Manager pulpitu wirtualnego systemu Windows. Szablony można znaleźć w witrynie [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
+
+- Portal US Gov pulpitu wirtualnego systemu Windows jest teraz dostępny w publicznej wersji zapoznawczej. Aby dowiedzieć się więcej, zapoznaj się z [naszym ogłoszeniem](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-available-in-the-azure-government-cloud-in-preview/).
 
 ## <a name="july-2020"></a>Lipiec 2020 r.  
 
@@ -105,9 +131,7 @@ Wprowadziliśmy kilka ulepszeń usługi Microsoft Teams dla systemu Windows Virt
 
 Aby dowiedzieć się więcej, zobacz [nasz wpis w blogu](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
-## <a name="next-steps"></a>Następne kroki
-
-Zapoznaj się z przyszłymi planami w [Microsoft 365 Windows Virtual Desktop plan](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+## <a name="client-updates"></a>Aktualizacje klienta
 
 Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach naszych klientów dla pulpitu wirtualnego systemu Windows i Usługi pulpitu zdalnego:
 
@@ -116,3 +140,8 @@ Zapoznaj się z tymi artykułami, aby dowiedzieć się więcej o aktualizacjach 
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Sieć Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="next-steps"></a>Następne kroki
+
+Zapoznaj się z przyszłymi planami w [Microsoft 365 Windows Virtual Desktop plan](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+

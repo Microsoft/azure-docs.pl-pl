@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 40796951fe356fcf950b83c6ac771a0ca98ffd5a
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: d0e677377037203a6a67150d985efb30e09af86e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073336"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321869"
 ---
 <a name="HOLTop"></a>
 
@@ -251,5 +251,5 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 > [!div class="nextstepaction"]
 > [Odwołanie interfejs API przetwarzania obrazów (go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
-* [Czym jest przetwarzanie obrazów?](../../Home.md)
+* [Czym jest przetwarzanie obrazów?](../../overview.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

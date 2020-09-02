@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 57202752a965ad0405a04b2eba4cdf42070c94bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590255"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319511"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki Start: Tworzenie aplikacji platformy .NET Core przy użyciu konfiguracji aplikacji
 
@@ -44,7 +44,7 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](https://docs.micro
 
 1. Utwórz nowy folder dla projektu.
 
-2. W nowym folderze Uruchom następujące polecenie, aby utworzyć nowy projekt aplikacji konsoli ASP.NET Core:
+2. W nowym folderze Uruchom następujące polecenie, aby utworzyć nowy projekt aplikacji konsoli .NET Core:
 
     ```dotnetcli
     dotnet new console
@@ -118,7 +118,7 @@ Za pomocą [interfejsu wiersza polecenia platformy .NET Core](https://docs.micro
     dotnet run
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

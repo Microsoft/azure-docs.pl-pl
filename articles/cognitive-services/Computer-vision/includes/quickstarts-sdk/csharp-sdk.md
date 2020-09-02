@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5903d6c58e080b658bbd80a5f774b441d6c91b8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3ec3e44c667d6821c4a6dc0779a760b65de5046e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936875"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321912"
 ---
 <a name="HOLTop"></a>
 
@@ -265,5 +265,5 @@ Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz us
 > [!div class="nextstepaction"]
 >[Odwołanie interfejs API przetwarzania obrazów (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [Czym jest przetwarzanie obrazów?](../../Home.md)
+* [Czym jest przetwarzanie obrazów?](../../overview.md)
 * Kod źródłowy tego przykładu można znaleźć w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

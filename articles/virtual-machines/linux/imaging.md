@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815304"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319546"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Przełączanie i tworzenie obrazów systemu Linux na platformie Azure
 
@@ -46,7 +46,7 @@ Platforma Azure oferuje dwa główne typy obrazów, uogólnione i wyspecjalizowa
 
 ### <a name="generalized-images"></a>Uogólnione obrazy
 
-Obraz uogólniony jest obrazem, który wymaga zakończenia instalacji przy pierwszym rozruchu. Na przykład podczas pierwszego rozruchu ustawiana jest nazwa hosta, użytkownik administracyjny i inne konfiguracje specyficzne dla maszyny wirtualnej. Jest to przydatne, gdy chcesz, aby obraz był wielokrotnie używany, i gdy chcesz przekazać parametry podczas tworzenia. Jeśli obraz uogólniony zawiera agenta platformy Azure, Agent przetworzy parametry i powraca do platformy, że początkowa konfiguracja została ukończona. Ten proces jest nazywany **aprowizacji**. 
+Obraz uogólniony jest obrazem, który wymaga zakończenia instalacji przy pierwszym rozruchu. Na przykład podczas pierwszego rozruchu ustawiana jest nazwa hosta, użytkownik administracyjny i inne konfiguracje specyficzne dla maszyny wirtualnej. Jest to przydatne, gdy chcesz, aby obraz był wielokrotnie używany, i gdy chcesz przekazać parametry podczas tworzenia. Jeśli obraz uogólniony zawiera agenta platformy Azure, Agent przetworzy parametry i powraca do platformy, że początkowa konfiguracja została ukończona. Ten proces jest nazywany [aprowizacji](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
 
 Inicjowanie obsługi wymaga, aby w obrazie znajdował się provisioner. Istnieją dwie aprowizacji:
 - [Agent systemu Linux platformy Azure](../extensions/agent-linux.md)

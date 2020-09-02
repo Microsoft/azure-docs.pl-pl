@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: f5f2678078850ad17fa72439df9c963b60ad7a9d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 30c486ccb7bf3b7d537cd1ed3475a8dadc5b4f6d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237866"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89324154"
 ---
 > [!IMPORTANT]
 > * Zestaw SDK aparatu rozpoznawania formularzy obecnie jest przeznaczony dla wersji v 2.0 z usługi rozpoznawania.
@@ -61,7 +61,7 @@ mkdir -p src/main/java
 
 Ten przewodnik Szybki Start używa Menedżera zależności Gradle. Bibliotekę i informacje o kliencie można znaleźć dla innych menedżerów zależności w [repozytorium centralnym Maven](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-W pliku *Build. Gradle. KTS* projektu należy uwzględnić bibliotekę klienta jako `implementation` instrukcję wraz z wymaganymi wtyczkami i ustawieniami.
+W pliku *Build. Gradle. KTS* projektu Dołącz bibliotekę klienta jako `implementation` instrukcję wraz z wymaganymi wtyczkami i ustawieniami.
 
 ```kotlin
 plugins {
@@ -79,7 +79,7 @@ dependencies {
 }
 ```
 
-Przejdź do nowego folderu **src/Main/Java** i Utwórz plik o nazwie *FormRecognizer. Java*. Otwórz go w preferowanym edytorze lub środowisku IDE i Dodaj następujące `import` instrukcje:
+Przejdź do nowego folderu **src/Main/Java** i Utwórz plik o nazwie *Management. Java*. Otwórz go w preferowanym edytorze lub środowisku IDE i Dodaj następujące `import` instrukcje:
 
 ```java
 import com.azure.ai.formrecognizer.*;

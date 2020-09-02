@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 985060d1acb9e3bf0babc8303b997ceddfff8f05
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f14bcc1b0576a5ad2f4dbbf30311f613607d3ee5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931951"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322334"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Samouczek: generowanie metadanych obrazu w usłudze Azure Storage za pomocą przetwarzanie obrazów
 
-W tym samouczku dowiesz się, jak zintegrować usługę Azure przetwarzanie obrazów z aplikacją sieci Web w celu wygenerowania metadanych dla przekazanych obrazów. Jest to przydatne w przypadku scenariuszy [zarządzania zasobami cyfrowymi](../Home.md#computer-vision-for-digital-asset-management) , na przykład jeśli firma chce szybko wygenerować napisy opisowe lub słowa kluczowe do przeszukiwania dla wszystkich swoich obrazów.
+W tym samouczku dowiesz się, jak zintegrować usługę Azure przetwarzanie obrazów z aplikacją sieci Web w celu wygenerowania metadanych dla przekazanych obrazów. Jest to przydatne w przypadku scenariuszy [zarządzania zasobami cyfrowymi](../overview.md#computer-vision-for-digital-asset-management) , na przykład jeśli firma chce szybko wygenerować napisy opisowe lub słowa kluczowe do przeszukiwania dla wszystkich swoich obrazów.
 
 Pełny przewodnik dotyczący aplikacji można znaleźć w [laboratorium usług Azure Storage i Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) na platformie GitHub — ten samouczek dotyczy ćwiczenia 5 z tego laboratorium. Możesz chcieć utworzyć pełną aplikację, wykonując każdy krok, ale jeśli chcesz dowiedzieć się, jak zintegrować przetwarzanie obrazów z istniejącą aplikacją sieci Web, przeczytaj miejsce poniżej.
 

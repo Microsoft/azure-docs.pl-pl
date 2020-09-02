@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: bc6f52ed175e55b283e3c41408c15b818a85d6b7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ad164f8af3e5506ae5ac9121010b99303286dd1f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237344"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320600"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Zaświadczanie Microsoft Azure (wersja zapoznawcza)
+# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (wersja zapoznawcza)
 
 Zaświadczanie o Microsoft Azure (wersja zapoznawcza) to rozwiązanie służące do zaświadczania zaufanych środowisk wykonywania (TEEs), takich jak [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) Enclaves i [zabezpieczenia oparte na wirtualizacji](/windows-hardware/design/device-experiences/oem-vbs) (vbs) enclaves. Zaświadczanie enklawy to proces służący do sprawdzania, czy enklawy jest bezpieczny i godny zaufania.
 
@@ -65,10 +65,11 @@ Klienci zaświadczania platformy Azure wyrażali wymóg, aby firma Microsoft mog
 
 Zaświadczanie o platformie Azure jest preferowanym wyborem dla zaświadczania TEEs, ponieważ oferuje następujące korzyści: 
 
-- Bezpłatna usługa Azure o wysokiej dostępności
-- Wykorzystuje Azure Active Directory do uwierzytelniania żądań klientów. Umożliwia to zaświadczanie platformy Azure w celu wykonania zaświadczania na podstawie tożsamości i własności
-- Obsługuje zasady, które zezwalają właścicielom dzierżawy na ograniczenie generowania tokenów
-- Oferuje ochronę danych w trakcie korzystania z implementacji w SGX enklawy
+- Ujednolicona platforma do zaświadczania wielu TEEs, takich jak SGX enclaves i VBS enclaves
+- Usługa obejmująca wiele dzierżawców, która umożliwia konfigurowanie niestandardowych dostawców zaświadczania i zasad w celu ograniczenia generowania tokenów
+- Oferuje dostawców domyślnych, którzy mogą zaświadczać o braku konfiguracji od użytkowników
+- Chroni swoje dane, gdy jest używany z implementacją w SGX enklawy
+- Usługa o wysokiej dostępności, która będzie oferować Umowa dotycząca poziomu usług (SLA)
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Obsługa ciągłości działania i odzyskiwania po awarii (BCDR)
 
