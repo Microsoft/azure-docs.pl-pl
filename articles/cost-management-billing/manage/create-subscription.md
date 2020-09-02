@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: df303801daba0509177e48565b3ddbe7674013e8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aa8cf0d2a48c75b71895eb75db362c4ec4e291c5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689970"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925049"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Tworzenie dodatkowej subskrypcji platformy Azure
 
@@ -73,7 +73,7 @@ Do tworzenia subskrypcji wymagane są następujące uprawnienia:
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Programowe tworzenie dodatkowej subskrypcji platformy Azure
 
-Dodatkowe subskrypcje można również tworzyć programowo. Aby uzyskać więcej informacji, zobacz [Programowe tworzenie subskrypcji platformy Azure](../../azure-resource-manager/management/programmatically-create-subscription.md).
+Dodatkowe subskrypcje można również tworzyć programowo. Aby uzyskać więcej informacji, zobacz [Programowe tworzenie subskrypcji platformy Azure](programmatically-create-subscription.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

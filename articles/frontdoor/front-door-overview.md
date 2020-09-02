@@ -3,23 +3,23 @@ title: Moje drzwi platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera omówienie usługi Azure Front Door. Sprawdź, czy jest to właściwy wybór dla ruchu użytkowników z równoważeniem obciążenia dla aplikacji.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
-ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 09/02/2020
+ms.author: duau
+ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322288"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378189"
 ---
-# <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
+# <a name="what-is-azure-front-door"></a>Co to jest Azure Front Door?
 Drzwi frontonu platformy Azure umożliwiają zdefiniowanie i monitorowanie globalnego routingu dla ruchu w sieci Web oraz zarządzanie nim przez optymalizację pod kątem najlepszej wydajności i szybkiej globalnej pracy awaryjnej w celu zapewnienia wysokiej dostępności. Za pomocą przednich drzwi można przekształcić globalne (wieloregionowe) aplikacje klienckie i korporacyjne na niezawodne, wysoce wydajne, nowoczesne aplikacje, interfejsy API i zawartość, które docierają do użytkowników globalnych na platformie Azure.
 
 Usługa Front Door działa w warstwie 7 lub warstwie protokołu HTTP/HTTPS i używa protokołu emisji dowolnej z podzielonym protokołem TCP i globalną siecią firmy Microsoft w celu poprawienia łączności globalnej. Dlatego przez wybór metody routingu w konfiguracji można zagwarantować, że usługa Front Door będzie kierować żądania klienta do najszybszego i najbardziej dostępnego zaplecza aplikacji. Zaplecze aplikacji to dowolna internetowa usługa hostowana wewnątrz platformy Azure lub poza nią. Usługa Front Door udostępnia szereg [metod routingu ruchu](front-door-routing-methods.md) oraz [opcji monitorowania kondycji zaplecza](front-door-health-probes.md), które zaspokoją potrzeby różnych aplikacji i modeli automatycznej pracy w trybie failover. Podobnie jak usługa [Traffic Manager](../traffic-manager/traffic-manager-overview.md), usługa Front Door jest odporna na awarie, w tym awarię całego regionu platformy Azure.
@@ -81,6 +81,10 @@ Protokół HTTP/2 umożliwia pełnodupleksową komunikację między zapleczami a
 ## <a name="pricing"></a>Cennik
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
+
+## <a name="whats-new"></a>Co nowego?
+
+Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami funkcji Azure Load Balancer na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) .
 
 ## <a name="next-steps"></a>Następne kroki
 

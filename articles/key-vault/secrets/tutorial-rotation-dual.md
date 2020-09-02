@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: bf4864e0c6342cbd4729d5b99479eb2ef1a2c48c
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542199"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378223"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów przy użyciu dwóch zestawów poświadczeń uwierzytelniania
 
-Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/managed-identity.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub hasła. Klucze dostępu i hasła powinny być często obracane.
+Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/authentication.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub hasła. Klucze dostępu i hasła powinny być często obracane.
 
 W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z dwóch zestawów poświadczeń uwierzytelniania. W tym samouczku przeniesiesz klucze konta usługi Azure Storage przechowywane w Azure Key Vault jako wpisy tajne przy użyciu funkcji wyzwalanej przez Azure Event Grid powiadomienie. :
 
@@ -91,7 +91,7 @@ Funkcje rotacji aplikacji funkcji wymagają następujących składników i konfi
 1. Wybierz pozycję **Przeglądanie+tworzenie**.
 1. Wybierz pozycję **Utwórz**
 
-   ![Przegląd + tworzenie](../media/secrets/rotation-dual/dual-rotation-2.png)
+   ![Przejrzyj i Utwórz pierwsze konto magazynu](../media/secrets/rotation-dual/dual-rotation-2.png)
 
 Po wykonaniu powyższych kroków będziesz mieć konto magazynu, farmę serwerów, aplikację funkcji, Application Insights. Po ukończeniu wdrożenia powinien zostać wyświetlony poniższy ekran: ![ ukończono wdrażanie](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
@@ -136,13 +136,13 @@ Można wyświetlić informacje o kluczu tajnym przy użyciu poniższego poleceni
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey
 ```
-Powiadomienie, które `CredentialId` zostało zaktualizowane do alternatywnej `keyName` i `value` jest ponownie wygenerowane, ![ Pokaż](../media/secrets/rotation-dual/dual-rotation-4.png)
+Powiadomienie, które `CredentialId` zostało zaktualizowane do alternatywnej `keyName` i `value` jest ponownie generowane w wyniku polecenia ![ AZ Storage Storage Secret show dla pierwszego konta magazynu](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Pobierz klucze dostępu, aby sprawdzić poprawność wartości
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Lista kluczy dostępu](../media/secrets/rotation-dual/dual-rotation-5.png)
+![Dane wyjściowe polecenia AZ Storage account Keys list dla pierwszego konta magazynu](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-additional-storage-accounts-for-rotation"></a>Dodawanie dodatkowych kont magazynu do rotacji
 
@@ -164,7 +164,7 @@ Dodawanie dodatkowych kluczy konta magazynu do rotacji do istniejącej funkcji w
 1. Wybierz pozycję **Przeglądanie+tworzenie**.
 1. Wybierz pozycję **Utwórz**
 
-   ![Przegląd + tworzenie](../media/secrets/rotation-dual/dual-rotation-7.png)
+   ![Przejrzyj i Utwórz drugie konto magazynu](../media/secrets/rotation-dual/dual-rotation-7.png)
 
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Dodaj inny klucz dostępu do konta magazynu do Key Vault
 
@@ -190,20 +190,20 @@ Pokaż informacje o kluczu tajnym przy użyciu poniższego polecenia:
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey2
 ```
-Powiadomienie, które `CredentialId` zostało zaktualizowane do alternatywnej `keyName` i `value` jest ponownie wygenerowane, ![ Pokaż](../media/secrets/rotation-dual/dual-rotation-8.png)
+Powiadomienie, które `CredentialId` zostało zaktualizowane do alternatywnej `keyName` i `value` jest ponownie generowane w wyniku polecenia ![ AZ Storage Storage Secret show dla drugiego konta magazynu](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Pobierz klucze dostępu, aby sprawdzić poprawność wartości
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Lista kluczy dostępu](../media/secrets/rotation-dual/dual-rotation-9.png)
+![Dane wyjściowe polecenia AZ Storage account Keys list dla drugiego konta magazynu](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## <a name="available-key-vault-dual-credential-rotation-functions"></a>Dostępne Key Vault podwójne funkcje rotacji poświadczeń
 
 - [Konto magazynu](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
 - [Pamięć podręczna Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
-## <a name="learn-more"></a>Więcej tutaj
+## <a name="learn-more"></a>Więcej informacji
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](../general/event-grid-overview.md)
 - Instrukcje: [Tworzenie pierwszej funkcji w Azure Portal](../../azure-functions/functions-create-first-azure-function.md)
 - Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](../general/event-grid-logicapps.md)

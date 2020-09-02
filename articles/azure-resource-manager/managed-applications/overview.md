@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81391579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377016"
 ---
 # <a name="azure-managed-applications-overview"></a>Omówienie usługi Azure Managed Applications
 
@@ -45,7 +45,7 @@ Wykaz usług to wewnętrzny katalog zatwierdzonych rozwiązań, przeznaczonych d
 
 Aby dowiedzieć się, jak opublikować aplikację zarządzaną w wykazie usług, zobacz [Tworzenie aplikacji w katalogu usług](publish-service-catalog-app.md).
 
-### <a name="marketplace"></a>Portal Marketplace
+### <a name="marketplace"></a>Marketplace
 
 Dostawcy, którzy oferują płatne usługi, mogą udostępniać aplikacje zarządzane w witrynie Azure Marketplace. Opublikowana aplikacja jest dostępna dla użytkowników spoza organizacji. Dzięki temu dostawcy usług zarządzanych (MSP), niezależni dostawcy oprogramowania (ISV) oraz integratorzy systemów (SI) mogą oferować swoje rozwiązania wszystkim klientom platformy Azure.
 
@@ -71,13 +71,13 @@ Klient, który ma pełny dostęp do grupy zasobów, zarządza cyklem życia apli
 
 Ta grupa zasobów zawiera wszystkie zasoby, które są wymagane przez aplikację zarządzaną. Na przykład może ona obejmować maszyny wirtualne, konta magazynu i sieci wirtualne używane przez rozwiązanie. Klient ma ograniczony dostęp do tej grupy zasobów, ponieważ nie zarządza on poszczególnymi zasobami aplikacji zarządzanej. Dostęp wydawcy do grupy zasobów odpowiada roli określonej w definicji aplikacji zarządzanej. Na przykład wydawca może zażądać roli właściciela lub współautora dla tej grupy zasobów. Dostęp jest trwały lub ograniczony do określonego czasu.
 
-W przypadku publikowania [aplikacji zarządzanej w portalu Marketplace](publish-marketplace-app.md)Wydawca może udzielić konsumentom możliwości wykonywania określonych akcji na zasobach w zarządzanej grupie zasobów. Na przykład Wydawca może określić, że klienci mogą ponownie uruchamiać maszyny wirtualne. Wszystkie inne akcje poza akcją odczytu nadal są odrzucane.
+W przypadku publikowania [aplikacji zarządzanej w portalu Marketplace](publish-marketplace-app.md)Wydawca może udzielić konsumentom możliwości wykonywania określonych akcji na zasobach w zarządzanej grupie zasobów. Na przykład Wydawca może określić, że klienci mogą ponownie uruchamiać maszyny wirtualne. Wszystkie inne akcje poza akcją odczytu nadal są odrzucane. Zmiany w zasobach w zarządzanej grupie zasobów przez odbiorcę z przyznanymi akcjami podlegają [Azure Policy](../../governance/policy/overview.md) przypisań w ramach dzierżawy odbiorców objętych zakresem do uwzględnienia zarządzanej grupy zasobów.
 
 Usunięcie aplikacji zarządzanej powoduje również usunięcie zarządzanej grupy zasobów.
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Do aplikacji zarządzanej możesz zastosować [zasady Azure Policy](../../governance/policy/overview.md). Zasady są stosowane, aby zapewnić zgodność wdrożonych wystąpień aplikacji zarządzanych z wymaganiami dotyczącymi danych i zabezpieczeń. Jeśli aplikacja wchodzi w interakcje z danymi poufnymi, upewnij się, że oceniono sposoby ochrony tych danych. Jeśli na przykład aplikacja wchodzi w interakcje z danymi usługi Office 365, zastosuj zasady zapewniające włączenie szyfrowania danych.
+Aby przeprowadzić inspekcję zarządzanej aplikacji, można zastosować [Azure Policy](../../governance/policy/overview.md) . Należy zastosować definicje zasad, aby upewnić się, że wdrożone wystąpienia aplikacji zarządzanej spełniają wymagania dotyczące danych i zabezpieczeń. Jeśli aplikacja wchodzi w interakcje z danymi poufnymi, upewnij się, że oceniono sposoby ochrony tych danych. Na przykład jeśli aplikacja współdziała z danymi z pakietu Office 365, Zastosuj definicję zasad, aby upewnić się, że szyfrowanie danych jest włączone.
 
 ## <a name="next-steps"></a>Następne kroki
 
