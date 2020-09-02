@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: c590fea274900f580a5c8415f6b04c2f9108f74f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18ba00b39d8ffd703eb31b95d373e5b89e51c59b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876941"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376829"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Szybki Start: Biblioteka klienta kluczy Azure Key Vault dla języka Python
 
@@ -68,7 +68,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Najprostszym sposobem uwierzytelniania aplikacji .NET opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) . 
+Najprostszym sposobem uwierzytelniania aplikacji opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz Uwierzytelnianie w Azure Key Vault](../general/authentication.md) . 
 
 W tym przewodniku szybki start można jednak utworzyć aplikację klasyczną, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Nazwa główna usługi wymaga unikatowej nazwy w formacie "http:// &lt; My-Unique-Service-Principal-Name &gt; ".
 
@@ -186,7 +186,7 @@ Możesz sprawdzić, czy klucz został usunięty za pomocą polecenia [AZ Key mag
 az keyvault key show --vault-name <your-unique-keyvault-name> --name myKey
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 
@@ -235,6 +235,6 @@ print(" done.")
 
 W tym przewodniku szybki start utworzono Magazyn kluczy, Zapisano klucz i pobrano ten klucz. Aby dowiedzieć się więcej na temat Key Vault i sposobu integrowania go z aplikacjami, przejdź do artykułu poniżej.
 
-- Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Zobacz [przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
-- Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań
+- [Omówienie usługi Azure Key Vault](../general/overview.md)
+- [Przewodnik dewelopera Azure Key Vault](../general/developers-guide.md)
+- [Azure Key Vault najlepszych praktyk](../general/best-practices.md)

@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5b03e22fee2bf1bd662c152bf1b5c2f83a4358
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019916"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378019"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania
 
-Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/managed-identity.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub wpisy tajne. Należy okresowo obracać klucze dostępu lub wpisy tajne.
+Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie [tożsamości zarządzanej](../general/authentication.md), ale istnieje kilka scenariuszy, w których nie jest to opcja. W tych przypadkach są używane klucze dostępu lub wpisy tajne. Należy okresowo obracać klucze dostępu lub wpisy tajne.
 
 W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z jednego zestawu poświadczeń uwierzytelniania. W tym samouczku zaprojektowano SQL Server haseł przechowywanych w Azure Key Vault przy użyciu funkcji wyzwalanej przez powiadomienie Azure Event Grid:
 
@@ -46,7 +46,7 @@ Jeśli nie masz istniejących Key Vault i SQL Server, możesz użyć poniższego
 
 1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **akvrotation**.
 1. W obszarze **Logowanie administratora SQL**wpisz nazwę logowania administratora SQL. 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**
 
     ![Tworzenie grupy zasobów](../media/rotate2.png)
@@ -88,7 +88,7 @@ Aplikacja funkcji wymaga następujących składników:
 1. W polu **nazwa aplikacja funkcji**wpisz nazwę aplikacji funkcji
 1. W polu **Nazwa wpisu tajnego**wpisz nazwę wpisu tajnego, w którym będzie przechowywane hasło
 1. W **adresie URL repozytorium**wpisz kod funkcji Lokalizacja usługi GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git** )
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
    ![Wybieranie opcji Recenzja + tworzenie](../media/rotate3.png)
@@ -113,7 +113,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-Aby uzyskać informacje na temat sposobu tworzenia aplikacji funkcji i używania tożsamości zarządzanej do uzyskiwania dostępu do Key Vault, zobacz [Tworzenie aplikacji funkcji na podstawie Azure Portal](../../azure-functions/functions-create-function-app-portal.md) i [udostępnianie Key Vault uwierzytelniania przy użyciu tożsamości zarządzanej](../general/managed-identity.md).
+Aby uzyskać informacje na temat sposobu tworzenia aplikacji funkcji i używania tożsamości zarządzanej do uzyskiwania dostępu do Key Vault, zobacz [Tworzenie aplikacji funkcji na podstawie Azure Portal](/azure/azure-functions/functions-create-function-app-portal), [jak używać tożsamości zarządzanej dla App Service i Azure Functions](/azure/app-service/overview-managed-identity), a następnie [przypisywać zasady dostępu Key Vault przy użyciu Azure Portal](../general/assign-access-policy-portal.md).
 
 ### <a name="rotation-function"></a>Funkcja rotacji
 Wdrożone w poprzednim kroku funkcja używa zdarzenia do wyzwolenia rotacji wpisu tajnego przez aktualizację Key Vault i bazy danych SQL. 
@@ -230,7 +230,7 @@ Aplikacja sieci Web wymaga następujących składników:
 1. W polu **nazwa Key Vault**wpisz nazwę magazynu kluczy
 1. W polu **Nazwa wpisu tajnego**wpisz nazwę wpisu tajnego, w którym jest przechowywane hasło
 1. W **adresie URL repozytorium**wpisz w polu kod aplikacji sieci Web lokalizację usługi GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** ).
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 1. Wybierz pozycję **Utwórz**.
 
 
@@ -242,7 +242,7 @@ https://akvrotation-app.azurewebsites.net/
 
 Gdy aplikacja zostanie otwarta w przeglądarce, zostanie wyświetlona **wartość wygenerowanego klucza tajnego** i **połączona wartość bazy danych** *true*.
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej informacji
 
 - Samouczek: [rotacja zasobów przy użyciu dwóch zestawów poświadczeń](tutorial-rotation-dual.md)
 - Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](../general/event-grid-overview.md)

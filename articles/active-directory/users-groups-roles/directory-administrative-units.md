@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795902"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376387"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Zarządzanie jednostkami administracyjnymi w Azure Active Directory (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ W tym artykule opisano jednostki administracyjne w Azure Active Directory (Azure
 
 Jednostki administracyjne umożliwiają Przyznawanie uprawnień administratora, które są ograniczone do działu, regionu lub innego segmentu zdefiniowanej organizacji. Jednostki administracyjne mogą służyć do delegowania uprawnień do administratorów regionalnych lub do ustawiania zasad na poziomie szczegółowym. Administrator konta użytkownika może na przykład zaktualizować informacje o profilu, zresetować hasła i przypisać licencje dla użytkowników tylko w ich jednostce administracyjnej.
 
- Na przykład delegowanie do specjalistów pomocy technicznej regionalnej rola [administratora punktu](directory-assign-admin-roles.md#helpdesk-administrator) pomocy jest ograniczona do zarządzania tylko użytkownikami w regionie, w którym są one obsługiwane.
+Na przykład delegowanie do specjalistów pomocy technicznej regionalnej rola [administratora punktu](directory-assign-admin-roles.md#helpdesk-administrator) pomocy jest ograniczona do zarządzania tylko użytkownikami w regionie, w którym są one obsługiwane.
 
 ## <a name="deployment-scenario"></a>Scenariusz wdrożenia
 
@@ -54,7 +54,7 @@ W tej wersji zapoznawczej można zarządzać jednostkami administracyjnymi przy 
 
 Jednostki administracyjne mogą służyć do logicznego grupowania zasobów usługi Azure AD. Na przykład w przypadku organizacji, której dział IT jest rozproszeni globalnie, warto utworzyć jednostki administracyjne, które definiują te granice geograficzne. W innym scenariuszu, w którym organizacja wielonarodowy ma różne "podorganizacje", które są częściowo autonomiczne w operacjach, każda podorganizacja może być reprezentowana przez jednostkę administracyjną.
 
-Kryteria, w których są tworzone jednostki administracyjne, będą prowadzone zgodnie z unikatowymi wymaganiami organizacji. Jednostki administracyjne są typowym sposobem definiowania struktury w ramach usług M365 Services. Zalecamy przygotowanie jednostek administracyjnych do korzystania z usług M365 na uwadze. Możesz uzyskać maksymalną wartość z jednostek administracyjnych, gdy można kojarzyć wspólne zasoby w M365 w jednostce administracyjnej.
+Kryteria, w których są tworzone jednostki administracyjne, będą prowadzone zgodnie z unikatowymi wymaganiami organizacji. Jednostki administracyjne są typowym sposobem definiowania struktury w ramach usług Microsoft 365. Zalecamy przygotowanie jednostek administracyjnych do ich używania w ramach usług Microsoft 365. Możesz uzyskać maksymalną wartość z jednostek administracyjnych, gdy można kojarzyć typowe zasoby w Microsoft 365 w ramach jednostki administracyjnej.
 
 Aby utworzyć jednostki administracyjne w organizacji, możesz przejść przez następujące etapy:
 
@@ -64,7 +64,7 @@ Aby utworzyć jednostki administracyjne w organizacji, możesz przejść przez n
 
 ## <a name="currently-supported-scenarios"></a>Obecnie obsługiwane scenariusze
 
-Administratorzy globalni lub administrator ról uprzywilejowanych mogą używać portalu usługi Azure AD do tworzenia jednostek administracyjnych, dodawać użytkowników jako członków jednostek administracyjnych, a następnie przypisywać personelowi IT do ról administratora z zakresem jednostek administracyjnych. Administratorzy z zakresem administracyjnym mogą następnie użyć portalu Office 365 do podstawowego zarządzania użytkownikami w ich jednostkach administracyjnych.
+Administratorzy globalni lub administrator ról uprzywilejowanych mogą używać portalu usługi Azure AD do tworzenia jednostek administracyjnych, dodawać użytkowników jako członków jednostek administracyjnych, a następnie przypisywać personelowi IT do ról administratora z zakresem jednostek administracyjnych. Administratorzy z zakresem administracyjnym mogą następnie użyć Centrum administracyjnego Microsoft 365, aby uzyskać podstawowe zarządzanie użytkownikami w ich jednostkach administracyjnych.
 
 Ponadto grupy mogą być dodawane jako członkowie jednostki administracyjnej, a administrator grupy z zakresem jednostki administratora może zarządzać nimi przy użyciu programu PowerShell, Microsoft Graph i portalu usługi Azure AD.
 
@@ -99,7 +99,7 @@ Zarządzanie licencjonowaniem grupowym w zakresie jednostki administracyjnej   |
 >
 > Administratorzy z zakresem jednostki administracyjnej nie mogą zarządzać regułami dynamicznego członkostwa w grupach.
 
-Jednostki administracyjne stosują zakres tylko do uprawnień zarządzania. Nie uniemożliwiają członkom ani administratorom korzystania z ich [domyślnych uprawnień użytkownika](../fundamentals/users-default-permissions.md) do przeglądania innych użytkowników, grup lub zasobów poza jednostką administracyjną. W portalu pakietu Office 365 użytkownicy spoza jednostek administracyjnych administratora zakresu są odfiltrowani, ale można przeglądać innych użytkowników w portalu usługi Azure AD, programie PowerShell i innych usługach firmy Microsoft.
+Jednostki administracyjne stosują zakres tylko do uprawnień zarządzania. Nie uniemożliwiają członkom ani administratorom korzystania z ich [domyślnych uprawnień użytkownika](../fundamentals/users-default-permissions.md) do przeglądania innych użytkowników, grup lub zasobów poza jednostką administracyjną. W centrum administracyjnym Microsoft 365 użytkownicy spoza jednostek administracyjnych administratora zakresu są odfiltrowani, ale można przeglądać innych użytkowników w portalu usługi Azure AD, programie PowerShell i innych usługach firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 
