@@ -7,49 +7,55 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 270e5ba1879b229fbe9f5e6c8692bd8b4e9eebc7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 57baeccc9f4644ec055de638254d4613a33ef68d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688644"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378648"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>Jak można sprawdzić, jak i kiedy są dostępne magazyny kluczy?
-Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do Twoich magazynów kluczy oraz przez kogo. Można to zrobić przez włączenie rejestrowania dla Azure Key Vault, aby zapoznać się z przewodnikiem krok po kroku, aby włączyć rejestrowanie. [Przeczytaj więcej](https://docs.microsoft.com/azure/key-vault/general/logging).
+
+Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monitorować sposób i czas uzyskiwania dostępu do Twoich magazynów kluczy oraz przez kogo. Monitorowanie można przeprowadzić przez włączenie rejestrowania dla Azure Key Vault, aby zapoznać się z przewodnikiem krok po kroku, aby włączyć rejestrowanie. [Przeczytaj więcej](https://docs.microsoft.com/azure/key-vault/general/logging).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Jak można monitorować dostępność magazynu, okresy opóźnienia usługi lub inne metryki wydajności dla magazynu kluczy?
-Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu kluczy wzrośnie. Jest to możliwe, aby zwiększyć opóźnienie żądań i w skrajnych przypadkach, co spowoduje ograniczenie żądań, co wpłynie na wydajność usługi. Można monitorować metryki wydajności magazynu kluczy i otrzymywać alerty dla określonych progów, aby zapoznać się z przewodnikiem krok po kroku w celu skonfigurowania monitorowania, [Dowiedz się więcej](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu kluczy zostanie wykorzystana. Takie zapotrzebowanie ma możliwość zwiększenia opóźnienia żądań i w skrajnych przypadkach, powodując ograniczenie żądań, co wpłynie na wydajność usługi. Można monitorować metryki wydajności magazynu kluczy i otrzymywać alerty dla określonych progów, aby zapoznać się z przewodnikiem krok po kroku w celu skonfigurowania monitorowania, [Dowiedz się więcej](https://docs.microsoft.com/azure/key-vault/general/alert).
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Jak mogę przypisać kontrolę dostępu dla obiektu magazynu kluczy? 
+
 Dostępność funkcji kontroli dostępu na klucz tajny/klucza/certyfikatu będzie powiadamiana w tym miejscu. [Przeczytaj więcej](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>Jak zapewnić uwierzytelnianie magazynu kluczy przy użyciu zasad kontroli dostępu?
-Najprostszym sposobem na uwierzytelnianie aplikacji opartej na chmurze w celu Key Vault jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service]( https://docs.microsoft.com/azure/key-vault/general/managed-identity) .
-Jeśli tworzysz aplikację Premium, przeprowadzając lokalne programowanie lub w inny sposób nie można użyć tożsamości zarządzanej, możesz zamiast tego zarejestrować jednostkę usługi ręcznie i zapewnić dostęp do magazynu kluczy przy użyciu zasad kontroli dostępu, aby dowiedzieć się [więcej](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps).
 
+Najprostszym sposobem na uwierzytelnianie aplikacji opartej na chmurze w celu Key Vault jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz Uwierzytelnianie w Azure Key Vault](authentication.md) .
+Jeśli tworzysz aplikację Premium, przenosząc lokalne programowanie lub w inny sposób nie można użyć tożsamości zarządzanej, możesz zamiast tego zarejestrować jednostkę usługi ręcznie i zapewnić dostęp do magazynu kluczy przy użyciu zasad kontroli dostępu. Zobacz [przypisywanie zasad kontroli dostępu](assign-access-policy-portal.md).
 
 ### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Jak nadawać grupie usługi AD dostęp do magazynu kluczy?
-Nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy przy użyciu interfejsu wiersza polecenia platformy Azure AZ Key AzKeyVaultAccessPolicy Set-Policy lub Azure PowerShell Set-polecenia cmdlet. Aby zapoznać się z przykładami, zapoznaj się z tematem [udzielenie aplikacji, grupie usługi Azure AD lub dostępu użytkowników do magazynu kluczy](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps#give-the-principal-access-to-your-key-vault).
 
-Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami i dostępem (IAM) przypisanej do magazynu kluczy. W przeciwnym razie nie będzie można zalogować się i nie powiedzie się z powodu niewystarczających praw dostępu do subskrypcji. Grupy usługi Azure AD z tożsamościami zarządzanymi mogą wymagać do 8hr tokenu odświeżania i zaczynają obowiązywać.
+Nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy przy użyciu interfejsu wiersza polecenia platformy Azure AZ Key AzKeyVaultAccessPolicy Set-Policy lub Azure PowerShell Set-polecenia cmdlet. Zobacz [przypisywanie zasad dostępu — interfejs wiersza polecenia](assign-access-policy-cli.md) i [przypisywanie zasad dostępu — PowerShell](assign-access-policy-powershell.md).
+
+Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami i dostępem (IAM) przypisanej do magazynu kluczy. W przeciwnym razie nie będzie można zalogować się i nie powiedzie się z powodu niewystarczających praw dostępu do subskrypcji. Grupy usługi Azure AD z zarządzanymi tożsamościami mogą odświeżać tokeny do ośmiu godzin i zaczynają obowiązywać.
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Jak można ponownie wdrożyć Key Vault przy użyciu szablonu ARM bez usuwania istniejących zasad dostępu?
-Obecnie Key Vault ARM redopleyment usunie wszelkie zasady dostępu w Key Vault i zastąpi je zasadami dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault należy odczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
+
+Obecnie Key Vault ponowne wdrożenie w usłudze ARM spowoduje usunięcie wszystkich zasad dostępu w Key Vault i zamieninie ich przy użyciu zasad dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault, należy odczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Zalecane kroki rozwiązywania problemów dla następujących typów błędów
-* HTTP 401: żądanie nieuwierzytelnione — [kroki rozwiązywania problemów](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-401-unauthenticated-request)
-* HTTP 403: niewystarczające uprawnienia — [kroki rozwiązywania problemów](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-403-insufficient-permissions)
-* HTTP 429: zbyt wiele żądań — [kroki rozwiązywania problemów](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-429-too-many-requests)
-* Sprawdź, czy masz uprawnienie do usuwania dostępu do magazynu kluczy: [Zasady dostępu do usługi Key Vault](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+
+* HTTP 401: Nieuwierzytelnione żądanie — [procedura rozwiązywania problemów](rest-error-codes.md#http-401-unauthenticated-request)
+* HTTP 403: Niewystarczające uprawnienia — [procedura rozwiązywania problemów](rest-error-codes.md#http-403-insufficient-permissions)
+* HTTP 429: Zbyt wiele żądań — [procedura rozwiązywania problemów](rest-error-codes.md#http-429-too-many-requests)
+* Sprawdź, czy masz uprawnienie dostępu do usuwania magazynu kluczy: zobacz [przypisywanie zasad dostępu — interfejs wiersza polecenia](assign-access-policy-cli.md), [przypisywanie zasad dostępu — PowerShell](assign-access-policy-powershell.md)lub [przypisywanie zasad dostępu — Portal](assign-access-policy-portal.md).
 * Jeśli masz w kodzie problem z uwierzytelnianiem w magazynie kluczy, użyj [zestawu SDK uwierzytelniania](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)
 
 ### <a name="what-are-the-best-practices-i-should-implement-when-key-vault-is-getting-throttled"></a>Jakie są najlepsze rozwiązania, które należy zaimplementować podczas uzyskiwania ograniczenia w magazynie kluczy?
-Postępuj zgodnie z najlepszymi rozwiązaniami opisanymi [tutaj](https://docs.microsoft.com/azure/key-vault/general/overview-throttling#how-to-throttle-your-app-in-response-to-service-limits)
+Postępuj zgodnie z najlepszymi rozwiązaniami opisanymi [tutaj](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak rozwiązywać problemy z błędami uwierzytelniania magazynu kluczy. [Przewodnik rozwiązywania problemów Key Vault](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes)
+Dowiedz się, jak rozwiązywać problemy z błędami uwierzytelniania magazynu kluczy: [Key Vault Przewodnik rozwiązywania problemów](rest-error-codes.md).
