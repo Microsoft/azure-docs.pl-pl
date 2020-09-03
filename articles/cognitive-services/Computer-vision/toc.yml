@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Czym jest przetwarzanie obrazów?
-      href: Home.md
+      href: overview.md
     - name: Co nowego
       href: whats-new.md
 - name: Przewodniki Szybki start

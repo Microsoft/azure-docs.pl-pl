@@ -111,6 +111,9 @@
           href: ddos-protection-overview.md
         - name: Virtual Network TAP
           href: virtual-network-tap-overview.md
+        - name: Kontrole zabezpieczeń usługi Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Podsieci
       items:
         - name: Rozszerzenie podsieci

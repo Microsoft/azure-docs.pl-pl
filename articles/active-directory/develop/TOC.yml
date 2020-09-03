@@ -465,18 +465,18 @@
       items:
         - name: Omówienie
           href: authentication-national-cloud.md
-        - name: Uwierzytelnianie
+        - name: Authentication
           href: msal-national-cloud.md
     - name: Automatyczna aprowizacja użytkowników (SCIM)
       items:
         - name: Co to jest automatyczna aprowizacja użytkowników?
-          href: ../app-provisioning/user-provisioning.md
+          href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Opracowywanie i integrowanie punktu końcowego SCIM
-          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Typowe scenariusze aprowizacji
-          href: ../app-provisioning/scim-graph-scenarios.md
+          href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Automatyzowanie konfiguracji przy użyciu programu MS Graph
-          href: ../app-provisioning/application-provisioning-configure-api.md
+          href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Artykuły pomocy na temat witryny Azure Portal
       items:
         - name: Domyślne okresy ważności tokenu dla aplikacji niestandardowej

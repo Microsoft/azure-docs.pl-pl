@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Co to są usługi Cognitive Services?
-      href: Welcome.md
+      href: what-are-cognitive-services.md
     - name: Co nowego w dokumentacji usług Cognitive Services?
       href: whats-new-docs.md
     - name: Usługi Cognitive Services i uczenie maszynowe

@@ -90,6 +90,8 @@
       href: application-gateway-web-app-overview.md
     - name: Obsługa protokołu WebSocket
       href: application-gateway-websocket.md
+    - name: Omówienie cennika
+      href: understanding-pricing.md
     - name: Często zadawane pytania
       href: application-gateway-faq.md
 - name: Przewodniki z instrukcjami

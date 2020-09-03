@@ -70,23 +70,23 @@
             - name: Przekazywanie maszyny wirtualnej z wirtualnego dysku twardego
               href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
             - name: Dołączanie dysku systemu operacyjnego
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
             - name: Maszyna wirtualna z migawki
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
         - name: Zarządzanie magazynem
           items:
             - name: Tworzenie dysku zarządzanego na podstawie dysku VHD
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
             - name: Tworzenie dysku zarządzanego na podstawie migawki
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
             - name: Kopiowanie dysku zarządzanego
               href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Eksportowanie migawki jako dysku VHD na konto magazynu
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Eksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
             - name: Tworzenie migawki z dysku VHD
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
             - name: Kopiowanie migawki
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Bezpieczeństwo
@@ -118,15 +118,15 @@
         - name: Zarządzanie magazynem
           items:
             - name: Tworzenie dysku zarządzanego na podstawie dysku VHD
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
             - name: Tworzenie dysku zarządzanego na podstawie migawki
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
             - name: Kopiowanie dysku zarządzanego
               href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Eksportowanie migawki jako dysku VHD na konto magazynu
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Eksportowanie wirtualnego dysku twardego dysku zarządzanego na konto magazynu
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
             - name: Kopiowanie migawki
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Sieć
@@ -172,7 +172,7 @@
         - name: Rozmiary maszyn wirtualnych
           href: ../sizes.md
         - name: Maszyny wirtualne generacji 2
-          href: generation-2.md
+          href: ../generation-2.md
         - name: Zastosowania ogólne
           items:
             - name: Omówienie
@@ -621,7 +621,7 @@
     - name: Zarządzanie maszynami wirtualnymi
       items:
         - name: Użycie maszyny wirtualnej
-          href: vm-usage.md
+          href: ../vm-usage.md
         - name: Typowe zadania programu PowerShell
           href: ps-common-ref.md
         - name: Zmiana rozmiaru maszyny wirtualnej

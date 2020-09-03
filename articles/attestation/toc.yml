@@ -15,7 +15,7 @@
     - name: Tworzenie i podpisywanie zasad zaświadczania
       href: author-sign-policy.md
     - name: Przykłady kodu zaświadczania SGX
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+      href: /samples/browse/?expanded=azure&terms=attestation
 - name: Przykłady
   items:
     - name: Zasady zaświadczania
