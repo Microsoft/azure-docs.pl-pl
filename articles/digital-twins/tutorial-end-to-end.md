@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 3da73e376fc77297f77c1ff8c7f444b98e92b412
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290790"
+ms.locfileid: "89401779"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Samouczek: Tworzenie kompleksowego rozwiązania
 
@@ -436,7 +436,7 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 
-Za pomocą Azure Cloud Shell można usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; i obie Azure Functions aplikacje, w tym skojarzone zasoby, takie jak magazyn.
+Za pomocą [Azure Cloud Shell](https://shell.azure.com)można usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; i aplikacja Azure Functions, w tym funkcje i powiązane zasoby, takie jak magazyn.
 
 > [!IMPORTANT]
 > Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
@@ -451,7 +451,7 @@ Następnie usuń rejestrację aplikacji usługi Azure AD utworzoną dla aplikacj
 az ad app delete --id <your-application-ID>
 ```
 
-Na koniec Usuń folder przykładowego projektu pobrany z komputera lokalnego.
+Na koniec Usuń folder przykładowego projektu pobrany na komputer lokalny.
 
 ## <a name="next-steps"></a>Następne kroki
 

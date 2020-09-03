@@ -2,7 +2,7 @@
 title: Samouczek — poprawianie odpowiedzi witryny internetowej za pomocą usługi Azure Traffic Manager
 description: W tym samouczku opisano sposób tworzenia profilu Traffic Manager w celu utworzenia witryny sieci Web o wysokim stopniu odpowiedzi.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,19 +10,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
-ms.author: rohink
-ms.openlocfilehash: f7778b60a5e84f5d8900b8e37bfa655a7915d403
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: duau
+ms.openlocfilehash: e79dde0178c74965bde14956203e31e82e80d93e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77136382"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398413"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Samouczek: ulepszanie odpowiedzi witryny sieci Web przy użyciu Traffic Manager
 
 W tym samouczku opisano, jak za pomocą programu Traffic Manager utworzyć witrynę sieci Web o wysokiej dostępności przez kierowanie ruchu użytkowników do witryny sieci Web przy najniższym opóźnieniu. Zwykle centrum danych o najniższym opóźnieniu jest tym, co jest najbliższe odległości geograficznej.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych z podstawową witryną internetową w usługach IIS
@@ -68,7 +68,7 @@ W tej sekcji utworzysz dwie maszyny wirtualne *myIISVMEastUS* i *MyIISVMWestEuro
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** i **protokół http** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myIISVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myIISVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.
@@ -127,7 +127,7 @@ W tej sekcji utworzysz maszynę wirtualną (*myVMEastUS* i *myVMWestEurope*) w k
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.

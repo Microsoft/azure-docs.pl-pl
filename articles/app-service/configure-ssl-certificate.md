@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 48ef1344a76444af23fd462175a8087af2724d3e
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: d45852326a7f771b2cf79e20c784e2c441fef0d6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961945"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401490"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
@@ -145,8 +145,8 @@ Na stronie **stan Key Vault** kliknij pozycję **Key Vault repozytorium** , aby 
 | Grupa zasobów | Zgodnie z zaleceniem wybierz tę samą grupę zasobów co certyfikat App Service. |
 | Lokalizacja | Wybierz tę samą lokalizację, w której znajduje się aplikacja App Service. |
 | Warstwa cenowa | Aby uzyskać więcej informacji, zobacz [Azure Key Vault szczegóły cennika](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Zasady dostępu| Definiuje aplikacje i dozwolony dostęp do zasobów magazynu. Można skonfigurować ją później, wykonując czynności opisane w sekcji [Udziel kilku aplikacjom dostępu do magazynu kluczy](../key-vault/general/group-permissions-for-apps.md). |
-| Dostęp Virtual Network | Ogranicz dostęp do magazynu do określonych sieci wirtualnych platformy Azure. Można skonfigurować ją później, wykonując czynności opisane w sekcji [konfigurowanie Azure Key Vault zapór i sieci wirtualnych](../key-vault/general/network-security.md) |
+| Zasady dostępu| Definiuje aplikacje i dozwolony dostęp do zasobów magazynu. Można ją później skonfigurować, wykonując czynności opisane w sekcji [przypisywanie zasad dostępu Key Vault](/azure/key-vault/general/assign-access-policy-portal). |
+| Dostęp Virtual Network | Ogranicz dostęp do magazynu do określonych sieci wirtualnych platformy Azure. Można skonfigurować ją później, wykonując czynności opisane w sekcji [konfigurowanie Azure Key Vault zapór i sieci wirtualnych](/azure/key-vault/general/network-security) |
 
 Po wybraniu magazynu zamknij stronę **repozytorium Key Vault** . Opcja " **krok 1: Magazyn** " powinna zawierać zielony znacznik wyboru dla sukcesu. Pozostaw otwartą stronę w następnym kroku.
 
@@ -199,7 +199,7 @@ Skorzystaj z poniższej tabeli, aby wybrać certyfikat.
 | Ustawienie | Opis |
 |-|-|
 | Subskrypcja | Subskrypcja, do której należy Key Vault. |
-| Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
+| Usługa Key Vault | Magazyn z certyfikatem, który ma zostać zaimportowany. |
 | Certyfikat | Wybierz z listy PKCS12 certyfikatów w magazynie. Wszystkie certyfikaty PKCS12 w magazynie są wyświetlane z odciskiem palca, ale nie wszystkie są obsługiwane w App Service. |
 
 Po zakończeniu operacji zobaczysz certyfikat na liście **Certyfikaty klucza prywatnego** . Jeśli importowanie nie powiedzie się z powodu błędu, certyfikat nie spełnia [wymagań dotyczących App Service](#private-certificate-requirements).
