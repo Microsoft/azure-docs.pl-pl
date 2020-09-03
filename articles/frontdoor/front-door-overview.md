@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: duau
-ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 5741e41e3c1474cef5cf49270fd40bbdf4fcaffb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378189"
+ms.locfileid: "89399416"
 ---
 # <a name="what-is-azure-front-door"></a>Co to jest Azure Front Door?
 Drzwi frontonu platformy Azure umożliwiają zdefiniowanie i monitorowanie globalnego routingu dla ruchu w sieci Web oraz zarządzanie nim przez optymalizację pod kątem najlepszej wydajności i szybkiej globalnej pracy awaryjnej w celu zapewnienia wysokiej dostępności. Za pomocą przednich drzwi można przekształcić globalne (wieloregionowe) aplikacje klienckie i korporacyjne na niezawodne, wysoce wydajne, nowoczesne aplikacje, interfejsy API i zawartość, które docierają do użytkowników globalnych na platformie Azure.
@@ -84,7 +84,7 @@ Aby uzyskać informacje o cenach, zobacz [cennik usługi Front Door](https://azu
 
 ## <a name="whats-new"></a>Co nowego?
 
-Zasubskrybuj źródło danych RSS i zapoznaj się z najnowszymi aktualizacjami funkcji Azure Load Balancer na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) .
+Zasubskrybuj źródło danych RSS i Wyświetl najnowsze aktualizacje funkcji Front-drzwiczk platformy Azure na stronie [aktualizacji platformy Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) .
 
 ## <a name="next-steps"></a>Następne kroki
 
