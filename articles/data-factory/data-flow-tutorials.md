@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 08/11/2020
-ms.openlocfilehash: c1527161948a6312fc0877748b2818b3ccc2143e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.date: 09/02/2020
+ms.openlocfilehash: 332eb274b7ae632a3496b9ff43439bb48cfed5e4
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322623"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419286"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
 
@@ -21,7 +21,7 @@ Poniżej znajduje się lista map filmów dotyczących przepływu danych, które 
 
 Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały dodane lub inne funkcje w bieżącym środowisku użytkownika Azure Data Factory.
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 [Wprowadzenie do mapowania przepływów danych w Azure Data Factory](http://youtu.be/MFw7t_8tuV4)
 
@@ -82,6 +82,8 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 [Sprzężenia dynamiczne i dynamiczne wyszukiwania](https://youtu.be/CMOPPie9bXM)
 
 [Spłaszcz transformację](https://youtu.be/VY2tFQJoAXE)
+
+[Przekształcanie danych hierarchicznych](https://youtu.be/oAEh21NFgWQ)
 
 ## <a name="source-and-sink"></a>Źródło i ujścia
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377816"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418963"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -225,7 +225,9 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
 > [!NOTE]
 > Zobacz te reguły formatowania dat:
 > 
-> Jako ograniczników dat DMY można używać następujących znaków: `, - / . \` . Nie można użyć odstępu jako ogranicznika. Na przykład:
+> `dmy`Aby formatowanie daty działało, należy określić format (, `mdy` , `ymd` ).
+>
+> Jako ograniczników dat można używać następujących znaków: `, - / . \` . Nie można użyć odstępu jako ogranicznika. Na przykład:
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020
@@ -234,11 +236,11 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
 > * 1-1-2020
 > * 1-01-20
 >
-> Jeśli ciąg daty DMY ma osiem cyfr, ogranicznik jest opcjonalny:
+> Jeśli ciąg daty ma osiem cyfr, ogranicznik jest opcjonalny:
 > * 01012020
 > * 01 01 2020
 >
-> Miesiąc można również zapisać jako jego pełną lub krótką nazwę. Jeśli nazwa jest używana, znaki ogranicznika są opcjonalne:
+> Miesiąc można również zapisać jako jego pełną lub krótką nazwę. Jeśli nazwa jest używana, znaki ogranicznika są opcjonalne. Jednak ten format może być rozpoznawany mniej więcej niż inne.
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 stycznia 2020

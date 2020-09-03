@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d45852326a7f771b2cf79e20c784e2c441fef0d6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401490"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420884"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Dodawanie certyfikatu TSL/SSL w usłudze Azure App Service
 
@@ -188,6 +188,13 @@ Po zakończeniu operacji zobaczysz certyfikat na liście **Certyfikaty klucza pr
 
 Jeśli używasz Azure Key Vault do zarządzania certyfikatami, możesz zaimportować certyfikat PKCS12 z Key Vault do App Service o ile [spełnia wymagania](#private-certificate-requirements).
 
+### <a name="authorize-app-service-to-read-from-the-vault"></a>Autoryzuj App Service do odczytu z magazynu
+Domyślnie dostawca zasobów App Service nie ma dostępu do Key Vault. Aby można było użyć Key Vault do wdrożenia certyfikatu, należy [autoryzować dostawcę zasobów dostępu do odczytu do magazynu](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault)kluczy. 
+
+`abfa0a7c-a6b6-4736-8310-5855508787cd`  jest główną nazwą usługi dostawcy zasobów dla App Service i jest taka sama dla wszystkich subskrypcji platformy Azure. W przypadku Azure Government środowiska chmury Użyj `6a02c803-dafd-4136-b4c3-5a6f318b4714` zamiast tego jako nazwy głównej usługi dostawcy zasobów.
+
+### <a name="import-a-certificate-from-your-vault-to-your-app"></a>Importowanie certyfikatu z magazynu do aplikacji
+
 W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>z menu po lewej stronie wybierz pozycję **App Services**  >  **\<app-name>** .
 
 W lewym panelu nawigacyjnym aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**  >  **certyfikaty kluczy prywatnych (pfx)**  >  **Importuj Key Vault certyfikat**.
@@ -205,6 +212,9 @@ Skorzystaj z poniższej tabeli, aby wybrać certyfikat.
 Po zakończeniu operacji zobaczysz certyfikat na liście **Certyfikaty klucza prywatnego** . Jeśli importowanie nie powiedzie się z powodu błędu, certyfikat nie spełnia [wymagań dotyczących App Service](#private-certificate-requirements).
 
 ![Zakończono Importowanie certyfikatu Key Vault](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+
+> [!NOTE]
+> Jeśli certyfikat zostanie zaktualizowany w Key Vault przy użyciu nowego certyfikatu, App Service automatycznie zsynchronizuje certyfikat w ciągu 48 godzin.
 
 > [!IMPORTANT] 
 > Aby zabezpieczyć domenę niestandardową za pomocą tego certyfikatu, nadal trzeba utworzyć powiązanie certyfikatu. Wykonaj kroki opisane w temacie [Tworzenie powiązania](configure-ssl-bindings.md#create-binding).

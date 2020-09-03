@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c18f48f41a537d66c637959df4fb45331fbda176
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255532"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420493"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
@@ -60,13 +60,13 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
 
     2. Włącz obliczenia w interfejsie sieciowym. Azure Stack Edge tworzy przełącznik wirtualny i zarządza nim, odpowiadający interfejsowi sieciowemu.
 
-    Jeśli zdecydujesz się użyć innego interfejsu sieciowego do obliczeń, upewnij się, że:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Usuń wszystkie maszyny wirtualne wdrożone przy użyciu Azure Resource Manager.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - Usuń wszystkie interfejsy sieci wirtualnej i sieć wirtualną skojarzoną z tym interfejsem sieciowym.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - Teraz można włączyć inny interfejs sieciowy dla obliczeń.
+    - You can now enable another network interface for compute.-->
 
 3. Utworzono i zainstalowano wszystkie certyfikaty na urządzeniu brzegowym Azure Stack i w zaufanym magazynie Twojego klienta. Postępuj zgodnie z procedurą opisaną w [kroku 2: Tworzenie i instalowanie certyfikatów](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 

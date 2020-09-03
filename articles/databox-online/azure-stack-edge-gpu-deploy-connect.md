@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 713f9eeef87cbfe3d8cb3d9717ad703328b54fe3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b500a7d93d19bcc0cd9c23d64ad079f0abfd353
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262723"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421360"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Samouczek: łączenie się z Azure Stack Edge z procesorem GPU
 
@@ -41,11 +41,11 @@ Przed skonfigurowaniem i skonfigurowaniem urządzenia Azure Stack Edge z proceso
 
 1. Skonfiguruj kartę Ethernet na komputerze, aby nawiązać połączenie z urządzeniem Azure Stack Edge ze statycznym adresem IP 192.168.100.5 i podsiecią 255.255.255.0.
 
-2. Podłącz komputer do portu 1 na urządzeniu. Użyj poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
+2. Podłącz komputer do portu 1 na urządzeniu. Jeśli komputer jest połączony bezpośrednio z urządzeniem (bez przełącznika), użyj kabla skrzyżowanego lub karty Ethernet USB. Użyj poniższej ilustracji, aby zidentyfikować PORT 1 na urządzeniu.
 
     ![Płyta montażowa okablowanego urządzenia](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    Plan przedplanu urządzenia może wyglądać nieco inaczej w zależności od modelu, który otrzymasz.
+    Plan przedplanu urządzenia może wyglądać nieco inaczej w zależności od modelu, który otrzymasz. Aby uzyskać więcej informacji, zobacz [kabel urządzenia](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
 
 
 3. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika sieci Web urządzenia pod adresem `https://192.168.100.10` .  

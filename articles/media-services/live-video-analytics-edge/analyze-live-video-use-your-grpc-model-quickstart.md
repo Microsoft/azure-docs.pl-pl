@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start nastąpi zastosowanie wizji komputer
 ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: ac11ced68ab8463da26b9978a5b0b02c4cd1a402
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691839"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421537"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>Szybki Start: analizowanie wideo na żywo przy użyciu własnego modelu gRPC
 
@@ -56,11 +56,11 @@ W tym przewodniku szybki start przedstawiono sposób korzystania z usługi Anali
 ## <a name="create-and-deploy-the-media-graph"></a>Tworzenie i wdrażanie grafu multimediów
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
 ::: zone-end
 
 ## <a name="interpret-results"></a>Interpretowanie wyników
@@ -73,10 +73,15 @@ W tym przewodniku szybki start przedstawiono sposób korzystania z usługi Anali
 [!INCLUDE [interpret results](includes/analyze-live-video-your-grpc-model-quickstart/python/interpret-results.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz wypróbować inne Przewodniki Szybki Start, Zachowaj utworzone zasoby. W przeciwnym razie przejdź do Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten przewodnik Szybki Start, i Usuń wszystkie zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Spróbuj uruchomić różne topologie grafu mediów przy użyciu protokołu gRPC.
+* Spróbuj uruchomić różne topologie grafu mediów przy użyciu protokołu gRPC.
+* **Kompiluj i uruchamiaj Przykładowe rozszerzenia usługi Analiza wideo na żywo (LVA)**
+<br/>Wypróbuj nasze Jupyter przykładowe notesy, które umożliwiają kompilowanie i uruchamianie opartych na [ONNX](http://onnx.ai/) modelach Yolo jako rozszerzenia Video Analytics (LVA).
+    * [Przykładowy model YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Przykładowy model YOLOv4](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
+

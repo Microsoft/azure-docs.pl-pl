@@ -4,16 +4,18 @@ description: Dowiedz się więcej na temat Nowości i ostatnich aktualizacji w u
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: e32c7433649cc6716a57a6aa2384c1e2d266e102
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 019c04c5820a82b7910b6755ff69e5dfbe7eb66c
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927175"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421615"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenianie i migrowanie lokalnych serwerów, aplikacji i danych do chmury Microsoft Azure. W tym artykule zestawiono nowe wersje i funkcje programu Azure Migrate.
+## <a name="update-september-2020"></a>Aktualizacja (2020 września)
+- Azure Migrate teraz umożliwia migrowanie serwerów do Strefy dostępności
 
 ## <a name="update-august-2020"></a>Aktualizacja (sierpień 2020)
 

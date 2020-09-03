@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70e86e01a9d37a27620d451bcd5d035dfcb4573d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237319"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421292"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Szybki Start: Konfigurowanie zaświadczania platformy Azure za pomocą Azure PowerShell
 
@@ -159,26 +159,27 @@ TagsTable:
 
 Dostawców zaświadczania można usunąć za pomocą polecenia cmdlet Remove-AzAttestation.  
 
-"azurepowershell Remove-AzAttestation-Name $attestationProvider-ResourceGroupName $attestationResourceGroup
+```powershell
+Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
-## Policy management
+## <a name="policy-management"></a>Zarządzanie zasadami
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
-- Microsoft.Attestation/attestationProviders/attestation/read
-- Microsoft.Attestation/attestationProviders/attestation/write
-- Microsoft.Attestation/attestationProviders/attestation/delete
+Aby można było zarządzać zasadami, użytkownik usługi Azure AD wymaga następujących uprawnień dla "akcji":
+- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/odczytanie
+- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/zapis
+- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/usunięcie
 
-These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor" (specific permissions for Azure Attestation only).  
+Te uprawnienia można przypisać do użytkownika usługi AD za pomocą roli, takiej jak "właściciel" (uprawnienia symboli wieloznacznych), "Współautor" (uprawnienia symboli wieloznacznych) lub "Współautor zaświadczania" (określone uprawnienia tylko do zaświadczania platformy Azure).  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
-- Microsoft.Attestation/attestationProviders/attestation/read
+Aby można było odczytać zasady, użytkownik usługi Azure AD wymaga następującego uprawnienia dla "akcji":
+- Microsoft. zaświadczanie/attestationProviders/zaświadczanie/odczytanie
 
-This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
+To uprawnienie można przypisać do użytkownika usługi AD za pomocą roli, takiej jak "czytelnik" (uprawnienia symboli wieloznacznych) lub "czytelnik zaświadczania" (określone uprawnienia tylko do zaświadczania platformy Azure).
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
+Poniższe polecenia cmdlet programu PowerShell zapewniają Zarządzanie zasadami dla dostawcy zaświadczania (jedna TEE w danej chwili).
 
-Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
+Get-AzAttestationPolicy zwraca bieżące zasady dla określonego TEE. Polecenie cmdlet wyświetla zasady zarówno w formacie tekstu, jak i JWT dla zasad.
 
 ```powershell
 $teeType = "<tee Type>"

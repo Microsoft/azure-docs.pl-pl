@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8ac25193bacfcce3c3062ccd92fa5cfbb5784572
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587858"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421700"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Nawiązywanie połączenia z klastrem usługi Azure Red Hat OpenShift 4
 
@@ -21,7 +21,7 @@ W tym samouczku druga część trzech z nich nawiązuje połączenie z klastrem 
 > * Instalowanie interfejsu wiersza polecenia OpenShift
 > * Nawiązywanie połączenia z klastrem usługi Azure Red Hat OpenShift przy użyciu interfejsu wiersza polecenia OpenShift
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W poprzednich samouczkach został utworzony klaster Red Hat OpenShift platformy Azure. Jeśli nie wykonano tych kroków, a chcesz postępować zgodnie z [samouczkiem 1, Utwórz klaster Red Hat OpenShift 4 platformy Azure.](tutorial-create-cluster.md)
 
@@ -37,7 +37,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kubeadminPassword` .
+Następujące przykładowe dane wyjściowe pokazują, jak będzie zawierać hasło `kubeadminPassword` .
 
 ```json
 {
@@ -46,7 +46,7 @@ Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kube
 }
 ```
 
-Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco `https://console-openshift-console.apps.<random>.<region>.aroapp.io/` .
 
 ```azurecli-interactive
  az aro show \
@@ -103,3 +103,4 @@ W tej części samouczka zawarto informacje na temat wykonywania następujących
 Przejdź do następnego samouczka:
 > [!div class="nextstepaction"]
 > [Usuwanie klastra usługi Azure Red Hat OpenShift](tutorial-delete-cluster.md)
+

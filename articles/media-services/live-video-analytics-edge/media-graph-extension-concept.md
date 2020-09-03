@@ -3,12 +3,12 @@ title: Co to jest rozszerzenie Media Graph — Azure
 description: Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą węzła rozszerzenia grafu.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d7e14a0336da75e1948cf6dc4dbdb51490b70021
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716082"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420833"
 ---
 # <a name="media-graph-extension"></a>Rozszerzenie grafu multimedialnego
 
@@ -54,8 +54,8 @@ Na poniższym diagramie przedstawiono przepływ danych wysokiego poziomu:
 
 ## <a name="samples"></a>Samples
 
-Wyewidencjonuj Przykłady naszych przykładów z [notesu Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) na potrzeby analizy filmów wideo na żywo. Te notesy zawierają instrukcje krok po kroku dotyczące:
+Wyewidencjonuj Przykłady naszych przykładów z [notesu Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) na potrzeby analizy filmów wideo na żywo. Te notesy zawierają instrukcje krok po kroku dotyczące **rozszerzeń programu Media Graph** :
 
 * Jak utworzyć obraz kontenera Docker usługi rozszerzenia
 * Jak wdrożyć usługę rozszerzenia jako kontener wraz z kontenerem analizy wideo na żywo
-* Jak korzystać z grafu multimediów analizy wideo na żywo z klientem rozszerzenia i wskazać go w punkcie końcowym rozszerzenia gRPC
+* Jak korzystać z grafu multimediów analizy wideo na żywo z klientem rozszerzenia i wskazać punkt końcowy rozszerzenia (HTTP/gRPC)

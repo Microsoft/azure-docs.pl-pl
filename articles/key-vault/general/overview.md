@@ -11,12 +11,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 98f681494ca73bd2698cd3068441cf02cd6730ac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190553"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421649"
 ---
 # <a name="about-azure-key-vault"></a>Informacje o usłudze Azure Key Vault
 
@@ -25,7 +25,7 @@ Usługa Azure Key Vault pomaga rozwiązać następujące problemy:
 - **Zarządzanie wpisami tajnymi** — usługa Azure Key Vault może służyć do bezpiecznego przechowywania i ścisłego kontrolowania dostępu do tokenów, haseł, certyfikatów, kluczy interfejsu API i innych wpisów tajnych.
 - **Zarządzanie kluczami** — usługa Azure Key Vault może być także używana jako rozwiązanie do zarządzania kluczami. Usługa Azure Key Vault ułatwia tworzenie i kontrolowanie kluczy szyfrowania używanych do szyfrowania danych. 
 - **Zarządzanie certyfikatami** — Azure Key Vault to również usługa, która umożliwia łatwe inicjowanie obsługi i wdrażanie publicznych i prywatnych certyfikatów Transport Layer Security/SSL (TLS/SSL) do użycia z platformą Azure i wewnętrznymi zasobami połączonymi. 
-- **Przechowuj wpisy tajne objęte sprzętowymi modułami zabezpieczeń** — tajne i klucze mogą być chronione przez oprogramowanie lub FIPS 140-2 poziom 2 sprawdzony sprzętowych modułów zabezpieczeń
+- **Przechowuj wpisy tajne objęte sprzętowymi modułami zabezpieczeń** — wpisy tajne, klucze i certyfikaty w sklepie są szyfrowane przy użyciu klucza oprogramowania (warstwa standardowa) lub FIPS 140-2 Level 2 (warstwa Premium) 
 
 ## <a name="why-use-azure-key-vault"></a>Jakie są zalety korzystania z usługi Azure Key Vault?
 

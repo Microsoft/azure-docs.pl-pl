@@ -3,12 +3,12 @@ title: kontrakt danych rozszerzenia gRPC — platforma Azure
 description: W tym artykule dowiesz się, jak za pomocą protokołu gRPC wysyłać wiadomości między modułem analizy wideo na żywo a rozszerzeniem niestandardowym AI lub CV.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 0221d20245a6db69791d8bf13ba9e00de3b96ecc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f2d93fb062ab3d6963177e7ece15df6bfe5b42cb
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691816"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421496"
 ---
 # <a name="grpc-extension-data-contract"></a>kontrakt danych rozszerzenia gRPC
 
@@ -21,7 +21,7 @@ gRPC to nowoczesne środowisko RPC typu open source, które działa w dowolnym �
 
 Sesja gRPC jest jednym połączeniem z klienta gRPC do serwera gRPC za pośrednictwem portu TCP/TLS. 
 
-W pojedynczej sesji: klient wysyła do serwera deskryptor strumienia multimediów, a następnie ramki wideo z serwerem jako komunikat [protobuf](https://developers.google.com/protocol-buffers) za pośrednictwem sesji strumienia gRPC. Serwer sprawdza poprawność deskryptora strumienia, analizuje ramkę wideo i zwraca wyniki wnioskowania jako komunikat protobuf.
+W pojedynczej sesji: klient wysyła do serwera deskryptor strumienia multimediów, a następnie ramki wideo z serwerem jako komunikat [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) za pośrednictwem sesji strumienia gRPC. Serwer sprawdza poprawność deskryptora strumienia, analizuje ramkę wideo i zwraca wyniki wnioskowania jako komunikat protobuf.
 
 ![kontrakt rozszerzenia gRPC](./media/data-contracts/grpc.png)
 
