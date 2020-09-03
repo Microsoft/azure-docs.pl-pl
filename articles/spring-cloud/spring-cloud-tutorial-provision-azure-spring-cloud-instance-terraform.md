@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a9d9f8b137f02e647d1ea0edddd409ec3cdaf3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 1f2e4ddc2d2cfbbfb7f95e5ae6b1af7a76eece85
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079196"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426354"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Samouczek: Inicjowanie obsługi chmurowej usługi Azure wiosny za pomocą Terraform
 
@@ -94,7 +94,7 @@ W tej sekcji użyjesz kilku poleceń Terraform, aby uruchomić konfigurację.
     terraform apply plan.out
     ```
 
-1. Aby sprawdzić wyniki w Azure Portal, przejdź do nowej grupy zasobów. Nowe **wystąpienie Azure Cosmos DB** zostanie wyświetlone w nowej grupie zasobów.
+1. Aby sprawdzić wyniki w Azure Portal, przejdź do nowej grupy zasobów. Nowe wystąpienie **chmury Azure wiosenne** zostanie wyświetlone w nowej grupie zasobów.
 
 ## <a name="update-configuration-to-config-logs-and-metrics"></a>Aktualizowanie konfiguracji do dzienników konfiguracji i metryk
 

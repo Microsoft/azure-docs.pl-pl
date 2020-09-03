@@ -1,5 +1,5 @@
 ---
-title: Co to jest translator? -Translator
+title: Co to jest usługa Translator? -Translator
 titlesuffix: Azure Cognitive Services
 description: Zintegruj translator z aplikacjami, witrynami sieci Web, narzędziami i innymi rozwiązaniami, aby zapewnić obsługę środowiska użytkownika w wielu językach.
 services: cognitive-services
@@ -11,24 +11,22 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5da9e5b38b88a5a148bd3d85664daa523153086b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 206e1bc86404fa41b84647c50482dbe63301c0af
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589456"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425963"
 ---
-# <a name="what-is-the-translator"></a>Co to jest translator?
+# <a name="what-is-translator"></a>Co to jest usługa Translator?
 
-Translator można łatwo zintegrować z aplikacjami, witrynami sieci Web, narzędziami i rozwiązaniami. Pozwala to na dodawanie środowiska użytkownika w wielu [językach w więcej niż 70 języków](languages.md)i może być używane na dowolnej platformie sprzętowej z dowolnym systemem operacyjnym na potrzeby tłumaczenia tekstu na tekst.
-
-Translator jest częścią [usługi Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) zbieraniem algorytmów uczenia maszynowego i AI w chmurze oraz jest łatwo do użycia w projektach programistycznych.
+Azure Cognitive Services translator to oparta na chmurze usługa tłumaczenia maszynowego, która jest częścią [platformy Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) interfejsów API poznawczej do tworzenia inteligentnych aplikacji. Usługi translator można łatwo zintegrować z aplikacjami, witrynami sieci Web, narzędziami i rozwiązaniami. Pozwala to na dodawanie środowiska użytkownika w wielu [językach w więcej niż 70 języków](languages.md)i może być używane na dowolnej platformie sprzętowej z dowolnym systemem operacyjnym na potrzeby tłumaczenia tekstu na tekst.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator — informacje
 
-Translator jest opartą na chmurze usługą tłumaczenia maszynowego. Podstawowa usługa to translator, który daje wiele produktów i usług firmy Microsoft, i jest używany przez tysiące firm na całym świecie w swoich aplikacjach i przepływach pracy, co umożliwia ich zawartości dostęp do globalnej grupy odbiorców.
+Azure Cognitive Services translator to oparta na chmurze usługa tłumaczenia maszynowego. Usługa translator umożliwia korzystanie z wielu produktów i usług firmy Microsoft, które są używane przez tysiące firm na całym świecie w aplikacjach i przepływach pracy, dzięki czemu zawartość dociera do odbiorców globalnych.
 
-Tłumaczenie mowy obsługiwane przez translatora jest również dostępne w [usłudze Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Łączy ona funkcje z interfejs API tłumaczenia mowy w usłudze Translator i Custom Speech Service do ujednoliconej i w pełni dostosowywalnej usługi.Usługa rozpoznawania mowy zastępuje interfejs API tłumaczenia mowy w usłudze Translator, który zostanie zlikwidowany 15 października 2019 r.
+Tłumaczenie mowy obsługiwane przez translatora jest również dostępne w [usłudze Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Łączy ona funkcje z interfejs API tłumaczenia mowy w usłudze Translator i Custom Speech Service do ujednoliconej i w pełni dostosowywalnej usługi. 
 
 ## <a name="language-support"></a>Obsługa języków
 
@@ -46,7 +44,7 @@ Dowiedz się więcej o [sposobie działania technologii NMT](https://www.microso
 
 ## <a name="language-customization"></a>Dostosowywanie języka
 
-Rozszerzenie podstawowej usługi Microsoft Translator może być używane w połączeniu z tłumaczeniem, aby pomóc w dostosowaniu systemu tłumaczenia neuronowych i ulepszaniu tłumaczenia dla konkretnej terminologii i stylu.
+Rozszerzenie usługi translator, alias niestandardowy może być używany w połączeniu z tłumaczeniem, aby ułatwić dostosowanie systemu tłumaczenia neuronowych oraz usprawnienie tłumaczenia określonej terminologii i stylu.
 
 Korzystając z rozszerzenia Custom Translator, można tworzyć systemy tłumaczenia obsługujące terminologię stosowaną w Twojej firmie lub branży. Dostosowany system tłumaczenia zostanie następnie łatwo zintegrować z istniejącymi aplikacjami, przepływami pracy i witrynami sieci Web na wielu typach urządzeń za pośrednictwem zwykłego translatora przy użyciu parametru kategorii.
 
