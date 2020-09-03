@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 57baeccc9f4644ec055de638254d4613a33ef68d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378648"
+ms.locfileid: "89400436"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
 
@@ -37,13 +37,13 @@ Jeśli tworzysz aplikację Premium, przenosząc lokalne programowanie lub w inny
 
 ### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Jak nadawać grupie usługi AD dostęp do magazynu kluczy?
 
-Nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy przy użyciu interfejsu wiersza polecenia platformy Azure AZ Key AzKeyVaultAccessPolicy Set-Policy lub Azure PowerShell Set-polecenia cmdlet. Zobacz [przypisywanie zasad dostępu — interfejs wiersza polecenia](assign-access-policy-cli.md) i [przypisywanie zasad dostępu — PowerShell](assign-access-policy-powershell.md).
+Nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy za pomocą polecenia interfejsu CLI platformy Azure `az keyvault set-policy` lub poleceń cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Zobacz [przypisywanie zasad dostępu — interfejs wiersza polecenia](assign-access-policy-cli.md) i [przypisywanie zasad dostępu — PowerShell](assign-access-policy-powershell.md).
 
 Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami i dostępem (IAM) przypisanej do magazynu kluczy. W przeciwnym razie nie będzie można zalogować się i nie powiedzie się z powodu niewystarczających praw dostępu do subskrypcji. Grupy usługi Azure AD z zarządzanymi tożsamościami mogą odświeżać tokeny do ośmiu godzin i zaczynają obowiązywać.
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Jak można ponownie wdrożyć Key Vault przy użyciu szablonu ARM bez usuwania istniejących zasad dostępu?
 
-Obecnie Key Vault ponowne wdrożenie w usłudze ARM spowoduje usunięcie wszystkich zasad dostępu w Key Vault i zamieninie ich przy użyciu zasad dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault, należy odczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
+Obecnie Key Vault ponowne wdrażanie spowoduje usunięcie wszystkich zasad dostępu w Key Vault i zamieninie ich przy użyciu zasad dostępu w szablonie ARM. Nie ma opcji przyrostowej dla zasad dostępu Key Vault. Aby zachować zasady dostępu w Key Vault, należy odczytać istniejące zasady dostępu w Key Vault i wypełnić szablon ARM przy użyciu tych zasad, aby uniknąć awarii dostępu.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Zalecane kroki rozwiązywania problemów dla następujących typów błędów
 

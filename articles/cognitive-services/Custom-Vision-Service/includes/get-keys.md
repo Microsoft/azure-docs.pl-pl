@@ -4,16 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: fa13d9bdf73b87597d4eb01830ec2c76538521fe
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 874d76bebdfd3bd0daba1f83cb1f06c093f192ec
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73800014"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89411736"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>Uzyskaj klucze interfejsów szkolenia i przewidywania
 
-Aby można było korzystać z usługi, projekt musi mieć prawidłowy zestaw kluczy subskrypcji. Elementy można znaleźć w [witrynie sieci web Custom Vision](https://customvision.ai). Zaloguj się przy użyciu konta skojarzonego z kontem platformy Azure używanego do tworzenia zasobów Custom Vision. Na stronie głównej (na stronie z opcją dodania nowego projektu) wybierz __ikonę koła zębatego__ w prawym górnym rogu. Znajdź na liście zasoby szkoleniowe i predykcyjne i rozwiń je. W tym miejscu można znaleźć wartości klucza szkoleniowego, klucza predykcyjnego i identyfikatora zasobu przewidywania. Zapisz te wartości w tymczasowej lokalizacji.
+Aby można było korzystać z usługi, projekt musi mieć prawidłowy zestaw kluczy subskrypcji. Elementy można znaleźć w  [witrynie sieci web Custom Vision](https://customvision.ai). Zaloguj się przy użyciu konta skojarzonego z kontem platformy Azure, które zostało użyte do utworzenia zasobów Custom Vision. Na stronie głównej (na stronie z opcją dodania nowego projektu) wybierz __ikonę koła zębatego__ w prawym górnym rogu. Znajdź na liście zasoby szkoleniowe i predykcyjne i rozwiń je. W tym miejscu można znaleźć wartości klucza szkoleniowego, klucza predykcyjnego i identyfikatora zasobu przewidywania. Zapisz te wartości w tymczasowej lokalizacji.
+
+> [!NOTE]
+> Jeśli w celu uzyskania dostępu do Custom Vision jest używany Cognitive Services klucz "All-in-one-in-one-in-one-Only", na ekranie Ustawienia zobaczysz tylko jeden klucz. W takim przypadku użyjesz tego samego klucza dla operacji szkoleniowych i predykcyjnych.
 
 ![Obraz interfejsu użytkownika do uzyskiwania kluczy](../media/csharp-tutorial/training-prediction-keys.png)
 
