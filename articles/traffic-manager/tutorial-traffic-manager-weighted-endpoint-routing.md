@@ -2,24 +2,24 @@
 title: 'Samouczek: kierowanie ruchu do ważonych punktów końcowych — Traffic Manager platformy Azure'
 description: W tym artykule zawierającym samouczek opisano sposób kierowania ruchu do punktów końcowych z wagami za pomocą usługi Traffic Manager.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
-ms.author: rohink
-ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: duau
+ms.openlocfilehash: 90ed68e36b47d46c47e78407fac3b5fd74924b57
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76939479"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397087"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Samouczek: sterowanie routingiem ruchu za pomocą punktów końcowych z wagami przy użyciu usługi Traffic Manager
 
 W tym samouczku opisano, jak sterować routingiem ruchu użytkowników między punktami końcowymi metodą routingu ważonego za pomocą usługi Azure Traffic Manager. W przypadku tej metody routingu należy przypisać wagi do każdego punktu końcowego w konfiguracji profilu usługi Traffic Manager. Ruch użytkowników jest kierowany zgodnie z wagami przypisanymi do poszczególnych punktów końcowych. Waga jest liczbą całkowitą z zakresu od 1 do 1000. Im większa jest wartość wagi przypisana do punktu końcowego, tym wyższy jest priorytet.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych z podstawową witryną internetową w usługach IIS
@@ -65,7 +65,7 @@ W tej sekcji utworzysz dwie maszyny wirtualne (*myIISVMEastUS* i *myIISVMWestEur
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** i **protokół http** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myIISVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myIISVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.
@@ -125,7 +125,7 @@ W tej sekcji utworzysz maszynę wirtualną (*myVMEastUS* i *myVMWestEurope*) w k
    - Reguły portów ruchu **przychodzącego**  >  **Wybierz pozycję porty wejściowe**: wybierz pozycję **RDP** w polu ściąganie.
 
 3. Wybierz kartę **Zarządzanie** lub wybierz pozycję **Dalej: dyski**, a następnie kliknij kolejno pozycje **Sieć**i **Dalej: Zarządzanie**. W obszarze **Monitorowanie** dla opcji **Diagnostyka rozruchu** ustaw wartość **Wyłączone**.
-4. Wybierz pozycję **Przeglądanie + tworzenie**.
+4. Wybierz pozycję **Przejrzyj i utwórz**.
 5. Przejrzyj ustawienia, a następnie kliknij przycisk **Utwórz**.  
 6. Postępuj zgodnie z instrukcjami, aby utworzyć drugą maszynę wirtualną o nazwie *myVMWestEurope*, z nazwą **grupy zasobów** *MyResourceGroupTM2*, **lokalizacją** *Europa Zachodnia*i wszystkimi innymi ustawieniami takimi jak *myVMEastUS*.
 7. Proces tworzenia maszyny wirtualnej może potrwać kilka minut. Nie kontynuuj wykonywania pozostałych kroków, dopóki obie maszyny wirtualne nie zostaną utworzone.
