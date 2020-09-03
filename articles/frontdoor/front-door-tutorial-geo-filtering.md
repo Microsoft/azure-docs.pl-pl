@@ -3,20 +3,20 @@ title: Samouczek — Konfigurowanie zasad WAFymi filtrowania geograficznego — 
 description: W ramach tego samouczka nauczysz się tworzyć zasady filtrowania geograficznego i kojarzyć zasady z istniejącym hostem frontonu z przodu.
 services: frontdoor
 documentationcenter: ''
-author: teresayao
+author: duongau
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: tyao
-ms.openlocfilehash: 2ce55ee50a2b302712973b99dc6503f1e6bbc425
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 31892232d5483bd2cb99d27c4672dbf347b904ef
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074801"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399025"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Jak skonfigurować zasady filtrowania geograficznego zapory aplikacji internetowej dla własnej usługi Front Door
 W tym samouczku pokazano, jak utworzyć przykładowe zasady filtrowania geograficznego za pomocą programu Azure PowerShell i skojarzyć je z istniejącym hostem frontonu usługi Front Door. Ta przykładowa zasada filtrowania geograficznego będzie blokować żądania ze wszystkich innych krajów/regionów z wyjątkiem Stany Zjednoczone.
@@ -75,7 +75,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ## <a name="add-rules-to-a-policy"></a>Dodawanie reguł do zasad
-Znajdź nazwę grupy zasobów, która zawiera profil przedni drzwi przy użyciu `Get-AzResourceGroup` . Następnie Utwórz `geoPolicy` obiekt zasad zawierający `nonUSBlockRule` przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) w określonej grupie zasobów zawierającej profil drzwi przednich. Należy podać unikatową nazwę zasad filtrowania geograficznego. 
+Znajdź nazwę grupy zasobów, która zawiera profil przedni drzwi przy użyciu `Get-AzResourceGroup` . Następnie Utwórz `geoPolicy` obiekt zasad zawierający `nonUSBlockRule`  przy użyciu polecenia [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) w określonej grupie zasobów zawierającej profil drzwi przednich. Należy podać unikatową nazwę zasad filtrowania geograficznego. 
 
 W poniższym przykładzie użyto nazwy grupy zasobów *myResourceGroupFD1* z założeniem, że profil przeddrzwi został utworzony przy użyciu instrukcji przedstawionych w [przewodniku szybki start: Tworzenie przedniego](quickstart-create-front-door.md) artykułu. W poniższym przykładzie Zastąp nazwę zasad *geoPolicyAllowUSOnly* unikatową nazwą zasad.
 

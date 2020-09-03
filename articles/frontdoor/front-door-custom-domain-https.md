@@ -3,7 +3,7 @@ title: Samouczek — Konfigurowanie protokołu HTTPS w domenie niestandardowej d
 description: W tym samouczku dowiesz się, jak włączyć i wyłączyć protokół HTTPS w konfiguracji drzwi platformy Azure dla domeny niestandardowej.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
-ms.author: sharadag
-ms.openlocfilehash: 770353f893762f0f35d744fe1e7a5e4de4a671ce
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.author: duau
+ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808784"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399824"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
 

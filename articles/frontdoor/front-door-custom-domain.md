@@ -3,7 +3,7 @@ title: Samouczek — Dodawanie domeny niestandardowej do konfiguracji drzwi plat
 description: W tym samouczku dowiesz się, jak dodać domenę niestandardową do usługi Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 5ffa85a2a681bfd064bfeade77d9ae7b85b1f723
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: duau
+ms.openlocfilehash: f0d4ab9e3ecba8af1f6775389a4837e8c90eb14d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79471765"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399773"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Samouczek: dodawanie domeny niestandardowej do usługi Front Door
 W tym Samouczku opisano, jak dodać domenę niestandardową do usługi Front Door. W przypadku korzystania z usługi Azure Front Drzwiczks do dostarczania aplikacji niestandardowa domena jest potrzebna, jeśli chcesz, aby Twoja nazwa domeny była widoczna na żądanie użytkownika końcowego. Widoczna nazwa domeny może być wygodna dla klientów i przydatna dla celów związanych ze znakowaniem.
 
 Po utworzeniu usługi Front Door domyślny host frontonu, który jest domeną podrzędną domeny `azurefd.net`, zostaje dołączony do adresu URL na potrzeby domyślnego dostarczania zawartości usługi Front Door z wewnętrznej bazy danych (na przykład https:\//contoso.azurefd.net/activeusers.htm). Dla Twojej wygody usługa Azure Front Door udostępnia opcję kojarzenia domeny niestandardowej z hostem domyślnym. Ta opcja umożliwia dostarczanie zawartości przy użyciu domeny niestandardowej w adresie URL zamiast korzystania z nazwy domeny należącej do usługi Front Door (np. https:\//www.contoso.com/photo.png). 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > - Tworzenie rekordu DNS CNAME.
 > - Kojarzenie domeny niestandardowej z usługą Front Door.
