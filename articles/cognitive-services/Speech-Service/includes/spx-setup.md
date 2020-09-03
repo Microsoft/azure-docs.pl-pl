@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 27d450f8e48210723570f2fe0b45be4bca89fd56
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068625"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400917"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -22,9 +22,8 @@ Jedynym wymaganiem wstępnym jest subskrypcja usługi Azure Speech. Zapoznaj si�
 
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w systemie Windows:
 
-1. Zainstaluj system [.NET Framework 4,7](https://dotnet.microsoft.com/download/dotnet-framework/net471) lub [.NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Pobierz [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, a następnie wyodrębnij je.
-3. Przejdź do katalogu głównego `spx-zips` wyodrębnionego z pobrania i Wyodrębnij wymagany podkatalog ( `spx-net471` dla .NET Framework 4,7 lub `spx-netcore-win-x64` dla platformy .NET Core 3,0 na procesorze x64).
+1. Pobierz [archiwum zip](https://aka.ms/speech/spx-zips.zip)interfejsu wiersza polecenia mowy, a następnie wyodrębnij je.
+2. Przejdź do katalogu głównego `spx-zips` wyodrębnionego z pobrania i Wyodrębnij wymagany podkatalog ( `spx-net471` dla .NET Framework 4,7 lub `spx-netcore-win-x64` dla platformy .NET Core 3,0 na procesorze x64).
 
 W wierszu polecenia Zmień katalog na tę lokalizację, a następnie wpisz polecenie, `spx` Aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 
@@ -53,11 +52,15 @@ Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 
 #### <a name="docker-install"></a>[Instalacja platformy Docker](#tab/dockerinstall)
 
+#### <a name="prerequisites"></a>Wymagania wstępne
+
+> [!div class="checklist"]
+> * <a href="https://www.docker.com/get-started" target="_blank">Pulpit Docker dla Twojej platformy <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w kontenerze platformy Docker:
 
-1. Zainstaluj i uruchom program [Docker Desktop dla danej platformy](https://www.docker.com/get-started).
-1. W nowym wierszu polecenia lub terminalu wpisz następujące polecenie:`docker pull msftspeech/spx`
-1. Wpisz to polecenie. Należy zapoznać się z informacjami pomocy dla interfejsu wiersza polecenia usługi Speech:`docker run -it --rm msftspeech/spx help`
+1. W nowym wierszu polecenia lub terminalu wpisz następujące polecenie:  `docker pull msftspeech/spx`
+2. Wpisz to polecenie. Należy zapoznać się z informacjami pomocy dla interfejsu wiersza polecenia usługi Speech: `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>Instalowanie katalogu w kontenerze
 
