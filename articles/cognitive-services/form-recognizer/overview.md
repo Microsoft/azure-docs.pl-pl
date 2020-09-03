@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723569"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394401"
 ---
 # <a name="what-is-form-recognizer"></a>Co to jest rozpoznawanie formularzy?
 
@@ -48,6 +48,7 @@ Aparat rozpoznawania formularzy używa [interfejsu API układu](#layout-api) , a
 ## <a name="prebuilt-models"></a>Wstępnie utworzone modele
 
 Aparat rozpoznawania formularzy zawiera również wstępnie skompilowane modele dla unikatowych typów formularzy.
+
 ### <a name="prebuilt-receipt-model"></a>Wstępnie utworzony model przyjęcia
 Wstępnie utworzony model przyjęcia jest używany do odczytywania z angielskiego zakupu sprzedaży z Australii, Kanady, Wielkiej Brytanii, Indii i Stany Zjednoczone &mdash; typu używanego przez Restauracje, stacje gazu, sprzedaż detaliczna i tak dalej. Ten model wyodrębnia kluczowe informacje, takie jak godzina i Data transakcji, informacje o sprzedawcy, kwoty podatków, pozycje wiersza, sumy itd. Ponadto wstępnie utworzony model paragonów jest szkolony do rozpoznawania i zwracania całego tekstu w paragonie. 
 
@@ -62,7 +63,7 @@ Model wizytówek umożliwia wyodrębnienie informacji, takich jak imię i nazwis
 
 Aparat rozpoznawania formularzy może również wyodrębnić strukturę tekstu i tabeli (numery wierszy i kolumn skojarzonych z tekstem) za pomocą optycznego rozpoznawania znaków (OCR) o wysokiej rozdzielczości.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Skorzystaj z przewodnika Szybki Start, aby rozpocząć wyodrębnianie danych z formularzy. Zalecamy korzystanie z bezpłatnej usługi podczas nauki technologii. Należy pamiętać, że liczba bezpłatnych stron jest ograniczona do 500 miesięcznie.
 
@@ -74,9 +75,11 @@ Skorzystaj z przewodnika Szybki Start, aby rozpocząć wyodrębnianie danych z f
     * [Uczenie bez etykiet — zwinięcie](quickstarts/curl-train-extract.md)
     * [Uczenie bez etykiet — Python](quickstarts/python-train-extract.md)
     * [Uczenie z etykietami — Python](quickstarts/python-labeled-data.md)
-  * Wyodrębnij dane z przyjęć sprzedaży w USA
+  * Wyodrębnij dane z przyjęć sprzedaży
     * [Wyodrębnij dane przyjęcia — zwinięcie](quickstarts/curl-receipts.md)
     * [Wyodrębnij dane przyjęcia — Python](quickstarts/python-receipts.md)
+  * Wyodrębnianie danych z wizytówek
+    * [Wyodrębnianie danych z kart służbowych — Python](quickstarts/python-business-cards.md)
   * Wyodrębnij strukturę tekstu i tabeli z formularzy
     * [Wyodrębnij dane układu — Python](quickstarts/python-layout.md)
 
@@ -90,6 +93,7 @@ Poniższe interfejsy API służą do uczenia modeli i wyodrębnienia danych stru
 | **Uczenie modelu niestandardowego**| Uczenie nowego modelu do analizowania formularzy przy użyciu pięciu postaci tego samego typu. Ustaw parametr _useLabelFile_ , aby `true` można było nauczyć się z ręcznie oznaczonymi danymi. |
 | **Analiza formularza** |Analizuj pojedynczy dokument, który został przesłany jako strumień, aby wyodrębnić pary klucz-wartość i tabele z formularza z modelem niestandardowym.  |
 | **Analizuj potwierdzenie** |Analizuj pojedynczy dokument paragonu w celu wyodrębnienia informacji o kluczu i innego tekstu paragonu.|
+| **Analizuj wizytówkę** |Analizuj kartę biznesową, aby wyodrębnić informacje o kluczu i tekst.|
 | **Analizowanie układu** |Analizuj układ formularza, aby wyodrębnić strukturę tekstu i tabeli.|
 
 Zapoznaj się z [dokumentacją interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) , aby dowiedzieć się więcej. Jeśli znasz poprzednią wersję interfejsu API, zapoznaj się z artykułem [co nowego](./whats-new.md) , aby dowiedzieć się więcej o najnowszych zmianach.

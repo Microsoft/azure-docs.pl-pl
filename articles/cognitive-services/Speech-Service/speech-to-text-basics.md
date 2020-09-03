@@ -1,27 +1,28 @@
 ---
-title: Podstawowe informacje dotyczące rozpoznawania mowy — usługa mowy
+title: Przewodnik Szybki Start dotyczący zamiany mowy na tekst — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak konwertować mowę na tekst za pomocą zestawu Speech SDK. Ten artykuł zawiera informacje na temat konstruowania obiektów, obsługiwanych formatów wejścia audio i opcji konfiguracji rozpoznawania mowy.
+description: Dowiedz się, jak konwertować mowę na tekst za pomocą zestawu Speech SDK. W tym przewodniku szybki start znajdziesz informacje o konstruowaniu obiektów, obsługiwanych formatach wejścia audio i opcjach konfiguracji dla funkcji rozpoznawania mowy.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 49189eaa4b04b0f14f62a07a64334f56f658ac5d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+keywords: Zamiana mowy na tekst, oprogramowanie zamiany mowy na tekst
+ms.openlocfilehash: 4c3718fcf4e4b71073cf9c1fa79462fbb0f95e6a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934547"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396917"
 ---
-# <a name="learn-the-basics-of-speech-recognition"></a>Poznaj podstawy rozpoznawania mowy
+# <a name="get-started-with-speech-to-text"></a>Wprowadzenie do zamiany mowy na tekst
 
-Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym artykule dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania rozpoznawania mowy o wysokiej jakości.
+Jedną z podstawowych funkcji usługi mowy jest możliwość rozpoznawania i transkrypcja mowy (często nazywanej zamianą mowy na tekst). W tym przewodniku szybki start dowiesz się, jak używać zestawu Speech SDK w aplikacjach i produktach do wykonywania konwersji wysokiej jakości zamiany mowy na tekst.
 
 > [!TIP]
 > Jeśli nie masz możliwości wykonania jednego z naszych przewodników Szybki Start, zachęcamy do rozpoczęcia opon i wypróbowania rozpoznawania mowy dla siebie.

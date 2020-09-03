@@ -3,7 +3,7 @@ title: Najnowsze zmiany dotyczące drzwi platformy Azure
 description: Ten artykuł zawiera ciągłą listę najnowszych zmian wprowadzonych w ramach zewnętrznych drzwi platformy Azure.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 26e3e242a5085e228e426ad2cba51b1f1982ad74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: e402a87ae441ed98a9da93f8b9e347c38c48126f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521483"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398821"
 ---
 # <a name="whats-new-in-azure-front-door"></a>Co nowego w funkcjach frontonu platformy Azure?
 
