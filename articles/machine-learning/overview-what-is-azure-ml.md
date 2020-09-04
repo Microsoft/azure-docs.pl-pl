@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145896"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462466"
 ---
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 
@@ -69,7 +69,7 @@ Możesz również [zautomatyzować szkolenia i dostrajanie modeli](tutorial-auto
 
 ## <a name="build-ml-models-in-the-studio"></a>Tworzenie modeli ML w Studio
 
-[Azure Machine Learning Studio](https://www.ml.azure.com) to portal sieci web w Azure Machine Learning dla opcji niskiego kodu i braku kodu dla celów związanych z modelem szkoleń, wdrażania i zarządzania zasobami. Program Studio integruje się z zestawem SDK Azure Machine Learning, aby zapewnić bezproblemowe działanie. Aby uzyskać więcej informacji, zobacz [co to jest Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
+[Azure Machine Learning Studio](https://studio.azureml.net) to portal sieci web w Azure Machine Learning dla opcji niskiego kodu i braku kodu dla celów związanych z modelem szkoleń, wdrażania i zarządzania zasobami. Program Studio integruje się z zestawem SDK Azure Machine Learning, aby zapewnić bezproblemowe działanie. Aby uzyskać więcej informacji, zobacz [co to jest Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
 + **Projektant Azure Machine Learning (wersja zapoznawcza)**
 
@@ -86,7 +86,7 @@ Możesz również [zautomatyzować szkolenia i dostrajanie modeli](tutorial-auto
 
 + **I wiele więcej...**
 
-  Odwiedź Azure Machine Learning Studio pod adresem [ml.Azure.com](https://www.ml.azure.com). 
+  Odwiedź Azure Machine Learning Studio pod adresem [ml.Azure.com](https://studio.azureml.net). 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: wdrażanie & zarządzania cyklem życia

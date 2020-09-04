@@ -64,7 +64,7 @@
   items:
     - name: Wizualizowanie danych dotyczących anomalii w strumieniach danych usługi Event Hubs
       href: event-hubs-tutorial-visualize-anomalies.md
-    - name: Przechowywanie przechwyconych danych w usłudze SQL Data Warehouse
+    - name: Przechowywanie przechwyconych danych w usłudze Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Przetwarzanie zdarzeń platformy Apache Kafka dla usługi Event Hubs za pomocą usługi Stream Analytics
       href: event-hubs-kafka-stream-analytics.md

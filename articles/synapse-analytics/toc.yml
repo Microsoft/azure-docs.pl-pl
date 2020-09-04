@@ -222,6 +222,8 @@
                   href: ./spark/apache-spark-version-support.md
             - name: Notesy programu Azure Synapse Studio
               href: ./spark/apache-spark-development-using-notebooks.md
+            - name: Zabezpieczanie poświadczeń za pomocą biblioteki TokenLibrary
+              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
             - name: Platforma .NET for Apache Spark
               href: ./spark/spark-dotnet.md
             - name: Uczenie maszynowe na platformie Apache Spark
@@ -248,7 +250,7 @@
               href: sql/best-practices-sql-on-demand.md
             - name: Najlepsze rozwiązania — pule SQL
               href: sql/best-practices-sql-pool.md
-        - name: Ładowanie danych
+        - name: Wprowadzanie i przygotowywanie danych
           items:
             - name: Omówienie
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -416,7 +418,7 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Uaktualnianie do wersji Gen2
               href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Ładowanie danych
+    - name: Wprowadzanie i przygotowywanie danych
       items:
         - name: Do magazynu danych
           items:

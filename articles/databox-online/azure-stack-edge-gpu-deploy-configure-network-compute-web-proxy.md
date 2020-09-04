@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/03/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6e7dbc2b96a53d220554e07228a5e30857d12d9c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: cc111f0df889efd1d3720e2ec0e4aaa452efd801
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262979"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461871"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Samouczek: Konfigurowanie sieci dla Azure Stack krawędzi z procesorem GPU
 
@@ -104,7 +104,11 @@ Wykonaj następujące kroki, aby włączyć obliczenia i skonfigurować sieć ob
     
 3. Przypisz **adresy IP węzła Kubernetes**. Te statyczne adresy IP są przeznaczone dla maszyny wirtualnej obliczeniowej. 
 
-    W przypadku urządzenia *n*-węzłowego w przypadku maszyny wirtualnej obliczeniowej z początkowym i końcowym adresem IP jest dostępny ciągły zakres co najmniej *n + 1* adresów IPv4. Dana Azure Stack Edge jest urządzeniem z 1 węzłem, podano co najmniej dwa ciągłe adresy IPv4. 
+    W przypadku urządzenia *n*-węzłowego w przypadku maszyny wirtualnej obliczeniowej z początkowym i końcowym adresem IP jest dostępny ciągły zakres co najmniej *n + 1* adresów IPv4. Dana Azure Stack Edge jest urządzeniem z 1 węzłem, podano co najmniej dwa ciągłe adresy IPv4.
+
+    > [!IMPORTANT]
+    > Kubernetes na Azure Stack Edge używa podsieci 172.27.0.0/16 dla usługi w podsieci pod i 172.28.0.0/16. Upewnij się, że nie są one używane w sieci. Jeśli te podsieci są już używane w sieci, można zmienić te podsieci, uruchamiając `Set-HcsKubeClusterNetworkInfo` polecenie cmdlet z interfejsu programu PowerShell urządzenia. Aby uzyskać więcej informacji, zobacz [Zmienianie Kubernetes pod i podsieci usługi](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
+
 
 4. Przypisywanie **adresów IP usług zewnętrznych Kubernetes**. Są to również adresy IP równoważenia obciążenia. Te ciągłe adresy IP są przeznaczone dla usług, które mają zostać ujawnione poza klastrem Kubernetes, i określają zakres statycznych adresów IP w zależności od liczby ujawnionych usług. 
     

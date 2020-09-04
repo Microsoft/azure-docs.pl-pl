@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 908d9386f08c5de863d1d435c54d65cb85feef7a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 425290f44fc5f8bc761dc80b72aa2421e5c6d194
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181667"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460664"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -46,7 +46,7 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 | Azure Storage       |  Wszystkie regiony publiczne       |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
 | Usługa Azure Data Lake Storage 2. generacji        |  Wszystkie regiony publiczne      |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe      |  Obsługiwane dla [zasad połączenia](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) serwera proxy | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Analiza usługi Azure Synapse (SQL Data Warehouse)| Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe |  Obsługiwane dla [zasad połączenia](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) serwera proxy |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)| Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe |  Obsługiwane dla [zasad połączenia](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) serwera proxy |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe | |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  Azure Database for PostgreSQL — pojedynczy serwer         | Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe     | Obsługiwane w przypadku warstw cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe      |  | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |

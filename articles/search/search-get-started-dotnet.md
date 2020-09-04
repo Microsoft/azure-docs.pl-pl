@@ -10,18 +10,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7901254463ef052f3c13b2c9fc49c31bd8ebc454
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ffcb2c741838b1292eaf0793cd625c99d252068c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020868"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462075"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Azure.Search.Documents
 
 Użyj nowej [ biblioteki klientaAzure.Search.Documents (wersja 11)](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) do utworzenia aplikacji konsolowej .NET Core w języku C#, która tworzy, ładuje i bada indeks wyszukiwania.
 
-[Pobierz kod źródłowy](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11) , aby rozpocząć pracę z gotowym projektem, lub wykonaj kroki opisane w tym artykule, aby utworzyć własne.
+[Pobierz kod źródłowy](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) , aby rozpocząć pracę z gotowym projektem, lub wykonaj kroki opisane w tym artykule, aby utworzyć własne.
 
 > [!NOTE]
 > Szukasz wcześniejszej wersji? Zobacz [Tworzenie indeksu wyszukiwania przy użyciu programu Microsoft. Azure. Search v10](search-get-started-dotnet-v10.md) zamiast tego.
@@ -288,7 +288,7 @@ Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystki
 
 Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech indeksów, indeksatorów i źródeł danych. Możesz usunąć poszczególne elementy w portalu, aby zachować limit. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start w języku C# przepracowałeś szereg zadań, aby utworzyć indeks, załadować go wraz z dokumentami i uruchamiać zapytania. Na różnych etapach wprowadziliśmy skróty upraszczające kod umożliwiający odczytywanie i zrozumienie. Jeśli masz doświadczenie z podstawowymi pojęciami, zalecamy użycie następnego artykułu w celu eksplorowania alternatywnych metod i koncepcji, które pomogą Ci pogłębić swoją wiedzę. 
 

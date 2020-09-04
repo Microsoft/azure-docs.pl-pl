@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401082"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462619"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Samouczek: Konfigurowanie metody routingu ruchu geograficznego za pomocą Traffic Manager
 
@@ -39,8 +39,7 @@ Metoda routingu ruchu geograficznego umożliwia kierowanie ruchu do określonych
 
 1. Wyszukaj nazwę profilu Traffic Manager utworzoną na pasku wyszukiwania portalu i kliknij wynik, gdy jest wyświetlany.
 2. Przejdź do **ustawień**  ->  **punkty końcowe** w Traffic Manager.
-3. Kliknij przycisk **Dodaj** , aby wyświetlić **punkt końcowy dodawania**.
-3. Kliknij przycisk **Dodaj** i w wyświetlonym obszarze **Dodaj punkt końcowy** wykonaj następujące czynności:
+3. Kliknij przycisk **Dodaj** i w wyświetlonym okienku **Dodaj punkt końcowy** wykonaj następujące czynności:
 4. Wybierz **Typ** w zależności od typu punktu końcowego, który chcesz dodać. W przypadku profilów routingu geograficznego używanych w środowisku produkcyjnym zdecydowanie zalecamy użycie zagnieżdżonych typów punktów końcowych zawierających profil podrzędny z więcej niż jednym punktem końcowym. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące metod routingu ruchu geograficznego](traffic-manager-FAQs.md).
 5. W polu **Nazwa** podaj nazwę dla tego punktu końcowego.
 6. Niektóre pola na tej stronie zależą od typu dodawanego punktu końcowego:

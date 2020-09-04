@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Cloud Academy — Logowanie jednokrotne | Microsoft Docs'
-description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Cloud Academy — Logowanie jednokrotne.
+title: 'Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą usługi Cloud Academy — SSO'
+description: W tym samouczku dowiesz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Cloud Academy — Logowanie jednokrotne.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,172 +11,170 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 88e626f9b3069b3b43d525914c017caf763a9047
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 37ed9bb09b6b15af0c32f489cbc3c02ec27c2827
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551765"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461973"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloud-academy---sso"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą Cloud Academy — Logowanie jednokrotne
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego z usługą Cloud Academy — Logowanie jednokrotne
 
 W tym samouczku dowiesz się, jak zintegrować usługę Cloud Academy — Logowanie jednokrotne z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi Cloud Academy — Logowanie jednokrotne w usłudze Azure AD pozwala:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do usługi Cloud Academy — Logowanie jednokrotne.
-* Zezwól użytkownikom na automatyczne logowanie do usługi Cloud Academy — Logowanie jednokrotne przy użyciu kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
+* Użyj usługi Azure AD, aby kontrolować, kto może uzyskiwać dostęp do usługi Cloud Academy — Logowanie jednokrotne.
+* Zezwól użytkownikom na automatyczne logowanie do usługi Cloud Academy — Logowanie jednokrotne przy użyciu kont w usłudze Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest logowanie jednokrotne?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Cloud Academy — subskrypcja z włączonym logowaniem jednokrotnym (SSO).
+* Subskrypcja usługi Cloud Academy — Rejestracja jednokrotna z włączonym logowaniem jednokrotnym (SSO).
 
-## <a name="scenario-description"></a>Opis scenariusza
+## <a name="tutorial-description"></a>Opis samouczka
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Cloud Academy — Logowanie jednokrotne **obsługuje** zainicjowanie rejestracji jednokrotnej
+Cloud Academy — Logowanie jednokrotne obsługuje logowanie jednokrotne zainicjowane przez usługę SP.
 
-* Po skonfigurowaniu usługi Cloud Academy — Logowanie jednokrotne umożliwia wymuszenie kontroli sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Po skonfigurowaniu usługi Cloud Academy — Logowanie jednokrotne umożliwia wymuszenie kontroli sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolki sesji wykraczają poza dostęp warunkowy. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-cloud-academy---sso-from-the-gallery"></a>Dodawanie usługi Cloud Academy — Logowanie jednokrotne z galerii
+## <a name="add-cloud-academy---sso-from-the-gallery"></a>Dodawanie usługi Cloud Academy — Logowanie jednokrotne z galerii
 
-Aby skonfigurować integrację programu Cloud Academy — Logowanie jednokrotne do usługi Azure AD, musisz dodać chmurę Cloud Academy — Logowanie jednokrotne z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Cloud Academy — Logowanie jednokrotne do usługi Azure AD, musisz dodać chmurę Cloud Academy — Logowanie jednokrotne z galerii do listy zarządzanych aplikacji SaaS:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
-1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Cloud Academy-SSO** w polu wyszukiwania.
-1. Wybierz pozycję **Cloud Academy — logowanie JEDNOkrotne** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W lewym okienku wybierz pozycję **Azure Active Directory**.
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Aby dodać aplikację, wybierz pozycję **Nowa aplikacja**.
+1. W sekcji **Dodaj z galerii** wprowadź w polu wyszukiwania pozycję **Cloud Academy — Logowanie jednokrotne** .
+1. Wybierz pozycję **Cloud Academy — logowanie JEDNOkrotne** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-cloud-academy---sso"></a>Konfigurowanie i testowanie rejestracji jednokrotnej usługi Azure AD dla chmury Cloud Academy — Logowanie jednokrotne
 
-Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Cloud Academy — SSO przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Cloud Academy — Logowanie jednokrotne.
+Skonfigurujesz i testujesz Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Cloud Academy — Logowanie jednokrotne przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i odpowiednim użytkownikiem w usłudze Cloud Academy — Logowanie jednokrotne.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Cloud Academy — Logowanie jednokrotne, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Cloud Academy — Logowanie jednokrotne, należy wykonać następujące czynności wysokiego poziomu:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Konfigurowanie usługi Cloud Academy — logowanie JEDNOkrotne](#configure-cloud-academy-sso-sso)** SSO — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
-    1. **[Tworzenie usługi Cloud Academy — logowanie JEDNOkrotne do użytkownika testowego](#create-cloud-academy-sso-test-user)** — aby dysponować odpowiednikiem B. Simon w chmurze Academy — Logowanie jednokrotne jest połączone z reprezentacją użytkownika w usłudze Azure AD.
-1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD.
+    1. **[Przyznaj użytkownikowi testowemu](#grant-access-to-the-test-user)** uprawnienia umożliwiające użytkownikowi korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. Skonfiguruj Logowanie jednokrotne w usłudze **[Cloud Academy — logowanie JEDNOkrotne](#configure-single-sign-on-for-cloud-academy)** po stronie aplikacji.
+    1. **[Utwórz użytkownika testowego w usłudze Cloud Academy — logowanie JEDNOkrotne](#create-a-cloud-academy-test-user)** jako odpowiednik reprezentacji użytkownika w usłudze Azure AD.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
 
-1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z usługą **Cloud Academy — Logowanie jednokrotne** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
+1. Na [Azure Portal](https://portal.azure.com/)na stronie integracja z usługą **Cloud Academy — Logowanie jednokrotne** w sekcji **Zarządzanie** wybierz pozycję **Logowanie**jednokrotne.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz przycisk ołówek dla **podstawowej konfiguracji SAML** , aby edytować ustawienia:
 
-   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Zrzut ekranu pokazujący przycisk ołówka służący do edytowania podstawowej konfiguracji języka SAML.](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
+1. W sekcji **Podstawowa konfiguracja SAML** w polu **adres URL logowania** wpisz `https://cloudacademy.com/login/enterprise/` .
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://cloudacademy.com/login/enterprise/`
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** wybierz przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji**. Zapisz adres URL.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
-
-    ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
+    ![Zrzut ekranu pokazujący przycisk kopiowania dla adresu URL metadanych federacji aplikacji.](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
+W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W lewym okienku Azure Portal wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-1. We właściwościach **użytkownika** wykonaj następujące kroki:
-   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+1. We właściwościach **użytkownika** wykonaj następujące czynności:
+   1. W polu **Nazwa** wprowadź wartość **B. Simon**.  
+   1. W polu **Nazwa użytkownika** wprowadź \<username> @ \<companydomain> . \<extension> . Na przykład `B.Simon@contoso.com`.
+   1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość wyświetlaną w polu **hasło** .
+   1. Wybierz przycisk **Utwórz**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
+### <a name="grant-access-to-the-test-user"></a>Udzielanie dostępu użytkownikowi testowemu
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do chmury w chmurze — Logowanie jednokrotne.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie temu użytkownikowi dostępu do usługi Cloud Academy — Logowanie jednokrotne.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Cloud Academy — logowanie JEDNOkrotne**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Na stronie Przegląd aplikacji w sekcji **Zarządzanie** wybierz pozycję **Użytkownicy i grupy**:
 
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+   ![Zrzut ekranu pokazujący opcję Użytkownicy i grupy.](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** :
 
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
+    ![Zrzut ekranu pokazujący przycisk Dodaj użytkownika.](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** na liście **Użytkownicy** , a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz, że jakakolwiek wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz z listy odpowiednią rolę dla użytkownika. Kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
-## <a name="configure-cloud-academy-sso-sso"></a>Konfigurowanie usługi Cloud Academy — Logowanie jednokrotne SSO
+## <a name="configure-single-sign-on-for-cloud-academy"></a>Konfigurowanie logowania jednokrotnego dla usługi Cloud Academy
 
 1. W innym oknie przeglądarki Zaloguj się do witryny firmowej usługi Cloud Academy — Logowanie jednokrotne jako administrator.
 
-1. Kliknij nazwę firmy i wybierz pozycję **ustawienia & integracji** z menu.
+1. Wybierz nazwę swojej firmy, a następnie wybierz pozycję **ustawienia & integracje** w wyświetlonym menu:
 
-    ![Konfigurowanie ](./media/cloud-academy-sso-tutorial/config-1.PNG)
+    ![Zrzut ekranu przedstawiający opcję Ustawienia & integracji.](./media/cloud-academy-sso-tutorial/config-1.PNG)
 
-1. Na stronie **ustawienia & integracji** przejdź do karty **integracje** i kliknij kartę **Logowanie jednokrotne** .
+1. Na stronie **ustawienia & integracji** na karcie **integracje** wybierz kartę **Logowanie jednokrotne** :
 
-    ![Konfigurowanie ](./media/cloud-academy-sso-tutorial/config-2.PNG)
+    ![Zrzut ekranu przedstawiający kartę Logowanie jednokrotne na karcie integracji.](./media/cloud-academy-sso-tutorial/config-2.PNG)
 
-1. Wykonaj następujące czynności na poniższej stronie:
+1. Wykonaj następujące czynności na tej stronie:
 
-    ![Konfigurowanie ](./media/cloud-academy-sso-tutorial/config-3.PNG)
+    ![Zrzut ekranu przedstawiający stronę Inegrations > rejestracji jednokrotnej.](./media/cloud-academy-sso-tutorial/config-3.PNG)
 
-    a. W polu tekstowym **adres URL identyfikatora jednostki** wklej wartość **identyfikatora jednostki** , która została skopiowana z Azure Portal.
+    a. W polu **adres URL identyfikatora jednostki** wprowadź wartość identyfikatora jednostki skopiowaną z Azure Portal.
 
-    b. W polu tekstowym **adres URL logowania jednokrotnego** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
+    b. W polu **adres URL logowania jednokrotnego** wklej wartość adresu URL logowania skopiowaną z Azure Portal.
 
-    c. Otwórz pobrany **certyfikat (base64)** z Azure Portal do Notatnika i wklej zawartość do pola tekstowego **certyfikatu** .
+    c. Otwórz pobrany certyfikat Base64 z Azure Portal w Notatniku. Wklej jego zawartość do pola **certyfikat** .
 
-    d. W polu tekstowym **Format identyfikatora nazwy** wartość domyślna, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+    d. W polu **Format identyfikatora nazwy** Zachowaj wartość domyślną: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` .
 
-1. Kliknij przycisk **Zapisz** .
+1. Wybierz pozycję **Zapisz**.
 
     > [!NOTE]
-    > Aby uzyskać więcej informacji na temat konfigurowania usługi Cloud Academy — Logowanie jednokrotne, należy zapoznać się z [artykułem dotyczącym pomocy technicznej](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
+    > Aby uzyskać więcej informacji na temat konfigurowania usługi Cloud Academy — Logowanie jednokrotne, zobacz [Konfigurowanie logowania](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On)jednokrotnego.
 
-### <a name="create-cloud-academy-sso-test-user"></a>Tworzenie usługi Cloud Academy — Użytkownik testowy rejestracji jednokrotnej
+### <a name="create-a-cloud-academy-test-user"></a>Tworzenie użytkownika testowego w chmurze Academy
 
-1. Zaloguj się do usługi **Cloud Academy — logowanie JEDNOkrotne** .
+1. Zaloguj się do usługi Cloud Academy — Logowanie jednokrotne.
 
-1. Kliknij nazwę firmy i wybierz pozycję **elementy członkowskie** z menu.
+1. Wybierz nazwę swojej firmy, a następnie w wyświetlonym menu wybierz pozycję **elementy członkowskie** :
 
-    ![ Utwórz użytkownika testowego ](./media/cloud-academy-sso-tutorial/create-user.PNG)
+    ![Zrzut ekranu pokazujący opcję członków.](./media/cloud-academy-sso-tutorial/create-user.PNG)
 
-1. Kliknij pozycję **Zaproś członków** i wybierz pozycję **Zaproś jednego członka**.
+1. Wybierz pozycję **Zaproś członków** , a następnie wybierz pozycję **Zaproś jednego członka**:
 
-    ![ Utwórz użytkownika testowego ](./media/cloud-academy-sso-tutorial/create-user-1.PNG)
+    ![Zrzut ekranu pokazujący opcję Zapraszanie pojedynczego elementu członkowskiego.](./media/cloud-academy-sso-tutorial/create-user-1.PNG)
 
-1. Wprowadź wymagane pola i kliknij pozycję **Zaproś**.
+1. Wprowadź wartości w wymaganych polach, a następnie wybierz pozycję **Zaproś**:
 
-    ![ Utwórz użytkownika testowego ](./media/cloud-academy-sso-tutorial/create-user-2.PNG)
+    ![Zrzut ekranu pokazujący zaproszenie do okna dialogowego elementu członkowskiego.](./media/cloud-academy-sso-tutorial/create-user-2.PNG)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+Teraz można testować konfigurację logowania jednokrotnego w usłudze Azure AD za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Cloud Academy — Logowanie jednokrotne w panelu dostępu należy automatycznie zalogować się do usługi Cloud Academy — Logowanie jednokrotne, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka Cloud Academy — Logowanie jednokrotne w panelu dostępu należy automatycznie zalogować się do wystąpienia Cloud Academy — Logowanie jednokrotne, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
-- [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Samouczki dotyczące integracji aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj usługę Cloud Academy — Logowanie jednokrotne w usłudze Azure AD](https://aad.portal.azure.com/)
 
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Jak chronić usługi Cloud Academy — Logowanie jednokrotne z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Jak chronić usługi Cloud Academy — Logowanie jednokrotne za pomocą zaawansowanej widoczności i kontrolek](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

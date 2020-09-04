@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: b0b1914755ff0435318ab970aa6dc6e5e039d581
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 684f37ba3186a719aa9ce730ac07ca4ad42f113d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855681"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458063"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Przykłady Menedżer zasobów szablonów dla Log Analytics obszarów roboczych w Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia i konfigurowania log Analytics obszarów roboczych w Azure monitor. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
@@ -21,8 +21,9 @@ Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-
 
 ## <a name="template-references"></a>Odwołania do szablonów
 
-- [Obszary robocze Microsoft. OperationalInsights](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces) 
-- [Obszary robocze Microsoft. OperationalInsights/źródła danych](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces/datasources)
+- [Obszary robocze Microsoft. OperationalInsights](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces
+) 
+- [Obszary robocze Microsoft. OperationalInsights/źródła danych](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
 
 ## <a name="create-a-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
 Poniższy przykład tworzy nowy pusty obszar roboczy Log Analytics.

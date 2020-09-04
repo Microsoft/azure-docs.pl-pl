@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 887b2da46fdcd6ad275f18913fd7ba675700ad3b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d5a8555b2bd57dc024318464e38f042469beb4b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015989"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458675"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,7 +72,7 @@ Sklonuj https://github.com/azure/azureml-sdk-for-r repozytorium GitHub, aby uzys
 
 1. W programie RStudio przejdź do karty "Terminal" i CD do katalogu, w którym chcesz sklonować repozytorium.
 
-1. Uruchom w terminalu "klonowanie git https://github.com/Azure/azureml-sdk-for-r.git ", aby sklonować repozytorium.
+1. Uruchom w terminalu "klonowanie git https://github.com/Azure/azureml-sdk-for-r ", aby sklonować repozytorium.
 
 1. W RStudio przejdź do folderu *vignettes* w sklonowanym folderze *Azure-SDK-for-r* .  W obszarze *vignettes*wybierz *kolejno pozycje uczenie i wdrażanie-pierwszy-model. RMD* plik, aby znaleźć Vignette używany w tym samouczku. Dodatkowe pliki używane dla Vignette znajdują się w podfolderze *pociąg-and-Deploy-First-model* . Po otwarciu Vignette Ustaw katalog roboczy na lokalizację pliku za pośrednictwem **sesji > ustaw > katalog roboczy na lokalizację pliku źródłowego**. 
 
@@ -394,7 +394,7 @@ delete_compute(compute)
 
 Możesz też zachować grupę zasobów i usunąć jeden obszar roboczy. Wyświetl właściwości obszaru roboczego i wybierz pozycję **Usuń**.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Teraz, po ukończeniu pierwszego Azure Machine Learning eksperymentu w języku R, Dowiedz się więcej na temat [Azure Machine Learning SDK dla języka r](https://azure.github.io/azureml-sdk-for-r/index.html).
 

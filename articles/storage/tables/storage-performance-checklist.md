@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008679"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458336"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista kontrolna wydajności i skalowalności dla usługi Table Storage
 
@@ -197,7 +197,7 @@ Ta sekcja zawiera kilka ustawień szybkiego konfigurowania, których można uży
 
 Począwszy od usługi Storage w wersji 2013-08-15, Table service obsługuje używanie kodu JSON zamiast formatu AtomPub opartego na języku XML do przesyłania danych tabeli. Użycie formatu JSON może zmniejszyć rozmiar ładunku o nawet do 75% i znacząco poprawić wydajność aplikacji.
 
-Aby uzyskać więcej informacji, zobacz [tabele Microsoft Azure publikowania: wprowadzenie formatu JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) i [ładunku dla operacji usługi Table Service](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Aby uzyskać więcej informacji, zobacz [tabele Microsoft Azure publikowania: wprowadzenie formatu JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) i [ładunku dla operacji usługi Table Service](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ### <a name="disable-nagle"></a>Wyłącz nagle
 
@@ -288,7 +288,7 @@ Alternatywnie, aplikacja może przechowywać użycie procesora CPU przez każdą
 
 Jeśli wykonujesz operacje wstawiania wsadowego, a następnie pobierasz zakresy jednostek, rozważ użycie obiektów BLOB zamiast tabel. Dobrym przykładem jest plik dziennika. Można wykonać wsadowe kilka minut dzienników i wstawić je, a następnie pobrać kilka minut dzienników jednocześnie. W takim przypadku wydajność jest lepsza, jeśli używasz obiektów BLOB zamiast tabel, ponieważ można znacząco ograniczyć liczbę obiektów zapisaną lub odczytaną, a także liczbę żądań, które wymagają.  
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Cele skalowalności i wydajności dla usługi Table Storage](scalability-targets.md)
 - [Cele skalowalności i wydajności dla kont magazynu w warstwie Standardowa](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)

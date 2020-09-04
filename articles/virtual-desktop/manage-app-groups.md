@@ -3,15 +3,15 @@ title: Zarządzanie grupami aplikacji dla systemu Windows Virtual Desktop Portal
 description: Jak zarządzać grupami aplikacji klasycznymi systemu Windows przy użyciu Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226730"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461429"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Samouczek: Zarządzanie grupami aplikacji przy użyciu Azure Portal
 
@@ -121,6 +121,9 @@ Proces wdrażania wykona następujące czynności:
 - Opublikuj grupę aplikacji opublikowaną dla wybranych użytkowników i grup użytkowników.
 - Zarejestruj grupę aplikacji, jeśli wybrano tę opcję.
 - Utwórz link do szablonu Azure Resource Manager w oparciu o konfigurację, którą możesz pobrać i zapisać na później.
+
+>[!IMPORTANT]
+>Dla każdej dzierżawy Azure Active Directory można utworzyć tylko grupy aplikacji 50. Dodaliśmy ten limit z powodu ograniczeń usługi do pobierania źródeł danych dla naszych użytkowników. Ten limit nie ma zastosowania do grup aplikacji utworzonych na pulpicie wirtualnym systemu Windows (klasyczny).
 
 ## <a name="next-steps"></a>Następne kroki
 

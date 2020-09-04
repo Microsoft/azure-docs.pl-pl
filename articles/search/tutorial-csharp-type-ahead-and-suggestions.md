@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 47c846f0d8d1cccd91301c7424b2618fffddd565
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1afeca4f627236c5172dd07a44751015c16d2f58
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998445"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462024"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Samouczek: Dodawanie funkcji Autouzupełnianie i sugestii przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak zaimplementować Autouzupełnianie (zapytania typeahead i sugerowane dokumenty), gdy użytkownik zaczyna pisać w polu wyszukiwania. W tym samouczku zostaną pokazane osobno zapytania i wyniki sugestii, a następnie razem. Użytkownik może tylko wpisać dwa lub trzy znaki, aby znaleźć wszystkie dostępne wyniki.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Dodawanie sugestii
 > * Dodawanie wyróżniania do sugestii
@@ -31,7 +31,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Ten samouczek jest częścią serii i kompiluje się w projekcie stronicowania utworzonym w [samouczku języka C#: wyniki wyszukiwania na stronie z podziałem na strony Wyszukiwanie poznawcze platformy Azure](tutorial-csharp-paging.md).
 
-Alternatywnie można pobrać i uruchomić rozwiązanie w tym konkretnym samouczku: [3-Add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
+Alternatywnie można pobrać i uruchomić rozwiązanie w tym konkretnym samouczku: [3-Add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Dodawanie sugestii
 
@@ -458,7 +458,7 @@ Rozważmy następujący wnioski z tego projektu:
 * Zawsze Testuj funkcje autouzupełniania przy użyciu wszystkich form danych wejściowych.
 * Użycie funkcji **setInterval** może być przydatne podczas sprawdzania i poprawiania elementów interfejsu użytkownika.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W następnym samouczku Przyjrzyjmy się innemu sposobowi ulepszania środowiska użytkownika przy użyciu aspektów, aby zawęzić wyszukiwanie za pomocą jednego kliknięcia.
 

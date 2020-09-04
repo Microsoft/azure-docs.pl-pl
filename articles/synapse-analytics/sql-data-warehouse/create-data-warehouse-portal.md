@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c1b640fa5104ceb0f330c9aee9813ed8b3914d33
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166046"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459389"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie puli SQL Synapse i wykonywanie na niej zapytań przy użyciu Azure Portal
 
@@ -24,7 +24,7 @@ Szybko Twórz i badaj pulę SQL Synapse (magazyn danych) w usłudze Azure Synaps
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+1. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
    > [!NOTE]
    > Utworzenie puli SQL w usłudze Azure Synapse może spowodować powstanie nowej usługi do obciążania. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
@@ -56,7 +56,7 @@ Wykonaj następujące kroki, aby utworzyć pulę SQL zawierającą przykładowe 
    | **Subskrypcja** | Twoja subskrypcja | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
    | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
    | **Nazwa puli SQL** | Dowolna globalnie unikatowa nazwa (przykład to *mySampleDataWarehouse*) | Prawidłowe nazwy baz danych znajdują się w temacie [identyfikatory baz danych](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Należy pamiętać, że Pula SQL jest jednym z typów bazy danych. |
-   | **Serwer** | Dowolna nazwa unikatowa w skali globalnej | Wybierz pozycję istniejący serwer lub Utwórz nową nazwę serwera, a następnie wybierz pozycję **Utwórz nowy**. Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
+   | **Server** (Serwer) | Dowolna nazwa unikatowa w skali globalnej | Wybierz pozycję istniejący serwer lub Utwórz nową nazwę serwera, a następnie wybierz pozycję **Utwórz nowy**. Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Reguły i ograniczenia nazewnictwa). |
 
    ![Tworzenie podstawowych szczegółów magazynu danych](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
@@ -139,7 +139,7 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
    | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
    | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Oto przykład: **sqlpoolservername.Database.Windows.NET**. |
    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-   | Identyfikator logowania | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
+   | Zaloguj się | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
    | Hasło | Hasło konta administratora serwera | Hasło określone podczas tworzenia serwera. |
    ||||
 
@@ -155,7 +155,7 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
 
 Nie zaleca się uruchamiania dużych zapytań podczas rejestrowania jako administrator serwera, ponieważ używa ona [ograniczonej klasy zasobów](resource-classes-for-workload-management.md). Zamiast tego należy skonfigurować [izolację obciążenia](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) , jak [pokazano w samouczkach](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
-Usługa SQL Data Warehouse używa T-SQL jako języka zapytań. Aby otworzyć okno zapytania i uruchomić kilka zapytań T-SQL, użyj następujących kroków:
+Usługa Azure Synapse Analytics jako język zapytań używa języka T-SQL. Aby otworzyć okno zapytania i uruchomić kilka zapytań T-SQL, użyj następujących kroków:
 
 1. Kliknij prawym przyciskiem myszy pozycję **mySampleDataWarehouse** i wybierz pozycję **nowe zapytanie**. Otworzy się okno nowego zapytania.
 
@@ -204,6 +204,6 @@ Chcesz zoptymalizować i zapisać wydatki na chmurę?
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat ładowania danych do puli SQL, przejdź do artykułu [ładowanie danych do puli SQL](load-data-from-azure-blob-storage-using-polybase.md) .

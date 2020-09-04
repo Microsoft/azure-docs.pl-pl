@@ -605,7 +605,7 @@
                           items:
                             - name: Przy użyciu usługi SQL Database
                               href: database/saas-tenancy-tenant-analytics.md
-                            - name: Przy użyciu usługi SQL Data Warehouse
+                            - name: Przy użyciu usługi Azure Synapse Analytics (wcześniej SQL Data Warehouse)
                               href: database/saas-tenancy-tenant-analytics-adf.md
                     - name: Odzyskiwanie po awarii przy użyciu przywracania geograficznego
                       href: database/saas-dbpertenant-dr-geo-restore.md
@@ -725,25 +725,25 @@
                 - name: Python
                   items:
                     - name: Uruchamianie skryptów języka Python
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Struktury i obiekty danych
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Funkcje języka Python
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Trenowanie i ocena modelu
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Wdrażanie modeli ONNX
-                      href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+                      href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
                 - name: R
                   items:
                     - name: Uruchamianie skryptów języka R
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Typy i obiekty danych
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Funkcje języka R
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Trenowanie i ocena modelu
-                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
             - name: Samouczki
               items:
                 - name: Python
@@ -751,69 +751,69 @@
                     - name: Wypożyczalnia nart (regresja liniowa)
                       items:
                         - name: 1. Wprowadzenie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 2. Przygotowywanie danych
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 3. Trenowanie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 4. Wdrażanie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Kategoryzowanie klientów (klastrowanie metodą k-średnich)
                       items:
                         - name: 1. Wprowadzenie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 2. Przygotowanie danych
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 3. Tworzenie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 4. Wdrażanie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Porady dotyczące taksówek w NYC (klasyfikacja)
                       items:
                         - name: 1. Wprowadzenie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 2. Eksploracja danych
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 3. Inżynieria funkcji
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 4. Szkolenie i wdrażanie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 5. Przewidywania
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                 - name: R
                   items:
                     - name: Wypożyczalnia nart (drzewo decyzyjne)
                       items:
                         - name: 1. Wprowadzenie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 2. Przygotowywanie danych
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 3. Trenowanie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 4. Wdrażanie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Kategoryzowanie klientów (klastrowanie metodą k-średnich)
                       items:
                         - name: 1. Wprowadzenie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 2. Przygotowanie danych
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 3. Tworzenie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 4. Wdrażanie modelu
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Porady dotyczące taksówek w NYC (klasyfikacja)
                       items:
                         - name: 1. Wprowadzenie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 2. Eksploracja danych
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 3. Inżynieria funkcji
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 4. Szkolenie i wdrażanie
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: 5. Przewidywania
-                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
             - name: Instrukcje
               items:
                 - name: Eksplorowanie i modelowanie danych
@@ -821,33 +821,33 @@
                     - name: Python
                       items:
                         - name: Kreślenie histogramu w języku Python
-                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Importowanie danych do ramki danych pandas
-                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Wstawianie ramki danych do środowiska SQL
-                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                 - name: Prognozy
                   items:
                     - name: Natywne ocenianie za pomocą rozwiązania PREDICT T-SQL
-                      href: 'https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                      href: 'https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                 - name: Zarządzanie pakietami
                   items:
                     - name: Instalowanie nowych pakietów języka Python
                       items:
                         - name: Uzyskiwanie informacje o pakiecie Python
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Instalowanie za pomocą sqlmlutils
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                     - name: Instalowanie nowych pakietów języka R
                       items:
                         - name: Uzyskiwanie informacji o pakiecie R
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Instalowanie za pomocą sqlmlutils
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Tworzenie repozytorium miniCRAN
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Porady dotyczące korzystania z pakietów R
-                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current'
+                          href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
         - name: Funkcje
           items:
             - name: Serwery połączone
@@ -1164,7 +1164,7 @@
       href: /sql/connect/sql-server-drivers
       items:
         - name: ADO.NET
-          href: /sql/connect/ado-net/microsoft-ado-net-sql-server?view=sql-server-ver15
+          href: /sql/connect/ado-net/microsoft-ado-net-sql-server?view=sql-server-ver15&preserve-view=true
         - name: JDBC
           href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
         - name: Node.js

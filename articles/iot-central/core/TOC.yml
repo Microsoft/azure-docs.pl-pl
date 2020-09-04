@@ -107,10 +107,10 @@
           href: howto-run-a-job.md
     - name: Przekształcanie
       items:
-        - name: Eksportowanie danych do miejsc docelowych na platformie Azure (starsza wersja)
-          href: howto-export-data.md
         - name: Eksportowanie danych do miejsc docelowych w chmurze (wersja zapoznawcza)
-          href: howto-use-data-export.md
+          href: howto-export-data.md
+        - name: Eksportowanie danych do lokalizacji docelowych w chmurze (starsza wersja)
+          href: howto-export-data-legacy.md
         - name: Tworzenie elementów webhook w regułach
           href: howto-create-webhooks.md
         - name: Używanie przepływów pracy do integracji z innymi usługami

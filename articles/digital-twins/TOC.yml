@@ -36,12 +36,6 @@
       href: concepts-security.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Programowanie
-      items:
-        - name: Korzystanie z interfejsów API i zestawów SDK
-          href: how-to-use-apis-sdks.md
-        - name: Tworzenie niestandardowych zestawów SDK za pomocą narzędzia AutoRest
-          href: how-to-create-custom-sdks.md
     - name: Wdrażanie
       items:
         - name: Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
@@ -78,6 +72,14 @@
           href: how-to-create-azure-function.md
         - name: Wykonywanie zapytań o graf bliźniaczych reprezentacji
           href: how-to-query-graph.md
+    - name: Programowanie aplikacji klienckich
+      items:
+        - name: Korzystanie z interfejsów API i zestawów SDK
+          href: how-to-use-apis-sdks.md
+        - name: Tworzenie niestandardowych zestawów SDK za pomocą narzędzia AutoRest
+          href: how-to-create-custom-sdks.md
+        - name: Integracja z usługą Azure SignalR Service
+          href: how-to-integrate-azure-signalr.md
     - name: Łączenie danych wejściowych
       items:
         - name: Pozyskiwanie danych telemetrycznych z usługi IoT Hub
@@ -188,6 +190,8 @@
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
         - name: Niestandardowe struktury Swagger usługi Azure Digital Twins
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+        - name: Przykład integracji z usługą SignalR
+          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
     - name: Narzędzia platformy Azure
       items:
         - name: Azure Cloud Shell

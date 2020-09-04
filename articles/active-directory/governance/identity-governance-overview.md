@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 711903b106bf6ff7d8f669e2b1d3489057e09fbc
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783301"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460818"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Co to jest usługa Azure AD Identity Governance?
 
@@ -68,7 +68,7 @@ W przeszłości dostęp uprzywilejowany został opisany przez innych dostawców 
 
 ![Cykl życia uprzywilejowanego dostępu](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) oferuje dodatkowe funkcje kontroli dostosowane do zabezpieczania praw dostępu do zasobów w usłudze Azure AD, na platformie Azure i innych usługach online firmy Microsoft.  Możliwości dostępu just-in-Time i alertów dotyczące zmiany roli udostępniane przez usługę Azure AD PIM, oprócz uwierzytelniania wieloskładnikowego i dostępu warunkowego, zapewniają kompleksowy zestaw kontrolek ładu, który pomaga w zabezpieczeniu zasobów firmy (katalog, pakiet Office 365 i role zasobów platformy Azure). Podobnie jak w przypadku innych form dostępu, organizacje mogą korzystać z przeglądów dostępu w celu skonfigurowania cyklicznej certyfikacji dostępu dla wszystkich użytkowników w rolach administratora.
+[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) oferuje dodatkowe funkcje kontroli dostosowane do zabezpieczania praw dostępu do zasobów w usłudze Azure AD, na platformie Azure i innych usługach online firmy Microsoft.  Możliwości dostępu just-in-Time i alertów dotyczące zmiany roli udostępniane przez usługę Azure AD PIM, oprócz uwierzytelniania wieloskładnikowego i dostępu warunkowego, zapewniają kompleksowy zestaw kontrolek ładu, aby pomóc w zabezpieczeniu zasobów firmy (katalogów, Microsoft 365 i ról zasobów platformy Azure). Podobnie jak w przypadku innych form dostępu, organizacje mogą korzystać z przeglądów dostępu w celu skonfigurowania cyklicznej certyfikacji dostępu dla wszystkich użytkowników w rolach administratora.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -88,7 +88,7 @@ Chociaż nie ma doskonałego rozwiązania lub rekomendacji dla każdego klienta,
 
 Najlepszym rozwiązaniem jest użycie roli najniższych uprawnień do wykonywania zadań administracyjnych w ramach nadzoru tożsamości. Zalecamy użycie usługi Azure AD PIM do uaktywnienia roli w razie potrzeby w celu wykonania tych zadań. Poniżej wymieniono najmniej uprzywilejowane role katalogu w celu skonfigurowania funkcji zarządzania tożsamościami:
 
-| Cecha | Najmniejsza rola uprzywilejowana |
+| Cechy | Najmniejsza rola uprzywilejowana |
 | ------- | --------------------- |
 | Zarządzanie upoważnieniami | Administrator użytkowników (z wyjątkiem dodawania witryn usługi SharePoint Online do wykazów, które wymagają administratora globalnego) |
 | Przeglądy dostępu | Administrator użytkowników (z wyjątkiem przeglądów dostępu dotyczących ról platformy Azure lub usługi Azure AD, które wymagają uprzywilejowanego administratora roli) |

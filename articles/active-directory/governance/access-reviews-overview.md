@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5c8f3b9933e09e4c31316037445643e83a2e9c07
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783675"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461004"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Co to są przeglądy dostępu w usłudze Azure AD?
 
@@ -45,7 +45,7 @@ Usługa Azure AD umożliwia współpracę z użytkownikami spoza organizacji i u
 ## <a name="when-should-you-use-access-reviews"></a>Kiedy należy używać przeglądów dostępu?
 
 - **Zbyt wielu użytkowników w uprzywilejowanych rolach:** Dobrym pomysłem jest sprawdzenie, ilu użytkowników ma dostęp administracyjny, ilu z nich są administratorzy globalni, a jeśli istnieją wszyscy zaproszeni goście lub partnerzy, którzy nie zostali usunięci po przypisaniu do wykonywania zadań administracyjnych. Możesz zatwierdzić użytkowników przypisania roli w [rolach usługi Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , takich jak Administratorzy globalni lub [role zasobów platformy Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , takie jak administrator dostępu użytkowników w środowisku [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) .
-- **Gdy Automatyzacja nie jest możliwa:** Możesz tworzyć reguły dynamicznego członkostwa w grupach zabezpieczeń lub grupach pakietu Office 365, ale co zrobić, jeśli dane KADRowe nie są przechowywane w usłudze Azure AD lub jeśli użytkownicy nadal potrzebują dostępu po opuszczeniu grupy w celu przeprowadzenia ich zamiany? Następnie można utworzyć przegląd tej grupy, aby upewnić się, kto nadal musi mieć dostęp.
+- **Gdy Automatyzacja nie jest możliwa:** Możesz tworzyć reguły dynamicznego członkostwa w grupach zabezpieczeń lub grupach Microsoft 365, ale co zrobić, jeśli dane HR nie są w usłudze Azure AD lub jeśli użytkownicy nadal potrzebują dostępu po opuszczeniu grupy w celu nauczenia ich zastąpienia? Następnie można utworzyć przegląd tej grupy, aby upewnić się, kto nadal musi mieć dostęp.
 - **Gdy grupa jest używana w nowym przeznaczeniu:** Jeśli masz grupę, która ma być synchronizowana z usługą Azure AD, lub jeśli planujesz włączenie usługi Salesforce dla wszystkich użytkowników w grupie zespołu sprzedaży, warto polecić właścicielowi grupy przeglądanie członkostwa w grupie przed grupą używaną w innej treści ryzyka.
 - **Dostęp do danych o kluczowym znaczeniu dla firmy:** w przypadku niektórych zasobów może być konieczne zaproszenie osób poza nim, aby regularnie się wylogować i uzasadnić, dlaczego potrzebują dostępu do celów inspekcji.
 - **Aby zachować listę wyjątków zasad:** W idealnym świecie wszyscy użytkownicy będą korzystać z zasad dostępu w celu zabezpieczenia dostępu do zasobów organizacji. Czasami jednak istnieją przypadki biznesowe, które wymagają wprowadzenia wyjątków. Jako administrator IT możesz zarządzać tym zadaniem, unikać nadzoru wyjątków zasad i zapewniać audytorom dowód, że te wyjątki są regularnie przeglądane.

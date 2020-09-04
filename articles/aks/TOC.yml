@@ -187,6 +187,14 @@
           href: azure-netapp-files.md
         - name: Korzystanie z usługi Azure Ultra Disks (wersja zapoznawcza)
           href: use-ultra-disks.md
+        - name: Sterowniki magazynu CSI
+          items:
+            - name: Włączanie sterowników magazynu CSI (wersja zapoznawcza)
+              href: csi-storage-drivers.md
+            - name: Sterowniki CSI dysku platformy Azure (wersja zapoznawcza)
+              href: azure-disk-csi.md
+            - name: Sterowniki CSI usługi Azure Files (wersja zapoznawcza)
+              href: azure-files-csi.md
     - name: Konfigurowanie sieci
       items:
         - name: Tworzenie lub używanie istniejącej sieci wirtualnej
@@ -252,9 +260,9 @@
           href: update-credentials.md
         - name: Włączanie integracji z usługą Azure Active Directory
           items:
-            - name: Usługa AAD zarządzana przez usługę AKS
+            - name: Usługa Azure AD zarządzana przez usługę AKS
               href: managed-aad.md
-            - name: Integracja z usługą AAD (starsza wersja)
+            - name: Integracja z usługą Azure AD (starsza wersja)
               href: azure-ad-integration-cli.md
         - name: Autoryzacja na platformie Kubernetes przy użyciu kontroli dostępu opartej na rolach platformy Azure (wersja zapoznawcza)
           href: manage-azure-rbac.md
