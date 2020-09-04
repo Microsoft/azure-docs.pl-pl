@@ -1,6 +1,6 @@
 ---
 title: 'Szybki Start: Tworzenie Azure Data Factory przy użyciu języka Python'
-description: Tworzenie fabryki danych platformy Azure w celu skopiowania danych między lokalizacjami w usłudze Azure Blob Storage.
+description: Użyj fabryki danych do kopiowania danych z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,14 +13,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 7fd82e83c97c933173f168b7d79d5b6d6a3243b9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873300"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439116"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki Start: Tworzenie fabryki danych i potoku przy użyciu języka Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu języka Python
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -32,7 +32,7 @@ W tym przewodniku szybki start utworzysz fabrykę danych przy użyciu języka Py
 
 Azure Data Factory to oparta na chmurze usługa integracji danych, która umożliwia tworzenie przepływów pracy opartych na danych na potrzeby organizowania i automatyzowania przenoszenia i przekształcania danych. Za pomocą Azure Data Factory można tworzyć i planować przepływy pracy oparte na danych, nazywane potokami.
 
-Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning. Potoki publikują dane wyjściowe w magazynach danych, takich jak Azure SQL Data Warehouse aplikacji analizy biznesowej (BI).
+Potoki mogą pozyskiwanie danych z różnych magazynów danych. Potoki przetwarzają lub przekształcają dane przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning. Potoki publikują dane wyjściowe w magazynach danych, takich jak Azure Synapse Analytics (dawniej SQL Data Warehouse) dla aplikacji analizy biznesowej (BI).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -451,7 +451,7 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć fabrykę danych, dodaj następujący kod do programu:
 

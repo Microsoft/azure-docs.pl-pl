@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 0c2f840333f066afaa22883fb0f5d67072a5c822
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: d4652ca62a82d14c7e44466161ae9b463818a71f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85504869"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433983"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki Start: Tworzenie fabryki danych i potoku przy użyciu zestawu .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Szybki start: Tworzenie fabryki danych i potoku przy użyciu zestawu SDK .NET
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -43,7 +43,7 @@ W przewodniku w tym artykule jest wykorzystywany program Visual Studio 2019. Pro
 
 Pobierz i zainstaluj zestaw [Azure .NET SDK](https://azure.microsoft.com/downloads/) na maszynie.
 
-## <a name="create-an-application-in-azure-active-directory"></a>Tworzenie aplikacji w usłudze Azure Active Directory
+## <a name="create-an-application-in-azure-active-directory"></a>Utworzenie aplikacji w usłudze Azure Active Directory
 
 W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów*, postępuj zgodnie z instrukcjami, aby wykonać następujące zadania:
 
@@ -56,7 +56,7 @@ W sekcjach w sekcji *jak: korzystanie z portalu do tworzenia aplikacji usługi A
 
 Następnie Utwórz aplikację konsolową .NET C# w programie Visual Studio:
 
-1. Uruchom program **Visual Studio**.
+1. Uruchom **program Visual Studio**.
 2. W oknie uruchamiania wybierz pozycję **Utwórz nową**  >  **aplikację konsolową projektu (.NET Framework)**. Wymagana jest platforma .NET w wersji 4.5.2 lub nowszej.
 3. W polu **Nazwa projektu**wprowadź **ADFv2QuickStart**.
 4. Wybierz polecenie **Create** (Utwórz), aby utworzyć projekt.
@@ -175,7 +175,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
     storageLinkedService, client.SerializationSettings));
 ```
 
-## <a name="create-a-dataset"></a>Tworzenie zestawu danych
+## <a name="create-a-dataset"></a>Utwórz zestaw danych
 
 Dodaj do metody **Main** następujący kod, który tworzy **zestaw danych obiektów blob platformy Azure**.
 
@@ -436,7 +436,7 @@ Potok automatycznie tworzy folder wyjściowy w kontenerze obiektów BLOB **adftu
 2. Na liście folder wybierz pozycję **dane wyjściowe**.
 3. Upewnij się, że plik **emp.txt** jest kopiowany do folderu wyjściowego. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby programowo usunąć fabrykę danych, Dodaj następujące wiersze kodu do programu: 
 

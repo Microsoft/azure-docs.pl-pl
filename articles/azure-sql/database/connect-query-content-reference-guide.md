@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 12d91e43576647b2ffbc1e78d2e059871dbe8a3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6aa0aa22fce5ba0f763f98fec37f607d0ce8a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033177"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441777"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database i wyszukiwanie w artykułach wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,9 +60,9 @@ Sterowniki firm innych niż Microsoft mogą nie używać domyślnie protokołu T
 
 Do łączenia się z usługą Azure SQL Database lub wystąpieniem zarządzanym Azure SQL można używać różnych bibliotek i platform. Zapoznaj się z naszymi [samouczkami wprowadzającymi](https://aka.ms/sqldev), aby szybko rozpocząć pracę z językami programowania, takimi jak C#, Java, Node.js, PHP i Python. Następnie utwórz aplikację przy użyciu programu SQL Server w systemie Linux lub Windows albo platformy Docker w systemie macOS.
 
-W poniższej tabeli wymieniono biblioteki łączności (*sterowniki*), których aplikacje klienckie mogą używać w różnych językach, aby łączyć się z programem SQL Server działającym lokalnie lub w chmurze i korzystać z niego. Można ich używać w systemie Linux, Windows lub Docker i używać ich do łączenia się z Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i Azure SQL Data Warehouse.
+W poniższej tabeli wymieniono biblioteki łączności (*sterowniki*), których aplikacje klienckie mogą używać w różnych językach, aby łączyć się z programem SQL Server działającym lokalnie lub w chmurze i korzystać z niego. Można ich używać w systemie Linux, Windows lub Docker i używać ich do łączenia się z Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
-| Język | Platforma | Dodatkowe zasoby | Pobierz | Rozpoczęcie pracy |
+| Język | Platforma | Zasoby dodatkowe | Pobierz | Rozpoczęcie pracy |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Program Microsoft ADO.NET dla programu SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Pobieranie](https://www.microsoft.com/net/download/) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla programu SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Pobieranie](https://go.microsoft.com/fwlink/?linkid=852460) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)

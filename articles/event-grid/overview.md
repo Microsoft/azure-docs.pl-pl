@@ -3,18 +3,18 @@ title: Co to jest usługa Azure Event Grid?
 description: Wysyłaj dane zdarzenia ze źródła do procedury obsługi za pomocą usługi Azure Event Grid. Twórz aplikacje oparte na zdarzeniach i integruj z usługami platformy Azure.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116135"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436871"
 ---
 # <a name="what-is-azure-event-grid"></a>Co to jest usługa Azure Event Grid?
 
 Usługa Azure Event Grid umożliwia łatwe tworzenie aplikacji za pomocą architektur opartych na zdarzeniach. Wystarczy, że wybierzesz zasób platformy Azure, który chcesz zasubskrybować, i wskażesz procedurę obsługi zdarzeń lub punkt końcowy elementu WebHook, do którego ma zostać wysłane zdarzenie. Usługa Event Grid obsługuje zdarzenia pochodzące z usług platformy Azure, takich jak obiekty blob magazynu i grupy zasobów. Usługa Event Grid zapewnia również obsługę niestandardowych zdarzeń opartych na niestandardowych tematach. 
 
-Filtry pozwalają kierować określone zdarzenia do różnych punktów końcowych i korzystać z multiemisji do wielu punktów końcowych, a także zapewniają niezawodne dostarczanie zdarzeń.
+Za pomocą filtrów można kierować określone zdarzenia do innych punktów końcowych, wykonywać multiemisję do wielu punktów końcowych, i zapewnić niezawodne dostarczanie zdarzeń.
 
 Azure Event Grid został wdrożony w celu zmaksymalizowania dostępności przez natywne rozmieszczenie w wielu domenach błędów w każdym regionie i w strefach dostępności (w regionach, które je obsługują). Aby zapoznać się z listą regionów obsługiwanych przez Event Grid, zobacz temat [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
@@ -33,7 +33,7 @@ Aktualnie wysyłanie zdarzeń do usługi Event Grid jest obsługiwane w przypadk
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
-- [W usłudze Azure Key Vault](event-schema-key-vault.md)
+- [Usługa Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
@@ -118,6 +118,6 @@ Usługa Azure Event Grid korzysta z modelu płatności za zdarzenia, w którym p
 * [Using Logic Apps as an Event Handler (Używanie usługi Logic Apps jako procedury obsługi zdarzeń)](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Samouczek dotyczący tworzenia aplikacji korzystającej z usługi Logic Apps w celu umożliwienia reagowania na zdarzenia wypychane przez usługę Event Grid.
 * [Przesyłanie strumieniowe danych Big Data do magazynu danych](event-grid-event-hubs-integration.md)  
-  Samouczek przedstawiający użycie usługi Azure Functions do strumieniowego przesyłania danych z usługi Event Hubs do usługi SQL Data Warehouse.
+  Samouczek, który używa Azure Functions do przesyłania strumieniowego danych z Event Hubs do usługi Azure Synapse Analytics.
 * [Event Grid REST API reference (Dokumentacja interfejsu API REST usługi Event Grid)](/rest/api/eventgrid)  
   Zawiera informacje na temat zarządzania subskrypcjami zdarzeń, routingiem i filtrowaniem.

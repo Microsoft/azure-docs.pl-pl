@@ -5,18 +5,18 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752902"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434797"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web w Azure Portal
 
-Usługa Azure static Web Apps publikuje witrynę sieci Web w środowisku produkcyjnym, tworząc aplikacje z repozytorium GitHub. W tym przewodniku szybki start wdrożono aplikację sieci Web w usłudze Azure static Web Apps przy użyciu portalu.
+Usługa Azure static Web Apps publikuje witrynę sieci Web w środowisku produkcyjnym, tworząc aplikacje z repozytorium GitHub. W tym przewodniku szybki start wdrożono aplikację sieci Web w usłudze Azure static Web Apps przy użyciu Azure Portal.
 
 Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free).
 
@@ -56,49 +56,50 @@ Po zalogowaniu się za pomocą usługi GitHub wprowadź informacje o repozytoriu
 1. Wybierz preferowaną _organizację_
 1. Wybierz pozycję **moja-First-Web-static-App** z listy rozwijanej _repozytorium_
 1. Wybierz pozycję **główna** z listy rozwijanej _rozgałęzienie_
-1. Wybierz przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Przycisk Następna kompilacja":::
 
 > [!NOTE]
 > Jeśli nie widzisz żadnych repozytoriów, może być konieczne autoryzowanie Web Apps statycznej platformy Azure w usłudze GitHub. Przejdź do repozytorium GitHub i przejdź do pozycji **ustawienia > aplikacje > autoryzowane aplikacje OAuth**, wybierz pozycję **statyczne Web Apps platformy Azure**, a następnie wybierz pozycję **Udziel**. W przypadku repozytoriów organizacji musisz być właścicielem organizacji, aby przyznać uprawnienia.
 
-1. Na karcie _kompilacja_ Dodaj szczegóły konfiguracji specyficzne dla preferowanej platformy frontonu.
+1. W sekcji _szczegóły kompilacji_ Dodaj szczegóły konfiguracji specyficzne dla preferowanej platformy frontonu.
 
     # <a name="no-framework"></a>[Brak struktury](#tab/vanilla-javascript)
 
-    - Wyczyść wartość domyślną w polu _Lokalizacja aplikacji_
-    - Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
-    - Wyczyść wartość domyślną w polu _Lokalizacja artefaktu aplikacji_
+    1. Wybierz pozycję **niestandardowe** z listy rozwijanej _Ustawienia wstępne kompilacji_
+    1. Wyczyść wartość domyślną w polu _Lokalizacja aplikacji_
+    1. Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
+    1. Pozostaw puste pole _lokalizacji artefaktu aplikacji_
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - Wyczyść wartość domyślną w polu _Lokalizacja aplikacji_
-    - Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
-    - Typ **ROZKŁ/kątowy — podstawowa** w polu _Lokalizacja artefaktu aplikacji_
+    1. Wybierz pozycję **kątową** z listy rozwijanej _Ustawienia wstępne kompilacji_
+    1. Zachowaj wartość domyślną w polu _Lokalizacja aplikacji_
+    1. Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
+    1. Typ **ROZKŁ/kątowy — podstawowa** w polu _Lokalizacja artefaktu aplikacji_
 
     # <a name="react"></a>[React](#tab/react)
 
-    - Wyczyść wartość domyślną pola _Lokalizacja aplikacji_
-    - Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
-    - Wpisz **kompilację** w polu _Lokalizacja artefaktu aplikacji_
+    1. Wybierz pozycję **Reaguj** z listy rozwijanej _Ustawienia wstępne kompilacji_
+    1. Zachowaj wartość domyślną w polu _Lokalizacja aplikacji_
+    1. Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
+    1. Wpisz **kompilację** w polu _Lokalizacja artefaktu aplikacji_
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - Wyczyść wartość domyślną pola _Lokalizacja aplikacji_
-    - Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
-    - Typ " **ROZKŁ** " w polu _Lokalizacja artefaktu aplikacji_
+    1. Wybierz **Vue.js** z listy rozwijanej _Ustawienia wstępne kompilacji_
+    1. Zachowaj wartość domyślną w polu _Lokalizacja aplikacji_
+    1. Wyczyść wartość domyślną w polu _Lokalizacja interfejsu API_
+    1. Zachowaj wartość domyślną w polu _Lokalizacja artefaktu aplikacji_
 
     ---
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
 
     > [!NOTE]
     > [Plik przepływu pracy](github-actions-workflow.md) można edytować, aby zmienić te wartości po utworzeniu aplikacji.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
     :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Przycisk Utwórz":::
 

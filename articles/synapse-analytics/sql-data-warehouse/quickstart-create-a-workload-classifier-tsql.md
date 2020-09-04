@@ -11,18 +11,18 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 05173790d8efe05851d39121ecfa15186ccb6d3c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 65a77dfaab0bf99207fd27a35d67a12532056476
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212959"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442943"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Szybki Start: Tworzenie klasyfikatora obciążeń przy użyciu języka T-SQL
 
 W tym przewodniku szybki start utworzysz klasyfikator obciążeń o wysokiej ważności dla DYREKTORa w organizacji. Ten klasyfikator obciążeń umożliwi zajęcie przez dyrektorów naczelnych pierwszeństwa przed innymi zapytaniami o niższej ważności kolejki.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 > [!NOTE]
 > Utworzenie wystąpienia Synapse puli SQL w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -31,7 +31,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku szybki start założono, że masz już SQL Data Warehouse i masz uprawnienia sterujące bazą danych. Jeżeli chcesz utworzyć taki magazyn, skorzystaj z przewodnika [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
+W tym przewodniku szybki start założono, że masz już zainicjowaną pulę SQL Synapse w usłudze Azure Synapse Analytics i masz uprawnienia sterujące bazą danych. Jeżeli chcesz utworzyć taki magazyn, skorzystaj z przewodnika [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

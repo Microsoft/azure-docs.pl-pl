@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815185"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437704"
 ---
 # <a name="what-is-identity-protection"></a>Co to jest ochrona tożsamości?
 
@@ -102,17 +102,17 @@ Administratorzy dostępu warunkowego mogą również tworzyć zasady, które są
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Możliwość | Szczegóły | Usługa Azure AD — wersja Premium P2 | Usługa Azure AD — wersja Premium P1 | Aplikacje Azure AD — wersja Bezpłatna/Office 365 |
+| Możliwość | Szczegóły  | Aplikacje Azure AD — wersja Bezpłatna/Office 365 | Usługa Azure AD — wersja Premium P1|Usługa Azure AD — wersja Premium P2 |
 | --- | --- | --- | --- | --- |
-| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości) | Tak | Nie | Nie |
-| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego) | Tak | Nie | Nie |
-| Raporty dotyczące zabezpieczeń | Omówienie | Tak | Nie | Nie |
-| Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy | Dostęp pełny | Ograniczone informacje | Ograniczone informacje |
-| Raporty dotyczące zabezpieczeń | Ryzykowne logowania | Dostęp pełny | Ograniczone informacje | Ograniczone informacje |
-| Raporty dotyczące zabezpieczeń | Wykrycia ryzyka | Dostęp pełny | Ograniczone informacje | Nie |
-| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami | Tak | Nie | Nie |
-| Powiadomienia | Podsumowanie tygodniowe | Tak | Nie | Nie |
-| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Tak | Nie | Nie |
+| Zasady dotyczące ryzyka | Zasady ryzyka użytkownika (za pośrednictwem ochrony tożsamości)  | Nie | Nie |Tak | 
+| Zasady dotyczące ryzyka | Zasady dotyczące ryzyka związanego z logowaniem (za pośrednictwem funkcji ochrony tożsamości lub dostępu warunkowego)  | Nie |  Nie |Tak |
+| Raporty dotyczące zabezpieczeń | Omówienie |  Nie | Nie |Tak |
+| Raporty dotyczące zabezpieczeń | Ryzykowni użytkownicy  | Ograniczone informacje | Ograniczone informacje | Dostęp pełny|
+| Raporty dotyczące zabezpieczeń | Ryzykowne logowania  | Ograniczone informacje | Ograniczone informacje | Dostęp pełny|
+| Raporty dotyczące zabezpieczeń | Wykrycia ryzyka   | Nie | Ograniczone informacje| Dostęp pełny|
+| Powiadomienia | Użytkownicy zagrożeni wykrytymi alertami  | Nie | Nie |Tak |
+| Powiadomienia | Podsumowanie tygodniowe| Nie | Nie | Tak | 
+| | Zasady rejestracji uwierzytelniania wieloskładnikowego | Nie | Nie | Tak |
 
 ## <a name="next-steps"></a>Następne kroki
 

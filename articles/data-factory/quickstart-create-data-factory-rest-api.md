@@ -1,6 +1,6 @@
 ---
 title: Tworzenie fabryki danych Azure przy użyciu interfejsu API REST
-description: Tworzenie fabryki danych platformy Azure w celu skopiowania danych między lokalizacjami w usłudze Azure Blob Storage.
+description: Utwórz potok usługi Azure Data Factory, aby skopiować dane z jednej lokalizacji w usłudze Azure Blob Storage do innej lokalizacji.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 357026bbe17650464716282608bc316c5d4b055e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 1d1db69215294ac4aa4849bbaa1a886a91f0ba7e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85514886"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439167"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Szybki Start: Tworzenie fabryki danych Azure i potoku przy użyciu interfejsu API REST
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Szybki start: Tworzenie fabryki danych platformy Azure i potoku przy użyciu interfejsu API REST
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -28,11 +28,11 @@ ms.locfileid: "85514886"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Te przepływy mogą pozyskiwać dane z różnych magazynów danych, przetwarzać/przekształcać je za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, a następnie publikować dane wyjściowe w magazynach danych, np. Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
+Azure Data Factory to oparta na chmurze usługa integracji danych, za pomocą której możesz tworzyć oparte na danych przepływy pracy w chmurze służące do organizowania oraz automatyzowania przenoszenia i przekształcania danych. Za pomocą Azure Data Factory można tworzyć i planować przepływy pracy oparte na danych (nazywane potokami), które mogą pozyskiwanie danych z różnych magazynów danych, przetwarzanie/Przekształcanie danych przy użyciu usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning, oraz publikowanie danych wyjściowych w magazynach danych, takich jak Azure Synapse Analytics (dawniej SQL Data Warehouse) dla aplikacji analizy biznesowej do użycia.
 
 Ten samouczek Szybki start opisuje sposób używania interfejsu API REST w celu utworzenia usługi Azure Data Factory. Potok w tej usłudze Data Factory kopiuje dane z jednej lokalizacji do innej lokalizacji w usłudze Azure Blob Storage.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji, możesz utworzyć konto [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn **źródła** i **ujścia** danych. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
-* Utwórz **kontener obiektów blob** w usłudze Blob Storage, utwórz **folder** wejściowy w kontenerze i przekaż niektóre pliki do folderu. Narzędzia, takie jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/), umożliwiają łączenie z usługą Azure Blob Storage, tworzenie kontenera obiektów blob, przekazywanie pliku wejściowego i weryfikację pliku wyjściowego.
+* Utwórz **kontener obiektów blob** w usłudze Blob Storage, utwórz **folder** wejściowy w kontenerze i przekaż niektóre pliki do folderu. Za pomocą narzędzi, takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , można nawiązać połączenie z usługą Azure Blob Storage, utworzyć kontener obiektów blob, przekazać plik wejściowy i zweryfikować plik wyjściowy.
 * Zainstaluj **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps). Ten samouczek Szybki start używa programu PowerShell do wywoływania interfejsu API REST.
 * **Utwórz aplikację w usłudze Azure Active Directory**, wykonując [tę instrukcję](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Zwróć uwagę na następujące wartości, których można użyć w kolejnych krokach: **Identyfikator aplikacji**, **clientSecrets**i **Identyfikator dzierżawy**. Przypisz aplikację do roli „**Współautor**”.
 
@@ -495,7 +495,7 @@ Oto przykładowe dane wyjściowe:
 
 Użyj Eksploratora usługi Azure Storage, aby sprawdzić, czy plik jest kopiowany do "outputPath" z "inputPath", jak określono podczas tworzenia uruchomienia potoku.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Zasoby, które zostały utworzone w ramach tego przewodnika Szybki start, możesz wyczyścić na dwa sposoby. Możesz usunąć [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md) zawierającą wszystkie zasoby w tej grupie. Jeśli chcesz zachować inne zasoby bez zmian, usuń tylko fabrykę danych utworzoną w tym samouczku.
 
 Uruchom poniższe polecenie, aby usunąć całą grupę zasobów:

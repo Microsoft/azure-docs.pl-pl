@@ -13,17 +13,17 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 05/29/2020
-ms.openlocfilehash: 4dbbf8267b4a7a1ea280d16ee787c8ae6cd652c9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267362"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441786"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Szybki Start: Użyj edytora zapytań Azure Portal, aby wykonać zapytanie do Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Edytor zapytań jest narzędziem w Azure Portal do uruchamiania zapytań SQL dotyczących bazy danych w Azure SQL Database lub magazynie danych w Azure SQL Data Warehouse. 
+Edytor zapytań jest narzędziem w Azure Portal do uruchamiania zapytań SQL dotyczących bazy danych w Azure SQL Database lub hurtowni danych w usłudze Azure Synapse Analytics. 
 
 W tym przewodniku szybki start będziesz używać edytora zapytań do uruchamiania zapytań Transact-SQL (T-SQL) względem bazy danych.
 
@@ -60,7 +60,7 @@ Mimo że logujesz się do portalu, nadal musisz podać poświadczenia, aby uzysk
 
     ![logowanie](./media/connect-query-portal/login-menu.png)
 
-2. Wybierz przycisk **OK**.
+2. Kliknij przycisk **OK**.
 
 
 ### <a name="connect-using-azure-active-directory"></a>Nawiązywanie połączenia przy użyciu usługi Azure Active Directory

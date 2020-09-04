@@ -1,6 +1,6 @@
 ---
 title: Kopiuj dane zbiorczo przy użyciu Azure Portal
-description: Dowiedz się, jak używać usługi Azure Data Factory i działania kopiowania do zbiorczego kopiowania danych ze źródłowego magazynu danych do docelowego magazynu danych.
+description: Użyj działania Azure Data Factory i Kopiuj, aby skopiować dane ze źródłowego magazynu danych do docelowego magazynu danych.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a047872f519de1873c03998fd1d3a9c273ce9fa1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86081642"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442858"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
 
@@ -45,7 +45,7 @@ W tym scenariuszu masz kilka tabel w Azure SQL Database, które chcesz skopiowa�
 ![Przepływ pracy](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * Pierwszy potok wyszukuje listę tabel, które należy skopiować do magazynów danych ujścia.  Alternatywnie można utrzymywać tabelę metadanych, która zawiera listę wszystkich tabel do skopiowania do magazynu danych ujścia. Następnie potok wywołuje inny potok, który działa na wszystkich tabelach w bazie danych i wykonuje operację kopiowania danych.
-* Drugi potok przeprowadza rzeczywiste kopiowanie. Pobiera listę tabel jako parametr. Dla każdej tabeli na liście Skopiuj określoną tabelę w Azure SQL Database do odpowiedniej tabeli w usłudze Azure Synapse Analytics (dawniej SQL DW) przy użyciu [kopii przygotowanej przez magazyn obiektów blob i bazę danych](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) w celu uzyskania najlepszej wydajności. W tym przykładzie pierwszy potok przekazuje listę tabel jako wartość parametru. 
+* Drugi potok przeprowadza rzeczywiste kopiowanie. Pobiera listę tabel jako parametr. Dla każdej tabeli na liście Skopiuj określoną tabelę w Azure SQL Database do odpowiedniej tabeli w usłudze Azure Synapse Analytics (dawniej SQL DW) przy użyciu [kopii przygotowanej przez magazyn obiektów blob i bazę danych](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) w celu uzyskania najlepszej wydajności. W tym przykładzie pierwszy potok przekazuje listę tabel jako wartość parametru. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
@@ -62,7 +62,7 @@ Utwórz bazę danych w SQL Database z danymi przykładowymi Adventure Works LT p
 
 **Przygotuj ujścia usługi Azure Synapse Analytics (dawniej SQL DW)**:
 
-1. Jeśli nie masz usługi Azure Synapse Analytics (dawniej SQL DW), zapoznaj się z artykułem [tworzenie SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) .
+1. Jeśli nie masz obszaru roboczego usługi Azure Synapse Analytics (dawniej SQL DW), zobacz artykuł [Rozpoczynanie pracy z usługą Azure Synapse Analytics](..\synapse-analytics\get-started.md) , aby uzyskać instrukcje.
 
 1. Utwórz odpowiednie schematy tabel w usłudze Azure Synapse Analytics (dawniej SQL DW). Usługa Azure Data Factory służy do migrowania/kopiowania danych na późniejszym etapie.
 
@@ -331,7 +331,7 @@ Ten potok wykonuje dwie czynności:
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorowanie działania potoku
 
-1. Przejdź do karty **monitorowanie** . kliknij pozycję **Odśwież** , aby zobaczyć przebiegi dla potoków w rozwiązaniu. Kontynuuj odświeżanie listy do momentu wyświetlenia stanu **Powodzenie**. 
+1. Przejdź do karty **monitorowanie** . Kliknij przycisk **Odśwież** , dopóki nie zobaczysz przebiegów dla potoków w rozwiązaniu. Kontynuuj odświeżanie listy do momentu wyświetlenia stanu **Powodzenie**. 
 
 1. Aby wyświetlić uruchomienia działań skojarzone z potoku **GetTableListAndTriggerCopyData** , kliknij link Nazwa potoku dla potoku. Powinny zostać wyświetlone dwa uruchomienia działania dla tego uruchomienia potoku. 
     ![Monitorowanie uruchomienia potoku](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)

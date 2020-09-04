@@ -4,12 +4,12 @@ description: W ramach tego samouczka dowiesz się, jak dodać punkt końcowy HTT
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6b8587982a8cbe496427960495055adbd68a07a7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997289"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441531"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Samouczek: Dodawanie punktu końcowego HTTPS do usługi frontonu internetowego interfejsu API platformy ASP.NET Core za pomocą usługi Kestrel
 
@@ -238,7 +238,7 @@ W Eksploratorze rozwiązań otwórz plik *VotingWeb/PackageRoot/ServiceManifest.
 
 Aby uruchomić program PowerShell z punktu **SetupEntryPoint**, możesz uruchomić plik PowerShell.exe w pliku wsadowym, który wskazuje plik programu PowerShell. Najpierw dodaj plik wsadowy do projektu usługi.  W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy element **VotingWeb** i wybierz pozycję **Dodaj**->**Nowy element** i dodaj nowy plik o nazwie „Setup.bat”.  Edytuj plik *Setup.bat* pliku i dodaj następujące polecenie:
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
@@ -404,7 +404,7 @@ Po wdrożeniu aplikacji otwórz przeglądarkę internetową i przejdź do strony
 
 ![Aplikacja do głosowania][image3]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tej części samouczka zawarto informacje na temat wykonywania następujących czynności:
 

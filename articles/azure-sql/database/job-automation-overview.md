@@ -11,20 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984663"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436786"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatyzowanie zadań zarządzania za pomocą zadań bazy danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Można tworzyć i planować zadania, które mogą być okresowo wykonywane dla jednej lub wielu baz danych w celu uruchamiania zapytań Transact-SQL (T-SQL) i wykonywania zadań konserwacyjnych.
 
-Można zdefiniować docelową bazę danych lub grupy baz danych, w których zadanie zostanie wykonane, a także zdefiniować harmonogramy uruchamiania zadania.
-Zadanie obsługuje zadanie logowania do docelowej bazy danych. Można również definiować, konserwować i utrwalać skrypty języka Transact-SQL, które mają być wykonywane dla grupy baz danych.
+Można określić docelową bazę danych lub grupy baz danych, w których zadania będą wykonywane, oraz zdefiniować harmonogramy uruchamiania zadania.
+Zadanie obsługuje rejestrowanie w docelowej bazie danych. Możesz również definiować, obsługiwać i utrwalać skrypty języka Transact-SQL do wykonania w ramach grupy baz danych.
 
 Każde zadanie rejestruje stan wykonania, a także automatycznie ponawia próbę wykonania operacji w przypadku awarii.
 
@@ -51,7 +51,7 @@ Dostępne są następujące technologie planowania zadań:
 - **Zadania programu SQL Agent** są klasyczne i sprawdzonej — SQL Server testowany składnik planowania zadań, który jest dostępny w wystąpieniu zarządzanym usługi Azure SQL. Zadania programu SQL Agent nie są dostępne w Azure SQL Database.
 - **Zadania Elastic Database (wersja zapoznawcza)** to usługi planowania zadań, które wykonują zadania niestandardowe dla jednej lub wielu baz danych w Azure SQL Database.
 
-Warto zwrócić uwagę na kilka różnic między programem SQL Agent (dostępnym lokalnie i w ramach wystąpienia zarządzanego SQL) oraz agenta zadań elastycznych bazy danych (dostępne dla pojedynczych baz danych w Azure SQL Database i bazach danych w SQL Data Warehouse).
+Warto zwrócić uwagę na kilka różnic między programem SQL Agent (dostępnym lokalnie i w ramach wystąpienia zarządzanego SQL) oraz agenta zadań elastycznych bazy danych (dostępne dla pojedynczych baz danych w Azure SQL Database i bazach danych w usłudze Azure Synapse Analytics).
 
 | |Zadania elastyczne |Agent SQL |
 |---------|---------|---------|

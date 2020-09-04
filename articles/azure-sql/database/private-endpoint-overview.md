@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213365"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442602"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatny link do platformy Azure dla Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "88213365"
 Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na platformie Azure za pośrednictwem **prywatnego punktu końcowego**. Aby zapoznać się z listą usług PaaS Services, które obsługują funkcję link prywatny, przejdź do strony z [dokumentacją linku prywatnego](../../private-link/index.yml) . Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
 
 > [!IMPORTANT]
-> Ten artykuł dotyczy zarówno Azure SQL Database, jak i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse). Dla uproszczenia termin "baza danych" odnosi się do obu baz danych w Azure SQL Database i Azure Synapse Analytics. Podobnie wszystkie odwołania do "serwer" odwołują się do [logicznego serwera SQL](logical-servers.md) , który hostuje Azure SQL Database i usługi Azure Synapse Analytics. Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**.
+> Ten artykuł dotyczy zarówno Azure SQL Database, jak i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). Dla uproszczenia termin "baza danych" odnosi się do obu baz danych w Azure SQL Database i Azure Synapse Analytics. Podobnie wszystkie odwołania do "serwer" odwołują się do [logicznego serwera SQL](logical-servers.md) , który hostuje Azure SQL Database i usługi Azure Synapse Analytics. Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**.
 
 ## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Zapobieganie eksfiltracji danych)
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 428aa25bc40b556ffd7ca6e59948fc79c8bef1c5
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f924347b99d270ac97da5f6d6f4edf7a13efacee
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89238097"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89449613"
 ---
 > [!IMPORTANT]
 > * Zestaw SDK aparatu rozpoznawania formularzy obecnie jest przeznaczony dla wersji v 2.0 z usługi rozpoznawania.
@@ -539,7 +539,7 @@ Aby uruchomić tę metodę, należy wywołać ją z `Main` .
 ```csharp
 static void Main(string[] args)
 {
-    var trainCustomModel = TrainCustomModelNoLabels();
+    var trainCustomModel = TrainCustomModelWithLabels();
     Task.WaitAll(trainCustomModel);
 }
 ```
@@ -596,6 +596,7 @@ W tej sekcji pokazano, jak wyodrębnić informacje o kluczu/wartości i innej za
 Ta metoda zostanie użyta `StartRecognizeCustomFormsFromUri` . Zwracana wartość jest kolekcją `RecognizedForm` obiektów: jeden dla każdej strony w przesłanym dokumencie. Poniższy kod drukuje wyniki analizy w konsoli programu. Wypisuje wszystkie rozpoznane pola i odpowiadające im wartości, a także ocenę ufności.
 
 ```csharp
+static async Task RecognizeContentCustomModel()
 {
     // Use the custom model ID returned in the previous example.
     string modelId = "<modelId>";

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 60321363a7506d03ebf4aeffebac56305e231eb6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433054"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436225"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Samouczek: wdrażanie aplikacji na maszynach wirtualnych z systemem Linux na platformie Azure przy użyciu Azure DevOps Services i Azure Pipelines
 
@@ -35,7 +35,7 @@ Omawiane kwestie:
 > * Utwórz potok Azure Pipelines CD.
 > * Przeprowadzanie wdrożeń wyzwalanych ręcznie i za pomocą CI.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 * Zaloguj się do swojej organizacji Azure DevOps Services ( **https://dev.azure.com/** ). 
   Możesz uzyskać [bezpłatną organizację Azure DevOps Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -84,9 +84,9 @@ Postępuj zgodnie z dodatkowymi krokami opisanymi poniżej w zależności od sto
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Aby wdrażać aplikacje oparte na chmurze pod kątem rozruchowego i sprężyny chmurowej, należy utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) szablonu, który zapewnia w pełni obsługiwaną obsługę środowiska uruchomieniowego
-- Aby wdrożyć środowisko Java serwletów na serwerze Tomcat, należy utworzyć maszynę wirtualną z systemem Linux za pomocą języka Java 8 przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) szablonu platformy Azure i [skonfigurować Tomcat 9. x jako usługę](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Aby wdrożyć aplikację opartą na języku Java EE, użyj szablonu platformy Azure, aby utworzyć [maszynę wirtualną z systemem Linux + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) lub [maszynę wirtualną z systemem Linux + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) lub [maszynę wirtualną z systemem Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- Aby wdrażać aplikacje oparte na chmurze pod kątem rozruchowego i sprężyny chmurowej, należy utworzyć maszynę wirtualną z systemem Linux na platformie Azure przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) szablonu, który zapewnia w pełni obsługiwaną obsługę środowiska uruchomieniowego
+- Aby wdrożyć środowisko Java serwletów na serwerze Tomcat, należy utworzyć maszynę wirtualną z systemem Linux za pomocą języka Java 8 przy użyciu [tego](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) szablonu platformy Azure i [skonfigurować Tomcat 9. x jako usługę](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Aby wdrożyć aplikację opartą na języku Java EE, użyj szablonu platformy Azure, aby utworzyć [maszynę wirtualną z systemem Linux + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) lub [maszynę wirtualną z systemem Linux + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) lub [maszynę wirtualną z systemem Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-2004) + WildFly/JBoss 14 
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
@@ -225,7 +225,7 @@ Aby uzyskać więcej wskazówek, postępuj zgodnie z instrukcjami w sekcji [Komp
 
 3. Możesz określić eithor `runOnce` lub `rolling` strategię wdrażania. 
 
-   `runOnce`jest najprostszą strategią wdrażania, która powoduje, że wszystkie punkty zaczepienia cyklu życia, mianowicie `preDeploy` `deploy` , `routeTraffic` i `postRouteTraffic` , są wykonywane raz. Następnie albo `on:` `success` lub `on:` `failure` jest wykonywane.
+   `runOnce` jest najprostszą strategią wdrażania, która powoduje, że wszystkie punkty zaczepienia cyklu życia, mianowicie `preDeploy` `deploy` , `routeTraffic` i `postRouteTraffic` , są wykonywane raz. Następnie albo `on:` `success` lub `on:` `failure` jest wykonywane.
 
    Poniżej znajduje się przykładowy fragment kodu YAML dla `runOnce` :
    ```YAML
@@ -244,7 +244,7 @@ Aby uzyskać więcej wskazówek, postępuj zgodnie z instrukcjami w sekcji [Komp
              - script: echo my first deployment
    ```
 
-4. Poniżej znajduje się przykład fragmentu kodu YAML, którego można użyć do zdefiniowania strategii stopniowej aktualizacji maszyn wirtualnych do 5 elementów docelowych w każdej iteracji. `maxParallel`określi liczbę elementów docelowych, do których można wdrożyć równolegle. Wybór konta dla liczby bezwzględnej lub procentowej wartości docelowych, które muszą pozostać dostępne w dowolnym momencie, z wyjątkiem obiektów docelowych, które są wdrażane w. Jest on również używany do określania warunków sukcesu i niepowodzenia podczas wdrażania.
+4. Poniżej znajduje się przykład fragmentu kodu YAML, którego można użyć do zdefiniowania strategii stopniowej aktualizacji maszyn wirtualnych do 5 elementów docelowych w każdej iteracji. `maxParallel` określi liczbę elementów docelowych, do których można wdrożyć równolegle. Wybór konta dla liczby bezwzględnej lub procentowej wartości docelowych, które muszą pozostać dostępne w dowolnym momencie, z wyjątkiem obiektów docelowych, które są wdrażane w. Jest on również używany do określania warunków sukcesu i niepowodzenia podczas wdrażania.
 
    ```YAML
    jobs: 

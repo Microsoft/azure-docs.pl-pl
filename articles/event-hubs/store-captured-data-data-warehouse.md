@@ -1,26 +1,26 @@
 ---
-title: 'Samouczek: Migrowanie danych zdarzenia do SQL Data Warehouse platformy Azure Event Hubs'
-description: 'Samouczek: w tym samouczku pokazano, jak przechwytywać dane z centrum zdarzeń w usłudze SQL Data Warehouse przy użyciu funkcji platformy Azure wyzwalanej przez usługę Event Grid.'
+title: 'Samouczek: Migrowanie danych zdarzenia do usługi Azure Synapse Analytics — Azure Event Hubs'
+description: 'Samouczek: w tym samouczku pokazano, jak przechwytywać dane z centrum zdarzeń do usługi Azure Synapse Analytics przy użyciu funkcji platformy Azure wyzwalanej przez usługę Event Grid.'
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b6b6466675c8fa258af8370798cadd88e3b25a83
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b2a35647422c91d6859e1889f906ae512ce41a56
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997833"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436616"
 ---
-# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Samouczek: Migrowanie przechwyconych danych Event Hubs do SQL Data Warehouse przy użyciu Event Grid i Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-azure-synapse-analytics-using-event-grid-and-azure-functions"></a>Samouczek: Migrowanie przechwyconych danych Event Hubs do usługi Azure Synapse Analytics przy użyciu Event Grid i Azure Functions
 
-Funkcja [Capture](./event-hubs-capture-overview.md) usługi Event Hubs to najprostszy sposób, aby automatycznie dostarczać przesyłane strumieniowo dane z usługi Event Hubs do usługi Azure Blob Storage lub Azure Data Lake Store. Następnie można przetwarzać te dane i dostarczać je do dowolnie wybranego magazynu docelowego, na przykład usługi SQL Data Warehouse lub Cosmos DB. W tym samouczku dowiesz się, w jaki sposób zapisać dane z centrum zdarzeń w magazynie danych SQL, korzystając z funkcji platformy Azure wyzwalanej przez usługę [Event Grid](../event-grid/overview.md).
+Funkcja [Capture](./event-hubs-capture-overview.md) usługi Event Hubs to najprostszy sposób, aby automatycznie dostarczać przesyłane strumieniowo dane z usługi Event Hubs do usługi Azure Blob Storage lub Azure Data Lake Store. Następnie możesz przetwarzać i dostarczać dane do innych wybranych miejsc docelowych magazynu, takich jak Azure Synapse Analytics lub Cosmos DB. W tym samouczku dowiesz się, jak przechwytywać dane z centrum zdarzeń do usługi Azure Synapse Analytics przy użyciu funkcji platformy Azure wyzwalanej przez usługę [Event Grid](../event-grid/overview.md).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
 - Najpierw należy utworzyć centrum zdarzeń z włączoną funkcją **Capture** i ustawić usługę Azure Blob Storage jako miejsce docelowe. Dane wygenerowane przez element WindTurbineGenerator będą przesyłane strumieniowo do centrum zdarzeń i automatycznie zapisywane w usłudze Azure Storage jako pliki Avro.
 - Następnie należy utworzyć subskrypcję usługi Azure Event Grid, w której przestrzeń nazw usługi Event Hubs jest źródłem, a punkt końcowy funkcji platformy Azure — miejscem docelowym.
-- Zawsze gdy nowy plik Avro zostanie dostarczony do obiektu blob usługi Azure Storage przez funkcję Capture usługi Event Hubs, usługa Event Grid powiadomi funkcję platformy Azure za pomocą identyfikatora URI obiektu blob. Następnie funkcja przeprowadzi migrację danych z obiektu blob do magazynu danych SQL.
+- Zawsze gdy nowy plik Avro zostanie dostarczony do obiektu blob usługi Azure Storage przez funkcję Capture usługi Event Hubs, usługa Event Grid powiadomi funkcję platformy Azure za pomocą identyfikatora URI obiektu blob. Następnie funkcja migruje dane z obiektu BLOB do usługi Azure Synapse Analytics.
 
 W tym samouczku wykonasz następujące czynności:
 
@@ -30,7 +30,7 @@ W tym samouczku wykonasz następujące czynności:
 > - Publikowanie kodu do aplikacji usługi Functions
 > - Tworzenie subskrypcji usługi Event Grid na podstawie aplikacji usługi Functions
 > - Przesyłanie strumieniowe danych przykładowych do usługi Event Hub
-> - Weryfikowanie zapisanych danych w usłudze SQL Data Warehouse
+> - Weryfikowanie przechwyconych danych w usłudze Azure Synapse Analytics
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,7 +40,7 @@ W tym samouczku wykonasz następujące czynności:
 - Pobierz [przykład git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) przykładowe rozwiązanie zawiera następujące składniki:
 
   - *WindTurbineDataGenerator* — prosty wydawca, który wysyła przykładowe dane turbiny wiatrowej do centrum zdarzeń, w którym włączono funkcję Capture.
-  - *FunctionDWDumper* — funkcja platformy Azure, która odbiera powiadomienia usługi Event Grid, gdy plik Avro zostanie zapisany w obiekcie blob w usłudze Azure Storage. Odbiera ścieżkę identyfikatora URI obiektu blob, odczytuje jego zawartość i wypycha dane do usługi SQL Data Warehouse.
+  - *FunctionDWDumper* — funkcja platformy Azure, która odbiera powiadomienia usługi Event Grid, gdy plik Avro zostanie zapisany w obiekcie blob w usłudze Azure Storage. Otrzymuje ścieżkę identyfikatora URI obiektu BLOB, odczytuje jego zawartość i wypycha te dane do usługi Azure Synapse Analytics.
 
   Ten przykład używa najnowszego pakietu Azure. Messaging. EventHubs. Stary przykład wykorzystujący pakiet Microsoft. Azure. EventHubs można znaleźć [tutaj](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
@@ -53,7 +53,7 @@ Użyj programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure
 - Plan usługi Azure App Service do hostowania aplikacji usługi Functions
 - Aplikacja funkcji do przetwarzania plików zapisanych zdarzeń
 - Logiczny serwer SQL do hostowania hurtowni danych
-- Usługa SQL Data Warehouse do przechowywania migrowanych danych
+- Usługa Azure Synapse Analytics do przechowywania zmigrowanych danych
 
 Następujące sekcje zawierają polecenia interfejsu wiersza polecenia platformy Azure i programu Azure PowerShell umożliwiające wdrożenie infrastruktury wymaganej na potrzeby tego samouczka. Przed uruchomieniem poleceń należy zaktualizować nazwy następujących obiektów: 
 
@@ -91,9 +91,9 @@ New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Tworzenie tabeli w usłudze SQL Data Warehouse
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Tworzenie tabeli w usłudze Azure Synapse Analytics
 
-Utwórz tabelę w magazynie danych SQL, uruchamiając skrypt [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) przy użyciu programu [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) lub edytora zapytań w portalu. 
+Utwórz tabelę w usłudze Azure Synapse Analytics, uruchamiając skrypt [CreateDataWarehouseTable. SQL](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) przy użyciu [programu Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md)lub edytora zapytań w portalu. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
@@ -114,7 +114,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Publikowanie aplikacji funkcji](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Wybierz pozycję **Opublikuj**.
+1. Wybierz pozycję **Aplikacja funkcji platformy Azure**, a następnie pozycję **Wybierz istniejące**. Wybierz pozycję **Publikuj**.
 
    ![Docelowa aplikacja funkcji](./media/store-captured-data-data-warehouse/pick-target.png)
 
@@ -148,7 +148,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia Captur
    ![Tworzenie subskrypcji](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>Generowanie danych przykładowych  
-Konfiguracja centrum zdarzeń, magazynu danych SQL, aplikacji funkcji platformy Azure i subskrypcji zdarzeń została już wykonana. Możesz uruchomić plik WindTurbineDataGenerator.exe, aby wygenerować strumienie danych w centrum Event Hub po zaktualizowaniu parametrów połączenia i nazwy centrum zdarzeń w kodzie źródłowym. 
+Już skonfigurowano centrum zdarzeń, usługę Azure Synapse Analytics, platformę Azure aplikacja funkcji i subskrypcję Event Grid. Możesz uruchomić plik WindTurbineDataGenerator.exe, aby wygenerować strumienie danych w centrum Event Hub po zaktualizowaniu parametrów połączenia i nazwy centrum zdarzeń w kodzie źródłowym. 
 
 1. W portalu wybierz przestrzeń nazw swojego centrum zdarzeń. Wybierz **Parametry połączenia**.
 
@@ -174,9 +174,9 @@ Konfiguracja centrum zdarzeń, magazynu danych SQL, aplikacji funkcji platformy 
 6. Skompiluj rozwiązanie, a następnie uruchom aplikację WindTurbineGenerator.exe. 
 
 ## <a name="verify-captured-data-in-data-warehouse"></a>Weryfikowanie zapisanych danych w magazynie danych
-Po kilku minutach wyślij zapytanie do tabeli w magazynie danych SQL. Zauważysz, że dane generowane przez aplikację WindTurbineDataGenerator zostały przesłane strumieniowo do centrum Event Hub, zapisane w kontenerze usługi Azure Storage, a następnie przeniesione do tabeli usługi SQL Data Warehouse za pomocą funkcji platformy Azure.  
+Po kilku minutach Zbadaj tabelę w usłudze Azure Synapse Analytics. Należy zauważyć, że dane wygenerowane przez usługę WindTurbineDataGenerator zostały przesłane strumieniowo do centrum zdarzeń, przechwycone w kontenerze usługi Azure Storage, a następnie zmigrowane do tabeli usługi Azure Synapse Analytics przez funkcję platformy Azure.  
 
-## <a name="next-steps"></a>Kolejne kroki 
+## <a name="next-steps"></a>Następne kroki 
 Aby uzyskać praktyczne informacje, możesz użyć zaawansowanych narzędzi do wizualizacji danych w magazynie danych.
 
-W tym artykule przedstawiono sposób korzystania z usługi [Power BI z usługą SQL Data Warehouse](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
+W tym artykule pokazano, jak używać [Power BI z usługą Azure Synapse Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)

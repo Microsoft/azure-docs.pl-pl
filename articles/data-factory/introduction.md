@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e5123fbf038205befb207d1ecaf64e27ce42d887
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191112"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440970"
 ---
-# <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory?
+# <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -28,11 +28,11 @@ Na przykład wyobraź sobie producenta gier, który zbiera petabajty dzienników
 
 Do analizy tych dzienników firma musi użyć danych referencyjnych, np. informacji o kliencie, grze i kampanii marketingowej, które znajdują się w lokalnym magazynie danych. Firma chce korzystać z tych danych z lokalnego magazynu danych, łącząc je z dodatkowymi danymi dzienników znajdującymi się w magazynie danych w chmurze. 
 
-Aby wyodrębnić szczegółowe informacje, chce przetworzyć połączone dane przy użyciu klastra Spark w chmurze (Azure HDInsight), a następnie opublikować przekształcone dane w magazynie danych w chmurze, takim jak Azure SQL Data Warehouse, co ułatwi tworzenie raportów na ich podstawie. Firma zamierza zautomatyzować przepływ pracy, a także monitorować go i zarządzać nim w cyklu dziennym. Poza tym chce wykonywać przepływ pracy, gdy pliki znajdą się w kontenerze usługi Blob Storage.
+Aby wyodrębnić szczegółowe informacje, nadziei przetworzyć połączone dane przy użyciu klastra Spark w chmurze (Azure HDInsight), a następnie opublikować przekształcone dane w magazynie danych w chmurze, takim jak Azure Synapse Analytics (dawniej SQL Data Warehouse), aby łatwo utworzyć raport na jego podstawie. Firma zamierza zautomatyzować przepływ pracy, a także monitorować go i zarządzać nim w cyklu dziennym. Poza tym chce wykonywać przepływ pracy, gdy pliki znajdą się w kontenerze usługi Blob Storage.
 
 Azure Data Factory to platforma, która umożliwia pracę z takimi scenariuszami danych. Jest to *Usługa ETL i integracja danych oparta na chmurze, która umożliwia tworzenie przepływów pracy opartych na danych na potrzeby organizowania przenoszenia danych i przekształcania danych na dużą skalę*. Za pomocą usługi Azure Data Factory można tworzyć oparte na danych przepływy pracy (nazywane potokami) i ustalać ich harmonogram. Można tworzyć złożone procesy ETL, które przekształcają dane graficznie przy użyciu przepływów danych lub usług obliczeniowych, takich jak Azure HDInsight Hadoop, Azure Databricks i Azure SQL Database. 
 
-Ponadto możesz publikować przekształcone dane w magazynach danych, takich jak Azure SQL Data Warehouse for Business Intelligence (BI), aby korzystać z programu. Ostatecznie dzięki usłudze Azure Data Factory nieprzetworzone dane mogą być organizowane w praktyczne magazyny i usługi data lake ułatwiające podejmowanie właściwych decyzji biznesowych.
+Ponadto możesz publikować przekształcone dane w magazynach danych, takich jak aplikacje analizy biznesowej (BI Synapse Analytics) do użycia. Ostatecznie dzięki usłudze Azure Data Factory nieprzetworzone dane mogą być organizowane w praktyczne magazyny i usługi data lake ułatwiające podejmowanie właściwych decyzji biznesowych.
 
 ![Widok najwyższego poziomu usługi Data Factory](media/data-flow/overview.png)
 
@@ -119,5 +119,5 @@ Poniżej przedstawiono ważne dokumenty w następnym kroku umożliwiające Ekspl
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)
-- [Szablon Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
+- [Szablon usługi Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md)
  

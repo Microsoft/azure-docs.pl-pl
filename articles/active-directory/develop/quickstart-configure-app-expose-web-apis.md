@@ -1,146 +1,119 @@
 ---
-title: 'Szybki Start: Konfigurowanie aplikacji w celu udostępnienia internetowego interfejsu API | Azure'
+title: 'Szybki Start: rejestrowanie i Uwidacznianie interfejsu API sieci Web | Azure'
 titleSuffix: Microsoft identity platform
-description: W tym przewodniku szybki start dowiesz się, jak skonfigurować aplikację, aby uwidocznić nowe uprawnienia/zakres i rolę w celu udostępnienia aplikacji aplikacjom klienckim.
+description: W tym przewodniku szybki start zarejestrujesz internetowy interfejs API z platformą tożsamości firmy Microsoft i skonfigurujesz jej zakresy, umożliwiając klientom dostęp do zasobów interfejsu API na podstawie uprawnień.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830295"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442159"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Szybki Start: Konfigurowanie aplikacji do udostępniania internetowego interfejsu API
 
-Opracowane internetowe interfejsy API można udostępniać aplikacjom klienckim przez uwidocznienie [uprawnień/zakresów](developer-glossary.md#scopes) i [ról](developer-glossary.md#roles). Prawidłowo skonfigurowany internetowy interfejs API jest udostępniany podobnie jak inne internetowe interfejsy API firmy Microsoft, w tym interfejs API programu Graph i interfejsy API usługi Office 365.
-
-W tym przewodniku szybki start dowiesz się, jak skonfigurować aplikację, aby uwidocznić nowy zakres w celu udostępnienia aplikacji klienckich.
+W tym przewodniku szybki start zarejestrujesz internetowy interfejs API za pomocą platformy tożsamości firmy Microsoft i udostępnimy go aplikacjom klienckim przez dodanie przykładowego zakresu. Rejestrując internetowy interfejs API i uwidaczniając go za pośrednictwem zakresów, możesz zapewnić dostęp oparty na uprawnieniach do swoich zasobów autoryzowanym użytkownikom i aplikacjom klienckim, które uzyskują dostęp do interfejsu API.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Kończenie [przewodnika Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md).
+* Konto platformy Azure z aktywną subskrypcją — [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Kończenie [przewodnika Szybki Start: Konfigurowanie dzierżawy](quickstart-create-new-tenant.md)
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logowanie do witryny Azure Portal i wybranie aplikacji
+## <a name="register-the-web-api"></a>Rejestrowanie internetowego interfejsu API
 
-Przed skonfigurowaniem aplikacji wykonaj następujące kroki:
+Aby zapewnić dostęp z zakresu do zasobów w internetowym interfejsie API, należy najpierw zarejestrować interfejs API na platformie tożsamości firmy Microsoft.
 
-1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
-1. Jeśli Twoje konto umożliwia dostęp do więcej niż jednej dzierżawy, wybierz konto w prawym górnym rogu, a następnie ustaw sesję portalu na odpowiednią dzierżawę usługi Azure AD.
-1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**.
-1. Znajdź i wybierz aplikację do skonfigurowania. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji lub główną stronę rejestracji.
-1. Wybierz metodę do użycia (interfejs użytkownika lub manifest aplikacji) w celu uwidocznienia nowego zakresu:
-    * [Uwidacznianie nowego zakresu za pomocą interfejsu użytkownika](#expose-a-new-scope-through-the-ui)
-    * [Uwidacznianie nowego zakresu lub roli za pomocą manifestu aplikacji](#expose-a-new-scope-or-role-through-the-application-manifest)
+1. Wykonaj kroki opisane w sekcji **Rejestrowanie aplikacji** [przewodnika Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md).
+1. Pomiń sekcje **Dodawanie identyfikatora URI przekierowania** i **Konfigurowanie ustawień platformy** . Nie musisz konfigurować identyfikatora URI przekierowania dla internetowego interfejsu API, ponieważ żaden użytkownik nie jest interaktywnie zalogowany.
+1. Pomiń sekcję **Dodaj poświadczenia** teraz. Tylko wtedy, gdy interfejs API uzyskuje dostęp do podrzędnego interfejsu API, będzie potrzebować własnych poświadczeń, a w tym artykule nie omówiono tego scenariusza.
 
-## <a name="expose-a-new-scope-through-the-ui"></a>Uwidacznianie nowego zakresu za pomocą interfejsu użytkownika
+Po zarejestrowaniu interfejsu API sieci Web możesz dodać zakresy, które mogą być używane przez kod interfejsu API w celu zapewnienia szczegółowych uprawnień użytkownikom interfejsu API.
 
-[![Pokazuje, jak uwidocznić interfejs API przy użyciu interfejsu użytkownika](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+## <a name="add-a-scope"></a>Dodawanie zakresu
 
-Aby uwidocznić nowy zakres za pomocą interfejsu użytkownika:
+Kod w aplikacji klienckiej żąda uprawnień do wykonywania operacji zdefiniowanych przez internetowy interfejs API przez przekazanie tokenu dostępu wraz z żądaniami do chronionego zasobu (internetowy interfejs API). Internetowy interfejs API wykonuje następnie żądaną operację tylko wtedy, gdy otrzymany token dostępu zawiera zakresy wymagane dla operacji.
 
-1. Na stronie **Przegląd** aplikacji wybierz sekcję **Uwidocznij interfejs API**.
+Najpierw wykonaj następujące kroki, aby utworzyć przykładowy zakres o nazwie `Employees.Read.All` :
 
-1. Wybierz polecenie **Dodaj zakres**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Jeśli masz dostęp do wielu dzierżawców, Użyj filtru **katalogów i subskrypcji** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: w górnym menu, aby wybrać dzierżawcę zawierający rejestrację aplikacji klienckiej.
+1. Wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**, a następnie wybierz pozycję Rejestracja aplikacji interfejsu API.
+1. Wybierz opcję **Uwidacznianie interfejsu API**  >  **Dodaj zakres**.
 
-1. Jeśli nie ustawisz pozycji **Identyfikator URI identyfikatora aplikacji**, zostanie wyświetlony monit o jej określenie. Podaj identyfikator URI identyfikatora aplikacji lub użyj udostępnionego identyfikatora, a następnie wybierz pozycję **Zapisz i kontynuuj**.
+    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="Rejestracja aplikacji uwidacznia okienko interfejsu API w Azure Portal":::
 
-1. Gdy zostanie wyświetlona strona **Dodawanie zakresu**, podaj informacje o Twoim zakresie:
+1. Zostanie wyświetlony monit o ustawienie **identyfikatora URI aplikacji** , jeśli nie został on jeszcze skonfigurowany.
 
-    | Pole | Opis |
-    |-------|-------------|
-    | **Nazwa zakresu** | Podaj znaczącą nazwę zakresu.<br><br>Na przykład `Employees.Read.All`. |
-    | **Kto może wyrazić zgodę** | Wybierz, czy użytkownicy mogą wyrazić zgodę na ten zakres, czy też jest wymagana zgoda administratora. Wybierz pozycję **Tylko administratorzy** dla uprawnień dających duże przywileje. |
-    | **Nazwa wyświetlana zgody administratora** | Podaj znaczący opis zakresu, który będzie widoczny dla administratorów.<br><br>Na przykład `Read-only access to Employee records` |
-    | **Opis na potrzeby wyrażenia zgody przez administratora** | Podaj znaczący opis zakresu, który będzie widoczny dla administratorów.<br><br>Na przykład `Allow the application to have read-only access to all Employee data.` |
+   Identyfikator URI aplikacji działa jako prefiks zakresów, które będą się odwoływać w kodzie interfejsu API, i musi być globalnie unikatowy. Możesz użyć podanej wartości domyślnej, która jest w postaci `api://<application-client-id>` lub określić bardziej czytelny identyfikator URI `https://contoso.com/api` .
 
-    Jeśli użytkownicy mogą wyrazić zgodę na zakres, dodaj także wartości dla następujących pól:
+1. Następnie określ atrybuty zakresu w okienku **Dodaj zakres** . W tym przewodniku można użyć przykładowych wartości lub określić własne.
 
-    | Pole | Opis |
-    |-------|-------------|
-    | **Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika** | Podaj znaczącą nazwę dla zakresu, która będzie widoczna dla użytkowników.<br><br>Na przykład `Read-only access to your Employee records` |
-    | **Opis na potrzeby wyrażenia zgody przez użytkownika** | Podaj znaczący opis zakresu, który będzie widoczny dla użytkowników.<br><br>Na przykład `Allow the application to have read-only access to your Employee data.` |
+    | Pole | Opis | Przykład |
+    |-------|-------------|---------|
+    | **Nazwa zakresu** | Nazwa zakresu. Wspólna konwencja nazewnictwa zakresów to `resource.operation.constraint` . | `Employees.Read.All` |
+    | **Kto może wyrazić zgodę** | Określa, czy ten zakres może być uznawany przez użytkowników, czy wymagana jest zgoda administratora. Wybierz pozycję **Tylko administratorzy** dla uprawnień dających duże przywileje. | **Administratorzy i użytkownicy** |
+    | **Nazwa wyświetlana zgody administratora** | Krótki opis celu zakresu, który będzie widoczny tylko dla administratorów. | `Read-only access to Employee records` |
+    | **Opis na potrzeby wyrażenia zgody przez administratora** | Bardziej szczegółowy opis uprawnień przyznanych przez zakres, które będą widoczne tylko dla administratorów. | `Allow the application to have read-only access to all Employee data.` |
+    | **Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika** | Krótki opis celu zakresu. Widoczne dla użytkowników tylko wtedy, gdy ustawisz **, kto może wyrazić zgodę** na **administratorów i użytkowników**. | `Read-only access to your Employee records` |
+    | **Opis na potrzeby wyrażenia zgody przez użytkownika** | Bardziej szczegółowy opis uprawnień przyznanych przez zakres. Widoczne dla użytkowników tylko wtedy, gdy ustawisz **, kto może wyrazić zgodę** na **administratorów i użytkowników**. | `Allow the application to have read-only access to your Employee data.` |
 
-1. Ustaw pozycję **Stan** i wybierz polecenie **Dodaj zakres** po zakończeniu.
+1. Ustaw **stan** na **włączone**, a następnie wybierz pozycję **Dodaj zakres**.
 
-1. Obowiązkowe Aby pominąć monitowanie o zgodę użytkowników aplikacji na zdefiniowane zakresy, możesz "wstępnie autoryzować" aplikację kliencką, aby uzyskać dostęp do internetowego interfejsu API. Należy wstępnie autoryzować *tylko* te aplikacje klienckie, które są zaufane, ponieważ użytkownicy nie będą mogli zrezygnować z zgody.
+1. Obowiązkowe Aby pominąć monitowanie o zgodę użytkowników aplikacji na zdefiniowane zakresy, możesz *wstępnie autoryzować* aplikację kliencką w celu uzyskania dostępu do internetowego interfejsu API. Wstępnie Autoryzuj *tylko* te aplikacje klienckie, którym ufasz, ponieważ użytkownicy nie będą mogli zrezygnować z zgody.
     1. W obszarze **autoryzowane aplikacje klienckie**wybierz pozycję **Dodaj aplikację kliencką** .
     1. Wprowadź **Identyfikator aplikacji** klienckiej, która ma zostać wstępnie autoryzowana. Na przykład, że wcześniej zarejestrowano aplikację sieci Web.
     1. W obszarze **autoryzowane zakresy**wybierz zakresy, dla których chcesz pominąć monitowanie o zgodę, a następnie wybierz pozycję **Dodaj aplikację**.
 
-    Aplikacja kliencka jest teraz wstępnie autoryzowaną aplikacją klienta (PPW), a użytkownicy nie będą monitowani o zgodę na zalogowanie się do niego.
+    Jeśli wykonano ten krok opcjonalny, aplikacja kliencka jest teraz wstępnie autoryzowaną aplikacją klienta (PPW) i użytkownicy nie będą monitowani o ich zgodę podczas logowania się do niego.
 
-1. Wykonaj kroki, aby [zweryfikować, czy internetowy interfejs API został uwidoczniony dla innych aplikacji](#verify-the-web-api-is-exposed-to-other-applications).
+## <a name="add-a-scope-requiring-admin-consent"></a>Dodawanie zakresu wymagającego zgody administratora
 
-## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Uwidacznianie nowego zakresu lub roli za pomocą manifestu aplikacji
+Następnie Dodaj inny przykładowy zakres o nazwie `Employees.Write.All` tylko Administratorzy mogą wyrazić zgodę. Zakresy wymagające zgody administratora są zwykle używane do zapewniania dostępu do operacji o wyższym poziomie uprawnień i często przez aplikacje klienckie, które działają jako usługi zaplecza lub demony, które nie logują się użytkownika interaktywnie.
 
-Manifest aplikacji służy jako mechanizm aktualizowania jednostki aplikacji, która definiuje atrybuty rejestracji aplikacji usługi Azure AD.
+Aby dodać `Employees.Write.All` przykład zakresu, postępuj zgodnie z instrukcjami w sekcji [Dodawanie zakresu](#add-a-scope) i określ te wartości w okienku **Dodaj zakres** :
 
-[![Uwidacznianie nowego zakresu przy użyciu kolekcji oauth2Permissions w manifeście](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+| Pole                          | Przykładowa wartość                                                      |
+|--------------------------------|--------------------------------------------------------------------|
+| **Nazwa zakresu**                 | `Employees.Write.All`                                              |
+| **Kto może wyrazić zgodę**            | **Tylko Administratorzy**                                                    |
+| **Nazwa wyświetlana zgody administratora** | `Write access to Employee records`                                 |
+| **Opis na potrzeby wyrażenia zgody przez administratora**  | `Allow the application to have write access to all Employee data.` |
+| **Nazwa wyświetlana na potrzeby wyrażenia zgody przez użytkownika**  | *Brak (pozostaw puste)*                                               |
+| **Opis na potrzeby wyrażenia zgody przez użytkownika**   | *Brak (pozostaw puste)*                                               |
 
-Aby uwidocznić nowy zakres przez edycję manifestu aplikacji:
+## <a name="verify-the-exposed-scopes"></a>Weryfikowanie uwidocznionych zakresów
 
-1. Na stronie **Przegląd** aplikacji wybierz sekcję **Manifest**. Zostanie otwarty internetowy edytor manifestu umożliwiający **edycję** manifest w obrębie portalu. Opcjonalnie możesz wybrać pozycję **Pobierz** i edytować manifest lokalnie, a następnie użyć pozycji **Przekaż** w celu ponownego zastosowania go dla aplikacji.
+Jeśli pomyślnie dodano oba przykładowe zakresy opisane w poprzednich sekcjach, zostaną one wyświetlone w okienku **Uwidacznianie interfejsu API** w ramach rejestracji aplikacji internetowego interfejsu API, podobnie jak w przypadku tego obrazu:
 
-    Następujący przykład pokazuje, jak uwidocznić nowy zakres o nazwie `Employees.Read.All` w zasobie/interfejsie API przez dodanie następującego element JSON do kolekcji `oauth2Permissions`.
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Zrzut ekranu przedstawiający okienko Uwidacznianie interfejsu API zawierające dwa uwidocznione zakresy.":::
 
-    Wygeneruj `id` wartość programowo lub za pomocą narzędzia generowania identyfikatora GUID, takiego jak [Guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
-
-      ```json
-      {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-      }
-      ```
-
-1. Po skończeniu kliknij przycisk **Zapisz**. Teraz internetowy interfejs API jest skonfigurowany do użycia przez inne aplikacje w katalogu.
-1. Wykonaj kroki, aby [zweryfikować, czy internetowy interfejs API został uwidoczniony dla innych aplikacji](#verify-the-web-api-is-exposed-to-other-applications).
-
-Aby uzyskać więcej informacji na temat jednostki aplikacji i jej schematu, zobacz dokumentację referencyjną typu zasobów [aplikacji][ms-graph-application] Microsoft Graph.
-
-Aby uzyskać więcej informacji na temat manifestu aplikacji, w tym jego odwołania do schematu, zobacz [Opis manifestu aplikacji usługi Azure AD](reference-app-manifest.md).
-
-## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Weryfikowanie, czy internetowy interfejs API został uwidoczniony dla innych aplikacji
-
-1. Wróć do dzierżawy usługi Azure AD, wybierz pozycję **rejestracje aplikacji**, a następnie Znajdź i wybierz aplikację kliencką, którą chcesz skonfigurować.
-1. Powtórz kroki opisane w temacie [Konfigurowanie aplikacji klienckiej do uzyskiwania dostępu do interfejsów API sieci Web](quickstart-configure-app-access-web-apis.md).
-1. Po przekroczeniu kroku, aby [wybrać interfejs API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), wybierz zasób (Rejestracja aplikacji interfejsu API sieci Web).
-    * Jeśli została utworzona Rejestracja aplikacji interfejsu API sieci Web przy użyciu Azure Portal, zasób interfejsu API zostanie wyświetlony na karcie **Moje interfejsy API** .
-    * Jeśli zezwolisz programowi Visual Studio na utworzenie rejestracji aplikacji internetowego interfejsu API podczas tworzenia projektu, zasób interfejsu API zostanie wyświetlony na karcie **interfejsy API używane przez moją organizację** .
-
-Po wybraniu zasobu internetowego interfejsu API powinien zostać wyświetlony nowy zakres dla żądań uprawnień klienta.
-
-## <a name="using-the-exposed-scopes"></a>Używanie uwidocznionych zakresów
-
-Po odpowiednim skonfigurowaniu klienta z uprawnieniami dostępu do internetowego interfejsu API można wystawić token dostępu OAuth 2,0 za pomocą usługi Azure AD. Gdy klient wywołuje internetowy interfejs API, przedstawia token dostępu, który ma ustawiony zakres ( `scp` ) na uprawnienia wymagane w rejestracji aplikacji.
-
-Jeśli jest to konieczne, później można uwidocznić dodatkowe zakresy. Należy pamiętać, że internetowy interfejs API może uwidoczniać wiele zakresów powiązanych z różnymi funkcjami. Zasób może kontrolować dostęp do internetowego interfejsu API w czasie wykonywania, oceniając oświadczenia zakresu (`scp`) w odebranym tokenie dostępu OAuth 2.0.
-
-W aplikacjach pełna wartość zakresu jest połączeniem **identyfikatora aplikacji** internetowego interfejsu API (zasobu) i **nazwy zakresu**.
+Jak pokazano na obrazie, pełny ciąg zakresu jest połączeniem identyfikatora **aplikacji** internetowego interfejsu API i **nazwy zakresu**zakresu.
 
 Na przykład, jeśli identyfikator URI aplikacji internetowego interfejsu API to `https://contoso.com/api` i nazwa zakresu to `Employees.Read.All` , pełny zakres to:
 
 `https://contoso.com/api/Employees.Read.All`
 
+## <a name="using-the-exposed-scopes"></a>Używanie uwidocznionych zakresów
+
+W następnym artykule z serii można skonfigurować rejestrację aplikacji klienta z dostępem do internetowego interfejsu API i zakresami zdefiniowanymi przez wykonanie kroków opisanych w tym artykule.
+
+Po nadaniu rejestracji aplikacji klienckiej uprawnienia dostępu do internetowego interfejsu API klient może otrzymać token dostępu OAuth 2,0 za pomocą platformy tożsamości firmy Microsoft. Gdy klient wywołuje internetowy interfejs API, przedstawia token dostępu, którego zakres ( `scp` ) jest ustawiony na uprawnienia określone w rejestracji aplikacji klienta.
+
+Jeśli jest to konieczne, później można uwidocznić dodatkowe zakresy. Należy pamiętać, że interfejs API sieci Web może uwidaczniać wiele zakresów skojarzonych z kilkoma operacjami. Zasób może kontrolować dostęp do internetowego interfejsu API w środowisku uruchomieniowym przez ocenę zakresu ( `scp` ) roszczeń w tokenie dostępu OAuth 2,0, który odbiera.
+
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy interfejs API sieci Web został uwidoczniony przez skonfigurowanie jego zakresów, skonfiguruj rejestrację aplikacji klienta z uprawnieniami dostępu do tych zakresów.
+Teraz, gdy interfejs API sieci Web został uwidoczniony przez skonfigurowanie jego zakresów, skonfiguruj rejestrację aplikacji klienta z uprawnieniami dostępu do zakresów.
 
 > [!div class="nextstepaction"]
 > [Skonfiguruj rejestrację aplikacji na potrzeby dostępu do interfejsu API sieci Web](quickstart-configure-app-access-web-apis.md)

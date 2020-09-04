@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321094"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436260"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Wprowadzenie do usługi Azure Data Factory 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -28,14 +28,14 @@ ms.locfileid: "85321094"
 > Ten artykuł dotyczy wersji 1 usługi Azure Data Factory. Jeśli korzystasz z bieżącej wersji usługi Data Factory, zobacz [Wprowadzenie do usługi Data Factory w wersji 2](../introduction.md).
 
 
-## <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory?
+## <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
 W jaki sposób istniejące dane są wykorzystywane w biznesowej rzeczywistości opartej na danych big data? Czy można wzbogacić informacje wygenerowane w chmurze danymi referencyjnymi, pochodzącymi z lokalnych — lub innych, różnorodnych — źródeł danych? 
 
 Na przykład firma tworząca gry zbiera dzienniki generowane przez gry w chmurze. Chce analizować te dzienniki w celu uzyskania szczegółowych informacji dotyczących preferencji klientów, danych demograficznych, zachowania użytkowników podczas korzystania z gier itp. Firma chce też identyfikować możliwości sprzedaży droższych produktów i sprzedaży wiązanej, opracowywać nowe atrakcyjne funkcje pozytywnie wpływające na rozwój biznesowy oraz oferować klientom udoskonalone środowisko gier. 
 
 Do analizy tych dzienników firma musi użyć danych referencyjnych, np. informacji o kliencie, grze i kampanii marketingowej, które znajdują się w lokalnym magazynie danych. W związku z tym firma chce pozyskać dane dzienników z magazynu danych w chmurze oraz dane referencyjne z lokalnego magazynu danych. 
 
-Następnie firma chce przetwarzać dane, używając usługi Hadoop w chmurze (Azure HDInsight). Dane wynikowe mają zostać opublikowane w magazynie danych w chmurze, takim jak Azure SQL Data Warehouse, lub w lokalnym magazynie danych, np. SQL Server. Firma chce uruchamiać taki przepływ pracy raz w tygodniu. 
+Następnie firma chce przetwarzać dane, używając usługi Hadoop w chmurze (Azure HDInsight). Chcą opublikować dane wynikowe w magazynie danych w chmurze, takim jak Azure Synapse Analytics (dawniej SQL Data Warehouse) lub lokalnym magazynem danych, takim jak SQL Server. Firma chce uruchamiać taki przepływ pracy raz w tygodniu. 
 
 Firma potrzebuje platformy, na której może utworzyć przepływ pracy pozyskujący dane z magazynu lokalnego i w chmurze. Firma musi mieć też możliwość przekształcania lub przetwarzania danych za pomocą istniejących usług obliczeniowych, takich jak Hadoop, i publikowania wyników w lokalnym magazynie danych lub magazynie danych w chmurze, aby mogły z nich korzystać aplikacje analizy biznesowej. 
 
@@ -47,7 +47,7 @@ Usługa Azure Data Factory to platforma umożliwiająca realizację takich scena
 
 - Przetwarzać i przekształcać dane za pomocą usług obliczeniowych, takich jak Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics i Azure Machine Learning.
 
--  Publikować dane wyjściowe w magazynach danych, na przykład Azure SQL Data Warehouse, w celu użycia przez aplikacje analizy biznesowej.  
+-  Publikowanie danych wyjściowych w magazynach danych, takich jak Azure Synapse Analytics for Business Intelligence (BI), do użycia.  
 
 To bardziej platforma, która najpierw wyodrębnia i ładuje, a następnie przekształca i ładuje, niż tradycyjna platforma wyodrębniania, przekształcania i ładowania. Podczas przekształcania dane są przetwarzane przez zastosowanie usług obliczeniowych, a nie przez dodanie kolumn pochodnych, które służą do zliczania liczby wierszy, sortowania danych itp. 
 

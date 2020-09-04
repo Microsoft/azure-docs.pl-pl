@@ -1,18 +1,18 @@
 ---
 title: 'Samouczek: wysyłanie danych Event Hubs do magazynu danych — Event Grid'
-description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event Hubs do migrowania danych do SQL Data Warehouse. Do pobierania pliku przechwytywania służy funkcja platformy Azure.'
+description: 'Samouczek: zawiera opis sposobu używania Azure Event Grid i Event Hubs do migrowania danych do usługi Azure Synapse Analytics. Do pobierania pliku przechwytywania służy funkcja platformy Azure.'
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c4a1943981fc3e9f1df0fafff540e24ee3631e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007455"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435035"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
-Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. W tym [przykładzie integracji usług Event Hubs i Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazano, jak bezproblemowo przeprowadzić migrację przechwyconych danych usługi Event Hubs z magazynu obiektów blob do usługi SQL Data Warehouse przy użyciu usług Event Hubs i Event Grid.
+Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. Ten [Event Hubs i Event Grid integracji](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazują, jak używać Event Hubs z Event Grid, aby bezproblemowo migrować przechwycone dane Event Hubs z magazynu obiektów BLOB do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
 ![Omówienie aplikacji](media/event-grid-event-hubs-integration/overview.png)
 
@@ -22,12 +22,12 @@ Ten diagram przedstawia przepływ pracy rozwiązania, które tworzysz w ramach t
 2. Po zakończeniu przechwytywania następuje wygenerowanie zdarzenia i wysłanie go do siatki zdarzeń Azure. 
 3. Siatka zdarzeń przekazuje te dane zdarzeń do aplikacji funkcji platformy Azure.
 4. Aplikacja funkcji pobiera obiekt blob z magazynu, używając adresu URL obiektu blob. 
-5. Aplikacja funkcji przeprowadza migrację danych obiektów blob do magazynu danych SQL platformy Azure. 
+5. Aplikacja funkcji migruje dane obiektów BLOB do usługi Azure Synapse Analytics. 
 
 W tym artykule wykonasz następujące kroki:
 
 > [!div class="checklist"]
-> * Wdrażanie infrastruktury: centrum zdarzeń, konta magazynu, aplikacji funkcji i magazynu danych SQL przy użyciu szablonu usługi Azure Resource Manager.
+> * Użyj szablonu Azure Resource Manager, aby wdrożyć infrastrukturę: centrum zdarzeń, konto magazynu, aplikacja funkcji, analiza Synapse.
 > * Tworzenie tabeli w magazynie danych.
 > * Dodawanie kodu do aplikacji funkcji.
 > * Subskrybowanie zdarzenia. 
@@ -52,7 +52,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
 * Plan usługi aplikacji do hostowania aplikacji funkcji
 * Aplikacja funkcji do przetwarzania zdarzeń
 * Rozwiązanie SQL Server do hostowania magazynu danych
-* Usługa SQL Data Warehouse do przechowywania migrowanych danych
+* Usługa Azure Synapse Analytics do przechowywania zmigrowanych danych
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Uruchamianie usługi Azure Cloud Shell w witrynie Azure Portal
 
@@ -97,7 +97,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
           "tags": null
         }
         ```
-2. Wdróż wszystkie zasoby wymienione w poprzedniej sekcji (centrum zdarzeń, konto magazynu, aplikację funkcji, magazyn danych SQL), uruchamiając następujące polecenie interfejsu wiersza polecenia: 
+2. Wdróż wszystkie zasoby wymienione w poprzedniej sekcji (centrum zdarzeń, konto magazynu, aplikację funkcji, Azure Synapse Analytics), uruchamiając następujące polecenie interfejsu wiersza polecenia: 
     1. Skopiuj polecenie i wklej je w oknie usługi Cloud Shell. Możesz również skopiować polecenie i wkleić je do wybranego edytora, określić wartości, a następnie skopiować polecenie do usługi Cloud Shell. 
 
         ```azurecli
@@ -112,7 +112,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
         3. Nazwa centrum zdarzeń. Możesz pozostawić wartość bez zmian (hubdatamigration).
         4. Nazwa serwera SQL.
         5. Nazwa użytkownika i hasło SQL. 
-        6. Nazwa magazynu danych SQL.
+        6. Nazwa usługi Azure Synapse Analytics
         7. Nazwa konta magazynu. 
         8. Nazwa aplikacji funkcji. 
     3.  W oknie usługi Cloud Shell naciśnij klawisz **ENTER**, aby uruchomić polecenie. Ten proces może zająć trochę czasu, ponieważ tworzysz wiele zasobów. W wyniku wykonania polecenia upewnij się, że nie wystąpiły żadne błędy. 
@@ -131,7 +131,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
         ```
     2. Określ nazwę **grupy zasobów**.
     3. Naciśnij klawisz ENTER. 
-3. Wdróż wszystkie zasoby wymienione w poprzedniej sekcji (centrum zdarzeń, konto magazynu, aplikację funkcji, magazyn danych SQL), uruchamiając następujące polecenie:
+3. Wdróż wszystkie zasoby wymienione w poprzedniej sekcji (centrum zdarzeń, konto magazynu, aplikację funkcji, Azure Synapse Analytics), uruchamiając następujące polecenie:
     1. Skopiuj polecenie i wklej je w oknie usługi Cloud Shell. Możesz również skopiować polecenie i wkleić je do wybranego edytora, określić wartości, a następnie skopiować polecenie do usługi Cloud Shell. 
 
         ```powershell
@@ -143,7 +143,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
         3. Nazwa centrum zdarzeń. Możesz pozostawić wartość bez zmian (hubdatamigration).
         4. Nazwa serwera SQL.
         5. Nazwa użytkownika i hasło SQL. 
-        6. Nazwa magazynu danych SQL.
+        6. Nazwa usługi Azure Synapse Analytics
         7. Nazwa konta magazynu. 
         8. Nazwa aplikacji funkcji. 
     3.  W oknie usługi Cloud Shell naciśnij klawisz **ENTER**, aby uruchomić polecenie. Ten proces może zająć trochę czasu, ponieważ tworzysz wiele zasobów. W wyniku wykonania polecenia upewnij się, że nie wystąpiły żadne błędy. 
@@ -162,13 +162,13 @@ Zamknij usługę Cloud Shell, wybierając przycisk **Cloud Shell** w portalu (lu
 
     ![Zasoby w grupie zasobów](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Tworzenie tabeli w usłudze SQL Data Warehouse
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Tworzenie tabeli w usłudze Azure Synapse Analytics
 Utwórz tabelę w swoim magazynie danych, uruchamiając skrypt [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Do uruchomienia skryptu możesz użyć programu Visual Studio lub Edytora zapytań w portalu. W poniższych krokach pokazano, jak użyć Edytora zapytań: 
 
 1. Na liście zasobów w grupie zasobów wybierz swoją **pulę SQL Synapse (magazyn danych)**. 
-2. Na stronie magazynu danych SQL wybierz pozycję **Edytor zapytań (wersja zapoznawcza)** w menu po lewej stronie. 
+2. Na stronie Analiza usługi Azure Synapse wybierz pozycję **Edytor zapytań (wersja zapoznawcza)** w menu po lewej stronie. 
 
-    ![Strona magazynu danych SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
+    ![Strona analizy usługi Azure Synapse](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
 2. Wprowadź nazwę **użytkownika** i **hasło** dla serwera SQL, a następnie wybierz pozycję **OK**. Może być konieczne dodanie adresu IP klienta do zapory, aby pomyślnie zalogować się do programu SQL Server. 
 
     ![Uwierzytelnianie serwera SQL](media/event-grid-event-hubs-integration/sql-server-authentication.png)
@@ -258,7 +258,7 @@ Po opublikowaniu funkcji możesz przystąpić do subskrybowania zdarzenia.
         ![Tworzenie subskrypcji usługi Event Grid](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Uruchamianie aplikacji w celu wygenerowania danych
-Konfiguracja centrum zdarzeń, magazynu danych SQL, aplikacji funkcji platformy Azure i subskrypcji zdarzeń została już ukończona. Przed uruchomieniem aplikacji, która generuje dane dla centrum zdarzeń, należy skonfigurować kilka wartości.
+Zakończono konfigurowanie centrum zdarzeń, usługi Azure Synapse Analytics, aplikacji funkcji platformy Azure i subskrypcji zdarzeń. Przed uruchomieniem aplikacji, która generuje dane dla centrum zdarzeń, należy skonfigurować kilka wartości.
 
 1. W witrynie Azure Portal jak poprzednio przejdź do grupy zasobów. 
 2. Wybierz przestrzeń nazw usługi Event Hubs.
@@ -308,7 +308,7 @@ Usługa Event Grid dystrybuuje dane zdarzenia do subskrybentów. Poniższy przyk
 ```
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby poznać różnice miedzy usługami obsługi komunikatów na platformie Azure, zobacz [Wybieranie między usługami platformy Azure dostarczającymi komunikaty](compare-messaging-services.md).
 * Aby zapoznać się z wprowadzeniem do usługi Event Grid, zobacz [Wprowadzenie do usługi Azure Event Grid](overview.md).

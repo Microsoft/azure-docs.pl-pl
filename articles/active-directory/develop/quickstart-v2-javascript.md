@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ed94b44972ffc8c53ce96c0240f11ad44535531b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120528"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434609"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
@@ -41,7 +41,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > 1. Przejdź do nowego okienka [Azure Portal-rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) .
 > 1. Wprowadź nazwę aplikacji.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
-> 1. Wybierz pozycję **Rejestruj**.
+> 1. Wybierz pozycję **Zarejestruj**.
 > 1. Postępuj zgodnie z instrukcjami, aby pobrać i automatycznie skonfigurować nową aplikację.
 >
 > ### <a name="option-2-manual-register-and-manually-configure-your-application-and-code-sample"></a>Opcja 2 (ręczna): Zarejestruj i ręcznie skonfiguruj aplikację oraz przykład kodu
@@ -55,7 +55,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** wprowadź nazwę aplikacji.
 > 1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
-> 1. Wybierz pozycję **Rejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
+> 1. Wybierz pozycję **Zarejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. Ten przewodnik Szybki start wymaga włączenia [przepływu niejawnego udzielenia](v2-oauth2-implicit-grant-flow.md). W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
 > 1. W obszarze **Konfiguracja platformy**wybierz pozycję **Dodaj platformę**. Po lewej stronie zostanie otwarty panel. W tym miejscu wybierz region **aplikacje sieci Web** .
 > 1. Nadal po lewej stronie Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/` . Następnie wybierz **token dostępu** i **token identyfikatora**.
@@ -151,7 +151,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 Uruchom projekt z serwerem sieci Web przy użyciu [Node.js](https://nodejs.org/en/download/):
 
 1. Aby uruchomić serwer, uruchom następujące polecenie w katalogu projektu:
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -179,7 +179,7 @@ Biblioteka MSAL rejestruje użytkowników i żąda tokenów, które są używane
 
 Alternatywnie, jeśli zainstalowano Node.js, możesz pobrać najnowszą wersję za pomocą Menedżera pakietów Node.js (npm):
 
-```batch
+```cmd
 npm install msal
 ```
 
@@ -241,7 +241,7 @@ myMSALObj.loginPopup(loginRequest)
 
 ### <a name="request-tokens"></a>Żądanie tokenów
 
-MSAL używa trzech metod do uzyskiwania tokenów: `acquireTokenRedirect` , `acquireTokenPopup` i`acquireTokenSilent`
+MSAL używa trzech metod do uzyskiwania tokenów: `acquireTokenRedirect` , `acquireTokenPopup` i `acquireTokenSilent`
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
@@ -268,7 +268,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
-Istnieją sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Na przykład:
+Istnieją sytuacje, w których należy wymusić, aby użytkownicy mogli korzystać z punktu końcowego platformy tożsamości firmy Microsoft. Przykład:
 * Może być konieczne ponowne wprowadzenie poświadczeń przez użytkowników, ponieważ ich hasło wygasło.
 * Aplikacja żąda dostępu do dodatkowych zakresów zasobów, do których użytkownik musi wyrazić zgodę.
 * Wymagane jest uwierzytelnianie dwuskładnikowe.

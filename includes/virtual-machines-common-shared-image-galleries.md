@@ -1,18 +1,18 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ce2ce146b8a8ba06729c5e9428bccb8a60e14c39
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501966"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89449640"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -83,7 +83,7 @@ Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkr
 
 ## <a name="regional-support"></a>Obsługa regionalna
 
-Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii środkowe i Australii środkowej 2 należy dodać subskrypcję do listy dozwolonych. Aby zażądać dodania subskrypcji do listy dozwolonych, przejdź do:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Wszystkie regiony publiczne mogą być regionami docelowymi, ale w celu replikowania do Australii środkowe i Australii środkowej 2 należy dodać subskrypcję do listy dozwolonych. Aby zażądać dodania subskrypcji do listy dozwolonych, przejdź do: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Limity 
 
@@ -123,14 +123,14 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ![Ilustracja przedstawiająca sposób replikowania obrazów](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Dostęp
 
 Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 
 | Udostępnione użytkownikowi     | Galeria obrazów udostępnionych | Definicja obrazu | Wersja obrazu |
 |----------------------|----------------------|--------------|----------------------|
 | Galeria obrazów udostępnionych | Tak                  | Tak          | Tak                  |
-| Definicja obrazu     | Nie                   | Yes          | Tak                  |
+| Definicja obrazu     | Nie                   | Tak          | Tak                  |
 
 Zalecamy udostępnianie na poziomie galerii w celu uzyskania najlepszego środowiska. Nie zaleca się udostępniania poszczególnych wersji obrazu. Aby uzyskać więcej informacji na temat RBAC, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -196,7 +196,7 @@ Możesz utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów
 * [Jakie są opłaty za korzystanie z galerii obrazów udostępnionych?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Jakiej wersji interfejsu API należy użyć do utworzenia galerii obrazów udostępnionych i definicji obrazu i wersji obrazu?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Jakiej wersji interfejsu API należy użyć do utworzenia udostępnionej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych z wersji obrazu?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby użyć obrazów z galerii udostępnionych obrazów?]
+* [Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby użyć obrazów z galerii udostępnionych obrazów?] (#can-i-Update-My-Virtual-Machine-Scale-Set-Created-using-Managed-Image-Shared-Image-Gallery)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Jak można wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów w ramach subskrypcji?
 

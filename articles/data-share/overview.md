@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511925"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433436"
 ---
 # <a name="what-is-azure-data-share"></a>Co to jest usługa Azure Data Share?
 
@@ -45,7 +45,7 @@ Dostawcy danych mogą oferować klientom danych przyrostowe aktualizacje danych,
 
 ![przepływ udostępniania danych](media/data-share-flow.png)
 
-Gdy odbiorca danych akceptuje udział danych, może odbierać dane w wybranym przez siebie magazynie danych. Na przykład jeśli dostawca danych udostępnia dane za pomocą usługi Azure Blob Storage, odbiorca danych może odbierać te dane w Azure Data Lake Store. Podobnie, jeśli dostawca danych udostępnia dane z Azure SQL Data Warehouse, odbiorca danych może zdecydować, czy chcą otrzymywać dane do Azure Data Lake Store, Azure SQL Database czy Azure SQL Data Warehouse. W przypadku udostępniania z poziomu źródeł opartych na języku SQL odbiorca danych może również wybrać, czy mają oni odbierać dane w Parquet czy CSV. 
+Gdy odbiorca danych akceptuje udział danych, może odbierać dane w wybranym przez siebie magazynie danych. Na przykład jeśli dostawca danych udostępnia dane za pomocą usługi Azure Blob Storage, odbiorca danych może odbierać te dane w Azure Data Lake Store. Podobnie, jeśli dostawca danych udostępnia dane z usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), odbiorca danych może zdecydować, czy chcą otrzymywać dane do Azure Data Lake Store, Azure SQL Database czy analizy Synapse Azure. W przypadku udostępniania z poziomu źródeł opartych na języku SQL odbiorca danych może również wybrać, czy mają oni odbierać dane w Parquet czy CSV. 
 
 W przypadku udostępniania w miejscu dostawcy danych mogą udostępniać dane, w których znajdują się bez kopiowania danych. Po ustanowieniu relacji udostępniania za pomocą przepływu zaproszenia zostanie utworzone łącze symboliczne między źródłowym magazynem danych dostawcy danych a docelowym magazynem danych odbiorcy danych. Konsument danych może odczytywać i wysyłać zapytania dotyczące danych w czasie rzeczywistym przy użyciu własnego magazynu danych. Zmiany w źródłowym magazynie danych są natychmiast dostępne dla konsumenta danych. Udostępnianie w miejscu jest obecnie dostępne w wersji zapoznawczej dla usługi Azure Eksplorator danych.
 
