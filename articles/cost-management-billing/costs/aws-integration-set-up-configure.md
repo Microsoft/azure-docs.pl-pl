@@ -3,17 +3,17 @@ title: Konfigurowanie integracji platformy AWS z usługą Azure Cost Management
 description: W tym artykule przedstawiono sposób ustawiania i konfigurowania integracji raportów o kosztach i użyciu platformy AWS z usługą Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 639d63df060a680e8c135a9be054ac412d1ca8dd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685004"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266112"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Ustawianie i konfigurowanie integracji raportów o kosztach i użyciu platformy AWS
 
@@ -71,7 +71,6 @@ Użyj kreatora tworzenia nowej roli:
 5. W polu **Account ID** (Identyfikator konta ) wprowadź **432263259397**.
 6. W obszarze **Options** (Opcje) wybierz pozycję **Require external ID** (Wymagaj zewnętrznego identyfikatora) (to najlepsze rozwiązanie, gdy ta rola zostanie przyjęta przez inny podmiot).
 7. W polu **External ID** (Identyfikator zewnętrzny) wprowadź identyfikator zewnętrzny, który jest udostępnionym kodem dostępu między rolą AWS a usługą Azure Cost Management. Ten sam identyfikator zewnętrzny jest również używany na stronie **Nowy łącznik** w usłudze Cost Management. Firma Microsoft zaleca stosowanie zasad silnych kodów dostępu podczas wprowadzania identyfikatora zewnętrznego.
-
     > [!NOTE]
     > Nie zmieniaj zaznaczenia dla opcji **Require MFA** (Wymaganie usługi MFA). Pole powinno pozostać niezaznaczone.
 8. Wybierz opcję **Dalej: Permissions** (Dalej: uprawnienia).
@@ -148,23 +147,23 @@ Kod JSON zasad powinien przypominać poniższy przykład. Zastąp element _bucke
 }
 ```
 
-## <a name="set-up-a-new-aws-connector-in-azure"></a>Konfigurowanie nowego łącznika platformy AWS na platformie Azure
+## <a name="set-up-a-new-connector-for-aws-in-azure"></a>Konfigurowanie nowego łącznika dla platformy AWS na platformie Azure
 
 Skorzystaj z poniższych informacji, aby utworzyć łącznik platformy AWS i rozpocząć monitorowanie kosztów dotyczących platformy AWS:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Przejdź do obszaru **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami**.
-3. W obszarze **Ustawienia** wybierz pozycję **Łączniki chmury (wersja zapoznawcza)** .  
-    ![Przykład pokazujący ustawienie łączników chmury (wersja zapoznawcza)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
-4. Wybierz pozycję **+ Dodaj** w górnej części strony, aby utworzyć łącznik.
-5. Na stronie **Utwórz łącznik platformy AWS** w polu **Nazwa wyświetlana** wprowadź nazwę łącznika.  
-    ![Przykładowa strona do tworzenia łącznika platformy AWS](./media/aws-integration-setup-configure/create-aws-connector01.png)
-6. Ewentualnie możesz wybrać domyślną grupę zarządzania. Zostaną tam zapisane wszystkie wykryte połączone konta. Można to skonfigurować później.
-7. W sekcji **Rozliczenia** wybierz pozycję **Automatycznie naliczaj opłaty w wysokości 1% po ogólnym udostępnieniu**, jeśli chcesz zapewnić ciągłość działania po wygaśnięciu wersji zapoznawczej. W przypadku wybrania opcji automatycznej należy wybrać subskrypcję rozliczeniową.
-8. W polu **Rola ARN** wprowadź wartość użytą podczas konfigurowania roli na platformie AWS.
-9. W polu **Identyfikator zewnętrzny** wprowadź wartość użytą podczas konfigurowania roli na platformie AWS.
-10. W polu **Nazwa raportu** wprowadź nazwę utworzoną na platformie AWS.
-11. Wybierz przycisk **Dalej**, a następnie wybierz pozycję **Utwórz**.
+3. W obszarze **Ustawienia** wybierz pozycję **Łączniki dla platformy AWS**.  
+4. Wybierz pozycję **+ Dodaj** w górnej części strony, aby utworzyć łącznik.  
+    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Przykład pokazujący ustawienie Łączniki dla platformy AWS" :::
+1. Na stronie **Utwórz łącznik**  w polu **Nazwa wyświetlana** wprowadź nazwę łącznika.  
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Przykładowa strona do tworzenia łącznika platformy AWS" :::
+1. Ewentualnie możesz wybrać domyślną grupę zarządzania. Zostaną tam zapisane wszystkie wykryte połączone konta. Można to skonfigurować później.
+1. W sekcji **Rozliczenia** ustaw opcję **Automatyczne odnawianie** w pozycji **Włączone**, jeśli chcesz zapewnić ciągłość operacji. W przypadku wybrania opcji automatycznej należy wybrać subskrypcję rozliczeniową.
+1. W polu **Rola ARN** wprowadź wartość użytą podczas konfigurowania roli na platformie AWS.
+1. W polu **Identyfikator zewnętrzny** wprowadź wartość użytą podczas konfigurowania roli na platformie AWS.
+1. W polu **Nazwa raportu** wprowadź nazwę utworzoną na platformie AWS.
+1. Wybierz przycisk **Dalej**, a następnie wybierz pozycję **Utwórz**.
 
 Pojawienie się nowych zakresów platformy AWS, skonsolidowanych kont platformy AWS, połączonych kont platformy AWS i ich danych dotyczących kosztów może potrwać kilka godzin.
 
@@ -178,16 +177,19 @@ Przypisanie uprawnień łącznika do użytkowników po wystąpieniu wykrycia nie
 - Sprawdź, czy nowe zakresy są dodawane do selektora zakresu. Wybierz pozycję **Odśwież**, aby wyświetlić najnowsze dane.
 - Na stronie **Łączniki chmury** wybierz swój łącznik i wybierz pozycję **Przejdź do konta rozliczeniowego**, aby przypisać połączone konto do grup zarządzania.
 
-## <a name="manage-cloud-connectors"></a>Zarządzanie łącznikami chmury
+> [!NOTE]
+> Grupy zarządzania nie są obecnie obsługiwane w przypadku klientów umowy MCA. Klienci umowy MCA mogą utworzyć łącznik, aby wyświetlać swoje dane platformy AWS. Jednak klienci umowy MCA nie mogą wyświetlać kosztów platformy Azure i AWS razem w ramach grupy zarządzania.
 
-Po wybraniu łącznika na stronie **Łączniki chmury** można wykonać następujące czynności:
+## <a name="manage-aws-connectors"></a>Zarządzanie łącznikami platformy AWS
+
+Po wybraniu łącznika na stronie **Łączniki dla platformy AWS** można wykonać następujące czynności:
 
 - Wybrać pozycję **Przejdź do konta rozliczeniowego**, aby wyświetlić informacje dotyczące skonsolidowanego konta platformy AWS.
 - Wybrać pozycję **Kontrola dostępu**, aby zarządzać przypisaniem roli dla łącznika.
 - Wybrać pozycję **Edytuj**, aby zaktualizować łącznik. Nie można zmienić numeru konta platformy AWS, ponieważ pojawia się on w nazwie ARN roli. Jednak można utworzyć nowy łącznik.
 - Wybrać pozycję **Sprawdź**, aby ponownie uruchomić test weryfikacyjny w celu upewnienia się, że usługa Cost Management może zbierać dane przy użyciu ustawień łącznika.
 
-![Przykładowa lista utworzonych łączników platformy AWS](./media/aws-integration-setup-configure/list-aws-connectors.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="Szczegóły przykładowego łącznika platformy AWS" :::
 
 ## <a name="set-up-azure-management-groups"></a>Konfigurowanie grup zarządzania platformy Azure
 
@@ -197,9 +199,9 @@ Jeśli chcesz rozdzielić koszty, możesz utworzyć grupę zarządzania, która 
 
 ## <a name="set-up-an-aws-consolidated-account"></a>Konfigurowanie skonsolidowanego konta platformy AWS
 
-Skonsolidowane konto platformy AWS łączy rozliczenia i płatność dla wielu kont platformy AWS. Działa również jako połączone konto platformy AWS.
+Skonsolidowane konto platformy AWS łączy rozliczenia i płatność dla wielu kont platformy AWS. Działa również jako połączone konto platformy AWS. Użyj linku na stronie łącznika platformy AWS, aby wyświetlić szczegóły skonsolidowanego konta platformy AWS. 
 
-![Przykładowe szczegóły skonsolidowanego konta platformy AWS](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="Przykładowe szczegóły skonsolidowanego konta platformy AWS" :::
 
 Na tej stronie można:
 
@@ -221,7 +223,7 @@ Na tej stronie można:
 - Wybrać pozycję **Aktualizuj**, aby zaktualizować skojarzenie połączonego konta platformy AWS z grupą zarządzania.
 - Wybrać pozycję **Kontrola dostępu**, aby ustawić przypisanie roli dla zakresu.
 
-![Przykład strony połączonego konta platformy AWS](./media/aws-integration-setup-configure/aws-linked-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="Przykład strony połączonego konta platformy AWS" :::
 
 ### <a name="permissions-for-an-aws-linked-account"></a>Uprawnienia dla połączonego konta platformy AWS
 

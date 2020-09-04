@@ -4,8 +4,6 @@
   items:
     - name: Co to jest usługa Azure Front Door?
       href: front-door-overview.md
-    - name: Co nowego w usłudze Azure Front Door
-      href: front-door-whats-new.md
 - name: Przewodniki Szybki start
   expanded: true
   items:

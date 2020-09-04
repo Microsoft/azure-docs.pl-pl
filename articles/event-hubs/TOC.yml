@@ -125,8 +125,12 @@
       maintainContext: true
 - name: Przewodniki z instrukcjami
   items:
-    - name: Przechodzenie między regionami
-      href: move-across-regions.md
+    - name: Move
+      items:
+        - name: Przenoszenie przestrzeni nazw do innego regionu
+          href: move-across-regions.md
+        - name: Przenoszenie dedykowanego klastra do innego regionu
+          href: move-cluster-across-regions.md
     - name: Dynamiczne dodawanie partycji
       href: dynamically-add-partitions.md
     - name: Użycie usługi Blob Storage jako magazynu punktów kontrolnych w usłudze Azure Stack Hub

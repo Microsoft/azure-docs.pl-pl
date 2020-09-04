@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: d3199eb67e5672cd6f4a6d99219f184e7fbbdf6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687403"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294411"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Rozwiązywanie problemów z dostępem do portalu Umowy Enterprise platformy Azure
 
@@ -32,7 +32,7 @@ Portal EA platformy Azure służy do przyznawania uprawnień użytkownikom z ró
 - Konto służbowe między dzierżawami — dla organizacji, które skonfigurowały usługę Active Directory Federation w chmurze i mają konta w wielu dzierżawach.
 - Konto mieszane — umożliwia dodawanie użytkowników przy użyciu konta Microsoft lub konta służbowego.
 
-Pierwsze konto służbowe dodane do rejestracji określa domenę _domyślną_ lub _główną_. Aby dodać konto służbowe do innej dzierżawy, należy zmienić poziom uwierzytelniania w obszarze Rejestracja na potrzeby uwierzytelniania między dzierżawami.
+Pierwsze konto służbowe dodane do rejestracji określa domenę _domyślną_. Aby dodać konto służbowe do innej dzierżawy, należy zmienić poziom uwierzytelniania w obszarze Rejestracja na potrzeby uwierzytelniania między dzierżawami.
 
 Aby zaktualizować poziom uwierzytelniania:
 

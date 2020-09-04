@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: ada202a8683b64144f2adacc759b9461472e4a31
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: 080cf9d8b7816b28f299396de2fe147fc2f9b27e
+  ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262572"
+  ms.lasthandoff: 09/02/2020
+  ms.locfileid: "89378886"
 landingContent:
 - title: Informacje o usłudze Azure Key Vault
   linkLists:
@@ -54,14 +54,20 @@ landingContent:
       url: security-recommendations.md
     - text: Punkt odniesienia zabezpieczeń
       url: security-baseline.md
+  - linkListType: how-to-guide
+    links:
+    - text: Uwierzytelnianie w usłudze Key Vault
+      url: authentication.md
+    - text: Przypisywanie zasad dostępu (interfejs wiersza polecenia)
+      url: assign-access-policy-CLI.md
+    - text: Przypisywanie zasad dostępu (PowerShell)
+      url: assign-access-policy-powershell.md
+    - text: Przypisywanie zasad dostępu (portal)
+      url: assign-access-policy-portal.md
   - linkListType: tutorial
     links:
     - text: Używanie linku prywatnego
       url: private-link-service.md
-    - text: Korzystanie z tożsamości zarządzanej
-      url: managed-identity.md
-    - text: Używanie zasad dostępu
-      url: group-permissions-for-apps.md
 - title: Biblioteki klienta
   linkLists:
   - linkListType: reference

@@ -4,16 +4,6 @@
   items:
     - name: Co to jest usługa Virtual WAN?
       href: virtual-wan-about.md
-    - name: Architektura
-      items:
-        - name: Migrowanie do usługi Virtual WAN
-          href: migrate-from-hub-spoke-topology.md
-        - name: Architektura globalnej sieci tranzytowej
-          href: virtual-wan-global-transit-network-architecture.md
-        - name: Architektura łączności SD-WAN
-          href: sd-wan-connectivity-architecture.md
-        - name: Wzajemne połączenia z Chinami
-          href: interconnect-china.md
 - name: Samouczki
   items:
     - name: Tworzenie połączenia typu lokacja-lokacja
@@ -36,11 +26,21 @@
           href: virtual-wan-locations-partners.md
         - name: Wskazówki dotyczące automatyzacji dla partnerów
           href: virtual-wan-configure-automation-providers.md
+    - name: Architektura
+      items:
+        - name: Migrowanie do usługi Virtual WAN
+          href: migrate-from-hub-spoke-topology.md
+        - name: Architektura globalnej sieci tranzytowej
+          href: virtual-wan-global-transit-network-architecture.md
+        - name: Architektura łączności SD-WAN
+          href: sd-wan-connectivity-architecture.md
+        - name: Wzajemne połączenia z Chinami
+          href: interconnect-china.md
     - name: Routing
       items:
         - name: Informacje na temat routingu na koncentratorze wirtualnym
           href: about-virtual-hub-routing.md
-        - name: Scenariusze
+        - name: Scenariusze routingu
           items:
             - name: Dowolny z dowolnym
               href: scenario-any-to-any.md
@@ -154,8 +154,6 @@
   items:
     - name: Często zadawane pytania
       href: virtual-wan-faq.md
-    - name: Ogłoszenia dotyczące aktualizacji
-      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Limity usług i subskrypcji

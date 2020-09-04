@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ffb72b4b06b8925cae57989a171d7efbd88c3866
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686610"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997578"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -24,6 +24,9 @@ W tym artykule przedstawiono ogólną procedurę przenoszenia subskrypcji platfo
 Rozliczający się bezpośrednio partnerzy będący dostawcami usług w chmurze, którzy są certyfikowani jako dostawcy [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp), mogą zażądać przeniesienia subskrypcji platformy Azure dla swoich klientów, którzy mają bezpośrednią umowę Enterprise Agreement (EA). Transfery subskrypcji są dozwolone tylko dla klientów, którzy zaakceptowali Umowę z Klientem Microsoft (MCA) i zakupili plan platformy Azure.
 
 Po zatwierdzeniu żądania dostawca usług w chmurze może udostępnić swoim klientom łączną fakturę. Aby dowiedzieć się więcej o tym, jak dostawcy usług w chmurze przenoszą subskrypcje, zobacz [Uzyskiwanie własności rozliczeń subskrypcji platformy Azure dla konta umowy partnerskiej firmy Microsoft](mpa-request-ownership.md).
+
+>[!IMPORTANT]
+> Po przeniesieniu subskrypcji EA do partnera dostawcy rozwiązań w chmurze każde zwiększenie limitu przydziału wcześniej zastosowane w subskrypcji EA zostanie zresetowane do wartości domyślnej. Jeśli po przeniesieniu subskrypcji wymagany jest dodatkowy limit przydziału, dostawca rozwiązań w chmurze musi przesłać żądanie [zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Przenoszenie innych subskrypcji do partnera będącego dostawcą usług w chmurze CSP
 

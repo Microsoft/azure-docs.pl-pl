@@ -82,6 +82,8 @@
       items:
         - name: Pozyskiwanie danych telemetrycznych z usługi IoT Hub
           href: how-to-ingest-iot-hub-data.md
+        - name: Automatyczne zarządzanie urządzeniami przy użyciu usługi DPS
+          href: how-to-provision-using-device-provisioning-service.md
         - name: Integrowanie z usługą Logic Apps
           href: how-to-integrate-logic-apps.md
     - name: Łączenie danych wyjściowych
@@ -183,7 +185,9 @@
         - name: Moduł sprawdzania poprawności DTDL (przykład)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: Przykład integracji usług DPS i IoT Hub
-          href: 'https://github.com/Azure-Samples/digital-twins-iothub-integration'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
+        - name: Niestandardowe struktury Swagger usługi Azure Digital Twins
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
     - name: Narzędzia platformy Azure
       items:
         - name: Azure Cloud Shell

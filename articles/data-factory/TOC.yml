@@ -590,6 +590,8 @@
           href: enable-customer-managed-key.md
         - name: Zarządzana sieć wirtualna
           href: managed-virtual-network-private-endpoint.md
+        - name: Usługa Azure Private Link dla usługi Data Factory
+          href: data-factory-private-link.md
     - name: Monitorowanie i zarządzanie
       items:
         - name: Monitorowanie wizualne

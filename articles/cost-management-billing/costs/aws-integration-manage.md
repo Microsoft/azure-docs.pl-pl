@@ -3,18 +3,18 @@ title: Zarządzanie kosztami i użyciem platformy AWS w usłudze Azure Cost Mana
 description: Z tego artykułu dowiesz się, jak korzystać z analizy kosztów i budżetów w usłudze Cost Management w celu zarządzania kosztami i użyciem platformy AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4d6a961388c9794a7584e8529dac75d068f91ed4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685021"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266227"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Zarządzanie kosztami i użyciem platformy AWS na platformie Azure
 
@@ -36,17 +36,18 @@ W następnych sekcjach opisano sposób korzystania z zakresów, aby wyświetlać
 
 ### <a name="view-aws-linked-accounts-under-a-management-group"></a>Wyświetlanie połączonych kont platformy AWS w grupie zarządzania
 
-Wyświetlanie kosztów przy użyciu zakresu grupy zarządzania jest jedynym sposobem wyświetlania zagregowanych kosztów pochodzących z różnych subskrypcji i połączonych kont. Korzystanie z grupy zarządzania zapewnia widok międzychmurowy.
+Wyświetlanie kosztów przy użyciu zakresu grupy zarządzania jest jedynym sposobem wyświetlania zagregowanych kosztów pochodzących z różnych subskrypcji platformy Azure i połączonych kont platformy AWS. Korzystanie z grupy zarządzania zapewnia widok międzychmurowy, umożliwiający wyświetlanie kosztów platform Azure i AWS razem.
 
 W analizie kosztów otwórz selektor zakresu i wybierz grupę zarządzania, która zawiera połączone konta platformy AWS. Oto przykładowy obraz w witrynie Azure Portal:
 
-![Przykład widoku wyboru zakresu](./media/aws-integration-manage/select-scope01.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami w ramach grupy zarządzania" :::
 
 Oto przykład przedstawiający koszt grupy zarządzania w analizie kosztów, pogrupowany według dostawcy (platformy Azure i AWS).
 
-![Przykład przedstawiający koszty platform Azure i AWS na kwartał w analizie kosztów](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Przykład przedstawiający koszty platform Azure i AWS na kwartał w analizie kosztów" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+
+> [!NOTE]
+> Grupy zarządzania nie są obecnie obsługiwane w przypadku klientów umowy MCA. Klienci umowy MCA mogą utworzyć łącznik, aby wyświetlać swoje dane platformy AWS. Jednak klienci umowy MCA nie mogą wyświetlać kosztów platformy Azure i AWS razem w ramach grupy zarządzania.
 
 ### <a name="view-aws-linked-account-costs"></a>Wyświetlanie kosztów połączonego konta platformy AWS
 
@@ -54,21 +55,17 @@ Aby wyświetlić koszty połączonego konta platformy AWS, otwórz selektor zakr
 
 Oto przykład przedstawiający wybór zakresu połączonego konta platformy AWS.
 
-![Przykład widoku wyboru zakresu](./media/aws-integration-manage/select-scope02.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Przykład widoku wyboru zakresu z połączonymi kontami platformy AWS" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Wyświetlanie kosztów skonsolidowanego konta platformy AWS
 
 Aby wyświetlić koszty skonsolidowanego konta platformy AWS, otwórz selektor zakresu i wybierz skonsolidowane konto platformy AWS. Oto przykład przedstawiający wybór zakresu skonsolidowanego konta platformy AWS.
 
-![Przykład widoku wyboru zakresu](./media/aws-integration-manage/select-scope03.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Przykład widoku wyboru zakresu ze skonsolidowanymi kontami" :::
 
 Ten zakres zapewnia zagregowany widok wszystkich połączonych kont platformy AWS skojarzonych ze skonsolidowanym kontem platformy AWS. Oto przykład przedstawiający koszty skonsolidowanego konta platformy AWS, pogrupowane według nazwy usługi.
 
-![Przykład przedstawiający koszty skonsolidowanego konta platformy AWS w analizie kosztów](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Przykład przedstawiający koszty skonsolidowanego konta platformy AWS w analizie kosztów" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Wymiary dostępne do filtrowania i grupowania
 
@@ -77,28 +74,28 @@ W poniższej tabeli opisano wymiary dostępne do grupowania i filtrowania w anal
 | Wymiar | Nagłówek raportu Amazon CUR | Zakresy | Komentarze |
 | --- | --- | --- | --- |
 | Strefa dostępności | lineitem/AvailabilityZone | Wszyscy |   |
-| Lokalizacja | product/Region | Wszyscy |   |
+| Lokalizacja | product/Region | Wszystko |   |
 | Miernik |   | Wszyscy |   |
 | Kategoria miernika | lineItem/ProductCode | Wszyscy |   |
 | Podkategoria miernika | lineitem/UsageType | Wszyscy |   |
 | Operacja | lineItem/Operation | Wszyscy |   |
 | Zasób | lineItem/ResourceId | Wszyscy |   |
-| Typ zasobu | product/instanceType | Wszyscy | Jeśli element product/instanceType ma wartość null, używany jest element lineItem/UsageType. |
-| ResourceGuid | Nie dotyczy | Wszyscy | Identyfikator GUID miernika platformy Azure. |
-| Nazwa usługi | product/ProductName | Wszyscy | Jeśli element product/ProductName ma wartość null, używany jest element lineItem/ProductCode. |
-| Warstwa usług |   |   |   |
+| Typ zasobu | product/instanceType | Wszystko | Jeśli element product/instanceType ma wartość null, używany jest element lineItem/UsageType. |
+| ResourceGuid | Brak | Wszystko | Identyfikator GUID miernika platformy Azure. |
+| Nazwa usługi | product/ProductName | Wszystko | Jeśli element product/ProductName ma wartość null, używany jest element lineItem/ProductCode. |
+| Warstwa usługi |   |   |   |
 | Identyfikator subskrypcji | lineItem/UsageAccountId | Skonsolidowane konto i grupa zarządzania |   |
-| Nazwa subskrypcji | Nie dotyczy | Skonsolidowane konto i grupa zarządzania | Nazwy kont są zbierane przy użyciu interfejsu AWS Organization API. |
-| Tag | resourceTags/\* | Wszyscy | Prefiks _user:_ jest usuwany z tagów zdefiniowanych przez użytkownika, aby umożliwić używanie tagów międzychmurowych. Prefiks _aws:_ pozostaje nienaruszony. |
+| Nazwa subskrypcji | Brak | Skonsolidowane konto i grupa zarządzania | Nazwy kont są zbierane przy użyciu interfejsu AWS Organization API. |
+| Tag | resourceTags | Wszystko | Prefiks _user:_ jest usuwany z tagów zdefiniowanych przez użytkownika, aby umożliwić używanie tagów międzychmurowych. Prefiks _aws:_ pozostaje nienaruszony. |
 | Identyfikator konta rozliczeniowego | bill/PayerAccountId | Grupa zarządzania |   |
-| Nazwa konta rozliczeniowego | Nie dotyczy | Grupa zarządzania | Nazwy kont są zbierane przy użyciu interfejsu AWS Organization API. |
-| Dostawca | Nie dotyczy | Grupa zarządzania | Platforma AWS lub Azure. |
+| Nazwa konta rozliczeniowego | Brak | Grupa zarządzania | Nazwy kont są zbierane przy użyciu interfejsu AWS Organization API. |
+| Dostawca | Brak | Grupa zarządzania | Platforma AWS lub Azure. |
 
 ## <a name="set-budgets-on-aws-scopes"></a>Ustawianie budżetów w zakresach platformy AWS
 
 Używaj budżetów, aby aktywnie zarządzać kosztami i zwiększyć odpowiedzialność w organizacji. Budżety są ustawiane na zakresy skonsolidowanego konta platformy AWS i połączonego konta platformy AWS. Oto przykład budżetu dla skonsolidowanego konta platformy AWS, pokazany w usłudze Cost Management:
 
-![Przykład przedstawiający budżet skonsolidowanego konta platformy AWS](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Przykład przedstawiający budżet skonsolidowanego konta platformy AWS" :::
 
 ## <a name="aws-data-collection-process"></a>Proces zbierania danych w usłudze AWS
 
@@ -110,15 +107,15 @@ Po skonfigurowaniu łącznika platformy AWS rozpocznie się proces zbierania i o
 
 ## <a name="aws-integration-pricing"></a>Ceny integracji platformy AWS
 
-Z bezpłatnej wersji próbnej każdego łącznika platformy AWS można korzystać przez 90 dni. W czasie trwania publicznej wersji zapoznawczej nie jest naliczana opłata.
+Z bezpłatnej wersji próbnej każdego łącznika platformy AWS można korzystać przez 90 dni.
 
 Cena wynosi 1% miesięcznych kosztów platformy AWS. W każdym miesiącu opłata jest naliczana na podstawie kosztów zafakturowanych w poprzednim miesiącu.
 
-Dostęp do interfejsów API platformy AWS może pociągnąć za sobą dodatkowe koszty.
+Dostęp do interfejsów API platformy AWS może pociągnąć za sobą dodatkowe koszty na platformie AWS.
 
 ## <a name="aws-integration-limitations"></a>Ograniczenia integracji z platformą AWS
 
-- Usługa Cost Management nie obsługuje raportów kosztów zawierających wiele typów walut. Komunikat o błędzie jest wyświetlany w przypadku wybrania zakresu, który ma wiele walut.
+- Budżety w usłudze Cost Management nie obsługują grup zarządzania z wieloma walutami. W przypadku grup zarządzania z wieloma walutami ocena budżetu nie jest wyświetlana. Jeśli wybierzesz grupę zarządzania z wieloma walutami podczas tworzenia budżetu, zostanie wyświetlony komunikat o błędzie.
 - Łączniki chmury nie obsługują usług AWS GovCloud (US), AWS Gov ani AWS China.
 - W usłudze Cost Management są wyświetlane tylko _koszty użycia_ platformy AWS. Podatki, pomoc techniczna, zwroty, wystąpienia zarezerwowane, środki lub inne typy opłat nie są jeszcze obsługiwane.
 

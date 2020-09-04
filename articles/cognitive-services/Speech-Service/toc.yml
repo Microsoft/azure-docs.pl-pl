@@ -241,11 +241,8 @@
   items:
     - name: Dokumentacja rozpoznawania intencji
       href: index-intent-recognition.yml
-    - name: Szybki start
-      items:
-        - name: 'Rozpoznawanie mowy, intencji i jednostek'
-          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
-          href: quickstarts/intent-recognition.md
+    - name: Szybki start — rozpoznawanie intencji
+      href: quickstarts/intent-recognition.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Rozpoznawanie intencji mowy przy użyciu usługi LUIS i środowiska C#
@@ -466,18 +463,14 @@
           href: custom-keyword-basics.md
 - name: Rozpoznawanie osoby mówiącej
   items:
-    - name: Omówienie
-      items:
-        - name: Co to jest rozpoznawanie osoby mówiącej?
-          href: speaker-recognition-overview.md
-        - name: Podstawy rozpoznawania osoby mówiącej
-          href: speaker-recognition-basics.md
+    - name: Omówienie rozpoznawania osoby mówiącej
+      href: speaker-recognition-overview.md
+    - name: Szybki start — rozpoznawanie osoby mówiącej
+      href: get-started-speaker-recognition.md
     - name: Dokumentacja
       items:
-        - name: Interfejsy API REST
-          items:
-            - name: Interfejs API REST funkcji rozpoznawania osoby mówiącej
-              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+        - name: Interfejs API REST funkcji rozpoznawania osoby mówiącej
+          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:
     - name: Dokumentacja hostingu
