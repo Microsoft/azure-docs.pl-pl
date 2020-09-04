@@ -130,6 +130,7 @@
         - name: Automatyzowanie odpowiedzi na alerty
           href: workflow-automation.md
         - name: Eksportowanie alertów
+          displayName: continuous
           href: continuous-export.md
     - name: Stosowanie rekomendacji dotyczących zabezpieczeń w celu zwiększenia bezpieczeństwa
       items:
@@ -150,6 +151,7 @@
         - name: Automatyzowanie odpowiedzi na rekomendacje
           href: workflow-automation.md
         - name: Rekomendacje dotyczące eksportowania
+          displayName: continuous
           href: continuous-export.md
     - name: Zarządzanie zasobami przy użyciu spisu zasobów
       href: asset-inventory.md

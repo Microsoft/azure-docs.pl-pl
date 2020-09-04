@@ -173,6 +173,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Zabezpieczenia
       items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Zalecenia
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Zabezpieczenia od podstaw

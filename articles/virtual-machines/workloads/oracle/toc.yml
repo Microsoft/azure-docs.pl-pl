@@ -28,8 +28,6 @@
       href: oracle-reference-architecture.md
     - name: Tworzenie architektury bazy danych Oracle
       href: oracle-design.md
-    - name: Strategia tworzenia kopii zapasowych bazy danych Oracle
-      href: oracle-backup-recovery.md
     - name: Opcje odzyskiwania po awarii programu Oracle
       href: oracle-disaster-recovery.md
 - name: Przewodniki z instrukcjami
