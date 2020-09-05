@@ -109,8 +109,6 @@
           href: credential-access-key-vault.md
         - name: Używanie certyfikatów z usługą Batch
           href: batch-certificates.md
-    - name: Korzystanie z pakietów aplikacji
-      href: batch-application-packages.md
     - name: Kopiowanie plików i aplikacji do węzłów puli
       items:
         - name: Kopiowanie aplikacji i danych do węzłów puli

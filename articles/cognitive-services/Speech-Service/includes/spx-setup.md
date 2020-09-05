@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 27d450f8e48210723570f2fe0b45be4bca89fd56
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400917"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494263"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,10 +52,8 @@ Wpisz `spx` , aby wyświetlić pomoc dla interfejsu wiersza polecenia mowy.
 
 #### <a name="docker-install"></a>[Instalacja platformy Docker](#tab/dockerinstall)
 
-#### <a name="prerequisites"></a>Wymagania wstępne
-
-> [!div class="checklist"]
-> * <a href="https://www.docker.com/get-started" target="_blank">Pulpit Docker dla Twojej platformy <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">Pulpit Docker dla Twojej platformy <span class="docon docon-navigate-external x-hidden-focus"></span> </a> musi być zainstalowany.
 
 Wykonaj następujące kroki, aby zainstalować interfejs wiersza polecenia mowy w kontenerze platformy Docker:
 

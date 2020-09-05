@@ -229,7 +229,7 @@
     - name: Harmonogram działania dotyczący gotowości
       href: security-center-readiness-roadmap.md
     - name: 'Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Usługa Azure Security Center w witrynie Stack Overflow
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: Filmy wideo

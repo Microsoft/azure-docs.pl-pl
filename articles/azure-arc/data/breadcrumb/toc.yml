@@ -8,4 +8,4 @@
       items:
         - name: Dane
           tocHref: /sql/azdata/
-          topicHref: /azure/azure-arc/data/index
+          topicHref: /azure/azure-arc

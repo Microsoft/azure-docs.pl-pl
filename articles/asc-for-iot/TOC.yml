@@ -94,6 +94,6 @@
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 'Blog dotyczący zabezpieczeń, ochrony prywatności i zgodności na platformie Azure'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/'

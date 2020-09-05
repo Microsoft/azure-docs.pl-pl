@@ -4,29 +4,29 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 66d3397fae24ee2546dae4eb5d7c9d188f9ede99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f490a5b12484a91e963d068810b292d7761521a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78944113"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484305"
 ---
 > [!NOTE]
 > Aby skonfigurować niestandardową nazwę DNS dla Azure App Service, można użyć Azure DNS. Aby uzyskać więcej informacji, zobacz [Use Azure DNS to provide custom domain settings for an Azure service](../articles/dns/dns-custom-domain.md#app-service-web-apps) (Korzystanie z usługi Azure DNS w celu udostępnienia niestandardowych ustawień domeny dla usługi platformy Azure).
 >
 >
 
-Zaloguj się do witryny internetowej dostawcy domeny.
+1. Zaloguj się do witryny internetowej dostawcy domeny.
 
-Znajdź stronę służącą do zarządzania rekordami DNS. Każdy dostawca domeny ma własny interfejs rekordów DNS, dlatego zapoznaj się z dokumentacją dostawcy. Poszukaj obszarów witryny z etykietą **Nazwa domeny**, **DNS** lub **Zarządzanie serwerami nazw**. 
+1. Znajdź stronę służącą do zarządzania rekordami DNS. Każdy dostawca domeny ma własny interfejs rekordów DNS, dlatego zapoznaj się z dokumentacją dostawcy. Poszukaj obszarów witryny z etykietą **Nazwa domeny**, **DNS** lub **Zarządzanie serwerami nazw**.
 
-Często stronę rekordów DNS można znaleźć, wyświetlając informacje o koncie, a następnie szukając linków takich jak **Moja domena**. Przejdź do tej strony, a następnie poszukaj linku o nazwie podobnej do **Plik strefy**, **Rekordy DNS** lub **Konfiguracja zaawansowana**.
+   Często można znaleźć stronę rekordów DNS, wyświetlając informacje o koncie, a następnie szukając linku, takiego jak **Moje domeny**. Przejdź do tej strony, a następnie poszukaj linku o nazwie, takiego jak **plik strefy**, **rekordy DNS**lub **Konfiguracja zaawansowana**.
 
-Poniższy zrzut ekranu przedstawia przykład strony rekordów DNS:
+   Poniższy zrzut ekranu przedstawia przykład strony rekordów DNS:
 
-![Przykładowa strona rekordów DNS](./media/app-service-web-access-dns-records-no-h/example-record-ui.png)
+   ![Zrzut ekranu pokazujący przykładową stronę rekordów DNS.](./media/app-service-web-access-dns-records-no-h/example-record-ui.png)
 
-Na ekranie z przykładu należy wybrać pozycję **Dodaj**, aby utworzyć rekord. Niektórzy dostawcy udostępniają różne linki na potrzeby dodawania różnych typów rekordów. Zapoznaj się z dokumentacją dostawcy.
+1. Na przykładowym zrzucie ekranu wybierz pozycję **Dodaj** , aby utworzyć rekord. Niektórzy dostawcy udostępniają różne linki na potrzeby dodawania różnych typów rekordów. Zapoznaj się z dokumentacją dostawcy.
 
 > [!NOTE]
-> W przypadku niektórych dostawców, np. GoDaddy, zmiany rekordów DNS nie zaczynają obowiązywać, dopóki nie wybierzesz oddzielnego linku **Zapisz zmiany**. 
+> W przypadku niektórych dostawców, np. GoDaddy, zmiany rekordów DNS nie zaczynają obowiązywać, dopóki nie wybierzesz oddzielnego linku **Zapisz zmiany**.

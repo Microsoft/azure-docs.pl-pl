@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cf56786656d830d2fea4c9e916f350fc392f5cf0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 583b7e685abfeb831787ca8d4066a29bdd9bb9f3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379245"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489338"
 ---
 ## <a name="azure-security-benchmark"></a>Test porównawczy zabezpieczeń platformy Azure
 
@@ -33,4 +33,21 @@ Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz artyk
 |Domena |Identyfikator kontrolki |Tytuł formantu |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>GitHub</sub>  |
 |---|---|---|---|---|
 |Usługi bazy danych |4,11 |Upewnij się, że ustawienie "Wymuszaj połączenie SSL" ma wartość "ENABLED" dla serwera bazy danych MySQL |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9,2
+
+Aby sprawdzić, jak dostępne Azure Policy wbudowane dla wszystkich usług platformy Azure są mapowane na ten standard zgodności, zobacz [Azure Policy zgodność z przepisami — HIPAA HITRUST 9,2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
+Aby uzyskać więcej informacji na temat tego standardu zgodności, zobacz [HIPAA HITRUST 9,2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+
+|Domena |Identyfikator kontrolki |Tytuł formantu |Zasady<br /><sub>(Azure Portal)</sub> |Wersja zasad<br /><sub>GitHub</sub>  |
+|---|---|---|---|---|
+|Sterowanie połączeniem sieciowym |0809.01 n2Organizational. 1234-01. n |Ruch sieciowy jest kontrolowany zgodnie z zasadami kontroli dostępu organizacji przez zaporę i inne ograniczenia związane z siecią dla każdego punktu dostępu do sieci lub z zarządzanym zewnętrznym interfejsem usługi telekomunikacyjnej. |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Sterowanie połączeniem sieciowym |0810.01 n2Organizational. 5-01. n |Przesyłane informacje są zabezpieczone i co najmniej zaszyfrowane przez otwarte sieci publiczne. |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Sterowanie połączeniem sieciowym |0811.01 n2Organizational. 6-01. n |Wyjątki od zasad przepływu ruchu są udokumentowane z obsługą potrzebnych zadań, czasu trwania wyjątku i przeglądem co najmniej raz na rok; wyjątki zasad przepływu ruchu są usuwane, gdy nie są już obsługiwane przez jawną potrzebę firmy. |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Sterowanie połączeniem sieciowym |0812.01 n2Organizational. 8-01. n |Urządzenia zdalne ustanawiające niezdalne połączenie nie mogą komunikować się z zewnętrznymi (zdalnymi) zasobami. |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Sterowanie połączeniem sieciowym |0814.01 n1Organizational. 12-01. n |Możliwość nawiązywania połączeń z siecią wewnętrzną jest ograniczona przy użyciu zasad Odmów przez domyślne i zezwala na wyjątki w interfejsach zarządzanych zgodnie z zasadami kontroli dostępu oraz wymaganiami dotyczącymi aplikacji klinicznych i firmowych. |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Identyfikacja zagrożeń związanych ze stronami zewnętrznymi |1418.05 i1Organizational. 8-05. i |Identyfikacja zagrożeń związanych z dostępem podmiotów zewnętrznych polega na uwzględnieniu minimalnego zestawu konkretnych określonych problemów. |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
+|Tworzenie kopii zapasowej |1617.09 l1Organizational. 23 – 09. l |Formalna definicja poziomu kopii zapasowej wymaganego dla każdego systemu jest zdefiniowana i udokumentowana, w tym sposób przywracania każdego systemu, zakres danych do obrazu, częstotliwość tworzenia obrazów oraz czas przechowywania w oparciu o odpowiednie wymagania umowne, prawne, obowiązujące i biznesowe. |[Tworzenie kopii zapasowej nadmiarowej geograficznie należy włączyć dla Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Tworzenie kopii zapasowej |1622.09 l2Organizational. 23 – 09. l |Integralność i bezpieczeństwo kopii zapasowych są zachowywane w celu zapewnienia przyszłej dostępności, a wszelkie potencjalne problemy z dostępnością kopii zapasowych są identyfikowane i zmniejszane w przypadku awarii całego obszaru. |[Tworzenie kopii zapasowej nadmiarowej geograficznie należy włączyć dla Azure Database for MySQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
+|Transakcje online |0948.09 y2Organizational. 3-09. y |W przypadku korzystania z zaufanego urzędu (np. w celu wystawiania i utrzymywania podpisów cyfrowych i/lub certyfikatów cyfrowych) zabezpieczenia są zintegrowane i wbudowane w całym całym procesie zarządzania certyfikatami/sygnaturami. |[Dla serwerów baz danych MySQL powinna być włączona funkcja Wymuszaj połączenie SSL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe802a67a-daf5-4436-9ea6-f6d821dd0c5d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MySQL_EnableSSL_Audit.json) |
 
