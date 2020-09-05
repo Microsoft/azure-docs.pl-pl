@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ce2ce146b8a8ba06729c5e9428bccb8a60e14c39
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89449640"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494306"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -48,7 +48,7 @@ Definicje obrazów są logiczną grupą dla wersji obrazu. Definicja obrazu zawi
 
 Istnieją trzy parametry dla każdej definicji obrazu, które są używane w połączeniu **wydawcy**, **oferty** i **jednostki SKU**. Są one używane do znajdowania konkretnej definicji obrazu. Możesz mieć wersje obrazów, które współdzielą jeden lub dwa, ale nie wszystkie trzy wartości.  Na przykład poniżej przedstawiono trzy definicje obrazów i ich wartości:
 
-|Definicja obrazu|Publisher|Oferta|SKU|
+|Definicja obrazu|Wydawca|Oferta|SKU|
 |---|---|---|---|
 |myImage1|Contoso|Finance|Zaplecze|
 |myImage2|Contoso|Finance|Fronton|
@@ -196,7 +196,7 @@ Możesz utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów
 * [Jakie są opłaty za korzystanie z galerii obrazów udostępnionych?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Jakiej wersji interfejsu API należy użyć do utworzenia galerii obrazów udostępnionych i definicji obrazu i wersji obrazu?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Jakiej wersji interfejsu API należy użyć do utworzenia udostępnionej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych z wersji obrazu?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby użyć obrazów z galerii udostępnionych obrazów?] (#can-i-Update-My-Virtual-Machine-Scale-Set-Created-using-Managed-Image-Shared-Image-Gallery)
+* [Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby używać obrazów z galerii obrazów udostępnionych?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Jak można wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów w ramach subskrypcji?
 
