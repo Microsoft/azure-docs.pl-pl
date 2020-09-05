@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84343768"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485808"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie odbiornika grupy dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Ukończony [Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszy
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Utwórz moduł równoważenia obciążenia w Azure Portal
 
-Poniższe instrukcje przeprowadzi Cię przez kroki od 1 do 4 z tematu [Tworzenie i Konfigurowanie modułu równoważenia obciążenia w sekcji Azure Portal](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) w artykule [Azure Portal modułu równoważenia obciążenia](../windows/availability-group-load-balancer-portal-configure.md) .
+Poniższe instrukcje przeprowadzi Cię przez kroki od 1 do 4 z tematu [Tworzenie i Konfigurowanie modułu równoważenia obciążenia w sekcji Azure Portal](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) w artykule [Azure Portal modułu równoważenia obciążenia](../windows/availability-group-load-balancer-portal-configure.md) .
 
 ### <a name="create-the-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
@@ -104,7 +104,7 @@ Sonda definiuje, w jaki sposób platforma Azure weryfikuje, które wystąpienia 
    | **Interwał** |*5* |
    | **Próg złej kondycji** |*2* |
 
-4.  Kliknij pozycję **OK**. 
+4.  Kliknij przycisk **OK**. 
 
 5. Zaloguj się do wszystkich maszyn wirtualnych i Otwórz port sondowania przy użyciu następujących poleceń:
 
@@ -138,7 +138,7 @@ Zasady równoważenia obciążenia umożliwiają skonfigurowanie sposobu, w jaki
 
    :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Dodaj regułę równoważenia obciążenia":::
 
-4. Kliknij pozycję **OK**. 
+4. Kliknij przycisk **OK**. 
 5. Platforma Azure konfiguruje regułę równoważenia obciążenia. Teraz moduł równoważenia obciążenia jest skonfigurowany do kierowania ruchu do wystąpienia SQL Server, które hostuje odbiornik dla grupy dostępności. 
 
 W tym momencie Grupa zasobów ma moduł równoważenia obciążenia, który łączy się ze wszystkimi maszynami SQL Server. Moduł równoważenia obciążenia zawiera również adres IP dla SQL Server zawsze włączony odbiornik grupy dostępności, dzięki czemu każda maszyna może odpowiadać na żądania dotyczące grup dostępności.

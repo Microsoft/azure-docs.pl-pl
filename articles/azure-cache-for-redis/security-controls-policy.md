@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla usługi Azure cache for Redis
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla usługi Azure cache for Redis. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 75b33610acac0309f6141d807d204d4dfef9d91c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9979956ef20e83a3c9b6254208c94c50c9a41dc5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374608"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484798"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cache-for-redis"></a>Azure Policy kontroli zgodności z przepisami dla usługi Azure cache for Redis
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585920"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485459"
 ---
 # <a name="azure-key-vault-logging"></a>Funkcja rejestrowania usługi Azure Key Vault
 
@@ -36,7 +36,7 @@ Użyj tego samouczka, aby rozpocząć pracę z funkcją rejestrowania usługi Az
 > Ten artykuł zawiera Azure PowerShell instrukcje dotyczące aktualizowania rejestrowania diagnostycznego. Rejestrowanie diagnostyczne można również zaktualizować za pomocą Azure Monitor w sekcji **dzienniki diagnostyczne** Azure Portal. 
 >
 
-Aby uzyskać przegląd informacji na temat Key Vault, zobacz [co to jest Azure Key Vault?](overview.md)). Informacje o tym, gdzie Key Vault są dostępne, można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/key-vault/).
+Aby uzyskać przegląd informacji na temat Key Vault, zobacz [co to jest Azure Key Vault?](overview.md)). Informacje o tym, gdzie Key Vault są dostępne, można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/key-vault/). Aby uzyskać informacje na temat korzystania z [Azure Monitor Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -190,7 +190,7 @@ Wartości daty i godziny używają czasu UTC.
 
 Ponieważ do zbierania dzienników dla wielu zasobów można użyć tego samego konta magazynu, pełny identyfikator zasobu w nazwie obiektu BLOB jest przydatny do uzyskiwania dostępu do obiektów blob, które są potrzebne. Jednak zanim do tego przejdziemy, najpierw zostanie omówiony sposób pobierania wszystkich obiektów blob.
 
-Utwórz folder, aby pobrać obiekty blob. Na przykład:
+Utwórz folder, aby pobrać obiekty blob. Przykład:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -210,7 +210,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 Po uruchomieniu drugiego polecenia **/** ogranicznik w nazwach obiektów BLOB tworzy pełną strukturę folderów w folderze docelowym. Ta struktura będzie używana do pobierania i przechowywania obiektów BLOB jako plików.
 
-Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Na przykład:
+Aby selektywnie pobierać obiekty blob, użyj symboli wieloznacznych. Przykład:
 
 * Jeśli masz wiele magazynów kluczy i chcesz pobrać dzienniki dla tylko jednego magazynu kluczy o nazwie CONTOSOKEYVAULT3:
 
@@ -281,7 +281,7 @@ W poniższej tabeli wymieniono nazwy pól i opisy:
 | **Identity** |Tożsamość z tokenu, która została przedstawiona w żądaniu interfejsu API REST. Zwykle jest to "użytkownik", "Nazwa główna usługi" lub kombinacja "użytkownik + appId", jak w przypadku żądania, które wynika z Azure PowerShell polecenia cmdlet. |
 | **aœciwoœci** |Informacje, które różnią się w zależności od operacji (**OperationName**). W większości przypadków to pole zawiera informacje o kliencie (ciąg agenta użytkownika przekazaną przez klienta), dokładny identyfikator URI żądania interfejsu API REST i kod stanu HTTP. Ponadto, gdy obiekt jest zwracany w wyniku żądania (na przykład **Create** lub **VaultGet**), zawiera również identyfikator URI klucza (AS `id` ), identyfikator URI magazynu lub identyfikator URI wpisu tajnego. |
 
-Wartości pola **OperationName** są w formacie *ObjectVerb* . Na przykład:
+Wartości pola **OperationName** są w formacie *ObjectVerb* . Przykład:
 
 * Wszystkie operacje magazynu kluczy mają `Vault<action>` Format, taki jak `VaultGet` i `VaultCreate` .
 * Wszystkie operacje na kluczach mają `Key<action>` Format, taki jak `KeySign` i `KeyList` .

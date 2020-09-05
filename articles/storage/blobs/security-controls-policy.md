@@ -1,19 +1,19 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Data Lake Storage Gen2
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Data Lake Storage Gen2. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: normesta
 ms.author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: f28eb5e6d33627b834a612641bcc5562a82787f5
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d71994578b92aa46c259f72073f210dc473dbcc4
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87136644"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486756"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-storage-gen2"></a>Azure Policy kontroli zgodności z przepisami dla Azure Data Lake Storage Gen2
 

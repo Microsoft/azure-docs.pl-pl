@@ -7,18 +7,18 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378982"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481379"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Uwierzytelnianie do Azure Key Vault
 
 Azure Key Vault pozwala przechowywać wpisy tajne i kontrolować ich dystrybucję w scentralizowanym, bezpiecznym repozytorium w chmurze, co eliminuje konieczność przechowywania poświadczeń w aplikacjach. Aplikacje muszą uwierzytelniać się za pomocą Key Vault w czasie wykonywania, aby uzyskać dostęp do tych kluczy tajnych.
 
-## <a name="app-identity-and-service-principals"></a>Tożsamość aplikacji i nazwy główne usługi
+## <a name="app-identity-and-security-principals"></a>Tożsamość aplikacji i podmioty zabezpieczeń
 
 Uwierzytelnianie za pomocą Key Vault działa w połączeniu z usługą [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), która jest odpowiedzialna za uwierzytelnianie tożsamości dowolnego danego **podmiotu zabezpieczeń**.
 
@@ -40,7 +40,7 @@ W przypadku aplikacji istnieją dwa sposoby uzyskania nazwy głównej usługi:
 
 * Jeśli nie możesz użyć tożsamości zarządzanej, zamiast tego **zarejestrujsz** aplikację za pomocą dzierżawy usługi Azure AD, zgodnie z opisem w [przewodniku szybki start: Zarejestruj aplikację na platformie tożsamości platformy Azure](/azure/active-directory/develop/quickstart-register-app). Rejestracja powoduje także utworzenie drugiego obiektu aplikacji, który identyfikuje aplikację we wszystkich dzierżawcach.
 
-## <a name="authorize-a-service-principal-to-access-key-vault"></a>Autoryzuj nazwę główną usługi, aby uzyskać dostęp do Key Vault
+## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autoryzuj podmiot zabezpieczeń, aby uzyskać dostęp do Key Vault
 
 Key Vault współpracuje z dwoma odrębnymi poziomami autoryzacji:
 

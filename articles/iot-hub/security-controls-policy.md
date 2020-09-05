@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla IoT Hub platformy Azure
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla IoT Hub platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b35264ec0dfd08e062bede8bb6d969e27aba37f5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ef86f3c929acd83815500b732c99ce9ca7ffd0ec
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942463"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485616"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-iot-hub"></a>Azure Policy kontroli zgodności z przepisami dla IoT Hub platformy Azure
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 3bdfe243301a2439178e0dd1f016a804e3f40fd7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a9aaca8128570af74370213e9848e26dec25156
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442772"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490262"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Kopiowanie wielu tabel zbiorczo przy użyciu Azure Data Factory przy użyciu programu PowerShell
 
@@ -334,7 +334,7 @@ Ten potok pobiera listę tabel jako parametr. Dla każdej tabeli na liście kopi
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from Azure SQL Database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to Azure Synapse Analytics",
                                 "type": "Copy",
                                 "inputs": [
                                     {

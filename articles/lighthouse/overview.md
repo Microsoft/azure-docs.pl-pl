@@ -1,18 +1,18 @@
 ---
-title: Czym jest usługa Azure Lighthouse?
+title: Co to jest Azure Lighthouse?
 description: Usługa Azure Lighthouse umożliwia dostawcom usług dostarczanie usług zarządzanych klientom o większej wydajności i skalowalności.
 ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 22bec7ec8944a11ce0cfdf51776f1f193a1aedaa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660737"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488817"
 ---
-# <a name="what-is-azure-lighthouse"></a>Czym jest usługa Azure Lighthouse?
+# <a name="what-is-azure-lighthouse"></a>Co to jest Azure Lighthouse?
 
-Usługa Azure Lighthouse umożliwia zarządzanie między sieciami i wieloma dzierżawcami, co pozwala na większą automatyzację, skalowalność i udoskonalone funkcje zarządzania między zasobami i dzierżawcami. Dzięki usłudze Azure Lighthouse dostawcy usług mogą dostarczać zarządzane usługi przy użyciu kompleksowych i niezawodnych narzędzi do zarządzania wbudowanych w platformę Azure. Ta oferta może również przynieść organizacjom IT przedsiębiorstwa zarządzanie zasobami w wielu dzierżawach.
+Usługa Azure Lighthouse umożliwia zarządzanie wieloma dzierżawami, zapewniając wyższy poziom automatyzacji i skalowalności oraz ulepszony nadzór nad wieloma zasobami i dzierżawami. Dzięki usłudze Azure Lighthouse dostawcy usług mogą dostarczać zarządzane usługi przy użyciu kompleksowych i niezawodnych narzędzi do zarządzania wbudowanych w platformę Azure. Ta oferta może również przynieść organizacjom IT przedsiębiorstwa zarządzanie zasobami w wielu dzierżawach.
 
 ![Diagram omówienia usługi Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
@@ -22,7 +22,7 @@ Usługa Azure Lighthouse pozwala na opłacalną i wydajną kompilację i dostarc
 
 - **Zarządzanie na dużą skalę**: zaangażowanie klientów i operacje związane z cyklem życia w celu zarządzania zasobami klientów są łatwiejsze i bardziej skalowalne. Istniejące interfejsy API, narzędzia do zarządzania i przepływy pracy mogą być używane z delegowanymi zasobami, niezależnie od regionów, w których się znajdują.
 - **Większa widoczność i precyzja dla klientów**: klienci będą mieli lepszy wgląd w swoje działania i precyzyjną kontrolę nad zakresem delegowanym do zarządzania, w tym możliwość całkowitego usuwania dostępu, gdy adres IP jest zachowywany.
-- **Kompleksowe i ujednolicone narzędzia platformy**: nasze środowisko ułatwiające korzystanie z kluczowych scenariuszy dostawców usług, w tym wielu modeli licencjonowania, takich jak EA, CSP i płatność zgodnie z rzeczywistym użyciem. Nowe możliwości działają z istniejącymi narzędziami i interfejsami API, modelami licencjonowania i programami partnerskimi, takimi jak [program Cloud Solution Provider (CSP)](/partner-center/csp-overview). Usługę Azure Lighthouse można zintegrować z istniejącymi przepływami pracy i aplikacjami. możesz śledzić wpływ na zaangażowanie klientów, [ŁĄCZĄC identyfikator partnera](../cost-management-billing/manage/link-partner-id.md).
+- **Kompleksowe i ujednolicone narzędzia platformy**: nasze środowisko ułatwiające korzystanie z kluczowych scenariuszy dostawców usług, w tym wielu modeli licencjonowania, takich jak EA, CSP i płatność zgodnie z rzeczywistym użyciem. Nowe możliwości działają z istniejącymi narzędziami i interfejsami API, modelami licencjonowania i programami partnerskimi, takimi jak [program Cloud Solution Provider (CSP)](/partner-center/csp-overview). Usługę Azure Lighthouse można zintegrować z istniejącymi przepływami pracy i aplikacjami. możesz śledzić wpływ na zaangażowanie klientów i otrzymywać środki na korzystanie z partnerów, [ŁĄCZĄC identyfikator partnera](./how-to/partner-earned-credit.md).
 
 Zarządzanie zasobami platformy Azure nie wiąże się z dodatkowymi kosztami związanymi z korzystaniem z usługi Azure Lighthouse. Wszyscy klienci lub partnerzy platformy Azure mogą korzystać z usługi Azure Lighthouse.
 

@@ -1,15 +1,15 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Utwórz listę wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują Tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 07/10/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 7982627197a7524093ab56828b24528ebd903c67
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: a664c740649135c7586c77da43eacfd0a73e34a9
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298599"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487935"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 
@@ -57,7 +57,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
@@ -97,7 +97,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-internet-of-things](../../../../includes/policy/reference/bycat/policies-internet-of-things.md)]
 
-## <a name="key-vault"></a>Key Vault
+## <a name="key-vault"></a>Usługa Key Vault
 
 [!INCLUDE [azure-policy-reference-policies-key-vault](../../../../includes/policy/reference/bycat/policies-key-vault.md)]
 
@@ -112,10 +112,6 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 ## <a name="logic-apps"></a>Logic Apps
 
 [!INCLUDE [azure-policy-reference-policies-logic-apps](../../../../includes/policy/reference/bycat/policies-logic-apps.md)]
-
-## <a name="machine-learning"></a>Machine Learning
-
-[!INCLUDE [azure-policy-reference-policies-machine-learning](../../../../includes/policy/reference/bycat/policies-machine-learning.md)]
 
 ## <a name="managed-application"></a>Aplikacja zarządzana
 
@@ -153,7 +149,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 [!INCLUDE [azure-policy-reference-policies-storage](../../../../includes/policy/reference/bycat/policies-storage.md)]
 

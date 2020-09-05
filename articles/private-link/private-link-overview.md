@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/18/2020
+ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 425290f44fc5f8bc761dc80b72aa2421e5c6d194
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460664"
+ms.locfileid: "89488426"
 ---
 # <a name="what-is-azure-private-link"></a>Co to jest łącze prywatne platformy Azure? 
 Link prywatny platformy Azure umożliwia dostęp do usług Azure PaaS Services (na przykład Azure Storage i SQL Database) oraz hostowanych usług partnerów/partnerskich platformy Azure w ramach [prywatnego punktu końcowego](private-endpoint-overview.md) w sieci wirtualnej.
@@ -43,8 +43,11 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 |Obsługiwane usługi  |Dostępne regiony | Dodatkowe zagadnienia | Stan  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Usługi linków prywatnych za standardową Azure Load Balancer | Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe  | Obsługiwane na usługa Load Balancer w warstwie Standardowa | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Azure Storage       |  Wszystkie regiony publiczne       |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
-| Usługa Azure Data Lake Storage 2. generacji        |  Wszystkie regiony publiczne      |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
+| Magazyn obiektów blob platformy Azure (w tym Data Lake Storage Gen2)       |  Wszystkie regiony publiczne       |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
+| Azure Files | Wszystkie regiony publiczne      | |   Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/files/storage-files-networking-endpoints)   |
+| Azure File Sync | Wszystkie regiony publiczne      | |   Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/files/storage-sync-files-networking-endpoints)   |
+| Azure Queue Storage       |  Wszystkie regiony publiczne       |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
+| Azure Table Storage       |  Wszystkie regiony publiczne       |  Obsługiwane dla rodzaju konta Ogólnego przeznaczenia v2 | Ogólna dostępność <br/> [Dowiedz się więcej](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe      |  Obsługiwane dla [zasad połączenia](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) serwera proxy | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)| Wszystkie regiony publiczne <br/> Wszystkie regiony rządowe |  Obsługiwane dla [zasad połączenia](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) serwera proxy |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Wszystkie regiony publiczne<br/> Wszystkie regiony rządowe | |Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
@@ -67,7 +70,6 @@ Połączenie prywatne platformy Azure zapewnia następujące korzyści:
 | Azure IoT Hub | Wszystkie regiony publiczne    |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | WSCHODNIE STANY USA, ZACHODNIE STANY USA 2, POŁUDNIOWO-ŚRODKOWE STANY USA      |  | Wersja zapoznawcza   <br/> [Dowiedz się więcej](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Wszystkie regiony publiczne      |  | Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure File Sync | Wszystkie regiony publiczne      | |   Ogólna dostępność   <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
 | Azure Batch | WSCHODNIE STANY USA, ZACHODNIE STANY USA 2, POŁUDNIOWO-ŚRODKOWE STANY USA, ZACHODNIO-ŚRODKOWE STANY USA, FRANCJA ŚRODKOWA, AZJA WSCHODNIA, POŁUDNIOWE ZJEDNOCZONE KRÓLESTWO, USA GOV WIRGINIA, US GOV ARIZONA  | | Ogólna dostępność <br/> [Dowiedz się więcej](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 Aby zapoznać się z najbardziej aktualnymi powiadomieniami, sprawdź [stronę aktualizacje linku prywatnego platformy Azure](https://azure.microsoft.com/updates/?product=private-link).

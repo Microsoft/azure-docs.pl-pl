@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroli zgodności z przepisami dla Azure Database for MySQL
 description: Wyświetla listę Azure Policy kontroli zgodności z przepisami, które są dostępne dla Azure Database for MySQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zgodnością zasobów platformy Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a75627c8872a125d8a6fce6d9e93033fe2dbcf9a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 295791e247b742945f46d8ed166df420ec8a2dd3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379246"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489339"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mysql"></a>Azure Policy kontroli zgodności z przepisami dla Azure Database for MySQL
 

@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 4cd0ab588e921eb41c5ccc9800e8fe807d3e8108
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 600b19ffac61f8f7c7336f114c6b52c6bc88b5ad
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852382"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489514"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Samouczek: Tworzenie potoku Azure Machine Learning na potrzeby oceniania partii
 
@@ -286,7 +286,7 @@ from azureml.pipeline.steps import ParallelRunConfig
 parallel_run_config = ParallelRunConfig(
     environment=env,
     entry_script="batch_scoring.py",
-    source_directory="scripts",
+    source_directory=".",
     output_action="append_row",
     mini_batch_size="20",
     error_threshold=1,
@@ -426,7 +426,7 @@ published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Nie Dokończ tej sekcji, jeśli planujesz uruchamiać inne samouczki Azure Machine Learning.
 

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268897"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489922"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Samouczek: akceptowanie i odbieranie danych za pomocą udziału danych platformy Azure  
 
@@ -41,7 +41,7 @@ Przed zaakceptowaniem zaproszenia udziału danych upewnij się, że wszystkie wy
 ### <a name="receive-data-into-a-sql-based-target"></a>Odbieraj dane w miejscu docelowym opartym na języku SQL:
 
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli współautor. 
-* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub Azure SQL Data Warehouse. Można to zrobić, wykonując następujące czynności: 
+* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub analizy usługi Azure Synapse. Można to zrobić, wykonując następujące czynności: 
     1. Ustaw siebie jako Azure Active Directory administrator programu SQL Server.
     1. Nawiąż połączenie z magazynem Azure SQL Database/danymi przy użyciu Azure Active Directory.
     1. Użyj edytora zapytań (wersja zapoznawcza), aby wykonać poniższy skrypt w celu dodania tożsamości zarządzanej udziału danych jako "db_datareader, db_datawriter, db_ddladmin". Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 

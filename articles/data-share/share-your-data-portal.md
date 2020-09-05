@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269645"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489939"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Szybki Start: udostępnianie danych za pomocą udziału danych platformy Azure w Azure Portal
 
@@ -67,7 +67,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
    ![Dodawanie zestawów danych do udziału](./media/datasets.png "Zestawy danych")
 
-1. Wybierz typ zestawu danych, który chcesz dodać. Zostanie wyświetlona inna lista typów zestawów danych w zależności od typu udziału (migawka lub miejsce w miejscu) wybranej w poprzednim kroku. W przypadku udostępniania z poziomu Azure SQL Database lub Azure SQL Data Warehouse zostanie wyświetlony monit o podanie pewnych poświadczeń SQL. Uwierzytelnianie przy użyciu użytkownika utworzonego w ramach wymagań wstępnych.
+1. Wybierz typ zestawu danych, który chcesz dodać. Zostanie wyświetlona inna lista typów zestawów danych w zależności od typu udziału (migawka lub miejsce w miejscu) wybranej w poprzednim kroku. W przypadku udostępniania z Azure SQL Database lub analizy Synapse Azure zostanie wyświetlony monit o podanie pewnych poświadczeń SQL. Uwierzytelnianie przy użyciu użytkownika utworzonego w ramach wymagań wstępnych.
 
    ![Adddatasets](./media/add-datasets.png "Dodaj zestawy danych")    
 
