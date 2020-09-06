@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c18f48f41a537d66c637959df4fb45331fbda176
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420493"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500236"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu interfejsu wiersza polecenia platformy Azure i języka Python
 
@@ -342,7 +342,8 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Zanotuj `id` wartości i, `tenantId` tak jak odpowiadają one identyfikatorowi subskrypcji Azure Resource Manager i Azure Resource Manager identyfikator dzierżawy i zostaną użyte w późniejszym kroku.
+       
    Następujące zmienne środowiskowe muszą zostać ustawione tak, aby działały jako nazwa *główna usługi*:
 
    ```
@@ -352,7 +353,7 @@ Przed rozpoczęciem tworzenia i zarządzania maszyną wirtualną na urządzeniu 
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   Identyfikator dzierżawy Azure Resource Manager, identyfikator klienta Azure Resource Manager i Identyfikator subskrypcji Azure Resource Manager są całkowicie kodowane i mają te same wartości na wszystkich Azure Stack urządzeniach brzegowych. Wpis tajny klienta Azure Resource Manager jest ustawionym hasłem Azure Resource Manager.
+   Identyfikator klienta Azure Resource Manager jest zakodowany na stałe. Identyfikator dzierżawy Azure Resource Manager i Identyfikator subskrypcji Azure Resource Manager są obecne w danych wyjściowych `az login` polecenia wykonanego wcześniej. Wpis tajny klienta Azure Resource Manager jest ustawionym hasłem Azure Resource Manager.
 
    Aby uzyskać więcej informacji, zobacz [Azure Resource Manager hasło](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 

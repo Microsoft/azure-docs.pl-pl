@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 83332c3bfa0b2b99d7333fa679fb8d398aecf8bd
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268914"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500287"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Tworzenie niestandardowych obrazów maszyn wirtualnych dla urządzenia z Azure Stack Edge
 
@@ -52,11 +52,26 @@ Wykonaj następujące kroki, aby utworzyć obraz maszyny wirtualnej z systemem L
 
 1. Tworzenie maszyny wirtualnej z systemem Linux. Aby uzyskać więcej informacji, przejdź do [samouczka: Tworzenie maszyn wirtualnych z systemem Linux i zarządzanie nimi za pomocą interfejsu wiersza polecenia platformy Azure](../virtual-machines/linux/tutorial-manage-vm.md).
 
-2. [Pobierz istniejący dysk systemu operacyjnego](../virtual-machines/linux/download-vhd.md).
+1. Anuluj aprowizację maszyny wirtualnej. Użyj agenta maszyny wirtualnej platformy Azure, aby usunąć pliki i dane specyficzne dla maszyny. Użyj `waagent` polecenia z `-deprovision+user` parametrem na ŹRÓDŁOWEJ maszynie wirtualnej z systemem Linux. Aby uzyskać więcej informacji, zobacz temat [Omówienie i używanie agenta systemu Linux platformy Azure](../virtual-machines/extensions/agent-linux.md).
+
+    1. Nawiązywanie połączenia z maszyną wirtualną z systemem Linux przy użyciu klienta SSH.
+    2. W oknie SSH wprowadź następujące polecenie:
+       
+        ```bash
+        sudo waagent -deprovision+user
+        ```
+       > [!NOTE]
+       > To polecenie można uruchomić tylko na maszynie wirtualnej, która zostanie przechwycona jako obraz. To polecenie nie gwarantuje, że obraz jest czyszczony dla wszystkich poufnych informacji lub jest odpowiedni do ponownej dystrybucji. Ten `+user` parametr usuwa także ostatnio zainicjowane konto użytkownika. Aby zachować poświadczenia konta użytkownika na maszynie wirtualnej, użyj tylko `-deprovision` .
+     
+    3. Wprowadź **y** , aby kontynuować. Można dodać parametr, `-force` Aby uniknąć tego kroku potwierdzenia.
+    4. Po zakończeniu wykonywania polecenia wpisz **Exit** , aby zamknąć klienta SSH.  Maszyna wirtualna będzie nadal działać w tym momencie.
+
+
+1. [Pobierz istniejący dysk systemu operacyjnego](../virtual-machines/linux/download-vhd.md).
 
 Użyj tego wirtualnego dysku twardego, aby teraz utworzyć i wdrożyć maszynę wirtualną na urządzeniu Azure Stack Edge. Aby utworzyć niestandardowe obrazy systemu Linux, można użyć następujących dwóch obrazów witryny Azure Marketplace:
 
-|Nazwa elementu  |Opis  |Publisher  |
+|Nazwa elementu  |Opis  |Wydawca  |
 |---------|---------|---------|
 |[Serwer Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Serwer Ubuntu to najpopularniejsze w świecie środowisko Linux dla środowisk chmurowych.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux to jedna z najpopularniejszych dystrybucji systemu Linux.     |credativ|
