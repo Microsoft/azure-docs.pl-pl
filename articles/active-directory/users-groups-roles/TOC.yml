@@ -52,6 +52,8 @@
           href: users-sharing-accounts.md
         - name: Przypisywanie użytkowników do ról administratorów
           href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+        - name: Ulepszenia zarządzania użytkownikami
+          href: users-search-enhanced.md
         - name: Zbiorcze usuwanie użytkowników
           href: users-bulk-delete.md
         - name: Przywrócić usuniętego użytkownika

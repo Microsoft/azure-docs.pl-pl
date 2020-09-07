@@ -262,6 +262,8 @@
           href: how-to-connect-health-diagnose-sync-errors.md
         - name: Katalog alertów programu Azure AD Connect Health
           href: how-to-connect-health-alert-catalog.md
+        - name: Pobieranie danych w programie Azure AD Connect Health
+          href: how-to-connect-health-data-retrieval.md
     - name: Zarządzanie programem Azure AD Connect Sync
       items:
         - name: Serwer przejściowy i odzyskiwanie po awarii

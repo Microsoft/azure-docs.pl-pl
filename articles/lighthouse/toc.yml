@@ -47,6 +47,9 @@
     - name: Wyświetlanie klientów i zarządzanie nimi
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Łączenie identyfikatora partnera
+      displayName: 'partner earned credit, pec, mpn'
+      href: ./how-to/partner-earned-credit.md
     - name: Usuwanie dostępu do delegacji
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md

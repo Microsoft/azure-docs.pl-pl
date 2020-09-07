@@ -206,6 +206,10 @@
       items:
         - name: Rozwiązywanie problemów z dodawaniem aplikacji
           href: troubleshoot-adding-apps.md
+        - name: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach
+          href: troubleshoot-password-based-sso.md
+        - name: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML
+          href: troubleshoot-saml-based-sso.md
         - name: Rozwiązywanie problemów z logowaniem się użytkownika
           items:
             - name: Nieoczekiwany monit o wyrażenie zgody
@@ -224,14 +228,6 @@
               href: application-sign-in-problem-federated-sso-gallery.md
             - name: Problem z aplikacją niestandardową
               href: application-sign-in-problem-custom-dev.md
-        - name: Rozwiązywanie problemów z logowaniem jednokrotnym
-          items:
-            - name: Rozwiązywanie problemów z logowaniem jednokrotnym opartym na hasłach
-              href: troubleshoot-password-based-sso.md
-            - name: Typowe problemy podczas konfigurowania federacji — aplikacje z galerii
-              href: configure-federated-single-sign-on-gallery-applications-problems.md
-            - name: Typowe problemy podczas konfigurowania federacji — aplikacje spoza galerii
-              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
         - name: Rozwiązywanie problemów z aplikacjami lokalnymi
           items:
             - name: Rozwiązywanie problemów z serwerem proxy aplikacji

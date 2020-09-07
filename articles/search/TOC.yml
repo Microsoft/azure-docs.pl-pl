@@ -114,6 +114,8 @@
         - name: Kontrole zabezpieczeń usługi Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Zabezpieczanie zasobów indeksatora
+          href: search-indexer-securing-resources.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie indeksów i konstrukcji
@@ -354,6 +356,14 @@
               href: search-security-trimming-for-azure-search.md
             - name: Filtrowanie tożsamości użytkowników
               href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Zabezpieczenia dla ruchu wychodzącego (indeksatory)
+          items:
+            - name: Dostęp za pośrednictwem zakresu adresów IP
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Dostęp za pośrednictwem wyjątku dla zaufanej usługi
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Dostęp za pośrednictwem prywatnych punktów końcowych
+              href: search-indexer-howto-access-private.md
     - name: Zarządzanie
       items:
         - name: Portal
@@ -392,14 +402,14 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Wyszukiwanie 2020-06-30
+        - name: Interfejs API wyszukiwania (stabilny)
           href: /rest/api/searchservice
-        - name: Wyszukiwanie 2020-06-30-Preview
+        - name: Interfejs API wyszukiwania (wersja zapoznawcza)
           href: /rest/api/searchservice/index-preview
-        - name: Zarządzanie 2020-03-13
+        - name: Interfejs API zarządzania (stabilny)
           href: /rest/api/searchmanagement
-        - name: Zarządzanie 2019-10-01-Preview
-          href: /rest/api/searchmanagement/index-2019-10-01-preview
+        - name: Interfejs API zarządzania (wersja zapoznawcza)
+          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: Interfejs API wyszukiwania

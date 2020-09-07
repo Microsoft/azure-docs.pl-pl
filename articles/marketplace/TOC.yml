@@ -42,7 +42,7 @@
               href: ./iot-edge-module.md
             - name: Usługi konsultingowe
               href: ./consulting-services.md
-            - name: 'Usługi Office 365, Dynamics 365 i Power BI'
+            - name: Platforma Microsoft 365 oraz usługi Dynamics 365 i Power BI
               href: ./appsource-offer-publishing-guide.md
             - name: Włączanie oferowania uwierzytelniania przy użyciu usługi Azure AD
               href: ./enable-appsource-marketplace-using-azure-ad.md
@@ -60,7 +60,7 @@
             - name: Dostawcy rozwiązań w chmurze
               href: ./cloud-solution-providers.md
             - name: Przewodnik dołączania do programu Connect Program
-              href: ./cloud-partner-portal/business-applications-isv-program.md
+              href: ./business-applications-isv-program.md
         - name: Korzyści na platformie handlowej
           href: ./gtm-your-marketplace-benefits.md
           items:

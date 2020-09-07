@@ -62,7 +62,7 @@
       href: walkthroughs-azure-data-lake.md
     - name: 'Języki R, Python i T-SQL w programie SQL Server'
       href: walkthroughs-sql-server.md
-    - name: Języki T-SQL i Python w magazynie danych SQL
+    - name: Języki T-SQL i Python w usłudze Azure Synapse Analytics
       href: walkthroughs-sql-data-warehouse.md
 - name: Programy narzędziowe i narzędzia
   items:
