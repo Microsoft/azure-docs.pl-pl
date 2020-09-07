@@ -3,19 +3,19 @@ title: Czytnik immersyjny Node.js Biblioteka kliencka — Szybki Start
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start utworzysz aplikację internetową od podstaw i dodasz funkcję interfejsu API czytnika immersyjny.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
-ms.author: pasta
+ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 91adff9a8330defb6c2b9f1e915c46886649fed3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbef435bc7cf0bf146009859044bcabe3c0f55ee
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602330"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505408"
 ---
 [Czytnik immersyjny](https://www.onenote.com/learningtools) jest specjalnie zaprojektowanym narzędziem, które implementuje sprawdzone techniki w celu zwiększenia czytelności.
 

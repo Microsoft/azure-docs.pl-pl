@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 0d3e4ad63baf6883aa8fadaca5b1f2d28fa14881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1538143c33991c5dc91a096c7df4297bc18e5af5
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310750"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504047"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Szybki Start: dołączanie Azure Security Center dla usługi IoT w programie IoT Hub
 
@@ -52,8 +52,8 @@ Aby zabezpieczyć rozwiązanie IoT, adresy IP przychodzących i wychodzących po
 
 Aby włączyć lub wyłączyć zbieranie danych adresów IP:
 
-1. Otwórz IoT Hub a następnie wybierz pozycję **Przegląd** z menu **zabezpieczenia** .
-1. Wybierz ekran **Ustawienia** , a następnie zmodyfikuj ustawienia geolokalizacji i/lub obsługa adresów IP.
+1. Otwórz IoT Hub a następnie wybierz pozycję **Ustawienia** z menu **zabezpieczenia** .
+1. Wybierz ekran **zbieranie danych** i zmodyfikuj ustawienia geolokalizacji i/lub obsługa adresów IP.
 
 ### <a name="log-analytics-creation"></a>Tworzenie Log Analytics
 
@@ -61,8 +61,8 @@ Gdy Azure Security Center IoT jest włączona, zostanie utworzony domyślny obsz
 
 Aby zmienić konfigurację obszaru roboczego Log Analytics:
 
-1. Otwórz IoT Hub a następnie wybierz pozycję **Przegląd** z menu **zabezpieczenia** .
-1. Wybierz ekran **Ustawienia** i zmodyfikuj konfigurację obszaru roboczego ustawień log Analytics.
+1. Otwórz IoT Hub a następnie wybierz pozycję **Ustawienia** z menu **zabezpieczenia** .
+1. Wybierz ekran **zbieranie danych** i zmodyfikuj konfigurację obszaru roboczego ustawień log Analytics.
 
 ### <a name="customize-your-iot-security-solution"></a>Dostosowywanie rozwiązania do zabezpieczeń IoT
 
@@ -70,8 +70,8 @@ Domyślnie włączenie Azure Security Center na potrzeby rozwiązania IoT automa
 
 Aby włączyć lub wyłączyć Azure Security Center usługi IoT na określonym IoT Hub:
 
-1. Otwórz IoT Hub a następnie wybierz pozycję **Przegląd** z menu **zabezpieczenia** .
-1. Wybierz ekran **Ustawienia** i zmodyfikuj ustawienia zabezpieczeń dowolnego Centrum IoT Hub w ramach subskrypcji platformy Azure.
+1. Otwórz IoT Hub a następnie wybierz pozycję **Ustawienia** z menu **zabezpieczenia** .
+1. Wybierz ekran **zbieranie danych** i zmodyfikuj ustawienia zabezpieczeń dowolnego Centrum IoT Hub w ramach subskrypcji platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

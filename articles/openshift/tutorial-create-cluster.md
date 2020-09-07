@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 96954d0ebf56251a66d4b9c8bdcce07153f64068
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469970"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503792"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -35,13 +35,31 @@ Aby utworzyć klaster usługi Azure Red Hat OpenShift, sprawdź następujące up
 |**Administrator dostępu użytkowników**|X|X| |
 |**Współautor**|X|X|X|
 
-### <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
+### <a name="register-the-resource-providers"></a>Rejestrowanie dostawców zasobów
 
-Następnie musisz zarejestrować `Microsoft.RedHatOpenShift` dostawcę zasobów w ramach subskrypcji.
+1. Jeśli masz wiele subskrypcji platformy Azure, określ odpowiedni identyfikator subskrypcji:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Zarejestruj `Microsoft.RedHatOpenShift` dostawcę zasobów:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+    
+1. Zarejestruj `Microsoft.Compute` dostawcę zasobów:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+    
+1. Zarejestruj `Microsoft.Storage` dostawcę zasobów:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Pobierz wpis tajny Red Hat (opcjonalnie)
 

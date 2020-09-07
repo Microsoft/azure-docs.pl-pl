@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 8ba81b669c25d91efa8ad1f07b1a7835b42c5cf4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7638ad070e8ac8bd99cbfb49b99bbb347a243a21
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310828"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505441"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Szybki Start: tworzenie alertów niestandardowych
 
@@ -40,7 +40,7 @@ Te grupy mogą reprezentować urządzenia z określonym sprzętem, urządzeniami
 
 Grupy zabezpieczeń są definiowane przez właściwość tag urządzenia o nazwie " **zabezpieczenia**". Domyślnie każde rozwiązanie IoT w IoT Hub ma jedną grupę zabezpieczeń o nazwie **default**. Zmień wartość właściwości Grupa **zabezpieczeń** , aby zmienić grupę zabezpieczeń urządzenia.
 
-Przykład:
+Na przykład:
 
 ```
 {
@@ -67,8 +67,8 @@ Używanie grup zabezpieczeń do grupowania urządzeń w kategorie logiczne. Po u
 
 ## <a name="customize-an-alert"></a>Dostosowywanie alertu
 
-1. Otwórz IoT Hub.
-1. Kliknij pozycję **alerty niestandardowe** w sekcji **zabezpieczenia** .
+1. Otwórz IoT Hub a następnie wybierz pozycję **Ustawienia** w menu **zabezpieczenia** . 
+1. Kliknij pozycję **alerty niestandardowe**.
 1. Wybierz grupę zabezpieczeń, do której chcesz zastosować dostosowanie.
 1. Kliknij przycisk **Dodaj alert niestandardowy**.
 1. Wybierz niestandardowy alert z listy rozwijanej.

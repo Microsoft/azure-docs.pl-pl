@@ -3,21 +3,21 @@ title: 'Szybki Start: korzystanie z biblioteki klienta czytnika immersyjny'
 titleSuffix: Azure Cognitive Services
 description: Interfejs API czytnika immersyjny oferuje biblioteki klienckie, które ułatwiają integrację możliwości wyszukiwania z aplikacjami. Użyj tego przewodnika Szybki Start, aby rozpocząć wysyłanie żądań wyszukiwania i uzyskać wyniki.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 05/20/2020
-ms.author: pasta
+ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5693ae7c4f42ba2f307cd888b65d269932b6fbff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c5f02c473fb4a44fb8c0235658d3c8f6e3279844
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921781"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505409"
 ---
 # <a name="quickstart-use-the-immersive-reader-client-library"></a>Szybki Start: korzystanie z biblioteki klienta czytnika immersyjny
 

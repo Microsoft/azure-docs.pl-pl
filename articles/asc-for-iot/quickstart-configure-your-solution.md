@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 04505527428a6bb312c6fb7a12c116947fbd7cf6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6ab713715cacc799d2b980c2bce2a2a15b76887
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310856"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505458"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Szybki Start: Konfigurowanie rozwiązania IoT
 
@@ -45,8 +45,8 @@ Po zdefiniowaniu wszystkich relacji zasobów Azure Security Center dla usługi I
 Aby dodać nowy zasób do rozwiązania IoT, wykonaj następujące czynności:
 
 1. Otwórz **IoT Hub** w Azure Portal.
-1. Wybierz i Otwórz **zasoby** z opcji **zabezpieczenia** w menu po lewej stronie.
-1. Wybierz pozycję **Edytuj** i wybierz grupy zasobów należące do rozwiązania IoT.
+1. Wybierz i Otwórz **Ustawienia** z sekcji **zabezpieczenia** w menu po lewej stronie, a następnie wybierz pozycję **monitorowane zasoby**.
+1. Wybierz pozycję **Edytuj** i wybierz monitorowane zasoby należące do rozwiązania IoT.
 1. Kliknij pozycję **Dodaj**.
 
 Gratulacje! Dodano nową grupę zasobów do rozwiązania IoT.
