@@ -3,12 +3,12 @@ title: Ocenianie serwerów fizycznych na potrzeby migracji na platformę Azure z
 description: Opisuje, jak oceniać lokalne serwery fizyczne do migracji na platformę Azure przy użyciu oceny serwera Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 25bd5241700d5950eb032a6c932470871e79945f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950106"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514122"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Ocenianie serwerów fizycznych za pomocą Azure Migrate: Ocena serwera
 
@@ -16,7 +16,7 @@ W tym artykule pokazano, jak oceniać lokalne serwery fizyczne przy użyciu Azur
 
 [Azure Migrate](migrate-services-overview.md) udostępnia centrum narzędzi, które ułatwiają odnajdywanie, ocenianie i Migrowanie aplikacji, infrastruktury i obciążeń do Microsoft Azure. Centrum obejmuje narzędzia Azure Migrate i oferty niezależnych dostawców oprogramowania (ISV) innych firm.
 
-Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować serwery fizyczne na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować serwery fizyczne na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Skonfiguruj projekt Azure Migrate.
 > * Skonfiguruj urządzenie Azure Migrate uruchamiane lokalnie, aby ocenić serwery fizyczne.
@@ -115,13 +115,13 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
         **Scenariusz** | **Przesłać*** | **Wartość skrótu**
         --- | --- | ---
-        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
+        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
 
     - Dla Azure Government:
 
         **Scenariusz** | **Przesłać*** | **Wartość skrótu**
         --- | --- | ---
-        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
+        Fizyczne (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Uruchom skrypt Instalatora Azure Migrate
 
@@ -318,7 +318,7 @@ Klasyfikacje zaufania dla oceny są następujące.
 [Dowiedz się więcej](best-practices-assessment.md#best-practices-for-confidence-ratings) o najlepszych rozwiązaniach dotyczących klasyfikacji zaufania.
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku zostały wykonane następujące czynności:
 

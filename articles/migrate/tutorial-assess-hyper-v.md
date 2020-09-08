@@ -4,19 +4,19 @@ description: Opisuje sposób oceny lokalnych maszyn wirtualnych funkcji Hyper-V 
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: eae7e2d371ed8156debe9ae24cf0744bd6273943
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 57d91f14b8f3a9f58373cbd43561a03a8546fd8f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950276"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514496"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Ocenianie maszyn wirtualnych funkcji Hyper-V za pomocą oceny serwera Azure Migrate
 
 W tym artykule przedstawiono sposób oceny lokalnych maszyn wirtualnych funkcji Hyper-V za pomocą narzędzia do [oceny serwera Azure Migrate](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
 
 
-Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj projekt Azure Migrate.
@@ -116,7 +116,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
         **Scenariusz*** | **Pobieranie** | **SHA256**
         --- | --- | ---
-        Funkcja Hyper-V (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140424) |  8025f315e41c01ebdb4ffb1de87982ae6cc4ea7c4cce612612c7e90a44e79b44
+        Funkcja Hyper-V (85 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
 
 
 ### <a name="create-the-appliance-vm"></a>Tworzenie maszyny wirtualnej urządzenia
@@ -343,7 +343,7 @@ Klasyfikacje zaufania dla oceny są następujące.
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku zostały wykonane następujące czynności:
 
