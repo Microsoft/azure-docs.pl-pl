@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504521"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536059"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
-Ten artykuł zawiera instrukcje krok po kroku dotyczące konfigurowania zapór Azure Key Vault i sieci wirtualnych w celu ograniczenia dostępu do magazynu kluczy. [Punkty końcowe usługi sieci wirtualnej dla Key Vault](overview-vnet-service-endpoints.md)) umożliwiają ograniczenie dostępu do określonej sieci wirtualnej i zestawu adresów IPv4 (protokołu internetowego w wersji 4).
+Ten artykuł zawiera instrukcje krok po kroku dotyczące konfigurowania zapór Azure Key Vault i sieci wirtualnych w celu ograniczenia dostępu do magazynu kluczy. [Punkty końcowe usługi sieci wirtualnej dla Key Vault](overview-vnet-service-endpoints.md) umożliwiają ograniczenie dostępu do określonej sieci wirtualnej i zestawu adresów IPv4 (protokołu internetowego w wersji 4).
 
 > [!IMPORTANT]
 > Po zastosowaniu reguł zapory użytkownicy mogą wykonywać Key Vault operacje [płaszczyzny danych](secure-your-key-vault.md#data-plane-access-control) tylko wtedy, gdy ich żądania pochodzą z dozwolonych sieci wirtualnych lub zakresów adresów IPv4. Dotyczy to również uzyskiwania dostępu do Key Vault z Azure Portal. Mimo że użytkownicy mogą przechodzić do magazynu kluczy z Azure Portal, mogą nie być w stanie wyświetlać kluczy, wpisów tajnych ani certyfikatów, jeśli ich maszyny klienckie nie znajdują się na liście dozwolonych. Ma to również wpływ na wybór Key Vault przez inne usługi platformy Azure. Użytkownicy mogą widzieć listę magazynów kluczy, ale nie listy kluczy, jeśli reguły zapory uniemożliwiają ich komputerom klienckim.
@@ -122,12 +122,12 @@ Poniżej przedstawiono sposób konfigurowania zapór Key Vault i sieci wirtualny
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
-## <a name="references"></a>Materiały źródłowe
+## <a name="references"></a>Odwołania
 * Dokumentacja szablonu ARM: [Dokumentacja szablonu Azure Key Vault ARM](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/vaults)
 * Polecenie interfejsu wiersza polecenia platformy Azure: [AZ datamagazyn Network-Rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
 * Polecenia cmdlet Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Punkty końcowe usługi sieci wirtualnej dla Key Vault](overview-vnet-service-endpoints.md))
-* [Zabezpiecz swój magazyn kluczy](secure-your-key-vault.md))
+* [Punkty końcowe usługi sieci wirtualnej dla Key Vault](overview-vnet-service-endpoints.md)
+* [Zabezpieczanie magazynu kluczy](secure-your-key-vault.md)

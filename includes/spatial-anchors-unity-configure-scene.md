@@ -2,21 +2,19 @@
 author: craigktreasure
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 1/2/2019
+ms.date: 8/13/2020
 ms.author: crtreasu
-ms.openlocfilehash: 43e64dadc5e339d174d08788cc7a98506841ee88
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 89c804c038e2b23c9d61225a07f92f70bf1157fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810182"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536270"
 ---
 ## <a name="configure-the-account-information"></a>Skonfiguruj informacje o koncie
-
-W okienku **projekt** przejdź do `Assets/AzureSpatialAnchors.Examples/Scenes` pliku sceny i otwórz go `AzureSpatialAnchorsBasicDemo.unity` .
 
 Następnym krokiem jest skonfigurowanie aplikacji w taki sposób, aby korzystała z informacji o koncie. Skopiowano je do edytora tekstu podczas [konfigurowania zasobów kotwic przestrzennych](#create-a-spatial-anchors-resource).
 
 W okienku **projekt** przejdź do `Assets\AzureSpatialAnchors.SDK\Resources` . Wybierz pozycję `SpatialAnchorConfig`. Następnie w okienku **Inspektor** wprowadź `Account Key` wartość dla `Spatial Anchors Account Key` , jako wartość parametru `Account ID` `Spatial Anchors Account Id` , i `Account Domain` jako wartość dla `Spatial Anchors Account Domain` .
 
-Zapisz scenę, wybierając pozycję **plik**  >  **Zapisz**.
+Zapisz zmiany, wybierając pozycję **plik**  >  **Zapisz**.

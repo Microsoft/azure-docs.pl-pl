@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/08/2020
 ms.author: victorh
-ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079119"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536006"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Samouczek: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure
 
@@ -57,7 +57,7 @@ Każda z tych sieci wirtualnych będzie zawierać w nich serwer obciążenia i b
 4. Typ **obciążenia-01-SN**.
 5. W obszarze **zakres adresów podsieci**wpisz **10.1.1.0/24**.
 6. Wybierz pozycję **Dodaj**.
-1. Wybierz pozycję **Przeglądanie + tworzenie**.
+1. Wybierz pozycję **Przejrzyj i utwórz**.
 2. Wybierz pozycję **Utwórz**.
 
 Powtórz tę procedurę, aby utworzyć kolejną podobną sieć wirtualną:
@@ -84,7 +84,7 @@ Utwórz bezpieczne centrum wirtualne przy użyciu Menedżera zapory.
 5. Wybierz pozycję **Dalej: Zapora platformy Azure**.
 6. Zaakceptuj domyślne ustawienie **zapory platformy Azure** **Enabled** , a następnie wybierz pozycję **Dalej: zaufany partner zabezpieczeń**.
 7. Zaakceptuj ustawienie domyślny **zaufany partner zabezpieczeń** **Disabled** , a następnie wybierz kolejno pozycje **Dalej: przegląd + Utwórz**.
-8. Wybierz pozycję **Utwórz**. Wdrożenie zajmie około 30 minut.
+8. Wybierz przycisk **Utwórz**. Wdrożenie zajmie około 30 minut.
 
 Teraz możesz uzyskać publiczny adres IP zapory.
 
@@ -106,33 +106,9 @@ Teraz można połączyć równorzędne sieci wirtualne z koncentratorem i szpryc
 5. W przypadku **centrów**wybierz pozycję **Hub-01**.
 6. W obszarze **Grupa zasobów**wybierz pozycję **PD-Manager**.
 7. W obszarze **Sieć wirtualna**wybierz opcję **szprych-01**.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 
 Powtórz, aby połączyć sieć wirtualną **szprych-02** : Connection Name- **Hub-02**
-
-### <a name="configure-the-hub-and-spoke-routing"></a>Konfigurowanie routingu Hub i gwiazdy
-
-W Azure Portal Otwórz Cloud Shell i uruchom następujące Azure PowerShell w celu skonfigurowania wymaganego routingu Hub i satelity. Równorzędne połączenia szprych/Branch muszą mieć ustawioną wartość **Brak**. Zapobiega to jakiejkolwiek komunikacji między szprychami, a zamiast tego kieruje ruch do zapory przy użyciu trasy domyślnej.
-
-```azurepowershell
-$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
-                  -HubName hub-01 -Name noneRouteTable
-$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-             -ParentResourceName hub-01
-
-$vnetConn = $vnetConns[0]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name `
-   -RoutingConfiguration $vnetConn.RoutingConfiguration
-
-$vnetConn = $vnetConns[1]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
-```
 
 ## <a name="deploy-the-servers"></a>Wdrażanie serwerów
 
@@ -144,7 +120,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
    |---------|---------|
    |Grupa zasobów     |**PD — Menedżer**|
    |Nazwa maszyny wirtualnej     |**SRV — obciążenie — 01**|
-   |Region     |**Prześlij Wschodnie stany USA)**|
+   |Region (Region)     |**Prześlij Wschodnie stany USA)**|
    |Nazwa użytkownika administratora     |Wpisz nazwę użytkownika|
    |Hasło     |Wpisz hasło|
 
@@ -223,7 +199,7 @@ Dodaj regułę sieciową, aby można było połączyć pulpit zdalny od **SRV-ob
 2. Wybierz pozycję **Dalej: centra**.
 3. Na karcie **centra** wybierz opcję **Skojarz centra wirtualne**.
 4. Wybierz pozycję **Hub-01** , a następnie wybierz pozycję **Dodaj**.
-5. Wybierz pozycję **Przeglądanie + tworzenie**.
+5. Wybierz pozycję **Przejrzyj i utwórz**.
 6. Wybierz pozycję **Utwórz**.
 
 Ukończenie tego procesu może potrwać około pięciu minut.

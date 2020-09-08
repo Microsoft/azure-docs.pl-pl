@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7052617eb83dbd07c2d6938dcbb7a38ba19f3aad
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854925"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536234"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Samouczek: uczenie swojego pierwszego modelu ML
 
@@ -56,11 +56,14 @@ W tej części samouczka uruchamiasz kod w przykładowym samouczku notesu Jupyte
 Zaimportuj `Workspace` klasę i Załaduj informacje o subskrypcji z pliku `config.json` przy użyciu funkcji `from_config().` Ta funkcja szuka domyślnego pliku JSON w bieżącym katalogu, ale możesz również określić parametr ścieżki, aby wskazać plik przy użyciu `from_config(path="your/file/path")` . Jeśli używasz tego notesu na serwerze notesu w chmurze w obszarze roboczym, plik jest automatycznie w katalogu głównym.
 
 Jeśli Poniższy kod pyta o dodatkowe uwierzytelnianie, wystarczy wkleić link w przeglądarce i wprowadzić token uwierzytelniania. Ponadto, jeśli masz więcej niż jedną dzierżawę połączoną z użytkownikiem, musisz dodać następujące wiersze:
-```
+
+```python
 from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
 ```
+
+Aby uzyskać więcej informacji na temat uwierzytelniania, zobacz [uwierzytelnianie w Azure Machine Learning](https://aka.ms/aml-notebook-auth)
+
 
 ```python
 from azureml.core import Workspace
