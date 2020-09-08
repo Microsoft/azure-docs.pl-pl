@@ -29,6 +29,8 @@
           href: quickstart-service-python.md
 - name: Samouczki
   items:
+    - name: Łączenie urządzenia z wieloma składnikami (C)
+      href: tutorial-multiple-components-c.md
     - name: Łączenie urządzenia z wieloma składnikami (C#)
       href: tutorial-multiple-components-csharp.md
     - name: Łączenie urządzenia z wieloma składnikami (Java)

@@ -36,6 +36,8 @@
   items:
     - name: Tworzenie obszaru roboczego usługi Synapse za pomocą witryny Azure Portal
       href: quickstart-create-workspace.md
+    - name: Wdrażanie za pomocą szablonu
+      href: quickstart-deployment-template-workspaces.md
     - name: Tworzenie obszaru roboczego usługi Synapse za pomocą interfejsu wiersza polecenia platformy Azure
       href: quickstart-create-workspace-cli.md
     - name: Korzystanie z programu Synapse Studio
@@ -210,6 +212,8 @@
               href: ./spark/apache-spark-delta-lake-overview.md
             - name: Wydajność platformy Apache Spark
               href: ./spark/apache-spark-performance.md
+            - name: Optymalizacja wydajności platformy Apache Spark przy użyciu indeksów Hyperspace
+              href: ./spark/apache-spark-performance-hyperspace.md
             - name: Zachowanie automatycznego skalowania platformy Apache Spark
               href: ./spark/apache-spark-autoscale.md
         - name: Opracowywanie zawartości
