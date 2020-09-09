@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400436"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595992"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Rozwiązywanie problemów z zasadami dostępu do magazynu kluczy Azure
 
@@ -25,6 +25,14 @@ Po utworzeniu co najmniej jednego magazynu kluczy prawdopodobnie zechcesz monito
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Jak można monitorować dostępność magazynu, okresy opóźnienia usługi lub inne metryki wydajności dla magazynu kluczy?
 
 Po rozpoczęciu skalowania usługi liczba żądań wysyłanych do magazynu kluczy zostanie wykorzystana. Takie zapotrzebowanie ma możliwość zwiększenia opóźnienia żądań i w skrajnych przypadkach, powodując ograniczenie żądań, co wpłynie na wydajność usługi. Można monitorować metryki wydajności magazynu kluczy i otrzymywać alerty dla określonych progów, aby zapoznać się z przewodnikiem krok po kroku w celu skonfigurowania monitorowania, [Dowiedz się więcej](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Nie mogę zmodyfikować zasad dostępu, jak można je włączyć?
+Użytkownik musi mieć wystarczającą liczbę uprawnień usługi AAD, aby zmodyfikować zasady dostępu. W takim przypadku użytkownik musi mieć wyższą rolę współautor.
+
+### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Widzę komunikat o błędzie "Unkwown Policy". Co to oznacza?
+Istnieją dwie różne możliwości wyświetlania zasad dostępu w nieznanej sekcji:
+* Może istnieć wcześniejszy użytkownik, który miał dostęp, i z jakiegoś powodu, że użytkownik nie istnieje.
+* Jeśli zasady dostępu są dodawane za pośrednictwem programu PowerShell, a zasady dostępu są dodawane dla identyfikatora obiektu aplikacji zamiast priciple usługi
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Jak mogę przypisać kontrolę dostępu dla obiektu magazynu kluczy? 
 
