@@ -1,25 +1,25 @@
 ---
-title: 'Szybki Start: Testowanie modelu przy użyciu plików audio — Speech Studio'
+title: Testowanie modelu przy użyciu plików audio — Speech Studio
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start użyjesz programu Speech Studio do testowania rozpoznawania mowy w pliku audio.
+description: W tym instruktażu program Speech Studio służy do testowania rozpoznawania mowy w pliku audio.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391540"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565807"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Szybki Start: Testowanie modelu przy użyciu pliku audio w programie Speech Studio
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testowanie modelu przy użyciu pliku dźwiękowego w programie Speech Studio
 
-W tym przewodniku szybki start użyjesz programu Speech Studio do przekonwertowania mowy z pliku audio na tekst. Program Speech Studio umożliwia testowanie, porównywanie, ulepszanie i wdrażanie modeli rozpoznawania mowy przy użyciu pokrewnego tekstu, dźwięku z transkrypcjami z etykietami ludzkimi i podano wskazówki dotyczące wymowy.
+W tym instruktażu używasz programu Speech Studio do konwertowania mowy z pliku audio na tekst. Program Speech Studio umożliwia testowanie, porównywanie, ulepszanie i wdrażanie modeli rozpoznawania mowy przy użyciu pokrewnego tekstu, dźwięku z transkrypcjami z etykietami ludzkimi i podano wskazówki dotyczące wymowy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -2,20 +2,21 @@
 title: 'Szybki Start: Tworzenie aplikacji w języku Python'
 description: Rozpocznij pracę z Azure App Service, wdrażając pierwszą aplikację w języku Python w kontenerze systemu Linux w programie App Service.
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/08/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: 3bfe927b2c9dc16de8712f6c1793e850df92c201
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 77aafb53c1346c6723d055a8ae1c96297fdfbd52
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078456"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568918"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
 W tym przewodniku szybki start wdrożono aplikację sieci Web w języku Python w celu [App Service w systemie Linux](overview.md#app-service-on-linux)— wysoce skalowalna, samoobsługowa usługa hostingu sieci Web na platformie Azure. Używasz lokalnego [interfejsu wiersza polecenia platformy Azure (CLI)](/cli/azure/install-azure-cli) na komputerze Mac, Linux lub Windows. Skonfigurowana aplikacja internetowa korzysta z bezpłatnej warstwy App Service, więc nie ponosisz żadnych kosztów w ramach tego artykułu.
 
-Jeśli wolisz wdrażać aplikacje za pośrednictwem środowiska IDE, zobacz [wdrażanie aplikacji w języku Python do App Service z Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01).
+> [!NOTE]
+> Jeśli wolisz wdrażać aplikacje za pośrednictwem środowiska IDE, zobacz **[wdrażanie aplikacji w języku Python do App Service z Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurowanie środowiska początkowego
 
@@ -67,15 +68,10 @@ Po zalogowaniu możesz uruchamiać polecenia platformy Azure za pomocą interfej
 
 ## <a name="clone-the-sample"></a>Klonowanie przykładu
 
-Sklonuj przykładowe repozytorium za pomocą poniższego polecenia. ([Zainstaluj program git](https://git-scm.com/downloads) , jeśli nie masz już usługi Git).
+Sklonuj przykładowe repozytorium za pomocą poniższego polecenia, a następnie przejdź do folderu. ([Zainstaluj program git](https://git-scm.com/downloads) , jeśli nie masz już usługi Git).
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
-```
-
-Następnie przejdź do tego folderu:
-
-```terminal
 cd python-docs-hello-world
 ```
 
@@ -157,7 +153,7 @@ az webapp up --sku F1 -n <app-name>
 - Jeśli `az` polecenie nie jest rozpoznawane, upewnij się, że masz zainstalowany interfejs wiersza polecenia platformy Azure zgodnie z opisem w artykule [Konfigurowanie początkowego środowiska](#set-up-your-initial-environment).
 - Zamień na `<app_name>` nazwę, która jest unikatowa na całym systemie Azure (*prawidłowe znaki to `a-z` , `0-9` i `-` *). Dobrym wzorcem jest użycie kombinacji nazwy firmy i identyfikatora aplikacji.
 - `--sku F1`Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Pomiń ten argument, aby użyć szybszej warstwy Premium, która wiąże się z godziną.
-- Opcjonalnie możesz dołączyć argument `-l <location-name>` `<location_name>` , gdzie jest regionem świadczenia usługi Azure, takim jak **środkowe**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**i tak dalej. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) polecenie.
+- Opcjonalnie możesz dołączyć argument `-l <location-name>` `<location_name>` , gdzie jest regionem świadczenia usługi Azure, takim jak **środkowe**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**i tak dalej. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) polecenie.
 - Jeśli widzisz błąd, "nie można automatycznie wykryć stosu środowiska uruchomieniowego aplikacji", upewnij się, że uruchomiono polecenie w folderze *Python-docs-Hello-World* , który zawiera plik *requirements.txt* . (Zobacz [Rozwiązywanie problemów z wykrywaniem automatyczne przy użyciu AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 Wykonanie polecenia może potrwać kilka minut. W trakcie korzystania z programu są dostępne komunikaty dotyczące tworzenia grupy zasobów, planu App Service i aplikacji hostingu, konfigurowania rejestrowania, a następnie wykonywania wdrożenia ZIP. Następnie zostanie wyświetlony komunikat "można uruchomić aplikację pod adresem http:// &lt; App-Name &gt; . azurewebsites.NET", który jest adresem URL aplikacji na platformie Azure.

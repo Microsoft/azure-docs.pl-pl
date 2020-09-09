@@ -4,18 +4,18 @@ description: W tym przewodniku szybki start pokazano, jak za pomocą funkcji ana
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 45595e8e6aa53b41d6d8b0d9d11457468dc47013
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691038"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566918"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Szybki Start: wykrywanie ruchu i emitowanie zdarzeń
 
 Ten przewodnik Szybki Start przeprowadzi Cię przez kroki umożliwiające rozpoczęcie pracy z usługą analiza filmów wideo na żywo na IoT Edge. Używa ona maszyny wirtualnej platformy Azure jako urządzenia usługi IoT Edge oraz symulowanego strumienia wideo na żywo. Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na żywo za pomocą grafu multimediów, który wykrywa i raportuje wszystkie ruchy w tym strumieniu. Na poniższym diagramie przedstawiono graficzną reprezentację tego wykresu multimedialnego.
 
-![Analiza wideo na żywo oparta na wykrywaniu ruchu](./media/analyze-live-video/motion-detection.png) 
+![Analiza wideo na żywo oparta na wykrywaniu ruchu](./media/analyze-live-video/motion-detection.svg) 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/csharp/header.md)]
@@ -105,7 +105,7 @@ Ten przewodnik Szybki Start przeprowadzi Cię przez kroki umożliwiające rozpoc
 [!INCLUDE [interpret-results](includes/detect-motion-emit-events-quickstart/python/interpret-results.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz wypróbować inne Przewodniki Szybki Start, należy pozostawić utworzone zasoby. W przeciwnym razie w Azure Portal przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten przewodnik Szybki Start, a następnie usuń wszystkie zasoby.
 

@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 768e79c6a2471715b336f90748ad97ecfcc4bbc2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9c1b521a0f10da77295fd2457793566d787cb2cd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682315"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570125"
 ---
-
-![overview](../../../media/quickstarts/overview-qs4.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="../../../media/quickstarts/overview-qs4.svg" alt-text="Przepływ sygnałów":::
 
 Na powyższym diagramie przedstawiono sposób przepływu sygnałów w tym przewodniku Szybki Start. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP, która hostuje serwer protokołu przesyłania strumieniowego (RTSP) w czasie rzeczywistym. Węzeł [źródłowy RTSP](../../../media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do węzła [procesora wykrywania ruchu](../../../media-graph-concept.md#motion-detection-processor) . Źródło RTSP wysyła te same ramki wideo do węzła [procesora bramy sygnalizującej](../../../media-graph-concept.md#signal-gate-processor) , który pozostanie zamknięty do momentu wyzwolenia przez zdarzenie.
 

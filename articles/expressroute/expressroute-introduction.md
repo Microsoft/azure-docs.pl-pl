@@ -7,15 +7,15 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 26f27297b651da11bf6dd76236709e5bfb77d90e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395404"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566878"
 ---
 # <a name="what-is-azure-expressroute"></a>Co to jest usługa Azure ExpressRoute?
-Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, na przykład Microsoft Azure i Office 365.
+Usługa ExpressRoute umożliwia rozszerzenie sieci lokalnych na chmurę firmy Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure i Microsoft 365.
 
 Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Dzięki temu połączenia ExpressRoute zapewniają większą niezawodność, większe szybkości, spójne opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez Internet. Informacje dotyczące łączenia sieci z firmą Microsoft przy użyciu usługi ExpressRoute można znaleźć w temacie [Modele połączeń usługi ExpressRoute](expressroute-connectivity-models.md).
 
@@ -44,7 +44,7 @@ Każdy obwód usługi ExpressRoute składa się z dwóch połączeń z dwoma rou
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Łączność z usługami w chmurze firmy Microsoft
 Połączenia ExpressRoute umożliwiają dostęp do następujących usług:
 * Usługi Microsoft Azure
-* Usługi Microsoft Office 365
+* Usługi Microsoft 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

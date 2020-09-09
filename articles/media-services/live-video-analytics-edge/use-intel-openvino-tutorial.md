@@ -2,14 +2,14 @@
 title: Analizowanie wideo na żywo za pomocą OpenVINO™ model Server — rozszerzenie AI z firmy Intel
 description: W tym samouczku użyjesz serwera modelu AI dostarczonego przez firmę Intel do analizowania strumieniowego kanału informacyjnego wideo z (symulowanej) kamery IP.
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 102c54d8f738c3e8e62c7092d0df6ec7d12b8a0c
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950259"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567587"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Samouczek: analizowanie wideo na żywo za pomocą OpenVINO™ model Server — rozszerzenie AI z firmy Intel 
 
@@ -30,6 +30,7 @@ W tym samouczku zostanie użyta maszyna wirtualna platformy Azure jako urządzen
 > W przypadku instalowania narzędzi Azure IoT Tools może zostać wyświetlony monit o zainstalowanie platformy Docker. Możesz zignorować monit.
 
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
+
 Po skonfigurowaniu zasobów platformy Azure krótkie wideo z partii parkingowej jest kopiowane na maszynę wirtualną z systemem Linux na platformie Azure, która jest używana jako urządzenie IoT Edge. Ten przewodnik Szybki Start używa pliku wideo do symulowania strumienia na żywo.
 
 Otwórz aplikację, taką jak [VLC Media Player](https://www.videolan.org/vlc/). Wybierz kombinację klawiszy CTRL + N, a następnie wklej link do [filmu wideo](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) , aby rozpocząć odtwarzanie. Zobaczysz film o pojazdach w partii parkingowej, większość z nich zaparkowane i jeden przenoszony.
@@ -38,7 +39,8 @@ W tym przewodniku szybki start użyjesz usługi Analiza filmów wideo na żywo n
 
 ## <a name="overview"></a>Omówienie
 
-![Omówienie](./media/use-intel-openvino-tutorial/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="Omówienie":::
 
 Ten diagram przedstawia sposób przepływu sygnałów w tym przewodniku Szybki Start. [Moduł graniczny](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) symuluje kamerę IP obsługującą serwer protokołu przesyłania strumieniowego w czasie rzeczywistym (RTSP). Węzeł [źródłowy RTSP](media-graph-concept.md#rtsp-source) pobiera kanał wideo z tego serwera i wysyła ramki wideo do węzła [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) . Ten procesor ogranicza szybkość klatek strumienia wideo, który dociera do węzła [procesora rozszerzenia http](media-graph-concept.md#http-extension-processor) . 
 
@@ -46,7 +48,7 @@ Węzeł rozszerzenia HTTP pełni rolę serwera proxy. Konwertuje ramki wideo na 
 
 W tym samouczku wykonasz następujące czynności:
 
-1. Utwórz i Wdróż Graf multimedialny, modyfikując go 
+1. Utwórz i Wdróż Graf multimedialny, modyfikując go.
 1. Interpretuj wyniki.
 1. Wyczyść zasoby.
 
@@ -372,7 +374,7 @@ Możesz teraz powtórzyć powyższe kroki, aby ponownie uruchomić przykładowy 
 
 Jeśli planujesz wypróbować inne Przewodniki Szybki start lub samouczków, Zachowaj utworzone zasoby. W przeciwnym razie przejdź do Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten samouczek, i Usuń wszystkie zasoby.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z dodatkowymi wyzwaniami dla zaawansowanych użytkowników:
 

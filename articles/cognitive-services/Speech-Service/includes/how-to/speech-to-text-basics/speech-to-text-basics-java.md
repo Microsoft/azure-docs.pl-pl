@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 314617554abf8fee430e47eb4b0a0ca5db5bc75f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: db2f1a685e3413814878ee1a6a367bd790739d4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375221"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565012"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -20,8 +20,8 @@ W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypc
 
 Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SDK. W zależności od platformy należy wykonać następujące instrukcje:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Środowisko uruchomieniowe Java<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Systemów<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java" target="_blank">Środowisko uruchomieniowe Java <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java" target="_blank">Systemów <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## <a name="create-a-speech-configuration"></a>Tworzenie konfiguracji mowy
 
@@ -45,34 +45,30 @@ SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "Your
 
 ## <a name="initialize-a-recognizer"></a>Inicjowanie aparatu rozpoznawania
 
-Po utworzeniu [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) , następnym krokiem jest zainicjowanie [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) . Po zainicjowaniu elementu należy [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) przekazać go `config` . Zapewnia to poświadczenia wymagane przez usługę mowy do zweryfikowania Twojego żądania.
-
-Jeśli rozpoznajesz mowę przy użyciu domyślnego mikrofonu urządzenia, Oto jak [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) powinien wyglądać:
+Po utworzeniu [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) , następnym krokiem jest zainicjowanie [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) . Po zainicjowaniu elementu [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) należy przekazać go `SpeechConfig` . Zapewnia to poświadczenia wymagane przez usługę mowy do zweryfikowania Twojego żądania.
 
 ```java
 SpeechRecognizer recognizer = new SpeechRecognizer(config);
 ```
 
-Jeśli chcesz określić urządzenie wejściowe audio, należy utworzyć [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) i podać `audioConfig` parametr podczas inicjowania [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) .
+## <a name="recognize-from-microphone-or-file"></a>Rozpoznawanie z mikrofonu lub pliku
 
-> [!TIP]
-> [Dowiedz się, jak uzyskać identyfikator urządzenia dla wejściowego urządzenia audio](../../../how-to-select-audio-input-devices.md).
+Jeśli chcesz określić urządzenie wejściowe audio, musisz utworzyć [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) i przekazać go jako parametr podczas inicjowania [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) .
 
-Najpierw Dodaj następujące `import` instrukcje.
+Aby rozpoznać mowę przy użyciu mikrofonu urządzenia, Utwórz `AudioConfig` za pomocą `fromDefaultMicrophoneInput()` , a następnie Przekaż konfigurację audio podczas tworzenia `SpeechRecognizer` obiektu.
 
 ```java
 import java.util.concurrent.Future;
 import com.microsoft.cognitiveservices.speech.*;
-```
 
-Następnie będzie można odwołać się do `AudioConfig` obiektu w następujący sposób:
-
-```java
 AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
 ```
 
-Jeśli chcesz podać plik audio zamiast używać mikrofonu, nadal musisz podać `audioConfig` . Jednak podczas tworzenia [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) , zamiast wywoływania `fromDefaultMicrophoneInput` , należy wywołać `fromWavFileOutput` i przekazać `filename` parametr.
+> [!TIP]
+> [Dowiedz się, jak uzyskać identyfikator urządzenia dla wejściowego urządzenia audio](../../../how-to-select-audio-input-devices.md).
+
+Jeśli chcesz rozpoznać mowę z pliku audio zamiast używać mikrofonu, nadal musisz utworzyć `AudioConfig` . Jednak podczas tworzenia [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) , zamiast wywoływania `fromDefaultMicrophoneInput()` , należy wywołać `fromWavFileInput()` i przekazać `filename` parametr.
 
 ```java
 AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
@@ -100,9 +96,9 @@ SpeechRecognitionResult result = task.get();
 
 Musisz napisać kod, aby obsłużyć wynik. Ten przykład szacuje [`result.getReason()`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.resultreason?view=azure-java-stable) :
 
-* Drukuje wynik rozpoznawania:`ResultReason.RecognizedSpeech`
-* Jeśli nie ma dopasowania do rozpoznawania, należy poinformować użytkownika:`ResultReason.NoMatch`
-* Jeśli wystąpi błąd, Wydrukuj komunikat o błędzie:`ResultReason.Canceled`
+* Drukuje wynik rozpoznawania: `ResultReason.RecognizedSpeech`
+* Jeśli nie ma dopasowania do rozpoznawania, należy poinformować użytkownika: `ResultReason.NoMatch`
+* Jeśli wystąpi błąd, Wydrukuj komunikat o błędzie: `ResultReason.Canceled`
 
 ```java
 switch (result.getReason()) {
@@ -217,7 +213,7 @@ Typowym zadaniem rozpoznawania mowy jest określenie języka danych wejściowych
 config.setSpeechRecognitionLanguage("fr-FR");
 ```
 
-[`setSpeechRecognitionLanguage`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage?view=azure-java-stable)jest parametrem, który przyjmuje ciąg jako argument. Możesz podać dowolną wartość na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md).
+[`setSpeechRecognitionLanguage`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage?view=azure-java-stable) jest parametrem, który przyjmuje ciąg jako argument. Możesz podać dowolną wartość na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md).
 
 ## <a name="improve-recognition-accuracy"></a>Popraw dokładność rozpoznawania
 

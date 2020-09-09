@@ -3,12 +3,12 @@ title: Co to jest rozszerzenie Media Graph — Azure
 description: Funkcja analizy filmów wideo na żywo w systemie IoT Edge umożliwia rozszerzanie możliwości przetwarzania wykresów multimedialnych za pomocą węzła rozszerzenia grafu.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: d7e14a0336da75e1948cf6dc4dbdb51490b70021
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420833"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569337"
 ---
 # <a name="media-graph-extension"></a>Rozszerzenie grafu multimedialnego
 
@@ -49,8 +49,9 @@ Należy więc użyć węzła procesora rozszerzenia gRPC, gdy:
 Rozszerzenia grafu multimediów umożliwiają uruchamianie wybranych modeli wnioskowania na dowolnym dostępnym środowisku uruchomieniowym wnioskowania, takim jak ONNX, TensorFlow, PyTorch lub inne w swoim kontenerze platformy Docker. Rozszerzenie niestandardowe inferencing należy wdrożyć wraz z modułem Edge usługi Analiza wideo na żywo w celu uzyskania najlepszej wydajności, a następnie będzie wywoływana za pośrednictwem procesora rozszerzenia HTTP lub procesora rozszerzenia gRPC zawartego w topologii grafu. Ponadto częstotliwość wywołań do rozszerzenia niestandardowego można ograniczyć, opcjonalnie dodając [procesor detektora ruchu](media-graph-concept.md#motion-detection-processor) i przechodzący [procesor filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) do procesora rozszerzenia nośnika.
 
 Na poniższym diagramie przedstawiono przepływ danych wysokiego poziomu:
- 
-![Przepływ danych](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="Usługa wnioskowania o AI":::
 
 ## <a name="samples"></a>Samples
 

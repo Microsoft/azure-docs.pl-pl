@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825362"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569309"
 ---
 # <a name="what-is-the-speech-service"></a>Czym jest usługa rozpoznawania mowy?
 
@@ -90,10 +90,10 @@ Wdrożenie nowego zasobu mowy trwa kilka minut. Po zakończeniu wdrażania wybie
 
 Oferujemy Przewodniki Szybki Start w najpopularniejszych językach programowania, z których każdy jest przeznaczony do uczenia podstawowych wzorców projektowych i uruchamiania kodu w mniej niż 10 minut. Zapoznaj się z poniższą listą przewodnika Szybki Start dla każdej funkcji.
 
-* [Przewodnik Szybki Start dotyczący zamiany tekstu](speech-to-text-basics.md)
+* [Przewodnik Szybki Start dotyczący zamiany tekstu](get-started-speech-to-text.md)
 * [Przewodnik Szybki start dotyczący zamiany tekstu na mowę](get-started-text-to-speech.md)
-* [Tłumaczenie mowy — Szybki Start](speech-translation-basics.md)
-* [Rozpoznawanie intencji — Szybki Start](quickstarts/intent-recognition.md)
+* [Przewodnik Szybki start dotyczący tłumaczenia mowy](speech-translation-basics.md)
+* [Szybki start — rozpoznawanie intencji](quickstarts/intent-recognition.md)
 * [Rozpoznawanie osoby mówiącej — Szybki Start](speaker-recognition-basics.md)
 
 Gdy masz okazję do rozpoczęcia korzystania z usługi mowy, wypróbuj nasze samouczki pokazujące, jak rozwiązać różne scenariusze.

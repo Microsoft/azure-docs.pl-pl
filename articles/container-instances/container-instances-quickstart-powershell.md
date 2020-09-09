@@ -2,18 +2,17 @@
 title: Szybki Start — wdrażanie kontenera platformy Docker do wystąpienia kontenera — program PowerShell
 description: W tym przewodniku szybki start użyjesz Azure PowerShell, aby szybko wdrożyć aplikację sieci Web, która działa w izolowanym wystąpieniu kontenera platformy Azure
 services: container-instances
-author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9901b3f18973365dc9ceb8c85ff8587b6c2ea894
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533605"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565586"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu Azure PowerShell
 
@@ -23,7 +22,7 @@ W tym przewodniku szybki start użyjesz Azure PowerShell do wdrożenia izolowane
 
 ![Aplikacja wdrożona w usłudze Azure Container Instances widziana w przeglądarce][qs-powershell-01]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -89,7 +88,7 @@ Kiedy stan `ProvisioningState` kontenera będzie mieć wartość **Powodzenie**,
 
 ![Widziana w przeglądarce usługa IIS wdrożona za pomocą usługi Azure Container Instances][qs-powershell-01]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z kontenerem usuń go przy użyciu polecenia cmdlet [Remove-AzContainerGroup][Remove-AzContainerGroup]:
 

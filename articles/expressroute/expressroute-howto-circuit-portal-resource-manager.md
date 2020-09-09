@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: duau
-ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e0ba14cd5db47c12435b2de35d0753b402c947ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322145"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566266"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Samouczek: Tworzenie i modyfikowanie obwodu ExpressRoute
 
@@ -75,7 +75,10 @@ Obwód ExpressRoute można utworzyć, wybierając opcję tworzenia nowego zasobu
     > [!IMPORTANT]
     > Lokalizacja komunikacji równorzędnej wskazuje [lokalizację fizyczną](expressroute-locations.md) , w której jest przeprowadzana Komunikacja równorzędna z firmą Microsoft. **Nie** jest to połączenie z właściwością "Location", która odnosi się do lokalizacji geograficznej, w której znajduje się dostawca zasobów sieciowych platformy Azure. Chociaż nie są one powiązane, dobrym sposobem jest wybranie dostawcy zasobów sieciowych geograficznie blisko lokalizacji komunikacji równorzędnej obwodu.
 
-    * **Jednostka SKU** określa, czy włączono dodatek ExpressRoute Local, ExpressRoute Standard lub ExpressRoute Premium. Możesz określić **lokalne** , aby pobrać lokalną jednostkę SKU, **Standard** w celu uzyskania standardowej jednostki SKU lub **Premium** dla dodatku Premium.
+    * **Jednostka SKU** określa, czy włączono dodatek ExpressRoute Local, ExpressRoute Standard lub ExpressRoute Premium. Możesz określić **lokalną** jednostkę SKU, **Standard** , aby uzyskać standardową jednostkę SKU lub **Premium** dla dodatku Premium. Należy pamiętać, że można zmienić jednostkę SKU, aby włączyć dodatek Premium.
+    > [!IMPORTANT]
+    > Nie można zmienić jednostki SKU z warstwy **standardowa/Premium** na **lokalną**.
+    
     * **Model rozliczeń** określa typ rozliczeń. Możesz określić **taryfowy** plan taryfowy i **nieograniczone** dla nieograniczonego planu taryfowego. Należy pamiętać, że typ rozliczeń można zmienić z **taryfowe** na **nieograniczony**.
 
     > [!IMPORTANT]
@@ -150,6 +153,10 @@ Niektóre właściwości obwodu usługi ExpressRoute można modyfikować bez wp�
 W przypadku braku przestojów można wykonać następujące zadania:
 
 * Włącz lub Wyłącz dodatek ExpressRoute Premium dla obwodu usługi ExpressRoute.
+
+> [!IMPORTANT]
+  > Zmiana jednostki SKU z warstwy **standardowa/Premium** na **lokalną** nie jest obsługiwana.
+
 * Zwiększ przepustowość obwodu ExpressRoute, pod warunkiem że na porcie jest dostępna pojemność.
 
   > [!IMPORTANT]

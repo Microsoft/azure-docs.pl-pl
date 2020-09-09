@@ -3,12 +3,12 @@ title: Ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z samouczka dot
 description: W tym samouczku dowiesz się, jak używać usługi Azure Live Video Analytics na Azure IoT Edge, aby ciągle rejestrować wideo w chmurze i przesyłać strumieniowo dowolną część tego filmu wideo przy użyciu Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043474"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566804"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Samouczek: ciągłe nagrywanie filmów wideo w chmurze i odtwarzanie z chmury
 
@@ -61,7 +61,8 @@ Jak wyjaśniono w artykule [koncepcja grafu multimediów](media-graph-concept.md
  
  Aby wykonać CVR, musisz przechwycić wideo z aparatu z obsługą protokołu RTSP i ciągle zarejestrować go w [Azure Media Services](terminology.md#asset). Ten diagram przedstawia graficzną reprezentację tego wykresu multimedialnego.
 
-![Graf multimedialny](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Graf multimedialny":::
 
 W tym samouczku użyjesz jednego modułu krawędzi skompilowanego przy użyciu [serwera multimediów Live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) , aby symulować aparat RTSP. Wewnątrz grafu multimediów będziesz używać węzła [źródłowego RTSP](media-graph-concept.md#rtsp-source) , aby uzyskać dynamiczny kanał informacyjny i wysłać go do [węzła ujścia zasobów](media-graph-concept.md#asset-sink), który rejestruje wideo w elemencie zawartości.
 
@@ -145,7 +146,7 @@ Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzego
     * Analiza wideo na żywo na IoT Edge (Nazwa modułu: **lvaEdge**)
     * Symulator RTSP (Nazwa modułu **rtspsim**)
  
-    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![Usługa IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Przygotowanie do monitorowania modułów 
 
@@ -352,7 +353,7 @@ Możesz przejrzeć Media Services element zawartości, który został utworzony 
 1. Znajdź konto Media Services wśród zasobów znajdujących się w Twojej subskrypcji i Otwórz okienko konto.
 1. Wybierz pozycję **elementy zawartości** z listy **Media Services** .
 
-    ![Elementy zawartości](./media/continuous-video-recording-tutorial/assets.png)
+    ![Zasoby Media Services](./media/continuous-video-recording-tutorial/assets.png)
 1. Znajdziesz element zawartości o nazwie sampleAsset-CVRToAMSAsset-Sample-Graph-1. Jest to wzorzec nazewnictwa wybrany w pliku topologii wykresu.
 1. Wybierz element zawartości. 
 1. Na stronie Szczegóły zasobu wybierz pozycję **Utwórz nowy** w polu tekstowym **adres URL przesyłania strumieniowego** .

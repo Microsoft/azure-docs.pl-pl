@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716116"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569377"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Tworzenie i scalanie CSR w Key Vault
 
@@ -100,8 +100,11 @@ Przykład
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-- **Typ błędu "klucz publiczny certyfikatu jednostki końcowej w określonej zawartości certyfikatu X. 509 nie jest zgodny z publiczną częścią określonego klucza prywatnego. Sprawdź, czy certyfikat jest prawidłowy "** ten błąd może wystąpić, jeśli nie scalasz CSR z tym samym zainicjowanym żądaniem CSR. Za każdym razem, gdy zostanie utworzony CSR, tworzy klucz prywatny, który należy dopasować podczas scalania podpisanego żądania.
+- **Typ błędu "klucz publiczny certyfikatu jednostki końcowej w określonej zawartości certyfikatu X. 509 nie jest zgodny z publiczną częścią określonego klucza prywatnego. Sprawdź, czy certyfikat jest prawidłowy "** ten błąd może wystąpić, jeśli nie scalasz CSR z tym samym zainicjowanym żądaniem CSR. Za każdym razem, gdy jest tworzone żądanie podpisania certyfikatu (CSR), tworzony jest klucz prywatny, który należy dopasować podczas scalania podpisanego żądania.
     
+- Czy po scaleniu CSR zostanie scalony cały łańcuch?
+    Tak, nastąpi scalenie całego łańcucha, pod warunkiem, że użytkownik przejdzie do scalania z plikiem P7B.
+
 - Jeśli certyfikat wystawiony w stanie "Disabled" w Azure Portal, należy wyświetlić **operację certyfikatu** w celu przejrzenia komunikatu o błędzie dla tego certyfikatu.
 
 Aby uzyskać więcej informacji, zobacz [operacje na certyfikatach w dokumentacji interfejsu API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).

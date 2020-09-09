@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 04/23/2020
 ms.author: lbosq
-ms.openlocfilehash: ba3b20f263f37d85389bb11c0674584408a0c223
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 75a796a860acbd4279938b315fafccb9333906bd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82161643"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567269"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Obsługa grafu Gremlin w usłudze Azure Cosmos DB
 Azure Cosmos DB obsługuje język przechodzenia wykresu [Apache Tinkerpop](https://tinkerpop.apache.org) , znany jako [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Język Gremlin służy do tworzenia jednostek grafu (wierzchołków i krawędzi), modyfikacji właściwości w ramach tych elementów, wykonywania zapytań i przejść oraz usuwania elementów. 
@@ -23,9 +23,9 @@ W tym artykule udostępniamy Krótki przewodnik Gremlin i wyliczamy funkcje Grem
 
 W poniższej tabeli przedstawiono popularne sterowniki Gremlin, których można użyć do usługi Azure Cosmos DB:
 
-| Pliki do pobrania | Element źródłowy | Getting Started | Obsługiwana wersja łącznika |
+| Pobierz | Element źródłowy | Getting Started | Obsługiwana wersja łącznika |
 | --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Tworzenie grafu przy użyciu platformy .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Tworzenie grafu przy użyciu platformy .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Tworzenie grafu przy użyciu środowiska Java](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Tworzenie grafu przy użyciu platformy Node.js](create-graph-nodejs.md) | 3.3.4 + |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python w witrynie GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Tworzenie grafu przy użyciu środowiska Python](create-graph-python.md) | 3.2.7 |
@@ -148,12 +148,12 @@ Teraz przyjrzyjmy się krokom w środowisku Gremlin obsługiwanym przez usługę
 | `sample` | Służy do próbkowania wyników z przejścia | [krok sample](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Służy do projektowania wyników z przejścia |  [krok select](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Używany do nieblokujących agregacji z przejścia | [krok store](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` aby dopasować właściwość do początku danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` aby dopasować właściwość do końca danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` aby dopasować właściwość do zawartości danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla `has()` kroku, aby dopasować właściwość, która nie zaczyna się od danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla `has()` kroku, aby dopasować właściwość, która nie kończy się podanym ciągiem | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla `has()` kroku, aby dopasować właściwość, która nie zawiera danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` Aby dopasować właściwość do początku danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` Aby dopasować właściwość do końca danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` Aby dopasować właściwość do zawartości danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` Aby dopasować właściwość, która nie zaczyna się od danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` Aby dopasować właściwość, która nie kończy się podanym ciągiem | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | Funkcja filtrowania ciągów. Ta funkcja jest używana jako predykat dla kroku, `has()` Aby dopasować właściwość, która nie zawiera danego ciągu | [Predykaty TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Agreguje ścieżki z wierzchołka do drzewa | [krok tree](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Odwija iterator w ramach kroku| [krok unfold](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Scalanie wyników z wielu przejść| [krok union](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |

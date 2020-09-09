@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 3d67361ecd4e06fdf006e836011d2cab59e340b6
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ff171dfce0bcbb04ec017a8d5e3310cf3162e8e2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587817"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565001"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -19,9 +19,9 @@ W tym artykule przyjęto założenie, że masz konto platformy Azure i subskrypc
 
 Przed wykonaniem jakichkolwiek czynności należy zainstalować zestaw Speech SDK. W zależności od platformy należy wykonać następujące instrukcje:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp" target="_blank">System<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp" target="_blank">macOS<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp" target="_blank">Systemy<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp" target="_blank">System <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp" target="_blank">macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp" target="_blank">Systemy <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## <a name="create-a-speech-configuration"></a>Tworzenie konfiguracji mowy
 
@@ -47,31 +47,27 @@ auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourService
 
 Po utworzeniu [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) , następnym krokiem jest zainicjowanie [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) . Po zainicjowaniu elementu należy [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) przekazać go `speech_config` . Zapewnia to poświadczenia wymagane przez usługę mowy do zweryfikowania Twojego żądania.
 
-Jeśli rozpoznajesz mowę przy użyciu domyślnego mikrofonu urządzenia, Oto jak [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) powinien wyglądać:
-
 ```cpp
 auto recognizer = SpeechRecognizer::FromConfig(config);
 ```
 
-Jeśli chcesz określić urządzenie wejściowe audio, należy utworzyć [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) i podać `audioConfig` parametr podczas inicjowania [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) .
+## <a name="recognize-from-microphone-or-file"></a>Rozpoznawanie z mikrofonu lub pliku
 
-> [!TIP]
-> [Dowiedz się, jak uzyskać identyfikator urządzenia dla wejściowego urządzenia audio](../../../how-to-select-audio-input-devices.md).
+Jeśli chcesz określić urządzenie wejściowe audio, musisz utworzyć [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) i przekazać go jako parametr podczas inicjowania [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) .
 
-Najpierw Dodaj następującą `using namespace` instrukcję po `#include` definicjach.
+Aby rozpoznać mowę przy użyciu mikrofonu urządzenia, Utwórz `AudioConfig` za pomocą `FromDefaultMicrophoneInput()` , a następnie Przekaż konfigurację audio podczas tworzenia `SpeechRecognizer` obiektu.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
-```
 
-Następnie będzie można odwołać się do `AudioConfig` obiektu w następujący sposób:
-
-```cpp
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 ```
 
-Jeśli chcesz podać plik audio zamiast używać mikrofonu, nadal musisz podać `audioConfig` . Jednak podczas tworzenia [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) , zamiast wywoływania `FromDefaultMicrophoneInput` , należy wywołać `FromWavFileOutput` i przekazać `filename` parametr.
+> [!TIP]
+> [Dowiedz się, jak uzyskać identyfikator urządzenia dla wejściowego urządzenia audio](../../../how-to-select-audio-input-devices.md).
+
+Jeśli chcesz rozpoznać mowę z pliku audio zamiast używać mikrofonu, nadal musisz utworzyć `AudioConfig` . Jednak podczas tworzenia [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) , zamiast wywoływania `FromDefaultMicrophoneInput()` , należy wywołać `FromWavFileInput()` i przekazać `filename` parametr.
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -98,9 +94,9 @@ auto result = recognizer->RecognizeOnceAsync().get();
 
 Musisz napisać kod, aby obsłużyć wynik. Ten przykład szacuje [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason) :
 
-* Drukuje wynik rozpoznawania:`ResultReason::RecognizedSpeech`
-* Jeśli nie ma dopasowania do rozpoznawania, należy poinformować użytkownika:`ResultReason::NoMatch`
-* Jeśli wystąpi błąd, Wydrukuj komunikat o błędzie:`ResultReason::Canceled`
+* Drukuje wynik rozpoznawania: `ResultReason::RecognizedSpeech`
+* Jeśli nie ma dopasowania do rozpoznawania, należy poinformować użytkownika: `ResultReason::NoMatch`
+* Jeśli wystąpi błąd, Wydrukuj komunikat o błędzie: `ResultReason::Canceled`
 
 ```cpp
 switch (result->Reason)
@@ -222,7 +218,7 @@ Typowym zadaniem rozpoznawania mowy jest określenie języka danych wejściowych
 config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage)jest parametrem, który przyjmuje ciąg jako argument. Możesz podać dowolną wartość na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md).
+[`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) jest parametrem, który przyjmuje ciąg jako argument. Możesz podać dowolną wartość na liście obsługiwanych [ustawień regionalnych/języków](../../../language-support.md).
 
 ## <a name="improve-recognition-accuracy"></a>Popraw dokładność rozpoznawania
 

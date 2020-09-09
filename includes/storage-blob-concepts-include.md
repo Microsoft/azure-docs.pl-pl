@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączania
+description: plik dołączania
 services: storage
 author: tamram
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e90e750bf248bdcc8e50c6ddc6e9fa0273660195
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c3438631dca921989309bb8701e113cb5ce3ff2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79136022"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570273"
 ---
-Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Usługa Blob Storage jest zoptymalizowana pod kątem przechowywania olbrzymich ilości danych bez struktury. Dane bez struktury to dane, które nie są zgodne z konkretnym modelem danych lub definicją, takimi jak dane tekstowe lub binarne.
+Azure Blob Storage to rozwiązanie do magazynowania obiektów w chmurze firmy Microsoft. Magazyn obiektów blob jest zoptymalizowany pod kątem przechowywania olbrzymich ilości danych bez struktury. Dane bez struktury to dane, które nie są zgodne z konkretnym modelem danych lub definicją, takimi jak dane tekstowe lub binarne.
 
 ## <a name="about-blob-storage"></a>Informacje o usłudze Blob Storage
 
@@ -28,11 +28,11 @@ Przeznaczenie usługi Blob Storage:
 * Zapisywanie danych w celu tworzenia kopii zapasowych, przywracania, odzyskiwania po awarii i archiwizowania.
 * Przechowywanie danych w celu analizy w usłudze lokalnej lub hostowanej na platformie Azure.
 
-Użytkownicy lub aplikacje klienckie mogą uzyskiwać dostęp do obiektów w magazynie obiektów blob za pośrednictwem protokołu HTTP/HTTPS z dowolnego miejsca na świecie. Obiekty w magazynie obiektów blob są dostępne za pośrednictwem [interfejsu API REST usługi Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/storage) lub biblioteki klienta usługi Azure Storage. Biblioteki klienckie są dostępne dla różnych języków, w tym:
+Użytkownicy lub aplikacje klienckie mogą uzyskiwać dostęp do obiektów w magazynie obiektów blob za pośrednictwem protokołu HTTP/HTTPS z dowolnego miejsca na świecie. Obiekty w magazynie obiektów blob są dostępne za pośrednictwem [interfejsu API REST usługi Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/storage) lub biblioteki klienta usługi Azure Storage. Biblioteki klienckie są dostępne dla różnych języków, w tym:
 
 * [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Node.js](https://azure.github.io/azure-storage-node) 
+* [Node.js](https://azure.github.io/azure-storage-node)
 * [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)
 * [Przejdź](https://github.com/azure/azure-storage-blob-go/)
 * [PHP](https://azure.github.io/azure-storage-php/)

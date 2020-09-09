@@ -7,14 +7,14 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: e28638e8daec5dcc283d61474d63ec41ec56ae63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102101"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567813"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-tools-for-teaching"></a>Często zadawane pytania dotyczące narzędzi deweloperskich platformy Azure dla nauczania
+# <a name="frequently-asked-questions-about-the-education-hub"></a>Często zadawane pytania dotyczące Education Hub
 
 W tym artykule opisano często zadawane pytania dotyczące platformy Azure dla studentów, platformy Azure dla studentów i narzędzi deweloperskich platformy Azure dla nauczania.
 
@@ -42,7 +42,7 @@ Pozostałe środki można zobaczyć w [portalu sponsorowanych usług Azure](http
 
 ### <a name="how-do-i-download-the-software-developer-tools"></a>Jak mogę pobrać narzędzi programistycznych oprogramowania?
 
-Twoja subskrypcja platformy Azure for Students zapewnia dostęp do niektórych narzędzi programistycznych oprogramowania. Aby uzyskać dostęp do narzędzi programistycznych oprogramowania i pobrać je, musisz mieć bieżącą subskrypcję Azure for Students. Przejdź do [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) , aby pobrać narzędzia deweloperskie oprogramowania przy użyciu subskrypcji Azure for Students.
+Twoja subskrypcja platformy Azure for Students zapewnia dostęp do niektórych narzędzi programistycznych oprogramowania. Aby uzyskać dostęp do narzędzi programistycznych oprogramowania i pobrać je, musisz mieć bieżącą subskrypcję Azure for Students. Przejdź do  [Education Hub](https://ms.portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/software) , aby pobrać narzędzia deweloperskie oprogramowania przy użyciu subskrypcji Azure for Students.
 
 ### <a name="what-is-microsoft-learn"></a>Co to jest Microsoft Learn?
 
@@ -103,7 +103,7 @@ To oprogramowanie można pobrać z [Education Hub](https://ms.portal.azure.com/#
 
 ### <a name="how-do-i-start-using-my-azure-course-credits"></a>Jak mogę rozpocząć korzystanie z kredytów kursów platformy Azure?
 
-Możesz uzyskać dostęp do kredytów kursów platformy Azure, tworząc nową Microsoft Azureą subskrypcję. Wybierz przycisk **Aktywuj** w wiadomości e-mail z zatwierdzeniem sponsora.
+Możesz uzyskać dostęp do kredytów kursów platformy Azure, tworząc nową Microsoft Azureą subskrypcję. Wybierz przycisk  **Aktywuj** w wiadomości e-mail z zatwierdzeniem sponsora.
 
 Możesz również skonwertować istniejącą subskrypcję do oferty Dostęp sponsorowany Microsoft Azure, aby uzyskać dostęp do kredytów. Szczegółowe informacje na temat sposobu konwertowania subskrypcji znajdują się w następnym pytaniu.
 
@@ -153,6 +153,11 @@ Jeśli przeszukasz określoną subskrypcję w bloku subskrypcje w Azure Portal, 
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
 
+### <a name="who-is-eligible-to-purchase-microsoft-azure-dev-tools-for-teaching"></a>Kto jest uprawniony do zakupu Microsoft Azure narzędzia deweloperskie do nauczania?
+
+Tylko instytucje akademickie, które zakupiły umowę licencjonowania zbiorowego z firmą Microsoft, mogą zarejestrować się w narzędziach deweloperskich platformy Azure w celu nauczania.  Jeśli obecnie korzystasz z narzędzi deweloperskich do nauczania klienta bez umowy licencjonowania zbiorowego, możesz nadal odnowić subskrypcję. Aby uzyskać więcej informacji na temat umów licencjonowania zbiorowego dla instytucji akademickich, odwiedź stronę https://aka.ms/ees 
+
+
 ### <a name="what-products-are-included-in-the-azure-dev-tools-for-teaching-subscription"></a>Jakie produkty są objęte usługą Azure dev Tools for nauczania?
 
 :::row:::
@@ -181,7 +186,7 @@ Program Microsoft Visio<br>
 Visual Studio Code<br>
 Visual Studio Community<br>
 Visual Studio Enterprise<br>
-Visual Studio for Mac<br>
+Visual Studio dla komputerów Mac<br>
 Windows 10<br>
 Windows Server<br>
    :::column-end:::

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: duau
-ms.openlocfilehash: ab59de49b7cf625220f8a803aab9d2b9a2ae5937
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398771"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569241"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Szybki start: tworzenie usługi Front Door na potrzeby globalnej aplikacji internetowej o wysokiej dostępności
 
@@ -165,5 +165,3 @@ Powtórz procedurę dla pozostałych dwóch grup.
 Przejdź do następnego artykułu, aby dowiedzieć się, jak dodać domenę niestandardową do swoich drzwi.
 > [!div class="nextstepaction"]
 > [Dodawanie domeny niestandardowej](front-door-custom-domain.md)
-
-Aby dowiedzieć się więcej o ruchu routingu, zobacz [metody routingu front-drzwi](front-door-routing-methods.md).

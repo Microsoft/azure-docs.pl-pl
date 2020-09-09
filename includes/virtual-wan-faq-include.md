@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303973"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570196"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -83,7 +83,7 @@ Dostępne są dwie opcje dodawania serwerów DNS dla klientów P2S. Pierwsza met
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>W przypadku sieci VPN użytkownika (punkt-lokacja) — ilu klientów jest obsługiwana?
 
-Każda Brama sieci VPN P2S użytkownika ma dwa wystąpienia, a każde wystąpienie obsługuje maksymalnie niektórych użytkowników jako jednostkę skalowania. Jednostka skalowania 1-3 obsługuje połączenia 500, jednostka skalowania 4-6 obsługuje połączenia 1000, jednostka skalowania 7-12 obsługuje połączenia 5000 i jednostka skalowania, która obsługuje do 13-20 połączeń. 
+Każda Brama sieci VPN P2S użytkownika ma dwa wystąpienia, a każde wystąpienie obsługuje maksymalnie niektórych użytkowników jako jednostkę skalowania. Jednostka skalowania 1-3 obsługuje połączenia 500, jednostka skalowania 4-6 obsługuje połączenia 1000, jednostka skalowania 7-12 obsługuje połączenia 5000 i jednostka skalowania, która obsługuje do 13-18 połączeń. 
 
 Na przykład, użytkownik wybiera 1 jednostkę skalowania. Każda jednostka skalowania będzie oznaczać, że wdrożono bramę Active-Active i każde wystąpienie (w tym przypadku 2) będzie obsługiwało do 500 połączeń. Ponieważ możesz uzyskać 500 połączeń * 2 na bramę, nie oznacza to, że planujesz 1000 zamiast 500 dla tej jednostki skalowania. W przypadku przekroczenia zalecanej liczby połączeń mogą wystąpić problemy z obsługą wystąpień, w których może być wymagana łączność z dodatkowymi 500mi. Należy również zaplanować przestoje w przypadku podjęcia decyzji o skalowaniu w górę lub w dół w jednostce skalowania lub zmianie konfiguracji typu punkt-lokacja w bramie sieci VPN.
 

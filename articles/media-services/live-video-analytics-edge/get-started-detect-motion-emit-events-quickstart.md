@@ -3,12 +3,12 @@ title: Wprowadzenie do analizy filmów wideo na żywo na IoT Edge platformy Azur
 description: Ten przewodnik Szybki Start przedstawia sposób rozpoczynania pracy z usługą analiza filmów wideo na żywo na IoT Edge. Dowiedz się, jak wykrywać ruch w strumieniu wideo na żywo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067704"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568051"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Szybki Start: Rozpoczynanie pracy — Analiza filmów wideo na żywo na IoT Edge
 
@@ -16,7 +16,8 @@ Ten przewodnik Szybki Start przeprowadzi Cię przez kroki umożliwiające rozpoc
 
 Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na żywo za pomocą grafu multimediów, który wykrywa i raportuje wszystkie ruchy w tym strumieniu. Poniższy diagram przedstawia graficznie wykres multimedialny.
 
-![Analiza wideo na żywo oparta na wykrywaniu ruchu](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Analiza wideo na żywo oparta na wykrywaniu ruchu":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
