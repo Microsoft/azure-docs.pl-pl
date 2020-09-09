@@ -3,17 +3,17 @@ title: Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azur
 description: W tym artykule przedstawiono podsumowanie sposobu, w jaki rezerwacje platformy Azure dla wystąpień zarezerwowanych maszyn wirtualnych mogą pomóc w zaoszczędzeniu pieniędzy dzięki rejestracji w przedsiębiorstwie.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: aa95cf8b649558dc3164fe12e4268f210301f755
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4970852634039bddfb14be579db5dd355fff9740
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687044"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442449"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azure
 

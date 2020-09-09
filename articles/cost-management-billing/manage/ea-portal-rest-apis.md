@@ -3,17 +3,17 @@ title: Interfejsy API REST usługi Azure Enterprise
 description: W tym artykule opisano interfejsy API REST, których można używać z rejestracją usługi Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: d9ea567f3285ad773007a69a651e406eb2c94821
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c277da54e56fcd0ce68444d499b17e84f706ad03
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687437"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442500"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Interfejsy API REST usługi Azure Enterprise
 
