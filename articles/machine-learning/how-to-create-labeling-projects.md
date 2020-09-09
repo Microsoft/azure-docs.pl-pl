@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326463"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612175"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -78,13 +78,13 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
 
 1. Wybierz pozycję **Utwórz zestaw danych**  >  **ze sklepu datastore**.
 1. Przypisz **nazwę** do zestawu danych.
-1. Wybierz pozycję **plik** jako **Typ zestawu danych**.  
+1. Wybierz pozycję **plik** jako **Typ zestawu danych**.  Obsługiwane są tylko typy danych plików.
 1. Wybierz magazyn danych.
 1. Jeśli dane są w podfolderze w magazynie obiektów blob, wybierz pozycję **Przeglądaj** , aby wybrać ścieżkę.
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 
@@ -98,7 +98,7 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz opcję **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.

@@ -12,16 +12,16 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b8eec0d95144c012d3034e3f2c7c6e8adc921651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6cc4fdb82e98c30ca33eec58675f2175dfcc2607
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510178"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612786"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania stopniowego dla maszyn wirtualnych platformy Azure z systemem Linux
 
-Azure DevOps to wbudowana usługa platformy Azure, która automatyzuje każdą część procesu DevOps dla dowolnego zasobu platformy Azure. Niezależnie od tego, czy aplikacja korzysta z maszyn wirtualnych, aplikacji sieci Web, Kubernetes czy innego zasobu, można zaimplementować infrastrukturę jako kod (IaaC), ciągłą integrację, ciągłe testowanie, ciągłe dostarczanie i ciągłe monitorowanie za pomocą platformy Azure i usługi Azure DevOps.
+Azure DevOps to wbudowana usługa platformy Azure, która automatyzuje każdą część procesu DevOps dla dowolnego zasobu platformy Azure. Niezależnie od tego, czy aplikacja korzysta z maszyn wirtualnych, aplikacji sieci Web, Kubernetes czy innego zasobu, można zaimplementować infrastrukturę jako kod (IaC), ciągłej integracji, ciągłego testowania, ciągłego dostarczania i ciągłego monitorowania za pomocą platformy Azure i usługi Azure DevOps.
 
 ![Azure Portal z usługą Azure DevOps wybraną w obszarze usługi](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
