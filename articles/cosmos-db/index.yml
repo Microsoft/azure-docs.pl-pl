@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: b96e1dcc29afdfa7ed6ead8a77a43e7ac4ab617a
-  ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+  ms.openlocfilehash: 8c3330849801e00646af77a3759430035331e953
+  ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/25/2020
-  ms.locfileid: "88854812"
+  ms.lasthandoff: 09/09/2020
+  ms.locfileid: "89567150"
 landingContent:
 - title: Informacje o usłudze Azure Cosmos DB
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Zgodność protokołu przewodowego z usługą MongoDB
-      url: mongodb-feature-support.md
+      url: mongodb-feature-support-36.md
     - text: Zgodność protokołu przewodowego z usługą Apache Cassandra
       url: cassandra-support.md
     - text: Zgodność protokołu przewodowego z językiem Gremlin rozwiązania Tinkerpop

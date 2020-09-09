@@ -4,14 +4,6 @@
   items:
     - name: Co to jest usługa Azure Firewall?
       href: overview.md
-- name: Samouczki
-  items:
-    - name: Wdrażanie i konfigurowanie
-      href: tutorial-firewall-deploy-portal.md
-    - name: Wdrażanie w sieci hybrydowej
-      href: tutorial-hybrid-portal.md
-    - name: Filtrowanie ruchu przychodzącego ruchu przy użyciu DNAT
-      href: tutorial-firewall-dnat.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -24,6 +16,14 @@
     - name: Wdrażanie przy użyciu stref dostępności — szablon usługi Resource Manager
       displayName: Resource Manager
       href: deploy-template.md
+- name: Samouczki
+  items:
+    - name: Wdrażanie i konfigurowanie
+      href: tutorial-firewall-deploy-portal.md
+    - name: Wdrażanie w sieci hybrydowej
+      href: tutorial-hybrid-portal.md
+    - name: Filtrowanie ruchu przychodzącego ruchu przy użyciu DNAT
+      href: tutorial-firewall-dnat.md
 - name: Samples
   items:
     - name: Azure PowerShell
