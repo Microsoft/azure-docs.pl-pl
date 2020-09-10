@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651203"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647230"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Uruchamiaj wnioskowanie wsadowe dla dużych ilości danych za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>Tworzenie obiektu docelowego obliczeń
 
-W Azure Machine Learning, *obliczenia* (lub *element docelowy obliczeń*) odnoszą się do maszyn lub klastrów wykonujących kroki obliczeniowe w potoku uczenia maszynowego. Uruchom następujący kod, aby utworzyć obiekt docelowy [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) opartego na procesorach.
+W Azure Machine Learning, *obliczenia* (lub *element docelowy obliczeń*) odnoszą się do maszyn lub klastrów wykonujących kroki obliczeniowe w potoku uczenia maszynowego. Uruchom następujący kod, aby utworzyć obiekt docelowy [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) opartego na procesorach.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -134,9 +134,9 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="create-the-data-inputs"></a>Tworzenie danych wejściowych
 
-Dane wejściowe dotyczące wnioskowania wsadowego są danymi, które mają być partycjonowane na potrzeby przetwarzania równoległego. Potok wnioskowania partii akceptuje dane wejściowe za pomocą [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) .
+Dane wejściowe dotyczące wnioskowania wsadowego są danymi, które mają być partycjonowane na potrzeby przetwarzania równoległego. Potok wnioskowania partii akceptuje dane wejściowe za pomocą [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) .
 
-`Dataset` służy do eksplorowania i przekształcania danych oraz zarządzania nimi w Azure Machine Learning. Istnieją dwa typy: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) i [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) . W tym przykładzie użyjesz `FileDataset` jako danych wejściowych. `FileDataset` zapewnia możliwość pobierania lub instalowania plików na potrzeby obliczeń. Utworzenie zestawu danych powoduje utworzenie odwołania do lokalizacji źródła danych. Jeśli zastosowano jakiekolwiek przekształcenia PodUstawienia do zestawu danych, zostaną one również zapisane w zestawie danych. Dane pozostają w istniejącej lokalizacji, więc nie są naliczane żadne dodatkowe koszty związane z magazynem.
+`Dataset` służy do eksplorowania i przekształcania danych oraz zarządzania nimi w Azure Machine Learning. Istnieją dwa typy: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) i [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) . W tym przykładzie użyjesz `FileDataset` jako danych wejściowych. `FileDataset` zapewnia możliwość pobierania lub instalowania plików na potrzeby obliczeń. Utworzenie zestawu danych powoduje utworzenie odwołania do lokalizacji źródła danych. Jeśli zastosowano jakiekolwiek przekształcenia PodUstawienia do zestawu danych, zostaną one również zapisane w zestawie danych. Dane pozostają w istniejącej lokalizacji, więc nie są naliczane żadne dodatkowe koszty związane z magazynem.
 
 Aby uzyskać więcej informacji na temat Azure Machine Learning zestawów danych, zobacz [Tworzenie zestawów danych i uzyskiwanie do nich dostępu (wersja zapoznawcza)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -147,7 +147,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-Aby można było używać dynamicznych danych wejściowych podczas uruchamiania potoku wnioskowania partii, możesz zdefiniować dane wejściowe `Dataset` jako [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) . Możesz określić zestaw danych wejściowych za każdym razem, gdy ponownie zostanie uruchomiony potok wnioskowania o partie partii.
+Aby można było używać dynamicznych danych wejściowych podczas uruchamiania potoku wnioskowania partii, możesz zdefiniować dane wejściowe `Dataset` jako [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) . Możesz określić zestaw danych wejściowych za każdym razem, gdy ponownie zostanie uruchomiony potok wnioskowania o partie partii.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -159,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Tworzenie danych wyjściowych
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) obiekty służą do transferowania danych pośrednich między etapami potoku. W tym przykładzie używa się go do wnioskowania danych wyjściowych.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) obiekty służą do transferowania danych pośrednich między etapami potoku. W tym przykładzie używa się go do wnioskowania danych wyjściowych.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -353,7 +353,7 @@ parallelrun_step = ParallelRunStep(
 ```
 ### <a name="create-and-run-the-pipeline"></a>Tworzenie i uruchamianie potoku
 
-Teraz uruchom potok. Najpierw Utwórz [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) obiekt za pomocą odwołania do obszaru roboczego i utworzonego etapu potoku. `steps`Parametr jest tablicą kroków. W takim przypadku istnieje tylko jeden krok na wnioskowanie partii. Aby utworzyć potoki, które mają wiele kroków, należy umieścić kroki w kolejności w tej tablicy.
+Teraz uruchom potok. Najpierw Utwórz [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) obiekt za pomocą odwołania do obszaru roboczego i utworzonego etapu potoku. `steps`Parametr jest tablicą kroków. W takim przypadku istnieje tylko jeden krok na wnioskowanie partii. Aby utworzyć potoki, które mają wiele kroków, należy umieścić kroki w kolejności w tej tablicy.
 
 Następnie użyj funkcji, `Experiment.submit()` Aby przesłać potok do wykonania.
 
@@ -371,7 +371,7 @@ pipeline_run = experiment.submit(pipeline)
 Ukończenie zadania wnioskowania partii może zająć dużo czasu. Ten przykład monitoruje postęp przy użyciu widżetu Jupyter. Możesz również monitorować postęp zadania przy użyciu:
 
 * Azure Machine Learning Studio. 
-* Dane wyjściowe konsoli z [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) obiektu.
+* Dane wyjściowe konsoli z [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py&preserve-view=true) obiektu.
 
 ```python
 from azureml.widgets import RunDetails

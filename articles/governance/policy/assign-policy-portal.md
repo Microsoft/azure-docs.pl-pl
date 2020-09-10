@@ -3,12 +3,12 @@ title: 'Szybki Start: nowe przypisanie zasad przy użyciu portalu'
 description: W tym przewodniku szybki start użyjesz Azure Portal, aby utworzyć przypisanie Azure Policy w celu zidentyfikowania niezgodnych zasobów.
 ms.date: 08/17/2020
 ms.topic: quickstart
-ms.openlocfilehash: eb3f97ab2f8da3ff2809cb969c8442779e173983
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548383"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651964"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów
 
@@ -25,17 +25,17 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definicję zasad _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie korzystają z dysków zarządzanych).
 
-1. Uruchom usługę Azure Policy w witrynie Azure Portal, klikając opcję **Wszystkie usługi** i następnie wyszukując i wybierając opcję **Zasada**.
+1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
 
-   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Wyszukaj zasady w obszarze wszystkie usługi" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad w wszystkich usługach." border="false":::
 
 1. Wybierz pozycję **Przypisania** w lewej części strony usługi Azure Policy. Przypisanie to zasady, które zostały przypisane do określonego zakresu.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Strona wybierania przydziałów na stronie Przegląd zasad" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Zrzut ekranu przedstawiający Wybieranie strony przydziałów na stronie Przegląd zasad." border="false":::
 
 1. Wybierz pozycję **Przypisz zasady** w górnej części strony **Zasady — Przypisania**.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Przypisywanie definicji zasad ze strony przypisań" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Zrzut ekranu przedstawiający Wybieranie pozycji "Przypisz zasady" ze strony przydziałów." border="false":::
 
 1. Na stronie **przypisywanie zasad** Ustaw **zakres** , wybierając przycisk wielokropka, a następnie wybierając grupę lub subskrypcję zarządzania. Opcjonalnie możesz wybrać grupę zasobów. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Następnie użyj przycisku **Wybierz** w dolnej części strony **zakres** .
 
@@ -53,7 +53,7 @@ W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definic
 
 1. Przeszukaj listę definicji zasad, aby znaleźć definicję _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Wybierz te zasady, a następnie użyj przycisku **Wybierz** .
 
-   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Wyszukiwanie prawidłowej definicji zasad" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Zrzut ekranu przedstawiający filtrowanie dostępnych definicji." border="false":::
 
 1. W polu **Nazwa przypisania** jest automatycznie wpisywana nazwa wybranej zasady, ale można ją zmienić. W tym przykładzie pozostaw nazwę _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych). Można również dodać opcjonalny **Opis**. Opis zawiera szczegóły dotyczące danego przypisania zasad.
    Pole **Przypisane przez** jest wypełniane automatycznie w zależności od tego, kto jest zalogowany. To pole jest opcjonalne, dzięki czemu można wprowadzić wartości niestandardowe.
@@ -68,7 +68,7 @@ Teraz możesz zidentyfikować niezgodne zasoby, aby zrozumieć stan zgodności �
 
 Wybierz pozycję **Zgodność** w lewej części strony. Znajdź utworzone przypisanie zasad _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych).
 
-:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Szczegóły zgodności na stronie zgodność zasad" border="false":::
+:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności na stronie zgodność zasad." border="false":::
 
 Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, zostaną one wyświetlone w obszarze **Niezgodne zasoby**.
 
@@ -84,7 +84,7 @@ Jeśli warunek zostanie oceniony dla istniejących zasobów i okaże się prawdz
 \* Efekty Append, DeployIfNotExist i AuditIfNotExist wymagają instrukcji IF z wartością TRUE.
 Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być niezgodnymi. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
@@ -92,7 +92,7 @@ Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy _maszyny wirtualne inspekcji, które nie używają przypisania zasad dysków zarządzanych_ , i wybierz pozycję **Usuń przypisanie**.
 
-   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Usuwanie przypisania ze strony zgodność" border="false":::
+   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Zrzut ekranu przedstawiający korzystanie z menu kontekstowego, aby usunąć przypisanie ze strony zgodność." border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

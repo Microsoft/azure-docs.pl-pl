@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: bdf2bf4102795d35df7eae658e3a24028da79b33
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2500a22d4d3775f7cfea7afbf4e8d106ec2da139
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551306"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647975"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie programu Cisco WebEx do automatycznej aprowizacji użytkowników
 
@@ -97,7 +97,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Inicjowanie obsługi administracyjnej Cisco WebEx](./media/cisco-webex-provisioning-tutorial/secrettoken1.png)
 
-6.  W polu **adres URL dzierżawy** wprowadź wartość w postaci `https://api.ciscoweb.com/v1/scim/[OrgId]` . Aby uzyskać dostęp `[OrgId]` , zaloguj się do [centrum sterowania Cisco WebEx](https://admin.webex.com/login). Kliknij nazwę organizacji w lewym dolnym rogu i skopiuj wartość z **identyfikatora organizacji**. 
+6.  W polu **adres URL dzierżawy** wprowadź wartość w postaci `https://api.ciscospark.com/v1/scim/[OrgId]` . Aby uzyskać dostęp `[OrgId]` , zaloguj się do [centrum sterowania Cisco WebEx](https://admin.webex.com/login). Kliknij nazwę organizacji w lewym dolnym rogu i skopiuj wartość z **identyfikatora organizacji**. 
 
     * Aby uzyskać wartość dla **tokenu tajnego**, przejdź do tego [adresu URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose). Na wyświetlonej stronie logowania WebEx Zaloguj się przy użyciu pełnego konta administratora Cisco WebEx dla swojej organizacji. Zostanie wyświetlona strona błędu z informacją, że nie można skontaktować się z lokacją, ale jest to normalne.
 
@@ -148,7 +148,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 * Cisco WebEx jest obecnie w fazie testowania wczesnego (EFT) firmy Cisco. Aby uzyskać więcej informacji, skontaktuj się z [zespołem pomocy technicznej firmy Cisco](https://www.webex.co.in/support/support-overview.html). 
 * Więcej informacji na temat konfiguracji Cisco WebEx można znaleźć [w dokumentacji firmy](https://help.webex.com/en-us/aumpbz/Synchronize-Azure-Active-Directory-Users-into-cisco-webex-Control-Hub)Cisco.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

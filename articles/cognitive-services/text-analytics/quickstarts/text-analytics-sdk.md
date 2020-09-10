@@ -1,27 +1,28 @@
 ---
-title: 'Szybki Start: analiza tekstua Biblioteka kliencka v3 | Microsoft Docs'
+title: 'Szybki Start: wyszukiwanie tekstu przy użyciu biblioteki klienta analiza tekstu'
 titleSuffix: Azure Cognitive Services
-description: Skorzystaj z tego przewodnika Szybki Start, aby połączyć aplikacje z interfejs API analizy tekstu z poziomu platformy Azure Cognitive Services.
+description: Skorzystaj z tego przewodnika Szybki Start, aby przeprowadzić analizę tonacji i nie tylko przy użyciu interfejs API analizy tekstu z usługi Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 2d81175c73928d25c06acb396dac587c7cc73637
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 104ae91b59bc04fc3227585a55a744d500d6db29
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931186"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649004"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
-Rozpocznij pracę z biblioteką klienta analiza tekstu. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Skorzystaj z tego artykułu, aby rozpocząć pracę z biblioteką klienta analiza tekstu. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla tekstu wyszukiwania.
 
 Użyj biblioteki klienta analiza tekstu do wykonania:
 
@@ -83,7 +84,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 | Język | Dostępna wersja | 
 |----------|------------------------|
 | Ruby     | [Wersja 2,1](ruby-sdk.md) | 
-| Go       | [Wersja 2,1](go-sdk.md) | 
+| Przejdź       | [Wersja 2,1](go-sdk.md) | 
 
 ::: zone-end
 

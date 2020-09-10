@@ -4,12 +4,12 @@ description: W tym przewodniku szybki start utworzysz przypisanie zasad w celu z
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 2f012f9cc8f986f8f887096098961e44c4b7dffb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689851"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651425"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Szybki Start: Tworzenie przypisania zasad w celu zidentyfikowania niezgodnych zasobów przy użyciu szablonu ARM
 
@@ -20,7 +20,7 @@ Ten przewodnik Szybki Start przeprowadzi Cię przez proces tworzenia przypisania
 
 Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów ARM, wybierz przycisk **Wdróż na platformie Azure**. Szablon zostanie otwarty w witrynie Azure Portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie szablonu ARM na potrzeby przypisywania Azure Policy do platformy Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Przycisk umożliwiający wdrożenie szablonu ARM na potrzeby przypisywania Azure Policy do platformy Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,7 +45,7 @@ Zasób zdefiniowany w szablonie to:
 
 1. Wybierz następujący obraz, aby zalogować się do witryny Azure Portal i otworzyć szablon:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie szablonu ARM na potrzeby przypisywania Azure Policy do platformy Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Przycisk umożliwiający wdrożenie szablonu ARM na potrzeby przypisywania Azure Policy do platformy Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Wybierz lub wprowadź następujące wartości:
 
@@ -72,13 +72,13 @@ Dodatkowe zasoby:
 
 Wybierz pozycję **Zgodność** w lewej części strony. Znajdź utworzone przypisanie zasad _Audit VMs that do not use managed disks_ (Przeprowadź inspekcję maszyn wirtualnych, które nie używają dysków zarządzanych).
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Strona przeglądu zgodności zasad" border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności na stronie zgodność zasad." border="false":::
 
 Jeśli istnieją jakiekolwiek zasoby niezgodne z nowym przypisaniem, zostaną one wyświetlone w obszarze **Niezgodne zasoby**.
 
 Aby uzyskać więcej informacji, zobacz [jak działa zgodność](./how-to/get-compliance-data.md#how-compliance-works).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
@@ -86,7 +86,7 @@ Aby usunąć utworzone przypisanie, wykonaj następujące kroki:
 
 1. Kliknij prawym przyciskiem myszy _maszyny wirtualne inspekcji, które nie używają przypisania zasad dysków zarządzanych_ , i wybierz pozycję **Usuń przypisanie**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Usuwanie przypisania ze strony przeglądu zgodności" border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Zrzut ekranu przedstawiający korzystanie z menu kontekstowego, aby usunąć przypisanie ze strony zgodność." border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

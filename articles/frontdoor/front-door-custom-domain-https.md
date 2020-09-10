@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2018
+ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbd45a4190cfa1199568c23cc346b9ccacc20ac5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399824"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648878"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
 
@@ -114,7 +114,7 @@ Przyznaj uprawnienie platformy Azure przed dostępem do certyfikatów na koncie 
 
 4. W obszarze **uprawnienia certyfikatu**wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
 
-5. Wybierz przycisk **OK**. 
+5. Wybierz pozycję **OK**. 
 
     Dostępne są następujące Key Vault i certyfikaty, które są przechowywane w tym Key Vault.
  
@@ -219,7 +219,27 @@ Jeśli przed przesłaniem żądania wystąpi błąd, zostanie wyświetlony nast�
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
+1. *Kto jest dostawcą certyfikatów i jaki typ certyfikatu jest używany?*
+
+    Dla domeny niestandardowej jest używany dedykowany/pojedynczy certyfikat dostarczony przez firmę DigiCert. 
+
+2. *Używasz protokołu TLS/SSL SNI, czy opartego na protokole IP?*
+
+    Drzwi frontonu platformy Azure używają protokołu TLS/SSL SNI.
+
+3. *Co zrobić, jeśli nie otrzymam wiadomości e-mail weryfikującej domenę od firmy DigiCert?*
+
+    Jeśli masz wpis CNAME dla domeny niestandardowej, który wskazuje bezpośrednio na nazwę hosta punktu końcowego (i nie używasz nazwy domeny podrzędnej afdverify), nie otrzymasz wiadomości e-mail weryfikującej domenę. Walidacja będzie wykonywana automatycznie. W przeciwnym razie, jeśli nie masz wpisu CNAME i nie otrzymasz wiadomości e-mail w ciągu 24 godzin, skontaktuj się z działem pomocy technicznej firmy Microsoft.
+
+4. *Czy używanie certyfikatu SAN jest mniejsze bezpieczne niż certyfikatu dedykowanego?*
+    
+    Certyfikat SAN działa zgodnie z tymi samymi standardami szyfrowania i zabezpieczeń, co certyfikat dedykowany. Wszystkie wystawione certyfikaty TLS/SSL używają algorytmu SHA-256 w celu zapewnienia bezpieczeństwa serwera rozszerzonego.
+
+5. *Czy muszę mieć rekord autoryzacji urzędu certyfikacji z moim dostawcą DNS?*
+
+    Nie, rekord autoryzacji urzędu certyfikacji nie jest obecnie wymagany. Jeśli jednak istnieje, musi zawierać firmę DigiCert jako prawidłowy urząd certyfikacji.
 
 ## <a name="clean-up-resources---disable-https"></a>Oczyszczanie zasobów — wyłączanie protokołu HTTPS
 
@@ -247,30 +267,15 @@ W poniższej tabeli przedstawiono postęp operacji w przypadku wyłączenia prot
 | 2 Anulowanie aprowizacji certyfikatu | Usuwanie certyfikatu |
 | 3 Kończenie | Certyfikat został usunięty |
 
-## <a name="frequently-asked-questions"></a>Często zadawane pytania
-
-1. *Kto jest dostawcą certyfikatów i jaki typ certyfikatu jest używany?*
-
-    Dla domeny niestandardowej jest używany dedykowany/pojedynczy certyfikat dostarczony przez firmę DigiCert. 
-
-2. *Używasz protokołu TLS/SSL SNI, czy opartego na protokole IP?*
-
-    Drzwi frontonu platformy Azure używają protokołu TLS/SSL SNI.
-
-3. *Co zrobić, jeśli nie otrzymam wiadomości e-mail weryfikującej domenę od firmy DigiCert?*
-
-    Jeśli masz wpis CNAME dla domeny niestandardowej, który wskazuje bezpośrednio na nazwę hosta punktu końcowego (i nie używasz nazwy domeny podrzędnej afdverify), nie otrzymasz wiadomości e-mail weryfikującej domenę. Walidacja będzie wykonywana automatycznie. W przeciwnym razie, jeśli nie masz wpisu CNAME i nie otrzymasz wiadomości e-mail w ciągu 24 godzin, skontaktuj się z działem pomocy technicznej firmy Microsoft.
-
-4. *Czy używanie certyfikatu SAN jest mniejsze bezpieczne niż certyfikatu dedykowanego?*
-    
-    Certyfikat SAN działa zgodnie z tymi samymi standardami szyfrowania i zabezpieczeń, co certyfikat dedykowany. Wszystkie wystawione certyfikaty TLS/SSL używają algorytmu SHA-256 w celu zapewnienia bezpieczeństwa serwera rozszerzonego.
-
-5. *Czy muszę mieć rekord autoryzacji urzędu certyfikacji z moim dostawcą DNS?*
-
-    Nie, rekord autoryzacji urzędu certyfikacji nie jest obecnie wymagany. Jeśli jednak istnieje, musi zawierać firmę DigiCert jako prawidłowy urząd certyfikacji.
-
-
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [utworzyć usługę Front Door](quickstart-create-front-door.md).
-- Dowiedz się, [jak działa usługa Front Door](front-door-routing-architecture.md).
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
+
+* Przekaż certyfikat do Key Vault.
+* Sprawdź poprawność domeny.
+* Włącz protokół HTTPS dla domeny niestandardowej.
+
+Aby dowiedzieć się, jak skonfigurować zasady filtrowania geograficznego dla drzwi z przodu, przejdź do następnego samouczka.
+
+> [!div class="nextstepaction"]
+> [Konfigurowanie zasad filtrowania geograficznego](front-door-geo-filtering.md)

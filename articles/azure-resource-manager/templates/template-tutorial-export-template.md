@@ -2,16 +2,16 @@
 title: Samouczek — Eksportowanie szablonu z Azure Portal
 description: Dowiedz się, jak za pomocą wyeksportowanego szablonu ukończyć tworzenie szablonu.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497158"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650066"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Samouczek: korzystanie z wyeksportowanego szablonu z Azure Portal
 
@@ -62,7 +62,7 @@ Ten szablon działa dobrze w przypadku wdrażania kont magazynu, ale możesz chc
 
    Funkcja eksportowania szablonu Pobiera bieżący stan zasobu i generuje szablon w celu jego wdrożenia. Eksportowanie szablonu może być przydatnym sposobem na szybkie pobranie kodu JSON potrzebnego do wdrożenia zasobu.
 
-1. Skopiuj definicję **Microsoft. Web/dopuszczalna** i definicję parametru do szablonu.
+1. Zapoznaj się z definicją **Microsoft. Web/dopuszczalna** i definicją parametru w wyeksportowanym szablonie. Nie musisz kopiować tych sekcji. Tego wyeksportowanego szablonu można użyć jako przykładu sposobu dodawania tego zasobu do szablonu.
 
     ![Szablon wyeksportowanego szablonu Menedżer zasobów szablonu eksportu](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Ten szablon działa dobrze w przypadku wdrażania kont magazynu, ale możesz chc
 
 Wyeksportowany szablon zapewnia większość potrzebnych danych JSON, ale należy go dostosować do szablonu. Należy zwrócić szczególną uwagę na różnice między parametrami i zmiennymi między szablonem i wyeksportowanym szablonem. Oczywiście proces eksportowania nie wie o parametry i zmienne, które zostały już zdefiniowane w szablonie.
 
-Poniższy przykład wyróżnia Dodatki do szablonu. Zawiera eksportowany kod i pewne zmiany. Najpierw zmienia nazwę parametru zgodnie z konwencją nazewnictwa. Następnie używa parametru Location dla lokalizacji planu usługi App Service. Trzeci, usuwa **nazwę** wewnątrz obiektu **Właściwości** , ponieważ ta wartość jest nadmiarowa z właściwością **Nazwa** na poziomie zasobu.
+Poniższy przykład wyróżnia Dodatki do szablonu. Zawiera eksportowany kod i pewne zmiany. Najpierw zmienia nazwę parametru zgodnie z konwencją nazewnictwa. Następnie używa parametru Location dla lokalizacji planu usługi App Service. Po trzecie usuwa niektóre właściwości, w których wartość domyślna jest dobra.
 
 Skopiuj cały plik i Zastąp jego zawartość.
 
@@ -122,7 +122,7 @@ Można zweryfikować wdrożenie, przeeksplorowanie grupy zasobów z Azure Portal
 1. Wybierz grupę zasobów, do której została wdrożona.
 1. Grupa zasobów zawiera konto magazynu i plan App Service.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeniesiesz się do następnego samouczka, nie musisz usuwać grupy zasobów.
 

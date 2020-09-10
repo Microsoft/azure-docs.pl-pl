@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: wdrażanie zasobów przy użyciu definicji zasad'
-description: Ten Azure Policy wzorzec zawiera przykład sposobu wdrażania zasobów przy użyciu definicji zasad.
+description: Ten Azure Policy wzorzec zawiera przykład sposobu wdrażania zasobów przy użyciu definicji zasad deployIfNotExists.
 ms.date: 08/17/2020
 ms.topic: sample
-ms.openlocfilehash: 705c751183a0b71c8628a505f08ef112bca1cbb7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a9eec54954b8963f38b3f19a0d0cabffe1092e5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545611"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649989"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Wzorzec Azure Policy: wdrażanie zasobów
 
@@ -20,7 +20,7 @@ Ta definicja zasad używa operatora **pola** do oszacowania `type` utworzonego l
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
-### <a name="explanation"></a>Wyjaśnienie
+### <a name="explanation"></a>Objaśnienie
 
 #### <a name="existencecondition"></a>existenceCondition
 

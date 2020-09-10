@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób migrowania maszyn wirtualnych AWS na
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 72579c103102196e641244600ce9add64d6e20a4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419014"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651830"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Odnajdywanie, ocenianie i migrowanie maszyn wirtualnych usługi Amazon Web Services (AWS) na platformę Azure
 
@@ -43,12 +43,17 @@ Skonfiguruj ocenę w następujący sposób:
 1. Postępuj zgodnie z [samouczkiem](./tutorial-prepare-physical.md) , aby skonfigurować platformę Azure i przygotować maszyny wirtualne AWS do oceny. Należy pamiętać, że:
 
     - Azure Migrate używa uwierzytelniania hasła podczas odnajdywania wystąpień AWS. Wystąpienia AWS domyślnie nie obsługują uwierzytelniania hasła. Aby można było odnaleźć wystąpienie, należy włączyć uwierzytelnianie hasła.
-        - Dla maszyn z systemem Windows Zezwól na port WinRM 5986 (HTTPS) i 5985 (HTTP). Pozwala to na zdalne wywołania WMI. W przypadku skonfigurowania 
+        - W przypadku maszyn z systemem Windows Zezwól na port WinRM 5985 (HTTP). Pozwala to na zdalne wywołania WMI.
         - Komputery z systemem Linux:
             1. Zaloguj się do każdej maszyny z systemem Linux.
             2. Otwórz plik sshd_config: VI/etc/ssh/sshd_config
             3. W pliku Znajdź linię **PasswordAuthentication** i zmień wartość na **tak**.
             4. Zapisz plik i zamknij go. Uruchom ponownie usługę SSH.
+    - Jeśli używasz użytkownika root do odnajdywania maszyn wirtualnych z systemem Linux, upewnij się, że na maszynach wirtualnych jest dozwolone logowanie główne.
+        1. Zaloguj się do każdej maszyny z systemem Linux
+        2. Otwórz plik sshd_config: VI/etc/ssh/sshd_config
+        3. W pliku Znajdź linię **PermitRootLogin** i zmień wartość na **tak**.
+        4. Zapisz plik i zamknij go. Uruchom ponownie usługę SSH.
 
 2. Następnie postępuj zgodnie z tym [samouczkiem](./tutorial-assess-physical.md) , aby skonfigurować Azure Migrate projekt i urządzenie w celu odnajdywania i oceniania maszyn wirtualnych AWS.
 
@@ -172,15 +177,15 @@ Pierwszym krokiem migracji jest skonfigurowanie urządzenia do replikacji. Aby s
 9. Uruchom plik instalacyjny urządzenia replikacji, zgodnie z opisem w następnej procedurze.  
     9.1. W obszarze **Przed rozpoczęciem** wybierz pozycję **Zainstaluj serwer konfiguracji i serwer przetwarzania**, a następnie wybierz opcję **Dalej**.   
     9,2 w **licencji na oprogramowanie innych**firm wybierz opcję **Akceptuję Umowę licencyjną innej firmy**, a następnie wybierz przycisk **dalej**.   
-    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz pozycję **Dalej**.  
+    9,3 w obszarze **rejestracja**wybierz pozycję **Przeglądaj**, a następnie przejdź do lokalizacji, w której zostanie umieszczony plik klucza rejestracji magazynu. Wybierz opcję **Dalej**.  
     9,4 w obszarze **Ustawienia internetowe**wybierz opcję **Połącz z Azure Site Recovery bez serwera proxy**, a następnie wybierz przycisk **dalej**.  
     9,5 na stronie **Sprawdzanie wymagań wstępnych** są uruchamiane sprawdzenia kilku elementów. Po zakończeniu wybierz opcję **Dalej**.  
     9,6 w obszarze **Konfiguracja programu MySQL**Podaj hasło dla bazy danych MySQL, a następnie wybierz przycisk **dalej**.  
-    9,7 w obszarze **szczegóły środowiska**wybierz pozycję **nie**. Nie musisz chronić maszyn wirtualnych. Następnie wybierz przycisk **dalej**.  
+    9,7 w obszarze **szczegóły środowiska**wybierz pozycję **nie**. Nie musisz chronić maszyn wirtualnych. Następnie wybierz pozycję **Dalej**.  
     9,8 w **lokalizacji instalacji**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,9 w **obszarze Wybór sieci**wybierz pozycję **dalej** , aby zaakceptować wartość domyślną.  
     9,10 w obszarze **Podsumowanie**wybierz pozycję **Zainstaluj**.   
-    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Kliknij przycisk **OK**.   
+    9,11 **postęp instalacji** pokazuje informacje o procesie instalacji. Po zakończeniu wybierz opcję **Zakończ**. Zostanie wyświetlone okno z komunikatem o konieczności ponownego uruchomienia. Wybierz pozycję **OK**.   
     9,12 następnie w oknie zostanie wyświetlony komunikat dotyczący hasła połączenia z serwerem konfiguracji. Skopiuj hasło do schowka i Zapisz hasło w tymczasowym pliku tekstowym na źródłowych maszynach wirtualnych. To hasło będzie potrzebne później, podczas procesu instalacji usługi mobilności.
 10. Po zakończeniu instalacji Kreator konfiguracji urządzenia zostanie uruchomiony automatycznie (można również uruchomić Kreatora ręcznie przy użyciu skrótu cspsconfigtool utworzonego na pulpicie urządzenia). Za pomocą karty Zarządzanie kontami kreatora można dodać szczegóły konta do użycia podczas instalacji wypychanej usługi mobilności. W tym samouczku będziemy ręcznie instalować usługę mobilności na źródłowych maszynach wirtualnych do replikacji, więc Utwórz fikcyjne konto w tym kroku i przejdź dalej. Poniżej przedstawiono szczegółowe informacje na temat tworzenia fikcyjnego konta "Gość" jako przyjaznej nazwy, "username" jako nazwy użytkownika i hasła do konta. Będziesz używać tego fikcyjnego konta na etapie włączania replikacji. 
 11. Po ponownym uruchomieniu urządzenia po zakończeniu instalacji w obszarze **odnajdywanie maszyn**wybierz nowe urządzenie na liście **Wybierz serwer konfiguracji**, a następnie kliknij pozycję **finalizowanie rejestracji**. Finalizowanie rejestracji wykonuje kilka zadań końcowych w celu przygotowania urządzenia do replikacji.

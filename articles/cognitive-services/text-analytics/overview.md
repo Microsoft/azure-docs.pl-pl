@@ -1,47 +1,53 @@
 ---
-title: Czym jest interfejs API analizy tekstu? Możliwość
+title: Wyszukiwanie i analiza tekstu przy użyciu interfejs API analizy tekstu platformy Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Użyj interfejs API analizy tekstu z usługi Azure Cognitive Services do analizy tonacji, wyodrębniania kluczowych fraz, wykrywania języka i rozpoznawania jednostek.
+description: Dowiedz się więcej na temat wyszukiwania tekstu przy użyciu interfejs API analizy tekstu. Służy do analizy tonacji, wykrywania języka i innych form przetwarzania języka naturalnego.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/27/2020
+ms.date: 09/09/2020
 ms.author: aahi
-ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+keywords: Wyszukiwanie tekstu, analiza tonacjiów, analizy tekstu
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000961"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647470"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Czym jest interfejs API analizy tekstu?
 
-Interfejs API analizy tekstu to usługa oparta na chmurze, która zapewnia zaawansowane przetwarzanie języka naturalnego w przypadku nieprzetworzonego tekstu i obejmuje cztery główne funkcje: tonacji Analysis, wyodrębnianie kluczowych fraz, wykrywanie języka i rozpoznawanie jednostek nazwanych.
+Interfejs API analizy tekstu to usługa oparta na chmurze, która zapewnia funkcje przetwarzania języka naturalnego (NLP) na potrzeby wyszukiwania tekstu i analizy tekstu, w tym: Analiza tonacji, wyszukiwanie opinii, wyodrębnianie kluczowych fraz, wykrywanie języka i rozpoznawanie nazw jednostek.
 
-Interfejs API jest częścią usług [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych.
+Interfejs API jest częścią usług [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), które są zbiorem algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze do wykorzystania w Twoich projektach programistycznych. Tych funkcji można używać z [interfejsem API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)lub z [biblioteką klienta](quickstarts/text-analytics-sdk.md)programu.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-Analiza tekstu może oznaczać różne elementy, ale w Cognitive Services interfejs API analizy tekstu oferuje cztery typy analiz, jak opisano poniżej. Tych funkcji można używać z [interfejsem API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)lub z [biblioteką klienta](quickstarts/text-analytics-sdk.md)programu.
-
 ## <a name="sentiment-analysis"></a>Analiza tonacji
-Użyj [analizy tonacji](how-tos/text-analytics-how-to-sentiment-analysis.md) , aby dowiedzieć się, co klienci uważają za swoją markę lub temat, analizując nieprzetworzony tekst w celu uzyskania wskazówek dotyczących pozytywnych lub negatywnych tonacji. Ten interfejs API zwraca ocenę tonacji od 0 do 1 dla każdego dokumentu, przy czym 1 oznacza najbardziej pozytywną tonację.<br /> Modele analizy są wstępnie szkolone przy użyciu rozbudowanych technologii z zakresu treści tekstu oraz naturalnego języka firmy Microsoft. W przypadku [wybranych języków](text-analytics-supported-languages.md) interfejs API może przeanalizować i ocenić dowolny podany nieprzetworzony tekst, zwracając wyniki bezpośrednio do aplikacji wywołującej.
+
+Korzystaj z [analizy tonacji](how-tos/text-analytics-how-to-sentiment-analysis.md) i Dowiedz się, jakie osoby uważają za swoją markę lub temat, wyszukując tekst pod kątem pozytywnych lub negatywnych tonacji. Ta funkcja interfejsu API zwraca wynik tonacji z zakresu od 0 do 1 dla każdego dokumentu, gdzie 1 to najbardziej dodatnia wartość.
+
+Począwszy od wersji zapoznawczej programu v 3.1, funkcja wyszukiwania jest funkcją analiza tonacji. Funkcja ta oferuje również bardziej szczegółowe informacje o opiniach związanych z aspektami (np. atrybutami produktów lub usług), nazywanymi analiza tonacji opartymi na aspektach.
 
 ## <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
-Automatycznie [Wyodrębniaj kluczowe frazy](how-tos/text-analytics-how-to-keyword-extraction.md) , aby szybko identyfikować główne punkty. Na przykład dla tekstu wejściowego „Jedzenie było pyszne, a serwowała je doskonała obsługa” interfejs API zwraca główne tematy wypowiedzi: „jedzenie” i „doskonała obsługa”.
+
+Użyj [wyodrębniania kluczowych fraz](how-tos/text-analytics-how-to-keyword-extraction.md) , aby szybko identyfikować główne koncepcje w tekście. Na przykład w tekście "żywność została deliciousa i wystąpiło wspaniałe zatrudnienie", wyodrębnianie kluczowych fraz zwróci główne punkty rozmowy: "żywność" i "wspaniałe personel".
 
 ## <a name="language-detection"></a>Wykrywanie języka
-Możesz [wykryć język, w którym wprowadzany jest tekst wejściowy](how-tos/text-analytics-how-to-language-detection.md) , i zgłosić jeden kod języka dla każdego dokumentu przesłanego na żądanie w szerokim zakresie języków, wariantów, dialektach i niektórych językach regionalnych/kulturowych. Kod języka jest powiązany z oceną, co wskazuje siłę oceny.
+
+Mechanizm wykrywania języka może [wykryć język, w którym wprowadzany jest tekst wejściowy](how-tos/text-analytics-how-to-language-detection.md) , i zgłosić jeden kod języka dla każdego dokumentu przesłanego na żądanie w szerokim zakresie języków, wariantów, dialektach i niektórych językach regionalnych/kulturowych. Kod języka jest sparowany z wynikiem pewności.
 
 ## <a name="named-entity-recognition"></a>Rozpoznawanie jednostek nazwanych
-[Zidentyfikuj i Kategoryzuj jednostki](how-tos/text-analytics-how-to-entity-linking.md) w tekście jako osoby, miejsca, organizacje, daty/godziny, ilości, wartości procentowe, waluty i nie tylko. Dobrze znane jednostki są również rozpoznawane i łączone z większą ilością informacji w Internecie.
+
+Rozpoznawanie jednostek nazwanych (NER) może [identyfikować i klasyfikować jednostki](how-tos/text-analytics-how-to-entity-linking.md) w tekście jako osoby, miejsca, organizacje, ilości, dobrze znane jednostki, które są także rozpoznawane i połączone z więcej informacji w sieci Web.
 
 ## <a name="use-containers"></a>Korzystanie z kontenerów
 
-Po zainstalowaniu standardowych kontenerów platformy Docker blisko danych można lokalnie wyodrębniać kluczowe frazy, wykrywać język i analizować tonację, korzystając z [kontenerów analizy tekstu](how-tos/text-analytics-how-to-install-containers.md).
+[Użyj kontenerów analiza tekstu](how-tos/text-analytics-how-to-install-containers.md) jako rozwiązania lokalnego dla tekstu wyszukiwania i korzystając z interfejsu API. Te kontenery platformy Docker umożliwiają wyodrębnianie kluczowych fraz i wykrywanie języka oraz analizowanie tonacji bliżej danych.
 
 ## <a name="typical-workflow"></a>Typowy przepływ pracy
 
@@ -88,7 +94,7 @@ Wszystkie punkty końcowe interfejsu API analizy tekstu akceptują dane w postac
 
 Interfejs API analizy tekstu używa kodowania Unicode na potrzeby przedstawiania tekstu oraz obliczeń w zakresie liczby znaków. Żądania można przesyłać w kodowaniu UTF-8 oraz UTF-16, bez żadnych mierzalnych różnic w liczbie znaków. Punkty kodu Unicode są używane jako heurystyka dla długości znaków i są uznawane za równoważne dla celów związanych z limitami danych analizy tekstu. Jeśli używasz [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) , aby uzyskać liczbę znaków, używana jest ta sama metoda, która służy do mierzenia rozmiaru danych.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 + [Utwórz zasób platformy Azure](../cognitive-services-apis-create-account.md) dla analiza tekstu, aby uzyskać klucz i punkt końcowy dla aplikacji.
 

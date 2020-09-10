@@ -3,12 +3,12 @@ title: Przykład strategii testu porównawczego zabezpieczeń platformy Azure �
 description: Omówienie przykładu strategii testu porównawczego zabezpieczeń platformy Azure. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
 ms.date: 06/02/2020
 ms.topic: sample
-ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84740379"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651906"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Przykładowy plan usługi Azure Security test
 
@@ -18,7 +18,7 @@ Przykład strategii testu porównawczego zabezpieczeń platformy Azure zapewnia 
 
 [Mapowanie formantów Azure Policy](../../policy/samples/azure-security-benchmark.md) zawiera szczegółowe informacje o definicjach zasad uwzględnionych w ramach tego planu oraz o tym, jak te definicje zasad są mapowane do **domen zgodności** i **kontroli** w ramach testu porównawczego zabezpieczeń platformy Azure. Po przypisaniu do architektury zasoby są oceniane przez Azure Policy w przypadku braku zgodności z przypisanymi definicjami zasad. Aby uzyskać więcej informacji, zobacz [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Wdrażanie
+## <a name="deploy"></a>Wdróż
 
 Aby wdrożyć plan platformy Azure dotyczący planu wydajności Azure Security test, należy wykonać następujące czynności:
 
@@ -37,7 +37,7 @@ Najpierw Zaimplementuj przykład strategii, tworząc nowy plan w środowisku prz
 
 1. Na stronie **pierwsze kroki** z lewej strony wybierz przycisk **Utwórz** w obszarze _Utwórz plan_.
 
-1. Znajdź przykład planu **testu porównawczego zabezpieczeń platformy Azure** pod _innymi_ przykładami, a następnie wybierz nazwę, aby wybrać ten przykład.
+1. Znajdź przykład planu **testu porównawczego zabezpieczeń platformy Azure** pod _innymi_ przykładami i wybierz nazwę, aby wybrać ten przykład.
 
 1. Wprowadź _podstawy_ przykładu planu:
 

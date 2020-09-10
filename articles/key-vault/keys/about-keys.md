@@ -10,14 +10,14 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 76e9c342f87a3aa1d04a8f4be4065af73e6ba9f2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413727"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651301"
 ---
-# <a name="about-azure-key-vault-keys"></a>Informacje o kluczach Azure Key Vault
+# <a name="about-azure-key-vault-keys"></a>Informacje o kluczach usługi Azure Key Vault
 
 Azure Key Vault obsługuje wiele typów kluczy i algorytmy oraz umożliwia korzystanie z sprzętowych modułów zabezpieczeń (HSM) dla kluczy o wysokiej wartości.
 
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz [kluczowe operacje w dokumentacji interf
 
 Po utworzeniu klucza w Key Vault można wykonać następujące operacje kryptograficzne przy użyciu klucza:  
 
--   **Podpisz i Weryfikuj**: absolutnie ta operacja jest "Podpisz skrótem" lub "Weryfikuj skrót", ponieważ Key Vault nie obsługuje mieszania zawartości w ramach tworzenia podpisu. Aplikacje powinny skrótować dane, które mają być podpisane lokalnie, a następnie żądać Key Vault podpisywania skrótu. Weryfikacja podpisywanych skrótów jest obsługiwana jako wygodna operacja dla aplikacji, które mogą nie mieć dostępu do materiału klucza [Public]. W celu uzyskania najlepszej wydajności aplikacji Sprawdź, czy operacje należy wykonać lokalnie.  
+-   **Podpisz i Weryfikuj**: absolutnie ta operacja jest "Podpisz skrótem" lub "Weryfikuj skrót", ponieważ Key Vault nie obsługuje mieszania zawartości w ramach tworzenia podpisu. Aplikacje powinny skrótować dane, które mają być podpisane lokalnie, a następnie żądać Key Vault podpisywania skrótu. Weryfikacja podpisywanych skrótów jest obsługiwana jako wygodna operacja dla aplikacji, które mogą nie mieć dostępu do materiału klucza [Public]. Aby zapewnić najlepszą wydajność aplikacji, należy przeprowadzić operacje weryfikacji lokalnie.  
 -   **Szyfrowanie/Zawijanie kluczy**: Klucz przechowywany w Key Vault może służyć do ochrony innego klucza, zazwyczaj klucza szyfrowania zawartości symetrycznej (CEK). Gdy klucz w Key Vault jest asymetryczny, używane jest szyfrowanie klucza. Na przykład RSA-OAEP i operacje WRAPKEY/UNWRAPKEY są równoważne z SZYFROWANIEm/ODSZYFROWYWAniem. Gdy klucz w Key Vault jest symetryczny, używane jest Zawijanie kluczy. Na przykład AES-KW. Operacja WRAPKEY jest obsługiwana jako wygoda dla aplikacji, które mogą nie mieć dostępu do materiału klucza [Public]. W celu uzyskania najlepszej wydajności aplikacji WRAPKEY operacje powinny być wykonywane lokalnie.  
 -   **Szyfrowanie i odszyfrowywanie**: klucz zapisany w Key Vault może służyć do szyfrowania lub odszyfrowywania pojedynczego bloku danych. Rozmiar bloku jest określany na podstawie typu klucza i wybranego algorytmu szyfrowania. Operacja szyfrowania została udostępniona dla wygody dla aplikacji, które mogą nie mieć dostępu do materiału klucza [Public]. W celu uzyskania najlepszej wydajności aplikacji należy wykonać operacje szyfrowania lokalnie.  
 

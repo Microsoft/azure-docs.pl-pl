@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 884e97815a048d3e37dba57d362d71e72ef5e103
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: efe2f062cc75fb05484fe810a3ae16c07e93339b
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120851"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651745"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Używanie automatycznego uczenia maszynowego do przewidywania opłat za taksówkę
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -137,7 +137,7 @@ green_taxi_df.describe()
 |----|----|---|---|----|---|---|---|---|---|---|---
 |count|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00|48000,00
 |średnia|1,78|1,37|2,87|-73,83|40,69|-73,84|40,70|14,75|6,50|15,13|3,27|13,52
-|wartość|0,41|1.04|2,93|2,76|1,52|2,61|1,44|12,08|3,45|8,45|1,95|6,83
+|odchylenie standardowe|0,41|1.04|2,93|2,76|1,52|2,61|1,44|12,08|3,45|8,45|1,95|6,83
 |min|1,00|0,00|0,00|-74,66|0,00|-74,66|0,00|-300,00|1,00|1,00|0,00|0,00
 |25%|2,00|1,00|1.06|-73,96|40,70|-73,97|40,70|7,80|3,75|8,00|2,00|9,00
 |50%|2,00|1,00|1,90|-73,94|40,75|-73,94|40,75|11,30|6,50|15,00|3,00|15,00
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
 
-Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. [Obszar roboczy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) to Klasa, która akceptuje informacje o subskrypcji i zasobach platformy Azure. Tworzy ona również zasób w chmurze służący do monitorowania i śledzenia przebiegów modelu. `Workspace.from_config()`Odczytuje **config.js** pliku i ładuje szczegóły uwierzytelniania do obiektu o nazwie `ws` . Obiekt `ws` jest używany w kodzie w tym samouczku.
+Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. [Obszar roboczy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) to Klasa, która akceptuje informacje o subskrypcji i zasobach platformy Azure. Tworzy ona również zasób w chmurze służący do monitorowania i śledzenia przebiegów modelu. `Workspace.from_config()` Odczytuje **config.js** pliku i ładuje szczegóły uwierzytelniania do obiektu o nazwie `ws` . Obiekt `ws` jest używany w kodzie w tym samouczku.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Eksplorowanie wyników
 
-Poznaj wyniki automatycznego szkolenia przy użyciu [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Widżet umożliwia wyświetlenie wykresu i tabeli wszystkich poszczególnych iteracji przebiegów oraz metryki i metadanych dokładności szkoleniowej. Ponadto można odfiltrować różne metryki dokładności niż Metryka podstawowa za pomocą selektora listy rozwijanej.
+Poznaj wyniki automatycznego szkolenia przy użyciu [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Widżet umożliwia wyświetlenie wykresu i tabeli wszystkich poszczególnych iteracji przebiegów oraz metryki i metadanych dokładności szkoleniowej. Ponadto można odfiltrować różne metryki dokładności niż Metryka podstawowa za pomocą selektora listy rozwijanej.
 
 ```python
 from azureml.widgets import RunDetails
