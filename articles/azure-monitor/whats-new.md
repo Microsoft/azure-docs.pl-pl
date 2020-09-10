@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 0269d870f55f7246529b9d98608e5a325b6cf468
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0809894964ff99c468f8bf3876bfdb44995656f7
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569530"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667466"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
 
@@ -19,9 +19,67 @@ Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zosta
 
 ## <a name="august-2020"></a>Sierpień 2020 r.
 
-### <a name="containers"></a>Kontenery
+### <a name="general"></a>Ogólne
 
+- [Co jest monitorowane przez Azure monitor](monitor-reference.md) — zaktualizowano w celu uwzględnienia Azure monitor agenta.
+
+
+### <a name="agents"></a>Agenci
+- [Omówienie agenta Azure monitor](platform/azure-monitor-agent-overview.md) — nowy artykuł.
+- [Włącz Azure monitor dla środowiska hybrydowego](insights/vminsights-enable-hybrid.md) — zaktualizowana wersja agenta zależności.
+- [Omówienie agentów monitorowania platformy Azure](platform/agents-overview.md) — dodano agenta Azure monitor i tabelę pomocy technicznej systemu operacyjnego.
+
+
+#### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>Nowe i zaktualizowane artykuły z restrukturyzacji zawartości agenta
+- [Włącz przegląd Azure Monitor dla maszyn wirtualnych](insights/vminsights-enable-overview.md)
+- [Instalowanie agenta Log Analytics na komputerach z systemem Linux](platform/agent-linux.md)
+- [Zainstaluj agenta Log Analytics na komputerach z systemem Windows](platform/agent-windows.md)
+- [Omówienie agenta Log Analytics](platform/log-analytics-agent.md)
+
+### <a name="application-insights"></a>Application Insights
+- [Application Insights platformy Azure dla aplikacji sieci Web JavaScript](app/javascript.md) — Dodano sekcję z wyjaśnieniem korelacji i konfiguracją serwera klienta na potrzeby korelacji CORS.
+- [Utwórz nowe Azure Monitor Application Insights](app/create-workspace-resource.md) możliwości dodanych przez obszary robocze udostępniane przez aplikacje oparte na obszarze roboczym.
+- [Adresy IP używane przez Application Insights i log Analytics](app/ip-addresses.md) — zaktualizowane adresy IP dla strumienia metryk na żywo.
+- [Monitoruj aplikacje Java w dowolnym środowisku — Azure Monitor Application Insights](app/java-in-process-agent.md) dodanej tabeli pod kątem obsługiwanej niestandardową telemetrię.
+- [Wtyczka z natywną obsługą reakcji dla Application Insights JavaScript SDK](app/javascript-react-native-plugin.md) — nowy artykuł.
+- [Zareaguj na wtyczkę dla Application Insights JavaScript SDK](app/javascript-react-plugin.md) — nowy artykuł.
+- [Przykład szablonu Menedżer zasobów na potrzeby tworzenia aplikacji funkcji platformy Azure przy użyciu monitorowania Application Insights](samples/resource-manager-function-app.md) — nowy artykuł.
+- [Przykłady szablonów Menedżer zasobów do tworzenia aplikacji sieci Web platformy Azure App Services za pomocą monitorowania Application Insights](samples/resource-manager-web-app.md) — nowy artykuł.
+- [Analiza użycia za pomocą dodanego wideo na platformie Azure Application Insights](app/usage-overview.md) .
+
+### <a name="autoscale"></a>Automatyczne skalowanie
+- [Zacznij korzystać z funkcji automatycznego skalowania na platformie Azure](platform/autoscale-get-started.md) — Dodano sekcję w temacie Routing do healty wystąpień dla App Service.
+
+### <a name="data-collection"></a>Zbieranie danych
+- [Skonfiguruj zbieranie danych dla agenta Azure monitor (wersja zapoznawcza)](platform/data-collection-rule-azure-monitor-agent.md) — nowy artykuł.
+- [Reguły zbierania danych w Azure monitor (wersja zapoznawcza)](platform/data-collection-rule-overview.md) — nowy artykuł.
+
+
+### <a name="containers"></a>Kontenery
 - [Wdrożenie & hPa metryk z Azure monitor dla kontenerów](insights/container-insights-deployment-hpa-metrics.md) — nowy artykuł.
+
+### <a name="insights"></a>Insights
+- [Monitorowanie rozwiązań w Azure monitor](insights/solutions.md) — zaktualizowane dla nowego interfejsu użytkownika.
+- [Network Performance Monitor rozwiązanie na platformie Azure](insights/network-performance-monitor.md) — dodano Obsługiwane regiony obszaru roboczego.
+
+
+### <a name="logs"></a>Dzienniki
+- [Azure monitor często zadawane pytania](faq.md) — dodano wpis służący do usuwania danych z obszaru roboczego. Dodano wpis na 502 i 503 odpowiedzi.
+  - [Projektowanie wdrożenia dzienników Azure monitor](platform/design-logs-deployment.md) — liczba aktualizacji w sekcji limit ilości woluminu pozyskiwania.
+- [Zarządzanie użyciem i kosztami Azure monitor dzienników](platform/manage-cost-storage.md) — zaktualizowane zapytania dotyczące użycia do bardziej wydajnego formatu zapytania.
+- [Optymalizowanie zapytań dzienników w Azure monitor](log-query/query-optimization.md) dodanych określonych wartości do wskaźników wydajności.
+- [Przykłady szablonów Menedżer zasobów dla ustawień diagnostycznych](samples/resource-manager-diagnostic-settings.md) — dodano przykład dla dzienników inspekcji zapytań dzienników.
+
+
+### <a name="platform-logs"></a>Dzienniki platformy
+- [Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych](platform/diagnostic-settings.md) — dodanych wymagań regionalnych dla ustawień diagnostycznych.
+
+### <a name="visualizations"></a>Wizualizacje
+- [Przegląd Azure monitor skoroszytów](platform/workbooks-overview.md) — dodano film wideo.
+- [Przenieś szablon skoroszytu platformy Azure do innego regionu](platform/workbook-templates-move-region.md) — nowy artykuł.
+- [Przenieś skoroszyt platformy Azure do innego regionu](platform/workbooks-move-region.md) — nowy artykuł.
+
+
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
@@ -111,7 +169,7 @@ Nowe i zaktualizowane artykuły z restrukturyzacji zawartości Azure Monitor dla
 - [Skonfiguruj platformę Azure Red Hat OpenShift v4. x z Azure monitor for Containers](insights/container-insights-azure-redhat4-setup.md) — zaktualizowane wymagania wstępne.
 - [Skonfiguruj Azure monitor dla kontenerów dane dynamiczne (wersja zapoznawcza)](insights/container-insights-livedata-setup.md) — usunięto uwagę na to, że funkcja nie jest dostępna w programie Azure USA dla instytucji rządowych.
 
-### <a name="insights"></a>Szczegółowe informacje
+### <a name="insights"></a>Insights
 - [Często zadawane pytania — Network Performance Monitor rozwiązanie na platformie Azure](insights/network-performance-monitor-faq.md) — dodano obsługę często zadawanych pytań dotyczących monitora ExpressRoute.
 
 ### <a name="logs"></a>Dzienniki
@@ -218,7 +276,7 @@ Nowe i zaktualizowane artykuły z przebudowy i konsolidacji zawartości dziennik
 - [Koszt monitorowania Azure monitor kontenerów](insights/container-insights-cost.md) — nowy artykuł.
 - [Skonfiguruj Azure monitor dla kontenerów dane dynamiczne (wersja zapoznawcza)](insights/container-insights-livedata-setup.md) — obsługa nowego powiązania roli klastra.
 
-### <a name="insights"></a>Szczegółowe informacje
+### <a name="insights"></a>Insights
 - [Azure monitor dla usługi Azure cache for Redis (wersja zapoznawcza)](insights/redis-cache-insights-overview.md) — nowy artykuł.
 - [Monitoruj Key Vault z Azure monitor do Key Vault (wersja zapoznawcza)](./insights/key-vault-insights-overview.md) — nowy artykuł.
 
@@ -283,7 +341,7 @@ Nowe i zaktualizowane artykuły z przebudowy i konsolidacji zawartości dziennik
 - [Jak zatrzymać monitorowanie klastra usługi Azure Red Hat OpenShift v3](insights/container-insights-optout-openshift-v3.md) — nowy artykuł.
 - [Jak zatrzymać monitorowanie klastra hybrydowego Kubernetes](insights/container-insights-optout-hybrid.md) — nowy artykuł.
 
-### <a name="insights"></a>Szczegółowe informacje
+### <a name="insights"></a>Insights
 
 - [Monitoruj magazyny kluczy Azure za pomocą Azure monitor dla magazynów kluczy (wersja zapoznawcza)](insights/key-vault-insights-overview.md) — nowy artykuł.
 
@@ -328,7 +386,7 @@ Nowe i zaktualizowane artykuły z przebudowy i konsolidacji zawartości dziennik
 - [Azure monitor często zadawane pytania](faq.md) — aktualizacja Azure monitor dla kontenerów.
 - [Konfigurowanie monitorowania procesora GPU przy użyciu Azure monitor dla kontenerów](insights/container-insights-gpu-monitoring.md) — nowy artykuł.
 
-### <a name="insights"></a>Szczegółowe informacje
+### <a name="insights"></a>Insights
 
 - [Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure](insights/solution-office-365.md) — Data wycofania aktualizacji.
 

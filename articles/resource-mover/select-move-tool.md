@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8af5cd4f961a2138f09bb3e56fccf7aa8f726dd9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 36f4bb0c10e8346caa0c4ef8fd1ed69e4b2878a0
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653590"
+ms.locfileid: "89669362"
 ---
 # <a name="choose-a-tool-for-moving-azure-resources"></a>Wybierz narzędzie do przeniesienia zasobów platformy Azure
 
@@ -27,11 +27,11 @@ Zasoby można przenieść na platformę Azure w następujący sposób:
 
 ## <a name="compare-move-tools"></a>Porównanie narzędzi przenoszenia
 
-**Narzędzie** | **Kiedy stosować**
+**Narzędzie** | **Kiedy stosować** | **Dowiedz się więcej**
 --- | --- 
-**Przenieś w grupie zasobów** | Przenoszenie zasobów do innej grupy zasobów/subskrypcji lub między regionami.<br/><br/> W przypadku przechodzenia między regionami w grupie zasobów wybierasz zasoby, które chcesz przenieść, a następnie przejdź do centrum przenoszenia zasobów, aby sprawdzić zależności i przenieść zasoby do regionu docelowego.
-**Przenoszenie z centrum przenoszenia zasobów** | Przenoszenie zasobów między regionami. <br/><br/> W regionie docelowym można przenieść do regionu docelowego lub do określonej strefy dostępności lub zestawu dostępności.
-**Przenoszenie maszyn wirtualnych za pomocą Site Recovery** | Służy do przemieszczania maszyn wirtualnych platformy Azure między chmurami publicznymi i prywatnymi.<br/><br/> Użyj, jeśli chcesz przenieść maszyny wirtualne między strefami dostępności w tym samym regionie.
+**Przenieś w grupie zasobów** | Przenoszenie zasobów do innej grupy zasobów/subskrypcji lub między regionami.<br/><br/> W przypadku przechodzenia między regionami w grupie zasobów wybierasz zasoby, które chcesz przenieść, a następnie przejdź do centrum przenoszenia zasobów, aby sprawdzić zależności i przenieść zasoby do regionu docelowego. | [Przenoszenie zasobów do innej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md).<br/><br/> [Przenoszenie zasobów do innego regionu z grupy zasobów](../azure-resource-manager/management/move-region.md).
+**Przenoszenie z centrum przenoszenia zasobów** | Przenoszenie zasobów między regionami. <br/><br/> W regionie docelowym można przenieść do regionu docelowego lub do określonej strefy dostępności lub zestawu dostępności. | [Przenoszenie zasobów między regionami w centrum przenoszenia zasobów]().
+**Przenoszenie maszyn wirtualnych za pomocą Site Recovery** | Służy do przemieszczania maszyn wirtualnych platformy Azure między administracją rządową i chmurą publiczną.<br/><br/> Użyj, jeśli chcesz przenieść maszyny wirtualne między strefami dostępności w tym samym regionie. |[Przenoszenie zasobów między chmurami rządowymi i publicznymi](../site-recovery/region-move-cross-geos.md), [przenoszenie zasobów do stref dostępności w tym samym regionie](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

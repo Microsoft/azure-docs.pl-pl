@@ -2,20 +2,20 @@
 title: Samouczek — używanie pliku parametrów do wdrażania szablonu
 description: Użyj plików parametrów, które zawierają wartości używane do wdrażania szablonu Azure Resource Manager.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ff3ba6bdf93fd51b3b78fce2bc82404423c427ba
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502804"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667431"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Samouczek: Wdrażanie szablonu ARM przy użyciu plików parametrów
 
-W ramach tego samouczka nauczysz się używać [plików parametrów](parameter-files.md) do przechowywania wartości przekazywanych podczas wdrażania. W poprzednich samouczkach użyto parametrów wbudowanych z poleceniem wdrożenia. To podejście działało do testowania szablonu Azure Resource Manager (ARM), ale podczas automatyzowania wdrożeń można łatwiej przekazać zestaw wartości dla danego środowiska. Pliki parametrów ułatwiają pakowanie wartości parametrów dla określonego środowiska. W tym samouczku utworzysz pliki parametrów dla środowisk deweloperskich i produkcyjnych. Ukończenie może potrwać około **12 minut** .
+W ramach tego samouczka nauczysz się używać [plików parametrów](parameter-files.md) do przechowywania wartości przekazywanych podczas wdrażania. W poprzednich samouczkach użyto parametrów wbudowanych z poleceniem wdrożenia. To podejście działało do testowania szablonu Azure Resource Manager (szablon ARM), ale podczas automatyzowania wdrożeń można łatwiej przekazać zestaw wartości dla danego środowiska. Pliki parametrów ułatwiają pakowanie wartości parametrów dla określonego środowiska. W tym samouczku utworzysz pliki parametrów dla środowisk deweloperskich i produkcyjnych. Ukończenie może potrwać około **12 minut** .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,6 +34,12 @@ Ten szablon działa dobrze, ale teraz chcesz łatwo zarządzać parametrami prze
 ## <a name="add-parameter-files"></a>Dodaj pliki parametrów
 
 Pliki parametrów to pliki JSON ze strukturą podobną do szablonu. W pliku podaj wartości parametrów, które mają być przekazywane podczas wdrażania.
+
+W pliku parametrów podaj wartości parametrów w szablonie. Nazwa każdego parametru w pliku parametrów musi być zgodna z nazwą parametru w szablonie. W nazwie nie jest rozróżniana wielkość liter, ale w celu łatwego wyświetlenia pasujących wartości zalecamy dopasowanie wielkości liter z szablonu.
+
+Nie musisz podawać wartości dla każdego parametru. Jeśli nieokreślony parametr ma wartość domyślną, ta wartość jest używana podczas wdrażania. Jeśli parametr nie ma wartości domyślnej i nie jest określony w pliku parametrów, zostanie wyświetlony monit o podanie wartości podczas wdrażania.
+
+Nie można określić nazwy parametru w pliku parametrów, która nie jest zgodna z nazwą parametru w szablonie. Wystąpił błąd podczas podanych nieznanych parametrów.
 
 W VS Code Utwórz nowy plik z następującą zawartością. Zapisz plik o nazwie **azuredeploy.parameters.dev.jsna**.
 
@@ -133,7 +139,7 @@ Możesz zweryfikować wdrożenie, przeeksplorowanie grup zasobów z Azure Portal
 1. Zobaczysz dwie nowe grupy zasobów wdrożone w tym samouczku.
 1. Wybierz pozycję Grupa zasobów i Wyświetl wdrożone zasoby. Zwróć uwagę, że są one zgodne z wartościami określonymi w pliku parametrów dla danego środowiska.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. Z Azure Portal z menu po lewej stronie wybierz pozycję **Grupa zasobów** .
 2. Wprowadź nazwę grupy zasobów w polu **Filtruj według nazwy**. Jeśli ta seria została ukończona, istnieją trzy grupy zasobów do usunięcia — zasobu, myResourceGroupDev i myResourceGroupProd.

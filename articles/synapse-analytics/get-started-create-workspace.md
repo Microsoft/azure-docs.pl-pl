@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 949afc00b12b1238973f832270d57fff3c2db5f9
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255022"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669536"
 ---
 # <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Synapse
 
@@ -35,7 +35,7 @@ W tym samouczku dowiesz się, jak utworzyć obszar roboczy Synapse, pulę SQL i 
 1. Opcja 1 — Tworzenie nowego konta ADLSGEN2 
     1. W obszarze **wybierz Data Lake Storage Gen 2**kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
     1. W obszarze **wybierz Data Lake Storage Gen 2**kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**.
-1. Opcja 2 zapoznaj się z instrukcjami **przygotowywania konta magazynu** w dolnej części tego dokumentu.
+1. Opcja 2 przy użyciu istniejącego konta ADLSGEN2. Zapoznaj się z instrukcjami dotyczącymi **przygotowywania konta magazynu ADLSGEN2** w dolnej części tego dokumentu.
 1. Obszar roboczy usługi Azure Synapse będzie używać tego konta magazynu jako konta magazynu "podstawowe" i kontenera do przechowywania danych obszaru roboczego. Obszar roboczy przechowuje dane w tabelach Apache Spark. Przechowuje dzienniki aplikacji platformy Spark w folderze o nazwie **/Synapse/WorkspaceName**.
 1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
 
@@ -94,29 +94,23 @@ W przeciwieństwie do innych rodzajów pul, rozliczenia dla SQL na żądanie baz
 * SQL na żądanie ma własne bazy danych SQL na żądanie, które nie są dostępne niezależnie od puli na żądanie SQL.
 * Obszar roboczy zawsze ma dokładnie jedną pulę na żądanie SQL o nazwie **SQL na żądanie**.
 
-## <a name="prepare-a-storage-account"></a>Przygotowywanie konta magazynu
+## <a name="preparing-a-adlsgen2-storage-account"></a>Przygotowywanie konta magazynu ADLSGEN2
+
+### <a name="perform-the-following-steps-before-you-create-your-workspace"></a>PRZED utworzeniem obszaru roboczego wykonaj następujące czynności:
 
 1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
-1. Utwórz nowe konto magazynu o następujących ustawieniach:
-
-    |Tab|Ustawienie | Sugerowana wartość | Opis |
-    |---|---|---|---|
-    |Podstawy|**Nazwa konta magazynu**| Wybierz dowolną nazwę.| W tym dokumencie użyjemy nazwy **contosolake**.|
-    |Podstawy|**Rodzaj konta**| **StorageV2** ||
-    |Podstawy|**Lokalizacja**|Wybierz dowolną lokalizację.| Zalecamy, aby obszar roboczy usługi Azure Synapse Analytics i konto Azure Data Lake Storage Gen2 znajdować się w tym samym regionie.|
-    |Zaawansowane|**Data Lake Storage Gen2**|**Włączone**| Usługa Azure Synapse działa tylko z kontami magazynu, które mają włączone to ustawienie.|
-    |||||
-
-1. Po utworzeniu konta magazynu wybierz pozycję **Kontrola dostępu (IAM)** w okienku po lewej stronie. Następnie przypisz następujące role lub upewnij się, że są już przypisane:
+1. Przejdź do istniejącego konta magazynu
+1. Wybierz pozycję **Kontrola dostępu (IAM)** w okienku po lewej stronie. 
+1. Przypisz następujące role lub upewnij się, że są już przypisane:
     * Przypisz siebie do roli **właściciela** .
     * Przypisz siebie do roli **właściciela danych obiektu blob magazynu** .
 1. W okienku po lewej stronie wybierz pozycję **kontenery** i Utwórz kontener.
-1. Można nadać kontenerowi dowolną nazwę. W tym dokumencie zmienimy nazwy **użytkowników**kontenera.
+1. Możesz nadać kontenerowi nazwę. W tym dokumencie używamy nazwy  **użytkowników**.
 1. Zaakceptuj domyślne ustawienie **poziomu dostępu publicznego**, a następnie wybierz pozycję **Utwórz**.
 
-### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Konfigurowanie dostępu do konta magazynu z obszaru roboczego
+### <a name="perform-the-following-steps-after-you-create-your-workspace"></a>Po utworzeniu obszaru roboczego wykonaj następujące czynności:
 
-Zarządzane tożsamości dla obszaru roboczego usługi Azure Synapse prawdopodobnie mają już dostęp do konta magazynu. Wykonaj następujące kroki, aby upewnić się, że:
+Skonfiguruj dostęp do konta magazynu z obszaru roboczego. Zarządzane tożsamości dla obszaru roboczego usługi Azure Synapse prawdopodobnie mają już dostęp do konta magazynu. Wykonaj następujące kroki, aby upewnić się, że:
 
 1. Otwórz [Azure Portal](https://portal.azure.com) i konto magazynu podstawowego wybrane dla Twojego obszaru roboczego.
 1. Wybierz pozycję **Kontrola dostępu (IAM)** w okienku po lewej stronie.
