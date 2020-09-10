@@ -114,6 +114,8 @@
           href: understand/mca-overview.md
         - name: Konta rozliczeniowe dla umowy partnera firmy Microsoft
           href: understand/mpa-overview.md
+        - name: Przenoszenie subskrypcji między partnerami (wersja zapoznawcza)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie zarządzania kosztami i rozliczeniami

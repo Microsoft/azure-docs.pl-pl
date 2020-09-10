@@ -136,7 +136,11 @@
       items:
         - name: Zalecenia dotyczące działań naprawczych
           href: security-center-remediate-recommendations.md
+        - name: Zapobieganie błędom konfiguracji za pomocą wymuszania/odmawiania
+          displayName: recommendations
+          href: prevent-misconfigurations.md
         - name: Zwiększanie poziomu bezpieczeństwa
+          displayName: recommendations
           href: security-center-monitoring.md
         - name: Referencyjna lista zaleceń
           href: recommendations-reference.md

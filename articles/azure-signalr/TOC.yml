@@ -35,6 +35,8 @@
   items:
     - name: Wewnętrzne elementy usługi Azure SignalR
       href: signalr-concept-internals.md
+    - name: Tryb usługi
+      href: concept-service-mode.md
     - name: Skalowanie usługi ASP.NET Core SignalR
       href: signalr-concept-scale-aspnet-core.md
     - name: Praca bezserwerowa

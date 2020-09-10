@@ -27,6 +27,8 @@
       href: quickstart-ruby.md
     - name: Statyczna witryna HTML
       href: quickstart-html.md
+    - name: Szablon ARM
+      href: quickstart-arm-template.md
     - name: Kontener niestandardowy
       href: quickstart-custom-container.md
     - name: Aplikacja z wieloma kontenerami

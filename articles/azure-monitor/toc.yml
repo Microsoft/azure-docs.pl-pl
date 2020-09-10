@@ -566,6 +566,8 @@
               href: platform/itsmc-overview.md
             - name: Połączenia zarządzania usługami IT
               href: platform/itsmc-connections.md
+            - name: Integracja z bezpiecznym eksportowaniem
+              href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Tworzenie aplikacji internetowej programu Service Manager
               href: platform/itsmc-service-manager-script.md
             - name: Rozwiązywanie problemów z synchronizacją usługi ServiceNow ITSM
@@ -720,6 +722,10 @@
                       href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
+        - name: OpenTelemetry
+          items:
+            - name: Często zadawane pytania
+              href: faq.md#opentelemetry
         - name: Tworzenie zasobu (klasyczna wersja)
           href: app/create-new-resource.md
         - name: Tworzenie zasobu (na podstawie obszaru roboczego)
@@ -1010,6 +1016,8 @@
           href: insights/container-insights-health.md
         - name: Monitorowanie wydajności procesora GPU
           href: insights/container-insights-gpu-monitoring.md
+        - name: Monitorowanie wdrożeń i funkcji HPA
+          href: insights/container-insights-deployment-hpa-metrics.md
         - name: Wyświetlanie danych na żywo
           items:
             - name: Dane na żywo (wersja zapoznawcza) — omówienie
