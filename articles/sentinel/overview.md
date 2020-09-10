@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: ebc9756afc43648f2b44ca317abe3373807f4efa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 1bd61341683148cfc6431d7ca4b1f9293e19e760
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564625"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662024"
 ---
-# <a name="what-is-azure-sentinel"></a>Co to jest usługa Azure Sentinel?
+# <a name="what-is-azure-sentinel"></a>Co to jest Azure Sentinel?
 
 Microsoft Azure wskaźnikiem wydajności jest skalowalne i natywne rozwiązanie do **zarządzania zdarzeniami zabezpieczeń (Siem)** i **o (Security Orchestration)** . Platforma Azure — wskaźnik przedstawia inteligentne rozwiązania w zakresie zabezpieczeń i analizy zagrożeń w całym przedsiębiorstwie, zapewniając jedno rozwiązanie do wykrywania alertów, widoczności zagrożeń, aktywnego polowania i reagowania na zagrożenia. 
 
@@ -43,7 +43,7 @@ Kompilowanie w całym zakresie istniejących usług platformy Azure obejmuje nat
 
 ## <a name="connect-to-all-your-data"></a>Połącz ze wszystkimi danymi
 
-Aby przejść do tablicy wskaźnikowej platformy Azure, musisz najpierw [nawiązać połączenie ze źródłami zabezpieczeń](connect-data-sources.md). Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym rozwiązań firmy Microsoft do ochrony przed zagrożeniami, a także źródeł Microsoft 365, takich jak Office 365, Azure AD, Azure ATP i Microsoft Cloud App Security. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Możesz również użyć typowego formatu zdarzeń, dziennika systemowego lub REST-API, aby połączyć źródła danych z systemem Azure.  
+Aby przejść do tablicy wskaźnikowej platformy Azure, musisz najpierw [nawiązać połączenie ze źródłami zabezpieczeń](connect-data-sources.md). Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym Microsoft 365 Defender (dawniej Microsoft Threat Protection), a także źródeł Microsoft 365, w tym pakietów Office 365, Azure AD, Microsoft Defender for Identity (dawniej Azure ATP) i Microsoft Cloud App Security i innych. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Możesz również użyć typowego formatu zdarzeń, dziennika systemowego lub REST-API, aby połączyć źródła danych z systemem Azure.  
 
 ![Moduły zbierające dane](./media/collect-data/collect-data-page.png)
 
@@ -68,7 +68,7 @@ Automatyzuj typowe zadania i [Uprość aranżację zabezpieczeń dzięki usłudz
 
 Na przykład w przypadku korzystania z systemu biletów usługi ServiceNow można użyć narzędzi dostępnych Azure Logic Apps do automatyzacji przepływów pracy i otworzyć bilet w usługi ServiceNow za każdym razem, gdy zostanie wykryte określone zdarzenie.
 
-![Elementy playbook](./media/tutorial-respond-threats-playbook/logic-app.png)
+![Podręczniki](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 ## <a name="investigation"></a>Badanie
@@ -82,13 +82,13 @@ Obecnie dostępne w wersji zapoznawczej narzędzia do badania w usłudze Azure �
 
 Korzystaj z [zaawansowanych narzędzi do wyszukiwania i wykonywania zapytań](hunting.md)na platformie Azure, opartych na strukturze Mitre, która umożliwia proaktywne wyszukiwanie zagrożeń bezpieczeństwa w źródłach danych organizacji przed wyzwoleniem alertu. Po ustaleniu, które zapytanie polowania zawiera szczegółowe informacje na temat możliwych ataków, można także utworzyć niestandardowe reguły wykrywania na podstawie zapytania, a następnie przedstawić te informacje jako alerty w odniesieniu do odpowiedzi na zdarzenia zabezpieczeń. Podczas polowania można tworzyć zakładki dla interesujących zdarzeń, co pozwala na powrót do nich później, udostępnianie ich innym osobom oraz grupowanie ich przy użyciu innych zdarzeń skorelowanych w celu utworzenia atrakcyjnych zdarzeń na potrzeby badania.
 
-![Wyszukiwanie zagrożeń](./media/overview/hunting.png)
+![Przegląd funkcji polowania](./media/overview/hunting.png)
 
 ## <a name="community"></a>Społeczność
 
 Społeczność wskaźnikowa Azure jest zaawansowanym zasobem do wykrywania zagrożeń i automatyzacji. Nasi analitycy zabezpieczeń firmy Microsoft stale tworzą i dodają nowe skoroszyty, elementy PlayBook, zapytania polowające i nie tylko publikują je w społeczności, aby można było korzystać z tego środowiska. Możesz pobrać przykładową zawartość z [repozytorium](https://aka.ms/asicommunity) prywatnej społeczności GitHub, aby tworzyć niestandardowe skoroszyty, zapytania polowające, Notesy i elementy PlayBook na potrzeby platformy Azure. 
 
-![Społeczność](./media/overview/community.png)
+![Eksplorowanie społeczności użytkowników](./media/overview/community.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

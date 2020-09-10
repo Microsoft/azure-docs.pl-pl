@@ -11,20 +11,20 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 87a65cd42ad58a06488499aaf8651e206c35b5f2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646966"
+ms.locfileid: "89657048"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Samouczek: Tworzenie potoku Azure Machine Learning na potrzeby oceniania partii
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym zaawansowanym samouczku dowiesz się, jak utworzyć potok w Azure Machine Learning, aby uruchomić zadanie oceniania partii. Potoki uczenia maszynowego optymalizują przepływ pracy z szybkością, przenośnością i wielokrotnym użyciem, dzięki czemu możesz skupić się na uczeniu maszynowym zamiast infrastruktury i automatyzacji. Po skompilowaniu i opublikowaniu potoku należy skonfigurować punkt końcowy REST, za pomocą którego można wyzwolić potok z dowolnej biblioteki HTTP na dowolnej platformie. 
+W tym zaawansowanym samouczku dowiesz się, jak utworzyć [potok Azure Machine Learning](concept-ml-pipelines.md) , aby uruchomić zadanie oceniania partii. Potoki uczenia maszynowego optymalizują przepływ pracy z szybkością, przenośnością i wielokrotnym użyciem, dzięki czemu możesz skupić się na uczeniu maszynowym zamiast infrastruktury i automatyzacji. Po skompilowaniu i opublikowaniu potoku należy skonfigurować punkt końcowy REST, za pomocą którego można wyzwolić potok z dowolnej biblioteki HTTP na dowolnej platformie. 
 
-W przykładzie zastosowano [splotowych model](https://arxiv.org/abs/1512.00567) sieci neuronowych, który został wdrożony w Tensorflow do klasyfikowania obrazów bez etykiet. [Dowiedz się więcej o potokach uczenia maszynowego](concept-ml-pipelines.md).
+W przykładzie zastosowano [splotowych model](https://arxiv.org/abs/1512.00567) sieci neuronowych, który został wdrożony w Tensorflow do klasyfikowania obrazów bez etykiet. 
 
 W tym samouczku wykonasz następujące zadania:
 

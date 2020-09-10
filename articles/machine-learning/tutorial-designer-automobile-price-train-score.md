@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9d25d9e13cc7f3dba0f4254cda6e1119ff9e2e68
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812989"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659796"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Można ustawić **domyślny obiekt docelowy obliczeń** dla całego potoku, co s
 
 Projektant zawiera kilka przykładowych zestawów danych, z którymi można eksperymentować. Na potrzeby tego samouczka Użyj **danych cen samochodów (RAW)**. 
 
-1. Na lewo od kanwy potoku jest paletą zestawów danych i modułów. Wybierz pozycję **zestawy danych**, a następnie Wyświetl sekcję **przykłady** , aby wyświetlić dostępne przykładowe zestawy danych.
+1. Na lewo od kanwy potoku jest paletą zestawów danych i modułów. Wybierz **przykładowe zestawy danych** , aby wyświetlić dostępne przykładowe zestawy danych.
 
 1. Wybierz pozycję zestaw **danych cena samochodów (RAW)** i przeciągnij ją na kanwę.
 
@@ -179,7 +179,7 @@ Zestaw danych nadal ma brakujące wartości po usunięciu kolumny **znormalizowa
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Zaznacz kolumnę":::
 
-## <a name="train-a-machine-learning-model"></a>Uczenie modelu uczenia maszynowego
+## <a name="train-a-machine-learning-model"></a>Trenowanie modelu uczenia maszynowego
 
 Teraz, gdy masz moduły do przetwarzania danych, możesz skonfigurować moduły szkoleniowe.
 

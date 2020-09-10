@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: bc045eba331c861801dceef7f00db42e851f8bb2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211367"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662376"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją platformy .NET Core
 
@@ -23,7 +23,6 @@ W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do apli
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 - [Zestaw SDK dla platformy .NET Core](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 lub więcej](https://www.microsoft.com/net/download/dotnet-framework-runtime), co jest wymagane przez klienta StackEdchange. Redis.
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

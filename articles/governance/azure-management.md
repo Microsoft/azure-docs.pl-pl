@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie platformą Azure — omówienie — zarządzanie platformą Azure
 description: Przegląd obszarów zarządzania dla aplikacji i zasobów platformy Azure z linkami do zawartości w narzędziach zarządzania platformy Azure.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 81d655db706a7330fc541724d490a4885cc2fe8b
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041918"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662130"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Co to są obszary zarządzania platformy Azure?
 
@@ -18,7 +18,9 @@ Zarządzanie dotyczy zadań i procesów wymaganych do obsługi aplikacji bizneso
 
 Poniższy diagram przedstawia różne obszary zarządzania wymagane do obsługi dowolnej aplikacji lub zasobu. Te różne obszary można traktować jako cykl życia. Każdy obszar jest wymagany w ciągłym pomyślnym przeniesieniu na cykl życia zasobów. Cykl życia zasobów rozpoczyna się od wstępnego wdrożenia, przez kontynuowanie operacji i ostatecznie po wycofaniu.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Dyscypliny zarządzania na platformie Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagram dyscyplin zarządzania na platformie Azure." border="false":::
+   Diagram przedstawiający Migrowanie, zabezpieczanie, ochrona, monitorowanie, Konfigurowanie i zarządzanie elementami koła usług, które obsługują zarządzanie i nadzór na platformie Azure. Bezpieczeństwo ma zarządzanie zabezpieczeniami i ochronę przed zagrożeniami jako elementy podrzędne. Ochrona ma kopie zapasowe i odzyskiwanie po awarii jako elementy podrzędne. Monitor ma monitorowanie aplikacji, infrastruktury i sieci oraz Log Analytics i diagnostyki jako elementy podrzędne. Konfigurowanie obejmuje konfigurację, zarządzanie aktualizacjami, automatyzację i obsługę skryptów jako elementy podrzędne. Zarządzanie zasadami i zarządzanie kosztami jako elementy podrzędne.
+:::image-end:::
 
 Żadna pojedyncza usługa platformy Azure nie wypełnia wymagań określonego obszaru zarządzania. Zamiast tego każdy jest realizowany przez kilka współpracujących ze sobą usług. Niektóre usługi, takie jak Application Insights, zapewniają funkcje monitorowania dla aplikacji sieci Web. Inne, takie jak dzienniki Azure Monitor, przechowują dane zarządzania dla innych usług. Ta funkcja umożliwia analizowanie danych różnych typów zbieranych przez różne usługi.
 
@@ -48,7 +50,7 @@ Zarządzanie zabezpieczeniami zasobów i danych. Program zabezpieczeń obejmuje 
 
 Ochrona dotyczy utrzymywania dostępu do aplikacji i danych, nawet w przypadku awarii, które wykraczają poza swoją kontrolę. Ochrona na platformie Azure jest zapewniana przez dwie usługi. [Usługa Azure Backup](../backup/backup-overview.md) oferuje tworzenie kopii zapasowych i odzyskiwanie danych w chmurze lub lokalnie. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) zapewnia ciągłość działania i natychmiastowe odzyskiwanie podczas awarii.
 
-## <a name="migrate"></a>Migrate (Migracja)
+## <a name="migrate"></a>Migrate
 
 Migracja dotyczy przenoszenia obciążeń działających obecnie lokalnie do chmury platformy Azure.
 [Azure Migrate](../migrate/migrate-services-overview.md) to usługa, która ułatwia ocenę przydatności do migracji lokalnych maszyn wirtualnych na platformę Azure. Azure Site Recovery migruje maszyny wirtualne [z lokalizacji lokalnej](../site-recovery/migrate-tutorial-on-premises-azure.md) lub [z Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md). [Migracja bazy danych platformy Azure](../dms/dms-overview.md) ułatwia Migrowanie źródeł baz danych do platform danych platformy Azure.

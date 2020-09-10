@@ -24,6 +24,8 @@
   items:
     - name: Integracja z agentem usługi Power Virtual Agents
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Tworzenie bota obsługującego często zadawane pytania za pomocą usługi Azure Bot Service
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
     - name: Testowanie przy użyciu pliku wsadowego
       href: Quickstarts/batch-testing.md
 - name: Pojęcia
@@ -91,7 +93,7 @@
         - name: Migracja do nowej bazy wiedzy
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Testowanie
+        - name: Testowanie bazy wiedzy
           href: How-To/test-knowledge-base.md
     - name: Zarządzanie parami pytań i odpowiedzi
       items:

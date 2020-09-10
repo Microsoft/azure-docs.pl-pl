@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 994d427fb91f04ea0d2002a2c95e12366f4c6420
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553570"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658943"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą Prezi
 
@@ -42,6 +42,9 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Usługa Prezi obsługuje logowanie jednokrotne z użyciem dodatków SP-i dostawcy tożsamości.
 * Prezi obsługuje Inicjowanie obsługi użytkowników just in Time.
 * Po skonfigurowaniu Prezi można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Informacje o sposobie wymuszania kontroli sesji przy użyciu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
 ## <a name="add-prezi-from-the-gallery"></a>Dodaj Prezi z galerii
 
@@ -81,7 +84,7 @@ Aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
 
 1. Wybierz opcję **Ustaw dodatkowe adresy URL**i wykonaj następujące czynności, jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przez program **SP**:
 
-    W polu **adres URL logowania** wprowadź adres URL `https://prezi.com/login/sso/` .
+    W polu **adres URL logowania** wprowadź adres URL: `https://prezi.com/login/sso/` .
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -168,7 +171,7 @@ W tej sekcji przetestujesz konfigurację rejestracji jednokrotnej usługi Azure 
 
 Po wybraniu kafelka Prezi w panelu dostępu należy automatycznie zalogować się do konta Prezi, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)

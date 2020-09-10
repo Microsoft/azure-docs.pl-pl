@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/23/2020
-ms.openlocfilehash: 980e3e036257bbf5aa9743025bbfb55065176a39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c40bec80d9f61cf46221cbfe7dde80f3a7b46f6f
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133303"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658309"
 ---
 # <a name="quickstart-create-your-first-automated-integration-workflow-by-using-azure-logic-apps---azure-portal"></a>Szybki Start: Tworzenie pierwszego zautomatyzowanego przepływu pracy integracji przy użyciu Azure Logic Apps-Azure Portal
 
@@ -20,7 +20,7 @@ W tym przewodniku szybki start przedstawiono podstawowe ogólne pojęcia związa
 
 ![Koncepcyjna ilustracja przedstawiająca przykładowy przepływ pracy aplikacji logiki na wysokim poziomie.](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-W tym scenariuszu potrzebna jest subskrypcja platformy Azure lub można [utworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)— konto e-mail z usługi obsługiwanej przez Azure Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. W przypadku innych obsługiwanych usług poczty e-mail [Przejrzyj listę łączników tutaj](/connectors/). W tym przykładzie aplikacja logiki używa konta programu Outlook w programie Office 365. Jeśli używasz innej usługi poczty e-mail, ogólne kroki są takie same, ale interfejs użytkownika może się nieco różnić.
+W tym scenariuszu potrzebna jest subskrypcja platformy Azure lub można [utworzyć bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)— konto e-mail z usługi obsługiwanej przez Azure Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. W przypadku innych obsługiwanych usług poczty e-mail [Przejrzyj listę łączników tutaj](/connectors/). W tym przykładzie aplikacja logiki korzysta z konta służbowego. Jeśli używasz innej usługi poczty e-mail, ogólne kroki są takie same, ale interfejs użytkownika może się nieco różnić.
 
 > [!IMPORTANT]
 > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).

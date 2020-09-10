@@ -6,80 +6,70 @@ author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 09/03/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: da7f115224db10ad1d66e8ffe7b86e58e43ae866
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 99f4471a3b64990fb71341dc8210bf7f8e5b0d5a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052452"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661943"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
-
 W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi Azure Synapse za pomocą Azure Portal.
 
-Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+## <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego usługi Synapse
 
-## <a name="prerequisites"></a>Wymagania wstępne
+1. Otwórz [Azure Portal](https://portal.azure.com)i w górnej części Szukaj **Synapse**.
+1. W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**.
+1. Wybierz pozycję **Dodaj** , aby utworzyć obszar roboczy przy użyciu tych ustawień:
 
-- [Konto magazynu Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+    |Tab|Ustawienie | Sugerowana wartość | Opis |
+    |---|---|---|---|
+    |Podstawy|**Nazwa obszaru roboczego**|Możesz nadać mu nazwę.| W tym dokumencie będziemy używać funkcji My **Workspace**.|
+    |Podstawy|**Region**|Dopasuj region konta magazynu.|
 
-## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
+1. Do utworzenia obszaru roboczego jest potrzebne konto ADLSGEN2. Najprostszy wybór, aby utworzyć nowy. Jeśli chcesz ponownie użyć istniejącego, musisz wykonać dodatkową konfigurację. 
+1. Opcja 1 — Tworzenie nowego konta ADLSGEN2 
+    1. W obszarze **wybierz Data Lake Storage Gen 2**kliknij pozycję **Utwórz nową** i nadaj jej nazwę **contosolake**.
+    1. W obszarze **wybierz Data Lake Storage Gen 2**kliknij pozycję **system plików** i nadaj jej nazwę **Użytkownicy**.
+1. Opcja 2 zapoznaj się z instrukcjami **przygotowywania konta magazynu** w dolnej części tego dokumentu.
+1. Obszar roboczy usługi Azure Synapse będzie używać tego konta magazynu jako konta magazynu "podstawowe" i kontenera do przechowywania danych obszaru roboczego. Obszar roboczy przechowuje dane w tabelach Apache Spark. Przechowuje dzienniki aplikacji platformy Spark w folderze o nazwie **/Synapse/WorkspaceName**.
+1. Wybierz pozycję **Przeglądanie + tworzenie** > **Utwórz**. Obszar roboczy jest gotowy w ciągu kilku minut.
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+## <a name="open-synapse-studio"></a>Otwórz Synapse Studio
 
-## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Tworzenie obszaru roboczego usługi Azure Synapse za pomocą Azure Portal
+Po utworzeniu obszaru roboczego usługi Azure Synapse dostępne są dwa sposoby otwierania programu Synapse Studio:
 
-1. W okienku wyszukiwania Microsoft Azure wprowadź **Synapse obszar roboczy** , a następnie wybierz pozycję Ta usługa.
-![Azure Portal pasku wyszukiwania przy użyciu obszarów roboczych usługi Azure Synapse wpisanych w temacie.](media/quickstart-create-synapse-workspace/workspace-search.png)
-2. Na stronie **obszary robocze Synapse** kliknij pozycję **+ Dodaj**.
-![Polecenie utworzenia nowego wyróżnionego obszaru roboczego usługi Azure Synapse.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
-3. Wypełnij formularz **obszaru roboczego usługi Azure Synapse** , podając następujące informacje:
+* Otwórz obszar roboczy Synapse w [Azure Portal](https://portal.azure.com). W górnej części sekcji **Przegląd** wybierz pozycję Uruchom program **Synapse Studio**.
+* Przejdź do `https://web.azuresynapse.net` obszaru roboczego i zaloguj się do niego.
 
-    | Ustawienie | Sugerowana wartość | Opis |
-    | :------ | :-------------- | :---------- |
-    | **Subskrypcja** | *Twoja subskrypcja* | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
-    | **Grupa zasobów** | *Dowolna Grupa zasobów* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Reguły i ograniczenia nazewnictwa). |
-    | **Nazwa obszaru roboczego** | mysampleworkspace | Określa nazwę obszaru roboczego, który będzie również używany dla punktów końcowych połączenia.|
-    | **Region** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
-    | **Data Lake Storage Gen2** | Koncie`storage account name` </br> System plików:`root file system to use` | Określa nazwę konta magazynu ADLS Gen2, która ma być używana jako magazyn podstawowy i system plików do użycia.|
-    ||||
+## <a name="prepare-an-existing-storage-account-for-use-with-synapse-analytics"></a>Przygotuj istniejące konto magazynu do użycia z usługą Synapse Analytics
 
-    ![Przepływ obszaru roboczego — podstawowe karty.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
+1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
+1. Przejdź do istniejącego konta magazynu ADLSGEN2
+1. Wybierz pozycję **Kontrola dostępu (IAM)** w okienku po lewej stronie. Następnie przypisz następujące role lub upewnij się, że są już przypisane:
+    * Przypisz siebie do roli **właściciela** .
+    * Przypisz siebie do roli **właściciela danych obiektu blob magazynu** .
+1. W okienku po lewej stronie wybierz pozycję **kontenery** i Utwórz kontener.
+1. Można nadać kontenerowi dowolną nazwę. W tym dokumencie zmienimy nazwy **użytkowników**kontenera.
+1. Zaakceptuj domyślne ustawienie **poziomu dostępu publicznego**, a następnie wybierz pozycję **Utwórz**.
 
-    Konto magazynu można wybrać z:
-    - Lista kont ADLS Gen2 dostępnych w ramach subskrypcji
-    - Wprowadzono ręcznie przy użyciu nazwy konta
+### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Konfigurowanie dostępu do konta magazynu z obszaru roboczego
 
-    > [!IMPORTANT]
-    > Obszar roboczy usługi Azure Synapse musi mieć możliwość odczytu i zapisu na wybranym koncie ADLS Gen2. Ponadto dla dowolnego konta magazynu, które można połączyć jako konto magazynu podstawowego, należy włączyć **hierarchiczną przestrzeń nazw** podczas tworzenia konta magazynu.
-    >
-    > Poniżej pól wyboru ADLS Gen2 należy zauważyć, że zarządzana tożsamość obszaru roboczego zostanie przypisana do roli **współautor danych obiektów blob magazynu** w wybranym Data Lake Storage Gen2 systemie plików, przyznając im pełny dostęp.
+Zarządzane tożsamości dla obszaru roboczego usługi Azure Synapse prawdopodobnie mają już dostęp do konta magazynu. Wykonaj następujące kroki, aby upewnić się, że:
 
-4. Obowiązkowe Zmodyfikuj dowolną kartę **Ustawienia zabezpieczeń i sieci** :
-5. Obowiązkowe Dodaj dowolne Tagi na karcie **Tagi** .
-6. Na karcie **Podsumowanie** zostaną uruchomione wymagane walidacje, aby upewnić się, że obszar roboczy może zostać pomyślnie utworzony. Po pomyślnym zakończeniu walidacji kliknij pozycję **Utwórz** ![ przepływ obsługi obszaru roboczego — karta potwierdzenie.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
-7. Po pomyślnym zakończeniu procesu aprowizacji zasobów zobaczysz wpis dla utworzonego obszaru roboczego na liście obszarów roboczych Synapse. ![Lista obszarów roboczych Synapse z nowo zainicjowanym obszarem roboczym.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
+1. Otwórz [Azure Portal](https://portal.azure.com) i konto magazynu podstawowego wybrane dla Twojego obszaru roboczego.
+1. Wybierz pozycję **Kontrola dostępu (IAM)** w okienku po lewej stronie.
+1. Przypisz poniższe role lub upewnij się, że są już przypisane. Używamy tej samej nazwy dla tożsamości obszaru roboczego i nazwy obszaru roboczego.
+    * W przypadku roli **współautor danych obiektów blob magazynu** na koncie magazynu należy przypisać obszar **roboczy** jako tożsamość obszaru roboczego.
+    * Przypisz **jako nazwę obszaru roboczego.**
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
-
-Wykonaj poniższe kroki, aby usunąć obszar roboczy usługi Azure Synapse.
-> [!WARNING]
-> Usunięcie obszaru roboczego usługi Azure Synapse spowoduje usunięcie aparatów analizy i danych przechowywanych w bazie danych zawartych pul SQL i metadanych obszaru roboczego. Nie będzie już można łączyć się z punktami końcowymi SQL, Apache Spark punkty końcowe. Wszystkie artefakty kodu zostaną usunięte (zapytania, notesy, definicje zadań i potoki).
->
-> Usunięcie obszaru roboczego **nie** wpłynie na dane w Data Lake Store Gen2 połączonym z obszarem roboczym.
-
-Jeśli chcesz usunąć obszar roboczy usługi Azure Synapse, wykonaj następujące czynności:
-
-1. Przejdź do obszaru roboczego usługi Azure Synapse, aby usunąć.
-1. Naciśnij klawisz **delete** na pasku poleceń.
- ![Omówienie obszaru roboczego usługi Azure Synapse — usunięte polecenie Usuń.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Potwierdź usunięcie i naciśnij przycisk **Usuń** .
- ![Omówienie obszaru roboczego usługi Azure Synapse — usuwanie okna dialogowego potwierdzenia obszaru roboczego.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
-1. Po pomyślnym zakończeniu procesu obszar roboczy usługi Azure Synapse nie będzie już wyświetlany na liście obszarów roboczych.
+1. Wybierz pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie możesz [utworzyć pule SQL](quickstart-create-sql-pool-studio.md) lub [utworzyć pule Apache Spark](quickstart-create-apache-spark-pool-studio.md) , aby rozpocząć analizowanie i Eksplorowanie danych.
+* [Tworzenie puli SQL](quickstart-create-sql-pool-studio.md) 
+* [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool-portal.md)
+* [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)

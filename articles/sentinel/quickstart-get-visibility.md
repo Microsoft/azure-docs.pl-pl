@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 304f80dcb2da4ed60bd94e9fb4d71d985da87cc2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496217"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661994"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem
 
@@ -34,7 +34,7 @@ Aby wizualizować i uzyskać analizę tego, co dzieje się w środowisku, najpie
 
 - Pasek narzędzi na górze informuje o liczbie zdarzeń w wybranym okresie i porównuje go z poprzednimi 24 godzinami. Pasek narzędzi informuje o tych zdarzeniach, które zostały wyzwolone (niewielka liczba reprezentuje zmianę w ciągu ostatnich 24 godzin), a następnie informuje o tych zdarzeniach, o liczbie otwartych, w toku i zamknięciu. Sprawdź, czy liczba zdarzeń nie ma znaczącego wzrostu ani porzucenia. Jeśli jest to możliwe, może to oznaczać, że połączenie zostało zatrzymane na potrzeby raportowania na platformie Azure. Jeśli wystąpi wzrost, wystąpił problem podejrzany. Sprawdź, czy masz nowe alerty.
 
-   ![Lejki wskaźnikowe platformy Azure](./media/qs-get-visibility/funnel.png)
+   ![Liczniki wskaźnikowe platformy Azure](./media/qs-get-visibility/funnel.png)
 
 Główna treść strony Przegląd zapewnia wgląd w informacje o stanie zabezpieczeń obszaru roboczego:
 
@@ -42,14 +42,14 @@ Główna treść strony Przegląd zapewnia wgląd w informacje o stanie zabezpie
 
 - **Potencjalnie złośliwe zdarzenia**: w przypadku wykrycia ruchu ze źródeł, które są znane jako złośliwe, wskaźnik na platformie Azure będzie ostrzegał o mapie. Jeśli widzisz kolor pomarańczowy, jest to ruch przychodzący: ktoś próbuje uzyskać dostęp do organizacji przy użyciu znanego złośliwego adresu IP. Jeśli zostanie wyświetlone działanie wychodzące (czerwone), oznacza to, że dane z sieci są przesyłane strumieniowo z organizacji do znanego złośliwego adresu IP.
 
-   ![Mapa wskaźnikowa platformy Azure](./media/qs-get-visibility/map.png)
+   ![Mapa złośliwego ruchu](./media/qs-get-visibility/map.png)
 
 
-- **Ostatnie zdarzenia**: Aby wyświetlić ostatnie incydenty, ich ważność oraz liczbę alertów skojarzonych ze zdarzeniem. Jeśli widzisz jako nagły szczyt w określonym typie alertu, może to oznaczać, że jest aktualnie uruchomiony aktywny atak. Na przykład w przypadku nagłego szczytu 20 zdarzeń typu Pass-the-hash z usługi Azure ATP istnieje możliwość, że ktoś aktualnie próbuje się zaatakować.
+- **Ostatnie zdarzenia**: Aby wyświetlić ostatnie incydenty, ich ważność oraz liczbę alertów skojarzonych ze zdarzeniem. Jeśli widzisz jako nagły szczyt w określonym typie alertu, może to oznaczać, że jest aktualnie uruchomiony aktywny atak. Na przykład w przypadku nagłego szczytu 20 zdarzeń typu Pass-the-hash z usługi Microsoft Defender dla tożsamości (dawniej Azure ATP) istnieje możliwość, że ktoś aktualnie próbuje się zaatakować.
 
 - **Anomalie źródła danych**: analityki danych firmy Microsoft utworzyły modele, które stale przeszukują dane ze źródeł danych pod kątem anomalii. Jeśli nie ma żadnych anomalii, nic nie zostanie wyświetlone. W przypadku wykrycia anomalii należy szczegółowo szczegółowe je, aby zobaczyć, co się stało. Na przykład kliknij pozycję skok w działaniu platformy Azure. Możesz kliknąć **Wykres** , aby zobaczyć, kiedy nastąpiło przekroczenie, a następnie odfiltrować działania, które wystąpiły w tym okresie, aby zobaczyć, co spowodowało skok.
 
-   ![Mapa wskaźnikowa platformy Azure](./media/qs-get-visibility/anomolies.png)
+   ![Nietypowe źródła danych](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Używanie wbudowanych skoroszytów<a name="dashboards"></a>
 
@@ -64,10 +64,10 @@ Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł dan
 
    - Dodaj skoroszyt dla zapory. Na przykład Dodaj skoroszyt Palo Alto. Skoroszyt analizuje ruch związany z zaporą, zapewniając korelacje między zdarzeniami danych i zagrożeniami zapory, a następnie wyróżnia podejrzane zdarzenia w różnych jednostkach. Skoroszyty zawierają informacje o trendach w ruchu i umożliwiają przechodzenie do szczegółów i filtrowanie wyników. 
 
-      ![PAL Alto Dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
+      ![Palo Alto Dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Możesz dostosować skoroszyty, edytując przycisk głównej kwerendy ![ ](./media/qs-get-visibility/edit-query-button.png) . Możesz kliknąć przycisk przycisk, ![ ](./media/qs-get-visibility/go-to-la-button.png) Aby przejść do [log Analytics, aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu i można wybrać wielokropek (...), a następnie wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
+Możesz dostosować skoroszyty, edytując ![ przycisk Edytuj głównej kwerendy zapytania ](./media/qs-get-visibility/edit-query-button.png) . Możesz kliknąć przycisk usługi ![ log Analytics ](./media/qs-get-visibility/go-to-la-button.png) , aby przejść do [log Analytics, aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu, a następnie wybrać przycisk wielokropka (...), a następnie wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
 
 Aby uzyskać więcej informacji na temat pracy z zapytaniami, zobacz [Samouczek: dane wizualne w log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

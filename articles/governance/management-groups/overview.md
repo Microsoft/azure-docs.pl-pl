@@ -3,12 +3,12 @@ title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie pl
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: c1c054ab67a94b5782187092c572e1e73752c8c2
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d259f44b8424afa9fcfc94b3f1812a0485ab2993
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920164"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659236"
 ---
 # <a name="what-are-azure-management-groups"></a>Co to są grupy zarządzania systemu Azure?
 
@@ -21,7 +21,9 @@ Na przykład możesz zastosować do grupy zarządzania zasady ograniczające reg
 
 Można utworzyć elastyczną strukturę grup zarządzania i subskrypcji w celu organizowania zasobów w hierarchię na potrzeby ujednoliconego zarządzania zasadami i dostępem. Na poniższym diagramie przedstawiono przykład tworzenia hierarchii dla nadzoru przy użyciu grup zarządzania.
 
-:::image type="content" source="./media/tree.png" alt-text="Przykład drzewa hierarchii grupy zarządzania" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagram hierarchii przykładowej grupy zarządzania." border="false":::
+   Diagram głównej grupy zarządzania przechowującej zarówno grupy zarządzania, jak i subskrypcje. W przypadku niektórych podrzędnych grup zarządzania są przechowywane grupy zarządzania, pewne subskrypcje i pewne. Jednym z przykładów w hierarchii przykładowej jest 4 poziomy grup zarządzania z poziomem podrzędnym wszystkich subskrypcji.
+:::image-end:::
 
 Możesz utworzyć hierarchię stosującą zasady, na przykład ograniczające lokalizacje maszyn wirtualnych do regionu Zachodnie stany USA w grupie o nazwie „Produkcja”. Te zasady będą dziedziczyły wszystkie subskrypcje Umowa Enterprise (EA), które są elementami podrzędnymi tej grupy zarządzania i będą miały zastosowanie do wszystkich maszyn wirtualnych w ramach tych subskrypcji. Te zasady zabezpieczeń nie mogą zostać zmienione przez właściciela zasobu lub subskrypcji, co zapewnia ulepszony nadzór.
 
@@ -147,7 +149,9 @@ Definicje ról są przypisywane w dowolnym miejscu w hierarchii grupy zarządzan
 
 Na przykład przyjrzyjmy się małej sekcji hierarchii dla wizualizacji.
 
-:::image type="content" source="./media/subtree.png" alt-text="poddrzewo" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagram podzestawu przykładowej hierarchii grup zarządzania." border="false":::
+   Diagram koncentruje się na głównej grupie zarządzania z grupami zarządzania i marketingu. Grupa zarządzania I T ma jedną podrzędną grupę zarządzania o nazwie produkcja, podczas gdy grupa zarządzania Marketing ma dwie bezpłatne subskrypcje podrzędne w wersji próbnej.
+:::image-end:::
 
 Załóżmy, że istnieje rola niestandardowa zdefiniowana w grupie zarządzania Marketing. Ta rola niestandardowa jest następnie przypisywana do dwóch subskrypcji bezpłatnych wersji próbnych.  
 
@@ -189,7 +193,7 @@ Jeśli rola właściciela w subskrypcji jest dziedziczona z bieżącej grupy zar
 
 Grupy zarządzania są obsługiwane w [dzienniku aktywności platformy Azure](../../azure-monitor/platform/platform-logs-overview.md). Możesz wyszukiwać wszystkie zdarzenia, które wystąpiły w grupie zarządzania w tej samej lokalizacji centralnej co inne zasoby platformy Azure. Na przykład widoczne są wszystkie przypisania ról i zmiany przypisań zasad w określonej grupie zarządzania.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Dzienniki aktywności z grupami zarządzania" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Zrzut ekranu dzienników aktywności i operacji związanych z wybraną grupą zarządzania." border="false":::
 
 Jeśli chcesz wykonać zapytanie dotyczące grup zarządzania spoza witryny Azure Portal, zakres docelowy grup zarządzania wygląda tak: **„/providers/Microsoft.Management/managementGroups/{identyfikator_grupy_zarządzania}”**.
 

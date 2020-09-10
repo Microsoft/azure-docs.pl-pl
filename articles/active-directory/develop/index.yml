@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 115c2b7058941512bf75f2b45b17d4a0a806c1af
-  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+  ms.openlocfilehash: f6893522b66f20dd26905084e5b09d303cbfd5b3
+  ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88690293"
+  ms.lasthandoff: 09/09/2020
+  ms.locfileid: "89612763"
 landingContent:
 - title: Informacje o platformie tożsamości firmy Microsoft
   linkLists:
@@ -120,6 +120,14 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 'Szybki start: Rejestrowanie aplikacji (napisany ponownie)'
+      url: quickstart-register-app.md
+    - text: 'Szybki start: Uwidacznianie internetowego interfejsu API (napisany ponownie)'
+      url: quickstart-configure-app-expose-web-apis.md
+    - text: 'Szybki start: Uzyskiwanie dostępu do internetowego interfejsu API (napisany ponownie)'
+      url: quickstart-configure-app-access-web-apis.md
+    - text: Migrowanie korzystającej z brokera aplikacji Xamarin dla systemu Android do biblioteki MSAL.NET
+      url: msal-net-migration-android-broker.md
     - text: Obsługa błędów i wyjątków — Android
       url: msal-android-handling-exceptions.md
     - text: Atrybuty rozszerzeń schematów katalogów w oświadczeniach

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 40dd81b9eb7ff2b20abb1bf3ea4337b63fb2a831
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ff7e423063859a6cdc1a4362fb030c0deb75eb32
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447073"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658703"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Ocenianie serwerów za pomocą zaimportowanych danych
 
@@ -73,7 +73,7 @@ Aby skonfigurować nowy projekt Azure Migrate:
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Wybierz pozycję **Dalej**.
+7. Wybierz opcję **Dalej**.
 8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
     ![Tworzenie oceny Azure Migrate](./media/tutorial-assess-import/assessment-tool.png)
@@ -120,10 +120,10 @@ Poniższa tabela zawiera podsumowanie pól plików do wypełnienia:
 **Przepływność zapisu na dysku 1** | Nie | Dane zapisywane na dysku na sekundę, w MEGABAJTach na sekundę.
 **Procent użycia procesora CPU** | Nie | Procent użycia procesora CPU.
 **Procent wykorzystania pamięci** | Nie | Procent używanej pamięci RAM.
-**Całkowita liczba odczytywanych dysków** | Nie | Operacje odczytu z dysku na sekundę.
-**Całkowita liczba dysków — operacje zapisu** | Nie | Operacje zapisu na dysku na sekundę.
-**Całkowita liczba dysków do odczytu** | Nie | Dane odczytane z dysku (MB na sekundę).
-**Całkowita przepustowość zapisu dysków** | Nie | Dane zapisywane na dysku, w MEGABAJTach na sekundę.
+**Całkowita liczba odczytywanych dysków** | Nie | Operacje odczytu na sekundę dla wszystkich połączonych dysków. <br/> Użyj tego pola, jeśli nie możesz dostarczyć danych na poziomie dysku. 
+**Całkowita liczba dysków — operacje zapisu** | Nie | Operacje zapisu na sekundę dla wszystkich połączonych dysków. <br/> Użyj tego pola, jeśli nie możesz dostarczyć danych na poziomie dysku.
+**Całkowita liczba dysków do odczytu** | Nie | Dane odczytane ze wszystkich dysków (MB na sekundę). <br/> Użyj tego pola, jeśli nie możesz dostarczyć danych na poziomie dysku. 
+**Całkowita przepustowość zapisu dysków** | Nie | Dane zapisywane na wszystkich dyskach na sekundę. <br/> Użyj tego pola, jeśli nie możesz dostarczyć danych na poziomie dysku.
 **Sieć w przepływności** | Nie | Dane odebrane przez serwer, w MEGABAJTach na sekundę.
 **Przepływność w sieci** | Nie | Dane przesyłane przez serwer, w MEGABAJTach na sekundę.
 **Typ oprogramowania układowego** | Nie | Oprogramowanie układowe serwera. Wartości mogą być "BIOS" lub "UEFI".
@@ -146,6 +146,11 @@ Na przykład aby określić wszystkie pola dla drugiego dysku, Dodaj następują
 - Przepływność odczytu dysku 2
 - Przepływność zapisu na dysku 2
 
+Jeśli nie możesz dostarczyć danych na poziomie dysku, możesz podać dane wydajności dysku na serwer przy użyciu poniższych pól. Aby uzyskać szczegółowe informacje na temat każdego pola, zobacz [tę](#add-server-information) sekcję.
+- Całkowita liczba odczytywanych dysków
+- Całkowita liczba dysków — operacje zapisu
+- Całkowita liczba dysków do odczytu
+- Całkowita przepustowość zapisu dysków
 
 ## <a name="import-the-server-information"></a>Importuj informacje o serwerze
 

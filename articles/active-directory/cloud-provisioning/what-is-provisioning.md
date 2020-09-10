@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f85430aea183cca977e3cb648cb43779f25c61a0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228243"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657836"
 ---
 # <a name="what-is-identity-provisioning"></a>Co to jest aprowizacja tożsamości?
 
@@ -40,10 +40,10 @@ Inicjowanie obsługi z poziomu usługi HR do chmury obejmuje tworzenie obiektów
 
 Najbardziej typowym scenariuszem jest to, że w przypadku dołączenia nowego pracownika do firmy są one wprowadzane do systemu kadr.  Gdy to nastąpi, są one obsługiwane w chmurze.  W takim przypadku usługa Azure AD.  Inicjowanie obsługi administracyjnej z poziomu usługi kadr może obejmować następujące scenariusze. 
 
-- **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do usługi Cloud HR konto użytkownika jest automatycznie tworzone w Active Directory, Azure Active Directory i opcjonalnie pakiet Office 365 oraz inne aplikacje SaaS obsługiwane przez usługę Azure AD, z możliwością zapisu z tyłu adresu e-mail w usłudze Cloud HR.
-- **Aktualizacje atrybutu pracownika i profilu** — gdy rekord pracownika zostanie zaktualizowany w usłudze Cloud HR (takie jak nazwa, tytuł lub Menedżer), konto użytkownika zostanie automatycznie zaktualizowane w Active Directory, Azure Active Directory i opcjonalnie pakiet Office 365 i inne aplikacje SaaS obsługiwane przez usługę Azure AD.
+- **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do usługi Cloud HR konto użytkownika jest automatycznie tworzone w Active Directory, Azure Active Directory i opcjonalnie Microsoft 365 i innych aplikacjach SaaS obsługiwanych przez usługę Azure AD, z możliwością zapisu z tyłu adresu e-mail w usłudze Cloud HR.
+- **Aktualizacje atrybutu pracownika i profilu** — gdy rekord pracownika zostanie zaktualizowany w usłudze Cloud HR (takie jak nazwa, tytuł lub Menedżer), jego konto użytkownika zostanie automatycznie zaktualizowane w Active Directory, Azure Active Directory i opcjonalnie Microsoft 365 i innych aplikacjach SaaS obsługiwanych przez usługę Azure AD.
 - **Zakończenie zatrudnienia pracownika** — po zakończeniu pracy pracownika w chmurze HR konto użytkownika jest automatycznie wyłączone w Active Directory, Azure Active Directory i opcjonalnie pakiet Office 365 i inne aplikacje SaaS obsługiwane przez usługę Azure AD.
-- Przedziały **pracownika** — gdy pracownik jest ponownie zatrudniany w usłudze Cloud HR, jego stare konto można automatycznie ponownie aktywować lub zainicjowanie (zależnie od preferencji) do Active Directory, Azure Active Directory i opcjonalnie pakietu Office 365 i innych aplikacji SaaS obsługiwanych przez usługę Azure AD.
+- **Pracownicy** przeniesieni przez pracowników — w przypadku, gdy pracownik jest ponownie zatrudniany w usłudze Cloud HR, jego stare konto można automatycznie ponownie aktywować lub zainicjowanie (zależnie od preferencji) do Active Directory, Azure Active Directory i opcjonalnie Microsoft 365 i innych aplikacji SaaS obsługiwanych przez usługę Azure AD.
 
 
 ## <a name="app-provisioning"></a>Inicjowanie obsługi aplikacji

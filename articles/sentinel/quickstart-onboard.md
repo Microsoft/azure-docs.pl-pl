@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 0e0530432fd72335a9ed9ab4d53ca5bc80c7c6da
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566254"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661980"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
 
 W tym przewodniku szybki start dowiesz się, jak dołączyć wskaźnik do platformy Azure. 
 
-Aby przenieść wskaźnik na platformę Azure, musisz najpierw włączyć wskaźnik na platformie Azure, a następnie połączyć źródła danych. Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym rozwiązań ochrony przed zagrożeniami firmy Microsoft, źródeł Microsoft 365 (w tym pakietu Office 365), usługi Azure AD i usługi Azure ATP, Microsoft Cloud App Security i innych. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Do łączenia źródeł danych z platformą Azure (CEF), dziennikiem systemu  
+Aby przenieść wskaźnik na platformę Azure, musisz najpierw włączyć wskaźnik na platformie Azure, a następnie połączyć źródła danych. Na platformie Azure jest dostępnych wiele łączników dla rozwiązań firmy Microsoft, które są dostępne na bieżąco i zapewniają integrację w czasie rzeczywistym, w tym Microsoft 365 Defender (dawniej chronione przed zagrożeniami firmy Microsoft), źródła Microsoft 365e (w tym Office 365), Azure AD, Microsoft Defender for Identity (dawniej Azure ATP), Microsoft Cloud App Security i inne. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Do łączenia źródeł danych z platformą Azure (CEF), dziennikiem systemu  
 
 Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze szczegółowymi skoroszytami utworzonymi na podstawie danych. Te skoroszyty mogą być łatwo dostosowane do Twoich potrzeb.
 
@@ -41,20 +41,20 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
  
 ## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik <a name="enable"></a>
 
-1. Zaloguj się w witrynie Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
+1. Zaloguj się do witryny Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
 
 1. Wyszukaj i wybierz pozycję **wskaźnik na platformie Azure**.
 
-   ![search](./media/quickstart-onboard/search-product.png)
+   ![Wyszukiwanie usług](./media/quickstart-onboard/search-product.png)
 
 1. Wybierz pozycję **Dodaj**.
 
 1. Wybierz obszar roboczy, którego chcesz użyć, lub Utwórz nowy. Możesz uruchomić wskaźnik platformy Azure na więcej niż jednym obszarze roboczym, ale dane są izolowane do jednego obszaru roboczego.
 
-   ![search](./media/quickstart-onboard/choose-workspace.png)
+   ![Wybierz obszar roboczy](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
-   > - Domyślne obszary robocze utworzone przez Azure Security Center nie będą wyświetlane na liście; nie można zainstalować na nich wskaźnikiem na platformie Azure.
+   > - Domyślne obszary robocze utworzone przez usługę Azure Defender (dawniej Azure Security Center) nie będą wyświetlane na liście; nie można zainstalować na nich wskaźnikiem na platformie Azure.
    > - Wskaźnik "Azure" może działać w obszarach roboczych w dowolnym [regionie log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Dane generowane przez wskaźnik na platformie Azure (takie jak zdarzenia, zakładki i reguły alertów, które mogą zawierać niektóre dane klienta pochodzące z tych obszarów roboczych) są zapisywane w Europie (dla obszarów roboczych znajdujących się w Europie), w Australii (dla obszarów roboczych znajdujących się w Australii) lub w regionie Wschodnie stany USA (dla obszarów roboczych znajdujących się w innym regionie).
 
    >[!IMPORTANT]

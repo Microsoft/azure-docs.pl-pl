@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 280dda4d3864f2c659272ffb63d6ac2566524c45
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64a95a14f6832e3f109335b5525b9a5dc1a9ec27
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549437"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662282"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askspoke"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą askSpoke
 
@@ -35,16 +35,16 @@ Aby rozpocząć, potrzebne są następujące elementy:
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * subskrypcja z włączonym logowaniem jednokrotnym (SSO) askSpoke.
 
-> [!NOTE]
-> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
-
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * askSpoke obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 * askSpoke obsługuje Inicjowanie obsługi użytkowników **just in Time**
-* Po skonfigurowaniu askSpoke można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu askSpoke można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
 ## <a name="adding-askspoke-from-the-gallery"></a>Dodawanie askSpoke z galerii
 
@@ -57,7 +57,7 @@ Aby skonfigurować integrację programu askSpoke z usługą Azure AD, musisz dod
 1. W sekcji **Dodaj z galerii** wpisz **askSpoke** w polu wyszukiwania.
 1. Wybierz pozycję **askSpoke** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-askspoke"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla askSpoke
+## <a name="configure-and-test-azure-ad-sso-for-askspoke"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla askSpoke
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą askSpoke przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w askSpoke.
 
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:  `https://askspoke.com/login`
+    W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://askspoke.com/login`
 
 1. Aplikacja askSpoke oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -146,15 +146,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij kartę **Ustawienia** w okienku nawigacji po lewej stronie.
 
-    ![Konfiguracja askSpoke](./media/askspoke-tutorial/configure1.png)
+    ![Karta Ustawienia askSpoke](./media/askspoke-tutorial/configure1.png)
 
 1. Przewiń w dół do **rejestracji jednokrotnej** i kliknij pozycję **Połącz**.
 
-    ![Konfiguracja askSpoke](./media/askspoke-tutorial/configure2.png)
+    ![askSpoke połączenie](./media/askspoke-tutorial/configure2.png)
 
 1. W sekcji **Włączanie protokołu SAML & Standard scim** wykonaj następujące czynności:
 
-    ![Konfiguracja askSpoke](./media/askspoke-tutorial/configure3.png)
+    ![askSpoke Włącz sekcję Standard scim SAML &](./media/askspoke-tutorial/configure3.png)
 
     1. W polu tekstowym **adres URL** logowania wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
@@ -176,7 +176,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka askSpoke w panelu dostępu należy automatycznie zalogować się do askSpoke, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -187,6 +187,3 @@ Po kliknięciu kafelka askSpoke w panelu dostępu należy automatycznie zalogowa
 - [Wypróbuj askSpoke z usługą Azure AD](https://aad.portal.azure.com/)
 
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Jak chronić askSpoke z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

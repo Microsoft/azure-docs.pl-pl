@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: dcf67ce9c9e63fdbba8db565113cf3380e4142dd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f8a0576ff9ea128aae0d63d4879fe66ed2bf549
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548674"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660635"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharevault"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą ShareVault
 
@@ -41,7 +41,10 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * ShareVault obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 * ShareVault obsługuje Inicjowanie obsługi użytkowników **just in Time**
-* Po skonfigurowaniu ShareVault można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu ShareVault można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
 ## <a name="adding-sharevault-from-the-gallery"></a>Dodawanie ShareVault z galerii
 
@@ -54,7 +57,7 @@ Aby skonfigurować integrację programu ShareVault z usługą Azure AD, musisz d
 1. W sekcji **Dodaj z galerii** wpisz **ShareVault** w polu wyszukiwania.
 1. Wybierz pozycję **ShareVault** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharevault"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla ShareVault
+## <a name="configure-and-test-azure-ad-sso-for-sharevault"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla ShareVault
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą ShareVault przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w ShareVault.
 
@@ -149,7 +152,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka ShareVault w panelu dostępu należy automatycznie zalogować się do ShareVault, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

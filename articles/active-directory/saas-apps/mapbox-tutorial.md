@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: faedec24bc4b962044d55a47345739592e276b61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4111752d949b7ed2b0ea14734e5d795564718611
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554774"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661910"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą MapBox
 
@@ -41,6 +41,9 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 
 * Usługa MapBox obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
 * Po skonfigurowaniu MapBox można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
 ## <a name="adding-mapbox-from-the-gallery"></a>Dodawanie MapBox z galerii
 
@@ -136,15 +139,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Kliknij kartę **Ustawienia**.
 
-    ![Konfiguracja MapBox](./media/mapbox-tutorial/configure1.png)
+    ![Karta Ustawienia MapBox](./media/mapbox-tutorial/configure1.png)
 
 1. Kliknij kartę **zabezpieczenia** w okienku nawigacji po lewej stronie.
 
-    ![Konfiguracja MapBox](./media/mapbox-tutorial/configure2.png)
+    ![Karta Zabezpieczenia MapBox](./media/mapbox-tutorial/configure2.png)
 
 1. Kliknij pozycję **Edytuj Logowanie jednokrotne**.
 
-    ![Konfiguracja MapBox](./media/mapbox-tutorial/configure3.png)
+    ![MapBox Edytuj Logowanie jednokrotne](./media/mapbox-tutorial/configure3.png)
 
 1. Przewiń w dół do **kroku 3: Skonfiguruj Logowanie jednokrotne SAML dla MapBox** i wykonaj następujące czynności:
 
@@ -168,7 +171,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka MapBox w panelu dostępu należy automatycznie zalogować się do MapBox, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

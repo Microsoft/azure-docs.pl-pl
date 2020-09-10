@@ -17,6 +17,8 @@
           href: dns-getstarted-powershell.md
         - name: Tworzenie strefy publicznej — interfejs wiersza polecenia
           href: dns-getstarted-cli.md
+        - name: Tworzenie strefy publicznej — szablon usługi ARM
+          href: dns-get-started-template.md
     - name: Prywatna strefa DNS
       items:
         - name: Tworzenie strefy prywatnej — portal

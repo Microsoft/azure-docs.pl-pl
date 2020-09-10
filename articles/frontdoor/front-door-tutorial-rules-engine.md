@@ -7,94 +7,121 @@ author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
+ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1ff8ca7d7c5972869de4c0d394129c591c7f4a7c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: acbcbc8e5dcebcb894ab8f78b2ed4a71bbc87689
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399076"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662188"
 ---
-# <a name="configure-your-rules-engine"></a>Skonfiguruj aparat reguł
+# <a name="tutorial-configure-your-rules-engine"></a>Samouczek: Konfigurowanie aparatu reguł
 
-W tym artykule przedstawiono procedurę tworzenia konfiguracji aparatu reguł oraz pierwszej reguły w obu Azure Portal i interfejsie wiersza polecenia. 
+W tym samouczku pokazano, jak utworzyć konfigurację aparatu reguł i pierwszą regułę zarówno w Azure Portal, jak i w interfejsie wiersza polecenia. 
+
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+> [!div class="checklist"]
+> - Skonfiguruj aparat reguł przy użyciu portalu.
+> - Konfigurowanie aparatu reguł przy użyciu interfejsu wiersza polecenia platformy Azure
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Przed wykonaniem kroków opisanych w tym samouczku należy utworzyć usługę Front Door. Aby uzyskać więcej informacji, zobacz temat [Quickstart: Create a Front Door for a highly available global web application](quickstart-create-front-door.md) (Szybki start: tworzenie usługi Front Door na potrzeby łatwo dostępnej globalnej aplikacji internetowej).
 
 ## <a name="configure-rules-engine-in-azure-portal"></a>Skonfiguruj aparat reguł w Azure Portal
-1. Przed utworzeniem konfiguracji aparatu reguł [Utwórz drzwi z przodu](quickstart-create-front-door.md).
+1. W obszarze zasób z drzwiami wstępnymi przejdź do pozycji **Ustawienia** i wybierz pozycję **Konfiguracja aparatu reguł**. Kliknij przycisk **Dodaj**, nadaj konfiguracji nazwę i Rozpocznij tworzenie pierwszej konfiguracji aparatu reguł.
 
-2. W obszarze zasób z drzwiami wstępnymi przejdź do pozycji **Ustawienia** i wybierz pozycję **Konfiguracja aparatu reguł**. Kliknij przycisk **Dodaj**, nadaj konfiguracji nazwę i Rozpocznij tworzenie pierwszej konfiguracji aparatu reguł.
+    ![Menu Ustawienia drzwi przednich](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
 
-    ![Znajdź aparat reguł](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
-
-3. Kliknij pozycję **Dodaj regułę** , aby utworzyć pierwszą regułę. Następnie klikając pozycję **Dodaj warunek** lub **Dodaj akcję** , można zdefiniować regułę.
+1. Kliknij pozycję **Dodaj regułę** , aby utworzyć pierwszą regułę. Następnie klikając pozycję **Dodaj warunek** lub **Dodaj akcję** , można zdefiniować regułę.
     
     > [!NOTE]
     >- Aby usunąć warunek lub akcję z reguły, użyj kosza po prawej stronie określonego warunku lub akcji.
     > - Aby utworzyć regułę, która ma zastosowanie do całego ruchu przychodzącego, nie określaj żadnych warunków.
     > - Aby zatrzymać ocenianie reguł po spełnieniu pierwszego warunku dopasowania, zaznacz pole **Zatrzymaj szacowanie pozostałych reguł**. Jeśli ta opcja jest zaznaczona i spełnione są wszystkie warunki dopasowania określonej reguły, pozostałe reguły w konfiguracji nie zostaną wykonane.  
 
-    ![Znajdź aparat reguł](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
+    ![Konfiguracja aparatu reguł](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
-4. Określ priorytet reguł w konfiguracji za pomocą przycisków Przenieś w górę, Przenieś w dół i Przenieś do góry. Priorytet znajduje się w kolejności rosnącej, co oznacza, że reguła pierwsza na liście jest najważniejszym regułą.
+1. Określ priorytet reguł w konfiguracji za pomocą przycisków Przenieś w górę, Przenieś w dół i Przenieś do góry. Priorytet znajduje się w kolejności rosnącej, co oznacza, że reguła pierwsza na liście jest najważniejszym regułą.
 
-5. Po utworzeniu co najmniej jednej reguły naciśnij pozycję **Zapisz**. Ta akcja powoduje utworzenie konfiguracji aparatu reguł.
+1. Po utworzeniu co najmniej jednej reguły naciśnij pozycję **Zapisz**. Ta akcja powoduje utworzenie konfiguracji aparatu reguł.
 
-6. Po utworzeniu co najmniej jednej konfiguracji Skojarz konfigurację aparatu reguł z regułą trasy. Podczas gdy jedna konfiguracja może być stosowana do wielu reguł trasy, reguła trasy może zawierać tylko jedną konfigurację aparatu reguł. Aby utworzyć skojarzenie, przejdź do **Front Door designer**  >  **reguły tras**projektanta drzwi. Wybierz regułę trasy, do której chcesz dodać konfigurację aparatu reguł, przejdź do pozycji **Route details**  >  **Konfiguracja aparatu reguły**szczegółów trasy, a następnie wybierz konfigurację, którą chcesz skojarzyć.
+1. Po utworzeniu co najmniej jednej konfiguracji Skojarz konfigurację aparatu reguł z regułą trasy. Podczas gdy jedna konfiguracja może być stosowana do wielu reguł trasy, reguła trasy może zawierać tylko jedną konfigurację aparatu reguł. Aby utworzyć skojarzenie, przejdź do **Front Door designer**  >  **reguły tras**projektanta drzwi. Wybierz regułę trasy, do której chcesz dodać konfigurację aparatu reguł, przejdź do pozycji **Route details**  >  **Konfiguracja aparatu reguły**szczegółów trasy, a następnie wybierz konfigurację, którą chcesz skojarzyć.
 
-    ![Znajdź aparat reguł](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
+    ![Konfigurowanie do reguły routingu](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Konfigurowanie aparatu reguł w interfejsie wiersza polecenia platformy Azure
 
-1. Jeśli jeszcze tego nie zrobiono, zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Dodaj rozszerzenie "Front-drzwiczks":-AZ Extension Add--Name-drzwi. Następnie zaloguj się i przejdź do subskrypcji AZ Account Set--Subscription <name_or_Id>.
+1. Jeśli jeszcze tego nie zrobiono, zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Dodaj rozszerzenie "Front-drzwiczks":-AZ Extension Add--Name-drzwi. Następnie zaloguj się i przejdź do subskrypcji AZ Account Set--Subscription <name_or_Id>.
 
-2. Zacznij od utworzenia aparatu reguł — ten przykład pokazuje jedną regułę z jedną akcją opartą na nagłówkach i jeden warunek dopasowywania. 
+1. Zacznij od utworzenia aparatu reguł — ten przykład pokazuje jedną regułę z jedną akcją opartą na nagłówkach i jeden warunek dopasowywania. 
 
-```azurecli-interactive
-az network front-door rules-engine rule create -f {front_door} -g {resource_group} --rules-engine-name {rules_engine} --name {rule1} --priority 1 --action-type RequestHeader --header-action Overwrite --header-name Rewrite --header-value True --match-variable RequestFilenameExtension --operator Contains --match-values jpg png --transforms Lowercase
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule create -f {front_door} -g {resource_group} --rules-engine-name {rules_engine} --name {rule1} --priority 1 --action-type RequestHeader --header-action Overwrite --header-name Rewrite --header-value True --match-variable RequestFilenameExtension --operator Contains --match-values jpg png --transforms Lowercase
+    ```
 
-3. Wyświetl listę wszystkich reguł. 
+1. Wyświetl listę wszystkich reguł. 
 
-```azurecli-interactive
-az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rules_engine}
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rules_engine}
+    ```
 
-4. Dodaj akcję przesłonięcia trasy przesyłania dalej. 
+1. Dodaj akcję przesłonięcia trasy przesyłania dalej. 
 
-```azurecli-interactive
-az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
+    ```
 
-5. Wyświetl listę wszystkich akcji w regule. 
+1. Wyświetl listę wszystkich akcji w regule. 
 
-```azurecli-interactive
-az network front-door rules-engine rule action list -f {front_door} -g {rg} -r {rules_engine} --name {rule1}
-```
+    ```azurecli-interactive
+    az network front-door rules-engine rule action list -f {front_door} -g {rg} -r {rules_engine} --name {rule1}
+    ```
 
-6. Połącz konfigurację aparatu reguł z regułą routingu.  
+1. Połącz konfigurację aparatu reguł z regułą routingu.  
 
-```azurecli-interactive
-az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --rules-engine {rules_engine}
-```
+    ```azurecli-interactive
+    az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --rules-engine {rules_engine}
+    ```
 
-7. Odłącz aparat reguł. 
+1. Odłącz aparat reguł. 
 
-```azurecli-interactive
-az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
-```
+    ```azurecli-interactive
+    az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
+    ```
 
-Aby uzyskać więcej informacji, należy zapoznać się z pełną listą poleceń aparatu AFD [rules.](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest)   
+Aby uzyskać więcej informacji, należy zapoznać się z pełną listą poleceń aparatu AFD [rules.](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true)   
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+W poprzednich krokach zostały skonfigurowane i skojarzone z konfiguracją aparatu reguł dla reguł routingu. Jeśli nie chcesz już, aby konfiguracja aparatu reguł była skojarzona z przednim Drzwiem, możesz usunąć konfigurację, wykonując następujące czynności:
+
+1. Usuń skojarzenie wszystkich reguł routingu z konfiguracją aparatu reguł, klikając trzy kropki obok nazwy aparatu reguł.
+
+    :::image type="content" source="./media/front-door-rules-engine/front-door-rule-engine-routing-association.png" alt-text="Kojarzenie reguł routingu":::
+
+1. Usuń zaznaczenie wszystkich reguł routingu, do których jest skojarzona ta konfiguracja aparatu reguły, a następnie kliknij przycisk Zapisz.
+
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Skojarzenie reguły routingu":::
+
+1. Teraz można usunąć konfigurację aparatu reguł z drzwi z przodu.
+
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Usuń konfigurację aparatu reguł":::
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [aparacie reguł AFD](front-door-rules-engine.md). 
-- Dowiedz się, jak [utworzyć usługę Front Door](quickstart-create-front-door.md).
-- Dowiedz się, [jak działa usługa Front Door](front-door-routing-architecture.md).
-- Więcej informacji znajduje się w [dokumentacji interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest)aparatu AFD. 
-- Zapoznaj się z informacjami w temacie AFD Rules Engine [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.8.0). 
+W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
+
+* Tworzenie konfiguracji aparatu reguł
+* Skojarz konfigurację z regułami routingu na początku drzwi.
+
+Aby dowiedzieć się, jak dodać nagłówki zabezpieczeń z aparatem reguł, przejdź do następnego samouczka.
+
+> [!div class="nextstepaction"]
+> [Nagłówki zabezpieczeń z aparatem reguł](front-door-security-headers.md)

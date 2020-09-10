@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 67016d930e2cc40ccf38e89c8dfc7700db7d3109
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d249005e77328460a0e7152e0a3ff125857534b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536737"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659473"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datava-enterprise-service-platform"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z platformą Datava Enterprise Service
 
@@ -35,16 +35,16 @@ Aby rozpocząć, potrzebne są następujące elementy:
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
 * Subskrypcja z włączoną obsługą logowania jednokrotnego (SSO) dla platformy usługi Datava Enterprise.
 
-> [!NOTE]
-> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
-
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Platforma usługi Datava Enterprise obsługuje zainicjowane przez usługę **SP** SSO
 * Platforma usługi Datava Enterprise obsługuje funkcję inicjowania obsługi użytkowników **just in Time**
-* Po skonfigurowaniu platformy usługi Datava Enterprise można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Po skonfigurowaniu platformy usługi Datava Enterprise można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
 
 ## <a name="adding-datava-enterprise-service-platform-from-the-gallery"></a>Dodawanie platformy usługi Datava Enterprise z galerii
 
@@ -57,7 +57,7 @@ Aby skonfigurować integrację platformy usługi Datava Enterprise w usłudze Az
 1. W sekcji **Dodaj z galerii** wpisz **Datava Enterprise Service Platform** w polu wyszukiwania.
 1. Wybierz pozycję **Datava Enterprise Service Platform** w panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-datava-enterprise-service-platform"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla platformy usługi Datava Enterprise
+## <a name="configure-and-test-azure-ad-sso-for-datava-enterprise-service-platform"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla platformy usługi Datava Enterprise
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą platformy usługi Datava Enterprise przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Datava Enterprise Service platform.
 
@@ -137,7 +137,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka platforma usługi Datava Enterprise w panelu dostępu należy automatycznie zalogować się do platformy usługi Datava Enterprise, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [ Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -148,5 +148,3 @@ Po kliknięciu kafelka platforma usługi Datava Enterprise w panelu dostępu nal
 - [Wypróbuj platformę usługi Datava Enterprise w usłudze Azure AD](https://aad.portal.azure.com/)
 
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Jak chronić platformę Datava Enterprise Service przy użyciu zaawansowanej widoczności i kontroli](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

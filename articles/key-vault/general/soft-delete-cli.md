@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585665"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662046"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Jak używać usuwania nietrwałego w usłudze Key Vault z interfejsem wiersza polecenia
 
@@ -58,7 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Nowy magazyn kluczy
 
-Usuwanie nietrwałe jest domyślnie włączane automatycznie dla wszystkich magazynów kluczy. Do 31 grudnia 2020 nie będzie już możliwe utworzenie nowego magazynu kluczy bez włączonego usuwania nietrwałego.
+Usuwanie nietrwałe jest domyślnie włączane automatycznie dla wszystkich magazynów kluczy. Od 31 grudnia 2020 nie będzie już możliwe utworzenie nowego magazynu kluczy bez włączonego usuwania nietrwałego.
 
 ### <a name="verify-soft-delete-enablement"></a>Weryfikuj Włączanie usuwania nietrwałego
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4150464b5c59b631afea0c788b1e351dee5185f9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 86ae186d3d8b131955be7d9fa2c305316dea9f00
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299414"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658446"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Samouczek: implementowanie analizy przestrzennej IoT przy użyciu Azure Maps
 
@@ -204,7 +204,7 @@ Teraz skonfigurujemy naszą funkcję platformy Azure.
     * Zastąp **UDID** z elementem `udid` geoogrodzenia przekazanym w obszarze [Przekaż geoogrodzenie](#upload-a-geofence).
     * Funkcja **CreateBlobAsync** w skrypcie tworzy obiekt BLOB dla zdarzenia na koncie magazynu danych. Zastąp **ACCESS_KEY**, **ACCOUNT_NAME**i **STORAGE_CONTAINER_NAME** kluczem dostępu do konta magazynu, nazwą konta i kontenerem magazynu danych. Te wartości zostały wygenerowane podczas tworzenia konta magazynu w [ramach tworzenia konta usługi Azure Storage](#create-an-azure-storage-account).
 
-9. Kliknij blok **integracja** w menu po lewej stronie. Kliknij **Event Grid wyzwalacza** na diagramie. Wpisz nazwę wyzwalacza, na przykład *eventCarTelemetry*, a następnie kliknij pozycję **utwórz subskrypcję Event Grid**.
+9. Kliknij blok **integracja** w menu po lewej stronie. Kliknij **Event Grid wyzwalacza** na diagramie. Wpisz nazwę wyzwalacza, *eventGridEvent*, a następnie kliknij pozycję **utwórz subskrypcję Event Grid**.
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Dodawanie subskrypcji zdarzeń":::
 

@@ -154,6 +154,8 @@
               href: openvpn-azure-ad-client.md
             - name: Informacje o pobieranym pliku profilu sieci VPN klienta
               href: about-vpn-profile-download.md
+            - name: Intune — wdrażanie profilu klienta VPN
+              href: vpn-profile-intune.md
         - name: OpenVPN
           items:
             - name: Konfigurowanie w oprogramowaniu OpenVPN połączeń punkt-lokacja

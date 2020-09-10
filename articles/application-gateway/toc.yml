@@ -52,8 +52,20 @@
           href: how-application-gateway-works.md
         - name: Składniki usługi Application Gateway
           href: application-gateway-components.md
-        - name: Przegląd konfiguracji
-          href: configuration-overview.md
+        - name: Konfiguracja
+          items:
+            - name: Omówienie
+              href: configuration-overview.md
+            - name: Infrastruktura
+              href: configuration-infrastructure.md
+            - name: Adres IP frontonu
+              href: configuration-front-end-ip.md
+            - name: Odbiorniki
+              href: configuration-listeners.md
+            - name: Żądanie reguł rozsyłania
+              href: configuration-request-routing-rules.md
+            - name: Ustawienia protokołu HTTP
+              href: configuration-http-settings.md
     - name: Obsługa dużego natężenia ruchu
       href: high-traffic-support.md
     - name: Jednostka SKU skalowania automatycznego w wersji 2
