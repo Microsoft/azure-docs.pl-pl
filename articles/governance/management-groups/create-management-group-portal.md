@@ -39,7 +39,7 @@ Wykonanie pierwszej grupy zarządzania utworzonej w katalogu może potrwać do 1
    - **Identyfikator grupy zarządzania** jest unikatowym identyfikatorem katalogu, który jest używany do przesyłania poleceń z tej grupy zarządzania. Ten identyfikator nie jest edytowalny po utworzeniu, ponieważ jest używany w całym systemie Azure do identyfikowania tej grupy. [Główna Grupa zarządzania](./overview.md#root-management-group-for-each-directory) jest automatycznie tworzona z identyfikatorem, który jest identyfikatorem Azure Active Directory. W przypadku wszystkich innych grup zarządzania przypisz unikatowy identyfikator.
    - Pole Nazwa wyświetlana to nazwa wyświetlana w Azure Portal. Oddzielna nazwa wyświetlana jest polem opcjonalnym podczas tworzenia grupy zarządzania i można ją zmienić w dowolnym momencie.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Zrzut ekranu przedstawiający opcje "Dodaj grupę zarządzania" służącą do tworzenia nowej grupy zarządzania.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Zrzut ekranu przedstawiający opcje Dodaj grupę zarządzania służącą do tworzenia nowej grupy zarządzania.":::
 
 1. Wybierz pozycję **Zapisz**.
 
