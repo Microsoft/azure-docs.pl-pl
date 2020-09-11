@@ -40,7 +40,7 @@ Pierwszym krokiem w celu wymuszenia zgodności za pomocą usługi Azure Policy j
 
 1. Wybierz pozycję **Przypisz zasady** w górnej części strony **Zasady — Przypisania**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku "Przypisz zasady" na stronie przydziały." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Zrzut ekranu przedstawiający Wybieranie przycisku Przypisz zasady na stronie przydziały." border="false":::
 
 1. Na stronie **przypisywanie zasad** i **podstawowe informacje** wybierz **zakres** , wybierając wielokropek i wybrać grupę zarządzania lub subskrypcję. Opcjonalnie możesz wybrać grupę zasobów. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad.
    Następnie wybierz pozycję **Wybierz** w dolnej części strony **zakres** .
@@ -426,7 +426,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Zlokalizuj poprzednio utworzoną inicjatywę **Uzyskiwanie bezpieczeństwa** i wybierz ją. Wybierz polecenie **Przypisz** w górnej części strony, aby otworzyć stronę **Uzyskiwanie bezpieczeństwa: Przypisz inicjatywę**.
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Zrzut ekranu przedstawiający przycisk "Przypisz" na stronie definicji inicjatywy." border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Zrzut ekranu przedstawiający przycisk Przypisz na stronie definicji inicjatywy." border="false":::
 
    Możesz również kliknąć prawym przyciskiem myszy wybrany wiersz lub wybrać wielokropek na końcu wiersza menu kontekstowego. Następnie wybierz pozycję **Przypisz**.
 
