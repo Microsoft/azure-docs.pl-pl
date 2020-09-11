@@ -172,6 +172,8 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Anonsowanie tras niestandardowych klientom P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
+        - name: Tworzenie niestandardowych zasad protokołu IPsec dla połączenia punkt-lokacja
+          href: create-custom-policies-p2s-ps.md
     - name: 'Routing, protokół BGP i komunikacja równorzędna sieci wirtualnych'
       items:
         - name: Konfigurowanie protokołu BGP dla bramy sieci VPN

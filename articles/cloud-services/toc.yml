@@ -151,6 +151,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: Przepływ pracy w klasycznej architekturze maszyny wirtualnej
           href: cloud-services-workflow-process.md
+        - name: Obsługa kondycji zasobu usługi Cloud Services
+          href: resource-health-for-cloud-services.md
         - name: Cloud Services — często zadawane pytania
           items:
             - name: Często zadawane pytania dotyczące dostępności aplikacji i usług

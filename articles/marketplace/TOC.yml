@@ -30,6 +30,8 @@
         - name: Podręczniki publikowania dla różnych typów ofert
           href: ./publisher-guide-by-offer-type.md
           items:
+            - name: Planowanie oferty SaaS
+              href: ./plan-saas-offer.md
             - name: Maszyny wirtualne
               href: ./marketplace-virtual-machines.md
             - name: Szablony rozwiązań dla aplikacji platformy Azure

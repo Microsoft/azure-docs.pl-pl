@@ -58,9 +58,11 @@
               href: set-up-mabs-for-avs.md
             - name: Tworzenie kopii zapasowych maszyn wirtualnych w chmurze prywatnej przy użyciu usługi Backup Server
               href: backup-avs-vms-with-mabs.md
+        - name: Zarządzanie cyklem życia maszyn wirtualnych
+          href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Application Gateway
           href: protect-avs-web-apps-with-app-gateway.md
-        - name: Usługa Traffic Manager z usługą AVS
+        - name: Traffic Manager
           href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: Rozwiązania VMware
       items:

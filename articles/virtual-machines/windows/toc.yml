@@ -317,6 +317,8 @@
           href: disk-encryption.md
         - name: Rezerwacje usługi Disk Storage
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Wydajność maszyny wirtualnej i dysku
+          href: disk-performance-windows.md
         - name: Projektowanie pod kątem wysokiej wydajności
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Rozszerzanie możliwości dysków

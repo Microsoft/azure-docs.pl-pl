@@ -52,8 +52,8 @@
   items:
     - name: Planowanie wdrażania dostępu warunkowego
       href: plan-conditional-access.md
-    - name: Najlepsze rozwiązania
-      href: best-practices.md
+    - name: Interfejsy API dostępu warunkowego
+      href: howto-conditional-access-apis.md
     - name: Typowe zasady dostępu warunkowego
       items:
         - name: Blokowanie starszego uwierzytelniania
@@ -92,6 +92,8 @@
       href: terms-of-use.md
     - name: Kontrolki częstotliwości logowania i trwałości przeglądarki
       href: howto-conditional-access-session-lifetime.md
+    - name: Najlepsze rozwiązania
+      href: best-practices.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z logowaniem

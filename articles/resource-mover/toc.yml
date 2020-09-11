@@ -24,8 +24,22 @@
       href: support-matrix-move-region-sql.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Usuwanie zasobów z kolekcji przenoszenia
-      href: remove-move-resources.md
+    - name: Przechodzenie między regionami
+      items:
+        - name: Przechodzenie między regionami przy użyciu programu PowerShell
+          href: move-region-powershell.md
+        - name: Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności
+          href: move-region-availability-zone.md
+        - name: Przechodzenie między regionami (z grupy zasobów)
+          href: move-region-within-resource-group.md
+    - name: Zarządzanie przenoszeniami między regionami
+      items:
+        - name: Modyfikowanie ustawień docelowych dla przenoszenia regionu
+          href: modify-target-settings.md
+        - name: Usuwanie zasobów z kolekcji przenoszenia regionów
+          href: remove-move-resources.md
+        - name: Zarządzanie zasobami utworzonymi przez proces przenoszenia regionów
+          href: manage-resources-created-move-process.md
 - name: Zasoby
   items:
     - name: Migracja w podręczniku Cloud Adoption Framework

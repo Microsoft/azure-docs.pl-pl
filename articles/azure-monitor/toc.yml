@@ -1136,7 +1136,21 @@
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Wizualizacje
-          href: platform/workbooks-visualizations.md
+          items:
+            - name: Tekst
+              href: platform/workbooks-text-visualizations.md
+            - name: Wykres
+              href: platform/workbooks-chart-visualizations.md
+            - name: Siatka
+              href: platform/workbooks-grid-visualizations.md
+            - name: Kafelek
+              href: platform/workbooks-tile-visualizations.md
+            - name: Drzewo
+              href: platform/workbooks-tree-visualizations.md
+            - name: Graph
+              href: platform/workbooks-graph-visualizations.md
+            - name: Słupek złożony
+              href: platform/workbooks-composite-bar.md
         - name: Źródła danych
           href: platform/workbooks-data-sources.md
         - name: Parametry

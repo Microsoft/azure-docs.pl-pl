@@ -130,6 +130,8 @@
           href: luis-concept-devops-automation.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Zaloguj się do portalu usługi LUIS
+      href: sign-in-luis-portal.md
     - name: Uruchamianie nowej aplikacji
       href: luis-how-to-start-new-app.md
       displayName: 'import, export, container'

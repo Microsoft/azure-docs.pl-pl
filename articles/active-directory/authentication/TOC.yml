@@ -214,7 +214,9 @@
     - name: Rozwiązywanie problemów
       items:
         - name: Samoobsługowe resetowanie hasła
-          href: active-directory-passwords-troubleshoot.md
+          href: troubleshoot-sspr.md
+        - name: Zapis zwrotny samoobsługowego resetowania hasła
+          href: troubleshoot-sspr-writeback.md
         - name: Samoobsługowe resetowanie hasła — często zadawane pytania
           href: active-directory-passwords-faq.md
         - name: Uwierzytelnianie wieloskładnikowe — często zadawane pytania

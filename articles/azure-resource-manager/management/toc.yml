@@ -53,8 +53,10 @@
               href: ./move-limitations/virtual-machines-move-limitations.md
     - name: Przenoszenie — regiony
       items:
-        - name: Przechodzenie między regionami
+        - name: Omówienie
           href: move-region.md
+        - name: Przechodzenie między regionami (z grupy zasobów)
+          href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Obsługiwane usługi
           href: region-move-support.md
         - name: Usługi
@@ -82,19 +84,19 @@
             - name: Azure SQL
               href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Maszyny wirtualne platformy Azure
-              href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Aplikacje logiki
               href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Konfiguracja sterowania konserwacją
               href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Sieciowa grupa zabezpieczeń
-              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Publiczne adresy IP
-              href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Site Recovery (magazyny usługi Recovery Services)
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Sieć wirtualna
-              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Serwer usługi Azure Database for PostgreSQL
               href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Serwer usługi Azure Database for MariaDB
