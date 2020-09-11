@@ -35,7 +35,7 @@ W tym przewodniku Szybki start utworzysz przypisanie zasad i przypiszesz definic
 
 1. Wybierz pozycję **Przypisz zasady** w górnej części strony **Zasady — Przypisania**.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Zrzut ekranu przedstawiający Wybieranie pozycji "Przypisz zasady" ze strony przydziałów." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Zrzut ekranu przedstawiający Wybieranie pozycji Przypisz zasady ze strony przydziałów." border="false":::
 
 1. Na stronie **przypisywanie zasad** Ustaw **zakres** , wybierając przycisk wielokropka, a następnie wybierając grupę lub subskrypcję zarządzania. Opcjonalnie możesz wybrać grupę zasobów. Zakres określa, jakie zasoby lub grupy zasobów są wymuszane w ramach przypisania zasad. Następnie użyj przycisku **Wybierz** w dolnej części strony **zakres** .
 
