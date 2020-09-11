@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: ae9891edc80aab5d3223686547dfef4273f8a921
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c768f6564884ade5d27199a64843437f5ce725f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514632"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019159"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Eksportuj certyfikaty z Azure Key Vault
 
@@ -63,7 +63,7 @@ az keyvault certificate download --file
 
 Wyświetl [przykłady i definicje parametrów,](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) Aby uzyskać więcej informacji.
 
-Jeśli chcesz pobrać cały certyfikat (część publiczną i prywatną jego składową), Pobierz certyfikat jako wpis tajny.
+Pobranie jako certyfikatu oznacza pobranie publicznej części. Jeśli chcesz, aby zarówno klucz prywatny, jak i publiczne metadane, możesz pobrać go jako wpis tajny.
 
 ```azurecli
 az keyvault secret download -–file {nameofcert.pfx}

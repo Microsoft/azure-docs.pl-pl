@@ -1,6 +1,6 @@
 ---
 title: Co to są programy Azure AD Connect i Connect Health | Microsoft Docs
-description: Opisuje narzędzia używane do synchronizowania i monitorowania środowiska lokalnego w usłudze Azure AD.
+description: Poznaj narzędzia służące do synchronizowania i monitorowania środowiska lokalnego z usługą Azure AD.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278840"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018615"
 ---
 # <a name="what-is-azure-ad-connect"></a>Co to jest program Azure AD Connect?
 
@@ -35,7 +35,7 @@ Azure AD Connect to narzędzie firmy Microsoft, które umożliwia spełnienie wy
 
 ## <a name="what-is-azure-ad-connect-health"></a>Co to jest program Azure AD Connect Health?
 
-Program Azure Active Directory (Azure AD) Connect Health zapewnia niezawodne monitorowanie lokalnej infrastruktury do obsługi tożsamości. Umożliwia utrzymywanie niezawodnego połączenia z usługami Office 365 i Microsoft Online Services.  Ta niezawodność wynika z dodania funkcji monitorowania kluczowych składników tożsamości. Zapewnia także łatwy dostęp do kluczowych punktów danych dotyczących tych składników.
+Program Azure Active Directory (Azure AD) Connect Health zapewnia niezawodne monitorowanie lokalnej infrastruktury do obsługi tożsamości. Umożliwia ona zachowanie niezawodnego połączenia z usługami Microsoft 365 i Microsoft Online Services.  Ta niezawodność wynika z dodania funkcji monitorowania kluczowych składników tożsamości. Zapewnia także łatwy dostęp do kluczowych punktów danych dotyczących tych składników.
 
 Informacje są prezentowane w [portalu programu Azure AD Connect Health](https://aka.ms/aadconnecthealth). Korzystając z portalu programu Azure AD Connect Health, możesz wyświetlać alerty, wyniki monitorowania wydajności, analizy użycia i inne informacje. Program Azure AD Connect Health pokazuje kondycję kluczowych składników tożsamości w jednym miejscu.
 
@@ -44,7 +44,7 @@ Informacje są prezentowane w [portalu programu Azure AD Connect Health](https:/
 ## <a name="why-use-azure-ad-connect"></a>Dlaczego warto korzystać z programu Azure AD Connect?
 Zintegrowanie katalogów lokalnych z usługą Azure AD zwiększa produktywność użytkowników, zapewniając wspólną tożsamość na potrzeby dostępu do zasobów, zarówno lokalnych, jak i w chmurze. Użytkownicy i organizacje uzyskują następujące korzyści:
 
-* Użytkownicy mogą korzystać z jednej tożsamości w celu uzyskiwania dostępu do aplikacji lokalnych oraz usług w chmurze, takich jak Office 365.
+* Użytkownicy mogą korzystać z jednej tożsamości w celu uzyskiwania dostępu do aplikacji lokalnych i usług w chmurze, takich jak Microsoft 365.
 * Jedno narzędzie zapewniające łatwe w użyciu środowisko wdrażania na potrzeby synchronizacji i logowania.
 * Najnowsze możliwości we wszystkich scenariuszach. Azure AD Connect zastępuje starsze wersje narzędzi integracji tożsamości, takie jak DirSync i Azure AD Sync. Aby uzyskać więcej informacji, zobacz [porównanie narzędzi integracji katalogu tożsamości hybrydowej](plan-hybrid-identity-design-considerations-tools-comparison.md).
 

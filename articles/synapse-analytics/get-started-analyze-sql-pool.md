@@ -9,26 +9,67 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 363f2934bbeec266c16711572620e03e69785f94
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007200"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015504"
 ---
 # <a name="analyze-data-with-sql-pools"></a>Analizowanie danych przy użyciu pul SQL
 
 Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą puli SQL. W tym samouczku poznasz przykładowe dane z NYC taksówkami, aby poznać możliwości analityczne puli SQL.
 
-## <a name="link-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Połącz przykładowe dane z NYC taksówkami z bazą danych SQLDB1
+## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Załaduj dane z NYC taksówki do SQLDB1
 
-1. W programie Synapse Studio przejdź do centrum **danych** po lewej stronie.
-1. Kliknij przycisk **+** , a następnie wybierz pozycję **Przeglądaj przykłady**. Spowoduje to otwarcie **przykładowego centrum** i otwarcie karty **zestawy danych** .
-1. Wybierz kolejno **NYC taksówke & Limousine Commission-żółtej z podróży**. Ten zestaw danych zawiera ponad 1 500 000 000 wierszy.
-1. Kliknij pozycję **Dodaj zestaw danych**
-1. W centrum **danych** w obszarze **połączone** zostanie wyświetlony nowy zestaw danych w tej lokalizacji **BLOB Storage platformy Azure > przykładowych zestawach > nyc_tlc_yellow**   
-1. Na karcie oznaczone **przykładowe dane zapytania**wybierz pulę SQL o nazwie **SQLDB1**.
+1. W programie Synapse Studio przejdź do centrum **opracowywania** , a następnie utwórz nowy skrypt SQL.
+1. Wprowadź następujący kod:
+    ```
+    CREATE TABLE [dbo].[Trip]
+    (
+        [DateID] int NOT NULL,
+        [MedallionID] int NOT NULL,
+        [HackneyLicenseID] int NOT NULL,
+        [PickupTimeID] int NOT NULL,
+        [DropoffTimeID] int NOT NULL,
+        [PickupGeographyID] int NULL,
+        [DropoffGeographyID] int NULL,
+        [PickupLatitude] float NULL,
+        [PickupLongitude] float NULL,
+        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [DropoffLatitude] float NULL,
+        [DropoffLongitude] float NULL,
+        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [PassengerCount] int NULL,
+        [TripDurationSeconds] int NULL,
+        [TripDistanceMiles] float NULL,
+        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+        [FareAmount] money NULL,
+        [SurchargeAmount] money NULL,
+        [TaxAmount] money NULL,
+        [TipAmount] money NULL,
+        [TollsAmount] money NULL,
+        [TotalAmount] money NULL
+    )
+    WITH
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    );
 
+    COPY INTO [dbo].[Trip]
+    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/QID6392_20171107_05910_0.txt.gz'
+    WITH
+    (
+        FILE_TYPE = 'CSV',
+        FIELDTERMINATOR = '|',
+        FIELDQUOTE = '',
+        ROWTERMINATOR='0X0A',
+        COMPRESSION = 'GZIP'
+    )
+    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
+    ```
+1. Wykonanie tego skryptu zajmie około 1 minutę. Ładuje on 2 000 000 wierszy danych z NYC taksówki do tabeli o nazwie **dbo. Podróż**
 
 ## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Eksplorowanie danych NYC taksówki w puli SQL
 

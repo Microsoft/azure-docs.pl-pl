@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: 2bc4c2a3ee7f1a1dbd85d46e49ec27e5276de159
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237328"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016558"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Szybki Start: Tworzenie obwodu usługi ExpressRoute z prywatną usługą komunikacji równorzędnej przy użyciu szablonu usługi ARM
 
@@ -76,9 +76,9 @@ Aby znaleźć więcej szablonów związanych z usługą ExpressRoute, zobacz [Sz
 
     Nazwa grupy zasobów jest nazwą projektu z dołączoną **RG** .
 
-Wdrożenie szablonu trwa około 20 minut. Po zakończeniu dane wyjściowe są podobne do:
+    Wdrożenie szablonu trwa około 20 minut. Po zakończeniu dane wyjściowe są podobne do:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="ExpressRoute Menedżer zasobów dane wyjściowe wdrożenia programu PowerShell szablonu":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="ExpressRoute Menedżer zasobów dane wyjściowe wdrożenia programu PowerShell szablonu":::
 
 Azure PowerShell służy do wdrożenia szablonu. Oprócz Azure PowerShell można również użyć Azure Portal, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-portal.md).
 

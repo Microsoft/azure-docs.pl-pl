@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 895355b5acebffe6ad24b15b0c709d21e8f20be4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278653"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016652"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Co to jest tożsamość hybrydowa z Azure Active Directory?
 
@@ -45,7 +45,7 @@ Poniżej przedstawiono kilka typowych scenariuszy związanych z tożsamościami 
 |Wymagana funkcjonalność:|PHS i SSO<sup>1</sup>| PTA i SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Automatyczne synchronizowanie z chmurą nowych kont użytkowników, kontaktów i grup utworzonych w lokalnej usłudze Active Directory.|![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| ![Zalecane](./media/whatis-hybrid-identity/ic195031.png) |![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| 
-|Konfigurowanie dzierżawy na potrzeby scenariuszy hybrydowych usługi Office 365.|![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| ![Zalecane](./media/whatis-hybrid-identity/ic195031.png) |![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| 
+|Skonfiguruj moją dzierżawcę dla Microsoft 365 scenariuszy hybrydowych.|![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| ![Zalecane](./media/whatis-hybrid-identity/ic195031.png) |![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| 
 |Umożliwienie użytkownikom logowania się i uzyskiwania dostępu do usług w chmurze przy użyciu swojego lokalnego hasła.|![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| ![Zalecane](./media/whatis-hybrid-identity/ic195031.png) |![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| 
 |Zaimplementowanie logowania jednokrotnego przy użyciu poświadczeń firmowych.|![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| ![Zalecane](./media/whatis-hybrid-identity/ic195031.png) |![Zalecane](./media/whatis-hybrid-identity/ic195031.png)|  
 |Zagwarantowanie, że żadne skróty haseł nie będą przechowywane w chmurze.| |![Zalecane](./media/whatis-hybrid-identity/ic195031.png)|![Zalecane](./media/whatis-hybrid-identity/ic195031.png)| 

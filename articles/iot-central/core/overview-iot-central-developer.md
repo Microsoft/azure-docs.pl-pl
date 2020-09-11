@@ -7,13 +7,15 @@ ms.date: 05/05/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom:
+- mvc
+- device-developer
+ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417025"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017527"
 ---
 # <a name="iot-central-device-development-overview"></a>Przegląd opracowywania urządzeń IoT Central
 
@@ -87,7 +89,7 @@ Aby zaimplementować zachowanie urządzenia, użyj jednego z [zestawów SDK urz�
 
 Aby uzyskać więcej informacji na temat roli szablonów urządzeń, zobacz [co to są szablony urządzeń?](./concepts-device-templates.md)
 
-Aby zapoznać się z przykładowym kodem, zobacz [Tworzenie i łączenie aplikacji klienckiej Node. js](./tutorial-connect-device-nodejs.md) lub [Tworzenie i łączenie aplikacji klienckiej języka Python](./tutorial-connect-device-python.md).
+Aby zapoznać się z przykładowym kodem, zobacz [Tworzenie i łączenie aplikacji klienckiej Node.js](./tutorial-connect-device-nodejs.md) lub [Tworzenie i łączenie aplikacji klienckiej języka Python](./tutorial-connect-device-python.md).
 
 ### <a name="languages-and-sdks"></a>Języki i zestawy SDK
 

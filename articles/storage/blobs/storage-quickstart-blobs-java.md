@@ -4,16 +4,16 @@ description: W tym przewodniku szybki start dowiesz się, jak używać bibliotek
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 7c0b8d6ea772d3d655eb6fbe39afa5ef9edafc11
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e6f731a72308db98309d40bceb95f6108abab4eb
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319817"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017051"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java
 
@@ -21,16 +21,16 @@ W tym przewodniku szybki start nauczysz się zarządzać obiektami BLOB przy uż
 
 Dodatkowe zasoby:
 
-* [Dokumentacja referencyjna interfejsu API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html)
+* [Dokumentacja referencyjna interfejsu API](/java/api/overview/azure/storage-blob-readme)
 * [Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
 * [Pakiet (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Samples](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Konto usługi Azure Storage. [Utwórz konto magazynu](../common/storage-account-create.md).
-- [Zestaw Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) w wersji 8 lub nowszej.
+- [Zestaw Java Development Kit (JDK)](/java/azure/jdk/) w wersji 8 lub nowszej.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
@@ -159,11 +159,11 @@ Na poniższym diagramie przedstawiono relacje między tymi zasobami.
 
 Użyj następujących klas języka Java do korzystania z tych zasobów:
 
-* [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClient.html): `BlobServiceClient` Klasa umożliwia manipulowanie zasobami usługi Azure Storage i kontenerami obiektów BLOB. Konto magazynu zapewnia przestrzeń nazw najwyższego poziomu dla Blob service.
-* [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html): `BlobServiceClientBuilder` Klasa udostępnia interfejs API programu Fluent Builder, który pomaga ułatwić konfigurację i Tworzenie wystąpień `BlobServiceClient` obiektów.
-* [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html): `BlobContainerClient` Klasa umożliwia manipulowanie kontenerami usługi Azure Storage i ich obiektami BLOB.
-* [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html): `BlobClient` Klasa umożliwia manipulowanie obiektami BLOB usługi Azure Storage.
-* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): `BlobItem` Klasa reprezentuje pojedyncze obiekty blob zwracane z wywołania do `listBlobsFlat` .
+* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): `BlobServiceClient` Klasa umożliwia manipulowanie zasobami usługi Azure Storage i kontenerami obiektów BLOB. Konto magazynu zapewnia przestrzeń nazw najwyższego poziomu dla Blob service.
+* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder): `BlobServiceClientBuilder` Klasa udostępnia interfejs API programu Fluent Builder, który pomaga ułatwić konfigurację i Tworzenie wystąpień `BlobServiceClient` obiektów.
+* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient): `BlobContainerClient` Klasa umożliwia manipulowanie kontenerami usługi Azure Storage i ich obiektami BLOB.
+* [BlobClient](/java/api/com.azure.storage.blob.blobclient): `BlobClient` Klasa umożliwia manipulowanie obiektami BLOB usługi Azure Storage.
+* [BlobItem](/java/api/com.azure.storage.blob.models.blobitem): `BlobItem` Klasa reprezentuje pojedyncze obiekty blob zwrócone przez wywołanie do [listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient.listblobs).
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -201,7 +201,7 @@ Określ nazwę nowego kontenera. Poniższy kod dołącza wartość identyfikator
 > [!IMPORTANT]
 > Nazwy kontenerów muszą być zapisane małymi literami. Aby uzyskać więcej informacji o nazewnictwie kontenerów i obiektów blob, zobacz temat [Nazewnictwo i odwoływanie się do kontenerów, obiektów blob i metadanych](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Następnie Utwórz wystąpienie klasy [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html) , a następnie Wywołaj metodę [Create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#create--) , aby utworzyć kontener na koncie magazynu.
+Następnie Utwórz wystąpienie klasy [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) , a następnie Wywołaj metodę [Create](/java/api/com.azure.storage.blob.blobcontainerclient.create) , aby utworzyć kontener na koncie magazynu.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -221,8 +221,8 @@ BlobContainerClient containerClient = blobServiceClient.createBlobContainer(cont
 Następujący fragment kodu:
 
 1. Tworzy plik tekstowy w lokalnym katalogu *danych* .
-1. Pobiera odwołanie do obiektu [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html) przez wywołanie metody [getBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#getBlobClient-java.lang.String-) kontenera z sekcji [Create a Container](#create-a-container) .
-1. Przekazuje lokalny plik tekstowy do obiektu BLOB, wywołując metodę [uploadFromFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html#uploadFromFile-java.lang.String-) . Ta metoda tworzy obiekt BLOB, jeśli jeszcze nie istnieje, ale nie zastępuje go, jeśli tak się dzieje.
+1. Pobiera odwołanie do obiektu [BlobClient](/java/api/com.azure.storage.blob.blobclient) przez wywołanie metody [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) kontenera z sekcji [Create a Container](#create-a-container) .
+1. Przekazuje lokalny plik tekstowy do obiektu BLOB, wywołując metodę [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) . Ta metoda tworzy obiekt BLOB, jeśli jeszcze nie istnieje, ale nie zastępuje go, jeśli tak się dzieje.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -248,7 +248,7 @@ blobClient.uploadFromFile(localPath + fileName);
 
 ### <a name="list-the-blobs-in-a-container"></a>Wyświetlanie listy obiektów blob w kontenerze
 
-Utwórz listę obiektów BLOB w kontenerze, wywołując metodę [listBlobs](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#listBlobs--) . W takim przypadku tylko jeden obiekt BLOB został dodany do kontenera, więc operacja tworzenia listy zwraca tylko jeden obiekt BLOB.
+Utwórz listę obiektów BLOB w kontenerze, wywołując metodę [listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient.listblobs) . W takim przypadku tylko jeden obiekt BLOB został dodany do kontenera, więc operacja tworzenia listy zwraca tylko jeden obiekt BLOB.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -263,7 +263,7 @@ for (BlobItem blobItem : containerClient.listBlobs()) {
 
 ### <a name="download-blobs"></a>Pobieranie obiektów blob
 
-Pobierz utworzony wcześniej obiekt BLOB, wywołując metodę [downloadToFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/specialized/BlobClientBase.html#downloadToFile-java.lang.String-) . Przykładowy kod dodaje sufiks "DOWNLOAD" do nazwy pliku, aby można było zobaczyć oba pliki w lokalnym systemie plików.
+Pobierz utworzony wcześniej obiekt BLOB, wywołując metodę [downloadToFile](/java/api/com.azure.storage.blob.specialized.blobclientbase.downloadtofile) . Przykładowy kod dodaje sufiks "DOWNLOAD" do nazwy pliku, aby można było zobaczyć oba pliki w lokalnym systemie plików.
 
 Dodaj ten kod na końcu `Main` metody:
 
@@ -280,7 +280,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 ### <a name="delete-a-container"></a>Usuwanie kontenera
 
-Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie całego kontenera przy użyciu metody [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--) . Powoduje również usunięcie plików lokalnych utworzonych przez aplikację.
+Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie całego kontenera przy użyciu metody [delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) . Powoduje również usunięcie plików lokalnych utworzonych przez aplikację.
 
 Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika `System.console().readLine()` , wywołując przed usunięciem obiektu BLOB, kontenera i plików lokalnych. Jest to dobry szansa, aby sprawdzić, czy zasoby zostały utworzone prawidłowo, przed ich usunięciem.
 

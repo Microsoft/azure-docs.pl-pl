@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8e0b244e0ba25ad253b4beeb0e0a707e66c39cef
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0c3896ca49a157928b7aea08ecf3b07485c173f7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483166"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90022328"
 ---
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
@@ -46,7 +46,6 @@ ms.locfileid: "89483166"
 |[Wdróż ustawienia diagnostyczne dla Logic Apps w centrum zdarzeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1dae6c7-13f3-48ea-a149-ff8442661f60) |Wdraża ustawienia diagnostyczne dla Logic Apps w celu przesyłania strumieniowego do regionalnego centrum zdarzeń, gdy jest tworzony lub aktualizowany dowolny Logic Apps, dla którego brakuje tych ustawień diagnostycznych. |DeployIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogicApps_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Wdróż ustawienia diagnostyczne dla Logic Apps do Log Analytics obszaru roboczego](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb889a06c-ec72-4b03-910a-cb169ee18721) |Wdraża ustawienia diagnostyczne dla Logic Apps w celu przesyłania strumieniowego do obszaru roboczego Log Analytics regionalnej, gdy dowolna Logic Apps, w której brakuje tych ustawień diagnostycznych, zostanie utworzona lub zaktualizowana. |DeployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogicApps_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Wdróż ustawienia diagnostyczne dla sieciowych grup zabezpieczeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |Te zasady automatycznie wdrażają ustawienia diagnostyczne do sieciowych grup zabezpieczeń. Konto magazynu o nazwie "{storagePrefixParameter} {NSGLocation}" zostanie utworzone automatycznie. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
-|[Wdróż ustawienia diagnostyczne magazynu Recovery Services do Log Analytics obszaru roboczego dla kategorii określonych zasobów.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc717fb0c-d118-4c43-ab3d-ece30ac81fb3) |Wdróż ustawienia diagnostyczne magazynu Recovery Services do przesyłania strumieniowego do Log Analytics obszaru roboczego dla kategorii określonych zasobów. Jeśli dowolna z kategorii określonych zasobów nie jest włączona, zostanie utworzone nowe ustawienie diagnostyczne. |deployIfNotExists |[1.0.0 — wersja zapoznawcza](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/EnableRecoveryServiceVaultDiagnosticSetting_Backup_DeployIfNotExist.json) |
 |[Wdróż ustawienia diagnostyczne dla usług wyszukiwania w centrum zdarzeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3d5da587-71bd-41f5-ac95-dd3330c2d58d) |Wdraża ustawienia diagnostyczne dla usług wyszukiwania, aby przesyłać strumieniowo do regionalnego centrum zdarzeń, gdy są tworzone lub aktualizowane usługi wyszukiwania, w których brakuje tych ustawień diagnostycznych. |DeployIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Search_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Wdróż ustawienia diagnostyczne dla usług wyszukiwania w obszarze roboczym Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08ba64b8-738f-4918-9686-730d2ed79c7d) |Wdraża ustawienia diagnostyczne dla usług wyszukiwania, aby przesyłać strumieniowo do obszaru roboczego Log Analytics regionalnego, gdy są tworzone lub aktualizowane wszystkie usługi wyszukiwania, dla których brakuje tych ustawień diagnostycznych. |DeployIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Search_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Wdróż ustawienia diagnostyczne dla Service Bus w centrum zdarzeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b51af03-9277-49a9-a3f8-1c69c9ff7403) |Wdraża ustawienia diagnostyczne dla Service Bus w celu przesyłania strumieniowego do regionalnego centrum zdarzeń, gdy jest tworzony lub aktualizowany dowolny Service Bus, dla którego brakuje tych ustawień diagnostycznych. |DeployIfNotExists, wyłączone |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_EventHub.json) |
