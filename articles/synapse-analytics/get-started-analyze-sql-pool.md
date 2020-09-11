@@ -9,24 +9,26 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: e2e1d0479b8edacaae8816d74db061eeedb805a7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 363f2934bbeec266c16711572620e03e69785f94
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325223"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007200"
 ---
 # <a name="analyze-data-with-sql-pools"></a>Analizowanie danych przy użyciu pul SQL
 
 Usługa Azure Synapse Analytics umożliwia analizowanie danych za pomocą puli SQL. W tym samouczku poznasz przykładowe dane z NYC taksówkami, aby poznać możliwości analityczne puli SQL.
 
-## <a name="load-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Ładowanie przykładowych danych z NYC taksówki do bazy danych SQLDB1
+## <a name="link-the-nyc-taxi-sample-data-into-the-sqldb1-database"></a>Połącz przykładowe dane z NYC taksówkami z bazą danych SQLDB1
 
-1. W programie Synapse Studio, w górnym niebieskim menu, wybierz ikonę znaku zapytania (**?**).
-1. Wybierz pozycję **wprowadzenie**— wprowadzenie do  >  **centrum**.
+1. W programie Synapse Studio przejdź do centrum **danych** po lewej stronie.
+1. Kliknij przycisk **+** , a następnie wybierz pozycję **Przeglądaj przykłady**. Spowoduje to otwarcie **przykładowego centrum** i otwarcie karty **zestawy danych** .
+1. Wybierz kolejno **NYC taksówke & Limousine Commission-żółtej z podróży**. Ten zestaw danych zawiera ponad 1 500 000 000 wierszy.
+1. Kliknij pozycję **Dodaj zestaw danych**
+1. W centrum **danych** w obszarze **połączone** zostanie wyświetlony nowy zestaw danych w tej lokalizacji **BLOB Storage platformy Azure > przykładowych zestawach > nyc_tlc_yellow**   
 1. Na karcie oznaczone **przykładowe dane zapytania**wybierz pulę SQL o nazwie **SQLDB1**.
-1. Wybierz pozycję **dane zapytania**. Zostanie wyświetlone powiadomienie "Ładowanie przykładowych danych". Jasnoniebieski pasek stanu w górnej części programu Synapse Studio wskazuje, że dane są ładowane do SQLDB1.
-1. Gdy pasek stanu zmieni kolor na zielony, Odrzuć go.
+
 
 ## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Eksplorowanie danych NYC taksówki w puli SQL
 

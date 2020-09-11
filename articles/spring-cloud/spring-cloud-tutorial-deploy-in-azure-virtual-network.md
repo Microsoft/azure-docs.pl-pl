@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f7817a596a38c6bb259a048e3dfea11abfd14d82
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688457"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006435"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Samouczek: Wdrażanie chmury wiosennej platformy Azure w usłudze Azure Virtual Network (iniekcja sieci wirtualnej)
 
@@ -38,7 +38,7 @@ Sieć wirtualna, w której jest wdrażane wystąpienie usługi w chmurze Azure w
 * **Podsieci**: Sieć wirtualna musi zawierać dwie podsieci dedykowane dla wystąpienia usługi w chmurze Azure wiosny: 
     * Jeden dla środowiska uruchomieniowego usługi
     * Jeden dla aplikacji mikrousług rozruchu sprężynowego. 
-    * Istnieje relacja jeden do jednego między tymi podsieciami i wystąpieniem usługi w chmurze sieci Azure ze sprężyną. Nie można współużytkować wielu wystąpień usługi w jednej podsieci. Dla każdego wdrożonego wystąpienia usługi należy użyć nowych podsieci.
+    * Istnieje relacja jeden do jednego między tymi podsieciami i wystąpieniem usługi w chmurze sieci Azure ze sprężyną. Dla każdego wdrażanego wystąpienia usługi należy użyć nowej podsieci, a Każda podsieć może zawierać tylko jedno wystąpienie usługi.
 * **Przestrzeń adresowa**: jeden blok CIDR do/28 dla podsieci środowiska uruchomieniowego usługi i inny blok CIDR do/24 dla podsieci aplikacji mikrousług rozruchowych.
 * **Tabela tras**: podsieci nie mogą mieć skojarzonej istniejącej tabeli tras.
 
@@ -81,7 +81,7 @@ Wybierz wcześniej utworzoną sieć wirtualną *Azure-sprężynę i chmurę* .
     |Ustawienie  |Wartość                                             |
     |---------|--------------------------------------------------|
     |Rola     |Wybierz **właściciela**                                  |
-    |Wybierz   |Wprowadź *dostawcę zasobów chmury Azure wiosny*      |
+    |Wybierz pozycję   |Wprowadź *dostawcę zasobów chmury Azure wiosny*      |
 
     Następnie wybierz pozycję *dostawca zasobów w chmurze Azure wiosny*, a następnie kliknij przycisk **Zapisz**.
 

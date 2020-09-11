@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0c7efc94bcde18e7b6ff43726602fa87641f3e76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 61d596c4b3a65c54e1a70682adad5b7328c384f8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130621"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007370"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Przeniesienie maszyn wirtualnych platformy Azure do innego regionu platformy Azure
 
@@ -26,9 +26,21 @@ Maszyny wirtualne można przenosić z następujących powodów:
 - Została już wdrożona w jednym regionie i dodano obsługę nowego regionu, która jest bliżej użytkowników końcowych Twojej aplikacji lub usługi. W tym scenariuszu należy przenieść maszyny wirtualne do nowego regionu, aby zmniejszyć opóźnienie. Użyj tego samego podejścia, jeśli chcesz skonsolidować subskrypcje lub jeśli istnieją reguły zarządzania lub organizacji, które wymagają przeniesienia.
 - Maszyna wirtualna została wdrożona jako maszyna wirtualna z jednym wystąpieniem lub jako część zestawu dostępności. Jeśli chcesz zwiększyć dostępność umowy SLA, możesz przenieść maszyny wirtualne do strefy dostępności.
 
-## <a name="steps-to-move-azure-vms"></a>Procedura przenoszenia maszyn wirtualnych platformy Azure
+## <a name="move-vms-with-resource-mover"></a>Przenoszenie maszyn wirtualnych za pomocą przenoszenia zasobów
 
-Aby przenieść maszyny wirtualne, należy wykonać następujące kroki:
+Teraz możesz przenosić maszyny wirtualne do innego regionu za pomocą [usługi Azure Resource](../resource-mover/tutorial-move-region-virtual-machines.md)przenoszącej. Program przenoszenia zasobów jest w publicznej wersji zapoznawczej i oferuje następujące informacje:
+- Jedno centrum do przemieszczania zasobów między regionami.
+- Krótszy czas przenoszenia i złożoność. Wszystko, czego potrzebujesz, znajduje się w jednej lokalizacji.
+- Proste i spójne środowisko do przemieszczania różnych typów zasobów platformy Azure.
+- Prosty sposób identyfikowania zależności między zasobami, które chcesz przenieść. Ułatwia to przenoszenie powiązanych zasobów razem, dzięki czemu wszystko działa zgodnie z oczekiwaniami w regionie docelowym po przeniesieniu.
+- Automatyczne czyszczenie zasobów w regionie źródłowym, jeśli chcesz je usunąć po przeniesieniu.
+- Testowy. Możesz wypróbować przechodzenie, a następnie odrzucić go, jeśli nie chcesz wykonać pełnego przeniesienia.
+
+
+
+## <a name="move-vms-with-site-recovery"></a>Przenoszenie maszyn wirtualnych za pomocą Site Recovery
+
+Przeniesienie maszyn wirtualnych z Site Recovery obejmuje następujące kroki:
 
 1. Weryfikowanie wymagań wstępnych
 2. Przygotuj źródłowe maszyny wirtualne.
@@ -49,7 +61,7 @@ W tej sekcji opisano najpopularniejsze architektury wdrażania aplikacji wielowa
 
 * **Maszyny wirtualne z pojedynczym wystąpieniem wdrożone w różnych warstwach**: Każda maszyna wirtualna w warstwie jest skonfigurowana jako maszyna wirtualna o pojedynczym wystąpieniu i jest połączona z modułami równoważenia obciążenia z innymi warstwami. Ta konfiguracja jest najprostsza do przyjęcia.
 
-     ![Wdrożenie maszyny wirtualnej z jednym wystąpieniem w warstwach](media/move-vm-overview/regular-deployment.png)
+     ![Wybór przenoszenia wdrożenia maszyny wirtualnej z jednym wystąpieniem w warstwach](media/move-vm-overview/regular-deployment.png)
 
 * **Maszyny wirtualne w poszczególnych warstwach wdrożone w różnych zestawach dostępności**: Każda maszyna wirtualna w warstwie jest konfigurowana w zestawie dostępności. [Zestawy dostępności](../virtual-machines/windows/tutorial-availability-sets.md) zapewniają rozproszenie maszyn wirtualnych wdrożonych na platformie Azure pomiędzy wieloma izolowanymi węzłami sprzętowymi w klastrze. Pozwala to zagwarantować, że w przypadku awarii sprzętu lub oprogramowania na platformie Azure będzie to miało wpływ tylko na podzestaw maszyn wirtualnych, a całe rozwiązanie pozostanie dostępne i działa.
 
@@ -64,16 +76,8 @@ W tej sekcji opisano najpopularniejsze architektury wdrażania aplikacji wielowa
 Zgodnie z wymienionymi wcześniej [architekturami](#typical-architectures-for-a-multi-tier-deployment) wdrożenia będą wyglądać podobnie po przeniesieniu do regionu docelowego.
 
 * **Maszyny wirtualne z pojedynczym wystąpieniem wdrożone w różnych warstwach**
-
-     ![Wdrożenie maszyny wirtualnej z jednym wystąpieniem w warstwach](media/move-vm-overview/single-zone.png)
-
 * **Maszyny wirtualne w poszczególnych warstwach wdrożone w różnych zestawach dostępności**
-
-     ![Zbiory dostępności między regionami](media/move-vm-overview/crossregionaset.png)
-
 * **Maszyny wirtualne w każdej warstwie wdrożone w Strefy dostępności**
-
-     ![Wdrożenie maszyny wirtualnej w Strefy dostępności](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Przenoszenie maszyn wirtualnych w celu zwiększenia dostępności
 

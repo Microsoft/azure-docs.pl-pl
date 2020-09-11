@@ -1,6 +1,6 @@
 ---
-title: Przenoszenie maszyn wirtualnych IaaS platformy Azure do innego regionu za pomocą Azure Site Recovery
-description: Używanie usługi Azure Site Recovery do przenoszenia maszyn wirtualnych IaaS platformy Azure z jednego regionu świadczenia usługi Azure do innego.
+title: Przenoszenie maszyn wirtualnych platformy Azure do innego regionu platformy Azure za pomocą Azure Site Recovery
+description: Użyj Azure Site Recovery, aby przenieść maszyny wirtualne platformy Azure z jednego regionu świadczenia usługi Azure do innego.
 services: site-recovery
 author: Sharmistha-Rai
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425929"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006418"
 ---
-# <a name="move-azure-vms-to-another-region"></a>Przenoszenie maszyn wirtualnych platformy Azure do innego regionu
+# <a name="move-vms-to-another-azure-region"></a>Przenoszenie maszyn wirtualnych do innego regionu platformy Azure
 
-Istnieją różne scenariusze, w których należy przenieść istniejące maszyny wirtualne IaaS platformy Azure z jednego regionu do innego. Na przykład chcesz zwiększyć niezawodność i dostępność istniejących maszyn wirtualnych, zwiększyć możliwości zarządzania lub przenieść się z powodów związanych z zarządzaniem. Aby uzyskać więcej informacji, zobacz [Omówienie przenoszenia maszyn wirtualnych platformy Azure](azure-to-azure-move-overview.md). 
+Istnieją scenariusze, w których należy przenieść istniejące maszyny wirtualne IaaS platformy Azure z jednego regionu do innego. Na przykład chcesz zwiększyć niezawodność i dostępność istniejących maszyn wirtualnych, zwiększyć możliwości zarządzania lub przenieść się z powodów związanych z zarządzaniem. Aby uzyskać więcej informacji, zobacz [Omówienie przenoszenia maszyn wirtualnych platformy Azure](azure-to-azure-move-overview.md). 
 
-Usługi [Azure Site Recovery](site-recovery-overview.md) można użyć do zarządzania odzyskiwaniem po awarii maszyn lokalnych i maszyn wirtualnych platformy Azure w celu zapewnienia ciągłości działania i odzyskiwania po awarii (BCDR). Możesz również użyć Site Recovery do zarządzania przenoszeniem maszyn wirtualnych platformy Azure do regionu pomocniczego.
+Za pomocą usługi [Azure Site Recovery](site-recovery-overview.md) można przenieść maszyny wirtualne platformy Azure do regionu pomocniczego.
 
-W tym samouczku wykonasz następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > 
@@ -30,7 +30,19 @@ W tym samouczku wykonasz następujące czynności:
 > * Skopiuj dane i Włącz replikację
 > * Przetestuj konfigurację i przeprowadź przeniesienie
 > * Usuwanie zasobów w regionie źródłowym
-> 
+
+
+> [!IMPORTANT]
+> Aby przenieść maszyny wirtualne platformy Azure do innego regionu, zalecamy teraz korzystanie z funkcji [przenoszenia zasobów platformy Azure](../resource-mover/tutorial-move-region-virtual-machines.md). Program przenoszenia zasobów jest w publicznej wersji zapoznawczej i oferuje następujące informacje:
+> - Jedno centrum do przemieszczania zasobów między regionami.
+> - Krótszy czas przenoszenia i złożoność. Wszystko, czego potrzebujesz, znajduje się w jednej lokalizacji.
+> - Proste i spójne środowisko do przemieszczania różnych typów zasobów platformy Azure.
+> - Prosty sposób identyfikowania zależności między zasobami, które chcesz przenieść. Ułatwia to przenoszenie powiązanych zasobów razem, dzięki czemu wszystko działa zgodnie z oczekiwaniami w regionie docelowym po przeniesieniu.
+> - Automatyczne czyszczenie zasobów w regionie źródłowym, jeśli chcesz je usunąć po przeniesieniu.
+> - Testowy. Możesz wypróbować przechodzenie, a następnie odrzucić go, jeśli nie chcesz wykonać pełnego przeniesienia.
+
+
+
 > [!NOTE]
 > W tym samouczku pokazano, jak przenieść maszyny wirtualne platformy Azure z jednego regionu do innego. Jeśli potrzebujesz poprawić dostępność przez przeniesienie maszyn wirtualnych w zestawie dostępności do obszaru maszyny wirtualne przypięte do strefy w innym regionie, zobacz [samouczek przenoszenie maszyn wirtualnych platformy Azure do strefy dostępności](move-azure-vms-avset-azone.md).
 

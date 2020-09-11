@@ -1,5 +1,6 @@
 ---
 title: Przenoszenie maszyn wirtualnych do regionu platformy Azure ze strefami dostępności przy użyciu Azure Site Recovery
+description: Dowiedz się, jak przenieść maszyny wirtualne do strefy dostępności w innym regionie przy użyciu Site Recovery
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -7,14 +8,18 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: c1a552ba634234ac3b4d4a8eec260c739ce0d846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 7957c6a3fdc8cb798292d03092ee1442b2c0a6bc
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425476"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004514"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Przenoszenie maszyn wirtualnych platformy Azure do stref dostępności
+
+W tym artykule opisano sposób przenoszenia maszyn wirtualnych platformy Azure do strefy dostępności w innym regionie. Jeśli chcesz przejść do innej strefy w tym samym regionie, [zapoznaj się z tym artykułem](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+
 Strefy dostępności na platformie Azure pomaga chronić aplikacje i dane przed awariami centrum danych. Każda strefa dostępności składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. Fizyczne rozdzielenie Strefy dostępności w regionie pomaga chronić aplikacje i dane przed awariami centrów danych. Dzięki Strefy dostępności platforma Azure oferuje umowę dotyczącą poziomu usług (SLA) wynoszącą 99,99% czasu na czas pracy maszyn wirtualnych. Strefy dostępności są obsługiwane w wybranych regionach, jak wspomniano w [regionach, które obsługują strefy dostępności](../availability-zones/az-region.md).
 
 W scenariuszu, w którym maszyny wirtualne są wdrażane jako *pojedyncze wystąpienie* w określonym regionie i chcesz poprawić dostępność przez przeniesienie tych maszyn wirtualnych do strefy dostępności, możesz to zrobić za pomocą Azure Site Recovery. Tę akcję można następnie podzielić na:
@@ -23,7 +28,15 @@ W scenariuszu, w którym maszyny wirtualne są wdrażane jako *pojedyncze wystą
 - Przenoszenie maszyn wirtualnych w zestawie dostępności do Strefy dostępności w regionie docelowym
 
 > [!IMPORTANT]
-> Obecnie Azure Site Recovery obsługuje przeniesienie maszyn wirtualnych z jednego regionu do innego. Obsługuje ona tylko przechodzenie między strefami w obrębie regionu w kilku regionach. [Dowiedz się więcej](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+> Aby przenieść maszyny wirtualne platformy Azure do strefy dostępności w innym regionie regionu, zalecamy teraz korzystanie z funkcji [przenoszenia zasobów platformy Azure](../resource-mover/move-region-availability-zone.md). Program przenoszenia zasobów jest w publicznej wersji zapoznawczej i oferuje następujące informacje:
+> - Jedno centrum do przemieszczania zasobów między regionami.
+> - Krótszy czas przenoszenia i złożoność. Wszystko, czego potrzebujesz, znajduje się w jednej lokalizacji.
+> - Proste i spójne środowisko do przemieszczania różnych typów zasobów platformy Azure.
+> - Prosty sposób identyfikowania zależności między zasobami, które chcesz przenieść. Ułatwia to przenoszenie powiązanych zasobów razem, dzięki czemu wszystko działa zgodnie z oczekiwaniami w regionie docelowym po przeniesieniu.
+> - Automatyczne czyszczenie zasobów w regionie źródłowym, jeśli chcesz je usunąć po przeniesieniu.
+> - Testowy. Możesz wypróbować przechodzenie, a następnie odrzucić go, jeśli nie chcesz wykonać pełnego przeniesienia.
+
+
 
 ## <a name="check-prerequisites"></a>Sprawdzanie wymagań wstępnych
 

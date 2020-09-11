@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b6ae93c108481d4f46694fd1658ba7b27a13c188
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400334"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007404"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Samouczek: jak wyświetlić kierunki tras za pomocą usługi Azure Maps Route i kontrolki mapy
 
@@ -143,7 +143,7 @@ W tym samouczku wyrenderuje trasę przy użyciu warstwy liniowej. Punkty począt
 
     W programie obsługi zdarzeń kontrolki mapy `ready` jest tworzone źródło danych służące do przechowywania trasy od początku do punktu końcowego. Aby zdefiniować sposób renderowania linii trasy, warstwa linii zostanie utworzona i dołączona do źródła danych.  Aby upewnić się, że linia trasy nie obejmuje etykiet drogi, przeszedł drugi parametr z wartością `'labels'` .
 
-    Następnie zostanie utworzona i dołączona do źródła danych. Ta warstwa określa sposób renderowania punktów początkowych i końcowych. W takim przypadku dodano wyrażenia, aby pobrać obraz ikony i informacje o etykiecie tekstowej z właściwości dla każdego obiektu punktu.
+    Następnie zostanie utworzona i dołączona do źródła danych. Ta warstwa określa sposób renderowania punktów początkowych i końcowych. Dodano wyrażenia, aby pobrać obraz ikony i informacje o etykiecie tekstowej z właściwości dla każdego obiektu punktu. Aby dowiedzieć się więcej na temat wyrażeń, zobacz [oparte na danych wyrażenia stylów](data-driven-style-expressions-web-sdk.md).
 
 2. Ustaw punkt początkowy jako Microsoft, a punkt końcowy jako stację gazową w Seattle.  W programie obsługi zdarzeń kontrolki mapy `ready` Dodaj następujący kod.
 
@@ -168,7 +168,9 @@ W tym samouczku wyrenderuje trasę przy użyciu warstwy liniowej. Punkty począt
     });
     ```
 
-    Ten kod tworzy dwa [obiekty punktu GEOJSON](https://en.wikipedia.org/wiki/GeoJSON) do reprezentowania punktów początkowych i końcowych, które następnie są dodawane do źródła danych. Ostatni blok kodu ustawia widok kamery przy użyciu szerokości geograficznej i długości geograficznej punktu początkowego i końcowego. Aby uzyskać więcej informacji na temat właściwości setcamera kontrolki mapy, zobacz [setcamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) .
+    Ten kod tworzy dwa [obiekty punktu GEOJSON](https://en.wikipedia.org/wiki/GeoJSON) do reprezentowania punktów początkowych i końcowych, które następnie są dodawane do źródła danych. 
+
+    Ostatni blok kodu ustawia widok kamery przy użyciu szerokości geograficznej i długości geograficznej punktu początkowego i końcowego. Punkt początkowy i końcowy zostały dodane do źródła danych. Pole ograniczenia dla punktu początkowego i końcowego jest obliczane przy użyciu funkcji `atlas.data.BoundingBox.fromData`. To ograniczenie służy do ustawiania widoku kamery mapy na całej trasie przy użyciu `map.setCamera` funkcji. Dodano uzupełnienie, aby skompensować wymiary pikseli ikon symboli. Aby uzyskać więcej informacji na temat właściwości setcamera kontrolki mapy, zobacz [setcamera (CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) .
 
 3. Zapisz **MapRoute.html** i Odśwież przeglądarkę. Mapa jest teraz wyśrodkowana w Seattle. Niebieski numer PIN Teardrop oznacza punkt początkowy. Okrągły niebieski numer PIN oznacza punkt końcowy.
 
@@ -178,7 +180,10 @@ W tym samouczku wyrenderuje trasę przy użyciu warstwy liniowej. Punkty począt
 
 ## <a name="get-route-directions"></a>Pobierz wskazówki dotyczące trasy
 
-W tej sekcji pokazano, jak używać interfejsu API usługi Route Azure Maps, aby uzyskać wskazówki od jednego punktu do drugiego. W ramach tej usługi istnieją inne interfejsy API, które umożliwiają planowanie *najszybszych* *,* *najkrótszych*lub *thrillingych* tras między dwiema lokalizacjami. Ta usługa umożliwia również użytkownikom planowanie przyszłych tras w oparciu o historyczne warunki ruchu. Użytkownicy mogą zobaczyć prognozowanie czasów trwania tras w danym momencie. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie interfejsu API wskazówek dotyczących trasy](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+W tej sekcji pokazano, jak za pomocą interfejsu API wskazówek dotyczących tras Azure Maps uzyskać wskazówki dotyczące trasy i szacowany czas przybycia z jednego punktu do drugiego.
+
+>[!TIP]
+>Usługi tras Azure Maps oferują interfejsy API, które umożliwiają planowanie tras opartych na różnych typach *fastest*tras, takich jak najszybszy *eco*, *najkrótszy*, *thrilling* lub na trasie na podstawie odległości, warunków ruchu oraz używanego trybu transportu. Usługa umożliwia również użytkownikom planowanie przyszłych tras w oparciu o historyczne warunki ruchu. Użytkownicy mogą zobaczyć prognozowanie czasów trwania tras w danym momencie. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie interfejsu API wskazówek dotyczących trasy](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 1. W `GetMap` funkcji wewnątrz `ready` procedury obsługi zdarzeń kontrolki Dodaj następujący kod do kodu JavaScript.
 
@@ -193,7 +198,7 @@ W tej sekcji pokazano, jak używać interfejsu API usługi Route Azure Maps, aby
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential`Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()`Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . `routeURL`Reprezentuje adres URL służący do Azure Maps operacji [routingu](https://docs.microsoft.com/rest/api/maps/route) .
+   `SubscriptionKeyCredential`Tworzy `SubscriptionKeyCredentialPolicy` do uwierzytelniania żądania HTTP do Azure Maps przy użyciu klucza subskrypcji. `atlas.service.MapsURL.newPipeline()`Przyjmuje `SubscriptionKeyCredential` zasady i tworzy wystąpienie [potoku](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest&preserve-view=false) . `routeURL`Reprezentuje adres URL służący do Azure Maps operacji [routingu](https://docs.microsoft.com/rest/api/maps/route) .
 
 2. Po skonfigurowaniu poświadczeń i adresu URL Dołącz następujący kod do `ready` programu obsługi zdarzeń kontrolki. Ten kod konstruuje trasę od punktu początkowego do punktu końcowego. `routeURL`Żąda interfejsu API usługi trasy Azure Maps, aby obliczyć kierunki tras. Zbieranie funkcji GEOJSON z odpowiedzi jest następnie wyodrębniane przy użyciu `geojson.getFeatures()` metody i dodawane do źródła danych.
 
