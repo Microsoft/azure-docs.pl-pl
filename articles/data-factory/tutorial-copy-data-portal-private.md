@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: b2e666419a702832243c69bdb059f4447b02d756
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079459"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024421"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Bezpieczne kopiowanie danych z usługi Azure Blob Storage do bazy danych SQL za pomocą prywatnych punktów końcowych
 
@@ -57,7 +57,7 @@ Teraz możesz przygotować magazyn obiektów blob i bazę danych SQL na potrzeby
 
 #### <a name="create-a-sink-sql-table"></a>Tworzenie tabeli SQL ujścia
 
-1. Utwórz tabelę **dbo.emp** w bazie danych SQL przy użyciu poniższego skryptu SQL:
+Utwórz tabelę **dbo.emp** w bazie danych SQL przy użyciu poniższego skryptu SQL:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -70,8 +70,6 @@ Teraz możesz przygotować magazyn obiektów blob i bazę danych SQL na potrzeby
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Zezwól usługom platformy Azure na dostęp do programu SQL Server. Upewnij się, **że na serwerze** SQL jest włączona opcja Zezwalaj na **dostęp do usług platformy Azure** , dzięki czemu Data Factory mogą zapisywać dane na serwerze SQL Server. Aby sprawdzić i włączyć to ustawienie, przejdź do pozycji **Azure SQL Server**  >  **Przegląd**  >  **Ustawianie zapory serwera**. Dla opcji **Zezwalaj na dostęp do usług platformy Azure** ustaw wartość **włączone**.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usługi Data Factory, aby utworzyć potok w fabryce danych.
