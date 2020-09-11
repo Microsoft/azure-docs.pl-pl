@@ -28,7 +28,7 @@ Pierwszym krokiem podczas definiowania standardowego wzorca zgodności jest utwo
 
    Lub wybierz pozycję **Utwórz** na stronie **wprowadzenie** , aby przejść bezpośrednio do tworzenia planu.
 
-   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Zrzut ekranu przedstawiający przycisk "Utwórz plan" na stronie definicje strategii." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Zrzut ekranu przedstawiający przycisk Utwórz plan na stronie definicje strategii." border="false":::
 
 1. Wybierz pozycję **Rozpocznij od pustej** strategii z karty w górnej części listy wbudowanych planów.
 
@@ -265,7 +265,7 @@ Teraz, gdy plan został przypisany do subskrypcji, sprawdź postęp wdrożenia:
 
 1. Na liście planów kliknij prawym przyciskiem myszy wcześniej przypisane, a następnie wybierz pozycję **Wyświetl szczegóły przydziału**.
 
-   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Zrzut ekranu przedstawiający menu kontekstowe przypisania strategii z wybraną opcją "Wyświetl szczegóły przypisania"." border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Zrzut ekranu przedstawiający menu kontekstowe przypisania strategii z wybraną opcją Wyświetl szczegóły przypisania." border="false":::
 
 1. Na stronie **przypisanie** strategii Sprawdź, czy wszystkie artefakty zostały pomyślnie wdrożone i czy nie wystąpiły żadne błędy podczas wdrażania. Jeśli wystąpią błędy, zobacz tematy dotyczące [rozwiązywania problemów](./troubleshoot/general.md) , aby określić, co poszło źle.
 
