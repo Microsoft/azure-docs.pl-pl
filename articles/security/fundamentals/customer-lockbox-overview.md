@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/04/2019
-ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735440"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650968"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Skrytka klienta Microsoft Azure
 
@@ -25,6 +25,49 @@ Skrytka klienta dla Microsoft Azure udostępnia interfejs umożliwiający klient
 W tym artykule opisano, jak żądania Skrytka klienta są inicjowane, śledzone i przechowywane na potrzeby późniejszych przeglądów i inspekcji.
 
 Skrytka klienta jest teraz ogólnie dostępna i obecnie włączona na potrzeby dostępu pulpitu zdalnego do maszyn wirtualnych.
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Obsługiwane usługi i scenariusze w wersji zapoznawczej
+
+Następujące usługi są obecnie dostępne w wersji zapoznawczej dla Skrytka klienta:
+
+- API Management
+- Azure App Service
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Synapse Analytics
+- Cognitive Services
+- Container Registry
+- Azure Data Factory
+- Azure Database for PostgreSQL
+- Azure Kubernetes Service
+- Azure Data Box
+- HDInsight
+- Funkcje
+- Azure Storage
+- Azure SQL DB
+- Azure Data Explorer
+- Maszyny wirtualne (teraz obejmują również dostęp do zrzutów pamięci i dysków zarządzanych)
+- Transfery subskrypcji platformy Azure
+
+Aby włączyć Skrytka klienta dla tych ofert w wersji zapoznawczej dla Twojej organizacji, zarejestruj się, aby uzyskać [skrytka klienta dla publicznej wersji zapoznawczej platformy Azure](https://aka.ms/customerlockbox/insiderprogram).
+
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Obsługiwane usługi i scenariusze ogólnie dostępne
+
+Poniższe usługi i scenariusze są obecnie ogólnie dostępne dla Skrytka klienta.
+
+### <a name="remote-desktop-access-to-virtual-machines"></a>Dostęp pulpitu zdalnego do maszyn wirtualnych
+
+Skrytka klienta jest obecnie włączona dla żądań dostępu pulpitu zdalnego do maszyn wirtualnych. Obsługiwane są następujące obciążenia:
+- Platforma jako usługa (PaaS) — Cloud Services platformy Azure (rola sieci Web i proces roboczy)
+- Infrastruktura jako usługa (IaaS) — systemy Windows i Linux (tylko Azure Resource Manager)
+- Zestaw skalowania maszyn wirtualnych — systemy Windows i Linux
+
+> [!NOTE]
+> Wystąpienia klasyczne IaaS nie są obsługiwane przez Skrytka klienta. Jeśli masz obciążenia działające na IaaS klasyczne wystąpienia, zalecamy przeprowadzenie migracji z klasycznego do Menedżer zasobów modeli wdrażania. Aby uzyskać instrukcje, zobacz [Migrowanie zasobów IaaS z platformy klasycznej do Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+
+#### <a name="detailed-audit-logs"></a>Szczegółowe dzienniki inspekcji
+
+W przypadku scenariuszy obejmujących dostęp do pulpitu zdalnego można użyć dzienników zdarzeń systemu Windows, aby przejrzeć działania podejmowane przez inżyniera firmy Microsoft. Rozważ użycie Azure Security Center do zbierania dzienników zdarzeń i kopiowania danych do obszaru roboczego w celu analizy. Aby uzyskać więcej informacji, zobacz [zbieranie danych w Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Przepływ pracy
 
@@ -91,40 +134,9 @@ Przykład:
 
 ![Azure Skrytka klienta — dzienniki aktywności](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Obsługiwane usługi i scenariusze ogólnie dostępne
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Skrytka klienta integrację z usługą Azure Security test
 
-Poniższe usługi i scenariusze są obecnie ogólnie dostępne dla Skrytka klienta.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Dostęp pulpitu zdalnego do maszyn wirtualnych
-
-Skrytka klienta jest obecnie włączona dla żądań dostępu pulpitu zdalnego do maszyn wirtualnych. Obsługiwane są następujące obciążenia:
-- Platforma jako usługa (PaaS) — Cloud Services platformy Azure (rola sieci Web i proces roboczy)
-- Infrastruktura jako usługa (IaaS) — systemy Windows i Linux (tylko Azure Resource Manager)
-- Zestaw skalowania maszyn wirtualnych — systemy Windows i Linux
-
-> [!NOTE]
-> Wystąpienia klasyczne IaaS nie są obsługiwane przez Skrytka klienta. Jeśli masz obciążenia działające na IaaS klasyczne wystąpienia, zalecamy przeprowadzenie migracji z klasycznego do Menedżer zasobów modeli wdrażania. Aby uzyskać instrukcje, zobacz [Migrowanie zasobów IaaS z platformy klasycznej do Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-#### <a name="detailed-audit-logs"></a>Szczegółowe dzienniki inspekcji
-
-W przypadku scenariuszy obejmujących dostęp do pulpitu zdalnego można użyć dzienników zdarzeń systemu Windows, aby przejrzeć działania podejmowane przez inżyniera firmy Microsoft. Rozważ użycie Azure Security Center do zbierania dzienników zdarzeń i kopiowania danych do obszaru roboczego w celu analizy. Aby uzyskać więcej informacji, zobacz [zbieranie danych w Azure Security Center](../../security-center/security-center-enable-data-collection.md).
-
-## <a name="supported-services-and-scenarios-in-preview"></a>Obsługiwane usługi i scenariusze w wersji zapoznawczej
-
-Następujące usługi są obecnie dostępne w wersji zapoznawczej dla Skrytka klienta:
-
-- Azure Storage
-
-- Azure SQL DB
-
-- Azure Data Explorer
-
-- Maszyny wirtualne (teraz obejmują również dostęp do zrzutów pamięci i dysków zarządzanych)
-
-- Transfery subskrypcji platformy Azure
-
-Aby włączyć Skrytka klienta dla tych ofert w wersji zapoznawczej dla Twojej organizacji, zarejestruj się, aby uzyskać [skrytka klienta dla publicznej wersji zapoznawczej platformy Azure](https://aka.ms/customerlockbox/insiderprogram).
-
+Wprowadziliśmy nową kontrolkę bazową ([3,13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) na platformie Azure Security test, która obejmuje skrytka klienta możliwości zastosowania. Klienci mogą teraz korzystać z testu porównawczego w celu sprawdzenia Skrytka klienta zastosowania do usługi.
 
 ## <a name="exclusions"></a>Wykluczenia
 

@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799569"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657942"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor skoroszyty
 
@@ -43,12 +43,13 @@ Skoroszyty są obecnie zgodne z następującymi źródłami danych:
 
 Skoroszyty zapewniają bogaty zestaw funkcji wizualizacji danych. Aby uzyskać szczegółowe przykłady poszczególnych typów wizualizacji, możesz skorzystać z przykładowych linków poniżej:
 
-* [Tekst](workbooks-visualizations.md#text)
-* [Wykresy](workbooks-visualizations.md#charts)
-* [Siatki](workbooks-visualizations.md#grids)
-* [Okładzin](workbooks-visualizations.md#tiles)
-* [Drzewo](workbooks-visualizations.md#trees)
-* [Diagram](workbooks-visualizations.md#graphs)
+* [Tekst](workbooks-text-visualizations.md)
+* [Wykresy](workbooks-chart-visualizations.md)
+* [Siatki](workbooks-grid-visualizations.md)
+* [Okładzin](workbooks-tile-visualizations.md)
+* [Drzewo](workbooks-tree-visualizations.md)
+* [Diagram](workbooks-graph-visualizations.md)
+* [Słupek złożony](workbooks-composite-bar.md)
 
 ![Przykładowe wizualizacje skoroszytu](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +87,9 @@ W przypadku tego konkretnego skoroszytu środowisko pracy jest interaktywne. Mo�
 
 ### <a name="editing-mode"></a>Tryb edycji
 
-Aby zrozumieć, jak ten szablon skoroszytu został umieszczony razem, należy przełączyć się do trybu edycji, wybierając pozycję **Edytuj**. 
+Aby zrozumieć, jak ten szablon skoroszytu został umieszczony razem, należy przełączyć się do trybu edycji, wybierając pozycję **Edytuj**.
 
-![Zrzut ekranu szablonu analizy błędów aplikacji](./media/workbooks-overview/edit.png)
+![Zrzut ekranu przycisku Edytuj w skoroszytach.](./media/workbooks-overview/edit.png)
 
 Po przełączeniu do trybu edycji zobaczysz kilka pól **edycji** , które są wyświetlane z prawej strony w każdym z aspektów skoroszytu.
 

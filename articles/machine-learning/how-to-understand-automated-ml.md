@@ -11,19 +11,19 @@ ms.subservice: core
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 89fe1d80fb7282a72bde6bcafa070f2d7461b02f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0a41aa062cf4804587b97ce224f80c0bc4bf2b3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320837"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650574"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Opis wyników zautomatyzowanego uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak wyświetlać i zrozumieć wykresy i metryki dla każdego z zautomatyzowanych przebiegów uczenia maszynowego. 
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 + [Metryki i wykresy dla modeli klasyfikacji](#classification)
 + [Metryki i wykresy dla modeli regresji](#regression)
 + [Interpretacja modelu i ważność funkcji](#explain-model)
@@ -59,14 +59,14 @@ Po uruchomieniu zautomatyzowanego eksperymentu w usłudze Machine Learning histo
 
    [![Model eksperymentu](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-Te same wyniki są również widoczne podczas uruchamiania, gdy używasz `RunDetails` [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+Te same wyniki są również widoczne podczas uruchamiania, gdy używasz `RunDetails` [widżetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
-## <a name="classification-results"></a><a name="classification"></a>Wyniki klasyfikacji
+## <a name="classification-results"></a><a name="classification"></a> Wyniki klasyfikacji
 
 Thee następujące metryki i wykresy są dostępne dla każdego modelu klasyfikacji kompilowanego przy użyciu funkcji automatycznego uczenia maszynowego Azure Machine Learning
 
 + [Metryki](#classification-metrics)
-+ [Zamieszanie macierzy](#confusion-matrix)
++ [Macierz pomyłek](#confusion-matrix)
 + [Wykres dokładności do odzyskania](#precision-recall-chart)
 + [Charakterystyki operacyjne odbiornika (lub ROC)](#roc)
 + [Krzywa podnoszenia](#lift-curve)
@@ -108,7 +108,7 @@ Konkretnym przykładem jest to, że ten predykat odróżniający jest bardziej p
 
 <a name="confusion-matrix"></a>
 
-### <a name="confusion-matrix"></a>Zamieszanie macierzy
+### <a name="confusion-matrix"></a>Macierz pomyłek
 
 #### <a name="what-is-a-confusion-matrix"></a>Co to jest macierz niepomylena?
 Macierz niepomylena służy do opisywania wydajności modelu klasyfikacji. Każdy wiersz zawiera wystąpienia prawdy lub rzeczywistej klasy w zestawie danych, a każda kolumna reprezentuje wystąpienia klasy, które zostały przewidywalne przez model. 
@@ -211,7 +211,7 @@ Dobrze skalibrowane modele są wyrównane z linią y = x, gdzie prawidłowo prze
 ##### <a name="example-2-an-over-confident-model"></a>Przykład 2: model o nadmiernej pewności
 ![Model o nadmiernej pewności](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
-## <a name="regression-results"></a><a name="regression"></a>Wyniki regresji
+## <a name="regression-results"></a><a name="regression"></a> Wyniki regresji
 
 Thee następujące metryki i wykresy są dostępne dla każdego modelu regresji kompilowanego przy użyciu funkcji automatycznego uczenia maszynowego Azure Machine Learning
 
@@ -220,7 +220,7 @@ Thee następujące metryki i wykresy są dostępne dla każdego modelu regresji 
 + [Histogram reszty](#histo)
 
 
-### <a name="regression-metrics"></a><a name="reg-metrics"></a>Metryki regresji
+### <a name="regression-metrics"></a><a name="reg-metrics"></a> Metryki regresji
 
 Następujące metryki są zapisywane w każdej iteracji uruchomienia dla zadania regresji lub prognozowania.
 
@@ -238,7 +238,7 @@ normalized_root_mean_squared_error|Znormalizowany, średni błąd oznaczający, 
 root_mean_squared_log_error|Główny średni kwadratowy błąd w dzienniku jest pierwiastek kwadratowy oczekiwanego kwadratowego błędu logarytmicznego|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Brak|
 normalized_root_mean_squared_log_error|Znormalizowany błąd oznaczający, że w przypadku standardowego elementu głównego jest średni kwadratowy błąd dziennika podzielony przez zakres danych|[Podstaw](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dzielenie według zakresu danych|
 
-### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Wykres przewidywany a rzeczywisty
+### <a name="predicted-vs-true-chart"></a><a name="pvt"></a> Wykres przewidywany a rzeczywisty
 #### <a name="what-is-a-predicted-vs-true-chart"></a>Co to jest wykres predykcyjny a prawda?
 Przewidywany a prawda przedstawia relację między przewidywaną wartością a jej skorelowane wartości prawdziwe dla problemu z regresją. Ten wykres może służyć do mierzenia wydajności modelu, jak bliżej osi y = x, a wartości przewidywane to lepsza dokładność modelu predykcyjnego.
 
@@ -254,7 +254,7 @@ Po każdym uruchomieniu można zobaczyć przewidywany wykres a true dla każdego
 
 
 
-### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histogram wykresu reszty
+### <a name="histogram-of-residuals-chart"></a><a name="histo"></a> Histogram wykresu reszty
 #### <a name="what-is-a-residuals-chart"></a>Co to jest wykres reszty?
 Reszta jest różnicą między prognozą i rzeczywistą wartością ( `y_pred - y_true` ). Aby pokazać margines błędu z niską ilością bias, histogram reszty powinien być w kształcie krzywej dzwonka, wyśrodkowany wokół 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>Co robią automatyczne ML z wykresem reszty?
@@ -268,7 +268,7 @@ Dobry model zwykle będzie miał pozostały w przybliżeniu równy zeru.
 ##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Przykład 2: model regresji z bardziej równomiernym rozkładem błędów
 ![Model regresji z większą ilością równomiernej dystrybucji błędów](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Interpretacja modelu i ważność funkcji
+## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a> Interpretacja modelu i ważność funkcji
 Zautomatyzowana ML udostępnia pulpit nawigacyjny do tłumaczenia maszynowego dla przebiegów.
 Aby uzyskać więcej informacji na temat włączania funkcji interpretacji, zobacz [instrukcje](how-to-machine-learning-interpretability-automl.md) włączania interpretacji w zautomatyzowanych eksperymentach ml.
 

@@ -3,13 +3,13 @@ title: Rozwiązywanie typowych błędów związanych z wdrażaniem
 description: Opisuje sposób rozwiązywania typowych błędów podczas wdrażania zasobów na platformie Azure przy użyciu Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008172"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650945"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Usuwanie typowych błędów wdrożeń na platformie Azure przy użyciu usługi Azure Resource Manager
 
@@ -75,7 +75,7 @@ Jeśli szukasz informacji o kodzie błędu i te informacje nie zostały podane w
 | StorageAccountNotFound | Sprawdź subskrypcję, grupę zasobów i nazwę konta magazynu, którego próbujesz użyć. | |
 | SubnetsNotInSameVnet | Maszyna wirtualna może mieć tylko jedną sieć wirtualną. Podczas wdrażania kilku kart sieciowych upewnij się, że należą one do tej samej sieci wirtualnej. | [Wiele kart sieciowych](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | Nie można uzyskać dostępu do określonej subskrypcji dla wdrożenia. Może to być nieprawidłowy identyfikator subskrypcji, użytkownik wdrażający szablon nie ma wystarczających uprawnień do wdrożenia w ramach subskrypcji lub Identyfikator subskrypcji ma zły format. W przypadku wdrażania zagnieżdżonych wdrożeń w [różnych zakresach](cross-scope-deployment.md)podaj identyfikator GUID subskrypcji. | |
-| SubscriptionNotRegistered | Podczas wdrażania zasobów sieciowych dostawca zasobów Microsoft. Network jest automatycznie rejestrowany w subskrypcji. Czasami Rejestracja automatyczna nie kończy się w czasie. Aby uniknąć tego sporadycznego błędu, zarejestruj dostawcę zasobów Microsoft. Network przed wdrożeniem. | [Rozwiązywanie rejestracji](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | Podczas wdrażania zasobu dostawca zasobów musi być zarejestrowany dla Twojej subskrypcji. W przypadku użycia szablonu Azure Resource Manager do wdrożenia dostawca zasobów zostanie automatycznie zarejestrowany w subskrypcji. Czasami Rejestracja automatyczna nie kończy się w czasie. Aby uniknąć tego sporadycznego błędu, należy zarejestrować dostawcę zasobów przed wdrożeniem. | [Rozwiązywanie rejestracji](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Usuń niepotrzebne zależności. | [Rozwiązywanie zależności cyklicznych](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Zmniejsz liczbę grup zasobów dla jednego wdrożenia. | [Wdrożenie między zakresami](cross-scope-deployment.md) |
 

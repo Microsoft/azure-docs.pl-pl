@@ -8,20 +8,44 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
-ms.openlocfilehash: e5740992e6cde4f4f6e009394878f21e957381d4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c990b6980dea871679b0b301e293e4fb94748db7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132861"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650906"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Obsługa języka dla zasobów QnA Maker i baz wiedzy
 
 Język dla usługi jest wybierany podczas tworzenia pierwszej bazy wiedzy w zasobie. Wszystkie dodatkowe bazy wiedzy w zasobie muszą znajdować się w tym samym języku. 
 
-Język określa przydatność wyników QnA Maker zapewnia odpowiedzi na zapytania użytkownika.
+Język określa przydatność wyników QnA Maker zapewnia odpowiedzi na zapytania użytkownika. Zasób QnA Maker i wszystkie bazy wiedzy w tym zasobie obsługują jeden język. Pojedynczy język jest niezbędny do dostarczenia najlepszych wyników odpowiedzi na zapytanie.
 
-Dowiedz się więcej o [wpływie wyboru języka](../how-to/language-knowledge-base.md).
+## <a name="single-language-per-resource"></a>Pojedynczy język na zasób
+
+Rozważ następujące źródła:
+
+* Usługa QnA Maker i wszystkie jej bazy wiedzy obsługują tylko jeden język.
+* Język jest jawnie ustawiany podczas tworzenia pierwszej bazy wiedzy usługi
+* Język jest określany na podstawie plików i adresów URL dodanych podczas tworzenia bazy wiedzy
+* Nie można zmienić języka dla żadnych innych baz wiedzy w usłudze
+* Język jest używany przez usługę Wyszukiwanie poznawcze (ranga #1) i usługę QnA Maker (ranga #2) do generowania najlepszej odpowiedzi na zapytanie
+
+## <a name="supporting-multiple-languages"></a>Obsługa wielu języków
+
+Jeśli musisz obsługiwać system bazy wiedzy, który zawiera kilka języków, możesz:
+
+* Użyj [usługi Translator](../../translator/translator-info-overview.md) , aby przetłumaczyć pytanie na jeden język przed wysłaniem pytania do bazy wiedzy. Pozwala to skupić się na jakości jednego języka i jakości alternatywnych pytań i odpowiedzi.
+* Utwórz zasób QnA Maker i bazę wiedzy w tym zasobie dla każdego języka. Pozwala to na zarządzanie oddzielnymi innymi pytaniami i tekstem odpowiedzi, który jest bardziej złożonych dla każdego języka. Zapewnia to znacznie większą elastyczność, ale wymaga znacznie większego kosztu konserwacji, gdy pytania lub odpowiedzi zmieniają się we wszystkich językach.
+
+Przejrzyj [języki obsługiwane](../overview/language-support.md) przez QNA Maker.
+
+### <a name="support-each-language-with-a-qna-maker-resource"></a>Obsługa każdego języka za pomocą zasobu QnA Maker
+
+* Utwórz zasób QnA Maker dla każdego języka
+* Dodaj tylko pliki i adresy URL dla tego języka
+* Użyj konwencji nazewnictwa dla zasobu, aby zidentyfikować język. Przykład dotyczy `qna-maker-fr` wszystkich baz wiedzy dla dokumentów francuskich
+
 
 ## <a name="languages-supported"></a>Obsługiwane języki
 
@@ -56,9 +80,9 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |Indonezyjski|
 |Irlandzki|
 |Włoski|
-|Japoński|
+|japoński|
 |Kannada|
-|Koreański|
+|koreański|
 |Łotewski|
 |Litewski|
 |Malayalam|
@@ -82,6 +106,30 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |Ukraiński|
 |Urdu|
 |Wietnamski|
+
+## <a name="query-matching-and-relevance"></a>Dopasowanie i zgodność zapytania
+QnA Maker zależy od [analizatorów języka wyszukiwanie poznawcze platformy Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) w celu uzyskania wyników.
+
+Gdy możliwości platformy Azure Wyszukiwanie poznawcze są dostępne dla obsługiwanych języków, QnA Maker ma dodatkową rangę, która znajduje się powyżej wyników usługi Azure Search. W tym modelu rangi używamy niektórych specjalnych funkcji semantycznych i opartych na programie Word w następujących językach.
+
+|Języki z dodatkową rangą|
+|--|
+|Chiński|
+|Czeski|
+|Niderlandzki|
+|Angielski|
+|Francuski|
+|niemiecki|
+|Węgierski|
+|Włoski|
+|japoński|
+|koreański|
+|Polski|
+|Portugalski|
+|Hiszpański|
+|Szwedzki|
+
+Ta dodatkowa klasyfikacja jest wewnętrzną pracą rangi QnA Maker.
 
 ## <a name="next-steps"></a>Następne kroki
 

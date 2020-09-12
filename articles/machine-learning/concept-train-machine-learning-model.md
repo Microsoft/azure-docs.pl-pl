@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144842"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651023"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -42,13 +42,13 @@ Każda z tych metod szkoleniowych może używać różnych typów zasobów oblic
 
 Zestaw Azure Machine Learning SDK dla języka Python umożliwia tworzenie i uruchamianie przepływów pracy uczenia maszynowego przy użyciu Azure Machine Learning. Można korzystać z usługi z interaktywnej sesji języka Python, Jupyter notesów, Visual Studio Code lub innego środowiska IDE.
 
-* [Co to jest zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Instalowanie/aktualizowanie zestawu SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Co to jest zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+* [Instalowanie/aktualizowanie zestawu SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Skonfiguruj środowisko programistyczne dla Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Uruchom konfigurację
 
-Ogólne zadanie szkoleniowe z Azure Machine Learning można zdefiniować za pomocą [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py). Następnie zostanie użyta Konfiguracja przebiegu wraz ze skryptami szkoleniowymi do uczenia modelu w obiekcie docelowym obliczeń.
+Ogólne zadanie szkoleniowe z Azure Machine Learning można zdefiniować za pomocą [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true). Następnie zostanie użyta Konfiguracja przebiegu wraz ze skryptami szkoleniowymi do uczenia modelu w obiekcie docelowym obliczeń.
 
 Możesz rozpocząć od konfiguracji uruchamiania komputera lokalnego, a następnie w razie potrzeby przełączyć się na jeden dla docelowej wartości obliczeniowej opartej na chmurze. Podczas zmieniania elementu docelowego obliczeń można zmienić tylko używaną konfigurację uruchamiania. Uruchomienie rejestruje również informacje o zadaniu szkoleniowym, takie jak dane wejściowe, wyjściowe i dzienniki.
 
@@ -123,7 +123,7 @@ Aby uzyskać więcej informacji, zobacz następujące artykuły:
 * [Samouczek: Tworzenie modelu regresji logistycznej](tutorial-1st-r-experiment.md)
 * [Dokumentacja zestawu Azure Machine Learning SDK dla języka R](https://azure.github.io/azureml-sdk-for-r/index.html)
 
-## <a name="azure-machine-learning-designer"></a>Projektant Azure Machine Learning
+## <a name="azure-machine-learning-designer"></a>Projektant usługi Azure Machine Learning
 
 Projektant umożliwia nauczenie modeli przy użyciu interfejsu przeciągania i upuszczania w przeglądarce internetowej.
 

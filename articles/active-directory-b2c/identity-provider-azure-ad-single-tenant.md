@@ -12,12 +12,12 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ce5f373576f13a4b1bdb88b5ffb7869a2d7865cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4fa4b64c6519df90d5883e8c5760b3ed2ce0337
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388361"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004463"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurowanie logowania dla konkretnej organizacji Azure Active Directory w programie Azure Active Directory B2C
 
@@ -38,6 +38,7 @@ Aby użyć Azure Active Directory (Azure AD) jako [dostawcy tożsamości](author
     ```
 
     Na przykład `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
+    Na przykład `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`.
 
 1. W polu **Identyfikator klienta**wprowadź wcześniej zarejestrowany identyfikator aplikacji.
 1. W polu **klucz tajny klienta**wprowadź wcześniej zarejestrowany klucz tajny klienta.
