@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029318"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611916"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Utwórz zestaw skalowania maszyn wirtualnych, który używa Strefy dostępności
 
@@ -22,13 +22,17 @@ Aby chronić zestawy skalowania maszyn wirtualnych z niepowodzeń poziomu centru
 
 ## <a name="availability-considerations"></a>Zagadnienia dotyczące dostępności
 
-Po wdrożeniu zestawu skalowania w jednej lub kilku strefach w programie w wersji *2017-12-01*można wdrożyć program przy użyciu opcji "Max rozpraszanie" lub "static 5" rozproszonej domeny błędów. W przypadku maksymalnego rozmieszczenia, zestaw skalowania rozkłada maszyny wirtualne w możliwie największej liczbie domen błędów w ramach każdej strefy. Ta rozproszenie może znajdować się w więcej niż pięciu domenach błędów na strefę. W przypadku "rozproszenia domen błędów static 5" zestaw skalowania rozkłada maszyny wirtualne w dokładnie pięciu domenach błędów na strefę. Jeśli zestaw skalowania nie może znaleźć pięciu odrębnych domen błędów dla strefy w celu spełnienia żądania alokacji, żądanie nie powiedzie się.
+W przypadku wdrożenia zestawu skalowania Regionalnego (bez stref) w jednej lub większej liczbie stref w przypadku interfejsu API w wersji *2017-12-01*dostępne są następujące opcje dostępności:
+- Maksymalne rozmieszczenie (platformFaultDomainCount = 1)
+- Statyczne stałe rozmieszczenie (platformFaultDomainCount = 5)
+- Rozproszenie wyrównane z domenami błędów dysku magazynu (platforFaultDomainCount = 2 lub 3)
+
+W przypadku maksymalnego rozmieszczenia, zestaw skalowania rozkłada maszyny wirtualne w możliwie największej liczbie domen błędów w ramach każdej strefy. Ta rozproszenie może znajdować się w więcej niż pięciu domenach błędów na strefę. Ze statycznym stałym rozłożeniem zestaw skalowania rozkłada maszyny wirtualne w dokładnie pięciu domenach błędów na strefę. Jeśli zestaw skalowania nie może znaleźć pięciu odrębnych domen błędów dla strefy w celu spełnienia żądania alokacji, żądanie nie powiedzie się.
 
 **Zalecamy wdrożenie z maksymalną ilością rozmieszczenia dla większości obciążeń**, ponieważ takie podejście zapewnia najlepsze rozmieszczenie w większości przypadków. Jeśli konieczne jest rozproszenie replik między różnymi jednostkami izolacji sprzętowej, zalecamy rozproszenie między Strefy dostępności i wykorzystać maksymalne rozmieszczenie w każdej strefie.
 
-W przypadku maksymalnego rozproszenia widoczna jest tylko jedna domena błędów w widoku wystąpienia maszyny wirtualnej zestawu skalowania i w metadanych wystąpienia, niezależnie od tego, ile domen błędów są rozpraszane przez maszyny wirtualne. Rozproszenie w ramach każdej strefy jest niejawne.
-
-Aby użyć maksymalnego rozmieszczenia, ustaw *platformFaultDomainCount* na *1*. Aby użyć statycznego 5 rozproszenia domen błędów, ustaw *platformFaultDomainCount* na *5*. W interfejsie API w wersji *2017-12-01* *platformFaultDomainCount* domyślnie *1* dla wielostrefowych i wielostrefowych zestawów skalowania. Obecnie w przypadku zestawów skalowania Regionalnego (non-Zona) obsługiwane jest tylko statyczne pięć domen błędów.
+> [!NOTE]
+> W przypadku maksymalnego rozproszenia widoczna jest tylko jedna domena błędów w widoku wystąpienia maszyny wirtualnej zestawu skalowania i w metadanych wystąpienia, niezależnie od tego, ile domen błędów są rozpraszane przez maszyny wirtualne. Rozproszenie w ramach każdej strefy jest niejawne.
 
 ### <a name="placement-groups"></a>Grupy umieszczania
 

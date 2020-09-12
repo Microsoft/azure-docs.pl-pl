@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056385"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500134"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Wdrażanie własnej bramy w usłudze Kubernetes
 
@@ -63,7 +63,7 @@ W tym artykule opisano kroki wdrażania składnika bramy samoobsługowego API Ma
 ## <a name="production-deployment-considerations"></a>Zagadnienia dotyczące wdrażania produkcyjnego
 
 ### <a name="access-token"></a>Token dostępu
-Bez prawidłowego tokenu dostępu Brama samoobsługowa nie może uzyskać dostępu do danych konfiguracyjnych z punktu końcowego skojarzonej usługi API Management i pobrać ich. Token dostępu może być ważny przez maksymalnie 30 dni. Należy go ponownie wygenerować i skonfigurować klaster ręcznie lub za pośrednictwem automatyzacji przed jego wygaśnięciem. 
+Bez prawidłowego tokenu dostępu Brama samoobsługowa nie może uzyskać dostępu do danych konfiguracyjnych z punktu końcowego skojarzonej usługi API Management i pobrać ich. Token dostępu może być ważny przez maksymalnie 30 dni. Należy go ponownie wygenerować i skonfigurować klaster ręcznie lub za pośrednictwem automatyzacji przed jego wygaśnięciem.
 
 W przypadku automatyzowania odświeżania tokenu Użyj [tej operacji zarządzania interfejsem API](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) , aby wygenerować nowy token. Aby uzyskać informacje o zarządzaniu wpisami tajnymi Kubernetes, zobacz [witrynę sieci Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
@@ -106,6 +106,9 @@ Funkcja rozpoznawania nazw DNS odgrywa rolę krytyczną w programie, która umo�
 Plik YAML podany w Azure Portal stosuje domyślne zasady [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) . Te zasady powodują, że żądania rozpoznawania nazw nie są rozpoznawane przez serwer DNS klastra do przekazania do nadrzędnego serwera DNS, który jest Dziedziczony z węzła.
 
 Aby dowiedzieć się więcej na temat rozpoznawania nazw w programie Kubernetes, zobacz [witrynę sieci Web Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Należy rozważyć dostosowanie [zasad DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) lub [konfiguracji DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) zgodnie z potrzebami Instalatora.
+
+### <a name="external-traffic-policy"></a>Zasady ruchu zewnętrznego
+Plik YAML, który znajduje się w polu Azure Portal ustawia w `externalTrafficPolicy` obiekcie [usługi](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) `Local` . Zachowuje to adres IP wywołującego (dostępny w [kontekście żądania](api-management-policy-expressions.md#ContextVariables)) i wyłącza Równoważenie obciążenia między węzłami, eliminując przekroczenia przez niego przeskoki sieciowe. Należy pamiętać, że to ustawienie może spowodować asymetryczne rozpowszechnianie ruchu we wdrożeniach z nierówną liczbą numerów bram bramy na węzeł.
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Niestandardowe nazwy domen i certyfikaty SSL
 

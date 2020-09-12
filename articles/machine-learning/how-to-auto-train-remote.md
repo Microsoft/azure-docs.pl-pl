@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 0dcb8f1f484f9c24a6376aef8836b6dc50d5278a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 58fedfe794f86a4a453614b09fcce6e803eb887f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321568"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651530"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trenowanie modeli za pomocą automatycznego uczenia maszynowego w chmurze
 
@@ -43,7 +43,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Tworzenie zasobu
 
-Utwórz [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) element docelowy w obszarze roboczym ( `ws` ), jeśli jeszcze nie istnieje.
+Utwórz [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) element docelowy w obszarze roboczym ( `ws` ), jeśli jeszcze nie istnieje.
 
 **Szacowany czas**: Tworzenie elementu docelowego AmlCompute trwa około 5 minut.
 
@@ -90,7 +90,7 @@ Ograniczenia nazw klastrów obejmują:
 
 ## <a name="access-data-using-tabulardataset-function"></a>Dostęp do danych za pomocą funkcji TabularDataset
 
-Zdefiniowane training_data jako [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) i etykieta, które są przesyłane do zautomatyzowanej ml w [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) . `TabularDataset`Metoda `from_delimited_files` domyślnie ustawia `infer_column_types` wartość na true, co spowoduje automatyczne wywnioskowanie typu kolumn. 
+Zdefiniowane training_data jako [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) i etykieta, które są przesyłane do zautomatyzowanej ml w [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) . `TabularDataset`Metoda `from_delimited_files` domyślnie ustawia `infer_column_types` wartość na true, co spowoduje automatyczne wywnioskowanie typu kolumn. 
 
 Jeśli chcesz ręcznie ustawić typy kolumn, możesz ustawić `set_column_types` argument, aby ręcznie ustawić typ każdej kolumny. W poniższym przykładzie kodu dane pochodzą z pakietu skryptu sklearn.
 
@@ -200,7 +200,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-results"></a>Eksploruj wyniki
 
-Możesz użyć tego samego [widgetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) , jak pokazano w [samouczku szkolenia](tutorial-auto-train-models.md#explore-the-results) , aby wyświetlić wykres i tabelę wyników.
+Możesz użyć tego samego [widgetu Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) , jak pokazano w [samouczku szkolenia](tutorial-auto-train-models.md#explore-the-results) , aby wyświetlić wykres i tabelę wyników.
 
 ```python
 from azureml.widgets import RunDetails

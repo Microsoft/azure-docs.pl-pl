@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121361"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565093"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych w Azure SQL Databas
 - **Minimalna rdzeni wirtualnych** i **Maksymalna rdzeni wirtualnych** to konfigurowalne parametry, które definiują zakres wydajności obliczeniowej dostępny dla bazy danych. Limity pamięci i operacji we/wy są proporcjonalne do określonego zakresu rdzeń wirtualny.  
 - **Opóźnienie AutoPause** to konfigurowalny parametr, który określa okres czasu, przez który baza danych musi być nieaktywna, zanim zostanie automatycznie wstrzymana. Baza danych zostanie automatycznie wznowiona po wystąpieniu następnego logowania lub innego działania.  Alternatywnie można wyłączyć autowstrzymywanie.
 
-### <a name="cost"></a>Koszty
+### <a name="cost"></a>Cost (Koszt)
 
 - Koszt bazy danych bezserwerowej to podsumowanie kosztów i kosztów magazynu obliczeniowego.
 - Gdy użycie obliczeniowe ma wartość z przedziału minimalnego i maksymalnego skonfigurowanego limitu, koszt obliczeń jest oparty na rdzeń wirtualny i używanej pamięci.
@@ -114,11 +114,12 @@ Autowstrzymywanie jest wyzwalane, jeśli wszystkie poniższe warunki są spełni
 
 Opcja umożliwia wyłączenie autowstrzymywanie w razie potrzeby.
 
-Następujące funkcje nie obsługują automatycznego wstrzymywania, ale obsługują automatyczne skalowanie.  Oznacza to, że jeśli są używane jakiekolwiek z następujących funkcji, baza danych pozostanie w trybie online, niezależnie od czasu trwania nieaktywności bazy danych:
+Następujące funkcje nie obsługują automatycznego wstrzymywania, ale obsługują automatyczne skalowanie.  Jeśli są używane jakiekolwiek z następujących funkcji, funkcja autowstrzymywanie powinna być wyłączona, a baza danych pozostanie w trybie online, niezależnie od czasu trwania nieaktywności bazy danych:
 
 - Replikacja geograficzna (aktywna replikacja geograficzna i grupy autotrybu failover).
 - Długoterminowe przechowywanie kopii zapasowych (LTR).
 - Baza danych synchronizacji używana w usłudze SQL Data Sync.  W przeciwieństwie do baz danych synchronizacji, bazy danych Hub i elementów członkowskich obsługują autowstrzymywanie.
+- Aliasowanie DNS
 - Baza danych zadań używana w zadaniach elastycznych (wersja zapoznawcza).
 
 Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych aktualizacji usługi, które wymagają, aby baza danych była w trybie online.  W takich przypadkach autowstrzymywanie zostanie ponownie dozwolone po zakończeniu aktualizacji usługi.

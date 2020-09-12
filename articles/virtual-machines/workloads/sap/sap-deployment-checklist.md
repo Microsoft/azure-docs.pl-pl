@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651730"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650692"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Obciążenia SAP na platformie Azure: Lista kontrolna planowania i wdrażania
 
@@ -213,7 +213,7 @@ W tej fazie zwykle wdrażane są systemy deweloperskie, systemy testowania jedno
 12. W miarę jak obowiązuje obciążenie, należy zarejestrować użycie zasobów przez systemy na platformie Azure. Porównaj to użycie z rekordami ze starej platformy. Dostosuj rozmiary maszyn wirtualnych w przyszłych wdrożeniach, Jeśli zobaczysz, że masz duże różnice. Należy pamiętać, że w przypadku, gdy Downsize, magazyn i przepustowość sieci maszyn wirtualnych zostaną również zredukowane.
     - [Rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Rozmiary maszyn wirtualnych z systemem Linux na platformie Azure) 
-13. Eksperymentowanie z funkcją i procesami kopiowania systemu. Celem jest ułatwienie kopiowania systemu deweloperskiego lub systemu testowego, dzięki czemu zespoły projektu mogą szybko uzyskiwać nowe systemy. Rozważ użycie [oprogramowania SAP Lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) do wykonywania tych zadań.
+13. Eksperymentowanie z funkcją i procesami kopiowania systemu. Celem jest ułatwienie kopiowania systemu deweloperskiego lub systemu testowego, dzięki czemu zespoły projektu mogą szybko uzyskiwać nowe systemy. 
 14. Zoptymalizuj i stworzyć właściwy zespół oparty na rolach, uprawnienia i procesy platformy Azure, aby upewnić się, że masz Rozdzielenie obowiązków. W tym samym czasie upewnij się, że wszystkie zespoły mogą wykonywać swoje zadania w infrastrukturze platformy Azure.
 15. Ćwiczenia, testowanie i dokumentowanie procedur wysokiej dostępności i odzyskiwania po awarii, aby umożliwić pracownikom wykonywanie tych zadań. Zidentyfikuj niedoskonałości i Dostosuj nowe funkcje platformy Azure, które są integrowane ze wdrożeniami.
 

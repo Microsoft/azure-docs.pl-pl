@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374137"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461990"
 ---
 # <a name="data-warehouse-units-dwus"></a>Jednostki magazynu danych (jednostek dwu)
 
@@ -44,14 +44,14 @@ Zwiększanie jednostek dwu:
 - Zwiększa liczbę czytników i autorów dla operacji ładowania bazowego
 - Zwiększa maksymalną liczbę współbieżnych zapytań i miejsc współbieżności.
 
-## <a name="service-level-objective"></a>Service Level Objective
+## <a name="service-level-objective"></a>Cel poziomu usług
 
 Cel poziomu usługi (SLO) to ustawienie skalowalności określające koszt i poziom wydajności magazynu danych. Poziomy usługi dla Gen2 są mierzone w jednostkach obliczeniowych magazynu danych (cDWU), na przykład DW2000c. Poziomy usługi Gen1 są mierzone w jednostek dwu, na przykład DW2000.
 
 Cel poziomu usługi (SLO) to ustawienie skalowalności określające koszt i poziom wydajności puli SQL. Poziomy usługi dla puli SQL Gen2 są mierzone w jednostkach magazynu danych (jednostek dwu), na przykład DW2000c.
 
 > [!NOTE]
-> Azure SQL Data Warehouse Gen2 ostatnio dodaliśmy dodatkowe możliwości skalowania, aby zapewnić obsługę warstw obliczeniowych jako 100 cDWU. Istniejące magazyny danych obecnie w Gen1, które wymagają niższych warstw obliczeń, można teraz uaktualnić do Gen2 w regionach, które są obecnie dostępne bez dodatkowych kosztów.  Jeśli region nie jest jeszcze obsługiwany, można nadal przeprowadzić uaktualnienie do obsługiwanego regionu. Aby uzyskać więcej informacji, zobacz [uaktualnianie do Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Usługa Azure Synapse Analytics Gen2 niedawno dodaliśmy dodatkowe możliwości skalowania do obsługi warstw obliczeniowych jako 100 cDWU. Istniejące magazyny danych obecnie w Gen1, które wymagają niższych warstw obliczeń, można teraz uaktualnić do Gen2 w regionach, które są obecnie dostępne bez dodatkowych kosztów.  Jeśli region nie jest jeszcze obsługiwany, można nadal przeprowadzić uaktualnienie do obsługiwanego regionu. Aby uzyskać więcej informacji, zobacz [uaktualnianie do Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 W języku T-SQL ustawienie SERVICE_OBJECTIVE określa poziom usług i warstwę wydajności dla puli SQL.
 
@@ -141,7 +141,7 @@ Aby zmienić jednostek dwu, użyj polecenia cmdlet [Set-AzSqlDatabase](/powershe
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Aby uzyskać więcej informacji, zobacz [polecenia cmdlet programu PowerShell dla SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Aby uzyskać więcej informacji, zobacz [polecenia cmdlet programu PowerShell dla usługi Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -173,7 +173,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-Aby uzyskać więcej przykładów interfejsu API REST, zobacz [interfejsy API REST dla SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby uzyskać więcej przykładów interfejsu API REST, zobacz [interfejsy API REST dla usługi Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Sprawdź stan zmian jednostek dwu
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541723"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442109"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń w przypadku wystąpienia zarządzanego Azure SQL Database i usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Ten dokument zawiera wskazówki dotyczące sposobu rozwiązywania typowych wymag
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Oferty wdrażania nie zostały omówione w tym przewodniku
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
 - Maszyny wirtualne Azure SQL (IaaS)
 - SQL Server
 
@@ -47,7 +47,7 @@ Zamierzone odbiorcy tego przewodnika są klientami mającymi pytania dotyczące 
 - Funkcjonariusze ds. prywatności
 - Inżynierowie ds. zabezpieczeń
 
-### <a name="using-this-guide"></a><a id="using"></a>Korzystanie z tego przewodnika
+### <a name="using-this-guide"></a><a id="using"></a> Korzystanie z tego przewodnika
 
 Ten dokument jest przeznaczony jako pomocnik do istniejącej dokumentacji [zabezpieczeń Azure SQL Database](security-overview.md) .
 
@@ -265,7 +265,7 @@ Następujące najlepsze rozwiązania są opcjonalne, ale spowodują lepsze zarz�
 
 - Należy pamiętać, że uprawnienia w aparacie bazy danych mogą być stosowane w następujących zakresach (mniejszym zakresie, mniejszym wpływem przyznanych uprawnień):
   - Serwer (specjalne role w bazie danych Master) na platformie Azure
-  - Baza danych
+  - baza danych
   - Schemat
     - Najlepszym rozwiązaniem jest użycie schematów do przyznawania uprawnień w bazie danych. (Zobacz również: [projektowanie schematu: zalecenia dotyczące projektowania schematu z bezpieczeństwem](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Obiekt (tabela, widok, procedura, itp.)
@@ -501,7 +501,7 @@ Najlepsze rozwiązania dotyczące zapobiegania wykorzystaniu przez komputery kli
 
 **Jak zaimplementować**:
 
-- Upewnij się, że komputery klienckie łączące się z usługą Azure SQL Database i wystąpieniem zarządzanym SQL używają [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
+- Upewnij się, że komputery klienckie łączące się z usługą Azure SQL Database i wystąpieniem zarządzanym SQL używają  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Najlepsze rozwiązania**:
 
@@ -742,7 +742,7 @@ Monitoruj osoby, które uzyskują dostęp do danych poufnych i przechwytywania z
 
 **Jak zaimplementować**:
 
-- Użyj w połączeniu inspekcji SQL i klasyfikacji danych.
+- Należy użyć kombinacji usług SQL Audit i Data Classification.
   - W dzienniku [inspekcji SQL Database](../../azure-sql/database/auditing-overview.md) można śledzić dostęp do danych poufnych. Możesz również wyświetlić informacje, takie jak dane, do których uzyskano dostęp, a także etykietę czułości. Aby uzyskać więcej informacji, zobacz [odnajdywanie i klasyfikowanie danych](data-discovery-and-classification-overview.md) oraz [Inspekcja dostępu do poufnych danych](data-discovery-and-classification-overview.md#audit-sensitive-data).
 
 **Najlepsze rozwiązania**:

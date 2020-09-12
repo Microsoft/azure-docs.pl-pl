@@ -4,12 +4,12 @@ description: Ostrzega o nietypowych zmianach w przypadku żądań zakończonych 
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420213"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565841"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Wykrywanie inteligentne — anomalie błędów
 [Application Insights](./app-insights-overview.md) automatycznie alarmuje użytkownika w czasie niemal rzeczywistym, jeśli aplikacja sieci Web napotyka nietypowy wzrost liczby żądań zakończonych niepowodzeniem. Wykrywa nietypowy wzrost liczby żądań HTTP lub wywołań zależności zgłaszanych jako zakończone niepowodzeniem. W przypadku żądań żądania zakończone niepowodzeniem zazwyczaj mają kody odpowiedzi 400 lub wyższe. Aby ułatwić Klasyfikacja i zdiagnozowanie problemu, analiza charakterystyk błędów i powiązanych danych aplikacji znajduje się w szczegółach alertu. Istnieją także linki do portalu Application Insights w celu przeprowadzenia dalszej diagnostyki. Ta funkcja nie wymaga konfigurowania ani konfiguracji, ponieważ używa algorytmów uczenia maszynowego do przewidywania normalnego współczynnika niepowodzeń.
@@ -58,6 +58,7 @@ Alerty są wyzwalane przez swój własny algorytm uczenia maszynowego, dlatego n
 * Porównanie procentu niepowodzenia z ostatnich 20 minut z szybkością w ciągu ostatnich 40 minut i ostatnich siedmiu dni i wyszukiwanie znaczących odchyleń, które przekraczają X-Times w przypadku odchylenia standardowego.
 * Użycie limitu adaptacyjnego dla procentu minimalnej awarii, który różni się w zależności od liczby żądań/zależności aplikacji.
 * Istnieje logika, która może automatycznie rozpoznać wygenerowanego stanu monitora alertów, jeśli problem nie zostanie już wykryty przez 8-24 godzin.
+  Uwaga: w bieżącym projekcie. powiadomienie lub akcja nie będą wysyłane po rozwiązaniu alertu inteligentnego wykrywania. Możesz sprawdzić, czy w Azure Portal został rozwiązany alert wykrywania inteligentnego.
 
 ## <a name="configure-alerts"></a>Konfigurowanie alertów
 

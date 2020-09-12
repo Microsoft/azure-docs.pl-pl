@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020358"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645647"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -147,7 +147,8 @@ Taka sytuacja może wystąpić, jeśli na serwerze fizycznym jest włączona Wir
 
 ## <a name="dependency-visualization-in-azure-government"></a>Wizualizacja zależności w Azure Government
 
-Azure Migrate zależy od Service Map funkcji wizualizacji zależności. Ponieważ Service Map jest obecnie niedostępna w Azure Government, ta funkcja nie jest dostępna w Azure Government.
+Analiza zależności oparta na agentach nie jest obsługiwana w Azure Government. Użyj analizy zależności bez agenta.
+
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>Zależności nie są wyświetlane po zainstalowaniu agenta
 
@@ -160,7 +161,7 @@ Dla maszyn wirtualnych z systemem Windows:
 
     ![Stan MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia instalacji programu MMA i agenta zależności powiodły się.
+W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia instalacji programu MMA i agenta zależności powiodły się. [Tutaj](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues)znajdziesz więcej wskazówek dotyczących rozwiązywania problemów.
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -181,7 +182,6 @@ W Azure Migrate oceny serwera, z analizą zależności opartą na agentach, moż
 ## <a name="machines-show-install-agent"></a>Na maszynach zostanie wyświetlona wartość "Zainstaluj agenta"
 
 Po przeprowadzeniu migracji maszyn z włączoną wizualizacją zależności na platformę Azure, na maszynach może zostać wyświetlona akcja "Zainstaluj agenta" zamiast "Wyświetl zależności" z powodu następujących zachowań:
-
 
 - Po migracji na platformę Azure maszyny lokalne są wyłączone i równoważne maszyny wirtualne są na platformie Azure. Te maszyny uzyskują inny adres MAC.
 - Maszyny mogą także mieć inny adres IP w zależności od tego, czy lokalny adres IP został zachowany.
@@ -222,6 +222,6 @@ Zbierz dzienniki ruchu sieciowego w następujący sposób:
 - W przypadku maszyn wirtualnych funkcji Hyper-V dane systemu operacyjnego są zbierane z hosta funkcji Hyper-V
 - W przypadku serwerów fizycznych jest on pobierany z serwera.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Utwórz](how-to-create-assessment.md) lub [Dostosuj](how-to-modify-assessment.md) ocenę.

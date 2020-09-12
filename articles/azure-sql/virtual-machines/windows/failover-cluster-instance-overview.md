@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653277"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611622"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Wystąpienia klastra trybu failover z SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,8 +48,8 @@ SQL Server na maszynach wirtualnych platformy Azure oferuje różne opcje jako r
 
 ||[Dyski udostępnione platformy Azure](../../../virtual-machines/windows/disks-shared.md)|[Udziały plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Bezpośrednie miejsca do magazynowania (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Minimalna wersja systemu operacyjnego**| Wszystkie |Windows Server 2012|Windows Server 2016|
-|**Minimalna wersja SQL Server**|Wszystkie|SQL Server 2012|SQL Server 2016|
+|**Minimalna wersja systemu operacyjnego**| Wszystko |Windows Server 2012|Windows Server 2016|
+|**Minimalna wersja SQL Server**|Wszystko|SQL Server 2012|SQL Server 2016|
 |**Obsługiwana dostępność maszyny wirtualnej** |Zestawy dostępności z grupami umieszczania zbliżeniowego |Zestawy dostępności i strefy dostępności|Zestawy dostępności |
 |**Obsługuje FileStream**|Tak|Nie|Tak |
 |**Pamięć podręczna Azure Blob**|Nie|Nie|Tak|
@@ -66,7 +66,7 @@ W pozostałej części tej sekcji wymieniono zalety i ograniczenia dotyczące po
 **Zalety**: 
 - Przydatne w przypadku aplikacji, które chcą migrować do platformy Azure, zachowując swoją architekturę wysokiej dostępności i odzyskiwania po awarii (HADR cluster) zgodnie z oczekiwaniami. 
 - Program może migrować klastrowane aplikacje na platformę Azure, ponieważ jest to spowodowane obsługą trwałych rezerwacji SCSI (SCSI PR). 
-- Obsługuje udostępnione SSD w warstwie Premium platformy Azure dla wszystkich wersji SQL Server i udostępnionej platformy Azure Ultra Disk Storage dla SQL Server 2019. 
+- Obsługuje udostępnione usługi Azure SSD w warstwie Premium i Azure Ultra Disk Storage.
 - Do utworzenia udostępnionej puli magazynów można użyć jednego udostępnionego dysku lub rozdzielić wiele dysków udostępnionych. 
 - Obsługuje funkcję FILESTREAM.
 
@@ -153,10 +153,11 @@ W tej chwili SQL Server wystąpienia klastra trybu failover w usłudze Azure Vir
 
 Pełne rozszerzenie obsługuje takie funkcje, jak automatyczne tworzenie kopii zapasowych, stosowanie poprawek i zaawansowane zarządzanie portalem. Te funkcje nie będą działały dla SQL Server maszyn wirtualnych po ponownym zainstalowaniu agenta w trybie uproszczonego zarządzania.
 
-### <a name="msdtc"></a>ZNAJDUJĄC   
-Usługa Azure Virtual Machines obsługuje usługę MSDTC w systemie Windows Server 2019 z magazynem na udostępnionych woluminach klastra (CSV) i na [platformie Azure usługa Load Balancer w warstwie Standardowa](../../../load-balancer/load-balancer-standard-overview.md).
+### <a name="msdtc"></a>ZNAJDUJĄC 
 
-Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w przypadku systemu Windows Server 2016 lub starszego, ponieważ:
+Usługa Azure Virtual Machines obsługuje usługę Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem na udostępnionych woluminach klastra (CSV) i [Usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-standard-overview.md) lub na SQL Server maszynach wirtualnych korzystających z dysków udostępnionych na platformie Azure. 
+
+Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w przypadku systemu Windows Server 2016 lub starszego z klastrowanymi woluminami udostępnionymi, ponieważ:
 
 - Nie można skonfigurować klastrowanego zasobu usługi MSDTC do korzystania z magazynu udostępnionego. W systemie Windows Server 2016, jeśli utworzysz zasób MSDTC, nie będzie widoczny żaden magazyn udostępniony dostępny do użycia, nawet jeśli magazyn jest dostępny. Ten problem został rozwiązany w systemie Windows Server 2019.
 - Podstawowa usługa równoważenia obciążenia nie obsługuje portów RPC.

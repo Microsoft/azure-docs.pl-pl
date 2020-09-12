@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82856032"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650596"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Machine Learning
 
@@ -195,7 +195,7 @@ Poniżej znajdują się wymiary, których można użyć do filtrowania metryk pr
 | Wymiar | Opis |
 | ---- | ---- |
 | Computetype | Typ obliczeń używany do uruchomienia. |
-| PipelineStepType | Typ [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) używany w przebiegu. |
+| PipelineStepType | Typ [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) używany w przebiegu. |
 | PublishedPipelineId | Identyfikator opublikowanego potoku używanego w przebiegu. |
 | RunType | Typ uruchomienia. |
 

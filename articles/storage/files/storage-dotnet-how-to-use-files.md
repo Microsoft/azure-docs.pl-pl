@@ -9,12 +9,12 @@ ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5c51bb052948c58d4849c556d0756240d6968ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 53f96d8988adfea6e14e3eb349276199afc444d7
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011535"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461922"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET
 
@@ -37,7 +37,7 @@ Aby dowiedzieć się więcej na temat Azure Files, zobacz [co to jest Azure File
 
 Usługa Azure Files oferuje dwa obszerne podejścia do aplikacji klienckich: blok komunikatów serwera (SMB) i interfejs REST. W programie .NET `System.IO` `WindowsAzure.Storage` interfejsy API i są abstrakcyjne.
 
-interfejs API | Kiedy stosować | Uwagi
+Interfejs API | Kiedy stosować | Uwagi
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Twoja aplikacja: <ul><li>Wymaga odczytu/zapisu plików przy użyciu protokołu SMB</li><li>Działa na urządzeniu, które ma dostęp do konta usługi Azure Files za pośrednictwem portu 445</li><li>Nie musi zarządzać żadnymi ustawieniami administracyjnymi udziału plików</li></ul> | We/wy plików wdrożonych przy użyciu Azure Files za pośrednictwem protokołu SMB zwykle jest taka sama jak we/wy z dowolnym sieciowym udziałem plików lub lokalnym urządzeniem magazynującym. Aby zapoznać się z wprowadzeniem do wielu funkcji platformy .NET, w tym plików we/wy, zobacz Samouczek dotyczący [aplikacji konsolowej](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
 [Microsoft. Azure. Storage. File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | Twoja aplikacja: <ul><li>Nie można uzyskać dostępu do Azure Files przy użyciu protokołu SMB na porcie 445 z powodu ograniczeń zapory lub usługodawcy internetowego</li><li>Wymaga funkcji administracyjnych, takich jak możliwość ustawiania przydziału udziału plików lub tworzenia sygnatury dostępu współdzielonego</li></ul> | W tym artykule przedstawiono sposób użycia `Microsoft.Azure.Storage.File` funkcji we/wy na plikach przy użyciu protokołu REST zamiast SMB i zarządzania udziałem plików.
@@ -481,7 +481,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Jeśli napotkasz jakiekolwiek problemy, możesz zapoznać się z tematem [rozwiązywania problemów Azure Files problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat Azure Files, zobacz następujące zasoby:
 
@@ -504,5 +504,5 @@ Aby uzyskać więcej informacji na temat Azure Files, zobacz następujące zasob
 
 * [Usługa Azure File Storage, teraz ogólnie dostępna](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (Za kulisami usługi Azure File Storage)
-* [Wprowadzenie do usługi plików Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files (Utrwalanie połączeń z plikami na platformie Microsoft Azure)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Wprowadzenie do usługi plików Microsoft Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Persisting connections to Microsoft Azure Files (Utrwalanie połączeń z plikami na platformie Microsoft Azure)](https://docs.microsoft.com/archive/blogs/windowsazurestorage/persisting-connections-to-microsoft-azure-files)

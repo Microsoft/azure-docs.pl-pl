@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 04ae1788dfd3050fdd2042f88a8e1829e9063ad3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 73769a5f8a677f5e08610560db1e5d90dd5b7c3a
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851362"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645605"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Wdróż model uczenia maszynowego w Azure App Service (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,9 +46,9 @@ Aby uzyskać więcej informacji na temat funkcji zapewnianych przez Azure App Se
     > [!IMPORTANT]
     > W fragmentach kodu w tym artykule przyjęto założenie, że ustawiono następujące zmienne:
     >
-    > * `ws`— Obszar roboczy Azure Machine Learning.
-    > * `model`-Zarejestrowany model, który zostanie wdrożony.
-    > * `inference_config`-Konfiguracja wnioskowania dla modelu.
+    > * `ws` — Obszar roboczy Azure Machine Learning.
+    > * `model` -Zarejestrowany model, który zostanie wdrożony.
+    > * `inference_config` -Konfiguracja wnioskowania dla modelu.
     >
     > Aby uzyskać więcej informacji na temat ustawiania tych zmiennych, zobacz [Deploying Models with Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -75,7 +75,7 @@ Przed wdrożeniem należy zdefiniować, co jest potrzebne do uruchomienia modelu
 Te jednostki są hermetyzowane w __konfiguracji wnioskowania__. Konfiguracja wnioskowania przywołuje skrypt wejściowy i inne zależności.
 
 > [!IMPORTANT]
-> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure App Service należy użyć obiektu [środowiska](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
+> Podczas tworzenia konfiguracji wnioskowania do użytku z Azure App Service należy użyć obiektu [środowiska](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Należy pamiętać, że w przypadku definiowania środowiska niestandardowego należy dodać polecenie "Azure-default" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web. Poniższy przykład ilustruje tworzenie obiektu środowiska i używanie go z konfiguracją wnioskowania:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Aby uzyskać więcej informacji na temat konfiguracji wnioskowania, zobacz [Wdra
 
 ## <a name="create-the-image"></a>Tworzenie obrazu
 
-Aby utworzyć obraz platformy Docker wdrożony w Azure App Service, użyj [modelu model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). Poniższy fragment kodu przedstawia sposób tworzenia nowego obrazu z konfiguracji modelu i wnioskowania:
+Aby utworzyć obraz platformy Docker wdrożony w Azure App Service, użyj [modelu model. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). Poniższy fragment kodu przedstawia sposób tworzenia nowego obrazu z konfiguracji modelu i wnioskowania:
 
 > [!NOTE]
 > W fragmencie kodu założono `model` , że zawiera zarejestrowany model i `inference_config` zawiera konfigurację środowiska wnioskowania. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).

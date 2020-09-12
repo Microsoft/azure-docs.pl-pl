@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: b0199af69eb5e7c05cee91a3a3cffd682aab75fd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086286"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458199"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>Jak sieciowe grupy zabezpieczeń filtrują ruch sieciowy
 <a name="network-security-groups"></a>
 
-Za pomocą grupy zabezpieczeń sieci platformy Azure można filtrować ruch sieciowy do i z zasobów platformy Azure w sieci wirtualnej platformy Azure. Grupa zabezpieczeń sieci zawiera [reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview.md#security-rules), które zezwalają na lub blokują przychodzący ruch sieciowy lub wychodzący ruch sieciowy dla kilku typów zasobów platformy Azure. Dla każdej reguły można określić źródło i obiekt docelowy, port i protokół.
+Za pomocą grupy zabezpieczeń sieci platformy Azure można filtrować ruch sieciowy do i z zasobów platformy Azure w sieci wirtualnej platformy Azure. Grupa zabezpieczeń sieci zawiera [reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules), które zezwalają na lub blokują przychodzący ruch sieciowy lub wychodzący ruch sieciowy dla kilku typów zasobów platformy Azure. Dla każdej reguły można określić źródło i obiekt docelowy, port i protokół.
 
 W sieci wirtualnej platformy Azure można wdrożyć zasoby z kilku usług platformy Azure. Aby uzyskać pełną listę, zobacz [Services that can be deployed into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (Usługi, które można wdrożyć w sieci wirtualnej). Z każdą siecią [podsiecią](virtual-network-manage-subnet.md#change-subnet-settings) i [interfejsem sieciowym](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group) sieci wirtualnej na maszynie wirtualnej możesz skojarzyć zero lub jedną grupę zabezpieczeń sieci. Tę samą grupę zabezpieczeń sieci można zastosować do dowolnej liczby interfejsów sieciowych i podsieci.
 
@@ -46,7 +46,7 @@ W przypadku ruchu przychodzącego platforma Azure przetwarza najpierw reguły w 
 
 W przypadku ruchu wychodzącego platforma Azure przetwarza najpierw reguły w grupie zabezpieczeń sieci skojarzonej z interfejsem sieciowym, jeśli taka istnieje, a następnie reguły w grupie zabezpieczeń sieci skojarzonej z podsiecią, jeśli taka istnieje.
 
-- **Maszyna VM1**: przetwarzane są reguły zabezpieczeń w grupie *NSG2*. O ile nie utworzono reguły zabezpieczeń, która blokuje ruch wychodzący do Internetu na porcie 80, ruch jest dozwolony przez domyślną regułą zabezpieczeń [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview.md#allowinternetoutbound) w obu grupach *NSG1* i *NSG2*. Jeśli grupa *NSG2* zawiera regułę zabezpieczeń, która nie zezwala na port 80, ruch jest blokowany i nigdy nie jest oceniany przez grupę *NSG1*. Aby zablokować port 80 na maszynie wirtualnej, jedna lub obie grupy zabezpieczeń sieci muszą zawierać regułę, która blokuje ruch do Internetu na porcie 80.
+- **Maszyna VM1**: przetwarzane są reguły zabezpieczeń w grupie *NSG2*. O ile nie utworzono reguły zabezpieczeń, która blokuje ruch wychodzący do Internetu na porcie 80, ruch jest dozwolony przez domyślną regułą zabezpieczeń [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview#allowinternetoutbound) w obu grupach *NSG1* i *NSG2*. Jeśli grupa *NSG2* zawiera regułę zabezpieczeń, która nie zezwala na port 80, ruch jest blokowany i nigdy nie jest oceniany przez grupę *NSG1*. Aby zablokować port 80 na maszynie wirtualnej, jedna lub obie grupy zabezpieczeń sieci muszą zawierać regułę, która blokuje ruch do Internetu na porcie 80.
 - **Maszyna VM2**: cały ruch jest wysyłany przez interfejs sieciowy do podsieci, ponieważ interfejs sieciowy dołączony do maszyny wirtualnej *VM2* nie ma skojarzonej grupy zabezpieczeń sieci. Reguły w grupie *NSG1* są przetwarzane.
 - **VM3**: jeśli grupa *NSG2* zawiera regułę zabezpieczeń, która blokuje port 80, ruch jest blokowany. Jeśli grupa *NSG2* zawiera regułę zabezpieczeń, która zezwala na użycie portu 80, ruch wychodzący do Internetu przez port 80 jest dozwolony, ponieważ grupa zabezpieczeń sieci nie jest skojarzona z podsiecią *Subnet2*.
 - **VM4**: cały ruch sieciowy z maszyny wirtualnej *VM4* jest dozwolony, ponieważ żadna grupa zabezpieczeń sieci nie jest skojarzona z interfejsem sieciowym dołączonym do maszyny wirtualnej ani z podsiecią *Subnet3*.

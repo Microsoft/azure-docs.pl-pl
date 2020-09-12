@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690242"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481794"
 ---
-# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Wskazówki dotyczące wydajności SQL Server na platformie Azure Virtual Machines
+# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Wytyczne dotyczące wydajności programu SQL Server na maszynach wirtualnych Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Ten artykuł zawiera wskazówki dotyczące optymalizacji wydajności SQL Server w programie Microsoft Azure Virtual Machines.
@@ -197,6 +197,19 @@ Jeśli używasz funkcji miejsca do magazynowania, podczas dodawania węzłów do
 ![Usuń zaznaczenie kwalifikującego się magazynu](./media/performance-guidelines-best-practices/uncheck-eligible-cluster-storage.png)
 
 Jeśli używasz funkcji miejsca do magazynowania i nie zaznaczaj **żadnych opcji Dodaj wszystkie odpowiednie magazyny do klastra**, system Windows odłącza dyski wirtualne podczas procesu klastrowania. W związku z tym nie są one wyświetlane w Menedżerze dysków ani w Eksploratorze, dopóki nie zostaną usunięte miejsca do magazynowania z klastra i ponownie dołączone przy użyciu programu PowerShell. Funkcja miejsca do magazynowania grupuje wiele dysków w puli magazynów. Aby uzyskać więcej informacji, zobacz [miejsca do magazynowania](/windows-server/storage/storage-spaces/overview).
+
+## <a name="multiple-instances"></a>Wiele wystąpień 
+
+Podczas wdrażania wielu wystąpień SQL Server na jednej maszynie wirtualnej należy wziąć pod uwagę następujące najlepsze rozwiązania: 
+
+- Ustaw maksymalną ilość pamięci serwera dla każdego wystąpienia SQL Server, co gwarantuje, że pamięć jest pozostawiona do systemu operacyjnego. Pamiętaj, aby zaktualizować ograniczenia pamięci dla wystąpień SQL Server, jeśli zmienisz ilość pamięci przydzielanej do maszyny wirtualnej. 
+- Mają oddzielne jednostki LUN dla danych, dzienników i TempDB, ponieważ wszystkie mają różne wzorce obciążeń i nie mają wpływu na siebie nawzajem. 
+- Dokładnie Przetestuj środowisko pod dużym obciążeniem podobnym do produkcji, aby upewnić się, że może obsłużyć szczytową pojemność obciążenia w ramach aplikacji umowy SLA. 
+
+Znaki przeciążonych systemów mogą obejmować, ale nie są ograniczone do, wyczerpania wątków roboczych, czasy wolnej reakcji i/lub pamięć systemowa dyspozytorów. 
+
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

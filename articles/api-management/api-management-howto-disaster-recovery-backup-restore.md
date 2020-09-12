@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c0af87dc8e38c6d5184cec4614b47d2ae4a24ca
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830261"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458284"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Jak zaimplementować odzyskiwanie po awarii przy użyciu funkcji tworzenia i przywracania kopii zapasowych w usłudze Azure API Management
 
@@ -68,7 +68,7 @@ Wszystkie zadania dotyczące zasobów przy użyciu Azure Resource Manager muszą
 4. Wprowadź nazwę aplikacji.
 5. W polu Typ aplikacji wybierz opcję **natywny**.
 6. Wprowadź zastępczy adres URL, taki jak `http://resources` dla **identyfikatora URI przekierowania**, ponieważ jest to pole wymagane, ale wartość nie jest używana później. Kliknij pole wyboru, aby zapisać aplikację.
-7. Kliknij pozycję **Utwórz**.
+7. Kliknij przycisk **Utwórz**.
 
 ### <a name="add-an-application"></a>Dodawanie aplikacji
 
@@ -149,10 +149,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 gdzie:
 
--   `subscriptionId`-Identyfikator subskrypcji zawierającej usługę API Management której próbujesz utworzyć kopię zapasową
--   `resourceGroupName`-Nazwa grupy zasobów usługi Azure API Management
--   `serviceName`— Nazwa usługi API Management wykonywania kopii zapasowej określonej w momencie jej tworzenia
--   `api-version`-Zamień na`2018-06-01-preview`
+-   `subscriptionId` -Identyfikator subskrypcji zawierającej usługę API Management której próbujesz utworzyć kopię zapasową
+-   `resourceGroupName` -Nazwa grupy zasobów usługi Azure API Management
+-   `serviceName` — Nazwa usługi API Management wykonywania kopii zapasowej określonej w momencie jej tworzenia
+-   `api-version` -Zamień na `2018-06-01-preview`
 
 W treści żądania należy określić docelową nazwę konta usługi Azure Storage, klucz dostępu, nazwę kontenera obiektów blob i nazwę kopii zapasowej:
 
@@ -198,10 +198,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 gdzie:
 
--   `subscriptionId`-Identyfikator subskrypcji zawierającej usługę API Management, do której jest przywracana kopia zapasowa
--   `resourceGroupName`-Nazwa grupy zasobów zawierającej usługę Azure API Management, do której jest przywracana kopia zapasowa
--   `serviceName`-Nazwa usługi API Management przywracanej do określonej w czasie tworzenia
--   `api-version`-Zamień na`2018-06-01-preview`
+-   `subscriptionId` -Identyfikator subskrypcji zawierającej usługę API Management, do której jest przywracana kopia zapasowa
+-   `resourceGroupName` -Nazwa grupy zasobów zawierającej usługę Azure API Management, do której jest przywracana kopia zapasowa
+-   `serviceName` -Nazwa usługi API Management przywracanej do określonej w czasie tworzenia
+-   `api-version` -Zamień na `2018-06-01-preview`
 
 W treści żądania Określ lokalizację pliku kopii zapasowej. Oznacza to, że należy dodać nazwę konta usługi Azure Storage, klucz dostępu, nazwę kontenera obiektów blob i nazwę kopii zapasowej:
 
@@ -234,7 +234,7 @@ Zapoznaj się z poniższymi zasobami, aby zapoznać się z różnymi przewodnika
 
 -   [Replikowanie kont usługi Azure API Management](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automatyzowanie tworzenia kopii zapasowej i przywracania w usłudze API Management za pomocą usługi Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: Tworzenie kopii zapasowej i przywracanie konfiguracji](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) 
+-   [Azure API Management: Tworzenie kopii zapasowej i przywracanie konfiguracji](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) 
      _Podejście określone przez Stuarta nie jest zgodne z oficjalnymi wskazówkami, ale jest interesujące._
 
 [backup an api management service]: #step1

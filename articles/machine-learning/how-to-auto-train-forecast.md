@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 900e36ec3e508f9d3616cf0c0d19ea4ff067f775
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fc8e8de817c1b311e3252c7399a09ed1c9eb7031
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144791"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651519"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak skonfigurować i przeszkolić model regresji do prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego AutoML [Azure Machine Learning w zestawie SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+W tym artykule dowiesz się, jak skonfigurować i przeszkolić model regresji do prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego AutoML [Azure Machine Learning w zestawie SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 Aby zapoznać się z małym doświadczeniem w kodzie, zobacz [Samouczek: prognozowanie popytu na automatyczne Uczenie maszynowe](tutorial-automated-ml-forecast.md) na potrzeby prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego w [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -93,7 +93,7 @@ test_labels = test_data.pop(label).values
 ```
 
 > [!IMPORTANT]
-> Podczas uczenia modelu do prognozowania przyszłych wartości upewnij się, że wszystkie funkcje używane w szkoleniu mogą być używane podczas przewidywania dla zamierzonego horyzontu. Na przykład podczas tworzenia prognozy popytu, w tym funkcji dla bieżącej ceny zapasowej, można w znacznym stopniu zwiększyć dokładność szkolenia. Jeśli jednak planujesz prognozowanie za pomocą długich horyzontów, możesz nie być w stanie dokładnie przewidzieć przyszłe wartości giełdowe odpowiadające przyszłym punktom szeregów czasowych, a dokładność modelu może być niepoprawna.
+> Podczas uczenia modelu do prognozowania przyszłych wartości upewnij się, że wszystkie funkcje używane w szkoleniu mogą być używane podczas przewidywania dla zamierzonego horyzontu. <br> <br>Na przykład podczas tworzenia prognozy popytu, w tym funkcji dla bieżącej ceny zapasowej, można w znacznym stopniu zwiększyć dokładność szkolenia. Jeśli jednak planujesz prognozowanie za pomocą długich horyzontów, możesz nie być w stanie dokładnie przewidzieć przyszłe wartości giełdowe odpowiadające przyszłym punktom szeregów czasowych, a dokładność modelu może być niepoprawna.
 
 <a name="config"></a>
 
@@ -101,11 +101,11 @@ test_labels = test_data.pop(label).values
 
 Można określić oddzielne zestawy pouczenia i walidacji bezpośrednio w `AutoMLConfig` obiekcie.   Dowiedz się więcej o [AutoMLConfig](#configure-experiment).
 
-W przypadku prognozowania szeregów czasowych **pochodzenie kroczące (ROCV)** jest automatycznie używane, gdy przekazujesz dane szkoleniowe i weryfikacyjne razem i ustawisz liczbę elementów walidacji krzyżowej z `n_cross_validations` parametrem w `AutoMLConfig` . ROCV dzieli serię na dane szkoleniowe i weryfikacyjne przy użyciu punktu czasu pochodzenia. Przesuwanie źródła w czasie powoduje wygenerowanie zgięcia wzajemnego sprawdzania poprawności. Ta strategia zachowuje integralność danych szeregów czasowych i eliminuje ryzyko wycieku danych
+W przypadku prognozowania szeregów czasowych domyślnie do walidacji jest używana wyłącznie funkcja sprawdzania **poprawności danych pierwotnych (ROCV)** . Przekaż dane szkoleniowe i walidacji, a następnie ustaw liczbę elementów walidacji krzyżowej z `n_cross_validations` parametrem w `AutoMLConfig` . ROCV dzieli serię na dane szkoleniowe i weryfikacyjne przy użyciu punktu czasu pochodzenia. Przesuwanie źródła w czasie powoduje wygenerowanie zgięcia wzajemnego sprawdzania poprawności. Ta strategia zachowuje integralność danych szeregów czasowych i eliminuje ryzyko wycieku danych
 
-![tekst alternatywny](./media/how-to-auto-train-forecast/ROCV.svg)
+![krzyżowe sprawdzanie poprawności źródła](./media/how-to-auto-train-forecast/ROCV.svg)
 
-Aby zapoznać się z innymi opcjami wzajemnego sprawdzania poprawności i podziału danych, zobacz [Konfigurowanie podziałów danych i wzajemnego sprawdzania poprawności w AutoML](how-to-configure-cross-validation-data-splits.md).
+Możesz również wprowadzić własne dane sprawdzania poprawności, dowiedzieć się więcej w temacie [Konfigurowanie podziałów danych i wzajemnego sprawdzania poprawności w programie AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 
 ```python
@@ -118,7 +118,7 @@ automl_config = AutoMLConfig(task='forecasting',
 Dowiedz się więcej o tym, jak AutoML stosuje krzyżowe sprawdzanie poprawności, aby [uniknąć nadmiernego dopasowania modeli](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre kroki cechowania i opcje konfiguracji istnieją w odniesieniu do danych szeregów czasowych. 
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Konfiguracja dla modelu prognozowania jest podobna do konfiguracji standardowego modelu regresji, ale niektóre kroki cechowania i opcje konfiguracji istnieją w odniesieniu do danych szeregów czasowych. 
 
 ### <a name="featurization-steps"></a>Cechowania kroki
 
@@ -163,13 +163,13 @@ featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy"
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
 
-Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zapoznaj się z [artykułem jak to zrobić](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+Jeśli używasz programu Azure Machine Learning Studio dla eksperymentu, zobacz [jak dostosować cechowania w programie Studio](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ### <a name="configuration-settings"></a>Ustawienia konfiguracji
 
 Podobnie jak w przypadku problemu z regresją, definiuje się standardowe parametry szkolenia, takie jak typ zadania, liczba iteracji, dane szkoleniowe i liczba operacji krzyżowych. W przypadku zadań prognozowania należy ustawić dodatkowe parametry, które mają wpływ na eksperyment. 
 
-Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zobacz [dokumentację referencyjną](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) dla wzorców projektu składni.
+Poniższa tabela zawiera podsumowanie tych dodatkowych parametrów. Zobacz [dokumentację referencyjną](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) dla wzorców projektu składni.
 
 | &nbsp;Nazwa parametru | Opis | Wymagane |
 |-------|-------|-------|
@@ -245,7 +245,11 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
+> [!Warning]
+> Po włączeniu DNN dla eksperymentów utworzonych przy użyciu zestawu SDK [najlepsze wyjaśnienia modeli](how-to-machine-learning-interpretability-automl.md) są wyłączone.
+
 Aby włączyć DNN dla eksperymentu AutoML utworzonego w Azure Machine Learning Studio, zapoznaj się z [ustawieniami typu zadania w programie Studio How to-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+
 
 Automatyczna ML zapewnia użytkownikom zarówno natywne, jak i bogate modele uczenia w ramach systemu rekomendacji. 
 
@@ -254,7 +258,6 @@ Modele| Opis | Korzyści
 Prophet (wersja zapoznawcza)|Prophet działa najlepiej z seriami czasowymi, które mają silne skutki sezonowe i kilka sezonów danych historycznych. Aby skorzystać z tego modelu, zainstaluj go lokalnie przy użyciu `pip install fbprophet` . | Dokładne & szybka, niezawodna do wartości odstających, brakujących danych i znaczących zmian w szeregach czasowych.
 AutoARIMA (wersja zapoznawcza)|Funkcja autoregresywnych zintegrowanej średniej ruchomej (ARIMA) sprawdza się najlepiej, gdy dane są nieruchome. Oznacza to, że właściwości statystyczne, takie jak średnia i Wariancja, są stałe dla całego zestawu. Na przykład, jeśli przerzucasz monety, prawdopodobieństwo uzyskania głów wynosi 50%, bez względu na to, że przewracasz dzisiaj, jutro lub w następnym roku.| Świetnie dla serii univariate, ponieważ przeszłe wartości są używane do przewidywania przyszłych wartości.
 ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaprojektowany z myślą o najbardziej wymagających zadaniach prognozowania, przechwytującym nieliniowe i globalne trendy w danych, a także relacje między seriami czasowymi.|Można wykorzystać złożone trendy w danych i łatwo skalować je do największych z nich.
-
 
 Aby zapoznać się ze szczegółowym przykładem kodu korzystającego z DNNs, zobacz [Notes prognozowania produkcji napojów](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) .
 
@@ -266,8 +269,7 @@ Załóżmy na przykład, że chcesz przewidzieć zapotrzebowanie na energię. Mo
 
 W tabeli przedstawiono wyniki inżynierii funkcji, która występuje, gdy stosowana jest agregacja okna. Kolumny dla wartości **minimum, maksimum** i **sum** są generowane w przedziale okna trzech na podstawie zdefiniowanych ustawień. Każdy wiersz ma nową funkcję obliczeniową. w przypadku sygnatury czasowej 8 września 2017 4:10:00 wartości maksymalne, minimum i sum są obliczane przy użyciu **wartości popytu** dla 8 września 2017 1:10:00-3:10:00. To okno z trzema zmianami i wypełnia dane dla pozostałych wierszy.
 
-![tekst alternatywny](./media/how-to-auto-train-forecast/target-roll.svg)
-
+![okno kroczące docelowe](./media/how-to-auto-train-forecast/target-roll.svg)
 
 Zobacz przykład kodu w języku Python, wykorzystując [funkcję agregacji przedziału](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)czasu dla docelowej.
 
@@ -336,5 +338,8 @@ Zapoznaj się z [przykładami prognozowanych notesów](https://github.com/Azure/
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Postępuj zgodnie z [samouczkiem](tutorial-auto-train-models.md) , aby dowiedzieć się, jak tworzyć eksperymenty przy użyciu automatycznej uczenia maszynowego
-* Zapoznaj się z dokumentacją [zestawu Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .
+* Dowiedz się więcej o tym [, jak i gdzie wdrożyć model](how-to-deploy-and-where.md).
+* Dowiedz się więcej [na temat interpretacji: informacje o modelu w zautomatyzowanej usłudze Machine Learning (wersja zapoznawcza)](how-to-machine-learning-interpretability-automl.md). 
+* Dowiedz się, jak uczenie wielu modeli za pomocą AutoML w [akceleratorze rozwiązań wielu modeli](https://aka.ms/many-models).
+* Postępuj zgodnie z [samouczkiem](tutorial-auto-train-models.md) , aby uzyskać kompleksowy przykład tworzenia eksperymentów przy użyciu zautomatyzowanej uczenia maszynowego.
+

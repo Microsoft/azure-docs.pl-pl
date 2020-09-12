@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
-ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/08/2020
+ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949137"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595096"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -242,20 +242,20 @@ Poniżej przedstawiono przykładowe sytuacje, które mogą spowodować nieodświ
 
 ## <a name="switch-to-a-different-git-repository"></a>Przechodzenie do innego repozytorium git
 
-Aby przełączyć się do innego repozytorium git, kliknij ikonę **Ustawienia repozytorium git** w prawym górnym rogu strony Przegląd Data Factory. Jeśli nie widzisz ikony, wyczyść pamięć podręczną przeglądarki lokalnej. Wybierz ikonę, aby usunąć skojarzenie z bieżącym repozytorium.
+Aby przełączyć się do innego repozytorium git, przejdź do strony Konfiguracja usługi Git w centrum zarządzania pod **kontrolą źródła**. Wybierz pozycję **Rozłącz**. 
 
-![Ikona git](media/author-visually/remove-repo.png)
+![Ikona git](media/author-visually/remove-repository.png)
 
-Po wyświetleniu okienka ustawienia repozytorium wybierz pozycję **Usuń git**. Wprowadź nazwę fabryki danych i kliknij przycisk **Potwierdź** , aby usunąć repozytorium git skojarzone z fabryką danych.
+Wprowadź nazwę fabryki danych i kliknij przycisk **Potwierdź** , aby usunąć repozytorium git skojarzone z fabryką danych.
 
-![Usuń skojarzenie z bieżącym repozytorium git](media/author-visually/remove-repo2.png)
+![Usuń skojarzenie z bieżącym repozytorium git](media/author-visually/remove-repository-2.png)
 
 Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawienia Git w taki sposób, aby korzystało z innego repozytorium, a następnie zaimportować istniejące zasoby Data Factory do nowego repozytorium.
 
 > [!IMPORTANT]
 > Usunięcie konfiguracji usługi git z fabryki danych nie powoduje usunięcia żadnych elementów z repozytorium. Fabryka będzie zawierać wszystkie opublikowane zasoby. Możesz kontynuować edytowanie fabryki bezpośrednio do usługi.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej na temat monitorowania potoków i zarządzania nimi, zobacz temat [monitorowanie potoków i zarządzanie nimi programowo](monitor-programmatically.md).
 * Aby wdrożyć ciągłą integrację i wdrażanie, zobacz [ciągłej integracji i dostarczania (Ci/CD) w Azure Data Factory](continuous-integration-deployment.md).

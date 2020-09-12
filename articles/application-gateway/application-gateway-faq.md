@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236118"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646547"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -105,7 +105,7 @@ Jedna podsieć nie obsługuje jednocześnie jednostek SKU w wersji 2 i 1 Applica
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Czy Application Gateway v2 obsługuje trasy zdefiniowane przez użytkownika (UDR)?
 
-Tak, ale tylko dla konkretnych scenariuszy. Aby uzyskać więcej informacji, zobacz [Omówienie konfiguracji Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+Tak, ale tylko dla konkretnych scenariuszy. Aby uzyskać więcej informacji, zobacz [Application Gateway konfiguracja infrastruktury](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Czy Application Gateway obsługuje nagłówki x-Forwarded-For?
 
@@ -136,7 +136,7 @@ Nie. Application Gateway v2 nie obsługuje jeszcze żądań proxy z uwierzytelni
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Czy Application Gateway plik cookie koligacji jest obsługiwany?
 Tak. [Aktualizacja V80](https://chromiumdash.appspot.com/schedule) [przeglądarki chromu](https://www.chromium.org/Home) wprowadziła upoważnienie dla plików cookie protokołu HTTP bez atrybutu SameSite, który ma być traktowany jako SameSite = swobodny. Oznacza to, że plik cookie koligacji Application Gateway nie będzie wysyłany przez przeglądarkę w kontekście innej firmy. 
 
-Aby obsłużyć ten scenariusz, Application Gateway dodaje do istniejącego pliku cookie *ApplicationGatewayAffinity* inny plik cookie o nazwie *ApplicationGatewayAffinityCORS* .  Te pliki cookie są podobne, ale plik cookie *ApplicationGatewayAffinityCORS* ma dwa więcej atrybutów: *SameSite = none; Zabezpiecz*. Te atrybuty utrzymują sesje programu Sticky Notes nawet w przypadku żądań między źródłami. Aby uzyskać więcej informacji, zobacz [sekcję koligacja na podstawie plików cookie](configuration-overview.md#cookie-based-affinity) .
+Aby obsłużyć ten scenariusz, Application Gateway dodaje do istniejącego pliku cookie *ApplicationGatewayAffinity* inny plik cookie o nazwie *ApplicationGatewayAffinityCORS* .  Te pliki cookie są podobne, ale plik cookie *ApplicationGatewayAffinityCORS* ma dwa więcej atrybutów: *SameSite = none; Zabezpiecz*. Te atrybuty utrzymują sesje programu Sticky Notes nawet w przypadku żądań między źródłami. Aby uzyskać więcej informacji, zobacz [sekcję koligacja na podstawie plików cookie](configuration-http-settings.md#cookie-based-affinity) .
 
 ## <a name="performance"></a>Wydajność
 
@@ -166,7 +166,7 @@ Tak. Można skonfigurować opróżnianie połączenia w celu zmiany elementów c
 
 Tak.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Czy Application Gateway jest zawsze wdrożona w sieci wirtualnej?
 
@@ -186,7 +186,7 @@ Zobacz [sieciowe grupy zabezpieczeń w podsieci Application Gateway](https://doc
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>Czy podsieć bramy Application Gateway obsługuje trasy zdefiniowane przez użytkownika?
 
-Zobacz [trasy zdefiniowane przez użytkownika obsługiwane w podsieci Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+Zobacz [trasy zdefiniowane przez użytkownika obsługiwane w podsieci Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Jakie są limity Application Gateway? Czy mogę zwiększyć te limity?
 
@@ -404,7 +404,7 @@ Obecnie jedno wystąpienie kontrolera transferu danych przychodzących może by�
 
 ### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Dlaczego mój klaster AKS z korzystającą wtyczki kubenetem nie działa z usługą AGIC?
 
-AGIC próbuje automatycznie skojarzyć zasób tabeli tras z podsiecią Application Gateway, ale może to się nie powieść z powodu braku uprawnień z AGIC. Jeśli AGIC nie może skojarzyć tabeli tras z podsiecią Application Gateway, wystąpi błąd w dziennikach AGIC, co oznacza, że w takim przypadku trzeba ręcznie skojarzyć tabelę tras utworzoną przez klaster AKS z podsiecią Application Gateway. Aby uzyskać więcej informacji, zobacz instrukcje w [tym miejscu](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+AGIC próbuje automatycznie skojarzyć zasób tabeli tras z podsiecią Application Gateway, ale może to się nie powieść z powodu braku uprawnień z AGIC. Jeśli AGIC nie może skojarzyć tabeli tras z podsiecią Application Gateway, wystąpi błąd w dziennikach AGIC, co oznacza, że w takim przypadku trzeba ręcznie skojarzyć tabelę tras utworzoną przez klaster AKS z podsiecią Application Gateway. Aby uzyskać więcej informacji, zobacz [obsługiwane trasy zdefiniowane przez użytkownika](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Czy mogę połączyć klaster AKS i Application Gateway w oddzielnych sieciach wirtualnych? 
 

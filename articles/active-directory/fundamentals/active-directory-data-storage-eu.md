@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d8ae8c5e3218959a483e78f70a6502bf7a5a47
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 874df2cc17e291cb6811ca07d01237f01b523860
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799109"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565042"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Magazyn danych tożsamości dla klientów europejskich w Azure Active Directory
-Dane tożsamości są przechowywane w usłudze Azure AD w lokalizacji geograficznej na podstawie adresu dostarczonego przez organizację w przypadku subskrybowania usługi online firmy Microsoft, takiej jak Office 365 i Azure. Aby uzyskać informacje o tym, gdzie są przechowywane dane tożsamości, możesz użyć sekcji [gdzie znajdują się Twoje dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Centrum zaufania Microsoft.
+Dane tożsamości są przechowywane w usłudze Azure AD w lokalizacji geograficznej na podstawie adresu dostarczonego przez organizację podczas subskrybowania usługi online firmy Microsoft, takiej jak Microsoft 365 i Azure. Aby uzyskać informacje o tym, gdzie są przechowywane dane tożsamości, możesz użyć sekcji [gdzie znajdują się Twoje dane?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Centrum zaufania Microsoft.
 
 W przypadku klientów, którzy podały adres w Europie, usługa Azure AD przechowuje większość danych tożsamości w obrębie europejskich centrów Datacenter. Ten dokument zawiera informacje dotyczące wszelkich danych przechowywanych poza Europą przez usługi Azure AD.
 
@@ -30,11 +30,11 @@ W przypadku klientów, którzy podały adres w Europie, usługa Azure AD przecho
 - Powiadomienia wypychane przy użyciu aplikacji Microsoft Authenticator pochodzą z centrów danych US. Ponadto usługi specyficzne dla dostawcy urządzeń mogą również być odtwarzane, a te usługi są dostępne poza Europą.
 - Kody OATH są zawsze weryfikowane w Stanach Zjednoczonych. 
 
-Aby uzyskać więcej informacji o tym, jakie informacje o użytkowniku są zbierane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i opartą na chmurze usługę Azure MFA, zobacz [zbieranie danych użytkownika w usłudze azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+Aby uzyskać więcej informacji o tym, jakie informacje o użytkowniku są zbierane przez usługę Azure Serwer Multi-Factor Authentication (serwer MFA) i opartą na chmurze usługę Azure MFA, zobacz [zbieranie danych użytkownika w usłudze azure Multi-Factor Authentication](../authentication/howto-mfa-reporting-datacollection.md).
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 
-Dane konfiguracji zasad Azure AD B2C i kontenery kluczy są przechowywane w stanowych centrach danych. Nie zawierają one żadnych danych osobowych użytkownika. Aby uzyskać więcej informacji na temat konfiguracji zasad, zobacz artykuł [Azure Active Directory B2C: Built-in policies (Azure Active Directory B2C — wbudowane zasady)](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+Dane konfiguracji zasad Azure AD B2C i kontenery kluczy są przechowywane w stanowych centrach danych. Nie zawierają one żadnych danych osobowych użytkownika. Aby uzyskać więcej informacji na temat konfiguracji zasad, zobacz artykuł [Azure Active Directory B2C: Built-in policies (Azure Active Directory B2C — wbudowane zasady)](../../active-directory-b2c/user-flow-overview.md).
 
 ## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
@@ -50,7 +50,7 @@ Usługa Azure AD DS przechowuje dane użytkowników w tej samej lokalizacji, co 
 - Lista zatwierdzonych domen federacyjnych dla aplikacji
 - Klucz publiczny podpisywania tokenu aplikacji 
 
-Aby uzyskać więcej informacji na temat Federacji w programie Microsoft Exchange Server, zobacz artykuł dotyczący [Federacji: Exchange 2013 help](https://docs.microsoft.com/exchange/federation-exchange-2013-help) .
+Aby uzyskać więcej informacji na temat Federacji w programie Microsoft Exchange Server, zobacz artykuł dotyczący [Federacji: Exchange 2013 help](/exchange/federation-exchange-2013-help) .
 
 
 ## <a name="other-considerations"></a>Inne zagadnienia
@@ -61,12 +61,12 @@ Aby uzyskać więcej informacji na temat przechowywania danych usług firmy Micr
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na temat funkcji i funkcji opisanych powyżej, zobacz następujące artykuły:
-- [Co to jest uwierzytelnianie wieloskładnikowe?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+- [Co to jest uwierzytelnianie wieloskładnikowe?](../authentication/concept-mfa-howitworks.md)
 
-- [Samoobsługowe resetowanie haseł w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+- [Samoobsługowe resetowanie haseł w usłudze Azure AD](../authentication/concept-sspr-howitworks.md)
 
-- [Co to jest usługa Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+- [Co to jest usługa Azure Active Directory B2C?](../../active-directory-b2c/overview.md)
 
-- [Czym jest współpraca B2B w usłudze Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- [Czym jest współpraca B2B w usłudze Azure AD?](../external-identities/what-is-b2b.md)
 
-- [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)
+- [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6045c491ea68d759b2a1739e20aa2f12b8520c87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006489"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399994"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenariusz: kierowanie do usług udostępnionych sieci wirtualnych
 
@@ -22,9 +22,9 @@ Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka
 
 Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Projektowanie
+## <a name="design"></a><a name="design"></a>Projekt
 
-W celu podsumowania wymagań tego scenariusza możemy użyć macierzy łączności. W macierzy każda komórka zawiera informacje o tym, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu.
+W celu podsumowania wymagań tego scenariusza możemy użyć macierzy łączności. W macierzy każda komórka zawiera informacje o tym, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu. "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN:
 
 **Macierz łączności**
 

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135440"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614040"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Tworzenie ustawień diagnostycznych w celu wysyłania dzienników platformy i metryk do różnych miejsc docelowych
 [Dzienniki platformy](platform-logs-overview.md) na platformie Azure, w tym dziennik aktywności platformy Azure i dzienniki zasobów, zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. [Metryki platformy](data-platform-metrics.md) są zbierane domyślnie i zazwyczaj przechowywane w bazie danych metryk Azure monitor. Ten artykuł zawiera szczegółowe informacje na temat tworzenia i konfigurowania ustawień diagnostycznych w celu wysyłania metryk platformy i dzienników platformy do różnych miejsc docelowych.
@@ -100,7 +100,7 @@ Ustawienia diagnostyczne można skonfigurować w Azure Portal z menu Azure Monit
      - **AllMetrics** kieruje metryki platformy zasobu do magazynu dzienników platformy Azure, ale w formularzu dziennika. Te metryki są zwykle wysyłane tylko do bazy danych szeregów czasowych metryk Azure Monitor. Wysłanie ich do magazynu dzienników Azure Monitor (który można przeszukiwać za pośrednictwem Log Analytics), aby zintegrować je z kwerendami, które przeszukują inne dzienniki. Ta opcja może być niedostępna dla wszystkich typów zasobów. Jeśli jest obsługiwana, [Azure monitor obsługiwane metryki](metrics-supported.md) wyświetlają metryki, które są zbierane dla typów zasobów.
 
        > [!NOTE]
-       > Zobacz limitatation, aby uzyskać metryki routingu, aby Azure Monitor dzienniki wcześniej w tym artykule.  
+       > Zobacz ograniczenie dotyczące metryk routingu, aby Azure Monitor dzienniki wcześniej w tym artykule.  
 
 
      - **Dzienniki** zawiera różne kategorie dostępne w zależności od typu zasobu. Sprawdź wszystkie kategorie, które chcesz skierować do miejsca docelowego.

@@ -1,19 +1,19 @@
 ---
 title: Skalowanie rozmiarów klastrów — Azure HDInsight
 description: Skalowanie klastra Apache Hadoop elastycznie w celu dopasowania do obciążenia w usłudze Azure HDInsight
-author: ashishthaps
+author: hrasheed-msft
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006454"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505016"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
@@ -111,9 +111,9 @@ Wpływ zmiany liczby węzłów danych różni się w zależności od typu klastr
 
     Po skalowaniu do `N` węzłów procesu roboczego Usługa HDInsight automatycznie ustawi następujące konfiguracje i ponownie uruchomi gałąź.
 
-  * Maksymalna łączna liczba współbieżnych zapytań:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
-  * Liczba węzłów używanych przez LLAP Hive:`num_llap_nodes  = N`
-  * Liczba węzłów do uruchomienia demona Hive LLAP:`num_llap_nodes_for_llap_daemons = N`
+  * Maksymalna łączna liczba współbieżnych zapytań: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Liczba węzłów używanych przez LLAP Hive: `num_llap_nodes  = N`
+  * Liczba węzłów do uruchomienia demona Hive LLAP: `num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Jak bezpiecznie skalować klaster
 

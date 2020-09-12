@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144893"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650833"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Aby dowiedzieć się więcej o wystąpieniach obliczeniowych, w tym o sposobie i
 
 Aby zatrzymać naliczanie opłat za obliczenia, [Zatrzymaj wystąpienie obliczeniowe](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Maszyna wirtualna do analizy danych
 
 DSVM to dostosowany obraz maszyny wirtualnej (VM). Została zaprojektowana do pracy z nauką o danych, która została wstępnie skonfigurowana za pomocą:
 
@@ -81,7 +81,7 @@ Aby użyć DSVM jako środowiska deweloperskiego:
 
     * Azure Portal:
 
-        * [Tworzenie maszyny Data Science Virtual Machine z systemem Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+        * [Tworzenie Data Science Virtual Machine Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
         * [Tworzenie maszyny Data Science Virtual Machine z systemem Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
@@ -185,7 +185,7 @@ Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wi
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   Zainstalowanie zestawu SDK potrwa kilka minut. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Przewodnik instalacji](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+   Zainstalowanie zestawu SDK potrwa kilka minut. Aby uzyskać więcej informacji na temat opcji instalacji, zobacz [Przewodnik instalacji](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 1. Zainstaluj inne pakiety na potrzeby eksperymentowania w usłudze Machine Learning.
 
@@ -361,7 +361,7 @@ Aby użyć tego pliku z kodu, użyj `ws=Workspace.from_config()` . Ten kod ładu
 
 Plik konfiguracji można utworzyć na trzy sposoby:
 
-* **Użyj  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:, aby napisać *config.jsna* pliku. Plik zawiera informacje o konfiguracji dla obszaru roboczego. *config.js* można pobrać lub skopiować do innych środowisk programistycznych.
+* **Użyj  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)**:, aby napisać *config.jsna* pliku. Plik zawiera informacje o konfiguracji dla obszaru roboczego. *config.js* można pobrać lub skopiować do innych środowisk programistycznych.
 
 * **Pobierz plik**: w [Azure Portal](https://ms.portal.azure.com)wybierz pozycję  **Pobierz config.js** z sekcji **Przegląd** w obszarze roboczym.
 
@@ -389,4 +389,4 @@ Plik konfiguracji można utworzyć na trzy sposoby:
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](tutorial-train-models-with-aml.md) na Azure Machine Learning z zestawem danych mnist ręcznie
-- Wyświetl informacje o [zestawie Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- Wyświetl informacje o [zestawie Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)

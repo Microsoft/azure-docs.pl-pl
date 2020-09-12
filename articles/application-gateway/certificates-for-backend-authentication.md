@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 125da04c9fafe33c7f3de3a5849e4238b3b45d6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f2abd2a42fb15b994803a48b97679ee8927233
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976544"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594428"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Tworzenie certyfikatów w celu zezwalania na zaplecze przy użyciu usługi Azure Application Gateway
 
@@ -21,10 +21,9 @@ Aby przeprowadzić kompleksową obsługę protokołu TLS, Application Gateway wy
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
->
-> - Eksportowanie certyfikatu uwierzytelniania z certyfikatu wewnętrznej bazy danych (dla jednostki SKU v1)
-> - Eksportowanie zaufanego certyfikatu głównego z certyfikatu zaplecza (dla jednostki SKU v2)
+
+- Eksportowanie certyfikatu uwierzytelniania z certyfikatu wewnętrznej bazy danych (dla jednostki SKU v1)
+- Eksportowanie zaufanego certyfikatu głównego z certyfikatu zaplecza (dla jednostki SKU v2)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

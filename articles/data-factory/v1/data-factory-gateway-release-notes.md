@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194471"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490092"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Informacje o wersji bramy zarządzania danymi
 > [!NOTE]
@@ -26,7 +26,7 @@ Jednym z wyzwań związanych z integracją nowoczesnych danych jest przeniesieni
 
 Zobacz następujące artykuły, aby uzyskać szczegółowe informacje na temat bramy Zarządzanie danymi i korzystania z niej:
 
-*  [Zarządzanie danymi Gateway](data-factory-data-management-gateway.md)
+*  [Brama zarządzania danymi](data-factory-data-management-gateway.md)
 *  [Przenoszenie danych między środowiskiem lokalnym i chmurą przy użyciu Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
@@ -39,14 +39,14 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 ## <a name="earlier-versions"></a>Wcześniejsze wersje
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Usprawni
-- Możesz dodać wpisy DNS do usługi dozwolonych Service Bus, a nie listy dozwolonych wszystkie adresy IP platformy Azure z zapory (jeśli to konieczne). Odpowiedni wpis DNS można znaleźć na Azure Portal (Tworzenie i wdrażanie bram "->" "->" w formacie JSON (Data Factory >).
+- Możesz dodać wpisy DNS, aby zezwolić na korzystanie z usługi Service Bus zamiast zezwalać na wszystkie adresy IP platformy Azure z zapory (jeśli to konieczne). Odpowiedni wpis DNS można znaleźć na Azure Portal (Tworzenie i wdrażanie bram "->" "->" w formacie JSON (Data Factory >).
 - Łącznik HDFS obsługuje teraz certyfikat publiczny z podpisem własnym przez umożliwienie pominięcia weryfikacji TLS.
 - Naprawiono: problem z bramą w trybie offline podczas aktualizacji (ze względu na przechylenie zegara)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Usprawni
--   Możesz dodać wpisy DNS do dozwolonych Service Bus, a nie listy dozwolonych wszystkie adresy IP platformy Azure z zapory (jeśli to konieczne). Więcej szczegółów można znaleźć tutaj.
+-   Możesz dodać wpisy DNS, aby zezwalać Service Bus, a nie zezwalać na wszystkie adresy IP platformy Azure z zapory (jeśli to konieczne). Więcej informacji znajdziesz tutaj.
 -   Teraz można kopiować dane do/z pojedynczego bloku obiektów BLOB o rozmiarze do 4,75 TB, czyli maksymalnego obsługiwanego rozmiaru blokowego obiektu BLOB. (wcześniejszy limit to 195 GB).
 -   Rozwiązano: problem z brakiem pamięci podczas rozpakowywania kilku małych plików podczas działania kopiowania.
 -   Naprawiono: problem z zakresem podczas kopiowania z bazy danych dokumentów do SQL Server za pomocą funkcji idempotentności.
@@ -128,7 +128,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
     *  Dane można kopiować z magazynu za pomocą narzędzia do [kopiowania bez kodu](data-factory-copy-data-wizard-tutorial.md). Więcej informacji o tej funkcji znajduje się w sekcji [przygotowane kopie](data-factory-copy-activity-performance.md#staged-copy) .
 *  Za pomocą bramy Zarządzanie danymi można odbierać dane przychodzące bezpośrednio z SQL Serverj bazy danych w Azure Machine Learning.
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 
     * Zwiększ wydajność wyświetlania schematu/podglądu w odniesieniu do SQL Server w narzędziu do kopiowania bez kodu.
 
@@ -144,7 +144,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 *  W przypadku niepowodzenia automatycznego aktualizowania Instalator bramy ponawia próbę automatycznego zaktualizowania.
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 
     * Zwiększ wydajność ładowania dużych tabel z serwera lokalnego w scenariuszu kopiowania bez kodu.
 
@@ -152,7 +152,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 
 *  Poprawki błędów
 
@@ -164,41 +164,41 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 *  Możliwość ustawienia czasu harmonogramu aktualizacji
 *  Skrypt programu PowerShell służący do przełączania lub wyłączania autoaktualizacji
 *  Obsługa formatu JSON  
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Ulepszanie środowiska rozwiązywania problemów
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Obsługa lokalnego źródła/ujścia systemu plików HDFS
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1656761"></a>1.6.5676.1
 
 *  Obsługa narzędzi diagnostycznych na Configuration Manager
 *  Obsługa kolumn tabeli dla tabelarycznych źródeł danych dla Azure Data Factory
-*  Obsługa usługi SQL DW dla Azure Data Factory
+*  Obsługa usługi Azure Synapse Analytics dla Azure Data Factory
 *  Obsługa reclusive w BlobSource i FileSource dla Azure Data Factory
 *  Obsługa CopyBehavior — MergeFiles, PreserveHierarchy i FlattenHierarchy in wartość blobsink i FileSink z kopią binarną dla Azure Data Factory
 *  Obsługa postępu raportowania działania kopiowania dla Azure Data Factory
@@ -208,7 +208,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Nazwa tabeli obsługi dla źródła danych ODBC dla Azure Data Factory
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +229,13 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 
 *  Obsługa pięciu relacyjnych baz danych dla Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata i Sybase)
 *  Obsługa kompresji (gzip i Wklęśnięcie)
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Dodaj obsługę programu Oracle Data Source dla Azure Data Factory
-*  Ulepszenia wydajności
+*  Usprawnienia wydajności
 *  Poprawki błędów
 
 ### <a name="1454921"></a>1.4.5492.1

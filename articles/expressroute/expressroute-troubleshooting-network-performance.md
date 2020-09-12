@@ -2,18 +2,18 @@
 title: 'Rozwiązywanie problemów z wydajnością łączy sieciowych: Azure'
 description: Ta strona zawiera ustandaryzowaną metodę testowania wydajności łączy sieciowych platformy Azure.
 services: expressroute
-author: tracsman
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521670"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566079"
 ---
 # <a name="troubleshooting-network-performance"></a>Rozwiązywanie problemów z wydajnością sieci
 ## <a name="overview"></a>Omówienie
@@ -121,7 +121,7 @@ Jeśli nie masz pewności, gdzie rzeczywiście jest krawędzią chmury, Izolowan
 ![2][2]
 
 >[!NOTE]
-> Zwróć uwagę, że MSEE nie znajduje się w chmurze platformy Azure. ExpressRoute jest w rzeczywistości na granicy sieci firmy Microsoft, która nie jest faktycznie na platformie Azure. Po nawiązaniu połączenia z usługą ExpressRoute z siecią firmy Microsoft nastąpi połączenie z Internetem, a następnie możesz przejść do dowolnej z usług w chmurze, takich jak Office 365 (z użyciem komunikacji równorzędnej firmy Microsoft) lub platformy Azure (z użyciem komunikacji równorzędnej i/lub firmy Microsoft).
+> Zwróć uwagę, że MSEE nie znajduje się w chmurze platformy Azure. ExpressRoute jest w rzeczywistości na granicy sieci firmy Microsoft, która nie jest faktycznie na platformie Azure. Po nawiązaniu połączenia z usługą ExpressRoute z MSEEem nastąpi połączenie z siecią firmy Microsoft, a następnie możesz przejść do dowolnej z usług w chmurze, takich jak Microsoft 365 (z usługą komunikacji równorzędnej firmy Microsoft) lub na platformę Azure (z usługą komunikacji równorzędnej i/lub firmy Microsoft).
 >
 >
 
@@ -146,7 +146,7 @@ W przypadku sieci WAN udostępnianie wyników testów z dostawcą usług lub us�
 
 Po rozwiązaniu problemu z platformą Azure, gdy jest to możliwe, należy zapoznać się z [dokumentacją sieci platformy Azure][Network Docs] , a następnie w razie potrzeby [otworzyć bilet pomocy technicznej][Ticket Link].
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 ### <a name="latencybandwidth-expectations"></a>Oczekiwania na opóźnienia/przepustowość
 >[!TIP]
 > Opóźnienie geograficzne (mile lub kilometry) między punktami końcowymi, które są testowane, to największy składnik opóźnienia. Chociaż występuje opóźnienie sprzętu (składniki fizyczne i wirtualne, liczba przeskoków itp.), Geografia została sprawdzona jako największy składnik ogólnego opóźnienia podczas pracy z połączeniami WAN. Należy również pamiętać, że odległość jest odległość między uruchomieniem włókna a odległością od osi liniowej lub mapy drogowej. Ta odległość jest trudno uzyskać z dokładnością niezwykle. W związku z tym ogólnie używamy kalkulatora odległości miast w Internecie i wiesz, że ta metoda jest miarowo niedokładnej miary, ale jest wystarczająca do ustawienia ogólnego oczekiwania.
@@ -181,23 +181,23 @@ Konfiguracja testu:
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | Zachodnie stany USA 2        |    191 km |   5 ms | 262,0 MB/s |  3,74 Gbits/s |
 | Seattle | Zachodnie stany USA          |  1 094 km |  18 MS |  82,3 MB/s |  3,70 Gbits/s |
-| Seattle | Środkowe stany USA       |  2 357 km |  40 MS |  38,8 MB/s |  2,55 Gbits/s |
+| Seattle | Central US       |  2 357 km |  40 MS |  38,8 MB/s |  2,55 Gbits/s |
 | Seattle | South Central US |  2 877 km |  51 MS |  30,6 MB/s |  2,49 Gbits/s |
 | Seattle | Północno-środkowe stany USA |  2 792 km |  55 MS |  27,7 MB/s |  2,19 Gbits/s |
 | Seattle | Wschodnie stany USA 2        |  3 769 km |  73 MS |  21,3 MB/s |  1,79 Gbits/s |
 | Seattle | East US          |  3 699 km |  74 MS |  21,1 MB/s |  1,78 Gbits/s |
 | Seattle | Japan East       |  7 705 km | 106 MS |  14,6 MB/s |  1,22 Gbits/s |
 | Seattle | Południowe Zjednoczone Królestwo         |  7 708 km | 146 MS |  10,6 MB/s |   896 MB/s |
-| Seattle | Europa Zachodnia      |  7 834 km | 153 MS |  10,2 MB/s |   761 MB/s |
+| Seattle | West Europe      |  7 834 km | 153 MS |  10,2 MB/s |   761 MB/s |
 | Seattle | Australia Wschodnia   | 12 484 km | 165 MS |   9,4 MB/s |   794 MB/s |
-| Seattle | Azja Południowo-Wschodnia   | 12 989 km | 170 MS |   9,2 MB/s |   756 MB/s |
+| Seattle | Southeast Asia   | 12 989 km | 170 MS |   9,2 MB/s |   756 MB/s |
 | Seattle | Brazylia Południowa *   | 10 930 km | 189 MS |   8,2 MB/s |   699 MB/s |
 | Seattle | Indie Południowe      | 12 918 km | 202 MS |   7,7 MB/s |   634 MB/s |
 
-\*Opóźnienie w Brazylii to dobry przykład, w którym odległość liniowa znacznie różni się od odległości od przebiegu. Oczekujemy, że opóźnienie będzie w okolicy 160 MS, ale rzeczywiście 189 MS. Różnica w odniesieniu do mojego oczekiwania może wskazywać na problem z siecią, ale najprawdopodobniej w przypadku, gdy uruchomienie włókna nie przechodzi do Brazylii w prostej linii i ma dodatkowe 1 000 km lub podróży w celu przejścia do Brazylii z Seattle.
+\* Opóźnienie w Brazylii to dobry przykład, w którym odległość liniowa znacznie różni się od odległości od przebiegu. Oczekujemy, że opóźnienie będzie w okolicy 160 MS, ale rzeczywiście 189 MS. Różnica w odniesieniu do mojego oczekiwania może wskazywać na problem z siecią, ale najprawdopodobniej w przypadku, gdy uruchomienie włókna nie przechodzi do Brazylii w prostej linii i ma dodatkowe 1 000 km lub podróży w celu przejścia do Brazylii z Seattle.
 
 ## <a name="next-steps"></a>Następne kroki
-1. Pobierz zestaw narzędzi Azure Connectivity Toolkit z serwisu GitHub na stronie[https://aka.ms/AzCT][ACT]
+1. Pobierz zestaw narzędzi Azure Connectivity Toolkit z serwisu GitHub na stronie [https://aka.ms/AzCT][ACT]
 2. Postępuj zgodnie z instrukcjami dotyczącymi [testowania wydajności łącza][Performance Doc]
 
 <!--Image References-->

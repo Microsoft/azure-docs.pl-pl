@@ -3,21 +3,17 @@ title: Automatyczne naprawianie węzłów usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się więcej na temat funkcji autonaprawy węzła i sposobu, w jaki AKS rozwiązuje uszkodzone węzły procesu roboczego.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 7fcb7b380f3694aaf34328019c3e09f5157c9e64
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/24/2020
+ms.openlocfilehash: 781a1ffebb40b0cce9f18699d308db90633e8626
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542046"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490109"
 ---
 # <a name="azure-kubernetes-service-aks-node-auto-repair"></a>Funkcja autonaprawy węzła usługi Azure Kubernetes Service (AKS)
 
-AKS stale sprawdza stan kondycji węzłów procesu roboczego i wykonuje automatyczną naprawę węzłów, jeśli staną się w złej kondycji. Ten dokument informuje operatorów o sposobie zachowania funkcji automatycznego naprawiania węzłów. Oprócz naprawionych AKS platforma maszyn wirtualnych platformy Azure [wykonuje konserwację na Virtual Machines][vm-updates] . AKS i maszyny wirtualne platformy Azure współpracują ze sobą, aby zminimalizować przerwy w działaniu usługi dla klastrów.
-
-## <a name="limitations"></a>Ograniczenia
-
-* Pule węzłów systemu Windows nie są obecnie obsługiwane.
+AKS stale sprawdza stan kondycji węzłów procesu roboczego i wykonuje automatyczną naprawę węzłów, jeśli staną się w złej kondycji. Ten dokument informuje operatorów o sposobie zachowania funkcji automatycznej naprawy węzła dla węzłów systemu Windows i Linux. Oprócz naprawionych AKS platforma maszyn wirtualnych platformy Azure [wykonuje konserwację na Virtual Machines][vm-updates] . AKS i maszyny wirtualne platformy Azure współpracują ze sobą, aby zminimalizować przerwy w działaniu usługi dla klastrów.
 
 ## <a name="how-aks-checks-for-unhealthy-nodes"></a>Jak AKS sprawdza dostępność węzłów w złej kondycji
 
@@ -37,9 +33,13 @@ kubectl get nodes
 > [!Note]
 > AKS inicjuje operacje naprawy przy użyciu konta użytkownika **AKS-remediator**.
 
-Jeśli węzeł jest określony jako w złej kondycji na podstawie powyższych reguł i pozostaje w złej kondycji przez 10 kolejnych minut, AKS ponownie uruchamia węzeł. Jeśli węzły pozostaną w złej kondycji po początkowej operacji naprawy, dodatkowe środki zaradcze są badane przez inżynierów AKS.
-  
-Jeśli wiele węzłów jest w złej kondycji podczas sprawdzania kondycji, każdy węzeł jest naprawiany indywidualnie przed rozpoczęciem kolejnej naprawy.
+Jeśli węzeł jest w złej kondycji na podstawie powyższych reguł i pozostaje w złej kondycji przez 10 kolejnych minut, zostaną wykonane następujące działania.
+
+1. Ponowne uruchamianie węzła
+1. Jeśli ponowne uruchomienie nie powiedzie się, odtworzenie obrazu węzła
+1. Jeśli odtwarzanie obrazu nie powiedzie się, Utwórz nowy węzeł i Odtwórz go z obrazu
+
+Jeśli żadna z tych akcji nie powiedzie się, dodatkowe środki zaradcze są badane przez inżynierów AKS. Jeśli wiele węzłów jest w złej kondycji podczas sprawdzania kondycji, każdy węzeł jest naprawiany indywidualnie przed rozpoczęciem kolejnej naprawy.
 
 ## <a name="next-steps"></a>Następne kroki
 

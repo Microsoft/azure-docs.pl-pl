@@ -2,13 +2,13 @@
 title: Obsługa tagów dla zasobów
 description: Pokazuje, które typy zasobów platformy Azure obsługują Tagi. Zawiera szczegółowe informacje dotyczące wszystkich usług platformy Azure.
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 1f74ecff7c5db7a851ad2795fdfdb8e552a309c0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/08/2020
+ms.openlocfilehash: ea46e263d934c327cf6dfa343a5e0b5a170f545e
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231524"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513918"
 ---
 # <a name="tag-support-for-azure-resources"></a>Obsługa tagów dla zasobów platformy Azure
 W tym artykule opisano, czy typ zasobu obsługuje [Tagi](tag-resources.md). Kolumna z etykietą **obsługuje znaczniki** wskazuje, czy typ zasobu ma właściwość dla tagu. Kolumna **tag z etykietą w raporcie koszt** wskazuje, czy ten typ zasobu przekazuje tag do raportu kosztów. Możesz wyświetlić koszty według tagów w [Cost Management analiza kosztów](../../cost-management-billing/costs/group-filter.md) oraz [dane dotyczące rozliczeń i dziennego użycia na platformie Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -964,6 +964,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | dataFactorySchema | Nie | Nie |
 > | fabryki | Tak | Tak |
 > | fabryki/integrationRuntimes | Nie | Nie |
+
+> [!NOTE]
+> Jeśli masz środowisko Azure-SSIS Integration Runtime w fabryce danych, ich koszt ich uruchomienia zostanie oznaczony tagami usługi Data Factory.  Uruchamianie środowiska Azure-SSIS Integration Runtime musi zostać zatrzymane i uruchomione ponownie w celu zastosowania nowych tagów usługi Data Factory do ich kosztu uruchomienia.
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
 

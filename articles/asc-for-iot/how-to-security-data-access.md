@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: bbea0accc79cafb6fea3f1438a71250dc02f4d62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77982bb8e001670ec1db57405e746cd849024278
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311003"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504897"
 ---
 # <a name="access-your-security-data"></a>Dostęp do danych zabezpieczeń
 
@@ -31,8 +31,8 @@ Azure Security Center dla usługi IoT przechowuje alerty zabezpieczeń, zaleceni
 Aby skonfigurować, który obszar roboczy Log Analytics jest używany:
 
 1. Otwórz Centrum IoT Hub.
-1. Kliknij blok **Przegląd** w sekcji **zabezpieczenia** .
-1. Kliknij pozycję **Ustawienia**, a następnie Zmień konfigurację obszaru roboczego log Analytics.
+1. Kliknij blok **Ustawienia** w sekcji **zabezpieczenia** .
+1. Kliknij pozycję **zbieranie danych**i Zmień konfigurację obszaru roboczego log Analytics.
 
 Aby uzyskać dostęp do alertów i rekomendacji w obszarze roboczym Log Analytics po zakończeniu konfiguracji:
 
@@ -148,8 +148,8 @@ SecurityRecommendation
 
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Opis | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Średniaa | Aktywne | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów | {"Rules": "[{ \" SourceAddress \" : \" \" , \" SourcePort \" : \" \" , \" DestinationAddress \" : \" \" , \" DestinationPort \" : \" 1337 \" }]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Średniaa | Aktywne | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów | {"Rules": "[{ \" SourceAddress \" : \" \" , \" SourcePort \" : \" \" , \" DestinationAddress \" : \" \" , \" DestinationPort \" : \" 1337 \" }]"} |
+| 2019-03-22T10:21:06.060 |    /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Średniaa | Aktywny | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów | {"Rules": "[{ \" SourceAddress \" : \" \" , \" SourcePort \" : \" \" , \" DestinationAddress \" : \" \" , \" DestinationPort \" : \" 1337 \" }]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Średniaa | Aktywny | Znaleziono ograniczającą regułę zapory w łańcuchu wejściowym | Znaleziono regułę w zaporze, która zawiera oddzielny wzorzec dla szerokiego zakresu adresów IP lub portów | {"Rules": "[{ \" SourceAddress \" : \" \" , \" SourcePort \" : \" \" , \" DestinationAddress \" : \" \" , \" DestinationPort \" : \" 1337 \" }]"} |
 
 ### <a name="device-summary"></a>Podsumowanie urządzenia
 

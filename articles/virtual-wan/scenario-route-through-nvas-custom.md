@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987214"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400011"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenariusz: kierowanie ruchu przez urządzeń WUS — niestandardowy (wersja zapoznawcza)
 
 Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W tym scenariuszu urządzenie WUS (sieciowe urządzenie wirtualne) celem jest kierowanie ruchu przez urządzenie WUS w celu komunikacji między sieci wirtualnych i gałęziami oraz użycie innego urządzenie WUS dla ruchu związanego z Internetem. Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Projektowanie
+## <a name="design"></a><a name="design"></a>Projekt
 
 W tym scenariuszu będziemy używać konwencji nazewnictwa:
 
@@ -35,12 +35,12 @@ Następująca macierz łączności podsumowuje przepływy obsługiwane w tym sce
 
 | Źródło          | Do:|*URZĄDZENIE WUS szprychy*|*Sieć wirtualna usługi*|*Sieć wirtualna strefy DMZ*|*Statyczne gałęzie*|
 |---|---|---|---|---|---|
-| **URZĄDZENIE WUS szprychy**| &#8594;|      X |            X |   Komunikacja równorzędna |    Statyczny    |
+| **URZĄDZENIE WUS szprychy**| &#8594;|      X |            X |   Komunikacja równorzędna |    Static    |
 | **Sieć wirtualna usługi**| &#8594;|    X |            X |      X    |      X       |
 | **Sieć wirtualna strefy DMZ** | &#8594;|       X |            X |      X    |      X       |
-| **Gałęzie** | &#8594;|  Statyczny |            X |      X    |      X       |
+| **Gałęzie** | &#8594;|  Static |            X |      X    |      X       |
 
-Każda komórka w macierzy łączności zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w kursywie) dla określonego przepływu ruchu. Przejdźmy szczegółowo do różnych wierszy:
+Każda komórka w macierzy łączności zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w kursywie) dla określonego przepływu ruchu. "X" oznacza, że łączność jest zapewniana natywnie przez wirtualną sieć WAN, a "static" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN przy użyciu tras statycznych. Przejdźmy szczegółowo do różnych wierszy:
 
 * URZĄDZENIE WUS szprych:
   * Szprychy docierają do innych szprych bezpośrednio za pośrednictwem wirtualnych centrów sieci WAN.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829598"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440681"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Rozwiązywanie problemów z wykresami metryk
 
@@ -110,7 +110,7 @@ Domyślnie metryki systemu operacyjnego gościa są przechowywane na koncie usł
 
 1. Sprawdź, czy konto magazynu nie jest chronione przez zaporę. Witryna Azure Portal potrzebuje dostępu do konta magazynu na potrzeby pobierania danych metryk i rysowania wykresów.
 
-1. Użyj [Eksploratora usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/), aby zweryfikować, że metryki przepływają do konta usługi Storage. Jeśli metryki nie są zbierane, postępuj zgodnie z [przewodnikiem rozwiązywania problemów z rozszerzeniem Diagnostyki Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Użyj [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , aby sprawdzić, czy metryki przepływają do konta magazynu. Jeśli metryki nie są zbierane, postępuj zgodnie z [przewodnikiem rozwiązywania problemów z rozszerzeniem Diagnostyki Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Następne kroki
 

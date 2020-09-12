@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą usługi Advi
 description: Użyj zaleceń dotyczących wydajności w Azure Advisor, aby zwiększyć szybkość i czas odpowiedzi aplikacji o krytycznym znaczeniu dla firmy.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653311"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651586"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -63,6 +63,8 @@ Program Advisor identyfikuje tabele, które nie mają aktualnych [statystyk tabe
 
 Analiza klasyfikatora może wskazywać, że aplikacja łącząca się z serwerem MySQL może nie zarządzać połączeniami efektywnie. Ten stan może prowadzić do niepotrzebnego zużycia zasobów i całkowitego opóźnienia aplikacji. Aby usprawnić zarządzanie połączeniami, zalecamy zmniejszenie liczby połączeń krótkoterminowych i wyeliminowanie niepotrzebnych połączeń bezczynnych. Te ulepszenia można wprowadzić, konfigurując pulę połączeń po stronie serwera, na przykład ProxySQL.
 
+## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Zaktualizuj bieżącą wersję zestawu SDK zarządzania obliczeniami do najnowszej
+Klasyfikator identyfikuje subskrypcje, których operacje korzystają z nieaktualnych wersji zestawu SDK zarządzania obliczeniami. Może to mieć wpływ na bezpieczeństwo i wydajność obciążeń, a tym samym zaleca się przełączenie do najnowszej wersji zestawu SDK zarządzania COMPUTE. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Skalowanie w górę w celu zoptymalizowania użycia pamięci podręcznej w tabelach usługi Azure Synapse Analytics w celu zwiększenia wydajności zapytań
 
@@ -165,7 +167,7 @@ To zalecenie obejmuje tabele usługi Azure Data Explorer, których dotyczy duża
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Poprawianie wydajności dzięki optymalizacji rozmiarów tabeli tymczasowej MySQL
 Analiza klasyfikatora wskazuje, że serwer MySQL może uwzględniać niepotrzebne obciążenia we/wy ze względu na niskie ustawienia parametrów tabeli tymczasowej. Może to spowodować niepotrzebne transakcje na dysku i zmniejszenie wydajności. Zalecamy zwiększenie wartości parametrów „tmp_table_size” i „max_heap_table_size”, aby zmniejszyć liczbę transakcji opartych na dyskach. [Dowiedz się więcej](https://aka.ms/azure_mysql_tmp_table)
 
-## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Dystrybuuj dane w grupie serwerów, aby dystrybuować obciążenie między węzłami
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Rozpraszanie danych w ramach grupy zasobów, aby rozłożyć obciążenie między węzły
 Usługa Advisor identyfikuje grupy serwerów, w których dane nie zostały dystrybuowane, ale pozostają na koordynatorze. Na podstawie tego klasyfikatora zaleca się, aby w przypadku wszystkich korzyści z pełnego skalowania (Citus) rozpowszechniać dane w węzłach procesu roboczego dla grup serwerów. Poprawi to wydajność zapytań, wykorzystując zasób każdego węzła w grupie serwerów. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących wydajności w usłudze Advisor

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 93015427dddfe2b311783c20587792e34c098ce8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011042"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462007"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -134,7 +134,7 @@ Metryki magazynu przechowują tylko metryki pojemności dla usługi BLOB Service
 >
 >
 
-Aby uzyskać pomoc w szacowaniu rozmiaru różnych obiektów magazynu, takich jak obiekty blob, zobacz wpis w blogu [Informacje o rozliczeniach usługi Azure Storage — przepustowości, transakcjach i pojemności](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Aby uzyskać pomoc w szacowaniu rozmiaru różnych obiektów magazynu, takich jak obiekty blob, zobacz wpis w blogu [Informacje o rozliczeniach usługi Azure Storage — przepustowości, transakcjach i pojemności](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Monitorowanie dostępności
 Dostępność usług magazynu na koncie magazynu należy monitorować przez monitorowanie wartości w kolumnie **dostępność** w tabelach metryk godzinowych lub minutowych — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. Kolumna **dostępności** zawiera wartość procentową wskazującą dostępność usługi lub operacji interfejsu API reprezentowanej przez wiersz ( **RowKey** pokazuje, czy wiersz zawiera metryki dla usługi jako całość lub dla konkretnej operacji interfejsu API).
@@ -475,7 +475,7 @@ Jeśli aplikacja kliencka zgłasza błędy HTTP 403 (zabronione), prawdopodobną
 | Microsoft. Azure. Storage |Ostrzeżenie |2 |85d077ab-... |Zgłoszono wyjątek podczas operacji: serwer zdalny zwrócił błąd: (403) zabronione.. |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Sprawdzanie, czy operacja powinna być ponowiona. Liczba ponownych prób = 0, kod stanu HTTP = 403, wyjątek = serwer zdalny zwrócił błąd: (403) jest zabroniony. |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |W następnej lokalizacji ustawiono wartość podstawowa, na podstawie trybu lokalizacji. |
-| Microsoft. Azure. Storage |Error |1 |85d077ab-... |Zasady ponawiania nie umożliwiały ponowienia próby. Niepowodzenie z serwerem zdalnym zwróciło błąd: (403) zabronione. |
+| Microsoft. Azure. Storage |Błąd |1 |85d077ab-... |Zasady ponawiania nie umożliwiały ponowienia próby. Niepowodzenie z serwerem zdalnym zwróciło błąd: (403) zabronione. |
 
 W tym scenariuszu należy zbadać, dlaczego token sygnatury dostępu współdzielonego upływa przed wysłaniem przez klienta tokenu do serwera:
 
@@ -806,7 +806,7 @@ Możesz również użyć funkcji Application Insights dla usługi Azure DevOps w
 
 Więcej informacji można znaleźć na [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat analiz w usłudze Azure Storage, zobacz następujące zasoby:
 

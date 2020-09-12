@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b74c40ab504c08f5a19a1382c303530116c0fdf
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483833"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565767"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Zabezpieczenia i ochrona danych w usłudze Azure Data Box
 
@@ -30,9 +30,13 @@ Rozwiązanie Microsoft Azure Data Box obejmuje cztery główne składniki, któr
 - **Klienci/hosty, do których podłączane jest urządzenie** — klienci w infrastrukturze lokalnej, do których podłącza się urządzenie Data Box i które zawierają dane wymagające ochrony.
 - **Magazyn w chmurze** — lokalizacja w chmurze platformy Azure, w której są przechowywane dane. Zazwyczaj jest to konto magazynu połączone z utworzonym zasobem usługi Azure Data Box.
 
-Poniższy diagram przedstawia przepływ danych z infrastruktury lokalnej na platformę Azure za pośrednictwem rozwiązania Azure Data Box. Ten przepływ dotyczy kolejności importu dla urządzenie Data Box.
+Na poniższym diagramie przedstawiono przepływ danych za pośrednictwem rozwiązania Azure Data Box z lokalnego na platformę Azure i różnych funkcji zabezpieczeń, które są przeznaczone do przepływu danych przez rozwiązanie. Ten przepływ dotyczy kolejności importu dla urządzenie Data Box.
 
-![Zabezpieczenia usługi Data Box](media/data-box-security/data-box-security-2.png)
+![urządzenie Data Box zabezpieczenia importowania](media/data-box-security/data-box-security-2.png)
+
+Na poniższym diagramie przedstawiono kolejność eksportowania dla urządzenie Data Box.
+
+![urządzenie Data Box zabezpieczenia eksportu](media/data-box-security/data-box-security-3.png)
 
 Ponieważ dane są przepływane przez to rozwiązanie, rejestrowane są zdarzenia i dzienniki są generowane. Aby uzyskać więcej informacji, przejdź do:
 
@@ -84,7 +88,7 @@ W usłudze Azure Data Box dane osobowe są zbierane i wyświetlane w następują
   - Numer telefonu
   - E-mail
   - Adres
-  - Miasto
+  - City (Miasto)
   - Kod pocztowy
   - Stan
   - Kraj/Województwo/Region

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 13ee8c5166e3b31ec186ca9aa2702d15de36e09f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522401"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440732"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Zestawy danych w Azure Data Factory (wersja 1)
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -32,7 +32,7 @@ W tym artykule opisano zestawy danych, sposób ich definiowania w formacie JSON 
 > Jeśli dopiero zaczynasz Data Factory, zobacz [wprowadzenie do Azure Data Factory](data-factory-introduction.md) przegląd. Jeśli nie masz praktycznego doświadczenia w tworzeniu fabryk danych, możesz uzyskać lepsze zrozumienie, odczytując [Samouczek dotyczący transformacji danych](data-factory-build-your-first-pipeline.md) i [samouczek przenoszenia danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Omówienie
-Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z bazy danych SQL Server do usługi Azure Blob Storage. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do Azure SQL Data Warehouse, na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania w Azure Data Factory](data-factory-create-pipelines.md).
+Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku określają akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z bazy danych SQL Server do usługi Azure Blob Storage. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania w Azure Data Factory](data-factory-create-pipelines.md).
 
 Działanie może pobrać zero lub więcej wejściowych **zestawów**danych i utworzyć co najmniej jeden wyjściowy zestaw danych. Wejściowy zestaw danych reprezentuje dane wejściowe dla działania w potoku, a wyjściowy zestaw danych reprezentuje dane wyjściowe dla działania. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure Określa kontener obiektów blob i folder w usłudze BLOB Storage, z których potok ma odczytywać dane.
 
@@ -77,7 +77,7 @@ Zestaw danych w Data Factory jest zdefiniowany w formacie JSON w następujący s
 
 W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
-| Właściwość | Opis | Wymagane | Domyślne |
+| Właściwość | Opis | Wymagane | Domyślny |
 | --- | --- | --- | --- |
 | name |Nazwa zestawu danych. Zobacz [reguły](data-factory-naming-rules.md) nazewnictwa Azure Data Factory zasad nazewnictwa. |Tak |Nie dotyczy |
 | typ |Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: AzureBlob, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [Typ zestawu danych](#Type). |Tak |Nie dotyczy |
@@ -141,7 +141,7 @@ Jak widać, połączona usługa definiuje sposób nawiązywania połączenia z b
 > [!IMPORTANT]
 > Chyba że zestaw danych jest generowany przez potok, powinien być oznaczony jako **zewnętrzny**. To ustawienie ma zazwyczaj zastosowanie do danych wejściowych pierwszego działania w potoku.
 
-## <a name="dataset-type"></a><a name="Type"></a>Typ zestawu danych
+## <a name="dataset-type"></a><a name="Type"></a> Typ zestawu danych
 Typ zestawu danych zależy od używanego magazynu danych. Listę magazynów danych obsługiwanych przez Data Factory można znaleźć w poniższej tabeli. Kliknij magazyn danych, aby dowiedzieć się, jak utworzyć połączoną usługę i zestaw danych dla tego magazynu danych.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
@@ -231,7 +231,7 @@ Wyjściowy zestaw danych jest generowany co godzinę w czasie rozpoczęcia i zak
 
 W poniższej tabeli opisano właściwości, których można użyć w sekcji dostępność:
 
-| Właściwość | Opis | Wymagane | Domyślne |
+| Właściwość | Opis | Wymagane | Domyślny |
 | --- | --- | --- | --- |
 | frequency |Określa jednostkę czasu dla produkcji wycinków zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuta, godzina, dzień, tydzień, miesiąc |Tak |Nie dotyczy |
 | interval |Określa mnożnik dla częstotliwości.<br/><br/>"Interwał x częstotliwości" określa, jak często wycinek jest generowany. Na przykład jeśli potrzebujesz zestawu danych, który ma być pofragmentowany co godzinę, ustawiasz <b>częstotliwość</b> na <b>godzinę</b>, a <b>Interwał</b> na <b>1</b>.<br/><br/>Należy pamiętać, że jeśli określisz **częstotliwość** jako **minutę**, należy ustawić interwał na nie mniej niż 15. |Tak |Nie dotyczy |
@@ -278,7 +278,7 @@ Następujący zestaw danych jest co miesiąc i jest tworzony w trzeciej części
 Sekcja **zasady** w definicji zestawu danych definiuje kryteria lub warunek, który musi spełniać wycinki zestawu danych.
 
 ### <a name="validation-policies"></a>Zasady walidacji
-| Nazwa zasady | Opis | Zastosowane do | Wymagane | Domyślne |
+| Nazwa zasady | Opis | Zastosowane do | Wymagane | Domyślny |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Sprawdza, czy dane w **usłudze Azure Blob Storage** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Azure Blob Storage |Nie |Nie dotyczy |
 | minimumRows |Sprawdza, czy dane w **bazie danych SQL Azure** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |

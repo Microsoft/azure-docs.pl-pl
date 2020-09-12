@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 3747be15f7a15d3d47af2d3495eea2315d40a044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419907"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440783"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurowanie aktywnych i aktywnych połączeń sieci VPN S2S z bramami sieci VPN platformy Azure
 
@@ -45,7 +45,7 @@ Poniższe kroki spowodują skonfigurowanie bramy sieci VPN platformy Azure w try
 
 Inne właściwości są takie same, jak bramy nieaktywne-aktywne. 
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 * Sprawdź, czy masz subskrypcję platformy Azure. Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 * Jeśli nie chcesz używać CloudShell w przeglądarce, musisz zainstalować polecenia cmdlet programu PowerShell Azure Resource Manager. Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz [omówienie Azure PowerShell](/powershell/azure/) .
 
@@ -411,7 +411,7 @@ W tym kroku włączasz tryb aktywny-aktywny i aktualizujesz bramę. W tym przyk�
 
 * W tym kroku nie można zmienić starszej wersji SKU na jedną z nowych jednostek SKU. Można zmienić rozmiar starszej jednostki SKU na inną obsługiwaną starszą jednostkę SKU. Nie można na przykład zmienić jednostki SKU z warstwy Standardowa na VpnGw1 (mimo że VpnGw1 jest obsługiwana w przypadku usługi Active-Active), ponieważ Standard jest starszą wersją SKU, a VpnGw1 jest bieżącą jednostką SKU. Aby uzyskać więcej informacji na temat zmiany rozmiarów i migracji jednostek SKU, zobacz [jednostki SKU bramy](vpn-gateway-about-vpngateways.md#gwsku).
 
-* Jeśli chcesz zmienić rozmiar bieżącej jednostki SKU, na przykład VpnGw1 do VpnGw3, możesz to zrobić za pomocą tego kroku, ponieważ jednostki SKU znajdują się w tej samej rodzinie SKU. W tym celu należy użyć wartości:```-GatewaySku VpnGw3```
+* Jeśli chcesz zmienić rozmiar bieżącej jednostki SKU, na przykład VpnGw1 do VpnGw3, możesz to zrobić za pomocą tego kroku, ponieważ jednostki SKU znajdują się w tej samej rodzinie SKU. W tym celu należy użyć wartości: ```-GatewaySku VpnGw3```
 
 Jeśli używasz tego środowiska w środowisku, jeśli nie musisz zmieniać rozmiaru bramy, nie musisz określać-GatewaySku. Należy zauważyć, że w tym kroku należy ustawić obiekt bramy w programie PowerShell, aby wyzwolić rzeczywistą aktualizację. Ta aktualizacja może potrwać od 30 do 45 minut, nawet jeśli nie zmieniasz rozmiarów bramy.
 
