@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053171"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004786"
 ---
 # <a name="use-azure-files-with-linux"></a>Używanie usługi Azure Files z systemem Linux
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziały plików platformy Azure można instalować w dystrybucjach systemu Linux przy użyciu [klienta jądra SMB](https://wiki.samba.org/index.php/LinuxCIFS). W tym artykule przedstawiono dwa sposoby instalowania udziału plików platformy Azure: na żądanie z `mount` poleceniem i przy rozruchu, tworząc wpis w `/etc/fstab` .
@@ -24,7 +24,7 @@ Zalecanym sposobem instalowania udziału plików platformy Azure w systemie Linu
 | Ubuntu | 14.04 + | 16.04 + |
 | Red Hat Enterprise Linux (RHEL) | 7 + | 7.5 + |
 | CentOS | 7 + |  7.5 + |
-| Debian | 8 + | Ponad 10 |
+| Debian | 8 + | 10+ |
 | openSUSE | 13.2 + | 42.3 + |
 | SUSE Linux Enterprise Server | 12+ | 12 Z DODATKIEM SP2 + |
 
@@ -69,7 +69,7 @@ uname -r
 
 * **Najnowsza wersja interfejsu wiersza polecenia platformy Azure (CLI).** Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) i wybieranie systemu operacyjnego. Jeśli wolisz używać modułu Azure PowerShell w programie PowerShell 6 lub nowszym, możesz jednak przedstawić poniższe instrukcje dla interfejsu wiersza polecenia platformy Azure.
 
-* **Upewnij się, że port 445 jest otwarty**: protokół SMB komunikuje się za pośrednictwem portu TCP 445 — Sprawdź, czy Zapora nie blokuje portów TCP 445 z komputera klienckiego.  Zastąp **<grupą zasobów>** i **<konto magazynu>**
+* **Upewnij się, że port 445 jest otwarty**: protokół SMB komunikuje się za pośrednictwem portu TCP 445 — Sprawdź, czy Zapora nie blokuje portów TCP 445 z komputera klienckiego.  Zastąp `<your-resource-group>` , a `<your-storage-account>` następnie uruchom następujący skrypt:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -98,7 +98,7 @@ Aby używać udziału plików platformy Azure z dystrybucją systemu Linux, nale
 
 W razie potrzeby można zainstalować ten sam udział plików platformy Azure w wielu punktach instalacji.
 
-### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Zainstaluj udział plików platformy Azure na żądanie z`mount`
+### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Zainstaluj udział plików platformy Azure na żądanie z `mount`
 1. **Utwórz folder dla punktu instalacji**: Zastąp `<your-resource-group>` , `<your-storage-account>` , i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
@@ -114,6 +114,7 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
 1. **Użyj polecenia mount, aby zainstalować udział plików platformy Azure**. W poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, czyli odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu systemu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć `uid` `gid` opcji instalacji i ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. `dir_mode`W razie potrzeby można również użyć i `file_mode` skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia. 
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -133,7 +134,7 @@ W razie potrzeby można zainstalować ten sam udział plików platformy Azure w 
 
 Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `sudo umount $mntPath` programu do odinstalowania udziału.
 
-### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Utwórz trwały punkt instalacji dla udziału plików platformy Azure`/etc/fstab`
+### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Utwórz trwały punkt instalacji dla udziału plików platformy Azure `/etc/fstab`
 1. **Utwórz folder dla punktu instalacji**: folder dla punktu instalacji można utworzyć w dowolnym miejscu w systemie plików, ale jest to wspólna Konwencja do utworzenia tego elementu w obszarze/mnt. Na przykład następujące polecenie tworzy nowy katalog, zastępuje `<your-resource-group>` , `<your-storage-account>` i `<your-file-share>` z odpowiednimi informacjami dla środowiska:
 
     ```bash
@@ -176,6 +177,7 @@ Po zakończeniu korzystania z udziału plików platformy Azure Możesz użyć `s
 1. **Użyj poniższego polecenia, aby dołączyć następujący wiersz do `/etc/fstab` **programu: w poniższym przykładzie domyślne uprawnienia do plików i folderów lokalnego systemu Linux 0755, które oznaczają odczyt, zapis i wykonywanie dla właściciela (na podstawie właściciela pliku/katalogu Linux), Odczytaj i wykonaj dla użytkowników w grupie właścicieli, a następnie odczytaj i wykonaj dla innych w systemie. Możesz użyć `uid` `gid` opcji instalacji i ustawić identyfikator użytkownika i identyfikator grupy dla instalacji. `dir_mode`W razie potrzeby można również użyć i `file_mode` skonfigurować uprawnienia niestandardowe. Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień, zobacz [notacja numeryczna systemu UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) w witrynie Wikipedia.
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \

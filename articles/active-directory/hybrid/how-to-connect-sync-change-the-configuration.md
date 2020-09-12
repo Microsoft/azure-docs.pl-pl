@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357872"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662576"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: wprowadź zmianę konfiguracji domyślnej
 W tym artykule opisano sposób wprowadzania zmian w konfiguracji domyślnej w programie Azure Active Directory (Azure AD) Connect Sync. Zawiera kroki dla niektórych typowych scenariuszy. Korzystając z tej wiedzy, powinno być możliwe wprowadzanie prostych zmian do własnej konfiguracji w oparciu o własne reguły biznesowe.
@@ -113,7 +113,7 @@ Jeśli wszystko jest w oczekiwany sposób, możesz włączyć harmonogram ponown
 W poprzedniej sekcji opisano, jak wprowadzać zmiany w przepływie atrybutu. W tej sekcji podano kilka dodatkowych przykładów. Procedura tworzenia reguły synchronizacji jest skracana, ale można znaleźć wszystkie kroki opisane w poprzedniej sekcji.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>Użyj atrybutu innego niż domyślny
-W tym scenariuszu firmy Fabrikam istnieje Las, w którym użyto alfabetu lokalnego dla podaną nazwę, nazwisko i nazwę wyświetlaną. Reprezentacja znaków łacińskich tych atrybutów znajduje się w atrybutach rozszerzenia. W przypadku tworzenia globalnej listy adresów w usłudze Azure AD i Office 365 organizacja chce używać tych atrybutów zamiast tego.
+W tym scenariuszu firmy Fabrikam istnieje Las, w którym użyto alfabetu lokalnego dla podaną nazwę, nazwisko i nazwę wyświetlaną. Reprezentacja znaków łacińskich tych atrybutów znajduje się w atrybutach rozszerzenia. Aby utworzyć globalną listę adresów w usłudze Azure AD i Microsoft 365, organizacja chce używać tych atrybutów zamiast tego.
 
 W przypadku konfiguracji domyślnej obiekt z lasu lokalnego wygląda następująco:  
 ![Przepływ atrybutów 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -268,7 +268,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
     | Opis | *Podaj opis* |  |
     | Połączony system | *Wybieranie lokalnego łącznika usługi AD* |  |
     | Typ połączonego obiektu systemu | **Użytkownik** |  |
-    | Typ obiektu metaverse | **Person (Osoba)** |  |
+    | Typ obiektu metaverse | **Osoba** |  |
     | Typ łącza | **Dołącz** |  |
     | Pierwszeństwo | *Wybierz liczbę z zakresu od 1 do 99* | 1 – 99 jest zarezerwowany dla reguł synchronizacji niestandardowej. Nie wybieraj wartości, która jest używana przez inną regułę synchronizacji. |
 
@@ -310,7 +310,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
     | Opis | *Podaj opis* ||
     | Połączony system | *Wybieranie łącznika usługi AAD* ||
     | Typ połączonego obiektu systemu | **Użytkownik** ||
-    | Typ obiektu metaverse | **Person (Osoba)** ||
+    | Typ obiektu metaverse | **Osoba** ||
     | Typ łącza | **Dołącz** ||
     | Pierwszeństwo | *Wybierz liczbę z zakresu od 1 do 99* | 1 – 99 jest zarezerwowany dla reguł synchronizacji niestandardowej. Nie wybieraj wartości, która jest używana przez inną regułę synchronizacji. |
 

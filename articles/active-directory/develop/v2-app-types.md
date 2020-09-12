@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121174"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015810"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
@@ -42,9 +42,9 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplikacje jednostronicowe (JavaScript)
 
-Wiele nowoczesnych aplikacji ma fronton aplikacji jednostronicowej oparty głównie na języku JavaScript, często z platformą, taką jak kątowy, reagowanie lub Vue. Punkt końcowy platformy tożsamości firmy Microsoft obsługuje te aplikacje za pomocą [przepływu kodu autoryzacji OAuth 2,0](v2-oauth2-auth-code-flow.md).
+Wiele nowoczesnych aplikacji ma fronton aplikacji jednostronicowej oparty głównie na języku JavaScript, często z platformą, taką jak kątowy, reagowanie lub Vue. Punkt końcowy platformy tożsamości firmy Microsoft obsługuje te aplikacje przy użyciu protokołu [OpenID Connect Connect](v2-protocols-oidc.md) na potrzeby uwierzytelniania oraz [niejawnego przepływu OAuth 2,0](v2-oauth2-implicit-grant-flow.md) lub nowszego [kodu autoryzacji OAuth 2,0 + PKCE przepływu](v2-oauth2-auth-code-flow.md) na potrzeby autoryzacji (patrz poniżej).
 
-W tym przepływie aplikacja otrzymuje kod z punktu końcowego platformy tożsamości firmy Microsoft `authorize` i realizuje go pod kątem tokenów i tokenów odświeżania przy użyciu żądań sieci Web między lokacjami. Token odświeżania wygasa co 24 godziny, a aplikacja musi zażądać innego kodu.
+Poniższy diagram przepływu przedstawia przyznanie kodu autoryzacji OAuth 2,0 (wraz ze szczegółami dotyczącymi pominiętych PKCE), w którym aplikacja otrzymuje kod z punktu końcowego platformy tożsamości firmy Microsoft i realizuje `authorize` go w celu uzyskania tokenów i tokenów odświeżania przy użyciu żądań sieci Web między lokacjami. Token odświeżania wygasa co 24 godziny, a aplikacja musi zażądać innego kodu. Oprócz tokenu dostępu, `id_token` który reprezentuje zalogowanego użytkownika do aplikacji klienckiej, zazwyczaj żąda również za pomocą tego samego przepływu i/lub oddzielnego żądania połączenia OpenID Connect (nie pokazano tutaj).
 
 ![Przepływ kodu dla aplikacji SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 

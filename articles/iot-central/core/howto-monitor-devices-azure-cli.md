@@ -6,15 +6,15 @@ ms.author: viviali
 ms.date: 03/27/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b9cf8b862f77af833016d6aabb0ccae7bea8e24a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497430"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015980"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorowanie łączności urządzeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -26,7 +26,7 @@ Użyj rozszerzenia usługi IoT dla interfejsu wiersza polecenia platformy Azure,
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ Zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.7 lub nowszej. Sprawdź wersję interfejsu wiersza polecenia platformy Azure, uruchamiając `az --version` . Dowiedz się, jak zainstalować i zaktualizować z dokumentacji [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ Zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.7.0 lub nowszej. Sprawdź wersję interfejsu wiersza polecenia platformy Azure, uruchamiając `az --version` . Dowiedz się, jak zainstalować i zaktualizować z dokumentacji [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Konto służbowe na platformie Azure, które zostało dodane jako użytkownik w aplikacji IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Zainstaluj rozszerzenie IoT Central
@@ -43,7 +43,7 @@ Sprawdź wersję rozszerzenia, uruchamiając:
 az --version
 ```
 
-Powinno zostać wyświetlone rozszerzenie Azure-IoT to 0.8.1 lub nowsze. Jeśli tak nie jest, uruchom polecenie:
+Powinno zostać wyświetlone rozszerzenie Azure-IoT to 0.9.9 lub nowsze. Jeśli tak nie jest, uruchom polecenie:
 
 ```azurecli
 az extension update --name azure-iot
@@ -68,14 +68,14 @@ W obszarze **ustawienia administrowania/aplikacji**Skopiuj **Identyfikator aplik
 Monitoruj komunikaty wysyłane do aplikacji IoT Central z urządzeń. Dane wyjściowe obejmują wszystkie nagłówki i adnotacje.
 
 ```azurecli
-az iot central app monitor-events --app-id <app-id> --properties all
+az iot central diagnostics monitor-events --app-id <app-id> --properties all
 ```
 
 ### <a name="view-device-properties"></a>Wyświetl właściwości urządzenia
 Wyświetl bieżące właściwości urządzenia odczyt i odczyt/zapis dla danego urządzenia.
 
 ```azurecli
-az iot central device-twin show --app-id <app-id> --device-id <device-id>
+az iot central device twin show --app-id <app-id> --device-id <device-id>
 ```
 
 ## <a name="next-steps"></a>Następne kroki

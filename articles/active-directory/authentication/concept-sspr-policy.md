@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194060"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005024"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Zasady haseł i ograniczenia kont w Azure Active Directory
 
@@ -43,13 +43,13 @@ Poniższa tabela zawiera opis zasad nazw, które są stosowane do lokalnych kont
 
 Zasady dotyczące haseł są stosowane do wszystkich kont użytkowników, które są tworzone i zarządzane bezpośrednio w usłudze Azure AD. Nie można zmodyfikować tych zasad haseł, chociaż można [skonfigurować niestandardowe hasła zabronione dla ochrony hasłem usługi Azure AD](tutorial-configure-custom-password-protection.md).
 
-Zasady haseł nie mają zastosowania do kont użytkowników synchronizowanych z lokalnego środowiska AD DS przy użyciu Azure AD Connect.
+Zasady haseł nie mają zastosowania do kont użytkowników synchronizowanych z lokalnego środowiska AD DS przy użyciu Azure AD Connect, o ile nie zostanie włączona EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 Zdefiniowane są następujące opcje zasad haseł:
 
 | Właściwość | Wymagania |
 | --- | --- |
-| Dozwolone znaki |<ul><li>A – Z</li><li>a – z</li><li>0 – 9</li> <li>@ # $% ^ & *-_! + = [] {} &#124; \: ",. ? / \`~ " ( ) ;</li> <li>puste miejsce</li></ul> |
+| Dozwolone znaki |<ul><li>A – Z</li><li>a – z</li><li>0 – 9</li> <li>@ # $% ^ & *-_! + = [] {} &#124; \: ",. ? / \` ~ " ( ) ;</li> <li>puste miejsce</li></ul> |
 | Znaki nie są dozwolone | Znaki Unicode. |
 | Ograniczenia dotyczące haseł |<ul><li>Co najmniej 8 znaków i maksymalnie 256 znaków.</li><li>Wymaga trzech z czterech następujących elementów:<ul><li>Małe litery.</li><li>Wielkie litery.</li><li>Liczby (0-9).</li><li>Symbole (zobacz poprzednie ograniczenia dotyczące haseł).</li></ul></li></ul> |
 | Czas wygaśnięcia hasła (maksymalny wiek hasła) |<ul><li>Wartość domyślna: **90** dni.</li><li>Wartość można skonfigurować za pomocą `Set-MsolPasswordPolicy` polecenia cmdlet z modułu Azure Active Directory programu Windows PowerShell.</li></ul> |

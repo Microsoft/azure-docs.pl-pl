@@ -1,28 +1,25 @@
 ---
-title: Informacje dotyczące języka SQL przyspieszania zapytań (wersja zapoznawcza)
+title: Dokumentacja języka SQL przyspieszania zapytań
 titleSuffix: Azure Storage
 description: Dowiedz się, jak używać składni SQL Acceleration Query.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193406"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659570"
 ---
-# <a name="query-acceleration-sql-language-reference-preview"></a>Informacje dotyczące języka SQL przyspieszania zapytań (wersja zapoznawcza)
+# <a name="query-acceleration-sql-language-reference"></a>Dokumentacja języka SQL przyspieszania zapytań
 
 Przyspieszenie zapytań obsługuje język podobny do ANSI SQL, który umożliwia tworzenie zapytań dotyczących zawartości obiektu BLOB.  Dialekt SQL przyspieszania zapytań jest podzbiorem ANSI SQL, z ograniczonym zestawem obsługiwanych typów danych, operatorów itp., ale również rozszerza się w standardzie ANSI SQL, aby obsługiwał zapytania za pośrednictwem hierarchicznych formatów danych z częściową strukturą, takich jak JSON. 
-
-> [!NOTE]
-> Funkcja przyspieszenia zapytań jest w publicznej wersji zapoznawczej i jest dostępna w regionach Kanada Środkowa i Francja środkowa. Aby zapoznać się z ograniczeniami, zobacz artykuł [znane problemy](data-lake-storage-known-issues.md) . Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adls/qa-preview-signup). 
 
 ## <a name="select-syntax"></a>Wybierz składnię
 
@@ -66,7 +63,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |ZNACZNIK czasu|Punkt w czasie.                           |
 |TYPU  |Prawda lub fałsz.                             |
 
-Podczas odczytywania wartości z danych w formacie CSV wszystkie wartości są odczytywane jako ciągi.  Wartości ciągu mogą być konwertowane na inne typy przy użyciu wyrażeń RZUTowania.  Wartości mogą być niejawnie rzutowane na inne typy w zależności od kontekstu. Aby uzyskać więcej informacji, zobacz [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+Podczas odczytywania wartości z danych w formacie CSV wszystkie wartości są odczytywane jako ciągi.  Wartości ciągu mogą być konwertowane na inne typy przy użyciu wyrażeń RZUTowania.  Wartości mogą być niejawnie rzutowane na inne typy w zależności od kontekstu. Aby uzyskać więcej informacji, zobacz [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## <a name="expressions"></a>Wyrażenia
 
@@ -80,15 +77,36 @@ W danych w formacie CSV pola mogą być również przywoływane przez liczebniki
 
 Obsługiwane są następujące standardowe operatory SQL:
 
-``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
+|Operator|Opis|
+|--|--|
+|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Porównuje równość dwóch wyrażeń (operator porównania).|
+|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Testuje, czy jedno wyrażenie nie jest równe innemu wyrażeniu (operator porównania).|
+|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Porównuje dwa wyrażenia, które nie są równe (operator porównania).|
+|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Porównuje dwa wyrażenia dla elementu mniejszego niż (operator porównania).|
+|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Porównuje dwa wyrażenia dla mniejszej lub równej (operator porównania).|
+|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Porównuje dwa wyrażenia dla większości (operator porównania). |
+|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Porównuje dwa wyrażenia dla większości lub wartości (operator porównania).|
+|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Dodaje dwie liczby. Ten dodatkowy operator arytmetyczny może również dodać liczbę w dniach do daty.|
+|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Odejmuje dwie liczby (operator odejmowania arytmetycznego). |
+|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Dzieli jedną liczbę przez inną (operator dzielenia arytmetycznego).|
+|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Mnoży dwa wyrażenia (operator mnożenia arytmetycznego).|
+|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Zwraca resztę z jednej liczby podzieloną przez inny.|
+|[LUB](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Wykonuje bitowe operacje logiczne i między dwiema wartościami całkowitymi.|
+|[ORAZ](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Wykonuje bitową logiczną lub operację między dwoma określonymi wartościami całkowitymi jako przetłumaczone na wyrażenia binarne w instrukcjach języka Transact-SQL.|
+|[NIEMOŻLIWE](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negacja wartości logicznej.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Konwertuje wyrażenie jednego typu danych na inne.|
+|[ZAKRESU](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Określa zakres do przetestowania.|
+|[PODCZAS](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Określa, czy określona wartość dopasowuje dowolną wartość w podzapytaniu lub liście.|
+|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Zwraca wartość null, jeśli dwa określone wyrażenia są równe.|
+|[ŁĄCZONYCH](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Oblicza argumenty w kolejności i zwraca bieżącą wartość pierwszego wyrażenia, które początkowo nie ma wartości NULL.|
 
-Jeśli typy danych po lewej i prawej stronie operatora są inne, konwersja automatyczna będzie wykonywana zgodnie z regułami określonymi tutaj: [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+Jeśli typy danych po lewej i prawej stronie operatora są inne, konwersja automatyczna będzie wykonywana zgodnie z regułami określonymi tutaj: [pierwszeństwo typów danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 Język SQL przyspieszania zapytań obsługuje tylko bardzo mały podzestaw typów danych opisanych w tym artykule.  Zobacz sekcję [typy danych](#data-types) w tym artykule.
 
 ### <a name="casts"></a>Rzutowania
 
-Język SQL przyspieszania zapytań obsługuje operator CAST, zgodnie z regułami w tym miejscu: [Konwersja typu danych (aparat bazy danych)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
+Język SQL przyspieszania zapytań obsługuje operator CAST, zgodnie z regułami w tym miejscu: [Konwersja typu danych (aparat bazy danych)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 Język SQL przyspieszania zapytań obsługuje tylko niewielki podzbiór typów danych omówionych w tym artykule.  Zobacz sekcję [typy danych](#data-types) w tym artykule.
 
@@ -96,7 +114,16 @@ Język SQL przyspieszania zapytań obsługuje tylko niewielki podzbiór typów d
 
 Język SQL przyspieszania zapytań obsługuje następujące standardowe funkcje ciągów SQL:
 
-``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
+|Funkcja|Opis|
+|--|--|
+|CHAR_LENGTH    | Zwraca długość w znakach wyrażenia ciągu, jeśli wyrażenie String ma typ danych znakowych; w przeciwnym razie zwraca długość w bajtach wyrażenia String (najmniejsza liczba całkowita nie mniejsza niż liczba bitów podzielona przez 8). (Ta funkcja jest taka sama jak funkcja CHARACTER_LENGTH.)|
+|CHARACTER_LENGTH    |Zwraca długość w znakach wyrażenia ciągu, jeśli wyrażenie String ma typ danych znakowych; w przeciwnym razie zwraca długość w bajtach wyrażenia String (najmniejsza liczba całkowita nie mniejsza niż liczba bitów podzielona przez 8). (Ta funkcja jest taka sama jak funkcja CHAR_LENGTH|
+|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Zwraca wyrażenie znaku po przekonwertowaniu wielkich liter na małe litery.|
+|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Zwraca wyrażenie znaku zawierające dane małych liter konwertowane na wielkie litery.|
+|[PODCIĄG](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Zwraca część wyrażenia Character, Binary, text lub Image w SQL Server.|
+|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Usuwa znak spacji (32) lub inne określone znaki z początku i końca ciągu.|
+|DOPROWADZA    |Opis|
+|KOŃCOWE    |Opis|
 
 Oto kilka przykładów:
 
@@ -108,16 +135,6 @@ Oto kilka przykładów:
 |UPPER|``SELECT UPPER('AbCdEfG') from BlobStorage``|``ABCDEFG``|
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
-
-Funkcja [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) ułatwia wyszukiwanie wzorca. Oto kilka przykładów, które wykorzystują funkcję [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) do wyszukiwania ciągu danych ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
-
-|Zapytanie|Przykład|
-|--|--|
-|``SELECT _1, _2, _3 from BlobStorage where _2 LIKE 'a%'``|``abc,abd,cd\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a[bcd]c``|``abc,abd,cd\n``|
-|``SELECT _1 from BlobStorage where _2 LIKE '[^xyz]%'``|``abc\ntest\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a_``|``abc,abd,cd\n``|
-|``SELECT _2,_3 from BlobStorage where _3 LIKE '[g-h]_![[a-j]' Escape '!'``|``xc%d^e,gh[i\n``|
 
 ### <a name="date-functions"></a>Funkcje daty
 
@@ -133,14 +150,12 @@ Język SQL przyspieszania zapytań obsługuje rok, miesiąc, dzień, godzinę, m
 
 Przykłady:
 
-```sql
-DATE_ADD(datepart, quantity, timestamp)
-DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
+"" DATE_ADD SQL (datepart, liczba, sygnatura czasowa) DATE_ADD ("minuta", 1, CAST ("2017-01-02T03:04:05.006 Z" jako SYGNATURa CZASowa)
 ```
 
-#### <a name="date_diff-function"></a>Funkcja DATE_DIFF
+#### DATE_DIFF function
 
-Język SQL przyspieszania zapytań obsługuje rok, miesiąc, dzień, godzinę, minutę, sekundę dla ``DATE_DIFF`` funkcji.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -220,12 +235,12 @@ Instrukcja SELECT może zawierać jedno lub więcej wyrażeń projekcji lub poje
 
 |Wyrażenie|Opis|
 |--|--|
-|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, które pasują do wyrażenia predykatu.|
-|[COUNT (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Zwraca liczbę rekordów, dla których wyrażenie jest inne niż null.|
-|[Średnia (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Zwraca średnią wartości wyrażenia inne niż null.|
-|[MIN (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Zwraca minimalną wartość wyrażenia o wartości innej niż null.|
-|[Max (wyrażenie](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Zwraca maksymalną wartość różną od null wyrażenia.|
-|[SUM (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Zwraca sumę wszystkich wartości innych niż null wyrażenia.|
+|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Zwraca liczbę rekordów, które pasują do wyrażenia predykatu.|
+|[COUNT (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Zwraca liczbę rekordów, dla których wyrażenie jest inne niż null.|
+|[Średnia (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |Zwraca średnią wartości wyrażenia inne niż null.|
+|[MIN (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |Zwraca minimalną wartość wyrażenia o wartości innej niż null.|
+|[MAX (wyrażenie](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Zwraca maksymalną wartość różną od null wyrażenia.|
+|[SUM (wyrażenie)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |Zwraca sumę wszystkich wartości innych niż null wyrażenia.|
 
 ### <a name="missing"></a>NIEDOSTĘPNY
 
@@ -235,7 +250,7 @@ Instrukcja SELECT może zawierać jedno lub więcej wyrażeń projekcji lub poje
 
 ## <a name="table-descriptors"></a>Deskryptory tabeli
 
-W przypadku danych CSV nazwa tabeli jest zawsze `BlobStorage` .  Przykład:
+W przypadku danych CSV nazwa tabeli jest zawsze `BlobStorage` .  Na przykład:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -287,7 +302,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 Zapytanie pobiera wszystkie pola, ale wybiera tylko szerokość geograficzną.
 
-Jeśli chcesz uzyskać dostęp tylko do `dimensions` wartości obiektu JSON, możesz użyć odwołującego się do tego obiektu w zapytaniu. Przykład:
+Jeśli chcesz uzyskać dostęp tylko do `dimensions` wartości obiektu JSON, możesz użyć odwołującego się do tego obiektu w zapytaniu. Na przykład:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
@@ -323,6 +338,6 @@ W większości przypadków rozmiar każdej partii będzie nieco większy niż ok
 
 ## <a name="see-also"></a>Zobacz także
 
-- [Przyspieszenie zapytań Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration.md)
-- [Filtrowanie danych przy użyciu przyspieszania zapytań Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration-how-to.md)
+- [Przyspieszenie kwerendy Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
+- [Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
 

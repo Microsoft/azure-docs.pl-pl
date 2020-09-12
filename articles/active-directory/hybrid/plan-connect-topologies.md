@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509091"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658511"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie obsługiwane w programie Azure AD Connect
 W tym artykule opisano różne topologie lokalne i Azure Active Directory (Azure AD), które używają Azure AD Connect synchronizacji jako rozwiązania integracji z kluczami. Ten artykuł zawiera obsługiwane i nieobsługiwane konfiguracje.
@@ -37,7 +37,7 @@ Oto legenda obrazów w artykule:
 | Serwer synchronizacji Azure AD Connect "tryb przejściowy" |![Serwer synchronizacji Azure AD Connect "tryb przejściowy"](./media/plan-connect-topologies/LegendSync2.png) |
 | GALSync z programem Forefront Identity Manager (FIM) 2010 lub Microsoft Identity Manager (MIM) 2016 |![GALSync z programem FIM 2010 lub MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
 | Serwer synchronizacji Azure AD Connect, szczegółowy |![Serwer synchronizacji Azure AD Connect, szczegółowy](./media/plan-connect-topologies/LegendSync4.png) |
-| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
+| Azure AD |![Usługa Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
 | Nieobsługiwany scenariusz |![Nieobsługiwany scenariusz](./media/plan-connect-topologies/LegendUnsupported.png) |
 
 
@@ -117,15 +117,15 @@ W topologii lasu zasobów kont istnieje co najmniej jeden las *konta* z aktywnym
 
 W tym scenariuszu jeden (lub więcej) lasu zasobów ufa wszystkich lasów kont. Las zasobów zwykle ma rozszerzony schemat Active Directory z programem Exchange i Lync. Wszystkie usługi Exchange i Lync oraz inne usługi udostępnione znajdują się w tym lesie. Użytkownicy mają wyłączone konto użytkownika w tym lesie, a skrzynka pocztowa jest połączona z lasem konta.
 
-## <a name="office-365-and-topology-considerations"></a>Zagadnienia dotyczące korzystania z pakietu Office 365 i topologii
-Niektóre obciążenia pakietu Office 365 mają pewne ograniczenia dotyczące obsługiwanych topologii:
+## <a name="microsoft-365-and-topology-considerations"></a>Zagadnienia dotyczące Microsoft 365 i topologii
+Niektóre Microsoft 365 obciążenia mają pewne ograniczenia dotyczące obsługiwanych topologii:
 
 | Obciążenie | Ograniczenia |
 | --------- | --------- |
-| Exchange Online | Aby uzyskać więcej informacji o topologii hybrydowej obsługiwanej przez usługi Exchange Online, zobacz [wdrażanie hybrydowe z wieloma lasami Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype dla firm | W przypadku korzystania z wielu lasów lokalnych obsługiwana jest tylko topologia lasu zasobów konta. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące środowiska dla programu Skype dla firm Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Aby uzyskać więcej informacji o topologii hybrydowej obsługiwanej przez usługi Exchange Online, zobacz [wdrażanie hybrydowe z wieloma lasami Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
+| Skype dla firm | W przypadku korzystania z wielu lasów lokalnych obsługiwana jest tylko topologia lasu zasobów konta. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące środowiska dla programu Skype dla firm Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Jeśli jesteś większą organizacją, należy rozważyć użycie funkcji [PreferredDataLocation pakietu Office 365](how-to-connect-sync-feature-preferreddatalocation.md) . Umożliwia zdefiniowanie w tym regionie centrum danych, w którym znajdują się zasoby użytkownika.
+Jeśli jesteś większą organizacją, należy rozważyć użycie funkcji [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) . Umożliwia zdefiniowanie w tym regionie centrum danych, w którym znajdują się zasoby użytkownika.
 
 ## <a name="staging-server"></a>Serwer przemieszczania
 ![Serwer przejściowy w topologii](./media/plan-connect-topologies/MultiForestStaging.png)
@@ -165,7 +165,7 @@ Ta topologia ma następujące ograniczenia dotyczące scenariuszy obsługiwanych
 * Urządzenia z systemem Windows 10 mogą być skojarzone tylko z jedną dzierżawą usługi Azure AD.
 * Opcja logowania jednokrotnego (SSO) dla synchronizacji skrótów haseł i uwierzytelniania przekazywanego może być używana tylko z jedną dzierżawą usługi Azure AD.
 
-Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Między innymi są to następujące funkcje:
+Wymóg dla wzajemnie wykluczających się zestawów obiektów ma zastosowanie również do zapisywania zwrotnego. Niektóre funkcje zapisywania zwrotnego nie są obsługiwane w przypadku tej topologii, ponieważ zakładają one jedną konfigurację lokalną. Te funkcje obejmują:
 
 * Grupowanie zapisywania zwrotnego z domyślną konfiguracją.
 * Zapisywanie zwrotne urządzeń.

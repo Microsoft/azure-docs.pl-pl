@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185404"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660439"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,7 +38,7 @@ W przypadku środowiska języka Python można [skonfigurować automatyczne ekspe
 
 * Obszar roboczy Azure Machine Learning z typem **wersji Enterprise Edition**. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).  Aby uaktualnić istniejący obszar roboczy do wersji Enterprise, zobacz [uaktualnianie do wersji Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 1. Zaloguj się do Azure Machine Learning pod adresem https://ml.azure.com . 
 
@@ -69,7 +69,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     1. Wybierz pozycję **dalej** , aby otworzyć **formularz magazyn danych i wybór pliku**. Na tym formularzu wybierasz miejsce przekazania zestawu danych; domyślny kontener magazynu, który jest automatycznie tworzony razem z obszarem roboczym, lub wybierz kontener magazynu, który ma być używany do eksperymentu. 
     
-        1. Jeśli dane znajdują się za siecią wirtualną, należy włączyć funkcję **pomijania walidacji** , aby upewnić się, że obszar roboczy ma dostęp do danych. Dowiedz się więcej o [izolacji sieci i prywatności](how-to-enable-virtual-network.md#machine-learning-studio). 
+        1. Jeśli dane znajdują się za siecią wirtualną, należy włączyć funkcję **pomijania walidacji** , aby upewnić się, że obszar roboczy ma dostęp do danych. Aby uzyskać więcej informacji, zobacz [Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md). 
     
     1. Wybierz pozycję **Przeglądaj** , aby przekazać plik danych dla zestawu danych. 
 
@@ -83,7 +83,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
-        Wybierz pozycję **Dalej**.
+        Wybierz pozycję **Next** (Dalej).
 
     1. Formularz **schematu** jest inteligentnie wypełniany na podstawie opcji wybranych w formularzu **Ustawienia i Podgląd** . W tym miejscu należy skonfigurować typ danych dla każdej kolumny, sprawdzić nazwy kolumn i wybrać kolumny, które **nie mają być dołączone** do eksperymentu. 
             
@@ -91,7 +91,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     1. Formularz **Potwierdź szczegóły** to podsumowanie informacji poprzednio wypełnionych w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** . Istnieje również możliwość utworzenia profilu danych dla zestawu danych przy użyciu obliczeń z włączoną obsługą profilowania. Dowiedz się więcej na temat [profilowania danych](#profile).
 
-        Wybierz pozycję **Dalej**.
+        Wybierz pozycję **Next** (Dalej).
 1. Wybierz nowo utworzony zestaw danych, gdy zostanie wyświetlony. Możliwe jest również wyświetlanie podglądu zestawu danych i przykładowych statystyk. 
 
 1. W formularzu **Konfigurowanie przebiegu** wprowadź unikatową nazwę eksperymentu.
@@ -104,7 +104,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
 
     Pole|Opis
     ---|---
-    Nazwa obliczeniowa| Wprowadź unikatową nazwę identyfikującą kontekst obliczeniowy.
+    Nazwa obiektu obliczeniowego| Wprowadź unikatową nazwę identyfikującą kontekst obliczeniowy.
     Priorytet maszyny wirtualnej| Maszyny wirtualne o niskim priorytecie są tańsze, ale nie gwarantują węzłów obliczeniowych. 
     Typ maszyny wirtualnej| Wybierz procesor CPU lub GPU dla typu maszyny wirtualnej.
     Rozmiar maszyny wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.
@@ -116,15 +116,18 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](#profile) ).
 
-    Wybierz pozycję **Dalej**.
+    Wybierz pozycję **Next** (Dalej).
 
 1. W formularzu **Typ zadania i ustawienia** wybierz typ zadania: Klasyfikacja, regresja lub prognozowanie. Aby uzyskać więcej informacji, zobacz [obsługiwane typy zadań](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. W przypadku **klasyfikacji**można również włączyć uczenie głębokie, które jest używane dla featurizations tekstu.
+    1. W przypadku **klasyfikacji**można również włączyć uczenie głębokie.
+    
+        Jeśli uczenie głębokie jest włączone, sprawdzanie poprawności jest ograniczone do _train_validation Split_. [Dowiedz się więcej o opcjach walidacji](how-to-configure-cross-validation-data-splits.md).
+
 
     1. Do **prognozowania** można, 
     
-        1. Włącz uczenie głębokie
+        1. Włącz uczenie głębokie.
     
         1. Wybierz *kolumnę czasu*: Ta kolumna zawiera dane czasu, które mają być używane.
 
@@ -135,10 +138,10 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Dodatkowe konfiguracje|Opis
     ------|------
     Metryka podstawowa| Główna Metryka używana do oceniania modelu. [Dowiedz się więcej o metrykach modelu](how-to-configure-auto-train.md#primary-metric).
-    Wyjaśnij najlepszy model | Wybierz, aby włączyć lub wyłączyć, aby pokazać wyjaśnienie zalecanego najlepszego modelu.
-    Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego.
+    Wyjaśnij najlepszy model | Wybierz, aby włączyć lub wyłączyć, aby wyświetlić wyjaśnienia dla zalecanego najlepszego modelu. <br> Ta funkcja nie jest obecnie dostępna w przypadku [niektórych algorytmów prognozowania](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Zablokowany algorytm| Wybierz algorytmy, które mają zostać wykluczone z zadania szkoleniowego. <br><br> Zezwalanie na algorytmy jest dostępne tylko dla [eksperymentów zestawu SDK](how-to-configure-auto-train.md#supported-models). <br> Zobacz [obsługiwane modele dla każdego typu zadania](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
     Kryterium zakończenia| Po spełnieniu któregokolwiek z tych kryteriów zadanie szkolenia zostanie zatrzymane. <br> *Czas zadania szkoleniowego (godz.)*: jak długo zezwolić na uruchomienie zadania szkoleniowego. <br> *Próg wyniku metryki*: minimalny wynik metryki dla wszystkich potoków. Dzięki temu w przypadku zdefiniowania metryki docelowej, która ma zostać osiągnięta, nie poświęcasz więcej czasu na zadanie szkoleniowe niż to konieczne.
-    Weryfikacja| Wybierz jedną z opcji krzyżowego sprawdzania poprawności, która ma zostać użyta w zadaniu szkoleniowym. [Dowiedz się więcej na temat krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md#prerequisites).
+    Walidacja| Wybierz jedną z opcji krzyżowego sprawdzania poprawności, która ma zostać użyta w zadaniu szkoleniowym. <br> [Dowiedz się więcej na temat krzyżowego sprawdzania poprawności](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Prognozowanie obsługuje tylko wzajemne sprawdzanie poprawności.
     Współbieżność| *Maksymalna liczba współbieżnych iteracji*: maksymalną liczbę potoków (iteracji) do przetestowania w zadaniu szkoleniowym. Zadanie nie zostanie uruchomione więcej niż określona liczba iteracji.
 
 1. Obowiązkowe Wyświetl ustawienia cechowania: Jeśli zdecydujesz się włączyć **Automatyczne cechowania** w formularzu **ustawień konfiguracji dodatkowej** , zostaną zastosowane domyślne techniki cechowania. W **widoku cechowania ustawienia** można zmienić te ustawienia domyślne i odpowiednio dostosować. Dowiedz się, jak [dostosować featurizations](#customize-featurization). 
@@ -156,7 +159,7 @@ Możesz uzyskać szeroką gamę statystyk podsumowujących dla zestawu danych, a
 
 Statystyka|Opis
 ------|------
-Cecha| Nazwa sumowanej kolumny.
+Cechy| Nazwa sumowanej kolumny.
 Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
 Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
 Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
@@ -205,9 +208,9 @@ Przejdź do szczegółów dowolnego z zakończonych modeli, aby zobaczyć szczeg
 
 ## <a name="deploy-your-model"></a>Wdrażanie modelu
 
-Gdy optymalny model jest dostępny, można go wdrożyć jako usługę sieci Web, aby przewidzieć nowe dane.
+Po uzyskaniu najlepszego modelu można wdrożyć go w postaci usługi internetowej w celu tworzenia przewidywań na podstawie nowych danych.
 
-Automatyczna ML pomaga wdrożyć model bez pisania kodu:
+Zautomatyzowane uczenie maszynowe ułatwia wdrażanie modelu bez pisania kodu:
 
 1. Istnieje kilka opcji wdrażania. 
 
@@ -217,7 +220,7 @@ Automatyczna ML pomaga wdrożyć model bez pisania kodu:
         1. Wybierz pozycję **Wdróż** w lewym górnym rogu okna. 
 
     + Opcja 2: Aby wdrożyć określoną iterację modelu z tego eksperymentu.
-        1. Wybierz żądany model z karty **modele**
+        1. Wybierz odpowiedni model z karty **Modele**
         1. Wybierz pozycję **Wdróż** w lewym górnym rogu okna.
 
 1. Wypełnij okienko **Wdróż model** .
@@ -226,20 +229,20 @@ Automatyczna ML pomaga wdrożyć model bez pisania kodu:
     ----|----
     Nazwa| Wprowadź unikatową nazwę wdrożenia.
     Opis| Wprowadź opis, aby lepiej zidentyfikować to wdrożenie.
-    Typ obliczenia| Wybierz typ punktu końcowego, który chcesz wdrożyć: *Azure Kubernetes Service (AKS)* lub *Azure Container Instance (ACI)*.
-    Nazwa obliczeniowa| *Dotyczy tylko AKS:* Wybierz nazwę klastra AKS, w którym chcesz wdrożyć.
+    Typ środowiska obliczeniowego| Wybierz typ punktu końcowego, który chcesz wdrożyć: *Azure Kubernetes Service (AKS)* lub *Azure Container Instance (ACI)*.
+    Nazwa obiektu obliczeniowego| *Dotyczy tylko AKS:* Wybierz nazwę klastra AKS, w którym chcesz wdrożyć.
     Włącz uwierzytelnianie | Wybierz, aby zezwalać na uwierzytelnianie oparte na tokenach lub na podstawie klucza.
     Używanie niestandardowych zasobów wdrażania| Włącz tę funkcję, jeśli chcesz przekazać własny skrypt oceniania i plik środowiska. [Dowiedz się więcej o skryptach oceniania](how-to-deploy-and-where.md).
 
     >[!Important]
-    > Nazwy plików muszą mieć długość 32 znaków i muszą zaczynać się i kończyć znakiem alfanumerycznym. Może zawierać łączniki, podkreślenia, kropki i znaki alfanumeryczne między. Spacje są niedozwolone.
+    > Nazwy plików muszą mieć długość 32 znaków i muszą zaczynać się i kończyć znakiem alfanumerycznym. Pomiędzy nimi mogą znajdować się łączniki, podkreślenia, kropki i znaki alfanumeryczne. Spacje są niedozwolone.
 
-    Menu *Zaawansowane* oferuje domyślne funkcje wdrażania, takie jak [gromadzenie danych](how-to-enable-app-insights.md) i ustawienia wykorzystania zasobów. Jeśli chcesz przesłonić te ustawienia domyślne, zrób to w menu.
+    W menu *Zaawansowane* znajdują się domyślne funkcje wdrażania takie jak [zbieranie danych](how-to-enable-app-insights.md) i ustawienia wykorzystania zasobów. Jeśli chcesz zastąpić te ustawienia domyślne, skorzystaj z tego menu.
 
-1. Wybierz pozycję **Wdróż**. Wdrożenie może potrwać około 20 minut.
-    Po rozpoczęciu wdrożenia zostanie wyświetlona karta **Podsumowanie modelu** . Zobacz postęp wdrażania w sekcji **wdrażanie stanu** . 
+1. Wybierz pozycję **Wdróż**. Wdrażanie może potrwać około 20 minut.
+    Po rozpoczęciu wdrażania zostanie wyświetlona karta **Podsumowanie modelu**. Postęp wdrażania jest widoczny w sekcji **Stan wdrożenia**. 
 
-Teraz masz działającą usługę sieci Web do generowania prognoz! Możesz przetestować przewidywania, wykonując zapytania dotyczące usługi, korzystając z [Power BI wbudowanej Azure Machine Learning obsługi](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Masz teraz działającą usługę internetową umożliwiającą generowanie przewidywań. Możesz przetestować przewidywania, wykonując zapytania do usługi za pomocą [wbudowanej obsługi usługi Azure Machine Learning w usłudze Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## <a name="next-steps"></a>Następne kroki
 

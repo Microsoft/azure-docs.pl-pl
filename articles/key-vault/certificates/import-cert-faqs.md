@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588825"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651847"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Importowanie Azure Key Vault certyfikatów — często zadawane pytania
 
@@ -54,7 +54,7 @@ Aby uzyskać więcej informacji na temat zasad dostępu związanych z certyfikat
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Jak mogę rozwiązać problem "typ błędu: konflikt podczas tworzenia certyfikatu"?
     
-Nazwa każdego certyfikatu musi być unikatowa. Certyfikat o takiej samej nazwie jak inny może znajdować się w stanie nieusuniętym. Ponadto, zgodnie ze [składem certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) w Azure Key Vault, jeśli istnieje inny klucz lub klucz tajny w magazynie kluczy o takiej samej nazwie jak ten, który próbujesz określić dla certyfikatu, utworzenie certyfikatu zakończy się niepowodzeniem i konieczne będzie usunięcie klucza lub wpisu tajnego lub użycie innej nazwy dla certyfikatu. 
+Nazwa każdego certyfikatu musi być unikatowa. Certyfikat o takiej samej nazwie może znajdować się w stanie nieusuniętym. Również, zgodnie z [kompozycją certyfikatu](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), po utworzeniu nowego certyfikatu tworzy on adres tajny, który ma taką samą nazwę, więc jeśli w magazynie kluczy znajduje się inny klucz lub wpis tajny o takiej samej nazwie jak ten, który ma być określony dla certyfikatu, utworzenie certyfikatu zakończy się niepowodzeniem i konieczne będzie usunięcie klucza lub wpisu tajnego lub użycie innej nazwy dla certyfikatu. 
 
 Aby uzyskać więcej informacji, zobacz [operacja pobrania usuniętego certyfikatu](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

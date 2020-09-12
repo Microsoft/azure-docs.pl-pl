@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607339"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007761"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -46,7 +46,7 @@ Aby dowiedzieć się więcej, zapoznaj się z filmem wideo o tym, jak [sprzedawa
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Czy istnieje opłata za korzystanie z usługi Microsoft Commercial Marketplace?
 
-Nie, nie ma kosztu na publikowanie ofert w naszym portalu komercyjnym. Utrzymujemy niewielki odsetek sprzedaży jako opłata za transakcje i inwestując ją w program nagrody Marketplace, innowacje platformowe i komercyjne operacje na rynku. Ta opłata za transakcje zostanie zmniejszona w przypadku ofert zachęcani dla [usługi Azure IP współsprzedażowych](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) .
+Nie, nie ma kosztu na publikowanie ofert w naszym portalu komercyjnym. Utrzymujemy niewielki odsetek sprzedaży jako opłata za transakcje i inwestując ją w program nagrody Marketplace, innowacje platformowe i komercyjne operacje na rynku. Ta opłata za transakcje jest zmniejszana w przypadku ofert zachęcani [usługi Azure IP współsprzedażowych](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) i płatnych ofert SaaS na AppSource, które są skojarzone z jedną aplikacją Microsoft Teams lub co najmniej dwoma dodatkami Microsoft 365 (Excel, PowerPoint, Word, Outlook i SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Jak mogę utworzyć konto wydawcy w komercyjnej witrynie Microsoft Marketplace?
 
@@ -320,7 +320,7 @@ Oto kilka zasobów, które ułatwią rozpoczęcie pracy:
 Zalecamy następujące zasoby:
 
 - Aby dołączyć do społeczności partnerów firmy Microsoft, zobacz [Microsoft AppSource i Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222).
-- Dowiedz się więcej o [programie testów komercyjnych firmy Microsoft](https://crmnamvoc1runtime.crm.dynamics.com/cbdbd59b-ab3d-47bf-8a1c-7452f8e49970/marketplaceinsiders)i Dołącz do niego.
+- Dowiedz się więcej o [programie testów komercyjnych firmy Microsoft](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/Commercial-Marketplace-Insiders-Program/td-p/13743)i Dołącz do niego.
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Gdzie mogę dowiedzieć się więcej o centrum partnerskim?
 

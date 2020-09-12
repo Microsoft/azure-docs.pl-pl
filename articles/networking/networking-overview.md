@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037256"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651740"
 ---
 # <a name="azure-networking-services-overview"></a>Omówienie usług sieciowych platformy Azure
 
@@ -38,7 +38,7 @@ W tej sekcji opisano usługi, które zapewniają łączność między zasobami p
 |[Azure DNS](#dns)|Hostuje domeny DNS, które zapewniają rozpoznawanie nazw przy użyciu infrastruktury Microsoft Azure.|<p>[Hostowanie własnej domeny w usłudze Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Tworzenie rekordów DNS dla aplikacji sieci Web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Utwórz rekord aliasu dla Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Utwórz rekord aliasu dla publicznego adresu IP](../dns/tutorial-alias-pip.md)</p> <p>[Utwórz rekord aliasu dla rekordu zasobu strefy](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|Skonfiguruj bezpieczną i bezproblemową łączność protokołu RDP/SSH z maszynami wirtualnymi bezpośrednio w Azure Portal za pośrednictwem protokołu TLS. Po nawiązaniu połączenia za pośrednictwem usługi Azure bastionu maszyny wirtualne nie potrzebują publicznego adresu IP|<p>[Tworzenie hosta usługi Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Nawiązywanie połączenia przy użyciu protokołu SSH z maszyną wirtualną z systemem Linux](../bastion/bastion-connect-vm-ssh.md)</p><p>[Nawiązywanie połączenia przy użyciu protokołu RDP z maszyną wirtualną z systemem Windows](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[Brama translatora adresów sieciowych sieci wirtualnej](#nat)|Utwórz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej.|<p>[Tworzenie bramy translatora adresów sieciowych](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
-|[Usługa komunikacji równorzędnej Azure (wersja zapoznawcza)](#azurepeeringservice)|Współpracuj z dostawcami usług w celu uzyskania optymalnego i niezawodnego routingu do chmury firmy Microsoft przez sieć publiczną.|<p>[Rejestrowanie usługi Komunikacja równorzędna Azure](../peering-service/azure-portal.md)</p>|
+|[Usługa Azure Peering Service](#azurepeeringservice)|Współpracuj z dostawcami usług w celu uzyskania optymalnego i niezawodnego routingu do chmury firmy Microsoft przez sieć publiczną.|<p>[Rejestrowanie usługi Komunikacja równorzędna Azure](../peering-service/azure-portal.md)</p>|
 ||||
 
 
@@ -70,7 +70,7 @@ Wirtualna sieć WAN platformy Azure to usługa sieciowa, która zapewnia zoptyma
 
 ![Diagram usługi Virtual WAN](./media/networking-overview/virtualwan1.png)
 
-### <a name="azure-dns"></a><a name="dns"></a>System DNS platformy Azure
+### <a name="azure-dns"></a><a name="dns"></a>Azure DNS
 Azure DNS to usługa hostingu dla domen DNS, która umożliwia rozpoznawanie nazw przy użyciu infrastruktury platformy Microsoft Azure. Dzięki hostowaniu swoich domen na platformie Azure możesz zarządzać rekordami DNS z zastosowaniem tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń co w przypadku innych usług platformy Azure. Aby uzyskać więcej informacji, zobacz [co to jest Azure DNS?](../dns/dns-overview.md).
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
@@ -83,7 +83,7 @@ Virtual Network NAT (translator adresów sieciowych) upraszcza połączenia z In
 
 ![Brama translatora adresów sieciowych sieci wirtualnej](./media/networking-overview/flow-map.png)
 
-### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a>Usługa komunikacji równorzędnej Azure
+### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Usługa komunikacji równorzędnej Azure
 Usługa komunikacji równorzędnej platformy Azure ulepsza łączność klienta z usługami w chmurze firmy Microsoft, takimi jak Office 365, Dynamics 365, usługi SaaS (Software as a Service), Azure lub dowolnych usług firmy Microsoft dostępnych za pośrednictwem publicznej sieci Internet. Aby uzyskać więcej informacji, zobacz [co to jest usługa komunikacji równorzędnej Azure?](../peering-service/about.md).
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Usługi ochrony aplikacji
@@ -92,7 +92,7 @@ W tej sekcji opisano usługi sieciowe na platformie Azure, które ułatwiają oc
 
 |Usługa|Dlaczego warto używać?|Scenariusz|
 |---|---|---|
-|[Ochrona DDoS](#ddosprotection) |Wysoka dostępność dla aplikacji z ochroną przed nadmiernymi opłatami za ruch IP|[Zarządzaj Azure DDoS Protection](../virtual-network/manage-ddos-protection.md)|
+|[Ochrona przed atakami DDOS](#ddosprotection) |Wysoka dostępność dla aplikacji z ochroną przed nadmiernymi opłatami za ruch IP|[Zarządzaj Azure DDoS Protection](../virtual-network/manage-ddos-protection.md)|
 |[Web Application Firewall](#waf)|<p>[Usługa Azure WAF z Application Gateway](../web-application-firewall/ag/ag-overview.md) zapewnia ochronę regionalną jednostek w publicznych i prywatnych przestrzeni adresowej</p><p>[Usługa Azure WAF z przednimi drzwiami](../web-application-firewall/afds/afds-overview.md) zapewnia ochronę w granicach sieci z publicznymi punktami końcowymi.</p>|<p>[Konfigurowanie reguł ochrony bot](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Konfigurowanie niestandardowego kodu odpowiedzi](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Konfigurowanie reguł ograniczeń adresów IP](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Konfigurowanie reguły limitu szybkości](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
 |[Azure Firewall](#firewall)|Azure Firewall to zarządzana, sieciowa usługa zabezpieczeń oparta na chmurze, która zabezpiecza zasoby usługi Azure Virtual Network. Jest to w pełni stanowa zapora jako usługa z wbudowaną wysoką dostępnością i możliwością nieograniczonego skalowania w chmurze.|<p>[Wdrażanie zapory platformy Azure w sieci wirtualnej](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[-Wdrażanie zapory platformy Azure w sieci hybrydowej](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrowanie ruchu przychodzącego za pomocą usługi Azure firewall DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Sieciowe grupy zabezpieczeń](#nsg)|Pełny szczegółowy formant węzła końcowego rozproszonego na maszynie wirtualnej/podsieci dla wszystkich przepływów ruchu sieciowego|[Filtrowanie ruchu sieciowego przy użyciu sieciowych grup zabezpieczeń](../virtual-network/tutorial-filter-network-traffic.md)|
@@ -120,7 +120,7 @@ Aby uzyskać więcej informacji na temat zapory platformy Azure, zobacz [dokumen
 
 ![Omówienie zapory](./media/networking-overview/firewall-threat.png)
 
-### <a name="network-security-groups"></a><a name="nsg"></a>Sieciowe grupy zabezpieczeń
+### <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
 Ruch sieciowy przychodzący do zasobów platformy Azure i wychodzący z nich w sieci wirtualnej platformy Azure można filtrować za pomocą grupy zabezpieczeń sieci. Aby uzyskać więcej informacji, zobacz [Omówienie zabezpieczeń](../virtual-network/security-overview.md).
 
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>Punkty końcowe usługi

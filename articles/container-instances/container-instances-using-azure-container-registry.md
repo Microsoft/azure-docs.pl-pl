@@ -4,14 +4,13 @@ description: Dowiedz się, jak wdrażać kontenery w Azure Container Instances p
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927440"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657001"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Wdrażanie do usługi Azure Container Instances z usługi Azure Container Registry
 
@@ -31,6 +30,9 @@ Azure Container Registry zapewnia dodatkowe [Opcje uwierzytelniania](../containe
 
 > [!NOTE]
 > Nie można uwierzytelnić się w celu Azure Container Registry ściągania obrazów podczas wdrażania grupy kontenerów przy użyciu [tożsamości zarządzanej](container-instances-managed-identity.md) skonfigurowanej w tej samej grupie kontenerów.
+
+> [!NOTE]
+> W tej chwili nie można ściągnąć obrazów z [Azure Container Registry](../container-registry/container-registry-vnet.md) wdrożonych na platformie Azure Virtual Network.
 
 W poniższej sekcji utworzysz Magazyn kluczy Azure i nazwę główną usługi, a następnie przechowujesz poświadczenia jednostki usługi w magazynie. 
 

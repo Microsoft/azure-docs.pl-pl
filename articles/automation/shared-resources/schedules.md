@@ -2,19 +2,15 @@
 title: Zarządzanie harmonogramami w Azure Automation
 description: W tym artykule opisano sposób tworzenia harmonogramu i pracy z nim w Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187357"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004616"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Zarządzanie harmonogramami w Azure Automation
 
@@ -28,17 +24,17 @@ Aby zaplanować uruchomienie elementu Runbook w Azure Automation o określonym c
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Polecenia cmdlet programu PowerShell służące do uzyskiwania dostępu do harmonogramów
 
-Polecenia cmdlet w poniższej tabeli tworzą harmonogramy automatyzacji i zarządzaj nimi za pomocą programu PowerShell. Są one dostarczane jako część [AZ modules](modules.md#az-modules). 
+Polecenia cmdlet w poniższej tabeli tworzą harmonogramy automatyzacji i zarządzaj nimi za pomocą programu PowerShell. Są one dostarczane jako część [AZ modules](modules.md#az-modules).
 
 | Polecenia cmdlet | Opis |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Pobiera harmonogram. |
-| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Pobiera zaplanowane elementy Runbook. |
-| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Tworzy nowy harmonogram. |
-| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Kojarzy element Runbook z harmonogramem. |
-| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Usuwa harmonogram. |
-| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Ustawia właściwości istniejącego harmonogramu. |
-| [Unregister — AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Deskojarzenie elementu Runbook z harmonogramem. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Pobiera harmonogram. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Pobiera zaplanowane elementy Runbook. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |Tworzy nowy harmonogram. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Kojarzy element Runbook z harmonogramem. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |Usuwa harmonogram. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |Ustawia właściwości istniejącego harmonogramu. |
+| [Unregister — AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |Deskojarzenie elementu Runbook z harmonogramem. |
 
 ## <a name="create-a-schedule"></a>Tworzenie harmonogramu
 
@@ -49,23 +45,33 @@ Nowy harmonogram dla elementów Runbook można utworzyć w Azure Portal lub przy
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Utwórz nowy harmonogram w Azure Portal
 
-1. W Azure Portal z konta usługi Automation wybierz pozycję **harmonogramy** w sekcji **udostępnione zasoby** po lewej stronie.
-1. Wybierz pozycję **Dodaj harmonogram** w górnej części strony.
-1. W okienku **Nowy harmonogram** wprowadź nazwę i opcjonalnie wprowadź opis nowego harmonogramu.
-1. Wybierz, czy harmonogram ma być uruchamiany jednokrotnie, czy w harmonogramie, wybierając **jeden raz** lub **cyklicznie**. Jeśli wybierzesz **jeden raz**, określ godzinę rozpoczęcia, a następnie wybierz pozycję **Utwórz**. W przypadku wybrania opcji **cyklicznie**określ godzinę rozpoczęcia. Dla opcji **Powtarzaj co**należy określić, jak często element Runbook ma być powtarzany. Wybierz według godziny, dnia, tygodnia lub miesiąca.
-    1. W przypadku wybrania wartości **tydzień**dni tygodnia są prezentowane w celu wybrania opcji. Wybierz dowolną liczbę dni. Pierwsze uruchomienie harmonogramu zostanie wykonane pierwszego dnia wybranego po czasie rozpoczęcia. Na przykład, aby wybrać harmonogram weekendowy, wybierz soboty i niedziela.
-    
-       ![Ustawianie cyklicznego harmonogramu weekendu](../media/schedules/week-end-weekly-recurrence.png)
+1. Na koncie usługi Automation w okienku po lewej stronie wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione**.
+2. Na stronie **harmonogramy** wybierz pozycję **Dodaj harmonogram**.
+3. Na stronie **Nowy harmonogram** wprowadź nazwę i opcjonalnie wprowadź opis nowego harmonogramu.
 
-    2. W przypadku wybrania **miesiąca**są dostępne różne opcje. Dla opcji **miesięczne wystąpienia** wybierz opcję **miesiąc** lub dni **tygodnia**. Jeśli wybierzesz **miesiąc dni**, zostanie wyświetlony kalendarz, aby można było wybrać dowolną liczbę dni. Jeśli wybierzesz datę, taką jak 31, która nie występuje w bieżącym miesiącu, harmonogram nie zostanie uruchomiony. Jeśli chcesz, aby harmonogram był uruchamiany w ostatnim dniu miesiąca, wybierz pozycję **tak** w obszarze **Uruchom w ostatnim dniu**. Jeśli wybierzesz **tydzień dni**, zostanie wyświetlona opcja **Powtarzaj każdy** z nich. Wybierz **pierwszy**, **drugi**, **trzeci**, **czwarty**lub **ostatni**. Na koniec wybierz dzień do powtórzenia.
+    >[!NOTE]
+    >Harmonogramy automatyzacji nie obsługują obecnie znaków specjalnych w nazwie harmonogramu.
+    >
 
-       ![Harmonogram miesięczny pierwszego, piętnastu i ostatniego dnia miesiąca](../media/schedules/monthly-first-fifteenth-last.png)
+4. Określ, czy harmonogram ma być uruchamiany raz, czy w harmonogramie, wybierając **jeden raz** lub **cyklicznie**. Jeśli wybierzesz **jeden raz**, określ godzinę rozpoczęcia, a następnie wybierz pozycję **Utwórz**. W przypadku wybrania opcji **cyklicznie**określ godzinę rozpoczęcia. Dla opcji **Powtarzaj co**należy określić, jak często element Runbook ma być powtarzany. Wybierz według godziny, dnia, tygodnia lub miesiąca.
 
-1. Po zakończeniu wybierz pozycję **Utwórz**.
+    * W przypadku wybrania wartości **tydzień**dni tygodnia są prezentowane w celu wybrania opcji. Wybierz dowolną liczbę dni. Pierwsze uruchomienie harmonogramu zostanie wykonane pierwszego dnia wybranego po czasie rozpoczęcia. Na przykład, aby wybrać harmonogram weekendowy, wybierz soboty i niedziela.
+
+    ![Ustawianie cyklicznego harmonogramu weekendu](../media/schedules/week-end-weekly-recurrence.png)
+
+    * W przypadku wybrania **miesiąca**są dostępne różne opcje. Dla opcji **miesięczne wystąpienia** wybierz opcję **miesiąc** lub dni **tygodnia**. Jeśli wybierzesz **miesiąc dni**, zostanie wyświetlony kalendarz, aby można było wybrać dowolną liczbę dni. Jeśli wybierzesz datę, taką jak 31, która nie występuje w bieżącym miesiącu, harmonogram nie zostanie uruchomiony. Jeśli chcesz, aby harmonogram był uruchamiany w ostatnim dniu miesiąca, wybierz pozycję **tak** w obszarze **Uruchom w ostatnim dniu**. Jeśli wybierzesz **tydzień dni**, zostanie wyświetlona opcja **Powtarzaj każdy** z nich. Wybierz **pierwszy**, **drugi**, **trzeci**, **czwarty**lub **ostatni**. Na koniec wybierz dzień do powtórzenia.
+
+    ![Harmonogram miesięczny pierwszego, piętnastu i ostatniego dnia miesiąca](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. Po zakończeniu wybierz pozycję **Utwórz**.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Tworzenie nowego harmonogramu za pomocą programu PowerShell
 
-Użyj polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) , aby utworzyć harmonogramy. Należy określić godzinę rozpoczęcia harmonogramu oraz częstotliwość, w której ma zostać uruchomiony. W poniższych przykładach pokazano, jak utworzyć wiele różnych scenariuszy harmonogramu.
+Użyj polecenia cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) , aby utworzyć harmonogramy. Należy określić godzinę rozpoczęcia harmonogramu oraz częstotliwość, w której ma zostać uruchomiony. W poniższych przykładach pokazano, jak utworzyć wiele różnych scenariuszy harmonogramu.
+
+>[!NOTE]
+>Harmonogramy automatyzacji nie obsługują obecnie znaków specjalnych w nazwie harmonogramu.
+>
 
 #### <a name="create-a-one-time-schedule"></a>Tworzenie harmonogramu jednorazowego
 
@@ -128,7 +134,7 @@ Element Runbook może zostać powiązany z wieloma harmonogramami, a harmonogram
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Łączenie harmonogramu z elementem Runbook za pomocą programu PowerShell
 
-Użyj polecenia cmdlet [register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) , aby połączyć harmonogram. Można określić wartości parametrów elementu Runbook za pomocą parametru Parametry . Aby uzyskać więcej informacji na temat sposobu określania wartości parametrów, zobacz [Uruchamianie elementu Runbook w Azure Automation](../start-runbooks.md).
+Użyj polecenia cmdlet [register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) , aby połączyć harmonogram. Można określić wartości parametrów elementu Runbook za pomocą parametru Parametry . Aby uzyskać więcej informacji na temat sposobu określania wartości parametrów, zobacz [Uruchamianie elementu Runbook w Azure Automation](../start-runbooks.md).
 Poniższy przykład pokazuje, jak połączyć harmonogram z elementem Runbook za pomocą polecenia cmdlet Azure Resource Manager z parametrami.
 
 ```azurepowershell-interactive
@@ -155,7 +161,7 @@ Po wyłączeniu harmonogramu wszystkie elementy Runbook połączone z nim nie b�
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Wyłącz harmonogram z Azure Portal
 
-1. Na koncie usługi Automation wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione**.
+1. W obszarze konto usługi Automation w okienku po lewej stronie wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione**.
 1. Wybierz nazwę harmonogramu, aby otworzyć okienko szczegółów.
 1. Zmień **włączone** na **nie**.
 
@@ -164,7 +170,7 @@ Po wyłączeniu harmonogramu wszystkie elementy Runbook połączone z nim nie b�
 
 ### <a name="disable-a-schedule-with-powershell"></a>Wyłączanie harmonogramu przy użyciu programu PowerShell
 
-Aby zmienić właściwości istniejącego harmonogramu, użyj polecenia cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) . Aby wyłączyć harmonogram, należy określić wartość false dla `IsEnabled` parametru.
+Aby zmienić właściwości istniejącego harmonogramu, użyj polecenia cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) . Aby wyłączyć harmonogram, należy określić wartość false dla `IsEnabled` parametru.
 
 Poniższy przykład pokazuje, jak wyłączyć harmonogram dla elementu Runbook za pomocą polecenia cmdlet Azure Resource Manager.
 
@@ -181,13 +187,13 @@ Gdy wszystko będzie gotowe do usunięcia harmonogramów, możesz użyć Azure P
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Usuwanie harmonogramu przy użyciu Azure Portal
 
-1. Na koncie usługi Automation wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione**.
-2. Kliknij nazwę harmonogramu, aby otworzyć okienko Szczegóły.
+1. W obszarze konto usługi Automation w okienku po lewej stronie wybierz pozycję **harmonogramy** w obszarze **zasoby udostępnione**.
+2. Wybierz nazwę harmonogramu, aby otworzyć okienko szczegółów.
 3. Kliknij polecenie **Usuń**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Usuwanie harmonogramu za pomocą programu PowerShell
 
-Możesz użyć `Remove-AzAutomationSchedule` polecenia cmdlet, jak pokazano poniżej, aby usunąć istniejący harmonogram. 
+Możesz użyć `Remove-AzAutomationSchedule` polecenia cmdlet, jak pokazano poniżej, aby usunąć istniejący harmonogram.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

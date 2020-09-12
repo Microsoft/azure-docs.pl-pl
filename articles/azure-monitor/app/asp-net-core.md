@@ -4,12 +4,12 @@ description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 719bf997254c98c5790d6d6733982fea08541967
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ac742aae88b3e3c62ffca857dcb690fa71434482
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936524"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006763"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
@@ -106,7 +106,7 @@ Aby uzyskać Visual Studio dla komputerów Mac, użyj [wskazówek ręcznych](#en
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Przykład:
+    Na przykład:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -122,6 +122,7 @@ Aby uzyskać Visual Studio dla komputerów Mac, użyj [wskazówek ręcznych](#en
 ### <a name="user-secrets-and-other-configuration-providers"></a>Klucze tajne użytkownika i inni dostawcy konfiguracji
 
 Jeśli chcesz przechowywać klucz Instrumentacji w ASP.NET Core kluczy tajnych użytkownika lub pobrać go z innego dostawcy konfiguracji, możesz użyć przeciążenia z `Microsoft.Extensions.Configuration.IConfiguration` parametrem. Na przykład `services.AddApplicationInsightsTelemetry(Configuration);`.
+Począwszy od Microsoft. ApplicationInsights. AspNetCore w wersji [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), wywołanie `services.AddApplicationInsightsTelemetry()` spowoduje automatyczne odczytanie klucza Instrumentacji z `Microsoft.Extensions.Configuration.IConfiguration` aplikacji. Nie ma potrzeby jawnego udostępniania `IConfiguration` .
 
 ## <a name="run-your-application"></a>Uruchamianie aplikacji
 
@@ -158,17 +159,17 @@ Powyższe kroki są wystarczające, aby ułatwić rozpoczęcie zbierania danych 
 
 1. W `_ViewImports.cshtml` , Dodaj iniekcję:
 
-    ```cshtml
-        @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-    ```
+```cshtml
+    @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+```
 
 2. W programie `_Layout.cshtml` Wstaw `HtmlHelper` na końcu `<head>` sekcji, ale przed jakimkolwiek innym skryptem. Jeśli chcesz zgłosić dowolną niestandardową telemetrię JavaScript ze strony, wsuń ją po tym fragmencie kodu:
 
-    ```cshtml
-        @Html.Raw(JavaScriptSnippet.FullScript)
-        </head>
-    ```
-    
+```cshtml
+    @Html.Raw(JavaScriptSnippet.FullScript)
+    </head>
+```
+
 Alternatywnie możesz użyć `FullScript` `ScriptBody` dostępnego zestawu SDK v 2.14. Użyj tej opcji, jeśli musisz kontrolować `<script>` tag, aby ustawić zasady zabezpieczeń zawartości:
 
 ```cshtml
@@ -183,7 +184,7 @@ Jeśli projekt nie zawiera `_Layout.cshtml` , nadal możesz dodać [monitorowani
 
 ## <a name="configure-the-application-insights-sdk"></a>Konfigurowanie zestawu SDK Application Insights
 
-Można dostosować zestaw Application Insights SDK dla ASP.NET Core, aby zmienić konfigurację domyślną. Użytkownicy zestawu SDK Application Insights ASP.NET mogą znać zmianę konfiguracji przy użyciu `ApplicationInsights.config` lub modyfikując `TelemetryConfiguration.Active` . Konfigurację można zmienić inaczej dla ASP.NET Core. Dodaj zestaw ASP.NET Core SDK do aplikacji i skonfiguruj go przy ASP.NET Core użyciu wbudowanego [iniekcji zależności](/aspnet/core/fundamentals/dependency-injection). Prawie wszystkie zmiany konfiguracji w `ConfigureServices()` metodzie `Startup.cs` klasy, chyba że nastąpi przekierowanie w inny sposób. Poniższe sekcje zawierają więcej informacji.
+Można dostosować zestaw Application Insights SDK dla ASP.NET Core, aby zmienić konfigurację domyślną. Użytkownicy zestawu SDK Application Insights ASP.NET mogą znać zmianę konfiguracji przy użyciu `ApplicationInsights.config` lub modyfikując `TelemetryConfiguration.Active` . W przypadku ASP.NET Core prawie wszystkie zmiany konfiguracji są wykonywane w `ConfigureServices()` metodzie `Startup.cs` klasy, chyba że nastąpi przekierowanie w inny sposób. Poniższe sekcje zawierają więcej informacji.
 
 > [!NOTE]
 > W przypadku aplikacji ASP.NET Core zmiana konfiguracji przez modyfikację `TelemetryConfiguration.Active` nie jest obsługiwana.
@@ -221,8 +222,25 @@ Pełna lista ustawień w programie `ApplicationInsightsServiceOptions`
 |EnableHeartbeat | Funkcja włączania/wyłączania pulsu, która okresowo (domyślnie 15-minutowa) wysyła metrykę niestandardową o nazwie "HeartbeatState" z informacjami o środowisku uruchomieniowym, takim jak wersja platformy .NET, informacje dotyczące środowiska platformy Azure, jeśli ma to zastosowanie itd. | true
 |AddAutoCollectedMetricExtractor | Włącz/Wyłącz Ekstraktor AutoCollectedMetrics, który jest TelemetryProcessor, który wysyła wstępnie zagregowane metryki dotyczące żądań/zależności przed pobraniem próbek. | true
 |RequestCollectionOptions.TrackExceptions | Włącz/Wyłącz raportowanie nieobsłużonego śledzenia wyjątków przez moduł kolekcji żądań. | wartość false w programie STANDARDowym 2.0 (ponieważ wyjątki są śledzone za pomocą ApplicationInsightsLoggerProvider), true w przeciwnym razie.
+|EnableDiagnosticsTelemetryModule | Włącz/Wyłącz `DiagnosticsTelemetryModule` . Wyłączenie tej ustawienia spowoduje zignorowanie następujących ustawień: `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | true
 
 Zobacz [ustawienia konfigurowalne w `ApplicationInsightsServiceOptions` programie](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) , aby uzyskać najbardziej aktualną listę.
+
+### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150-beta3--above"></a>Zalecenie konfiguracyjne dla Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0-beta3 & powyżej
+
+Począwszy od Microsoft. ApplicationInsights. AspNetCore SDK w wersji [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) zaleca się skonfigurowanie każdego dostępnego ustawienia w `ApplicationInsightsServiceOptions` , w tym instrumentationkey przy użyciu `IConfiguration` wystąpienia aplikacji. Ustawienia muszą znajdować się w sekcji "ApplicationInsights", jak pokazano w poniższym przykładzie. Poniższa sekcja z appsettings.jsna temat konfigurowania klucza instrumentacji, a także wyłączenie próbkowania adaptacyjnego i zbierania liczników wydajności.
+
+```json
+{
+    "ApplicationInsights": {
+    "InstrumentationKey": "putinstrumentationkeyhere",
+    "EnableAdaptiveSampling": false,
+    "EnablePerformanceCounterCollectionModule": false
+    }
+}
+```
+
+Jeśli `services.AddApplicationInsightsTelemetry(aiOptions)` jest używany, zastępuje ustawienia z `Microsoft.Extensions.Configuration.IConfiguration` .
 
 ### <a name="sampling"></a>Próbkowanie
 
@@ -473,4 +491,3 @@ Aby zapoznać się z najnowszymi aktualizacjami i poprawkami błędów [, zapozn
 * [Użyj interfejsu API,](./api-custom-events-metrics.md) aby wysyłać własne zdarzenia i metryki w celu uzyskania szczegółowego widoku wydajności i użycia aplikacji.
 * Korzystaj z [testów dostępności](./monitor-web-app-availability.md) , aby stale sprawdzać swoją aplikację na całym świecie.
 * [Wstrzykiwanie zależności na platformie ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
-

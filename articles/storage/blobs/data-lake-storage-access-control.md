@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030490"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017238"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Kontrola dostępu w usłudze Azure Data Lake Storage Gen2
 
@@ -256,7 +256,7 @@ Maska umask dla Azure Data Lake Storage Gen2 stałą wartość ustawioną na 007
 | Maska umask. owning_group  |    0         |   `---`      | W przypadku grupy będącej właścicielem Skopiuj domyślną listę ACL elementu nadrzędnego do listy ACL dostępu do elementu podrzędnego. | 
 | Maska umask. other         |    7         |   `RWX`      | W przypadku innych Usuń wszystkie uprawnienia na liście ACL dostępu dziecka |
 
-Wartość maska umask używana Azure Data Lake Storage Gen2 efektywnie oznacza, że wartość dla **innych** nigdy nie jest domyślnie przekazywana w nowych elementach podrzędnych, niezależnie od tego, co wskazuje domyślna lista ACL. 
+Wartość maska umask używana Azure Data Lake Storage Gen2 efektywnie oznacza, że wartość dla **innych** nigdy nie jest domyślnie przekazywana w nowych elementach podrzędnych, chyba że domyślna lista ACL nie jest zdefiniowana w katalogu nadrzędnym. W takim przypadku maska umask jest skutecznie ignorowana, a uprawnienia zdefiniowane przez domyślną listę ACL są stosowane do elementu podrzędnego. 
 
 Poniższy pseudokodzie pokazuje, jak maska umask jest stosowany podczas tworzenia list ACL dla elementu podrzędnego.
 

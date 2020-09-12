@@ -1,10 +1,10 @@
 ---
 title: Łączenie źródeł danych z platformą Azure — wskaźnikiem Microsoft Docs
-description: Dowiedz się, jak nawiązać połączenie ze źródłami danych, takimi jak Microsoft Threat Protection, Microsoft 365 i Office 365, Azure AD, ATP i Cloud App Security do platformy Azure.
+description: Dowiedz się, jak połączyć źródła danych, takie jak Microsoft 365 Defender (dawniej ochrona przed zagrożeniami firmy Microsoft), Microsoft 365 i pakietu Office 365, usługi Azure AD, ATP i Cloud App Security z platformą Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
-manager: angrobe
+manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -13,32 +13,31 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555519"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659632"
 ---
 # <a name="connect-data-sources"></a>Łączenie ze źródłami danych
 
-Po włączeniu usługi Azure wskaźnikowej należy najpierw połączyć źródła danych. Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym rozwiązań ochrony przed zagrożeniami firmy Microsoft, źródeł Microsoft 365 (w tym pakietu Office 365), usługi Azure AD i usługi Azure ATP, Microsoft Cloud App Security i innych. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Do łączenia źródeł danych z platformą Azure (CEF), dziennikiem systemu
+Po włączeniu usługi Azure wskaźnikowej należy najpierw połączyć źródła danych. Na platformie Azure jest dostępnych wiele łączników dla rozwiązań firmy Microsoft, które są dostępne na bieżąco i zapewniają integrację w czasie rzeczywistym, w tym Microsoft 365 Defender (dawniej chronione przed zagrożeniami firmy Microsoft), źródła Microsoft 365e (w tym Office 365), Azure AD, Microsoft Defender for Identity (dawniej Azure ATP), Microsoft Cloud App Security i inne. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Do łączenia źródeł danych z platformą Azure (CEF), dziennikiem systemu
 
 1. Z menu wybierz pozycję **Łączniki danych**. Ta strona umożliwia wyświetlenie pełnej listy łączników udostępnianych przez wskaźnik platformy Azure oraz ich stan. Wybierz łącznik, który chcesz połączyć, a następnie wybierz pozycję **Otwórz stronę łącznika**. 
 
-   ![Moduły zbierające dane](./media/collect-data/collect-data-page.png)
+   ![Galeria łączników danych](./media/collect-data/collect-data-page.png)
 
 1. Na określonej stronie łącznika upewnij się, że spełniono wszystkie wymagania wstępne, i postępuj zgodnie z instrukcjami, aby połączyć dane z platformą Azure wskaźnikiem. Synchronizowanie dzienników z platformą Azure jest możliwe dopiero po pewnym czasie. Po nawiązaniu połączenia zobaczysz podsumowanie danych w grafie **otrzymane dane** oraz stan łączności typów danych.
 
-   ![Połącz moduły zbierające](./media/collect-data/opened-connector-page.png)
+   ![Konfigurowanie łączników danych](./media/collect-data/opened-connector-page.png)
   
 1. Kliknij kartę **następne kroki** , aby uzyskać listę zawartości wbudowanej platformy Azure, która zapewnia dla określonego typu danych.
 
-   ![Moduły zbierające dane](./media/collect-data/data-insights.png)
+   ![Następne kroki dla łączników](./media/collect-data/data-insights.png)
  
-
 ## <a name="data-connection-methods"></a>Metody połączenia danych
 
 Następujące metody łączenia danych są obsługiwane przez wskaźnik na platformie Azure:
@@ -48,13 +47,13 @@ Następujące metody łączenia danych są obsługiwane przez wskaźnik na platf
     - [Aktywność platformy Azure](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) — dzienniki inspekcji i dzienniki logowania
     - [Usługa Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Azure Advanced Threat Protection](connect-azure-atp.md)
+    - [Microsoft Defender for Identity](connect-azure-atp.md) (dawniej ochrona przed zagrożeniami na platformie Azure)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Azure Security Center](connect-azure-security-center.md)
+    - [Usługa Azure Defender](connect-azure-security-center.md) (dawniej Azure Security Center)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Serwer nazw domen](connect-dns.md)
     - [Office 365](connect-office-365.md)
-    - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
+    - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (dawniej w przypadku zaawansowanej ochrony przed zagrożeniami w usłudze Microsoft Defender)
     - [Zapora aplikacji internetowej firmy Microsoft](connect-microsoft-waf.md)
     - [Zapora systemu Windows](connect-windows-firewall.md)
     - [Zdarzenia zabezpieczeń systemu Windows](connect-windows-security-events.md)
@@ -135,8 +134,8 @@ Alternatywnie można wdrożyć agenta ręcznie na istniejącej maszynie wirtualn
 | Typowe | [Łączenie danych telekomunikacyjnych](../azure-monitor/insights/wire-data.md) | &#10007; | |
 | WindowsFirewall | [Podłączanie zapory systemu Windows](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Łączenie z usługą Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
-| AATP SecurityAlert  | [Łączenie z usługą Azure ATP](connect-azure-atp.md) | &#10003; | |
-| SecurityAlert ASC  | [Łączenie z usługą Azure Security Center](connect-azure-security-center.md)  | &#10003; | |
+| AATP SecurityAlert  | [Łączenie usługi Microsoft Defender for Identity](connect-azure-atp.md) (dawniej Azure ATP) | &#10003; | |
+| SecurityAlert ASC  | [Łączenie usługi Azure Defender](connect-azure-security-center.md) (dawniej Azure Security Center)  | &#10003; | |
 | MCAS SecurityAlert  | [Połącz Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon (zdarzenie) | [Połącz Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Połącz zdarzenia systemu Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pobierz Analizator Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Kolekcja Sysmon nie jest instalowana domyślnie na maszynach wirtualnych. Aby uzyskać więcej informacji na temat sposobu instalowania agenta Sysmon, zobacz [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |

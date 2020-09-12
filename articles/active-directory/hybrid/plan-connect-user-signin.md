@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331270"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657144"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opcje logowania użytkownika
 Program Azure Active Directory (Azure AD) Connect umożliwia użytkownikom logowanie do zasobów w chmurze i lokalnych przy użyciu tych samych haseł. W tym artykule opisano kluczowe koncepcje dotyczące poszczególnych modeli tożsamości, które ułatwiają wybranie tożsamości, która ma być używana do logowania się do usługi Azure AD.
@@ -47,9 +47,9 @@ Usługa Azure AD obsługuje następujące metody uwierzytelniania:
    * **Uwierzytelnianie przekazywane (PTA)** — ta opcja jest podobna do synchronizacji skrótów haseł, ale zapewnia prostą weryfikację hasła przy użyciu lokalnych agentów oprogramowania dla organizacji z silnymi zasadami zabezpieczeń i zgodności.
 * **Uwierzytelnianie federacyjne** — w przypadku wybrania tej metody uwierzytelniania usługa Azure AD będzie przełączać proces uwierzytelniania do oddzielnego zaufanego systemu uwierzytelniania, takiego jak AD FS lub system federacyjny innej firmy, aby sprawdzić poprawność logowania użytkownika. 
 
-W przypadku większości organizacji, które po prostu chcą włączyć logowanie użytkownika do pakietu Office 365, aplikacji SaaS i innych zasobów opartych na usłudze Azure AD, zaleca się użycie domyślnej opcji synchronizacji skrótów haseł.
+W przypadku większości organizacji, które po prostu chcą umożliwić użytkownikom logowanie się do Microsoft 365, aplikacji SaaS i innych zasobów opartych na usłudze Azure AD, zaleca się użycie domyślnej opcji synchronizacji skrótów haseł.
  
-Aby uzyskać szczegółowe informacje na temat wybierania metody uwierzytelniania, zobacz [Wybieranie odpowiedniej metody uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej](../../security/fundamentals/choose-ad-authn.md)
+Aby uzyskać szczegółowe informacje na temat wybierania metody uwierzytelniania, zobacz [Wybieranie odpowiedniej metody uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej](./choose-ad-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Synchronizacja skrótów haseł
 W przypadku synchronizacji skrótów haseł skróty użytkowników są synchronizowane z Active Directory lokalnych do usługi Azure AD. Gdy hasła są zmieniane lub resetowane lokalnie, nowe skróty haseł są natychmiast synchronizowane z usługą Azure AD, dzięki czemu użytkownicy będą mogli zawsze używać tego samego hasła dla zasobów w chmurze i zasobów lokalnych. Hasła nigdy nie są wysyłane do usługi Azure AD ani przechowywane w usłudze Azure AD w postaci zwykłego tekstu. Możesz użyć synchronizacji skrótów haseł razem z funkcją zapisywania zwrotnego haseł w celu włączenia samoobsługowego resetowania hasła w usłudze Azure AD.
@@ -139,12 +139,12 @@ Na stronie logowania do usługi Azure AD są wyświetlane sufiksy nazw UPN, któ
 Możesz kliknąć przycisk Odśwież, aby ponownie pobrać najnowszy stan domen niestandardowych z usługi Azure AD.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Wybieranie atrybutu nazwy głównej użytkownika w usłudze Azure AD
-Atrybut userPrincipalName jest atrybutem używanym przez użytkowników podczas logowania do usługi Azure AD i pakietu Office 365. Przed zsynchronizowaniem użytkowników należy zweryfikować domeny (znane także jako sufiksy nazw UPN), które są używane w usłudze Azure AD.
+Atrybut userPrincipalName jest atrybutem używanym przez użytkowników podczas logowania się do usługi Azure AD i Microsoft 365. Przed zsynchronizowaniem użytkowników należy zweryfikować domeny (znane także jako sufiksy nazw UPN), które są używane w usłudze Azure AD.
 
 Zdecydowanie zalecamy zachowanie domyślnego atrybutu userPrincipalName. Jeśli ten atrybut jest nonroutable i nie można go zweryfikować, można wybrać inny atrybut (na przykład adres e-mail) jako atrybut, który zawiera identyfikator logowania. Jest to tzw. alternatywny identyfikator. Wartość atrybutu alternatywny identyfikator musi być zgodna ze standardem RFC 822. Możesz użyć alternatywnego identyfikatora z logowaniem jednokrotnym i logowaniem jednokrotnym w systemie jako rozwiązania do logowania.
 
 > [!NOTE]
-> Użycie alternatywnego identyfikatora nie jest zgodne ze wszystkimi obciążeniami pakietu Office 365. Aby uzyskać więcej informacji, zobacz [artykuł opisujący konfigurowanie alternatywnego identyfikatora logowania](https://technet.microsoft.com/library/dn659436.aspx) (strona może zostać wyświetlona w języku angielskim).
+> Używanie alternatywnego identyfikatora nie jest zgodne ze wszystkimi obciążeniami Microsoft 365. Aby uzyskać więcej informacji, zobacz [artykuł opisujący konfigurowanie alternatywnego identyfikatora logowania](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) (strona może zostać wyświetlona w języku angielskim).
 >
 >
 

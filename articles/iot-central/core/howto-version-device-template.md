@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: device-developer
+ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583654"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015963"
 ---
 # <a name="create-a-new-device-template-version"></a>Utwórz nową wersję szablonu urządzenia
 
@@ -105,7 +106,7 @@ Aby uzyskać wersję szablonu urządzenia:
 1. Przejdź do strony **Szablony urządzeń** .
 1. Wybierz szablon urządzenia, do którego próbujesz uzyskać wersję.
 1. Kliknij przycisk **wersji** w górnej części strony i nadaj szablonowi nową nazwę. IoT Central sugeruje nową nazwę, którą można edytować.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 1. Teraz Twój szablon urządzenia jest w trybie wersji roboczej. Twoje interfejsy są nadal zablokowane. Wersje interfejsów, które chcesz zmodyfikować.
 
 ## <a name="version-an-interface"></a>Wersja interfejsu
@@ -118,7 +119,7 @@ Aby uzyskać wersję interfejsu:
 1. Wybierz szablon urządzenia w trybie wersji roboczej.
 1. Wybierz interfejs, który znajduje się w trybie opublikowanym, który chcesz wersji i edytować.
 1. Kliknij przycisk **wersji** w górnej części strony interfejsu.
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 1. Interfejs jest teraz w trybie wersji roboczej. Możesz dodawać lub edytować możliwości w interfejsie bez przerywania istniejących dostosowań i widoków.
 
 ## <a name="migrate-a-device-across-versions"></a>Migrowanie urządzenia w różnych wersjach
