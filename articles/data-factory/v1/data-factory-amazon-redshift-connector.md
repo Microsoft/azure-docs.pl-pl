@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710154"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443028"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Przenoszenie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -101,13 +101,13 @@ Alternatywnie można użyć typu **RelationalSource** , który obejmuje Amazon R
 
 Polecenie Amazon RedShift [**unload Zwalnia**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) wyniki zapytania do co najmniej jednego pliku w witrynie Amazon S3. To polecenie jest zalecane przez Amazon do kopiowania dużych zestawów danych z RedShift.
 
-**Przykład: Kopiuj dane z Amazon RedShift do Azure SQL Data Warehouse**
+**Przykład: kopiowanie danych z Amazon RedShift do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)**
 
-Ten przykład kopiuje dane z Amazon RedShift do Azure SQL Data Warehouse. W przykładzie zastosowano polecenie RedShift **Unload** , przygotowane dane kopiowania i bazę danych firmy Microsoft.
+Ten przykład kopiuje dane z Amazon RedShift do usługi Azure Synapse Analytics. W przykładzie zastosowano polecenie RedShift **Unload** , przygotowane dane kopiowania i bazę danych firmy Microsoft.
 
-W przypadku tego przykładowego przypadku użycia działanie Copy najpierw zwalnia dane z usługi Amazon RedShift do usługi Amazon S3 zgodnie z konfiguracją w opcji **redshiftUnloadSettings** . Następnie dane są kopiowane z usługi Amazon S3 do magazynu Azure Blob Storage, jak określono w opcji **stagingSettings** . Na koniec baza danych ładuje dane do SQL Data Warehouse. Wszystkie formaty pośrednie są obsługiwane przez działanie kopiowania.
+W przypadku tego przykładowego przypadku użycia działanie Copy najpierw zwalnia dane z usługi Amazon RedShift do usługi Amazon S3 zgodnie z konfiguracją w opcji  **redshiftUnloadSettings** . Następnie dane są kopiowane z usługi Amazon S3 do magazynu Azure Blob Storage, jak określono w opcji **stagingSettings** . Na koniec baza danych ładuje dane do usługi Azure Synapse Analytics. Wszystkie formaty pośrednie są obsługiwane przez działanie kopiowania.
 
-![Kopiuj przepływ pracy z usługi Amazon RedShift do SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Kopiowanie przepływu pracy z programu Amazon RedShift do usługi Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {
@@ -332,15 +332,15 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | SMALLINT |Int16 |
 | LICZBA CAŁKOWITA |Int32 |
 | BIGINT |Int64 |
-| DOKŁADNOŚCI |Wartość dziesiętna |
-| LICZBA RZECZYWISTA |Pojedyncze |
+| DOKŁADNOŚCI |Liczba dziesiętna |
+| LICZBA RZECZYWISTA |Pojedynczy |
 | PODWÓJNA PRECYZJA |Double |
-| TYPU |String |
-| DELIKATN |String |
-| VARCHAR |String |
-| DATE |DateTime |
-| ZNACZNIK czasu |DateTime |
-| TEKST |String |
+| TYPU |Ciąg |
+| DELIKATN |Ciąg |
+| VARCHAR |Ciąg |
+| DATE |Data i godzina |
+| ZNACZNIK czasu |Data i godzina |
+| TEKST |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się, jak mapować kolumny w źródłowym zestawie danych na kolumny w zestawie danych ujścia, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

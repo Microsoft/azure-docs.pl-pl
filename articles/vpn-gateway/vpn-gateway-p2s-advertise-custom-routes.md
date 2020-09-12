@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a02bd5519b776a063646c11be2a34366fe429f99
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987584"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392395"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>Anonsowanie tras niestandardowych dla klientów sieci VPN P2S
 
@@ -24,7 +24,7 @@ Możesz chcieć anonsować trasy niestandardowe wszystkim klientom sieci VPN typ
 
 Aby anonsować trasy niestandardowe, użyj `Set-AzVirtualNetworkGateway cmdlet` . Poniższy przykład pokazuje, jak anonsować adres IP dla [tabel kont magazynu contoso](https://contoso.table.core.windows.net).
 
-1. Wyślij polecenie ping do *contoso.Table.Core.Windows.NET* i Zanotuj adres IP. Przykład:
+1. Wyślij polecenie ping do *contoso.Table.Core.Windows.NET* i Zanotuj adres IP. Na przykład:
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,7 +38,7 @@ Aby anonsować trasy niestandardowe, użyj `Set-AzVirtualNetworkGateway cmdlet` 
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. Aby dodać wiele tras niestandardowych, użyj przecinka i spacji w celu rozdzielenia adresów. Przykład:
+3. Aby dodać wiele tras niestandardowych, użyj przecinka i spacji w celu rozdzielenia adresów. Na przykład:
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy

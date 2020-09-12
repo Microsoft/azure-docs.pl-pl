@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: modyfikowanie obwodu: PowerShell: klasyczny'
 description: W tym artykule omówiono procedurę sprawdzania stanu, aktualizowania lub usuwania i anulowania aprowizacji obwodu klasycznego modelu wdrażania ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 801032e3df9dcb778fa4e591ef37eabc317e997a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be45d49d3f445810c7ac6a38e3e12abe178a4bed
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073340"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396288"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modyfikowanie obwodu usługi ExpressRoute przy użyciu programu PowerShell (wersja klasyczna)
 

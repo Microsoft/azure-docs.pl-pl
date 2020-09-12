@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/29/2017
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: c4809c51a59805ac996bd4c5971ec633ae6c2aed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5656b60b3c94720ad0a5952f8f6524f90dc6c17
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987064"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392633"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modyfikowanie ustawień bramy sieci lokalnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Czasami ustawienia prefiksu adresu bramy sieci lokalnej lub adresu IP bramy są zmieniane. W tym artykule opisano sposób modyfikowania ustawień bramy sieci lokalnej. Możesz również zmodyfikować te ustawienia przy użyciu innej metody, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [Program PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >

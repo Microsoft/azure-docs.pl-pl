@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b7757b5204c9b3b32145667367a71a9acc42c230
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749874"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434660"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurowanie klastrów w usłudze HDInsight przy użyciu technologii Apache Hadoop, Apache Spark, Apache Kafka i innych
 
@@ -39,7 +39,7 @@ W poniższej tabeli przedstawiono różne metody konfigurowania klastra usługi 
 | [Interfejs wiersza polecenia platformy Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Szablony usługi Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Szablony Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 Ten artykuł przeprowadzi Cię przez proces instalacji w [Azure Portal](https://portal.azure.com), w którym można utworzyć klaster usługi HDInsight.
 
@@ -63,7 +63,7 @@ Nazwy klastrów usługi HDInsight mają następujące ograniczenia:
 * Zakres nazewnictwa klastrów dotyczy wszystkich subskrypcji platformy Azure. Nazwa klastra musi być unikatowa na całym świecie.
 * Pierwsze sześć znaków musi być unikatowe w obrębie sieci wirtualnej
 
-#### <a name="region"></a>Region (Region)
+#### <a name="region"></a>Region
 
 Nie musisz jawnie określać lokalizacji klastra: klaster znajduje się w tej samej lokalizacji co magazyn domyślny. Aby uzyskać listę obsługiwanych regionów, wybierz listę rozwijaną **region** w [cenniku usługi HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -74,7 +74,7 @@ Usługa Azure HDInsight obecnie udostępnia następujące typy klastrów, z któ
 > [!IMPORTANT]  
 > Klastry usługi HDInsight są dostępne w różnych typach, z których każdy jest przeznaczony dla jednego obciążenia lub technologii. Nie ma obsługiwanej metody tworzenia klastra, który łączy wiele typów, takich jak burza i HBase w jednym klastrze. Jeśli rozwiązanie wymaga technologii, które są rozłożone na wiele typów klastrów usługi HDInsight, [Sieć wirtualna platformy Azure](https://docs.microsoft.com/azure/virtual-network) może połączyć wymagane typy klastrów.
 
-| Typ klastra | Funkcja |
+| Typ klastra | Funkcjonalność |
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Zapytanie wsadowe i analiza przechowywanych danych |
 | [HBase](hbase/apache-hbase-overview.md) |Przetwarzanie dużych ilości danych NoSQL |
@@ -139,7 +139,7 @@ Podczas konfiguracji dla domyślnego punktu końcowego magazynu należy określi
 
 ### <a name="metastore-settings"></a>Ustawienia magazynu metadanych
 
-Możesz tworzyć opcjonalne magazyny Hive lub Apache Oozie. Nie wszystkie typy klastrów obsługują jednak magazyny metadanych, a Azure SQL Data Warehouse nie są zgodne z magazynami metadanych.
+Możesz tworzyć opcjonalne magazyny Hive lub Apache Oozie. Nie wszystkie typy klastrów obsługują jednak magazyny metadanych, a usługa Azure Synapse Analytics nie jest zgodna z magazynami metadanych.
 
 Aby uzyskać więcej informacji, zobacz [Korzystanie z zewnętrznych magazynów metadanych w usłudze Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 

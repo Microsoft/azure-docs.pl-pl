@@ -3,7 +3,7 @@ title: Rozwiązywanie problemów ze stanem obniżonej wydajności na platformie 
 description: Jak rozwiązywać problemy z profilami Traffic Manager, gdy jest on wyświetlany jako obniżony stan.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: rohink
-ms.openlocfilehash: 88c2536ad53be0beb583dc64e633322b2a531d15
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.author: duau
+ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183447"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401558"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Azure Traffic Manager
 

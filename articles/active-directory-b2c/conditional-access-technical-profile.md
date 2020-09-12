@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 080b5a224f3d4a720d8009933ddd9161f56dba0a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d2a62b55ce7f8cd408afeb2f10fd40f42b36d53d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270232"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393942"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiowanie profilu technicznego dostępu warunkowego w zasadach niestandardowych Azure Active Directory B2C
 
@@ -47,13 +47,13 @@ Poniższy przykład przedstawia profil techniczny dostępu warunkowego:
 
 ## <a name="conditional-access-evaluation"></a>Ocena dostępu warunkowego
 
-Dla każdego logowania Azure AD B2C oblicza wszystkie zasady i gwarantuje, że wszystkie wymagania są spełnione przed udzieleniem dostępu użytkownikowi. Wartość "Blokuj dostęp" zastępuje wszystkie inne ustawienia konfiguracji. Tryb **oceny** profilu technicznego dostępu warunkowego ocenia sygnały zbierane przez Azure AD B2C podczas logowania przy użyciu konta lokalnego. Wynik profilu technicznego dostępu warunkowego jest zbiorem oświadczeń wynikających z oceny dostępu warunkowego. Zasady Azure AD B2C korzystają z tych oświadczeń w następnym kroku aranżacji w celu podjęcia akcji, na przykład zablokowania użytkownika lub zakwestionowania użycia z uwierzytelnianiem wieloskładnikowym. Dla tego trybu można skonfigurować następujące opcje.
+Dla każdego logowania Azure AD B2C oblicza wszystkie zasady i gwarantuje, że wszystkie wymagania są spełnione przed udzieleniem dostępu użytkownikowi. Wartość "Blokuj dostęp" zastępuje wszystkie inne ustawienia konfiguracji. Tryb **oceny** profilu technicznego dostępu warunkowego ocenia sygnały zbierane przez Azure AD B2C podczas logowania przy użyciu konta lokalnego. Wynik profilu technicznego dostępu warunkowego jest zbiorem oświadczeń wynikających z oceny dostępu warunkowego. Zasady Azure AD B2C korzystają z tych oświadczeń w następnym kroku aranżacji, aby wykonać akcję, na przykład zablokowaniu użytkownika lub zakwestionowania użytkownika przy użyciu uwierzytelniania wieloskładnikowego. Dla tego trybu można skonfigurować następujące opcje.
 
 ### <a name="metadata"></a>Metadane
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| OperationType | Yes | Musi być **oszacowaniem**.  |
+| OperationType | Tak | Musi być **oszacowaniem**.  |
 
 ### <a name="input-claims"></a>Oświadczenia wejściowe
 
@@ -61,10 +61,10 @@ Element **InputClaims** zawiera listę oświadczeń do wysłania do dostępu war
 
 | ClaimReferenceId | Wymagane | Typ danych | Opis |
 | --------- | -------- | ----------- |----------- |
-| UserId | Yes | ciąg | Identyfikator użytkownika, który loguje się. |
-| AuthenticationMethodsUsed | Yes |stringCollection | Lista metod, za pomocą których użytkownik loguje się. Możliwe wartości: `Password` , i `OneTimePasscode` . |
-| Isfederation | Yes |boolean | Wskazuje, czy użytkownik zalogował się przy użyciu konta federacyjnego. Wartość musi być `false` . |
-| IsMfaRegistered | Yes |boolean | Wskazuje, czy użytkownik zarejestrował już numer telefonu do uwierzytelniania wieloskładnikowego. |
+| UserId | Tak | ciąg | Identyfikator użytkownika, który loguje się. |
+| AuthenticationMethodsUsed | Tak |stringCollection | Lista metod, za pomocą których użytkownik loguje się. Możliwe wartości: `Password` , i `OneTimePasscode` . |
+| Isfederation | Tak |boolean | Wskazuje, czy użytkownik zalogował się przy użyciu konta federacyjnego. Wartość musi być `false` . |
+| IsMfaRegistered | Tak |boolean | Wskazuje, czy użytkownik zarejestrował już numer telefonu do uwierzytelniania wieloskładnikowego. |
 
 
 Element **InputClaimsTransformations** może zawierać kolekcję elementów **InputClaimsTransformation** , które są używane do modyfikowania oświadczeń wejściowych lub generować nowe przed wysłaniem ich do usługi dostępu warunkowego.
@@ -75,8 +75,8 @@ Element **OutputClaims** zawiera listę oświadczeń wygenerowanych przez Condit
 
 | ClaimReferenceId | Wymagane | Typ danych | Opis |
 | --------- | -------- | ----------- |----------- |
-| Wyzwania | Yes |stringCollection | Lista akcji korygowania zidentyfikowanych zagrożeń. Możliwe wartości: `block` |
-| MultiConditionalAccessStatus | Yes | stringCollection |  |
+| Wyzwania | Tak |stringCollection | Lista akcji korygowania zidentyfikowanych zagrożeń. Możliwe wartości: `block` |
+| MultiConditionalAccessStatus | Tak | stringCollection |  |
 
 Element **OutputClaimsTransformations** może zawierać kolekcję elementów **OutputClaimsTransformation** , które są używane do modyfikowania oświadczeń wyjściowych lub generowania nowych.
 
@@ -115,7 +115,7 @@ Tryb **korygowania** profilu technicznego dostępu warunkowego informuje, Azure 
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| OperationType | Yes | Muszą być **korygowane**.  |
+| OperationType | Tak | Muszą być **korygowane**.  |
 
 ### <a name="input-claims"></a>Oświadczenia wejściowe
 
@@ -123,7 +123,7 @@ Element **InputClaims** zawiera listę oświadczeń do wysłania do dostępu war
 
 | ClaimReferenceId | Wymagane | Typ danych | Opis |
 | --------- | -------- | ----------- |----------- |
-| ChallengesSatisfied | Yes | stringCollection| Lista zaawansowanych wyzwań w celu skorygowania zidentyfikowanych zagrożeń jako powrotu z trybu oceny, wyzwania roszczeń.|
+| ChallengesSatisfied | Tak | stringCollection| Lista zaawansowanych wyzwań w celu skorygowania zidentyfikowanych zagrożeń jako powrotu z trybu oceny, wyzwania roszczeń.|
 
 
 Element **InputClaimsTransformations** może zawierać kolekcję elementów **InputClaimsTransformation** , które są używane do modyfikowania oświadczeń wejściowych lub generować nowe przed wywołaniem usługi dostępu warunkowego.

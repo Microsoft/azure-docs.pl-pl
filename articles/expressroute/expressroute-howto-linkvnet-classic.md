@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: łączenie sieci wirtualnej z obwodem: klasyczny'
 description: Ten dokument zawiera omówienie sposobu łączenia sieci wirtualnych (sieci wirtualnych) z obwodami usługi ExpressRoute przy użyciu klasycznego modelu wdrażania i programu PowerShell.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1b89d944b4106a8fc3f5d4119c30af1ab2039af2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079714"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395812"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu programu PowerShell (wersja klasyczna)
 > [!div class="op_single_selector"]

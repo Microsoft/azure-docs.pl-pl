@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: aac2641913331095550c0e19cc587257a996fcce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5caed64beb43cbb1e884a3dde6bc0052c617f83e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79537027"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378784"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Zabezpieczenia w usłudze Azure Database for MySQL
 
@@ -23,7 +23,7 @@ Istnieje wiele warstw zabezpieczeń, które są dostępne do ochrony danych na s
 Azure Database for MySQL zabezpiecza dane przez szyfrowanie danych podczas przesyłania z Transport Layer Security. Szyfrowanie (SSL/TLS) jest domyślnie wymuszane.
 
 ### <a name="at-rest"></a>W spoczynku
-Usługa Azure Database for MySQL używa zatwierdzonego modułu kryptograficznego FIPS 140-2 do szyfrowania magazynu danych w spoczynku. Dane, w tym kopie zapasowe, są szyfrowane na dysku, z wyjątkiem plików tymczasowych utworzonych podczas wykonywania zapytań. Usługa używa szyfru AES 256-bit zawartego w szyfrowaniu usługi Azure Storage, a klucze są zarządzane przez system. Szyfrowanie magazynu jest zawsze włączone i nie można go wyłączyć.
+Usługa Azure Database for MySQL używa zatwierdzonego modułu kryptograficznego FIPS 140-2 do szyfrowania magazynu danych w spoczynku. Dane, w tym kopie zapasowe, są szyfrowane na dysku, łącznie z plikami tymczasowymi utworzonymi podczas wykonywania zapytań. Usługa używa szyfru AES 256-bit zawartego w szyfrowaniu usługi Azure Storage, a klucze są zarządzane przez system. Szyfrowanie magazynu jest zawsze włączone i nie można go wyłączyć.
 
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci

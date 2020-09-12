@@ -2,21 +2,21 @@
 title: 'Azure ExpressRoute: Konfigurowanie komunikacji równorzędnej: klasyczny'
 description: Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: cherylmc
-ms.openlocfilehash: 9cad8a157121c0ccb53674301572b02410e030cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a4a3bad1e868fa0e75611630ffb5db5ba13126b6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736241"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395557"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute (klasyczny)
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 > * [Wideo — prywatna Komunikacja równorzędna](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
@@ -44,7 +44,7 @@ Te instrukcje dotyczą tylko obwodów utworzonych przy użyciu dostawców usług
 
 [!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
-## <a name="azure-private-peering"></a>Prywatna komunikacja równorzędna Azure
+## <a name="azure-private-peering"></a>Prywatna komunikacja równorzędna platformy Azure
 
 Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute. 
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170716804a5bc3133e070ee67f2aac71acad7b0b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415811"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435563"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Ładowanie danych z pakietu Office 365 przy użyciu Azure Data Factory
 
@@ -37,7 +37,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
     * **Nazwa**: wprowadź globalnie unikatową nazwę usługi Azure Data Factory. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych *LoadFromOffice365Demo* jest niedostępna", wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**LoadFromOffice365Demo**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
     * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
     * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
-    * **Wersja**: wybierz pozycję **v2**.
+    * **Wersja**: Wybierz pozycję **Wersja 2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
 3. Wybierz pozycję **Utwórz**.
@@ -63,7 +63,7 @@ W tym artykule przedstawiono sposób użycia Data Factory _ładowania danych z p
 
 2. W oknie Nowy zestaw danych wybierz pozycję **Office 365**, a następnie wybierz pozycję **Kontynuuj**.
  
-3. Jesteś teraz na karcie Konfiguracja działania kopiowania. kliknij przycisk **Edytuj** obok zestawu danych pakietu Office 365, aby kontynuować konfigurację danych.
+3. Jesteś teraz na karcie Konfiguracja działania kopiowania. Kliknij przycisk **Edytuj** obok zestawu danych pakietu Office 365, aby kontynuować konfigurację danych.
 
     ![Konfiguracja zestawu danych pakietu Office 365 — ogólne](./media/load-office-365-data/transition-to-edit-dataset.png)
  
@@ -147,7 +147,7 @@ Teraz przejdź do docelowego Blob Storage platformy Azure i sprawdź, czy dane p
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do poniższego artykułu, aby dowiedzieć się więcej o pomocy technicznej Azure SQL Data Warehouse: 
+Przejdź do poniższego artykułu, aby dowiedzieć się więcej o obsłudze usługi Azure Synapse Analytics (dawniej SQL Data Warehouse): 
 
 > [!div class="nextstepaction"]
 >[Łącznik usługi Office 365](connector-office-365.md)

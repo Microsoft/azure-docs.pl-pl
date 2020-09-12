@@ -2,17 +2,17 @@
 title: 'ExpressRoute: Konfigurowanie alertów niestandardowych dla anonsowanych tras'
 description: W tym artykule pokazano, jak używać Azure Automation i Logic Apps do monitorowania liczby tras anonsowanych z bramy ExpressRoute do sieci lokalnych w celu uniknięcia osiągnięcia limitu 200 tras.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
-ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738485"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401728"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurowanie alertów niestandardowych do monitorowania anonsowanych tras
 
@@ -78,7 +78,7 @@ Domyślnie rola **współautor** jest przypisywana do jednostki usługi, która 
 
 2. Wybierz **role** , aby wyświetlić używane definicje ról.
 
-   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Przypisz rolę":::
+   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Przypisywanie roli":::
 
 ## <a name="create-and-configure-runbooks"></a><a name="runbooks"></a>Tworzenie i Konfigurowanie elementów Runbook
 
@@ -247,7 +247,7 @@ Po uruchomieniu skryptu programu PowerShell jest pobierana lista wartości:
 
 * Liczba prefiksów sieci anonsowanych z bramy ExpressRoute do drugiego elementu równorzędnego protokołu BGP (peer2)
 
-* Znacznik czasu
+* Timestamp
 
 * Stan, sklasyfikowany jako:
 
@@ -257,7 +257,7 @@ Po uruchomieniu skryptu programu PowerShell jest pobierana lista wartości:
 
 * Komunikat alertu dla pełnego opisu stanu (OK, ALERT, ostrzeżenie)
 
-Skrypt programu PowerShell konwertuje zebrane informacje na dane wyjściowe JSON. Element Runbook używa polecenia cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?) programu PowerShell jako strumienia wyjściowego do przekazywania informacji do klienta.
+Skrypt programu PowerShell konwertuje zebrane informacje na dane wyjściowe JSON. Element Runbook używa polecenia cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  programu PowerShell jako strumienia wyjściowego do przekazywania informacji do klienta.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. Sprawdź poprawność elementu Runbook
 
@@ -314,7 +314,7 @@ Aplikacja logiki uzyskuje dostęp do innych aplikacji, usług i platform, chocia
 
    :::image type="content" source="./media/custom-route-alert-portal/sign-in.png" alt-text="Zaloguj się":::
 
-4. Wpisz **nazwę połączenia**, Dodaj **Identyfikator klienta** (Identyfikator aplikacji), **klucz tajny klienta**i **Identyfikator dzierżawy**. Następnie wybierz pozycję **Utwórz**.
+4. Wpisz **nazwę połączenia**, Dodaj **Identyfikator klienta** (Identyfikator aplikacji), **klucz tajny klienta**i **Identyfikator dzierżawy**. Następnie wybierz przycisk **Utwórz**.
 
    :::image type="content" source="./media/custom-route-alert-portal/connect-service-principal.png" alt-text="Nawiązywanie połączenia z jednostką usługi":::
 

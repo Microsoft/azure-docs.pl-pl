@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814726"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419758"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -22,16 +22,16 @@ Oferty usługi konsultingowej są zobowiązaniami specyficznymi dla klienta. Wyd
 
 ## <a name="compare-consulting-services"></a>Porównaj usługi doradcze
 
-Komercyjne sklepy online Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. W każdym sklepie online dostępne są wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma magazynami online, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](comparing-appsource-azure-marketplace.md).
+Komercyjne sklepy online Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z typami rozwiązań i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. W każdym sklepie online dostępne są wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma magazynami online, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Oferty usług konsultingowych, które są oparte na Dynamics 365, zaawansowanych aplikacjach i Power BI mogą być wymienione w witrynie AppSource. Aby uzyskać więcej informacji, Pobierz [Microsoft AppSource usług doradczych dotyczących list](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) plików PDF.
 
 Usługi konsultingowe i oferty usług zarządzanych, które są oparte na Microsoft Azure mogą być wymienione w witrynie Azure Marketplace. Aby uzyskać więcej informacji, zobacz temat [Publikowanie oferty usługi Azure Consulting Service](./partner-center-portal/create-consulting-service-offer.md) i [Publikowanie oferty usług zarządzanych w witrynie Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
-> Usługi doradcze w witrynie Azure Marketplace powinny skupić się na ofertach dla odbiorców technicznych i wyróżnić rozwiązania techniczne i usługi platformy Azure.
+> Usługi doradcze w witrynie Azure Marketplace powinny skupić się na rozwiązaniach i usługach technicznych platformy Azure.
 >
-> Usługi doradcze w AppSource powinny skupić się na ofertach dla użytkowników z doświadczeniem w dostarczaniu rozwiązań dotyczących jakości dla systemu Dynamics 365, Power BI lub aplikacji zaawansowanych.
+> Usługi doradcze w AppSource powinny skupić się na rozwiązaniach dla przedsiębiorstw dla systemu Dynamics 365, Power BI lub aplikacji zaawansowanych.
  
 > [!TIP]
 > Aby publikować w portalu Azure Marketplace, na liście rozwijanej **podstawowy produkt** Centrum partnerskiego wybierz pozycję **Azure**.
@@ -131,7 +131,7 @@ Oferty muszą być co najmniej jednym z następujących pięciu typów usług:
 > * **W polu osoba — w** siedzibie klienta lub w placówce partnera.
 > * **Praktycznie** — za pośrednictwem telekonferencji, konferencji sieci Web lub zdalnej implementacji.
 
-Po skonfigurowaniu wcześniej wymienionych elementów wymagane przez zespół ds. przeglądu zawartości sprawdzimy, czy opis oferty jest szczegółowy i kompletny dla docelowych odbiorców. 
+Po skonfigurowaniu wcześniej wymienionych elementów wymagane przez zespół ds. przeglądu zawartości sprawdzimy, czy opis oferty jest szczegółowy i kompletny. 
 
 ### <a name="the-listing-title"></a>Tytuł listy
 
@@ -171,9 +171,5 @@ Poniżej przedstawiono niektóre porady dotyczące promocji:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jeszcze tego nie zrobiono, Dowiedz się, jak [rozwijać swoją firmę w chmurze za pomocą witryny Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-
-Aby zarejestrować się i rozpocząć pracę w centrum partnerskim:
-
-* [Zaloguj się do Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć lub zakończyć swoją ofertę.
-* Aby uzyskać więcej informacji, zobacz temat [Tworzenie oferty usługi konsultingowej](./partner-center-portal/create-consulting-service-offer.md) .
+- [Rozwijaj swoją działalność w chmurze za pomocą witryny Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- [Tworzenie oferty usługi konsultingowej](./partner-center-portal/create-consulting-service-offer.md)

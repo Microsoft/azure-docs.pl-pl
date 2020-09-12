@@ -2,18 +2,18 @@
 title: 'ExpressRoute: Połącz sieć wirtualną z obwodem: Azure Portal'
 description: Dowiedz się, jak utworzyć połączenie w celu połączenia sieci wirtualnej z obwodem usługi Azure ExpressRoute przy użyciu Azure Portal.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ad222e55f1e3051266c1398d76c8d246e342aba9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 56508503c199b1f822ce8f181689a236f3a0af18
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190920"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395829"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Nawiązywanie połączenia sieci wirtualnej z obwodem usługi ExpressRoute za pomocą witryny Portal
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "88190920"
 
 Ten artykuł pomaga utworzyć połączenie w celu połączenia sieci wirtualnej z obwodem usługi Azure ExpressRoute przy użyciu Azure Portal. Sieci wirtualne, które można połączyć ze obwodem usługi Azure ExpressRoute, mogą znajdować się w tej samej subskrypcji lub być częścią innej subskrypcji.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 * Przed rozpoczęciem konfiguracji zapoznaj się z warunkami [wstępnymi](expressroute-prerequisites.md), [wymaganiami dotyczącymi routingu](expressroute-routing.md)i [przepływami pracy](expressroute-workflows.md) .
 
@@ -122,7 +122,7 @@ Użytkownik obwodu potrzebuje identyfikatora zasobu i klucza autoryzacji od wła
 
    ![Strona Podstawy](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. Na stronie **Ustawienia** wybierz **bramę sieci wirtualnej** i zaznacz pole wyboru Wykorzystaj **autoryzację** .
-6. Wprowadź **klucz autoryzacji** i **Identyfikator URI obwodu równorzędnego** i nadaj nazwę połączenie. Kliknij przycisk **OK**. **URI obwodu równorzędnego** jest identyfikatorem zasobu obwodu ExpressRoute (który można znaleźć w okienku ustawienia właściwości obwodu ExpressRoute).
+6. Wprowadź **klucz autoryzacji** i **Identyfikator URI obwodu równorzędnego** i nadaj nazwę połączenie. Kliknij pozycję **OK**. **URI obwodu równorzędnego** jest identyfikatorem zasobu obwodu ExpressRoute (który można znaleźć w okienku ustawienia właściwości obwodu ExpressRoute).
 
    ![Strona Ustawienia](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Przejrzyj informacje na stronie **Podsumowanie** i kliknij przycisk **OK**.

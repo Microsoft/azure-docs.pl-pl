@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 41df31cde95ae7ed1d05dac572718622067194c9
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265256"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397308"
 ---
 # <a name="live-event-types-comparison"></a>Porównanie typów zdarzeń na żywo
 
@@ -38,13 +38,13 @@ Poniższa tabela zawiera porównanie funkcji typów zdarzeń na żywo. Typy są 
 
 | Cechy | Zdarzenie przekazywania na żywo | Standardowe lub Premium1080p zdarzenie na żywo |
 | --- | --- | --- |
-| Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Yes |
+| Dane wejściowe o pojedynczej szybkości transmisji bitów są zakodowane w wielu szybkościach transmisji bitów w chmurze |Nie |Tak |
 | Maksymalna rozdzielczość wideo dla kanału informacyjnego udziału |4K (4096x2160 o 60 klatek/s) |1080p (1920x1088 o 30 klatkach/s)|
 | Zalecana maksymalna liczba warstw w strumieniu wkładu|Do 12|Jeden dźwięk|
 | Maksymalna liczba warstw w danych wyjściowych| Analogicznie jak dane wejściowe|Do 6 (Zobacz poniższe ustawienia wstępne systemu)|
-| Maksymalna agregowana przepustowość kanału informacyjnego udziału|60 MB/s|Brak|
+| Maksymalna agregowana przepustowość kanału informacyjnego udziału|60 MB/s|Nie dotyczy|
 | Maksymalna szybkość transmisji bitów dla pojedynczej warstwy w udziale |20 MB/s|20 MB/s|
-| Obsługa wielu ścieżek audio z wieloma językami|Yes|Nie|
+| Obsługa wielu ścieżek audio z wieloma językami|Tak|Nie|
 | Obsługiwane wejściowe kodery-dekoder wideo |H. 264/AVC i H. 265/HEVC|H. 264/AVC|
 | Obsługiwane wyjściowe kodery-dekoder wideo|Analogicznie jak dane wejściowe|H. 264/AVC|
 | Obsługiwana głębia bitowa wideo, dane wejściowe i wyjściowe|Do 10 bitów włącznie z HDR 10/HLG|8-bitowa|
@@ -55,14 +55,14 @@ Poniższa tabela zawiera porównanie funkcji typów zdarzeń na żywo. Typy są 
 | Protokoły wejściowe|RTMP, pofragmentowane — MP4 (Smooth Streaming)|RTMP, pofragmentowane — MP4 (Smooth Streaming)|
 | Cena|Zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "wideo na żywo"|Zobacz [stronę cennika](https://azure.microsoft.com/pricing/details/media-services/) i kliknij kartę "wideo na żywo"|
 | Maksymalny czas działania| 24 godz. x 365 dni, na żywo liniowe | 24 godz. x 365 dni, na żywo liniowe (wersja zapoznawcza)|
-| Możliwość przekazywania osadzonych podpisów CEA 608/708|Yes|Yes|
-| Możliwość włączenia transkrypcji na żywo|Yes|Yes|
+| Możliwość przekazywania osadzonych podpisów CEA 608/708|Tak|Tak|
+| Możliwość włączenia transkrypcji na żywo|Tak|Tak|
 | Obsługa wstawiania przednich|Nie|Nie|
 | Obsługa sygnałów usługi AD za pośrednictwem interfejsu API| Nie|Nie|
-| Obsługa sygnałów usługi AD przy użyciu komunikatów SCTE-35 w paśmie|Yes|Yes|
-| Możliwość odzyskania od krótkich miejsc w źródle wkładu|Yes|Częściowe|
-| Obsługa niejednorodnych danych wejściowych GOPs|Yes|Nie — dane wejściowe muszą mieć stały czas trwania grupę GOP|
-| Obsługa danych wejściowych stawki ramki zmiennej|Yes|Nie — dane wejściowe muszą być stałym wskaźnikiem ramki. Niewielkie wahania są tolerowane, na przykład podczas wysokiego poziomu ruchów. Ale kanał informacyjny udziału nie może porzucić szybkości klatek (na przykład do 15 klatek na sekundę).|
+| Obsługa sygnałów usługi AD przy użyciu komunikatów SCTE-35 w paśmie|Tak|Tak|
+| Możliwość odzyskania od krótkich miejsc w źródle wkładu|Tak|Częściowe|
+| Obsługa niejednorodnych danych wejściowych GOPs|Tak|Nie — dane wejściowe muszą mieć stały czas trwania grupę GOP|
+| Obsługa danych wejściowych stawki ramki zmiennej|Tak|Nie — dane wejściowe muszą być stałym wskaźnikiem ramki. Niewielkie wahania są tolerowane, na przykład podczas wysokiego poziomu ruchów. Ale kanał informacyjny udziału nie może porzucić szybkości klatek (na przykład do 15 klatek na sekundę).|
 | Automatyczny ShutOff zdarzenia na żywo, gdy źródło danych wejściowych zostanie utracone|Nie|Po upływie 12 godzin, jeśli nie ma LiveOutput uruchomionego|
 
 ## <a name="system-presets"></a>Ustawienia wstępne systemu
@@ -86,8 +86,7 @@ Jeśli kanał informacyjny udziału ma rozdzielczość 720 lub wyższą, ustawie
 | 200 |340 |192 |30 |Wysoki |
 
 > [!NOTE]
-> Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Sprawdź, czy istnieje tylko jedna warstwa dla rozdzielczości 720p i maksymalnie 6 warstw. Należy również określić, że zażądano ustawienia wstępnego dla standardowego kodera na żywo.
-> Określone wartości szybkości transmisji bitów i rozdzielczości mogą być dostosowywane w czasie
+> Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Należy określić pożądaną tabelę rozdzielczości wideo i szybkości transmisji bitów. Dostosowanie szybkości transmisji bitów audio nie jest obsługiwane. Sprawdź, czy istnieje tylko jedna warstwa dla rozdzielczości 720p i maksymalnie 6 warstw. Należy również określić żądanie wstępne.
 
 ### <a name="output-video-streams-for-default1080p"></a>Wyjściowe strumienie wideo dla Default1080p
 
@@ -103,8 +102,7 @@ Jeśli kanał informacyjny udziału ma rozdzielczość 1080p, ustawienia wstępn
 | 200 |320 |180 |30 |Wysoki |
 
 > [!NOTE]
-> Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Upewnij się, że istnieje tylko jedna warstwa w lokalizacji 1080p i co najwyżej 6 warstw. Należy również określić, że żądasz ustawienia wstępnego dla kodera Premium1080p na żywo.
-> Określone wartości szybkości transmisji bitów i rozdzielczości mogą być dostosowane z upływem czasu.
+> Jeśli musisz dostosować ustawienie wstępne kodowania na żywo, Otwórz bilet pomocy technicznej za pośrednictwem witryny Azure Portal. Musisz określić odpowiednią tabelę z rozdzielczością i szybkościami transmisji bitów. Sprawdź, czy istnieje tylko jedna warstwa w lokalizacji 1080p i co najwyżej 6 warstw. Ponadto należy określić, że żądasz ustawienia wstępnego dla kodera Premium1080p na żywo. Określone wartości szybkości transmisji bitów i rozdzielczości mogą być dostosowane z upływem czasu.
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Wyjściowy strumień audio dla Default720p i Default1080p
 

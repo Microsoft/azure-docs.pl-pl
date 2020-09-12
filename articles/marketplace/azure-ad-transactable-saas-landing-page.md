@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921270"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378801"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Utwórz stronę docelową dla oferty SaaS z transakcyjnymi w komercyjnej witrynie Marketplace
 
@@ -38,15 +38,15 @@ Strona docelowa zazwyczaj obejmuje następujące elementy:
 Poniższe sekcje przeprowadzą Cię przez proces tworzenia strony docelowej:
 
 1. [Utwórz rejestrację aplikacji usługi Azure AD](#create-an-azure-ad-app-registration) na stronie docelowej.
-2. [Użyj przykładu kodu jako punktu początkowego](#use-a-code-sample-as-a-starting-point) dla aplikacji.
-3. [Rozpoznaj token identyfikacji zakupu w witrynie Marketplace](#resolve-the-marketplace-purchase-identification-token) dodany do adresu URL przez komercyjne witryny Marketplace.
-4. [Przeczytaj informacje z oświadczeń zakodowanych w tokenie identyfikatora](#read-information-from-claims-encoded-in-the-id-token), które zostały odebrane z usługi Azure AD po zalogowaniu, które zostały wysłane wraz z żądaniem.
-5. [Użyj interfejsu API Microsoft Graph](#use-the-microsoft-graph-api) , aby zbierać dodatkowe informacje zgodnie z potrzebami.
-6. [Użyj dwóch aplikacji usługi Azure AD, aby zwiększyć bezpieczeństwo w środowisku produkcyjnym](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Użyj przykładu kodu jako punktu początkowego](#use-a-code-sample-as-a-starting-point) dla aplikacji.
+1. [Użyj dwóch aplikacji usługi Azure AD, aby zwiększyć bezpieczeństwo w środowisku produkcyjnym](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Rozpoznaj token identyfikacji zakupu w witrynie Marketplace](#resolve-the-marketplace-purchase-identification-token) dodany do adresu URL przez komercyjne witryny Marketplace.
+1. [Przeczytaj informacje z oświadczeń zakodowanych w tokenie identyfikatora](#read-information-from-claims-encoded-in-the-id-token), które zostały odebrane z usługi Azure AD po zalogowaniu, które zostały wysłane wraz z żądaniem.
+1. [Użyj interfejsu API Microsoft Graph](#use-the-microsoft-graph-api) , aby zbierać dodatkowe informacje zgodnie z potrzebami.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Tworzenie rejestracji aplikacji usługi Azure AD
 
-Komercyjna witryna Marketplace jest w pełni zintegrowana z usługą Azure AD. Nabywcy docierają do portalu Marketplace uwierzytelnionego za pomocą [konta usługi Azure AD lub konto Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Po zakupie, kupujący przechodzi od komercyjnej witryny Marketplace do adresu URL strony docelowej, aby aktywować swoją subskrypcję aplikacji SaaS i zarządzać nią. Musisz pozwolić, aby kupujący zalogować się do aplikacji za pomocą logowania jednokrotnego usługi Azure AD. (Adres URL strony docelowej jest określony na stronie [konfiguracji technicznej](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) oferty.
+Komercyjna witryna Marketplace jest w pełni zintegrowana z usługą Azure AD. Nabywcy docierają do portalu Marketplace uwierzytelnionego za pomocą [konta usługi Azure AD lub konto Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Po zakupie, kupujący przechodzi od komercyjnej witryny Marketplace do adresu URL strony docelowej, aby aktywować swoją subskrypcję aplikacji SaaS i zarządzać nią. Musisz pozwolić, aby kupujący zalogować się do aplikacji za pomocą logowania jednokrotnego usługi Azure AD. (Adres URL strony docelowej jest określony na stronie [konfiguracji technicznej](plan-saas-offer.md#technical-information) oferty.
 
 Pierwszym krokiem do korzystania z tożsamości jest upewnienie się, że strona docelowa jest zarejestrowana jako aplikacja usługi Azure AD. Zarejestrowanie aplikacji pozwala używać usługi Azure AD do uwierzytelniania użytkowników i żądania dostępu do zasobów użytkownika. Może być uważana za definicję aplikacji, która pozwala usłudze poznać, jak wystawiać tokeny dla aplikacji na podstawie ustawień aplikacji.
 
@@ -82,7 +82,7 @@ Dzięki temu rozwiązanie będzie działało w scenariuszach, które obserwują 
 Gdy Kupujący zostanie wysłany do strony docelowej, do parametru adresu URL zostanie dodany token. Token ten różni się od tokenu wystawionego przez usługę Azure AD i tokenu dostępu używanego do uwierzytelniania między usługami i służy jako dane wejściowe dla [interfejsów API realizacji SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) rozwiązanie umożliwiające uzyskanie szczegółów dotyczących subskrypcji. Podobnie jak w przypadku wszystkich wywołań interfejsów API realizacji SaaS, żądanie usługi do obsługi zostanie uwierzytelnione przy użyciu tokenu dostępu opartego na IDENTYFIKATORze aplikacji usługi Azure AD dla aplikacji na potrzeby uwierzytelniania między usługami.
 
 > [!NOTE]
-> W większości przypadków preferowane jest wywołanie tego wywołania z drugiej aplikacji z jedną dzierżawą. Zobacz [Korzystanie z dwóch aplikacji usługi Azure AD w celu zwiększenia bezpieczeństwa w środowisku produkcyjnym](#use-two-azure-ad-apps-to-improve-security-in-production) w dalszej części tego artykułu.
+> W większości przypadków preferowane jest wywołanie tego wywołania z drugiej aplikacji z jedną dzierżawą. Zobacz [Korzystanie z dwóch aplikacji usługi Azure AD, aby zwiększyć bezpieczeństwo w środowisku produkcyjnym](#use-two-azure-ad-apps-to-improve-security-in-production) wcześniej w tym artykule.
 
 ### <a name="request-an-access-token"></a>Żądanie tokenu dostępu
 
@@ -131,4 +131,4 @@ Większość aplikacji, które są zarejestrowane w usłudze Azure AD, przyznaje
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie oferty SaaS w komercyjnej witrynie Marketplace](./partner-center-portal/create-new-saas-offer.md)
+- [Jak utworzyć ofertę SaaS w komercyjnej witrynie Marketplace](create-new-saas-offer.md)

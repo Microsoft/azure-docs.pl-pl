@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 3f24e3538f05ca3b6a27907e0b794705402fce7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285445"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418589"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Tworzenie kopii zapasowych i przywracanie w Azure Database for MySQL
 
@@ -36,7 +36,7 @@ Tworzenie kopii zapasowych migawek różnicowych odbywa się co najmniej raz dzi
 
 Kopie zapasowe dziennika transakcji są wykonywane co pięć minut. 
 
-### <a name="backup-retention"></a>Przechowywanie kopii zapasowych
+### <a name="backup-retention"></a>Przechowywanie kopii zapasowej
 
 Kopie zapasowe są zachowywane na podstawie ustawienia okresu przechowywania kopii zapasowej na serwerze. Można wybrać okres przechowywania wynoszący od 7 do 35 dni. Domyślny okres przechowywania wynosi 7 dni. Okres przechowywania można ustawić podczas tworzenia serwera lub później, aktualizując konfigurację kopii zapasowej za pomocą [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration). 
 
@@ -76,6 +76,13 @@ Szacowany czas odzyskiwania zależy od kilku czynników, takich jak rozmiary baz
 ### <a name="point-in-time-restore"></a>Przywracanie do określonego momentu
 
 Niezależnie od opcji nadmiarowości kopii zapasowej można wykonać przywracanie do dowolnego punktu w czasie w ramach okresu przechowywania kopii zapasowej. Nowy serwer jest tworzony w tym samym regionie świadczenia usługi Azure, w którym znajduje się oryginalny serwer. Jest on tworzony z konfiguracją pierwotnego serwera dla warstwy cenowej, generowania obliczeń, liczby rdzeni wirtualnych, rozmiaru magazynu, okresu przechowywania kopii zapasowych i opcji nadmiarowości kopii zapasowych.
+
+> [!NOTE]
+> Istnieją dwa parametry serwera, które są resetowane do wartości domyślnych (i nie są kopiowane z serwera podstawowego) po operacji przywracania
+> * time_zone — ta wartość jest ustawiana na domyślny **system** wartości
+> * event_scheduler — event_scheduler jest **wyłączona** na przywróconym serwerze
+>
+> Te parametry serwera należy ustawić przez ponowne skonfigurowanie [parametru serwera](howto-server-parameters.md)
 
 Przywracanie do punktu w czasie jest przydatne w wielu scenariuszach. Na przykład, gdy użytkownik przypadkowo usunie dane, porzuca istotną tabelę lub bazę danych lub jeśli przypadkowo zastąpi dobre dane przy użyciu nieprawidłowych danych z powodu wady aplikacji.
 

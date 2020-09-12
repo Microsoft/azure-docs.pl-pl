@@ -8,16 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
-ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 141b82467f2b437cfd4a8125d86618b85e48a6ef
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104416"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424649"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Obsługa kontenerów w usłudze Azure Cognitive Services
+
+> [!WARNING]
+> 11 czerwca 2020 roku firma Microsoft ogłosiła, że nie będzie sprzedawać technologii rozpoznawania twarzy departamentom policji w Stanach Zjednoczonych, dopóki nie zostaną wdrożone ścisłe przepisy oparte na prawach człowieka. W związku z tym klienci nie mogą korzystać z funkcji rozpoznawania twarzy ani funkcji dostępnych w ramach usług platformy Azure, takich jak twarzy lub Video Indexer, jeśli klient jest lub zezwala na korzystanie z takich usług przez lub w odniesieniu do działu policji w Stany Zjednoczone.
 
 Obsługa kontenerów w usłudze Azure Cognitive Services pozwala deweloperom korzystać z tych samych bogatych interfejsów API, które są dostępne na platformie Azure, i umożliwia elastyczność w przypadku wdrażania i hostowania usług, które są dostarczane z [kontenerami platformy Docker](https://www.docker.com/what-container). Obsługa kontenerów jest obecnie dostępna dla podzestawu Cognitive Services platformy Azure, w tym części:
 
@@ -52,7 +55,7 @@ Kontenery usługi Azure Cognitive Services oferują następujący zestaw kontene
 | Usługa | Obsługiwana warstwa cenowa | Kontener | Opis |
 |--|--|--|--|
 | [Wykrywacz anomalii][ad-containers] | F0, S0 | **Anomalia — detektor** | Interfejs API wykrywania anomalii umożliwia monitorowanie i wykrywanie anomalii w danych szeregów czasowych przy użyciu uczenia maszynowego.<br>[Żądanie dostępu][request-access] |
-| [Przetwarzanie obrazów][cv-containers] | F0, S1 | **Odczyt** | Wyodrębnia drukowany tekst z obrazów różnych obiektów z różnymi powierzchniami i tłem, takimi jak paragony, plakaty i wizytówki. Kontener odczytu wykrywa także *Tekst odręczny* w obrazach i zapewnia obsługę formatu PDF/TIFF/wielostronicowej.<br/><br/>**Ważne:** Kontener odczytu jest obecnie stosowany tylko w języku angielskim. |
+| [Przetwarzanie obrazów][cv-containers] | F0, S1 | **Przeczytaj** | Wyodrębnia drukowany tekst z obrazów różnych obiektów z różnymi powierzchniami i tłem, takimi jak paragony, plakaty i wizytówki. Kontener odczytu wykrywa także *Tekst odręczny* w obrazach i zapewnia obsługę formatu PDF/TIFF/wielostronicowej.<br/><br/>**Ważne:** Kontener odczytu jest obecnie stosowany tylko w języku angielskim. |
 | [Rozpoznawanie twarzy][fa-containers] | F0, S0 | **Rozpoznawanie twarzy** | Wykrywa ludzkie twarze w obrazach i identyfikuje atrybuty, w tym dzielnice twarzy (takie jak nos i oczy), płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny pewności, czy też można porównać twarze z bazą danych, aby zobaczyć, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych.<br>[Żądanie dostępu][request-access] |
 | [Aparat rozpoznawania formularzy][fr-containers] | F0, S0 | **Rozpoznawanie formularzy** | Zrozumienie formularza stosuje technologię uczenia maszynowego do identyfikowania i wyodrębniania par klucz-wartość oraz tabel z formularzy.<br>[Żądanie dostępu][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **Luis** ([obraz](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Ładuje przeszkolony lub opublikowany model Language Understanding, znany również jako aplikacja LUIS, do kontenera Docker i zapewnia dostęp do prognoz zapytania z punktów końcowych interfejsu API kontenera. Można zebrać dzienniki zapytań z kontenera i przekazać je z powrotem do [portalu Luis](https://www.luis.ai) , aby zwiększyć dokładność przewidywania aplikacji. |
@@ -60,6 +63,7 @@ Kontenery usługi Azure Cognitive Services oferują następujący zestaw kontene
 | [Interfejs API usługi rozpoznawania mowy][sp-containers-cstt] | F0, S0 | **Custom Speech do tekstu** | Przekształca ciągłe używanie mowy w czasie rzeczywistym do tekstu przy użyciu modelu niestandardowego. |
 | [Interfejs API usługi rozpoznawania mowy][sp-containers-tts] | F0, S0 | **Zamiana tekstu na mowę** | Konwertuje tekst na naturalnie brzmiącą mowę. |
 | [Interfejs API usługi rozpoznawania mowy][sp-containers-ctts] | F0, S0 | **Niestandardowa Zamiana tekstu na mowę** | Konwertuje tekst na mowę dźwięku naturalnego przy użyciu modelu niestandardowego. |
+| [Interfejs API usługi rozpoznawania mowy][sp-containers-ntts] | F0, S0 | **Neuronowych Zamiana tekstu na mowę** | Konwertuje tekst na naturalną dźwiękową mowę przy użyciu technologii sieci głębokiej neuronowych, co pozwala na bardziej naturalną syntezę mowy. |
 | [Analiza tekstu][ta-containers-keyphrase] | F0, S | **Wyodrębnianie kluczowych fraz** ([obraz](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Wyodrębnia kluczowe frazy do identyfikowania głównych punktów. Na przykład dla tekstu wejściowego „Jedzenie było pyszne, a serwowała je doskonała obsługa” interfejs API zwraca główne tematy wypowiedzi: „jedzenie” i „doskonała obsługa”. |
 | [Analiza tekstu][ta-containers-language] | F0, S | **Wykrywanie języka** ([obraz](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | W przypadku do 120 języków program wykrywa język, w którym wprowadzany jest tekst wejściowy, i raportuje jeden kod języka dla każdego dokumentu przesłanego w żądaniu. Kod języka jest powiązany z oceną, co wskazuje siłę oceny. |
 | [Analiza tekstu][ta-containers-sentiment] | F0, S | **Analiza tonacji v3** ([obraz](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizuje nieprzetworzony tekst, aby uzyskać wskazówki dotyczące tonacji pozytywnej lub ujemnej. Ta wersja analizy tonacji zwraca etykiety tonacji (na przykład *dodatnie* lub *ujemne*) dla każdego dokumentu i zdania w nim. |
@@ -127,6 +131,7 @@ Zainstaluj i Eksploruj funkcje udostępniane przez kontenery w usłudze Azure Co
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language

@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f816c95b5e210e86e2215cadf8407f442d69ebe
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476115"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401677"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Utwórz grupę z możliwością przypisania w Azure Active Directory
 
-Rolę można przypisać tylko do grupy, która została utworzona z właściwością "isAssignableToRole" o wartości "true" lub została utworzona w portalu usługi Azure AD przy użyciu **ról usługi Azure AD, które można przypisać do grupy** . Ten atrybut grupy tworzy grupę, która może być przypisana do roli w Azure Active Directory (Azure AD). W tym artykule opisano sposób tworzenia tego specjalnego rodzaju grupy.
+Rolę można przypisać tylko do grupy, która została utworzona z właściwością "isAssignableToRole" o wartości "true" lub została utworzona w portalu usługi Azure AD przy użyciu **ról usługi Azure AD, które można przypisać do grupy** . Ten atrybut grupy tworzy grupę, która może być przypisana do roli w Azure Active Directory (Azure AD). W tym artykule opisano sposób tworzenia tego specjalnego rodzaju grupy. **Uwaga:** Grupa z właściwością isAssignableToRole ustawioną na wartość true nie może być typu członkostwa dynamicznego. Aby uzyskać więcej informacji, zobacz [używanie grupy do zarządzania przypisaniami ról usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
 
 ## <a name="using-azure-ad-admin-center"></a>Korzystanie z centrum administracyjnego usługi Azure AD
 
@@ -128,4 +128,4 @@ W przypadku tego typu grupy `isPublic` zawsze będzie to wartość false i `isSe
 
 - [Przypisywanie roli do grupy w chmurze](roles-groups-assign-role.md)
 - [Zarządzanie przypisaniami ról przy użyciu grup chmur](roles-groups-concept.md)
-- [Rozwiązywanie problemów z rolami przypisanymi do grup chmury](roles-groups-faq-troubleshooting.md)
+- [Rozwiązywanie problemów z rolami przypisanymi do grup w chmurze](roles-groups-faq-troubleshooting.md)

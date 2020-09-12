@@ -6,19 +6,21 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410854"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399960"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>SIECIOWEJ grupy zabezpieczeń Tagi usług dla usługi Azure HDInsight
 
 Tagi usługi Azure HDInsight dla sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) to grupy adresów IP dla usług kondycji i zarządzania. Te grupy pomagają zminimalizować złożoność tworzenia reguł zabezpieczeń. [Tagi usług](../virtual-network/security-overview.md#service-tags) zezwalają na ruch przychodzący z określonych adresów IP bez wprowadzania do nich każdego [adresu IP zarządzania](hdinsight-management-ip-addresses.md) w sieciowych grup zabezpieczeń.
 
 Usługa HDInsight zarządza tymi tagami usług. Nie można utworzyć własnego tagu usługi ani zmodyfikować istniejącego tagu. Firma Microsoft zarządza prefiksami adresów zgodnymi z tagiem usługi i automatycznie aktualizuje tag usługi jako adresy.
+
+Jeśli chcesz użyć określonego regionu, a tag usługi nie został jeszcze udokumentowany na tej stronie, możesz użyć [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) , aby znaleźć swój tag usługi. Możesz również pobrać [plik JSON znacznika usługi](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) i wyszukać żądany region.
 
 ## <a name="get-started-with-service-tags"></a>Wprowadzenie do tagów usługi
 
@@ -54,7 +56,7 @@ Aby dowiedzieć się, które Tagi usług dodać do regionu, przeczytaj następuj
 
 Jeśli klaster znajduje się w regionie wymienionym w tej tabeli, wystarczy dodać tylko jeden tag usługi regionalnej do sieciowej grupy zabezpieczeń.
 
-| Kraj | Region | Tag usługi |
+| Country (Kraj) | Region | Tag usługi |
 | ---- | ---- | ---- |
 | Australia | Australia Wschodnia | HDInsight. AustraliaEast |
 | &nbsp; | Australia Południowo-Wschodnia | HDInsight. AustraliaSoutheast |
@@ -65,7 +67,7 @@ Jeśli klaster znajduje się w regionie wymienionym w tej tabeli, wystarczy doda
 | &nbsp; | Zachodnie stany USA 2 | HDInsight. WestUS2 |
 | &nbsp; | Zachodnio-środkowe stany USA | HDInsight. WestCentralUS |
 | Kanada | Kanada Wschodnia | HDInsight. CanadaEast |
-| Brazylia | Brazylia Południowa | HDInsight. BrazilSouth |
+| Brazylia | Brazil South | HDInsight. BrazilSouth |
 | Korea | Korea Środkowa | HDInsight. KoreaCentral |
 | &nbsp; | Korea Południowa | HDInsight. KoreaSouth |
 | Indie | Indie Środkowe | HDInsight. CentralIndia |
@@ -94,19 +96,19 @@ Na przykład jeśli klaster jest tworzony w `East US 2` regionie, należy dodać
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Kraj | Region | Tag usługi |
+| Country (Kraj) | Region | Tag usługi |
 | ---- | ---- | ---- |
 | Stany Zjednoczone | Wschodnie stany USA 2 | HDInsight. EastUS2 |
-| &nbsp; | Środkowe stany USA | HDInsight. środkowe |
+| &nbsp; | Central US | HDInsight. środkowe |
 | &nbsp; | NorthCentral nam | HDInsight. NorthCentralUS |
-| &nbsp; | Południowo-środkowe stany USA | HDInsight. SouthCentralUS |
-| &nbsp; | Wschodnie stany USA | HDInsight. wschód |
+| &nbsp; | South Central US | HDInsight. SouthCentralUS |
+| &nbsp; | East US | HDInsight. wschód |
 | &nbsp; | Zachodnie stany USA | HDInsight. Zachodnie |
-| Japonia | Japonia Wschodnia | HDInsight. JapanEast |
+| Japonia | Japan East | HDInsight. JapanEast |
 | Europa | Europa Północna | HDInsight. NorthEurope |
-| &nbsp; | Europa Zachodnia| HDInsight. WestEurope |
+| &nbsp; | West Europe| HDInsight. WestEurope |
 | Azja | Azja Wschodnia | HDInsight. EastAsia |
-| &nbsp; | Azja Południowo-Wschodnia | HDInsight. SoutheastAsia |
+| &nbsp; | Southeast Asia | HDInsight. SoutheastAsia |
 | Australia | Australia Wschodnia | HDInsight. AustraliaEast |
 
 #### <a name="group-2"></a>Grupa 2

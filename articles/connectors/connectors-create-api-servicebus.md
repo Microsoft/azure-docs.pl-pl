@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/03/2020
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853291"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435154"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -167,7 +167,7 @@ Podczas tworzenia aplikacji logiki można wybrać **skorelowaną dostawę w kole
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Łącznik Service Bus może zaoszczędzić do 1 500 unikatowych sesji jednocześnie z poziomu usługi Service Bus do pamięci podręcznej łącznika. Jeśli liczba sesji przekracza ten limit, stare sesje są usuwane z pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [sesje komunikatów](../service-bus-messaging/message-sessions.md).
+Z poziomu usługi Service Bus łącznik Service Bus może jednocześnie zaoszczędzić do 1 500 unikatowych sesji w pamięci podręcznej łączników, za pomocą [Service Bus jednostki obsługi komunikatów, takiej jak subskrypcja lub temat](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Jeśli liczba sesji przekracza ten limit, stare sesje są usuwane z pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [sesje komunikatów](../service-bus-messaging/message-sessions.md).
 
 Aby poznać inne szczegóły techniczne dotyczące wyzwalaczy, akcji i limitów, które są opisane w opisie struktury Swagger łącznika, przejrzyj [stronę odwołania łącznika](/connectors/servicebus/). Aby uzyskać więcej informacji na temat Azure Service Bus Messaging, zobacz [co to jest Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 

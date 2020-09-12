@@ -2,20 +2,20 @@
 title: Azure Traffic Manager — metody routingu ruchu
 description: Te artykuły ułatwiają zrozumienie różnych metod routingu ruchu używanych przez Traffic Manager
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689660"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401660"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metody routingu w usłudze Traffic Manager
 
@@ -52,7 +52,7 @@ Za pomocą Azure Resource Manager można jawnie skonfigurować priorytet punktu 
 
 W przypadku metody routingu ruchu ważonego należy przypisać wagę do każdego punktu końcowego w konfiguracji profilu Traffic Manager. Waga jest liczbą całkowitą z zakresu od 1 do 1000. Ten parametr jest opcjonalny. W przypadku pominięcia menedżerowie ruchu używają domyślnej wagi "1". Im wyższa waga, tym wyższy priorytet.
 
-Dla każdego odebranego zapytania DNS usługa Traffic Manager losowo wybiera dostępny punkt końcowy. Prawdopodobieństwo wybrania punktu końcowego zależy od wagi, jaka jest przypisana do tego punktu. Użycie tej samej wagi we wszystkich punktach końcowych skutkuje równym rozkładem ruchu. Użycie wyższych lub niższych wag w określonych punktach końcowych powoduje, że te punkty końcowe są zwracane częściej lub rzadziej w odpowiedziach DNS.
+Dla każdego odebranego zapytania DNS usługa Traffic Manager losowo wybiera dostępny punkt końcowy. Prawdopodobieństwo wybrania punktu końcowego zależy od wagi, jaka została przypisana do tego punktu. Użycie tej samej wagi we wszystkich punktach końcowych skutkuje równym rozkładem ruchu. Użycie wyższych lub niższych wag w określonych punktach końcowych powoduje, że te punkty końcowe są zwracane częściej lub rzadziej w odpowiedziach DNS.
 
 Metoda ważona umożliwia kilka przydatnych scenariuszy:
 

@@ -2,17 +2,17 @@
 title: Informacje o bramach sieci wirtualnej ExpressRoute — Azure | Microsoft Docs
 description: Informacje o bramach sieci wirtualnej dla usługi ExpressRoute. Ten artykuł zawiera informacje o jednostkach SKU i typach bramy.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: mialdrid
-ms.openlocfilehash: e7779e0638ea61c70758394dc212910ba8f1d7f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 65e44acd1fe6ecb389f81cbd0ed88d1c161dfcdb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081138"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397869"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>Informacje o bramach sieci wirtualnej ExpressRoute
 
@@ -86,7 +86,7 @@ Aby uzyskać więcej informacji na temat FastPath, w tym ograniczeń i wymagań,
 ## <a name="rest-apis-and-powershell-cmdlets"></a><a name="resources"></a>Interfejsy API REST i polecenia cmdlet programu PowerShell
 Dodatkowe zasoby techniczne i wymagania dotyczące składni w przypadku używania interfejsów API REST i poleceń cmdlet programu PowerShell dla konfiguracji bramy sieci wirtualnej można znaleźć na następujących stronach:
 
-| **Klasyczny** | **Resource Manager** |
+| **Motyw** | **Resource Manager** |
 | --- | --- |
 | [Program PowerShell](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure) |[Program PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [Interfejs API REST](https://msdn.microsoft.com/library/jj154113.aspx) |[Interfejs API REST](https://msdn.microsoft.com/library/mt163859.aspx) |

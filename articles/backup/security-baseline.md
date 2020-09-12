@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 224623f7851c35b12e1f2e1d028355c202128fa1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9e960914f86f2f9fc63a62d62fe1f923d21b9d31
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244759"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394622"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -818,7 +818,9 @@ Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywania zasob�
 
 - [Jak utworzyć Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](../key-vault/general/managed-identity.md)
+* [Jak przeprowadzić uwierzytelnianie w Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Jak przypisać zasady dostępu Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

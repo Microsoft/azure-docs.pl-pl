@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304194"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419184"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Klasyfikacja & przeglądy pulpit nawigacyjny analizy w centrum partnerskim
 
@@ -33,7 +33,7 @@ Na pulpicie nawigacyjnym zostanie wyświetlona graficzna reprezentacja następuj
 - Klasyfikacje & przeglądy  
 - Przejrzyj Komentarze
 
-Skorzystaj z kart **witryny Marketplace** , aby wyświetlić oferty Microsoft AppSource i metryki portalu Azure Marketplace osobno. Aby wyświetlić określone metryki oferty, wybierz ofertę z listy rozwijanej oferta.
+Skorzystaj z kart **Marketplace Insights** , aby wyświetlić oferty Microsoft AppSource i metryki portalu Azure Marketplace osobno. Aby wyświetlić określone metryki oferty, wybierz ofertę z listy rozwijanej oferta.
 
 ### <a name="ratings--reviews-summary"></a>Klasyfikacja & przeglądy podsumowania
 

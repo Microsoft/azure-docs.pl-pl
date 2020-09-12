@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010941"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426269"
 ---
 # <a name="custom-script-extension-for-windows"></a>Rozszerzenie niestandardowego skryptu dla systemu Windows
 
@@ -60,6 +60,7 @@ Jeśli skrypt znajduje się na serwerze lokalnym, może być konieczne otwarcie 
 * Dozwolony czas uruchamiania skryptu wynosi 90 minut — każdy dłuższy czas spowoduje niepowodzenie aprowizacji rozszerzenia.
 * Nie umieszczaj operacji ponownego uruchamiania wewnątrz skryptu; ta akcja spowoduje problemy z innymi instalowanymi rozszerzeniami. Po ponownym uruchomieniu rozszerzenie nie będzie kontynuować pracy, gdy zostanie uruchomione jeszcze raz.
 * Jeśli masz skrypt, który spowoduje ponowne uruchomienie komputera, zainstaluj aplikacje i Uruchom skrypty, możesz zaplanować ponowne uruchomienie przy użyciu zaplanowanego zadania systemu Windows lub użyć narzędzi takich jak DSC, Chef lub Puppet.
+* Nie zaleca się uruchamiania skryptu, który spowoduje zatrzymanie lub aktualizację agenta maszyny wirtualnej. Może to pozwolić na rozszerzenie stanu przejścia, co prowadzi do przekroczenia limitu czasu.
 * Rozszerzenie uruchomi skrypt tylko raz. Jeśli chcesz uruchomić skrypt przy każdym rozruchu, musisz użyć rozszerzenia w celu utworzenia zaplanowanego zadania systemu Windows.
 * Jeśli chcesz zaplanować czas uruchomienia skryptu, użyj rozszerzenia w celu utworzenia zaplanowanego zadania systemu Windows.
 * W trakcie działania skryptu będziesz widzieć tylko stan „przechodzenie” z witryny Azure Portal lub interfejsu wiersza polecenia. Jeśli potrzebujesz częstszych aktualizacji stanu działającego skryptu, musisz utworzyć własne rozwiązanie.
@@ -123,7 +124,7 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | ciąg |
 | typ | CustomScriptExtension | ciąg |
 | typeHandlerVersion | 1.10 | int |
@@ -141,7 +142,7 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 * `commandToExecute`: (**wymagane**, ciąg) skrypt punktu wejścia do wykonania. Użyj tego pola zamiast tego, jeśli polecenie zawiera wpisy tajne, takie jak hasła, lub fileUris są poufne.
 * `fileUris`: (opcjonalne, tablica ciągów) adresy URL dla plików do pobrania.
-* `timestamp`(opcjonalnie, 32-bitową liczbę całkowitą) Użyj tego pola tylko do wyzwalania ponownego uruchomienia skryptu przez zmianę wartości tego pola.  Dopuszczalna jest dowolna wartość całkowita; musi on być inny niż Poprzednia wartość.
+* `timestamp` (opcjonalnie, 32-bitową liczbę całkowitą) Użyj tego pola tylko do wyzwalania ponownego uruchomienia skryptu przez zmianę wartości tego pola.  Dopuszczalna jest dowolna wartość całkowita; musi on być inny niż Poprzednia wartość.
 * `storageAccountName`: (opcjonalnie, ciąg) nazwa konta magazynu. W przypadku określenia poświadczeń magazynu wszystkie `fileUris` muszą być adresami URL dla obiektów blob platformy Azure.
 * `storageAccountKey`: (opcjonalnie, String) klucz dostępu konta magazynu
 * `managedIdentity`: (opcjonalnie obiekt JSON) [zarządzana tożsamość](../../active-directory/managed-identities-azure-resources/overview.md) do pobierania plików
@@ -205,7 +206,7 @@ Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szab
 * [Samouczek: wdrażanie rozszerzeń maszyny wirtualnej przy użyciu szablonów usługi Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
 * [Wdrażanie aplikacji dwuwarstwowej w systemie Windows i usłudze Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
-## <a name="powershell-deployment"></a>Wdrażanie programu PowerShell
+## <a name="powershell-deployment"></a>Wdrażanie przy użyciu programu PowerShell
 
 `Set-AzVMCustomScriptExtension`Polecenie może służyć do dodawania niestandardowego rozszerzenia skryptu do istniejącej maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Set-AzVMCustomScriptExtension](/powershell/module/az.compute/set-azvmcustomscriptextension).
 
@@ -222,7 +223,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>Korzystanie z wielu skryptów
 
-W tym przykładzie masz trzy skrypty, które są używane do tworzenia serwera. **Sekcji commandtoexecute** wywołuje pierwszy skrypt, a następnie dysponuje się opcjami dotyczącymi wywoływania innych metod. Na przykład można mieć skrypt główny, który kontroluje wykonywanie, z odpowiednią obsługą błędów, rejestrowaniem i zarządzaniem stanem. Skrypty są pobierane na komputer lokalny na potrzeby uruchamiania programu. Na przykład w `1_Add_Tools.ps1` przypadku wywołania `2_Add_Features.ps1` przez dodanie `.\2_Add_Features.ps1` do skryptu i powtórz ten proces dla innych skryptów zdefiniowanych w programie `$settings` .
+W tym przykładzie masz trzy skrypty, które są używane do tworzenia serwera. **Sekcji commandtoexecute** wywołuje pierwszy skrypt, a następnie dysponuje się opcjami dotyczącymi wywoływania innych metod. Na przykład można mieć skrypt główny, który kontroluje wykonywanie, z odpowiednią obsługą błędów, rejestrowaniem i zarządzaniem stanem. Skrypty są pobierane na komputer lokalny na potrzeby uruchamiania programu. Na przykład w `1_Add_Tools.ps1` przypadku wywołania `2_Add_Features.ps1` przez dodanie  `.\2_Add_Features.ps1` do skryptu i powtórz ten proces dla innych skryptów zdefiniowanych w programie `$settings` .
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -281,7 +282,7 @@ Jeśli używasz polecenia [Invoke-WebRequest](/powershell/module/microsoft.power
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
-## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
+## <a name="virtual-machine-scale-sets"></a>Zestawy skali maszyn wirtualnych
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zobacz [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
@@ -291,7 +292,7 @@ Aby wdrożyć rozszerzenie niestandardowego skryptu na zestawie skalowania, zoba
 
 Aby wdrożyć rozszerzenie niestandardowego skryptu na klasycznych maszynach wirtualnych, można użyć Azure Portal lub klasycznych poleceń cmdlet Azure PowerShell.
 
-### <a name="azure-portal"></a>Witryna Azure Portal
+### <a name="azure-portal"></a>Azure Portal
 
 Przejdź do klasycznego zasobu maszyny wirtualnej. W obszarze **Ustawienia**wybierz pozycję **rozszerzenia** .
 
@@ -319,7 +320,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna
 
-### <a name="troubleshoot"></a>Rozwiąż problemy
+### <a name="troubleshoot"></a>Rozwiązywanie problemów
 
 Dane dotyczące stanu wdrożeń rozszerzeń można pobrać z Azure Portal i przy użyciu modułu Azure PowerShell. Aby wyświetlić stan wdrożenia dla danej maszyny wirtualnej, uruchom następujące polecenie:
 

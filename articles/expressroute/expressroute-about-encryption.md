@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: informacje o szyfrowaniu'
 description: Dowiedz się więcej na temat szyfrowania ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.author: cherylmc
-ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 46f0a0e86c5db612f440bcf631329d2800251dab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838760"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397801"
 ---
 # <a name="expressroute-encryption"></a>Szyfrowanie ExpressRoute
  

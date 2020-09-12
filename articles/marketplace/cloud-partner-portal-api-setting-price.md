@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 09/02/2020
+ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271726"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393823"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>Cennik ofert maszyn wirtualnych
 
@@ -98,7 +98,7 @@ Wydawca może również przekazać swój arkusz cen do tymczasowej lokalizacji p
 
 ## <a name="new-core-sizes-added-on-722019"></a>Nowe rozmiary podstawowe dodane do 7/2/2019
 
-Wydawca maszyn wirtualnych został powiadomiony 2 lipca 2019 o dodawaniu nowych cen dla nowych rozmiarów maszyn wirtualnych platformy Azure (na podstawie liczby rdzeni).  Nowe ceny są dla wielkości rdzeni 10, 44, 48, 60, 120, 208 i 416.  W przypadku istniejącej maszyny wirtualnej nowe ceny dla tych rozmiarów rdzeni zostały automatycznie obliczone na podstawie bieżących cen.  Wydawcy mają do 1 sierpnia 2019 w celu przejrzenia dodatkowych cen i wprowadzenia wymaganych zmian.  Po tej dacie, jeśli nie została jeszcze ponownie opublikowana przez wydawcę, automatycznie obliczone ceny dla tych nowych rozmiarów podstawowych zaczną obowiązywać.
+Wydawca maszyn wirtualnych został powiadomiony 2 lipca 2019 o dodawaniu nowych cen dla nowych rozmiarów maszyn wirtualnych platformy Azure (na podstawie liczby rdzeni).  Nowe ceny są dla wielkości rdzeni 10, 44, 48, 60, 120, 208 i 416.  W przypadku istniejącej maszyny wirtualnej nowe ceny dla tych rozmiarów rdzeni zostały automatycznie obliczone na podstawie bieżących cen. Wydawcy mają do 1 sierpnia 2019 w celu przejrzenia dodatkowych cen i wprowadzenia wymaganych zmian.  Po tej dacie, jeśli nie została jeszcze ponownie opublikowana przez wydawcę, automatycznie obliczone ceny dla tych nowych rozmiarów podstawowych zaczną obowiązywać.
 
 ## <a name="regions"></a>Regiony
 
@@ -121,7 +121,7 @@ W poniższej tabeli przedstawiono różne regiony, które można określić dla 
 | CR         | Kostaryka           | CRC               |
 | HR         | Chorwacja              | HRK               |
 | CY         | Cypr               | EUR               |
-| CZ         | Republika Czeska       | CZK               |
+| CZ         | Czechia       | CZK               |
 | DK         | Dania              | DKK               |
 | DO         | Dominikana   | USD               |
 | EC         | Ekwador              | USD               |
@@ -137,7 +137,7 @@ W poniższej tabeli przedstawiono różne regiony, które można określić dla 
 | HU         | Węgry              | HUF               |
 | IS         | Islandia              | Alokacja               |
 | IN         | Indie                | INR               |
-| ID         | Indonezja            | IDR               |
+| ID (Identyfikator)         | Indonezja            | IDR               |
 | IE         | Irlandia              | EUR               |
 | IL         | Izrael               | ILS               |
 | IT         | Włochy                | EUR               |
@@ -151,7 +151,6 @@ W poniższej tabeli przedstawiono różne regiony, które można określić dla 
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litwa            | EUR               |
 | LU         | Luksemburg           | EUR               |
-| MK         | Macedonia Północna      | MKD               |
 | MY         | Malezja             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Meksyk               | MXN               |
@@ -160,6 +159,7 @@ W poniższej tabeli przedstawiono różne regiony, które można określić dla 
 | NL         | Holandia          | EUR               |
 | NZ         | Nowa Zelandia          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | Macedonia Północna      | MKD               |
 | NO         | Norwegia               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |

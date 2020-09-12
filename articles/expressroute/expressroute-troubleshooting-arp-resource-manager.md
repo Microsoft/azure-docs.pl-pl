@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: tabele ARP — Rozwiązywanie problemów'
 description: Ta strona zawiera instrukcje dotyczące pobierania tabel ARP dla obwodu usługi ExpressRoute
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 01/30/2017
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5819717443de1d5742d46994dca2f23579e527a0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 9272bb8bac2054d7a02a7eac8c214395a86ceebf
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986460"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394860"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Pobieranie tabel ARP w modelu wdrażania Menedżer zasobów
 > [!div class="op_single_selector"]

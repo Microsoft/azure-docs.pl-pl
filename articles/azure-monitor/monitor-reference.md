@@ -3,15 +3,15 @@ title: Co jest monitorowane przez Azure Monitor
 description: Informacje o wszystkich usługach i innych zasobach monitorowanych przez Azure Monitor.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/15/2020
-ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+author: rboucher
+ms.author: robb
+ms.date: 08/15/2020
+ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080868"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435409"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Co jest monitorowane przez Azure Monitor?
 W tym artykule opisano różne aplikacje i usługi monitorowane przez program Azure Monitor. 
@@ -90,7 +90,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Cost Management | Nie | Nie | Nie |  |
 |Data Box | Nie | Nie | Nie |  |
 |Data Catalog Gen2 | Nie | Nie | Nie |  |
-|Eksplorator danych | Tak | Tak | Nie |  |
+|Data Explorer | Tak | Tak | Nie |  |
 |Data Factory | Tak | Tak | Nie |  |
 |Data Factory v2 | Nie | Tak | Nie |  |
 |Data Share | Nie | Nie | Nie |  |
@@ -118,13 +118,13 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Intune | Nie | Tak | Nie |  |
 |IoT Central | Nie | Nie | Nie |  |
 |Usługa IoT Hub | Tak | Tak | Nie |  |
-|Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
+|Usługa Key Vault | Tak | Tak | [Tak](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Nie | Nie | [Tak](insights/container-insights-overview.md)  |  |
-|Load Balancer | Tak | Tak | Nie |  |
+|Load Balancer | Tak | Nie | Nie |  |
 |Logic Apps | Tak | Tak | Nie |  |
 |Usługa Machine Learning | Nie | Nie | Nie |  |
 |Aplikacje zarządzane  | Nie | Nie | Nie |  |
-|Mapy  | Nie | Nie | Nie |  |
+|Maps  | Nie | Nie | Nie |  |
 |Media Services | Tak | Tak | Nie |  |
 |Microsoft Flow | Nie | Nie | Nie |  |
 |Microsoft Managed Desktop | Nie | Nie | Nie |  |
@@ -138,21 +138,21 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Open Datasets | Nie | Nie | Nie |  |
 |Zasady | Nie | Nie | Nie |  |
 |Power BI Embedded | Tak | Tak | Nie |  |
-|Link prywatny | Nie | Nie | Nie |  |
+|Private Link | Nie | Nie | Nie |  |
 |Platforma komunikacji buforu projektu | Nie | Nie | Nie |  |
 |Red Hat OpenShift | Nie | Nie | Nie |  |
 |Pamięć podręczna Redis | Tak | Tak | [Tak](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | Nie | Nie | Nie |  |
 |Resource Manager | Nie | Nie | Nie |  |
 |Wyszukiwanie detaliczne — według Bing | Nie | Nie | Nie |  |
-|Wyszukaj | Tak | Tak | Nie |  |
+|Wyszukiwanie | Tak | Tak | Nie |  |
 |Service Bus | Tak | Tak | Nie |  |
 |Service Fabric | Nie | Tak | Nie | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy.  |
 |Portal rejestracji | Nie | Nie | Nie |  |
 |Site Recovery | Nie | Tak | Nie |  |
 |Usługa w chmurze wiosennej | Nie | Nie | Nie |  |
-|SQL Data Warehouse | Tak | Tak | Nie |  |
-|SQL Database | Tak | Tak | Nie |  |
+|Azure Synapse Analytics | Tak | Tak | Nie |  |
+|Baza danych SQL | Tak | Tak | Nie |  |
 |SQL Server Stretch Database | Tak | Tak | Nie |  |
 |Stos | Nie | Nie | Nie |  |
 |Magazyn | Tak | Nie | [Tak](insights/storage-insights-overview.md) |  |
@@ -164,7 +164,7 @@ W poniższej tabeli wymieniono usługi platformy Azure i zebrane przez nie dane 
 |Traffic Manager | Tak | Tak | Nie |  |
 |Wydruk uniwersalny | Nie | Nie | Nie |  |
 |Zestawy skali maszyn wirtualnych | Nie | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
-|Virtual Machines | Tak | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
+|Maszyny wirtualne | Tak | Tak | [Tak](insights/vminsights-overview.md) | Agent wymagany do monitorowania systemu operacyjnego gościa i przepływów pracy. |
 |Virtual Network | Tak | Tak | [Tak](insights/network-insights-overview.md) |  |
 |Dzienniki przepływów Virtual Network sieciowej grupy zabezpieczeń | Nie | Tak | Nie |  |
 |VPN Gateway | Tak | Tak | Nie |  |
@@ -177,7 +177,7 @@ Usługi i rozwiązania w poniższej tabeli przechowują swoje dane w Log Analyti
 | Produkt/usługa | Opis |
 |:---|:---|
 | [Azure Automation](../automation/index.yml) | Zarządzaj aktualizacjami systemu operacyjnego i Śledź zmiany na komputerach z systemem Windows i Linux. Zobacz [Change Tracking](../automation/change-tracking.md) i [Update Management](../automation/update-management/update-mgmt-overview.md). |
-| [Azure Information Protection](/azure/information-protection/) | Klasyfikowanie i opcjonalne chronienie dokumentów i wiadomości e-mail. Zobacz [centralne raportowanie dla Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
+| [Azure Information Protection ](/azure/information-protection/) | Klasyfikowanie i opcjonalne chronienie dokumentów i wiadomości e-mail. Zobacz [centralne raportowanie dla Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](../security-center/index.yml) | Zbieraj i Analizuj zdarzenia zabezpieczeń oraz przeprowadzaj analizę zagrożeń. Zobacz [zbieranie danych w Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Łączy się z różnymi źródłami, w tym z pakietem Office 365 i Amazon Web Services w chmurze. Zobacz [łączenie ze źródłami danych](../sentinel/connect-data-sources.md). |
 | [Microsoft Intune](/intune/) | Utwórz ustawienie diagnostyczne, aby wysłać dzienniki do Azure Monitor. Zobacz [wysyłanie danych dzienników do magazynu, centrów zdarzeń lub usługi log Analytics w usłudze Intune (wersja zapoznawcza)](/intune/fundamentals/review-logs-using-azure-monitor).  |

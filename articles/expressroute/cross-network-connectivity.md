@@ -2,17 +2,17 @@
 title: Łączność między sieciami platformy Azure
 description: Na tej stronie opisano scenariusz aplikacji służący do łączności między sieciami i rozwiązań opartych na funkcjach sieciowych platformy Azure.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: rambala
-ms.openlocfilehash: 646482472caf6aded9142f33fb6bd879938998d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f13e3c03c0cfd747c7819d95a5fb98560db861c4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124957"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398073"
 ---
 # <a name="cross-network-connectivity"></a>Łączność między sieciami
 
@@ -42,7 +42,7 @@ W poniższej tabeli przedstawiono efektywne trasy maszyny wirtualnej w subskrypc
 
 W tym artykule opisano krok po kroku i omówiono sposób osiągnięcia żądanych połączeń krzyżowych przy użyciu następujących funkcji sieci platformy Azure:
 
-* [Wirtualne sieci równorzędne][Virtual network peering] 
+* [Komunikacja równorzędna sieci wirtualnych][Virtual network peering] 
 * [Połączenie ExpressRoute sieci wirtualnej][connection]
 * [Global Reach][Global Reach] 
 

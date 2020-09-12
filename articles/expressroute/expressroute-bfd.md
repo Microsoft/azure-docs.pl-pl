@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Konfigurowanie BFD'
 description: Ten artykuł zawiera instrukcje dotyczące konfigurowania BFD (wykrywanie ruchu dwukierunkowego) za pośrednictwem prywatnej komunikacji równorzędnej obwodu ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
-ms.author: rambala
-ms.openlocfilehash: ec9c6248f4054329bd3cd9b74855964c4acf72c4
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.author: duau
+ms.openlocfilehash: db2f45da0193ac648d58c0be9773f36e542ed917
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855148"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397614"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Konfigurowanie BFD ponad ExpressRoute
 

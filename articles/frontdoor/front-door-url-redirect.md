@@ -3,20 +3,20 @@ title: Moje drzwi platformy Azure — przekierowanie adresu URL | Microsoft Docs
 description: Ten artykuł pomaga zrozumieć, w jaki sposób platforma Azure front-drzwi obsługuje przekierowywanie adresów URL dla swoich tras, jeśli są skonfigurowane.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295475"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399042"
 ---
 # <a name="url-redirect"></a>Przekierowywanie adresów URL
 Aby przekierować ruch, możesz użyć platformy Azure. Ruch można przekierować na wiele poziomów (protokołu, nazwy hosta, ścieżki, ciągu zapytania) i wszystkie funkcje można skonfigurować dla poszczególnych mikrousług, ponieważ przekierowanie jest oparte na ścieżce. Upraszcza to konfigurację aplikacji, optymalizuje użycie zasobów i obsługuje nowe scenariusze przekierowania, w tym globalne i oparte na ścieżkach przekierowywanie.
@@ -43,7 +43,7 @@ Można ustawić protokół, który będzie używany do przekierowywania. Pozwala
 W ramach konfigurowania routingu przekierowywania można także zmienić nazwę hosta lub domenę dla żądania przekierowania. Można ustawić to pole, aby zmienić nazwę hosta w adresie URL przekierowania lub w przeciwnym razie zachować nazwę hosta z żądania przychodzącego. Dlatego przy użyciu tego pola można przekierować wszystkie żądania wysłane `https://www.contoso.com/*` do usługi `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Ścieżka docelowa
-W przypadku, gdy chcesz zastąpić segment ścieżki adresu URL w ramach przekierowania, możesz ustawić to pole z nową wartością ścieżki. W przeciwnym razie można zachować wartość ścieżki w ramach przekierowania. Dlatego przy użyciu tego pola można przekierować wszystkie żądania wysyłane do `https://www.contoso.com/\*` programu `https://www.contoso.com/redirected-site` .
+W przypadku, gdy chcesz zastąpić segment ścieżki adresu URL w ramach przekierowania, możesz ustawić to pole z nową wartością ścieżki. W przeciwnym razie można zachować wartość ścieżki w ramach przekierowania. Dlatego przy użyciu tego pola można przekierować wszystkie żądania wysyłane do `https://www.contoso.com/\*` programu  `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parametry ciągu zapytania
 Parametry ciągu zapytania można również zastąpić w przekierowanym adresie URL. Aby zastąpić wszystkie istniejące parametry zapytania z przychodzącego adresu URL żądania, należy ustawić to pole na wartość "Zamień", a następnie ustawić odpowiednie wartości. W przeciwnym razie można zachować oryginalny zestaw ciągów zapytania, ustawiając pole na wartość "preserve". Na przykład przy użyciu tego pola można przekierować cały ruch wysyłany do usługi `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 

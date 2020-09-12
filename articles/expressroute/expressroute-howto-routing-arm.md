@@ -2,24 +2,24 @@
 title: 'Azure ExpressRoute: Konfigurowanie komunikacji równorzędnej: PowerShell'
 description: Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/13/2019
-ms.author: jaredro
-ms.openlocfilehash: ab20ae00fd9f275d21bc818e07bdc868944ee689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: e1f1a36e84567a56ddb25366f96d1b2dba1d82fb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735272"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395574"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute przy użyciu programu PowerShell
 
 W tym artykule opisano tworzenie i zarządzanie konfiguracją routingu dla obwodu usługi ExpressRoute w Menedżer zasobów modelu wdrażania przy użyciu programu PowerShell. Możesz również sprawdzić stan, aktualizowanie i usuwanie komunikacji równorzędnej dla obwodu usługi ExpressRoute. Jeśli chcesz użyć innej metody do pracy z obwodem, wybierz artykuł z następującej listy:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-routing-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-routing-cli.md)
 > * [Publiczna Komunikacja równorzędna](about-public-peering.md)
@@ -169,7 +169,7 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna Azure
+## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna platformy Azure
 
 Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute.
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523455"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443147"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Jak wykazać dane Big Data w Azure Data Catalog
 
@@ -19,7 +19,7 @@ ms.locfileid: "86523455"
 
 **Microsoft Azure Data Catalog** to w pełni zarządzana usługa w chmurze, która służy jako system rejestracji i odnajdywania źródeł danych w przedsiębiorstwie. Wszystko to ułatwia osobom odkrywanie, poznawanie i używanie źródeł danych oraz ułatwianie organizacjom uzyskiwania większej wartości z istniejących źródeł danych, w tym danych Big Data.
 
-**Azure Data Catalog** obsługuje rejestrację obiektów blob i katalogów magazynu w blogu platformy Azure oraz plików i katalogów usługi Hadoop. Ogólny charakter tych źródeł danych zapewnia dużą elastyczność. Aby jednak uzyskać największą wartość rejestrowania ich w **Azure Data Catalog**, użytkownicy muszą rozważyć, jak są zorganizowane źródła danych.
+**Azure Data Catalog** obsługuje rejestrację obiektów blob i katalogów usługi Azure Storage, a także plików i katalogów Hadoop HDFS. Ogólny charakter tych źródeł danych zapewnia dużą elastyczność. Aby jednak uzyskać największą wartość rejestrowania ich w **Azure Data Catalog**, użytkownicy muszą rozważyć, jak są zorganizowane źródła danych.
 
 ## <a name="directories-as-logical-data-sets"></a>Katalogi jako logiczne zestawy danych
 

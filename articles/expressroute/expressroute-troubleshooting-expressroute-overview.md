@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: weryfikowanie łączności — Przewodnik rozwiązywania problemów'
 description: Ta strona zawiera instrukcje dotyczące rozwiązywania problemów i weryfikowania kompleksowej łączności obwodu usługi ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
-ms.author: rambala
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 4525ea6e23c4f1c2c96ab2beb21e8bfd5b66ca50
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204220"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401745"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Weryfikowanie połączenia usługi ExpressRoute
 Ten artykuł ułatwia sprawdzanie i rozwiązywanie problemów z łącznością ExpressRoute. ExpressRoute rozszerza sieć lokalną do chmury firmy Microsoft przez połączenie prywatne, które jest powszechnie obsługiwane przez dostawcę połączenia. ExpressRoute łączności tradycyjnie obejmuje trzy oddzielne strefy sieciowe w następujący sposób:

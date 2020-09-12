@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: dd1e20504d96b55d6a450512ea287b9352fb043a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496937"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424807"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom
 
@@ -40,6 +40,7 @@ W przypadku korzystania z polecenia Uruchom należy zastosować następujące og
 * Nie można anulować uruchomionego skryptu.
 * Maksymalny czas uruchomienia skryptu to 90 minut. Po tym czasie zostanie przekroczony limit czasu.
 * Łączność wychodząca z maszyny wirtualnej jest wymagana do zwrócenia wyników skryptu.
+* Nie zaleca się uruchamiania skryptu, który spowoduje zatrzymanie lub aktualizację agenta maszyny wirtualnej. Może to pozwolić na rozszerzenie stanu przejścia, co prowadzi do przekroczenia limitu czasu.
 
 > [!NOTE]
 > Aby działało prawidłowo, polecenie Run wymaga łączności (port 443) z publicznymi adresami IP platformy Azure. Jeśli rozszerzenie nie ma dostępu do tych punktów końcowych, skrypty mogą działać pomyślnie, ale nie zwracają wyników. W przypadku blokowania ruchu na maszynie wirtualnej można użyć [tagów usługi](../../virtual-network/security-overview.md#service-tags) , aby zezwolić na ruch do publicznych adresów IP platformy Azure przy użyciu `AzureCloud` znacznika.

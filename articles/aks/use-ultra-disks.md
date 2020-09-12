@@ -4,12 +4,12 @@ description: Dowiedz się, jak włączyć i skonfigurować Ultra disks w klastrz
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650183"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420867"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Korzystanie z Azure Ultra disks w usłudze Azure Kubernetes Service (wersja zapoznawcza)
 
@@ -21,11 +21,6 @@ Tę funkcję można ustawić tylko podczas tworzenia klastra lub tworzenia puli 
 
 > [!IMPORTANT]
 > Usługa Azure Ultra disks wymaga nodepools wdrożonych w strefach dostępności i regionach, które obsługują te dyski, a także tylko określonej serii maszyn wirtualnych. Zobacz [**zakres i ograniczenia dotyczące Ultra disks**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="prerequisites"></a>Wymagania wstępne
-
-- Upewnij się, że `EnableUltraSSD` Flaga funkcji jest włączona.
-- Upewnij się, że masz `aks-preview` zainstalowaną najnowszą wersję [rozszerzenia interfejsu wiersza polecenia][az-extension-add] .
 
 ### <a name="register-the-enableultrassd-preview-feature"></a>Rejestrowanie `EnableUltraSSD` funkcji w wersji zapoznawczej
 
@@ -78,7 +73,7 @@ Utwórz grupę zasobów platformy Azure:
 az group create --name myResourceGroup --location westus2
 ```
 
-Utwórz klaster AKS z zarządzaną integracją usługi Azure AD i usługą Azure RBAC na potrzeby autoryzacji Kubernetes.
+Utwórz klaster AKS z obsługą dla Ultra Disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -133,7 +128,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## <a name="create-a-persistent-volume-claim"></a>Tworzenie trwałego żądania woluminu
 
-W celu automatycznego aprowizacji magazynu na podstawie klasy magazynu jest używana wartość trwałego żądania woluminu. W takim przypadku obwód PVC może użyć jednej z wstępnie utworzonych klas magazynu do utworzenia dysku zarządzanego w warstwie Standardowa lub Premium platformy Azure.
+W celu automatycznego aprowizacji magazynu na podstawie klasy magazynu jest używana wartość trwałego żądania woluminu. W takim przypadku obwód PVC może użyć wcześniej utworzonej klasy magazynu w celu utworzenia Ultra Disk.
 
 Utwórz plik o nazwie `azure-ultra-disk-pvc.yaml` i skopiuj go do poniższego manifestu. Żądanie wymaga dysku o nazwie o `ultra-disk` rozmiarze *1000 GB* z dostępem *ReadWriteOnce* . Klasa magazynu *Ultra-Disk-SC* jest określana jako Klasa magazynu.
 

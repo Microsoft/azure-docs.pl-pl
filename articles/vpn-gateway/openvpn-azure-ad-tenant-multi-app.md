@@ -2,17 +2,17 @@
 title: 'VPN Gateway: dzierżawa usługi Azure AD dla różnych grup użytkowników: uwierzytelnianie w usłudze Azure AD'
 description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwierzytelniania usługi Azure AD, możesz użyć sieci VPN P2S
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 57650b32d9155277d8ecc25d1b2147ebc87e7ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a98383c359135f90fd787008704d1ce389a4d57
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009683"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425001"
 ---
 # <a name="create-an-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Utwórz dzierżawę usługi Active Directory (AD) dla połączeń protokołu P2S OpenVPN
 

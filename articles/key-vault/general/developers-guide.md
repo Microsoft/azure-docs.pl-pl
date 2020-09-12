@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585869"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394758"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Przewodnik dewelopera usługi Azure Key Vault
 
@@ -67,7 +67,7 @@ Przed rozpoczęciem pracy z kluczami, wpisami tajnymi lub certyfikatami w magazy
 - [Ustawianie i pobieranie certyfikatu za pomocą interfejsu wiersza polecenia](../certificates/quick-create-cli.md)
 - [Ustawianie i pobieranie certyfikatu przy użyciu programu PowerShell](../certificates/quick-create-powershell.md)
 - [Ustawianie i pobieranie certyfikatu z Azure Portal](../certificates/quick-create-portal.md)
-- [Operacje na kluczach przy użyciu interfejsu REST](/rest/api/keyvault/#certificate-operations)
+- [Operacje na certyfikatach przy użyciu interfejsu REST](/rest/api/keyvault/#certificate-operations)
 - [Ustawianie i pobieranie certyfikatu przy użyciu języka Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Kodowanie za pomocą Key Vault
@@ -125,7 +125,7 @@ Poniższe artykuły i scenariusze zapewniają wskazówki dotyczące zadań zwią
 - [Jak używać Key Vault do rozszerzonego zarządzania kluczami z SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) -SQL Server Connector dla Azure Key Vault umożliwia SQL Server i SQL-in-a-VM korzystanie z usługi Azure Key Vault jako dostawcy rozszerzalnego zarządzania kluczami (EKM) w celu ochrony kluczy szyfrowania dla aplikacji. Transparent Data Encryption, szyfrowanie kopii zapasowej i szyfrowanie na poziomie kolumny.
 - [Jak wdrażać certyfikaty na maszynach wirtualnych z Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) — aplikacja w chmurze działająca na maszynie wirtualnej na platformie Azure wymaga certyfikatu. Jak uzyskać ten certyfikat na tę maszynę wirtualną dzisiaj?
 - [Wdrażanie certyfikatu aplikacji sieci Web platformy Azure za pomocą Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) zawiera instrukcje krok po kroku dotyczące wdrażania certyfikatów przechowywanych w Key Vault w ramach oferty [certyfikat usługi App Service](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) .
-- [Przyznaj uprawnienia do wielu aplikacjom dostępu do magazynu kluczy](group-permissions-for-apps.md) Zasady kontroli dostępu Key Vault obsługują do 1024 wpisów. Można jednak utworzyć Azure Active Directory grupę zabezpieczeń. Dodaj wszystkie skojarzone jednostki usługi do tej grupy zabezpieczeń, a następnie Udziel dostępu do tej grupy zabezpieczeń, aby Key Vault.
+- Przypisz zasady dostępu (Portal[CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [Portal](assign-access-policy-portal.md)). Key Vault obsługuje do 1024 wpisów zasad dostępu. Aby pozostało w tym limicie dla użytkowników, Utwórz Azure Active Directory grupy zabezpieczeń, Dodaj wszystkie skojarzone jednostki usługi do tej grupy, a następnie nadaj grupie dostęp do Key Vault.
 - Aby uzyskać więcej wskazówek dotyczących zadań związanych z integracją i użyciem magazynów kluczy z platformą Azure, zobacz artykuł [Ryan Kowalski "Azure Resource Manager Template przykłady for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Jak używać narzędzia Key Vault Soft-Delete with CLI](soft-delete-cli.md) przeprowadzi Cię przez użycie i cykl życia magazynu kluczy oraz różne obiekty magazynu kluczy z włączonym usuwaniem nietrwałego.
 - [Jak używać narzędzia Key Vault Soft-DELETE w programie PowerShell](soft-delete-powershell.md) przeprowadzi Cię przez użycie i cykl życia magazynu kluczy i różne obiekty magazynu kluczy z włączonym usuwaniem nietrwałego.

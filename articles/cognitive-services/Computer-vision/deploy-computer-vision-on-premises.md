@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2a017371ccb3cf70812aed5606c386746024884
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877981"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443164"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Używanie kontenera przetwarzanie obrazów z Kubernetes i Helm
 
@@ -25,9 +25,9 @@ Jedną z opcji zarządzania kontenerami przetwarzanie obrazów w środowisku lok
 
 Poniższe wymagania wstępne przed użyciem kontenerów przetwarzanie obrazów lokalnie:
 
-| Wymagany | Przeznaczenie |
+| Wymagane | Przeznaczenie |
 |----------|---------|
-| Konto platformy Azure | Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][free-azure-account] . |
+| Konto platformy Azure | Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto][free-azure-account]. |
 | Interfejs wiersza polecenia Kubernetes | [Interfejs wiersza polecenia Kubernetes][kubernetes-cli] jest wymagany do zarządzania poświadczeniami udostępnionymi z rejestru kontenerów. Kubernetes jest również wymagany przed Helm, który jest menedżerem pakietów Kubernetes. |
 | Interfejs wiersza polecenia Helm | Zainstaluj [interfejs wiersza polecenia Helm][helm-install], który służy do instalowania wykresu Helm (definicja pakietu kontenerów). |
 | Zasób przetwarzanie obrazów |Aby można było używać kontenera, musisz mieć:<br><br>Zasób usługi Azure **Przetwarzanie obrazów** i skojarzony klucz interfejsu API dla identyfikatora URI punktu końcowego. Obie wartości są dostępne na stronach przeglądów i kluczy dla zasobu i są wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie **Przegląd**|
@@ -48,9 +48,9 @@ Oczekuje się, że komputer hosta ma dostępny klaster Kubernetes. Zapoznaj się
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Udostępnianie poświadczeń platformy Docker w klastrze Kubernetes
 
-Aby umożliwić klastrowi Kubernetes na `docker pull` skonfigurowane obrazy z rejestru `containerpreview.azurecr.io` kontenerów, należy przenieść poświadczenia platformy Docker do klastra. Wykonaj poniższe [`kubectl create`][kubectl-create] polecenie, aby utworzyć *wpis tajny platformy Docker* na podstawie poświadczeń podanych w ramach wymagania wstępnego dostępu do rejestru kontenerów.
+Aby umożliwić klastrowi Kubernetes na `docker pull` skonfigurowane obrazy z `containerpreview.azurecr.io` rejestru kontenerów, należy przenieść poświadczenia platformy Docker do klastra. Wykonaj [`kubectl create`][kubectl-create] poniższe polecenie, aby utworzyć *wpis tajny platformy Docker* na podstawie poświadczeń podanych w ramach wymagania wstępnego dostępu do rejestru kontenerów.
 
-Z wybranego interfejsu wiersza polecenia Uruchom następujące polecenie. Pamiętaj `<username>`, aby zastąpić poświadczenia rejestru `<password>`kontenerów `<email-address>` , i.
+Z wybranego interfejsu wiersza polecenia Uruchom następujące polecenie. Pamiętaj, aby zastąpić `<username>` `<password>` `<email-address>` poświadczenia rejestru kontenerów, i.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,7 +61,7 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> Jeśli masz już dostęp do rejestru `containerpreview.azurecr.io` kontenerów, możesz utworzyć wpis tajny Kubernetes przy użyciu flagi generycznej. Rozważ następujące polecenie, które jest wykonywane względem pliku JSON konfiguracji platformy Docker.
+> Jeśli masz już dostęp do `containerpreview.azurecr.io` rejestru kontenerów, możesz utworzyć wpis tajny Kubernetes przy użyciu flagi generycznej. Rozważ następujące polecenie, które jest wykonywane względem pliku JSON konfiguracji platformy Docker.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
@@ -74,7 +74,7 @@ Następujące dane wyjściowe są drukowane w konsoli po pomyślnym utworzeniu w
 secret "containerpreview" created
 ```
 
-Aby sprawdzić, czy wpis tajny został utworzony, wykonaj [`kubectl get`][kubectl-get] polecenie z `secrets` flagą.
+Aby sprawdzić, czy wpis tajny został utworzony, wykonaj polecenie [`kubectl get`][kubectl-get] z `secrets` flagą.
 
 ```console
 kubectl get secrets
@@ -89,16 +89,25 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Konfigurowanie wartości wykresu Helm na potrzeby wdrożenia
 
-Zacznij od utworzenia folderu o nazwie *Read*, a następnie wklej następującą zawartość YAML do nowego pliku o nazwie *Chart. yml*.
+Zacznij od utworzenia folderu o nazwie *Read*. Następnie wklej następującą zawartość YAML w nowym pliku o nazwie `chart.yaml` :
 
 ```yaml
-apiVersion: v1
+apiVersion: v2
 name: read
 version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+dependencies:
+- name: rabbitmq
+  condition: read.image.args.rabbitmq.enabled
+  version: ^6.12.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
+- name: redis
+  condition: read.image.args.redis.enabled
+  version: ^6.0.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Aby skonfigurować wartości domyślne wykresu Helm, skopiuj i wklej następujący YAML do pliku o nazwie `values.yaml`. Zastąp `# {ENDPOINT_URI}` Komentarze `# {API_KEY}` i komentarz własnymi wartościami.
+Aby skonfigurować wartości domyślne wykresu Helm, skopiuj i wklej następujący YAML do pliku o nazwie `values.yaml` . Zastąp `# {ENDPOINT_URI}` `# {API_KEY}` Komentarze i komentarz własnymi wartościami. W razie konieczności Skonfiguruj resultExpirationPeriod, Redis i RabbitMQ.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -107,7 +116,7 @@ read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry: containerpreview.azurecr.io/
+    registry:  containerpreview.azurecr.io/
     repository: microsoft/cognitive-services-read
     tag: latest
     pullSecret: containerpreview # Or an existing secret
@@ -115,25 +124,52 @@ read:
       eula: accept
       billing: # {ENDPOINT_URI}
       apikey: # {API_KEY}
+      
+      # Result expiration period setting. Specify when the system should clean up recognition results.
+      # For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.
+      # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
+      resultExpirationPeriod: 1
+      
+      # Redis storage, if configured, will be used by read container to store result records.
+      # A cache is required if multiple read containers are placed behind load balancer.
+      redis:
+        enabled: false # {true/false}
+        password: password
+
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # placed behind load balancer.
+      rabbitmq:
+        enabled: false # {true/false}
+        rabbitmq:
+          username: user
+          password: password
 ```
 
 > [!IMPORTANT]
-> Jeśli wartości `billing` i `apikey` nie zostaną podane, usługi wygasną po 15 minutach. Podobnie weryfikacja nie powiedzie się, ponieważ usługi nie będą dostępne.
+> - Jeśli `billing` wartości i `apikey` nie zostaną podane, usługi wygasną po 15 minutach. Podobnie weryfikacja nie powiedzie się, ponieważ usługi nie są dostępne.
+> 
+> - W przypadku wdrożenia wielu kontenerów odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+>
 
-Utwórz folder *szablonów* w katalogu *Read* . Skopiuj i wklej następujący YAML do pliku o nazwie `deployment.yaml`. `deployment.yaml` Plik będzie używany jako szablon Helm.
+Utwórz folder *szablonów* w katalogu *Read* . Skopiuj i wklej następujący YAML do pliku o nazwie `deployment.yaml` . `deployment.yaml`Plik będzie używany jako szablon Helm.
 
 > Szablony generują pliki manifestu, które są YAMLmi opisami zasobów, które Kubernetes mogą zrozumieć. [— Przewodnik po szablonach wykresu Helm][chart-template-guide]
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: read
+  labels:
+    app: read-deployment
 spec:
+  selector:
+    matchLabels:
+      app: read-app
   template:
     metadata:
       labels:
-        app: read-app
+        app: read-app       
     spec:
       containers:
       - name: {{.Values.read.image.name}}
@@ -147,14 +183,23 @@ spec:
           value: {{.Values.read.image.args.billing}}
         - name: apikey
           value: {{.Values.read.image.args.apikey}}
+        args:        
+        - ReadEngineConfig:ResultExpirationPeriod={{ .Values.read.image.args.resultExpirationPeriod }}
+        {{- if .Values.read.image.args.rabbitmq.enabled }}
+        - Queue:RabbitMQ:HostName={{ include "rabbitmq.hostname" . }}
+        - Queue:RabbitMQ:Username={{ .Values.read.image.args.rabbitmq.rabbitmq.username }}
+        - Queue:RabbitMQ:Password={{ .Values.read.image.args.rabbitmq.rabbitmq.password }}
+        {{- end }}      
+        {{- if .Values.read.image.args.redis.enabled }}
+        - Cache:Redis:Configuration={{ include "redis.connStr" . }}
+        {{- end }}
       imagePullSecrets:
-      - name: {{.Values.read.image.pullSecret}}
-
+      - name: {{.Values.read.image.pullSecret}}      
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: read
+  name: read-service
 spec:
   type: LoadBalancer
   ports:
@@ -163,15 +208,30 @@ spec:
     app: read-app
 ```
 
+W tym samym folderze *templates* skopiuj i wklej następujące funkcje pomocnika do programu `helpers.tpl` . `helpers.tpl` definiuje przydatne funkcje, które ułatwiają generowanie szablonu Helm.
+
+```yaml
+{{- define "rabbitmq.hostname" -}}
+{{- printf "%s-rabbitmq" .Release.Name -}}
+{{- end -}}
+
+{{- define "redis.connStr" -}}
+{{- $hostMaster := printf "%s-redis-master:6379" .Release.Name }}
+{{- $hostSlave := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
+{{- $connTail := "ssl=False,abortConnect=False" -}}
+{{- printf "%s,%s,%s,%s" $hostMaster $hostSlave $passWord $connTail -}}
+{{- end -}}
+```
 Szablon określa usługę modułu równoważenia obciążenia oraz wdrożenie kontenera/obrazu do odczytu.
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Pakiet Kubernetes (wykres Helm)
 
-*Wykres Helm* zawiera konfigurację, którą obrazy platformy Docker pobrać z rejestru `containerpreview.azurecr.io` kontenerów.
+*Wykres Helm* zawiera konfigurację, którą obrazy platformy Docker pobrać z `containerpreview.azurecr.io` rejestru kontenerów.
 
 > [Wykres Helm][helm-charts] to zbiór plików, które opisują powiązany zestaw zasobów Kubernetes. Pojedynczy wykres może służyć do wdrażania bardzo prostego, takiego jak Memcached pod lub złożonego, takiego jak pełny stos aplikacji sieci Web z serwerami HTTP, bazami danych, pamięciami podręcznymi i tak dalej.
 
-Dostarczone *wykresy Helm* pobierają obrazy platformy Docker usługi przetwarzanie obrazów i odpowiadające im usługi z rejestru `containerpreview.azurecr.io` kontenerów.
+Dostarczone *wykresy Helm* pobierają obrazy platformy Docker usługi przetwarzanie obrazów i odpowiadające im usługi z `containerpreview.azurecr.io` rejestru kontenerów.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalowanie wykresu Helm w klastrze Kubernetes
 
@@ -235,7 +295,7 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 Aby uzyskać więcej informacji na temat instalowania aplikacji z programem Helm w usłudze Azure Kubernetes Service (AKS), [odwiedź to tutaj][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Kontenery Cognitive Services][cog-svcs-containers]
+> [Kontenery usług Cognitive Services][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

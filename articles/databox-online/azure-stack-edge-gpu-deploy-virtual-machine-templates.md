@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268163"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419830"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge przy użyciu szablonów
 
@@ -185,11 +185,11 @@ Skopiuj wszystkie obrazy dysków, które mają być używane do stronicowych obi
 
     ![Łączenie z usługą Azure Storage 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Dalej**.
+5. Wybierz pozycję **Użyj klucza i nazwy konta magazynu**. Wybierz pozycję **Next** (Dalej).
 
     ![Nawiązywanie połączenia z usługą Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. W oknie **łączenie z nazwą i kluczem**Podaj **nazwę wyświetlaną**, **nazwę konta magazynu**i **klucz konta**usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Dalej**.
+6. W oknie **łączenie z nazwą i kluczem**Podaj **nazwę wyświetlaną**, **nazwę konta magazynu**i **klucz konta**usługi Azure Storage. Wybierz **inną** domenę magazynu, a następnie podaj `<device name>.<DNS domain>` Parametry połączenia. Jeśli certyfikat nie został zainstalowany w Eksplorator usługi Storage, zaznacz opcję **Użyj protokołu HTTP** . Wybierz pozycję **Next** (Dalej).
 
     ![Nawiązywanie połączenia przy użyciu nazwy i klucza](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -245,11 +245,14 @@ Plik `CreateImageAndVnet.parameters.json` przyjmuje następujące parametry:
 
 ```json
 "parameters": {
+        "osType": {
+              "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -501,7 +504,7 @@ Wdróż szablon tworzenia maszyny wirtualnej `CreateVM.json` . Ten szablon tworz
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -547,7 +550,27 @@ Wdróż szablon tworzenia maszyny wirtualnej `CreateVM.json` . Ten szablon tworz
         
         PS C:\07-30-2020>
     ```   
- 
+Możesz również uruchomić `New-AzureRmResourceGroupDeployment` polecenie asynchronicznie za pomocą `–AsJob` parametru. Oto przykładowe dane wyjściowe, gdy polecenie cmdlet zostanie uruchomione w tle. Następnie można wykonać zapytanie o stan zadania tworzonego przy użyciu `Get-Job` polecenia cmdlet.
+
+    ```powershell   
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
 7. Sprawdź, czy maszyna wirtualna została pomyślnie zainicjowana. Uruchom następujące polecenie:
 
     `Get-AzureRmVm`
@@ -555,7 +578,19 @@ Wdróż szablon tworzenia maszyny wirtualnej `CreateVM.json` . Ten szablon tworz
 
 ## <a name="connect-to-a-vm"></a>Łączenie z maszyną wirtualną
 
+W zależności od tego, czy utworzono maszynę wirtualną z systemem Windows, czy z systemem Linux, kroki do połączenia mogą być różne.
+
+### <a name="connect-to-windows-vm"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Windows
+
+Wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z systemem Windows.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### <a name="connect-to-linux-vm"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Linux
+
+Wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z systemem Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 

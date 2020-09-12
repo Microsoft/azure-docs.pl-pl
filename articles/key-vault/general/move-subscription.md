@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145369"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394741"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Przeniesienie Azure Key Vault do innej subskrypcji
 
@@ -97,11 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Po skojarzeniu magazynu z prawidłowym IDENTYFIKATORem dzierżawy i usunięciu starych wpisów zasad dostępu Ustaw nowe wpisy zasad dostępu za pomocą polecenia cmdlet Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) lub interfejsu wiersza polecenia platformy Azure [AZ datamagazyn Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) .
 
-Jeśli używasz zarządzanej tożsamości dla zasobów platformy Azure, musisz zaktualizować ją również do nowej dzierżawy usługi Azure AD. Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz [zapewnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej](managed-identity.md).
+Jeśli używasz zarządzanej tożsamości dla zasobów platformy Azure, musisz ją zaktualizować także do nowej dzierżawy Azure Active Directory. Aby uzyskać więcej informacji na temat tożsamości zarządzanych, [Omówienie tożsamości zarządzanej](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Jeśli używasz pliku MSI, musisz również zaktualizować tożsamość MSI, ponieważ stara tożsamość nie będzie już w poprawnej dzierżawie usługi AAD. Zobacz następujące dokumenty, aby pomóc w rozwiązaniu tego problemu. 
+Jeśli używasz tożsamości zarządzanej, musisz również zaktualizować tożsamość, ponieważ stara tożsamość nie będzie już poprawna Azure Active Directory dzierżawy. Zobacz następujące dokumenty, aby pomóc w rozwiązaniu tego problemu. 
 
 * [Aktualizowanie pliku MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Prześlij subskrypcję do nowego katalogu](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-

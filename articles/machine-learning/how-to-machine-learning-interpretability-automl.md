@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306421"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419116"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretowanie: Omówienie modelu w zautomatyzowanej usłudze Machine Learning (wersja zapoznawcza)
 
@@ -39,6 +39,14 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretacja dla najlepszego modelu
 
 Pobierz wyjaśnienie z programu, w tym `best_run` wyjaśnienia dotyczące funkcji programu.
+
+> [!Warning]
+> Interpretacja, najlepsze wyjaśnienie modelu nie jest dostępne dla eksperymentów prognozowania samochodów, które zalecają następujące algorytmy jak najlepszy model: 
+> * ForecastTCN
+> * Średnia 
+> * Algorytm Bayesa
+> * Średnia sezonowa 
+> * Algorytm Bayesa sezonowe
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Pobierz wagę funkcji z magazynu artefaktów
 
@@ -112,7 +120,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>Interpretowanie podczas wnioskowania
+## <a name="interpretability-during-inference"></a>Interpretowanie podczas wnioskowania
 
 W tej sekcji dowiesz się, jak operacjonalizować zautomatyzowany model tablicy z wyjaśnieniem użytym do obliczenia wyjaśnień w poprzedniej sekcji.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816273"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420935"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -48,11 +48,11 @@ Kategorie i branże dla innego sklepu online będą miały zastosowanie do róż
 
 ### <a name="categories"></a>Kategorie
 
-Microsoft AppSource i Azure Marketplace to dwa różne sklepy online, które obsługują unikatowe wymagania klientów. Portal Azure Marketplace jest przeznaczony dla informatyków i deweloperów tworzących rozwiązania na platformie Azure.  Microsoft AppSource ukierunkowani użytkownicy biznesowi poszukujący aplikacji firmowych i/lub branżowych SaaS, dodatków do usługi Dynamics 365, dodatków Microsoft 365 i aplikacji platformy PowerShell.
+Microsoft AppSource i Azure Marketplace to sklepy online, które oferują różne typy rozwiązań. Portal Azure Marketplace oferuje rozwiązania IT stworzone na platformie Azure lub w systemie.  Microsoft AppSource oferować rozwiązania biznesowe, takie jak aplikacje branżowe SaaS, dodatki Dynamics 365, dodatki Microsoft 365 i aplikacje platformy.
 
-Kategorie i podkategorie są mapowane na każdy sklep online na podstawie docelowych odbiorców. Twoja oferta zostanie opublikowana w witrynie Microsoft AppSource lub Azure Marketplace w zależności od typu oferty, możliwości transakcji dla wyboru oferty i kategorii/podkategorii. 
+Kategorie i podkategorie są mapowane na każdy sklep online na podstawie typu rozwiązania. Twoja oferta zostanie opublikowana w witrynie Microsoft AppSource lub Azure Marketplace w zależności od typu oferty, możliwości transakcji dla wyboru oferty i kategorii/podkategorii. 
 
-Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i Twoich zamierzonych odbiorców. Dostępne są następujące opcje:
+Wybierz kategorie i podkategorie, które najlepiej dopasowują się do typu rozwiązania. Dostępne są następujące opcje:
 
 * Do dwóch kategorii, w tym podstawowej i pomocniczej kategorii (opcjonalnie).
 * Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybrano żadnej podkategorii, oferta nadal będzie wykrywalna tylko w wybranej kategorii.

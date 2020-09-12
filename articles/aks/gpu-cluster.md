@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757646"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443062"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Korzystanie z procesorów GPU na potrzeby obciążeń intensywnie korzystających z obliczeń w usłudze Azure Kubernetes Service (AKS)
 
@@ -162,7 +162,7 @@ az extension update --name aks-preview
 
 Skonfiguruj klaster tak, aby korzystał z AKS wyspecjalizowanego obrazu procesora GPU podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi dla węzłów agenta procesora GPU w nowym klastrze, aby użyć obrazu wyspecjalizowanego procesora GPU AKS.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -173,7 +173,7 @@ Jeśli chcesz utworzyć klaster przy użyciu zwykłych obrazów AKS, możesz to 
 
 Skonfiguruj nową pulę węzłów, aby używać AKS wyspecjalizowanego obrazu procesora GPU. Użyj `--aks-custom-headers` flagi flagi dla węzłów agenta procesora GPU w nowej puli węzłów, aby użyć obrazu AKS wyspecjalizowanego procesora GPU.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -181,7 +181,7 @@ Jeśli chcesz utworzyć pulę węzłów przy użyciu zwykłych obrazów AKS, mo�
 
 > [!NOTE]
 > Jeśli jednostka SKU procesora GPU wymaga maszyn wirtualnych generacji 2, można utworzyć:
-> ```azure-cli
+> ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
 
@@ -386,7 +386,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć skojarzone obiekty Kubernetes utworzone w tym artykule, użyj polecenia [Usuń zadanie polecenia kubectl][kubectl delete] w następujący sposób:
 

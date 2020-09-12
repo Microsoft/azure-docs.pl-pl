@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/31/2020
-ms.openlocfilehash: fe48f27cdf2aa09f47e3ed58433a5695036e4cfa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b4c1e3eb7793a393004cde6f98a09777341e0e0e
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182487"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418980"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiowanie danych z lub do usługi Azure File Storage za pomocą usługi Azure Data Factory
 
@@ -223,7 +223,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
 
 | Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Właściwość Type w `location` elemencie DataSet musi być ustawiona na wartość **FileServerLocation**. | Tak      |
+| typ       | Właściwość Type w `location` elemencie DataSet musi być ustawiona na wartość **AzureFileStorageLocation**. | Tak      |
 | folderPath | Ścieżka do folderu. Jeśli chcesz użyć symboli wieloznacznych do filtrowania folderów, pomiń to ustawienie i określ ustawienia źródła działania. | Nie       |
 | fileName   | Nazwa pliku pod podanym folderPath. Jeśli chcesz użyć symboli wieloznacznych do filtrowania plików, pomiń to ustawienie i określ ustawienia źródła działania. | Nie       |
 
@@ -241,7 +241,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
         "schema": [ < physical schema, optional, auto retrieved during authoring > ],
         "typeProperties": {
             "location": {
-                "type": "FileServerLocation",
+                "type": "AzureFileStorageLocation",
                 "folderPath": "root/folder/subfolder"
             },
             "columnDelimiter": ",",
@@ -265,7 +265,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
 
 | Właściwość                 | Opis                                                  | Wymagane                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **FileServerReadSettings**. | Tak                                           |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureFileStorageReadSettings**. | Tak                                           |
 | ***Zlokalizuj pliki do skopiowania:*** |  |  |
 | Opcja 1: ścieżka statyczna<br> | Kopiuj z podanego folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie pliki z folderu, należy również określić `wildcardFileName` jako `*` . |  |
 | Opcja 2: prefiks pliku<br>-prefix | Prefiks nazwy pliku w danym udziale plików skonfigurowanym w zestawie danych do filtrowania plików źródłowych. Pliki o nazwie zaczynające się od `fileshare_in_linked_service/this_prefix` są zaznaczone. Wykorzystuje filtr po stronie usługi dla File Storage platformy Azure, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych. Ta funkcja nie jest obsługiwana w przypadku korzystania ze [starszego modelu połączonej usługi](#legacy-model). | Nie                                                          |
@@ -273,7 +273,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
 | Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod daną folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
 | OPCJA 4: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować, jeden plik w wierszu, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
 | ***Ustawienia dodatkowe:*** |  | |
-| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
+| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
 | deleteFilesAfterCompletion | Wskazuje, czy pliki binarne zostaną usunięte z magazynu źródłowego po pomyślnym przeniesieniu do magazynu docelowego. Plik jest usuwany dla każdego pliku, więc w przypadku niepowodzenia działania kopiowania niektóre pliki zostały już skopiowane do lokalizacji docelowej i usunięte ze źródła, podczas gdy inne nadal pozostają w magazynie źródłowym. <br/>Ta właściwość jest prawidłowa tylko w scenariuszu kopiowania plików binarnych, w którym magazyny źródeł danych to obiekty blob, ADLS Gen1, ADLS Gen2, S3, magazyn w chmurze Google, plik, plik platformy Azure, SFTP lub FTP. Wartość domyślna: false. |Nie |
 | modifiedDatetimeStart    | Filtr plików oparty na atrybucie: ostatnio modyfikowane. <br>Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime `modifiedDatetimeEnd` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, zostaną zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime `modifiedDatetimeStart` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.<br/>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . | Nie                                            |
 | modifiedDatetimeEnd      | Tak samo jak powyżej.                                               | Nie                                            |
@@ -308,7 +308,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "FileServerReadSettings",
+                    "type": "AzureFileStorageReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -330,7 +330,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
 
 | Właściwość                 | Opis                                                  | Wymagane |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **FileServerWriteSettings**. | Tak      |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureFileStorageWriteSettings**. | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
 | maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie       |
 
@@ -360,7 +360,7 @@ Następujące właściwości są obsługiwane przez usługę Azure File Storage 
             "sink": {
                 "type": "ParquetSink",
                 "storeSettings":{
-                    "type": "FileServerWriteSettings",
+                    "type": "AzureFileStorageWriteSettings",
                     "copyBehavior": "PreserveHierarchy"
                 }
             }

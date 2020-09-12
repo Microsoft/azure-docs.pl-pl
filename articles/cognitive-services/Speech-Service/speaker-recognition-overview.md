@@ -1,25 +1,27 @@
 ---
-title: Usługa rozpoznawanie osoby mówiącej platformy Azure
+title: Przegląd rozpoznawanie osoby mówiącej — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Usługa Azure Cognitive Services rozpoznawanie osoby mówiącej udostępnia algorytmy weryfikujące i identyfikujące głośniki przy użyciu ich unikatowych cech głosowych. Rozpoznawanie osoby mówiącej jest używany do odpowiedzi na pytanie "kto mówi?".
+description: Rozpoznawanie osoby mówiącej zapewnia algorytmy, które weryfikują i identyfikują głośniki według ich unikatowych cech głosowych przy użyciu usługi Voice biometry. Rozpoznawanie osoby mówiącej jest używany do odpowiedzi na pytanie "kto mówi?". Ten artykuł zawiera omówienie zalet i możliwości usługi rozpoznawanie osoby mówiącej.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: Rozpoznawanie osoby mówiącej, biometry głosu
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780889"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397263"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>Co to jest usługa Azure rozpoznawanie osoby mówiącej?
+# <a name="what-is-speaker-recognition"></a>Co to jest rozpoznawanie osoby mówiącej?
 
-Usługa rozpoznawanie osoby mówiącej zapewnia algorytmy weryfikujące i identyfikujące głośniki przy użyciu ich unikatowych cech głosowych. Rozpoznawanie osoby mówiącej jest używany do odpowiedzi na pytanie "kto mówi?". Dane szkolenia audio można podawać dla jednego głośnika, który tworzy profil rejestracji na podstawie unikatowych cech głosu osoby mówiącej. Następnie można sprawdzić krzyżowo próbki głosu audio dla tego profilu, aby sprawdzić, czy prelegent jest tą samą osobą (Weryfikacja osoby mówiącej), czy też sprawdzić krzyżowo próbki głosu audio w *grupie* zarejestrowanych profilów głośników, aby sprawdzić, czy pasuje do dowolnego profilu w grupie (tożsamość osoby mówiącej). W odróżnieniu od [Diarizationu głośników](batch-transcription.md#speaker-separation-diarization) grupuje segmenty dźwięku przez prelegenta w operacji wsadowej.
+Usługa rozpoznawanie osoby mówiącej zapewnia algorytmy, które weryfikują i identyfikują głośniki według ich unikatowych cech głosowych przy użyciu usługi Voice biometry. Rozpoznawanie osoby mówiącej jest używany do odpowiedzi na pytanie "kto mówi?". Dane szkolenia audio można podawać dla jednego głośnika, który tworzy profil rejestracji na podstawie unikatowych cech głosu osoby mówiącej. Następnie można sprawdzić krzyżowo próbki głosu audio dla tego profilu, aby sprawdzić, czy prelegent jest tą samą osobą (Weryfikacja osoby mówiącej), czy też sprawdzić krzyżowo próbki głosu audio w *grupie* zarejestrowanych profilów głośników, aby sprawdzić, czy pasuje do dowolnego profilu w grupie (tożsamość osoby mówiącej). W odróżnieniu od [Diarizationu głośników](batch-transcription.md#speaker-separation-diarization) grupuje segmenty dźwięku przez prelegenta w operacji wsadowej.
 
 ## <a name="speaker-verification"></a>Weryfikacja osoby mówiącej
 

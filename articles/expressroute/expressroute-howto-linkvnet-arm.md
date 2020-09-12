@@ -2,22 +2,22 @@
 title: 'ExpressRoute: Połącz sieć wirtualną z obwodem: Azure PowerShell'
 description: Ten dokument zawiera omówienie sposobu łączenia sieci wirtualnych (sieci wirtualnych) z obwodami usługi ExpressRoute przy użyciu modelu wdrażania Menedżer zasobów i programu PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/20/2018
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: c8fd3bc4a2efd90857d0696491102790b069d5e1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 49f259178020dd0e8e4f24aed67869aefd73b037
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984154"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395846"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)

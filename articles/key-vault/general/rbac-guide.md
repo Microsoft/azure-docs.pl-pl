@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f1e95c1244d327478862c3919481394d974ea42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270343"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419269"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Zapewnianie dostępu do kluczy Key Vault, certyfikatów i wpisów tajnych za pomocą kontroli dostępu opartej na rolach (wersja zapoznawcza)
 
@@ -43,7 +43,7 @@ Więcej informacji na temat wytycznych dotyczących zarządzania Azure Key Vault
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Wbudowane role platformy Azure dla operacji Key Vault płaszczyzny danych (wersja zapoznawcza)
 
-| Wbudowana rola | Opis | ID |
+| Wbudowana rola | Opis | ID (Identyfikator) |
 | --- | --- | --- |
 | Administrator Key Vault (wersja zapoznawcza) | Wykonaj wszystkie operacje płaszczyzny danych w magazynie kluczy i wszystkie obiekty w nim, w tym certyfikaty, klucze i wpisy tajne. Nie można zarządzać zasobami magazynu kluczy ani zarządzać przypisaniami ról. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Oficer certyfikatów Key Vault (wersja zapoznawcza) | Wykonaj dowolną akcję dotyczącą certyfikatów magazynu kluczy, z wyjątkiem uprawnień do zarządzania. Działa tylko w przypadku magazynów kluczy, które korzystają z modelu uprawnień "kontrola dostępu oparta na rolach" platformy Azure. | a4417e6f-fecd-4de8-b567-7b0420556985 |
@@ -61,6 +61,10 @@ Aby uzyskać więcej informacji na temat definicji ról wbudowanych platformy Az
 Nowy model uprawnień usługi Azure RBAC dla magazynu kluczy zapewnia alternatywę dla modelu uprawnień zasad dostępu do magazynu. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Włącz uprawnienia usługi Azure RBAC na Key Vault
+
+W trakcie korzystania z wersji zapoznawczej należy użyć znacznika funkcji RBAC platformy Azure (Microsoft_Azure_KeyVault_RBACEnabled = true), aby wyświetlić nowe opcje modelu uprawnień.
+
+https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Ustawienie modelu uprawnień RBAC platformy Azure unieważnia wszystkie uprawnienia zasad dostępu. Może to spowodować awarię, gdy równoważne role platformy Azure nie są przypisane.
@@ -205,8 +209,6 @@ az role definition create --role-definition '{ \
 Aby uzyskać więcej informacji o sposobach tworzenia ról niestandardowych, zobacz:
 
 [Role niestandardowe platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-
-Aby sprawdzić dostępne akcje, dodatek: **dostępne akcje**
 
 ## <a name="known-limits-and-performance"></a>Znane limity i wydajność
 

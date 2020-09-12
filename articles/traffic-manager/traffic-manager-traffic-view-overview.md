@@ -3,21 +3,21 @@ title: Widok ruchu na platformie Azure Traffic Manager
 description: W tym instruktażu dowiesz się, jak działa widok ruchu w usłudze Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: rohink
+ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1a3cc5ccb326d6a198895f9f459e661f7805b1e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938354"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401541"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager Widok ruchu
 

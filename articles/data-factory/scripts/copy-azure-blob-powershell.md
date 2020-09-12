@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 2e289f30ef1c1883c38884eb563a41bccc841329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd8c8450d6e747e9789c785d1c594532b94a36cb
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79462655"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443079"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Tworzenie potoku usługi Data Factory w celu kopiowania danych w chmurze przy użyciu programu PowerShell
 
@@ -27,7 +27,7 @@ Ten przykładowy skrypt programu PowerShell tworzy potok w Azure Data Factory, k
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany zarówno jako magazyn **źródła**, jak i **ujścia** danych. Jeśli nie masz konta usługi Azure Storage, zobacz Tworzenie [konta magazynu](../../storage/common/storage-account-create.md) przy tworzeniu go. 
-* Utwórz **kontener obiektów blob** w usłudze Blob Storage, utwórz **folder** wejściowy w kontenerze i przekaż niektóre pliki do folderu. Narzędzia, takie jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/), umożliwiają łączenie z usługą Azure Blob Storage, tworzenie kontenera obiektów blob, przekazywanie pliku wejściowego i weryfikację pliku wyjściowego.
+* Utwórz **kontener obiektów blob** w usłudze Blob Storage, utwórz **folder** wejściowy w kontenerze i przekaż niektóre pliki do folderu. Za pomocą narzędzi, takich jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , można nawiązać połączenie z usługą Azure Blob Storage, utworzyć kontener obiektów blob, przekazać plik wejściowy i zweryfikować plik wyjściowy.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 

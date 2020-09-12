@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077232"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400096"
 ---
 # <a name="security-control-secure-configuration"></a>Kontrola zabezpieczeń: Konfiguracja zabezpieczona
 
@@ -74,7 +74,7 @@ Aby wymusić bezpieczne ustawienia w ramach zasobów platformy Azure, użyj Azur
 
 | Identyfikator platformy Azure | Identyfikatory WNP | Odpowiedzialność za |
 |--|--|--|
-| 7,4 | 5.2 | Udostępniona |
+| 7,4 | 5.2 | Shared |
 
 Postępuj zgodnie z zaleceniami Azure Security Center na temat przeprowadzania ocen luk w zabezpieczeniach dotyczących zasobów obliczeniowych platformy Azure.  Ponadto można używać szablonów Azure Resource Manager, niestandardowych obrazów systemu operacyjnego lub konfiguracji stanu Azure Automation, aby zachować konfigurację zabezpieczeń systemu operacyjnego wymaganego przez organizację.   Szablony maszyn wirtualnych firmy Microsoft połączone z Azure Automation konfiguracją żądanego stanu mogą pomóc w spotkaniu i utrzymaniu wymagań w zakresie zabezpieczeń. 
 
@@ -174,7 +174,9 @@ Użyj tożsamość usługi zarządzanej w połączeniu z Azure Key Vault, aby up
 
 - [Jak utworzyć Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Jak przeprowadzić uwierzytelnianie w Key Vault](../../key-vault/general/authentication.md)
+
+- [Jak przypisać zasady dostępu Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 

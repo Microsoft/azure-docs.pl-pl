@@ -2,18 +2,18 @@
 title: 'Prywatna Komunikacja równorzędna Azure ExpressRoute: Konfigurowanie trybu transportu IPsec — hosty systemu Windows'
 description: Jak włączyć tryb transportu IPsec między maszynami wirtualnymi systemu Windows Azure i lokalnymi hostami systemu Windows za pośrednictwem prywatnej komunikacji równorzędnej ExpressRoute za pomocą obiektów zasad grupy i jednostek organizacyjnych
 services: expressroute
-author: fabferri
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: fabferri
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737261"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396492"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurowanie trybu transportu IPsec dla prywatnej komunikacji równorzędnej ExpressRoute
 
@@ -246,7 +246,7 @@ Dodaj do zasad IPsec **listy filtrów IP** i **akcji filtrowania** , które zost
 4. **Typ sieci** definiuje, które połączenie sieciowe jest skojarzone z zasadami zabezpieczeń. Wybierz pozycję **wszystkie połączenia sieciowe**, a następnie kliknij przycisk **dalej**.
 
    [![44]][44]
-5. Wybierz utworzoną wcześniej listę filtrów IP, **Azure-onpremises-HTTP8080**, a następnie kliknij przycisk **dalej**.
+5. Wybierz utworzoną wcześniej listę filtrów IP,  **Azure-onpremises-HTTP8080**, a następnie kliknij przycisk **dalej**.
 
    [![45]][45]
 6. Wybierz istniejącą **wcześniej akcję filtrowania** .
@@ -255,7 +255,7 @@ Dodaj do zasad IPsec **listy filtrów IP** i **akcji filtrowania** , które zost
 7. System Windows obsługuje cztery różne typy uwierzytelniania: Kerberos, certyfikaty, NTLMv2 i klucz wstępny. Ponieważ pracujemy z hostami przyłączonymi do domeny, wybierz opcję **Active Directory domyślne (protokół Kerberos V5)**, a następnie kliknij przycisk **dalej**.
 
    [![47]][47]
-8. Nowe zasady tworzą regułę zabezpieczeń: **Azure-onpremises-HTTP8080**. Kliknij przycisk **OK**.
+8. Nowe zasady tworzą regułę zabezpieczeń: **Azure-onpremises-HTTP8080**. Kliknij pozycję **OK**.
 
    [![48]][48]
 

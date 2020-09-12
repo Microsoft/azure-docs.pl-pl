@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 3d39ad2016da1525658944f4f13185e9df9855af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007098"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378869"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Dodawanie Key Vault do aplikacji sieci Web przy użyciu usług połączonych programu Visual Studio
 
@@ -199,8 +199,8 @@ Ma wpływ na odwołania do pliku projektu i `packages.config` (odwołania NuGet)
 - Dodano element Items i ConnectedServices.jsw pliku połączonych usług.
 - Odwołania do zestawów .NET opisanych w sekcji [dodane odwołania](#added-references-for-aspnet-framework) .
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-Jeśli wykonano ten samouczek, Twoje uprawnienia Key Vault są skonfigurowane do uruchamiania w ramach własnej subskrypcji platformy Azure, ale mogą nie być pożądane w scenariuszu produkcyjnym. Możesz utworzyć zarządzaną tożsamość, aby zarządzać dostępem Key Vault do aplikacji. Zobacz [udostępnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej](/azure/key-vault/managed-identity).
+Jeśli wykonano ten samouczek, Twoje uprawnienia Key Vault są skonfigurowane do uruchamiania w ramach własnej subskrypcji platformy Azure, ale mogą nie być pożądane w scenariuszu produkcyjnym. Możesz utworzyć zarządzaną tożsamość, aby zarządzać dostępem Key Vault do aplikacji. Zobacz [Jak przeprowadzić uwierzytelnianie, aby Key Vault](/azure/key-vault/general/authentication) i [przypisać zasady dostępu Key Vault](/azure/key-vault/general/assign-access-policy-portal).
 
 Dowiedz się więcej na temat opracowywania Key Vault, odczytując [przewodnik dewelopera Key Vault](developers-guide.md).

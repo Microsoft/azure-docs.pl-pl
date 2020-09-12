@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: Konfigurowanie ExpressRoute Direct: interfejs wiersza polecenia'
 description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure, aby skonfigurować usługę Azure ExpressRoute Direct do bezpośredniego połączenia z siecią globalną firmy Microsoft w lokalizacjach komunikacji równorzędnej na całym świecie.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/20/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5d1e1d6ab5a8d4444ad4a5a4748859fd12aa3c1e
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 4eea79d6166ef4beae3b2d61e47e7df0bc82624c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192267"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395965"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurowanie usługi ExpressRoute Direct przy użyciu interfejsu wiersza polecenia platformy Azure
 

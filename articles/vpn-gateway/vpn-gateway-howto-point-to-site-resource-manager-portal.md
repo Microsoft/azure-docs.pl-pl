@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 33f35dc2a8224f496e040b66b2b92bc4c2ec4682
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03dbc481950ed2a020a26dc3af8668c516b66115
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984845"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436019"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Skonfiguruj połączenie sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: Azure Portal
 
@@ -105,7 +105,7 @@ Można wybrać typ tunelu. Dostępne są opcje tunelu OpenVPN, SSTP i IKEv2.
 
 W obszarze **Typ uwierzytelniania**wybierz pozycję **certyfikat platformy Azure**.
 
-  ![Typ uwierzytelniania](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "Określ typ uwierzytelniania")
+  ![Authentication type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "Określ typ uwierzytelniania") (Typ uwierzytelniania)
 
 ## <a name="7-upload-the-root-certificate-public-certificate-data"></a><a name="uploadfile"></a>7. Przekaż dane certyfikatu publicznego certyfikatu głównego
 
@@ -163,7 +163,7 @@ W oknie dialogowym sieć Znajdź profil klienta, którego chcesz użyć, określ
 
 Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Jeśli występują problemy z połączeniem, sprawdź, czy Brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana w przypadku klientów na komputery Mac.
 
-  ![Połączenie z komputerem Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Połącz")
+  ![Połączenie z komputerem Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Connect")
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Aby zweryfikować połączenie
 

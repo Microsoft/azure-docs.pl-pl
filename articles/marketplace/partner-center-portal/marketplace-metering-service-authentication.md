@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 42a76a2cf583a57ae5b38fe051ee48d16d705dd2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319970"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378733"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategie uwierzytelniania usługi pomiaru w portalu Marketplace
 
@@ -68,10 +68,10 @@ Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Dir
 
 |  **Nazwa właściwości**  |  **Wymagane**  |  **Opis**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   Prawda         | Typ udzielania. Użyj witryny `client_credentials`. |
+|  `Grant_type`       |   Prawda         | Typ udzielania. Użyj polecenia `client_credentials`. |
 |  `Client_id`        |   Prawda         | Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD.|
 |  `client_secret`    |   Prawda         | Wpis tajny skojarzony z aplikacją usługi Azure AD.  |
-|  `Resource`         |   Prawda         | Zasób docelowy, dla którego zażądano tokenu. Użyj witryny `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
+|  `Resource`         |   Prawda         | Zasób docelowy, dla którego zażądano tokenu. Użyj polecenia `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Odpowiedź*
@@ -114,7 +114,7 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
     * [Interfejs użytkownika Azure Portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
     * [Interfejs wiersza polecenia](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
     * [Program PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-    * [Szablon Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [Szablon usługi Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
     * [Rest](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
     * [Zestawy Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
@@ -145,7 +145,7 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,4 +156,4 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie oferty aplikacji platformy Azure](./create-new-azure-apps-offer.md)
-* [Tworzenie oferty SaaS z transakcyjnymi](./offer-creation-checklist.md)
+* [Planowanie oferty SaaS](../plan-saas-offer.md)

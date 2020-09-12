@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 7025d042fa021c6ee5311566d66bfd090dbd06cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 503e37d0e339cacc9c21a2b2f3ad739e1385c955
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851583"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443198"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Role Sieć Web i Proces roboczy języka Python z programem Python Tools for Visual Studio
 
@@ -288,7 +288,7 @@ else
 #### <a name="pscmd"></a>ps.cmd
 Szablony Visual Studio powinny utworzyć plik **ps.cmd** w folderze **./bin**. Ten skrypt powłoki wywołuje powyższe skrypty otoki PowerShell i zapewnia rejestrowanie na podstawie nazwy wywołanej otoki PowerShell. Jeśli ten plik nie został utworzony, jego zawartość powinna wyglądać następująco. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0
@@ -337,7 +337,7 @@ Więcej szczegółów dotyczących korzystania z usług Azure na podstawie roli 
 * [Table Service][Table Service]
 * [Queue Service][Queue Service]
 * [Kolejki Service Bus][Service Bus Queues]
-* [Tematy usługi Service Bus][Service Bus Topics]
+* [Tematy Service Bus][Service Bus Topics]
 
 <!--Link references-->
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87421509326ef8837a9787ed01a70915c7c5aafa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230742"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393432"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Podstawa zabezpieczeń platformy Azure dla Container Instances
 
@@ -988,7 +988,9 @@ Użyj Azure Policy, aby umieścić ograniczenia dotyczące typu zasobów, które
 
 * [Jak utworzyć Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](../key-vault/general/managed-identity.md)
+* [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/authentication.md)
+
+* [Jak przypisać zasady dostępu Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 * [Jak używać tożsamości zarządzanych z usługą Azure Container Instances](./container-instances-managed-identity.md)
 

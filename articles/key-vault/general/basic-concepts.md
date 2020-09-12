@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167302"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89379005"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault podstawowe pojęcia
 
@@ -33,7 +33,7 @@ Oto inne ważne terminy:
 
 - **Grupa zasobów** — grupa zasobów to kontener, który zawiera powiązane zasoby dla rozwiązania platformy Azure. Grupa zasobów może zawierać wszystkie zasoby dla rozwiązania lub tylko te zasoby, które mają być zarządzane jako grupa. Użytkownik decyduje o sposobie przydziału zasobów do grup zasobów pod kątem tego, co jest najbardziej odpowiednie dla danej organizacji.
 
-- Nazwa **główna usługi**: jednostka usługi platformy Azure to tożsamość zabezpieczeń, którą aplikacje, usługi i narzędzia automatyzacji zostały utworzone przez użytkownika w celu uzyskania dostępu do określonych zasobów platformy Azure. Należy je traktować jako "tożsamość użytkownika" (nazwę użytkownika i hasło lub certyfikat) z określoną rolą i ściśle kontrolowanymi uprawnieniami. W odróżnieniu od ogólnej tożsamości użytkownika, jednostka usługi powinna wykonywać tylko określone czynności. Zwiększa zabezpieczenia, jeśli przyznasz mu tylko minimalny poziom uprawnień potrzebny do wykonywania zadań zarządzania.
+- **Podmiot zabezpieczeń**: podmiot zabezpieczeń Azure to tożsamość zabezpieczeń, którą aplikacje, usługi i narzędzia automatyzacji zostały utworzone przez użytkownika w celu uzyskania dostępu do określonych zasobów platformy Azure. Należy je traktować jako "tożsamość użytkownika" (nazwę użytkownika i hasło lub certyfikat) z określoną rolą i ściśle kontrolowanymi uprawnieniami. Podmiot zabezpieczeń musi tylko wykonywać określone czynności, w przeciwieństwie do ogólnej tożsamości użytkownika. Zwiększa zabezpieczenia, jeśli przyznasz mu tylko minimalny poziom uprawnień potrzebny do wykonywania zadań zarządzania. Podmiot zabezpieczeń używany z aplikacją lub usługą jest jawnie nazywany nazwą **główną usługi**.
 
 - [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): Azure AD to usługa Active Directory dla dzierżawy. Każdy katalog ma co najmniej jedną domenę. Katalog może mieć wiele skojarzonych subskrypcji, ale tylko jedną dzierżawę.
 

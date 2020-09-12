@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Konfigurowanie usługi ExpressRoute Direct'
 description: Dowiedz się, jak używać Azure PowerShell, aby skonfigurować usługę Azure ExpressRoute Direct do bezpośredniego łączenia się z siecią globalną firmy Microsoft w lokalizacjach komunikacji równorzędnej na całym świecie.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/22/2020
-ms.author: jaredro
-ms.openlocfilehash: 42803cbc7901be01c88145e2d98f2982434710a1
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192759"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396033"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Jak skonfigurować ExpressRoute Direct
 

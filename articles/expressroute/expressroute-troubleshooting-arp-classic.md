@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: tabele ARP — Rozwiązywanie problemów: klasyczny'
 description: Ta strona zawiera instrukcje dotyczące pobierania tabel ARP dla modelu wdrożenia ExpressRoute — klasyczny.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 01/30/2017
-ms.author: charwen
-ms.openlocfilehash: f381c25edae566f2dc9f864beda47e65df5c21e1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.author: duau
+ms.openlocfilehash: 7c83b6d25936e184c70d4bf0a51636a3986bf4b2
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985394"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394843"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Pobieranie tabel ARP w klasycznym modelu wdrażania
 > [!div class="op_single_selector"]

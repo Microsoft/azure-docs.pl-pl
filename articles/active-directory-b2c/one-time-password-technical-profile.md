@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 09/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385726"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418912"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny hasła jednorazowego w zasadach niestandardowych Azure AD B2C
 
@@ -77,6 +77,7 @@ Następujące ustawienia mogą służyć do konfigurowania trybu generowania kod
 | CodeLength | Nie | Długość kodu. Wartość domyślna to `6`. |
 | CharacterSet | Nie | Zestaw znaków dla kodu sformatowany do użycia w wyrażeniu regularnym. Na przykład `a-z0-9A-Z`. Wartość domyślna to `0-9`. Zestaw znaków musi zawierać co najmniej 10 różnych znaków w określonym zestawie. |
 | NumRetryAttempts | Nie | Liczba prób weryfikacji przed kodem jest uznawana za nieprawidłową. Wartość domyślna to `5`. |
+| NumCodeGenerationAttempts | Nie | Liczba maksymalnych prób generowania kodu dla identyfikatora. Wartość domyślna to 10, jeśli nie zostanie określona. |
 | Operacja | Tak | Operacja do wykonania. Możliwa wartość: `GenerateCode` . |
 | ReuseSameCode | Nie | Czy należy określić zduplikowany kod zamiast generować nowy kod, gdy dany kod nie wygasł i jest nadal ważny. Wartość domyślna to `false`. |
 
@@ -94,6 +95,7 @@ Poniższy przykład `TechnicalProfile` służy do generowania kodu:
     <Item Key="CodeLength">6</Item>
     <Item Key="CharacterSet">0-9</Item>
     <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="NumCodeGenerationAttempts">15</Item>
     <Item Key="ReuseSameCode">false</Item>
   </Metadata>
   <InputClaims>
@@ -105,7 +107,7 @@ Poniższy przykład `TechnicalProfile` służy do generowania kodu:
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Weryfikuj kod
+## <a name="verify-code"></a>Zweryfikuj kod
 
 Drugi tryb tego profilu technicznego polega na sprawdzeniu kodu. Poniżej przedstawiono opcje, które można skonfigurować dla tego trybu.
 
@@ -143,6 +145,7 @@ Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wy
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Nie | Komunikat, który ma być wyświetlany użytkownikowi, jeśli sesja weryfikacji kodu wygasła. To albo kod wygasł albo kod nigdy nie został wygenerowany dla danego identyfikatora. |
 | UserMessageIfMaxRetryAttempted | Nie | Komunikat, który ma być wyświetlany użytkownikowi w przypadku przekroczenia maksymalnej dozwolonej liczby prób weryfikacji. |
+| UserMessageIfMaxNumberOfCodeGenerated | Nie | Komunikat, który ma być wyświetlany użytkownikowi w przypadku, gdy generacja kodu przekroczyła maksymalną dozwoloną liczbę prób. |
 | UserMessageIfInvalidCode | Nie | Komunikat, który ma być wyświetlany użytkownikowi, jeśli podał nieprawidłowy kod. |
 | UserMessageIfVerificationFailedRetryAllowed | Nie | Komunikat, który ma być wyświetlany użytkownikowi w przypadku podania nieprawidłowego kodu, a użytkownik może podać poprawny kod.  |
 |UserMessageIfSessionConflict|Nie| Komunikat, który ma być wyświetlany użytkownikowi, jeśli nie można zweryfikować kodu.|

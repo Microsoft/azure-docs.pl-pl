@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: c475e548cc8e29a83f2d440df43fb8ac31dc1c1e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6eeb27f6382585e883fbebc40a9f70feb33adb4f
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816256"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420612"
 ---
 # <a name="iot-edge-modules"></a>Moduły usługi IoT Edge
 
@@ -40,7 +40,7 @@ Typ oferty modułu IoT Edge jest określonym typem kontenera uruchomionym na urz
 
 **Wybieranie odpowiedniego sklepu online**
 
-Moduły IoT Edge są publikowane tylko w portalu Azure Marketplace. AppSource nie ma zastosowania. Aby uzyskać więcej informacji na temat różnic i odbiorców docelowych w sklepach online, zobacz [Określanie opcji publikowania](determine-your-listing-type.md).
+Moduły IoT Edge są publikowane tylko w portalu Azure Marketplace. AppSource nie ma zastosowania. Aby uzyskać więcej informacji na temat różnic między sklepami online, zobacz [Określanie opcji publikowania](determine-your-listing-type.md).
 
 **Opcje rozliczeń**
 
@@ -75,6 +75,5 @@ Podstawowe wymagania techniczne dotyczące modułu IoT Edge, aby można było uz
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o komercyjnym rynku.
 - Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć lub zakończyć swoją ofertę.
 - [Utwórz ofertę modułu IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) w centrum partnerskim.
