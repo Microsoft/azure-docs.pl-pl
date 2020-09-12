@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea7460b3f997e0432ea0b987849eafccbe57b3b9
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229178"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396815"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Podstawa zabezpieczeń platformy Azure dla Azure Container Registry
 
@@ -970,9 +970,11 @@ Przeprowadź inspekcję zgodności rejestrów kontenerów platformy Azure przy u
 
 Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure:  https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Jak utworzyć Key Vault:  https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Jak utworzyć Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:  https://docs.microsoft.com/azure/key-vault/managed-identity
+Jak przeprowadzić uwierzytelnianie w Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Jak przypisać zasady dostępu Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 Użyj tożsamości zarządzanej przez platformę Azure w Azure Container Registry zadaniach:  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
 

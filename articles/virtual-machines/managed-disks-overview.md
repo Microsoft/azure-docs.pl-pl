@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c7bef7fac23ab054810d7d27f99b773f6910f344
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: contperfq1
+ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021446"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299936"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Wprowadzenie do dysków zarządzanych na platformie Azure
 
@@ -143,7 +144,7 @@ Platforma Azure używa priorytetowego kanału sieciowego dla ruchu dyskowego, kt
 
 Zapoznaj się z naszym [projektem w celu uzyskania wysokiej wydajności](premium-storage-performance.md) artykułu, aby poznać najlepsze rozwiązania dotyczące optymalizowania konfiguracji maszyn wirtualnych i dysków, dzięki czemu można osiągnąć żądaną wydajność
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Jeśli chcesz uzyskać więcej szczegółów na temat dysków zarządzanych, zapoznaj się z tematem: [Lepsza odporność maszyn wirtualnych platformy Azure za pomocą Managed disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 

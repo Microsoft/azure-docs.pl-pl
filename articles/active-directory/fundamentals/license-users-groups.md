@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9909b92e58d73c9578d3d17a7bbf24fe2924fae2
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797087"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319529"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Przypisywanie lub usuwanie licencji w portalu Azure Active Directory
 
@@ -35,7 +35,7 @@ Istnieje kilka planów licencji dostępnych dla usługi Azure AD, w tym:
 
 - Usługa Azure AD — wersja Premium P2
 
-Aby uzyskać szczegółowe informacje na temat każdego planu licencjonowania i skojarzonych ze sobą szczegółów licencji, zobacz [Jaka jest potrzebna licencja?](https://azure.microsoft.com/pricing/details/active-directory/). Aby zarejestrować się w planach licencji usługi Azure AD Premium, zobacz [tutaj](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+Aby uzyskać szczegółowe informacje na temat każdego planu licencjonowania i skojarzonych ze sobą szczegółów licencji, zobacz [Jaka jest potrzebna licencja?](https://azure.microsoft.com/pricing/details/active-directory/). Aby zarejestrować się w planach licencji usługi Azure AD Premium, zobacz [tutaj](./active-directory-get-started-premium.md).
 
 Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do grupy, należy określić **lokalizację użycia** dla wszystkich elementów członkowskich. Tę wartość można ustawić w obszarze ** &gt; &gt; &gt; ustawień profilu użytkownicy Azure Active Directory** w usłudze Azure AD. Każdy użytkownik, którego lokalizacja użycia nie została określona, dziedziczy lokalizację organizacji usługi Azure AD.
 

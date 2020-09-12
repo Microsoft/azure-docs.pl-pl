@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640586"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296519"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -38,7 +38,7 @@ Jeśli zostanie wyświetlony komunikat o błędzie "podany plik manifestu jest n
 
 Taka sytuacja może wystąpić, jeśli komputer urządzenia znajduje się za serwerem proxy.
 
-- Upewnij się, że podajesz poświadczenia autoryzacji, jeśli serwer proxy ich potrzebuje.
+- Upewnij się, że podajesz poświadczenia autoryzacji, jeśli serwer proxy ich wymaga.
 - Jeśli używasz serwera proxy zapory opartego na adresie URL w celu kontrolowania łączności wychodzącej, Dodaj [te adresy URL](migrate-appliance.md#url-access) do listy dozwolonych.
 - Jeśli używasz przechwycenia serwera proxy do łączenia się z Internetem, zaimportuj certyfikat serwera proxy na maszynę wirtualną urządzenia, wykonując [następujące kroki](./migrate-appliance.md).
 
@@ -151,7 +151,7 @@ Jeśli zaczekasz, a stan nie zmieni się, wybierz pozycję **Odśwież** na karc
 Jeśli to nie zadziała, a będziesz odnajdywać serwery VMware:
 
 - Sprawdź, czy określone konto vCenter ma ustawione uprawnienia prawidłowo, z dostępem do co najmniej jednej maszyny wirtualnej.
-- Azure Migrate nie może odnaleźć maszyn wirtualnych VMware, jeśli konto vCenter ma dostęp na poziomie folderu vCenter VM. [Dowiedz się więcej](set-discovery-scope.md) na temat odnajdywania zakresu.
+- Azure Migrate nie może odnaleźć maszyn wirtualnych VMware, jeśli konto vCenter ma dostęp udzielony na poziomie folderu vCenter VM. [Dowiedz się więcej](set-discovery-scope.md) na temat odnajdywania zakresu.
 
 ## <a name="vm-data-not-in-portal"></a>Dane maszyny wirtualnej nie są w portalu
 

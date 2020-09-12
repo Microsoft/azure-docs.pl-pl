@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a10dec01757fd344c9fa2bc92082082d2af085e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000570"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293357"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Ramka zabezpieczeń: sprawdzanie poprawności danych wejściowych | Środki zaradcze 
 | Produkt/usługa | Artykuł |
@@ -397,7 +397,7 @@ W poprzednim przykładzie kodu wartość wejściowa nie może być dłuższa ni�
 | **Odpowiednie technologie** | Ogólne, MVC5, MVC6 |
 | **Atrybuty**              | Nie dotyczy  |
 | **Dokumentacja**              | [Dodawanie walidacji](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Weryfikowanie danych modelu w aplikacji MVC](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [reguły identyfikatorów GUID dla aplikacji ASP.NET MVC](https://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Kroki** | <p>Wszystkie parametry wejściowe muszą zostać sprawdzone przed użyciem ich w aplikacji, aby upewnić się, że aplikacja jest chroniona przed złośliwymi danymi wejściowymi użytkownika. Sprawdź poprawność wartości wejściowych przy użyciu walidacji wyrażenia regularnego po stronie serwera z strategią walidacji dozwolonych. Nieoczyszczone dane wejściowe użytkownika/parametry przesłane do metod mogą spowodować luki w zabezpieczeniach iniekcji kodu.</p><p>W przypadku aplikacji sieci Web punkty wejścia mogą również zawierać pola formularza, QueryString, cookies, nagłówki HTTP i parametry usługi sieci Web.</p><p>Następujące sprawdzenia poprawności danych wejściowych należy wykonać po powiązaniu modelu:</p><ul><li>Do właściwości modelu należy dodać adnotację ze RegularExpressioną, aby akceptować dozwolone znaki i maksymalną dopuszczalną długość</li><li>Metody kontrolera powinny wykonywać ModelStateą ważność</li></ul>|
+| **Kroki** | <p>Wszystkie parametry wejściowe muszą zostać sprawdzone przed użyciem ich w aplikacji, aby upewnić się, że aplikacja jest chroniona przed złośliwymi danymi wejściowymi użytkownika. Sprawdź poprawność wartości wejściowych przy użyciu walidacji wyrażeń regularnych po stronie serwera z dozwoloną strategią walidacji listy. Nieoczyszczone dane wejściowe użytkownika/parametry przesłane do metod mogą spowodować luki w zabezpieczeniach iniekcji kodu.</p><p>W przypadku aplikacji sieci Web punkty wejścia mogą również zawierać pola formularza, QueryString, cookies, nagłówki HTTP i parametry usługi sieci Web.</p><p>Następujące sprawdzenia poprawności danych wejściowych należy wykonać po powiązaniu modelu:</p><ul><li>Do właściwości modelu należy dodać adnotację ze RegularExpressioną, aby akceptować dozwolone znaki i maksymalną dopuszczalną długość</li><li>Metody kontrolera powinny wykonywać ModelStateą ważność</li></ul>|
 
 ## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>Narzędzie Oczyszczanie powinno być stosowane w polach formularza akceptujących wszystkie znaki, np. Edytor tekstu sformatowanego
 
@@ -441,7 +441,7 @@ Nie używaj `innerHtml` ; zamiast tego użyj `innerText` . Podobnie zamiast `$("
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Dokumentacja**              | [Struktura autoryzacji OAuth 2,0 — otwarte readresatory](https://tools.ietf.org/html/rfc6749#section-10.15) |
-| **Kroki** | <p>Projektowanie aplikacji wymagającej przekierowania do lokalizacji dostarczonej przez użytkownika musi ograniczyć możliwość przekierowania na wstępnie zdefiniowaną "bezpieczną" listę witryn lub domen. Wszystkie przekierowania w aplikacji muszą być zamknięte/bezpieczne.</p><p>W tym celu:</p><ul><li>Identyfikuj wszystkie przekierowania</li><li>Zaimplementuj odpowiednie środki zaradcze dla każdego przekierowania. Odpowiednie środki zaradcze obejmują Przekieruj dozwolonych lub potwierdzenie użytkownika. Jeśli witryna sieci Web lub usługa z luką typu "Open redirect" używa dostawców tożsamości usługi Facebook/OAuth/OpenID Connect, osoba atakująca może wykraść token logowania użytkownika i spersonifikować tego użytkownika. Jest to nieodłączne ryzyko w przypadku korzystania z protokołu OAuth, który jest opisany w dokumencie RFC 6749 "Struktura autoryzacji uwierzytelniania OAuth 2,0", sekcja 10,15 "otwarte przekierowania" — Podobnie poświadczenia użytkowników mogą zostać naruszone przez Spear ataki wyłudzaniane przy użyciu funkcji Otwórz przekierowania.</li></ul>|
+| **Kroki** | <p>Projektowanie aplikacji wymagającej przekierowania do lokalizacji dostarczonej przez użytkownika musi ograniczyć możliwość przekierowania na wstępnie zdefiniowaną "bezpieczną" listę witryn lub domen. Wszystkie przekierowania w aplikacji muszą być zamknięte/bezpieczne.</p><p>W tym celu:</p><ul><li>Identyfikuj wszystkie przekierowania</li><li>Zaimplementuj odpowiednie środki zaradcze dla każdego przekierowania. Odpowiednie środki zaradcze obejmują listę dozwolonych przekierowań lub potwierdzenie użytkownika. Jeśli witryna sieci Web lub usługa z luką typu "Open redirect" używa dostawców tożsamości usługi Facebook/OAuth/OpenID Connect, osoba atakująca może wykraść token logowania użytkownika i spersonifikować tego użytkownika. Jest to nieodłączne ryzyko w przypadku korzystania z protokołu OAuth, który jest opisany w dokumencie RFC 6749 "Struktura autoryzacji uwierzytelniania OAuth 2,0", sekcja 10,15 "otwarte przekierowania" — Podobnie poświadczenia użytkowników mogą zostać naruszone przez Spear ataki wyłudzaniane przy użyciu funkcji Otwórz przekierowania.</li></ul>|
 
 ## <a name="implement-input-validation-on-all-string-type-parameters-accepted-by-controller-methods"></a><a id="string-method"></a>Implementuj sprawdzanie poprawności danych wejściowych dla wszystkich parametrów typu String zaakceptowanych przez metody kontrolera
 

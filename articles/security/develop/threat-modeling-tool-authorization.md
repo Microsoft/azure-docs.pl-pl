@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77964eed6960a79920f359a03c65102ad949a210
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004667"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300004"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Ramka zabezpieczeń: Autoryzacja | Środki zaradcze 
 | Produkt/usługa | Artykuł |
@@ -205,7 +205,7 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Dokumentacja**              | [Omówienie modelu uwierzytelniania i zabezpieczeń Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Kroki** | Token, który przyznaje bezpośredni dostęp do centrum zdarzeń, nie powinien być określony dla urządzenia. Użycie najmniejszego uprzywilejowanego tokenu dla urządzenia zapewniającego dostęp tylko do wydawcy może ułatwić identyfikację i odnalezienie go, jeśli jest to urządzenie nieautoryzowane lub zagrożone.|
+| **Kroki** | Token, który przyznaje bezpośredni dostęp do centrum zdarzeń, nie powinien być określony dla urządzenia. Użycie najmniejszego uprzywilejowanego tokenu dla urządzenia zapewniającego dostęp tylko do wydawcy może pomóc w zidentyfikowaniu i nieznalezieniu tego, czy jest to urządzenie nieautoryzowane lub zagrożone.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Łączenie z centrum zdarzeń przy użyciu kluczy SAS, które mają minimalne wymagane uprawnienia
 

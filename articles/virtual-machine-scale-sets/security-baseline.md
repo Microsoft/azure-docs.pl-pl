@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b027e44a2ee31b0168ec3b6af717df23dd560abd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89225591"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398448"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Podstawa zabezpieczeń platformy Azure dla Virtual Machine Scale Sets
 
@@ -976,7 +976,9 @@ W przypadku większości scenariuszy szablony maszyn wirtualnych firmy Microsoft
 
 * [Jak utworzyć Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Jak przeprowadzić uwierzytelnianie w Key Vault](../key-vault/general/authentication.md)
+
+* [Jak przypisać zasady dostępu Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

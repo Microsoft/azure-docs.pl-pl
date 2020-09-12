@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: łączenie sieci wirtualnej z obwodem: interfejs wiersza polecenia'
 description: W tym artykule pokazano, jak połączyć sieci wirtualne (sieci wirtualnych) ze obwodami usługi ExpressRoute przy użyciu modelu wdrażania Menedżer zasobów i interfejsu wiersza polecenia.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.author: cherylmc
-ms.openlocfilehash: 3d51409baf9d5ca6ce90f1367ac128d7d47a9757
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: duau
+ms.openlocfilehash: ac36e303cbeaf5167b5bbec3cea503c37b276058
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325257"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393211"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
 

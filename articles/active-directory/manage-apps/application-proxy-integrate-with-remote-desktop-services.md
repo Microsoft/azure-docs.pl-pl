@@ -1,6 +1,6 @@
 ---
 title: Publikowanie Pulpit zdalny z aplikacja usługi Azure AD serwerem proxy | Microsoft Docs
-description: Obejmuje podstawowe informacje dotyczące łączników usługi Azure serwer proxy aplikacji usługi Azure AD.
+description: Informacje dotyczące konfigurowania serwera proxy aplikacji przy użyciu usług RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019526"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396764"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie Pulpit zdalny przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -88,7 +88,7 @@ Połącz się z wdrożeniem usług pulpitu zdalnego jako administrator i Zmień 
 1. Nawiąż połączenie z serwerem RDS z uruchomioną rolą brokera połączeń usług pulpitu zdalnego.
 2. Uruchom **Menedżer serwera**.
 3. Wybierz **usługi pulpitu zdalnego** z okienka po lewej stronie.
-4. Wybierz pozycję **Przegląd**.
+4. Wybierz pozycję **Omówienie**.
 5. W sekcji Przegląd wdrożenia wybierz menu rozwijane i wybierz polecenie **Edytuj właściwości wdrożenia**.
 6. Na karcie Brama usług pulpitu zdalnego Zmień pole **Nazwa serwera** na zewnętrzny adres URL ustawiony dla punktu końcowego hosta usług pulpitu zdalnego w serwerze proxy aplikacji.
 7. Zmień wartość pola **metoda logowania** na **uwierzytelnianie hasła**.
@@ -135,7 +135,7 @@ Konfiguracja zakreślona w tym artykule dotyczy dostępu do pulpitu zdalnego za 
 
 | Metoda uwierzytelniania | Obsługiwana konfiguracja klienta |
 | --------------------- | ------------------------------ |
-| Wstępne uwierzytelnianie    | Pulpit internetowy usług pulpitu zdalnego — Windows 7/10 przy użyciu programu Internet Explorer + dodatek ActiveX usług pulpitu zdalnego |
+| Wstępne uwierzytelnianie    | Pulpit internetowy usług pulpitu zdalnego — Windows 7/10 przy użyciu przeglądarki Internet Explorer lub programu [Edge](https://docs.microsoft.com/deployedge/edge-ie-mode) |
 | Wstępne uwierzytelnianie    | Klient usług pulpitu zdalnego w sieci Web — przeglądarka sieci Web zgodna z programem HTML5, taka jak Microsoft Edge, Internet Explorer 11, Google Chrome, Safari lub Mozilla Firefox (v 55.0 i nowsze) |
 | Kazują | Każdy inny system operacyjny, który obsługuje aplikację Pulpit zdalny Microsoft |
 

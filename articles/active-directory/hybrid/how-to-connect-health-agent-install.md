@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b51eb7e59e32985363d83c3d515fa7f54babac1f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179458"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296468"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalowanie agenta programu Azure AD Connect Health
 
@@ -39,20 +39,20 @@ Poniższa tabela zawiera listę wymagań dotyczących używania programu Azure A
 | Na każdym serwerze docelowym jest zainstalowany agent programu Azure AD Connect Health | Program Azure AD Connect Health wymaga zainstalowania i skonfigurowania agentów kondycji na serwerach docelowych w celu umożliwienia odbioru danych i zapewnienia możliwości monitorowania i analizy. <br /><br />Na przykład aby uzyskać dane z infrastruktury usług AD FS, musisz zainstalować agenta na serwerach proxy usług AD FS i aplikacji internetowej. Podobnie, aby uzyskać dane dotyczące lokalnej infrastruktury usług AD DS, agent musi być zainstalowany na kontrolerach domeny. <br /><br /> |
 | Łączność wychodząca z punktami końcowymi usług Azure | Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli łączność wychodząca jest blokowana przy użyciu zapór, nie zapomnij dodać następujących punktów końcowych do listy lokalizacji dozwolonych. Zobacz sekcję dotyczącą [punktów końcowych łączności wychodzącej](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Łączność wychodząca na podstawie adresów IP | W przypadku filtrowania zapory opartego na adresach IP zapoznaj się z [zakresem adresów IP platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
-| Inspekcja protokołu TLS dla ruchu wychodzącego jest filtrowana lub wyłączona | Krok rejestracji agenta lub operacje przekazywania danych mogą się nie powieść, jeśli istnieje Inspekcja lub przerwa dla ruchu wychodzącego w warstwie sieciowej. Przeczytaj więcej [na temat sposobu konfigurowania inspekcji protokołu TLS](https://technet.microsoft.com/library/ee796230.aspx) |
-| Porty zapory na serwerze, na którym jest uruchomiony agent |Agent wymaga, aby poniższe porty zapory były otwarte w celu komunikacji z punktami końcowymi usług programu Azure AD Connect Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Należy zauważyć, że port 5671 nie jest już wymagany dla najnowszej wersji agenta. Uaktualnij do najnowszej wersji, aby był wymagany tylko port 443. Dowiedz się więcej na temat [włączania portów zapory](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Inspekcja protokołu TLS dla ruchu wychodzącego jest filtrowana lub wyłączona | Krok rejestracji agenta lub operacje przekazywania danych mogą się nie powieść, jeśli istnieje Inspekcja lub przerwa dla ruchu wychodzącego w warstwie sieciowej. Przeczytaj więcej [na temat sposobu konfigurowania inspekcji protokołu TLS](/previous-versions/tn-archive/ee796230(v=technet.10)) |
+| Porty zapory na serwerze, na którym jest uruchomiony agent |Agent wymaga, aby poniższe porty zapory były otwarte w celu komunikacji z punktami końcowymi usług programu Azure AD Connect Health.<br /><br /><li>Port TCP 443</li><li>Port TCP 5671</li> <br />Należy zauważyć, że port 5671 nie jest już wymagany dla najnowszej wersji agenta. Uaktualnij do najnowszej wersji, aby był wymagany tylko port 443. Dowiedz się więcej na temat [włączania portów zapory](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100)) |
 | Zezwalaj na następujące witryny sieci web, jeśli są włączone zwiększone zabezpieczenia programu Internet Explorer |Jeśli zwiększone zabezpieczenia programu Internet Explorer są włączone na serwerze, na którym ma zostać zainstalowany agent, musisz zezwolić na otwieranie poniższych witryn sieci Web.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.NET</li><li>Serwer federacyjny Twojej organizacji zaufany przez usługę Azure Active Directory. Na przykład: https:\//sts.contoso.com</li> Dowiedz się więcej [na temat konfigurowania programu IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Jeśli masz serwer proxy w sieci, zobacz uwagi poniżej.|
 | Upewnij się, że zainstalowano program PowerShell w wersji 4.0 lub nowszej | <li>System Windows Server 2008 R2 jest dostarczany z programem PowerShell w wersji 2.0, która jest niewystarczająca dla agenta. Zaktualizuj program PowerShell zgodnie z opisem w poniższej sekcji dotyczącej [instalacji agenta na serwerach z systemem Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>System Windows Server 2012 jest dostarczany z programem PowerShell w wersji 3.0, która jest niewystarczająca dla agenta.</li><li>System Windows Server 2012 R2 i jego nowsze wersje są dostarczane z wystarczająco nową wersją programu PowerShell.</li>|
 |Wyłącz standard FIPS|Standard FIPS nie jest obsługiwany przez agentów programu Azure AD Connect Health.|
 
 
 > [!NOTE]
-> Jeśli masz wysoce zablokowanie i wyjątkowo ograniczone środowisko, musisz dozwolonych adresy URL wymienione na liście punktów końcowych usług, oprócz tych wymienionych w powyższej konfiguracji programu IE zwiększonych zabezpieczeń. 
+> Jeśli masz wysoce zablokowanie i wyjątkowo ograniczone środowisko, musisz dodać adresy URL wymienione na liście punktów końcowych poniżej, oprócz tych wymienionych w powyższej konfiguracji programu IE zwiększonych zabezpieczeń. 
 >
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Łączność wychodząca z punktami końcowymi usług Azure
 
- Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli łączność wychodząca jest blokowana przy użyciu zapór, upewnij się, że następujące adresy URL nie są domyślnie blokowane. Nie należy wyłączać monitorowania zabezpieczeń ani inspekcji tych adresów URL, ale Zezwalaj na tak jak w przypadku innego ruchu internetowego. Umożliwiają one komunikację z punktami końcowymi usługi Azure AD Connect Health. Dowiedz się, jak [sprawdzić łączność wychodzącą przy użyciu Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Podczas instalowania i w czasie pracy agent wymaga łączności z punktami końcowymi usługi Azure AD Connect Health. Jeśli łączność wychodząca jest blokowana przy użyciu zapór, upewnij się, że następujące adresy URL nie są domyślnie blokowane. Nie należy wyłączać monitorowania zabezpieczeń ani inspekcji tych adresów URL, ale Zezwalaj na tak jak w przypadku innego ruchu internetowego. Umożliwiają one komunikację z punktami końcowymi usługi Azure AD Connect Health. Dowiedz się, jak [sprawdzić łączność wychodzącą przy użyciu Test-AzureADConnectHealthConnectivity](#test-connectivity-to-azure-ad-connect-health-service).
 
 | Środowisko domeny | Wymagane punkty końcowe usług platformy Azure |
 | --- | --- |
@@ -140,7 +140,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 7. W okienku **Akcje** kliknij pozycję **Edytuj właściwości usługi federacyjnej**.
 8. W oknie dialogowym **właściwości usługa federacyjna** kliknij kartę **zdarzenia** .
 9. Zaznacz pola wyboru **Inspekcje zakończone sukcesem** i **Inspekcje zakończone niepowodzeniem**.
-10. Kliknij przycisk **OK**.
+10. Kliknij pozycję **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Aby włączyć inspekcję usług AD FS w systemie Windows Server 2012 R2
 
@@ -170,7 +170,7 @@ Aby funkcja Analiza użycia mogła zbierać i analizować dane, agent programu A
 9. Zaznacz pola wyboru **Inspekcje zakończone sukcesem i Inspekcje zakończone niepowodzeniem**, a następnie kliknij przycisk **OK**. Powinno to być włączone domyślnie.
 10. Otwórz okno programu PowerShell i uruchom następujące polecenie: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Zwróć uwagę, że poziom inspekcji „basic” (podstawowy) jest włączony domyślnie. Przeczytaj więcej na temat [ulepszenia inspekcji usług AD FS w systemie Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
+Zwróć uwagę, że poziom inspekcji „basic” (podstawowy) jest włączony domyślnie. Przeczytaj więcej na temat [ulepszenia inspekcji usług AD FS w systemie Windows Server 2016](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Aby zlokalizować dzienniki inspekcji usług AD FS
@@ -394,7 +394,7 @@ Parametr roli obecnie przyjmuje następujące wartości:
 
 ## <a name="related-links"></a>Linki pokrewne
 
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Operacje w programie Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md)
 * [Używanie Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md)

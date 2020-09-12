@@ -3,12 +3,12 @@ title: Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor 
 description: W tym artykule opisano sposób konfigurowania Azure Monitor kontenerów do monitorowania klastrów Kubernetes hostowanych w Azure Stack lub innym środowisku.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498903"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398385"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurowanie hybrydowych klastrów Kubernetes za pomocą Azure Monitor dla kontenerów
 
@@ -38,7 +38,7 @@ Następujące konfiguracje są oficjalnie obsługiwane w przypadku kontenerów A
 
 Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
-- [Obszar roboczy log Analytics](../platform/design-logs-deployment.md).
+- [Obszar roboczy usługi Log Analytics](../platform/design-logs-deployment.md).
 
     Azure Monitor dla kontenerów obsługuje obszar roboczy Log Analytics w regionach wymienionych w produktach platformy Azure [według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Aby utworzyć własny obszar roboczy, można go utworzyć za pomocą [Azure Resource Manager](../platform/template-workspace-configuration.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../learn/quick-create-workspace.md).
 
@@ -71,9 +71,11 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 Włączenie Azure Monitor kontenerów dla klastra hybrydowego Kubernetes składa się z następujących kroków w kolejności.
 
-1. Skonfiguruj obszar roboczy Log Analytics przy użyciu rozwiązania datainsights.
+1. Skonfiguruj obszar roboczy Log Analytics przy użyciu rozwiązania datainsights.   
 
 2. Włącz Azure Monitor dla HELM kontenerów z obszarem roboczym Log Analytics.
+
+Dodatkowe informacje na temat monitorowania rozwiązań w Azure Monitor można znaleźć [tutaj](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Jak dodać rozwiązanie Azure Monitor Containers
 
@@ -334,7 +336,7 @@ Po pomyślnym wdrożeniu wykresu można przejrzeć dane dla hybrydowego klastra 
 
 Począwszy od wersji wykresu 2.7.1, wykres będzie obsługiwał Określanie punktu końcowego proxy z `omsagent.proxy` parametrem wykresu. Dzięki temu można komunikować się z serwerem proxy. Komunikacja między Azure Monitor dla agenta kontenerów i Azure Monitor może być serwerem proxy HTTP lub HTTPS, a uwierzytelnianiem anonimowym i podstawowym (nazwa użytkownika/hasło) są obsługiwane.
 
-Wartość konfiguracji serwera proxy ma następującą składnię:`[protocol://][user:password@]proxyhost[:port]`
+Wartość konfiguracji serwera proxy ma następującą składnię: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Jeśli serwer proxy nie wymaga uwierzytelniania, nadal trzeba określić nazwę użytkownika/hasło psuedo. Może to być dowolna nazwa użytkownika lub hasło.

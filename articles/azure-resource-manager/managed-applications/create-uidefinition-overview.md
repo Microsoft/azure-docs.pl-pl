@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210959"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319575"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Plik CreateUiDefinition.json dla środowiska tworzenia aplikacji zarządzanej platformy Azure
 
@@ -25,6 +25,7 @@ Szablon jest następujący:
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -35,7 +36,7 @@ Szablon jest następujący:
 }
 ```
 
-CreateUiDefinition zawsze zawiera trzy właściwości: 
+`CreateUiDefinition`Zawsze zawiera trzy właściwości:
 
 * jścia
 * version
@@ -43,41 +44,19 @@ CreateUiDefinition zawsze zawiera trzy właściwości:
 
 Program obsługi powinien zawsze mieć wartość `Microsoft.Azure.CreateUIDef` , a Najnowsza obsługiwana wersja to `0.1.2-preview` .
 
-Schemat właściwości Parameters zależy od kombinacji określonej procedury obsługi i wersji. W przypadku aplikacji zarządzanych obsługiwane właściwości to `basics` ,, `steps` `outputs` i `config` . Właściwości podstawowe i kroki zawierają [elementy](create-uidefinition-elements.md) , takie jak pola tekstowe i listy rozwijane, do wyświetlenia w Azure Portal. Właściwość Outputs służy do mapowania wartości wyjściowych określonych elementów na parametry szablonu Azure Resource Manager. Można używać `config` tylko wtedy, gdy zachodzi potrzeba przesłonięcia domyślnego zachowania `basics` kroku.
+Schemat właściwości Parameters zależy od kombinacji określonej procedury obsługi i wersji. W przypadku aplikacji zarządzanych obsługiwane właściwości to `config` ,, `basics` `steps` i `outputs` . Można używać `config` tylko wtedy, gdy zachodzi potrzeba przesłonięcia domyślnego zachowania `basics` kroku. Właściwości podstawowe i kroki zawierają [elementy](create-uidefinition-elements.md) , takie jak pola tekstowe i listy rozwijane, do wyświetlenia w Azure Portal. Właściwość Outputs służy do mapowania wartości wyjściowych określonych elementów na parametry szablonu Azure Resource Manager.
 
 Włączenie `$schema` jest zalecane, ale opcjonalne. Jeśli jest określona, wartość `version` musi być zgodna z wersją w `$schema` identyfikatorze URI.
 
 Możesz użyć edytora JSON do utworzenia createUiDefinition, a następnie przetestowania go w [piaskownicy createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) w celu uzyskania podglądu. Aby uzyskać więcej informacji na temat piaskownicy, zobacz [testowanie interfejsu portalu dla Azure Managed Applications](test-createuidefinition.md).
 
-## <a name="basics"></a>Podstawy
-
-**Podstawowy** krok to pierwszy krok generowany, gdy Azure Portal przeanalizuje plik. Domyślnie krok podstawowe umożliwia użytkownikom wybranie subskrypcji, grupy zasobów i lokalizacji wdrożenia.
-
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Domyślne podstawy":::
-
-W tej sekcji możesz dodać więcej elementów. Jeśli to możliwe, należy dodać elementy, które wykonują zapytania dotyczące parametrów obejmujących całe wdrożenie, takich jak nazwa klastra lub poświadczenia administratora.
-
-Poniższy przykład pokazuje pole tekstowe, które zostało dodane do elementów domyślnych.
-
-```json
-"basics": [
-    {
-        "name": "textBox1",
-        "type": "Microsoft.Common.TextBox",
-        "label": "Textbox on basics",
-        "defaultValue": "my text value",
-        "toolTip": "",
-        "visible": true
-    }
-]
-```
-
 ## <a name="config"></a>Config
 
-Należy określić element config, gdy zachodzi potrzeba zastąpienia domyślnego zachowania dla podstawowych kroków. W poniższym przykładzie przedstawiono dostępne właściwości.
+`config`Właściwość jest opcjonalna. Użyj go, aby zastąpić domyślne zachowanie kroku podstawowe lub ustawić interfejs jako kreatora krok po kroku. Jeśli `config` jest używany, jest to pierwsza właściwość w sekcji **createUiDefinition.js** pliku `parameters` . W poniższym przykładzie przedstawiono dostępne właściwości.
 
 ```json
 "config": {
+    "isWizard": false,
     "basics": {
         "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
         "subscription": {
@@ -124,15 +103,50 @@ Należy określić element config, gdy zachodzi potrzeba zastąpienia domyślneg
 },
 ```
 
-W przypadku programu `description` Podaj ciąg z obsługą promocji, który opisuje zasób. Obsługiwane jest formatowanie wielowierszowe i łącza.
+### <a name="wizard"></a>Kreatora
 
-Dla programu `location` Określ właściwości kontrolki lokalizacji, która ma zostać przesłonięta. Wszystkie właściwości, które nie zostały zastąpione, są ustawiane na wartości domyślne. `resourceTypes` akceptuje tablicę ciągów zawierających w pełni kwalifikowane nazwy typów zasobów. Opcje lokalizacji są ograniczone tylko do regionów, które obsługują typy zasobów.  `allowedValues`   akceptuje tablicę ciągów regionów. Tylko te regiony pojawiają się na liście rozwijanej.Można ustawić zarówno `allowedValues`   , jak i  `resourceTypes` . Wynikiem jest przecięcie obu list. Na koniec `visible` Właściwość może służyć warunkowo lub całkowicie wyłączyć listę rozwijaną lokalizacji.  
+`isWizard`Właściwość umożliwia wymaganie pomyślnej weryfikacji każdego kroku przed przejściem do następnego kroku. Gdy `isWizard` Właściwość nie jest określona, wartość domyślna to **false**, a Walidacja krok po kroku nie jest wymagana.
+
+Gdy `isWizard` jest włączona, ustawiona na **wartość true**, dostępna jest karta **podstawowe** i wszystkie inne karty są wyłączone. Po wybraniu przycisku **dalej** ikona karty wskazuje, czy Walidacja karty zakończyła się powodzeniem, czy nie. Po zakończeniu pól wymaganych przez kartę i sprawdzeniu, czy przycisk **dalej** umożliwia nawigowanie do następnej karty. Po przejściu wszystkich kart do walidacji można przejść do strony **Przegląd i tworzenie** , a następnie wybrać przycisk **Utwórz** , aby rozpocząć wdrażanie.
+
+:::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Kreator kart":::
+
+### <a name="override-basics"></a>Podstawy przesłonięcia
+
+Konfiguracja podstaw pozwala dostosować etap podstawowy.
+
+W przypadku programu `description` Podaj ciąg z obsługą promocji, który opisuje zasób. Obsługiwane jest formatowanie wielowierszowe i łącza.
 
 `subscription`Elementy i `resourceGroup` umożliwiają określenie dodatkowych walidacji. Składnia służąca do określania walidacji jest taka sama jak niestandardowe sprawdzanie poprawności dla [pola tekstowego](microsoft-common-textbox.md). Możesz również określić `permission` walidacje dla subskrypcji lub grupy zasobów.  
 
 Kontrola subskrypcji akceptuje listę przestrzeni nazw dostawcy zasobów. Na przykład można określić **Microsoft. COMPUTE**. Wyświetla komunikat o błędzie, gdy użytkownik wybierze subskrypcję, która nie obsługuje dostawcy zasobów. Ten błąd występuje, gdy dostawca zasobów nie jest zarejestrowany w ramach tej subskrypcji, a użytkownik nie ma uprawnienia do rejestrowania dostawcy zasobów.  
 
 Dla kontrolki Grupa zasobów jest opcja `allowExisting` . Gdy `true` Użytkownicy mogą wybrać grupy zasobów, które mają już zasoby. Ta flaga jest najbardziej stosowana do szablonów rozwiązań, w których domyślne zachowanie zezwala użytkownikom na wybór nowej lub pustej grupy zasobów. W większości innych scenariuszy określenie tej właściwości nie jest konieczne.  
+
+Dla programu `location` Określ właściwości kontrolki lokalizacji, która ma zostać przesłonięta. Wszystkie właściwości, które nie zostały zastąpione, są ustawiane na wartości domyślne. `resourceTypes` akceptuje tablicę ciągów zawierających w pełni kwalifikowane nazwy typów zasobów. Opcje lokalizacji są ograniczone tylko do regionów, które obsługują typy zasobów.  `allowedValues`   akceptuje tablicę ciągów regionów. Tylko te regiony pojawiają się na liście rozwijanej.Można ustawić zarówno `allowedValues`   , jak i  `resourceTypes` . Wynikiem jest przecięcie obu list. Na koniec `visible` Właściwość może służyć warunkowo lub całkowicie wyłączyć listę rozwijaną lokalizacji.  
+
+## <a name="basics"></a>Podstawy
+
+**Podstawowy** krok to pierwszy krok generowany, gdy Azure Portal przeanalizuje plik. Domyślnie krok podstawowe umożliwia użytkownikom wybranie subskrypcji, grupy zasobów i lokalizacji wdrożenia.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Domyślne podstawy":::
+
+W tej sekcji możesz dodać więcej elementów. Jeśli to możliwe, należy dodać elementy, które wykonują zapytania dotyczące parametrów obejmujących całe wdrożenie, takich jak nazwa klastra lub poświadczenia administratora.
+
+Poniższy przykład pokazuje pole tekstowe, które zostało dodane do elementów domyślnych.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
 
 ## <a name="steps"></a>Kroki
 

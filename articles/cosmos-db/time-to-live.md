@@ -5,18 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77188717"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397036"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Czas wygaśnięcia (TTL) w usłudze Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Czas wygaśnięcia (TTL) w usłudze Azure Cosmos DB
 
-W przypadku **czasu** wygaśnięcia lub czasu wygaśnięcia usługa Azure Cosmos DB zapewnia możliwość automatycznego usuwania elementów z kontenera po upływie określonego czasu. Domyślnie można ustawić czas na żywo na poziomie kontenera i zastąpić wartość dla każdego elementu. Po ustawieniu czasu wygaśnięcia w kontenerze lub na poziomie elementu Azure Cosmos DB automatycznie usunie te elementy po upływie czasu, od momentu ostatniej modyfikacji. Wartość czasu wygaśnięcia jest konfigurowana w sekundach. W przypadku skonfigurowania czasu wygaśnięcia system automatycznie usunie przeterminowane elementy na podstawie wartości czasu wygaśnięcia, bez konieczności operacji usuwania jawnie wydanej przez aplikację kliencką.
+W przypadku **czasu** wygaśnięcia lub czasu wygaśnięcia usługa Azure Cosmos DB zapewnia możliwość automatycznego usuwania elementów z kontenera po upływie określonego czasu. Domyślnie można ustawić czas na żywo na poziomie kontenera i zastąpić wartość dla każdego elementu. Po ustawieniu czasu wygaśnięcia w kontenerze lub na poziomie elementu Azure Cosmos DB automatycznie usunie te elementy po upływie czasu, od momentu ostatniej modyfikacji. Wartość czasu wygaśnięcia jest konfigurowana w sekundach. W przypadku skonfigurowania czasu wygaśnięcia system automatycznie usunie przeterminowane elementy na podstawie wartości czasu wygaśnięcia, bez konieczności operacji usuwania jawnie wydanej przez aplikację kliencką. Maksymalna wartość parametru TTL to 2147483647.
 
 Usuwanie wygasłych elementów to zadanie w tle, które wykorzystuje [jednostki](request-units.md)żądań od lewej do końca, które są jednostkami żądania, które nie zostały zużyte przez żądania użytkowników. Nawet po wygaśnięciu czasu wygaśnięcia, jeśli kontener jest przeciążony przy użyciu żądań i jeśli nie ma wystarczającej ilości RU, usuwanie danych jest opóźnione. Dane są usuwane, gdy jest wystarczająco dużo jednostek ru dostępne do wykonania operacji usuwania. Mimo że usuwanie danych jest opóźnione, dane nie są zwracane przez żadne zapytania (przez dowolny interfejs API) po wygaśnięciu czasu wygaśnięcia.
 

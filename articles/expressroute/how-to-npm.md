@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Konfigurowanie NPM dla obwodów'
 description: Skonfiguruj monitorowanie sieci oparte na chmurze (NPM) dla obwodów usługi Azure ExpressRoute. Obejmuje to monitorowanie ExpressRoute prywatnej komunikacji równorzędnej i komunikacji równorzędnej firmy Microsoft.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
-ms.author: cherylmc
-ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 0783675450bb6ddf2de7d012a6870f5e4c90408d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738383"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393682"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurowanie monitora wydajności sieci dla usługi ExpressRoute
 
@@ -20,7 +20,7 @@ Ten artykuł ułatwia skonfigurowanie rozszerzenia Network Performance Monitor d
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Dostępne możliwości:
+Można:
 
 * Monitorowanie strat i opóźnień w różnych sieci wirtualnych i Ustawianie alertów
 
@@ -107,7 +107,7 @@ Zalecamy zainstalowanie co najmniej dwóch agentów po każdej stronie połącze
    * Jeśli wybrano opcję nawiązywania połączenia z **Operations Manager**, na stronie **Konfiguracja grupy zarządzania** wpisz **nazwę grupy zarządzania**, **serwer zarządzania**programu oraz **port serwera zarządzania**. Następnie kliknij przycisk **dalej**.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * Na stronie **konto działania agenta** wybierz konto **systemu lokalnego** lub **konto domeny lub komputera lokalnego**. Następnie kliknij przycisk **dalej**.
+   * Na stronie **konto działania agenta** wybierz konto **systemu lokalnego** lub  **konto domeny lub komputera lokalnego**. Następnie kliknij przycisk **dalej**.
 
      ![Konto](./media/how-to-npm/10.png)
 6. Na stronie **gotowy do instalacji** Przejrzyj wybrane opcje, a następnie kliknij przycisk **Instaluj**.

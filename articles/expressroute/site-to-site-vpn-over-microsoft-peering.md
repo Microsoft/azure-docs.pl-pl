@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: Konfigurowanie sieci VPN S2S za pośrednictwem komunikacji równorzędnej firmy Microsoft'
 description: Skonfiguruj połączenia IPsec/IKE na platformie Azure za pośrednictwem obwodu komunikacji równorzędnej firmy Microsoft ExpressRoute przy użyciu bramy sieci VPN typu lokacja-lokacja.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 571ed0201fea11f6770ec3aa7e72db10d49e7b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 366f27a0e2a22e9aa10dda20e105bf644255bdd4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738162"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393143"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Konfigurowanie sieci VPN typu lokacja-lokacja za pośrednictwem komunikacji równorzędnej firmy Microsoft ExpressRoute
 

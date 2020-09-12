@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714784"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293646"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Środowiska asystenta projektowego dla systemu Windows 10
 
@@ -118,9 +118,9 @@ Wiele komputerów jest przenośnych, ale nie zawsze w zasięgu klienta. Mogą on
 
 W związku z tym asystent powinien postępować zgodnie z instrukcjami w tej sekcji, aby zapewnić bezpieczeństwo środowiska. Interakcja powyżej blokady występuje, gdy użytkownik systemu Windows jest nieuwierzytelniony. Oznacza to, że ogólnie rzecz biorąc, **dane wejściowe asystenta powinny również być traktowane jako nieuwierzytelnione**.
 
-- Asystenci powinni **wdrożyć umiejętność dozwolonych, aby identyfikować umiejętności, które są potwierdzone bezpiecznym i bezpiecznym** dostępnym powyżej blokady.
+- Asystenci powinni **zaimplementować listę dozwolonych umiejętności, aby identyfikować umiejętności, które są potwierdzone bezpiecznym i bezpiecznym** dostępnym powyżej blokady.
 - Technologie identyfikacji głośników mogą odgrywać rolę w łagodzeniu pewnych zagrożeń, ale nie jest to odpowiedni zamiennik do uwierzytelniania systemu Windows.
-- Kwalifikacja dozwolonych powinna uwzględniać trzy klasy działań lub umiejętności:
+- Lista dozwolonych umiejętności powinna uwzględniać trzy klasy działań lub umiejętności:
 
 | **Action — Klasa** | **Opis** | **Przykłady (niepełna lista)** |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ W związku z tym asystent powinien postępować zgodnie z instrukcjami w tej sek
 
 W przypadku firmy Contoso ogólne informacje dotyczące publicznej informacji o zapasach są bezpieczne bez uwierzytelniania. Informacje specyficzne dla klienta, takie jak liczba posiadanych udziałów, prawdopodobnie są bezpieczne z IDENTYFIKATORem osoby mówiącej. Jednak kupowanie lub sprzedawanie zasobów nigdy nie powinno być dozwolone bez uwierzytelniania systemu Windows.
 
-Aby dodatkowo zabezpieczyć środowisko, **linki Weblinks lub inne uruchomienie aplikacji do aplikacji będzie zawsze blokowane w systemie Windows, dopóki klient nie zaloguje się.** Jako ostatnie środki zaradcze firma Microsoft zastrzega sobie prawo do usunięcia aplikacji z dozwolonych włączonych asystentów, jeśli poważny problem z zabezpieczeniami nie jest rozwiązywany w odpowiednim czasie.
+Aby dodatkowo zabezpieczyć środowisko, **linki Weblinks lub inne uruchomienie aplikacji do aplikacji będzie zawsze blokowane w systemie Windows, dopóki klient nie zaloguje się.** Jako ostatnie środki zaradcze firma Microsoft zastrzega sobie prawo do usunięcia aplikacji z listy dozwolonych asystentów włączonych, jeśli poważny problem z zabezpieczeniami nie zostanie rozwiązany w odpowiednim czasie.
 
 ## <a name="design-guidance-for-voice-activation-preview"></a>Wskazówki dotyczące projektowania w wersji zapoznawczej aktywacji głosu
 

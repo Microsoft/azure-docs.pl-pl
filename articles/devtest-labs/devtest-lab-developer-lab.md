@@ -3,12 +3,12 @@ title: Użyj Azure DevTest Labs dla deweloperów | Microsoft Docs
 description: Dowiedz się więcej o funkcjach Azure DevTest Labs, których można użyć do spełnienia wymagań deweloperskich i szczegółowych czynności, które można wykonać, aby skonfigurować laboratorium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b4f195f843e30ad1a56bad7d5b9ca9e73888783b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293031"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296247"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Użyj Azure DevTest Labs dla deweloperów
 Usługi Azure DevTest Labs można używać do wdrażania wielu kluczowych scenariuszy, ale jeden z podstawowych scenariuszy obejmuje używanie usługi DevTest Labs do hostowania maszyn deweloperskich dla deweloperów. W tym scenariuszu usługa DevTest Labs zapewnia następujące korzyści:
@@ -43,7 +43,7 @@ W tym artykule omówiono różne funkcje Azure DevTest Labs, których można uż
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, w jaki sposób można dozwolonych obrazy w portalu Azure Marketplace i udostępniać je tylko wybranym dla deweloperów.|
+   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, w jaki sposób można zezwolić na tworzenie obrazów w portalu Azure Marketplace, a dostępne do wyboru obrazy przeznaczone dla deweloperów.|
    | [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) |Utwórz niestandardowy obraz, instalując wstępnie wymagane oprogramowanie, dzięki czemu deweloperzy mogą szybko utworzyć maszynę wirtualną przy użyciu obrazu niestandardowego.|
    | [Informacje o fabryce obrazu](./devtest-lab-faq.md#blog-post) |Obejrzyj wideo, w którym opisano sposób konfigurowania fabryki obrazów i korzystania z niej.|
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
-ms.openlocfilehash: 29caccd666294add98882d080a2a0fd3bd9dd660
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036627"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292524"
 ---
 # <a name="archived-release-notes"></a>Zarchiwizowane informacje o wersji
 
@@ -779,7 +779,7 @@ W tej wersji udostępniono również następujące poprawki programu Hive 1.2.1 
 
 -   [*Hive-17621*](https://issues.apache.org/jira/browse/HIVE-17621): ustawienia lokacji Hive są ignorowane podczas obliczania podziału HCatInputFormat.
 
--   [*Hive-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: posiada konfigurację dozwolonych/lista zabronionych do zezwalania na selektywne buforowanie tabel/partycji i Zezwalaj na odczyt podczas przedgrzania.
+-   [*Hive-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: ma zatwierdzoną/zatwierdzoną konfigurację do zezwalania na selektywne buforowanie tabel/partycji i Zezwalanie na odczyt podczas przedgrzania.
 
 -   [*Hive-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Dodaj wiele \_ testów AGG. q dla BlobStores.
 
@@ -1033,7 +1033,7 @@ Ta wersja zawiera Ranger 0.7.0 i następujące poprawki Apache:
 
 -   [Ranger-2008](https://issues.apache.org/jira/browse/RANGER-2008): szacowanie zasad kończy się niepowodzeniem w przypadku warunków zasad wielowierszowych.
 
-#### <a name="slider"></a>Suwak
+#### <a name="slider"></a>Slider
 
 Ta wersja oferuje suwak 0.92.0 bez dodatkowych poprawek Apache.
 
@@ -1570,7 +1570,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 | USTERKA — 97864              | [GAŁĄŹ-18833](https://issues.apache.org/jira/browse/HIVE-18833)   | Automatyczne scalanie kończy się niepowodzeniem, gdy "INSERT INTO Directory as orcfile"                                      |
 | USTERKA — 98814              | [HDFS — 13314](https://issues.apache.org/jira/browse/HDFS-13314)   | NameNode powinna zakończyć się opcjonalnie, jeśli wykryje uszkodzenie FsImage                              |
 
-**Uaktualniony**
+**Uaktualnienie**
 
 | **Identyfikator błędu Hortonworks** | **Apache JIRA**                                                                                                                | **Podsumowanie**                                                                 |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -1692,7 +1692,7 @@ Rozwiązano problemy przedstawiające wybrane problemy, które zostały wcześni
 
 |**Składnik Apache**|**Apache JIRA**|**Podsumowanie**|**Szczegóły**|
 |--|--|--|--|
-|**Platforma Spark 2,3** |**Nie dotyczy** |**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |-Istnieje dokument "" wycofania "i przewodnik" zmiana sposobu działania ",https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />— W przypadku części SQL należy zapoznać się z innym szczegółowym przewodnikiem migracji (od 2,2 do 2,3).https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Platforma Spark 2,3** |**Nie dotyczy** |**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |-Istnieje dokument "" wycofania "i przewodnik" zmiana sposobu działania ", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />— W przypadku części SQL należy zapoznać się z innym szczegółowym przewodnikiem migracji (od 2,2 do 2,3). https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |platforma Spark |[**GAŁĄŹ-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Zadanie platformy Spark zostało pomyślnie zakończone, ale wystąpił pełny błąd przydziału dysku systemu plików HDFS |**Scenariusz:** Uruchamianie polecenia **INSERT overwrite** w przypadku ustawienia limitu przydziału w folderze Kosz użytkownika, który uruchamia polecenie.<br /><br />**Poprzednie zachowanie:** Zadanie powiedzie się, mimo że przeniesienie danych do kosza nie powiedzie się. Wynik może źle zawierać niektóre z danych znajdujących się wcześniej w tabeli.<br /><br />**Nowe zachowanie:** Po niepowodzeniu przejścia do folderu kosza pliki są trwale usuwane.|
 |**Kafka 1,0**|**Nie dotyczy**|**Zmiany zgodnie z opisem w Apache Spark informacje o wersji** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/Ranger** | |Dodatkowe zasady programu Hive Ranger wymagane do wstawienia zastąpienia |**Scenariusz:** Dodatkowe zasady programu Hive Ranger wymagane do **wstawienia zastąpienia**<br /><br />**Poprzednie zachowanie:** Pomyślne **Wstawianie ZAstąpień** w programie Hive przebiega pomyślnie.<br /><br />**Nowe zachowanie:** Podczas uaktualniania do HDP-2.6. x z powodu błędu wystąpił nieoczekiwane nieudane zapytania dotyczące **zastępowania** programu Hive:<br /><br />Wystąpił błąd podczas kompilowania instrukcji: niepowodzenie: HiveAccessControlException uprawnień: użytkownik JKowalski nie ma uprawnienia do zapisu w/tmp/ \* (State = 42000, Code = 40000)<br /><br />Od HDP-2.6.0 zapytania programu Hive **INSERT OVERWRITE** wymagają zasad identyfikatora URI Ranger, aby zezwalać na operacje zapisu, nawet jeśli użytkownik ma uprawnienia do zapisu udzielone za pomocą zasad systemu plików HDFS.<br /><br />**Obejście/oczekiwanie na akcję klienta:**<br /><br />1. Utwórz nowe zasady w ramach repozytorium Hive.<br />2. na liście rozwijanej, w której znajduje się baza danych, wybierz pozycję Identyfikator URI.<br />3. Zaktualizuj ścieżkę (przykład:/tmp/*)<br />4. Dodaj użytkowników i grupę i Zapisz.<br />5. Ponów próbę wstawienia zapytania.|

@@ -3,12 +3,12 @@ title: Użyj Nowoczesny magazyn kopii zapasowych z Azure Backup Server
 description: Dowiedz się więcej o nowych funkcjach w Azure Backup Server. W tym artykule opisano sposób uaktualniania instalacji serwera kopii zapasowej.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825872"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378240"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Dodawanie magazynu do usługi Azure Backup Server
 
@@ -56,7 +56,7 @@ Użycie serwera zapasowego w wersji 2 lub nowszej z woluminami jako magazyn dysk
 
     ![Utwórz nowy wolumin](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. W oknie dialogowym **Wybierz serwer i dysk** wybierz serwer i nowy dysk. Następnie wybierz przycisk **dalej**.
+6. W oknie dialogowym **Wybierz serwer i dysk** wybierz serwer i nowy dysk. Następnie wybierz pozycję **Dalej**.
 
     ![Wybierz serwer i dysk](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
@@ -105,7 +105,7 @@ Aktualizowanie grup ochrony w celu korzystania z funkcji Modern Backup Storage j
 
    ![Zatrzymaj ochronę elementu członkowskiego](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. W oknie dialogowym **usuwanie z grupy** Sprawdź zajęte miejsce na dysku i dostępne wolne miejsce dla puli magazynów. Domyślnie punkty odzyskiwania pozostają na dysku i wygasają zgodnie ze skojarzonymi z nimi zasadami przechowywania. Kliknij przycisk **OK**.
+2. W oknie dialogowym **usuwanie z grupy** Sprawdź zajęte miejsce na dysku i dostępne wolne miejsce dla puli magazynów. Domyślnie punkty odzyskiwania pozostają na dysku i wygasają zgodnie ze skojarzonymi z nimi zasadami przechowywania. Wybierz przycisk **OK**.
 
    Jeśli chcesz natychmiast przywrócić zajęte miejsce na dysku do puli magazynu, zaznacz pole wyboru **Usuń replikę na dysku** , aby usunąć dane kopii zapasowej (i punkty odzyskiwania) skojarzone z tym elementem członkowskim.
 
