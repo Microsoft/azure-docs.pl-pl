@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213503"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461209"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Optymalizowanie transakcji w programie SQL Synapse
 
@@ -419,4 +419,4 @@ Najlepszym scenariuszem jest umożliwienie wykonywania transakcji modyfikacji da
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [transakcje w programie Synapse SQL](sql-data-warehouse-develop-transactions.md) , aby dowiedzieć się więcej na temat poziomów izolacji i limitów transakcyjnych.  Aby zapoznać się z innymi najlepszymi rozwiązaniami, zobacz [SQL Data Warehouse Best Practices](sql-data-warehouse-best-practices.md).
+Zobacz [transakcje w programie Synapse SQL](sql-data-warehouse-develop-transactions.md) , aby dowiedzieć się więcej na temat poziomów izolacji i limitów transakcyjnych.  Aby zapoznać się z innymi najlepszymi rozwiązaniami, zobacz [najlepsze rozwiązania dotyczące usługi Azure Synapse Analytics](sql-data-warehouse-best-practices.md).

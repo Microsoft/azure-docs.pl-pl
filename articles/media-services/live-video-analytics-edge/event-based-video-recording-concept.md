@@ -3,12 +3,12 @@ title: Nagrywanie wideo oparte na zdarzeniach — Azure
 description: Nagrywanie wideo oparte na zdarzeniach (EVR) odnosi się do procesu nagrywania wideo wyzwalanego przez zdarzenie. Dane zdarzenie może pochodzić z powodu przetwarzania samego sygnału wideo (na przykład wykrywania ruchu) lub z niezależnego źródła (na przykład otwierającego drzwi).  W tym artykule opisano kilka przypadków użycia dotyczących nagrywania wideo opartego na zdarzeniach.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 0a6f7ca4233c195c7494fc6f63e7dfb5bf654c17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84261331"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568510"
 ---
 # <a name="event-based-video-recording"></a>Nagrywanie wideo oparte na zdarzeniach  
  
@@ -34,7 +34,8 @@ W tym przypadku użycia można rejestrować klipy wideo tylko wtedy, gdy wykryto
 
 Na poniższym diagramie przedstawiono graficzną reprezentację grafu multimedialnego, który dotyczy tego przypadku użycia. Reprezentację w formacie JSON topologii wykresu takiego wykresu multimedialnego można znaleźć [tutaj](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-assets/topology.json).
 
-![Nagrywanie filmów wideo na podstawie wykrywania ruchu](./media/event-based-video-recording/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/motion-detection.svg" alt-text="Nagrywanie filmów wideo na podstawie wykrywania ruchu":::
 
 Na diagramie węzeł źródłowy RTSP przechwytuje dynamiczny kanał wideo z aparatu i dostarcza go do węzła [procesora wykrywania ruchu](media-graph-concept.md#motion-detection-processor) . W przypadku wykrywania ruchu wideo na żywo w węźle procesor wykrywania ruchu generowane jest zdarzenie, które przechodzi do węzła [procesora bramy sygnałów](media-graph-concept.md#signal-gate-processor) , a także do węzła ujścia komunikatów IoT Hub. Drugi węzeł wysyła zdarzenia do centrum IoT Edge, z którego mogą być kierowani do innych miejsc docelowych w celu wyzwalania alertów. 
 
@@ -44,7 +45,8 @@ Zdarzenie z węzła wykrywania ruchu spowoduje wyzwolenie węzła procesora bram
 
 W tym przypadku użycia sygnały z innego czujnika IoT mogą służyć do wyzwalania nagrywania wideo. Na poniższym diagramie przedstawiono graficzną reprezentację grafu multimedialnego, który dotyczy tego przypadku użycia. Reprezentację w formacie JSON topologii wykresu takiego wykresu multimedialnego można znaleźć [tutaj](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
-![Nagrywanie filmów wideo na podstawie zdarzeń z innych źródeł](./media/event-based-video-recording/other-sources.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Nagrywanie filmów wideo na podstawie zdarzeń z innych źródeł":::
 
 Na diagramie zewnętrzny czujnik wysyła zdarzenia do centrum IoT Edge. Zdarzenia są następnie kierowane do węzła procesora bramy sygnałów za pośrednictwem węzła [źródła wiadomości IoT Hub](media-graph-concept.md#iot-hub-message-source) . Zachowanie węzła procesora bramy sygnałów jest takie samo jak w przypadku poprzedniego przypadku użycia — zostanie otwarte i umożliwi przepływ strumieniowego kanału wideo na żywo z węzła źródłowego RTSP do węzła ujścia plików (lub węzła ujścia zasobów), gdy zostanie wyzwolone przez zdarzenie zewnętrzne. 
 
@@ -54,7 +56,8 @@ Jeśli używasz węzła ujścia plików, wideo zostanie zarejestrowane w lokalny
 
 W tym przypadku użycia można nagrać klipy wideo na podstawie sygnału z zewnętrznego systemu logiki. Przykładem takiego przypadku użycia może być nagrywanie klipu wideo tylko w przypadku wykrycia wózka w strumieniu wideo na autostradie. Na poniższym diagramie przedstawiono graficzną reprezentację grafu multimedialnego, który dotyczy tego przypadku użycia. Reprezentację w formacie JSON topologii wykresu takiego wykresu multimedialnego można znaleźć [tutaj](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
-![Nagrywanie filmów wideo na podstawie zewnętrznego modułu inferencing](./media/event-based-video-recording/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Nagrywanie filmów wideo na podstawie zewnętrznego modułu inferencing":::
 
 Na diagramie węzeł źródłowy RTSP przechwytuje dynamiczny kanał wideo z aparatu i dostarcza go do dwóch gałęzi: jeden ma węzeł [procesora bramy sygnalizującej](media-graph-concept.md#signal-gate-processor) , a drugi używa węzła [rozszerzenia http](media-graph-concept.md) do wysyłania danych do zewnętrznego modułu logiki. Węzeł rozszerzenia HTTP umożliwia grafowi multimediów wysyłanie ramek obrazu (w formatach JPEG, BMP lub PNG) do zewnętrznej usługi wnioskowania za pośrednictwem REST. Ta ścieżka sygnału może zazwyczaj obsługiwać tylko niskie szybkości klatek (<5fps). Można użyć węzła [procesora filtru szybkości klatek](media-graph-concept.md#frame-rate-filter-processor) , aby obniżyć szybkość klatek wideo przechodzących do węzła rozszerzenia http.
 

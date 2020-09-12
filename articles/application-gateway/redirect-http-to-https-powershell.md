@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 0c1baa96c9093e02c54fb70949d1de0ddbda1bcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804324"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596065"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure PowerShell
 
@@ -20,12 +20,11 @@ Za pomocą Azure PowerShell można utworzyć [bramę aplikacji](overview.md) z c
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Tworzenie certyfikatu z podpisem własnym
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji z certyfikatem
-> * Dodaj odbiornik i regułę przekierowania
-> * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
+* Tworzenie certyfikatu z podpisem własnym
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji z certyfikatem
+* Dodaj odbiornik i regułę przekierowania
+* Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -320,7 +319,7 @@ Update-AzVmss `
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) . Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład: http://52.170.203.149
+Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) . Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład http://52.170.203.149
 
 ```powershell
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/10/2020
+ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816664"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647544"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps przy użyciu środowiska usługi integracji (ISE)
 
@@ -44,7 +44,14 @@ Możesz również utworzyć ISE za pomocą [Azure Resource Manager przykładoweg
   > [!IMPORTANT]
   > Aplikacje logiki, wbudowane wyzwalacze, wbudowane akcje i łączniki, które działają w ISE, korzystają z planu cenowego innego niż plan cenowy oparty na zużyciu. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla usługi ISEs, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](../logic-apps/logic-apps-pricing.md).
 
-* [Sieć wirtualna platformy Azure](../virtual-network/virtual-networks-overview.md). Sieć wirtualna musi mieć cztery *puste* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez wewnętrzne składniki Logic Apps, takie jak łączniki i buforowanie na potrzeby wydajności. Podsieci można utworzyć z wyprzedzeniem. Możesz też poczekać, aż utworzysz ISE, tak aby można było utworzyć podsieci w tym samym czasie. Jednak przed utworzeniem podsieci zapoznaj się z [wymaganiami dotyczącymi podsieci](#create-subnet).
+* [Sieć wirtualna platformy Azure](../virtual-network/virtual-networks-overview.md). Sieć wirtualna musi mieć cztery *puste* podsieci, które są wymagane do tworzenia i wdrażania zasobów w ISE i są używane przez te składniki wewnętrzne i ukryte:
+
+  * Logic Apps obliczeń
+  * Wewnętrzny App Service Environment (łączniki)
+  * Wewnętrzny API Management (łączniki)
+  * Wewnętrzny Redis na potrzeby buforowania i wydajności
+  
+  Podsieci można utworzyć z wyprzedzeniem. Możesz też poczekać, aż utworzysz ISE, tak aby można było utworzyć podsieci w tym samym czasie. Jednak przed utworzeniem podsieci zapoznaj się z [wymaganiami dotyczącymi podsieci](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -126,7 +133,7 @@ W tej tabeli opisano porty, które ISE muszą być dostępne, i przeznaczenie dl
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Komunikacja między podsieciami w ramach sieci wirtualnej | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Przestrzeń adresowa dla sieci wirtualnej z podsieciami ISE | * | Wymagany do przepływu ruchu *między* podsieciami w sieci wirtualnej. <p><p>**Ważne**: w przypadku ruchu między *składnikami* w poszczególnych podsieciach upewnij się, że otwarto wszystkie porty w każdej podsieci. |
 | Komunikacja z aplikacji logiki | **VirtualNetwork** | * | Różni się w zależności od miejsca docelowego | 80, 443 | Lokalizacja docelowa zależy od punktów końcowych usługi zewnętrznej, z którą aplikacja logiki musi się komunikować. |
-| Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
+| Usługa Azure Active Directory | **VirtualNetwork** | * | **Usługi azureactivedirectory** | 80, 443 ||
 | Zależność usługi Azure Storage | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Zarządzanie połączeniami | **VirtualNetwork** | * | **AppService** | 443 ||
 | Publikowanie dzienników diagnostycznych & metryki | **VirtualNetwork** | * | **AzureMonitor** | 443 ||

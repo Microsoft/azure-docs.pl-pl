@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/28/2020
+ms.date: 09/08/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f26c83f87811acc5853f1bff5303cd37092b33f
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 986e4fd8c7043f5c01868302ffc2b554e2ce76f7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075957"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567082"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -62,23 +62,17 @@ W tej części dokumentacji omówiono różne aspekty SAP HANA. Jako warunek wst
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Oprogramowanie SAP NetWeaver wdrożone na maszynach wirtualnych platformy Azure
 Ta sekcja zawiera listę dokumentacji dotyczącej planowania i wdrażania dla oprogramowania SAP NetWeaver, SAP LaMa i Business One na platformie Azure. Dokumentacja dotyczy podstaw i używania baz danych innych niż HANA z obciążeniem SAP na platformie Azure. Dokumenty i artykuły dotyczące wysokiej dostępności są również podstawą dla SAP HANA wysokiej dostępności na platformie Azure
 
-Aby uzyskać informacje na temat wysokiej dostępności obciążeń SAP na platformie Azure, zobacz:
-
-- [Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver](./sap-high-availability-guide-start.md)
-
+## <a name="sap-netweaver-and-s4hana-high-availability"></a>Wysoka dostępność rozwiązań SAP NetWeaver i S/4HANA
+Wysoka dostępność warstwy aplikacji SAP i systemu DBMS zostały udokumentowane w szczegółach rozpoczynających się od dokumentu [Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver](./sap-high-availability-guide-start.md)
 
 
-Aby uzyskać informacje na temat integracji między usługami Azure Active Directory (Azure AD) i SAP oraz logowaniem jednokrotnym, zobacz:
 
-- [Samouczek: integracja Azure Active Directory z chmurą SAP dla klienta](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Samouczek: integracja Azure Active Directory z uwierzytelnianiem tożsamości platformy SAP Cloud Platform](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Samouczek: integracja Azure Active Directory z platformą SAP w chmurze](../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Samouczek: integracja usługi Azure Active Directory z oprogramowaniem SAP NetWeaver](../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Samouczek: integracja usługi Azure Active Directory z oprogramowaniem SAP Business ByDesign](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Samouczek: integracja Azure Active Directory z SAP HANA](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Środowisko S/4HANA: Fiori programu Launchpad — Logowanie jednokrotne w usłudze Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
+## <a name="integrate-azure-ad-with-sap-services"></a>Integrowanie usługi Azure AD z usługami SAP
+W tej sekcji znajdują się informacje dotyczące konfigurowania logowania jednokrotnego z większością usług SAP SaaS i PaaS Services, NetWeaver i Fiori 
 
-Aby uzyskać informacje na temat integracji usług platformy Azure z składnikami SAP, zobacz:
+
+
+## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>Dokumentacja dotycząca integracji usług platformy Azure z składnikami SAP
 
 - [Używanie oprogramowania SAP HANA w programie Power BI Desktop](/power-bi/desktop-sap-hana)
 - [Zapytanie bezpośrednie i platforma SAP HANA](/power-bi/desktop-directquery-sap-hana)
@@ -88,6 +82,9 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 09/08/2020: Zmień [wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure w systemie SLES](./sap-hana-high-availability.md) , aby wyjaśnić definicje stonith
+- 09/03/2020: Zmień [konfigurację magazynu maszyn wirtualnych platformy Azure na SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) , aby dostosowywać do minimalnej liczby operacji wejścia/wyjścia o pojemności 1 GB przy użyciu Ultra Disk
+- 09/02/2020: Zmień [dostępne jednostki SKU dla elementu HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) , aby uzyskać bardziej przejrzyste informacje o jednostkach SKU z CERTYFIKATem Hana
 - 08/28/2020: zmiana w [ha dla SAP NW na maszynach wirtualnych platformy Azure w systemie SLES z ANF](./high-availability-guide-suse-netapp-files.md) , aby rozwiązać literówki
 - 08/25/2020: Przejdź do [przewodnika ha dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i dysku udostępnionego](./sap-high-availability-guide-wsfc-shared-disk.md), [Przygotuj infrastrukturę platformy Azure dla oprogramowania SAP ASCS/SCS przy użyciu usługi WSFC i dysku udostępnionego](./sap-high-availability-infrastructure-wsfc-shared-disk.md) oraz [Zainstaluj rozwiązanie SAP NW ha z usługą WSFC i dyskiem udostępnionym](./sap-high-availability-guide-wsfc-shared-disk.md) , aby wprowadzić opcję używania dysku udostępnionego na platformie Azure i dokumentu SAP ERS2 Architecture
 - 08/25/2020: wydanie [WIELOidentyfikatorowego przewodnika o wysokiej dostępności dla oprogramowania SAP ASCS/SCS za pomocą usługi WSFC i udostępnionego dysku platformy Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
@@ -110,19 +107,19 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 - 06/22/2020: Dodaj kroki instalacji dla nowego rozszerzenia maszyny wirtualnej dla SAP do [przewodnika wdrażania](deployment-guide.md)
 - 06/16/2020: zmiana [łączności publicznej punktu końcowego dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](./high-availability-guide-standard-load-balancer-outbound-connections.md) aby dodać link do usługi SUSE Public Cloud infrastructure 101 Documentation 
 - 06/10/2020: Dodawanie nowych jednostek SKU do [dostępnych jednostek SKU dla](./hana-available-skus.md) [architektury magazynu i SAP HANA (duże wystąpienia)](./hana-storage-architecture.md)
-- 05/21/2020: zmiana podczas [konfigurowania Pacemaker na platformie Azure](./high-availability-guide-suse-pacemaker.md) i [KONFIGUROWANIA Pacemaker na RHEL na platformie Azure](./high-availability-guide-rhel-pacemaker.md) w celu dodania linku do [łączności z publicznym punktem końcowym dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](./high-availability-guide-standard-load-balancer-outbound-connections.md)  
-- 05/19/2020: Dodaj ważny komunikat, aby nie używać grupy woluminów głównych przy użyciu LVM dla woluminów związanych z [platformą HANA SAP HANA w konfiguracjach magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md)
-- 05/19/2020: Dodaj nowe obsługiwane systemy operacyjne dla dużej instancji HANA typu II w [zgodnych systemach operacyjnych dla dużych wystąpień Hana](/- azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance)
-- 05/12/2020: zmiana [łączności publicznej punktu końcowego dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w SCENARIUSZACH SAP ha](./high-availability-guide-standard-load-balancer-outbound-connections.md) do aktualizowania łączy i dodawania informacji dla konfiguracji zapory innej firmy
-- 05/11/2020: Zmień [wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure w usłudze SLES](./sap-hana-high-availability.md) , aby ustawić zasób lepkość na wartość 0 dla zasobu netcat, co prowadzi do wydajniejszej pracy w trybie failover 
-- 05/05/2020: zmiany [dotyczące planowania i implementacji usługi Azure Virtual Machines dla oprogramowania SAP NetWeaver](./planning-guide.md) w celu wyrażenia, że wdrożenia Gen2 są dostępne dla Mv1 rodziny maszyn wirtualnych
-- 04/24/2020: zmiany w [SAP HANA skalowanie w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure z usługą ANF na SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), w [SAP HANA skalowanie w poziomie z węzłem gotowości](./sap-hana-scale-out-standby-netapp-files-rhel.md)na maszynach wirtualnych platformy Azure z ANF na RHEL, [wysokiej dostępności dla oprogramowania SAP NetWeaver](./high-availability-guide-suse-netapp-files.md) na maszynach wirtualnych platformy Azure na SLES z ANF i [wysoką dostępność dla SAP NetWeaver na maszynach](./high-availability-guide-rhel-netapp-files.md) wirtualnych platformy Azure w RHEL
-- 04/22/2020: Zmień [wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure w usłudze SLES](./sap-hana-high-availability.md) , aby usunąć atrybut meta `is-managed` z instrukcji, ponieważ powoduje to konflikt z umieszczeniem klastra w trybie konserwacji lub z niego
-- 04/21/2020: dodano usługę SQL Azure DB jako obsługiwaną w systemie DBMS dla oprogramowania SAP (Hybris) Commerce platform 1811 i nowszych w artykułach [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](./sap-supported-product-on-azure.md) oraz [Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure](./sap-certifications.md)
-- 04/16/2020: dodano SAP HANA jako obsługiwaną platformę DBMS for SAP (Hybris) dla platformy commerce w artykułach [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](./sap-supported-product-on-azure.md) oraz [Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure](./sap-certifications.md)
-- 04/13/2020: Popraw dokładne numery wydań oprogramowania SAP ASE w oprogramowaniu [SAP ASE Azure Virtual Machines DBMS wdrożenia dla obciążeń SAP](./dbms_guide_sapase.md)
-- 04/07/2020: zmiana konfiguracji [Pacemaker na SLES na platformie Azure](./high-availability-guide-suse-pacemaker.md) w celu wyjaśnienia chmurowego konfigurowania — instrukcje dotyczące platformy Azure
-- 04/06/2020: zmiany w [SAP HANA skalowanie w poziomie z węzłem gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files na SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) i w [SAP HANA skalowanie w poziomie z węzłem gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) , aby usunąć odwołania do NetApp [TR-4435](https://www.netapp.com/us/media/tr-4746.pdf) (zastąpione przez [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf))
+- 21 2020: zmiana podczas [konfigurowania Pacemaker na platformie Azure](./high-availability-guide-suse-pacemaker.md) i [KONFIGUROWANIA Pacemaker na RHEL na platformie Azure](./high-availability-guide-rhel-pacemaker.md) w celu dodania linku do łączności z [publicznym punktem końcowym dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](./high-availability-guide-standard-load-balancer-outbound-connections.md)  
+- 19 2020: Dodaj ważny komunikat, aby nie używać grupy woluminów głównych przy użyciu LVM dla woluminów związanych z [platformą HANA SAP HANA w konfiguracjach magazynu maszyn wirtualnych platformy Azure](./hana-vm-operations-storage.md)
+- 19 2020: Dodawanie nowego obsługiwanego systemu operacyjnego dla dużego wystąpienia usługi HANA Typ II w [zgodnych systemach operacyjnych dla dużych wystąpień Hana](/- azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance)
+- 12 2020: zmiana [łączności publicznej punktu końcowego dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](./high-availability-guide-standard-load-balancer-outbound-connections.md) do aktualizowania linków i dodawania informacji dla konfiguracji zapory innej firmy
+- 11 2020: zmiana [wysokiej dostępności SAP HANA na maszynach wirtualnych platformy Azure w usłudze SLES](./sap-hana-high-availability.md) , aby ustawić zasób lepkość na wartość 0 dla zasobu netcat, co prowadzi do wydajniejszej pracy w trybie failover 
+- 05 2020: zmiany w [usłudze Azure Virtual Machines planowanie i wdrażanie dla oprogramowania SAP NetWeaver](./planning-guide.md) w celu wyrażenia, że wdrożenia Gen2 są dostępne dla Mv1 rodziny maszyn wirtualnych
+- Kwiecień 24 2020: zmiany w [SAP HANA skalowanie w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure z usługą ANF na SLES](./sap-hana-scale-out-standby-netapp-files-suse.md), w [SAP HANA skalowanie w poziomie z węzłem gotowości](./sap-hana-scale-out-standby-netapp-files-rhel.md)na maszynach wirtualnych platformy Azure z ANF na RHEL, [wysokiej dostępności dla SAP NetWeaver](./high-availability-guide-suse-netapp-files.md) na maszynach wirtualnych platformy Azure na SLES z ANF i [wysoką dostępnością dla SAP NetWeaver](./high-availability-guide-rhel-netapp-files.md) na maszynach wirtualnych platformy Azure w RHEL
+- Kwiecień 22 2020: Zmień [wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure w usłudze SLES](./sap-hana-high-availability.md) , aby usunąć atrybut meta `is-managed` z instrukcji, ponieważ powoduje konflikt z umieszczeniem klastra w trybie konserwacji lub z niego
+- Kwiecień 21 2020: dodano bazę danych SQL Azure jako obsługiwaną w systemie DBMS dla oprogramowania SAP (Hybris) Commerce platform 1811 i nowszych w artykułach [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](./sap-supported-product-on-azure.md) oraz [Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure](./sap-certifications.md)
+- Kwiecień 16 2020: dodano SAP HANA jako obsługiwaną platformę DBMS dla platformy SAP (Hybris) w artykule [co to jest oprogramowanie SAP obsługiwane przez wdrożenia platformy Azure](./sap-supported-product-on-azure.md) oraz [Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure](./sap-certifications.md)
+- Kwiecień 13 2020: Popraw dokładne numery wydań oprogramowania SAP ASE w oprogramowaniu [SAP ASE Azure Virtual Machines DBMS wdrożenia dla obciążeń SAP](./dbms_guide_sapase.md)
+- Kwiecień 07 2020: zmiana podczas [konfigurowania Pacemaker na SLES na platformie Azure](./high-availability-guide-suse-pacemaker.md) w celu wyjaśnienia usługi Cloud config — instrukcje dotyczące platformy Azure
+- Kwiecień 06 2020: zmiany w [SAP HANA skalowanie w poziomie z węzłem gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files na SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) i w [SAP HANA skalowanie w poziomie z węzłem gotowości na maszynach wirtualnych platformy Azure z Azure NetApp Files RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) , aby usunąć odwołania do NetApp [TR-4435](https://www.netapp.com/us/media/tr-4746.pdf) (zastąpione przez [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf))
 - 31 marca 2020: zmiana [wysokiej dostępności SAP HANA na maszynach wirtualnych platformy Azure na SLES](./sap-hana-high-availability.md) i [wysokiej dostępności SAP HANA na maszynach wirtualnych platformy Azure w witrynie RHEL](./sap-hana-high-availability-rhel.md) , aby dodać instrukcje dotyczące określania rozmiaru rozłożonego podczas tworzenia woluminów rozłożonych
 - 27 marca 2020: zmiana [wysokiej dostępności dla oprogramowania SAP NW na maszynach wirtualnych platformy Azure w systemie SLES z ANF dla aplikacji SAP](./high-availability-guide-suse-netapp-files.md) w celu dopasowania opcji instalacji systemu plików do NetApp TR-4746 (Usuń opcję instalacji synchronizacji)
 - 26 marca 2020: zmiana [wysokiej dostępności dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w przewodniku dotyczącym usługi SLES o wiele identyfikatorów SID](./high-availability-guide-suse-multi-sid.md) w celu dodania odwołania do NetApp TR-4746

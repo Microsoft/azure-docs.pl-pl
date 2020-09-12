@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926868"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462517"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limity usługi Azure Cognitive Search
 
@@ -96,10 +96,26 @@ Maksymalne czasy działania są dostępne w celu zapewnienia równowagi i stabil
 
 <sup>4</sup> maksymalnie 30 umiejętności na zestawu umiejętności.
 
-<sup>5</sup> AI wzbogacanie i analiza obrazów są znacznie pracochłonne i zużywają nieproporcjonalne ilości dostępnej mocy obliczeniowej. Czas działania tych obciążeń został skrócony, aby umożliwić uruchamianie innych zadań w kolejce.  
+<sup>5</sup> AI wzbogacanie i analiza obrazów są znacznie pracochłonne i zużywają nieproporcjonalne ilości dostępnej mocy obliczeniowej. Czas działania tych obciążeń został skrócony, aby umożliwić uruchamianie innych zadań w kolejce.
 
 > [!NOTE]
 > Jak określono w [limitach indeksu](#index-limits), indeksatory będą również wymuszać górny limit 3000 elementów we wszystkich złożonych kolekcjach dla każdego dokumentu, rozpoczynając od najnowszej wersji interfejsu API GA, która obsługuje typy złożone ( `2019-05-06` ). Oznacza to, że jeśli utworzono indeksator z poprzednią wersją interfejsu API, nie będzie to możliwe. Aby zachować maksymalną zgodność, indeksator, który został utworzony przy użyciu wcześniejszej wersji interfejsu API, a następnie zaktualizowany przy użyciu wersji interfejsu API `2019-05-06` lub nowszej, będzie nadal **wykluczony** z limitów. Klienci powinni mieć świadomość niekorzystnego wpływu na bardzo duże złożone kolekcje (jak wspomniano wcześniej) i zdecydowanie zaleca się utworzenie nowych indeksatorów z najnowszą wersją interfejsu API w wersji GA.
+
+### <a name="shared-private-link-resource-limits"></a>Limity zasobów udostępnionego linku prywatnego
+
+> [!NOTE]
+> Indeksatory mogą bezpiecznie uzyskiwać dostęp do zasobów za pośrednictwem prywatnych punktów końcowych zarządzanych za pośrednictwem [udostępnionego interfejsu API zasobów linku prywatnego](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) zgodnie z opisem w [tym przewodniku](search-indexer-howto-access-private.md)
+
+| Zasób | Bezpłatna | Podstawowe | S1 | S2 | S3 | S3 (wysoka gęstość) | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Wsparcie dla prywatnego indeksatora punktu końcowego | Nie | Tak | Tak | Tak | Tak | Nie | Tak | Tak |
+| Obsługa prywatnego punktu końcowego dla indeksatorów z zestawu umiejętności<sup>1</sup> | Nie | Nie | Nie | Tak | Tak | Nie | Tak | Tak |
+| Maksymalna liczba prywatnych punktów końcowych | Nie dotyczy | 10 lub 30 | 100 | 400 | 400 | Nie dotyczy | 20 | 20 |
+| Maksymalna liczba różnych typów zasobów<sup>2</sup> | Nie dotyczy | 4 | 7 | 15 | 15 | Nie dotyczy | 4 | 4 |
+
+<sup>1</sup> wzbogacanie programu AI i analiza obrazów są intensywnie czasochłonne i zużywają nieproporcjonalne ilości dostępnej mocy obliczeniowej, dlatego w przypadku mniejszych warstw usług wyszukiwania, które umożliwiają uruchamianie ich w środowisku prywatnym, mogą mieć negatywny wpływ na wydajność i stabilność usługi wyszukiwania.
+
+<sup>2</sup> liczba różnych typów zasobów jest obliczana jako liczba unikatowych `groupId` wartości używanych w ramach wszystkich udostępnionych zasobów linków prywatnych dla danej usługi wyszukiwania, niezależnie od stanu zasobu.
 
 ## <a name="synonym-limits"></a>Limity synonimów
 
@@ -116,7 +132,7 @@ Oszacowania zapytań muszą być opracowane niezależnie od każdego klienta. Ro
 
 Oszacowania są bardziej przewidywalne, gdy są obliczane w usługach uruchomionych na dedykowanych zasobach (warstwach Podstawowa i standardowa). Możesz oszacować zapytań bardziej blisko, ponieważ masz kontrolę nad większymi parametrami. Aby uzyskać wskazówki dotyczące sposobu podejścia do oceny, zobacz temat [wydajność i optymalizacja na platformie wyszukiwanie poznawcze Azure](search-performance-optimization.md).
 
-W przypadku warstw zoptymalizowanych pod kątem magazynu (L1 i L2) należy oczekiwać mniejszej przepływności zapytań i wyższych opóźnień niż w przypadku warstw standardowych. 
+W przypadku warstw zoptymalizowanych pod kątem magazynu (L1 i L2) należy oczekiwać mniejszej przepływności zapytań i wyższych opóźnień niż w przypadku warstw standardowych.
 
 ## <a name="data-limits-ai-enrichment"></a>Limity danych (wzbogacanie AI)
 

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87490289"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483732"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych podstawowych dla puli SQL Synapse platformy Azure
 
@@ -38,7 +38,7 @@ Podstawowe kroki związane z implementacją ELT Base dla puli SQL są następuj�
 5. Przekształć dane.
 6. Wstaw dane do tabel produkcyjnych.
 
-Aby zapoznać się z samouczkiem ładowania, zobacz [Korzystanie z bazy danych w celu załadowania z magazynu obiektów blob platformy Azure do Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby zapoznać się z samouczkiem dotyczącym ładowania, zobacz temat Tworzenie [danych z usługi Azure Blob Storage do usługi Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 Aby uzyskać więcej informacji, zobacz Blog dotyczący [ładowania wzorców](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/).
 
@@ -50,7 +50,7 @@ Pobieranie danych z systemu źródłowego zależy od lokalizacji magazynu.  Cele
 
 Baza danych ładuje dane z rozdzielanych plików tekstowych UTF-8 i UTF-16. Oprócz rozdzielanych plików tekstowych są one ładowane z plików z formatami usługi Hadoop, ORC i Parquet. Baza danych może również ładować dane ze strumienia gzip i plików skompresowanych. Baza danych nie obsługuje obecnie rozszerzonego formatu ASCII, stałej szerokości ani formatów zagnieżdżonych, takich jak WinZip, JSON i XML.
 
-Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyeksportować dane do rozdzielanych plików tekstowych. Mapowanie typu danych Parquet na SQL DW jest następujące:
+Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby wyeksportować dane do rozdzielanych plików tekstowych. Mapowanie typu danych Parquet do usługi Azure Synapse Analytics jest następujące:
 
 | **Parquet — typ danych** |                      **Typ danych SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -121,7 +121,7 @@ Aby załadować dane za pomocą bazy danych Base, można użyć dowolnej z nast�
 - Baza danych w języku [T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) działa prawidłowo, gdy dane są przechowywane w usłudze Azure Blob storage lub Azure Data Lake Store. Zapewnia ona największą kontrolę nad procesem ładowania, ale wymaga również zdefiniowania zewnętrznych obiektów danych. Inne metody definiują te obiekty w tle podczas mapowania tabel źródłowych do tabel docelowych.  Aby zorganizować obciążenia T-SQL, można użyć Azure Data Factory, SSIS lub Azure Functions.
 - [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa prawidłowo, gdy dane źródłowe są w SQL Server. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
 - [Baza z Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to inne narzędzie aranżacji.  Definiuje potok i planuje zadania.
-- [Baza danych z Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) transferuje dane z tabeli SQL Data Warehouse do Databases dataframes i/lub zapisuje dane z ramki Databases do tabeli SQL Data Warehouse przy użyciu bazy danych.
+- [Baza danych z Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) transferuje dane z tabeli usługi Azure Synapse Analytics do elementu datakostks i/lub zapisuje dane z tabeli Databases dataframes na tabelę usługi Azure Synapse Analytics przy użyciu bazy danych.
 
 ### <a name="non-polybase-loading-options"></a>Opcje ładowania inne niż podstawowe
 

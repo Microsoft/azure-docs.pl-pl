@@ -9,28 +9,49 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 07/27/2020
-ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.date: 09/04/2020
+ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553414"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500355"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
 W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każdą nową kompilacją usługi Azure SQL Edge.
 
+## <a name="ctp-23"></a>CTP 2,3
+### <a name="sql-engine-build-number---15020001549"></a>Numer kompilacji aparatu SQL — 15.0.2000.1549
+### <a name="whats-new"></a>Co nowego?
+1. Obsługa niestandardowych źródeł w funkcji Date_Bucket (). 
+2. Obsługa plików BacPac w ramach wdrożenia programu SQL Server.
+3. Obsługa oczyszczania opartych na zasadach przechowywania danych.      
+   - Obsługa języka DDL na potrzeby włączania zasad przechowywania 
+   - Wyczyść procedury składowane i zadanie oczyszczania w tle
+   - Rozszerzone zdarzenia do monitorowania zadań oczyszczania
+
+### <a name="fixes"></a>Poprawki
+1. Dodatkowe komunikaty o błędach i szczegółowe informacje dotyczące rozwiązywania problemów z operacjami TSQL Streaming. 
+2. Imporvements, aby zachować żywotność baterii w trybie bezczynności. 
+3. Poprawki aparatu przesyłania strumieniowego TSQL: 
+   - Problem z zablokowanym znakiem wodnym przy użyciu podstrumienia okna przeskoku 
+   - Napraw obsługę wyjątków platformy, aby upewnić się, że jest ona zbierana jako błąd z możliwością wykonania przez użytkownika
+
+
 ## <a name="ctp-22"></a>CTP 2,2
 ### <a name="sql-engine-build-number---15020001546"></a>Numer kompilacji aparatu SQL — 15.0.2000.1546
-### <a name="fixes"></a>Poprawki
+### <a name="whats-new"></a>Co nowego?
 1. Obsługa kontenerów innych niż główne 
 2. Obsługa zbierania danych użycia i diagnostyki 
 3. Aktualizacje przesyłania strumieniowego T-SQL
    - Obsługa znaków Unicode dla nazw obiektów strumienia
+
+### <a name="fixes"></a>Poprawki
+1. Aktualizacje przesyłania strumieniowego T-SQL
    - Ulepszenia oczyszczania procesów
    - Ulepszenia rejestrowania i diagnostyki
-4. Poprawa wydajności na potrzeby pozyskiwania danych
+2. Poprawa wydajności na potrzeby pozyskiwania danych
 
 ## <a name="ctp-21"></a>CTP 2,1 
 ### <a name="sql-engine-build-number---15020001545"></a>Numer kompilacji aparatu SQL — 15.0.2000.1545

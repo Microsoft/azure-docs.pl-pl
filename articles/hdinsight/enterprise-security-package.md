@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997258"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567099"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>pakiet Enterprise Security usługi Azure HDInsight
 
@@ -20,7 +20,7 @@ Zabezpieczenia przedsiębiorstwa to opcjonalny pakiet, który można dodać do k
 
 * Integracja z usługą Active Directory na potrzeby uwierzytelniania.
 
-    W przeszłości utworzono klastry usługi HDInsight z lokalnym użytkownikiem administracyjnym i lokalnym użytkownikiem SSH. Użytkownik lokalny administrator ma dostęp do wszystkich plików, folderów, tabel i kolumn.  Za pomocą pakiet Enterprise Security włączasz kontrolę dostępu opartą na rolach przez integrację usługi HDInsight z Active Directory. W tym Active Directory lokalnych, Azure Active Directory Domain Services. Lub Active Directory na maszynie wirtualnej IaaS. Administrator domeny w klastrze może udzielić użytkownikom dostępu do nazwy użytkownika i hasła do firmowej firmy (domeny).
+    W przeszłości utworzono klastry usługi HDInsight z lokalnym użytkownikiem administracyjnym i lokalnym użytkownikiem SSH. Użytkownik lokalny administrator ma dostęp do wszystkich plików, folderów, tabel i kolumn.  Za pomocą pakiet Enterprise Security włączasz kontrolę dostępu opartą na rolach przez integrację usługi HDInsight z Azure Active Directory Domain Services.
 
     Aby uzyskać więcej informacji, zobacz:
 

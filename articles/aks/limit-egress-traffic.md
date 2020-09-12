@@ -7,18 +7,18 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 51b457b99afc478631ce9b39a4a7d51ffd57401c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003181"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594263"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
 Ten artykuł zawiera informacje niezbędne do zabezpieczenia ruchu wychodzącego z usługi Azure Kubernetes Service (AKS). Zawiera wymagania dotyczące klastra dla podstawowego wdrożenia AKS oraz dodatkowe wymagania dotyczące opcjonalnych dodatków i funkcji. Na [końcu tego przykładu zostanie dostarczona procedura konfigurowania tych wymagań za pomocą zapory platformy Azure](#restrict-egress-traffic-using-azure-firewall). Można jednak zastosować te informacje do dowolnej metody lub urządzenia ograniczenia ruchu wychodzącego.
 
-## <a name="background"></a>Tło
+## <a name="background"></a>Informacje dodatkowe
 
 Klastry AKS są wdrażane w sieci wirtualnej. Ta sieć może być zarządzana (utworzona przez AKS) lub niestandardową (wstępnie skonfigurowaną przez użytkownika wcześniej). W obu przypadkach klaster ma zależności **wychodzące** od usług spoza tej sieci wirtualnej (usługa nie ma zależności przychodzących).
 
@@ -280,7 +280,7 @@ Zainicjuj obsługę sieci wirtualnej przy użyciu dwóch oddzielnych podsieci, j
 
 Utwórz grupę zasobów, w której mają być przechowywane wszystkie zasoby.
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -294,6 +294,7 @@ Utwórz sieć wirtualną z dwiema podsieciami, aby hostować klaster AKS i zapor
 az network vnet create \
     --resource-group $RG \
     --name $VNET_NAME \
+    --location $LOC \
     --address-prefixes 10.42.0.0/16 \
     --subnet-name $AKSSUBNET_NAME \
     --subnet-prefix 10.42.1.0/24
@@ -320,12 +321,12 @@ Reguły ruchu przychodzącego i wychodzącego zapory platformy Azure muszą być
 
 Utwórz zasób publicznego adresu IP jednostki SKU, który będzie używany jako adres frontonu zapory platformy Azure.
 
-```azure-cli
+```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Zarejestruj interfejs wiersza polecenia w wersji zapoznawczej, aby utworzyć zaporę platformy Azure.
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -340,7 +341,7 @@ Utworzony wcześniej adres IP można teraz przypisać do frontonu zapory.
 > Skonfigurowanie publicznego adresu IP w zaporze platformy Azure może potrwać kilka minut.
 > Aby można było korzystać z nazwy FQDN w regułach sieci, należy włączyć serwer proxy DNS. po włączeniu Zapora nasłuchuje na porcie 53 i przekaże żądania DNS do serwera DNS określonego powyżej. Dzięki temu Zapora będzie mogła automatycznie przetłumaczyć tę nazwę FQDN.
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -364,10 +365,10 @@ Platforma Azure automatycznie kieruje ruchem między podsieciami platformy Azure
 
 Utwórz pustą tabelę tras, która ma zostać skojarzona z daną podsiecią. W tabeli tras zostanie zdefiniowany następny przeskok, który został utworzony powyżej przez zaporę platformy Azure. Każda podsieć może mieć skojarzoną ze sobą żadną lub jedną tabelę tras.
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
-az network route-table create -g $RG -$LOC --name $FWROUTE_TABLE_NAME
+az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
@@ -398,7 +399,7 @@ Zobacz [dokumentację zapory platformy Azure](../firewall/overview.md) , aby dow
 
 Aby można było skojarzyć klaster z zaporą, dedykowana podsieć klastra musi odwoływać się do utworzonej powyżej tabeli tras. Skojarzenie można wykonać, wydając polecenie do sieci wirtualnej, w której klaster i Zapora mają aktualizować tabelę tras w podsieci klastra.
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -414,7 +415,7 @@ Teraz klaster AKS można wdrożyć w istniejącej sieci wirtualnej. Użyjemy ró
 
 Nazwa główna usługi jest używana przez AKS do tworzenia zasobów klastra. Nazwa główna usługi, która jest przesyłana w czasie tworzenia, jest używana do tworzenia podstawowych zasobów AKS, takich jak zasoby magazynu, adresy IP i moduły równoważenia obciążenia używane przez AKS (zamiast tego można także użyć [tożsamości zarządzanej](use-managed-identity.md) ). Jeśli nie przyznano odpowiednich uprawnień, nie będzie można zainicjować obsługi administracyjnej klastra AKS.
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -422,7 +423,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 Teraz Zastąp `APPID` `PASSWORD` poniższe i poniżej z identyfikatorem jednostki usługi i hasłem głównym usługi generowanym automatycznie przez poprzednie dane wyjściowe polecenia. Odwołujemy się do identyfikatora zasobu sieci wirtualnej, aby przyznać uprawnienia do nazwy głównej usługi, dzięki czemu AKS może wdrożyć w niej zasoby.
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -460,7 +461,7 @@ Zdefiniujesz typ wychodzący, aby używał UDR, który już istnieje w podsieci.
 >
 > Można dodać funkcję AKS dla [**dozwolonych zakresów adresów IP serwera interfejsu API**](api-server-authorized-ip-ranges.md) , aby ograniczyć dostęp serwera API tylko do publicznego punktu końcowego zapory. Funkcja zakresów autoryzowanych adresów IP jest oznaczona jako opcjonalna na diagramie. W przypadku włączenia funkcji autoryzowanego zakresu adresów IP w celu ograniczenia dostępu do serwera interfejsu API narzędzia deweloperskie muszą używać serwera przesiadkowego z sieci wirtualnej zapory lub należy dodać wszystkie punkty końcowe dewelopera do autoryzowanego zakresu adresów IP.
 
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 --generate-ssh-keys \
   --network-plugin $PLUGIN \
@@ -491,7 +492,7 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 
  Użyj polecenia [AZ AKS Get-Credentials] [AZ-AKS-Get-Credentials], aby skonfigurować program do `kubectl` nawiązywania połączenia z nowo utworzonym klastrem Kubernetes. 
 
- ```azure-cli
+ ```azurecli
  az aks get-credentials -g $RG -n $AKSNAME
  ```
 
@@ -754,7 +755,7 @@ SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].
 ```
 
 Dodaj regułę NAT, uruchamiając:
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
 
@@ -772,7 +773,7 @@ Powinna zostać wyświetlona aplikacja do głosowania AKS. W tym przykładzie pu
 
 Aby wyczyścić zasoby platformy Azure, Usuń grupę zasobów AKS.
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 

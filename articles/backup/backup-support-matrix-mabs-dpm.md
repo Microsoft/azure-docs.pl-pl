@@ -3,12 +3,12 @@ title: Macierz obsługi programu serwera usługi MAB & System Center DPM
 description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej w przypadku używania serwera Microsoft Azure Backup (serwera usługi MAB) lub programu System Center DPM do tworzenia kopii zapasowych zasobów lokalnych i maszyn wirtualnych platformy Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 71f188ffca125bc13eb2e9a43f466aeb61c64b75
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182007"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506614"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Macierz obsługi dla tworzenia kopii zapasowych za pomocą serwera Microsoft Azure Backup lub programu System Center DPM
 
@@ -114,10 +114,10 @@ Można wdrożyć serwera usługi MAB na maszynie wirtualnej Azure Stack, aby mo�
 Serwer DPM/serwera usługi MAB potrzebuje dostępu do tych adresów URL:
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- `*.Microsoft.com`
+- `*.WindowsAzure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 ### <a name="azure-expressroute-support"></a>Pomoc techniczna platformy Azure ExpressRoute
 
@@ -148,9 +148,9 @@ Aby kopie zapasowe działały prawidłowo, wymagana jest łączność z usługą
 
 **SERWERA usługi MAB na platformę Azure** | **Subskrypcja** | **Tworzenie/przywracanie kopii zapasowych**
 --- | --- | ---
-Połączone | Aktywne | Utwórz kopię zapasową na dysku programu DPM/serwera usługi MAB.<br/><br/> Utwórz kopię zapasową na platformie Azure.<br/><br/> Przywróć z dysku.<br/><br/> Przywróć z platformy Azure.
+Połączone | Aktywny | Utwórz kopię zapasową na dysku programu DPM/serwera usługi MAB.<br/><br/> Utwórz kopię zapasową na platformie Azure.<br/><br/> Przywróć z dysku.<br/><br/> Przywróć z platformy Azure.
 Połączone | Wygasłe lub anulowano obsługę administracyjną | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Jeśli subskrypcja wygasła, możesz przywrócić ją z dysku lub platformy Azure.<br/><br/> Jeśli subskrypcja została zlikwidowana, nie można jej przywrócić z dysku lub platformy Azure. Punkty odzyskiwania platformy Azure są usuwane.
-Brak łączności przez ponad 15 dni | Aktywne | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Można przywrócić z dysku lub platformy Azure.
+Brak łączności przez ponad 15 dni | Aktywny | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Można przywrócić z dysku lub platformy Azure.
 Brak łączności przez ponad 15 dni | Wygasłe lub anulowano obsługę administracyjną | Brak kopii zapasowej na dysku lub na platformie Azure.<br/><br/> Jeśli subskrypcja wygasła, możesz przywrócić ją z dysku lub platformy Azure.<br/><br/> Jeśli subskrypcja została zlikwidowana, nie można jej przywrócić z dysku lub platformy Azure. Punkty odzyskiwania platformy Azure są usuwane.
 
 ## <a name="domain-and-domain-trusts-support"></a>Obsługa relacji zaufania domen i domen

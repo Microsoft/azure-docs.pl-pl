@@ -1,6 +1,6 @@
 ---
 title: Striim — Szybki Start
-description: Szybko Rozpocznij pracę z Striimami i Azure SQL Data Warehouse.
+description: Szybko Rozpocznij pracę dzięki usługom Striim i Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208556"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485978"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Przewodnik dotyczący instalacji oferty portalu Azure SQL DW w witrynie Striim
+# <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Przewodnik instalacji oferty usługi Striim Azure Synapse Analytics Marketplace
 
-W tym przewodniku szybki start założono, że masz już istniejące wystąpienie SQL Data Warehouse.
+W tym przewodniku szybki start założono, że masz już istniejące wystąpienie usługi Azure Synapse Analytics.
 
-Wyszukaj Striim w portalu Azure Marketplace i wybierz opcję Striim integracji danych do SQL Data Warehouse (przemieszczane) 
+Wyszukaj Striim w portalu Azure Marketplace, a następnie wybierz opcję Striim integracji danych z usługą Azure Synapse Analytics (przemieszczoną) 
 
 ![Zainstaluj Striim][install]
 
@@ -32,7 +32,7 @@ Skonfiguruj maszynę wirtualną Striim z określonymi właściwościami, zwracaj
 
 Po wdrożeniu kliknij pozycję \<VM Name> masternode w Azure Portal, kliknij pozycję Połącz i skopiuj nazwę logowania przy użyciu lokalnego konta maszyny wirtualnej 
 
-![Połącz Striim z SQL Data Warehouse][connect]
+![Łączenie Striim z usługą Azure Synapse Analytics][connect]
 
 Pobierz plik sqljdbc42. jar z programu <https://www.microsoft.com/en-us/download/details.aspx?id=54671> na komputer lokalny. 
 

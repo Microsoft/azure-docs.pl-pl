@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708845"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658725"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Co to jest pula wystąpień zarządzanych Azure SQL (wersja zapoznawcza)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Istnieje kilka ograniczeń zasobów dotyczących pul wystąpień i wystąpień w
 - Oprócz limitów na poziomie wystąpienia istnieją również dwa limity nakładane *na poziomie puli wystąpień*:
   - Łączny rozmiar magazynu na pulę (8 TB).
   - Łączna liczba baz danych na pulę (100).
+- Nie można ustawić administratora usługi AAD dla wystąpień wdrożonych wewnątrz puli wystąpień, dlatego nie można użyć uwierzytelniania usługi AAD.
 
 Całkowita alokacja magazynu i liczba baz danych we wszystkich wystąpieniach muszą być mniejsze lub równe limitom udostępnionym przez pule wystąpień.
 

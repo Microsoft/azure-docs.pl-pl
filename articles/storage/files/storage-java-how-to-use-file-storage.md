@@ -8,12 +8,12 @@ ms.date: 09/19/2017
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b1edc13888a42086cdcd3c3c7756491bd5f43241
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2c80d741ca1cf0b4d66bc18488af8ef1da44fd14
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314479"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462602"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Develop for Azure Files with Java (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Java)
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -230,6 +230,6 @@ Jeśli chcesz dowiedzieć się więcej na temat innych interfejsów API usługi 
 * [Zestaw SDK usługi Azure Storage dla systemu Android](https://github.com/azure/azure-storage-android)
 * [Dokumentacja zestawu SDK klienta usługi Azure Storage](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog zespołu usługi Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog zespołu usługi Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md)
 * [Troubleshooting Azure Files problems - Windows (Rozwiązywanie problemów z usługą Azure Files — Windows)](storage-troubleshoot-windows-file-connection-problems.md)

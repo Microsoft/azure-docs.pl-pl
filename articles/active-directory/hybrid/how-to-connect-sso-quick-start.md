@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115751"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658748"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
@@ -40,7 +40,7 @@ Upewnij się, że są spełnione następujące wymagania wstępne:
    - Jeśli zapora lub serwer proxy zezwala, Dodaj połączenia do listy dozwolonych adresów URL ** \* msappproxy.NET** na porcie 443. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień. To wymaganie wstępne jest stosowane tylko po włączeniu funkcji. Nie jest to wymagane w przypadku rzeczywistych logowań użytkownika.
 
     >[!NOTE]
-    >Azure AD Connect wersje 1.1.557.0, 1.1.558.0, 1.1.561.0 i 1.1.614.0 mają problem związany z synchronizacją skrótów haseł. Jeśli _nie_ zamierzasz używać synchronizacji skrótów haseł w połączeniu z uwierzytelnianiem przekazującym, przeczytaj informacje o [wersji Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) , aby dowiedzieć się więcej.
+    >Azure AD Connect wersje 1.1.557.0, 1.1.558.0, 1.1.561.0 i 1.1.614.0 mają problem związany z synchronizacją skrótów haseł. Jeśli _nie_ zamierzasz używać synchronizacji skrótów haseł w połączeniu z uwierzytelnianiem przekazującym, przeczytaj informacje o [wersji Azure AD Connect](./reference-connect-version-history.md) , aby dowiedzieć się więcej.
 
 * **Użyj obsługiwanej topologii Azure AD Connectej**: Upewnij się, że używasz jednej z Azure AD Connect obsługiwanych topologii opisanych [tutaj](plan-connect-topologies.md).
 
@@ -51,9 +51,9 @@ Upewnij się, że są spełnione następujące wymagania wstępne:
     * Synchronizacja z usługą Azure AD odbywa się za pomocą Azure AD Connect.
     * Zawiera użytkowników, którym chcesz umożliwić bezproblemowe logowanie jednokrotne.
     
-* **Włącz nowoczesne uwierzytelnianie**: aby ta funkcja działała, należy włączyć [nowoczesne uwierzytelnianie](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) w dzierżawie.
+* **Włącz nowoczesne uwierzytelnianie**: aby ta funkcja działała, należy włączyć [nowoczesne uwierzytelnianie](/office365/enterprise/modern-auth-for-office-2013-and-2016) w dzierżawie.
 
-* **Korzystanie z najnowszych wersji klientów pakietu office 365**: Aby skorzystać z dyskretnego logowania do klientów pakietu Office 365 (Outlook, Word, Excel i innych), użytkownicy muszą używać wersji 16.0.8730. xxxx lub nowszej.
+* **Użyj najnowszych wersji Microsoft 365 klientów**: Aby uzyskać ciche środowisko logowania z klientami Microsoft 365 (Outlook, Word, Excel i innymi), użytkownicy muszą używać wersji 16.0.8730. xxxx lub nowszej.
 
 ## <a name="step-2-enable-the-feature"></a>Krok 2. Włączanie funkcji
 
@@ -132,7 +132,7 @@ Istnieją dwa sposoby modyfikacji ustawień strefy intranetowej użytkowników:
 
      Wynik wygląda następująco:
 
-     Nazwa wartości:`https://autologon.microsoftazuread-sso.com`
+     Nazwa wartości: `https://autologon.microsoftazuread-sso.com`
   
      Wartość (dane): 1
 
@@ -187,11 +187,11 @@ Upewnij się, że maszyna, na której działa macOS, jest przyłączona do usłu
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge oparta na chromie (wszystkie platformy)
 
-Jeśli ustawienia zasad [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) lub [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) zostały zastąpione w Twoim środowisku, upewnij się, że dodano do nich adres URL () usługi Azure AD `https://autologon.microsoftazuread-sso.com` .
+Jeśli ustawienia zasad [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) lub [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) zostały zastąpione w Twoim środowisku, upewnij się, że dodano do nich adres URL () usługi Azure AD `https://autologon.microsoftazuread-sso.com` .
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge w oparciu o chrom (macOS i inne platformy inne niż Windows)
 
-W przypadku programu Microsoft Edge opartego na chromie na macOS i innych platformach innych niż Windows Zapoznaj się z [listą zasad chromu w witrynie Microsoft Edge](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) , aby uzyskać informacje na temat dodawania adresu URL usługi Azure AD na potrzeby uwierzytelniania zintegrowanego na liście dozwolonych.
+W przypadku programu Microsoft Edge opartego na chromie na macOS i innych platformach innych niż Windows Zapoznaj się z [listą zasad chromu w witrynie Microsoft Edge](/DeployEdge/microsoft-edge-policies#authserverallowlist) , aby uzyskać informacje na temat dodawania adresu URL usługi Azure AD na potrzeby uwierzytelniania zintegrowanego na liście dozwolonych.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (wszystkie platformy)
 
@@ -211,7 +211,7 @@ Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatneg
 
 Aby przetestować funkcję dla określonego użytkownika, upewnij się, że zostały spełnione wszystkie następujące warunki:
   - Użytkownik loguje się na urządzeniu firmowym.
-  - Urządzenie jest przyłączone do domeny Active Directory. Urządzenie _nie_ musi być [przyłączone do usługi Azure AD](../active-directory-azureadjoin-overview.md).
+  - Urządzenie jest przyłączone do domeny Active Directory. Urządzenie _nie_ musi być [przyłączone do usługi Azure AD](../devices/overview.md).
   - Urządzenie ma bezpośrednie połączenie z kontrolerem domeny (DC) w sieci przewodowej lub bezprzewodowej firmy lub za pośrednictwem połączenia dostępu zdalnego, takiego jak połączenie sieci VPN.
   - Funkcja dla tego użytkownika została [przeprowadzona](#step-3-roll-out-the-feature) za pomocą zasady grupy.
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 19bfaf611093f6ca178a627123d4d0f9c8ccf3ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804406"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594271"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP do HTTPS za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -21,12 +21,11 @@ Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bram
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Tworzenie certyfikatu z podpisem własnym
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji z certyfikatem
-> * Dodaj odbiornik i regułę przekierowania
-> * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
+* Tworzenie certyfikatu z podpisem własnym
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji z certyfikatem
+* Dodaj odbiornik i regułę przekierowania
+* Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

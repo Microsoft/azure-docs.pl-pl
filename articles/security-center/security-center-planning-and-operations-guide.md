@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e9e67dc0da7f81f73d8237769e7aea90f9bc1585
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833423"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461327"
 ---
 # <a name="planning-and-operations-guide"></a>Przewodnik dotyczący planowania i operacji
 Ten przewodnik jest przeznaczony dla specjalistów IT, architektów IT, analityków zabezpieczeń informacji i administratorów chmury do korzystania z Azure Security Center.
@@ -237,4 +237,4 @@ W tym dokumencie omówiono, jak zaplanować wykorzystanie usługi Security Cente
 * [Monitorowanie kondycji zabezpieczeń w usłudze Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
 * [Monitorowanie rozwiązań partnerskich za pomocą Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center — często zadawane pytania](faq-general.md) — odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
-* [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
+* [Blog Azure Security](https://docs.microsoft.com/archive/blogs/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.

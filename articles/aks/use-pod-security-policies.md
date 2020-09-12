@@ -4,17 +4,17 @@ description: Dowiedz się, jak kontrolować przyjmowanie w systemie za pomocą P
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 3c8ec61666942fc74dcb64c03c0e3f06986e8c37
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987277"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669307"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Wersja zapoznawcza — Zabezpieczanie klastra przy użyciu zasad zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), została ustawiona na przestarzałe i nie będzie już dostępna po 15 października 2020** na korzyść [Azure Policy dla AKS](use-pod-security-on-azure-policy.md).
+> **Funkcja opisana w tym dokumencie, zgodnie z zasadami zabezpieczeń (wersja zapoznawcza), jest ustawiana jako przestarzała i nie będzie już dostępna po 1 lutego 2021** na korzyść [Azure Policy dla AKS](use-pod-security-on-azure-policy.md). Data wycofania została rozszerzona od daty wcześniejszej 15 października 2020.
 >
 > Gdy zasady zabezpieczeń (wersja zapoznawcza) są przestarzałe, należy wyłączyć tę funkcję w przypadku wszystkich istniejących klastrów przy użyciu przestarzałej funkcji w celu przeprowadzania przyszłych uaktualnień klastra i pozostawania w ramach pomocy technicznej systemu Azure.
 >
@@ -24,7 +24,7 @@ Aby zwiększyć bezpieczeństwo klastra AKS, możesz ograniczyć, co można zapl
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 

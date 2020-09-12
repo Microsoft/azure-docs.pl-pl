@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01f945496d2f0bc81a108c5e58c89587c1c4e38
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8ab68ab4166ddf9e938648e6618ef37df6d998f0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505482"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460902"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegowanie i role w zarządzaniu prawami usługi Azure AD
 
@@ -116,11 +116,11 @@ Poniższa tabela zawiera listę zadań, które mogą być wykonywane przez role 
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Role wymagane do dodawania zasobów do wykazu
 
-Administrator globalny może dodawać lub usuwać dowolną grupę (grupy zabezpieczeń utworzone w chmurze lub grupy Office 365 utworzone w chmurze), aplikację lub witrynę usługi SharePoint Online w wykazie. Administrator użytkowników może dodać lub usunąć dowolną grupę lub aplikację w wykazie, z wyjątkiem grup skonfigurowanych jako możliwe do przypisania do roli katalogu.
+Administrator globalny może dodawać lub usuwać dowolną grupę (grupy zabezpieczeń utworzone w chmurze lub grupy Microsoft 365 utworzone w chmurze), aplikację lub witrynę usługi SharePoint Online w wykazie. Administrator użytkowników może dodać lub usunąć dowolną grupę lub aplikację w wykazie, z wyjątkiem grup skonfigurowanych jako możliwe do przypisania do roli katalogu.
 
 Użytkownik, który nie jest administratorem globalnym lub administratorem użytkownika, w celu dodania grup, aplikacji lub witryn usługi SharePoint Online do wykazu, musi mieć *zarówno* wymaganą rolę w katalogu usługi Azure AD, jak i rolę zarządzania uprawnieniem właściciela katalogu. W poniższej tabeli wymieniono kombinacje ról, które są wymagane do dodawania zasobów do wykazu. Aby usunąć zasoby z wykazu, musisz mieć te same role.
 
-| Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń | Może dodać grupę Office 365 | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online |
+| Rola katalogu usługi Azure AD | Rola zarządzania uprawnieniami | Może dodać grupę zabezpieczeń | Może dodać grupę Microsoft 365 | Można dodać aplikację | Może dodać witrynę usługi SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Administrator globalny](../users-groups-roles/directory-assign-admin-roles.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Administrator użytkowników](../users-groups-roles/directory-assign-admin-roles.md) | nie dotyczy |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -133,7 +133,7 @@ Użytkownik, który nie jest administratorem globalnym lub administratorem użyt
 | Użytkownik | Właściciel katalogu | Tylko wtedy, gdy właściciel grupy | Tylko wtedy, gdy właściciel grupy | Tylko wtedy, gdy właściciel aplikacji |  |
 
 > [!NOTE]
-> Jeśli użytkownik doda grupę zabezpieczeń lub grupę Office 365, Grupa nie może być przypisana do roli. Jeśli użytkownik doda grupę, która jest przypisana do roli podczas tworzenia pakietu dostępu, musi również być właścicielem tej grupy przypisanej do roli. Aby uzyskać więcej informacji, należy utworzyć grupę z możliwością [przypisywania ról w Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> Jeśli użytkownik doda grupę zabezpieczeń lub grupę Microsoft 365, Grupa nie może być przypisana do roli. Jeśli użytkownik doda grupę, która jest przypisana do roli podczas tworzenia pakietu dostępu, musi również być właścicielem tej grupy przypisanej do roli. Aby uzyskać więcej informacji, należy utworzyć grupę z możliwością [przypisywania ról w Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
 
 Aby określić najmniejszą rolę uprzywilejowaną dla zadania, można także odwoływać się do [ról administratorów za pomocą zadania administratora w Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 

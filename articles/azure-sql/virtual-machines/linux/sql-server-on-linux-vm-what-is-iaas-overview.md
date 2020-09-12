@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 41b74ed713485679576fdf7f4f0df54803b56caa
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6e6038e2c0aa4f6b41c4a4da9bde6e98555ceb31
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192118"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613563"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Omówienie programu SQL Server na maszynach wirtualnych platformy Azure (system Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,6 +28,9 @@ ms.locfileid: "88192118"
 SQL Server na platformie Azure Virtual Machines umożliwia korzystanie z pełnych wersji SQL Server w chmurze bez konieczności zarządzania sprzętem lokalnym. Maszyny wirtualne z programem SQL Server upraszczają również określanie kosztów licencjonowania w przypadku płatności zgodnie z rzeczywistym użyciem.
 
 Maszyny wirtualne platformy Azure działają w wielu różnych [regionach geograficznych](https://azure.microsoft.com/regions/) na świecie. Oferują one także szereg różnych [rozmiarów maszyn](../../../virtual-machines/windows/sizes.md). Galeria obrazów maszyn wirtualnych umożliwia utworzenie maszyny wirtualnej z programem SQL Server we właściwej wersji i edycji oraz z odpowiednim systemem operacyjnym. Dzięki temu maszyny wirtualne to dobry wybór w przypadku wielu różnych obciążeń programu SQL Server. 
+
+Jeśli dopiero zaczynasz skorzystać z usługi Azure SQL, zapoznaj SQL Server się z *tematem wideo na temat usługi Azure VM Overview* z naszej szczegółowej [serii wideo usługi Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a name="get-started-with-sql-server-vms"></a><a id="create"></a> Rozpoczynanie pracy z maszynami wirtualnymi SQL Server
 
@@ -54,9 +57,9 @@ Podczas konfigurowania SQL Server on Linux należy zainstalować pakiet aparat b
 
 | Dystrybucja | [Aparat bazy danych](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Narzędzia](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agent SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Wyszukiwanie pełnotekstowe](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Dodatek wysokiej dostępności](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
-| SLES | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![nie](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
-| Ubuntu | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| RHEL | ![RHEL i aparat bazy danych](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i narzędzia](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i Agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i wyszukiwanie pełnotekstowe](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL i SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Dodatek RHEL i HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| SLES | ![SLES i aparat bazy danych](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i narzędzia](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i Agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i wyszukiwanie pełnotekstowe](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES i SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![Dodatek SLES i HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
+| Ubuntu | ![Ubuntu i aparat bazy danych](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu i narzędzia](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu i Agent SQL Server](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu i wyszukiwanie pełnotekstowe](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu i SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Dodatek Ubuntu i HA](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 
 ## <a name="related-products-and-services"></a>Powiązane produkty i usługi
 
@@ -64,11 +67,11 @@ Podczas konfigurowania SQL Server on Linux należy zainstalować pakiet aparat b
 
 * [Omówienie usługi Azure Virtual Machines](../../../virtual-machines/linux/overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Magazyn
 
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Sieć
+### <a name="networking"></a>Networking
 
 * [Przegląd Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../../virtual-network/public-ip-addresses.md)

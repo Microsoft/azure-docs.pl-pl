@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d889d0c13c911e02d73bb1de76b7c3d1aa240027
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0730148a3da41d0d72961ea521577fa370b183d
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806818"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596094"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -21,12 +21,11 @@ Przy użyciu interfejsu wiersza polecenia platformy Azure można skonfigurować 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji
-> * Dodaj odbiorniki i regułę przekierowania
-> * Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
-> * Tworzenie rekordu CNAME w domenie
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji
+* Dodaj odbiorniki i regułę przekierowania
+* Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
+* Tworzenie rekordu CNAME w domenie
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

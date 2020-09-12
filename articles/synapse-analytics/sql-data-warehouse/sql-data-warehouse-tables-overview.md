@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eaea80ae874b93a640c885e0d4b7afde2a165c16
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798571"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460551"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Projektowanie tabel w puli SQL Synapse
 
@@ -111,7 +111,7 @@ Kategoria tabeli często określa, którą opcję należy wybrać do dystrybucji
 
 ## <a name="table-partitions"></a>Partycje tabeli
 
-Partycjonowana tabela przechowuje i wykonuje operacje na wierszach tabeli zgodnie z zakresami danych. Na przykład tabela może być partycjonowana według dnia, miesiąca lub roku. Można poprawić wydajność zapytań za pomocą eliminacji partycji, co ogranicza skanowanie zapytania do danych w ramach partycji. Możesz również zachować dane za pomocą przełączania partycji. Ponieważ dane w SQL Data Warehouse są już dystrybuowane, zbyt wiele partycji może spowalniać wydajność zapytań. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące partycjonowania](sql-data-warehouse-tables-partition.md).  Gdy partycja przełączy się na partycje tabeli, które nie są puste, rozważ użycie opcji TRUNCATE_TARGET w instrukcji [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , jeśli istniejące dane mają zostać obcięte. Poniższy kod umożliwia przełączenie danych dziennych na SalesFact zastępowanie wszelkich istniejących danych.
+Partycjonowana tabela przechowuje i wykonuje operacje na wierszach tabeli zgodnie z zakresami danych. Na przykład tabela może być partycjonowana według dnia, miesiąca lub roku. Można poprawić wydajność zapytań za pomocą eliminacji partycji, co ogranicza skanowanie zapytania do danych w ramach partycji. Możesz również zachować dane za pomocą przełączania partycji. Ponieważ dane w usłudze Azure Synapse Analytics są już dystrybuowane, zbyt wiele partycji może powolnej wydajności zapytań. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące partycjonowania](sql-data-warehouse-tables-partition.md).  Gdy partycja przełączy się na partycje tabeli, które nie są puste, rozważ użycie opcji TRUNCATE_TARGET w instrukcji [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , jeśli istniejące dane mają zostać obcięte. Poniższy kod umożliwia przełączenie danych dziennych na SalesFact zastępowanie wszelkich istniejących danych.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -294,9 +294,6 @@ SELECT *
 FROM size
 ;
 ```
-
->[!TIP]
-> Aby zwiększyć wydajność w programie Synapse SQL, należy rozważyć użycie **tabeli sys. pdw_permanent_table_mappings** zamiast **sys. pdw_table_mappings** w tabelach trwałych użytkowników. Aby uzyskać więcej informacji, zobacz sekcję **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Podsumowanie obszaru tabeli
 

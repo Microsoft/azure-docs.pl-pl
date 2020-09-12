@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121446"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483749"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Często zadawane pytania dotyczące SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a name="images"></a><a id="images"></a>Rastrow
+## <a name="images"></a><a id="images"></a> Rastrow
 
 1. **Jakie są dostępne obrazy z galerii maszyn wirtualnych SQL Server?** 
 
@@ -164,6 +164,9 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
    Tak. Nośnik instalacyjny SQL Server znajduje się w folderze na dysku **C** . Uruchom **Setup.exe** z tej lokalizacji, aby dodać nowe wystąpienia SQL Server lub zmienić inne zainstalowane funkcje SQL Server na komputerze. Należy zauważyć, że niektóre funkcje, takie jak automatyczne tworzenie kopii zapasowych, automatyczne stosowanie poprawek i integracja Azure Key Vault, działają tylko względem wystąpienia domyślnego lub nazwanego wystąpienia, które zostało prawidłowo skonfigurowane (zobacz pytanie 3). Klienci korzystający [z programu Software Assurance w ramach korzyść użycia hybrydowego platformy Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) lub modelu licencjonowania z **płatność zgodnie z rzeczywistym** użyciem mogą instalować wiele wystąpień SQL Server na maszynie wirtualnej bez ponoszenia dodatkowych kosztów licencjonowania. Dodatkowe wystąpienia SQL Server mogą ograniczać zasoby systemowe, chyba że są poprawnie skonfigurowane. 
 
+1. **Jaka jest maksymalna liczba wystąpień na maszynie wirtualnej?**
+   SQL Server 2012 do SQL Server 2019 może obsługiwać [50 wystąpienia](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) na serwerze autonomicznym. Jest to ten sam limit, niezależnie od platformy Azure w środowisku lokalnym. Zapoznaj się z [najlepszymi rozwiązaniami](performance-guidelines-best-practices.md#multiple-instances) , aby dowiedzieć się, jak lepiej przygotować swoje środowisko. 
+
 1. **Czy mogę odinstalować domyślne wystąpienie programu SQL Server?**
 
    Tak, ale należy wziąć pod uwagę pewne kwestie. Po pierwsze rozliczenia skojarzone z SQL Server mogą być nadal wykonywane w zależności od modelu licencji dla maszyny wirtualnej. Po drugie, zgodnie z opisem w poprzedniej odpowiedzi, istnieją funkcje, które opierają się na [rozszerzeniu SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). W przypadku odinstalowania wystąpienia domyślnego bez usuwania rozszerzenia IaaS, rozszerzenie nadal szuka wystąpienia domyślnego i może generować błędy dziennika zdarzeń. Te błędy pochodzą z następujących dwóch źródeł: **Microsoft SQL Server zarządzania poświadczeniami** i **Microsoft SQL Server agenta IaaS**. Jeden z błędów może być podobny do następującego:
@@ -179,6 +182,9 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 1. **Czy mogę usunąć całkowicie program SQL Server z maszyny wirtualnej z programem SQL Server?**
 
    Tak, ale nadal będzie naliczana opłata za maszynę wirtualną SQL Server, zgodnie z opisem w temacie [wskazówki dotyczące cen dla SQL Server maszyn wirtualnych platformy Azure](pricing-guidance.md). Jeśli program SQL Server nie jest już potrzebny, można wdrożyć nową maszynę wirtualną, a następnie migrować dane i aplikacje do nowej maszyny wirtualnej. Następnie można usunąć maszynę wirtualną z programem SQL Server.
+
+1. **Czy mogę używać witryny Azure Portal do zarządzania wieloma wystąpieniami na tej samej maszynie wirtualnej?**
+   Nie. Zarządzanie portalem jest udostępniane przez dostawcę zasobów maszyny wirtualnej SQL, który opiera się na rozszerzeniu SQL Server agenta IaaS. W związku z tym te same ograniczenia dotyczą dostawcy zasobów jako rozszerzenie. Portal może zarządzać tylko jednym wystąpieniem domyślnym lub jednym wystąpieniem nazwanym, dopóki jego konfiguracja jest prawidłowa. Aby uzyskać więcej informacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md) 
    
 ## <a name="updating-and-patching"></a>Aktualizowanie i stosowanie poprawek
 

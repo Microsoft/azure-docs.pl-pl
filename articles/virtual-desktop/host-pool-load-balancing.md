@@ -3,15 +3,15 @@ title: Równoważenie obciążenia puli hostów usług pulpitu wirtualnego syste
 description: Informacje o metodach równoważenia obciążenia puli hostów dla środowiska pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 09/04/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007441"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461123"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Metody równoważenia obciążenia puli hostów
 
@@ -34,7 +34,7 @@ Dla każdej puli hostów można skonfigurować tylko jeden typ równoważenia ob
 
 Metoda równoważenia obciążenia pierwszej szerokości umożliwia dystrybucję połączeń użytkowników w celu optymalizacji w tym scenariuszu. Ta metoda jest idealnym rozwiązaniem dla organizacji, które chcą zapewnić najlepszym użytkownikom łączenie się ze środowiskiem pulpitu wirtualnego w puli.
 
-Pierwsza metoda pierwsza bada hosty sesji, które zezwalają na nowe połączenia. Następnie Metoda wybiera hosta sesji z najmniejszą liczbą sesji. Jeśli istnieje powiązanie, Metoda wybiera pierwszego hosta sesji w zapytaniu.
+Pierwsza metoda pierwsza bada hosty sesji, które zezwalają na nowe połączenia. Następnie Metoda wybiera hosta sesji losowo z połowy zestawu hostów sesji o najmniejszej liczbie sesji. Na przykład jeśli istnieją dziewięć maszyn z 11, 12, 13, 14, 15, 16, 17, 18 i 19 sesji, nowo utworzona sesja nie będzie automatycznie przechodzić do pierwszej maszyny. Zamiast tego może przejść do dowolnego z pięciu pierwszych maszyn z najmniejszą liczbą sesji (11, 12, 13, 14, 15).
 
 ## <a name="depth-first-load-balancing-method"></a>Głębokość — pierwsza metoda równoważenia obciążenia
 

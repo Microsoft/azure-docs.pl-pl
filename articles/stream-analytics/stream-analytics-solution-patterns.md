@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903327"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461548"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Wzorce rozwiązań usługi Azure Stream Analytics
 
@@ -102,7 +102,7 @@ Większość działań związanych z nauką i analizą danych nadal działa w tr
 
 ## <a name="use-reference-data-for-enrichment"></a>Użyj danych referencyjnych do wzbogacania
 
-Wzbogacanie danych jest często wymagane dla aparatów ETL. Azure Stream Analytics obsługuje Wzbogacanie danych z [danymi referencyjnymi](stream-analytics-use-reference-data.md) z SQL Database i usługi Azure Blob Storage. Wzbogacanie danych można wykonać w celu załadowania danych zarówno Azure Data Lake, jak i SQL Data Warehouse.
+Wzbogacanie danych jest często wymagane dla aparatów ETL. Azure Stream Analytics obsługuje Wzbogacanie danych z [danymi referencyjnymi](stream-analytics-use-reference-data.md) z SQL Database i usługi Azure Blob Storage. Wzbogacanie danych można wykonać w celu załadowania danych zarówno w Azure Data Lake, jak i na platformie Azure Synapse Analytics.
 
 
 ![Analiza usługi ASA w trybie offline z wzbogacaniem danych](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
@@ -115,7 +115,7 @@ W przypadku łączenia wzorca analizy offline z wzorcem aplikacji niemal w czasi
 
 ## <a name="how-to-monitor-asa-jobs"></a>Jak monitorować zadania ASA
 
-Zadanie Azure Stream Analytics można uruchomić 24/7, aby przetwarzać zdarzenia przychodzące w sposób ciągły w czasie rzeczywistym. Gwarancja czasu działania jest istotna dla kondycji ogólnej aplikacji. Chociaż Stream Analytics jest jedyną usługą analizy przesyłania strumieniowego w branży, która oferuje [gwarancję dostępności na 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), nadal może być ponoszony pewien poziom czasu. W ciągu lat Stream Analytics wprowadził metryki, dzienniki i Stany zadań, aby odzwierciedlały kondycję zadań. Wszystkie z nich są naAzure Monitor usługi i można je wyeksportować do pakietu OMS. Aby uzyskać więcej informacji, zobacz [Omówienie monitorowania zadań Stream Analytics i sposobu monitorowania zapytań](stream-analytics-monitoring.md).
+Zadanie Azure Stream Analytics można uruchomić 24/7, aby przetwarzać zdarzenia przychodzące w sposób ciągły w czasie rzeczywistym. Gwarancja czasu działania jest istotna dla kondycji ogólnej aplikacji. Chociaż Stream Analytics jest jedyną usługą analizy przesyłania strumieniowego w branży, która oferuje  [gwarancję dostępności na 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), nadal może być ponoszony pewien poziom czasu. W ciągu lat Stream Analytics wprowadził metryki, dzienniki i Stany zadań, aby odzwierciedlały kondycję zadań. Wszystkie z nich są naAzure Monitor usługi i można je wyeksportować do pakietu OMS. Aby uzyskać więcej informacji, zobacz [Omówienie monitorowania zadań Stream Analytics i sposobu monitorowania zapytań](stream-analytics-monitoring.md).
 
 ![Monitorowanie ASA](media/stream-analytics-solution-patterns/monitoring.png)
 

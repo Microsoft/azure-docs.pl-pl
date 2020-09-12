@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949783"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647493"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -46,6 +46,7 @@ Pule węzłów systemowych mają następujące ograniczenia:
 * Pule węzłów systemu wymagają jednostki SKU maszyny wirtualnej z co najmniej 2 procesorów wirtualnych vCPU i 4 GB pamięci.
 * Pule węzłów systemowych muszą obsługiwać co najmniej 30 zasobników, zgodnie z opisem w [formule minimalnej i maksymalnej wartości dla zasobników][maximum-pods].
 * Pule węzłów dodatkowych wymagają pul węzłów użytkownika.
+* Dodanie dodatkowej puli węzłów systemu lub zmiana puli węzłów jest pulą węzłów systemowych *nie* spowoduje automatycznego przeniesie systemowych zasobników systemu. Systemowe pule mogą nadal działać w tej samej puli węzłów nawet wtedy, gdy zmienisz ją na pulę węzłów użytkownika. W przypadku usunięcia lub przeskalowania puli węzłów z systemem systemowego, który był wcześniej pulą węzłów systemu, te wartości systemowe są wdrażane ponownie z preferowanym planowaniem nowej puli węzłów systemu.
 
 W przypadku pul węzłów można wykonać następujące operacje:
 
@@ -179,7 +180,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym artykule przedstawiono sposób tworzenia pul węzłów systemu i zarządzania nimi w klastrze AKS. Aby uzyskać więcej informacji na temat korzystania z wielu pul węzłów, zobacz [Korzystanie z wielu pul węzłów][use-multiple-node-pools].
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzyst
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056524"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460324"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -82,7 +82,7 @@ AKS ma płaszczyzny kontroli HA skalowanie w pionie zgodnie z liczbą rdzeni, ab
     - https://github.com/helm/helm/issues/4543
 - **[Czy ruch wewnętrzny między węzłami jest blokowany?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
-## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Otrzymuję `TCP timeouts` , takie jak`dial tcp <Node_IP>:10250: i/o timeout`
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Otrzymuję `TCP timeouts` , takie jak `dial tcp <Node_IP>:10250: i/o timeout`
 
 Te limity czasu mogą być związane z ruchem wewnętrznym między blokowanymi węzłami. Sprawdź, czy ten ruch nie jest blokowany, na przykład przez [sieciowe grupy zabezpieczeń](concepts-security.md#azure-network-security-groups) w podsieci dla węzłów klastra.
 
@@ -98,13 +98,17 @@ Przyczyna ostrzeżeń to klaster z włączoną funkcją RBAC, a dostęp do pulpi
 
 Upewnij się, że porty 22, 9000 i 1194 są otwarte w celu nawiązania połączenia z serwerem interfejsu API. Sprawdź, czy `tunnelfront` w `aks-link` przestrzeni nazw *polecenia systemu* przy użyciu polecenia jest uruchomiony lub pod `kubectl get pods --namespace kube-system` . Jeśli tak nie jest, Wymuś usunięcie elementu pod i zostanie on ponownie uruchomiony.
 
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>Otrzymuję `"tls: client offered only unsupported versions"` od mojego klienta podczas nawiązywania połączenia z interfejsem API usługi AKS. Co mam zrobić?
+
+Minimalna obsługiwana wersja protokołu TLS w AKS to TLS 1,2.
+
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Próbuję uaktualnić lub skalować i uzyskać `"Changing property 'imageReference' is not allowed"` błąd. Jak mogę rozwiązać ten problem?
 
 Ten błąd może być spowodowany modyfikacją tagów w węzłach agenta wewnątrz klastra AKS. Modyfikowanie lub usuwanie tagów i innych właściwości zasobów w grupie zasobów MC_ * może prowadzić do nieoczekiwanych wyników. Zmiana zasobów w grupie MC_ * w klastrze AKS powoduje przerwanie celu poziomu usługi (SLO).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Otrzymuję błędy, które są w stanie awarii mojego klastra, a uaktualnienie lub skalowanie nie będzie działało, dopóki nie zostanie naprawione
 
-*Ta pomoc w rozwiązywaniu problemów jest skierowana zhttps://aka.ms/aks-cluster-failed*
+*Ta pomoc w rozwiązywaniu problemów jest skierowana z https://aka.ms/aks-cluster-failed*
 
 Ten błąd występuje, gdy klastry wchodzą w stan niepowodzenia z wielu powodów. Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązać stan awarii klastra przed ponowną próbą wykonania poprzedniej operacji zakończonej niepowodzeniem:
 
@@ -115,7 +119,7 @@ Ten błąd występuje, gdy klastry wchodzą w stan niepowodzenia z wielu powodó
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>Otrzymuję błędy podczas próby uaktualnienia lub skalowania stanu, w którym mój klaster jest uaktualniany lub którego uaktualnienie nie powiodło się
 
-*Ta pomoc w rozwiązywaniu problemów jest skierowana zhttps://aka.ms/aks-pending-upgrade*
+*Ta pomoc w rozwiązywaniu problemów jest skierowana z https://aka.ms/aks-pending-upgrade*
 
  Nie można jednocześnie uaktualnić i skalować puli klastra lub węzła. W zamian każdy typ operacji musi zakończyć się w zasobie docelowym przed następnym żądaniem tego samego zasobu. W związku z tym operacje są ograniczone w przypadku wystąpienia lub próby aktywnego uaktualnienia lub operacji skalowania. 
 
@@ -176,9 +180,9 @@ Wykonaj następujące obejścia tego problemu:
 * W przypadku korzystania ze skryptów automatyzacji należy dodać opóźnienia czasu między utworzeniem jednostki usługi i tworzeniem klastra AKS.
 * Jeśli używasz Azure Portal, Wróć do ustawień klastra podczas tworzenia i ponów próbę wykonania strony walidacji po kilku minutach.
 
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Otrzymuję `"AADSTS7000215: Invalid client secret is provided."` w przypadku korzystania z interfejsu API AKS. Co mam zrobić?
 
-
-
+Zwykle jest to spowodowane wygaśnięciem poświadczeń jednostki usługi. [Zaktualizuj poświadczenia dla klastra AKS.](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Otrzymuję błędy po ograniczeniu ruchu wychodzącego
 

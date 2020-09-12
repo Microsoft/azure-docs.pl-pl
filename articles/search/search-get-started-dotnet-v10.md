@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce676c8966f67aeb233b2b9daf3f8f1c57327e6a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002440"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462092"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Szybki Start: Tworzenie indeksu wyszukiwania przy użyciu biblioteki klienta Microsoft. Azure. Search v10
 
@@ -27,7 +27,7 @@ W przypadku nowych rozwiązań zalecamy korzystanie z nowej biblioteki Azure.Sea
 
 Tworzenie aplikacji konsolowej platformy .NET Core w języku C#, która tworzy, ładuje i bada indeks Wyszukiwanie poznawcze platformy Azure przy użyciu programu Visual Studio i [bibliotek klienckich Microsoft. Azure. Search](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
 
-W tym artykule wyjaśniono, jak utworzyć aplikację. Możesz również [pobrać i uruchomić kompletną aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v10).
+W tym artykule wyjaśniono, jak utworzyć aplikację. Możesz również [pobrać i uruchomić kompletną aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10).
 
 > [!NOTE]
 > Kod demonstracyjny w tym artykule używa metod synchronicznych zestawu .NET SDK systemu Azure Wyszukiwanie poznawcze w wersji 10 dla uproszczenia. Jednak w przypadku scenariuszy produkcyjnych zalecamy użycie metod asynchronicznych we własnych aplikacjach, aby zapewnić ich skalowalność i elastyczność. Można na przykład użyć `CreateAsync` `DeleteAsync` elementów i zamiast `Create` i `Delete` .
@@ -107,9 +107,9 @@ Ten krok jest wymagany w celu utworzenia znaczących danych wyjściowych w konso
 
 1. Dodaj dwie puste definicje klas do projektu: Address.Methods.cs, Hotel.Methods.cs
 
-1. W Address.Methods.cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
+1. W Address.Methods.cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. W Hotel.Methods.cs Skopiuj [wiersze 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
+1. W Hotel.Methods.cs Skopiuj [wiersze 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## <a name="1---create-index"></a>1 — Tworzenie indeksu
 
@@ -559,7 +559,7 @@ Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystki
 
 Jeśli używasz bezpłatnej usługi, pamiętaj, że masz ograniczone do trzech indeksów, indeksatorów i źródeł danych. Możesz usunąć poszczególne elementy w portalu, aby zachować limit. 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku szybki start w języku C# przepracowałeś szereg zadań, aby utworzyć indeks, załadować go wraz z dokumentami i uruchamiać zapytania. Na różnych etapach wprowadziliśmy skróty upraszczające kod umożliwiający odczytywanie i zrozumienie. Jeśli masz doświadczenie z podstawowymi pojęciami, zalecamy użycie następnego artykułu w celu eksplorowania alternatywnych metod i koncepcji, które pomogą Ci pogłębić swoją wiedzę. 
 

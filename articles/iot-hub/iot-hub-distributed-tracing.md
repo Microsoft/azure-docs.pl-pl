@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732574"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462041"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Śledzenie komunikatów z urządzenia do chmury w usłudze Azure IoT z rozproszonym śledzeniem (wersja zapoznawcza)
 
@@ -38,7 +40,7 @@ W tym artykule opisano użycie [zestawu SDK urządzeń Azure IoT dla języka C](
 - Wersja zapoznawcza śledzenia rozproszonego jest obecnie obsługiwana tylko w przypadku centrów IoT utworzonych w następujących regionach:
 
   - **Europa Północna**
-  - **Azja Południowo-Wschodnia**
+  - **Southeast Asia**
   - **Zachodnie stany USA 2**
 
 - W tym artykule założono, że wiesz już, jak wysyłać komunikaty telemetryczne do centrum IoT. Upewnij się, że zakończono [wysyłanie danych telemetrycznych dla przewodnika Szybki Start](quickstart-send-telemetry-c.md).
@@ -249,8 +251,8 @@ Aby zaktualizować konfigurację próbkowania śledzenia rozproszonego dla wielu
 
 | Nazwa elementu | Wymagany | Typ | Opis |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Tak | Integer | Dwie wartości trybu są obecnie obsługiwane do włączania i wyłączania próbkowania. `1`jest włączone i, `2` jest wyłączone. |
-| `sampling_rate` | Tak | Integer | Ta wartość jest wartością procentową. Dozwolone są tylko wartości z `0` do `100` (włącznie).  |
+| `sampling_mode` | Tak | Liczba całkowita | Dwie wartości trybu są obecnie obsługiwane do włączania i wyłączania próbkowania. `1` jest włączone i, `2` jest wyłączone. |
+| `sampling_rate` | Tak | Liczba całkowita | Ta wartość jest wartością procentową. Dozwolone są tylko wartości z `0` do `100` (włącznie).  |
 
 ## <a name="query-and-visualize"></a>Zapytanie i wizualizacja
 
@@ -270,7 +272,7 @@ AzureDiagnostics
 
 Przykładowe dzienniki, jak pokazano w Log Analytics:
 
-| TimeGenerated | OperationName | Kategoria | Poziom | CorrelationId | Milisekundach) | Właściwości |
+| TimeGenerated | OperationName | Kategoria | Poziom | CorrelationId | DurationMs | Właściwości |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018 R-02-22T03:28:28.633 Z | DiagnosticIoTHubD2C | DistributedTracing | Informacyjne | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId": "AZ3166", "messageSize": "96", "callerLocalTimeUtc": "2018 r-02-22T03:27:28.633 Z", "calleeLocalTimeUtc": "2018 r-02-22T03:27:28.687 Z"} |
 | 2018 R-02-22T03:28:38.633 Z | DiagnosticIoTHubIngress | DistributedTracing | Informacyjne | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled": "false", "parentSpanId": "0144d2590aacd909"} |
@@ -307,10 +309,10 @@ Po włączeniu obsługa śledzenia rozproszonego dla IoT Hub będzie zgodna z ty
 
 1. Na urządzeniu IoT jest generowany komunikat.
 1. Urządzenie IoT przyjmuje decyzję (z pomocą techniczną), do której ten komunikat powinien zostać przypisany przy użyciu kontekstu śledzenia.
-1. Zestaw SDK dodaje `tracestate` do właściwości aplikacji wiadomości zawierającej sygnaturę czasową tworzenia wiadomości.
+1. Zestaw SDK dodaje `tracestate` do właściwości Message zawierającej sygnaturę czasową tworzenia wiadomości.
 1. Urządzenie IoT wysyła komunikat do IoT Hub.
 1. Wiadomość dotarła do bramy IoT Hub.
-1. IoT Hub szuka `tracestate` we właściwościach aplikacji komunikatów i sprawdza, czy jest w poprawnym formacie.
+1. IoT Hub szuka `tracestate` właściwości w komunikacie i sprawdza, czy jest w poprawnym formacie.
 1. Jeśli tak, IoT Hub generuje globalnie unikatowy `trace-id` dla wiadomości, `span-id` dla "przeskok" i rejestruje je do Azure monitor dzienników diagnostycznych w ramach tej operacji `DiagnosticIoTHubD2C` .
 1. Po zakończeniu przetwarzania komunikatu IoT Hub generuje inny `span-id` i rejestruje go wraz z istniejącym `trace-id` w ramach operacji `DiagnosticIoTHubIngress` .
 1. Jeśli dla wiadomości jest włączona funkcja routingu, IoT Hub zapisuje ją w niestandardowym punkcie końcowym i rejestruje inne `span-id` dane przy użyciu tej samej `trace-id` kategorii `DiagnosticIoTHubEgress` .

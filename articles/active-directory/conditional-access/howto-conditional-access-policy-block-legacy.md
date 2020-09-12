@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 18397ef76a4503bf79c4aaf286035d222bd84ba0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068630"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460443"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Dostęp warunkowy: Blokuj starsze uwierzytelnianie
 
@@ -26,19 +26,19 @@ Ze względu na zwiększone ryzyko związane ze starszymi protokołami uwierzytel
 
 Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania starszych żądań uwierzytelniania. Te zasady są umieszczane w [trybie tylko do raportowania](howto-conditional-access-insights-reporting.md) , aby rozpocząć, aby administratorzy mogli ustalić wpływ, jaki będzie miał na istniejących użytkowników. Gdy Administratorzy są woli, że zasady mają zastosowanie, mogą przełączyć **się na wdrożenie lub wdrożyć** je przez dodanie określonych grup i wykluczenie innych.
 
-1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
+1. Zaloguj się w witrynie **Azure Portal** jako administrator globalny.
 1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz wszystkie konta, które muszą mieć możliwość korzystania z starszego uwierzytelniania. Wyklucz co najmniej jedno konto, aby zapobiec blokowaniu. Jeśli nie wykluczasz żadnego konta, nie będziesz w stanie utworzyć tych zasad.
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz pozycję **wszystkie aplikacje w chmurze**.
-   1. Kliknij **Gotowe**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **warunki**  >  **aplikacje klienckie**ustaw opcję **Skonfiguruj** na **wartość tak**.
-   1. Sprawdź tylko pola **klienci programu Exchange ActiveSync** i **innych klientów**. Aby wdrożyć zasady dostępu warunkowego programu Exchange ActiveSync na platformie Azure, użytkownik musi być również administratorem globalnym.
-   1. Kliknij **Gotowe**.
+   1. Sprawdź tylko pola **klienci programu Exchange ActiveSync** i **innych klientów**.
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz opcję **Blokuj dostęp**.
    1. Wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** **tylko na raport**.

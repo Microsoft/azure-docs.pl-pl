@@ -13,18 +13,18 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 1593b96ae8412632120e8977635a4193996ca88d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4c631360417afda41b7f48a46b618e7a4328aef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82025122"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660709"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Automatycznie twórz zdarzenia z alertów zabezpieczeń firmy Microsoft
 
-Alerty wyzwalane w rozwiązaniach zabezpieczeń firmy Microsoft, które są połączone z systemem Azure, np. Microsoft Cloud App Security i zaawansowaną ochroną przed zagrożeniami platformy Azure, nie umożliwiają automatycznego tworzenia zdarzeń na platformie Azure. Domyślnie po podłączeniu rozwiązania firmy Microsoft do funkcji wskaźnikowej platformy Azure wszystkie alerty wygenerowane w ramach tej usługi będą przechowywane jako dane pierwotne na platformie Azure, w tabeli alertów zabezpieczeń w obszarze roboczym wskaźnikowego platformy Azure. Następnie możesz użyć tych danych, takich jak wszystkie inne nieprzetworzone dane, które można połączyć w wskaźnik.
+Alerty wyzwalane w rozwiązaniach zabezpieczeń firmy Microsoft, które są połączone z wskaźnikiem na platformie Azure, takie jak Microsoft Cloud App Security i Microsoft Defender for Identity (dawniej Azure ATP), nie umożliwiają automatycznego tworzenia zdarzeń na platformie Azure. Domyślnie po podłączeniu rozwiązania firmy Microsoft do funkcji wskaźnikowej platformy Azure wszystkie alerty wygenerowane w ramach tej usługi będą przechowywane jako dane pierwotne na platformie Azure, w tabeli alertów zabezpieczeń w obszarze roboczym wskaźnikowego platformy Azure. Następnie możesz użyć tych danych, takich jak wszystkie inne nieprzetworzone dane, które można połączyć w wskaźnik.
 
 Za każdym razem, gdy alert jest wyzwalany w połączonym rozwiązaniu zabezpieczeń firmy Microsoft, można łatwo skonfigurować wskaźnik na platformie Azure do automatycznego tworzenia zdarzeń, postępując zgodnie z instrukcjami w tym artykule.
 
@@ -33,7 +33,7 @@ Należy [połączyć rozwiązania zabezpieczeń firmy Microsoft](connect-data-so
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Korzystanie z reguł analitycznych tworzenia zdarzeń zabezpieczeń firmy Microsoft
 
-Skorzystaj z wbudowanych reguł dostępnych na platformie Azure — wskaźnik wyboru, aby wybrać połączone rozwiązania zabezpieczeń firmy Microsoft, które mają być automatycznie tworzone w czasie rzeczywistym. Możesz również edytować reguły, aby zdefiniować bardziej szczegółowe opcje filtrowania, które alerty wygenerowane przez rozwiązanie zabezpieczeń firmy Microsoft powinny tworzyć zdarzenia na platformie Azure. Na przykład możesz wybrać opcję automatycznego tworzenia zdarzeń ze wskaźnikiem na platformie Azure na podstawie alertów o wysokiej ważności Azure Security Center.
+Skorzystaj z wbudowanych reguł dostępnych na platformie Azure — wskaźnik wyboru, aby wybrać połączone rozwiązania zabezpieczeń firmy Microsoft, które mają być automatycznie tworzone w czasie rzeczywistym. Możesz również edytować reguły, aby zdefiniować bardziej szczegółowe opcje filtrowania, które alerty wygenerowane przez rozwiązanie zabezpieczeń firmy Microsoft powinny tworzyć zdarzenia na platformie Azure. Na przykład możesz wybrać opcję automatycznego tworzenia zdarzeń ze wskaźnikiem na platformie Azure przy użyciu alertów usługi Azure Defender o wysokiej ważności (dawniej Azure Security Center).
 
 1. W Azure Portal w obszarze wskaźnik platformy Azure wybierz pozycję **Analiza**.
 
@@ -47,7 +47,7 @@ Skorzystaj z wbudowanych reguł dostępnych na platformie Azure — wskaźnik wy
 
 1. Możesz zmodyfikować szczegóły reguły i wybrać filtrowanie alertów, które spowodują utworzenie incydentów według ważności alertu lub tekstu zawartego w nazwie alertu.  
       
-    Na przykład w przypadku wybrania **Azure Security Center** w polu **Usługa zabezpieczeń firmy Microsoft** i wybraniu opcji **wysoki** w polu **Filtruj według ważności** tylko alerty Azure Security Center o wysokiej ważności będą automatycznie tworzyć zdarzenia na platformie Azure.  
+    Na przykład w przypadku wybrania **usługi Azure Defender** (może być nadal wywoływana Azure Security Center) w polu **Usługa zabezpieczeń firmy Microsoft** i wybrać opcję **wysoki** w polu **Filtruj według ważności** tylko alerty usługi Azure Defender o wysokiej ważności będą automatycznie tworzyć zdarzenia na platformie Azure.  
 
     ![Kreator tworzenia reguły](media/incidents-from-alerts/create-rule-wizard.png)
 

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478012"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535776"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Instrukcje: Konfigurowanie warunków użytkowania i zasad zachowania poufności informacji dla aplikacji
 
@@ -45,7 +45,7 @@ Przed dodaniem linków do dokumentów dotyczących warunków użytkowania i zasa
 | Prawidłowe schematy | HTTP i HTTPS<br/>Zalecamy korzystanie z protokołu HTTPS |
 | Długość maksymalna    | 2048 znaków                       |
 
-Przykłady: `https://myapp.com/terms-of-service` i`https://myapp.com/privacy-statement`
+Przykłady: `https://myapp.com/terms-of-service` i `https://myapp.com/privacy-statement`
 
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Dodawanie linków do warunków użytkowania usługi i zasad zachowania poufności informacji
 
@@ -58,7 +58,7 @@ Gdy warunki użytkowania usługi i zasady zachowania poufności informacji są g
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Korzystanie z witryny Azure Portal
 Wykonaj następujące kroki w Azure Portal.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz prawidłową dzierżawę AzureAD (nie B2C).
 2. Przejdź do sekcji **rejestracje aplikacji** i wybierz aplikację.
 3. Otwórz okienko **znakowania** .
 4. Wypełnij pola adres **URL warunków** użytkowania i **zasady zachowania poufności informacji** .
@@ -69,6 +69,11 @@ Wykonaj następujące kroki w Azure Portal.
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Używanie pliku JSON obiektu App
 
 Jeśli wolisz bezpośrednio modyfikować kod JSON obiektu App, możesz użyć edytora manifestu w portalu Azure Portal lub rejestracji aplikacji, aby dołączyć linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji.
+
+1. Przejdź do sekcji **rejestracje aplikacji** i wybierz aplikację.
+2. Otwórz okienko **manifestu** .
+3. Ctrl + F, wyszukaj ciąg "informationalUrls". Wprowadź informacje.
+4. Zapisz zmiany.
 
 ```json
     "informationalUrls": { 
@@ -96,5 +101,5 @@ PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 ```
 
 > [!NOTE]
-> * Należy zachować ostrożność, aby nie zastąpić żadnych istniejących wcześniej wartości przypisanych do któregokolwiek z następujących pól: `supportUrl` , `marketingUrl` , i`logoUrl`
+> * Należy zachować ostrożność, aby nie zastąpić żadnych istniejących wcześniej wartości przypisanych do któregokolwiek z następujących pól: `supportUrl` , `marketingUrl` , i `logoUrl`
 > * Interfejs API Microsoft Graph działa tylko po zalogowaniu się przy użyciu konta usługi Azure AD. Osobiste konta Microsoft nie są obsługiwane.

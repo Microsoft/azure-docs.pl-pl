@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Routing asymetryczny'
 description: W tym artykule przedstawiono problemy związane z routingiem asymetrycznym w sieci, które można napotkać, jeśli sieć zawiera wiele połączeń z miejscem docelowym.
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
-ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072143"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566538"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asymetryczny z wieloma ścieżkami sieciowymi
 W tym artykule wyjaśniono, jak ruch sieciowy w obie strony może podążać różnymi trasami w przypadku dostępności wielu ścieżek między miejscem źródłowym i docelowym.
@@ -64,5 +64,5 @@ Innym sposobem rozwiązania problemów z routingiem asymetrycznym jest translato
 ![Konfiguracja translatora adresów sieciowych opartych na źródle](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Wykrywanie routingu asymetrycznego
-Polecenie traceroute jest najlepszym sposobem zapewnienia, że ruch sieciowy jest kierowany oczekiwaną ścieżką. Jeśli oczekujesz, że ruch z lokalnego serwera SMTP do firmy Microsoft będzie przepływał ścieżką internetową, wykonaj polecenie traceroute z serwera SMTP do usługi Office 365. Wynik pozwoli sprawdzić, czy po opuszczeniu sieci ruch rzeczywiście jest kierowany do Internetu, a nie do usługi ExpressRoute.
+Polecenie traceroute jest najlepszym sposobem zapewnienia, że ruch sieciowy jest kierowany oczekiwaną ścieżką. Jeśli oczekujesz, że ruch z lokalnego serwera SMTP do firmy Microsoft ma mieć ścieżkę internetową, oczekiwany traceroute pochodzi z serwera SMTP do Microsoft 365. Wynik pozwoli sprawdzić, czy po opuszczeniu sieci ruch rzeczywiście jest kierowany do Internetu, a nie do usługi ExpressRoute.
 

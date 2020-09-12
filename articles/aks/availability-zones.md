@@ -4,13 +4,13 @@ description: Dowiedz się, jak utworzyć klaster, który dystrybuuje węzły w s
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 08/13/2020
-ms.openlocfilehash: f24351c5f77e6c00365497d5e6deeefea8271cb9
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.date: 09/04/2020
+ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871415"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489140"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -150,7 +150,8 @@ Name:       aks-nodepool1-28993262-vmss000004
 Mamy teraz dwa dodatkowe węzły w strefach 1 i 2. Można wdrożyć aplikację składającą się z trzech replik. Będziemy używać NGINX jako przykładu:
 
 ```console
-kubectl run nginx --image=nginx --replicas=3
+kubectl create deployment nginx --image=nginx
+kubectl scale deployment nginx --replicas=3
 ```
 
 Oglądając węzły, w których są uruchomione Twoje zasobniki, zobaczysz, że na węzłach odpowiadających trzema różnymi strefami dostępności są uruchomione na podst. Na przykład przy użyciu polecenia `kubectl describe pod | grep -e "^Name:" -e "^Node:"` w powłoce bash można uzyskać dane wyjściowe podobne do następujących:

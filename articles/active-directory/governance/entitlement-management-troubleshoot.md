@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783335"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460800"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Rozwiązywanie problemów z zarządzaniem prawami usługi Azure AD
 
@@ -47,7 +47,7 @@ W tym artykule opisano niektóre elementy, które należy zaznaczyć, aby pomóc
 
 * Po usunięciu członka zespołu są one również usuwane z grupy Microsoft 365. Usunięcie z funkcji czatu zespołu może być opóźnione. Aby uzyskać więcej informacji, zobacz [członkostwo w grupie](/microsoftteams/office-365-groups#group-membership).
 
-* Upewnij się, że katalog nie jest skonfigurowany do obsługi wielu regionów geograficznych. Zarządzanie upoważnieniami nie obsługuje obecnie wielu lokalizacji geograficznych na potrzeby usługi SharePoint Online. Lokacje usługi SharePoint Online muszą znajdować się w domyślnej lokalizacji geograficznej, aby podlegać zarządzaniu upoważnieniami. Aby uzyskać więcej informacji, zobacz [wiele geograficznie funkcji w usłudze OneDrive i SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Upewnij się, że katalog nie jest skonfigurowany do obsługi wielu regionów geograficznych. Zarządzanie upoważnieniami nie obsługuje obecnie wielu lokalizacji geograficznych na potrzeby usługi SharePoint Online. Lokacje usługi SharePoint Online muszą znajdować się w domyślnej lokalizacji geograficznej, aby podlegać zarządzaniu upoważnieniami. Aby uzyskać więcej informacji, zobacz [wiele geograficznie funkcji w usłudze OneDrive i SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pakiety dostępu
 

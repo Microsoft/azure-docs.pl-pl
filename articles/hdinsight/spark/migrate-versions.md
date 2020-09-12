@@ -1,18 +1,18 @@
 ---
 title: Migrowanie obciążeń Apache Spark 2,1 lub 2,2 do 2,3 lub 2,4 — Azure HDInsight
 description: Dowiedz się, jak migrować Apache Spark 2,1 i 2,2 do 2,3 lub 2,4.
-author: ashishthaps1
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 681de5d8e4daeaabb865cde3ef93008b2965824e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce9b0faa6636d1318871cc9ef66cfbe47908265
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497152"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504982"
 ---
 # <a name="migrate-apache-spark-21-and-22-workloads-to-23-and-24"></a>Migrowanie obciążeń Apache Spark 2,1 i 2,2 do 2,3 i 2,4
 

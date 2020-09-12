@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak konfigurować i inicjować operacj
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006299"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506631"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej maszyny wirtualnej platformy Azure przy użyciu Azure Backup za pośrednictwem interfejsu API REST
 
@@ -274,6 +274,35 @@ Po zakończeniu operacji zwraca 200 (OK) z zawartością chronionego elementu w 
 
 Pozwala to upewnić się, że włączono ochronę dla maszyny wirtualnej, a pierwsza kopia zapasowa zostanie wyzwolona zgodnie z harmonogramem zasad.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Wykluczanie dysków z kopii zapasowej maszyny wirtualnej platformy Azure
+
+Azure Backup umożliwia również wybiórcze tworzenie kopii zapasowej podzbioru dysków na maszynie wirtualnej platformy Azure. Więcej szczegółów znajduje się w [tym miejscu](selective-disk-backup-restore.md). Jeśli chcesz selektywnie tworzyć kopie zapasowe kilku dysków podczas włączania ochrony, w [trakcie włączania ochrony](#example-request-body)należy użyć poniższego fragmentu kodu.
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+W powyższej treści żądania Lista dysków, których kopia zapasowa ma zostać utworzona, znajduje się w sekcji Właściwości rozszerzone.
+
+|Właściwość  |Wartość  |
+|---------|---------|
+|diskLunList     | Lista LUN dysku jest listą *jednostek LUN dysków z danymi*. **Kopia zapasowa dysku systemu operacyjnego jest zawsze tworzona i nie trzeba go wymieniać**.        |
+|IsInclusionList     | W przypadku tworzenia kopii zapasowej należy mieć **wartość true** . Jeśli wartość jest **równa false**, wymienione numery LUN zostaną wykluczone.         |
+
+Dlatego, jeśli wymagana jest kopia zapasowa tylko dysku systemu operacyjnego, _wszystkie_ dyski z danymi powinny zostać wykluczone. Łatwiejszym sposobem jest to, że nie należy uwzględniać dysków z danymi. W związku z tym lista numerów LUN dysku będzie pusta i **IsInclusionList** będzie mieć **wartość true**. Podobnie należy zastanowić się, jak łatwiej jest wybrać podzestaw: kilka dysków powinno być zawsze wykluczone lub należy uwzględnić kilka dysków. Wybierz odpowiednio listę LUN i wartość zmiennej Boolean.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Wyzwalanie kopii zapasowej na żądanie dla chronionej maszyny wirtualnej platformy Azure
 
 Po skonfigurowaniu kopii zapasowej maszyny wirtualnej platformy Azure kopie zapasowe są wykonywane zgodnie z harmonogramem zasad. Możesz poczekać na pierwszą zaplanowaną kopię zapasową lub wyzwolić kopię zapasową na żądanie w dowolnym momencie. Przechowywanie kopii zapasowych na żądanie jest niezależne od przechowywania zasad tworzenia kopii zapasowych i można je określić w określonym dniu. Jeśli nie zostanie określony, zakłada się, że jest to 30 dni od dnia wyzwalacza kopii zapasowej na żądanie.
@@ -389,7 +418,7 @@ Ponieważ zadanie tworzenia kopii zapasowej jest długotrwałą operacją, musi 
 
 Aby zmienić zasady, za pomocą których maszyna wirtualna jest chroniona, można użyć tego samego formatu co [włączenie ochrony](#enabling-protection-for-the-azure-vm). Po prostu podaj nowy identyfikator zasad w [treści żądania](#example-request-body) i prześlij żądanie. Na przykład: Aby zmienić zasady testVM z "DefaultPolicy" na "ProdPolicy", podaj identyfikator "ProdPolicy" w treści żądania.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ Aby zmienić zasady, za pomocą których maszyna wirtualna jest chroniona, możn
 ```
 
 Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano [w celu włączenia ochrony](#responses-to-create-protected-item-operation)
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Wykluczanie dysków podczas ochrony maszyny wirtualnej platformy Azure
+
+Jeśli kopia zapasowa maszyny wirtualnej platformy Azure została już utworzona, możesz określić listę dysków, których kopia zapasowa ma zostać utworzona lub wykluczona, zmieniając zasady ochrony. Po prostu Przygotuj żądanie w tym samym formacie co [wyłączenie dysków podczas włączania ochrony](#excluding-disks-in-azure-vm-backup)
+
+> [!IMPORTANT]
+> Powyższa treść żądania jest zawsze końcową kopią dysków danych do wykluczenia lub dołączenia. To nie powoduje *dodania* do poprzedniej konfiguracji. Przykład: Jeśli najpierw zaktualizujesz ochronę jako "Wyklucz dane dysk 1", a następnie powtarzasz polecenie "Exclude Data Disk 2", *tylko dysk danych 2 zostanie wykluczony* w kolejnych kopiach zapasowych, a dysk danych 1 zostanie uwzględniony. Jest to zawsze Ostatnia lista, która zostanie uwzględniona/wykluczona w kolejnych kopiach zapasowych.
+
+Aby uzyskać bieżącą listę wykluczonych lub uwzględnionych dysków, Pobierz informacje o chronionym elemencie, jak wspomniano [tutaj](https://docs.microsoft.com/rest/api/backup/protecteditems/get). Odpowiedź będzie zawierać listę jednostek LUN dysku danych i wskazuje, czy są one dołączone lub wykluczone.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Zatrzymaj ochronę, ale Zachowaj istniejące dane
 
@@ -466,7 +504,7 @@ Cofanie usunięcia jest operacją *Put* , która jest bardzo podobna do [zmiany 
 
 Odpowiedź będzie zgodna z tym samym formatem, jak wspomniano w [przypadku wyzwalania kopii zapasowej na żądanie](#example-responses-for-on-demand-backup). Zadanie wynikowe powinno być śledzone zgodnie z opisem w [dokumencie monitorowanie zadań przy użyciu interfejsu API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Przywróć dane z kopii zapasowej maszyny wirtualnej platformy Azure](backup-azure-arm-userestapi-restoreazurevms.md).
 

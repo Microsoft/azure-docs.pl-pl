@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783862"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460868"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Zarządzanie dostępem użytkowników zewnętrznych w usłudze Azure AD upoważnienia
 
@@ -105,7 +105,7 @@ Aby zapewnić, że osoby spoza organizacji mogą żądać dostępu do pakietów 
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Przejrzyj ustawienia udostępniania grupy Microsoft 365
 
-- Jeśli chcesz uwzględnić grupy Microsoft 365 w pakietach dostępu dla użytkowników zewnętrznych, upewnij się, że dla opcji Zezwalaj **użytkownikom na dodawanie nowych Gości do organizacji** jest ustawiona wartość **Zezwalaj na dostęp** gościa. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa do grup Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Jeśli chcesz uwzględnić grupy Microsoft 365 w pakietach dostępu dla użytkowników zewnętrznych, upewnij się, że dla opcji Zezwalaj **użytkownikom na dodawanie nowych Gości do organizacji** jest ustawiona wartość **Zezwalaj na dostęp** gościa. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa do grup Microsoft 365](/Microsoft 365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access).
 
 - Jeśli chcesz, aby użytkownicy zewnętrzni mieli dostęp do witryny usługi SharePoint Online i zasobów skojarzonych z grupą Microsoft 365, upewnij się, że włączasz udostępnianie zewnętrzne w usłudze SharePoint Online. Aby uzyskać więcej informacji, zobacz [Włączanie lub wyłączanie udostępniania zewnętrznego](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 

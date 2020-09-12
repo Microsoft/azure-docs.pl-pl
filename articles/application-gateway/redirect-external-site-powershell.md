@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: f6480bdd5139d5bc7a5a1887b80f43c3903bf579
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55b5b5419734999ebd50ca364251602112e29987
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804607"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594292"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowaniami zewnętrznymi przy użyciu Azure PowerShell
 
@@ -21,10 +21,9 @@ Za pomocą programu Azure PowerShell można skonfigurować [przekierowywanie ruc
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie reguły odbiornika i przekierowywania
-> * Tworzenie bramy aplikacji
+* Konfigurowanie sieci
+* Tworzenie reguły odbiornika i przekierowywania
+* Tworzenie bramy aplikacji
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

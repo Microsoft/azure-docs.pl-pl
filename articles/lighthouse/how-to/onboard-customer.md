@@ -3,12 +3,12 @@ title: Dołączanie klienta do usługi Azure Lighthouse
 description: Dowiedz się, jak dołączyć klienta do usługi Azure Lighthouse, umożliwiając dostęp do zasobów i zarządzanie nimi za pośrednictwem własnej dzierżawy przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719057"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483800"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Dołączanie klienta do usługi Azure Lighthouse
 
@@ -19,7 +19,7 @@ W tym artykule wyjaśniono, jak usługodawca może dołączyć klienta do usług
 
 Proces dołączania można powtórzyć dla wielu klientów. Gdy użytkownik z odpowiednimi uprawnieniami loguje się do dzierżawy zarządzającej, ten użytkownik może być autoryzowany w zakresach dzierżawy klienta w celu wykonywania operacji zarządzania, bez konieczności logowania się do każdej indywidualnej dzierżawy klienta.
 
-Aby śledzić wpływ na zaangażowanie klientów i odbierać rozpoznawanie, skojarz swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączanych subskrypcji. Musisz wykonać to skojarzenie w dzierżawie dostawcy usług. Dla uproszczenia zalecamy utworzenie konta głównej usługi w dzierżawie, któremu skojarzono identyfikator MPN, i przyznanie im dostępu czytelnika do każdego klienta, który dołączył. Aby uzyskać więcej informacji, zobacz  [łączenie identyfikatora partnera z kontami platformy Azure](../../cost-management-billing/manage/link-partner-id.md).
+Aby śledzić wpływ na zaangażowanie klientów i odbierać rozpoznawanie, skojarz swój identyfikator Microsoft Partner Network (MPN) z co najmniej jednym kontem użytkownika, które ma dostęp do każdej z dołączanych subskrypcji. Musisz wykonać to skojarzenie w dzierżawie dostawcy usług. Zalecamy utworzenie konta nazwy głównej usługi w dzierżawie skojarzonej z IDENTYFIKATORem MPN, a następnie użycie tej jednostki usługi przy każdym dołączeniu klienta. Aby uzyskać więcej informacji, zobacz [łączenie identyfikatora partnera, aby umożliwić partnerowi uzyskiwanie środków na zasoby delegowane](partner-earned-credit.md).
 
 > [!NOTE]
 > Klienci mogą również zostać dołączeni do usługi Azure Lighthouse, gdy kupują ofertę usługi zarządzanej (publiczną lub prywatną) [publikowaną w witrynie Azure Marketplace](publish-managed-services-offers.md). Możesz również użyć procesu dołączania opisanego tutaj razem z ofertami opublikowanymi w witrynie Azure Marketplace.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 61f555dc8f24ce303934187d36ee994b25b31920
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 4bf33db28d68b600d860a132027e5be440377b34
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920080"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460290"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Typowe problemy, które powodują odtwarzanie ról
 W tym artykule omówiono niektóre typowe przyczyny problemów z wdrażaniem i przedstawiono wskazówki dotyczące rozwiązywania problemów, aby pomóc w rozwiązaniu tych problemów. Wskazanie, że problem występuje w przypadku aplikacji, gdy uruchomienie wystąpienia roli nie powiedzie się lub przechodzi między stanem inicjowania, zajętości i zatrzymywania.
@@ -65,7 +65,7 @@ Aby uruchomić rolę sieci Web w ramach protokołu TLS, należy się upewnić, �
 ## <a name="next-steps"></a>Następne kroki
 Zobacz więcej [artykułów do rozwiązywania problemów](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) dotyczących usług Cloud Services.
 
-Zobacz więcej scenariuszy tworzenia ról na [seriach blogów Jan Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Zobacz więcej scenariuszy tworzenia ról na [seriach blogów Jan Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx

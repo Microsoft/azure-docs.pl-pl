@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180103"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500338"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -72,7 +72,7 @@ Nie. Zakończone pomyślnie zadania tworzenia kopii zapasowej nie generują aler
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Czy można zobaczyć zaplanowane zadania tworzenia kopii zapasowej w menu zadania tworzenia kopii zapasowej?
 
-Menu **zadania tworzenia kopii zapasowej** będzie zawierać tylko zadania tworzenia kopii zapasowej na żądanie. W przypadku zaplanowanego zadania Użyj [monitorowania przy użyciu Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+W menu **zadania tworzenia kopii zapasowej** są wyświetlane wszystkie operacje zaplanowane i na żądanie, z wyjątkiem zaplanowanych kopii zapasowych dziennika, ponieważ mogą one być bardzo częste. W przypadku zaplanowanych zadań dzienników Użyj [funkcji monitorowania za pomocą Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Czy przyszłe bazy danych są automatycznie dodawane do zadania tworzenia kopii zapasowej?
 
