@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa763c875b06bd7e22be0e814838f2e79b24e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358025"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279469"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Logowanie użytkownika przy użyciu uwierzytelniania przekazywanego usługi Azure Active Directory
 
@@ -31,7 +31,7 @@ Uwierzytelnianie przekazujące Azure Active Directory (Azure AD) pozwala użytko
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Ta funkcja jest alternatywą dla [synchronizacji skrótów haseł usługi Azure AD](how-to-connect-password-hash-synchronization.md), która zapewnia takie same korzyści wynikające z uwierzytelniania w chmurze w organizacjach. Jednak niektóre organizacje, które chcą wymusić lokalne Active Directory zasady zabezpieczeń i haseł, mogą korzystać z uwierzytelniania przekazywanego. Zapoznaj się z [tym przewodnikiem](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) , aby porównać różne metody logowania do usługi Azure AD i jak wybrać właściwą metodę logowania dla organizacji.
+Ta funkcja jest alternatywą dla [synchronizacji skrótów haseł usługi Azure AD](how-to-connect-password-hash-synchronization.md), która zapewnia takie same korzyści wynikające z uwierzytelniania w chmurze w organizacjach. Jednak niektóre organizacje, które chcą wymusić lokalne Active Directory zasady zabezpieczeń i haseł, mogą korzystać z uwierzytelniania przekazywanego. Zapoznaj się z [tym przewodnikiem](./choose-ad-authn.md) , aby porównać różne metody logowania do usługi Azure AD i jak wybrać właściwą metodę logowania dla organizacji.
 
 ![Uwierzytelnianie przekazywane przez usługę Azure AD](./media/how-to-connect-pta/pta1.png)
 
@@ -42,14 +42,14 @@ Uwierzytelnianie przekazywane można połączyć za pomocą funkcji [jednokrotne
 - *Fantastyczne środowisko pracy użytkownika*
   - Użytkownicy używają tych samych haseł do logowania się do aplikacji lokalnych i opartych na chmurze.
   - Użytkownicy poświęcają mniej czasu na rozmowy z pomocą techniczną działu IT w rozwiązywaniu problemów związanych z hasłami.
-  - Użytkownicy mogą wykonywać zadania samoobsługowego [zarządzania hasłami](../authentication/active-directory-passwords-overview.md) w chmurze.
+  - Użytkownicy mogą wykonywać zadania samoobsługowego [zarządzania hasłami](../authentication/concept-sspr-howitworks.md) w chmurze.
 - *Łatwe wdrażanie & administrowanie*
   - Nie ma potrzeby złożonych wdrożeń lokalnych ani konfiguracji sieci.
   - Potrzebuje tylko uproszczonego agenta, który ma zostać zainstalowany lokalnie.
   - Brak obciążeń związanych z zarządzaniem. Agent automatycznie otrzymuje ulepszenia i poprawki błędów.
-- *Bezpieczeństwo*
+- *Bezpieczny*
   - Hasła lokalne nigdy nie są przechowywane w chmurze w żadnej postaci.
-  - Chroni Twoje konta użytkowników, bezproblemowo korzystając z [zasad dostępu warunkowego usługi Azure AD](../active-directory-conditional-access-azure-portal.md), w tym Multi-Factor Authentication (MFA), [blokując starsze uwierzytelnianie](../conditional-access/concept-conditional-access-conditions.md) i przez [odfiltrowanie ataków z hasłami](../authentication/howto-password-smart-lockout.md)bezprawnego.
+  - Chroni Twoje konta użytkowników, bezproblemowo korzystając z [zasad dostępu warunkowego usługi Azure AD](../conditional-access/overview.md), w tym Multi-Factor Authentication (MFA), [blokując starsze uwierzytelnianie](../conditional-access/concept-conditional-access-conditions.md) i przez [odfiltrowanie ataków z hasłami](../authentication/howto-password-smart-lockout.md)bezprawnego.
   - Agent wykonuje tylko połączenia wychodzące z sieci. W związku z tym nie jest wymagane, aby zainstalować agenta w sieci obwodowej, znanej także jako Strefa DMZ.
   - Komunikacja między agentem a usługą Azure AD jest zabezpieczona przy użyciu uwierzytelniania opartego na certyfikatach. Te certyfikaty są automatycznie odnawiane co kilka miesięcy przez usługę Azure AD.
 - *Wysoka dostępność*
@@ -59,8 +59,8 @@ Uwierzytelnianie przekazywane można połączyć za pomocą funkcji [jednokrotne
 
 - Program obsługuje logowanie użytkownika do wszystkich aplikacji opartych na przeglądarce sieci Web oraz Microsoft Office aplikacji klienckich korzystających z [nowoczesnego uwierzytelniania](https://aka.ms/modernauthga).
 - Nazwy użytkowników logowania mogą być lokalną domyślną nazwą użytkownika ( `userPrincipalName` ) lub innym atrybutem skonfigurowanym w Azure AD Connect (znanym jako `Alternate ID` ).
-- Funkcja działa bezproblemowo z funkcjami [dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) , takimi jak Multi-Factor Authentication (MFA), aby pomóc w zabezpieczeniu użytkowników.
-- Zintegrowana z funkcją samoobsługowego [zarządzania hasłami](../authentication/active-directory-passwords-overview.md)w chmurze, w tym funkcja zapisywania zwrotnego haseł do lokalnego Active Directory i ochrony hasłem przez zakazywanie często używanych haseł.
+- Funkcja działa bezproblemowo z funkcjami [dostępu warunkowego](../conditional-access/overview.md) , takimi jak Multi-Factor Authentication (MFA), aby pomóc w zabezpieczeniu użytkowników.
+- Zintegrowana z funkcją samoobsługowego [zarządzania hasłami](../authentication/concept-sspr-howitworks.md)w chmurze, w tym funkcja zapisywania zwrotnego haseł do lokalnego Active Directory i ochrony hasłem przez zakazywanie często używanych haseł.
 - Środowiska z obsługą wielu lasów są obsługiwane, jeśli istnieją relacje zaufania lasów między lasami usługi AD i jeśli Routing sufiksów nazw jest prawidłowo skonfigurowany.
 - Jest to bezpłatna funkcja i nie są potrzebne żadne płatne wersje usługi Azure AD do użycia.
 - Można ją włączyć za pośrednictwem [Azure AD Connect](whatis-hybrid-identity.md).

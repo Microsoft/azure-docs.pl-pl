@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 19c5c5280b8ff4fb997366375b4300958d694d6c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184059"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293663"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Często zadawane pytania dotyczące interfejs API wyszukiwania obrazów Bing
 
@@ -35,7 +35,7 @@ Jest to szczególnie ważne, aby zachować identyfikator klienta i zwrócić go 
 
 Jednak po wywołaniu interfejs API wyszukiwania obrazów Bing w języku JavaScript wbudowane funkcje zabezpieczeń (CORS) przeglądarki mogą uniemożliwiać dostęp do wartości tych nagłówków.
 
-Aby uzyskać dostęp do nagłówków, można wykonać żądanie interfejs API wyszukiwania obrazów Bing za pomocą serwera proxy CORS. Odpowiedź z tego serwera proxy zawiera nagłówek `Access-Control-Expose-Headers`, który zezwala na nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
+Aby uzyskać dostęp do nagłówków, można wykonać żądanie interfejs API wyszukiwania obrazów Bing za pomocą serwera proxy CORS. Odpowiedź z takiego serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który filtruje nagłówki odpowiedzi i udostępnia je skryptom JavaScript.
 
 Można łatwo zainstalować serwer proxy CORS, aby umożliwić naszej [aplikacji samouczka](tutorial-bing-image-search-single-page-app.md) dostęp do opcjonalnych nagłówków klienta. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Potem wprowadź poniższe polecenie w wierszu polecenia.
 
@@ -66,6 +66,6 @@ Takie podejście umożliwia również ochronę klucza interfejsu API przed ekspo
 
 Czy masz pytanie dotyczące brakującej funkcji lub funkcji? Rozważ zażądanie lub odgłosowanie na ten temat w naszej [witrynie sieci Web głosu użytkownika](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

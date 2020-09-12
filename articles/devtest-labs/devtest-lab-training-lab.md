@@ -3,12 +3,12 @@ title: Użyj Azure DevTest Labs do szkolenia | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe czynności, które można wykonać, aby skonfigurować laboratorium do szkolenia w Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a4b39d104d2ffdb45c23db2ad16cc4ee4627fb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2de9550c62f04286a4f9ad42238bfefb9846477
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484149"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294853"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Użyj Azure DevTest Labs do szkolenia
 Azure DevTest Labs może służyć do implementowania wielu kluczowych scenariuszy Oprócz tworzenia i testowania. Jednym z tych scenariuszy jest skonfigurowanie laboratorium do szkoleń. Azure DevTest Labs umożliwia utworzenie laboratorium, w którym można udostępnić szablony niestandardowe, które mogą być używane przez każdego z nich do tworzenia takich samych i izolowanych środowisk na potrzeby szkoleń. Można stosować zasady, aby zapewnić, że środowiska szkoleniowe są dostępne dla każdego z nich tylko wtedy, gdy ich potrzebują, i zawierają wystarczające zasoby, takie jak maszyny wirtualne — wymagane do szkolenia. Na koniec możesz łatwo udostępnić laboratorium z osobami, które mogą uzyskać do nich dostęp w jednym kliknięciem.
@@ -44,7 +44,7 @@ W tym artykule omówiono różne funkcje Azure DevTest Labs, których można uż
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, w jaki sposób można dozwolonych obrazy z witryny Azure Marketplace. Udostępnianie do wybrania tylko dla obrazów, które mają być przeznaczone do szkoleń. |
+   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, jak można zezwolić na obrazy w portalu Azure Marketplace; Udostępnianie do wybrania tylko dla obrazów, które mają być przeznaczone do szkoleń. |
    | [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) |Tworzenie obrazu niestandardowego przez wstępne zainstalowanie oprogramowania potrzebnego do szkolenia, dzięki któremu program szkolony może szybko utworzyć maszynę wirtualną przy użyciu obrazu niestandardowego. |
 3. **Tworzenie szablonów do wielokrotnego użytku dla maszyn szkoleniowych** 
    
@@ -91,4 +91,3 @@ W tym artykule omówiono różne funkcje Azure DevTest Labs, których można uż
    | [Tworzenie laboratorium przy użyciu szablonu Menedżer zasobów](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Twórz laboratoria w Azure DevTest Labs przy użyciu szablonów Menedżer zasobów. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 17e39a7b94384827af19b2362d478456cde8f167
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e9a78690128c2406277ab4e8fb6e6e4625d2787f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181463"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280098"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (CLI)
 
@@ -78,7 +78,7 @@ Wynikiem tego polecenia jest informacje o utworzonym przypisaniu roli.
 >
 > Użyj [Azure Portal stronie Azure Active Directory użytkowników](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) , aby wybrać konto użytkownika i otworzyć jego szczegóły. Skopiuj *Identyfikator obiektu użytkownika:*
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Widok strony użytkownika w Azure Portal wyróżniania identyfikatora GUID w polu Identyfikator obiektu" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Widok strony użytkownika w Azure Portal wyróżniania identyfikatora GUID w polu "Identyfikator obiektu"" lightbox="media/includes/user-id.png":::
 >
 > Następnie powtórz polecenie listy przypisywania ról przy użyciu *identyfikatora obiektu* użytkownika dla `assignee` powyższego parametru.
 
@@ -150,5 +150,9 @@ Zanotuj *Identyfikator* *aplikacji (klienta)* na stronie **użytkownika** . Te w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak połączyć aplikację kliencką z wystąpieniem, pisząc kod uwierzytelniania aplikacji klienta:
+Przetestuj poszczególne wywołania interfejsu API REST w wystąpieniu przy użyciu poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji: 
+* [odwołanie AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)
+
+Lub zapoznaj się z tematem jak połączyć aplikację kliencką z wystąpieniem, pisząc kod uwierzytelniania aplikacji klienta:
 * [*Instrukcje: zapisywanie kodu uwierzytelniania aplikacji*](how-to-authenticate-client.md)

@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 8e681b1f82086480541d08ae9f8ef9e5cf07b4df
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 85013ccc5c82cf1b9d1d40a4e10450838d5d3195
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268472"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289413"
 ---
 # <a name="scaling-media-processing"></a>Skalowanie przetwarzania multimediów
 
@@ -73,7 +73,7 @@ Opłata jest naliczana na podstawie liczby minut, w ciągu których zainicjowano
 
 [Analizowanie wideo](analyze-videos-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Limity przydziału i ograniczenia](limits-quotas-constraints.md)
+* [Przydziały i limity](limits-quotas-constraints.md)
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/ams?view=azure-cli-latest)

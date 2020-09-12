@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522860"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279554"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów z usługą Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,55 +30,55 @@ W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu 
 
 - **Komunikat**: Błąd 403.
 
-- **Przyczyna**:`The Databricks access token has expired.`
+- **Przyczyna**: `The Databricks access token has expired.`
 
 - **Zalecenie**: domyślnie token dostępu Azure Databricks jest ważny przez 90 dni. Utwórz nowy token i zaktualizuj połączoną usługę.
 
 ### <a name="error-code-3201"></a>Kod błędu: 3201
 
-- **Komunikat**:`Missing required field: settings.task.notebook_task.notebook_path.`
+- **Komunikat**: `Missing required field: settings.task.notebook_task.notebook_path.`
 
-- **Przyczyna**:`Bad authoring: Notebook path not specified correctly.`
+- **Przyczyna**: `Bad authoring: Notebook path not specified correctly.`
 
 - **Zalecenie**: Określ ścieżkę notesu w działaniu datakosteks.
 
 <br/> 
 
-- **Komunikat**:`Cluster... does not exist.`
+- **Komunikat**: `Cluster... does not exist.`
 
-- **Przyczyna**:`Authoring error: Databricks cluster does not exist or has been deleted.`
+- **Przyczyna**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
 - **Zalecenie**: Sprawdź, czy klaster datakostki istnieje.
 
 <br/> 
 
-- **Komunikat**:`Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
+- **Komunikat**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
-- **Przyczyna**:`Bad authoring.`
+- **Przyczyna**: `Bad authoring.`
 
 - **Zalecenie**: Określ ścieżki bezwzględne dla schematów adresów obszaru roboczego lub `dbfs:/folder/subfolder/foo.py` dla plików przechowywanych w systemie plików (DFS).
 
 <br/> 
 
-- **Komunikat**:`{0} LinkedService should have domain and accessToken as required properties.`
+- **Komunikat**: `{0} LinkedService should have domain and accessToken as required properties.`
 
-- **Przyczyna**:`Bad authoring.`
-
-- **Zalecenie**: Sprawdź [definicję połączonej usługi](compute-linked-services.md#azure-databricks-linked-service).
-
-<br/> 
-
-- **Komunikat**:`{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
-
-- **Przyczyna**:`Bad authoring.`
+- **Przyczyna**: `Bad authoring.`
 
 - **Zalecenie**: Sprawdź [definicję połączonej usługi](compute-linked-services.md#azure-databricks-linked-service).
 
 <br/> 
 
-- **Komunikat**:`Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
+- **Komunikat**: `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
 
-- **Przyczyna**:`Bad authoring.`
+- **Przyczyna**: `Bad authoring.`
+
+- **Zalecenie**: Sprawdź [definicję połączonej usługi](compute-linked-services.md#azure-databricks-linked-service).
+
+<br/> 
+
+- **Komunikat**: `Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
+
+- **Przyczyna**: `Bad authoring.`
 
 - **Zalecenie**: Zapoznaj się z komunikatem o błędzie.
 
@@ -86,17 +86,17 @@ W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu 
 
 ### <a name="error-code-3202"></a>Kod błędu: 3202
 
-- **Komunikat**:`There were already 1000 jobs created in past 3600 seconds, exceeding rate limit: 1000 job creations per 3600 seconds.`
+- **Komunikat**: `There were already 1000 jobs created in past 3600 seconds, exceeding rate limit: 1000 job creations per 3600 seconds.`
 
-- **Przyczyna**:`Too many Databricks runs in an hour.`
+- **Przyczyna**: `Too many Databricks runs in an hour.`
 
 - **Zalecenie**: Sprawdź, czy wszystkie potoki korzystające z tego obszaru roboczego datakostki są używane na potrzeby ich tworzenia zadań. Jeśli potoki uruchomiły zbyt wiele kostek datakostków, Migruj niektóre potoki do nowego obszaru roboczego.
 
 <br/> 
 
-- **Komunikat**:`Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
+- **Komunikat**: `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
 
-- **Przyczyna**:`Authoring error: No value provided for the parameter.`
+- **Przyczyna**: `Authoring error: No value provided for the parameter.`
 
 - **Zalecenie**: Sprawdź kod JSON potoku i upewnij się, że wszystkie parametry w notesie baseParameters określają niepustą wartość.
 
@@ -110,7 +110,7 @@ W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu 
 
 ### <a name="error-code-3203"></a>Kod błędu: 3203
 
-- **Komunikat**:`The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
+- **Komunikat**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
 
 - **Przyczyna**: klaster został przerwany. W przypadku klastrów interaktywnych przyczyną tego problemu może być sytuacja wyścigu.
 
@@ -118,7 +118,7 @@ W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu 
 
 ### <a name="error-code-3204"></a>Kod błędu: 3204
 
-- **Komunikat**:`Job execution failed.`
+- **Komunikat**: `Job execution failed.`
 
 - **Przyczyna**: komunikaty o błędach wskazują różne problemy, takie jak nieoczekiwany stan klastra lub określone działanie. Często nie jest wyświetlany żaden komunikat o błędzie.
 
@@ -126,7 +126,7 @@ W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu 
 
 ### <a name="error-code-3208"></a>Kod błędu: 3208
 
-- **Komunikat**:`An error occurred while sending the request.`
+- **Komunikat**: `An error occurred while sending the request.`
 
 - **Przyczyna**: przerwano połączenie sieciowe z usługą datakosteks.
 
@@ -138,7 +138,7 @@ Poniższa tabela dotyczy języka U-SQL.
  
 ### <a name="error-code-2709"></a>Kod błędu: 2709
 
-- **Komunikat**:`The access token is from the wrong tenant.`
+- **Komunikat**: `The access token is from the wrong tenant.`
 
 - **Przyczyna**: nieprawidłowa dzierżawa Azure Active Directory (Azure AD).
 
@@ -146,7 +146,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 <br/>
 
-- **Komunikat**:`We cannot accept your job at this moment. The maximum number of queued jobs for your account is 200. `
+- **Komunikat**: `We cannot accept your job at this moment. The maximum number of queued jobs for your account is 200. `
 
 - **Przyczyna**: ten błąd jest spowodowany przez ograniczenie na Data Lake Analytics.
 
@@ -154,7 +154,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 <br/> 
 
-- **Komunikat**:`This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
+- **Komunikat**: `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
 
 - **Przyczyna**: ten błąd jest spowodowany przez ograniczenie na Data Lake Analytics.
 
@@ -162,7 +162,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2705"></a>Kod błędu: 2705
 
-- **Komunikat**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Komunikat**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
 - **Przyczyna**: Nazwa główna usługi lub certyfikat nie ma dostępu do pliku w magazynie.
 
@@ -170,7 +170,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2711"></a>Kod błędu: 2711
 
-- **Komunikat**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Komunikat**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
 - **Przyczyna**: Nazwa główna usługi lub certyfikat nie ma dostępu do pliku w magazynie.
 
@@ -178,7 +178,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 <br/> 
 
-- **Komunikat**:`Cannot find the 'Azure Data Lake Store' file or folder.`
+- **Komunikat**: `Cannot find the 'Azure Data Lake Store' file or folder.`
 
 - **Przyczyna**: ścieżka do pliku U-SQL jest niepoprawna lub poświadczenia połączonej usługi nie mają dostępu.
 
@@ -186,7 +186,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2704"></a>Kod błędu: 2704
 
-- **Komunikat**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Komunikat**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
 
 - **Przyczyna**: Nazwa główna usługi lub certyfikat nie ma dostępu do pliku w magazynie.
 
@@ -194,7 +194,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2707"></a>Kod błędu: 2707
 
-- **Komunikat**:`Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and 'DataLakeAnalyticsUri'.`
+- **Komunikat**: `Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and 'DataLakeAnalyticsUri'.`
 
 - **Przyczyna**: konto Data Lake Analytics w połączonej usłudze jest nieprawidłowe.
 
@@ -202,7 +202,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2703"></a>Kod błędu: 2703
 
-- **Komunikat**:`Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error Id:").`
+- **Komunikat**: `Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error Id:").`
 
 - **Przyczyna**: błąd pochodzi z Data Lake Analytics.
 
@@ -214,7 +214,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3602"></a>Kod błędu: 3602
 
-- **Komunikat**:`Invalid HttpMethod: '%method;'.`
+- **Komunikat**: `Invalid HttpMethod: '%method;'.`
 
 - **Przyczyna**: HttpMethod określony w ładunku działania nie jest obsługiwany przez działanie funkcji platformy Azure.
 
@@ -222,11 +222,11 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3603"></a>Kod błędu: 3603
 
-- **Komunikat**:`Response Content is not a valid JObject.`
+- **Komunikat**: `Response Content is not a valid JObject.`
 
 - **Przyczyna**: wywołana funkcja platformy Azure nie zwróciła ładunku JSON w odpowiedzi. Azure Data Factory (ADF) działanie funkcji platformy Azure obsługuje tylko zawartość odpowiedzi JSON.
 
-- **Zalecenie**: zaktualizuj funkcję platformy Azure w celu zwrócenia prawidłowego ładunku JSON, takiego jak funkcja języka C#, może zwrócić`(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
+- **Zalecenie**: zaktualizuj funkcję platformy Azure w celu zwrócenia prawidłowego ładunku JSON, takiego jak funkcja języka C#, może zwrócić `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
 ### <a name="error-code-3606"></a>Kod błędu: 3606
 
@@ -238,7 +238,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3607"></a>Kod błędu: 3607
 
-- **Komunikat**:`Azure function activity missing function name.`
+- **Komunikat**: `Azure function activity missing function name.`
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
@@ -246,7 +246,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3608"></a>Kod błędu: 3608
 
-- **Komunikat**:`Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
+- **Komunikat**: `Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
 
 - **Przyczyna**: Szczegóły funkcji platformy Azure w definicji działania mogą być nieprawidłowe.
 
@@ -254,7 +254,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3609"></a>Kod błędu: 3609
 
-- **Komunikat**:`Azure function activity missing functionAppUrl.`
+- **Komunikat**: `Azure function activity missing functionAppUrl.`
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
@@ -262,7 +262,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3610"></a>Kod błędu: 3610
 
-- **Komunikat**:`There was an error while calling endpoint.`
+- **Komunikat**: `There was an error while calling endpoint.`
 
 - **Przyczyna**: adres URL funkcji może być nieprawidłowy.
 
@@ -270,7 +270,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3611"></a>Kod błędu: 3611
 
-- **Komunikat**:`Azure function activity missing Method in JSON.`
+- **Komunikat**: `Azure function activity missing Method in JSON.`
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
@@ -278,7 +278,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-3612"></a>Kod błędu: 3612
 
-- **Komunikat**:`Azure function activity missing LinkedService definition in JSON.`
+- **Komunikat**: `Azure function activity missing LinkedService definition in JSON.`
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
@@ -288,7 +288,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4101"></a>Kod błędu: 4101
 
-- **Komunikat**:`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+- **Komunikat**: `AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
 
 - **Przyczyna**: Zły format lub Brak definicji właściwości `%propertyName;` .
 
@@ -296,7 +296,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4110"></a>Kod błędu: 4110
 
-- **Komunikat**:`AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
+- **Komunikat**: `AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
 
 - **Przyczyna**: definicja działania AzureMLExecutePipeline nie została ukończona.
 
@@ -304,7 +304,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4111"></a>Kod błędu: 4111
 
-- **Komunikat**:`AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+- **Komunikat**: `AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
 
 - **Przyczyna**: nieprawidłowa definicja działania.
 
@@ -312,7 +312,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4112"></a>Kod błędu: 4112
 
-- **Komunikat**:`AzureMLService linked service has invalid value for property '%propertyName;'.`
+- **Komunikat**: `AzureMLService linked service has invalid value for property '%propertyName;'.`
 
 - **Przyczyna**: Zły format lub Brak definicji właściwości "% PropertyName;".
 
@@ -320,7 +320,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4121"></a>Kod błędu: 4121
 
-- **Komunikat**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Komunikat**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Przyczyna**: poświadczenia używane do uzyskiwania dostępu do Azure Machine Learning utraciły ważność.
 
@@ -328,7 +328,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4122"></a>Kod błędu: 4122
 
-- **Komunikat**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Komunikat**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Przyczyna**: poświadczenie podane w Azure Machine Learning połączonej usłudze jest nieprawidłowe lub nie ma uprawnień do wykonania tej operacji.
 
@@ -336,7 +336,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4123"></a>Kod błędu: 4123
 
-- **Komunikat**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Komunikat**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Przyczyna**: właściwości działania, takie jak `pipelineParameters` są nieprawidłowe dla potoku Azure Machine Learning (ml).
 
@@ -344,7 +344,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4124"></a>Kod błędu: 4124
 
-- **Komunikat**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Komunikat**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Przyczyna**: opublikowany punkt końcowy potoku platformy Azure ml nie istnieje.
 
@@ -352,7 +352,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4125"></a>Kod błędu: 4125
 
-- **Komunikat**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Komunikat**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **Przyczyna**: Wystąpił błąd serwera na Azure Machine Learning.
 
@@ -360,7 +360,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-4126"></a>Kod błędu: 4126
 
-- **Komunikat**:`Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
+- **Komunikat**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **Przyczyna**: nie można uruchomić potoku usługi Azure ml.
 
@@ -370,7 +370,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2103"></a>Kod błędu: 2103
 
-- **Komunikat**:`Please provide value for the required property '%propertyName;'.`
+- **Komunikat**: `Please provide value for the required property '%propertyName;'.`
 
 - **Przyczyna**: nie podano wymaganej wartości właściwości.
 
@@ -378,7 +378,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2104"></a>Kod błędu: 2104
 
-- **Komunikat**:`The type of the property '%propertyName;' is incorrect.`
+- **Komunikat**: `The type of the property '%propertyName;' is incorrect.`
 
 - **Przyczyna**: podany typ właściwości jest nieprawidłowy.
 
@@ -386,7 +386,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2105"></a>Kod błędu: 2105
 
-- **Komunikat**:`An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
+- **Komunikat**: `An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
 
 - **Przyczyna**: wartość właściwości jest nieprawidłowa lub nie ma oczekiwanego formatu.
 
@@ -394,7 +394,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2106"></a>Kod błędu: 2106
 
-- **Komunikat**:`The storage connection string is invalid. %errorMessage;`
+- **Komunikat**: `The storage connection string is invalid. %errorMessage;`
 
 - **Przyczyna**: parametry połączenia dla magazynu są nieprawidłowe lub mają niepoprawny format.
 
@@ -402,7 +402,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2108"></a>Kod błędu: 2108
 
-- **Komunikat**:`Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **Komunikat**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
 - **Przyczyna**: żądanie nie powiodło się z powodu podstawowego problemu, takiego jak połączenie sieciowe, błąd DNS, sprawdzenie poprawności certyfikatu serwera lub przekroczenie limitu czasu.
 
@@ -410,7 +410,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2110"></a>Kod błędu: 2110
 
-- **Komunikat**:`The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
+- **Komunikat**: `The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
 
 - **Przyczyna**: połączona usługa określona w działaniu jest niepoprawna.
 
@@ -418,7 +418,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2111"></a>Kod błędu: 2111
 
-- **Komunikat**:`The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
+- **Komunikat**: `The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
 
 - **Przyczyna**: typ podanej właściwości jest nieprawidłowy.
 
@@ -426,7 +426,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2112"></a>Kod błędu: 2112
 
-- **Komunikat**:`The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
+- **Komunikat**: `The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
 
 - **Przyczyna**: typ chmury jest nieobsługiwany lub nie można go określić dla magazynu z EndpointSuffix.
 
@@ -434,7 +434,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 ### <a name="error-code-2128"></a>Kod błędu: 2128
 
-- **Komunikat**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Komunikat**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
 - **Przyczyna**: łączność sieciowa, błąd DNS, weryfikacja certyfikatu serwera lub przekroczenie limitu czasu.
 
@@ -446,15 +446,15 @@ Poniższa tabela ma zastosowanie do Azure Batch.
  
 ### <a name="error-code-2500"></a>Kod błędu: 2500
 
-- **Komunikat**:`Hit unexpected exception and execution failed.`
+- **Komunikat**: `Hit unexpected exception and execution failed.`
 
-- **Przyczyna**:`Can't launch command, or the program returned an error code.`
+- **Przyczyna**: `Can't launch command, or the program returned an error code.`
 
 - **Zalecenie**: Upewnij się, że plik wykonywalny istnieje. Jeśli program został uruchomiony, sprawdź, czy *stdout.txt* i *stderr.txt* zostały przekazane do konta magazynu. Dobrym sposobem jest uwzględnienie dzienników w kodzie na potrzeby debugowania.
 
 ### <a name="error-code-2501"></a>Kod błędu: 2501
 
-- **Komunikat**:`Cannot access user batch account; please check batch account settings.`
+- **Komunikat**: `Cannot access user batch account; please check batch account settings.`
 
 - **Przyczyna**: Nieprawidłowa nazwa klucza dostępu do partii lub puli.
 
@@ -462,7 +462,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2502"></a>Kod błędu: 2502
 
-- **Komunikat**:`Cannot access user storage account; please check storage account settings.`
+- **Komunikat**: `Cannot access user storage account; please check storage account settings.`
 
 - **Przyczyna**: Nieprawidłowa nazwa konta magazynu lub klucz dostępu.
 
@@ -470,17 +470,17 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2504"></a>Kod błędu: 2504
 
-- **Komunikat**:`Operation returned an invalid status code 'BadRequest'.`
+- **Komunikat**: `Operation returned an invalid status code 'BadRequest'.`
 
 - **Przyczyna**: zbyt wiele plików w `folderPath` działaniu niestandardowym. Łączny rozmiar `resourceFiles` nie może być większy niż 32 768 znaków.
 
 - **Zalecenie**: usunięcie niepotrzebnych plików lub ich dodanie do kodu zip, aby je wyodrębnić.
    
-   Na przykład użyj`powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
+   Na przykład użyj `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
 
 ### <a name="error-code-2505"></a>Kod błędu: 2505
 
-- **Komunikat**:`Cannot create Shared Access Signature unless Account Key credentials are used.`
+- **Komunikat**: `Cannot create Shared Access Signature unless Account Key credentials are used.`
 
 - **Przyczyna**: działania niestandardowe obsługują tylko konta magazynu używające klucza dostępu.
 
@@ -488,7 +488,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2507"></a>Kod błędu: 2507
 
-- **Komunikat**:`The folder path does not exist or is empty: ...`
+- **Komunikat**: `The folder path does not exist or is empty: ...`
 
 - **Przyczyna**: żadne pliki nie znajdują się na koncie magazynu w określonej ścieżce.
 
@@ -496,25 +496,25 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2508"></a>Kod błędu: 2508
 
-- **Komunikat**:`There are duplicate files in the resource folder.`
+- **Komunikat**: `There are duplicate files in the resource folder.`
 
 - **Przyczyna**: wiele plików o tej samej nazwie znajduje się w różnych podfolderach folderPath.
 
 - **Zalecenie**: działania niestandardowe Spłaszcz strukturę folderów w obszarze folderPath. Jeśli potrzebujesz zachować strukturę folderów, pliki zip i Wyodrębnij je w Azure Batch przy użyciu polecenia Rozpakuj.
    
-   Na przykład użyj`powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
+   Na przykład użyj `powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ; $folder\yourProgram.exe`
 
 ### <a name="error-code-2509"></a>Kod błędu: 2509
 
-- **Komunikat**:`Batch url ... is invalid; it must be in Uri format.`
+- **Komunikat**: `Batch url ... is invalid; it must be in Uri format.`
 
-- **Przyczyna**: adresy URL partii muszą być podobne do`https://mybatchaccount.eastus.batch.azure.com`
+- **Przyczyna**: adresy URL partii muszą być podobne do `https://mybatchaccount.eastus.batch.azure.com`
 
 - **Zalecenie**: Zapoznaj się z opisem błędu.
 
 ### <a name="error-code-2510"></a>Kod błędu: 2510
 
-- **Komunikat**:`An error occurred while sending the request.`
+- **Komunikat**: `An error occurred while sending the request.`
 
 - **Przyczyna**: adres URL partii jest nieprawidłowy.
 
@@ -524,7 +524,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-200"></a>Kod błędu: 200
 
-- **Komunikat**:`Unexpected error happened: '%error;'.`
+- **Komunikat**: `Unexpected error happened: '%error;'.`
 
 - **Przyczyna**: Wystąpił wewnętrzny problem z usługą.
 
@@ -532,7 +532,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-201"></a>Kod błędu: 201
 
-- **Komunikat**:`JobType %jobType; is not found.`
+- **Komunikat**: `JobType %jobType; is not found.`
 
 - **Przyczyna**: istnieje nowy typ zadania, który nie jest obsługiwany przez ADF.
 
@@ -540,7 +540,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-202"></a>Kod błędu: 202
 
-- **Komunikat**:`Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
+- **Komunikat**: `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
 - **Przyczyna**: komunikat o błędzie zawiera szczegóły dotyczące tego, co poszło źle.
 
@@ -548,7 +548,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-203"></a>Kod błędu: 203
 
-- **Komunikat**:`Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
+- **Komunikat**: `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
 - **Przyczyna**: komunikat o błędzie zawiera szczegóły dotyczące tego, co poszło źle.
 
@@ -556,7 +556,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-204"></a>Kod błędu: 204
 
-- **Komunikat**:`The resumption token is missing for runId '%runId;'.`
+- **Komunikat**: `The resumption token is missing for runId '%runId;'.`
 
 - **Przyczyna**: Wystąpił wewnętrzny problem z usługą.
 
@@ -564,7 +564,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-205"></a>Kod błędu: 205
 
-- **Komunikat**:`Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
+- **Komunikat**: `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
 
 - **Przyczyna**: Wystąpił błąd podczas tworzenia klastra na żądanie HDI.
 
@@ -572,7 +572,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-206"></a>Kod błędu: 206
 
-- **Komunikat**:`The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Komunikat**: `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
 
 - **Przyczyna**: Wystąpił wewnętrzny problem z usługą, która spowodowała wystąpienie tego błędu.
 
@@ -580,7 +580,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-207"></a>Kod błędu: 207
 
-- **Komunikat**:`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Komunikat**: `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
 
 - **Przyczyna**: Wystąpił błąd wewnętrzny podczas próby ustalenia regionu z podstawowego konta magazynu.
 
@@ -588,7 +588,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-208"></a>Kod błędu: 208
 
-- **Komunikat**:`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Komunikat**: `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
 
 - **Przyczyna**: Wystąpił błąd wewnętrzny podczas próby odczytu nazwy głównej usługi lub wystąpienia uwierzytelniania MSI.
 
@@ -598,7 +598,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2300"></a>Kod błędu: 2300
 
-- **Komunikat**:`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
+- **Komunikat**: `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
 - **Przyczyna**: komunikat o błędzie zawiera komunikat podobny do `The remote name could not be resolved.` . Podany identyfikator URI klastra może być nieprawidłowy.
 
@@ -651,7 +651,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2301"></a>Kod błędu: 2301
 
-- **Komunikat**:`Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
+- **Komunikat**: `Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
 
 - **Przyczyna**: klaster lub Usługa HDInsight ma problemy.
 
@@ -661,7 +661,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2302"></a>Kod błędu: 2302
 
-- **Komunikat**:`Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
+- **Komunikat**: `Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
 
 - **Przyczyna**: zadanie zostało przesłane do klastra HDI i zakończyło się niepowodzeniem.
 
@@ -683,7 +683,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2303"></a>Kod błędu: 2303
 
-- **Komunikat**:`Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
+- **Komunikat**: `Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
 
 - **Przyczyna**: zadanie zostało przesłane do klastra HDI i zakończyło się niepowodzeniem.
 
@@ -705,7 +705,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2304"></a>Kod błędu: 2304
 
-- **Komunikat**:`MSI authentication is not supported on storages for HDI activities.`
+- **Komunikat**: `MSI authentication is not supported on storages for HDI activities.`
 
 - **Przyczyna**: połączone usługi magazynu używane w połączonej usłudze HDINSIGHT (HDI) lub w działaniu HDI są skonfigurowane z uwierzytelnianiem MSI, które nie jest obsługiwane.
 
@@ -713,7 +713,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2305"></a>Kod błędu: 2305
 
-- **Komunikat**:`Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
+- **Komunikat**: `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
 - **Przyczyna**: informacje o połączeniu dla klastra HDI są niepoprawne, podany użytkownik nie ma uprawnień do wykonania wymaganej akcji lub Usługa HDInsight ma problemy z odpowiedzią na żądania z usługi ADF.
 
@@ -721,7 +721,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2306"></a>Kod błędu: 2306
 
-- **Komunikat**:`An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
+- **Komunikat**: `An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
 
 - **Przyczyna**: kod JSON podany dla akcji skryptu jest nieprawidłowy.
 
@@ -731,7 +731,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2310"></a>Kod błędu: 2310
 
-- **Komunikat**:`Failed to submit Spark job. Error: '%message;'`
+- **Komunikat**: `Failed to submit Spark job. Error: '%message;'`
 
 - **Przyczyna**: moduł ADF próbował utworzyć partię w klastrze Spark przy użyciu interfejsu API usługi Livy (usługi Livy/Batch), ale wystąpił błąd.
 
@@ -741,7 +741,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2312"></a>Kod błędu: 2312
 
-- **Komunikat**:`Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **Komunikat**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
 - **Przyczyna**: zadanie nie powiodło się w klastrze usługi HDInsight Spark.
 
@@ -751,7 +751,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2313"></a>Kod błędu: 2313
 
-- **Komunikat**:`The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
+- **Komunikat**: `The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
 
 - **Przyczyna**: partia została usunięta w klastrze usługi HDInsight Spark.
 
@@ -761,7 +761,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2328"></a>Kod błędu: 2328
 
-- **Komunikat**:`Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **Komunikat**: `Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
 - **Przyczyna**: komunikat o błędzie powinien zawierać szczegóły dotyczące tego, co poszło źle.
 
@@ -769,7 +769,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2329"></a>Kod błędu: 2329
 
-- **Komunikat**:`Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **Komunikat**: `Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
 - **Przyczyna**: komunikat o błędzie powinien zawierać szczegóły dotyczące tego, co poszło źle.
 
@@ -777,7 +777,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2331"></a>Kod błędu: 2331
 
-- **Komunikat**:`The file path should not be null or empty.`
+- **Komunikat**: `The file path should not be null or empty.`
 
 - **Przyczyna**: podana ścieżka pliku jest pusta.
 
@@ -785,7 +785,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2340"></a>Kod błędu: 2340
 
-- **Komunikat**:`HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
+- **Komunikat**: `HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
 
 - **Przyczyna**: połączona usługa HDInsightOnDemand nie obsługuje wykonywania za pośrednictwem SelfHosted IR.
 
@@ -793,7 +793,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2341"></a>Kod błędu: 2341
 
-- **Komunikat**:`HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
+- **Komunikat**: `HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
 
 - **Przyczyna**: podany adres URL nie ma poprawnego formatu.
 
@@ -801,7 +801,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2342"></a>Kod błędu: 2342
 
-- **Komunikat**:`Failed to connect to HDInsight cluster: '%errorMessage;'.`
+- **Komunikat**: `Failed to connect to HDInsight cluster: '%errorMessage;'.`
 
 - **Przyczyna**: podane poświadczenia są nieprawidłowe dla klastra lub wystąpił problem z konfiguracją sieci lub połączeniem albo w środowisku IR występują problemy z połączeniem z klastrem.
 
@@ -809,7 +809,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
     1. Sprawdź, czy poświadczenia są poprawne, otwierając interfejs użytkownika Ambari klastra usługi HDInsight w przeglądarce.
     1. Jeśli klaster znajduje się w Virtual Network (VNet) i jest używany własny IR, adres URL HDI musi być prywatnym adresem URL w sieci wirtualnych i powinien zawierać znak "-int" wymieniony po nazwie klastra.
     
-       Na przykład zmień `https://mycluster.azurehdinsight.net/` na `https://mycluster-int.azurehdinsight.net/` . Zanotuj `-int` po `mycluster` , ale wcześniej`.azurehdinsight.net`
+       Na przykład zmień `https://mycluster.azurehdinsight.net/` na `https://mycluster-int.azurehdinsight.net/` . Zanotuj `-int` po `mycluster` , ale wcześniej `.azurehdinsight.net`
     1. Jeśli klaster znajduje się w sieci wirtualnej, jest używane samoobsługowe środowisko IR, a prywatny adres URL był używany, a mimo to połączenie nadal się nie powiodło, a następnie maszyna wirtualna, na której zainstalowano środowisko IR, ma problemy z połączeniem z HDI. 
     
        Połącz się z maszyną wirtualną, na której zainstalowano środowisko IR, i Otwórz interfejs użytkownika Ambari w przeglądarce. Użyj prywatnego adresu URL klastra. To połączenie powinno być wykonane z przeglądarki. Jeśli nie, skontaktuj się z zespołem pomocy technicznej usługi HDInsight, aby uzyskać dalszą pomoc.
@@ -819,15 +819,15 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2343"></a>Kod błędu: 2343
 
-- **Komunikat**:`User name and password cannot be null or empty to connect to the HDInsight cluster.`
+- **Komunikat**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Przyczyna**: Nazwa użytkownika lub hasło są puste.
+- **Przyczyna**: Nazwa użytkownika lub hasło jest puste.
 
 - **Zalecenie**: Podaj prawidłowe poświadczenia, aby nawiązać połączenie z usługą HDI, i spróbuj ponownie.
 
 ### <a name="error-code-2345"></a>Kod błędu: 2345
 
-- **Komunikat**:`Failed to read the content of the hive script. Error: '%message;'`
+- **Komunikat**: `Failed to read the content of the hive script. Error: '%message;'`
 
 - **Przyczyna**: plik skryptu nie istnieje lub ADF nie może nawiązać połączenia z lokalizacją skryptu.
 
@@ -835,7 +835,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2346"></a>Kod błędu: 2346
 
-- **Komunikat**:`Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
+- **Komunikat**: `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
 - **Przyczyna**: moduł ADF próbował nawiązać połączenie Open Database Connectivity (ODBC) z klastrem HDI i błąd.
 
@@ -855,7 +855,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2347"></a>Kod błędu: 2347
 
-- **Komunikat**:`Hive execution through ODBC failed with error message '%message;'.`
+- **Komunikat**: `Hive execution through ODBC failed with error message '%message;'.`
 
 - **Przyczyna**: moduł ADF przesłał skrypt Hive do wykonania do klastra HDI za pośrednictwem połączenia ODBC, a skrypt zakończył się w HDI.
 
@@ -875,7 +875,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2348"></a>Kod błędu: 2348
 
-- **Komunikat**:`The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
+- **Komunikat**: `The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
 
 - **Przyczyna**: właściwości połączonej usługi Storage nie są ustawione prawidłowo.
 
@@ -883,7 +883,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2350"></a>Kod błędu: 2350
 
-- **Komunikat**:`Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
+- **Komunikat**: `Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
 
 - **Przyczyna**: poświadczenia podane w celu nawiązania połączenia z magazynem, w którym znajdują się pliki, są nieprawidłowe lub pliki te nie istnieją.
 
@@ -891,7 +891,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2351"></a>Kod błędu: 2351
 
-- **Komunikat**:`Could not open the file '%filePath;' in container/fileSystem '%container;'.`
+- **Komunikat**: `Could not open the file '%filePath;' in container/fileSystem '%container;'.`
 
 - **Przyczyna**: plik nie istnieje w określonej ścieżce.
 
@@ -899,7 +899,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2352"></a>Kod błędu: 2352
 
-- **Komunikat**:`The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
+- **Komunikat**: `The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
 
 - **Przyczyna**: właściwości połączonej usługi magazynu plików nie są ustawione prawidłowo.
 
@@ -907,7 +907,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2353"></a>Kod błędu: 2353
 
-- **Komunikat**:`The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
+- **Komunikat**: `The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
 
 - **Przyczyna**: właściwości połączonej usługi magazynu skryptów nie są ustawione prawidłowo.
 
@@ -915,7 +915,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2354"></a>Kod błędu: 2354
 
-- **Komunikat**:`The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
+- **Komunikat**: `The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
 
 - **Przyczyna**: typ połączonej usługi Storage nie jest obsługiwany przez działanie.
 
@@ -925,7 +925,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2355"></a>Kod błędu: 2355
 
-- **Komunikat**:`The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
+- **Komunikat**: `The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
 
 - **Przyczyna**: podana wartość `commandEnvironment` jest niepoprawna.
 
@@ -940,7 +940,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2356"></a>Kod błędu: 2356
 
-- **Komunikat**:`The commandEnvironment already contains a variable named '%variableName;'.`
+- **Komunikat**: `The commandEnvironment already contains a variable named '%variableName;'.`
 
 - **Przyczyna**: podana wartość `commandEnvironment` jest niepoprawna.
 
@@ -955,7 +955,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2357"></a>Kod błędu: 2357
 
-- **Komunikat**:`The certificate or password is wrong for ADLS Gen 1 storage.`
+- **Komunikat**: `The certificate or password is wrong for ADLS Gen 1 storage.`
 
 - **Przyczyna**: podane poświadczenia są nieprawidłowe.
 
@@ -963,7 +963,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2358"></a>Kod błędu: 2358
 
-- **Komunikat**:`The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
+- **Komunikat**: `The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
 
 - **Przyczyna**: podana wartość dla wymaganej właściwości `TimeToLive` ma nieprawidłowy format. 
 
@@ -971,7 +971,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2359"></a>Kod błędu: 2359
 
-- **Komunikat**:`The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
+- **Komunikat**: `The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
 
 - **Przyczyna**: podana wartość właściwości `roles` jest nieprawidłowa.
 
@@ -979,7 +979,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2360"></a>Kod błędu: 2360
 
-- **Komunikat**:`The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
+- **Komunikat**: `The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
 
 - **Przyczyna**: podane parametry połączenia dla elementu `HCatalogLinkedService` są nieprawidłowe.
 
@@ -987,7 +987,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2361"></a>Kod błędu: 2361
 
-- **Komunikat**:`Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
+- **Komunikat**: `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
 - **Przyczyna**: utworzenie klastra nie powiodło się, a w usłudze HDInsight nie został zwrócony błąd.
 
@@ -995,7 +995,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2362"></a>Kod błędu: 2362
 
-- **Komunikat**:`Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
+- **Komunikat**: `Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
 
 - **Przyczyna**: podany dodatkowy magazyn nie był magazynem obiektów blob platformy Azure.
 
@@ -1005,7 +1005,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2128"></a>Kod błędu: 2128
 
-- **Komunikat**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Komunikat**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
 - **Przyczyna**: ten problem jest spowodowany przez połączenie sieciowe, błąd DNS, sprawdzenie poprawności certyfikatu serwera lub przekroczenie limitu czasu.
 
@@ -1013,7 +1013,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 ### <a name="error-code-2108"></a>Kod błędu: 2108
 
-- **Komunikat**:`Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **Komunikat**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
 - **Przyczyna**: żądanie nie powiodło się z powodu podstawowego problemu, takiego jak połączenie sieciowe, błąd DNS, sprawdzenie poprawności certyfikatu serwera lub przekroczenie limitu czasu.
 
@@ -1053,6 +1053,11 @@ Aby użyć **programu Fiddler** do utworzenia sesji http monitorowanej aplikacji
 1. Przejdź do: **plik**  >  **Zapisz**  >  **wszystkie sesje**.
 
 Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z usługą programu Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+
+## <a name="general"></a>Ogólne
+
+### <a name="activity-stuck-issue"></a>Problem zablokowany przez działanie
+Gdy zobaczysz, że działanie działa znacznie dłużej niż normalne uruchomienie z stanowią jedynie ułamek bez postępu, może się zdarzyć, że zachodzi taka sytuacja. Możesz spróbować go anulować i ponowić próbę, aby zobaczyć, czy to pomoże. Jeśli jest to działanie kopiowania, można dowiedzieć się więcej o monitorowaniu wydajności i rozwiązywaniu problemów [związanych z wydajnością działania kopiowania](copy-activity-performance-troubleshooting.md). Jeśli jest to przepływ danych, Dowiedz się więcej na temat [mapowania wydajności przepływów danych](concepts-data-flow-performance.md) i przewodnika dostrajania.
 
 ## <a name="next-steps"></a>Następne kroki
 

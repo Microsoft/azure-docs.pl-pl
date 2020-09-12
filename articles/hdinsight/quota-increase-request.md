@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079619"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291673"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Zwiększanie limitu przydziału dla usługi Azure HDInsight
 
@@ -65,7 +65,7 @@ Aby zażądać zwiększenia limitu przydziału, wykonaj następujące czynności
 1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
 
 > [!NOTE]  
-> Jeśli potrzebujesz zwiększyć przydział rdzenia usługi HDInsight w regionie prywatnym, [Prześlij żądanie dozwolonych](https://aka.ms/canaryintwhitelist).
+> Jeśli potrzebujesz zwiększyć przydział rdzenia usługi HDInsight w regionie prywatnym, [Prześlij żądanie zatwierdzenia listy](https://aka.ms/canaryintwhitelist).
 
 Możesz [skontaktować się z pomocą techniczną, aby zażądać zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 

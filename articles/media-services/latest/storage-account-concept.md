@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 120bd403d84f9912bd309f965f3b69306fabcc24
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267075"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291198"
 ---
 # <a name="azure-storage-accounts"></a>Konta usługi Azure Storage
 

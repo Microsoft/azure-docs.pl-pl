@@ -12,16 +12,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: de22cfd3505fe4d632a722cfec923a0eb8e66062
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c46fe5a4199e73cd22aeef4df62daeed4b58db06
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254128"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291317"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>FairPlay przesyłania strumieniowego w trybie offline dla systemu iOS z Media Services v3
 

@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 63e6da53e542172d474f9ca5de9ab136f38f42f5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e5fe12b02503aff625a1cc2c39a71abcdf3dab0b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265545"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296791"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Tworzenie zadania z wieloma wyjściami transformacji
 

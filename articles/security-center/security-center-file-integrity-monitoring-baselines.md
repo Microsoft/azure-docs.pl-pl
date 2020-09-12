@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73664407"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278089"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Porównanie planów bazowych przy użyciu monitorowania integralności plików (FIM)
 
@@ -41,7 +41,7 @@ Domyślne ustawienia gałęzi rejestru programu FIM zapewniają wygodny sposób 
 >[!NOTE]
 > Testy cykliczne mają zastosowanie tylko do zalecanych gałęzi zabezpieczeń, a nie do niestandardowych ścieżek rejestru.  
 
-## <a name="adding-a-custom-registry-check"></a>Dodawanie niestandardowego sprawdzania rejestru
+## <a name="add-a-custom-registry-check"></a>Dodawanie niestandardowego sprawdzania rejestru
 
 Linie bazowe programu FIM zaczynają się od określenia cech znanego dobrego stanu dla systemu operacyjnego i aplikacji pomocniczej.  Na potrzeby tego przykładu będziemy skupić się na konfiguracjach zasad haseł dla systemu Windows Server 2008 i nowszych.
 
@@ -73,14 +73,14 @@ Linie bazowe programu FIM zaczynają się od określenia cech znanego dobrego st
 
       ![Włączanie programu FIM w rejestrze](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Śledzenie zmian w plikach systemu Windows
+## <a name="track-changes-to-windows-files"></a>Śledzenie zmian w plikach systemu Windows
 
 1. W oknie **Dodawanie pliku systemu Windows dla Change Tracking** w polu tekstowym **wprowadź ścieżkę** wprowadź folder zawierający pliki, które chcesz śledzić. W przykładzie na poniższej ilustracji znajduje się **aplikacja sieci Web firmy Contoso** w D:\ dysk w strukturze folderów **ContosWebApp** .  
 1. Utwórz niestandardowy wpis w pliku systemu Windows, podając nazwę klasy ustawień, włączając rekursję i określając folder Top z sufiksem symboli wieloznacznych (*).
 
     ![Włącz program FIM na pliku](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Pobieranie zmian danych
+## <a name="retrieve-change-data"></a>Pobieranie danych zmiany
 
 Dane monitorowania integralności plików znajdują się w zestawie tabel Log Analytics/Zmianakonfiguracji platformy Azure.  
 

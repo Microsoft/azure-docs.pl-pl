@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ef202bb3ba82b48aca75c7f934aecb3f5fbe0a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0287bc8a11c359acce5fbf12d3a51e99a9f5420e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070760"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297148"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Powiąż wystąpienie Azure Database for MySQL z aplikacją w chmurze platformy Azure 
 
@@ -24,7 +24,7 @@ Dzięki chmurze platformy Azure można automatycznie powiązać wybrane usługi 
 * Konto Azure Database for MySQL
 * Interfejs wiersza polecenia platformy Azure
 
-Jeśli nie masz wdrożonego wystąpienia chmury Azure wiosennej, postępuj zgodnie z instrukcjami w [przewodniku szybki start: uruchamianie aplikacji w chmurze platformy Azure przy użyciu Azure Portal](spring-cloud-quickstart-launch-app-portal.md) do wdrożenia pierwszej aplikacji w chmurze.
+Jeśli nie masz wdrożonego wystąpienia chmury Azure wiosennej, postępuj zgodnie z instrukcjami w [przewodniku szybki start: uruchamianie aplikacji w chmurze platformy Azure przy użyciu Azure Portal](spring-cloud-quickstart.md) do wdrożenia pierwszej aplikacji w chmurze.
 
 ## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Powiązywanie aplikacji z wystąpieniem Azure Database for MySQL
 

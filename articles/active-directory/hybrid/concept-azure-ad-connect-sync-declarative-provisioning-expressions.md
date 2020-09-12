@@ -16,19 +16,19 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245501"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280217"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect Sync: wyjaśnienie wyrażeń aprowizacji deklaracyjnej
 Usługa Azure AD Connect Sync kompiluje się w ramach aprowizacji deklaracyjnej po raz pierwszy wprowadzona w programie Forefront Identity Manager 2010. Umożliwia wdrożenie kompletnej logiki biznesowej integracji tożsamości bez konieczności pisania skompilowanego kodu.
 
 Istotną częścią deklaratywnej aprowizacji jest język wyrażeń używany w przepływach atrybutów. Używany język to podzbiór programu Microsoft® Visual Basic® for Applications (VBA). Ten język jest używany w Microsoft Office i użytkownicy korzystający z języka VBScript również będą mogli je rozpoznać. Język wyrażeń aprowizacji deklaracyjnej korzysta wyłącznie z funkcji i nie jest językiem strukturalnym. Brak metod lub instrukcji. Funkcje są zagnieżdżone zamiast przepływu programu Express.
 
-Aby uzyskać więcej informacji, zobacz [Zapraszamy do Visual Basic for Applications dokumentacji języka dla pakietu Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Aby uzyskać więcej informacji, zobacz [Zapraszamy do Visual Basic for Applications dokumentacji języka dla pakietu Office 2013](/office/vba/api/overview/language-reference).
 
 Atrybuty są jednoznacznie wpisane. Funkcja akceptuje tylko atrybuty poprawnego typu. Jest również rozróżniana wielkość liter. Nazwy funkcji i nazwy atrybutów muszą mieć poprawną wielkość liter lub występuje błąd.
 
@@ -83,9 +83,9 @@ Operatory są szacowane od lewej do prawej i mają ten sam priorytet oceny. Ozna
 Funkcje mogą działać na atrybutach o wartości pojedynczej i wielowartościowej. W przypadku atrybutów wielowartościowych funkcja działa nad każdą wartością i stosuje tę samą funkcję do każdej wartości.
 
 Na przykład:  
-`Trim([proxyAddresses])`Wykonaj przycinanie każdej wartości w atrybucie proxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Dla każdej wartości z @-sign , Zastąp domenę wartością @contoso.com .  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Wyszukaj wartość SIP-Address i usuń ją z wartości.
+`Trim([proxyAddresses])` Wykonaj przycinanie każdej wartości w atrybucie proxyAddress.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` Dla każdej wartości z @-sign , Zastąp domenę wartością @contoso.com .  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Wyszukaj wartość SIP-Address i usuń ją z wartości.
 
 ## <a name="next-steps"></a>Następne kroki
 * Więcej informacji na temat modelu konfiguracji można znaleźć w temacie [Inicjowanie obsługi administracyjnej](concept-azure-ad-connect-sync-declarative-provisioning.md).
@@ -100,4 +100,3 @@ Na przykład:
 **Tematy informacyjne**
 
 * [Azure AD Connect Sync: informacje o funkcjach](reference-connect-sync-functions-reference.md)
-

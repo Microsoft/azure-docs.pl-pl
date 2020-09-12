@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416506"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290195"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Tworzenie, zmienianie lub usuwanie komunikacji równorzędnej sieci wirtualnej
 
 Dowiedz się, jak tworzyć, zmieniać lub usuwać wirtualne sieci równorzędne. Komunikacja równorzędna sieci wirtualnych umożliwia łączenie sieci wirtualnych w tym samym regionie i między regionami (nazywanymi również globalnymi sieciami równorzędnymi) za pośrednictwem usługi Azure Websites. Po nawiązaniu połączenia równorzędnego sieci wirtualne są nadal zarządzane jako oddzielne zasoby. Jeśli jesteś nowym elementem komunikacji równorzędnej sieci wirtualnej, możesz dowiedzieć się więcej na ten temat w temacie [Omówienie komunikacji równorzędnej sieci wirtualnej](virtual-network-peering-overview.md) lub przez ukończenie [samouczka](tutorial-connect-virtual-networks-portal.md).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -126,11 +126,12 @@ Jeśli chcesz, aby sieci wirtualne komunikują się czasami, ale nie zawsze, zam
   - *Zainicjowane:* Podczas tworzenia komunikacji równorzędnej z drugą siecią wirtualną z pierwszej sieci wirtualnej stan komunikacji równorzędnej zostanie *zainicjowany*. 
   - *Połączono:* Po utworzeniu komunikacji równorzędnej z drugiej sieci wirtualnej do pierwszej sieci wirtualnej jej stan komunikacji równorzędnej jest *połączony*. Jeśli zobaczysz stan komunikacji równorzędnej dla pierwszej sieci wirtualnej, zobaczysz, że jego stan został zmieniony z *zainicjowane* na *połączone*. Komunikacja równorzędna nie zostanie pomyślnie nawiązana, dopóki nie zostanie *podłączony*stan komunikacji równorzędnej dla obu wirtualnych sieci równorzędnych.
 - W przypadku komunikacji równorzędnej z siecią wirtualną utworzoną za pomocą Menedżer zasobów z siecią wirtualną utworzoną za pomocą klasycznego modelu wdrażania można skonfigurować komunikację równorzędną dla sieci wirtualnej wdrożonej za pomocą usługi Menedżer zasobów. Nie można skonfigurować komunikacji równorzędnej dla sieci wirtualnej (klasycznej) ani między dwiema sieciami wirtualnymi wdrożonymi przy użyciu klasycznego modelu wdrażania. Podczas tworzenia komunikacji równorzędnej z sieci wirtualnej (Menedżer zasobów) w sieci wirtualnej (klasycznej) Stan komunikacji równorzędnej jest *aktualizowany*, a następnie wkrótce *zmienia się.*
-- Połączenie komunikacji równorzędnej między dwiema sieciami wirtualnymi. Komunikacja równorzędna nie jest przechodnia. W przypadku tworzenia komunikacji równorzędnej między:
-  - VirtualNetwork1 & VirtualNetwork2
-  - VirtualNetwork2 & VirtualNetwork3
+- Połączenie komunikacji równorzędnej między dwiema sieciami wirtualnymi. Komunikację równorzędną przez siebie nie są przechodnie. W przypadku tworzenia komunikacji równorzędnej między:
+  - VirtualNetwork1 & VirtualNetwork2-VirtualNetwork1 & VirtualNetwork2
+  - VirtualNetwork2 & VirtualNetwork3-VirtualNetwork2 & VirtualNetwork3
 
-  Nie ma komunikacji równorzędnej między VirtualNetwork1 i VirtualNetwork3 przez VirtualNetwork2. Jeśli chcesz utworzyć wirtualną sieć równorzędną między VirtualNetwork1 i VirtualNetwork3, musisz utworzyć komunikację równorzędną między VirtualNetwork1 i VirtualNetwork3.
+
+  Nie ma komunikacji równorzędnej między VirtualNetwork1 i VirtualNetwork3 przez VirtualNetwork2. Jeśli chcesz utworzyć wirtualną sieć równorzędną między VirtualNetwork1 i VirtualNetwork3, musisz utworzyć komunikację równorzędną między VirtualNetwork1 i VirtualNetwork3. Nie ma komunikacji równorzędnej między VirtualNetwork1 i VirtualNetwork3 przez VirtualNetwork2. Jeśli chcesz, aby VirtualNetwork1 i VirtualNetwork3 się bezpośrednio komunikować, musisz utworzyć jawną komunikację równorzędną między VirtualNetwork1 i VirtualNetwork3 lub przejść przez urządzenie WUS w sieci centrum.  
 - Nie można rozpoznać nazw w wirtualnych sieciach równorzędnych przy użyciu domyślnego rozpoznawania nazw platformy Azure. Aby rozwiązać nazwy w innych sieciach wirtualnych, należy użyć [Azure DNS w przypadku domen prywatnych](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub NIESTANDARDOWEGO serwera DNS. Aby dowiedzieć się, jak skonfigurować własny serwer DNS, zobacz [rozpoznawanie nazw przy użyciu własnego serwera DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Zasoby w równorzędnych sieciach wirtualnych w tym samym regionie mogą komunikować się ze sobą za pomocą tej samej przepustowości i opóźnienia, tak jakby znajdowały się w tej samej sieci wirtualnej. Rozmiar każdej maszyny wirtualnej ma jednak własną maksymalną przepustowość sieci. Aby dowiedzieć się więcej o maksymalnej przepustowości sieci dla różnych rozmiarów maszyn wirtualnych, zobacz rozmiary maszyn wirtualnych z [systemem Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 - Sieć wirtualna może być połączona za pomocą komunikacji równorzędnej z inną siecią wirtualną, a także mieć połączenie z inną siecią wirtualną przy użyciu bramy sieci wirtualnej platformy Azure. Gdy sieci wirtualne są połączone za pomocą komunikacji równorzędnej i bramy, ruch między sieciami wirtualnymi przechodzi przez konfigurację komunikacji równorzędnej, a nie z bramą.

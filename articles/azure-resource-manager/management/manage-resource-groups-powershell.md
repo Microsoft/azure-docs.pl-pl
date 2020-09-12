@@ -3,14 +3,14 @@ title: Zarządzanie grupami zasobów — Azure PowerShell
 description: Użyj Azure PowerShell do zarządzania grupami zasobów przy użyciu Azure Resource Manager. Pokazuje, jak tworzyć, wyświetlać i usuwać grupy zasobów.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 8457925479e3c28e062f87dbb830969d66523ec7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9519b9a5dec898a0905310de02ef9fad3d282a65
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827080"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290535"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Zarządzanie grupami zasobów Azure Resource Manager przy użyciu Azure PowerShell
 
@@ -31,15 +31,10 @@ Grupa zasobów przechowuje metadane dotyczące zasobów. W przypadku określania
 
 ## <a name="create-resource-groups"></a>Tworzenie grup zasobów
 
-Poniższy skrypt programu PowerShell tworzy grupę zasobów, a następnie wyświetla grupę zasobów.
+Poniższy skrypt programu PowerShell tworzy grupę zasobów.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-Get-AzResourceGroup -Name $resourceGroupName
+New-AzResourceGroup -Name demoResourceGroup -Location westus
 ```
 
 ## <a name="list-resource-groups"></a>Wyświetl listę grup zasobów

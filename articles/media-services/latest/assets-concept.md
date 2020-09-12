@@ -9,16 +9,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 3507d3f0ac978c6f7c2f5fc29fc563eaba79d98a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 99101f31ec955c822c784180dd8b04bfb8e5f73c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258864"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291606"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Zasoby w Azure Media Services v3
 
@@ -46,6 +46,6 @@ Nazwy plików/obiektów BLOB w obrębie elementu zawartości muszą spełniać z
 
 [Przegląd Media Services](media-services-overview.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Różnice między Media Services V2 i V3](migrate-from-v2-to-v3.md)

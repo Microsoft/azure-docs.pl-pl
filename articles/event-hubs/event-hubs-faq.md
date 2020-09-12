@@ -3,12 +3,12 @@ title: Często zadawane pytania — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera listę często zadawanych pytań dotyczących usługi Azure Event Hubs i ich odpowiedzi.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537184"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288971"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -70,8 +70,8 @@ Zapoznaj się z poniższą tabelą dla portów wychodzących, które należy otw
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Zobacz [używanie Event Hubs z aplikacji Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Jakie adresy IP są potrzebne do dozwolonych?
-Aby znaleźć listę prawidłowych adresów IP dla połączeń, wykonaj następujące kroki:
+### <a name="what-ip-addresses-do-i-need-to-allow"></a>Jakie adresy IP muszę zezwalać?
+Aby znaleźć odpowiednie adresy IP, które mają zostać dodane do listy dozwolonych połączeń, wykonaj następujące kroki:
 
 1. Uruchom następujące polecenie w wierszu polecenia: 
 
@@ -208,7 +208,7 @@ Event Hubs jest zaprojektowana tak, aby zezwalała na pojedynczy czytnik partycj
 
 Jeśli jednak masz model, w którym aplikacja ma koligację z określoną partycją, zwiększenie liczby partycji może nie mieć żadnej korzyści. Aby uzyskać więcej informacji, zobacz [dostępność i spójność](event-hubs-availability-and-consistency.md).
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 ### <a name="where-can-i-find-more-pricing-information"></a>Gdzie można znaleźć więcej informacji o cenach?
 
@@ -240,7 +240,7 @@ Przechwytywanie jest włączone, gdy dowolne centrum zdarzeń w przestrzeni nazw
 
 Funkcja przechwytywania korzysta z konta magazynu, które jest dostępne, gdy jest włączone w centrum zdarzeń. Ponieważ jest to Twoje konto magazynu, wszelkie zmiany tej konfiguracji są rozliczane w ramach subskrypcji platformy Azure.
 
-## <a name="quotas"></a>Limity przydziału
+## <a name="quotas"></a>Przydziały
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Czy istnieją przydziały skojarzone z Event Hubs?
 

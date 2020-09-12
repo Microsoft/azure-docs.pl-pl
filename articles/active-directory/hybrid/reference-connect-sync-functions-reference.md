@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550181"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279775"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: informacje o funkcjach
 W Azure AD Connect funkcje są używane do manipulowania wartością atrybutu podczas synchronizacji.  
@@ -75,7 +75,7 @@ Funkcje o typach **mvbin**, **mvstr**i **mvref** mogą działać tylko w przypad
   * [CertThumbprint](#certthumbprint)
   * [CertVersion](#certversion)
   * [Iscert](#iscert)
-* **Kursy**
+* **Konwersja**
   * [CBool](#cbool)
   * [CDate](#cdate)
   * [CGuid](#cguid)
@@ -124,7 +124,7 @@ Funkcje o typach **mvbin**, **mvstr**i **mvref** mogą działać tylko w przypad
   * [Błąd](#error)
   * [IIF](#iif)
   * [Wybierz](#select)
-  * [Przełącznik](#switch)
+  * [Przełącznika](#switch)
   * [Miejscu](#where)
   * [Się](#with)
 * **Tekst**
@@ -426,9 +426,9 @@ Funkcja CGuid konwertuje ciąg reprezentujący identyfikator GUID na jego reprez
 Funkcja Contains znajduje ciąg wewnątrz atrybutu wielowartościowego
 
 **Obowiązuje**  
-`num Contains (mvstring attribute, str search)`— z uwzględnieniem wielkości liter  
+`num Contains (mvstring attribute, str search)` — z uwzględnieniem wielkości liter  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)`— z uwzględnieniem wielkości liter
+`num Contains (mvref attribute, str search)` — z uwzględnieniem wielkości liter
 
 * attribute: Atrybut wielowartościowy do wyszukania.
 * Search: ciąg do znalezienia w atrybucie.
@@ -450,7 +450,7 @@ Jeśli atrybut proxyAddresses ma podstawowy adres e-mail (oznaczony wielkimi lit
 Funkcja ConvertFromBase64 konwertuje określoną zakodowaną wartość Base64 na zwykły ciąg.
 
 **Obowiązuje**  
-`str ConvertFromBase64(str source)`-zakłada, że kodowanie Unicode  
+`str ConvertFromBase64(str source)` -zakłada, że kodowanie Unicode  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Źródło: zakodowany ciąg Base64  
@@ -660,7 +660,7 @@ Funkcja FormatDateTime służy do formatowania daty i godziny w postaci ciągu z
 * Format: ciąg reprezentujący format do przekonwertowania.
 
 **Uwagi**  
-Możliwe wartości formatu można znaleźć tutaj: [niestandardowe formaty daty i godziny dla funkcji format](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+Możliwe wartości formatu można znaleźć tutaj: [niestandardowe formaty daty i godziny dla funkcji format](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Przykład:**  
 
@@ -1130,7 +1130,7 @@ Funkcja RemoveDuplicates — przyjmuje ciąg o wartości wielowartościowej i up
 Zwraca oczyszczony atrybut proxyAddress, w którym wszystkie zduplikowane wartości zostały usunięte.
 
 ---
-### <a name="replace"></a>Replace
+### <a name="replace"></a>Zamień
 **Opis:**  
 Funkcja Replace zastępuje wszystkie wystąpienia ciągu do innego ciągu.
 

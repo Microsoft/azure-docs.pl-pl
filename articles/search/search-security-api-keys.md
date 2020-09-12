@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7cd6e61b8614e4c8ff5d54232972865c81cbb3ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928874"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294785"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Tworzenie i zarządzanie kluczami interfejsu API dla usługi Wyszukiwanie poznawcze platformy Azure
 
@@ -21,7 +21,7 @@ Wszystkie żądania do usługi wyszukiwania potrzebują klucza API-tylko do odcz
 
 Klucze są tworzone wraz z usługą wyszukiwania podczas aprowizacji usług. Można wyświetlać i uzyskiwać kluczowe wartości w [Azure Portal](https://portal.azure.com).
 
-![Strona portalu, ustawienia, sekcja klucze](media/search-manage/azure-search-view-keys.png)
+![Strona portalu, Pobieranie ustawień, sekcja kluczy](media/search-manage/azure-search-view-keys.png)
 
 ## <a name="what-is-an-api-key"></a>Co to jest klucz API-Key
 
@@ -31,7 +31,7 @@ Do uzyskiwania dostępu do usługi wyszukiwania są używane dwa typy kluczy: ad
 
 |Klucz|Opis|Limity|  
 |---------|-----------------|------------|  
-|Administracja|Przyznaje pełne prawa do wszystkich operacji, w tym możliwość zarządzania usługą, tworzenia i usuwania indeksów, indeksatorów i źródeł danych.<br /><br /> Dwa klucze administratora, określane jako klucze *podstawowe* i *pomocnicze* w portalu, są generowane podczas tworzenia usługi i mogą być osobno ponownie generowane na żądanie. Posiadanie dwóch kluczy umożliwia przewinięcie jednego klucza podczas korzystania z drugiego klucza w celu uzyskania ciągłego dostępu do usługi.<br /><br /> Klucze administratora są określone tylko w nagłówkach żądań HTTP. Nie można umieścić klucza API-Key administratora w adresie URL.|Maksymalnie 2 na usługę|  
+|Administrator|Przyznaje pełne prawa do wszystkich operacji, w tym możliwość zarządzania usługą, tworzenia i usuwania indeksów, indeksatorów i źródeł danych.<br /><br /> Dwa klucze administratora, określane jako klucze *podstawowe* i *pomocnicze* w portalu, są generowane podczas tworzenia usługi i mogą być osobno ponownie generowane na żądanie. Posiadanie dwóch kluczy umożliwia przewinięcie jednego klucza podczas korzystania z drugiego klucza w celu uzyskania ciągłego dostępu do usługi.<br /><br /> Klucze administratora są określone tylko w nagłówkach żądań HTTP. Nie można umieścić klucza API-Key administratora w adresie URL.|Maksymalnie 2 na usługę|  
 |Zapytanie|Przyznaje dostęp tylko do odczytu do indeksów i dokumentów i są zazwyczaj dystrybuowane do aplikacji klienckich, które wysyłają żądania wyszukiwania.<br /><br /> Klucze zapytań są tworzone na żądanie. Można je tworzyć ręcznie w portalu lub programowo za pośrednictwem [interfejsu API REST zarządzania](/rest/api/searchmanagement/).<br /><br /> Klucze zapytania można określić w nagłówku żądania HTTP dla operacji wyszukiwania, sugestii lub wyszukiwania. Alternatywnie można przekazać klucz zapytania jako parametr w adresie URL. W zależności od sposobu, w jaki aplikacja kliencka formułuje żądanie, może być łatwiejsze przekazanie klucza jako parametru zapytania:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 za usługę|  
 
  Wizualnie nie istnieje różnica między kluczem administratora lub kluczem zapytania. Oba klucze są ciągami składającymi się z 32 losowo generowanych znaków alfanumerycznych. W przypadku utraty informacji o typie klucza określonego w aplikacji można [sprawdzić wartości kluczy w portalu](https://portal.azure.com) lub użyć [interfejsu API REST](/rest/api/searchmanagement/) , aby zwrócić wartość i typ klucza.  
@@ -47,7 +47,7 @@ Klucze dostępu można uzyskać w portalu lub za pomocą [interfejsu API REST za
 2. Wyświetl listę [usług wyszukiwania](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  dla Twojej subskrypcji.
 3. Wybierz usługę i na stronie Przegląd kliknij pozycję **Ustawienia**  > **klucze** , aby wyświetlić klucze administratora i kwerendy.
 
-   ![Strona portalu, ustawienia, sekcja klucze](media/search-security-overview/settings-keys.png)
+   ![Strona portalu, ustawienia widoku, sekcja klucze](media/search-security-overview/settings-keys.png)
 
 ## <a name="create-query-keys"></a>Utwórz klucze zapytań
 
@@ -93,7 +93,7 @@ Członkowie następujących ról mogą wyświetlać i ponownie generować klucze
 > [!Note]
 > W przypadku dostępu opartego na tożsamościach za pomocą wyników wyszukiwania można utworzyć filtry zabezpieczeń, aby przyciąć wyniki według tożsamości, usuwając dokumenty, dla których obiekt żądający nie powinien mieć dostępu. Aby uzyskać więcej informacji, zobacz [filtry zabezpieczeń](search-security-trimming-for-azure-search.md) i [zabezpieczanie przy Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Kontrola dostępu oparta na rolach na platformie Azure Wyszukiwanie poznawcze](search-security-rbac.md)
 + [Zarządzanie przy użyciu programu PowerShell](search-manage-powershell.md) 

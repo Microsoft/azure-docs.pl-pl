@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 956428b6f197912e2ab7c3a94133ed9d59f37749
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849897"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279928"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federowanie wielu wystąpień usługi Azure AD przy użyciu jednego wystąpienia usługi AD FS
 
@@ -42,7 +42,7 @@ Na potrzeby tej procedury przyjmij, że domena contoso.com w usłudze Azure Acti
 
 ## <a name="step-1-establish-a-two-way-trust"></a>Krok 1. Ustanów dwukierunkową relację zaufania
  
-Aby usługa AD FS w domenie contoso.com mogła uwierzytelniać użytkowników w domenie fabrikam.com, między domenami contoso.com i fabrikam.com musi istnieć dwukierunkowa relacja zaufania. Postępuj zgodnie z wytycznymi w tym [artykule](https://technet.microsoft.com/library/cc816590.aspx), aby ustanowić dwukierunkową relację zaufania.
+Aby usługa AD FS w domenie contoso.com mogła uwierzytelniać użytkowników w domenie fabrikam.com, między domenami contoso.com i fabrikam.com musi istnieć dwukierunkowa relacja zaufania. Postępuj zgodnie z wytycznymi w tym [artykule](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816590(v=ws.10)), aby ustanowić dwukierunkową relację zaufania.
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Krok 2. Zmodyfikuj ustawienia federacji domeny contoso.com 
  

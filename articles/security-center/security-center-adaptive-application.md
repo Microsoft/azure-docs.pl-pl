@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691483"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276766"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Korzystanie z adaptacyjnych kontrolek aplikacji w celu ograniczenia podatności na ataki maszyn
 
@@ -76,7 +76,7 @@ Wybierz zalecenie lub Otwórz stronę adaptacyjne kontrolki aplikacji, aby wyśw
     - **Zalecane** — grupy maszyn, które regularnie uruchamiają te same aplikacje i nie mają skonfigurowanej listy dozwolonych. Zalecamy włączenie adaptacyjnych kontrolek aplikacji dla tych grup.
     
       > [!TIP]
-      > Jeśli zostanie wyświetlona nazwa grupy z prefiksem "Reviewing", zawiera ona komputery z częściowo spójną listą aplikacji. Security Center nie widzi wzorca, ale zaleca przejrzenie tej grupy, aby sprawdzić _,_ czy można ręcznie zdefiniować niektóre reguły adaptacyjnych kontroli aplikacji zgodnie z opisem w sekcji [Edytowanie reguły adaptacyjnych kontroli aplikacji w grupie](#editing-a-groups-adaptive-application-controls-rule).
+      > Jeśli zostanie wyświetlona nazwa grupy z prefiksem "Reviewing", zawiera ona komputery z częściowo spójną listą aplikacji. Security Center nie widzi wzorca, ale zaleca przejrzenie tej grupy, aby sprawdzić _,_ czy można ręcznie zdefiniować niektóre reguły adaptacyjnych kontroli aplikacji zgodnie z opisem w sekcji [Edytowanie reguły adaptacyjnych kontroli aplikacji w grupie](#edit-a-groups-adaptive-application-controls-rule).
       >
       > Możesz również przenieść maszyny z tej grupy do innych grup, zgodnie z opisem w [Przenieś maszynę z jednej grupy do innej](#move-a-machine-from-one-group-to-another).
 
@@ -115,7 +115,7 @@ Wybierz zalecenie lub Otwórz stronę adaptacyjne kontrolki aplikacji, aby wyśw
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Edytowanie reguły adaptacyjnych kontrolek aplikacji grupy
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>Edytuj regułę adaptacyjnych kontrolek aplikacji grupy
 
 Możesz zdecydować się na edycję listy dozwolonych dla grupy komputerów ze względu na znane zmiany w organizacji. 
 
@@ -150,7 +150,7 @@ Aby edytować reguły dla grupy komputerów:
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Należy zaktualizować zalecenia dotyczące "reguł dozwolonych w ramach adaptacyjnych zasad kontroli aplikacji".
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Należy zaktualizować zalecenia dotyczące "reguł dozwolonych w ramach adaptacyjnych zasad kontroli aplikacji".
 
 To zalecenie zostanie wyświetlone, gdy Security Center Uczenie maszynowe będzie identyfikować potencjalnie wiarygodne zachowanie, które nie było wcześniej dozwolone. Zalecenie sugeruje nowe reguły dla istniejących definicji w celu zmniejszenia liczby fałszywych alertów pozytywnych.
 
@@ -167,7 +167,7 @@ Aby skorygować problemy:
 
 
 
-## <a name="auditing-alerts-and-violations"></a>Inspekcja alertów i naruszeń
+## <a name="audit-alerts-and-violations"></a>Inspekcja alertów i naruszeń
 
 1. Z menu Security Center wybierz pozycję **adaptacyjne kontrolki aplikacji**.
 
@@ -199,7 +199,7 @@ Po przeniesieniu maszyny z jednej grupy do innej zasady kontroli aplikacji zasto
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>Zarządzanie kontrolkami aplikacji za pośrednictwem interfejsu API REST 
+## <a name="manage-application-controls-via-the-rest-api"></a>Zarządzanie kontrolkami aplikacji za pośrednictwem interfejsu API REST 
 
 Aby zarządzać adaptacyjnymi kontrolkami aplikacji programowo, użyj naszego interfejsu API REST. 
 

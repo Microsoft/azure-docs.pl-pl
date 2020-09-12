@@ -10,17 +10,17 @@ tags: ''
 keywords: azure media services, stream, broadcast, live, offline
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 26e6e56d7c14cfa0ab54776003ae4489bb254094
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 65459dbdf8eaa92525fa20eda158f4beacf58780
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265851"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294377"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Tworzenie i monitorowanie zdarzeń usługi Media Services za pomocą usługi Event Grid przy użyciu witryny Azure Portal
 

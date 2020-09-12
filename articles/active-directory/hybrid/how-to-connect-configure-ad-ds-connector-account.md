@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ce6f0e5e6e958e72ddc04608c5f207fedb18daf9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072268"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279299"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Azure AD Connect: konfigurowanie konta łącznika usługi AD DS 
 
@@ -33,18 +33,18 @@ W przypadku instalacji programu Azure AD Connect Express automatycznie generowan
 ### <a name="permissions-summary"></a>Podsumowanie uprawnień 
 Poniższa tabela zawiera podsumowanie uprawnień wymaganych w przypadku obiektów usługi AD: 
 
-| Cecha | Uprawnienia |
+| Cechy | Uprawnienia |
 | --- | --- |
 | Funkcja MS-DS-ConsistencyGuid |Uprawnienia do odczytu i zapisu do atrybutu MS-DS-ConsistencyGuid udokumentowanego w [koncepcji projektowania — przy użyciu MS-ds-ConsistencyGuid jako sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja skrótów haseł |<li>Replikowanie zmian w katalogu</li>  <li>Replikuj wszystkie zmiany katalogu |
 | Wdrożenie hybrydowe programu Exchange |Uprawnienia do odczytu i zapisu w odniesieniu do atrybutów przedstawionych w funkcji [zapisywania zwrotnego hybrydowego programu Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) dla użytkowników, grup i kontaktów. |
 | Folder publiczny poczty programu Exchange |Uprawnienia Odczyt do atrybutów przedstawionych w [folderze publicznym poczty programu Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) dla folderów publicznych. | 
-| Zapisywanie zwrotne haseł |Uprawnienia do odczytu i zapisu w odniesieniu do atrybutów opisanych w temacie [wprowadzenie do zarządzania hasłami](../authentication/howto-sspr-writeback.md) dla użytkowników. |
+| Zapisywanie zwrotne haseł |Uprawnienia do odczytu i zapisu w odniesieniu do atrybutów opisanych w temacie [wprowadzenie do zarządzania hasłami](../authentication/tutorial-enable-sspr-writeback.md) dla użytkowników. |
 | Zapisywanie zwrotne urządzeń |Uprawnienia do odczytu i zapisu dla obiektów urządzeń i kontenerów udokumentowanych w funkcji [zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md). |
 | Zapisywanie zwrotne grup |Odczytuj, twórz, Aktualizuj i usuwaj obiekty grupy do zsynchronizowanych **grup pakietu Office 365**.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Korzystanie z modułu ADSyncConfig PowerShell 
-Moduł ADSyncConfig wymaga [Narzędzia administracji zdalnej serwera (RSAT) dla AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) , ponieważ zależy on od modułu i narzędzi AD DS PowerShell. Aby zainstalować narzędzia RSAT dla AD DS, Otwórz okno programu Windows PowerShell za pomocą polecenia "Uruchom jako administrator" i wykonaj: 
+Moduł ADSyncConfig wymaga [Narzędzia administracji zdalnej serwera (RSAT) dla AD DS](/windows-server/remote/remote-server-administration-tools) , ponieważ zależy on od modułu i narzędzi AD DS PowerShell. Aby zainstalować narzędzia RSAT dla AD DS, Otwórz okno programu Windows PowerShell za pomocą polecenia "Uruchom jako administrator" i wykonaj: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -311,4 +311,3 @@ To polecenie cmdlet ustawi następujące uprawnienia:
 - [Instalacja ekspresowa](how-to-connect-install-express.md)
 - [Instalacja niestandardowa](how-to-connect-install-custom.md)
 - [Informacje o module ADSyncConfig](reference-connect-adsyncconfig.md)
-

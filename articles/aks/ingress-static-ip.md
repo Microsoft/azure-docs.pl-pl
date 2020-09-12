@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować kontroler transfer
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: dbab9df3acf7de801a4e75502863fff698232458
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852573"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290552"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Utwórz kontroler transferu danych przychodzących ze statycznym publicznym adresem IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Powyższe polecenia tworzą adres IP, który zostanie usunięty po usunięciu klastra AKS. Alternatywnie można utworzyć adres IP w innej grupie zasobów, którą można zarządzać niezależnie od klastra AKS. Jeśli tworzysz adres IP w innej grupie zasobów, upewnij się, że jednostka usługi używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów, takiej jak *współautor sieci*.
+> Powyższe polecenia tworzą adres IP, który zostanie usunięty po usunięciu klastra AKS. Alternatywnie można utworzyć adres IP w innej grupie zasobów, którą można zarządzać niezależnie od klastra AKS. Jeśli tworzysz adres IP w innej grupie zasobów, upewnij się, że jednostka usługi używana przez klaster AKS ma delegowane uprawnienia do innej grupy zasobów, takiej jak *współautor sieci*. Aby uzyskać więcej informacji, zobacz [Używanie statycznego publicznego adresu IP i etykiety DNS z modułem równoważenia obciążenia AKS][aks-static-ip].
 
 Teraz Wdróż wykres *Nginx-* transferal z Helm. W celu zwiększenia nadmiarowości za pomocą parametru `--set controller.replicaCount` wdrażane są dwie repliki kontrolerów wejściowych NGINX. Aby w pełni korzystać z uruchamiania replik kontrolera transferu danych przychodzących, upewnij się, że w klastrze AKS znajduje się więcej niż jeden węzeł.
 
@@ -483,3 +483,4 @@ Możesz również wykonać następujące czynności:
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-static-ip]: static-ip.md

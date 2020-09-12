@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9bdea0998b5d6b4c10a96d2ef593f46d6b7c02bf
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2656bf93cb9c29ded4b9dde49f0caba91c1654b7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267007"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295635"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Jak kodować przy użyciu niestandardowej transformacji
 
@@ -147,7 +147,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 Wybierz kartę **treść** i Zamień treść na [wcześniej zdefiniowany](#define-a-custom-preset)kod JSON. Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji.
 
-Wybierz pozycję **Send** (Wyślij). 
+Wybierz pozycję **Wyślij**. 
 
 Aby Media Services zastosować transformację do określonego wideo lub audio, należy przesłać zadanie w ramach tej transformacji. Aby zapoznać się z kompletnym przykładem, który pokazuje, jak przesłać zadanie w ramach przekształcenia, zobacz [Samouczek: przesyłanie strumieniowe plików wideo — REST](stream-files-tutorial-with-rest.md).
 

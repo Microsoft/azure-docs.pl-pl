@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245490"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279316"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect Sync: zrozumienie użytkowników, grup i kontaktów
 Istnieje kilka różnych powodów, dla których można korzystać z wielu Active Directory lasów i istnieje kilka różnych topologii wdrażania. Typowe modele obejmują wdrożenie zasobów konta i sync'ed po utworzeniu przez & scalanie. Jednak nawet jeśli istnieją czyste modele, modele hybrydowe są powszechnie używane. Konfiguracja domyślna w Azure AD Connect synchronizacji nie zakłada żadnego konkretnego modelu, ale w zależności od sposobu wybrania dopasowania użytkownika w podręczniku instalacji można zaobserwować różne zachowania.
@@ -39,15 +39,15 @@ Ważne kwestie, o których należy pamiętać podczas synchronizowania grup z Ac
 
 * Azure AD Connect wyklucza wbudowane grupy zabezpieczeń z synchronizacji katalogów.
 
-* Azure AD Connect nie obsługuje synchronizowania [członkostwa w grupie podstawowej](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) z usługą Azure AD.
+* Azure AD Connect nie obsługuje synchronizowania [członkostwa w grupie podstawowej](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) z usługą Azure AD.
 
-* Azure AD Connect nie obsługuje synchronizowania [członkostw dynamicznej grupy dystrybucyjnej](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) z usługą Azure AD.
+* Azure AD Connect nie obsługuje synchronizowania [członkostw dynamicznej grupy dystrybucyjnej](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019) z usługą Azure AD.
 
 * Aby zsynchronizować grupę Active Directory z usługą Azure AD jako grupę z włączoną obsługą poczty:
 
     * Jeśli atrybut *ProxyAddress* grupy jest pusty, jego atrybut *mail* musi mieć wartość
 
-    * Jeśli atrybut *ProxyAddress* grupy nie jest pusty, musi zawierać co najmniej jedną wartość adresu serwera proxy SMTP. Poniżej przedstawiono kilka przykładów:
+    * Jeśli atrybut *ProxyAddress* grupy nie jest pusty, musi zawierać co najmniej jedną wartość adresu serwera proxy SMTP. Oto kilka przykładów:
     
       * Grupa Active Directory, której atrybut proxyAddress ma wartość *{"X500:/0 = contoso. com/OU = users/CN = test grupy"}* nie będzie włączona w usłudze Azure AD. Nie ma adresu SMTP.
       
@@ -76,4 +76,3 @@ Gdy obiekt został wyeksportowany do usługi Azure AD, nie będzie można już z
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 * [Synchronizacja Azure AD Connect: Dostosowywanie opcji synchronizacji](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
-

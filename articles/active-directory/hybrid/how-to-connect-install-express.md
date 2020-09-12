@@ -15,12 +15,12 @@ ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714fe5d1bdaddac2873194ab066f304e72bdde67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a655f355bb77d937f4daff2f8987769416ebd8c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358875"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279673"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Rozpoczynanie pracy z programem Azure AD Connect przy użyciu ustawień ekspresowych
 Użyj **ustawień ekspresowych** programu Azure AD Connect, jeśli używasz topologii z jednym lasem oraz [synchronizacji skrótów haseł](how-to-connect-password-hash-synchronization.md) na potrzeby uwierzytelniania. **Ustawienia ekspresowe** to opcja domyślna używana w przypadku najbardziej typowych scenariuszy wdrożenia. Wystarczy kilka kliknięć, aby rozszerzyć katalog lokalny do chmury.
@@ -42,13 +42,13 @@ Możesz zobaczyć te czynności w praktyce, korzystając z sekcji [Filmy wideo](
    Jeśli wystąpi błąd lub problemy z łącznością, zobacz [Rozwiązywanie problemów z łącznością](tshoot-connect-connectivity.md).
 6. Na ekranie Łączenie z usługami AD DS wprowadź nazwę użytkownika i hasło konta administratora przedsiębiorstwa. Możesz wprowadzić domenę w formacie NetBios lub FQDN, czyli FABRIKAM\administrator lub fabrikam.com\administrator. Kliknij przycisk **Dalej**.  
    ![Łączenie z usługami AD DS](./media/how-to-connect-install-express/connectad.png)
-7. Strona [**Konfiguracja logowania w usłudze Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) będzie wyświetlana tylko w przypadku, gdy nie ukończono [weryfikowania domen](../active-directory-domains-add-azure-portal.md) w ramach [wymagań wstępnych](how-to-connect-install-prerequisites.md).
+7. Strona [**Konfiguracja logowania w usłudze Azure AD**](plan-connect-user-signin.md#azure-ad-sign-in-configuration) będzie wyświetlana tylko w przypadku, gdy nie ukończono [weryfikowania domen](../fundamentals/add-custom-domain.md) w ramach [wymagań wstępnych](how-to-connect-install-prerequisites.md).
    ![Niezweryfikowane domeny](./media/how-to-connect-install-express/unverifieddomain.png)  
    Jeśli zobaczysz tę stronę, sprawdź wszystkie domeny z oznaczeniem **Nie dodano** lub **Nie zweryfikowano**. Upewnij się, że używane domeny zostały zweryfikowane w usłudze Azure AD. Po zweryfikowaniu domen kliknij symbol Odśwież.
 8. Na ekranie Wszystko gotowe do skonfigurowania kliknij pozycję **Zainstaluj**.
    * Opcjonalnie można na stronie Wszystko gotowe do skonfigurowania usunąć zaznaczenie pola wyboru **Uruchom proces synchronizacji, gdy tylko konfiguracja zostanie ukończona**. Usuń zaznaczenie tego pola wyboru, jeśli planujesz dodatkową konfigurację, na przykład konfigurację [filtrowania](how-to-connect-sync-configure-filtering.md). Jeśli ta opcja nie będzie zaznaczona, kreator skonfiguruje funkcję synchronizacji, ale nie włączy harmonogramu. Synchronizacja nie zostanie uruchomiona do momentu włączenia jej ręcznie przez [ponowne uruchomienie kreatora instalacji](how-to-connect-installation-wizard.md).
    * Pozostawienie włączonego pola wyboru **Uruchom proces synchronizacji, gdy tylko konfiguracja zostanie ukończona** spowoduje natychmiastowe wyzwolenie pełnej synchronizacji z usługą Azure AD wszystkich użytkowników, kontaktów i grup.
-   * Jeśli korzystasz z programu Exchange z lokalną usługą Active Directory, możesz również włączyć [**Wdrożenie hybrydowe programu Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Włącz tę opcję, jeśli chcesz, aby skrzynki pocztowe programu Exchange były przechowywane jednocześnie zarówno w chmurze, jak i lokalnie.
+   * Jeśli korzystasz z programu Exchange z lokalną usługą Active Directory, możesz również włączyć [**Wdrożenie hybrydowe programu Exchange**](/exchange/exchange-hybrid). Włącz tę opcję, jeśli chcesz, aby skrzynki pocztowe programu Exchange były przechowywane jednocześnie zarówno w chmurze, jak i lokalnie.
      ![Wszystko gotowe do skonfigurowania programu Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
 9. Po zakończeniu instalacji kliknij przycisk **Zakończ**.
 10. Po zakończeniu instalacji wyloguj się, a następnie zaloguj się ponownie przed użyciem narzędzia Synchronization Service Manager lub Synchronization Rule Editor.

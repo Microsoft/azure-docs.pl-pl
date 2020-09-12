@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 37098b8268d5a451935c925114fb762c574fa55c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1b058eefe22238b60c3482c55b5ae340f4e597f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265309"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296740"
 ---
 # <a name="live-event-states-and-billing"></a>Stany wydarzeń na żywo i rozliczenia
 
@@ -39,7 +39,7 @@ Wydarzenie na żywo może być w jednym z następujących stanów.
 |---|---|
 |**Zatrzymano**| Jest to początkowy stan zdarzenia na żywo po utworzeniu (chyba że Autostart został ustawiony na wartość true). W tym stanie nie ma rozliczeń. W tym stanie właściwości zdarzenia na żywo można zaktualizować, ale przesyłanie strumieniowe jest niedozwolone.|
 |**Uruchamianie**| Trwa Rozpoczynanie zdarzenia na żywo i alokowanie zasobów. W tym stanie nie ma rozliczeń. Aktualizacje lub przesyłanie strumieniowe są niedozwolone w tym stanie. Jeśli wystąpi błąd, zdarzenie na żywo powróci do stanu zatrzymania.|
-|**Uruchomiono**| Zasoby zdarzeń na żywo zostały przydzieloną, Wygenerowano adresy URL pozyskiwania i podglądu oraz można odbierać strumienie na żywo. W tym momencie rozliczenia są aktywne. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia.|
+|**Uruchomienie**| Zasoby zdarzeń na żywo zostały przydzieloną, Wygenerowano adresy URL pozyskiwania i podglądu oraz można odbierać strumienie na żywo. W tym momencie rozliczenia są aktywne. Należy jawnie wywołać operację zatrzymywania w zasobie wydarzenia na żywo, aby zatrzymać dalsze rozliczenia.|
 |**Zatrzymywanie**| Zdarzenie na żywo jest przerywane, a zasoby są zwalniane. W tym stanie przejściowym nie ma rozliczeń. Aktualizacje lub przesyłanie strumieniowe są niedozwolone w tym stanie.|
 |**Usuwanie**| Trwa usuwanie zdarzenia na żywo. W tym stanie przejściowym nie ma rozliczeń. Aktualizacje lub przesyłanie strumieniowe są niedozwolone w tym stanie.|
 

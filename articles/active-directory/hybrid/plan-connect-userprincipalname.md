@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680044"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279605"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Wypełnianie wartości UserPrincipalName w usłudze Azure AD
 
@@ -25,7 +25,7 @@ Wartość atrybutu UserPrincipalName to nazwa użytkownika usługi Azure AD dla 
 ## <a name="upn-terminology"></a>Terminologia UPN
 W tym artykule jest używana następująca terminologia:
 
-|Termin|Opis|
+|Okres|Opis|
 |-----|-----|
 |Domena początkowa|Domena domyślna (onmicrosoft.com) w dzierżawie usługi Azure AD. Na przykład contoso.onmicrosoft.com.|
 |Adres E-mail usługi Microsoft Online (MOERA)|Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure AD jako &lt; &gt; &lt; domeny początkowej MailNickName&#64;&gt; .|
@@ -56,7 +56,7 @@ Aby włączyć alternatywny identyfikator logowania w usłudze Azure AD, podczas
 
 ![Niezweryfikowane domeny](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Aby uzyskać więcej informacji, zobacz [Konfigurowanie alternatywnego identyfikatora logowania](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) i [konfiguracji logowania usługi Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+Aby uzyskać więcej informacji, zobacz [Konfigurowanie alternatywnego identyfikatora logowania](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) i [konfiguracji logowania usługi Azure AD](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>Niezweryfikowany sufiks nazwy UPN
 Jeśli lokalny atrybut UserPrincipalName/alternatywny sufiks identyfikatora logowania nie jest weryfikowany przez dzierżawę usługi Azure AD, wartość atrybutu UserPrincipalName usługi Azure AD jest ustawiona na MOERA. Usługa Azure AD oblicza MOERA z atrybutu MailNickName usługi Azure AD i domeny początkowej usługi Azure AD &lt; jako &gt; &lt; domeny początkowej MailNickName&#64;&gt; .
@@ -92,17 +92,17 @@ Poniżej przedstawiono przykładowe scenariusze obliczania nazwy UPN w oparciu o
 Lokalny obiekt użytkownika:
 - mailNickName: &lt; nie ustawiono&gt;
 - proxyAddresses: { SMTP:us1@contoso.com }
-- pocztus2@contoso.com
-- userPrincipalNameus3@contoso.com
+- poczt us2@contoso.com
+- userPrincipalName us3@contoso.com
 
 Synchronizowanie obiektu użytkownika z dzierżawą usługi Azure AD po raz pierwszy
 - Ustaw atrybut MailNickName usługi Azure AD na podstawowy prefiks adresu SMTP.
-- Ustaw MOERA na &lt; MailNickName &gt;&#64;&lt; początkowej domeny &gt; .
+- Ustaw MOERA na  &lt; MailNickName &gt;&#64;&lt; początkowej domeny &gt; .
 - Ustaw atrybut UserPrincipalName usługi Azure AD na MOERA.
 
 Obiekt użytkownika dzierżawy usługi Azure AD:
 - MailNickName: us1           
-- UserPrincipalNameus1@contoso.onmicrosoft.com
+- UserPrincipalName us1@contoso.onmicrosoft.com
 
 
 ### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Scenariusz 2: nie zweryfikowano sufiksu UPN — Ustaw lokalny atrybut mailNickName
@@ -112,8 +112,8 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 Lokalny obiekt użytkownika:
 - mailNickName: US4
 - proxyAddresses: { SMTP:us1@contoso.com }
-- pocztus2@contoso.com
-- userPrincipalNameus3@contoso.com
+- poczt us2@contoso.com
+- userPrincipalName us3@contoso.com
 
 Synchronizowanie aktualizacji lokalnego atrybutu mailNickName z dzierżawą usługi Azure AD
 - Zaktualizuj atrybut MailNickName usługi Azure AD za pomocą lokalnego atrybutu mailNickName.
@@ -121,7 +121,7 @@ Synchronizowanie aktualizacji lokalnego atrybutu mailNickName z dzierżawą usł
 
 Obiekt użytkownika dzierżawy usługi Azure AD:
 - MailNickName: US4
-- UserPrincipalNameus1@contoso.onmicrosoft.com
+- UserPrincipalName us1@contoso.onmicrosoft.com
 
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenariusz 3: nie zweryfikowano sufiksu UPN — aktualizacja lokalnego atrybutu userPrincipalName
 
@@ -130,8 +130,8 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 Lokalny obiekt użytkownika:
 - mailNickName: US4
 - proxyAddresses: { SMTP:us1@contoso.com }
-- pocztus2@contoso.com
-- userPrincipalNameus5@contoso.com
+- poczt us2@contoso.com
+- userPrincipalName us5@contoso.com
 
 Synchronizowanie aktualizacji lokalnego atrybutu userPrincipalName z dzierżawą usługi Azure AD
 - Aktualizacja lokalnego atrybutu userPrincipalName wyzwala ponowne obliczenie MOERA i atrybutu UserPrincipalName usługi Azure AD.
@@ -140,7 +140,7 @@ Synchronizowanie aktualizacji lokalnego atrybutu userPrincipalName z dzierżawą
 
 Obiekt użytkownika dzierżawy usługi Azure AD:
 - MailNickName: US4
-- UserPrincipalNameus4@contoso.onmicrosoft.com
+- UserPrincipalName us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenariusz 4: niezweryfikowany sufiks nazwy UPN — aktualizowanie podstawowego adresu SMTP i lokalnego atrybutu poczty
 
@@ -149,15 +149,15 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 Lokalny obiekt użytkownika:
 - mailNickName: US4
 - proxyAddresses: { SMTP:us6@contoso.com }
-- pocztus7@contoso.com
-- userPrincipalNameus5@contoso.com
+- poczt us7@contoso.com
+- userPrincipalName us5@contoso.com
 
 Synchronizowanie aktualizacji lokalnego atrybutu poczty i podstawowego adresu SMTP z dzierżawą usługi Azure AD
 - Po początkowej synchronizacji obiektu użytkownika aktualizacje lokalnego atrybutu poczty i podstawowego adresu SMTP nie będą miały wpływu na MailNickName usługi Azure AD lub atrybut UserPrincipalName.
 
 Obiekt użytkownika dzierżawy usługi Azure AD:
 - MailNickName: US4
-- UserPrincipalNameus4@contoso.onmicrosoft.com
+- UserPrincipalName us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scenariusz 5: zweryfikowany sufiks nazwy UPN — aktualizacja lokalnego sufiksu atrybutu userPrincipalName
 
@@ -166,8 +166,8 @@ Obiekt użytkownika dzierżawy usługi Azure AD:
 Lokalny obiekt użytkownika:
 - mailNickName: US4
 - proxyAddresses: { SMTP:us6@contoso.com }
-- pocztus7@contoso.com
-- userPrincipalNameus5@verified.contoso.com
+- poczt us7@contoso.com
+- userPrincipalName us5@verified.contoso.com
 
 Synchronizowanie aktualizacji lokalnego atrybutu userPrincipalName z dzierżawą usługi Azure AD
 - Aktualizacja lokalnego atrybutu userPrincipalName wyzwala ponowne obliczenie atrybutu UserPrincipalName usługi Azure AD.
@@ -175,7 +175,7 @@ Synchronizowanie aktualizacji lokalnego atrybutu userPrincipalName z dzierżawą
 
 Obiekt użytkownika dzierżawy usługi Azure AD:
 - MailNickName: US4     
-- UserPrincipalNameus5@verified.contoso.com
+- UserPrincipalName us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Następne kroki
 - [Integrowanie katalogów lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)

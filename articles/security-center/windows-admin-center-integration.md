@@ -1,21 +1,21 @@
 ---
-title: Jak zintegrować centrum administracyjne systemu Windows z Azure Security Center | Microsoft Docs
+title: Jak chronić serwery centrum administracyjnego systemu Windows za pomocą Azure Security Center
 description: W tym artykule wyjaśniono, jak zintegrować Azure Security Center z centrum administracyjnym systemu Windows
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 9eae210818cf623078090503deefc6295dab7164
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076359"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277497"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integracja Azure Security Center z centrum administracyjnym systemu Windows
+# <a name="protect-windows-admin-center-resources-with-security-center"></a>Ochrona zasobów centrum administracyjnego systemu Windows za pomocą Security Center
 
 Centrum administracyjne systemu Windows to narzędzie do zarządzania dla serwerów z systemem Windows. Jest to jedna lokalizacja dla administratorów systemu, aby uzyskać dostęp do większości najczęściej używanych narzędzi administracyjnych. Z poziomu Centrum administracyjnego systemu Windows możesz bezpośrednio dołączyć serwery z systemem Premium do Azure Security Center. Możesz wyświetlić podsumowanie zaleceń dotyczących zabezpieczeń i alertów bezpośrednio w środowisku centrum administracyjnego systemu Windows.
 
@@ -31,7 +31,7 @@ Po pomyślnym dołączeniu serwera z centrum administracyjnego systemu Windows d
 
 Łącząc te dwa narzędzia, Security Center stać się jednym okienkiem Glass, aby wyświetlić wszystkie informacje o zabezpieczeniach, niezależnie od zasobu: Ochrona centrum administracyjnego systemu Windows zarządzanych przez Premium serwerów, maszyn wirtualnych i innych obciążeń PaaS.
 
-## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Dodawanie zarządzanych serwerów centrum administracyjnego systemu Windows do Security Center
+## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Dołączanie serwerów zarządzanych w centrum administracyjnym systemu Windows do Security Center
 
 1. W centrum administracyjnym systemu Windows wybierz jeden z serwerów, a następnie w okienku **Narzędzia** wybierz rozszerzenie Azure Security Center:
 
@@ -54,16 +54,16 @@ Po pomyślnym dołączeniu serwera z centrum administracyjnego systemu Windows d
     > Po dołączeniu do zaleceń może upłynąć trochę czasu. W rzeczywistości w zależności od aktywności serwera nie można otrzymywać *żadnych* alertów. Aby generować alerty testowe w celu sprawdzenia, czy alerty działają prawidłowo, postępuj zgodnie z instrukcjami podanymi w [procedurze walidacji alertu](security-center-alert-validation.md).
 
 
-## <a name="viewing-security-recommendations-and-alerts-in-windows-admin-center"></a>Wyświetlanie zaleceń i alertów dotyczących zabezpieczeń w centrum administracyjnym systemu Windows
+## <a name="view-security-recommendations-and-alerts-in-windows-admin-center"></a>Wyświetlanie zaleceń i alertów dotyczących zabezpieczeń w centrum administracyjnym systemu Windows
 
 Po dołączeniu można wyświetlić swoje alerty i zalecenia bezpośrednio w obszarze Azure Security Center centrum administracyjnego systemu Windows. Kliknij rekomendację lub alert, aby wyświetlić je w Azure Portal. W tym miejscu uzyskasz dodatkowe informacje i dowiesz się, jak skorygować problemy.
 
 [![Security Center zalecenia i alerty wyświetlane w centrum administracyjnym systemu Windows](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
-## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Wyświetlanie zaleceń dotyczących zabezpieczeń i alertów dla serwerów zarządzanych w centrum administracyjnym systemu Windows w Security Center
+## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Wyświetlanie zaleceń dotyczących zabezpieczeń i alertów dla serwerów zarządzanych w centrum administracyjnym systemu Windows w Security Center
 Z Azure Security Center:
 
-* Aby wyświetlić zalecenia dotyczące zabezpieczeń dla wszystkich serwerów centrum administracyjnego systemu Windows, Otwórz **& aplikacje obliczeniowe** i kliknij kartę **maszyny wirtualne i komputery** . odfiltruj listę według zasobów "serwer", jak pokazano poniżej:
+* Aby wyświetlić zalecenia dotyczące zabezpieczeń dla wszystkich serwerów centrum administracyjnego systemu Windows, Otwórz **& aplikacje obliczeniowe** i kliknij kartę **maszyny wirtualne i komputery** . Przefiltruj listę według zasobu "serwer", jak pokazano poniżej:
 
     [![Wyświetlanie zaleceń dotyczących zabezpieczeń serwerów zarządzanych w centrum administracyjnym systemu Windows](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
 

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467b9b2e613e43b95007142a120d39be1272de93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357838"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278602"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Prywatność użytkownika i bezproblemowe logowanie jednokrotne do usługi Azure AD
 
@@ -64,7 +64,7 @@ Aby dowiedzieć się więcej o powiązanych Azure AD Connect wymaganiach Rodo, z
 
 ### <a name="note-about-domain-controller-logs"></a>Uwaga na temat dzienników kontrolera domeny
 
-W przypadku włączenia rejestrowania inspekcji ten produkt może generować dzienniki zabezpieczeń dla kontrolerów domeny. Aby dowiedzieć się więcej o konfigurowaniu zasad inspekcji, przeczytaj ten [artykuł](https://technet.microsoft.com/library/dd277403.aspx).
+W przypadku włączenia rejestrowania inspekcji ten produkt może generować dzienniki zabezpieczeń dla kontrolerów domeny. Aby dowiedzieć się więcej o konfigurowaniu zasad inspekcji, przeczytaj ten [artykuł](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## <a name="next-steps"></a>Następne kroki
 

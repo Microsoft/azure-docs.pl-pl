@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519611"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278143"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alerty zabezpieczeń w Centrum zabezpieczeń Azure
 
@@ -23,7 +23,7 @@ W Azure Security Center istnieje wiele alertów dla wielu różnych typów zasob
 
 Alerty zabezpieczeń są wyzwalane przez zaawansowane wykrywania i są dostępne tylko w warstwie Standardowa Azure Security Center. Dostępna jest bezpłatna wersja próbna. Uaktualnienie można przeprowadzić na stronie **ustawień & cenowych** . Dowiedz się więcej o [cenach Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="responding-to-todays-threats"></a>Reagowanie na współczesne <a name="respond-threats"> </a> zagrożenia
+## <a name="respond-to-todays-threats"></a>Reagowanie na bieżące zagrożenia <a name="respond-threats"> </a>
 
 W ciągu ostatnich 20 lat miały miejsce istotne zmiany dotyczące charakteru występujących zagrożeń. W przeszłości firmy zwykle musiały martwić się o rozpiętie witryny sieci Web przez pojedynczych osób atakujących, którzy głównie chcą zobaczyć "co można zrobić". Obecnie osoby atakujące są znacznie bardziej zaawansowane i zorganizowane. Często mają określone cele finansowe i strategiczne. Ponadto dysponują większą ilością zasobów, ponieważ mogą być finansowane przez państwa lub zorganizowane grupy przestępcze.
 

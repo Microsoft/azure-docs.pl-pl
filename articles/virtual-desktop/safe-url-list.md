@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135865"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291113"
 ---
 # <a name="safe-url-list"></a>Lista bezpiecznych adresów URL
 
@@ -60,7 +60,7 @@ W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wir
 >
 >1. Zarejestruj maszyny wirtualne w puli hostów systemu Windows Virtual Desktop.
 >2. Otwórz **Podgląd zdarzeń**, a następnie przejdź do pozycji **Dzienniki systemu Windows**  >  **Application**  >  **WVD-Agent** i Wyszukaj zdarzenie o identyfikatorze 3701.
->3. Dozwolonych adresy URL Znalezione w obszarze zdarzenia o IDENTYFIKATORze 3701. Adresy URL pod IDENTYFIKATORem zdarzenia 3701 są specyficzne dla regionu. Należy powtórzyć proces odblokowywania przy użyciu odpowiednich adresów URL dla każdego regionu, w którym mają zostać wdrożone maszyny wirtualne.
+>3. Odblokuj adresy URL, które znajdują się w obszarze zdarzenia o IDENTYFIKATORze 3701. Adresy URL pod IDENTYFIKATORem zdarzenia 3701 są specyficzne dla regionu. Należy powtórzyć proces odblokowywania przy użyciu odpowiednich adresów URL dla każdego regionu, w którym mają zostać wdrożone maszyny wirtualne.
 
 ## <a name="remote-desktop-clients"></a>Klienci usług pulpitu zdalnego
 
@@ -73,7 +73,7 @@ Wszyscy klienci korzystający z Pulpit zdalny muszą mieć dostęp do następuj�
 |go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|
 |aka.ms|443|Shortener URL firmy Microsoft|Wszystko|
 |docs.microsoft.com|443|Dokumentacja|Wszystko|
-|privacy.microsoft.com|443|Zasady zachowania poufności informacji|Wszystko|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]

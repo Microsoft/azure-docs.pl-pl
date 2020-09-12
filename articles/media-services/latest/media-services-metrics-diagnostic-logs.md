@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 49a237a122b97fc44df4525ca02dbb478be104ab
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267610"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296655"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitoruj Media Services metryki i dzienniki diagnostyczne za pośrednictwem Azure Monitor
 

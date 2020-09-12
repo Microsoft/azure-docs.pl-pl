@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358144"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279486"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory uwierzytelniania przekazywanego: agenci uwierzytelniania wersji zapoznawczej uaktualnienia
 
@@ -60,7 +60,7 @@ Aby sprawdzić wersje agentów uwierzytelniania, na każdym serwerze zidentyfiko
 
 Przed uaktualnieniem upewnij się, że masz następujące elementy:
 
-1. **Utwórz konto administratora globalnego tylko w chmurze**: Nie uaktualniaj bez posiadania konta administratora globalnego tylko w chmurze do użycia w sytuacjach awaryjnych, w których agenci uwierzytelniania przekazywanego nie działają prawidłowo. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../active-directory-users-create-azure-portal.md). Ten krok ma krytyczne znaczenie i gwarantuje, że nie można zablokować dzierżawy.
+1. **Utwórz konto administratora globalnego tylko w chmurze**: Nie uaktualniaj bez posiadania konta administratora globalnego tylko w chmurze do użycia w sytuacjach awaryjnych, w których agenci uwierzytelniania przekazywanego nie działają prawidłowo. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../fundamentals/add-users-azure-active-directory.md). Ten krok ma krytyczne znaczenie i gwarantuje, że nie można zablokować dzierżawy.
 2.  **Zapewnij wysoką dostępność**: Jeśli nie zostało to wcześniej wykonane, zainstaluj drugiego autonomicznego agenta uwierzytelniania, aby zapewnić wysoką dostępność żądań logowania, korzystając z tych [instrukcji](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Uaktualnianie agenta uwierzytelniania na serwerze Azure AD Connect

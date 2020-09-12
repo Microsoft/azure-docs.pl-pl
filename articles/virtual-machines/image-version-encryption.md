@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816494"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291929"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów
 
@@ -149,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Aby określić szyfrowanie dysku ustawione dla wersji obrazu, użyj  [AZ Image Gallery Create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create) z `--target-region-encryption` parametrem. Format programu `--target-region-encryption` to rozdzielana spacjami Lista kluczy służąca do szyfrowania dysków systemu operacyjnego i danych. Powinien wyglądać następująco: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>` . 
+Aby określić szyfrowanie dysku ustawione dla wersji obrazu, użyj  [AZ Image Gallery Create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create) z `--target-region-encryption` parametrem. Format `--target-region-encryption` jest rozdzielaną przecinkami listą kluczy do szyfrowania systemu operacyjnego i dysków danych. Powinien wyglądać następująco: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>` . 
 
 Jeśli źródło dysku systemu operacyjnego jest dyskiem zarządzanym lub maszyną wirtualną, użyj, `--managed-image` Aby określić źródło dla wersji obrazu. W tym przykładzie źródłem jest obraz zarządzany z dyskiem systemu operacyjnego, a także dysk danych o numerze LUN 0. Dysk systemu operacyjnego zostanie zaszyfrowany za pomocą DiskEncryptionSet1, a dysk danych zostanie zaszyfrowany przy użyciu DiskEncryptionSet2.
 

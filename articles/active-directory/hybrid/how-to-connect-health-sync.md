@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356697c4843742c12aa39d82602815e38dcca74a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef1e988bef3876fafdee4f7f6f109858e85d75d0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359147"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278738"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorowanie synchronizacji usługi Azure AD Connect za pomocą programu Azure AD Connect Health
 Poniższa dokumentacja dotyczy monitorowania programu Azure AD Connect (synchronizacja) przy użyciu programu Azure AD Connect Health.  Aby uzyskać informacje na temat monitorowania usług AD FS za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md). Ponadto, aby uzyskać informacje na temat monitorowania Usług domenowych Active Directory za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD DS](how-to-connect-health-adds.md).
@@ -116,7 +116,7 @@ W przypadku określonego scenariusza błędu synchronizacji zduplikowanego atryb
 ## <a name="related-links"></a>Linki pokrewne
 * [Rozwiązywanie problemów z błędami podczas synchronizacji](tshoot-connect-sync-errors.md)
 * [Odporność względem zduplikowanych atrybutów](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalowanie agenta programu Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operacje w programie Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md)

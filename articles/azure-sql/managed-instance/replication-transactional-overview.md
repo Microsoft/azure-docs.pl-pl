@@ -1,7 +1,7 @@
 ---
 title: Replikacja transakcyjna
 titleSuffix: Azure SQL Managed Instance
-description: Dowiedz się więcej o używaniu SQL Server replikacji transakcyjnej z wystąpieniem zarządzanym usługi Azure SQL.
+description: Dowiedz się więcej o używaniu SQL Server replikacji transakcyjnej przy użyciu wystąpienia zarządzanego Azure SQL (wersja zapoznawcza).
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -12,14 +12,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 95fc877636fe1d3dac466dc32fc49cee56f35185
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920130"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290518"
 ---
-# <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replikacja transakcyjna z wystąpieniem zarządzanym usługi Azure SQL
+# <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replikacja transakcyjna z wystąpieniem zarządzanym usługi Azure SQL (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Replikacja transakcyjna to funkcja wystąpienia zarządzanego usługi Azure SQL i SQL Server, które umożliwiają replikację danych z tabeli w wystąpieniu zarządzanym usługi Azure SQL lub wystąpienia SQL Server do tabel umieszczonych w zdalnych bazach danych. Ta funkcja pozwala synchronizować wiele tabel w różnych bazach danych. 
@@ -46,7 +46,7 @@ Kluczowymi składnikami replikacji transakcyjnej są **Wydawca**, **dystrybutor*
 | Rola | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
 | **Publisher** | Nie | Tak |
-| **Dystrybutor** | Nie | Yes|
+| **Dystrybutor** | Nie | Tak|
 | **Subskrybent ściągania** | Nie | Tak|
 | **Wypychanie subskrybenta**| Tak | Tak|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -74,8 +74,8 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 
 | Replikacja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Yes |
-| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Yes|
+| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak |
+| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
 | [**Replikacja scalająca**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
 | [**Równorzędny**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
 | [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|

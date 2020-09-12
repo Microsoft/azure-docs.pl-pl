@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: a6eaa5519607d5d5e9a49851e1c55f9b60b554ea
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 09/01/2020
+ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529725"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279838"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiowanie danych z tabeli SAP przy użyciu Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z tabeli SAP. Aby uzyskać więcej informacji, zobacz [Omówienie działania kopiowania](copy-activity-overview.md).
@@ -48,6 +49,12 @@ W każdym przypadku ten łącznik tabeli SAP obsługuje:
 - Kopiowanie danych przy użyciu uwierzytelniania podstawowego lub bezpiecznej komunikacji sieciowej (SNC), jeśli SNC jest skonfigurowany.
 - Nawiązywanie połączenia z serwerem aplikacji SAP lub serwerem komunikatów SAP.
 - Pobieranie danych za pomocą domyślnego lub niestandardowego RFC.
+
+Wersja 7,01 lub nowsza odnosi się do wersji SAP NetWeaver zamiast wersji SAP ECC. Na przykład system SAP ECC 6,0 EHP 7 ogólnie ma wersję NetWeaver >= 7,4. Jeśli nie masz pewności o Twoim środowisku, poniżej przedstawiono kroki umożliwiające potwierdzenie wersji z systemu SAP:
+1.  Połącz się z systemem SAP przy użyciu graficznego interfejsu użytkownika SAP. 
+2.  Przejdź do **System**pozycji  ->  **stan**systemu. 
+3.  Sprawdź wersję SAP_BASIS, upewnij się, że jest równa lub większa niż 701.  
+      ![Sprawdź SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -220,8 +227,8 @@ Aby skopiować dane z tabeli SAP, obsługiwane są następujące właściwości:
 | `rowCount`                         | Liczba wierszy do pobrania.                              | Nie       |
 | `rfcTableFields`                 | Pola (kolumny) do skopiowania z tabeli SAP. Na przykład `column0, column1`. | Nie       |
 | `rfcTableOptions`                | Opcje filtrowania wierszy w tabeli SAP. Na przykład `COLUMN0 EQ 'SOMEVALUE'`. Zobacz również tabelę operatorów zapytań SAP w dalszej części tego artykułu. | Nie       |
-| `customRfcReadTableFunctionModule` | Niestandardowy moduł funkcji RFC, który może służyć do odczytywania danych z tabeli SAP.<br>Możesz użyć niestandardowego modułu funkcji RFC, aby określić, jak dane są pobierane z systemu SAP i zwracane do Data Factory. Moduł funkcji niestandardowych musi mieć zaimplementowany interfejs (import, eksport, tabele) podobny do `/SAPDS/RFC_READ_TABLE2` , który jest domyślnym interfejsem używanym przez Data Factory.<br>Fabryka danych | Nie       |
-| `partitionOption`                  | Mechanizm partycji, który ma zostać odczytany z tabeli SAP. Obsługiwane opcje obejmują: <ul><li>`None`</li><li>`PartitionOnInt`(normalne wartości całkowite lub całkowite ze uzupełnieniem zero po lewej stronie, takie jak `0000012345` )</li><li>`PartitionOnCalendarYear`(4 cyfry w formacie "RRRR")</li><li>`PartitionOnCalendarMonth`(6 cyfr w formacie "YYYYMM")</li><li>`PartitionOnCalendarDate`(8 cyfr w formacie "RRRRMMDD")</li></ul> | Nie       |
+| `customRfcReadTableFunctionModule` | Niestandardowy moduł funkcji RFC, który może służyć do odczytywania danych z tabeli SAP.<br>Możesz użyć niestandardowego modułu funkcji RFC, aby określić, jak dane są pobierane z systemu SAP i zwracane do Data Factory. Moduł funkcji niestandardowych musi mieć zaimplementowany interfejs (import, eksport, tabele) podobny do `/SAPDS/RFC_READ_TABLE2` , który jest domyślnym interfejsem używanym przez Data Factory.<br>Data Factory | Nie       |
+| `partitionOption`                  | Mechanizm partycji, który ma zostać odczytany z tabeli SAP. Obsługiwane opcje obejmują: <ul><li>`None`</li><li>`PartitionOnInt` (normalne wartości całkowite lub całkowite ze uzupełnieniem zero po lewej stronie, takie jak `0000012345` )</li><li>`PartitionOnCalendarYear` (4 cyfry w formacie "RRRR")</li><li>`PartitionOnCalendarMonth` (6 cyfr w formacie "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 cyfr w formacie "RRRRMMDD")</li></ul> | Nie       |
 | `partitionColumnName`              | Nazwa kolumny używanej do partycjonowania danych.                | Nie       |
 | `partitionUpperBound`              | Wartość maksymalna określona w kolumnie `partitionColumnName` , która będzie używana do kontynuowania partycjonowania. | Nie       |
 | `partitionLowerBound`              | Minimalna wartość określona w kolumnie `partitionColumnName` , która będzie używana do kontynuowania partycjonowania. (Uwaga: w `partitionLowerBound` przypadku opcji partycji nie może być "0" `PartitionOnInt` ) | Nie       |
@@ -239,14 +246,14 @@ W programie `rfcTableOptions` można użyć następujących typowych operatorów
 
 | Operator | Opis |
 | :------- | :------- |
-| `EQ` | Równe |
-| `NE` | Różne od |
+| `EQ` | Jest równe |
+| `NE` | Nie jest równe |
 | `LT` | Mniejsze niż |
 | `LE` | Mniejsze niż lub równe |
 | `GT` | Większe niż |
 | `GE` | Większe niż lub równe |
-| `IN` | Jak w programie`TABCLASS IN ('TRANSP', 'INTTAB')` |
-| `LIKE` | Jak w programie`LIKE 'Emma%'` |
+| `IN` | Jak w programie `TABCLASS IN ('TRANSP', 'INTTAB')` |
+| `LIKE` | Jak w programie `LIKE 'Emma%'` |
 
 ### <a name="example"></a>Przykład
 
@@ -293,14 +300,14 @@ Podczas kopiowania danych z tabeli SAP następujące mapowania są używane z ty
 
 | Typ SAP ABAP | Data Factory typ danych pośrednich |
 |:--- |:--- |
-| `C`Parametry | `String` |
-| `I`Całkowitą | `Int32` |
-| `F`Float | `Double` |
-| `D`Dniu | `String` |
-| `T`Pierwszym | `String` |
-| `P`(Spakowane, walutowe, dziesiętne, ilość) | `Decimal` |
-| `N`Przypada | `String` |
-| `X`(Dane binarne i nieprzetworzone) | `String` |
+| `C` Parametry | `String` |
+| `I` Całkowitą | `Int32` |
+| `F` Float | `Double` |
+| `D` Dniu | `String` |
+| `T` Pierwszym | `String` |
+| `P` (Spakowane, walutowe, dziesiętne, ilość) | `Decimal` |
+| `N` Przypada | `String` |
+| `X` (Dane binarne i nieprzetworzone) | `String` |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

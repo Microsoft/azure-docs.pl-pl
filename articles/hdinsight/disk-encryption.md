@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: a78b56de537cfac0da48814afe9b07d911a61af1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020772"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290841"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Podwójne szyfrowanie usługi Azure HDInsight dla danych magazynowanych
 
@@ -463,11 +463,11 @@ Poniższy fragment kodu pokazuje, jak utworzyć nowy klaster usługi Azure HDIns
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
--p "HttpPassword1234!" \\
+-p "yourpass" \\
 --storage-account MyStorageAccount --encryption-at-host true
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault](../key-vault/general/overview.md).
 * [Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

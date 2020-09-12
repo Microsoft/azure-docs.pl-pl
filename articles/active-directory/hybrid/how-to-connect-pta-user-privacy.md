@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358127"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279520"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Prywatność użytkownika i uwierzytelnianie przekazywane usługi Azure Active Directory
 
@@ -67,7 +67,7 @@ Aby dowiedzieć się więcej o powiązanych Azure AD Connect wymaganiach Rodo, z
 
 ### <a name="delete-authentication-agent-event-logs"></a>Usuwanie dzienników zdarzeń agenta uwierzytelniania
 
-Ten produkt może również tworzyć **dzienniki zdarzeń systemu Windows**. Aby dowiedzieć się więcej, Przeczytaj [ten artykuł](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Ten produkt może również tworzyć **dzienniki zdarzeń systemu Windows**. Aby dowiedzieć się więcej, Przeczytaj [ten artykuł](/windows/win32/wes/windows-event-log).
 
 Aby wyświetlić dzienniki powiązane z agentem uwierzytelniania przekazywanego, Otwórz aplikację **Podgląd zdarzeń** na serwerze i sprawdź w obszarze **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -103,7 +103,7 @@ Aby zaplanować uruchamianie skryptu co 48 godzin, wykonaj następujące kroki:
  
 ### <a name="note-about-domain-controller-logs"></a>Uwaga na temat dzienników kontrolera domeny
 
-W przypadku włączenia rejestrowania inspekcji ten produkt może generować dzienniki zabezpieczeń dla kontrolerów domeny. Aby dowiedzieć się więcej o konfigurowaniu zasad inspekcji, przeczytaj ten [artykuł](https://technet.microsoft.com/library/dd277403.aspx).
+W przypadku włączenia rejestrowania inspekcji ten produkt może generować dzienniki zabezpieczeń dla kontrolerów domeny. Aby dowiedzieć się więcej o konfigurowaniu zasad inspekcji, przeczytaj ten [artykuł](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zapoznaj się z zasadami zachowania poufności informacji firmy Microsoft w centrum zaufania](https://www.microsoft.com/trustcenter)

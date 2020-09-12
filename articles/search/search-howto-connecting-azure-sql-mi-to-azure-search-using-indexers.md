@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922892"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294258"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Skonfiguruj połączenie z usługą Azure Wyszukiwanie poznawcze indeksator do wystąpienia zarządzanego SQL
 
@@ -27,7 +27,7 @@ Utwórz wystąpienie zarządzane SQL z wybraną opcją **Włącz publiczny punkt
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Włącz publiczny punkt końcowy wystąpienia zarządzanego usługi Azure SQL
 Możesz również włączyć publiczny punkt końcowy na istniejącym wystąpieniu zarządzanym SQL w obszarze **Security**  >  **Network Virtual**  >  **Endpoint**  >  **enable**.
 
-   ![Włącz publiczny punkt końcowy](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Włącz publiczny punkt końcowy")
+   ![Włącz publiczny punkt końcowy przy użyciu sieci wirtualnej wystąpienia zarządzanego](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Włącz publiczny punkt końcowy")
 
 ## <a name="verify-nsg-rules"></a>Weryfikowanie reguł sieciowej grupy zabezpieczeń
 Sprawdź, czy sieciowa Grupa zabezpieczeń ma poprawne **reguły zabezpieczeń ruchu przychodzącego** , które zezwalają na połączenia z usług platformy Azure.

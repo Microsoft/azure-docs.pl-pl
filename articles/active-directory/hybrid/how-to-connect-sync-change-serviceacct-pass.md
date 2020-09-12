@@ -17,19 +17,19 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385096"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278041"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Zmienianie hasła konta usługi ADSync
 Jeśli zmienisz hasło konta usługi ADSync, usługa synchronizacji nie będzie mogła zostać uruchomiona prawidłowo, dopóki nie powrócisz klucza szyfrowania i ponownie zainicjowano hasło konta usługi ADSync. 
 
 Azure AD Connect w ramach usług synchronizacji program używa klucza szyfrowania do przechowywania haseł konta łącznika AD DS i konta usługi ADSync.  Te konta są szyfrowane, zanim zostaną zapisane w bazie danych programu. 
 
-Używany klucz szyfrowania jest zabezpieczony przy użyciu funkcji [ochrony danych systemu Windows (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI chroni klucz szyfrowania za pomocą **konta usługi ADSync**. 
+Używany klucz szyfrowania jest zabezpieczony przy użyciu funkcji [ochrony danych systemu Windows (DPAPI)](/previous-versions/ms995355(v=msdn.10)). DPAPI chroni klucz szyfrowania za pomocą **konta usługi ADSync**. 
 
 Jeśli musisz zmienić hasło do konta usługi, możesz użyć procedur [porzucania klucza szyfrowania konta usługi ADSync](#abandoning-the-adsync-service-account-encryption-key) .  Te procedury należy również zastosować, jeśli trzeba porzucić klucz szyfrowania z dowolnego powodu.
 
@@ -84,9 +84,9 @@ Porzuć istniejący klucz szyfrowania, aby można było utworzyć nowy klucz szy
 
 2. Rozpocznij nową sesję programu PowerShell.
 
-3. Przejdź do folderu:`'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
+3. Przejdź do folderu: `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
-4. Uruchom polecenie:`./miiskmu.exe /a`
+4. Uruchom polecenie: `./miiskmu.exe /a`
 
 ![Narzędzie klucza szyfrowania Azure AD Connect synchronizacji](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 

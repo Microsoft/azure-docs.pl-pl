@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269125"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279707"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Zrozumienie i używanie agenta systemu Linux platformy Azure
 
@@ -53,7 +53,7 @@ Agent Microsoft Azure Linux (waagent) zarządza obsługą systemu Linux & FreeBS
 * **Rozszerzenie maszyny wirtualnej**
   
   * Wsuń składnik utworzony przez firmę Microsoft i partnerów na maszynę wirtualną z systemem Linux (IaaS) w celu umożliwienia automatyzacji oprogramowania i konfiguracji
-  * Implementacja odwołania do rozszerzenia maszyny wirtualnej na[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementacja odwołania do rozszerzenia maszyny wirtualnej na [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Komunikacja
 Przepływ informacji z platformy do agenta odbywa się za pośrednictwem dwóch kanałów:
@@ -92,6 +92,9 @@ Agent systemu Linux zależy od niektórych pakietów systemowych w celu poprawne
 * Narzędzia do przetwarzania tekstu: SED, grep
 * Narzędzia sieciowe: trasa IP
 * Obsługa jądra na potrzeby instalowania systemów plików UDF.
+
+Upewnij się, że maszyna wirtualna ma dostęp do adresu IP 168.63.129.16. Aby uzyskać więcej informacji, zobacz [co to jest adres IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+
 
 ## <a name="installation"></a>Instalacja
 Instalacja przy użyciu programu RPM lub pakietu DEB z repozytorium pakietu dystrybucji jest preferowaną metodą instalowania i uaktualniania agenta systemu Azure Linux. Wszyscy [pozatwierdzeni dostawcy dystrybucji](../linux/endorsed-distros.md) integrują pakiet agenta platformy Azure z systemem Linux z obrazami i repozytoriami.

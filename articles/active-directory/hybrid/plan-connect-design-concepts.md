@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698601"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279656"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: koncepcje projektowania
 Celem tego dokumentu jest opisywanie obszarów, które muszą być rozważane podczas projektowania implementacji Azure AD Connect. Ten dokument to głębokie szczegółowe w niektórych obszarach. te pojęcia są również krótko opisane w innych dokumentach.
@@ -46,7 +46,7 @@ Wartość atrybutu musi być zgodna z następującymi regułami:
 * Mniej niż 60 znaków
   * Znaki, które nie są a-z, A-Z, lub 0-9 są kodowane i zliczane jako 3 znaki
 * Nie zawiera znaku specjalnego: &#92;! # $% & * +/=? ^ &#96; {} | ~ < >  () '; : , [ ] " \@ _
-* Musi ona być unikatowa w skali globalnej
+* Musi być globalnie unikatowa
 * Musi to być ciąg, liczba całkowita lub wartość binarna
 * Nie powinna być oparta na nazwie użytkownika, ponieważ mogą one ulec zmianie
 * Nie należy uwzględniać wielkości liter i uniknąć wartości, które mogą się różnić w zależności od wielkości liter
@@ -165,7 +165,7 @@ Podczas analizy (krok 4), jeśli atrybut jest skonfigurowany w co najmniej jedny
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Wpływ na konfigurację Federacji AD FS lub innej firmy
 Jeśli używasz Azure AD Connect do zarządzania wdrożeniem lokalnym AD FS, Azure AD Connect automatycznie aktualizuje reguły dotyczące roszczeń, aby używały tego samego atrybutu AD co sourceAnchor. Daje to pewność, że ImmutableID wygenerowane przez usługi AD FS będzie spójna z wartościami sourceAnchor wyeksportowanymi w usłudze Azure AD.
 
-Jeśli zarządzasz AD FS poza Azure AD Connect lub używasz serwerów federacyjnych innych firm do uwierzytelniania, musisz ręcznie zaktualizować reguły dotyczące roszczeń ImmutableID, aby były zgodne z wartościami sourceAnchor wyeksportowanymi do usługi Azure AD, zgodnie z opisem w sekcji artykułu [Modyfikowanie reguł roszczeń AD FS](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). Po zakończeniu instalacji Kreator zwróci następujące ostrzeżenie:
+Jeśli zarządzasz AD FS poza Azure AD Connect lub używasz serwerów federacyjnych innych firm do uwierzytelniania, musisz ręcznie zaktualizować reguły dotyczące roszczeń ImmutableID, aby były zgodne z wartościami sourceAnchor wyeksportowanymi do usługi Azure AD, zgodnie z opisem w sekcji artykułu [Modyfikowanie reguł roszczeń AD FS](./how-to-connect-fed-management.md#modclaims). Po zakończeniu instalacji Kreator zwróci następujące ostrzeżenie:
 
 ![Konfiguracja Federacji innej firmy](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
@@ -193,7 +193,7 @@ Jan jest użytkownikiem w contoso.com. Chcesz, aby Jan używał lokalnej nazwy U
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Domeny lokalne bez routingu i nazwa UPN dla usługi Azure AD
 Niektóre organizacje mają domeny bez obsługi routingu, takie jak contoso. Local, lub proste domeny z pojedynczą etykietą, takie jak contoso. Nie można zweryfikować domeny bez obsługi routingu w usłudze Azure AD. Azure AD Connect można synchronizować tylko z zweryfikowaną domeną w usłudze Azure AD. Podczas tworzenia katalogu usługi Azure AD tworzy domenę routingu, która jest domeną domyślną dla usługi Azure AD na przykład contoso.onmicrosoft.com. W związku z tym, konieczna jest weryfikacja wszelkich innych domen routingu w taki scenariusz, jeśli nie chcesz synchronizować się z domyślną domeną onmicrosoft.com.
 
-Aby uzyskać więcej informacji na temat dodawania i weryfikowania domen, przeczytaj artykuł [Dodawanie niestandardowej nazwy domeny do Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
+Aby uzyskać więcej informacji na temat dodawania i weryfikowania domen, przeczytaj artykuł [Dodawanie niestandardowej nazwy domeny do Azure Active Directory](../fundamentals/add-custom-domain.md) .
 
 Azure AD Connect wykrywa, czy program jest uruchomiony w środowisku domeny bez obsługi routingu, a następnie ostrzega użytkownika o przejściu z ustawień ekspresowych. Jeśli pracujesz w domenie bez obsługi routingu, prawdopodobnie nazwy UPN użytkowników mają również sufiksy nieobsługujące routingu. Na przykład jeśli korzystasz z usługi contoso. Local, Azure AD Connect sugeruje użycie ustawień niestandardowych zamiast korzystania z ustawień ekspresowych. Za pomocą ustawień niestandardowych można określić atrybut, który ma być używany jako nazwa UPN do logowania się do platformy Azure po zsynchronizowaniu użytkowników z usługą Azure AD.
 

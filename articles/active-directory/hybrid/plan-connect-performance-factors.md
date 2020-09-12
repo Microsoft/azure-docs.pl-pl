@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253498"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279588"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Czynniki wpływające na wydajność programu Azure AD Connect
 
@@ -43,7 +43,7 @@ Na poniższym diagramie przedstawiono architekturę wysokiego poziomu dla aparat
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-Aparat aprowizacji nawiązuje połączenie z każdym lasem Active Directory i usługą Azure AD. Proces odczytywania informacji z każdego katalogu nazywa się importem. Eksport dotyczy aktualizacji katalogów z aparatu aprowizacji. Synchronizacja szacuje reguły przepływu obiektów w aparacie aprowizacji. Aby uzyskać bardziej szczegółowy szczegółowe, możesz odnieść się do [Azure AD Connect Sync: zrozumienie architektury](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+Aparat aprowizacji nawiązuje połączenie z każdym lasem Active Directory i usługą Azure AD. Proces odczytywania informacji z każdego katalogu nazywa się importem. Eksport dotyczy aktualizacji katalogów z aparatu aprowizacji. Synchronizacja szacuje reguły przepływu obiektów w aparacie aprowizacji. Aby uzyskać bardziej szczegółowy szczegółowe, możesz odnieść się do [Azure AD Connect Sync: zrozumienie architektury](./concept-azure-ad-connect-sync-architecture.md).
 
 Azure AD Connect używa następujących obszarów tymczasowych, reguł i procesów, aby umożliwić synchronizację z Active Directory do usługi Azure AD:
 
@@ -52,7 +52,7 @@ Azure AD Connect używa następujących obszarów tymczasowych, reguł i proces�
 * **Reguły synchronizacji** — decydują, które obiekty zostaną utworzone (rzutowane) lub połączone (przyłączone) do obiektów w mV. Reguły synchronizacji decydują również o tym, które wartości atrybutów będą kopiowane lub przekształcane z i z katalogów.
 * **Profile uruchamiania** — pakietuje etapy procesu kopiowania obiektów i ich wartości atrybutów zgodnie z regułami synchronizacji między obszarami przejściowymi i połączonymi katalogami.
 
-Istnieją różne profile przebiegów, które umożliwiają optymalizację wydajności aparatu aprowizacji. Większość organizacji będzie używać domyślnych harmonogramów i profilów uruchamiania dla normalnych operacji, ale niektóre organizacje mogą mieć możliwość [zmiany harmonogramu](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) lub wyzwolenia innych profili uruchamiania, aby powiększyć sytuacje. Dostępne są następujące profile uruchamiania:
+Istnieją różne profile przebiegów, które umożliwiają optymalizację wydajności aparatu aprowizacji. Większość organizacji będzie używać domyślnych harmonogramów i profilów uruchamiania dla normalnych operacji, ale niektóre organizacje mogą mieć możliwość [zmiany harmonogramu](./how-to-connect-sync-feature-scheduler.md) lub wyzwolenia innych profili uruchamiania, aby powiększyć sytuacje. Dostępne są następujące profile uruchamiania:
 
 ### <a name="initial-sync-profile"></a>Profil synchronizacji początkowej
 
@@ -109,7 +109,7 @@ W cyklu pełnej synchronizacji uwzględniono następujące operacje:
 
 Rozmiar topologii Active Directory, która ma zostać zaimportowana, to liczba jeden czynnik wpływający na wydajność i całkowity czas wykonywania wewnętrznych składników aparatu aprowizacji.
 
-[Filtrowanie](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) należy zastosować, aby zmniejszyć liczbę obiektów do zsynchronizowania. Uniemożliwi to przetwarzanie i eksportowanie niepotrzebnych obiektów do usługi Azure AD. W kolejności preferencji dostępne są następujące techniki filtrowania:
+[Filtrowanie](./how-to-connect-sync-configure-filtering.md) należy zastosować, aby zmniejszyć liczbę obiektów do zsynchronizowania. Uniemożliwi to przetwarzanie i eksportowanie niepotrzebnych obiektów do usługi Azure AD. W kolejności preferencji dostępne są następujące techniki filtrowania:
 
 
 
@@ -130,7 +130,7 @@ Wiele trwałych [obiektów odłączeń](concept-azure-ad-connect-sync-architectu
 
 ### <a name="attribute-flows"></a>Przepływy atrybutów
 
-Przepływy atrybutów to proces kopiowania lub przekształcania wartości atrybutów obiektów z jednego podłączonego katalogu do innego połączonego katalogu. Są one definiowane jako część reguł synchronizacji. Na przykład po zmianie numeru telefonu użytkownika w Active Directory numer telefonu w usłudze Azure AD zostanie zaktualizowany. Organizacje mogą [modyfikować przepływy atrybutów w ramach](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-change-the-configuration) różnych wymagań. Zalecane jest skopiowanie istniejących przepływów atrybutów przed ich zmianą.
+Przepływy atrybutów to proces kopiowania lub przekształcania wartości atrybutów obiektów z jednego podłączonego katalogu do innego połączonego katalogu. Są one definiowane jako część reguł synchronizacji. Na przykład po zmianie numeru telefonu użytkownika w Active Directory numer telefonu w usłudze Azure AD zostanie zaktualizowany. Organizacje mogą [modyfikować przepływy atrybutów w ramach](./how-to-connect-sync-change-the-configuration.md) różnych wymagań. Zalecane jest skopiowanie istniejących przepływów atrybutów przed ich zmianą.
 
 Proste przekierowania, takie jak przepływanie wartości atrybutu do innego atrybutu, nie mają wpływu na wydajność. Przykład przekierowania przepływa w ramach numeru telefonu komórkowego w Active Directory do numeru telefonów biurowych w usłudze Azure AD.
 
@@ -181,7 +181,7 @@ Aby zoptymalizować wydajność implementacji Azure AD Connect, należy wziąć 
 
 
 - Użyj [zalecanej konfiguracji sprzętowej](how-to-connect-install-prerequisites.md) na podstawie rozmiaru implementacji serwera Azure AD Connect.
-- Podczas uaktualniania Azure AD Connect w przypadku wdrożeń na dużą skalę należy rozważyć użycie [metody migracji wahadłowej](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), aby upewnić się, że masz co najmniej przestoje i najlepszą niezawodność. 
+- Podczas uaktualniania Azure AD Connect w przypadku wdrożeń na dużą skalę należy rozważyć użycie [metody migracji wahadłowej](./how-to-upgrade-previous-version.md#swing-migration), aby upewnić się, że masz co najmniej przestoje i najlepszą niezawodność. 
 - Użyj SSD dla bazy danych SQL, aby uzyskać najlepszą wydajność.
 - Przefiltruj zakres Active Directory tak, aby obejmował tylko obiekty, które muszą być obsługiwane w usłudze Azure AD przy użyciu funkcji filtrowania domeny, jednostki organizacyjnej lub atrybutu.
 - Jeśli trzeba zmienić domyślne reguły przepływu atrybutów, należy najpierw skopiować regułę, a następnie zmienić kopię i wyłączyć oryginalną regułę. Pamiętaj, aby ponownie uruchomić pełną synchronizację.

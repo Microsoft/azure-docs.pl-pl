@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: af7238ca4229bac678061c742f13953299a96ba4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374324"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290025"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
 
@@ -25,11 +25,11 @@ Pakiet rysowania zawiera rysunki zapisane w formacie DWG, który jest natywnym f
 
 Możesz wybrać każde oprogramowanie CAD, aby utworzyć rysunki w pakiecie rysunku.  
 
-[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) konwertuje pakiet rysowania na dane mapy.  Usługa konwersji została opracowana i przetestowana przy użyciu formatu pliku programu AutoCAD DWG. `AC1032`to wewnętrzna wersja formatu dla plików DWG. Zalecamy wybranie `AC1032` wersji pliku w formacie wewnętrznym.  
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) konwertuje pakiet rysowania na dane mapy.  Usługa konwersji została opracowana i przetestowana przy użyciu formatu pliku programu AutoCAD DWG. `AC1032` to wewnętrzna wersja formatu dla plików DWG. Zalecamy wybranie `AC1032` wersji pliku w formacie wewnętrznym.  
 
 Słownik terminów użytych w tym dokumencie.
 
-| Termin  | Definicja |
+| Okres  | Definicja |
 |:-------|:------------|
 | Warstwa | Warstwa programu AutoCAD DWG.|
 | Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
@@ -359,7 +359,6 @@ Poniżej znajduje się przykładowy plik manifestu dla przykładowego pakietu do
             "nameAlt": "Basement01", 
             "nameSubtitle": "01", 
             "addressRoomNumber": "B01", 
-            "nonWheelchairAccessible": false, 
             "nonPublic": true, 
             "isRoutable": true, 
             "isOpenArea": true 

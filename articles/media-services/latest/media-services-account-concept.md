@@ -8,15 +8,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 91e64ab524121faf6d4e363bfbfdea2d5db01941
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7c2cbaaf4866edc20f9745abe6759861db7834c3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269662"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291334"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Zarządzaj kontami Azure Media Services v3
 

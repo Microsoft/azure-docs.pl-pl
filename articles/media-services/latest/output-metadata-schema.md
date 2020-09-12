@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 79bf6c50c1b0b1c8454999cbefa8c933a73eae8e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267211"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289375"
 ---
 # <a name="output-metadata"></a>Metadane wyjściowe
 
@@ -38,7 +38,7 @@ Kolekcja wpisów AssetFile dla zadania kodowania.
 
 | Nazwa | Opis |
 | --- | --- |
-| **Źródła** |Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile.<br />Przykład: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
+| **Źródeł** |Kolekcja plików nośnika danych wejściowych/źródłowych, które zostały przetworzone w celu utworzenia tego AssetFile.<br />Przykład: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wideo z przeplotem do odpowiedniego formatu kontenera. <br />Zobacz [VideoTracks](#videotracks). |
 | **AudioTracks**|Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek audio przeplatanych w odpowiedni format kontenera. To jest kolekcja wszystkich ścieżek audio.<br /> Aby uzyskać więcej informacji, zobacz [AudioTracks](#audiotracks). |
 | **Nazwa**<br />Wymagane |Nazwa pliku zasobów nośnika. <br /><br />Przykład: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
@@ -55,8 +55,8 @@ Każda AssetFile fizyczna może zawierać w niej zero lub więcej ścieżek wide
 | **FourCC**<br />Wymagane | Kod kodera-dekoder wideo, który jest raportowany przez narzędzia FFmpeg.  <br /><br />Przykład: `"FourCC": "avc1"`|
 | **Profil** |Profil wielokrotna H264 (dotyczy tylko kodera-dekoder wielokrotna H264).  <br /><br />Przykład: `"Profile": "High"` |
 | **Poziomie** |Poziom wielokrotna H264 (dotyczy tylko wielokrotna H264 Codec).  <br /><br />Przykład: `"Level": "3.2"`|
-| **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
-| **Height**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|
+| **Szerokość**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach).  <br /><br />Przykład: `"Width": "1280"`|
+| **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.  <br /><br />Przykład: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Wymagane|Licznik współczynnik proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo.  <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|
 | **Framerate**<br />Wymagane |Mierzona szybkość klatek wideo w formacie. 3F.  <br /><br />Przykład: `"Framerate": 29.970`|

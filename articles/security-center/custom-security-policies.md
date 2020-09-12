@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559560"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278177"
 ---
 # <a name="using-custom-security-policies"></a>Korzystanie z niestandardowych zasad zabezpieczeń
 
@@ -69,7 +69,7 @@ Zgodnie z opisem w [dokumentacji Azure Policy](https://docs.microsoft.com/azure/
 
     [![Zalecenia niestandardowe](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
-## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Ulepszanie niestandardowych zaleceń ze szczegółowymi informacjami
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Ulepszanie niestandardowych zaleceń ze szczegółowymi informacjami
 
 Wbudowane zalecenia dotyczące Azure Security Center zawierają szczegóły, takie jak poziomy ważności i instrukcje korygowania. Jeśli chcesz dodać ten typ informacji do niestandardowych zaleceń, tak aby pojawił się w Azure Portal lub wszędzie tam, gdzie będziesz uzyskiwać dostęp do zaleceń, musisz użyć interfejsu API REST. 
 

@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849889"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280183"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
 
@@ -33,7 +33,7 @@ Uwierzytelnianie przekazujące Azure Active Directory (Azure AD) pozwala użytko
 >W przypadku migrowania z AD FS (lub innych technologii federacyjnych) do uwierzytelniania przekazywanego zdecydowanie zalecamy zapoznanie się z naszym szczegółowym przewodnikiem wdrażania opublikowanym [tutaj](https://aka.ms/adfstoPTADPDownload).
 
 >[!NOTE]
->Jeśli wdrażasz uwierzytelnianie przekazywane za pomocą chmury Azure Government, Wyświetl [uwagi dotyczące tożsamości hybrydowej Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+>Jeśli wdrażasz uwierzytelnianie przekazywane za pomocą chmury Azure Government, Wyświetl [uwagi dotyczące tożsamości hybrydowej Azure Government](./reference-connect-government-cloud.md).
 
 Postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć uwierzytelnianie przekazywane w dzierżawie:
 
@@ -42,12 +42,12 @@ Postępuj zgodnie z poniższymi instrukcjami, aby wdrożyć uwierzytelnianie prz
 Upewnij się, że są spełnione następujące wymagania wstępne.
 
 >[!IMPORTANT]
->Z punktu widzenia zabezpieczeń Administratorzy powinni traktować serwer z uruchomionym agentem PTA tak, jakby był kontrolerem domeny.  Serwery agenta PTA powinny być wzmocnione w tych samych wierszach, co w przypadku [zabezpieczania kontrolerów domeny przed atakami](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
+>Z punktu widzenia zabezpieczeń Administratorzy powinni traktować serwer z uruchomionym agentem PTA tak, jakby był kontrolerem domeny.  Serwery agenta PTA powinny być wzmocnione w tych samych wierszach, co w przypadku [zabezpieczania kontrolerów domeny przed atakami](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>W centrum administracyjnym Azure Active Directory
 
-1. Utwórz konto administratora globalnego tylko w chmurze w dzierżawie usługi Azure AD. W ten sposób możesz zarządzać konfiguracją dzierżawy, jeśli usługi lokalne zakończą się niepowodzeniem lub staną się niedostępne. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../active-directory-users-create-azure-portal.md). Wykonanie tego kroku jest niezwykle ważne, aby upewnić się, że dzierżawa nie została zablokowana.
-2. Dodaj co najmniej jedną [niestandardową nazwę domeny](../active-directory-domains-add-azure-portal.md) do dzierżawy usługi Azure AD. Użytkownicy mogą logować się przy użyciu jednej z tych nazw domen.
+1. Utwórz konto administratora globalnego tylko w chmurze w dzierżawie usługi Azure AD. W ten sposób możesz zarządzać konfiguracją dzierżawy, jeśli usługi lokalne zakończą się niepowodzeniem lub staną się niedostępne. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../fundamentals/add-users-azure-active-directory.md). Wykonanie tego kroku jest niezwykle ważne, aby upewnić się, że dzierżawa nie została zablokowana.
+2. Dodaj co najmniej jedną [niestandardową nazwę domeny](../fundamentals/add-custom-domain.md) do dzierżawy usługi Azure AD. Użytkownicy mogą logować się przy użyciu jednej z tych nazw domen.
 
 ### <a name="in-your-on-premises-environment"></a>W środowisku lokalnym
 
@@ -55,12 +55,12 @@ Upewnij się, że są spełnione następujące wymagania wstępne.
 2. Zainstaluj [najnowszą wersję Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) na serwerze zidentyfikowanym w poprzednim kroku. Jeśli masz już Azure AD Connect uruchomione, upewnij się, że wersja to 1.1.750.0 lub nowsza.
 
     >[!NOTE]
-    >Azure AD Connect wersje 1.1.557.0, 1.1.558.0, 1.1.561.0 i 1.1.614.0 mają problem związany z synchronizacją skrótów haseł. Jeśli _nie_ zamierzasz używać synchronizacji skrótów haseł w połączeniu z uwierzytelnianiem przekazującym, przeczytaj informacje o [wersji Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
+    >Azure AD Connect wersje 1.1.557.0, 1.1.558.0, 1.1.561.0 i 1.1.614.0 mają problem związany z synchronizacją skrótów haseł. Jeśli _nie_ zamierzasz używać synchronizacji skrótów haseł w połączeniu z uwierzytelnianiem przekazującym, przeczytaj informacje o [wersji Azure AD Connect](./reference-connect-version-history.md).
 
 3. Zidentyfikuj co najmniej jeden dodatkowy serwer (z systemem Windows Server 2012 R2 lub nowszym, z włączonym protokołem TLS 1,2), w którym można uruchamiać autonomiczne agenci uwierzytelniania. Te dodatkowe serwery są konieczne w celu zapewnienia wysokiej dostępności żądań logowania. Dodaj serwery do tego samego lasu Active Directory co użytkownicy, których hasła należy zweryfikować.
 
     >[!IMPORTANT]
-    >W środowiskach produkcyjnych zalecamy korzystanie z co najmniej 3 agentów uwierzytelniania w dzierżawie. Istnieje limit systemu 40 agentów uwierzytelniania dla dzierżawy. Najlepszym rozwiązaniem jest traktowanie wszystkich serwerów, na których są uruchomione agenci uwierzytelniania jako systemy warstwy 0 (zobacz [odwołanie](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >W środowiskach produkcyjnych zalecamy korzystanie z co najmniej 3 agentów uwierzytelniania w dzierżawie. Istnieje limit systemu 40 agentów uwierzytelniania dla dzierżawy. Najlepszym rozwiązaniem jest traktowanie wszystkich serwerów, na których są uruchomione agenci uwierzytelniania jako systemy warstwy 0 (zobacz [odwołanie](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Jeśli między serwerami i usługą Azure AD istnieje Zapora, skonfiguruj następujące elementy:
    - Upewnij się, że agenci uwierzytelniania mogą wykonywać żądania *wychodzące* do usługi Azure AD za pośrednictwem następujących portów:
@@ -120,7 +120,7 @@ Na tym etapie użytkownicy z wszystkich domen zarządzanych w dzierżawie mogą 
 Jeśli planujesz wdrożenie uwierzytelniania przekazywanego w środowisku produkcyjnym, należy zainstalować dodatkowych agentów uwierzytelniania autonomicznego. Zainstaluj tych agentów uwierzytelniania na serwerach _innych_ niż uruchomione Azure AD Connect. Ta konfiguracja zapewnia wysoką dostępność żądań logowania użytkowników.
 
 >[!IMPORTANT]
->W środowiskach produkcyjnych zalecamy korzystanie z co najmniej 3 agentów uwierzytelniania w dzierżawie. Istnieje limit systemu 40 agentów uwierzytelniania dla dzierżawy. Najlepszym rozwiązaniem jest traktowanie wszystkich serwerów, na których są uruchomione agenci uwierzytelniania jako systemy warstwy 0 (zobacz [odwołanie](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>W środowiskach produkcyjnych zalecamy korzystanie z co najmniej 3 agentów uwierzytelniania w dzierżawie. Istnieje limit systemu 40 agentów uwierzytelniania dla dzierżawy. Najlepszym rozwiązaniem jest traktowanie wszystkich serwerów, na których są uruchomione agenci uwierzytelniania jako systemy warstwy 0 (zobacz [odwołanie](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Zainstalowanie wielu agentów uwierzytelniania przekazywanego zapewnia wysoką dostępność, ale nie jest to deterministyczne Równoważenie obciążenia między agentami uwierzytelniania. Aby określić liczbę agentów uwierzytelniania potrzebnych dla dzierżawy, należy wziąć pod uwagę szczytowe i średnie obciążenie żądań logowania, które powinny być widoczne dla dzierżawy. W ramach testu porównawczego pojedynczy Agent uwierzytelniania może obsłużyć 300 do 400 uwierzytelnień na sekundę w standardowym 4-rdzeniowym PROCESORze, 16 GB pamięci RAM.
 

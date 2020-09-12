@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053228"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278585"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Wdrażanie etapowe pozwala na selektywne testowanie grup użytkowników z możli
 -  Do uwierzytelniania są używane karty inteligentne. 
 -  Bieżący serwer oferuje pewne funkcje tylko federacyjne.
 
-Przed podjęciem próby wykonania tej funkcji zalecamy zapoznanie się z naszym przewodnikiem dotyczącym wybierania właściwej metody uwierzytelniania. Aby uzyskać więcej informacji, zobacz tabelę "Porównanie metod" w obszarze [Wybierz właściwą metodę uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Przed podjęciem próby wykonania tej funkcji zalecamy zapoznanie się z naszym przewodnikiem dotyczącym wybierania właściwej metody uwierzytelniania. Aby uzyskać więcej informacji, zobacz tabelę "Porównanie metod" w obszarze [Wybierz właściwą metodę uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej](./choose-ad-authn.md#comparing-methods).
 
 Aby zapoznać się z omówieniem tej funkcji, zobacz "Azure Active Directory: co to jest wdrażanie etapowe?". plików
 
@@ -91,7 +91,7 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 Aby przetestować logowanie do *synchronizacji skrótów haseł* przy użyciu wdrożenia etapowego, postępuj zgodnie z instrukcjami w następnej sekcji.
 
-Aby uzyskać informacje o używaniu poleceń cmdlet programu PowerShell, zobacz temat [Azure AD 2,0 Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Aby uzyskać informacje o używaniu poleceń cmdlet programu PowerShell, zobacz temat [Azure AD 2,0 Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pre-Work dla synchronizacji skrótów haseł
 
@@ -207,7 +207,7 @@ Włączono zdarzenia inspekcji dla różnych akcji wykonywanych w celu wdrożeni
 
   ![Okienko "Dodawanie użytkownika do wdrożenia funkcji" — karta elementy docelowe](./media/how-to-connect-staged-rollout/sr12.png)
 
-## <a name="validation"></a>Weryfikacja
+## <a name="validation"></a>Walidacja
 
 Aby przetestować logowanie za pomocą *synchronizacji skrótów haseł* lub *uwierzytelniania przekazywanego* (Logowanie przy użyciu nazwy użytkownika i hasła), wykonaj następujące czynności:
 
@@ -225,7 +225,7 @@ Aby przetestować logowanie za pomocą *bezproblemowego logowania JEDNOkrotnego*
 
 1. Upewnij się, że logowanie powiodło się w [raporcie aktywności logowania usługi Azure AD](../reports-monitoring/concept-sign-ins.md) , filtrując element userPrincipalName.
 
-   Aby śledzić logowania użytkowników, które nadal występują na Active Directory Federation Services (AD FS) dla wybranych użytkowników wdrożenia przemieszczanego, postępuj zgodnie z instrukcjami w [AD FS Rozwiązywanie problemów: zdarzenia i rejestrowanie](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Sprawdź dokumentację dostawcy, jak to sprawdzić w przypadku dostawców federacyjnych innych firm.
+   Aby śledzić logowania użytkowników, które nadal występują na Active Directory Federation Services (AD FS) dla wybranych użytkowników wdrożenia przemieszczanego, postępuj zgodnie z instrukcjami w [AD FS Rozwiązywanie problemów: zdarzenia i rejestrowanie](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Sprawdź dokumentację dostawcy, jak to sprawdzić w przypadku dostawców federacyjnych innych firm.
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Usuwanie użytkownika z wdrożenia przemieszczanego
 
@@ -243,7 +243,7 @@ Odp.: nie, ta funkcja została zaprojektowana na potrzeby migrowania z federacyj
 
 **P: Czy można użyć programu PowerShell, aby wykonać etapowe wdrażanie?**
 
-Odp. Tak. Aby dowiedzieć się, jak używać programu PowerShell do wdrażania etapowego, zobacz [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Odp. Tak. Aby dowiedzieć się, jak używać programu PowerShell do wdrażania etapowego, zobacz [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Następne kroki
-- [Azure AD 2,0 — wersja zapoznawcza](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2,0 — wersja zapoznawcza](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

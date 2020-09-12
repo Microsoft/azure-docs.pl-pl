@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500d226fcb60646becc49144f206dcb0dee49bd8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60381165"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278398"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Określanie wymagań dotyczących synchronizacji katalogów
 Każda synchronizacja polega na umożliwieniu użytkownikom tożsamości w chmurze w oparciu o tożsamość lokalną. Bez względu na to, czy użytkownicy będą używać konta zsynchronizowanego do uwierzytelniania, czy uwierzytelniania federacyjnego, nadal będą musieli mieć tożsamość w chmurze.  Ta tożsamość będzie musiała być okresowo utrzymywana i aktualizowana.  Aktualizacje mogą mieć wiele form, od zmian tytułu zmiany hasła.  
@@ -64,7 +64,7 @@ Należy również określić wymagania dotyczące zabezpieczeń i ograniczenia s
   * Czy będzie można otworzyć wymagane porty zapory do obsługi synchronizacji?
 * Czy istnieje plan odzyskiwania po awarii dla serwera synchronizacji?
 * Czy masz konto z odpowiednimi uprawnieniami dla wszystkich lasów, z którymi chcesz się zsynchronizować?
-  * Jeśli firma nie wie odpowiedzi na to pytanie, zapoznaj się z sekcją "uprawnienia do synchronizacji haseł" w artykule [Instalowanie usługi synchronizacji Azure Active Directory](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) i określanie, czy masz już konto z tymi uprawnieniami, czy też musisz je utworzyć.
+  * Jeśli firma nie wie odpowiedzi na to pytanie, zapoznaj się z sekcją "uprawnienia do synchronizacji haseł" w artykule [Instalowanie usługi synchronizacji Azure Active Directory](/previous-versions/azure/azure-services/dn757602(v=azure.100)#BKMK_CreateAnADAccountForTheSyncService) i określanie, czy masz już konto z tymi uprawnieniami, czy też musisz je utworzyć.
 * W przypadku synchronizacji odpowiednie-Forest serwer synchronizacji może uzyskać dostęp do każdego lasu?
 
 > [!NOTE]
@@ -77,4 +77,3 @@ Należy również określić wymagania dotyczące zabezpieczeń i ograniczenia s
 
 ## <a name="see-also"></a>Zobacz także
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
-

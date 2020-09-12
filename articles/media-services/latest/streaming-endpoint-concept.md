@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256501"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297199"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Punkty końcowe przesyłania strumieniowego (Źródło) w Azure Media Services
 
@@ -68,11 +68,11 @@ Cechy|Standardowa (Standard)|Premium
 Przepływność |Do 600 MB/s i może zapewnić znacznie wyższą skuteczną przepływność w przypadku użycia sieci CDN.|200 MB/s na jednostkę przesyłania strumieniowego (SU). W przypadku korzystania z sieci CDN można zapewnić znacznie wyższą skuteczną przepływność.
 CDN|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.|Azure CDN, Sieć CDN innej firmy lub brak sieci CDN.
 Opłaty są naliczane proporcjonalnie| Codziennie|Codziennie
-Szyfrowanie dynamiczne|Yes|Yes
-Dynamiczne tworzenie pakietów|Yes|Yes
+Szyfrowanie dynamiczne|Tak|Tak
+Dynamiczne tworzenie pakietów|Tak|Tak
 Skalowanie|Automatycznie Skaluj do dostosowanej przepływności.|Dodatkowe usługi SUs
-Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Yes|Yes
-Pobieranie progresywne|Yes|Yes
+Filtrowanie/G20 IP/Host niestandardowy <sup>1</sup>|Tak|Tak
+Pobieranie progresywne|Tak|Tak
 Zalecane użycie |Zalecane w przypadku większości scenariuszy przesyłania strumieniowego.|Profesjonalne użycie.
 
 <sup>1</sup> używany bezpośrednio w punkcie końcowym przesyłania strumieniowego, gdy sieć CDN nie jest włączona w punkcie końcowym.<br/>
@@ -165,7 +165,7 @@ Zobacz następujące artykuły:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Dynamiczne tworzenie pakietów](dynamic-packaging-overview.md)
 

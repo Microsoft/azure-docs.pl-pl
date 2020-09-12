@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080185"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276188"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
 
@@ -25,7 +25,7 @@ W tym artykule opisano zagadnienia dotyczące integracji środowiska hybrydowego
 > [!NOTE]
 > Aby zintegrować lokalne środowisko Microsoft Azure Active Directory (Azure AD) z chmurą Azure Government, należy przeprowadzić uaktualnienie do najnowszej wersji [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-Aby zapoznać się z pełną listą Stany Zjednoczone Departamentu Obrony rządowych, zapoznaj się z [dokumentacją](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+Aby zapoznać się z pełną listą Stany Zjednoczone Departamentu Obrony rządowych, zapoznaj się z [dokumentacją](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## <a name="azure-ad-pass-through-authentication"></a>Uwierzytelnianie przekazywane przez usługę Azure AD
 

@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c68be4e46693621f77cb25dd8f34f8e0b7d75dd
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109274"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278415"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Określanie wymagań dotyczących odpowiedzi na zdarzenia dla rozwiązania do tworzenia tożsamości hybrydowej
-Duże lub średnie organizacje najprawdopodobniej będą miały [odpowiedź na zdarzenia związane z bezpieczeństwem](https://technet.microsoft.com/library/cc700825.aspx) w celu ułatwienia działania odpowiednio do poziomu incydentu. System zarządzania tożsamościami jest ważnym składnikiem procesu reagowania na zdarzenia, ponieważ może służyć do identyfikowania, kto wykonał konkretną akcję względem celu. Rozwiązanie do obsługi tożsamości hybrydowej musi być w stanie zapewnić możliwości monitorowania i raportowania, które mogą być używane przez niego do działania w celu zidentyfikowania potencjalnego zagrożenia i rozwiązania tego problemu. W przypadku typowego planu reagowania na zdarzenia w ramach planu będą dostępne następujące fazy:
+Duże lub średnie organizacje najprawdopodobniej będą miały [odpowiedź na zdarzenia związane z bezpieczeństwem](/previous-versions/tn-archive/cc700825(v=technet.10)) w celu ułatwienia działania odpowiednio do poziomu incydentu. System zarządzania tożsamościami jest ważnym składnikiem procesu reagowania na zdarzenia, ponieważ może służyć do identyfikowania, kto wykonał konkretną akcję względem celu. Rozwiązanie do obsługi tożsamości hybrydowej musi być w stanie zapewnić możliwości monitorowania i raportowania, które mogą być używane przez niego do działania w celu zidentyfikowania potencjalnego zagrożenia i rozwiązania tego problemu. W przypadku typowego planu reagowania na zdarzenia w ramach planu będą dostępne następujące fazy:
 
 1. Wstępna ocena.
 2. Komunikacja przy zdarzeniu.
@@ -69,4 +69,3 @@ W przypadku nieuszkodzenia kontroli i zmniejszania ryzyka ważne jest, aby szybk
 
 ## <a name="see-also"></a>Zobacz też
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
-

@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7d16b0755fae91979802e50cb2ebbf4324ce2c45
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921142"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294122"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Wysyłanie żądań do interfejs API automatycznego sugerowania Bing.
 
@@ -64,7 +64,7 @@ Aby uzyskać listę wszystkich nagłówków żądań i odpowiedzi, zobacz [Nagł
 > [!NOTE]
 > Gdy wywołasz interfejs API automatycznego sugerowania Bing z JavaScript, wbudowane funkcje zabezpieczeń przeglądarki mogą uniemożliwiać dostęp do wartości tych nagłówków.
 
-Aby rozwiązać ten problem, można wykonać żądanie interfejs API automatycznego sugerowania Bing za pomocą serwera proxy CORS. Odpowiedź z tego serwera proxy zawiera nagłówek `Access-Control-Expose-Headers`, który zezwala na nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
+Aby rozwiązać ten problem, można wykonać żądanie interfejs API automatycznego sugerowania Bing za pomocą serwera proxy CORS. Odpowiedź z takiego serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który filtruje nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
 
 Można łatwo zainstalować serwer proxy CORS, aby umożliwić naszej [aplikacji samouczka](../tutorials/autosuggest.md) dostęp do opcjonalnych nagłówków klienta. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Potem wprowadź poniższe polecenie w wierszu polecenia.
 

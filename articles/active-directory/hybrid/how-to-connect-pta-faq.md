@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071435"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280166"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory uwierzytelnianie przekazywane: często zadawane pytania
 
@@ -29,7 +29,7 @@ W tym artykule opisano często zadawane pytania dotyczące uwierzytelniania prze
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Jakie metody logowania do usługi Azure AD, uwierzytelniania przekazywanego, synchronizacji skrótów haseł i Active Directory Federation Services (AD FS) należy wybrać?
 
-Zapoznaj się z [tym przewodnikiem](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) , aby porównać różne metody logowania do usługi Azure AD i jak wybrać właściwą metodę logowania dla organizacji.
+Zapoznaj się z [tym przewodnikiem](./choose-ad-authn.md) , aby porównać różne metody logowania do usługi Azure AD i jak wybrać właściwą metodę logowania dla organizacji.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>Czy uwierzytelnianie przekazywane jest bezpłatne?
 
@@ -39,7 +39,7 @@ Uwierzytelnianie przekazywane jest bezpłatną funkcją. Nie są potrzebne żadn
 
 Nie. Uwierzytelnianie przekazywane jest dostępne tylko w świecie wystąpienia usługi Azure AD.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Czy [dostęp warunkowy](../active-directory-conditional-access-azure-portal.md) działa z uwierzytelnianiem przekazującym?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Czy [dostęp warunkowy](../conditional-access/overview.md) działa z uwierzytelnianiem przekazującym?
 
 Tak. Wszystkie możliwości dostępu warunkowego, w tym Azure Multi-Factor Authentication, działają z uwierzytelnianiem przekazującym.
 
@@ -148,7 +148,7 @@ Nie, ten scenariusz _nie_ jest obsługiwany.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Dlaczego do włączenia uwierzytelniania przekazywanego jest wymagane konto administratora globalnego tylko w chmurze?
 
-Zaleca się włączenie lub wyłączenie uwierzytelniania przekazywanego przy użyciu konta administratora globalnego tylko w chmurze. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../active-directory-users-create-azure-portal.md). W ten sposób gwarantujesz, że nie będziesz mieć zablokowanej dzierżawy.
+Zaleca się włączenie lub wyłączenie uwierzytelniania przekazywanego przy użyciu konta administratora globalnego tylko w chmurze. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../fundamentals/add-users-azure-active-directory.md). W ten sposób gwarantujesz, że nie będziesz mieć zablokowanej dzierżawy.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Jak mogę wyłączyć uwierzytelnianie przekazywane?
 
@@ -184,4 +184,3 @@ Dzierżawy utworzone po 15 czerwca 2015 mają domyślne zachowanie synchronizowa
 - [Głębokie szczegółowe zabezpieczeń](how-to-connect-pta-security-deep-dive.md): Uzyskaj szczegółowe informacje techniczne dotyczące funkcji uwierzytelniania przekazywanego.
 - [Bezproblemowe logowanie jednokrotne w usłudze Azure AD](how-to-connect-sso.md): Dowiedz się więcej o tej funkcji uzupełniającej.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): użyj forum Azure Active Directory, aby obsłużyć nowe żądania funkcji.
-

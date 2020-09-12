@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 22f0c63c2b60b6c72ad297492045df17e10dd06c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 92b82631ca78826dd927c6773c47072038eb4ab1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268326"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290127"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-gpu-device"></a>Rozwiązywanie problemów na urządzeniu z systemem Azure Stack Edge na komputerze GPU 
 
@@ -140,7 +140,7 @@ Listy błędów są kompilowane ze zidentyfikowanych scenariuszy i mogą być u�
 
 Poniżej przedstawiono błędy, które mogą pojawić się podczas konfigurowania Azure Resource Manager, aby uzyskać dostęp do urządzenia. 
 
-| **Problem/błędy** |  **Rozdzielczość** | 
+| **Problem/błędy** |  **Rozwiązanie** | 
 |------------|-----------------|
 |Ogólne problemy|<li>[Upewnij się, że urządzenie brzegowe jest prawidłowo skonfigurowane](#verify-the-device-is-configured-properly).<li> [Sprawdź, czy klient jest prawidłowo skonfigurowany](#verify-the-client-is-configured-properly)|
 |Add-AzureRmEnvironment: Wystąpił błąd podczas wysyłania żądania.<br>W wierszu: 1 char: 1<br>+ Add-AzureRmEnvironment-Name Az3-ARMEndpoint " https://management.dbe ...|Ten błąd oznacza, że Azure Stack Urządzenie brzegowe jest nieosiągalne lub nieprawidłowo skonfigurowane. Upewnij się, że urządzenie brzegowe i klient są poprawnie skonfigurowane. Aby uzyskać wskazówki, zobacz wiersz **Ogólne problemy** w tej tabeli.|
@@ -184,17 +184,17 @@ Poniżej przedstawiono błędy, które mogą pojawić się podczas konfigurowani
 
 Poniżej przedstawiono błędy związane z usługą BLOB Storage na urządzeniu Azure Stack Edge/Data Box Gateway.
 
-| **Problem/błędy** |  **Rozdzielczość** | 
+| **Problem/błędy** |  **Rozwiązanie** | 
 |--------------------|-----------------|
 |Nie można pobrać zasobów podrzędnych. Wartość jednego z nagłówków HTTP nie ma poprawnego formatu.| Z menu **Edycja** wybierz pozycję **docelowa Azure Stack interfejsy API**. Następnie ponownie uruchom Eksplorator usługi Azure Storage.|
 |getaddrinfo ENOTFOUND <accountname> . blob. <serialnumber> . microsoftdatabox.com|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w tej ścieżce: `C:\Windows\System32\drivers\etc\hosts` w systemie Windows lub `/etc/hosts` w systemie Linux.|
 |Nie można pobrać zasobów podrzędnych.<br> Szczegóły: certyfikat z podpisem własnym |Zaimportuj certyfikat SSL dla urządzenia do Eksplorator usługi Azure Storage: <ol><li>Pobierz certyfikat z Azure Portal. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).</li><li>Z menu **Edycja** wybierz pozycję Certyfikaty SSL, a następnie wybierz pozycję **Importuj certyfikaty**.</li></ol>|
-|AzCopy polecenie wydaje się odwiesić przez minutę przed wyświetleniem tego błędu:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `C:\Windows\System32\drivers\etc\hosts` .|
-|AzCopy polecenie wydaje się odwiesić przez minutę przed wyświetleniem tego błędu:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
-|AzCopy polecenie wydaje się odwiesić przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `/etc/hosts` .|
-|AzCopy polecenie wydaje się odwiesić przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location… The SSL connection could not be established`. |Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
-|AzCopy polecenie wydaje się odwiesić przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `/etc/hosts` .|
-|AzCopy polecenie wydaje się odwiesić przez 20 minut przed wyświetleniem tego błędu: `Error parsing source location… The SSL connection could not be established` .|Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
+|AzCopy polecenie wydaje się przestać odpowiadać przez minutę przed wyświetleniem tego błędu:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `C:\Windows\System32\drivers\etc\hosts` .|
+|AzCopy polecenie wydaje się przestać odpowiadać przez minutę przed wyświetleniem tego błędu:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
+|Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `/etc/hosts` .|
+|Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location… The SSL connection could not be established`. |Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
+|Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Sprawdź, czy nazwa punktu końcowego `<accountname>.blob.<serialnumber>.microsoftdatabox.com` została dodana do pliku hosts w lokalizacji: `/etc/hosts` .|
+|Polecenie AzCopy wydaje się przestać odpowiadać przez 20 minut przed wyświetleniem tego błędu: `Error parsing source location… The SSL connection could not be established` .|Zaimportuj certyfikat SSL dla urządzenia do magazynu certyfikatów systemu. Aby uzyskać więcej informacji, zobacz [Pobieranie certyfikatu](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |Wartość jednego z nagłówków HTTP nie ma poprawnego formatu.|Zainstalowana wersja biblioteki Microsoft Azure Storage dla języka Python nie jest obsługiwana przez urządzenie Data Box. Zobacz Azure Data Box wymagania dotyczące magazynu obiektów BLOB dla obsługiwanych wersji.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED]...| Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu SSL zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Na przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. Na przykład na platformie Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |Upłynął limit czasu połączenia.|Zaloguj się do Azure Stack Edge, a następnie sprawdź, czy jest odblokowany. Za każdym razem, gdy urządzenie zostanie ponownie uruchomione, pozostaje ono zablokowane, dopóki ktoś się nie zaloguje.|

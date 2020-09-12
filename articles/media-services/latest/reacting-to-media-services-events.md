@@ -8,15 +8,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d2dffc90d78d5d173e25232010171a5c0109e028
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4ef6a920e9334c6e98b18d1db1abf39136c6f4e2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267513"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289158"
 ---
 # <a name="handling-event-grid-events"></a>Obsługa zdarzeń usługi Event Grid
 

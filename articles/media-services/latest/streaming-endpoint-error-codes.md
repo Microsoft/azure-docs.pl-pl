@@ -10,17 +10,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 8f4e0d9a6781e35c1ed6197dd32181511506d145
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256484"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295329"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (źródło) 
+# <a name="streaming-endpoint-origin-errors"></a>Błędy punktu końcowego przesyłania strumieniowego (źródło)
 
 W tym temacie opisano błędy, które mogą pojawić się w [usłudze Azure Media Services Streaming Endpoint Service](streaming-endpoint-concept.md).
 
@@ -198,11 +198,11 @@ Serwer nie może obecnie odbierać żądań. Ten błąd może być spowodowany p
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Kody błędów kodowania](/rest/api/media/jobs/get#joberrorcode)
 - [Koncepcje Azure Media Services](concepts-overview.md)
-- [Limity przydziału i ograniczenia](limits-quotas-constraints.md)
+- [Przydziały i limity](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

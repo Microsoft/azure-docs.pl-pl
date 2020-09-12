@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bda07d0e14ddc630bde4fdc9c869704154c1e6cc
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 870aded1a7b00cbfbe96aff4997561b15be4141c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236356"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290104"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integracja usługi Azure Digital bliźniaczych reprezentacji z usługą Azure Time Series Insights
 
@@ -72,6 +72,11 @@ Samouczek Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie
     ```
 
 5. Utwórz [trasę](concepts-route-events.md#create-an-event-route) w usłudze Azure Digital bliźniaczych reprezentacji, aby wysyłać do punktu końcowego zdarzenia aktualizacji z przędzą. Filtr w tej trasie zezwala tylko na przekazywanie komunikatów o aktualizacjach dwuosiowych do punktu końcowego.
+
+    >[!NOTE]
+    >Obecnie występuje **znany problem** w Cloud Shell wpływu na te grupy poleceń: `az dt route` , `az dt model` , `az dt twin` .
+    >
+    >Aby rozwiązać ten problem, należy uruchomić `az login` polecenie w Cloud Shell przed uruchomieniem polecenia lub użyć [lokalnego interfejsu wiersza](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) polecenia, a nie Cloud Shell. Aby uzyskać szczegółowe informacje na ten temat, zobacz [*Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -207,6 +212,8 @@ Następnie skonfigurujesz wystąpienie Time Series Insights, aby otrzymywać dan
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Rozpocznij wysyłanie danych IoT do usługi Azure Digital bliźniaczych reprezentacji
 
 Aby rozpocząć wysyłanie danych do Time Series Insights, należy rozpocząć aktualizowanie właściwości cyfrowego przędzy w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu zmiany wartości danych. Użyj polecenia [AZ DT bliźniaczy Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) w celu ułatwienia instalacji środowiska, możesz zacząć wysyłać symulowane dane IoT, uruchamiając projekt *DeviceSimulator* z przykładu. Instrukcje znajdują się w sekcji [*Konfigurowanie i uruchamianie symulacji*](tutorial-end-to-end.md#configure-and-run-the-simulation) w samouczku.
 

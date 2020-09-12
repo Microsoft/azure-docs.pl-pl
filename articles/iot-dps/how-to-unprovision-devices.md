@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974840"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294394"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Jak anulować obsługę administracyjną urządzeń, które były wcześniej inicjowane samoobsługowo 
 
@@ -57,22 +57,10 @@ Aby wyświetlić listę urządzeń, które zostały zainicjowane za pomocą grup
 W przypadku grup rejestracji istnieją dwa scenariusze, które należy wziąć pod uwagę:
 
 - Aby anulować obsługę administracyjną wszystkich urządzeń, które zostały zainicjowane za pomocą grupy rejestracji:
-  1. Wyłącz grupę rejestracji, aby uniemożliwić jej certyfikat podpisywania. 
+  1. Wyłącz grupę rejestracji, aby nie zezwalać na certyfikat podpisywania. 
   2. Aby wyłączyć lub usunąć każde urządzenie z rejestru tożsamości odpowiedniego centrum IoT Hub, należy użyć listy urządzeń z zainicjowaną obsługą tej grupy rejestracji. 
   3. Po wyłączeniu lub usunięciu wszystkich urządzeń z odpowiednich centrów IoT można opcjonalnie usunąć grupę rejestracji. Należy jednak pamiętać, że w przypadku usunięcia grupy rejestracji, gdy istnieje grupa rejestracji z włączoną obsługą certyfikatu podpisywania w łańcuchu certyfikatów co najmniej jednego z tych urządzeń, te urządzenia mogą być ponownie rejestrowane. 
 
 - Aby anulować obsługę administracyjną pojedynczego urządzenia z grupy rejestracji:
   1. Utwórz wyłączoną rejestrację indywidualną dla swojego certyfikatu liścia (urządzenia). Spowoduje to odwołanie dostępu do usługi aprowizacji dla tego urządzenia, pozostawiając jednocześnie dostęp do innych urządzeń, które mają certyfikat podpisywania grupy rejestracji w łańcuchu. Nie usuwaj wyłączonej rejestracji indywidualnej dla urządzenia. Pozwoli to na ponowne zarejestrowanie urządzenia za pomocą grupy rejestracji. 
   2. Aby znaleźć centrum IoT, do którego zainicjowano urządzenie i wyłączyć lub usunąć je z rejestru tożsamości centrum, należy użyć listy urządzeń, które zostały zainicjowane dla tej grupy rejestracji. 
-  
-  
-
-
-
-
-
-
-
-
-
-

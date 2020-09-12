@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5be97414a2e4270870d976a9922415b227c66e27
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924354"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289175"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Łączenie ze sklepem wiedzy Power BI
 
@@ -45,7 +45,7 @@ Kliknij pozycję **Pobierz szablon Power BI** na stronie **Dodaj umiejętności 
 
 1. W oknie **pobieranie danych** wybierz pozycję **Azure**, a następnie wybierz pozycję **Azure Table Storage**.
 
-1. Kliknij przycisk **Podłącz**.
+1. Kliknij przycisk **Połącz**.
 
 1. W polu **nazwa konta lub adres URL**wprowadź nazwę konta usługi Azure Storage (pełny adres URL zostanie utworzony).
 
@@ -68,7 +68,7 @@ Kliknij pozycję **Pobierz szablon Power BI** na stronie **Dodaj umiejętności 
 
 1. Kliknij ikonę z przeciwległymi strzałkami w prawym górnym rogu tabeli, aby rozwinąć *zawartość*. Gdy zostanie wyświetlona lista kolumn, zaznacz opcję wszystkie kolumny, a następnie usuń zaznaczenie kolumn, które zaczynają się od "Metadata". Kliknij przycisk **OK** , aby wyświetlić wybrane kolumny.
 
-   ![Edytuj tabele](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Rozwiń zawartość")
+   ![Rozwiń zawartość](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Rozwiń zawartość")
 
 1. Zmień typ danych dla następujących kolumn, klikając ikonę ABC-123 w lewym górnym rogu kolumny.
 
@@ -110,7 +110,7 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](../
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub jako grupę zasobów, usuwając cały zestaw zasobów.
+Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
 Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku **wszystkie zasoby** lub **grupy zasobów** w okienku nawigacji po lewej stronie.
 

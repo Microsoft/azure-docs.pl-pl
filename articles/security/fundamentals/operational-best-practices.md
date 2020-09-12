@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423154"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279503"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -116,7 +116,7 @@ Wynik bezpiecznego, który jest oparty na kontrolkach w centrum zabezpieczeń in
 **Szczegóły**: Postępuj zgodnie z [zaleceniami dotyczącymi zabezpieczeń](../../security-center/security-center-recommendations.md) w Security Center rozpoczynając od elementów o najwyższym priorytecie.
 
 **Najlepsze**rozwiązanie: Integruj Security Center alertów z rozwiązaniem do zarządzania informacjami i zdarzeniami zabezpieczeń (Siem).   
-**Szczegóły**: Większość organizacji z Siem korzysta z niego jako centralnej usługi Clearinghouse do obsługi alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia utworzone przez Security Center są publikowane w dzienniku aktywności platformy Azure, jeden z dzienników dostępnych za pomocą Azure Monitor. Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać instrukcje, zobacz sekcję [Eksportowanie alertów zabezpieczeń i zaleceń](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) . Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Szczegóły**: Większość organizacji z Siem korzysta z niego jako centralnej usługi Clearinghouse do obsługi alertów zabezpieczeń, które wymagają odpowiedzi analityka. Przetworzone zdarzenia utworzone przez Security Center są publikowane w dzienniku aktywności platformy Azure, jeden z dzienników dostępnych za pomocą Azure Monitor. Azure Monitor oferuje skonsolidowany potok do routingu dowolnych danych monitorowania do narzędzia SIEM. Aby uzyskać instrukcje, zobacz sekcję [Eksportowanie alertów zabezpieczeń i zaleceń](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) . Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Najlepsze rozwiązanie**: Integrowanie dzienników platformy Azure z Siem.   
 **Szczegóły**: Użyj [Azure monitor, aby zebrać i wyeksportować dane](/azure/azure-monitor/overview#integrate-and-export-data). To rozwiązanie ma kluczowe znaczenie dla włączenia badania zdarzeń związanych z zabezpieczeniami, a przechowywanie dzienników w trybie online jest ograniczone. Jeśli używasz funkcji wskaźnikowej platformy Azure, zobacz temat [łączenie ze źródłami danych](../../sentinel/connect-data-sources.md).
@@ -149,7 +149,7 @@ Skorzystaj z następujących najlepszych rozwiązań DevOps, aby upewnić się, 
 Za pomocą [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) można zainicjować obsługę administracyjną aplikacji za pomocą szablonu deklaratywnego. Pojedynczy szablon umożliwia wdrożenie wielu usług wraz z ich zależnościami. Ten sam szablon jest używany do wielokrotnego wdrażania aplikacji na każdym etapie cyklu życia aplikacji.
 
 **Najlepsze rozwiązanie**: automatyczne Kompilowanie i wdrażanie aplikacji sieci Web lub usług w chmurze platformy Azure.  
-**Szczegóły**: można skonfigurować Azure DevOps Projects, aby [automatycznie kompilować i wdrażać](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) aplikacje internetowe platformy Azure lub usługi w chmurze. Usługa Azure DevOps automatycznie wdraża pliki binarne po wykonaniu kompilacji na platformie Azure po każdym zaewidencjonowaniu kodu. Proces tworzenia pakietu jest równoważny z poleceniem Package w programie Visual Studio, a kroki publikowania są równoważne z poleceniem Publikuj w programie Visual Studio.
+**Szczegóły**: można skonfigurować Azure DevOps Projects, aby  [automatycznie kompilować i wdrażać](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) aplikacje internetowe platformy Azure lub usługi w chmurze. Usługa Azure DevOps automatycznie wdraża pliki binarne po wykonaniu kompilacji na platformie Azure po każdym zaewidencjonowaniu kodu. Proces tworzenia pakietu jest równoważny z poleceniem Package w programie Visual Studio, a kroki publikowania są równoważne z poleceniem Publikuj w programie Visual Studio.
 
 **Najlepsze rozwiązanie**: Automatyzowanie zarządzania wydaniami.  
 **Szczegóły**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) to rozwiązanie służące do automatyzowania wdrożenia wielu etapów i zarządzania procesem wydania. Twórz zarządzane potoki ciągłego wdrażania, aby szybko, łatwo i często wydawania. Za pomocą Azure Pipelines można zautomatyzować proces wydania i wstępnie zdefiniowane przepływy pracy zatwierdzania. Wdrażaj lokalnie i w chmurze, rozszerzając i dostosowuj odpowiednio do potrzeb.
@@ -226,4 +226,4 @@ Zobacz [najlepsze rozwiązania i wzorce dotyczące zabezpieczeń platformy Azure
 
 Dostępne są następujące zasoby umożliwiające dostarczenie bardziej ogólnych informacji na temat zabezpieczeń platformy Azure i powiązanych usług firmy Microsoft:
 * [Blog zespołu ds. zabezpieczeń platformy Azure](https://blogs.msdn.microsoft.com/azuresecurity/) — na bieżąco z najnowszymi informacjami na temat zabezpieczeń platformy Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — w przypadku których luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, mogą być zgłaszane lub wysyłane pocztą e-mailsecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — w przypadku których luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, mogą być zgłaszane lub wysyłane pocztą e-mail secure@microsoft.com

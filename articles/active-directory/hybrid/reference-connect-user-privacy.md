@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60455788"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279571"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Prywatność użytkowników i Azure AD Connect 
 
@@ -43,7 +43,7 @@ Serwer synchronizacji Azure AD Connect przechowuje następujące dane dotyczące
 
 W przypadku usuwania danych użytkownika Azure AD Connect klienci powinni przestrzegać następujących wytycznych:
 1.  Usuń zawartość folderu, który regularnie zawiera pliki dziennika instalacji Azure AD Connect — co najmniej co 48 godzin
-2.  Ten produkt może również tworzyć dzienniki zdarzeń.  Aby dowiedzieć się więcej na temat dzienników dzienników zdarzeń, zapoznaj się z [dokumentacją w tym miejscu](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
+2.  Ten produkt może również tworzyć dzienniki zdarzeń.  Aby dowiedzieć się więcej na temat dzienników dzienników zdarzeń, zapoznaj się z [dokumentacją w tym miejscu](/windows/win32/wes/windows-event-log).
 
 Dane dotyczące osoby są automatycznie usuwane z bazy danych Azure AD Connect, gdy dane tej osoby zostaną usunięte z systemu źródłowego, z którego pochodzą. Żadna konkretna akcja od administratorów nie musi być zgodna z Rodo.  Jednak wymaga to, aby dane Azure AD Connect były synchronizowane ze źródłem danych co najmniej co dwa dni.
 

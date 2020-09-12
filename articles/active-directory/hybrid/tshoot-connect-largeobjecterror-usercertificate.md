@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356172"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275780"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect Sync: obsługa błędów Dużegoobject spowodowanych przez atrybut userCertificate
 
@@ -30,28 +30,28 @@ Usługa Azure AD wymusza maksymalny limit **15** wartości certyfikatów w atryb
 
 >*"Obiekt aprowizacji jest zbyt duży. Przytnij liczbę wartości atrybutów dla tego obiektu. Operacja zostanie ponowiona w następnym cyklu synchronizacji... "*
 
-Błąd LargeObject może być spowodowany przez inne atrybuty usługi AD. Aby potwierdzić, że jest to spowodowane przez atrybut userCertificate, należy sprawdzić względem obiektu w lokalnej usłudze AD lub w [wyszukiwaniu metaverse Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
+Błąd LargeObject może być spowodowany przez inne atrybuty usługi AD. Aby potwierdzić, że jest to spowodowane przez atrybut userCertificate, należy sprawdzić względem obiektu w lokalnej usłudze AD lub w [wyszukiwaniu metaverse Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-mvsearch.md).
 
 Aby uzyskać listę obiektów w dzierżawie z błędami LargeObject, należy użyć jednej z następujących metod:
 
- * Jeśli dzierżawa jest włączona dla Azure AD Connect Health do synchronizacji, można odwołać się do podanego [raportu o błędzie synchronizacji](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) .
+ * Jeśli dzierżawa jest włączona dla Azure AD Connect Health do synchronizacji, można odwołać się do podanego [raportu o błędzie synchronizacji](./how-to-connect-health-sync.md) .
  
  * W wiadomości e-mail z powiadomieniem o błędach synchronizacji katalogów wysyłanych na końcu każdego cyklu synchronizacji znajduje się lista obiektów z błędami typu LargeObject. 
- * [Karta operacje Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) wyświetla listę obiektów z błędami LargeObject po kliknięciu najnowszej operacji Eksportuj do usługi Azure AD.
+ * [Karta operacje Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-operations.md) wyświetla listę obiektów z błędami LargeObject po kliknięciu najnowszej operacji Eksportuj do usługi Azure AD.
  
 ## <a name="mitigation-options"></a>Opcje łagodzenia
 Do momentu rozpoznania błędu Dużegoobject nie można wyeksportować innych zmian atrybutów do tego samego obiektu do usługi Azure AD. Aby rozwiązać ten problem, można wziąć pod uwagę następujące opcje:
 
- * Uaktualnij Azure AD Connect do kompilowania 1.1.524.0 lub po nim. W Azure AD Connect build 1.1.524.0 reguły synchronizacji out-of-Box zostały zaktualizowane, aby nie eksportować atrybutów userCertificate i userSMIMECertificate, jeśli atrybuty mają więcej niż 15 wartości. Aby uzyskać szczegółowe informacje na temat uaktualniania Azure AD Connect, zapoznaj się z artykułem [Azure AD Connect: Uaktualnij poprzednią wersję do najnowszej wersji](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Uaktualnij Azure AD Connect do kompilowania 1.1.524.0 lub po nim. W Azure AD Connect build 1.1.524.0 reguły synchronizacji out-of-Box zostały zaktualizowane, aby nie eksportować atrybutów userCertificate i userSMIMECertificate, jeśli atrybuty mają więcej niż 15 wartości. Aby uzyskać szczegółowe informacje na temat uaktualniania Azure AD Connect, zapoznaj się z artykułem [Azure AD Connect: Uaktualnij poprzednią wersję do najnowszej wersji](./how-to-upgrade-previous-version.md).
 
  * Zaimplementuj **regułę synchronizacji danych wychodzących** w Azure AD Connect, która eksportuje **wartość null, a nie wartości rzeczywiste dla obiektów mających więcej niż 15 wartości certyfikatów**. Ta opcja jest odpowiednia, jeśli nie jest wymagane, aby żadne z wartości certyfikatów były eksportowane do usługi Azure AD dla obiektów mających więcej niż 15 wartości. Aby uzyskać szczegółowe informacje na temat implementowania tej reguły synchronizacji, zapoznaj się z sekcją [wykonywanie reguły synchronizacji, aby ograniczyć eksport atrybutu userCertificate](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
  * Zmniejsz liczbę wartości certyfikatów w lokalnym obiekcie usługi AD (15 lub mniej) przez usunięcie wartości, które nie są już używane przez organizację. Jest to przydatne, jeśli atrybut przeładowanie jest spowodowany przez wygasłe lub nieużywane certyfikaty. Możesz użyć [dostępnego tutaj skryptu programu PowerShell](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) , aby pomóc w znalezieniu, utworzeniu kopii zapasowej i usunięciu wygasłych certyfikatów w lokalnej usłudze AD. Przed usunięciem certyfikatów zalecamy zweryfikowanie administratorów infrastruktury kluczy publicznych w organizacji.
 
  * Skonfiguruj Azure AD Connect, aby wykluczyć atrybut userCertificate z eksportu do usługi Azure AD. Ogólnie rzecz biorąc, nie zalecamy tej opcji, ponieważ atrybut może być używany przez usługi online firmy Microsoft do włączania określonych scenariuszy. W szczególności:
-    * Atrybut userCertificate obiektu user jest używany przez klientów usługi Exchange Online i programu Outlook do podpisywania i szyfrowania wiadomości. Aby dowiedzieć się więcej na temat tej funkcji, zapoznaj się z artykułem [S/MIME na potrzeby podpisywania i szyfrowania wiadomości](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx).
+    * Atrybut userCertificate obiektu user jest używany przez klientów usługi Exchange Online i programu Outlook do podpisywania i szyfrowania wiadomości. Aby dowiedzieć się więcej na temat tej funkcji, zapoznaj się z artykułem [S/MIME na potrzeby podpisywania i szyfrowania wiadomości](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide).
 
-    * Atrybut userCertificate w obiekcie Computer jest używany przez usługę Azure AD do zezwalania lokalnym urządzeniom przyłączonym do domeny systemu Windows 10 na łączenie się z usługą Azure AD. Aby dowiedzieć się więcej na temat tej funkcji, zapoznaj się z artykułem [Łączenie urządzeń przyłączonych do domeny z usługą Azure AD dla systemu Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
+    * Atrybut userCertificate w obiekcie Computer jest używany przez usługę Azure AD do zezwalania lokalnym urządzeniom przyłączonym do domeny systemu Windows 10 na łączenie się z usługą Azure AD. Aby dowiedzieć się więcej na temat tej funkcji, zapoznaj się z artykułem [Łączenie urządzeń przyłączonych do domeny z usługą Azure AD dla systemu Windows 10](../devices/hybrid-azuread-join-plan.md).
 
 ## <a name="implementing-sync-rule-to-limit-export-of-usercertificate-attribute"></a>Implementowanie reguły synchronizacji w celu ograniczenia eksportu atrybutu userCertificate
 Aby rozwiązać błąd LargeObject spowodowany przez atrybut userCertificate, można zaimplementować wychodzącą regułę synchronizacji w Azure AD Connect, która eksportuje **wartość null, a nie wartości rzeczywiste dla obiektów mających więcej niż 15 wartości certyfikatów**. W tej sekcji opisano kroki wymagane do zaimplementowania reguły synchronizacji dla obiektów **użytkownika** . Kroki można dostosować dla obiektów **kontaktów** i **komputerów** .
@@ -74,7 +74,7 @@ Kroki mogą być podsumowywane jako:
 Upewnij się, że synchronizacja nie odbywa się w trakcie wdrażania nowej reguły synchronizacji, aby uniknąć niezamierzonych zmian eksportowanych do usługi Azure AD. Aby wyłączyć wbudowany harmonogram synchronizacji:
 1. Uruchom sesję programu PowerShell na serwerze Azure AD Connect.
 
-2. Wyłącz zaplanowaną synchronizację przez uruchomienie polecenia cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $false`
+2. Wyłącz zaplanowaną synchronizację przez uruchomienie polecenia cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
 > Powyższe kroki mają zastosowanie tylko do nowszych wersji (1.1. xxx. x) Azure AD Connect z wbudowanym harmonogramem. Jeśli używasz starszych wersji (1.0. xxx. x) Azure AD Connect, które korzystają z systemu Windows Harmonogram zadań, lub używasz własnego harmonogramu niestandardowego (nietypowego) do wyzwalania okresowej synchronizacji, należy odpowiednio je wyłączyć.
@@ -93,7 +93,7 @@ Powinna istnieć istniejąca reguła synchronizacji, która jest włączona i sk
     | Atrybut | Wartość |
     | --- | --- |
     | Kierunek |**Wychodzący** |
-    | MV — typ obiektu |**Person (Osoba)** |
+    | MV — typ obiektu |**Osoba** |
     | Łącznik |*nazwa łącznika usługi Azure AD* |
     | Typ obiektu łącznika |**Użytkownicy** |
     | MV — atrybut |**userCertificate** |
@@ -133,7 +133,7 @@ Nowa reguła synchronizacji musi mieć ten sam **Filtr określania zakresu** i *
     | --- | --- |
     | Typ przepływu |**Wyrażenie** |
     | Atrybut docelowy |**userCertificate** |
-    | Atrybut źródłowy |*Użyj następującego wyrażenia*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Atrybut źródłowy |*Użyj następującego wyrażenia*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Kliknij przycisk **Dodaj** , aby utworzyć regułę synchronizacji.
 
@@ -176,11 +176,10 @@ Aby wyeksportować zmiany do usługi Azure AD:
 ### <a name="step-8-re-enable-sync-scheduler"></a>Krok 8. Włącz ponownie harmonogram synchronizacji
 Po rozwiązaniu problemu należy ponownie włączyć wbudowany harmonogram synchronizacji:
 1. Uruchom sesję programu PowerShell.
-2. Ponownie włącz zaplanowaną synchronizację przez uruchomienie polecenia cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Ponownie włącz zaplanowaną synchronizację przez uruchomienie polecenia cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
 > Powyższe kroki mają zastosowanie tylko do nowszych wersji (1.1. xxx. x) Azure AD Connect z wbudowanym harmonogramem. Jeśli używasz starszych wersji (1.0. xxx. x) Azure AD Connect, które korzystają z systemu Windows Harmonogram zadań, lub używasz własnego harmonogramu niestandardowego (nietypowego) do wyzwalania okresowej synchronizacji, należy odpowiednio je wyłączyć.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).
-

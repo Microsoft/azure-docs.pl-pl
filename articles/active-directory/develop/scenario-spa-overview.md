@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3ead0ea58c6860519f027eb6a7450df37396bd89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885178"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291958"
 ---
 # <a name="scenario-single-page-application"></a>Scenariusz: aplikacja jednostronicowa
 
@@ -35,11 +35,17 @@ Możesz utworzyć swoją pierwszą aplikację, postępując zgodnie z przewodnik
 
 ## <a name="overview"></a>Omówienie
 
-Wiele nowoczesnych aplikacji sieci Web jest skompilowanych jako aplikacje jednostronicowe po stronie klienta. Deweloperzy zapisują je przy użyciu języka JavaScript lub środowiska SPA, takiego jak kątowy, Vue.js i React.js. Aplikacje te działają w przeglądarce internetowej i mają inne cechy uwierzytelniania niż tradycyjne aplikacje sieci Web po stronie serwera. 
+Wiele nowoczesnych aplikacji sieci Web jest skompilowanych jako aplikacje jednostronicowe po stronie klienta. Deweloperzy zapisują je przy użyciu języka JavaScript lub środowiska SPA, takiego jak kątowy, Vue i reagują. Aplikacje te działają w przeglądarce internetowej i mają inne cechy uwierzytelniania niż tradycyjne aplikacje sieci Web po stronie serwera. 
 
-Platforma tożsamości firmy Microsoft umożliwia aplikacjom jednostronicowym Logowanie użytkowników i uzyskiwanie tokenów w celu uzyskania dostępu do usług zaplecza lub interfejsów API sieci Web przy użyciu [niejawnego przepływu OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Niejawny przepływ umożliwia aplikacji uzyskanie tokenów identyfikatora reprezentujących uwierzytelnionego użytkownika, a także dostęp do tokenów wymaganych do wywołania chronionych interfejsów API.
+Platforma tożsamości firmy Microsoft udostępnia **dwie** opcje umożliwiające użytkownikom logowanie jednostronicowe aplikacji oraz uzyskiwanie tokenów dostępu do usług zaplecza lub interfejsów API sieci Web:
 
-![Aplikacje jednostronicowe](./media/scenarios/spa-app.svg)
+- [Przepływ kodu autoryzacji OAuth 2,0 (z PKCE)](./v2-oauth2-auth-code-flow.md). Przepływ kodu autoryzacji umożliwia aplikacji wymianę kodu autoryzacji dla tokenów **identyfikatora** , aby reprezentować tokeny uwierzytelnionego użytkownika i **dostępu** , które są konieczne do wywołania chronionych interfejsów API. Ponadto zwraca tokeny **odświeżania** , które zapewniają długoterminowy dostęp do zasobów w imieniu użytkowników, bez konieczności interakcji z tymi użytkownikami. Jest to **zalecane** podejście.
+
+![Aplikacje jednostronicowe — uwierzytelnianie](./media/scenarios/spa-app-auth.svg)
+
+- [Niejawny przepływ OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Przepływ niejawnego przydzielenia umożliwia aplikacji uzyskanie tokenów dotyczących **identyfikatorów** i **dostępu** . W przeciwieństwie do przepływu kodu autoryzacji niejawny przepływ przyznania nie zwraca **tokenu odświeżania**.
+
+![Aplikacje jednostronicowe — niejawne](./media/scenarios/spa-app.svg)
 
 Ten przepływ uwierzytelniania nie obejmuje scenariuszy aplikacji, które wykorzystują Międzyplatformowe struktury JavaScript, takie jak elektron i reagowanie na nie. Wymagają one dalszych możliwości interakcji z natywnymi platformami.
 
@@ -47,9 +53,9 @@ Ten przepływ uwierzytelniania nie obejmuje scenariuszy aplikacji, które wykorz
 
 Aby włączyć ten scenariusz dla aplikacji, potrzebne są:
 
-* Rejestrowanie aplikacji w usłudze Azure Active Directory (Azure AD). Ta rejestracja obejmuje włączenie niejawnego przepływu i ustawienie identyfikatora URI przekierowania, do którego zwracane są tokeny.
+* Rejestrowanie aplikacji w usłudze Azure Active Directory (Azure AD). Kroki rejestracji różnią się między niejawnym przepływem uprawnień a przepływem kodu autoryzacji.
 * Konfiguracja aplikacji z zarejestrowanymi właściwościami aplikacji, takimi jak identyfikator aplikacji.
-* Użycie biblioteki uwierzytelniania firmy Microsoft (MSAL) do przeprowadzenia przepływu uwierzytelniania w celu zalogowania się i uzyskania tokenów.
+* Użycie biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js) w celu przeprowadzenia przepływu uwierzytelniania w celu zalogowania się i uzyskania tokenów.
 
 ## <a name="next-steps"></a>Następne kroki
 

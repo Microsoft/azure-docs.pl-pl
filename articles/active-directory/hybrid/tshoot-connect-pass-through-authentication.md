@@ -16,19 +16,19 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446987"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275927"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Rozwiązywanie problemów z uwierzytelnianiem przekazywanym usługi Azure Active Directory
 
 Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotyczących typowych problemów dotyczących uwierzytelniania przekazywanego za pomocą usługi Azure AD.
 
 >[!IMPORTANT]
->Jeśli występują problemy z logowaniem użytkowników przy użyciu uwierzytelniania przekazywanego, nie należy wyłączać funkcji ani odinstalowywać agentów uwierzytelniania przekazywanego bez posiadania konta administratora globalnego tylko w chmurze do powrotu. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../active-directory-users-create-azure-portal.md). Ten krok ma krytyczne znaczenie i gwarantuje, że nie można zablokować dzierżawy.
+>Jeśli występują problemy z logowaniem użytkowników przy użyciu uwierzytelniania przekazywanego, nie należy wyłączać funkcji ani odinstalowywać agentów uwierzytelniania przekazywanego bez posiadania konta administratora globalnego tylko w chmurze do powrotu. Dowiedz się więcej [na temat dodawania konta administratora globalnego tylko w chmurze](../fundamentals/add-users-azure-active-directory.md). Ten krok ma krytyczne znaczenie i gwarantuje, że nie można zablokować dzierżawy.
 
 ## <a name="general-issues"></a>Ogólne problemy
 
@@ -72,10 +72,10 @@ Aby upewnić się, że jest to problem, najpierw Przetestuj, że Agent uwierzyte
  ``` 
 4. Gdy zostanie wyświetlony monit o wprowadzenie poświadczeń, wprowadź tę samą nazwę użytkownika i hasło, które są używane do logowania się do programu ( https://login.microsoftonline.com) .
 
-Jeśli zostanie wyświetlony ten sam błąd nazwy użytkownika/hasła, oznacza to, że Agent uwierzytelniania przekazywanego działa prawidłowo, a problem może polegać na tym, że lokalna nazwa UPN nie jest w trakcie routingu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie alternatywnego identyfikatora logowania]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Jeśli zostanie wyświetlony ten sam błąd nazwy użytkownika/hasła, oznacza to, że Agent uwierzytelniania przekazywanego działa prawidłowo, a problem może polegać na tym, że lokalna nazwa UPN nie jest w trakcie routingu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie alternatywnego identyfikatora logowania]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
 > [!IMPORTANT]
-> Jeśli serwer Azure AD Connect nie jest przyłączony do domeny, Azure AD Connect wymagane są [następujące](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites)problemy dotyczące nieprawidłowej nazwy użytkownika i hasła.
+> Jeśli serwer Azure AD Connect nie jest przyłączony do domeny, Azure AD Connect wymagane są [następujące](./how-to-connect-install-prerequisites.md#installation-prerequisites)problemy dotyczące nieprawidłowej nazwy użytkownika i hasła.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Przyczyny niepowodzenia logowania w centrum administracyjnym Azure Active Directory (wymaga licencji Premium)
 
@@ -98,7 +98,7 @@ Przejdź do **Azure Active Directory**  ->  **logowania** w [centrum administrac
 | 80011 | Agent uwierzytelniania nie może pobrać klucza odszyfrowującego. | Jeśli problem jest spójnie powtarzalny, zainstaluj i Zarejestruj nowego agenta uwierzytelniania. I Odinstaluj bieżący.
 
 >[!IMPORTANT]
->Agenci uwierzytelniania przekazującego uwierzytelniają użytkowników usługi Azure AD, sprawdzając ich nazwy użytkownika i hasła do Active Directory przez wywołanie [interfejsu API Win32 funkcji LogonUser](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). W związku z tym jeśli ustawisz ustawienie "Logowanie do" w Active Directory, aby ograniczyć dostęp do logowania do stacji roboczej, musisz dodać serwery obsługujące agentów uwierzytelniania przekazywanego do listy "Logowanie do serwerów". Niewykonanie tej czynności uniemożliwi użytkownikom zalogowanie się do usługi Azure AD.
+>Agenci uwierzytelniania przekazującego uwierzytelniają użytkowników usługi Azure AD, sprawdzając ich nazwy użytkownika i hasła do Active Directory przez wywołanie [interfejsu API Win32 funkcji LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). W związku z tym jeśli ustawisz ustawienie "Logowanie do" w Active Directory, aby ograniczyć dostęp do logowania do stacji roboczej, musisz dodać serwery obsługujące agentów uwierzytelniania przekazywanego do listy "Logowanie do serwerów". Niewykonanie tej czynności uniemożliwi użytkownikom zalogowanie się do usługi Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemy z instalacją agenta uwierzytelniania
 

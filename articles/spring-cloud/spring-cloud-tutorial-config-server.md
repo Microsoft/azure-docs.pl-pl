@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 38ef1188503d0076cfd98843f6f68c990fba7463
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762379"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291300"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Skonfiguruj wystąpienie serwera konfiguracji chmury wiosny dla swojej usługi
 
@@ -22,7 +22,7 @@ Konfiguracja chmury wiosennej zapewnia obsługę serwera i klienta na potrzeby k
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-* Została już zainicjowana i uruchomiona usługa w chmurze Azure wiosną. Aby skonfigurować i uruchomić usługę Azure wiosny w chmurze, zobacz [Szybki Start: uruchamianie aplikacji ze sprężyną Java za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Została już zainicjowana i uruchomiona usługa w chmurze Azure wiosną. Aby skonfigurować i uruchomić usługę Azure wiosny w chmurze, zobacz [Szybki Start: uruchamianie aplikacji ze sprężyną Java za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart.md).
 
 ## <a name="restriction"></a>Ograniczenie
 
@@ -55,7 +55,7 @@ Wszystkie konfigurowalne właściwości, które są używane do konfigurowania p
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Cecha                                                      |
+| Właściwość        | Wymagany | Cechy                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git, który jest używany jako zaplecze serwera konfiguracji, rozpoczyna się od *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -70,7 +70,7 @@ Wszystkie konfigurowalne właściwości używane do konfigurowania prywatnego re
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład można użyć *etykiety default*, ale nie *defaultLabel*.
 
-| Właściwość                   | Wymagany | Cecha                                                      |
+| Właściwość                   | Wymagany | Cechy                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
 | `uri`                      | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label`            | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -89,7 +89,7 @@ Poniżej wymieniono wszystkie konfigurowalne właściwości używane do konfigur
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość        | Wymagany | Cecha                                                      |
+| Właściwość        | Wymagany | Cechy                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
 | `uri`           | Tak    | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
 | `default-label` | Nie     | Domyślna etykieta repozytorium git powinna być *nazwą gałęzi*, *nazwą tagu*lub *identyfikatorem zatwierdzenia* repozytorium. |
@@ -107,7 +107,7 @@ Poniżej znajdują się wszystkie konfigurowalne właściwości używane do konf
 > [!NOTE]
 > Używanie łącznika (-) do oddzielenia słów jest jedyną konwencją nazewnictwa, która jest obecnie obsługiwana. Na przykład użyj *etykiety default, a*nie *defaultLabel*.
 
-| Właściwość                           | Wymagany         | Cecha                                                      |
+| Właściwość                           | Wymagany         | Cechy                                                      |
 | :--------------------------------- | ---------------- | ------------------------------------------------------------ |
 | `repos`                            | Nie             | Mapa składająca się z ustawień repozytorium git o podaną nazwę. |
 | `repos."uri"`                      | Tak na `repos` | Identyfikator URI repozytorium git używany jako zaplecze serwera konfiguracji powinien być uruchamiany z *http://*, *https://*, *git@* lub *SSH://*. |
@@ -227,7 +227,7 @@ Chmura sprężynowa platformy Azure ma dostęp do repozytoriów Git, które są 
 
 ## <a name="delete-your-app-configuration"></a>Usuwanie konfiguracji aplikacji
 
-Po zapisaniu pliku konfiguracji na karcie **Konfiguracja** zostanie wyświetlony przycisk **Usuń konfigurację aplikacji** . Wybranie tego przycisku spowoduje całkowite wymazanie istniejących ustawień. Należy wybrać tę opcję, jeśli chcesz połączyć wystąpienie serwera konfiguracji z innym źródłem, na przykład przechodzenie z witryny GitHub do usługi Azure DevOps.
+Po zapisaniu pliku konfiguracji przycisk **Usuń konfigurację aplikacji** zostanie wyświetlony na karcie **Konfiguracja** . Wybranie tego przycisku spowoduje całkowite wymazanie istniejących ustawień. Należy wybrać tę opcję, jeśli chcesz połączyć wystąpienie serwera konfiguracji z innym źródłem, na przykład przechodzenie z witryny GitHub do usługi Azure DevOps.
 
 
 

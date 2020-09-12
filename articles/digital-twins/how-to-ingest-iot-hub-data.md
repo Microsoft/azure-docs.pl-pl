@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8d720d77773e506a13f176723ab4583613f1e625
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505329"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291759"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Pozyskiwanie danych telemetrycznych IoT Hub na platformie Azure Digital bliźniaczych reprezentacji
 
@@ -63,14 +63,20 @@ Model wygląda następująco:
 ```
 
 Aby **przekazać ten model do wystąpienia usługi bliźniaczych reprezentacji**, Otwórz interfejs wiersza polecenia platformy Azure i uruchom następujące polecenie:
+
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 Następnie należy **utworzyć jedną sznurek przy użyciu tego modelu**. Użyj następującego polecenia, aby utworzyć dwuosiową i ustawić 0,0 jako początkową wartość temperatury.
+
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 Dane wyjściowe pomyślnego utworzenia dwuosiowego polecenia powinny wyglądać następująco:
 ```json
@@ -212,6 +218,8 @@ W kompleksowym samouczku wykonaj następujące czynności:
 ## <a name="validate-your-results"></a>Weryfikowanie wyników
 
 W przypadku korzystania z symulatora urządzenia powyżej wartość temperatury dwuosiowej sieci cyfrowej zostanie zmieniona. W interfejsie wiersza polecenia platformy Azure Uruchom następujące polecenie, aby wyświetlić wartość temperatury.
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ```azurecli-interactive
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}

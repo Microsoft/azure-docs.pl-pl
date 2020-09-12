@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6aac37b354275539bfc5374a170c348b8ce993b0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b840f00f23db1590422bae853fee070c3c43f899
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265528"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296757"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Tworzenie i monitorowanie zdarzeń Media Services za pomocą Event Grid przy użyciu interfejsu wiersza polecenia platformy Azure
 

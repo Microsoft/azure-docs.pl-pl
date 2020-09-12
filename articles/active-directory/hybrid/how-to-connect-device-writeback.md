@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447103"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279265"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Włączanie zapisywania zwrotnego urządzeń
 > [!NOTE]
@@ -31,10 +31,10 @@ ms.locfileid: "87447103"
 
 Poniższa dokumentacja zawiera informacje dotyczące włączania funkcji zapisywania zwrotnego urządzeń w programie Azure AD Connect. Zapisywanie zwrotne urządzeń jest używane w następujących scenariuszach:
 
-* Włącz funkcję [Windows Hello dla firm przy użyciu hybrydowego wdrożenia zaufania certyfikatu](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Włącz funkcję [Windows Hello dla firm przy użyciu hybrydowego wdrożenia zaufania certyfikatu](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Włącz dostęp warunkowy oparty na urządzeniach do usług AD FS (2012 R2 lub nowszych) chronionych aplikacji (jednostki uzależnione zaufania).
 
-Zapewnia to dodatkowe zabezpieczenia i gwarancję, że dostęp do aplikacji jest udzielany tylko zaufanym urządzeniom. Aby uzyskać więcej informacji na temat dostępu warunkowego, zobacz [Zarządzanie ryzykiem przy użyciu dostępu warunkowego](../active-directory-conditional-access-azure-portal.md) i [Konfigurowanie lokalnego dostępu warunkowego przy użyciu Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Zapewnia to dodatkowe zabezpieczenia i gwarancję, że dostęp do aplikacji jest udzielany tylko zaufanym urządzeniom. Aby uzyskać więcej informacji na temat dostępu warunkowego, zobacz [Zarządzanie ryzykiem przy użyciu dostępu warunkowego](../conditional-access/overview.md) i [Konfigurowanie lokalnego dostępu warunkowego przy użyciu Azure Active Directory Device Registration](../devices/overview.md).
 
 > [!IMPORTANT]
 > <li>Urządzenia muszą znajdować się w tym samym lesie co użytkownicy. Ponieważ urządzenia muszą być zapisywane z powrotem do jednego lasu, ta funkcja nie obsługuje obecnie wdrożenia z wieloma lasami użytkownika.</li>
@@ -83,7 +83,7 @@ Zapisywanie zwrotne urządzeń powinno teraz działać prawidłowo. Należy pami
    ![Lista zarejestrowanych urządzeń Active Directory centrum administracyjnego](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Włącz dostęp warunkowy
-Szczegółowe instrukcje dotyczące włączania tego scenariusza są dostępne w ramach [konfigurowania lokalnego dostępu warunkowego przy użyciu Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Szczegółowe instrukcje dotyczące włączania tego scenariusza są dostępne w ramach [konfigurowania lokalnego dostępu warunkowego przy użyciu Azure Active Directory Device Registration](../devices/overview.md).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>Pole wyboru zapisywania zwrotnego jest nadal wyłączone
@@ -126,9 +126,8 @@ Sprawdź konfigurację w Active Directory:
 ![Rozwiązywanie problemów, weryfikowanie uprawnień do konfiguracji rejestracji urządzeń](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
 ## <a name="additional-information"></a>Dodatkowe informacje
-* [Zarządzanie ryzykiem przy użyciu dostępu warunkowego](../active-directory-conditional-access-azure-portal.md)
-* [Konfigurowanie lokalnego dostępu warunkowego przy użyciu Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md)
+* [Zarządzanie ryzykiem przy użyciu dostępu warunkowego](../conditional-access/overview.md)
+* [Konfigurowanie lokalnego dostępu warunkowego przy użyciu Azure Active Directory Device Registration](../devices/overview.md)
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).
-

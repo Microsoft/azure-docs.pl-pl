@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269152"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295568"
 ---
 # <a name="input-metadata"></a>Metadane wejściowe
 
@@ -71,8 +71,8 @@ Zawiera kolekcję elementów AssetFile dla zadania kodowania.
 | **Profil** |Profil ścieżki wideo. <br /><br />Przykład: `"Profile": "Main"`|
 | **Poziomie** |Poziom ścieżki wideo. <br /><br />Przykład: `"Level": "3.2"`|
 | **PixelFormat** |Format piksela ścieżki wideo. <br /><br />Przykład: `"PixelFormat": "yuv420p"`|
-| **Width**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|
-| **Height**<br />Wymagane |Zakodowana wysokość wideo w pikselach.<br /><br />Przykład: `"Height": "720"` |
+| **Szerokość**<br />Wymagane |Zakodowana Szerokość wideo (w pikselach). <br /><br />Przykład: `"Width": "1280"`|
+| **Proporcj**<br />Wymagane |Zakodowana wysokość wideo w pikselach.<br /><br />Przykład: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Wymagane |Licznik współczynnik proporcji wyświetlania wideo.<br /><br />Przykład: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Wymagane |Mianownik współczynnika proporcji wyświetlania wideo. <br /><br />Przykład: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Przykładowy współczynnik proporcji filmu wideo. <br /><br />Przykład: `"SampleAspectRatioNumerator": 1.0`|

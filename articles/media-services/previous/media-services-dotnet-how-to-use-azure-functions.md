@@ -75,7 +75,7 @@ Po wdrożeniu aplikacji funkcji można ją znaleźć między **App Services** Az
 
 4. Kliknij przycisk **Utwórz**. 
 
-## <a name="files"></a>Pliki
+## <a name="files"></a>Files
 
 Funkcja platformy Azure jest skojarzona z plikami kodu i innymi plikami opisanymi w tej sekcji. Gdy używasz Azure Portal do tworzenia funkcji, **function.json** i **Run. CSX** są tworzone dla Ciebie. Musisz dodać lub przekazać **project.js** pliku. Pozostała część tej sekcji zawiera krótkie wyjaśnienie poszczególnych plików i pokazuje ich definicje.
 
@@ -351,5 +351,5 @@ Aby uzyskać więcej informacji i dowiedzieć się więcej na temat przykładów
 
 Zobacz też temat [Używanie elementów webhook platformy Azure do monitorowania powiadomień o zadaniach Media Services przy użyciu platformy .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 6d5268e0a0c7e6606ac28aa9b62e81bb4c4bc460
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 272f32ebdba04009a67bf03d5e830ad8f9e649f3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269135"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289566"
 ---
 # <a name="media-services-job-error-codes"></a>Kody błędów zadań Media Services
 
@@ -34,11 +34,11 @@ Poniższy dokument REST zawiera szczegółowe wyjaśnienia dotyczące [kodów b�
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Kody błędów punktów końcowych przesyłania strumieniowego](streaming-endpoint-error-codes.md)
 - [Koncepcje Azure Media Services](concepts-overview.md)
-- [Limity przydziału i ograniczenia](limits-quotas-constraints.md)
+- [Przydziały i limity](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8a1c61b77ab799cead319bfaf6cfa7ebd6af431b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230337"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295408"
 ---
 # <a name="blob-snapshots"></a>Migawki obiektów BLOB
 
@@ -90,25 +90,25 @@ W poniższych scenariuszach pokazano, jak naliczane są opłaty za blokowy obiek
 
 W scenariuszu 1 podstawowy obiekt BLOB nie został zaktualizowany po wykonaniu migawki, więc opłaty są naliczane tylko dla unikatowych bloków 1, 2 i 3.
 
-![Diagram 1 pokazujący rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![Diagram 1 pokazujący rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenariusz 2
 
 W scenariuszu 2 podstawowy obiekt BLOB został zaktualizowany, ale migawka nie jest. Blok 3 został zaktualizowany, a mimo to zawiera te same dane i ten sam identyfikator, ale nie jest taki sam jak blok 3 w migawce. W związku z tym konto jest obciążane czterema blokami.
 
-![Diagram 2 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![Diagram 2 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenariusz 3
 
 W scenariuszu 3 podstawowy obiekt BLOB został zaktualizowany, ale migawka nie jest. Blok 3 został zastąpiony blokiem 4 w podstawowym obiekcie blob, ale migawka nadal odzwierciedla blok 3. W związku z tym konto jest obciążane czterema blokami.
 
-![Diagram 3 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![Diagram 3 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenariusz 4
 
 W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych bloków.
 
-![Diagram 4 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![Diagram 4 przedstawiający rozliczenia dla unikatowych bloków w podstawowym obiekcie blob i w migawce.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > Należy unikać wywoływania metod, które zastępują cały obiekt BLOB, a zamiast tego aktualizować poszczególne bloki, aby zachować niskie koszty.
@@ -128,6 +128,10 @@ W poniższej tabeli opisano zachowanie dotyczące rozliczeń dla obiektu BLOB lu
 | Migawka | Migawka w nowej warstwie i podstawowy obiekt BLOB w oryginalnej warstwie oraz wszystkie unikatowe bloki w innych migawkach. <sup>1</sup> |
 
 <sup>1</sup> Jeśli istnieją inne poprzednie wersje lub migawki, które nie zostały przeniesione z oryginalnej warstwy, te wersje lub migawki są rozliczane na podstawie liczby unikatowych bloków, zgodnie z opisem w [rozliczeniach, gdy warstwa obiektu BLOB nie została jawnie ustawiona](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Na poniższym diagramie pokazano, w jaki sposób obiekty są rozliczane, gdy obiekt BLOB z migawkami jest przenoszony do innej warstwy.
+
+:::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="Diagram przedstawiający sposób, w jaki obiekty są rozliczane, gdy obiekt BLOB z migawkami jest jawnie warstwowy.":::
 
 Jawnie Ustawianie warstwy dla obiektu BLOB, wersji lub migawki nie można cofnąć. Jeśli przeniesiesz obiekt BLOB do nowej warstwy, a następnie przeniesiesz go z powrotem do jego oryginalnej warstwy, naliczona zostanie opłata za pełną długość zawartości obiektu nawet wtedy, gdy współużytkuje bloki z innymi obiektami w pierwotnej warstwie.
 

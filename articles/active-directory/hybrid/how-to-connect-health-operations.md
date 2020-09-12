@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdcf5ded2f2cf49048b70dedb11f25e67766e938
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 4a83d1a4bdc2496f874a963b8858192273260cc8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177622"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276273"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operacje Azure Active Directory Connect Health
 W tym temacie opisano różne operacje, które można wykonać za pomocą programu Azure Active Directory (Azure AD) Connect Health.
@@ -138,7 +138,7 @@ Aby zezwolić użytkownikowi na dostęp na poziomie *wszystkich wystąpień usł
    ![Zrzut ekranu przedstawiający Azure AD Connect Health i menu konfiguracji kontroli RBAC platformy Azure](./media/how-to-connect-health-operations/RBAC_add.png)
 4. Wpisz nazwę lub identyfikator dostosowanego użytkownika lub grupy. Można wybrać co najmniej jednego użytkownika lub grupę w tym samym czasie. Kliknij pozycję **Wybierz**.
    ![Zrzut ekranu przedstawiający listę ról Azure AD Connect Health i Azure RBAC](./media/how-to-connect-health-operations/RBAC_select_users.png)
-5. Wybierz pozycję **OK**.<br>
+5. Wybierz przycisk **OK**.<br>
 6. Po zakończeniu przypisywania roli Użytkownicy i grupy zostaną wyświetlone na liście.<br>
    ![Zrzut ekranu przedstawiający Azure AD Connect Health i RBAC platformy Azure oraz nowych użytkowników](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
@@ -167,7 +167,7 @@ Można usunąć użytkownika lub grupę dodaną do Azure AD Connect Health i kon
 [//]: # (Koniec sekcji RBAC)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalacja agenta Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md)
 * [Używanie Azure AD Connect Health do synchronizacji](how-to-connect-health-sync.md)

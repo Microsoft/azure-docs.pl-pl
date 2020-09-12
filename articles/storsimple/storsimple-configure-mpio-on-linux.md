@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183637"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294717"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurowanie funkcji MPIO na hoście StorSimple z systemem CentOS
 W tym artykule opisano kroki wymagane do skonfigurowania wielościeżkowego wejścia/wyjścia (MPIO) na serwerze hosta z systemem CentOS 6,6. Serwer hosta jest połączony z urządzeniem Microsoft Azure StorSimple, aby zapewnić wysoką dostępność za pośrednictwem inicjatorów iSCSI. Szczegółowo opisano automatyczne odnajdowanie urządzeń wielościeżkowych i konkretnej konfiguracji tylko dla woluminów StorSimple.
@@ -352,7 +352,7 @@ Warto również sprawdzić, czy po nawiązaniu połączenia z elementem docelowy
 
 * Użyj następującego polecenia, aby ponownie przeskanować magistralę SCSI:
   
-    `$ rescan-scsi-bus.sh`(część pakietu sg3_utils)
+    `$ rescan-scsi-bus.sh` (część pakietu sg3_utils)
 * Wpisz następujące polecenia:
   
     `$ dmesg | grep sd*`
@@ -377,9 +377,9 @@ Powtórz to polecenie dla wszystkich podłączonych interfejsów sieciowych w ob
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-PYTANIE: Nie mam pewności, czy urządzenie jest listy dozwolonych.
+PYTANIE: Nie mam pewności, czy urządzenie jest dozwolone.
 
-A. Aby sprawdzić, czy urządzenie jest listy dozwolonych, użyj następującego polecenia rozwiązywania problemów:
+A. Aby sprawdzić, czy urządzenie jest dozwolone, użyj następującego polecenia rozwiązywania problemów:
 
 ```console
 multipathd -k
@@ -441,7 +441,7 @@ Aby uzyskać więcej informacji, przejdź do [rozwiązywania problemów z wielom
 | &nbsp; |`chkconfig multipathd on` </br> LUB </br> `mpathconf -with_chkconfig y` |Włączenie demona wielościeżkowego do uruchamiania w czasie rozruchu |
 | &nbsp; |`multipathd -k` |Uruchom konsolę interaktywną w celu rozwiązywania problemów |
 | &nbsp; |`multipath -l` |Wyświetlanie listy połączeń i urządzeń z wielościeżkowej ścieżki |
-| &nbsp; |`mpathconf --enable` |Utwórz przykładowy plik mulitpath. conf w`/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Utwórz przykładowy plik mulitpath. conf w `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Następne kroki
@@ -449,4 +449,3 @@ Podczas konfigurowania wielościeżkowego wejścia/wyjścia na hoście z systeme
 
 * [Konfigurowanie funkcji MPIO na CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Przewodnik uczenia systemu Linux](http://linux-training.be/linuxsys.pdf)
-

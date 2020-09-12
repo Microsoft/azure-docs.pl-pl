@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359759"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279945"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Naprawianie zmodyfikowanych reguł domyślnych w Azure AD Connect
 
@@ -89,7 +89,7 @@ Pozostaw pusty **Filtr zakresu** . Oznacza to, że reguła ma zastosowanie do ws
 
 Zachowaj puste **reguły sprzężenia** . Oznacza to, że ta reguła używa warunku sprzężenia zdefiniowanego w standardowej regule domyślnej. Jest to kolejny powód, aby nie wyłączać ani usuwać standardowej reguły domyślnej. Jeśli nie ma warunku sprzężenia, atrybut nie będzie przepływać. 
 
-Dodaj odpowiednie przekształcenia dla atrybutu. Możesz przypisać stałą, aby zapewnić ciągły przepływ wartości do atrybutu docelowego. Można użyć bezpośredniego mapowania między atrybut źródłowy lub docelowy. Lub można użyć wyrażenia dla atrybutu. Poniżej przedstawiono różne [funkcje wyrażeń](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) , których można użyć.
+Dodaj odpowiednie przekształcenia dla atrybutu. Możesz przypisać stałą, aby zapewnić ciągły przepływ wartości do atrybutu docelowego. Można użyć bezpośredniego mapowania między atrybut źródłowy lub docelowy. Lub można użyć wyrażenia dla atrybutu. Poniżej przedstawiono różne [funkcje wyrażeń](./reference-connect-sync-functions-reference.md) , których można użyć.
 
 #### <a name="add-an-outbound-sync-rule"></a>Dodawanie reguły synchronizacji danych wychodzących
 Aby połączyć atrybut z katalogiem docelowym, należy utworzyć regułę wychodzącą. Oznacza to, że źródłem jest element Metaverse, a obiektem docelowym jest połączony system. Aby utworzyć regułę ruchu wychodzącego, uruchom **Edytor reguł synchronizacji**, Zmień **kierunek** na **wychodzący**, a następnie wybierz pozycję **Dodaj nową regułę**. 
@@ -102,7 +102,7 @@ Podobnie jak w przypadku reguły ruchu przychodzącego, możesz użyć własnej 
 
 Zachowaj puste ustawienia **filtru zakresu** i **sprzężenia** . Wypełnij transformację jako stałą, bezpośredni lub wyrażenie. 
 
-Teraz wiesz, jak utworzyć nowy atrybut przepływu obiektu użytkownika z Active Directory, aby Azure Active Directory. Za pomocą tych kroków można mapować dowolny atrybut z dowolnego obiektu na źródłowy i docelowy. Aby uzyskać więcej informacji, zobacz [Tworzenie niestandardowych reguł synchronizacji](how-to-connect-create-custom-sync-rule.md) i [przygotowanie do aprowizacji użytkowników](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Teraz wiesz, jak utworzyć nowy atrybut przepływu obiektu użytkownika z Active Directory, aby Azure Active Directory. Za pomocą tych kroków można mapować dowolny atrybut z dowolnego obiektu na źródłowy i docelowy. Aby uzyskać więcej informacji, zobacz [Tworzenie niestandardowych reguł synchronizacji](how-to-connect-create-custom-sync-rule.md) i [przygotowanie do aprowizacji użytkowników](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Zastąp wartość istniejącego atrybutu
 Możesz chcieć przesłonić wartość atrybutu, który został już zamapowany. Na przykład, jeśli zawsze chcesz ustawić wartość null dla atrybutu w usłudze Azure AD, wystarczy utworzyć tylko regułę ruchu przychodzącego. Wprowadź wartość stałą, a następnie `AuthoritativeNull` pozycję Flow do atrybutu Target. 
@@ -194,6 +194,3 @@ Aby naprawić reguły w celu zmiany ustawień domyślnych, Usuń zmodyfikowaną 
 - [Sprzęt i wymagania wstępne](how-to-connect-install-prerequisites.md) 
 - [Ustawienia ekspresowe](how-to-connect-install-express.md)
 - [Ustawienia dostosowane](how-to-connect-install-custom.md)
-
-
-

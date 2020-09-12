@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 698aa849a82e7c9f9a630ca7040f9d449b3765b3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264967"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291419"
 ---
 # <a name="live-transcription-preview"></a>Transkrypcja dynamiczna (wersja zapoznawcza)
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1e3579f79f9daa80c3d3f2206be7a76cc5505e80
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037023"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294003"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej
 
@@ -28,7 +28,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać te procedury, potrzebna jest usługa w chmurze Azure wiosny, która jest już zainicjowana i uruchomiona. Ukończ [Przewodnik Szybki Start dotyczący wdrażania aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md) w celu aprowizacji i uruchamiania usługi w chmurze Azure wiosennej.
+Aby wykonać te procedury, potrzebna jest usługa w chmurze Azure wiosny, która jest już zainicjowana i uruchomiona. Ukończ [Przewodnik Szybki Start dotyczący wdrażania aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart.md) w celu aprowizacji i uruchamiania usługi w chmurze Azure wiosennej.
     
 ## <a name="add-dependencies"></a>Dodaj zależności
 

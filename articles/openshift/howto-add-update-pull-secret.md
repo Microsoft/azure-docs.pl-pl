@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: Ściąganie kluczy tajnych, ARO, OpenShift, Red Hat
-ms.openlocfilehash: 3351052db63f095bfca5f0b91f26e1013319c582
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098894"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294751"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Dodawanie lub aktualizowanie klucza tajnego Red Hat na platformie Azure Red Hat OpenShift 4
 
-Ten przewodnik obejmuje Dodawanie lub aktualizowanie wpisu tajnego Red Hat dla istniejącego klastra usługi Azure Red Hat OpenShift 4. x.
+W tym przewodniku opisano Dodawanie lub aktualizowanie wpisu tajnego Red Hat dla istniejącego klastra usługi Azure Red Hat OpenShift (ARO) 4. x.
 
 Jeśli tworzysz klaster po raz pierwszy, możesz dodać klucz tajny ściągania podczas tworzenia klastra. Aby uzyskać więcej informacji na temat tworzenia klastra ARO przy użyciu klucza tajnego Red Hat, zobacz [Tworzenie klastra usługi Azure Red Hat OpenShift 4](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
 
@@ -29,13 +29,13 @@ Podczas tworzenia klastra wypychania bez dodawania klucza tajnego Red Hat, w kla
 
 Ta sekcja zawiera instrukcje dotyczące aktualizowania tego ściągania hasła z użyciem dodatkowych wartości z klucza tajnego Red Hat.
 
-1. Pobierz wpis tajny o nazwie `pull-secret` w przestrzeni nazw OpenShift-config i Zapisz go w osobnym pliku, uruchamiając następujące polecenie: 
+1. Pobierz wpis tajny o nazwie `pull-secret` w `openshift-config` przestrzeni nazw i Zapisz go w osobnym pliku, uruchamiając następujące polecenie: 
 
     ```console
     oc get secrets pull-secret -n openshift-config -o template='{{index .data ".dockerconfigjson"}}' | base64 -d > pull-secret.json
     ```
 
-    Dane wyjściowe powinny być podobne do następujących (należy zauważyć, że rzeczywista wartość wpisu tajnego została usunięta):
+    Dane wyjściowe powinny być podobne do następujących. (Należy zauważyć, że rzeczywista wartość wpisu tajnego została usunięta).
 
     ```json
     {
@@ -47,7 +47,7 @@ Ta sekcja zawiera instrukcje dotyczące aktualizowania tego ściągania hasła z
     }
     ```
 
-2. Przejdź do [portalu Menedżera klastra Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) , a następnie kliknij **pozycję Pobierz klucz tajny.** Twoje tajne hasło w Red Hat będzie wyglądać następująco (należy zauważyć, że zostały usunięte rzeczywiste wartości tajne):
+2. Przejdź do [portalu Menedżera klastra Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) i wybierz pozycję **Pobierz klucz tajny**. Twoje tajne hasło Red Hat będzie wyglądać następująco. (Należy zauważyć, że rzeczywiste wartości tajne zostały usunięte).
 
     ```json
     {
@@ -75,7 +75,7 @@ Ta sekcja zawiera instrukcje dotyczące aktualizowania tego ściągania hasła z
 3. Edytuj plik klucza tajnego ściągania pochodzący z klastra, dodając wpisy znajdujące się w Twoim kluczu tajnym Red Hat. 
 
     > [!IMPORTANT]
-    > Dołączenie `cloud.openshift.com` wpisu z klucza tajnego Red Hat spowoduje, że klaster zacznie wysyłać dane telemetryczne do Red Hat. Ta sekcja jest uwzględniana tylko wtedy, gdy chcesz wysłać dane telemetryczne. W przeciwnym razie pozostaw poniższe sekcje.
+    > Dołączenie `cloud.openshift.com` wpisu z klucza tajnego Red Hat spowoduje, że klaster zacznie wysyłać dane telemetryczne do Red Hat. Ta sekcja jest uwzględniana tylko wtedy, gdy chcesz wysłać dane telemetryczne. W przeciwnym razie pozostaw poniższe sekcje.    
     > ```json
     > {
     >         "cloud.openshift.com": {
@@ -86,13 +86,14 @@ Ta sekcja zawiera instrukcje dotyczące aktualizowania tego ściągania hasła z
 
     > [!CAUTION]
     > Nie usuwaj ani nie zmieniaj `arosvc.azurecr.io` wpisu z klucza tajnego ściągania. Ta sekcja jest wymagana do poprawnego funkcjonowania klastra.
+
     ```json
     "arosvc.azurecr.io": {
                 "auth": "<my-aroscv.azurecr.io-secret>"
             }
     ```
 
-    Ostatni plik powinien wyglądać podobnie do poniższego (należy zauważyć, że zostały usunięte rzeczywiste wartości tajne):
+    Ostatni plik powinien wyglądać podobnie do poniższego. (Należy zauważyć, że rzeczywiste wartości tajne zostały usunięte).
 
     ```json
     {
@@ -121,25 +122,26 @@ Ta sekcja zawiera instrukcje dotyczące aktualizowania tego ściągania hasła z
     ```
 
 4. Upewnij się, że plik jest prawidłowym plikiem JSON. Istnieje wiele sposobów weryfikowania danych JSON. W poniższym przykładzie zastosowano JQ:
+
     ```json
     cat pull-secret.json | jq
     ```
 
     > [!NOTE]
-    > Jeśli błąd znajduje się w pliku, można go zobaczyć `parse error` .
+    > Jeśli w pliku znajduje się błąd, zostanie on wyświetlony jako `parse error` .
 
 ## <a name="add-your-pull-secret-to-your-cluster"></a>Dodawanie hasła ściągania do klastra
 
-Uruchom następujące polecenie, aby zaktualizować klucz tajny ściągania:
+Uruchom następujące polecenie, aby zaktualizować klucz tajny ściągania.
 
 > [!NOTE]
-> Uruchomienie tego polecenia spowoduje ponowne uruchomienie węzłów klastra przez ich aktualizację. 
+> Uruchomienie tego polecenia spowoduje ponowne uruchomienie węzłów klastra po ich zaktualizowaniu. 
 
 ```console
 oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=./pull-secret.json
 ```
 
-Gdy wpis tajny jest ustawiony, można przystąpić do włączenia operatorów z certyfikatem Red Hat.
+Po ustawieniu wpisu tajnego można włączyć operatorów z certyfikatem Red Hat.
 
 ### <a name="modify-the-configuration-files"></a>Modyfikowanie plików konfiguracji
 
@@ -151,9 +153,9 @@ Najpierw zmodyfikuj plik konfiguracji operatora Samples. Następnie można uruch
 oc edit configs.samples.operator.openshift.io/cluster -o yaml
 ```
 
-Zmień wartość `spec.architectures.managementState` i `status.architecture.managementState` wartości z `Removed` na `Managed` . 
+Zmień `spec.architectures.managementState` wartości i `status.architecture.managementState` z `Removed` na `Managed` . 
 
-Poniższy fragment kodu YAML przedstawia tylko odpowiednie sekcje edytowanego pliku YAML.
+Poniższy fragment kodu YAML przedstawia tylko odpowiednie sekcje edytowanego pliku YAML:
 
 ```yaml
 apiVersion: samples.operator.openshift.io/v1
@@ -181,9 +183,9 @@ Następnie uruchom następujące polecenie, aby edytować plik konfiguracji cent
 oc edit operatorhub cluster -o yaml
 ```
 
-Zmień wartość `Spec.Sources.Disabled` i `Status.Sources.Disabled` wartości z `true` na `false` dla wszystkich źródeł, które chcesz włączyć.
+Zmień `Spec.Sources.Disabled` wartości i `Status.Sources.Disabled` z `true` na na `false` dla wszystkich źródeł, które chcesz włączyć.
 
-Poniższy fragment kodu YAML przedstawia tylko odpowiednie sekcje edytowanego pliku YAML.
+Poniższy fragment kodu YAML przedstawia tylko odpowiednie sekcje edytowanego pliku YAML:
 
 ```yaml
 Name:         cluster

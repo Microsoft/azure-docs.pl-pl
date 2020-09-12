@@ -14,18 +14,18 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74213074"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279401"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies i cloudMsExchUserHoldPolicies
 W poniższym dokumencie referencyjnym opisano te atrybuty, które są używane przez program Exchange i właściwy sposób edytowania domyślnych reguł synchronizacji.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Co to są msExchUserHoldPolicies i cloudMsExchUserHoldPolicies?
-Istnieją dwa typy [blokad](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) dostępnych dla serwera programu Exchange: wstrzymanie i przechowywanie w miejscu. Gdy wstrzymanie jest włączone, wszystkie elementy skrzynki pocztowej są umieszczane w blokadzie.  Blokada miejscowa służy do zachowywania tylko tych elementów, które spełniają kryteria zapytania wyszukiwania zdefiniowanego za pomocą narzędzia do zbierania elektronicznych materiałów dowodowych.
+Istnieją dwa typy [blokad](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) dostępnych dla serwera programu Exchange: wstrzymanie i przechowywanie w miejscu. Gdy wstrzymanie jest włączone, wszystkie elementy skrzynki pocztowej są umieszczane w blokadzie.  Blokada miejscowa służy do zachowywania tylko tych elementów, które spełniają kryteria zapytania wyszukiwania zdefiniowanego za pomocą narzędzia do zbierania elektronicznych materiałów dowodowych.
 
 Atrybuty MsExchUserHoldPolcies i cloudMsExchUserHoldPolicies umożliwiają dostęp do lokalnych usług AD i Azure AD w celu ustalenia, którzy użytkownicy znajdują się w ramach wstrzymania w zależności od tego, czy korzystają z lokalnego programu Exchange, czy programu Exchange.
 

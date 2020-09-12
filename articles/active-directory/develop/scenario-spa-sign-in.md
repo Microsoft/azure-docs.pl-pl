@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8ec151c813bfb0b9777e583a4ea5144e3b2079a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558765"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297063"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Aplikacja jednostronicowa: Logowanie i wylogowywanie
 
@@ -42,7 +42,8 @@ W aplikacji nie można używać obu metod podręcznych i przekierowania. Wybór 
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Logowanie za pomocą okna podręcznego
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2. x)](#tab/javascript2)
 
 ```javascript
 
@@ -58,12 +59,52 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
 
 myMsal.loginPopup(loginRequest)
     .then(function (loginResponse) {
         //login success
-        let idToken = loginResponse.idToken;
+
+        // In case multiple accounts exist, you can select
+        const currentAccounts = myMsal.getAllAccounts();
+    
+        if (currentAccounts === null) {
+            // no accounts detected
+        } else if (currentAccounts.length > 1) {
+            // Add choose account code here
+        } else if (currentAccounts.length === 1) {
+            username = currentAccounts[0].username;
+        }
+    
+    }).catch(function (error) {
+        //login failure
+        console.log(error);
+    });
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1. x)](#tab/javascript1)
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new UserAgentApplication(config);
+
+myMsal.loginPopup(loginRequest)
+    .then(function (loginResponse) {
+        //login success
     }).catch(function (error) {
         //login failure
         console.log(error);
@@ -124,7 +165,47 @@ W przypadku okna podręcznego Włącz `popUp` opcję konfiguracji. Możesz równ
 
 ## <a name="sign-in-with-redirect"></a>Logowanie przy użyciu przekierowania
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2. x)](#tab/javascript2)
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
+
+function handleResponse(response) {
+    //handle redirect response
+
+    // In case multiple accounts exist, you can select
+    const currentAccounts = myMsal.getAllAccounts();
+
+    if (currentAccounts === null) {
+        // no accounts detected
+    } else if (currentAccounts.length > 1) {
+        // Add choose account code here
+    } else if (currentAccounts.length === 1) {
+        username = currentAccounts[0].username;
+    }
+}
+
+myMsal.handleRedirectPromise(handleResponse);
+
+myMsal.loginRedirect(loginRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1. x)](#tab/javascript1)
 
 Metody przekierowania nie zwracają obietnicy ze względu na przejście z głównej aplikacji. Aby przetworzyć zwrócone tokeny i uzyskać do nich dostęp, należy zarejestrować wywołania zwrotne sukcesu i błędów przed wywołaniem metod przekierowania.
 
@@ -142,7 +223,7 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+const myMsal = new UserAgentApplication(config);
 
 function authCallback(error, response) {
     //handle redirect response
@@ -157,9 +238,6 @@ myMsal.loginRedirect(loginRequest);
 
 Kod jest taki sam, jak opisano wcześniej w sekcji dotyczącej logowania przy użyciu okna podręcznego. Domyślny przepływ jest przekierowywany.
 
-> [!NOTE]
-> Token identyfikatora nie zawiera zgodnych zakresów i reprezentuje tylko uwierzytelnionego użytkownika. Wysłane zakresy są zwracane w tokenie dostępu, który zostanie pozyskany w następnym kroku.
-
 ---
 
 ## <a name="sign-out"></a>Wylogowywanie
@@ -168,7 +246,28 @@ Biblioteka MSAL zapewnia `logout` metodę, która czyści pamięć podręczną w
 
 Można skonfigurować identyfikator URI, do którego ma zostać przekierowany po wylogowaniu się przez ustawienie `postLogoutRedirectUri` . Ten identyfikator URI powinien być również zarejestrowany jako identyfikator URI wylogowania w rejestracji aplikacji.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2. x)](#tab/javascript2)
+
+```javascript
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const myMsal = new PublicClientApplication(config);
+
+// you can select which account application should sign out
+const logoutRequest = {
+    account: myMsal.getAccountByUsername(username)
+}
+
+myMsal.logout(logoutRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1. x)](#tab/javascript1)
 
 ```javascript
 const config = {
