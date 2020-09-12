@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 74cf34438ca142302a6853e8e488b0c7188b162b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eb320cb71de43c40522bf93213fd98247a0d5b59
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522367"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436301"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Przekształć dane w Azure Data Factory wersji 1
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "86522367"
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Połączenia strumieniowe usługi Hadoop](data-factory-hadoop-streaming-activity.md)
-> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Usługa Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
 > * [Procedura składowana](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
 > * [Niestandardowe środowisko .NET](data-factory-use-custom-activities.md)
@@ -65,7 +65,7 @@ W miarę upływu czasu modele predykcyjne w eksperymentach oceniających Machine
 Aby uzyskać szczegółowe informacje o tych Machine Learning działaniach, zobacz temat [używanie Machine Learning działań](data-factory-azure-ml-batch-execution-activity.md) . 
 
 ## <a name="stored-procedure-activity"></a>Działanie procedury składowanej
-Możesz użyć działania procedury składowanej SQL Server w potoku Data Factory, aby wywołać procedurę składowaną w jednym z następujących magazynów danych: Azure SQL Database, Azure SQL Data Warehouse, SQL Server bazą danych w przedsiębiorstwie lub maszynie wirtualnej platformy Azure. Szczegóły można znaleźć w artykule dotyczącym [działania procedury składowanej](data-factory-stored-proc-activity.md) .  
+Możesz użyć działania procedury składowanej SQL Server w potoku Data Factory, aby wywołać procedurę składowaną w jednym z następujących magazynów danych: Azure SQL Database, Azure Synapse Analytics (dawniej SQL Data Warehouse), SQL Server Database w przedsiębiorstwie lub maszynie wirtualnej platformy Azure. Szczegóły można znaleźć w artykule dotyczącym [działania procedury składowanej](data-factory-stored-proc-activity.md) .  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics działanie U-SQL
 Data Lake Analytics działanie U-SQL uruchamia skrypt U-SQL w klastrze Azure Data Lake Analytics. Szczegóły można znaleźć w artykule dotyczącym [działania analiza danych U-SQL](data-factory-usql-activity.md) . 
@@ -93,7 +93,7 @@ Azure Data Factory obsługuje następujące działania przekształcania danych i
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Połączenia strumieniowe usługi Hadoop](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](data-factory-azure-ml-batch-execution-activity.md) |Maszyna wirtualna platformy Azure |
-| [Procedura składowana](data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse lub SQL Server |
+| [Procedura składowana](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics lub SQL Server |
 | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](data-factory-use-custom-activities.md) |Usługa HDInsight [Hadoop] lub usługa Azure Batch |
 

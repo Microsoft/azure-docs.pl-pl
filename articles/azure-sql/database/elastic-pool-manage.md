@@ -10,12 +10,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 0fc4f9c2142011edf78033d36d13ecb9115a8850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e87a083f5b31237c00bc8421774c14d3ef8ef33f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84044990"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439711"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Zarządzanie pulami elastycznymi w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -94,7 +94,7 @@ Aby tworzyć i przenosić bazy danych w ramach istniejących pul elastycznych lu
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Przenoszenie bazy danych do puli elastycznej lub poza nią.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa bazę danych.|
 |[sys. elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Zwraca statystyki użycia zasobów dla wszystkich pul elastycznych na serwerze. Dla każdej elastycznej puli istnieje jeden wiersz dla każdego 15 drugiego okna raportowania (cztery wiersze na minutę). Obejmuje to procesor CPU, operacje we/wy, dziennik, użycie magazynu i współbieżne użycie żądania/sesji przez wszystkie bazy danych w puli.|
-|[sys. database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usługi), cel usługi (warstwę cenową) i nazwę puli elastycznej, jeśli istnieje, dla bazy danych w SQL Database lub Azure SQL Data Warehouse. Jeśli użytkownik jest zalogowany do bazy danych Master na serwerze, zwraca informacje o wszystkich bazach danych. W przypadku Azure SQL Data Warehouse należy nawiązać połączenie z bazą danych Master.|
+|[sys. database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usług), cel usługi (warstwę cenową) i nazwę puli elastycznej (jeśli istnieje) dla bazy danych w SQL Database lub Azure Synapse Analytics (dawniej SQL Data Warehouse). Jeśli użytkownik jest zalogowany do bazy danych Master na serwerze, zwraca informacje o wszystkich bazach danych. W przypadku usługi Azure Synapse Analytics musisz mieć połączenie z bazą danych Master.|
 
 ## <a name="rest-api"></a>Interfejs API REST
 

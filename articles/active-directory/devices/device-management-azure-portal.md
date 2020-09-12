@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f12b4e1d64db097730494da746b44479a791f9d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 569bc54d262e8611679c8aa86ed4dbfbed61aa79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268642"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442683"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu witryny Azure Portal
 
@@ -161,7 +161,7 @@ Aby zarządzać tożsamościami urządzeń za pomocą portalu usługi Azure AD, 
 > [!NOTE]
 > Ustawienie **Wymagaj uwierzytelniania wieloskładnikowego do dołączania urządzeń** ma zastosowanie do urządzeń, które są dołączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD. To ustawienie nie dotyczy urządzeń przyłączonych do hybrydowej usługi Azure AD.
 
-- **Maksymalna liczba urządzeń** — to ustawienie pozwala wybrać maksymalną liczbę przyłączonych do usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, które użytkownik może mieć w usłudze Azure AD. Jeśli użytkownik osiągnie ten limit przydziału, nie będzie mógł dodać dodatkowych urządzeń, dopóki nie zostaną usunięte co najmniej jedno z istniejących urządzeń. Wartość domyślna to **20**.
+- **Maksymalna liczba urządzeń** — to ustawienie pozwala wybrać maksymalną liczbę przyłączonych do usługi Azure AD lub zarejestrowanych urządzeń usługi Azure AD, które użytkownik może mieć w usłudze Azure AD. Jeśli użytkownik osiągnie ten limit przydziału, nie będzie mógł dodać dodatkowych urządzeń, dopóki nie zostaną usunięte co najmniej jedno z istniejących urządzeń. Wartość domyślna to **50**.
 
 > [!NOTE]
 > Ustawienie **Maksymalna liczba urządzeń** ma zastosowanie do urządzeń, które są przyłączone do usługi Azure AD lub zarejestrowane w usłudze Azure AD. To ustawienie nie dotyczy urządzeń przyłączonych do hybrydowej usługi Azure AD.

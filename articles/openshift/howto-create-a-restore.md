@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 95e2b268da0785816423ec1ee9c8e31730d48ed8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0cd6797bcdfadca807e25f8b3decf34bd553fc56
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854330"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470055"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Tworzenie aplikacji klastra usługi Azure Red Hat OpenShift 4
 
@@ -23,7 +23,7 @@ W tym artykule opisano przygotowanie środowiska w celu utworzenia przywracania 
 > * Skonfiguruj wymagania wstępne i Zainstaluj niezbędne narzędzia
 > * Tworzenie przywracania aplikacji na platformie Azure Red Hat OpenShift 4
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -68,5 +68,3 @@ W tym artykule została przywrócona aplikacja klastra Red Hat OpenShift 4 platf
 Przejdź do następnego artykułu, aby dowiedzieć się więcej na temat obsługiwanych zasobów usługi Azure Red Hat OpenShift 4.
 
 * [Obsługiwane zasoby usługi Azure Red Hat OpenShift v4](supported-resources.md)
-
-

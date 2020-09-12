@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9dbc66e3331325e9b79d0434fb452d01d69d550a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226747"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482593"
 ---
 # <a name="supported-data-types"></a>Obsługiwane typy danych
 
@@ -26,11 +26,11 @@ Poniższa tabela zawiera listę typów danych obsługiwanych przez Azure Time Se
 | **datetime** | Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wyrażony w formacie [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . Właściwości DateTime są zawsze przechowywane w formacie UTC. Przesunięcia strefy czasowej (w przypadku prawidłowego formatowania) zostaną zastosowane, a następnie wartości przechowywane w formacie UTC. Zapoznaj się z [tą](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) sekcją, aby uzyskać więcej informacji na temat właściwości sygnatury czasowej środowiska i przesunięcia DateTime | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Jeśli "eventProcessedLocalTime" jest sygnaturą czasową źródła zdarzeń: `$event.$ts` . Jeśli jest to inna Właściwość JSON: `$event.eventProcessedLocalTime.DateTime` lub `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
 | **liczba o podwójnej precyzji** | Numer 64-bitowy o podwójnej precyzji  | `"value": 31.0482941` | `$event.value.Double` lub `$event['value'].Double` |  `value_double`
 | **liczba długa** | 64-bitowa liczba całkowita ze znakiem  | `"value" : 31` | `$event.value.Long` lub `$event['value'].Long` |  `value_long`
-| **parametry** | Wartości tekstowe muszą zawierać prawidłowy format UTF-8. Ciągi o wartości null i puste są traktowane jako takie same. |  `"site": "DIM_MLGGG"`| `$event.site.String` lub `$event['site'].String`| `site_string`
-| **dynamiczna** | Złożony (niepierwotny) typ składający się z tablicy lub zbioru właściwości (Dictionary). Obecnie tylko skonwertowanej tablice JSON elementów podstawowych lub tablic obiektów niezawierających identyfikatora TS lub właściwości sygnatur czasowych będą przechowywane jako dynamiczne. Przeczytaj ten [artykuł](./concepts-json-flattening-escaping-rules.md) , aby zrozumieć, jak obiekty będą spłaszczane, a tablice mogą być nierzutowane. Właściwości ładunku przechowywane jako ten typ są dostępne tylko po wybraniu `Explore Events` w EKSPLORATORZE TSI wyświetlania zdarzeń pierwotnych lub za pomocą [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   interfejsu API zapytania dla analizy po stronie klienta. |  `"values": "[197, 194, 189, 188]"` | Odwoływanie się do typów dynamicznych w wyrażeniu szeregów czasowych nie jest jeszcze obsługiwane. | `values_dynamic`
+| **ciąg** | Wartości tekstowe muszą zawierać prawidłowy format UTF-8. Ciągi o wartości null i puste są traktowane jako takie same. |  `"site": "DIM_MLGGG"`| `$event.site.String` lub `$event['site'].String`| `site_string`
+| **dynamiczna** | Złożony (niepierwotny) typ składający się z tablicy lub zbioru właściwości (Dictionary). Obecnie tylko skonwertowanej tablice JSON elementów podstawowych lub tablic obiektów niezawierających identyfikatora TS lub właściwości sygnatur czasowych będą przechowywane jako dynamiczne. Przeczytaj ten [artykuł](./concepts-json-flattening-escaping-rules.md) , aby zrozumieć, jak obiekty będą spłaszczane, a tablice mogą być nierzutowane. Właściwości ładunku przechowywane jako ten typ są dostępne tylko po wybraniu `Explore Events` w eksploratorze Time Series Insights, aby wyświetlić zdarzenia pierwotne lub za pomocą [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   interfejsu API zapytania dla analizy po stronie klienta. |  `"values": "[197, 194, 189, 188]"` | Odwoływanie się do typów dynamicznych w wyrażeniu szeregów czasowych nie jest jeszcze obsługiwane. | `values_dynamic`
 
 > [!NOTE]
-> 64 bitowe wartości całkowite są obsługiwane, ale największą liczbę, którą program Azure Time Series Insights Explorer może bezpiecznie wyszukać, to 9 007 199 254 740 991 (2 ^ 53-1) z powodu ograniczeń języka JavaScript. Jeśli pracujesz z liczbami w modelu danych powyżej, możesz zmniejszyć rozmiar przez utworzenie [zmiennej modelu szeregów czasowych](/concepts-variables#numeric-variables) i [przekonwertowanie](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) wartości.
+> 64 bitowe wartości całkowite są obsługiwane, ale największą liczbę, którą program Azure Time Series Insights Explorer może bezpiecznie wyszukać, to 9 007 199 254 740 991 (2 ^ 53-1) z powodu ograniczeń języka JavaScript. Jeśli pracujesz z liczbami w modelu danych powyżej, możesz zmniejszyć rozmiar przez utworzenie [zmiennej modelu szeregów czasowych](/azure/time-series-insights/concepts-variables#numeric-variables) i [przekonwertowanie](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) wartości.
 
 > [!NOTE]
 > Typ **ciągu** nie dopuszcza wartości null:

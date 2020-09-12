@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837313"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505343"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -29,6 +29,16 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+## <a name="august-2020"></a>Sierpień 2020 r.
+
+### <a name="mobile-design-for-the-video-indexer-website"></a>Projektowanie aplikacji mobilnych dla witryny sieci Web Video Indexer
+
+Środowisko witryny sieci Web Video Indexer obsługuje teraz obsługę urządzeń przenośnych. Środowisko użytkownika odpowiada na dostosowanie rozmiaru ekranu urządzenia przenośnego (z wyłączeniem interfejsów użytkownika dostosowania). 
+
+### <a name="accessibility-improvements-and-bug-fixes"></a>Ulepszenia ułatwień dostępu i poprawki błędów 
+
+W ramach WCAG (wskazówki dotyczące dostępności zawartości sieci Web) środowisko witryny internetowej Video Indexer jest wyrównane z klasy C w ramach standardów ułatwień dostępu firmy Microsoft. Rozwiązano kilka usterek i ulepszeń związanych z nawigowaniem po klawiaturze, dostępem programistycznym i czytnikiem ekranu. 
 
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
@@ -129,7 +139,7 @@ Akcja Usuń konto teraz usuwa konto w ciągu 90 dni, a nie 48 godzin.
  
 ### <a name="new-video-indexer-github-repository"></a>Nowe repozytorium usługi GitHub Video Indexer
 
-Dostępna jest nowa Video Indexer GitHub z różnymi projektami, przewodniki z wprowadzeniem i przykłady kodu:https://github.com/Azure-Samples/media-services-video-indexer
+Dostępna jest nowa Video Indexer GitHub z różnymi projektami, przewodniki z wprowadzeniem i przykłady kodu: https://github.com/Azure-Samples/media-services-video-indexer
  
 ### <a name="swagger-update"></a>Aktualizacja struktury Swagger
 

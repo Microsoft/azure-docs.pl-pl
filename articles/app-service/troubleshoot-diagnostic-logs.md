@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962183"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469936"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -64,7 +64,7 @@ Wybierz **poziom**lub poziom szczegółów do zarejestrowania. W poniższej tabe
 |-|-|
 |**Disabled** | Brak |
 |**Błąd** | Błąd, krytyczny |
-|**Wyświetlania** | Ostrzeżenie, błąd, krytyczny|
+|**Ostrzeżenie** | Ostrzeżenie, błąd, krytyczny|
 |**Informacje** | Informacje, ostrzeżenie, błąd, krytyczne|
 |**Pełne** | Trace, Debug, info, Warning, Error, krytyczny (wszystkie kategorie) |
 
@@ -191,7 +191,7 @@ W poniższej tabeli przedstawiono obsługiwane typy i opisy dzienników:
 | AppServiceHTTPLogs | Tak | Tak | Dzienniki serwera sieci Web |
 | AppServiceEnvironmentPlatformLogs | Tak | Tak | App Service Environment: skalowanie, zmiany konfiguracji i dzienniki stanu|
 | AppServiceAuditLogs | Tak | Tak | Działanie logowania za pośrednictwem protokołu FTP i kudu |
-| AppServiceFileAuditLogs | Tak | TBD | Zmiany plików za pośrednictwem protokołu FTP i kudu |
+| AppServiceFileAuditLogs | Tak | TBD | Zmiany plików wprowadzone do zawartości witryny; dostępne tylko dla warstwy Premium i wyższych |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Dzienniki aplikacji |
 | AppServiceIPSecAuditLogs  | Tak | Tak | Żądania z reguł adresów IP |
 | AppServicePlatformLogs  | TBA | Tak | Dzienniki kontenerów |

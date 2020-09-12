@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: 45cecccd88b0b84b478bc6fc7346cb9ef9c2f454
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846347"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440545"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funkcje optymalizacji wydajności działania kopiowania
 
@@ -91,7 +91,7 @@ W poniższej tabeli przedstawiono zachowanie kopiowania równoległego:
 
 | Kopiuj scenariusz | Zachowanie kopiowania równoległego |
 | --- | --- |
-| Między magazynami plików | `parallelCopies`Określa równoległość **na poziomie pliku**. Fragmenty poszczególnych plików odbywają się automatycznie i w sposób przezroczysty. Zaprojektowano w celu użycia najlepszego odpowiedniego rozmiaru fragmentu dla danego typu magazynu danych w celu równoległego ładowania danych. <br/><br/>Rzeczywista liczba kopii równoległych działania kopiowania w czasie wykonywania nie jest większa niż liczba plików, które posiadasz. Jeśli zachowanie kopiowania jest **mergeFile** do ujścia plików, działanie kopiowania nie może korzystać z równoległości na poziomie plików. |
+| Między magazynami plików | `parallelCopies` Określa równoległość **na poziomie pliku**. Fragmenty poszczególnych plików odbywają się automatycznie i w sposób przezroczysty. Zaprojektowano w celu użycia najlepszego odpowiedniego rozmiaru fragmentu dla danego typu magazynu danych w celu równoległego ładowania danych. <br/><br/>Rzeczywista liczba kopii równoległych działania kopiowania w czasie wykonywania nie jest większa niż liczba plików, które posiadasz. Jeśli zachowanie kopiowania jest **mergeFile** do ujścia plików, działanie kopiowania nie może korzystać z równoległości na poziomie plików. |
 | Ze sklepu plików do magazynu innego niż plik | — Podczas kopiowania danych do Azure SQL Database lub Azure Cosmos DB, domyślna kopia równoległa zależy również od warstwy ujścia (liczba DTU/jednostek ru).<br>— Podczas kopiowania danych do tabeli platformy Azure domyślnie jest to 4. |
 | Z magazynu innego niż plik do magazynu plików | — Podczas kopiowania danych z magazynu danych z włączoną obsługą partycji (w tym [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [wystąpienia zarządzanego usługi Azure SQL](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source)i [Teradata](connector-teradata.md#teradata-as-source)), domyślna kopia równoległa to 4. Rzeczywista liczba kopii równoległych działania kopiowania w czasie wykonywania nie przekracza liczby posiadanych partycji danych. W przypadku używania samodzielnych Integration Runtime i kopiowania do obiektów BLOB/ADLS Gen2 platformy Azure Zwróć uwagę na to, że maksymalna efektywna kopia jest równa 4 lub 5 na węzeł IR.<br>— W przypadku innych scenariuszy kopiowanie równoległe nie zacznie obowiązywać. Nawet jeśli jest określona równoległość, nie jest stosowana. |
 | Między magazynami nienależącymi do plików | — Podczas kopiowania danych do Azure SQL Database lub Azure Cosmos DB, domyślna kopia równoległa zależy również od warstwy ujścia (liczba DTU/jednostek ru).<br/>— Podczas kopiowania danych z magazynu danych z włączoną obsługą partycji (w tym [Azure SQL Database](connector-azure-sql-database.md#azure-sql-database-as-the-source), [wystąpienia zarządzanego usługi Azure SQL](connector-azure-sql-managed-instance.md#sql-managed-instance-as-a-source), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#azure-synapse-analytics-as-the-source), [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), [SQL Server](connector-sql-server.md#sql-server-as-a-source)i [Teradata](connector-teradata.md#teradata-as-source)), domyślna kopia równoległa to 4.<br>— Podczas kopiowania danych do tabeli platformy Azure domyślnie jest to 4. |
@@ -126,7 +126,7 @@ Po określeniu wartości `parallelCopies` właściwości należy zwiększyć obc
 
 W przypadku kopiowania danych ze źródłowego magazynu danych do magazynu danych ujścia można użyć usługi BLOB Storage jako tymczasowego magazynu przemieszczania. Przygotowanie jest szczególnie przydatne w następujących przypadkach:
 
-- **Chcesz pozyskać dane z różnych magazynów danych do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pośrednictwem bazy.** Usługa Azure Synapse Analytics korzysta z bazy jako mechanizmu wysokiej przepływności w celu załadowania dużej ilości danych do usługi Azure Synapse Analytics. Dane źródłowe muszą znajdować się w magazynie obiektów blob lub Azure Data Lake Store i muszą spełniać dodatkowe kryteria. Podczas ładowania danych z magazynu danych innego niż magazyn obiektów blob lub Azure Data Lake Store można aktywować kopiowanie danych za pośrednictwem tymczasowego tymczasowego magazynu obiektów BLOB. W takim przypadku Azure Data Factory wykonuje wymagane przekształcenia danych, aby upewnić się, że spełnia on wymagania bazy. Następnie używa metody bazowej do wydajnego ładowania danych do usługi Azure Synapse Analytics. Aby uzyskać więcej informacji, zobacz [Korzystanie z bazy danych w celu ładowania do Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Chcesz pozyskać dane z różnych magazynów danych do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pośrednictwem bazy.** Usługa Azure Synapse Analytics korzysta z bazy jako mechanizmu wysokiej przepływności w celu załadowania dużej ilości danych do usługi Azure Synapse Analytics. Dane źródłowe muszą znajdować się w magazynie obiektów blob lub Azure Data Lake Store i muszą spełniać dodatkowe kryteria. Podczas ładowania danych z magazynu danych innego niż magazyn obiektów blob lub Azure Data Lake Store można aktywować kopiowanie danych za pośrednictwem tymczasowego tymczasowego magazynu obiektów BLOB. W takim przypadku Azure Data Factory wykonuje wymagane przekształcenia danych, aby upewnić się, że spełnia on wymagania bazy. Następnie używa metody bazowej do wydajnego ładowania danych do usługi Azure Synapse Analytics. Aby uzyskać więcej informacji, zobacz artykuł Tworzenie [bazy danych w usłudze Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
 - **Czasami trwa przeprowadzenie hybrydowego przenoszenia danych (czyli kopiowania z lokalnego magazynu danych do magazynu danych w chmurze) przez wolne połączenie sieciowe.** Aby zwiększyć wydajność, można użyć kopii przygotowanej do skompresowania danych w środowisku lokalnym, co pozwala na przenoszenie danych do tymczasowego magazynu danych w chmurze. Następnie można zdekompresować dane w magazynie przemieszczania przed załadowaniem do docelowego magazynu danych.
 - **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT.** Na przykład podczas kopiowania danych z lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia usługi Azure Synapse Analytics należy aktywować wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej. W tym scenariuszu kopia przygotowana może korzystać z własnego środowiska Integration Runtime, aby najpierw skopiować dane do wystąpienia tymczasowego magazynu obiektów BLOB za pośrednictwem protokołu HTTP lub HTTPS na porcie 443. Następnie może załadować dane do SQL Database lub analizy Synapse Azure z usługi BLOB Storage. W tym przepływie nie trzeba włączać portu 1433.
 
@@ -140,15 +140,15 @@ W przypadku aktywowania przenoszenia danych przy użyciu magazynu przemieszczani
 
 Obecnie nie można kopiować danych między dwoma magazynami danych, które są połączone za pośrednictwem różnych urzędów certyfikacji samodzielnych, ani z kopią etapową lub bez niej. W tym scenariuszu można skonfigurować dwa jawne działania kopiowania w łańcuchu w celu skopiowania danych ze źródła do przemieszczania z miejsca przejściowego do ujścia.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Skonfiguruj ustawienie **enableStaging** w działaniu kopiowania, aby określić, czy dane mają zostać przygotowane w magazynie obiektów BLOB przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na `TRUE` , określ dodatkowe właściwości wymienione w poniższej tabeli. Należy również utworzyć usługę Azure Storage lub usługi połączonej sygnatury dostępu współdzielonego na potrzeby przemieszczania, jeśli nie istnieje.
 
 | Właściwość | Opis | Wartość domyślna | Wymagane |
 | --- | --- | --- | --- |
 | enableStaging |Określ, czy chcesz kopiować dane za pośrednictwem tymczasowego magazynu przemieszczania. |Fałsz |Nie |
-| linkedServiceName |Określ nazwę połączonej usługi [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do usługi Azure Synapse Analytics za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Brak |Tak, gdy **enableStaging** jest ustawiona na wartość true |
-| path |Określ ścieżkę magazynu obiektów blob, która ma zawierać dane przemieszczane. Jeśli nie podano ścieżki, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko wtedy, gdy używasz magazynu z sygnaturą dostępu współdzielonego lub potrzebujesz danych tymczasowych, aby znajdować się w określonej lokalizacji. |Brak |Nie |
+| linkedServiceName |Określ nazwę połączonej usługi [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do usługi Azure Synapse Analytics za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
+| path |Określ ścieżkę magazynu obiektów blob, która ma zawierać dane przemieszczane. Jeśli nie podano ścieżki, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko wtedy, gdy używasz magazynu z sygnaturą dostępu współdzielonego lub potrzebujesz danych tymczasowych, aby znajdować się w określonej lokalizacji. |Nie dotyczy |Nie |
 | Ustawieniem EnableCompression |Określa, czy dane mają być kompresowane przed skopiowaniem do lokalizacji docelowej. To ustawienie zmniejsza ilość przesyłanych danych. |Fałsz |Nie |
 
 >[!NOTE]
@@ -194,7 +194,7 @@ Opłata jest naliczana na podstawie dwóch kroków: Kopiuj czas trwania i typ ko
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Przegląd działania kopiowania](copy-activity-overview.md)
+- [Omówienie działania kopiowania](copy-activity-overview.md)
 - [Przewodnik dotyczący wydajności i skalowalności działania kopiowania](copy-activity-performance.md)
 - [Rozwiązywanie problemów z wydajnością działania kopiowania](copy-activity-performance-troubleshooting.md)
 - [Używanie Azure Data Factory do migrowania danych z usługi Data Lake lub magazynu danych na platformę Azure](data-migration-guidance-overview.md)

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898145"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439088"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Obsługiwane źródła danych w Azure Data Catalog
 
@@ -143,7 +143,7 @@ Możesz publikować metadane za pomocą publicznego interfejsu API lub narzędzi
       <td></td>
     </tr>
     <tr>
-      <td>Tabela Azure SQL Data Warehouse</td>
+      <td>Tabela analizy usługi Azure Synapse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ Możesz publikować metadane za pomocą publicznego interfejsu API lub narzędzi
       <td></td>
     </tr>
     <tr>
-      <td>Widok Azure SQL Data Warehouse</td>
+      <td>Widok usługi Azure Synapse Analytics</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -932,7 +932,7 @@ Jeśli chcesz zobaczyć, czy określone źródło danych jest obsługiwane, Suge
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Command</td>
       <td>Stored procedure</td>
       <td>
@@ -948,7 +948,7 @@ Jeśli chcesz zobaczyć, czy określone źródło danych jest obsługiwane, Suge
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>TableValuedFunction</td>
       <td>Table-valued function</td>
       <td>
@@ -964,7 +964,7 @@ Jeśli chcesz zobaczyć, czy określone źródło danych jest obsługiwane, Suge
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -978,7 +978,7 @@ Jeśli chcesz zobaczyć, czy określone źródło danych jest obsługiwane, Suge
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Table</td>
       <td>Table, view</td>
       <td>

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461705"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462364"
 ---
 # <a name="securing-paas-deployments"></a>Zabezpieczanie wdrożeń typu PaaS
 
@@ -100,9 +100,9 @@ Poniższa tabela zawiera listę zagrożeń związanych z KROKami i zawiera przyk
 
 | Zagrożenie | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
 | --- | --- | --- |
-| Fałszowanie zawartości | Uwierzytelnianie | Wymagaj połączeń HTTPS. |
+| Fałszowanie | Uwierzytelnianie | Wymagaj połączeń HTTPS. |
 | Manipulowanie | Integralność | Sprawdź poprawność certyfikatów TLS/SSL. |
-| Rzuca | Brak wyparcia | Włącz [monitorowanie i diagnostykę](/azure/architecture/best-practices/monitoring)platformy Azure. |
+| Wypieranie się | Weryfikacja tożsamości | Włącz [monitorowanie i diagnostykę](/azure/architecture/best-practices/monitoring)platformy Azure. |
 | Ujawnienie informacji | Poufność | Szyfruj poufne dane przy użyciu [certyfikatów usługi](/rest/api/appservice/certificates). |
 | Odmowa usługi | Dostępność | Monitoruj metryki wydajności dla potencjalnych warunków odmowy usług. Implementuj filtry połączeń. |
 | Podniesienie uprawnień | Autoryzacja | Użyj [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
@@ -151,10 +151,10 @@ Testowanie rozmyte to metoda odnajdywania awarii programu (błędy kodu) przez d
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule koncentrujemy się na zaletach zabezpieczeń wdrożenia usługi Azure PaaS i najlepszych rozwiązaniach dotyczących zabezpieczeń dla aplikacji w chmurze. Następnie zapoznaj się z zalecanymi rozwiązaniami dotyczącymi zabezpieczania rozwiązań sieci Web i urządzeń przenośnych PaaS przy użyciu określonych usług platformy Azure. Zaczniemy od Azure App Service, Azure SQL Database i Azure SQL Data Warehouse i usługi Azure Storage. Ponieważ artykuły dotyczące zalecanych praktyk dla innych usług platformy Azure stają się dostępne, linki zostaną podane na poniższej liście:
+W tym artykule koncentrujemy się na zaletach zabezpieczeń wdrożenia usługi Azure PaaS i najlepszych rozwiązaniach dotyczących zabezpieczeń dla aplikacji w chmurze. Następnie zapoznaj się z zalecanymi rozwiązaniami dotyczącymi zabezpieczania rozwiązań sieci Web i urządzeń przenośnych PaaS przy użyciu określonych usług platformy Azure. Zaczniemy od Azure App Service, Azure SQL Database i usługi Azure Synapse Analytics oraz usługi Azure Storage. Ponieważ artykuły dotyczące zalecanych praktyk dla innych usług platformy Azure stają się dostępne, linki zostaną podane na poniższej liście:
 
 - [Azure App Service](paas-applications-using-app-services.md)
-- [Azure SQL Database i Azure SQL Data Warehouse](paas-applications-using-sql.md)
+- [Azure SQL Database i analiza Synapse Azure](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus
@@ -166,4 +166,4 @@ Zobacz [najlepsze rozwiązania i wzorce dotyczące zabezpieczeń platformy Azure
 
 Dostępne są następujące zasoby umożliwiające dostarczenie bardziej ogólnych informacji na temat zabezpieczeń platformy Azure i powiązanych usług firmy Microsoft:
 * [Blog zespołu ds. zabezpieczeń platformy Azure](https://blogs.msdn.microsoft.com/azuresecurity/) — na bieżąco z najnowszymi informacjami na temat zabezpieczeń platformy Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — w przypadku których luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, mogą być zgłaszane lub wysyłane pocztą e-mailsecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) — w przypadku których luki w zabezpieczeniach firmy Microsoft, w tym problemy z platformą Azure, mogą być zgłaszane lub wysyłane pocztą e-mail secure@microsoft.com

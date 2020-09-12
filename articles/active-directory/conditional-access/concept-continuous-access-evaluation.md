@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39736f0a369064e1a825ba3f6975a01c5e9ecc40
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147517"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437245"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -108,7 +108,7 @@ Jeśli nie korzystasz z klientów z systemem CAE, domyślny okres istnienia toke
 1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła wezwanie do klienta 401 + roszczeń z powrotem.
 1. Klient z obsługą CAE rozumie wyzwanie 401 i roszczeń. Pomija pamięć podręczną i wraca do kroku 1, wysyłając token odświeżania wraz z wezwaniem do usługi Azure AD. Usługa Azure AD będzie następnie ponownie szacować wszystkie warunki i monitować użytkownika o ponowne uwierzytelnienie w tym przypadku.
 
-### <a name="user-condition-change-flow-public-preview"></a>Przepływ zmian warunku użytkownika (publiczna wersja zapoznawcza):
+### <a name="user-condition-change-flow-preview"></a>Przepływ zmian warunku użytkownika (wersja zapoznawcza):
 
 W poniższym przykładzie administrator dostępu warunkowego skonfigurował zasady dostępu warunkowego na podstawie lokalizacji, aby zezwalać na dostęp tylko z określonych zakresów adresów IP:
 
@@ -135,6 +135,13 @@ Na tej stronie możesz opcjonalnie ograniczyć użytkowników i grupy, które b�
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
+### <a name="supported-location-policies"></a>Obsługiwane zasady lokalizacji
+
+W przypadku usługi CAE dostępne są tylko szczegółowe informacje o nazwanych lokalizacjach opartych na adresie IP. Nie mamy szczegółowych informacji na temat innych ustawień lokalizacji, takich jak [Zaufane adresy IP usługi MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) lub lokalizacje oparte na krajach. Jeśli użytkownik pochodzi z zaufanego adresu IP usługi MFA lub zaufanych lokalizacji, które zawierają zaufane IP lub lokalizacje krajów usługi MFA, CAE nie zostanie wymuszone po przeniesieniu użytkownika do innej lokalizacji. W takich przypadkach zostanie wystawiony token CAE o godzinie 1, bez kontroli przymusowego protokołu IP.
+
+> [!IMPORTANT]
+> Podczas konfigurowania lokalizacji na potrzeby oceny ciągłego dostępu należy używać tylko [warunku lokalizacji dostępu warunkowego na podstawie adresu IP](../conditional-access/location-condition.md#preview-features) i skonfigurować wszystkie adresy IP, w **tym Protokoły IPv4 i IPv6**, które mogą być widoczne dla dostawcy tożsamości i dostawcy zasobów. Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi platformy Azure Multi-Factor Authentication.
+
 ### <a name="ip-address-configuration"></a>Konfiguracja adresu IP
 
 Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Taka niezgodność może wystąpić ze względu na implementacje serwera proxy sieci w organizacji lub nieprawidłowe konfiguracje protokołu IPv4/IPv6 między dostawcą tożsamości i dostawcą zasobów. Na przykład:
@@ -144,9 +151,6 @@ Dostawca tożsamości i dostawcy zasobów mogą zobaczyć różne adresy IP. Tak
 - Adres IP widziany dla dostawcy tożsamości jest częścią dozwolonego zakresu adresów IP w zasadach, ale adres IP od dostawcy zasobów nie jest.
 
 Jeśli ten scenariusz istnieje w Twoim środowisku, aby uniknąć nieskończonych pętli, usługa Azure AD wystawia token CAE w ciągu godziny i nie wymusi zmiany lokalizacji klienta. Nawet w tym przypadku Ulepszono zabezpieczenia w porównaniu z tradycyjnymi tokenami jednogodzinnymi, ponieważ nadal oceniamy [inne zdarzenia](#critical-event-evaluation) poza zdarzeniami zmiany lokalizacji klienta.
-
-> [!IMPORTANT]
-> Podczas konfigurowania lokalizacji do oceny ciągłego dostępu należy używać tylko [warunku lokalizacji dostępu warunkowego na podstawie adresu IP](../conditional-access/location-condition.md). Nie używaj warunków lokalizacji kraju ani funkcji zaufanych adresów IP, która jest dostępna na stronie ustawień usługi platformy Azure Multi-Factor Authentication.
 
 ### <a name="office-and-web-account-manager-settings"></a>Ustawienia pakietu Office i Menedżera kont sieci Web
 

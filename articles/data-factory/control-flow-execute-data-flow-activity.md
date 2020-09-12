@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726977"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485041"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
 
@@ -60,8 +60,8 @@ przepływu danych | Odwołanie do przepływu danych, który jest wykonywany | Da
 integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danych. Jeśli nie zostanie określony, zostanie użyta funkcja rozwiązywania problemów z rozwiązaniem Azure Integration Runtime. | IntegrationRuntimeReference | Nie
 COMPUTE. coreCount | Liczba rdzeni używanych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | Nie
 COMPUTE. computetype | Typ obliczeń użytych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | "Ogólne", "ComputeOptimized", "MemoryOptimized" | Nie
-przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi SQL DW, konto magazynu używane na potrzeby przemieszczania podstawowego | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
-przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi SQL DW, ścieżka folderu w ramach konta usługi BLOB Storage używanego do przemieszczania podstawowego | String | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
+przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, konto magazynu używane na potrzeby przemieszczania podstawowego | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
+przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi Azure Synapse Analytics, ścieżka folderu na koncie usługi BLOB Storage używanym do przemieszczania podstawowego | Ciąg | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane w usłudze Azure Synapse Analytics
 
 ![Wykonaj przepływ danych](media/data-flow/activity-data-flow.png "Wykonaj przepływ danych")
 
@@ -86,7 +86,7 @@ W przypadku wykonań potoku klaster jest klastrem zadań, co potrwa kilka minut,
 
 ### <a name="polybase"></a>PolyBase
 
-Jeśli używasz Azure SQL Data Warehouse jako ujścia lub źródło, musisz wybrać lokalizację przejściową dla obciążenia wsadowego z podstawową bazą danych. Baza danych umożliwia zbiorcze ładowanie wsadowe, zamiast ładować dane wiersz po wierszu. Podstawa znacznie zmniejsza czas ładowania do magazynu danych SQL.
+Jeśli używasz usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) jako ujścia lub źródło, musisz wybrać lokalizację przejściową dla obciążenia wsadowego. Baza danych umożliwia zbiorcze ładowanie wsadowe, zamiast ładować dane wiersz po wierszu. Podstawa podstawowa znacznie zmniejsza czas ładowania do usługi Azure Synapse Analytics.
 
 ## <a name="parameterizing-data-flows"></a>Parametryzacja przepływy danych
 

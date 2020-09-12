@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146780"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651250"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -110,7 +110,7 @@ Na przykład Uruchom konfiguracje, zobacz [Używanie elementu docelowego oblicze
 
 ### <a name="estimators"></a>Szacowania
 
-Aby ułatwić uczenie modeli przy użyciu popularnych struktur, Klasa szacowania umożliwia łatwe konstruowanie konfiguracji uruchomieniowych. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) do przesyłania skryptów szkoleniowych, które korzystają z wybranej platformy szkoleniowej (na przykład scikit-Learning).
+Aby ułatwić uczenie modeli przy użyciu popularnych struktur, Klasa szacowania umożliwia łatwe konstruowanie konfiguracji uruchomieniowych. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) do przesyłania skryptów szkoleniowych, które korzystają z wybranej platformy szkoleniowej (na przykład scikit-Learning).
 
 Aby uzyskać więcej informacji na temat szacowania, zobacz [uczenie modeli ml z szacowania](how-to-train-ml-models.md).
 
@@ -123,7 +123,9 @@ W przypadku przesyłania przebiegu Azure Machine Learning kompresuje katalog zaw
 
 ### <a name="logging"></a>Rejestrowanie
 
-Podczas opracowywania rozwiązania Użyj zestawu SDK języka Python Azure Machine Learning w skrypcie języka Python, aby rejestrować arbitralne metryki. Po uruchomieniu Zbadaj metryki, aby określić, czy przebieg został utworzony przez model, który chcesz wdrożyć.
+Azure Machine Learning automatycznie rejestruje metryki standardowego uruchamiania. Można jednak [użyć zestawu SDK języka Python do rejestrowania arbitralnych metryk](how-to-track-experiments.md).
+
+Istnieją różne sposoby wyświetlania dzienników: monitorowanie stanu przebiegu w czasie rzeczywistym lub wyświetlanie wyników po zakończeniu. Aby uzyskać więcej informacji, zobacz [monitorowanie i przeglądanie dzienników przebiegów ml](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Jeśli włączono automatyczne skalowanie, platforma Azure automatycznie skaluje
 
 Aby zapoznać się z przykładem wdrażania modelu jako usługi sieci Web, zobacz [Wdrażanie modelu klasyfikacji obrazów w Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
+#### <a name="real-time-endpoints"></a>Punkty końcowe w czasie rzeczywistym
+
+Po wdrożeniu przeszkolonego modelu w projektancie (wersja zapoznawcza) można [wdrożyć model jako punkt końcowy w czasie rzeczywistym](tutorial-designer-automobile-price-deploy.md). Punkt końcowy w czasie rzeczywistym często odbiera pojedyncze żądanie za pośrednictwem punktu końcowego REST i zwraca prognozę w czasie rzeczywistym. Jest to w przeciwieństwie do przetwarzania wsadowego, który przetwarza wiele wartości jednocześnie i zapisuje wyniki po zakończeniu do magazynu danych.
+
+#### <a name="pipeline-endpoints"></a>Punkty końcowe potoku
+
+Punkty końcowe potoku umożliwiają wywoływanie [potoków ml](#ml-pipelines) programowo za pośrednictwem punktu końcowego REST. Punkty końcowe potoku umożliwiają automatyzację przepływów pracy potoku.
+
+Punkt końcowy potoku to kolekcja opublikowanych potoków. Ta organizacja logiczna umożliwia zarządzanie wieloma potokami i wywoływanie ich przy użyciu tego samego punktu końcowego. Każdy opublikowany potok w punkcie końcowym potoku jest w wersji. Można wybrać domyślny potok dla punktu końcowego lub określić wersję w wywołaniu REST.
+ 
+
 #### <a name="iot-module-endpoints"></a>Punkty końcowe modułu IoT
 
 Wdrożony punkt końcowy modułu IoT to kontener platformy Docker, który obejmuje model i skojarzony skrypt lub aplikację oraz wszelkie dodatkowe zależności. Te moduły są wdrażane przy użyciu Azure IoT Edge na urządzeniach brzegowych.
@@ -212,12 +225,13 @@ Kroki potoku są wielokrotnego użytku i można je uruchomić bez ponownego uruc
 
 ### <a name="studio"></a>Studio
 
-Program [Azure Machine Learning Studio](https://ml.azure.com) udostępnia widok sieci Web wszystkich artefaktów w obszarze roboczym.  Możesz wyświetlić wyniki i szczegóły dotyczące zestawów danych, eksperymentów, potoków, modeli i punktów końcowych.  Można także zarządzać zasobami obliczeniowymi i magazynami danych w programie Studio.
+Program [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) udostępnia widok sieci Web wszystkich artefaktów w obszarze roboczym.  Możesz wyświetlić wyniki i szczegóły dotyczące zestawów danych, eksperymentów, potoków, modeli i punktów końcowych.  Można także zarządzać zasobami obliczeniowymi i magazynami danych w programie Studio.
 
-Studio jest również dostępne w celu uzyskania dostępu do interaktywnych narzędzi, które są częścią Azure Machine Learning:
+W programie Studio znajduje się również dostęp do interaktywnych narzędzi, które są częścią Azure Machine Learning:
 
 + [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) do wykonywania kroków przepływu pracy bez pisania kodu
 + Środowisko internetowe umożliwiające [Automatyczne Uczenie maszynowe](concept-automated-ml.md)
++ [Azure Machine Learning notesy](how-to-run-jupyter-notebooks.md) do pisania i uruchamiania własnego kodu na zintegrowanych serwerach Jupyter Notes.
 + Tworzenie [etykietowania danych](how-to-create-labeling-projects.md) w celu tworzenia i monitorowania projektów oraz zarządzania nimi w celu etykietowania danych
 
 ### <a name="programming-tools"></a>Narzędzia programistyczne
@@ -226,7 +240,7 @@ Studio jest również dostępne w celu uzyskania dostępu do interaktywnych narz
 > Narzędzia oznaczone poniżej (wersja zapoznawcza) są obecnie dostępne w publicznej wersji zapoznawczej.
 > Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (wersja zapoznawcza).
 + Użyj [interfejsu wiersza polecenia Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) do automatyzacji.
 + [Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
@@ -236,5 +250,5 @@ Studio jest również dostępne w celu uzyskania dostępu do interaktywnych narz
 Aby rozpocząć pracę z Azure Machine Learning, zobacz:
 
 * [Co to jest usługa Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md)
+* [Tworzenie obszaru roboczego usługi Azure Machine Learning](how-to-manage-workspace.md)
 * [Samouczek (część 1): uczenie modelu](tutorial-train-models-with-aml.md)

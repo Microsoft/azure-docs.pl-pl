@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/20/2020
-ms.openlocfilehash: 6455c186e05fc98b1ec340c152f9b3e5710f1dd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/06/2020
+ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087915"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505492"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Zarządzanie pakietami za pomocą magazynu pakietów Azure-SSIS Integration Runtime
 
@@ -57,7 +57,7 @@ Po nawiązaniu połączenia z Azure-SSIS IRą w programie SSMS możesz kliknąć
       > [!NOTE]
       > Importowanie pakietów usług SSIS do magazynów pakietów Azure-SSIS IR można wykonać tylko jeden raz, a po prostu skopiują je do bazowego systemu lub Azure Files system plików, a jednocześnie zachowując zachowaną wersję SQL Server/SSIS. 
       >
-      > Ponieważ Azure-SSIS IR obecnie ma domyślny poziom zgodności 140, który jest równy **SQL Server 2017**, wykonywanie na nim pakietów z niższymi wersjami zostanie uaktualnione do pakietów SSIS 2017 w czasie wykonywania. Wykonywanie pakietów o wyższej wersji nie jest obsługiwane.
+      > Ponieważ Azure-SSIS IR jest obecnie oparta na **SQL Server 2017**, wykonywanie na niej pakietów z niższymi wersjami zostanie uaktualnione do pakietów SSIS 2017 w czasie wykonywania. Wykonywanie pakietów o wyższej wersji nie jest obsługiwane.
       >
       > Ponadto ze względu na to, że starsze magazyny pakietów SSIS są powiązane z konkretną SQL Server wersją i są dostępne tylko w programie SSMS dla tej wersji, pakiety o niższych wersjach w starszych magazynach pakietów SSIS muszą zostać wyeksportowane do systemu plików przy użyciu wyoznaczonej wersji programu SSMS przed ich zaimportowaniem do Azure-SSIS IR magazynów pakietów przy użyciu programu SSMS 2019 lub nowszego
       >
@@ -72,7 +72,7 @@ Po nawiązaniu połączenia z Azure-SSIS IRą w programie SSMS możesz kliknąć
       > [!NOTE]
       > Eksportowanie pakietów SSIS z Azure-SSIS IR magazynów pakietów może odbywać się tylko jeden raz i nie przełączając ich poziomu ochrony, po prostu skopiują je przy zachowaniu ich wersji SQL Server/SSIS. w przeciwnym razie uaktualnienie zostanie uaktualnione do pakietów SSIS 2019 lub nowszych wersji.
       >
-      > Ponieważ Azure-SSIS IR obecnie ma domyślny poziom zgodności 140, który jest równy **SQL Server 2017**, wykonywanie na nim pakietów z niższymi wersjami zostanie uaktualnione do pakietów SSIS 2017 w czasie wykonywania. Wykonywanie pakietów o wyższej wersji nie jest obsługiwane.
+      > Ponieważ Azure-SSIS IR jest obecnie oparta na **SQL Server 2017**, wykonywanie na niej pakietów z niższymi wersjami zostanie uaktualnione do pakietów SSIS 2017 w czasie wykonywania. Wykonywanie pakietów o wyższej wersji nie jest obsługiwane.
       >
       > Alternatywnie, aby wyeksportować wiele pakietów usług SSIS z Azure-SSIS IR magazynów pakietów podczas przełączania ich poziomu ochrony, można użyć narzędzia wiersza polecenia [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) , aby zapoznać się z tematem [wdrażanie wielu pakietów z dtutil](#deploying-multiple-packages-with-dtutil).
 
@@ -88,7 +88,7 @@ Po nawiązaniu połączenia z Azure-SSIS IR w programie SSMS kliknij prawym przy
 
 ![Narzędzie do wykonywania pakietów stronach 3 & 4](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
 
-Strony **Ogólne**, **konfiguracje**, **Opcje wykonywania**i **rejestrowania** okna dialogowego **Narzędzie do wykonywania pakietów** odpowiadają karcie **Ustawienia** w ramach działania wykonaj pakiet SSIS. Na tych stronach można wprowadzić hasło szyfrowania dla pakietu i informacje o dostępie do pliku konfiguracji pakietu. Możesz również wprowadzić poświadczenia i właściwości wykonania pakietu, a także informacje o dostępie do folderu dziennika.  Strona **Ustawianie wartości** okna dialogowego **Narzędzie do wykonywania pakietów** odpowiada karcie **zastąpień właściwości** wykonywania pakietu SSIS, w której można wprowadzić istniejące właściwości pakietu do przesłonięcia. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS jako działania pakietu SSIS w potokach ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Strony **Ogólne**, **konfiguracje**, **Opcje wykonywania**i **rejestrowania** okna dialogowego **Narzędzie do wykonywania pakietów** odpowiadają karcie  **Ustawienia** w ramach działania wykonaj pakiet SSIS. Na tych stronach można wprowadzić hasło szyfrowania dla pakietu i informacje o dostępie do pliku konfiguracji pakietu. Możesz również wprowadzić poświadczenia i właściwości wykonania pakietu, a także informacje o dostępie do folderu dziennika.  Strona **Ustawianie wartości** okna dialogowego **Narzędzie do wykonywania pakietów** odpowiada karcie **zastąpień właściwości** wykonywania pakietu SSIS, w której można wprowadzić istniejące właściwości pakietu do przesłonięcia. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS jako działania pakietu SSIS w potokach ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 Po wybraniu przycisku **Wykonaj** nowy potok ADF z działaniem pakiet SSIS zostanie automatycznie wygenerowany i wyzwolony. Jeśli potok ADF z tymi samymi ustawieniami już istnieje, zostanie ponownie uruchomiony i nie zostanie wygenerowany nowy potok. Działanie potoku APD i Uruchom pakiet SSIS zostanie odpowiednio nazwane `Pipeline_SSMS_YourPackageName_HashString` i `Activity_SSMS_YourPackageName` .
 
@@ -124,7 +124,7 @@ Aby przekształcić & przeciągać lokalne obciążenia usług SSIS na usługi S
 
 Aby wdrożyć wiele pakietów w partiach, można użyć narzędzia wiersza polecenia [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) , które jest dostarczane z instalacją SQL Server/SSIS. Jest ona powiązana z konkretną wersją usług SSIS, więc jeśli używasz jej do wdrażania pakietów o niższych wersjach bez przełączania ich poziomu ochrony, zostanie ona po prostu skopiowana z zachowaniem ich wersji usług SSIS. Jeśli użyjesz go do wdrożenia i przełączenia ich poziomu ochrony w tym samym czasie, spowoduje to uaktualnienie ich do wersji usług SSIS.
 
- Ponieważ Azure-SSIS IR obecnie ma domyślny poziom zgodności 140, który jest równy **SQL Server 2017**, wykonywanie na nim pakietów z niższymi wersjami zostanie uaktualnione do pakietów SSIS 2017 w czasie wykonywania. Wykonywanie pakietów o wyższej wersji nie jest obsługiwane.
+ Ponieważ Azure-SSIS IR jest obecnie oparta na **SQL Server 2017**, wykonywanie na niej pakietów z niższymi wersjami zostanie uaktualnione do pakietów SSIS 2017 w czasie wykonywania. Wykonywanie pakietów o wyższej wersji nie jest obsługiwane.
 
 W związku z tym, aby uniknąć uaktualnień w czasie wykonywania, wdrażanie pakietów do uruchamiania na Azure-SSIS IR w modelu wdrażania pakietów powinno być dtutil 2017, które są dostarczane z instalacją SQL Server/SSIS 2017. W tym celu możesz pobrać i zainstalować bezpłatnie [SQL Server/SSIS 2017 Developer Edition](https://go.microsoft.com/fwlink/?linkid=853016) . Po zainstalowaniu programu można znaleźć dtutil 2017 w tym folderze: `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn` .
 

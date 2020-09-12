@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815831"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505526"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Co to jest Azure Cosmos DB magazyn analityczny (wersja zapoznawcza)?
 
@@ -155,10 +155,15 @@ Analityczny czas wygaśnięcia dla kontenera jest ustawiany przy użyciu `Analyt
 * Jeśli jest obecny, a wartość jest równa liczbie dodatniej "n": elementy wygaśnie z magazynu analitycznego "n" s po ostatniej modyfikacji w magazynie transakcyjnym. Tego ustawienia można użyć, jeśli chcesz przechowywać dane operacyjne przez ograniczony czas w magazynie analitycznym, niezależnie od przechowywania danych w magazynie transakcyjnym.
 
 Oto niektóre ważne kwestie:
-*   Gdy magazyn analityczny jest włączony z wartością analityczną TTL, można go później zaktualizować do innej prawidłowej wartości. 
-*   Gdy transakcyjny czas wygaśnięcia można ustawić na poziomie kontenera lub elementu, analityczny czas TTL można ustawić tylko na poziomie kontenera.
-*   Możesz uzyskać więcej przechowywania danych operacyjnych w magazynie analitycznym, ustawiając wartości w polu analityczny czas wygaśnięcia >= transakcyjna wartość czasu wygaśnięcia na poziomie kontenera.
-*   Magazyn analityczny może być tworzony w celu dublowania magazynu transakcyjnego przez ustawienie wartości czas wygaśnięcia (TTL).
+*   Po włączeniu magazynu analitycznego za pomocą wartości analitycznej TTL można ją zaktualizować do innej prawidłowej wartości później 
+*   Gdy transakcyjny czas wygaśnięcia można ustawić na poziomie kontenera lub elementu, analityczny czas TTL można ustawić tylko na poziomie kontenera
+*   Możesz uzyskać dłuższe przechowywanie danych operacyjnych w magazynie analitycznym, ustawiając wartości w polu analityczny czas wygaśnięcia >= transakcyjna wartość czasu wygaśnięcia na poziomie kontenera
+*   Magazyn analityczny może być tworzony w celu dublowania magazynu transakcyjnego przez ustawienie wartości czasowej TTL = transakcyjna wartość czasu wygaśnięcia
+
+Po włączeniu sklepu anaytical w kontenerze:
+ * przy użyciu witryny Azure Portal analityczny czas wygaśnięcia jest ustawiany na wartość domyślną-1. Można zmienić tę wartość na "n" s, przechodząc do pozycji Ustawienia kontenera w obszarze Eksplorator danych. 
+ 
+ * przy użyciu zestawu Azure SDK lub programu PowerShell lub interfejsu wiersza polecenia można włączyć analityczny czas wygaśnięcia, ustawiając dla niego wartość-1 lub "n". 
 
 Aby dowiedzieć się więcej, zobacz [jak skonfigurować analityczny czas wygaśnięcia dla kontenera](configure-synapse-link.md#create-analytical-ttl).
 

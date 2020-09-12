@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.openlocfilehash: b50922d129fb4c72db1d6077a49c4d1309d5fe55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4a7f1453ec686cfa16d260101ba81f429ce1da0
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512983"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469460"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Przewodnik Szybki Start dla programu PowerShell w programie Azure Cloud Shell
 
@@ -29,7 +29,7 @@ W tym dokumencie szczegółowo przedstawiono sposób użycia programu PowerShell
 
    ![Zrzut ekranu przedstawiający sposób uruchamiania Azure Cloud Shell z Azure Portal.](media/quickstart-powershell/shell-icon.png)
 
-2. Wybierz środowisko PowerShell z listy rozwijanej, a ty będziesz na dysku platformy Azure`(Azure:)`
+2. Wybierz środowisko PowerShell z listy rozwijanej, a ty będziesz na dysku platformy Azure `(Azure:)`
 
    ![Zrzut ekranu przedstawiający sposób wybierania środowiska programu PowerShell dla Azure Cloud Shell.](media/quickstart-powershell/environment-ps.png)
 
@@ -61,7 +61,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd`na preferowaną subskrypcję
+ 2. `cd` na preferowaną subskrypcję
 
     ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName
@@ -252,7 +252,7 @@ mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   We
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
 ```
 
-## <a name="ssh"></a>SSH
+## <a name="ssh"></a>Protokół SSH
 
 Aby przeprowadzić uwierzytelnianie na serwerach lub maszynach wirtualnych przy użyciu protokołu SSH, należy wygenerować parę kluczy publiczny-prywatny w Cloud Shell i opublikować klucz publiczny na `authorized_keys` komputerze zdalnym, na przykład `/home/user/.ssh/authorized_keys` .
 
@@ -261,7 +261,7 @@ Aby przeprowadzić uwierzytelnianie na serwerach lub maszynach wirtualnych przy 
 
 ### <a name="using-ssh"></a>Korzystanie z protokołu SSH
 
-Postępuj zgodnie z instrukcjami [tutaj](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) , aby utworzyć nową konfigurację maszyny wirtualnej za pomocą poleceń cmdlet Azure PowerShell.
+Postępuj zgodnie z instrukcjami [tutaj](../virtual-machines/linux/quick-create-powershell.md) , aby utworzyć nową konfigurację maszyny wirtualnej za pomocą poleceń cmdlet Azure PowerShell.
 Przed wywołaniem programu w `New-AzVM` celu rozpoczęcia wdrażania należy dodać klucz publiczny SSH do konfiguracji maszyny wirtualnej.
 Nowo utworzona maszyna wirtualna będzie zawierać klucz publiczny w `~\.ssh\authorized_keys` lokalizacji, umożliwiając w ten sposób włączenie sesji SSH bez poświadczeń do maszyny wirtualnej.
 
@@ -345,6 +345,6 @@ Wpisz, `exit` Aby przerwać sesję.
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
 [customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
-[profile]: https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
-[azmount]: https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows
+[profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

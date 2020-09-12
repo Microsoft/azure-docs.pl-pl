@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec3fb8609612f3920e330da7922fdd1eb8883305
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080798"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459780"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Chronienie aplikacji internetowych i interfejsów API w usłudze Azure App Service
 
@@ -32,7 +32,7 @@ Po włączeniu planu App Service Security Center ocenia zasoby objęte planem Ap
 Security Center wykorzystuje skalę chmury oraz widoczność, którą platforma Azure ma jako dostawcę chmury, aby monitorować typowe ataki aplikacji sieci Web. Security Center mogą wykrywać ataki w aplikacjach i identyfikować ataki, nawet gdy osoby atakujące znajdują się w fazie rekonesansego skanowania w celu identyfikowania luk w zabezpieczeniach w wielu aplikacjach hostowanych przez platformę Azure. Jako usługa natywna platformy Azure Security Center jest również w unikatowym miejscu, aby oferować analizę zabezpieczeń opartą na hoście obejmującą bazowe węzły obliczeniowe dla tego PaaS, umożliwiając Security Center wykrywające ataki na aplikacje sieci Web, które zostały już wykorzystane. Aby uzyskać więcej informacji, zobacz [Ochrona przed zagrożeniami dla Azure App Service](threat-protection.md#app-services).
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>Włączanie monitorowania i ochrony App Service
+## <a name="enable-monitoring-and-protection-of-app-service"></a>Włącz monitorowanie i ochronę App Service
 
 1. W Azure Portal wybierz pozycję Security Center.
 2. Przejdź do pozycji **cennik & ustawienia** i wybierz subskrypcję.
@@ -57,11 +57,11 @@ Aby wyłączyć monitorowanie i zalecenia dotyczące App Service, Powtórz ten p
 
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłudze Azure Security Center. Aby dowiedzieć się więcej na temat Azure Security Center, zobacz następujące artykuły:
 
 * [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](tutorial-security-policy.md) — informacje na temat konfigurowania ustawień zabezpieczeń w usłudze Azure Security Center.
 * [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi.
 * [App Services](security-center-virtual-machine-protection.md#app-services): Wyświetl listę środowisk usługi App Service za pomocą podsumowań kondycji.
 * [Monitorowanie rozwiązań partnerskich w usłudze Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
-* [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.
+* [Blog Azure Security](https://docs.microsoft.com/archive/blogs/azuresecurity/) — wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.

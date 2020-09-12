@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: wymagania dotyczące translatora adresów sieciowych'
 description: Ta strona zawiera szczegółowe wymagania dotyczące konfigurowania translatora adresów sieciowych oraz zarządzania nim na potrzeby obwodów usługi ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: a2c322c765d39a3afe4974ed88bf4dc18fd467a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521925"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569649"
 ---
 # <a name="expressroute-nat-requirements"></a>Wymagania dotyczące translatora adresów sieciowych w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, należy skonfigurować translatory adresów sieciowych oraz zarządzać nimi. Niektórzy dostawcy połączenia oferują konfigurowanie translatora adresów sieciowych oraz zarządzanie nim jako usługę zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej. 
@@ -20,7 +20,7 @@ Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi 
 Przejrzyj stronę [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (Obwody i domeny routingu usługi ExpressRoute), która zawiera omówienie różnych domen routingu. Aby spełnić wymagania dotyczące publicznego adresu IP dla publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft, warto skonfigurować translator adresów sieciowych między siecią a firmą Microsoft. W tej sekcji przedstawiono szczegółowy opis infrastruktury translatora adresów sieciowych, którego należy skonfigurować.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Wymagania dotyczące translatora adresów sieciowych dla komunikacji równorzędnej firmy Microsoft
-Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft, które nie są obsługiwane przez ścieżkę publicznej komunikacji równorzędnej Azure. Lista usług obejmuje usługi Office 365, takie jak Exchange Online, SharePoint Online i Skype dla firm. Firma Microsoft planuje obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany usług w chmurze firmy Microsoft musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Ruch skierowany do Twojej sieci z usług w chmurze firmy Microsoft należy przetworzyć na granicy Internetu, aby zapobiec [routingowi asymetrycznemu](expressroute-asymmetric-routing.md). Poniższy rysunek przedstawia ogólny obraz sposobu konfigurowania translatora adresów sieciowych dla komunikacji równorzędnej firmy Microsoft.
+Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft, które nie są obsługiwane przez ścieżkę publicznej komunikacji równorzędnej Azure. Lista usług zawiera Microsoft 365 usług, takich jak Exchange Online, SharePoint Online i Skype dla firm. Firma Microsoft planuje obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany usług w chmurze firmy Microsoft musi zostać podłączony do funkcji SNAT i uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft. Ruch skierowany do Twojej sieci z usług w chmurze firmy Microsoft należy przetworzyć na granicy Internetu, aby zapobiec [routingowi asymetrycznemu](expressroute-asymmetric-routing.md). Poniższy rysunek przedstawia ogólny obraz sposobu konfigurowania translatora adresów sieciowych dla komunikacji równorzędnej firmy Microsoft.
 
 ![Diagram wysokiego poziomu, w jaki sposób należy skonfigurować translator adresów sieciowych dla komunikacji równorzędnej firmy Microsoft.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -34,7 +34,7 @@ Przejrzyj stronę [ExpressRoute circuits and routing domains](expressroute-circu
   > 
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Ruch pochodzący z firmy Microsoft skierowany do sieci
-* Niektóre scenariusze wymagają od firmy Microsoft zainicjowania połączenia z punktami końcowymi usługi obsługiwanymi w ramach sieci użytkownika. Typowym przykładem takiego scenariusza jest łączność z serwerami usług AD FS obsługiwanymi w sieci użytkownika z poziomu usługi Office 365. W takich przypadkach należy przefiltrować odpowiednie prefiksy z sieci użytkownika do komunikacji równorzędnej firmy Microsoft. 
+* Niektóre scenariusze wymagają od firmy Microsoft zainicjowania połączenia z punktami końcowymi usługi obsługiwanymi w ramach sieci użytkownika. Typowym przykładem tego scenariusza jest łączność z serwerami usług ADFS hostowanymi w sieci z Microsoft 365. W takich przypadkach należy przefiltrować odpowiednie prefiksy z sieci użytkownika do komunikacji równorzędnej firmy Microsoft. 
 * Należy użyć funkcji SNAT względem ruchu z firmy Microsoft na granicy Internetu w punktach końcowych usługi w Twojej sieci, aby zapobiec [routingowi asymetrycznemu](expressroute-asymmetric-routing.md). Żądania **i odpowiedzi** z docelowym adresem IP zgodne z trasą odebraną za pomocą usługi ExpressRoute będą zawsze wysyłane przy użyciu usługi ExpressRoute. Routing asymetryczny występuje w przypadku odebrania żądania przez Internet z odpowiedzią wysłaną za pomocą usługi ExpressRoute. Użycie funkcji SNAT względem ruchu przychodzącego z firmy Microsoft na granicy Internetu wymusza zwrócenie ruchu odpowiedzi do granicy Internetu, co rozwiązuje problem.
 
 ![Routing asymetryczny przy użyciu usługi ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)

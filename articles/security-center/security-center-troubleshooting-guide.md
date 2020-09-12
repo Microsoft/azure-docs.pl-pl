@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836009"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462398"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z usługą Azure Security Center
 
@@ -29,7 +29,7 @@ Typy alertów:
 
 * Analiza zachowania maszyny wirtualnej (VMBA)
 * Analiza sieci
-* Analiza bazy danych SQL Database i magazynu SQL Data Warehouse
+* Analiza usług SQL Database i Azure Synapse Analytics (dawniej SQL Data Warehouse)
 * Informacje kontekstowe
 
 W zależności od typów alertów klienci mogą zebrać informacje niezbędne do zbadania alertu przy użyciu następujących zasobów:
@@ -151,4 +151,4 @@ W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabe
 * [Funkcje wykrywania usługi Azure Security Center](security-center-detection-capabilities.md)
 * [Monitorowanie rozwiązań partnerskich za pomocą Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
 * [Azure Security Center często zadawane](faq-general.md) pytania — Znajdź często zadawane pytania dotyczące korzystania z usługi
-* [Blog dotyczący zabezpieczeń platformy Azure](https://blogs.msdn.com/b/azuresecurity/) — wpisy w blogu dotyczące zabezpieczeń i zgodności platformy Azure
+* [Blog dotyczący zabezpieczeń platformy Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) — wpisy w blogu dotyczące zabezpieczeń i zgodności platformy Azure

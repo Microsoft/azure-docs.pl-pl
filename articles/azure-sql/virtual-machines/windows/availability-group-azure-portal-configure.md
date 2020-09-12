@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 46e2563b0d1c26c984616b523a367c8b2cff7aaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038573"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482803"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Konfigurowanie grupy dostępności dla SQL Server na maszynie wirtualnej platformy Azure (Azure Portal — wersja zapoznawcza)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,9 +74,14 @@ Jeśli nie masz jeszcze istniejącego klastra, utwórz go przy użyciu Azure Por
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Podaj poświadczenia dla konta usługi SQL, konta operatora klastra i konta Bootstrap klastra":::
 
 1. Wybierz Maszyny wirtualne SQL Server, które chcesz dodać do klastra. Zwróć uwagę, czy jest wymagane ponowne uruchomienie komputera, i postępuj zgodnie z przestrogą. Widoczne są tylko maszyny wirtualne zarejestrowane przy użyciu dostawcy zasobów maszyny wirtualnej SQL w trybie pełnego zarządzania i znajdują się w tej samej lokalizacji, domenie i w tej samej sieci wirtualnej co podstawowa SQL Server maszyny wirtualnej. 
-1. Wybierz pozycję **Zastosuj** , aby utworzyć klaster. 
+1. Wybierz pozycję **Zastosuj** , aby utworzyć klaster. Stan wdrożenia można sprawdzić w **dzienniku aktywności** , który jest dostępny z ikony dzwonka na górnym pasku nawigacyjnym. 
+1. Aby klaster trybu failover był obsługiwany przez firmę Microsoft, musi on przejść w celu sprawdzenia poprawności klastra. Połącz się z maszyną wirtualną przy użyciu preferowanej metody (takiej jak Remote Desktop Protocol (RDP)) i sprawdź, czy klaster przeszedł sprawdzanie poprawności przed dalszym kontynuowaniem. Niewykonanie tej czynności spowoduje pozostawienie klastra w nieobsługiwanym stanie. Można sprawdzić poprawność klastra przy użyciu Menedżer klastra trybu failover (FCM) lub następującego polecenia programu PowerShell:
 
-Stan wdrożenia można sprawdzić w **dzienniku aktywności** , który jest dostępny z ikony dzwonka na górnym pasku nawigacyjnym. 
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
+    
+
 
 ### <a name="onboard-existing-cluster"></a>Dołącz istniejący klaster
 
@@ -93,6 +98,8 @@ Aby to zrobić, wykonaj następujące kroki:
 
 1. Sprawdź ustawienia klastra. 
 1. Wybierz pozycję **Zastosuj** , aby dołączyć klaster, a następnie wybierz pozycję **tak** w wierszu polecenia, aby wykonać operację.
+
+
 
 
 ## <a name="create-availability-group"></a>Utwórz grupę dostępności
@@ -261,7 +268,7 @@ Oznacza to, że dostawca zasobów nie mógł uzyskać dostępu do usługi SQL Se
 - Sprawdź poprawność poświadczeń podanych w portalu, które pasują do tych usługi SQL Server. 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 
 Aby uzyskać więcej informacji na temat grup dostępności, zobacz:

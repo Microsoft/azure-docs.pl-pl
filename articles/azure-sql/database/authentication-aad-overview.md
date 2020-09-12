@@ -11,23 +11,23 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
-ms.openlocfilehash: e1f97b1a29681a65cddf3a5904020555e903fe63
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984779"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434286"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Użyj uwierzytelniania Azure Active Directory
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Uwierzytelnianie Azure Active Directory (Azure AD) jest mechanizmem do łączenia się z [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [analizą usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) za pomocą tożsamości w usłudze Azure AD.
+Uwierzytelnianie Azure Active Directory (Azure AD) jest mechanizmem do łączenia się z [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)i [analizą usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) za pomocą tożsamości w usłudze Azure AD.
 
 > [!NOTE]
 > Ten artykuł ma zastosowanie do Azure SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics.
 
-W przypadku uwierzytelniania usługi Azure AD można centralnie zarządzać tożsamościami użytkowników bazy danych oraz innymi usługami firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie tożsamościami oznacza jedną lokalizację do zarządzania użytkownikami bazy danych i prostsze zarządzanie uprawnieniami. Oto przykładowe korzyści:
+Korzystając z uwierzytelniania za pomocą usługi Azure AD, możesz zarządzać tożsamościami użytkowników bazy danych oraz innych usług firmy Microsoft w jednej centralnej lokalizacji. Centralne zarządzanie tożsamościami oznacza jedną lokalizację do zarządzania użytkownikami bazy danych i prostsze zarządzanie uprawnieniami. Oto przykładowe korzyści:
 
 - Stanowi alternatywę dla SQL Server uwierzytelniania.
 - Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników między serwerami.
@@ -168,7 +168,7 @@ Następujące metody uwierzytelniania są obsługiwane dla podmiotów zabezpiecz
 - Aby zapoznać się z omówieniem nazw logowania, użytkowników, ról bazy danych i uprawnień w SQL Database, zobacz [logowania, użytkowników, role bazy danych i uprawnienia](logins-create-manage.md).
 - Aby uzyskać więcej informacji na temat podmiotów zabezpieczeń bazy danych, zobacz [Principals](https://msdn.microsoft.com/library/ms181127.aspx) (Podmioty zabezpieczeń).
 - Aby uzyskać więcej informacji na temat ról bazy danych, zobacz [Database roles](https://msdn.microsoft.com/library/ms189121.aspx) (Role bazy danych).
-- Aby zapoznać się ze składnią tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania) dla wystąpienia zarządzanego SQL, zobacz [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Aby zapoznać się ze składnią tworzenia podmiotów zabezpieczeń serwera usługi Azure AD (logowania) dla wystąpienia zarządzanego SQL, zobacz  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Aby uzyskać więcej informacji na temat reguł zapory w usłudze SQL Database, zobacz [Omówienie reguł zapory usługi SQL Database](firewall-configure.md).
 
 <!--Image references-->

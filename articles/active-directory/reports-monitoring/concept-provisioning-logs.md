@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229875"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469868"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Raporty dotyczące aprowizacji w portalu Azure Active Directory (wersja zapoznawcza)
 
@@ -41,7 +41,7 @@ Ten temat zawiera omówienie raportu aprowizacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-### <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
+### <a name="who-can-access-the-data"></a>Kto może uzyskać dostęp do danych?
 * Użytkownicy w rolach administrator zabezpieczeń, czytelnik zabezpieczeń, czytelnik raportu, administrator aplikacji i administrator aplikacji w chmurze
 * Administratorzy globalni
 
@@ -85,7 +85,7 @@ Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są j
 
 Wybierz element w widoku listy, aby uzyskać bardziej szczegółowe informacje.
 
-![Szczegółowe informacje](./media/concept-provisioning-logs/steps.png "Filtr")
+![Szczegółowe informacje](./media/concept-provisioning-logs/steps.png "Zostaną przefiltrowane")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrowanie działań aprowizacji
@@ -94,12 +94,12 @@ Możesz filtrować dane aprowizacji. Niektóre wartości filtru są dynamicznie 
 W widoku domyślnym można wybrać następujące filtry:
 
 - Tożsamość
-- Date
+- Data
 - Stan
 - Akcja
 
 
-![Filtr](./media/concept-provisioning-logs/default-filter.png "Filtr")
+![Dodaj filtry](./media/concept-provisioning-logs/default-filter.png "Zostaną przefiltrowane")
 
 Filtr **tożsamości** umożliwia określenie nazwy lub tożsamości, o której Cię interesują. Ta tożsamość może być użytkownikiem, grupą, rolą lub innym obiektem. Można wyszukiwać według nazwy lub identyfikatora obiektu. Identyfikator różni się w zależności od scenariusza. Na przykład podczas aprowizacji obiektu z usługi Azure AD do usług SalesForce identyfikator źródłowy jest IDENTYFIKATORem obiektu użytkownika w usłudze Azure AD, a TargetID jest IDENTYFIKATORem użytkownika w usłudze Salesforce. Po zainicjowaniu obsługi administracyjnej od dnia roboczego do Active Directory identyfikator źródła to identyfikator pracownika procesu roboczego programu Workday. Należy zauważyć, że nazwa użytkownika może nie zawsze występować w kolumnie tożsamość. Zawsze będzie istnieć jeden identyfikator. 
 
@@ -175,7 +175,7 @@ Szczegóły są pogrupowane w oparciu o następujące kategorie:
 - Podsumowanie
 
 
-![Filtr](./media/concept-provisioning-logs/provisioning-tabs.png "Karty")
+![Szczegóły aprowizacji](./media/concept-provisioning-logs/provisioning-tabs.png "Karty")
 
 
 
@@ -190,7 +190,7 @@ Na karcie **kroki** przedstawiono kroki, które należy wykonać w celu aprowiza
 
 
 
-![Filtr](./media/concept-provisioning-logs/steps.png "Filtr")
+![Kroki](./media/concept-provisioning-logs/steps.png "Zostaną przefiltrowane")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Rozwiązywanie problemów i zalecenia
@@ -214,11 +214,13 @@ Karta **Podsumowanie** zawiera przegląd informacji o tym, co się stało i iden
 
 - Można użyć atrybutu identyfikatora zmiany jako unikatowego identyfikatora. Jest to przydatne na przykład podczas współdziałania z pomocą techniczną produktu.
 
-- Obecnie nie ma możliwości pobrania danych aprowizacji.
+- Obecnie nie ma możliwości pobrania danych aprowizacji jako pliku CSV, ale dane można eksportować przy użyciu [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - Obecnie nie ma obsługi usługi log Analytics.
 
 - W przypadku użytkowników, którzy nie znajdują się w zakresie, mogą zostać wyświetlone pominięte zdarzenia. Jest to oczekiwane, szczególnie w przypadku, gdy zakres synchronizacji jest ustawiony na wszystkich użytkowników i grupy. Nasza usługa oceni wszystkie obiekty w dzierżawie, nawet te, które znajdują się poza zakresem. 
+
+- Dzienniki aprowizacji są obecnie niedostępne w chmurze dla instytucji rządowych. Jeśli nie możesz uzyskać dostępu do dzienników aprowizacji, użyj dzienników inspekcji jako tymczasowego obejścia.  
 
 ## <a name="error-codes"></a>Kody błędów
 
@@ -244,6 +246,7 @@ Skorzystaj z poniższej tabeli, aby lepiej zrozumieć, jak rozwiązywać błędy
 |DuplicateSourceEntries | Nie można ukończyć operacji, ponieważ znaleziono więcej niż jednego użytkownika ze skonfigurowanymi pasującymi atrybutami. Usuń zduplikowanego użytkownika lub Zmień konfigurację mapowań atrybutów zgodnie z opisem w [tym miejscu](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Podczas oceniania każdego użytkownika podjęto próbę zaimportowania użytkownika z systemu źródłowego. Ten błąd występuje często, gdy importowany użytkownik nie ma pasującej właściwości zdefiniowanej w mapowaniu atrybutów. Bez wartości znajdującej się w obiekcie użytkownika dla pasującego atrybutu nie można obliczyć zakresu, dopasowywania ani eksportowania zmian. Należy zauważyć, że obecność tego błędu nie wskazuje, że użytkownik należy do zakresu, ponieważ nie oceniamy jeszcze zakresu dla użytkownika.|
 |EntrySynchronizationSkipped | Usługa aprowizacji pomyślnie zbadał system źródłowy i zidentyfikował użytkownika. Nie wykonano żadnych dalszych akcji dla użytkownika i zostały one pominięte. Pominięcie mogą być spowodowane brakiem zakresu lub użytkownikiem już istniejącym w systemie docelowym bez konieczności wprowadzania dalszych zmian.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Podczas wykonywania żądania GET w celu pobrania użytkownika lub grupy w odpowiedzi otrzymano wielu użytkowników lub grupy. Oczekujemy, że w odpowiedzi otrzymasz tylko jednego użytkownika lub grupę. Jeśli [na przykład](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)wyślemy żądanie pobrania grupy i udostępnienia filtru do wykluczania elementów członkowskich, a punkt końcowy Standard scim zwraca członków, zgłosi ten błąd.|
 
 ## <a name="next-steps"></a>Następne kroki
 

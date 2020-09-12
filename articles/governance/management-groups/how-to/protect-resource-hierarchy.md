@@ -1,14 +1,14 @@
 ---
 title: Jak chronić hierarchię zasobów — zarządzanie platformą Azure
 description: Dowiedz się, jak chronić hierarchię zasobów przy użyciu ustawień hierarchii, które obejmują ustawienie domyślnej grupy zarządzania.
-ms.date: 08/10/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056622"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469783"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Jak chronić hierarchię zasobów
 
@@ -31,7 +31,26 @@ Domyślnie Nowa subskrypcja dodana w ramach dzierżawy jest dodawana jako człon
 
 Zezwalając na zdefiniowanie domyślnej grupy zarządzania dla nowych subskrypcji, można zastosować konstrukcje ładu dla całej organizacji w głównej grupie zarządzania, a także oddzielną grupę zarządzania z przypisaniami zasad lub przypisaniami ról platformy Azure bardziej przystosowanymi do nowej subskrypcji.
 
-Aby skonfigurować to ustawienie, zostanie wywołany punkt końcowy interfejsu API REST [ustawień hierarchii](/rest/api/resources/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Zastąp ciąg `{rootMgID}` identyfikatorem głównej grupy zarządzania i `{defaultGroupID}` identyfikatorem grupy zarządzania, aby stał się domyślną grupą zarządzania:
+### <a name="set-default-management-group-in-portal"></a>Ustaw domyślną grupę zarządzania w portalu
+
+Aby skonfigurować to ustawienie w Azure Portal, wykonaj następujące kroki:
+
+1. Użyj paska wyszukiwania, aby wyszukać i wybrać pozycję "grupy zarządzania".
+
+1. W głównej grupie zarządzania wybierz pozycję **szczegóły** obok nazwy grupy zarządzania.
+
+1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia hierarchii**.
+
+1. Wybierz przycisk **Zmień domyślną grupę zarządzania** .
+
+   > [!NOTE]
+   > Jeśli przycisk **Zmień domyślną grupę** zarządzania jest wyłączony, wyświetlana grupa zarządzania nie jest główną grupą zarządzania lub podmiot zabezpieczeń nie ma wystarczających uprawnień, aby zmienić ustawienia hierarchii.
+
+1. Wybierz grupę zarządzania z hierarchii i użyj przycisku **Wybierz** .
+
+### <a name="set-default-management-group-with-rest-api"></a>Ustawianie domyślnej grupy zarządzania za pomocą interfejsu API REST
+
+Aby skonfigurować to ustawienie za pomocą interfejsu API REST, zostanie wywołany punkt końcowy [ustawień hierarchii](/rest/api/resources/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Zastąp ciąg `{rootMgID}` identyfikatorem głównej grupy zarządzania i `{defaultGroupID}` identyfikatorem grupy zarządzania, aby stał się domyślną grupą zarządzania:
 
 - Identyfikator URI interfejsu API REST
 
@@ -55,7 +74,24 @@ Aby ustawić domyślną grupę zarządzania z powrotem do głównej grupy zarzą
 
 Wszyscy użytkownicy domyślnie mogą tworzyć nowe grupy zarządzania w ramach dzierżawy. Administratorzy dzierżawy mogą chcieć udzielić tych uprawnień tylko określonym użytkownikom, aby zachować spójność i zgodność w hierarchii grupy zarządzania. Jeśli ta funkcja jest włączona, użytkownik musi wykonać `Microsoft.Management/managementGroups/write` operację w głównej grupie zarządzania, aby utworzyć nowe podrzędne grupy zarządzania.
 
-Aby skonfigurować to ustawienie, zostanie wywołany punkt końcowy interfejsu API REST [ustawień hierarchii](/rest/api/resources/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Ta wartość jest wartością _logiczną_, dlatego dla wartości należy podać wartość **true** lub **false** . Wartość **true** włącza tę metodę ochrony hierarchii grup zarządzania:
+### <a name="set-require-authorization-in-portal"></a>Ustawianie opcji Wymagaj autoryzacji w portalu
+
+Aby skonfigurować to ustawienie w Azure Portal, wykonaj następujące kroki:
+
+1. Użyj paska wyszukiwania, aby wyszukać i wybrać pozycję "grupy zarządzania".
+
+1. W głównej grupie zarządzania wybierz pozycję **szczegóły** obok nazwy grupy zarządzania.
+
+1. W obszarze **Ustawienia**wybierz pozycję **Ustawienia hierarchii**.
+
+1. Przełącz **uprawnienia wymagane do tworzenia nowych grup zarządzania.** opcja włączona.
+
+   > [!NOTE]
+   > Jeśli **wymagane są uprawnienia do tworzenia nowych grup zarządzania.** przełącznik jest wyłączony. wyświetlana grupa zarządzania nie jest główną grupą zarządzania lub podmiot zabezpieczeń nie ma wystarczających uprawnień, aby zmienić ustawienia hierarchii.
+
+### <a name="set-require-authorization-with-rest-api"></a>Ustaw wymaganie autoryzacji za pomocą interfejsu API REST
+
+Aby skonfigurować to ustawienie za pomocą interfejsu API REST, zostanie wywołany punkt końcowy [ustawień hierarchii](/rest/api/resources/hierarchysettings) . W tym celu należy użyć poniższego identyfikatora URI interfejsu API REST i formatu treści. Ta wartość jest wartością _logiczną_, dlatego dla wartości należy podać wartość **true** lub **false** . Wartość **true** włącza tę metodę ochrony hierarchii grup zarządzania:
 
 - Identyfikator URI interfejsu API REST
 

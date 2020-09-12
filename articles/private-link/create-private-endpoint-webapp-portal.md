@@ -1,19 +1,19 @@
 ---
 title: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
-description: Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
+description: W tym artykule wyjaśniono, jak połączyć się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 09/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d547546c3c0e0bbcdde65a654bf373ab7407be3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737397"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569467"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure (wersja zapoznawcza)
 
@@ -65,7 +65,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 1. W obszarze Tworzenie maszyny wirtualnej — ustawienia podstawowe wprowadź lub wybierz następujące informacje:
 
    > [!div class="mx-imgBorder"]
-   >![Podstawowa maszyna wirtualna][4]
+   >![Podstawowa maszyna wirtualna ][4]
 
 1. Wybierz pozycję **"dalej: dyski"**
 
@@ -94,7 +94,7 @@ W tej sekcji utworzysz prywatną aplikację sieci Web przy użyciu prywatnego pu
 1. W obszarze Tworzenie aplikacji sieci Web — podstawowe wprowadź lub wybierz następujące informacje:
 
    > [!div class="mx-imgBorder"]
-   >![Aplikacja sieci Web — podstawowa][6]
+   >![Aplikacja sieci Web — podstawowa ][6]
 
 1. Wybierz pozycję **"Przejrzyj i Utwórz"**
 
@@ -138,13 +138,13 @@ W tej sekcji utworzysz prywatną aplikację sieci Web przy użyciu prywatnego pu
 
 1. Otwórz pobrany plik RDP.
 
-- Po wyświetleniu monitu wybierz pozycję Połącz.
-- Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
+   - Po wyświetleniu monitu wybierz pozycję Połącz.
+   - Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
-> [!Note]
-> Może być konieczne wybranie pozycji więcej opcji, > użyć innego konta, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
+   > [!Note]
+   > Może być konieczne wybranie pozycji więcej opcji, > użyć innego konta, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
-- Wybierz przycisk OK.
+   - Wybierz przycisk OK.
 
 1. Podczas procesu logowania może pojawić się ostrzeżenie o certyfikacie. Jeśli zostanie wyświetlone ostrzeżenie o certyfikacie, wybierz opcję Tak lub Kontynuuj.
 
@@ -174,12 +174,21 @@ W tej sekcji połączysz się prywatnie z aplikacją internetową przy użyciu p
 1. W myVM upewnij się, że aplikacja sieci Web nie jest dostępna za pomocą publicznego adresu IP. Otwórz przeglądarkę i wklej nazwę aplikacji sieci Web, musisz mieć niedostępną stronę błędu o 403
 
    > [!div class="mx-imgBorder"]
-   >![Zabronione][17]
+   >![Wystąpił błąd podczas próby użycia adresu IP][17]
 
-> [!Important]
-> Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy ręcznie zarządzać wpisem DNS.
+   > [!Important]
+   > Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, należy ręcznie zarządzać wpisem DNS.
 
-1. Utwórz wpis hosta, otwórz Eksploratora plików i zlokalizuj plik hosts
+   W przypadku systemu DNS dostępne są dwie opcje:
+   - Użyj pliku hosta maszyny wirtualnej 
+   - lub użyj Azure DNS usługi strefy prywatnej.
+
+1. Pierwsze rozwiązanie: można utworzyć strefę prywatną DNS o nazwie privatelink.azurewebsites.net i połączyć ją z siecią wirtualną
+1. Następnie należy utworzyć dwa rekordy A (nazwę aplikacji i SCM) przy użyciu adresu IP prywatnego punktu końcowego
+   > [!div class="mx-imgBorder"]
+   >![Rekordy strefy prywatnej DNS][21]
+
+1. Drugie rozwiązanie: Utwórz wpis hosta, otwórz Eksploratora plików i zlokalizuj plik hosts
 
    > [!div class="mx-imgBorder"]
    >![Plik hosts][18]
@@ -214,7 +223,7 @@ W tym przewodniku szybki start utworzono MASZYNę wirtualną w sieci wirtualnej,
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
 [2]: ./media/create-private-endpoint-webapp-portal/ipaddresses.png
 [3]: ./media/create-private-endpoint-webapp-portal/subnet.png
-[4]: ./media/create-private-endpoint-webapp-portal/virtualmachine.png
+[4]: ./media/create-private-endpoint-webapp-portal/virtual-machine.png
 [5]: ./media/create-private-endpoint-webapp-portal/vmnetwork.png
 [6]: ./media/create-private-endpoint-webapp-portal/webapp.png
 [7]: ./media/create-private-endpoint-webapp-portal/webappnetworking.png
@@ -231,6 +240,8 @@ W tym przewodniku szybki start utworzono MASZYNę wirtualną w sieci wirtualnej,
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
+[21]: ./media/create-private-endpoint-webapp-portal/dns-private-zone-records.png
+
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534349"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440596"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -129,7 +129,7 @@ Następujący szablon działania kopiowania zawiera pełną listę obsługiwanyc
 
 | Właściwość | Opis | Wymagane? |
 |:--- |:--- |:--- |
-| typ | Dla działania kopiowania ustaw wartość na`Copy` | Tak |
+| typ | Dla działania kopiowania ustaw wartość na `Copy` | Tak |
 | danych wejściowych | Określ utworzony zestaw danych, który wskazuje na dane źródłowe. Działanie kopiowania obsługuje tylko pojedyncze dane wejściowe. | Tak |
 | wydajności | Określ utworzony zestaw danych, który wskazuje na dane ujścia. Działanie kopiowania obsługuje tylko pojedyncze dane wyjściowe. | Tak |
 | typeProperties | Określ właściwości, aby skonfigurować działanie kopiowania. | Tak |
@@ -200,7 +200,7 @@ Aby programowo skonfigurować go, Dodaj `additionalColumns` Właściwość w źr
 
 | Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name`Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`**-Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
+| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name`Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`** -Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
 
 **Przykład:**
 
@@ -248,7 +248,7 @@ W przypadku kopiowania danych do usługi SQL Database/Azure Synapse Analytics, j
 Ta funkcja jest obsługiwana podczas kopiowania danych z dowolnego źródła do następujących magazynów danych ujścia. Możesz znaleźć opcję w *interfejsie użytkownika tworzenia ADF* *— >-* > *opcji tabeli* — > *automatycznego tworzenia tabeli*lub za pośrednictwem `tableOption` właściwości w ładunku ujścia działania kopiowania.
 
 - [Azure SQL Database](connector-azure-sql-database.md)
-- [Azure SQL Database wystąpienie zarządzane](connector-azure-sql-managed-instance.md)
+- [Wystąpienie zarządzane usługi Azure SQL Database](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 

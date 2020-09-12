@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 08/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3bd059e59bebe9ae1ecc8f2f00dd63f873e08944
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269373"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437381"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -50,7 +50,12 @@ Jeśli użytkownicy uzyskują dostęp do udziału plików platformy Azure przy u
 
 ### <a name="solution-for-cause-3"></a>Rozwiązanie dla przyczyny 3
 
-Aby zaktualizować uprawnienia na poziomie udziału, zobacz [przypisywanie uprawnień dostępu do tożsamości](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
+Sprawdź, czy uprawnienia zostały prawidłowo skonfigurowane:
+
+- **Active Directory (AD)** zobacz [przypisywanie uprawnień na poziomie udziału do tożsamości](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+
+    Przypisania uprawnień na poziomie udziału są obsługiwane dla grup i użytkowników, które zostały zsynchronizowane z Active Directory (AD) do Azure Active Directory (AAD) przy użyciu Azure AD Connect.  Upewnij się, że grupy i użytkownicy, którym przypisano uprawnienia na poziomie udziału, nie są obsługiwane grupy "tylko w chmurze".
+- **Azure Active Directory Domain Services (AD DS platformy Azure)** zobacz [przypisywanie uprawnień dostępu do tożsamości](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Błąd 53, błąd 67 lub błąd 87 podczas instalowania lub odinstalowywania udziału plików platformy Azure
@@ -316,18 +321,6 @@ AadDsTenantNotFound Wystąpił błąd podczas próby [włączenia uwierzytelnian
 Włącz usługę Azure AD DS w dzierżawie usługi Azure AD subskrypcji, w której wdrożono konto magazynu. Do utworzenia domeny zarządzanej wymagane są uprawnienia administratora dzierżawy usługi Azure AD. Jeśli nie jesteś administratorem dzierżawy usługi Azure AD, skontaktuj się z administratorem i postępuj zgodnie ze wskazówkami krok po kroku, aby [włączyć Azure Active Directory Domain Services przy użyciu Azure Portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
-
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Wystąpił błąd "System Error 1359. Wystąpił błąd wewnętrzny "odebrany za pośrednictwem protokołu SMB do udziałów plików z włączonym uwierzytelnianiem Azure Active Directory Domain Service (Azure AD DS)
-
-### <a name="cause"></a>Przyczyna
-
-Wystąpił błąd "System Error 1359. Błąd wewnętrzny "występuje podczas próby nawiązania połączenia z udziałem plików przy użyciu usługi Azure AD DS Authentication na platformie Azure AD DS z nazwą DNS domeny rozpoczynającą się od znaku numerycznego. Na przykład jeśli nazwa DNS domeny AD DS platformy Azure to "1domain", ten błąd wystąpi podczas próby zainstalowania udziału plików przy użyciu poświadczeń usługi Azure AD. 
-
-### <a name="solution"></a>Rozwiązanie
-
-Obecnie można rozważyć ponowne wdrożenie AD DS platformy Azure przy użyciu nowej nazwy DNS domeny, która stosuje się do poniższych reguł:
-- Nazwy nie mogą rozpoczynać się od znaku numerycznego.
-- Nazwy muszą mieć długość od 3 do 63 znaków.
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Nie można zainstalować Azure Files przy użyciu poświadczeń usługi AD 
 

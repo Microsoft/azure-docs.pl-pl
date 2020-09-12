@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921991"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439218"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Jak skalować usługę sygnalizującą z wieloma wystąpieniami?
 Najnowsza wersja zestawu SDK usługi sygnalizującej obsługuje wiele punktów końcowych dla wystąpień usługi sygnalizującej. Za pomocą tej funkcji można skalować współbieżne połączenia lub używać ich do obsługi komunikatów między regionami.
@@ -27,7 +27,7 @@ Jeśli klucz zaczyna się od `Azure:SignalR:ConnectionString:` , powinien być w
 
 Można dodać wiele parametrów połączenia wystąpienia przy użyciu następujących `dotnet` poleceń:
 
-```batch
+```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <ConnectionString2>
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>

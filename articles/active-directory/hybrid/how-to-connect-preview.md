@@ -16,19 +16,19 @@ ms.date: 05/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bb7305fe8ee96697c5c8b2172e32a2a97e5bd6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b543cf4655d0b961a144e9180385a532ae4216d6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358433"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657095"
 ---
 # <a name="more-details-about-features-in-preview"></a>Więcej szczegółów na temat funkcji w wersji zapoznawczej
 W tym temacie opisano, jak używać funkcji obecnie dostępnych w wersji zapoznawczej.
 
 ## <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Interfejs API usługi Azure AD Connect Sync w wersji 2 (publiczna wersja zapoznawcza) 
 
-Wdrożono nowy punkt końcowy (API) dla Azure AD Connect, który zwiększa wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje również synchronizowanie grup z do członków 250 000. Za pomocą tego punktu końcowego można także pisać ujednolicone grupy usługi O365, bez maksymalnego limitu członkostwa, do Active Directory lokalnego, gdy włączono funkcję zapisywania zwrotnego grup.   Aby uzyskać więcej informacji, zobacz [Azure AD Connect Sync v2 Endpoint API (publiczna wersja zapoznawcza)](how-to-connect-sync-endpoint-api-v2.md).
+Wdrożono nowy punkt końcowy (API) dla Azure AD Connect, który zwiększa wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje również synchronizowanie grup z do członków 250 000. Korzystając z tego punktu końcowego, można również pisać Microsoft 365 ujednoliconych grup bez maksymalnego limitu członkostwa do Active Directory lokalnych, gdy włączono funkcję zapisywania zwrotnego grup. Aby uzyskać więcej informacji, zobacz [Azure AD Connect Sync v2 Endpoint API (publiczna wersja zapoznawcza)](how-to-connect-sync-endpoint-api-v2.md).
 
 ## <a name="user-writeback"></a>Zapisywanie zwrotne użytkownika
 > [!IMPORTANT]

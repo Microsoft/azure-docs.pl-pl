@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 16e15976c6f09881b75dcec207833f48aa1c4e7a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189931"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437677"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,11 +91,11 @@ Strefa o wysokiej dostępności nadmiarowa jest zilustrowana na poniższym diagr
 
 ## <a name="accelerated-database-recovery-adr"></a>Szybsze odzyskiwanie bazy danych (ADR)
 
-[Szybsze odzyskiwanie bazy danych (ADR)](../accelerated-database-recovery.md) to nowa funkcja aparatu bazy danych, która znacznie zwiększa dostępność bazy danych, szczególnie w przypadku długotrwałych transakcji. ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego Azure SQL i Azure SQL Data Warehouse.
+[Szybsze odzyskiwanie bazy danych (ADR)](../accelerated-database-recovery.md) to nowa funkcja aparatu bazy danych, która znacznie zwiększa dostępność bazy danych, szczególnie w przypadku długotrwałych transakcji. Usługa ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
 ## <a name="testing-application-fault-resiliency"></a>Testowanie odporności błędów aplikacji
 
-Wysoka dostępność to podstawowa część SQL Database i platformy wystąpienia zarządzanego SQL, która działa w sposób przezroczysty dla aplikacji bazy danych. Jednak firma Microsoft rozpoznaje, że można testować, w jaki sposób automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń byłyby wpływać na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Możesz ręcznie wyzwolić tryb failover, wywołując specjalny interfejs API w celu ponownego uruchomienia bazy danych, puli elastycznej lub wystąpienia zarządzanego. W przypadku strefowo nadmiarowej bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 30 minut dla każdej bazy danych, elastycznej puli lub wystąpienia zarządzanego.
+Wysoka dostępność to podstawowa część usługi SQL Database i platformy SQL Managed Instance, która działa w sposób przejrzysty dla aplikacji bazy danych. Jednak wiemy, że można sprawdzić, jak automatyczne operacje trybu failover inicjowane podczas planowanych lub nieplanowanych zdarzeń wpływają na aplikację przed wdrożeniem jej w środowisku produkcyjnym. Możesz ręcznie wyzwolić tryb failover, wywołując specjalny interfejs API w celu ponownego uruchomienia bazy danych, puli elastycznej lub wystąpienia zarządzanego. W przypadku strefowo nadmiarowej bazy danych lub puli elastycznej wywołanie interfejsu API spowoduje przekierowanie połączeń klientów do nowego elementu podstawowego w strefie dostępności innej niż strefa dostępności starego elementu podstawowego. W związku z tym oprócz testowania pracy w trybie failover wpływa na istniejące sesje baz danych, można również sprawdzić, czy zmienia ona kompleksową wydajność ze względu na zmiany opóźnienia sieci. Ponieważ operacja ponownego uruchomienia jest niepożądana, a duża liczba z nich może nałożyć na platformę, tylko jedno wywołanie trybu failover jest dozwolone co 30 minut dla każdej bazy danych, elastycznej puli lub wystąpienia zarządzanego.
 
 Przejście w tryb failover można zainicjować przy użyciu programu PowerShell, interfejsu API REST lub wiersza polecenia platformy Azure:
 

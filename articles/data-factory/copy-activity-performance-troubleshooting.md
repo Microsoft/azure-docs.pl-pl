@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770972"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440528"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -47,7 +47,7 @@ Obecnie wskazówki dotyczące dostrajania wydajności udostępniają sugestie do
 | &nbsp;                | Jeśli używasz **Azure Integration Runtime** , który znajduje się w nieoptymalnym regionie, co powoduje powolne odczyt/zapis, Sugeruj konfigurację, aby używać środowiska IR w innym regionie. |
 | Odporność na uszkodzenia       | W przypadku skonfigurowania odporności na uszkodzenia i pomijania niezgodnych wierszy wyniki są powolne, Sugeruj, że dane źródłowe i ujścia są zgodne. |
 | Kopia przygotowana           | Jeśli kopia przygotowana jest skonfigurowana, ale nie jest pomocna dla pary Source-sink, Sugeruj jej usunięcie. |
-| Wznawianie                | Gdy działanie kopiowania jest wznawiane od ostatniego punktu awarii, ale zmiana ustawienia DIU po zakończeniu oryginalnego przebiegu jest konieczna, należy pamiętać, że nowe ustawienie DIU nie zacznie obowiązywać. |
+| Wznów                | Gdy działanie kopiowania jest wznawiane od ostatniego punktu awarii, ale zmiana ustawienia DIU po zakończeniu oryginalnego przebiegu jest konieczna, należy pamiętać, że nowe ustawienie DIU nie zacznie obowiązywać. |
 
 ## <a name="understand-copy-activity-execution-details"></a>Informacje o wykonywaniu działania kopiowania
 
@@ -142,7 +142,7 @@ Gdy wydajność kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z
 
   - Zapoznaj się z trendem użycia procesora CPU i pamięci przez środowisko IR w Azure Portal-> stronie Przegląd > usługi Data Factory. Należy rozważyć [skalowanie w górę/](create-self-hosted-integration-runtime.md#high-availability-and-scalability) w poziomie środowiska IR, jeśli użycie procesora CPU jest wysokie lub dostępna pamięć jest niska.
 
-  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Przykład:
+  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład:
 
     - Podczas kopiowania danych z programu [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [tabeli SAP](connector-sap-table.md#sap-table-as-source)i [oprogramowania SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), Włącz opcje partycji danych, aby równolegle kopiować dane.
 
@@ -179,7 +179,7 @@ Poniżej przedstawiono informacje dotyczące monitorowania wydajności i dostraj
 * Azure Blob Storage: [elementy docelowe skalowalności i wydajności dla magazynu obiektów BLOB](../storage/blobs/scalability-targets.md) i [wydajności i skalowalności dla usługi BLOB Storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table Storage: [elementy docelowe skalowalności i wydajności dla magazynu tabel](../storage/tables/scalability-targets.md) oraz [listę kontrolną wydajności i skalowalności w magazynie tabel](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: można [monitorować wydajność](../sql-database/sql-database-single-database-monitor.md) i sprawdzać wartość procentową jednostki transakcji bazy danych (DTU).
-* Azure SQL Data Warehouse: jej możliwości są mierzone w jednostkach magazynu danych (jednostek dwu). Zobacz [zarządzanie mocą obliczeniową w Azure SQL Data Warehouse (omówienie)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Analiza usługi Azure Synapse (dawniej SQL Data Warehouse): jej możliwości są mierzone w jednostkach magazynu danych (jednostek dwu). Zobacz [zarządzanie mocą obliczeniową w usłudze Azure Synapse Analytics (omówienie)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [poziomy wydajności w Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [monitorowanie i dostrajanie wydajności](https://msdn.microsoft.com/library/ms189081.aspx).
 * Lokalny serwer plików: [dostrajanie wydajności dla serwerów plików](https://msdn.microsoft.com/library/dn567661.aspx).
@@ -187,7 +187,7 @@ Poniżej przedstawiono informacje dotyczące monitorowania wydajności i dostraj
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Przegląd działania kopiowania](copy-activity-overview.md)
+- [Omówienie działania kopiowania](copy-activity-overview.md)
 - [Przewodnik dotyczący wydajności i skalowalności działania kopiowania](copy-activity-performance.md)
 - [Funkcje optymalizacji wydajności działania kopiowania](copy-activity-performance-features.md)
 - [Używanie Azure Data Factory do migrowania danych z usługi Data Lake lub magazynu danych na platformę Azure](data-migration-guidance-overview.md)

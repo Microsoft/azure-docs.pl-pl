@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249171"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442909"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analiza wielu dzierżawców z użyciem wyodrębnionych danych — aplikacji z wieloma dzierżawcami
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Wdrażane aplikacje SaaS mają dostęp do ogromnych ilości danych dzierżawy pr
 
 Uzyskiwanie dostępu do danych dla wszystkich dzierżawców jest proste, gdy wszystkie dane są w tylko jednej bazie danych z wieloma dzierżawcami. Jednak dostęp jest bardziej złożony, gdy jest dystrybuowany na dużą skalę w tysiącach baz danych. Jednym ze sposobów oswoić złożoności jest wyodrębnienie danych do bazy danych analiz lub hurtowni danych. Następnie należy wykonać zapytanie dotyczące magazynu danych w celu zebrania szczegółowych informacji z biletów wszystkich dzierżawców.
 
-Ten samouczek przedstawia kompletny scenariusz analizy dla tej przykładowej aplikacji SaaS. Najpierw zadania elastyczne są używane do planowania wyodrębniania danych z każdej bazy danych dzierżawy. Dane są wysyłane do sklepu analitycznego. Magazyn analityczny może być SQL Database lub SQL Data Warehouse. W przypadku wyodrębniania danych na dużą skalę [Azure Data Factory](../../data-factory/introduction.md) jest Commended.
+Ten samouczek przedstawia kompletny scenariusz analizy dla tej przykładowej aplikacji SaaS. Najpierw zadania elastyczne są używane do planowania wyodrębniania danych z każdej bazy danych dzierżawy. Dane są wysyłane do sklepu analitycznego. Sklep analityczny może być SQL Database lub analizą usługi Azure Synapse (dawniej SQL Data Warehouse). W przypadku wyodrębniania danych na dużą skalę [Azure Data Factory](../../data-factory/introduction.md) jest Commended.
 
 Następnie zagregowane dane są Shredded do zestawu tabel ze [schematem gwiazdy](https://www.wikipedia.org/wiki/Star_schema) . Tabele składają się z centralnej tabeli faktów oraz powiązanych tabel wymiarów:
 
@@ -176,7 +176,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z usługą Power BI i z
 
     ![powerBISignIn](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij pozycję **Połącz**.  
+5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Połącz**.  
 
     ![DatabaseSignIn](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

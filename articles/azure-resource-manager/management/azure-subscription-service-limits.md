@@ -2,14 +2,13 @@
 title: Ograniczenia i limity subskrypcji platformy Azure
 description: Zawiera listę typowych limitów subskrypcji i usług platformy Azure, przydziałów i ograniczeń. Ten artykuł zawiera informacje o sposobach zwiększania limitów oraz wartości maksymalnych.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
-ms.openlocfilehash: 86c9958818b5439502ab37471ed7a51fb3f21bf9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/02/2020
+ms.openlocfilehash: b9b2b7217b854153f03d61713d8b4a1bcf5bfd9d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854079"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470174"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure
 
@@ -27,6 +26,9 @@ Aby dowiedzieć się więcej na temat cen platformy Azure, zobacz [Omówienie ce
 > Gdy limit można dostosować, tabele zawierają **domyślny limit** i **maksymalny limit** nagłówków. Limit może być podniesiony powyżej limitu domyślnego, ale nie przekracza maksymalnego limitu.
 >
 > Jeśli chcesz podnieść limit lub przydział powyżej domyślnego limitu, [Otwórz żądanie obsługi klienta online bez dodatkowych opłat](../templates/error-resource-quota.md).
+>
+> Terminy *nietrwałe* i *sztywny limit* często są używane do opisywania bieżącego, regulowanego limitu (limit elastyczny) i maksymalnego limitu (sztywny limit). Jeśli limit nie jest regulowany, nie będzie można określić limitu, ale tylko na stałym limicie.
+>
 
 [Bezpłatna subskrypcja wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikuje się do zwiększenia limitu przydziału. Jeśli masz [bezpłatną subskrypcję wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p), możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie subskrypcji bezpłatnej wersji próbnej platformy Azure do subskrypcji płatnej zgodnie z rzeczywistym](../../cost-management-billing/manage/upgrade-azure-subscription.md) użyciem i [subskrypcji bezpłatnej wersji próbnej](https://azure.microsoft.com/free/free-account-faq).
 
@@ -75,6 +77,10 @@ Poniższe App Service limity obejmują limity dla Web Apps, Mobile Apps i API Ap
 ## <a name="automation-limits"></a>Limity automatyzacji
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Pamięć podręczna systemu Azure dla limitów Redis
 
@@ -427,7 +433,7 @@ Istnieją limity dla każdej subskrypcji dotyczące wdrażania zasobów przy uż
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Informacje o limitach i ograniczeniach platformy Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Rozmiary maszyn wirtualnych i usług w chmurze dla platformy Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

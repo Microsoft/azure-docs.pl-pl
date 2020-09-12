@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 08/14/2020
-ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19f811c636d5cf3ffb3eef9904c7ba4f7d456b5f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586821"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462211"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Model zakupu wirtualnego rdzenia (rdzeń wirtualny) używany przez Azure SQL Dat
 
 Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia, Krytyczne dla działania firmy i skalowanie. Warstwa usługi zwykle definiuje architekturę magazynu, przestrzeń i limity we/wy oraz opcje ciągłości działania związane z dostępnością i odzyskiwaniem po awarii.
 
-|-|**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
+|-|**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskalowanie**|
 |---|---|---|---|
 |Optymalne zastosowanie|Większość obciążeń firmowych. Oferuje zorientowane na budżet, zrównoważone i skalowalne opcje zasobów obliczeniowych i magazynowych. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
 |Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
@@ -148,7 +148,7 @@ Na karcie **podstawowe** wybierz łącze **Konfiguruj bazę danych** w sekcji **
   
 **Aby zmienić generowanie sprzętu istniejącego wystąpienia zarządzanego SQL**
 
-# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
 Na stronie wystąpienie zarządzane SQL Wybierz pozycję **warstwa cenowa** link do sekcji Ustawienia.
 
@@ -188,7 +188,7 @@ Obliczenia sprzęt jest [wycofywany i nie](https://azure.microsoft.com/updates/g
 
 #### <a name="fsv2-series"></a>Seria Fsv2
 
-Seria Fsv2 jest dostępna w następujących regionach: Australia Środkowa, Australia Środkowa 2, Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada środkowa, Azja Wschodnia, Wschodnie stany USA, Francja środkowa, Indie Środkowe, Indie Zachodnie, Korea środkowa, Korea Południowa, Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Północna Republika Południowej Afryki Europa Północna
+Seria Fsv2 jest dostępna w następujących regionach: Australia Środkowa, Australia Środkowa 2, Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada środkowa, Azja Wschodnia, Wschodnie stany USA, Francja środkowa, Indie Środkowe, Korea środkowa, Korea Południowa, Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Północna Republika Południowej Afryki Europa Północna
 
 
 #### <a name="m-series"></a>Seria M

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038669"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500304"
 ---
 # <a name="supported-authentication-methods"></a>Obsługiwane metody uwierzytelniania
 
@@ -43,12 +43,16 @@ Są to obecnie obsługiwane metody logowania:
 >[!NOTE]
 >Karty inteligentne i Windows Hello mogą korzystać tylko z protokołu Kerberos do logowania. Zalogowanie się przy użyciu protokołu Kerberos wymaga linii wglądu do kontrolera domeny.
 
+## <a name="hybrid-identity"></a>Tożsamość hybrydowa
+
+Pulpit wirtualny systemu Windows obsługuje [tożsamości hybrydowe](../active-directory/hybrid/whatis-hybrid-identity.md) za pośrednictwem Azure Active Directory (AD), w tym federacyjnych przy użyciu Active Directory Federation Services (AD FS). Ponieważ użytkownicy muszą mieć możliwość odnajdywania za pomocą usługi Azure AD, pulpit wirtualny systemu Windows nie obsługuje wdrożeń autonomicznych Active Directory z usługami ADFS.
+
 ## <a name="single-sign-on-sso"></a>Logowanie jednokrotne (SSO)
 
-Pulpit wirtualny systemu Windows obecnie nie obsługuje Active Directory Federation Services (ADFS) do uwierzytelniania i logowania jednokrotnego.
+Pulpit wirtualny systemu Windows obecnie nie obsługuje Active Directory Federation Services (ADFS) na potrzeby logowania jednokrotnego.
 
 Jedynym sposobem, aby uniknąć wyświetlania monitu o podanie poświadczeń dla hosta sesji jest zapisanie ich na kliencie. Zalecamy wykonanie tej czynności tylko z bezpiecznymi urządzeniami, aby uniemożliwić innym użytkownikom dostęp do zasobów.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Chcesz wiedzieć o innych sposobach zapewnienia bezpieczeństwa wdrożenia? Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi zabezpieczeń](security-guide.md).

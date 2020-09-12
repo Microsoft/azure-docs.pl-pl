@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
-ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72328716"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469902"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Korzystanie z tożsamości zarządzanych dla zasobów platformy Azure w Azure Cloud Shell
 
@@ -43,8 +43,8 @@ Lokalny podsystem MSI buforuje tokeny. W związku z tym możesz wywoływać ją 
 
 Jeśli w kodzie zostanie zbuforowany token, należy przygotować się do obsługi scenariuszy, w których zasób wskazuje, że token wygasł.
 
-Aby obsłużyć błędy tokenu, odwiedź [stronę MSI dotyczącą przystawiania tokenów dostępu MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
+Aby obsłużyć błędy tokenu, odwiedź [stronę MSI dotyczącą przystawiania tokenów dostępu MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling).
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Uzyskiwanie tokenów dostępu z maszyn wirtualnych MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Dowiedz się więcej o MSI](../active-directory/managed-identities-azure-resources/overview.md)  
+[Uzyskiwanie tokenów dostępu z maszyn wirtualnych MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)

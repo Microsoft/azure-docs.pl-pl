@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816029"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500389"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Dostęp do zasobów platformy Azure Virtual Network z Azure Logic Apps przy użyciu środowisk usługi integracji (ISEs)
 
@@ -60,7 +60,7 @@ Podczas tworzenia i uruchamiania aplikacji logiki w ISE można korzystać z tych
   * Dzienniki Azure Automation, Azure Key Vault, Azure Event Grid i Azure Monitor
   * FTP, SFTP-SSH, system plików i SMTP
   * SAP, IBM MQ, IBM DB2 i IBM 3270
-  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * SQL Server, usługa Azure Synapse Analytics, Azure Cosmos DB
   * AS2, X12 i EDIFACT
 
   Z rzadkimi wyjątkami, jeśli łącznik ISE jest dostępny dla systemu lokalnego lub źródła danych, można połączyć się bezpośrednio bez korzystania z [lokalnej bramy danych](../logic-apps/logic-apps-gateway-connection.md). Aby uzyskać więcej informacji, zobacz [dostęp do systemów lokalnych](#on-premises) w dalszej części tego tematu.
@@ -142,7 +142,7 @@ Aplikacje logiki, wbudowane wyzwalacze, wbudowane akcje i łączniki działając
 
 ## <a name="integration-accounts-with-ise"></a>Konta integracji z usługą ISE
 
-Konta integracji z aplikacjami logiki można używać w środowisku usługi integracji (ISE). Jednak te konta integracji muszą używać tego *samego ISE* , co połączone Aplikacje logiki. Aplikacje logiki w ISE mogą odwoływać się tylko do tych kont integracji, które znajdują się w tym samym ISE. Podczas tworzenia konta integracji możesz wybrać swój ISE jako lokalizację konta integracji. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla kont integracji za pomocą ISE, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/).
+Konta integracji z aplikacjami logiki można używać w środowisku usługi integracji (ISE). Jednak te konta integracji muszą używać tego *samego ISE* , co połączone Aplikacje logiki. Aplikacje logiki w ISE mogą odwoływać się tylko do tych kont integracji, które znajdują się w tym samym ISE. Podczas tworzenia konta integracji możesz wybrać swój ISE jako lokalizację konta integracji. Aby dowiedzieć się, jak korzystać z cen i rozliczeń dla kont integracji za pomocą ISE, zobacz [model cen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.microsoft.com/pricing/details/logic-apps/). Aby uzyskać informacje o limitach, zobacz [limity kont integracji](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 115a01fe0b1edc343ed9efd324c4be3b53251566
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9047309854df27ac0721eee51e20d7ccc989f443
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519511"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459695"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center — bezpieczeństwo danych
 Aby ułatwić klientom zapobieganie zagrożeniom, wykrywanie ich i reagowanie na nie, Azure Security Center zbiera i przetwarza dane związane z zabezpieczeniami, w tym informacje o konfiguracji, metadane, dzienniki zdarzeń itd. Firma Microsoft przestrzega surowych wymogów z zakresu zabezpieczeń i zgodności — od kodu po działanie usługi.
@@ -65,7 +65,7 @@ Dla maszyn wirtualnych i serwerów działających w innych środowiskach, na prz
 
 **Magazyn usługi Azure Security Center**: informacje dotyczące alertów zabezpieczeń, w tym alerty partnerów, są przechowywane regionalnie zgodnie z lokalizacją powiązanego zasobu platformy Azure, a informacje dotyczące stanu kondycji zabezpieczeń i zalecenia są przechowywane centralnie na terenie Stanów Zjednoczonych lub Europy zgodnie z lokalizacją klienta. Artefakty maszyny są przechowywane centralnie w tym samym regionie, co maszyna wirtualna.
 
-## <a name="managing-data-collection-from-virtual-machines"></a>Zarządzanie zbieraniem danych z maszyn wirtualnych
+## <a name="manage-data-collection-from-virtual-machines"></a>Zarządzanie zbieraniem danych z maszyn wirtualnych
 
 W przypadku włączenia usługi Security Center na platformie Azure zbieranie danych jest włączone dla każdej subskrypcji platformy Azure. Zbieranie danych można również włączyć dla subskrypcji w sekcji Zasady zabezpieczeń usługi Azure Security Center. Gdy zbieranie danych jest włączone, Azure Security Center inicjuje agenta Log Analytics we wszystkich istniejących obsługiwanych maszynach wirtualnych platformy Azure i utworzonych nowych.
 Agent Log Analytics skanuje w poszukiwaniu różnych konfiguracji związanych z zabezpieczeniami i zdarzeń do śledzenia [zdarzeń systemu Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Ponadto system operacyjny będzie zgłaszać zdarzenia dziennika zdarzeń w trakcie pracy maszyny. Przykłady takich danych to typ systemu operacyjnego i jego wersja, dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, nazwa maszyny, adresy IP, zalogowany użytkownik i identyfikator dzierżawy. Agent Log Analytics odczytuje wpisy dziennika zdarzeń i śledzenia ETW i kopiuje je do obszarów roboczych na potrzeby analizy. Agent Log Analytics włącza również zdarzenia tworzenia procesów i inspekcje wiersza polecenia.
@@ -90,4 +90,4 @@ W tym dokumencie wyjaśniono, jak zarządzane i chronione są dane w usłudze Az
 * [Monitorowanie kondycji zabezpieczeń w Azure Security Center](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure
 * [Zarządzanie alertami zabezpieczeń i reagowanie na nie w Azure Security Center](security-center-managing-and-responding-alerts.md) — informacje na temat zarządzania alertami zabezpieczeń i reagowania na nie
 * [Monitorowanie rozwiązań partnerskich za pomocą Azure Security Center](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
-* [Blog dotyczący zabezpieczeń platformy Azure](https://blogs.msdn.com/b/azuresecurity/) — wpisy w blogu dotyczące zabezpieczeń i zgodności platformy Azure
+* [Blog dotyczący zabezpieczeń platformy Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) — wpisy w blogu dotyczące zabezpieczeń i zgodności platformy Azure

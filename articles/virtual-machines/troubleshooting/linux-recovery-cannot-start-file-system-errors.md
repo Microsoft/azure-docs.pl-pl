@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526507"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436191"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Rozwiązywanie problemów z uruchamianiem maszyn wirtualnych z systemem Linux z powodu błędów systemu plików
 
@@ -83,7 +83,7 @@ Aby rozwiązać ten problem, wykonaj rozruch maszyny wirtualnej w trybie awaryjn
 
    > [!Note]
    > Aby uzyskać więcej informacji o korzystaniu z konsoli szeregowej dla systemu Linux, zobacz:
-   > * [Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika](../linux/serial-console-grub-single-user-mode.md)
+   > * [Używanie konsoli szeregowej do uzyskiwania dostępu do GRUB i trybu jednego użytkownika](serial-console-grub-single-user-mode.md)
    > * [Korzystanie z konsoli szeregowej dla wywołań SysRq i NMI](./serial-console-nmi-sysrq.md)
 
 2. Wybierz przycisk ikona potęgi, a następnie wybierz pozycję Uruchom ponownie maszynę wirtualną. (Jeśli konsola szeregowa nie jest włączona lub nie jest prawidłowo połączona, nie zobaczysz przycisku).

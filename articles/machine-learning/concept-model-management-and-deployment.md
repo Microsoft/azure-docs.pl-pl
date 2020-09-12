@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 680fd298f3d772ecb9a4787342d22bf44e74ec78
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543388"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651083"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Zarządzanie modelami, wdrażanie i monitorowanie za pomocą Azure Machine Learning
 
@@ -71,7 +71,7 @@ Zarejestrowane modele są identyfikowane za pomocą nazwy i wersji. Za każdym r
 Nie można usunąć zarejestrowanego modelu, który jest używany w aktywnym wdrożeniu.
 Aby uzyskać więcej informacji, zobacz sekcję Register model w artykule [Wdrażanie modeli](how-to-deploy-and-where.md#registermodel).
 
-### <a name="profile-models"></a>Modele profilów
+### <a name="profile-models"></a>Modele profili
 
 Azure Machine Learning może pomóc zrozumieć wymagania dotyczące procesora i pamięci usługi, które zostaną utworzone podczas wdrażania modelu. Profilowanie testuje usługę, która uruchamia model i zwraca informacje takie jak użycie procesora CPU, użycie pamięci i opóźnienie odpowiedzi. Zapewnia również zalecenia dotyczące procesora i pamięci na podstawie użycia zasobów.
 Aby uzyskać więcej informacji, zobacz sekcję profilowania w artykule [Wdrażanie modeli](how-to-deploy-profile-model.md).
@@ -153,12 +153,12 @@ Usługa Azure ML oferuje możliwość śledzenia kompleksowego dziennika inspekc
 - [Interpretacja](how-to-machine-learning-interpretability.md) pozwala na wyjaśnienie modeli, spełnienie zgodności z przepisami i zrozumienie sposobu, w jaki modele docierają do wyniku dla danych danych wejściowych.
 - Historia przebiegów Azure ML przechowuje migawkę kodu, danych i obliczeń używanych do uczenia modelu.
 - Rejestr modelu usługi Azure ML przechwytuje wszystkie metadane skojarzone z Twoim modelem (który eksperyment został przeszkolony, gdzie jest wdrażany, jeśli jego wdrożenia są w dobrej kondycji).
-- [Integracja z platformą Azure](how-to-use-event-grid.md) umożliwia wykonywanie działań na zdarzeniach w cyklu życia usługi ml. Przykład: rejestrowanie modelu, wdrażanie, dryfowanie danych i szkolenia (uruchamianie).
+- [Integracja z platformą Azure](how-to-use-event-grid.md)  umożliwia wykonywanie działań na zdarzeniach w cyklu życia usługi ml. Przykład: rejestrowanie modelu, wdrażanie, dryfowanie danych i szkolenia (uruchamianie).
 
 > [!TIP]
 > Niektóre informacje o modelach i zestawach danych są przechwytywane automatycznie, ale można dodać dodatkowe informacje za pomocą __tagów__. Podczas wyszukiwania zarejestrowanych modeli i zestawów danych w obszarze roboczym można używać tagów jako filtru.
 >
-> Skojarzenie zestawu danych z zarejestrowanym modelem jest opcjonalnym krokiem. Aby uzyskać informacje na temat odwoływania się do zestawu danych podczas rejestrowania modelu, zobacz Dokumentacja klasy [modelu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) .
+> Skojarzenie zestawu danych z zarejestrowanym modelem jest opcjonalnym krokiem. Aby uzyskać informacje na temat odwoływania się do zestawu danych podczas rejestrowania modelu, zobacz Dokumentacja klasy [modelu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py&preserve-view=true) .
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Powiadamianie, Automatyzowanie i wyzwalanie alertów dotyczących zdarzeń w cyklu życia w ML

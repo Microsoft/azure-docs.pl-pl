@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/05/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b14f3c241fd21d3d4f9c4e17ae95d8048139cec1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985564"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442875"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
@@ -23,7 +23,7 @@ Ten artykuł pomoże Ci połączyć sieci wirtualne przy użyciu typu połączen
 Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Azure Resource Manager i użyto w nich witryny Azure Portal. Tę konfigurację możesz utworzyć przy użyciu innego narzędzia lub modelu wdrażania, korzystając z opcji opisanych w następujących artykułach:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Program PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal Azure (klasyczny)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -79,7 +79,7 @@ W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu t
     - **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
     - **Grupa zasobów**: TestRG1
     - **Lokalizacja**: Wschodnie stany USA
-    - **Podsieci**
+    - **Podsieć**
         - **Nazwa**: fronton
         - **Zakres adresów**: 10.1.0.0/24
     - **Podsieć bramy**:
@@ -104,7 +104,7 @@ W tym artykule przedstawiono sposób łączenia sieci wirtualnych przy użyciu t
    - **Subskrypcja**: wybierz subskrypcję, której chcesz użyć.
    - **Grupa zasobów**: TestRG4
    - **Lokalizacja**: zachodnie stany USA
-   - **Podsieci** 
+   - **Podsieć** 
       - **Nazwa**: fronton
       - **Zakres adresów**: 10.41.0.0/24
    - **GatewaySubnet** 

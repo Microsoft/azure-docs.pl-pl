@@ -5,12 +5,12 @@ description: Informacje o najlepszych rozwiązaniach dotyczących operatorów kl
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542708"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482729"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w usłudze Azure Kubernetes Service
 
@@ -31,7 +31,7 @@ Te najlepsze rozwiązania koncentrują się na łączności sieciowej i zabezpie
 Sieci wirtualne zapewniają podstawową łączność z węzłami AKS i klientami w celu uzyskiwania dostępu do aplikacji. Istnieją dwa różne sposoby wdrażania klastrów AKS w sieciach wirtualnych:
 
 * **Korzystającą wtyczki kubenet Networking** — platforma Azure zarządza zasobami sieci wirtualnej w miarę wdrażania klastra i korzysta z wtyczki Kubernetes [korzystającą wtyczki kubenet][kubenet] .
-* **Azure CNI Networking** — wdraża w istniejącej sieci wirtualnej i używa wtyczki Kubernetes [interfejsu sieciowego platformy Azure (CNI)][cni-networking] . Usługi zasobnikowe odbierają pojedyncze adresy IP, które mogą być kierowane do innych usług sieciowych lub zasobów lokalnych.
+* **Azure CNI Networking** — wdraża w sieci wirtualnej i używa wtyczki Kubernetes [interfejsu sieciowego kontenera platformy Azure (CNI)][cni-networking] . Usługi zasobnikowe odbierają pojedyncze adresy IP, które mogą być kierowane do innych usług sieciowych lub zasobów lokalnych.
 
 Interfejs sieciowy kontenera (CNI) to protokół neutralny od dostawcy, który umożliwia wykonywanie żądań do dostawcy sieci przez środowisko uruchomieniowe kontenera. Usługa Azure CNI przypisuje adresy IP do wielofirmowych i węzłów oraz udostępnia funkcje zarządzania adresami IP (IPAM) podczas nawiązywania połączenia z istniejącymi sieciami wirtualnymi platformy Azure. Każdy węzeł i zasób pod są odbierane przy użyciu adresu IP w sieci wirtualnej platformy Azure, a do komunikacji z innymi zasobami lub usługami nie jest wymagany żaden dodatkowy Routing.
 
@@ -64,7 +64,7 @@ Korzystającą wtyczki kubenet jest odpowiednie dla małych obciążeń programi
 
 **Wskazówki dotyczące najlepszych** rozwiązań — aby dystrybuować ruch HTTP lub HTTPS do aplikacji, użyj zasobów i kontrolerów przychodzących. Kontrolery transferu danych przychodzących zapewniają dodatkowe funkcje za pośrednictwem zwykłego modułu równoważenia obciążenia platformy Azure i mogą być zarządzane jako natywne zasoby Kubernetes.
 
-Moduł równoważenia obciążenia platformy Azure może dystrybuować ruch klientów do aplikacji w klastrze AKS, ale jest ograniczony do tego, co rozumie ten ruch. Zasób modułu równoważenia obciążenia działa w warstwie 4 i dystrybuuje ruch oparty na protokole lub portach. Większość aplikacji sieci Web korzystających z protokołu HTTP lub HTTPS powinna używać Kuberenetes zasobów przychodzących i kontrolerów, które działają w warstwie 7. Ruch przychodzący można dystrybuować na podstawie adresu URL aplikacji i obsłużyć zakończenie protokołu TLS/SSL. Ta możliwość zmniejsza również liczbę ujawnianych i mapowanych adresów IP. W przypadku usługi równoważenia obciążenia każda aplikacja zwykle wymaga publicznego adresu IP przypisanego i zamapowanego na usługę w klastrze AKS. W przypadku zasobu związanego z transferem danych przychodzących pojedynczy adres IP może dystrybuować ruch do wielu aplikacji.
+Moduł równoważenia obciążenia platformy Azure może dystrybuować ruch klientów do aplikacji w klastrze AKS, ale jest ograniczony do tego, co rozumie ten ruch. Zasób modułu równoważenia obciążenia działa w warstwie 4 i dystrybuuje ruch oparty na protokole lub portach. Większość aplikacji sieci Web korzystających z protokołu HTTP lub HTTPS powinna używać Kubernetes zasobów przychodzących i kontrolerów, które działają w warstwie 7. Ruch przychodzący można dystrybuować na podstawie adresu URL aplikacji i obsłużyć zakończenie protokołu TLS/SSL. Ta możliwość zmniejsza również liczbę ujawnianych i mapowanych adresów IP. W przypadku usługi równoważenia obciążenia każda aplikacja zwykle wymaga publicznego adresu IP przypisanego i zamapowanego na usługę w klastrze AKS. W przypadku zasobu związanego z transferem danych przychodzących pojedynczy adres IP może dystrybuować ruch do wielu aplikacji.
 
 ![Diagram przedstawiający przepływ ruchu przychodzącego w klastrze AKS](media/operator-best-practices-network/aks-ingress.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688094"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469919"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -117,10 +117,10 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Skopiuj wartość klucza lokalizacji":::
 
-4. Rozpocznij nową metodę **Get** http na karcie Konstruktor. Dołącz klucz podstawowej subskrypcji Azure Maps do programu `status URL` . Wykonaj żądanie **Get** w lokalizacji `status URL` skopiowanej w kroku 3. `status URL`Wygląda jak następujący adres URL:
+4. Rozpocznij nową metodę **Get** http na karcie Konstruktor. Dołącz klucz subskrypcji Azure Maps do programu `status URL` . Wykonaj żądanie **Get** w lokalizacji `status URL` skopiowanej w kroku 3. `status URL`Wygląda jak następujący adres URL:
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     Jeśli proces konwersji jeszcze nie zakończył się, może zostać wyświetlony komunikat podobny do następującego:
@@ -208,7 +208,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 3. Utwórz żądanie **Get** w `statusURL` tileset. Dołącz podstawowy klucz subskrypcji Azure Maps na potrzeby uwierzytelniania. Żądanie powinno wyglądać następująco:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. Po pomyślnym zakończeniu żądania **Get** http nagłówek odpowiedzi będzie zawierać `tilesetId` dla utworzonego tileset. Skopiuj `tilesetId` .

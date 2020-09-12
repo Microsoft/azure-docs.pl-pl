@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019983"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440562"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -28,7 +28,7 @@ ms.locfileid: "84019983"
 
 W tym artykule opisano podstawową infrastrukturę zabezpieczeń, za pomocą której usługi przenoszenia danych w Azure Data Factory mogą pomóc w zabezpieczeniu danych. Zasoby zarządzania Data Factory są oparte na infrastrukturze zabezpieczeń platformy Azure i wykorzystują wszystkie możliwe środki bezpieczeństwa oferowane przez platformę Azure.
 
-W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](concepts-pipelines-activities.md) danych. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Te potoki znajdują się w regionie, w którym została utworzona Fabryka danych. 
+W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](concepts-pipelines-activities.md) danych. Potok jest logicznym grupowaniem działań, które wspólnie wykonują zadanie. Te potoki znajdują się w regionie, w którym została utworzona Fabryka danych. 
 
 Mimo że Data Factory jest dostępna tylko w kilku regionach, Usługa przenoszenia danych jest [dostępna globalnie](concepts-integration-runtime.md#integration-runtime-location) w celu zapewnienia zgodności danych, wydajności i obniżenia kosztów ruchu wychodzącego w sieci. 
 
@@ -47,11 +47,11 @@ Data Factory został certyfikowany dla:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Jeśli interesuje Cię zgodność z platformą Azure i sposób zabezpieczania infrastruktury przez platformę Azure, odwiedź [Centrum zaufania firmy Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Aby uzyskać najnowszą listę wszystkich kontroli zgodności z platformą Azure — https://aka.ms/AzureCompliance .
+Jeśli interesuje Cię zgodność z platformą Azure i sposób zabezpieczania infrastruktury przez platformę Azure, odwiedź [Centrum zaufania firmy Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Aby uzyskać najnowszą listę wszystkich kontroli zgodności z platformą Azure —  https://aka.ms/AzureCompliance .
 
 W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dwóch scenariuszach przenoszenia danych: 
 
-- **Scenariusz chmury**: w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne przez Internet. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Zapoznaj się z pełną listą obsługiwanych źródeł danych w [obsługiwanych sklepach i formatach danych](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Scenariusz chmury**: w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne przez Internet. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure Synapse Analytics (dawniej SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Zapoznaj się z pełną listą obsługiwanych źródeł danych w  [obsługiwanych sklepach i formatach danych](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Scenariusz hybrydowy**: w tym scenariuszu Źródło lub miejsce docelowe znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej. Magazyn danych znajduje się w sieci prywatnej lub sieci wirtualnej (najczęściej w źródle) i nie jest publicznie dostępny. Serwery baz danych hostowane na maszynach wirtualnych są również objęte tym scenariuszem.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -67,7 +67,7 @@ W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dw
 Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w Data Factory i magazynem danych w chmurze są realizowane za pośrednictwem protokołu HTTPS lub TLS bezpiecznego kanału.
 
 > [!NOTE]
-> Wszystkie połączenia do Azure SQL Database i Azure SQL Data Warehouse wymagają szyfrowania (SSL/TLS), podczas przesyłania danych do i z bazy danych. Podczas tworzenia potoku przy użyciu formatu JSON należy dodać właściwość szyfrowania i ustawić jej **wartość na true** w parametrach połączenia. W przypadku usługi Azure Storage można użyć **protokołu HTTPS** w parametrach połączenia.
+> Wszystkie połączenia do Azure SQL Database i Azure Synapse Analytics wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu formatu JSON należy dodać właściwość szyfrowania i ustawić jej **wartość na true** w parametrach połączenia. W przypadku usługi Azure Storage można użyć **protokołu HTTPS** w parametrach połączenia.
 
 > [!NOTE]
 > Aby włączyć szyfrowanie podczas przesyłania danych z programu Oracle, wykonaj jedną z poniższych opcji:
@@ -80,8 +80,8 @@ Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie t
 ### <a name="data-encryption-at-rest"></a>Szyfrowanie danych w spoczynku
 Niektóre magazyny danych obsługują szyfrowanie danych magazynowanych. Zalecamy włączenie mechanizmu szyfrowania danych dla tych magazynów danych. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Transparent Data Encryption (TDE) w Azure SQL Data Warehouse pomaga chronić przed zagrożeniami złośliwych działań, wykonując szyfrowanie i odszyfrowywanie danych w czasie rzeczywistym. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+Transparent Data Encryption (TDE) w usłudze Azure Synapse Analytics pomaga chronić przed zagrożeniami złośliwymi działaniami, wykonując szyfrowanie w czasie rzeczywistym i odszyfrowywanie danych przechowywanych na bieżąco. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w usłudze Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database obsługuje również funkcję transparent Data Encryption (TDE), która pomaga chronić przed zagrożeniami złośliwego działania przez wykonywanie szyfrowania i odszyfrowywania danych w czasie rzeczywistym bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [przezroczyste szyfrowanie danych dla SQL Database i magazynu danych](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -139,9 +139,9 @@ Poniższa tabela zawiera podsumowanie zaleceń dotyczących sieci i samodzielneg
 
 | Element źródłowy      | Element docelowy                              | Konfiguracja sieci                    | Instalacja środowiska Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec sieci VPN (punkt-lokacja lub lokacja-lokacja) | Własne środowisko Integration Runtime należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
-| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | ExpressRoute (prywatna Komunikacja równorzędna)           | Własne środowisko Integration Runtime należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
-| Lokalnie | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | ExpressRoute (Komunikacja równorzędna firmy Microsoft)            | Własne środowisko Integration runtime można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure. |
+| Środowiska lokalne | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec sieci VPN (punkt-lokacja lub lokacja-lokacja) | Własne środowisko Integration Runtime należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
+| Środowiska lokalne | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | ExpressRoute (prywatna Komunikacja równorzędna)           | Własne środowisko Integration Runtime należy zainstalować na maszynie wirtualnej platformy Azure w sieci wirtualnej.  |
+| Środowiska lokalne | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | ExpressRoute (Komunikacja równorzędna firmy Microsoft)            | Własne środowisko Integration runtime można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure. |
 
 Na poniższych ilustracjach przedstawiono użycie własnego środowiska Integration Runtime do przeniesienia danych między lokalną bazą danych i usługami platformy Azure przy użyciu ExpressRoute i sieci VPN IPSec (z usługą Azure Virtual Network):
 
@@ -153,10 +153,10 @@ Na poniższych ilustracjach przedstawiono użycie własnego środowiska Integrat
 
 ![IPSec VPN z bramą](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Konfiguracja zapory i lista dozwolonych ustawień dla adresów IP
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Konfiguracja zapory i lista dozwolonych ustawień dla adresów IP
 
 > [!NOTE] 
-> Może być konieczne zarządzanie portami lub Konfigurowanie listy dozwolonych domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. W tej tabeli są stosowane przykłady Azure SQL Database, Azure SQL Data Warehouse i Azure Data Lake Store.
+> Może być konieczne zarządzanie portami lub Konfigurowanie listy dozwolonych domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. Ta tabela używa tylko Azure SQL Database, usługi Azure Synapse Analytics i Azure Data Lake Store jako przykładów.
 
 > [!NOTE] 
 > Aby uzyskać szczegółowe informacje na temat strategii dostępu do danych za poorednictwem Azure Data Factory, zobacz [ten artykuł](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
@@ -169,7 +169,7 @@ W poniższej tabeli przedstawiono wymagania dotyczące portów i domen wychodzą
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Może być konieczne zarządzanie portami lub Konfigurowanie listy dozwolonych domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. W tej tabeli są stosowane przykłady Azure SQL Database, Azure SQL Data Warehouse i Azure Data Lake Store.   
+> Może być konieczne zarządzanie portami lub Konfigurowanie listy dozwolonych domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. Ta tabela używa tylko Azure SQL Database, usługi Azure Synapse Analytics i Azure Data Lake Store jako przykładów.   
 
 W poniższej tabeli przedstawiono wymagania dotyczące portów ruchu przychodzącego dla zapory systemu Windows:
 
@@ -185,7 +185,7 @@ Niektóre magazyny danych w chmurze wymagają również, aby adres IP komputera 
 Następujące magazyny danych w chmurze wymagają zezwolenia na adres IP komputera Integration Runtime. Niektóre z tych magazynów danych domyślnie mogą nie wymagać listy dozwolonych. 
 
 - [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
@@ -194,11 +194,11 @@ Następujące magazyny danych w chmurze wymagają zezwolenia na adres IP kompute
 
 **Czy samodzielne środowisko Integration Runtime może być współużytkowane przez różne fabryki danych?**
 
-Tak. Więcej szczegółów można znaleźć [tutaj](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
+Tak. Więcej informacji znajdziesz [tutaj](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
 
 **Jakie są wymagania dotyczące portów dla środowiska Integration Runtime, które mają być obsługiwane?**
 
-Własne środowisko Integration Runtime umożliwia nawiązywanie połączeń opartych na protokole HTTP z dostępem do Internetu. Porty wychodzące 443 muszą być otwarte dla własnego środowiska Integration Runtime, aby nawiązać to połączenie. Otwórz port przychodzący 8060 tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji Menedżer poświadczeń. Jeśli Azure SQL Database lub Azure SQL Data Warehouse jest używany jako źródło lub miejsce docelowe, należy również otworzyć port 1433. Aby uzyskać więcej informacji, zobacz sekcję [konfiguracje zapory i lista dozwolonych ustawień dla adresów IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
+Własne środowisko Integration Runtime umożliwia nawiązywanie połączeń opartych na protokole HTTP z dostępem do Internetu. Porty wychodzące 443 muszą być otwarte dla własnego środowiska Integration Runtime, aby nawiązać to połączenie. Otwórz port przychodzący 8060 tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji Menedżer poświadczeń. Jeśli Azure SQL Database lub usługa Azure Synapse Analytics jest używana jako źródło lub miejsce docelowe, należy również otworzyć port 1433. Aby uzyskać więcej informacji, zobacz sekcję [konfiguracje zapory i lista dozwolonych ustawień dla adresów IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
 
 
 ## <a name="next-steps"></a>Następne kroki

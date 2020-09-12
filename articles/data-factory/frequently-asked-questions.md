@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187292"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440511"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
 
@@ -22,7 +22,7 @@ ms.locfileid: "84187292"
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Data Factory.  
 
-## <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory? 
+## <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory? 
 Data Factory to w pełni zarządzana, oparta na chmurze usługa ETL z integracją danych, która automatyzuje przenoszenie i transformację danych. Podobnie jak w przypadku fabryki, która uruchamia sprzęt w celu przekształcenia surowców na gotowe towary, Azure Data Factory organizować istniejące usługi, które zbierają dane pierwotne i przekształcają je w gotowe do użycia informacje. 
 
 Za pomocą Azure Data Factory można tworzyć oparte na danych przepływy pracy do przenoszenia danych między lokalnymi i magazynami danych w chmurze. Można przetwarzać i przekształcać dane za pomocą przepływów danych. Moduł ADF obsługuje również zewnętrzne aparaty obliczeniowe dla przekształceń ręcznych za pomocą usług obliczeniowych, takich jak Azure HDInsight, Azure Databricks i SQL Server Integration Services (SSIS) Integration Runtime. 
@@ -84,7 +84,7 @@ Począwszy od początkowej publicznej wersji zapoznawczej w 2017, Data Factory d
 -    Obsługa trzech więcej konfiguracji/wariantów Azure SQL Database do hostowania bazy danych SSIS (SSISDB) projektów/pakietów:
 -    SQL Database z punktami końcowymi usługi sieci wirtualnej
 -    Wystąpienie zarządzane SQL
--    Elastyczna pula
+-    Pula elastyczna
 -    Obsługa Azure Resource Manager sieci wirtualnej na podstawie klasycznej sieci wirtualnej, która ma zostać wycofana w przyszłości, dzięki czemu można wstrzyknąć lub dołączyć do środowiska Azure-SSIS Integration Runtime do sieci wirtualnej skonfigurowanej do SQL Database za pomocą punktów końcowych usługi sieci wirtualnej/dostępu do danych lokalnych. Aby uzyskać więcej informacji, zobacz również [dołączanie środowiska Azure-SSIS Integration Runtime do sieci wirtualnej](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Obsługa uwierzytelniania Azure Active Directory (Azure AD) i uwierzytelniania SQL w celu łączenia się z SSISDB, co pozwala na uwierzytelnianie usługi Azure AD za pomocą tożsamości zarządzanej Data Factory dla zasobów platformy Azure
 -    Pomoc techniczna dotycząca dołączania istniejącej licencji SQL Server w celu zdobycia znacznego oszczędności kosztów z poziomu opcji Korzyść użycia hybrydowego platformy Azure
@@ -110,7 +110,7 @@ Brak sztywnego limitu liczby wystąpień środowiska Integration Runtime, które
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Azure Data Factory zawiera cztery kluczowe składniki, które współpracują ze sobą jako platforma, na której można tworzyć przepływy pracy oparte na danych z etapami przenoszenia i przekształcania danych.
 
 ### <a name="pipelines"></a>Pipelines
-Fabryka danych może obejmować jeden lub wiele potoków. Potok jest logicznym grupą działań do wykonania jednostką pracy. które umożliwiają wykonanie zadania. Na przykład potok może zawierać grupę działań, które pobierają dane z obiektu blob platformy Azure, a następnie uruchamiają zapytanie programu Hive w klastrze usługi HDInsight w celu partycjonowania danych. Korzyść polega na tym, że można użyć potoku do zarządzania działaniami jako zestawem, zamiast konieczności oddzielnego zarządzania poszczególnymi działaniami. Można połączyć działania w potoku w celu ich sekwencyjnego działania lub można obsługiwać je niezależnie, równolegle.
+Fabryka danych może obejmować jeden lub wiele potoków. Potok jest logicznym grupą działań do wykonania jednostką pracy. Razem działania w potoku wykonują zadanie. Na przykład potok może zawierać grupę działań, które pobierają dane z obiektu blob platformy Azure, a następnie uruchamiają zapytanie programu Hive w klastrze usługi HDInsight w celu partycjonowania danych. Korzyść polega na tym, że można użyć potoku do zarządzania działaniami jako zestawem, zamiast konieczności oddzielnego zarządzania poszczególnymi działaniami. Można połączyć działania w potoku w celu ich sekwencyjnego działania lub można obsługiwać je niezależnie, równolegle.
 
 ### <a name="data-flows"></a>Przepływy danych
 Przepływy danych to obiekty, które można skompilować wizualnie w Data Factory, które przekształcają dane na dużą skalę w usługach Spark zaplecza. Nie trzeba zrozumieć programowania ani wewnętrznych platform Spark. Po prostu Zaprojektuj cel przekształcenia danych przy użyciu grafów (map) lub arkuszy kalkulacyjnych (przetwarzanie).
@@ -190,7 +190,7 @@ Gdy firma Microsoft zapewnia pomoc lub Rozwiązywanie problemów z przepływami 
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Jak mogę dostęp do danych przy użyciu innych typów zestawów danych 90 w Data Factory?
 
-Funkcja Mapowanie przepływu danych umożliwia obecnie Azure SQL Database, Azure SQL Data Warehouse, rozdzielane pliki tekstowe z usługi Azure Blob Storage lub Azure Data Lake Storage Gen2 oraz pliki Parquet z magazynu obiektów blob lub Data Lake Storage Gen2 natywne dla źródła i ujścia. 
+Funkcja Mapowanie przepływu danych umożliwia obecnie Azure SQL Database, usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), rozdzielane pliki tekstowe z usługi Azure Blob Storage lub Azure Data Lake Storage Gen2 oraz pliki Parquet z magazynu obiektów blob lub Data Lake Storage Gen2 natywnie dla źródła i ujścia. 
 
 Działanie kopiowania służy do przemieszczania danych z dowolnego innego łącznika, a następnie wykonywania działania przepływu danych w celu przekształcenia danych po ich przygotowaniu. Na przykład potok będzie najpierw kopiowany do magazynu obiektów blob, a następnie działanie przepływu danych będzie używać zestawu danych w źródle do przekształcenia tych danych.
 
@@ -210,15 +210,15 @@ Przepływ danych przetwarzanie jest obecnie obsługiwany w fabrykach danych utwo
 * Australia Wschodnia
 * Kanada Środkowa
 * Indie Środkowe
-* Wschodnie stany USA
+* East US
 * Wschodnie stany USA 2
-* Japonia Wschodnia
+* Japan East
 * Europa Północna
 * Azja Południowo-Wschodnia
-* Południowo-środkowe stany USA
+* South Central US
 * Południowe Zjednoczone Królestwo
 * Zachodnio-środkowe stany USA
-* Europa Zachodnia
+* West Europe
 * Zachodnie stany USA
 * Zachodnie stany USA 2
 
@@ -260,7 +260,7 @@ Przepływ danych przetwarzanie obsługuje następujące typy danych w programie 
 * liczba całkowita
 * int
 * bit
-* wartość logiczna
+* boolean
 * smallint
 * tinyint
 * bigint

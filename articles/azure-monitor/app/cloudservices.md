@@ -4,12 +4,12 @@ description: Skutecznie monitoruj role sieci Web i procesu roboczego za pomocą 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 2de853655524e99e958f043b7801ee73e937e7ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1662b45d8243217357d1e69124832c499d587812
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923861"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437330"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights dla usług Azure Cloud Services
 [Application Insights][start] mogą monitorować [aplikacje usługi w chmurze platformy Azure](https://azure.microsoft.com/services/cloud-services/) pod kątem dostępności, wydajności, błędów i użycia przez połączenie danych z zestawów sdk Application Insights z danymi [Diagnostyka Azure](../platform/diagnostics-extension-overview.md) z usług w chmurze. Dzięki uzyskiwanym opiniom dotyczącym wydajności i skuteczności aplikacji możesz dokonać opartych na informacjach wyborów dotyczących kierunku projektu w każdym cyklu życia.
@@ -66,6 +66,8 @@ Jeśli opracowujesz zdarzenia niestandardowe dla następnej funkcji, gdy poprzed
 Aby uniknąć tej sytuacji, należy utworzyć osobne zasoby dla każdej konfiguracji kompilacji lub "stempel" (Programowanie, testowanie, produkcja itd.) w systemie. Umieść zasoby dla każdej konfiguracji kompilacji w oddzielnej grupie zasobów. 
 
 Aby wysłać dane telemetryczne do odpowiednich zasobów, można skonfigurować zestaw Application Insights SDK w taki sposób, aby pobierał inny klucz instrumentacji, w zależności od konfiguracji kompilacji. 
+
+Dowiedz się, jak [dynamicznie ustawiać klucz Instrumentacji](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) dla różnych etapów. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Tworzenie zasobu usługi Application Insights dla każdej roli
 

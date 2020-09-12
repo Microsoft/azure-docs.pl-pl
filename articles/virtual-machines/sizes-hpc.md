@@ -6,21 +6,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/01/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8870c83506b1d962b94cd4d671bd3acd3e96c17c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905367"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595737"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 
 Maszyny wirtualne z serii H platformy Azure zaprojektowano w celu zapewnienia wydajności klasy lidera, skalowalności MPI i efektywności kosztów dla różnych rzeczywistych obciążeń platformy HPC.
 
-[Seria HBv2](hbv2-series.md) Funkcja maszyny wirtualne 200 GB/s — karta Mellanox HDR InfiniBand, podczas gdy maszyna wirtualna z 100 serii GB/s Mellanox EDR InfiniBand. Każdy z tych typów maszyn wirtualnych jest podłączony do nieblokującego drzewa FAT w celu zoptymalizowanej i spójnej wydajności RDMA. Maszyny wirtualne HBv2 obsługują Routing adaptacyjny oraz transport podłączony dynamicznie (DCT) w dodatkowych standardach do standardowych wersji RC i UD Transports. Te funkcje rozszerzają wydajność, skalowalność i spójność aplikacji, a ich użycie jest zdecydowanie zalecane.
+[Seria HBv2](hbv2-series.md) Maszyny wirtualne są zoptymalizowane pod kątem aplikacji opartych na przepustowości pamięci, takich jak dynamika płynów, skończona analiza elementów i symulacja zbiornika. HBv2 maszyny wirtualne z funkcją 120 AMD EPYC 7742 rdzeni procesora, 4 GB pamięci RAM na rdzeń procesora CPU i bez jednoczesnego wielowątkowości. Każda maszyna wirtualna w HBv2 zapewnia do 340 GB/s przepustowości pamięci oraz do 4 teraflopa obliczeń FP64.
+
+Funkcja maszyn wirtualnych HBv2 200 GB/s — karta Mellanox HDR InfiniBand, podczas gdy funkcja maszyn wirtualnych serii HB i HC 100 GB/s Mellanox EDR InfiniBand. Każdy z tych typów maszyn wirtualnych jest podłączony do nieblokującego drzewa FAT w celu zoptymalizowanej i spójnej wydajności RDMA. Maszyny wirtualne HBv2 obsługują Routing adaptacyjny oraz transport podłączony dynamicznie (DCT) w dodatkowych standardach do standardowych wersji RC i UD Transports. Te funkcje rozszerzają wydajność, skalowalność i spójność aplikacji, a ich użycie jest zdecydowanie zalecane.
 
 [HB — seria](hb-series.md) Maszyny wirtualne są zoptymalizowane pod kątem aplikacji opartych na przepustowości pamięci, takich jak dynamika płynów, jawna, skończona analiza elementów i modelowanie pogody. HB VM funkcja 60 AMD EPYC 7551 rdzeni procesora, 4 GB pamięci RAM na rdzeń procesora CPU i bez wielowątkowości. Platforma AMD EPYC zapewnia ponad 260 GB/s przepustowości pamięci.
 
@@ -35,7 +37,7 @@ Maszyny wirtualne z serii H platformy Azure zaprojektowano w celu zapewnienia wy
 
 Większość rozmiarów maszyn wirtualnych HPC (HBv2, HB, HC, H16r, H16mr, A8 i A9) ma interfejs sieciowy do łączności z funkcją zdalnego bezpośredniego dostępu do pamięci (RDMA). Wybrane rozmiary [serii N](./nc-series.md) oznaczone przy użyciu funkcji "r" (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 i NC24r) również obsługują funkcję RDMA. Ten interfejs jest poza standardowym interfejsem sieciowym platformy Azure dostępnym w innych rozmiarach maszyn wirtualnych.
 
-Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie się za pośrednictwem sieci InfiniBand (IB), co pozwala na korzystanie z stawek za HBv2, EDR stawek za HB, HC, NDv2, FDR dla H16r, H16mr i innych maszyn wirtualnych z serii N z obsługą funkcji RDMA, a następnie częstotliwości QDR dla maszyn wirtualnych A8 i A9. Te możliwości RDMA umożliwiają zwiększenie skalowalności i wydajności niektórych aplikacji MPI (Message Passing Interface). Aby uzyskać więcej informacji na temat szybkości, zobacz szczegóły w tabelach na tej stronie.
+Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie się za pośrednictwem sieci InfiniBand (IB), co pozwala na korzystanie z stawek za HBv2, EDR stawek za HB, HC, NDv2, FDR dla H16r, H16mr i innych maszyn wirtualnych z serii N z obsługą funkcji RDMA, a następnie częstotliwości QDR dla maszyn wirtualnych A8 i A9. Te możliwości RDMA umożliwiają zwiększenie skalowalności i wydajności niektórych aplikacji MPI (Message Passing Interface).
 
 > [!NOTE]
 > W systemie Azure HPC istnieją dwie klasy maszyn wirtualnych w zależności od tego, czy są włączone Wirtualizacja SR-IOV dla InfiniBand. Obecnie maszyna wirtualna SR-IOV dla maszyn wirtualnych z włączoną funkcją InfiniBand to: HBv2, HB, HC, Seria NCV3 i NDv2. Pozostałe maszyny wirtualne z włączoną funkcją InfiniBand nie mają obecnie włączonej funkcji SR-IOV.
@@ -60,7 +62,7 @@ Ten interfejs umożliwia wystąpieniom z obsługą funkcji RDMA komunikowanie si
 
 Platforma Azure oferuje kilka opcji tworzenia klastrów maszyn wirtualnych z systemem Windows HPC, które mogą komunikować się za pomocą sieci RDMA, w tym: 
 
-- **Maszyny wirtualne** — Wdróż maszyny wirtualne z obsługą funkcji RDMA w tym samym zestawie skalowania lub zestawie dostępności (w przypadku korzystania z Azure Resource Manager modelu wdrażania). W przypadku korzystania z klasycznego modelu wdrażania należy wdrożyć maszyny wirtualne w tej samej usłudze w chmurze.
+- **Maszyny wirtualne**  — Wdróż maszyny wirtualne z obsługą funkcji RDMA w tym samym zestawie skalowania lub zestawie dostępności (w przypadku korzystania z Azure Resource Manager modelu wdrażania). W przypadku korzystania z klasycznego modelu wdrażania należy wdrożyć maszyny wirtualne w tej samej usłudze w chmurze.
 
 - **Zestawy skalowania maszyn wirtualnych** — w zestawie skalowania maszyn wirtualnych upewnij się, że wdrożenie jest ograniczone do pojedynczej grupy umieszczania na potrzeby komunikacji InfiniBand w ramach zestawu skalowania. Na przykład w szablonie Menedżer zasobów Ustaw `singlePlacementGroup` Właściwość na `true` . Należy zauważyć, że maksymalny rozmiar zestawu skalowania, który może być przypadający z `singlePlacementGroup` właściwością do `true` jest domyślnie ustawiony na 100 maszyn wirtualnych. Jeśli Twoje wymagania dotyczące skalowania zadań HPC są większe niż 100 maszyn wirtualnych w ramach jednej dzierżawy, możesz poprosić o zwiększenie, a bezpłatnie [otworzyć żądanie pomocy technicznej online](../azure-portal/supportability/how-to-create-azure-support-request.md) . Limit liczby maszyn wirtualnych w pojedynczym zestawie skalowania można zwiększyć do 300. Należy pamiętać, że podczas wdrażania maszyn wirtualnych przy użyciu zestawów dostępności maksymalny limit wynosi 200 maszyn wirtualnych na zestaw dostępności.
 

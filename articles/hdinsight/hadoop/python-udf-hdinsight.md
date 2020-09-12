@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874762"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462245"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Używanie funkcji języka Python zdefiniowanej przez użytkownika (UDF) z Apache Hive i Apache chlewnej w usłudze HDInsight
 
@@ -38,7 +38,7 @@ Usługa HDInsight zawiera również Jython, która jest implementacją języka P
 
 ## <a name="storage-configuration"></a>Konfiguracja usługi Storage
 
-Jeśli używane konto magazynu ma charakter lub, nie jest wymagana żadna `Storage (general purpose v1)` Akcja `StorageV2 (general purpose v2)` .  Proces w tym artykule spowoduje wygenerowanie danych wyjściowych do co najmniej `/tezstaging` .  Domyślna konfiguracja usługi Hadoop będzie zawierać `/tezstaging` w `fs.azure.page.blob.dir` zmiennej konfiguracyjnej programu w programie `core-site.xml` for `HDFS` .  Ta konfiguracja powoduje, że dane wyjściowe do katalogu będą stronicowymi obiektami BLOB, które nie są obsługiwane dla rodzaju konta magazynu `BlobStorage` .  Aby użyć `BlobStorage` tego artykułu, Usuń `/tezstaging` ze `fs.azure.page.blob.dir` zmiennej konfiguracyjnej.  Dostęp do konfiguracji można uzyskać za pomocą [interfejsu użytkownika Ambari](../hdinsight-hadoop-manage-ambari.md).  W przeciwnym razie zostanie wyświetlony komunikat o błędzie:`Page blob is not supported for this account type.`
+Jeśli używane konto magazynu ma charakter lub, nie jest wymagana żadna `Storage (general purpose v1)` Akcja `StorageV2 (general purpose v2)` .  Proces w tym artykule spowoduje wygenerowanie danych wyjściowych do co najmniej `/tezstaging` .  Domyślna konfiguracja usługi Hadoop będzie zawierać `/tezstaging` w `fs.azure.page.blob.dir` zmiennej konfiguracyjnej programu w programie `core-site.xml` for `HDFS` .  Ta konfiguracja powoduje, że dane wyjściowe do katalogu będą stronicowymi obiektami BLOB, które nie są obsługiwane dla rodzaju konta magazynu `BlobStorage` .  Aby użyć `BlobStorage` tego artykułu, Usuń `/tezstaging` ze `fs.azure.page.blob.dir` zmiennej konfiguracyjnej.  Dostęp do konfiguracji można uzyskać za pomocą [interfejsu użytkownika Ambari](../hdinsight-hadoop-manage-ambari.md).  W przeciwnym razie zostanie wyświetlony komunikat o błędzie: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > Kroki opisane w tym dokumencie składają się z następujących założeń:  
@@ -300,8 +300,8 @@ Skrypt w języku Python może być używany jako UDF ze świń za pośrednictwem
 
 Aby określić interpreter języka Python, użyj go `register` podczas odwoływania się do skryptu języka Python. Poniższe przykłady rejestrują skrypty ze świnią jako `myfuncs` :
 
-* **Aby użyć Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Aby użyć języka C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Aby użyć Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Aby użyć języka C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > W przypadku korzystania z Jython ścieżka do pliku pig_jython może być ścieżką lokalną lub ścieżką WASBS://. Jednak w przypadku korzystania z języka C Python należy odwołać się do pliku w lokalnym systemie plików węzła, który jest używany do przesyłania danego zadania.
@@ -319,7 +319,7 @@ Oto co to jest w tym przykładzie:
 
 1. Pierwszy wiersz ładuje przykładowy plik danych `sample.log` do `LOGS` . Definiuje również każdy rekord jako `chararray` .
 2. Następny wiersz filtruje wartości null, przechowując wynik operacji w `LOG` .
-3. Następnie wykonuje iterację w odniesieniu do rekordów w `LOG` i używa `GENERATE` do wywołania `create_structure` metody zawartej w skrypcie Python/Jython załadowanym jako `myfuncs` . `LINE`służy do przekazywania bieżącego rekordu do funkcji.
+3. Następnie wykonuje iterację w odniesieniu do rekordów w `LOG` i używa `GENERATE` do wywołania `create_structure` metody zawartej w skrypcie Python/Jython załadowanym jako `myfuncs` . `LINE` służy do przekazywania bieżącego rekordu do funkcji.
 4. Na koniec dane wyjściowe są zrzucane do strumienia STDOUT przy użyciu `DUMP` polecenia. To polecenie wyświetla wyniki po zakończeniu operacji.
 
 ### <a name="create-file"></a>Utwórz plik
@@ -594,7 +594,7 @@ Informacje o błędzie (STDERR) i wynik zadania (STDOUT) są również rejestrow
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
 
-Jeśli zachodzi potrzeba załadowania modułów języka Python, które nie są udostępniane domyślnie, zobacz [jak wdrożyć moduł w usłudze Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Jeśli zachodzi potrzeba załadowania modułów języka Python, które nie są udostępniane domyślnie, zobacz [jak wdrożyć moduł w usłudze Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Aby dowiedzieć się więcej na temat korzystania z programu MapReduce, zobacz następujące dokumenty:
 

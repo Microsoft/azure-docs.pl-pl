@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804353"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594819"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Tworzenie bramy aplikacji przy użyciu protokołu HTTP w celu przekierowania HTTPS za pomocą Azure Portal
 
@@ -20,12 +20,11 @@ Za pomocą Azure Portal można utworzyć [bramę aplikacji](overview.md) z certy
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Tworzenie certyfikatu z podpisem własnym
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji z certyfikatem
-> * Dodaj odbiornik i regułę przekierowania
-> * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
+* Tworzenie certyfikatu z podpisem własnym
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji z certyfikatem
+* Dodaj odbiornik i regułę przekierowania
+* Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -173,7 +172,7 @@ Na koniec należy uaktualnić zestaw skalowania przy użyciu tych zmian.
 2. W obszarze **Ustawienia** wybierz pozycję **Wystąpienia**.
 3. Wybierz oba wystąpienia, a następnie wybierz pozycję **Uaktualnij**.
 4. Kliknij przycisk **Tak**, aby potwierdzić.
-5. Po zakończeniu tego procesu Wróć do **myAppGateway** i wybierz pozycję **Pule zaplecza**. Należy teraz zobaczyć, że **appGatewayBackendPool** ma dwa elementy docelowe, a **myAppGatewaymyvmss** nie ma żadnych elementów docelowych.
+5. Po zakończeniu tego procesu Wróć do **myAppGateway** i wybierz pozycję **Pule zaplecza**. Należy teraz zobaczyć, że **appGatewayBackendPool** ma dwa elementy docelowe, a  **myAppGatewaymyvmss** nie ma żadnych elementów docelowych.
 6. Wybierz pozycję **myAppGatewaymyvmss**, a następnie wybierz pozycję **Usuń**.
 7. Wybierz przycisk **OK**, aby potwierdzić.
 
@@ -215,7 +214,7 @@ Publiczny adres IP aplikacji można uzyskać na stronie Przegląd usługi Applic
 1. Wybierz pozycję **myAppGateway**.
 2. Na stronie **Przegląd** Zwróć uwagę na adres IP w obszarze **publiczny adres IP frontonu**.
 
-3. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład: http://52.170.203.149
+3. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Na przykład http://52.170.203.149
 
    ![Ostrzeżenie o zabezpieczeniach](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

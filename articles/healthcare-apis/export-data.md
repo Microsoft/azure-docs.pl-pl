@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: 10d901f73006051e8b1ddd02aeb36b229c6a7761
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 83509b5f452ab7cf88774561c12d7aa2cf3b46cf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270283"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482321"
 ---
 # <a name="how-to-export-fhir-data"></a>Jak wyeksportować dane FHIR
 
@@ -38,7 +38,14 @@ Polecenia $export można również użyć do eksportowania wyznaczonych danych z
 |Parametr zapytania            | Przykład |Opcjonalność| Opis|
 |---------------------------|---------|-----------|------------|
 | _\_anonymizationConfig_   |DemoConfig.jsna|Wymagane dla deidentyfikowanego eksportu |Nazwa pliku konfiguracji. W [tym miejscu](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format)Sprawdź format pliku konfiguracji. Ten plik powinien być przechowywany w kontenerze o nazwie **zachowywanie anonimowości** w ramach tego samego konta usługi Azure Storage, które jest skonfigurowane jako lokalizacja eksportowania. |
-| _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Opcjonalne dla deidentyfikowanego eksportu|Jest to element ETag pliku konfiguracji. Element ETag można uzyskać przy użyciu Eksploratora usługi Azure Storage z właściwości obiektu BLOB|
+| _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Opcjonalne dla deidentyfikowanego eksportu|Jest to element ETag pliku konfiguracji. Można uzyskać element ETag przy użyciu Eksplorator usługi Azure Storage z właściwości obiektu BLOB|
 
 > [!IMPORTANT]
 > Należy zauważyć, że zarówno eksport pierwotny, jak i deidentyfikowane zapisy eksportu do tego samego konta usługi Azure Storage określone jako część konfiguracji eksportu. Zalecane jest używanie różnych kontenerów odpowiadających różnym wyznaczonym konfiguracjom konfiguracji i zarządzania dostępem użytkowników na poziomie kontenera.
+
+## <a name="next-steps"></a>Następne kroki
+
+Ten artykuł zawiera informacje na temat eksportowania FHIR zasobów przy użyciu polecenia $export, w tym z wyznaczonymi danymi. Następnie można skonfigurować dane eksportu:
+ 
+>[!div class="nextstepaction"]
+>[Konfigurowanie eksportu danych](configure-export-data.md)

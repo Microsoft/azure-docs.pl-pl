@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7936fcd1e4a629a813c4266920f6c34a15cf9b4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74979006"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438946"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory — dziennik zmian interfejsu API platformy .NET
 > [!NOTE]
@@ -75,7 +75,7 @@ Dodatki do funkcji:
 ### <a name="feature-additions"></a>Dodatki funkcji
 * Dodano nowy typ StorageFormat typu [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) do kopiowania plików w formacie zoptymalizowanego wiersza kolumnowy (Orc).
 * Dodaj właściwości [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) i PolyBaseSettings do SqlDWSink.
-  * Umożliwia korzystanie z bazy danych Base do kopiowania do SQL Data Warehouse.
+  * Umożliwia korzystanie z bazy danych bazowych do kopiowania dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
 ## <a name="version-461"></a>Wersja 4.6.1
 ### <a name="bug-fixes"></a>Poprawki błędów
@@ -135,7 +135,7 @@ Dodatki do funkcji:
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>4.0.1 wersja
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 Zmieniono nazwy następujących klas. Nowe nazwy były oryginalnymi nazwami klas przed wydaniem 4.0.0.
 
 | Nazwa w 4.0.0 | Nazwa w 4.0.1 |
@@ -148,13 +148,13 @@ Zmieniono nazwy następujących klas. Nowe nazwy były oryginalnymi nazwami klas
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Wersja 4.0.0
-### <a name="breaking-changes"></a>Zmiany powodujące niezgodność
+### <a name="breaking-changes"></a>Fundamentalne zmiany
 * Nazwy następujących klas/interfejsów zostały zmienione.
 
 | Stara nazwa | Nowa nazwa |
 |:--- |:--- |
 | ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| Tabela |[Dataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
+| Tabela |[Zestaw danych](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
 | TableProperties |[DatasetProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
 | TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
 | TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |
@@ -181,5 +181,5 @@ Zmieniono nazwy następujących klas. Nowe nazwy były oryginalnymi nazwami klas
 * Interfejs API potoku **list** zwraca tylko podsumowanie potoku, a nie pełne szczegóły. Na przykład działania w podsumowaniu potoku zawierają tylko nazwę i typ.
 
 ### <a name="feature-additions"></a>Dodatki funkcji
-* Klasa [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) obsługuje dwie nowe właściwości, **SliceIdentifierColumnName** i **SqlWriterCleanupScript**do obsługi kopiowania idempotentne do Azure SQL Data Warehouse. Zapoznaj się z artykułem [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) , aby uzyskać szczegółowe informacje na temat tych właściwości.
-* Teraz obsługujemy procedurę przechowywaną w odniesieniu do Azure SQL Database i Azure SQL Data Warehouse źródeł w ramach działania kopiowania. Klasy [sqlsource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) i [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) mają następujące właściwości: **SqlReaderStoredProcedureName** i **StoredProcedureParameters**. Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz artykuły [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) i [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) w witrynie Azure.com.  
+* Klasa [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) obsługuje dwie nowe właściwości, **SliceIdentifierColumnName** i **SqlWriterCleanupScript**, aby obsługiwać idempotentne kopiowania do usługi Azure Azure Synapse Analytics. Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz artykuł dotyczący [usługi Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) .
+* Teraz obsługujemy uruchamianie procedury składowanej w odniesieniu do Azure SQL Database i źródeł analiz usługi Azure Synapse w ramach działania kopiowania. Klasy [sqlsource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) i [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) mają następujące właściwości: **SqlReaderStoredProcedureName** i **StoredProcedureParameters**. Aby uzyskać szczegółowe informacje o tych właściwościach, zobacz artykuły dotyczące [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) i [usługi Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) w witrynie Azure.com.  

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a019b86adf3dfe950b7d93f50c834d004a2aebf9
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645144"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462347"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory — często zadawane pytania
 > [!NOTE]
@@ -25,7 +25,7 @@ ms.locfileid: "75645144"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Pytania ogólne
-### <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory?
+### <a name="what-is-azure-data-factory"></a>Co to jest usługa Azure Data Factory?
 Data Factory to oparta na chmurze usługa integracji danych, która **automatyzuje przenoszenie i transformację danych**. Tak jak w przypadku fabryki, która uruchamia sprzęt, aby pobierać surowce i przekształcić je w gotowe towary, Data Factory organizować istniejące usługi, które zbierają dane pierwotne i przekształcają je w gotowe do użycia informacje.
 
 Data Factory umożliwia tworzenie przepływów pracy opartych na danych w celu przenoszenia danych między magazynami danych zarówno lokalnymi, jak i w chmurze, a także przetwarzaniem/przekształcaniem danych przy użyciu usług obliczeniowych, takich jak Azure HDInsight i Azure Data Lake Analytics. Po utworzeniu potoku, który wykonuje potrzebną akcję, można zaplanować okresowe uruchamianie (co godzinę, codziennie, co tydzień itd.).   
@@ -72,7 +72,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedura składowana](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedura składowana](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Jak Azure Data Factory porównać z usługą SQL Server Integration Services (SSIS)? 
 Zapoznaj się z prezentacją [Azure Data Factory a SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) z jednej z naszych MVP (najbardziej cenionymi profesjonalistami): Reza rad. Niektóre ostatnie zmiany w Data Factory mogą nie być wymienione na slajdzie. Nieustannie dodajemy więcej możliwości do Azure Data Factory. Nieustannie dodajemy więcej możliwości do Azure Data Factory. Te aktualizacje zostaną dołączone do porównania technologii integracji danych firmy Microsoft w dalszej części tego roku.   
@@ -205,4 +205,4 @@ Jeśli na pewno chcesz natychmiast przerwać wykonywanie wszystkich wykonań, je
 [adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[hdinsight-alternate-storage-2]: https://docs.microsoft.com/archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive

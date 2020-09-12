@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 11043d6686bd762b1c0a9827c7edb2230487cc72
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263234"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595448"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Zalecenia dotyczące zabezpieczeń w Centrum zabezpieczeń Azure 
 W tym temacie wyjaśniono, jak wyświetlać i zrozumieć zalecenia w Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.
@@ -57,6 +57,7 @@ Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potenc
 
     Strona zawiera następujące:
 
+    - Przyciski **Wymuś** i **Odmów** w przypadku obsługiwanych zaleceń (zobacz zapobieganie błędom [konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md))
     - **Wskaźnik ważności**
     - **Interwał Aktualności**  (jeśli dotyczy) 
     - **Opis** — Krótki opis problemu
@@ -68,10 +69,19 @@ Security Center analizuje stan zabezpieczeń zasobów, aby identyfikować potenc
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Nie dotyczy zasobów z przyczyn.":::
 
+## <a name="preview-recommendations"></a>Zalecenia dotyczące wersji zapoznawczej
 
+Zalecenia oflagowane jako **wersja zapoznawcza** nie są uwzględniane w obliczeniach bezpiecznego wyniku.
+
+Powinny być nadal korygowane wszędzie tam, gdzie jest to możliwe, więc po zakończeniu okresu korzystania z wersji zapoznawczej będą one wchodzić w skład Twojego wyniku.
+
+Przykład zalecenia dotyczącego wersji zapoznawczej:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Zalecenie z flagą wersji zapoznawczej":::
  
 ## <a name="next-steps"></a>Następne kroki
 
 W tym dokumencie wprowadzono zalecenia dotyczące zabezpieczeń w Security Center. Aby dowiedzieć się, jak skorygować zalecenia:
 
-* [Skoryguj zalecenia](security-center-remediate-recommendations.md) — Dowiedz się, jak skonfigurować zasady zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.
+- [Skoryguj zalecenia](security-center-remediate-recommendations.md) — Dowiedz się, jak skonfigurować zasady zabezpieczeń dla subskrypcji i grup zasobów platformy Azure.
+- [Zapobiegaj błędom konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md).

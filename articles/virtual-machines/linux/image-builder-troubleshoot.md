@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów z usługą Azure Image Builder
 description: Rozwiązywanie typowych problemów i błędów podczas korzystania z usługi Azure VM Image Builder
 author: cynthn
 ms.author: danis
-ms.date: 08/07/2020
+ms.date: 09/03/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 754d9324137632b928e67bbe4c67a3e6c72e452a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068203"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459933"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Rozwiązywanie problemów z usługą Azure Image Builder
 
@@ -502,6 +502,28 @@ Przyczyną może być problem z chronometrażem spowodowany rozmiarem maszyny wi
 
 Zwiększ rozmiar maszyny wirtualnej. Można też dodać 60-sekundowe dostosowanie środowiska PowerShell, aby uniknąć problemów z chronometrażem.
 
+### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>Anulowanie konstruktora po anulowaniu kontekstu anulowania kontekstu
+
+#### <a name="error"></a>Błąd
+```text
+PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
+PACKER OUT Cancelling build after receiving terminated
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling hook after context cancellation context canceled
+..
+PACKER ERR 2020/03/26 22:11:23 packer-builder-azure-arm plugin: Cancelling provisioning due to context cancellation: context canceled
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [ERROR] Remote command exited without exit status or exit signal.
+PACKER ERR 2020/03/26 22:11:25 packer-builder-azure-arm plugin: [INFO] RPC endpoint: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] 148974 bytes written for 'stdout'
+PACKER ERR 2020/03/26 22:11:25 [INFO] 0 bytes written for 'stderr'
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 2300218
+PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
+```
+#### <a name="cause"></a>Przyczyna
+Usługa Image Builder używa portu 22 (Linux) lub 5986 (Windows) do nawiązania połączenia z maszyną wirtualną kompilacji, dzieje się tak, gdy usługa jest odłączona od maszyny wirtualnej kompilacji podczas kompilacji obrazu. Przyczyny rozłączenia mogą się różnić, ale włączenie lub skonfigurowanie zapór w skrypcie może zablokować powyższe porty.
+
+#### <a name="solution"></a>Rozwiązanie
+Przejrzyj skrypty pod kątem zmian/włączenia zapory lub zmiany w usłudze SSH lub WinRM oraz upewnij się, że wszystkie zmiany umożliwiają stałą łączność między usługą i Tworzenie maszyny wirtualnej na powyższych portach. Aby uzyskać więcej informacji na temat sieci programu Image Builder, zapoznaj się z [wymaganiami](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+
 ## <a name="devops-task"></a>Zadanie metodyki DevOps 
 
 ### <a name="troubleshooting-the-task"></a>Rozwiązywanie problemów z zadaniem
@@ -633,9 +655,9 @@ Jeśli zostały określone wskazówki i nadal nie można rozwiązać problemu, m
 Wybieranie produktu przypadku:
 ```bash
 Product Family: Azure
-Product: Virtual Machine Running Windows
-Support Topic: Management
-Support Subtopic: Issues with Azure Image Builder
+Product: Virtual Machine Running (Window\Linux)
+Support Topic: Azure Features
+Support Subtopic: Azure Image Builder
 ```
 
 ## <a name="next-steps"></a>Następne kroki

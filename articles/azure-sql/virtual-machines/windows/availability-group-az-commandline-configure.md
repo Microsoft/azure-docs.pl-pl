@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 212ead54f0f8212ae251175d40873e7cec4e0240
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003007"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482661"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Konfigurowanie grupy dostępności dla SQL Server na maszynie wirtualnej platformy Azure (PowerShell & AZ CLI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,13 +44,13 @@ Aby skonfigurować zawsze włączone grupy dostępności przy użyciu interfejsu
 - Istniejące konto użytkownika domeny, które ma uprawnienie **Tworzenie obiektu komputera** w domenie. Na przykład konto administratora domeny ma zwykle wystarczające uprawnienia (na przykład: account@domain.com ). _To konto powinno być również częścią lokalnej grupy administratorów na każdej maszynie wirtualnej w celu utworzenia klastra._
 - Konto użytkownika domeny kontrolujące SQL Server. 
  
-## <a name="create-a-storage-account-as-a-cloud-witness"></a>Tworzenie konta magazynu jako monitora w chmurze
+## <a name="create-a-storage-account"></a>Tworzenie konta magazynu 
+
 Klaster wymaga konta magazynu do działania jako monitor chmury. Możesz użyć dowolnego istniejącego konta magazynu lub utworzyć nowe konto magazynu. Jeśli chcesz użyć istniejącego konta magazynu, przejdź do następnej sekcji. 
 
 Poniższy fragment kodu tworzy konto magazynu: 
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
-
 
 ```azurecli-interactive
 # Create the storage account
@@ -80,7 +80,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ---
 
-## <a name="define-windows-failover-cluster-metadata"></a>Definiowanie metadanych klastra trybu failover systemu Windows
+## <a name="define-cluster-metadata"></a>Definiowanie metadanych klastra
 
 W interfejsie wiersza polecenia platformy Azure [AZ SQL VM Group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) Group (usługa) zarządza metadanymi usługi Windows Server failover Cluster (WSFC), która hostuje grupę dostępności. Metadane klastra obejmują domenę Active Directory, konta klastra, konta magazynu, które mają być używane jako monitor chmury i wersja SQL Server. Użyj [AZ SQL VM Group Create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) w celu zdefiniowania metadanych usługi WSFC, aby podczas dodawania pierwszej SQL SERVEREJ maszyny wirtualnej klaster został utworzony zgodnie z definicją. 
 
@@ -183,6 +183,17 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+
+## <a name="validate-cluster"></a>Weryfikuj klaster 
+
+Aby klaster trybu failover był obsługiwany przez firmę Microsoft, musi on przejść w celu sprawdzenia poprawności klastra. Połącz się z maszyną wirtualną przy użyciu preferowanej metody, takiej jak Remote Desktop Protocol (RDP) i sprawdź, czy klaster przeszedł sprawdzanie poprawności przed dalszym kontynuowaniem. Niewykonanie tej czynności spowoduje pozostawienie klastra w nieobsługiwanym stanie. 
+
+Można sprawdzić poprawność klastra przy użyciu Menedżer klastra trybu failover (FCM) lub następującego polecenia programu PowerShell:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
 
 ## <a name="create-availability-group"></a>Utwórz grupę dostępności
 
