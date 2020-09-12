@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502736"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595822"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Tworzenie bramy aplikacji z zakończeniem protokołu TLS przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -21,11 +21,10 @@ Możesz użyć interfejsu wiersza polecenia platformy Azure, aby utworzyć [bram
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Tworzenie certyfikatu z podpisem własnym
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji z certyfikatem
-> * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
+* Tworzenie certyfikatu z podpisem własnym
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji z certyfikatem
+* Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-ssl-powershell.md).
 
@@ -173,7 +172,7 @@ Aby zaakceptować ostrzeżenie o zabezpieczeniach, jeśli używasz certyfikatu z
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć.
 

@@ -3,12 +3,12 @@ title: Używanie parametrów do tworzenia planów dynamicznych
 description: Poznaj parametry statyczne i dynamiczne oraz sposób ich używania do tworzenia bezpiecznych i dynamicznych planów.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051563"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651961"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Tworzenie dynamicznych planów za poorednictwem parametrów
 
@@ -61,11 +61,11 @@ Wartość parametru zdefiniowana w definicji strategii jest nazywana **parametre
 
 1. Artefakty dodawane do planu, który ma opcje parametrów, są wyświetlane **parametry X z Y wypełnione** w kolumnie **Parameters** . Wybierz wiersz artefaktu, aby edytować parametry artefaktu.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parametry strategii w definicji planu" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Zrzut ekranu przedstawiający definicję planu oraz wyróżnione "X of Y Parameters"." border="false":::
 
-1. Na stronie **Edytowanie artefaktu** są wyświetlane opcje wartości odpowiednie dla artefaktu klikniętego w polu. Każdy parametr artefaktu ma tytuł, pole wartości i pole wyboru. Ustaw pole tak, aby nie było sprawdzane jako **parametr statyczny**. W poniższym przykładzie tylko _Lokalizacja_ jest **parametrem statycznym** , ponieważ nie jest zaznaczone i sprawdzana jest _Nazwa grupy zasobów_ .
+1. Na stronie **Edytowanie artefaktu** są wyświetlane opcje wartości odpowiednie dla wybranego artefaktu. Każdy parametr artefaktu ma tytuł, pole wartości i pole wyboru. Ustaw pole tak, aby nie było sprawdzane jako **parametr statyczny**. W poniższym przykładzie tylko _Lokalizacja_ jest **parametrem statycznym** , ponieważ nie jest zaznaczone i sprawdzana jest _Nazwa grupy zasobów_ .
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Zaplanuj parametry statyczne w artefaktie planu" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Zrzut ekranu przedstawiający parametry statyczne w artefaktie planu." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Ustawianie parametrów statycznych z interfejsu API REST
 
@@ -176,7 +176,7 @@ Przeciwieństwem parametru statycznego jest **parametr dynamiczny**. Ten paramet
 
 1. Na stronie **Przypisz plan** Znajdź sekcję **Parametry artefaktu** . Każdy artefakt z co najmniej jednym **parametrem dynamicznym** wyświetla artefakt i opcje konfiguracji. Podaj wymagane wartości parametrów przed przypisaniem planu. W poniższym przykładzie _Nazwa_ jest **parametrem dynamicznym** , który musi być zdefiniowany, aby można było wykonać przypisanie do planu.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parametr dynamiczny strategii podczas przypisywania strategii" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Zrzut ekranu przedstawiający Ustawianie parametrów dynamicznych podczas przypisywania planu." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ustawianie parametrów dynamicznych z interfejsu API REST
 

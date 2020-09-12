@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 796558c2579504b673fd15c468ce635c6b1cca8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19f42270e37c42cf56bbde04f73c01027a56ff63
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066355"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657394"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Tworzenie instrukcji warunkowych kontrolujących akcje przepływu pracy w Azure Logic Apps
 
@@ -28,7 +28,7 @@ Załóżmy na przykład, że masz aplikację logiki, która wysyła zbyt wiele w
 
 * Podstawowa wiedza [na temat tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Aby postępować zgodnie z przykładem w tym artykule, [Utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przy użyciu konta programu Outlook Outlook.com lub Office 365.
+* Aby postępować zgodnie z przykładem w tym artykule, [Utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przy użyciu konta Outlook.com lub konta służbowego.
 
 ## <a name="add-condition"></a>Dodawanie warunku
 
@@ -40,7 +40,7 @@ Załóżmy na przykład, że masz aplikację logiki, która wysyła zbyt wiele w
 
    ![Dodaj akcję między krokami](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   Jeśli chcesz dodać warunek na końcu przepływu pracy, w dolnej części aplikacji logiki wybierz pozycję **nowy krok** > **Dodaj akcję**.
+   Jeśli chcesz dodać warunek na końcu przepływu pracy, w dolnej części aplikacji logiki wybierz pozycję  **nowy krok** > **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź wartość "warunek" jako filtr. Wybierz tę akcję: **formant warunku**
 

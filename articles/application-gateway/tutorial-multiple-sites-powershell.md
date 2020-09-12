@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525006"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595867"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Tworzenie bramy aplikacji hostującej wiele witryn internetowych przy użyciu programu Azure PowerShell
 
@@ -22,13 +22,12 @@ Za pomocą programu Azure PowerShell podczas tworzenia [bramy aplikacji](overvie
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji
-> * Tworzenie odbiorników zaplecza
-> * Tworzenie reguł routingu
-> * Tworzenie zestawów skalowania maszyn wirtualnych z pulami zaplecza
-> * Tworzenie rekordu CNAME w domenie
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji
+* Tworzenie odbiorników zaplecza
+* Tworzenie reguł routingu
+* Tworzenie zestawów skalowania maszyn wirtualnych z pulami zaplecza
+* Tworzenie rekordu CNAME w domenie
 
 :::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Application Gateway wiele lokacji":::
 
@@ -128,7 +127,7 @@ Utwórz pierwszy odbiornik przy użyciu polecenia [New-AzApplicationGatewayHttpL
 
 >[!NOTE]
 > W przypadku jednostki SKU Application Gateway lub WAF v2 można także skonfigurować maksymalnie 5 nazw hostów na odbiornik i można użyć symboli wieloznacznych w nazwie hosta. Aby uzyskać więcej informacji, zobacz [symbole wieloznaczne nazw hostów w odbiorniku](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu Azure PowerShell, należy użyć `-HostNames` zamiast `-HostName` . Nazwy hostów mogą zawierać do 5 nazw hosta jako wartości rozdzielane przecinkami. Na przykład: `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Aby użyć wielu nazw hostów i symboli wieloznacznych w odbiorniku przy użyciu Azure PowerShell, należy użyć `-HostNames` zamiast `-HostName` . Nazwy hostów mogą zawierać do 5 nazw hosta jako wartości rozdzielane przecinkami. Na przykład `-HostNames "*.contoso.com,*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

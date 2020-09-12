@@ -1,21 +1,21 @@
 ---
-title: Źródło zmian w usłudze Azure Blob Storage (wersja zapoznawcza) | Microsoft Docs
+title: Źródło zmian w usłudze Azure Blob Storage | Microsoft Docs
 description: Dowiedz się więcej o dziennikach źródeł zmian na platformie Azure Blob Storage i sposobach ich użycia.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055430"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568238"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)
+# <a name="change-feed-support-in-azure-blob-storage"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage
 
 Celem źródła zmian jest dostarczenie dzienników transakcji wszystkich zmian, które występują w obiektach Blob i metadanych obiektów BLOB na koncie magazynu. Kanał informacyjny zmiany zawiera **uporządkowany**, **gwarantowany**, **trwały**, **niezmienny** **Dziennik tych** zmian. Aplikacje klienckie mogą odczytywać te dzienniki w dowolnym momencie, w ramach przesyłania strumieniowego lub w trybie wsadowym. Kanał informacyjny zmiany umożliwia tworzenie wydajnych i skalowalnych rozwiązań, które przetwarzają zdarzenia zmiany występujące na koncie Blob Storage przy niskich kosztach.
 
@@ -27,11 +27,11 @@ Można przetwarzać te dzienniki asynchronicznie, przyrostowo lub w całości. D
 
 Obsługa kanałów informacyjnych zmian jest odpowiednia dla scenariuszy, które przetwarzają dane na podstawie obiektów, które uległy zmianie. Na przykład aplikacje mogą:
 
-  - Zaktualizuj indeks pomocniczy, zsynchronizuj go z pamięcią podręczną, aparatem wyszukiwania lub innymi scenariuszami zarządzania zawartością.
+  - Aktualizowanie indeksu pomocniczego, synchronizacja z pamięcią podręczną, wyszukiwarką lub innymi scenariuszami zarządzania zawartością.
   
-  - Wyodrębnij szczegółowe informacje o analizie biznesowej i metryki na podstawie zmian, które występują w obiektach, w formie przesyłania strumieniowego lub w trybie wsadowym.
+  - Wyodrębnianie szczegółowych informacji i metryk analityki biznesowej na podstawie zmian zachodzących w obiektach, w trybie strumieniowym lub wsadowym.
   
-  - Przechowuj, przeprowadzaj inspekcję i Analizuj zmiany w obiektach, w dowolnym czasie, pod kątem bezpieczeństwa, zgodności lub analizy dla zarządzania danymi w przedsiębiorstwie.
+  - Przechowywanie, inspekcja i analizowanie zmian w obiektach, w dowolnym okresie, pod kątem bezpieczeństwa, zgodności lub analizy dla zarządzania danymi w przedsiębiorstwie.
 
   - Twórz rozwiązania do tworzenia kopii zapasowych, dublowania lub replikowania stanu obiektów na koncie w celu zarządzania awaryjnego lub zapewnienia zgodności.
 
@@ -55,9 +55,6 @@ Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę po włą
 - Kanał informacyjny zmiany przechwytuje *wszystkie* zmiany dla wszystkich dostępnych zdarzeń występujących na tym koncie. Aplikacje klienckie mogą odfiltrować typy zdarzeń zgodnie z wymaganiami. (Zobacz [warunki](#conditions) bieżącej wersji).
 
 - Tylko konta GPv2 i BLOB Storage mogą włączać Źródło zmian. Konta BlockBlobStorage Premium i hierarchiczne konta z obsługą nazw nie są obecnie obsługiwane. Konta magazynu GPv1 nie są obsługiwane, ale można je uaktualnić do GPv2 bez przestojów. Aby uzyskać więcej informacji, zobacz [uaktualnianie do konta magazynu GPv2](../common/storage-account-upgrade.md) .
-
-> [!IMPORTANT]
-> Źródło zmian jest w publicznej wersji zapoznawczej i jest dostępne w regionach **zachodnie stany USA**, **zachodnie stany USA 2**, **Francja środkowa**, **Francja Południowa**, **Kanada środkowa**i **Kanada Wschodnia** . Zobacz sekcję [warunki](#conditions) w tym artykule. Aby zarejestrować się w wersji zapoznawczej, zobacz sekcję [Rejestrowanie subskrypcji](#register) w tym artykule. Musisz zarejestrować swoją subskrypcję, aby można było włączyć funkcję źródła zmian na kontach magazynu.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -85,10 +82,10 @@ Włącz źródło zmian przy użyciu programu PowerShell:
 
 2. Zamknij program, a następnie ponownie otwórz konsolę programu PowerShell.
 
-3. Zainstaluj moduł **AZ. Storage** Preview.
+3. Zainstaluj wersję 2.5.0 lub nowszą w module **AZ. Storage** .
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
@@ -289,43 +286,18 @@ Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zda
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>Zarejestruj swoją subskrypcję (wersja zapoznawcza)
-
-Ponieważ kanał informacyjny zmiany jest tylko w publicznej wersji zapoznawczej, należy zarejestrować swoją subskrypcję, aby korzystać z tej funkcji.
-
-### <a name="register-by-using-powershell"></a>Rejestrowanie przy użyciu programu PowerShell
-
-W konsoli programu PowerShell uruchom następujące polecenia:
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>Rejestrowanie przy użyciu interfejsu wiersza polecenia platformy Azure
-
-W Azure Cloud Shell Uruchom następujące polecenia:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>Warunki i znane problemy (wersja zapoznawcza)
+## <a name="conditions-and-known-issues"></a>Warunki i znane problemy
 
-W tej sekcji opisano znane problemy i warunki w bieżącej publicznej wersji zapoznawczej źródła zmian. 
-- W przypadku wersji zapoznawczej musisz najpierw [zarejestrować swoją subskrypcję](#register) , aby móc włączyć funkcję źródła zmian dla konta magazynu w regionach zachodnie stany USA, zachodnie stany USA 2, Francja środkowa, Francja Południowa, Kanada Środkowa i Kanada Wschodnia. 
-- Źródło zmian przechwytuje tylko operacje tworzenia, aktualizowania, usuwania i kopiowania. Zmiany właściwości i metadanych obiektu BLOB są również przechwytywane. Jednak Właściwość Warstwa dostępu nie jest obecnie przechwycona. 
+W tej sekcji opisano znane problemy i warunki w bieżącej wersji źródła zmian. 
+
 - Zmiany rekordów zdarzeń dla jednej zmiany mogą pojawić się więcej niż jeden raz w kanale zmian.
 - Nie można jeszcze zarządzać okresem istnienia plików dziennika kanału informacyjnego zmian przez ustawienie zasad przechowywania opartych na czasie i nie można usunąć obiektów BLOB.
 - `url`Właściwość pliku dziennika jest obecnie zawsze pusta.
 - `LastConsumable`Właściwość segments.jsw pliku nie zawiera pierwszego segmentu, który kończy się podawaniem zmian. Ten problem występuje tylko po sfinalizowaniu pierwszego segmentu. Wszystkie kolejne segmenty po pierwszej godzinie są dokładnie przechwytywane we `LastConsumable` właściwości.
 - Nie widzisz obecnie kontenera **$blobchangefeed** podczas wywoływania interfejsu API ListContainers, a kontener nie jest wyświetlany na Azure Portal lub Eksplorator usługi Storage. Zawartość można wyświetlić, wywołując interfejs API ListBlobs bezpośrednio w kontenerze $blobchangefeed.
-- Konta magazynu, w przypadku których wcześniej zainicjowano [pracę w trybie failover](../common/storage-disaster-recovery-guidance.md) , mogą mieć problemy z plikiem dziennika, które nie są wyświetlane. Wszystkie przyszłe przełączenia w tryb failover może mieć wpływ na plik dziennika w wersji zapoznawczej.
+- Konta magazynu, w przypadku których wcześniej zainicjowano [pracę w trybie failover](../common/storage-disaster-recovery-guidance.md) , mogą mieć problemy z plikiem dziennika, które nie są wyświetlane. Wszystkie przyszłe przejścia w tryb failover mogą mieć również wpływ na plik dziennika.
 
 ## <a name="faq"></a>Często zadawane pytania
 

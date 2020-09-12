@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806194"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595890"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą programu Azure PowerShell
 
@@ -21,10 +21,9 @@ Brama aplikacji jest używana do zarządzania ruchem internetowym do obsługiwan
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji
-> * Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji
+* Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu domyślnej puli zaplecza
 
 Jeśli wolisz, możesz wykonać tę procedurę za pomocą [interfejsu wiersza polecenia platformy Azure](tutorial-manage-web-traffic-cli.md).
 

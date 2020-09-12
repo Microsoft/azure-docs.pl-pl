@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806437"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595907"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Utwórz bramę aplikacji i Zapisz ponownie nagłówki HTTP
 
@@ -20,15 +20,13 @@ Za pomocą Azure PowerShell można skonfigurować [reguły do ponownego zapisywa
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
->
-> * Tworzenie sieci wirtualnej skalowania automatycznego
-> * Tworzenie zastrzeżonego publicznego adresu IP
-> * Konfigurowanie infrastruktury bramy aplikacji
-> * Określ konfigurację reguły ponownego zapisywania nagłówka http
-> * Określanie skalowania automatycznego
-> * Tworzenie bramy aplikacji
-> * Testowanie bramy aplikacji
+* Tworzenie sieci wirtualnej skalowania automatycznego
+* Tworzenie zastrzeżonego publicznego adresu IP
+* Konfigurowanie infrastruktury bramy aplikacji
+* Określ konfigurację reguły ponownego zapisywania nagłówka http
+* Określanie skalowania automatycznego
+* Tworzenie bramy aplikacji
+* Testowanie bramy aplikacji
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

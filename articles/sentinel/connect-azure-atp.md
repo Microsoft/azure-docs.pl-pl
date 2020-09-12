@@ -1,6 +1,6 @@
 ---
-title: Łączenie danych ATP platformy Azure z usługą Azure wskaźnikowego | Microsoft Docs
-description: Dowiedz się, jak przesyłać dzienniki z usługi Azure Advanced Threat Protection (ATP) do usługi Azure wskaźnikowej przy użyciu jednego kliknięcia.
+title: Połącz dane programu Microsoft Defender for Identity (dawniej Azure ATP) z platformą Azure. Microsoft Docs
+description: Dowiedz się, jak przesyłać strumieniowo dzienniki z usługi Microsoft Defender pod kątem tożsamości (dawniej usługa Azure Advanced Threat Protection) (ATP) w przypadku jednego kliknięcia.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: f58c38ccfa234752a80c05c300d245c6c9e97cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64c1a7155d0cc4e80f97db138a0626d6e9fdc9e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559169"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657821"
 ---
-# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Łączenie danych z usługi Azure Advanced Threat Protection (ATP)
+# <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Łączenie danych z usługi Microsoft Defender dla tożsamości (dawniej ochrona przed zagrożeniami na platformie Azure)
 
 > [!IMPORTANT]
-> Łącznik danych zaawansowanej ochrony przed zagrożeniami na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
+> Łącznik usługi Microsoft Defender dla danych tożsamości na platformie Azure jest obecnie w publicznej wersji zapoznawczej.
 > Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Dzienniki usługi [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) można przesyłać strumieniowo do usługi Azure wskaźnikowej przy użyciu jednego kliknięcia.
+Za pomocą jednego kliknięcia można przesyłać strumieniowo dzienniki z usługi [Microsoft Defender na potrzeby tożsamości](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Użytkownik z uprawnieniami administratora globalnego lub administratora zabezpieczeń
-- Musisz być klientem wersji zapoznawczej usługi Azure ATP i zapewnić integrację między usługą Azure ATP i Microsoft Cloud App Security. Aby uzyskać więcej informacji, zobacz [integracja z usługą Azure Advanced Protection](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+- Musisz być klientem wersji zapoznawczej usługi Microsoft Defender, aby zapewnić tożsamość i włączyć integrację usługi Microsoft Defender pod kątem tożsamości i Microsoft Cloud App Security. Aby uzyskać więcej informacji, zobacz [Microsoft Defender for Identity Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
-## <a name="connect-to-azure-atp"></a>Nawiązywanie połączenia z usługą Azure ATP
+## <a name="connect-to-microsoft-defender-for-identity"></a>Łączenie z usługą Microsoft Defender dla tożsamości
 
-Upewnij się, że [w sieci jest włączona](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1)wersja zapoznawcza usługi Azure ATP.
-W przypadku wdrożenia usługi Azure ATP i pozyskiwania danych podejrzane alerty mogą być łatwo przesyłane strumieniowo do wskaźnikowego platformy Azure. Rozpoczęcie przesyłania strumieniowego na platformę Azure jest możliwe dopiero po 24 godzinach.
+Upewnij się, że [w sieci jest włączona](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1)wersja zapoznawcza usługi Microsoft Defender for Identity.
+Jeśli usługa Microsoft Defender dla tożsamości została wdrożona i pozyskuje dane, podejrzane alerty mogą być łatwo przesyłane strumieniowo do usługi Azure wskaźnikowej. Rozpoczęcie przesyłania strumieniowego na platformę Azure jest możliwe dopiero po 24 godzinach.
 
 
-1. Aby połączyć usługę Azure ATP z platformą Azure, musisz najpierw włączyć integrację z usługą Azure ATP i Microsoft Cloud App Security. Aby uzyskać informacje o tym, jak to zrobić, zobacz [integracja z usługą Azure Advanced Threat Protection](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+1. Aby nawiązać połączenie z usługą Microsoft Defender w celu uzyskania tożsamości na platformie Azure, musisz najpierw włączyć integrację usługi Microsoft Defender dla tożsamości i Microsoft Cloud App Security. Aby uzyskać informacje o tym, jak to zrobić, zobacz [Microsoft Defender for Identity Integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
-1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Azure Advanced Threat Protection (wersja zapoznawcza)** .
+1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Microsoft Defender for Identity (wersja zapoznawcza)** .
 
-1. Możesz wybrać, czy alerty z usługi Azure ATP mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analityczną, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
+1. Możesz wybrać, czy alerty z usługi Microsoft Defender mają być automatycznie generowane na podstawie zdarzeń na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analityczną, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
 
-1. Kliknij pozycję **Połącz**.
+1. Kliknij przycisk **Połącz**.
 
-1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów usługi Azure ATP, wyszukaj ciąg " **SecurityAlert**".
+1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów dotyczących tożsamości usługi Microsoft Defender, Wyszukaj pozycję **SecurityAlert**.
 
 > [!NOTE]
 > Jeśli alerty są większe niż 30 KB, wskaźnik na platformie Azure zatrzyma wyświetlanie pola jednostki w alertach.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie przedstawiono sposób łączenia zaawansowanej ochrony przed zagrożeniami na platformie Azure. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+W tym dokumencie przedstawiono sposób nawiązywania połączenia z usługą Microsoft Defender pod kątem tożsamości na platformie Azure wskaźnikowej. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
 - Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
 - Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats-built-in.md).
 

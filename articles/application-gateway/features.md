@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067969"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651992"
 ---
 # <a name="azure-application-gateway-features"></a>Funkcje Application Gateway platformy Azure
 
@@ -35,7 +35,7 @@ Application Gateway obejmuje następujące funkcje:
 - [Ruch protokołów WebSocket i HTTP/2](#websocket-and-http2-traffic)
 - [Opróżnianie połączeń](#connection-draining)
 - [Niestandardowe strony błędów](#custom-error-pages)
-- [Zapisz ponownie nagłówki HTTP i adres URL](#rewrite-http-headers-and-url)
+- [Ponowne zapisywanie nagłówków HTTP i adresów URL](#rewrite-http-headers-and-url)
 - [Ustalanie rozmiaru](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Zakończenie SSL (SSL/TLS)
@@ -83,13 +83,13 @@ Aby uzyskać więcej informacji, zobacz [Omówienie routingu opartego na ścież
 
 ## <a name="multiple-site-hosting"></a>Hostowanie wielu witryn
 
-Za pomocą Application Gateway można skonfigurować Routing na podstawie nazwy hosta lub nazwy domeny dla więcej niż jednej aplikacji sieci Web w tej samej bramie aplikacji. Umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie do 100 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy domeny, contoso.com, fabrikam.com i adatum.com wskazują adres IP bramy aplikacji. Utworzysz trzy odbiorniki z wieloma lokacjami i skonfigurujesz każdy odbiornik dla odpowiedniego ustawienia portu i protokołu. 
+Za pomocą Application Gateway można skonfigurować Routing na podstawie nazwy hosta lub nazwy domeny dla więcej niż jednej aplikacji sieci Web w tej samej bramie aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie nawet ponad 100 witryn internetowych do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. Na przykład trzy domeny — contoso.com, fabrikam.com i adatum.com — wskazują adres IP bramy aplikacji. Utworzysz trzy odbiorniki obejmujące wiele witryn i skonfigurujesz każdy odbiornik dla odpowiedniego portu i ustawienia protokołu. 
 
 Żądania dla `http://contoso.com` są kierowane do puli contososerverpool, `http://fabrikam.com` są kierowane do puli fabrikamserverpool i tak dalej.
 
 Podobnie dwie domeny podrzędne tej samej domeny nadrzędnej mogą być hostowane w ramach tego samego wdrożenia usługi Application Gateway. Przykłady użycia domen podrzędnych mogą obejmować domeny `http://blog.contoso.com` i `http://app.contoso.com` hostowane w jednym wdrożeniu bramy Application Gateway. Aby uzyskać więcej informacji, zobacz [Application Gateway obsługa wielu witryn](multiple-site-overview.md).
 
-Można również zdefiniować symbole wielolokacjowe i maksymalnie 5 nazw hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku (wersja zapoznawcza)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+Możesz również określić nazwy hosta z symbolami wieloznacznymi w odbiorniku obejmującym wiele witryn, z maksymalnie pięcioma nazwami hostów na odbiornik. Aby dowiedzieć się więcej, zobacz [symbole wieloznaczne nazw hostów w odbiorniku (wersja zapoznawcza)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Przekierowania
 
@@ -117,13 +117,13 @@ Usługa Application Gateway zapewnia natywną obsługę protokołów WebSocket i
 
 Protokoły WebSocket i HTTP/2 umożliwiają pełnodupleksową komunikację między serwerem i klientem przez długotrwałe połączenie TCP. Pozwala to na bardziej interaktywną komunikację między serwerem internetowym a klientem, która może być dwukierunkowa bez konieczności sondowania, co jest wymagane w implementacjach opartych na protokole HTTP. Te protokoły mają niewielkie obciążenie, w przeciwieństwie do protokołu HTTP i mogą ponownie używać tego samego połączenia TCP dla wielu żądań/odpowiedzi, co zwiększa efektywność użycia zasobów. Te protokoły są przeznaczone do pracy z użyciem tradycyjnych portów HTTP, tj. 80 i 443.
 
-Aby uzyskać więcej informacji, zobacz [Obsługa protokołu WebSocket](application-gateway-websocket.md) i [Obsługa protokołu HTTP/2](configuration-overview.md#http2-support).
+Aby uzyskać więcej informacji, zobacz [Obsługa protokołu WebSocket](application-gateway-websocket.md) i [Obsługa protokołu HTTP/2](configuration-listeners.md#http2-support).
 
 ## <a name="connection-draining"></a>Opróżnianie połączeń
 
 Opróżnianie połączeń umożliwia bezproblemowe usunięcie członków puli zaplecza podczas planowanych aktualizacji usługi. To ustawienie jest włączane za pośrednictwem ustawienia http zaplecza i można je zastosować do wszystkich członków puli zaplecza podczas tworzenia reguły. Po włączeniu Application Gateway gwarantuje, że wszystkie wystąpienia puli zaplecza nie otrzymają żadnego nowego żądania, jednocześnie zezwalając na ukończenie istniejących żądań w skonfigurowanym limicie czasu. Dotyczy to zarówno wystąpień zaplecza, które zostały jawnie usunięte z puli zaplecza przez zmianę konfiguracji użytkownika, jak i wystąpienia zaplecza, które są zgłaszane jako w złej kondycji określone przez sondy kondycji. Jedynym wyjątkiem są żądania związane z wyrejestrowywaniem wystąpień, które zostały wyrejestrowane jawnie, z powodu koligacji sesji zarządzanej przez bramę i w dalszym ciągu są przekazywane przez serwer proxy do wyrejestrowania wystąpień.
 
-Aby uzyskać więcej informacji, zobacz [Omówienie konfiguracji Application Gateway](configuration-overview.md#connection-draining).
+Aby uzyskać więcej informacji, zobacz [Omówienie konfiguracji Application Gateway](configuration-http-settings.md#connection-draining).
 
 ## <a name="custom-error-pages"></a>Niestandardowe strony błędów
 
@@ -131,7 +131,7 @@ Usługa Application Gateway umożliwia tworzenie niestandardowych stron błędó
 
 Aby uzyskać więcej informacji, zobacz [Błędy niestandardowe](custom-error.md).
 
-## <a name="rewrite-http-headers-and-url"></a>Zapisz ponownie nagłówki HTTP i adres URL
+## <a name="rewrite-http-headers-and-url"></a>Ponowne zapisywanie nagłówków HTTP i adresów URL
 
 Nagłówki HTTP umożliwiają klientowi i serwerowi przekazywanie dodatkowych informacji z żądaniem lub odpowiedzią. Ponowne Zapisywanie tych nagłówków HTTP pomaga wykonać kilka ważnych scenariuszy, takich jak:
 
@@ -139,15 +139,15 @@ Nagłówki HTTP umożliwiają klientowi i serwerowi przekazywanie dodatkowych in
 - Usuwanie pól nagłówka odpowiedzi, które mogą ujawniać poufne informacje.
 - Usuwanie informacji o porcie z X-Forwarded-For Headers.
 
-Jednostka SKU Application Gateway i WAF v2 obsługuje możliwość dodawania, usuwania lub aktualizowania nagłówków żądań i odpowiedzi HTTP, podczas gdy pakiety żądań i odpowiedzi przechodzą między klientami a pulami zaplecza. Możesz również ponownie napisać adresy URL, parametry ciągu zapytania i nazwę hosta. Przy użyciu ponownego zapisywania adresów URL i routingu opartego na ścieżkach URL można wybrać kierowanie żądań do jednej z pul zaplecza na podstawie oryginalnej ścieżki lub zapisanej ścieżki, za pomocą opcji ponownie Oceń ścieżkę ścieżki. 
+Usługa Application Gateway i jednostka SKU zapory aplikacji internetowej w wersji 2 umożliwiają dodawanie, usuwanie lub aktualizowanie nagłówków żądań i odpowiedzi HTTP podczas przenoszenia pakietów żądań i odpowiedzi między pulami klientów i zaplecza. Można też ponownie zapisywać adresy URL, parametry ciągu zapytania i nazwę hosta. W przypadku ponownego zapisywania adresów URL i routingu opartego na ścieżkach URL można wybrać kierowanie żądań do jednej z pul zaplecza na podstawie oryginalnej ścieżki lub ponownie zapisanej ścieżki, stosując opcję ponownej oceny mapowania ścieżek. 
 
-Zapewnia także możliwość dodawania warunków w celu zapewnienia, że określone nagłówki lub adresy URL są zapisywane tylko wtedy, gdy spełnione są określone warunki. Warunki te są oparte na informacjach o żądaniu i odpowiedzi.
+Ta funkcja umożliwia też dodawanie warunków w celu zapewnienia, że określone nagłówki lub adres URL zostaną zapisane ponownie tylko po spełnieniu określonych warunków. Te warunki są oparte na informacjach dotyczących żądania i odpowiedzi.
 
 Aby uzyskać więcej informacji, zobacz [Zapisywanie nagłówków HTTP i adresów URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Ustalanie rozmiaru
 
-Standard_v2 Application Gateway można skonfigurować na potrzeby wdrożeń skalowania automatycznego lub stałego rozmiaru. Ta jednostka SKU nie oferuje różnych rozmiarów wystąpień. Aby uzyskać więcej informacji na temat wydajności i cen w wersji 2, zobacz Automatyczne [skalowanie jednostki SKU w wersji 2](application-gateway-autoscaling-zone-redundant.md#pricing).
+Standard_v2 Application Gateway można skonfigurować na potrzeby wdrożeń skalowania automatycznego lub stałego rozmiaru. Ta jednostka SKU nie oferuje różnych rozmiarów wystąpień. Aby uzyskać więcej informacji na temat wydajności i cen w wersji 2, zobacz [Skalowanie automatyczne w wersji 2](application-gateway-autoscaling-zone-redundant.md) i [Informacje o cenach](understanding-pricing.md).
 
 Standard Application Gateway jest oferowany w trzech rozmiarach: **małych**, **średnich**i **dużych**. Rozmiary małych wystąpień są przeznaczone na potrzeby programowania i scenariuszy testowania.
 
@@ -155,7 +155,7 @@ Pełna lista limitów usługi Application Gateway znajduje się na stronie [ogra
 
 W poniższej tabeli przedstawiono średnią przepływność wydajności dla każdego wystąpienia usługi Application Gateway V1 z włączonym odciążeniem SSL:
 
-| Średni rozmiar odpowiedzi strony zaplecza | Mały | Średniaa | Duży |
+| Średni rozmiar odpowiedzi strony zaplecza | Mała | Średniaa | Duża |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mb/s |13 Mb/s |50 Mb/s |
 | 100 KB |35 Mb/s |100 Mb/s |200 Mb/s |

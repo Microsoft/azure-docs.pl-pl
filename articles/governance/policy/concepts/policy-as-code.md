@@ -3,12 +3,12 @@ title: Projektowanie przepływów pracy typu zasady jako kod
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047330"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651885"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
 
@@ -43,7 +43,9 @@ Przykłady tych formatów plików są dostępne w [repozytorium Azure Policy Git
 
 Zalecany ogólny przepływ pracy zasad jako kod wygląda jak na tym diagramie:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Omówienie zasad jako przepływu pracy w kodzie" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram przedstawiający zasady jako pola przepływu pracy kodu z tworzenia do przetestowania w celu wdrożenia." border="false":::
+   Diagram przedstawiający zasady jako pola przepływu pracy w kodzie. Tworzenie obejmuje tworzenie definicji zasad i inicjatyw. Test obejmuje przypisanie z wyłączonym trybem wymuszania. Po sprawdzeniu stanu zgodności następuje Nadanie uprawnień M S i korygowaniem zasobów.  Wdrożenie obejmuje aktualizację przypisania z włączonym trybem wymuszania.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Tworzenie i aktualizowanie definicji zasad
 

@@ -4,21 +4,21 @@ description: Dowiedz się, jak skalować wystąpienie usługi Azure Signal Servi
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500491"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595771"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Jak skalować wystąpienie usługi Azure sygnalizujące?
 W tym artykule opisano sposób skalowania wystąpienia usługi Azure Signal Service. Istnieją dwa scenariusze skalowania, skalowanie w górę i w poziomie.
 
 * [Skalowanie w górę](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): uzyskiwanie większej liczby jednostek, połączeń, wiadomości i innych. Skalowanie w górę przez zmianę warstwy cenowej z bezpłatna na Standard.
-* [Skalowanie w poziomie](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Zwiększ liczbę jednostek sygnalizujących. Możesz skalować w poziomie do maksymalnie 100 jednostek.
+* [Skalowanie w poziomie](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Zwiększ liczbę jednostek sygnalizujących. Możesz skalować w poziomie do maksymalnie 100 jednostek. Dostępne są pewne opcje jednostkowe, które można wybrać do skalowania: 1, 2, 5, 10, 20, 50 i 100 jednostek dla jednego wystąpienia usługi sygnalizującej.
 
 Zastosowanie ustawień skalowania może potrwać kilka minut. W rzadkich przypadkach może upłynąć około 30 minut. Nie wymagają one zmiany kodu ani ponownego wdrażania aplikacji serwera.
 
