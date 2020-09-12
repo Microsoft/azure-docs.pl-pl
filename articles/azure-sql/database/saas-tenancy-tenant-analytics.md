@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043516"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437398"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analiza wielu dzierżawców przy użyciu wyodrębnionych aplikacji z jedną dzierżawą
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Wielodostępne aplikacje SaaS zazwyczaj mają ogromną ilość danych dzierżawy
 
 Uzyskiwanie dostępu do danych dla wszystkich dzierżawców jest proste, gdy wszystkie dane są w tylko jednej bazie danych z wieloma dzierżawcami. Jednak dostęp jest bardziej skomplikowany, gdy jest dystrybuowany na dużą skalę w przypadku potencjalnie tysięcy baz danych. Jednym ze sposobów oswoić złożoności i zminimalizowania wpływu kwerend analitycznych na dane transakcyjne polega na wyodrębnieniu danych do celu zaprojektowanej bazy danych analitycznych lub magazynu danych.
 
-W tym samouczku przedstawiono kompletny scenariusz analityczny dla Wingtip biletów SaaS aplikacji. Najpierw *zadania elastyczne* służą do wyodrębniania danych z każdej bazy danych dzierżaw i ładowania ich do tabel przemieszczania w sklepie analitycznym. Magazyn analityczny może być SQL Database lub SQL Data Warehouse. W przypadku wyodrębniania danych na dużą skalę zaleca się [Azure Data Factory](../../data-factory/introduction.md) .
+W tym samouczku przedstawiono kompletny scenariusz analityczny dla Wingtip biletów SaaS aplikacji. Najpierw *zadania elastyczne* służą do wyodrębniania danych z każdej bazy danych dzierżaw i ładowania ich do tabel przemieszczania w sklepie analitycznym. Magazyn analityczny może być SQL Database lub pulą SQL. W przypadku wyodrębniania danych na dużą skalę zaleca się [Azure Data Factory](../../data-factory/introduction.md) .
 
 Następnie zagregowane dane są przekształcane w zestaw tabel ze [schematem gwiazdy](https://www.wikipedia.org/wiki/Star_schema) . Tabele składają się z centralnej tabeli faktów oraz powiązanych tabel wymiarów.  Dla biletów Wingtip:
 
@@ -175,7 +175,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z usługą Power BI i z
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij pozycję **Połącz**.  
+5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Połącz**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

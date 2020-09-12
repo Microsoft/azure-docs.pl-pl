@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9b493e862ed70bbeab9ac509c79003a535366d0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116543"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433912"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Aby uzyskać dostęp do nowego środowiska, przejdź do **rejestracje aplikacji*
 Środowisko Rejestracje aplikacji Azure AD B2C jest oparte na ogólnej [rejestracji aplikacji](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) dla dowolnej dzierżawy usługi Azure AD, ale jest dostosowane do Azure AD B2C dzierżawców.
 
 ## <a name="whats-not-changing"></a>Co nie jest zmieniane?
-- Aplikacje i powiązane konfiguracje można znaleźć w temacie w nowym środowisku. Nie trzeba ponownie rejestrować aplikacji, a użytkownicy aplikacji nie będą musieli zalogować się ponownie. 
+- Aplikacje i powiązane konfiguracje można znaleźć w temacie w nowym środowisku. Nie trzeba ponownie rejestrować aplikacji, a użytkownicy aplikacji nie będą musieli zalogować się ponownie.
 
 > [!NOTE]
 > Aby wyświetlić wszystkie utworzone wcześniej aplikacje, przejdź do bloku **rejestracje aplikacji** i wybierz kartę **wszystkie aplikacje** . Spowoduje to wyświetlenie aplikacji utworzonych w starszym środowisku, nowym środowisku i tych utworzonych w usłudze Azure AD.
@@ -43,7 +43,7 @@ Aby uzyskać dostęp do nowego środowiska, przejdź do **rejestracje aplikacji*
 
 -   **Rejestracja połączonej aplikacji** umożliwia szybkie zarejestrowanie aplikacji, niezależnie od tego, czy jest to aplikacja dołączona do klienta czy aplikacja, aby uzyskać dostęp do Microsoft Graph.
 
-- Okienko **punkty końcowe** umożliwia szybkie identyfikowanie odpowiednich punktów końcowych dla danego scenariusza, w tym konfiguracji OpenID Connect Connect, metadanych SAML, interfejsu API Microsoft Graph oraz [punktów końcowych przepływu użytkownika protokołu OAuth 2,0](tokens-overview.md#endpoints). 
+- Okienko **punkty końcowe** umożliwia szybkie identyfikowanie odpowiednich punktów końcowych dla danego scenariusza, w tym konfiguracji OpenID Connect Connect, metadanych SAML, interfejsu API Microsoft Graph oraz [punktów końcowych przepływu użytkownika protokołu OAuth 2,0](tokens-overview.md#endpoints).
 
 - **Uprawnienia interfejsu API** i **Uwidacznianie interfejsu API** zapewniają bardziej rozległy zakres, uprawnienia i zarządzanie zgodą. Teraz można także przypisać do aplikacji uprawnienia programu MS Graph i usługi Azure AD Graph.
 
@@ -57,7 +57,7 @@ W nowym środowisku wybierz typ konta pomocy technicznej z następujących opcji
 - Konta w dowolnym katalogu organizacji (dowolny katalog usługi Azure AD — wielodostępny).
 - Konta w dowolnym katalogu organizacyjnym lub u dowolnego dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C.
 
-Aby poznać różne typy kont, wybierz pozycję **Pomóż mi wybrać** w temacie środowisko tworzenia. 
+Aby poznać różne typy kont, wybierz pozycję **Pomóż mi wybrać** w temacie środowisko tworzenia.
 
 W starszym środowisku aplikacje były zawsze tworzone jako aplikacje dla klientów. Dla tych aplikacji typ konta jest ustawiony na **konta w dowolnym katalogu organizacyjnym lub u dowolnego dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C**.
 > [!NOTE]
@@ -68,9 +68,9 @@ Można również użyć tej opcji, aby użyć Azure AD B2C jako dostawcy usługi
 ## <a name="applications-for-devops-scenarios"></a>Aplikacje dla scenariuszy DevOps
 Przy użyciu innych typów kont można utworzyć aplikację do zarządzania scenariuszami DevOps, takich jak używanie Microsoft Graph do przekazywania zasad struktury środowiska tożsamości lub udostępniania użytkownikom. Dowiedz się, [jak zarejestrować aplikację Microsoft Graph, aby zarządzać zasobami Azure AD B2C](microsoft-graph-get-started.md).
 
-Niektóre uprawnienia Microsoft Graph mogą nie być widoczne, ponieważ wiele z tych uprawnień nie ma zastosowania do użytkowników indywidualnych platformy Azure B2C. [Przeczytaj więcej na temat zarządzania użytkownikami za pomocą Microsoft Graph](manage-user-accounts-graph-api.md).  
+Niektóre uprawnienia Microsoft Graph mogą nie być widoczne, ponieważ wiele z tych uprawnień nie ma zastosowania do użytkowników indywidualnych platformy Azure B2C. [Przeczytaj więcej na temat zarządzania użytkownikami za pomocą Microsoft Graph](manage-user-accounts-graph-api.md).
 
-## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Zgoda administratora i zakresy offline_access + OpenID Connect  
+## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Zgoda administratora i zakresy offline_access + OpenID Connect
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
 Zakres **OpenID Connect** jest niezbędny, aby Azure AD B2C mógł logować użytkowników do aplikacji. Do wystawiania tokenów odświeżania dla użytkownika jest wymagany zakres **offline_access** . Te zakresy zostały wcześniej dodane i domyślnie podano zgodę administratora. Teraz można łatwo dodawać uprawnienia do tych zakresów podczas procesu tworzenia, upewniając się, że jest zaznaczona opcja **Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access** . W przeciwnym razie uprawnienia Microsoft Graph mogą być dodawane z zgodą administratora w ustawieniach **uprawnień interfejsu API** dla istniejącej aplikacji.
@@ -78,11 +78,11 @@ Zakres **OpenID Connect** jest niezbędny, aby Azure AD B2C mógł logować uży
 Dowiedz się więcej o [uprawnieniach i zgodzie](../active-directory/develop/v2-permissions-and-consent.md).
 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Platformy/uwierzytelnianie: adresy URL odpowiedzi/identyfikatory URI przekierowania
-W starszych wersjach, różne typy platform były zarządzane w obszarze **Właściwości** jako adresy URL odpowiedzi dla aplikacji sieci Web/interfejsów API i URI przekierowania dla klientów natywnych. "Natywni klienci" są również nazywane "klientami publicznymi" i obejmują aplikacje dla systemów iOS, macOS, Android i innych typów aplikacji mobilnych i klasycznych. 
+W starszych wersjach, różne typy platform były zarządzane w obszarze **Właściwości** jako adresy URL odpowiedzi dla aplikacji sieci Web/interfejsów API i URI przekierowania dla klientów natywnych. "Natywni klienci" są również nazywane "klientami publicznymi" i obejmują aplikacje dla systemów iOS, macOS, Android i innych typów aplikacji mobilnych i klasycznych.
 
-W nowym środowisku adresy URL odpowiedzi i identyfikatory URI przekierowania są określane jako identyfikatory URI przekierowania i można je znaleźć w sekcji **uwierzytelniania** aplikacji. Rejestracje aplikacji nie są ograniczone do aplikacji sieci Web ani natywnej aplikacji. Możesz użyć tej samej rejestracji aplikacji dla wszystkich typów platform przez zarejestrowanie odpowiednich identyfikatorów URI przekierowania. 
+W nowym środowisku adresy URL odpowiedzi i identyfikatory URI przekierowania są określane jako identyfikatory URI przekierowania i można je znaleźć w sekcji **uwierzytelniania** aplikacji. Rejestracje aplikacji nie są ograniczone do aplikacji sieci Web ani natywnej aplikacji. Możesz użyć tej samej rejestracji aplikacji dla wszystkich typów platform przez zarejestrowanie odpowiednich identyfikatorów URI przekierowania.
 
-Identyfikatory URI przekierowania są wymagane do skojarzenia z typem aplikacji: Web lub Public (Mobile and Desktop). [Dowiedz się więcej na temat identyfikatorów URI przekierowania](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Identyfikatory URI przekierowania są wymagane do skojarzenia z typem aplikacji: Web lub Public (Mobile and Desktop). [Dowiedz się więcej na temat identyfikatorów URI przekierowania](../active-directory/develop/quickstart-register-app.md#add-a-redirect-uri)
 
 <!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 

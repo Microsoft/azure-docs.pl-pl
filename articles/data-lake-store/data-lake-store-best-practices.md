@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981439"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440834"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen1
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1 obsługuje opcję włączania zapory i ograniczania dost�
 
 ![Ustawienia zapory w Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Ustawienia zapory w Data Lake Storage Gen1")
 
-Po włączeniu Zapory tylko usługi platformy Azure, takie jak HDInsight, Data Factory, SQL Data Warehouse itp., mają dostęp do Data Lake Storage Gen1. Ze względu na wewnętrzne tłumaczenie adresów sieciowych używane przez platformę Azure Zapora Data Lake Storage Gen1 nie obsługuje ograniczania określonych usług według adresu IP i jest przeznaczona tylko do ograniczeń punktów końcowych poza platformą Azure, na przykład lokalnie.
+Po włączeniu Zapory tylko usługi platformy Azure, takie jak HDInsight, Data Factory, Azure Synapse Analytics (dawniej SQL Data Warehouse), mają dostęp do Data Lake Storage Gen1. Ze względu na wewnętrzne tłumaczenie adresów sieciowych używane przez platformę Azure Zapora Data Lake Storage Gen1 nie obsługuje ograniczania określonych usług według adresu IP i jest przeznaczona tylko do ograniczeń punktów końcowych poza platformą Azure, na przykład lokalnie.
 
 ## <a name="performance-and-scale-considerations"></a>Zagadnienia dotyczące wydajności i skalowalności
 

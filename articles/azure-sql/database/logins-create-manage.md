@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290096"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441174"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzuj dostęp do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 W tym artykule omówiono następujące informacje:
 
-- Opcje konfigurowania Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) w celu umożliwienia użytkownikom wykonywania zadań administracyjnych i uzyskiwania dostępu do danych przechowywanych w tych bazach danych.
+- Opcje konfigurowania Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) w celu umożliwienia użytkownikom wykonywania zadań administracyjnych i uzyskiwania dostępu do danych przechowywanych w tych bazach danych.
 - Konfiguracja dostępu i autoryzacji po pierwszym utworzeniu nowego serwera.
 - Jak dodać nazwy logowania i konta użytkowników w bazie danych Master i konta użytkowników, a następnie przyznać te konta uprawnienia administracyjne.
 - Jak dodać konta użytkowników w bazach danych użytkowników, skojarzone z nazwami logowania lub kontami użytkowników.
@@ -48,8 +48,8 @@ Gdy użytkownik próbuje nawiązać połączenie z bazą danych, udostępnia inf
 
 **Logowania i użytkownicy**: konto użytkownika w bazie danych może być skojarzone z nazwą logowania przechowywaną w bazie danych Master lub może być nazwą użytkownika przechowywaną w pojedynczej bazie danych.
 
-- **Identyfikator logowania** to pojedyncze konto w bazie danych Master, do którego można połączyć konto użytkownika w co najmniej jednej bazie danych. Po zalogowaniu informacje o poświadczeniach dla konta użytkownika są przechowywane przy użyciu nazwy logowania.
-- **Konto użytkownika** to pojedyncze konto w dowolnej bazie danych, które może być, ale nie musi być powiązane z logowaniem. Przy użyciu konta użytkownika, które nie jest powiązane z logowaniem, informacje o poświadczeniach są przechowywane przy użyciu konta użytkownika.
+- **Identyfikator logowania** to pojedyncze konto w bazie danych Master, do którego można połączyć konto użytkownika w co najmniej jednej bazie danych. W przypadku nazwy logowania informacje o poświadczeniach dla konta użytkownika przechowywane są z nazwą logowania.
+- **Konto użytkownika** to pojedyncze konto w dowolnej bazie danych, które może być, ale nie musi być powiązane z logowaniem. W przypadku konta użytkownika, które nie jest powiązane z nazwą logowania, informacje o poświadczeniach są przechowywane z kontem użytkownika.
 
 [**Autoryzacja**](security-overview.md#authorization) dostępu do danych i wykonywanie różnych akcji są zarządzane przy użyciu ról bazy danych i jawnych uprawnień. Autoryzacja odnosi się do uprawnień przypisanych do użytkownika i określa, co użytkownik może zrobić. Autoryzacja jest kontrolowana za pomocą [członkostw roli](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) bazy danych konta użytkownika i [uprawnień na poziomie obiektów](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Zalecanym najlepszym rozwiązaniem jest przyznanie użytkownikom minimalnych niezbędnych uprawnień.
 

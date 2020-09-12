@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696035"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319444"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Rejestrowanie zasobów dla sieciowej grupy zabezpieczeń
 
@@ -24,7 +24,7 @@ Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) zawiera reguły zez
 Po włączeniu rejestrowania dla sieciowej grupy zabezpieczeń można zebrać następujące typy informacji dziennika zasobów:
 
 * **Zdarzenie:** Wpisy są rejestrowane, dla których reguły sieciowej grupy zabezpieczeń są stosowane do maszyn wirtualnych na podstawie adresu MAC.
-* **Licznik reguł:** Zawiera wpisy dotyczące liczby przypadków zastosowania każdej reguły sieciowej grupy zabezpieczeń do odmowy lub zezwolenia na ruch. Stan tych reguł jest zbierany co 60 sekund.
+* **Licznik reguł:** Zawiera wpisy dotyczące liczby przypadków zastosowania każdej reguły sieciowej grupy zabezpieczeń do odmowy lub zezwolenia na ruch. Stan tych reguł jest zbierany co 300 sekund.
 
 Dzienniki zasobów są dostępne tylko dla sieciowych grup zabezpieczeń wdrożonych za pomocą modelu wdrażania Azure Resource Manager. Nie można włączyć rejestrowania zasobów dla sieciowych grup zabezpieczeń wdrożonego za pomocą klasycznego modelu wdrażania. Aby lepiej zrozumieć te dwa modele, zobacz [Omówienie modeli wdrażania platformy Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -201,8 +201,8 @@ Aby dowiedzieć się, jak wyświetlać dane dziennika zasobów, zobacz [dziennik
 - **Dzienniki Azure monitor**: Aby uzyskać szczegółowe informacje, możesz użyć rozwiązania do [analizy grup zabezpieczeń sieci](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) . Rozwiązanie udostępnia wizualizacje dla reguł sieciowej grupy zabezpieczeń, które zezwalają na ruch lub odmawiają go na adres MAC w maszynie wirtualnej.
 - **Konto usługi Azure Storage**: dane są zapisywane w PT1H.jspliku. Można znaleźć następujące informacje:
-  - Dziennik zdarzeń w następującej ścieżce:`insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-  - Dziennik licznika reguł w następującej ścieżce:`insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Dziennik zdarzeń w następującej ścieżce: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Dziennik licznika reguł w następującej ścieżce: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>Następne kroki
 

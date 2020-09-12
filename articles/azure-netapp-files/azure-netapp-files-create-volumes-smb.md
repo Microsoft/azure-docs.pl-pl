@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: e85a78582c0f7aac188198ad91f9ac91ddf62961
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 9ac30bdcb137afb26a8461f98a36b568ebe179b0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950378"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459015"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
@@ -188,7 +188,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
 
     Zostanie wyświetlone utworzone połączenie Active Directory.
 
-    ![Połączenia Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+    ![Utworzono połączenia Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
 ## <a name="add-an-smb-volume"></a>Dodawanie woluminu SMB
 
@@ -230,7 +230,7 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
     
         ![Tworzenie podsieci](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * Jeśli chcesz zastosować istniejące zasady migawek do woluminu, kliknij pozycję **Pokaż sekcję zaawansowaną** , aby ją rozwinąć, a następnie wybierz pozycję Zasady migawek w menu rozwijanym. 
+    * Jeśli chcesz zastosować istniejące zasady migawek do woluminu, kliknij przycisk **Pokaż sekcję zaawansowaną** , aby je rozwinąć, określ, czy chcesz ukryć ścieżkę migawki, a następnie wybierz pozycję Zasady migawek w menu rozwijanym. 
 
         Aby uzyskać informacje na temat tworzenia zasad migawek, zobacz [Zarządzanie zasadami migawek](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
@@ -266,7 +266,7 @@ Uprawnienia do pliku lub folderu można ustawić przy użyciu karty **zabezpiecz
  
 ![Ustawianie uprawnień do plików i folderów](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
-## <a name="next-steps"></a>Kolejne kroki  
+## <a name="next-steps"></a>Następne kroki  
 
 * [Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)

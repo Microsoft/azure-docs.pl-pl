@@ -2,20 +2,20 @@
 title: Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 description: Dowiedz się, jak włączyć rejestrowanie zasobów dla profilu Traffic Manager i uzyskać dostęp do plików dziennika, które są tworzone w wyniku.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: rohink
-ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089060"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401320"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Włącz rejestrowanie zasobów na platformie Azure Traffic Manager
 
@@ -70,8 +70,8 @@ W poniższej tabeli przedstawiono schemat dzienników specyficzny dla zasobu pro
 
 |Nazwa pola|Typ pola|Definicja|Przykład|
 |----|----|---|---|
-|Nazwapunktukoncowego|String (ciąg)|Nazwa punktu końcowego Traffic Manager, którego stan kondycji jest rejestrowany.|*myPrimaryEndpoint*|
-|Stan|String (ciąg)|Stan kondycji punktu końcowego Traffic Manager, który był sondowany. Stan może być w **górę** lub **w dół**.|**W górę**|
+|Nazwapunktukoncowego|Ciąg|Nazwa punktu końcowego Traffic Manager, którego stan kondycji jest rejestrowany.|*myPrimaryEndpoint*|
+|Stan|Ciąg|Stan kondycji punktu końcowego Traffic Manager, który był sondowany. Stan może być w **górę** lub **w dół**.|**W górę**|
 |||||
 
 ## <a name="next-steps"></a>Następne kroki

@@ -8,28 +8,26 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2019
-ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 63b7ad84b0866c91e84007a188b82de65983790f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233296"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458854"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
-Ta funkcja zwraca wartość daty i godziny odpowiadającą początkowi każdego zasobnika DateTime, z domyślnej wartości pierwotnej `1900-01-01 00:00:00.000` .
+Ta funkcja zwraca wartość daty i godziny odpowiadającą początkowi każdego zasobnika DateTime, od sygnatury czasowej zdefiniowanej przez `origin` parametr lub domyślną wartość pierwotną, `1900-01-01 00:00:00.000` Jeśli nie określono parametru Origin. 
 
 Zobacz [typy danych daty i godziny oraz funkcje &#40;Transact-sql&#41;](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) , aby zapoznać się z omówieniem wszystkich typów danych i funkcji języka Transact-SQL.
 
 [Konwencje składni języka Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET`używa domyślnej wartości daty pochodzenia `1900-01-01 00:00:00.000` tj. 12:00 w poniedziałek, styczeń 1 1900.
-
 ## <a name="syntax"></a>Składnia
 
 ```sql
-DATE_BUCKET (datePart, number, date)
+DATE_BUCKET (datePart, number, date, origin)
 ```
 
 ## <a name="arguments"></a>Argumenty
@@ -39,7 +37,7 @@ DATE_BUCKET (datePart, number, date)
 Część *daty* , która jest używana z parametrem "number". Np. Rok, miesiąc, minuta, sekunda itp.
 
 > [!NOTE]
-> `DATE_BUCKET`nie akceptuje dla argumentów *datepPart* zmiennych zdefiniowanych przez użytkownika.
+> `DATE_BUCKET` nie akceptuje dla argumentów *datepPart* zmiennych zdefiniowanych przez użytkownika.
   
 |*Funkcja*|Skróty|  
 |---|---|
@@ -67,15 +65,30 @@ Wyrażenie, które może zostać rozpoznane jako jedna z następujących wartoś
 
 W przypadku *daty*program `DATE_BUCKET` przyjmuje wyrażenie kolumny, wyrażenie lub zmienną zdefiniowaną przez użytkownika, jeśli rozwiążą się one z dowolnym z wymienionych powyżej typów danych.
 
+**Źródł** 
+
+Opcjonalne wyrażenie, które może zostać rozpoznane jako jedna z następujących wartości:
+
++ **dniu**
++ **datetime**
++ **datetimeoffset**
++ **datetime2**
++ **smalldatetime**
++ **pierwszym**
+
+Typ danych dla `Origin` powinien być zgodny z typem danych `Date` parametru. 
+
+`DATE_BUCKET` używa domyślnej wartości daty pochodzenia `1900-01-01 00:00:00.000` tj. 12:00 w poniedziałek, styczeń 1 1900, jeśli dla funkcji nie określono wartości pochodzenia.
+
 ## <a name="return-type"></a>Typ zwracany
 
-Typ danych wartości zwracanej dla tej metody jest dynamiczny. Zwracany typ zależy od argumentu dostarczonego dla `date` . Jeśli podano prawidłowy typ danych wejściowych dla `date` , `DATE_BUCKET` zwraca ten sam typ danych. `DATE_BUCKET`zgłasza błąd, jeśli dla parametru określono literał ciągu `date` .
+Typ danych wartości zwracanej dla tej metody jest dynamiczny. Zwracany typ zależy od argumentu dostarczonego dla `date` . Jeśli podano prawidłowy typ danych wejściowych dla `date` , `DATE_BUCKET` zwraca ten sam typ danych. `DATE_BUCKET` zgłasza błąd, jeśli dla parametru określono literał ciągu `date` .
 
 ## <a name="return-values"></a>Wartości zwrócone
 
-### <a name="understanding-the-output-from-date_bucket"></a>Informacje wyjściowe z`DATE_BUCKET`
+### <a name="understanding-the-output-from-date_bucket"></a>Informacje wyjściowe z `DATE_BUCKET`
 
-`Date_Bucket`zwraca najnowszą wartość daty lub godziny odpowiadającą parametrowi datePart i liczbie. Na przykład w poniższych wyrażeniach `Date_Bucket` zwróci wartość wyjściową `2020-04-13 00:00:00.0000000` , ponieważ dane wyjściowe są obliczane na podstawie przedziałów tygodni od domyślnego czasu pochodzenia `1900-01-01 00:00:00.000` . Wartość `2020-04-13 00:00:00.0000000` to 6276 tygodnie z wartości początkowej `1900-01-01 00:00:00.000` . 
+`Date_Bucket` zwraca najnowszą wartość daty lub godziny odpowiadającą parametrowi datePart i liczbie. Na przykład w poniższych wyrażeniach `Date_Bucket` zwróci wartość wyjściową `2020-04-13 00:00:00.0000000` , ponieważ dane wyjściowe są obliczane na podstawie przedziałów tygodni od domyślnego czasu pochodzenia `1900-01-01 00:00:00.000` . Wartość `2020-04-13 00:00:00.0000000` to 6276 tygodnie z wartości początkowej `1900-01-01 00:00:00.000` . 
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
@@ -92,11 +105,19 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-Dane wyjściowe dla poniższego wyrażenia, czyli 6275 tygodni od czasu pochodzenia.
+Dane wyjściowe poniższego wyrażenia to `2020-04-06 00:00:00.0000000` , czyli 6275 tygodni od domyślnego czasu pochodzenia `1900-01-01 00:00:00.000` .
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
+```
+
+Dane wyjściowe poniższego wyrażenia to `2020-06-09 00:00:00.0000000` , czyli 75 tygodni od określonego czasu pochodzenia `2019-01-01 00:00:00` .
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(wk, 5, @date, @origin)
 ```
 
 ## <a name="datepart-argument"></a>Argument datepart
@@ -121,11 +142,15 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 
 ## <a name="date-argument"></a>Argument daty  
 
-`DATE_BUCKET`Zwróć wartość bazową odpowiadającą typowi danych `date` argumentu. W poniższym przykładzie zwracana jest wartość wyjściowa z typem danych datetime2. 
+`DATE_BUCKET` Zwróć wartość bazową odpowiadającą typowi danych `date` argumentu. W poniższym przykładzie zwracana jest wartość wyjściowa z typem danych datetime2. 
 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
+
+## <a name="origin-argument"></a>Argument źródła  
+
+Typ danych `origin` `date` argumentów i w musi być taki sam. Jeśli są używane różne typy danych, zostanie wygenerowany błąd.
 
 ## <a name="remarks"></a>Uwagi
 
@@ -134,7 +159,7 @@ Użyj `DATE_BUCKET` w następujących klauzulach:
 + GROUP BY
 + HAVING
 + ORDER BY
-+ ZAZNACZENIA\<list>
++ ZAZNACZENIA \<list>
 + WHERE
 
 ## <a name="examples"></a>Przykłady
@@ -239,7 +264,7 @@ Tutaj znajduje się zestaw wyników.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Określanie skalarnych podzapytań i funkcji skalarnych jako liczby i daty
 
-W tym przykładzie są wykorzystywane podzapytania skalarne, `MAX(OrderDate)` jako argumenty dla *liczby* i *daty*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)`służy jako sztuczny argument parametru Number, aby pokazać, jak wybrać argument *liczbowy* z listy wartości.
+W tym przykładzie są wykorzystywane podzapytania skalarne, `MAX(OrderDate)` jako argumenty dla *liczby* i *daty*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` służy jako sztuczny argument parametru Number, aby pokazać, jak wybrać argument *liczbowy* z listy wartości.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -268,6 +293,15 @@ Where ShipDate between '2011-01-03 00:00:00.000' and '2011-02-28 00:00:00.000'
 order by DateBucket
 GO  
 ``` 
+### <a name="c-using-a-non-default-origin-value"></a>C. Użycie niedomyślnej wartości pierwotnej
+
+W tym przykładzie w celu wygenerowania przedziałów dat jest stosowana niedomyślna wartość ORGIN. 
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(hh, 2, @date, @origin)
+```
 
 ## <a name="see-also"></a>Zobacz także
 

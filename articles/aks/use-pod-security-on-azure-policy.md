@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987362"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440880"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Zabezpieczanie zasobników z Azure Policy (wersja zapoznawcza)
 
@@ -18,7 +18,7 @@ Aby zwiększyć bezpieczeństwo klastra AKS, można kontrolować, jakie funkcje 
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz istniejący klaster AKS. Jeśli potrzebujesz klastra AKS, zapoznaj się z przewodnikiem Szybki Start AKS [przy użyciu interfejsu wiersza polecenia platformy Azure][aks-quickstart-cli] lub [przy użyciu Azure Portal][aks-quickstart-portal].
 
@@ -28,8 +28,8 @@ Aby zabezpieczyć AKS z wykorzystaniem Azure Policy, należy zainstalować Azure
 
 W tym dokumencie założono, że masz następujące elementy, które zostały wdrożone w powiązanym powyższym przewodniku.
 
-* Zarejestrowano `Microsoft.ContainerService` `Microsoft.PolicyInsights` dostawców zasobów i przy użyciu polecenia`az provider register`
-* Zarejestrowano `AKS-AzurePolicyAutoApprove` flagę funkcji w wersji zapoznawczej przy użyciu`az feature register`
+* Zarejestrowano `Microsoft.ContainerService` `Microsoft.PolicyInsights` dostawców zasobów i przy użyciu polecenia `az provider register`
+* Zarejestrowano `AKS-AzurePolicyAutoApprove` flagę funkcji w wersji zapoznawczej przy użyciu `az feature register`
 * Interfejs wiersza polecenia platformy Azure został zainstalowany z `aks-preview` rozszerzeniem w wersji 0.4.53 lub nowszej
 * Klaster AKS w obsługiwanej wersji 1,15 lub nowszej z dodatkiem Azure Policy
 
@@ -79,16 +79,16 @@ Obie wbudowane inicjatywy są zbudowane z definicji używanych w ramach [zasad z
 |---|---|---|---|
 |Nie Zezwalaj na uruchamianie uprzywilejowanych kontenerów|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4)| Tak | Tak
 |Nie Zezwalaj na udostępnianie przestrzeni nazw hostów|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8)| Tak | Tak
-|Ogranicz użycie sieci i portów hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Yes | Tak
-|Ogranicz użycie systemu plików hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Yes | Tak
-|Ogranicz możliwości systemu Linux do [zestawu domyślnego](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Yes | Tak
+|Ogranicz użycie sieci i portów hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Tak | Tak
+|Ogranicz użycie systemu plików hosta|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Tak | Tak
+|Ogranicz możliwości systemu Linux do [zestawu domyślnego](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Tak | Tak
 |Ograniczanie użycia zdefiniowanych typów woluminów|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Tak — dozwolone typy woluminów to `configMap` , `emptyDir` ,,, `projected` `downwardAPI``persistentVolumeClaim`|
 |Eskalacja uprawnień do elementu głównego|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Tak |
 |Ograniczanie identyfikatorów użytkowników i grup kontenera|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Tak|
 |Ograniczanie alokacji elementu FSGroup, który jest właścicielem woluminów na woluminie|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Tak — dozwolone są reguły,, `runAsUser: mustRunAsNonRoot` `supplementalGroup: mustRunAs 1:65536` `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` .  |
-|Wymaga profilu seccomp|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Tak, allowedProfiles * `docker/default` lub`runtime/default` |
+|Wymaga profilu seccomp|[Chmura publiczna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Tak, allowedProfiles * `docker/default` lub `runtime/default` |
 
-\*Platforma Docker/default jest przestarzała w Kubernetes od wersji 1.11
+\* Platforma Docker/default jest przestarzała w Kubernetes od wersji 1.11
 
 ### <a name="additional-optional-policies"></a>Dodatkowe zasady opcjonalne
 
@@ -258,7 +258,7 @@ Aby usunąć inicjatywę bazową:
 
 Aby wyłączyć dodatek Azure Policy, użyj polecenia [AZ AKS Disable-dodatkis][az-aks-disable-addons] .
 
-```azure-cli
+```azurecli
 az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
 ```
 
@@ -285,7 +285,7 @@ Poniżej znajduje się podsumowanie zachowania zmian między zasadami zabezpiecz
 | Zakres zasad | Zasady zabezpieczeń pod nie są obszarami nazw | Szablony ograniczeń używane przez Azure Policy nie są obszarami nazw.
 | Akcja odmowy/inspekcji/mutacji | Zasady zabezpieczeń pod obsługują tylko akcje Odmów. Mutację można wykonać przy użyciu wartości domyślnych podczas tworzenia żądań. Walidacja może odbywać się w trakcie żądania aktualizacji.| Azure Policy obsługuje obie akcje inspekcji & odmowy. Mutacja nie jest jeszcze obsługiwana, ale została zaplanowana.
 | Zgodność z zasadami zabezpieczeń | Nie ma wglądu w zgodność z jednostkami, które istniały przed włączeniem zasad zabezpieczeń pod. Brak zgodnych zasobników utworzonych po włączeniu zasad zabezpieczeń na poziomie. | Niezgodne zasobniki, które istniały przed zastosowaniem zasad platformy Azure, byłyby widoczne w przypadku naruszeń zasad. Niezgodne zasobniki utworzone po włączeniu zasad platformy Azure są odrzucane, jeśli zasady są ustawione z efektem Odmów.
-| Jak wyświetlić zasady w klastrze | `kubectl get psp` | `kubectl get constrainttemplate`-Wszystkie zasady są zwracane.
+| Jak wyświetlić zasady w klastrze | `kubectl get psp` | `kubectl get constrainttemplate` -Wszystkie zasady są zwracane.
 | Zasady zabezpieczeń na poziomie Standard — uprzywilejowane | Zasób zasad zabezpieczeń uprzywilejowanych jest tworzony domyślnie podczas włączania funkcji. | Tryb uprzywilejowany oznacza brak ograniczeń, w związku z czym nie ma żadnego przypisania Azure Policy.
 | [Zasady zabezpieczeń w warstwie Standardowa — linia bazowa/domyślna](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | Użytkownik instaluje zasób bazowy zasad zabezpieczeń. | Azure Policy zawiera [wbudowaną inicjatywę bazową](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) , która jest mapowana na zasady zabezpieczeń według planu bazowego.
 | [W warstwie Standardowa zasad zabezpieczeń — z ograniczeniami](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | Użytkownik instaluje zasób z ograniczoną zasadą zabezpieczeń. | Azure Policy zawiera [wbudowaną ograniczoną inicjatywę](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) , która jest mapowana na zasady zabezpieczeń ograniczone pod.

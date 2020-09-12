@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84048805"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437449"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Eksploruj SaaS Analytics, korzystając z Azure SQL Database, Azure Synapse Analytics, Data Factory i Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W tym samouczku przedstawiono kompleksowe scenariusze analizy. W tym scenariuszu pokazano, jak analiza danych dzierżawcy może dać dostawcom oprogramowania możliwość podejmowania przemyślanych decyzji. Korzystając z danych wyodrębnionych z każdej bazy danych dzierżawy, można używać analiz do uzyskiwania wglądu w zachowanie dzierżawy, w tym ich używania przykładowych biletów Wingtip SaaS aplikacji. Ten scenariusz obejmuje trzy kroki:
 
-1. **Wyodrębnij dane** z każdej bazy danych dzierżawy do sklepu analitycznego, w tym przypadku SQL Data Warehouse.
+1. **Wyodrębnij dane** z każdej bazy danych dzierżawy do magazynu analitycznego, w tym przypadku w puli SQL.
 2. **Zoptymalizuj wyodrębnione dane** na potrzeby przetwarzania analizy.
 3. Skorzystaj z narzędzi **analizy biznesowej** , aby narysować przydatne informacje, które mogą posłużyć do podejmowania decyzji.
 
@@ -45,7 +45,7 @@ Aplikacje SaaS przechowują potencjalnie ogromną ilość danych dzierżawy w ch
 
 Uzyskiwanie dostępu do danych dla wszystkich dzierżawców jest proste, gdy wszystkie dane są w tylko jednej bazie danych z wieloma dzierżawcami. Jednak dostęp jest bardziej skomplikowany, gdy jest dystrybuowany na dużą skalę w tysiącach baz danych. Jednym ze sposobów oswoić złożoności jest wyodrębnienie danych do bazy danych analizy lub magazynu danych na potrzeby zapytania.
 
-Ten samouczek przedstawia kompleksowy scenariusz analityczny dla aplikacji biletów Wingtip. Najpierw [Azure Data Factory (ADF)](../../data-factory/introduction.md) jest używany jako narzędzie aranżacji do wyodrębniania sprzedaży biletów i pokrewnych danych z każdej bazy danych dzierżawy. Te dane są ładowane do tabel przemieszczania w sklepie analitycznym. Magazyn analityczny może być SQL Database lub SQL Data Warehouse. Ten samouczek używa [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) jako sklepu analitycznego.
+Ten samouczek przedstawia kompleksowy scenariusz analityczny dla aplikacji biletów Wingtip. Najpierw [Azure Data Factory (ADF)](../../data-factory/introduction.md) jest używany jako narzędzie aranżacji do wyodrębniania sprzedaży biletów i pokrewnych danych z każdej bazy danych dzierżawy. Te dane są ładowane do tabel przemieszczania w sklepie analitycznym. Magazyn analityczny może być SQL Database lub pulą SQL. Ten samouczek używa [usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) jako sklepu analitycznego.
 
 Następnie wyodrębnione dane są przekształcane i ładowane do zestawu tabel ze [schematem gwiazdy](https://www.wikipedia.org/wiki/Star_schema) . Tabele składają się z centralnej tabeli faktów oraz powiązanych tabel wymiarów:
 
@@ -83,11 +83,11 @@ Ten samouczek eksploruje analizę danych sprzedaży biletów. W tym kroku wygene
     - **$DemoScenario**  =  **1** bilety zakupu dla zdarzeń we wszystkich miejscu
 2. Naciśnij klawisz **F5** , aby uruchomić skrypt i utworzyć historię zakupów biletów dla wszystkich miejsc. W przypadku 20 dzierżawców skrypt generuje dziesiątki tysięcy biletów i może trwać 10 minut lub dłużej.
 
-### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Wdrażanie SQL Data Warehouse, Data Factory i Blob Storage
+### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Wdrażanie usługi Azure Synapse Analytics, Data Factory i Blob Storage
 
-W aplikacji bilety Wingtip dane transakcyjne dzierżawców są dystrybuowane za pośrednictwem wielu baz danych. Azure Data Factory (ADF) służy do organizowania wyodrębniania, ładowania i przekształcania (ELT) tych danych w magazynie danych. Aby załadować dane do SQL Data Warehouse najbardziej wydajnie, funkcja ADF wyodrębnia dane do pośrednich plików obiektów blob, a następnie ładuje [dane do hurtowni](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) danych.
+W aplikacji bilety Wingtip dane transakcyjne dzierżawców są dystrybuowane za pośrednictwem wielu baz danych. Azure Data Factory (ADF) służy do organizowania wyodrębniania, ładowania i przekształcania (ELT) tych danych w magazynie danych. Aby załadować dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), funkcja ADF wyodrębnia dane do pośrednich plików obiektów blob, a następnie ładuje dane do magazynu danych za pomocą [bazy](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) danych.
 
-Ten krok polega na wdrożeniu dodatkowych zasobów używanych w samouczku: SQL Data Warehouse o nazwie _tenantanalytics_, Azure Data Factory o nazwie _dbtodwload- \<user\> _i koncie usługi Azure Storage o nazwie _wingtipstaging \<user\> _. Konto magazynu jest używane do tymczasowego przechowywania wyodrębnionych plików danych jako obiektów BLOB przed ich załadowaniem do magazynu danych. Ten krok umożliwia również wdrożenie schematu magazynu danych i Definiowanie potoków ADF, które organizują proces ELT.
+Ten krok polega na wdrożeniu dodatkowych zasobów używanych w samouczku: puli SQL o nazwie _tenantanalytics_, Azure Data Factory o nazwie _dbtodwload- \<user\> _i koncie usługi Azure Storage o nazwie _wingtipstaging \<user\> _. Konto magazynu jest używane do tymczasowego przechowywania wyodrębnionych plików danych jako obiektów BLOB przed ich załadowaniem do magazynu danych. Ten krok umożliwia również wdrożenie schematu magazynu danych i Definiowanie potoków ADF, które organizują proces ELT.
 
 1. W programie PowerShell ISE Otwórz pozycję *..\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* i ustaw:
     - **$DemoScenario**  =  **2** wdrażanie magazynu danych analizy dzierżawy, usługi BLOB Storage i usługi Data Factory
@@ -159,7 +159,7 @@ Trzy zagnieżdżone potoki to: SQLDBToDW, dbcopy i TableCopy.
 
 **Potok 3 — TableCopy** używa numerów wersji wierszy w SQL Database (_rowversion_) do identyfikowania wierszy, które zostały zmienione lub zaktualizowane. To działanie wyszukuje początkową i końcową wersję wiersza w celu wyodrębnienia wierszy z tabel źródłowych. Tabela **CopyTracker** przechowywana w każdej bazie danych dzierżawy śledzi ostatni wiersz wyodrębniony z każdej tabeli źródłowej w każdym uruchomieniu. Nowe lub zmienione wiersze są kopiowane do odpowiednich tabel przejściowych w magazynie danych: **raw_Tickets**, **raw_Customers**, **raw_Venues**i **raw_Events**. Na koniec Ostatnia wersja wiersza jest zapisywana w tabeli **CopyTracker** , która będzie używana jako początkowa wersja wiersza dla następnej wyodrębniania.
 
-Istnieją również trzy sparametryzowane połączone usługi, które łączą fabrykę danych z źródłowymi bazami danych SQL, docelowymi SQL Data Warehouse i pośrednim magazynem obiektów BLOB. Na karcie **autor** kliknij pozycję **połączenia** , aby poznać połączone usługi, jak pokazano na poniższej ilustracji:
+Istnieją również trzy sparametryzowane połączone usługi, które łączą fabrykę danych z źródłowymi bazami danych SQL, docelową pulą SQL i pośrednim magazynem obiektów BLOB. Na karcie **autor** kliknij pozycję **połączenia** , aby poznać połączone usługi, jak pokazano na poniższej ilustracji:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -167,7 +167,7 @@ Odpowiadające trzem połączonym usługom istnieją trzy zestawy danych, które
   
 ### <a name="data-warehouse-pattern-overview"></a>Wzorzec magazynu danych — przegląd
 
-Usługa Azure Synapse (dawniej Azure SQL Data Warehouse) jest używana jako magazyn analityczny do przeprowadzania agregacji danych dzierżawy. W tym przykładzie baza jest używana do ładowania danych do magazynu danych. Dane pierwotne są ładowane do tabel przemieszczania, które mają kolumnę tożsamości, aby śledzić wiersze, które zostały przekształcone w tabele schematu gwiazdy. Na poniższej ilustracji przedstawiono wzorzec ładowania: ![ loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Usługa Azure Synapse (dawniej SQL Data Warehouse) jest używana jako magazyn analityczny do przeprowadzania agregacji danych dzierżawy. W tym przykładzie baza jest używana do ładowania danych do magazynu danych. Dane pierwotne są ładowane do tabel przemieszczania, które mają kolumnę tożsamości, aby śledzić wiersze, które zostały przekształcone w tabele schematu gwiazdy. Na poniższej ilustracji przedstawiono wzorzec ładowania: ![ loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 W tym przykładzie użyto wolno zmieniającego się tabel wymiarów typu 1 (SCD). Każdy wymiar ma klucz zastępczy zdefiniowany przy użyciu kolumny tożsamości. Najlepszym rozwiązaniem jest wstępne wypełnienie tabeli wymiarów daty w celu zaoszczędzenia czasu. W przypadku innych tabel wymiarów CREATE TABLE jako wybrane... (CTAS) służy do tworzenia tymczasowej tabeli zawierającej istniejące zmodyfikowane i niemodyfikowane wiersze wraz z kluczami zastępczymi. Jest to realizowane z IDENTITY_INSERT = ON. Nowe wiersze są następnie wstawiane do tabeli przy użyciu IDENTITY_INSERT = OFF. W celu zapewnienia łatwego wycofywania Nazwa istniejącej tabeli wymiarów jest zmieniana, a nazwa tabeli tymczasowej zostanie zmieniona, aby stała się nową tabelą wymiarów. Przed każdym uruchomieniem, stara tabela wymiarów zostanie usunięta.
 
@@ -208,7 +208,7 @@ Wykonaj następujące kroki, aby nawiązać połączenie z usługą Power BI i z
 
     ![Logowanie do usługi Power BI](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij pozycję **Połącz**.  
+5. W lewym okienku wybierz pozycję **baza danych** , a następnie wprowadź nazwę użytkownika = *deweloper*i wprowadź hasło = *P \@ ssword1*. Kliknij przycisk **Połącz**.  
 
     ![Baza danych — logowanie](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 

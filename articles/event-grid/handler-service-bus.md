@@ -2,13 +2,13 @@
 title: Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
 description: Opisuje, w jaki sposób można używać kolejek Service Bus i tematów jako programów obsługi zdarzeń Azure Event Grid zdarzeń.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c573f7ee088fe1d88f832623891377d4fd50bd4b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/03/2020
+ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105697"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440800"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus kolejek i tematów jako programów obsługi zdarzeń dla zdarzeń Azure Event Grid
 Program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Kilka usług platformy Azure jest automatycznie konfigurowanych do obsługi zdarzeń, a **Azure Service Bus** jest jednym z nich. 
@@ -32,7 +32,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-## <a name="service-bus-topics"></a>Tematy Service Bus
+## <a name="service-bus-topics"></a>Tematy usługi Service Bus
 
 Zdarzenia w Event Grid można kierować bezpośrednio do tematów Service Bus, aby obsłużyć zdarzenia systemowe platformy Azure za pomocą tematów Service Bus lub dla scenariuszy poleceń & kontroli komunikatów.
 
@@ -62,9 +62,9 @@ Jeśli używasz **tematu Service Bus lub kolejki** jako programu obsługi zdarze
 | AEG — wersja danych | <p>Wersja danych zdarzenia.</p><p>Przykład: "1".</p><p>W przypadku **schematu zdarzeń Event Grid**ta właściwość reprezentuje wersję danych i **schemat zdarzeń w chmurze**, nie ma zastosowania.</p> |
 
 ## <a name="message-headers"></a>Nagłówki komunikatów
-W przypadku wysyłania zdarzenia do kolejki Service Bus lub tematu jako komunikatu obsługiwanego przez brokera `messageid` komunikat z brokerem jest **identyfikatorem zdarzenia**.
+W przypadku wysyłania zdarzenia do kolejki Service Bus lub tematu jako komunikatu obsługiwanego przez brokera `messageid` komunikat z brokerem jest wewnętrznym identyfikatorem systemu.
 
-Identyfikator zdarzenia będzie utrzymywany przez ponowną dostawę zdarzenia, dzięki czemu można uniknąć zduplikowanych dostaw przez włączenie **wykrywania duplikatów** w jednostce usługi Service Bus. Zalecamy włączenie czasu trwania wykrywania duplikatów w jednostce Service Bus tak, aby był to czas wygaśnięcia (TTL) zdarzenia lub maksymalny czas trwania ponawiania prób, w zależności od tego, co jest dłuższe.
+Wewnętrzny identyfikator systemu dla wiadomości będzie utrzymywany przez ponowną dostawę zdarzenia, dzięki czemu można uniknąć zduplikowanych dostaw przez włączenie **wykrywania duplikatów** w jednostce usługi Service Bus. Zalecamy włączenie czasu trwania wykrywania duplikatów w jednostce Service Bus tak, aby był to czas wygaśnięcia (TTL) zdarzenia lub maksymalny czas trwania ponawiania prób, w zależności od tego, co jest dłuższe.
 
 ## <a name="rest-examples-for-put"></a>Przykłady REST (na potrzeby PUT)
 

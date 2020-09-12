@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d6039ac3bead535fd9c7de64a8e92a0d7a58f390
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814420"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319240"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Usługa Azure Synapse Link dla usługi Azure Cosmos DB: Przypadki użycia analizy prawie w czasie rzeczywistym
 
@@ -134,7 +134,7 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Link Synapse platformy Azure dla Azure Cosmos DB](synapse-link.md) 
 
-* [Magazyn analityczny Azure Cosmos DB](analytical-store-introduction.md)
+* [Magazyn analityczny usługi Azure Cosmos DB](analytical-store-introduction.md)
 
 * [Praca z linkiem usługi Azure Synapse dla Azure Cosmos DB](configure-synapse-link.md)
 
@@ -142,4 +142,4 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Apache Spark w usłudze Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
-* [SQL Server — bezobsługowe/na żądanie w usłudze Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)
+* [Obsługa środowiska wykonawczego bezserwerowego programu SQL Server w usłudze Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md)

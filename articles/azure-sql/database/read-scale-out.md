@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 06/26/2020
-ms.openlocfilehash: cf9f48b0907d3bfe1d07dcffcc0d0b9534f74c83
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 09/03/2020
+ms.openlocfilehash: 2e7c931d6d99187b4ee7985be19374048c226312
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135887"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442194"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Korzystanie z replik tylko do odczytu w celu odciążenia obciążeń zapytań tylko do odczytu
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W ramach [architektury wysokiej dostępności](high-availability-sla.md#premium-and-business-critical-service-tier-availability)każda baza danych i wystąpienie zarządzane w warstwie usług Premium i krytyczne dla działania firmy są automatycznie inicjowane przy użyciu podstawowej repliki odczytu i zapisu oraz kilku replik pomocniczych tylko do odczytu. Pomocnicze repliki są obsługiwane z tym samym rozmiarem obliczeniowym co replika podstawowa. Funkcja *Odczyt skalowalny* w poziomie umożliwia odciążanie obciążeń tylko do odczytu przy użyciu pojemności obliczeniowej jednej z replik tylko do odczytu, zamiast uruchamiania ich w replice do odczytu i zapisu. W ten sposób niektóre obciążenia tylko do odczytu mogą być odizolowane od obciążeń odczytu i zapisu i nie wpłyną na ich wydajność. Ta funkcja jest przeznaczona dla aplikacji, które zawierają logicznie oddzielone, tylko do odczytu obciążenia, takie jak analiza. W warstwach usług premium i Krytyczne dla działania firmy aplikacje mogą uzyskać korzyści z wydajności przy użyciu tej dodatkowej pojemności bez dodatkowych kosztów.
+W ramach [architektury wysokiej dostępności](high-availability-sla.md#premium-and-business-critical-service-tier-availability)każda pojedyncza baza danych, baza danych elastycznej puli i wystąpienie zarządzane w warstwie Premium i krytyczne dla działania firmy są automatycznie inicjowane przy użyciu podstawowej repliki odczytu i zapisu oraz kilku replik pomocniczych tylko do odczytu. Pomocnicze repliki są obsługiwane z tym samym rozmiarem obliczeniowym co replika podstawowa. Funkcja *Odczyt skalowalny* w poziomie umożliwia odciążanie obciążeń tylko do odczytu przy użyciu pojemności obliczeniowej jednej z replik tylko do odczytu, zamiast uruchamiania ich w replice do odczytu i zapisu. W ten sposób niektóre obciążenia tylko do odczytu mogą być odizolowane od obciążeń odczytu i zapisu i nie wpłyną na ich wydajność. Ta funkcja jest przeznaczona dla aplikacji, które zawierają logicznie oddzielone, tylko do odczytu obciążenia, takie jak analiza. W warstwach usług premium i Krytyczne dla działania firmy aplikacje mogą uzyskać korzyści z wydajności przy użyciu tej dodatkowej pojemności bez dodatkowych kosztów.
 
 Funkcja *Odczytaj skalowalny* w poziomie jest również dostępna w warstwie usługi w ramach skalowania po utworzeniu co najmniej jednej repliki pomocniczej. Wiele replik pomocniczych może służyć do równoważenia obciążenia obciążeń przeznaczonych tylko do odczytu, które wymagają więcej zasobów niż dostępne w jednej replice pomocniczej.
 
@@ -45,7 +45,7 @@ Jeśli chcesz upewnić się, że aplikacja nawiązuje połączenie z repliką po
 
 ## <a name="data-consistency"></a>Spójność danych
 
-Jedną z korzyści wynikających z replik jest to, że repliki są zawsze w stanie spójnym w transakcjach, ale w różnych momentach mogą występować niewielkie opóźnienia między różnymi replikami. Skalowanie w poziomie nie obsługuje spójności poziomu sesji. Oznacza to, że jeśli sesja tylko do odczytu zostanie nawiązane ponownie po błędzie połączenia spowodowanym przez niedostępną replikę, może zostać przekierowana do repliki, która nie jest zgodna z 100% z repliką odczytu i zapisu. Podobnie, jeśli aplikacja zapisuje dane przy użyciu sesji odczytu i zapisu, a natychmiast odczytuje je przy użyciu sesji tylko do odczytu, możliwe jest, że najnowsze aktualizacje nie są natychmiast widoczne w replice. Opóźnienie jest spowodowane przez asynchroniczną operację wykonywania operacji w dzienniku transakcji.
+Jedną z korzyści wynikających z replik jest to, że repliki są zawsze w stanie spójnym w transakcjach, ale w różnych momentach mogą występować niewielkie opóźnienia między różnymi replikami. Skalowanie w poziomie nie obsługuje spójności poziomu sesji. Oznacza to, że jeśli sesja tylko do odczytu zostanie nawiązane ponownie po błędzie połączenia spowodowanym przez niedostępną replikę, może zostać przekierowana do repliki, która nie jest zgodna z 100% z repliką odczytu i zapisu. Podobnie jeśli aplikacja zapisuje dane przy użyciu sesji odczytu i zapisu, a natychmiast odczytuje je przy użyciu sesji tylko do odczytu, możliwe jest, że najnowsze aktualizacje nie są natychmiast widoczne w replice. Opóźnienie jest spowodowane przez asynchroniczną operację ponownego wykonywania w dzienniku transakcji.
 
 > [!NOTE]
 > Opóźnienia replikacji w regionie są niskie, a ta sytuacja jest rzadki. Aby monitorować opóźnienie replikacji, zobacz [monitorowanie i rozwiązywanie problemów z repliką tylko do odczytu](#monitoring-and-troubleshooting-read-only-replicas).
@@ -87,11 +87,11 @@ Najczęściej używane widoki to:
 
 | Nazwa | Przeznaczenie |
 |:---|:---|
-|[sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zawiera metryki wykorzystania zasobów w ciągu ostatniej godziny, w tym użycie procesora CPU, danych we/wy i zapisu w dzienniku względem ograniczeń celu usługi.|
-|[sys. dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Zawiera zagregowane statystyki oczekiwania dla wystąpienia aparatu bazy danych. |
+|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zawiera metryki wykorzystania zasobów w ciągu ostatniej godziny, w tym użycie procesora CPU, danych we/wy i zapisu w dzienniku względem ograniczeń celu usługi.|
+|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Zawiera zagregowane statystyki oczekiwania dla wystąpienia aparatu bazy danych. |
 |[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Zawiera informacje o stanie kondycji repliki i statystyce synchronizacji. Rozmiar kolejki ponownego wykonywania i częstotliwość ponownego wykonywania służą jako wskaźniki opóźnienia danych w replice tylko do odczytu. |
 |[sys. dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Zapewnia liczniki wydajności aparatu bazy danych.|
-|[sys. dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Zapewnia dane statystyczne wykonywania poszczególnych zapytań, takie jak Liczba wykonań, użyty czas procesora CPU itd.|
+|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Zapewnia dane statystyczne wykonywania poszczególnych zapytań, takie jak Liczba wykonań, użyty czas procesora CPU itd.|
 |[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Udostępnia buforowane plany zapytań. |
 |[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Zawiera tekst zapytania dla buforowanego planu zapytania.|
 |[sys. dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Zapewnia postęp zapytania w czasie rzeczywistym w czasie wykonywania zapytań.|

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212037"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434235"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -53,7 +53,7 @@ Po zidentyfikowaniu wąskiego gardła przepływu danych należy skorzystać z po
 
 Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematu partycjonowania klastra Spark. Ta karta istnieje w każdej transformacji przepływu danych i określa, czy chcesz ponownie podzielić dane **po** zakończeniu transformacji. Dostosowanie partycjonowania zapewnia kontrolę nad dystrybucją danych między węzłami obliczeniowymi i optymalizacją lokalizacji danych, które mogą mieć pozytywne i negatywne skutki dla ogólnej wydajności przepływu danych.
 
-![Zoptymalizować](media/data-flow/optimize.png "Optymalizacja")
+![Optymalizacja](media/data-flow/optimize.png "Optymalizacja")
 
 Domyślnie należy zaznaczyć opcję *Użyj bieżącego partycjonowania* , która instruuje Azure Data Factory zachować bieżące partycjonowanie danych wyjściowych transformacji. Gdy trwa ponowne Partycjonowanie danych, należy *użyć bieżącego partycjonowania* w większości scenariuszy. Scenariusze, w których może być konieczne ponowne Partycjonowanie danych, to między innymi agregacje i sprzężenia, które znacząco pochylają dane lub w przypadku korzystania z partycjonowania źródła w bazie danych SQL.
 
@@ -126,7 +126,7 @@ Opłaty za przepływy danych są naliczane w rdzeń wirtualny godzinie, co oznac
 
 ### <a name="time-to-live"></a>Czas wygaśnięcia
 
-Domyślnie każde działanie przepływu danych uruchamia nowy klaster na podstawie konfiguracji środowiska IR. Czas uruchamiania klastra trwa kilka minut, a przetwarzanie danych nie będzie możliwe, dopóki nie zostanie ukończone. Jeśli potoki zawierają wiele **sekwencyjnych** przepływów danych, można włączyć wartość czasu wygaśnięcia (TTL). Określenie wartości czasu wygaśnięcia powoduje, że klaster działa przez określony czas po zakończeniu jego wykonywania. Jeśli nowe zadanie zostanie uruchomione przy użyciu środowiska IR w czasie trwania czasu wygaśnięcia, spowoduje to ponowne użycie istniejącego klastra, a czas rozpoczęcia będzie wynosić kilka sekund, a nie minut. Po zakończeniu drugiego zadania klaster będzie nadal działać przez czas TTL.
+Domyślnie każde działanie przepływu danych uruchamia nowy klaster na podstawie konfiguracji środowiska IR. Czas uruchamiania klastra trwa kilka minut, a przetwarzanie danych nie będzie możliwe, dopóki nie zostanie ukończone. Jeśli potoki zawierają wiele **sekwencyjnych** przepływów danych, można włączyć wartość czasu wygaśnięcia (TTL). Określenie wartości czasu wygaśnięcia powoduje, że klaster działa przez określony czas po zakończeniu jego wykonywania. Jeśli nowe zadanie zostanie uruchomione przy użyciu środowiska IR w czasie trwania czasu wygaśnięcia, spowoduje to znaczne skrócenie czasu uruchomienia istniejącego klastra. Po zakończeniu drugiego zadania klaster będzie nadal działać przez czas TTL.
 
 Tylko jedno zadanie można uruchomić w pojedynczym klastrze naraz. Jeśli jest dostępny klaster, ale rozpocznie się dwa przepływy danych, tylko jedna z nich będzie korzystać z klastra na żywo. Drugie zadanie spowoduje przejęcie własnego klastra izolowanego.
 

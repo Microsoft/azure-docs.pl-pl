@@ -3,20 +3,20 @@ title: Konfigurowanie routingu ruchu podsieci — Traffic Manager platformy Azur
 description: W tym artykule opisano sposób konfigurowania Traffic Manager w celu kierowania ruchu z określonych podsieci.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: fe65e2e2a05c3c1d936bcdfa94bbe8cc310f7c68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711786"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401371"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Bezpośrednie kierowanie ruchu do określonych punktów końcowych na podstawie podsieci użytkownika przy użyciu usługi Traffic Manager
 
@@ -75,7 +75,7 @@ W tej sekcji utworzysz dwie maszyny wirtualne *myEndpointVMEastUS* i *MyEndpoint
     |Ustawienie|Wartość|
     |---|---|
     |Grupa zasobów | Wybierz pozycję **Nowa**, a następnie wpisz *myResourceGroupTM2*|
-    |Lokalizacja|Europa Zachodnia|
+    |Lokalizacja|West Europe|
     |Nazwa maszyny wirtualnej | myIISVMWEurope|
     |Sieć wirtualna | Wybierz opcję **Sieć wirtualna** w obszarze **Tworzenie sieci wirtualnej**, następnie w polu **nazwa** wprowadź *myVNet2*, a jako nazwę podsieci wprowadź *mySubnet*.|
     |||

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254223"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319296"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Wdróż bezstanową aplikację w języku PHP przy użyciu Redis w klastrze Kubernetes z włączonym procesorem GPU na Azure Stack Edge
 
@@ -57,7 +57,7 @@ Przed wdrożeniem bezstanowej aplikacji upewnij się, że zostały spełnione na
       - W lokalnym interfejsie użytkownika urządzenia brzegowego Azure Stack przejdź do **omówienia** i zanotuj numer oprogramowania Kubernetes. 
       - Sprawdź te dwie wersje pod kątem zgodności z mapowania podanego w obsługiwanej wersji Kubernetes <!--insert link-->.
 
-1. Istnieje [Konfiguracja GitOps, której można użyć do uruchomienia wdrożenia usługi Azure Arc](https://github.com/kagoyal/dbehaikudemo). Następujące pliki zostaną użyte `yaml` do wdrożenia na urządzeniu z systemem Azure Stack Edge.
+1. Istnieje [Konfiguracja GitOps, której można użyć do uruchomienia wdrożenia usługi Azure Arc](https://github.com/kagoyal/dbehaikudemo). W tym przykładzie zostaną użyte następujące `yaml` pliki do wdrożenia na urządzeniu Azure Stack Edge.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->

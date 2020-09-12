@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 7564adb6e2e596b95cd138c8e4e2190a4c1e2a57
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 098ac343885db3e267dcefb3785f5abd55d17ee2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042649"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441038"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Uruchamianie zapytań analizy ad hoc w wielu bazach danych (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Aplikacje SaaS mogą analizować ogromną ilość danych dzierżawy, które są 
 
 Uzyskiwanie dostępu do tych danych w jednej wielodostępnej bazie danych jest łatwe, ale nie jest tak proste, gdy są one znacznie rozproszone, potencjalnie nawet na tysiące baz danych. Jednym z metod jest użycie [elastycznej kwerendy](elastic-query-overview.md), która umożliwia wykonywanie zapytań w rozproszonym zestawie baz danych ze wspólnym schematem. Te bazy danych mogą być dystrybuowane między różnymi grupami zasobów i subskrypcjami. Jeszcze jedna wspólna nazwa logowania musi mieć dostęp do wyodrębniania danych ze wszystkich baz danych. Zapytanie elastyczne korzysta *z pojedynczej* bazy danych, w której są zdefiniowane tabele zewnętrzne, które stanowią duplikaty tabel lub widoków w rozproszonych bazach danych (dzierżawców). Zapytania skierowane do tej głównej bazy danych są kompilowane w celu utworzenia planu zapytania rozproszonego, gdzie części zapytania są w razie potrzeby wypychane do baz danych dzierżawy. Elastyczne zapytanie używa mapy fragmentu w bazie danych wykazu, aby określić lokalizację wszystkich baz danych dzierżaw. Instalator i zapytanie są proste przy użyciu standardowego [języka Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)i obsługują zapytania ad hoc z narzędzi takich jak Power BI i Excel.
 
-Dzięki rozproszeniu zapytań w bazach danych dzierżaw, elastyczne zapytanie zapewnia natychmiastowy wgląd w dane produkcyjne na żywo. Niemniej jednak, ponieważ elastyczne zapytanie pobiera dane z potencjalnie wielu baz danych, opóźnienie zapytania może być większe niż w przypadku równoważnych zapytań przesyłanych do jednej wielodostępnej bazy danych. Pamiętaj, aby zaprojektować zapytania, aby zminimalizować dane, które są zwracane. Elastyczne zapytanie jest często najlepiej dostosowane do wykonywania zapytań dotyczących niewielkich ilości danych w czasie rzeczywistym, zamiast tworzyć często używane lub złożone zapytania lub raporty analityczne. Jeśli zapytania nie działają prawidłowo, należy zapoznać się z [planem wykonywania](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) , aby sprawdzić, jaka część zapytania została przekazana do zdalnej bazy danych. I Oceń, ile danych jest zwracanych. Zapytania wymagające złożonego przetwarzania analitycznego mogą być lepiej obsługiwane przez zapisanie wyodrębnionych danych dzierżawy do bazy danych zoptymalizowanej pod kątem zapytań analitycznych. SQL Database i SQL Data Warehouse mogą obsługiwać taką bazę danych analitycznych.
+Dzięki rozproszeniu zapytań w bazach danych dzierżaw, elastyczne zapytanie zapewnia natychmiastowy wgląd w dane produkcyjne na żywo. Niemniej jednak, ponieważ elastyczne zapytanie pobiera dane z potencjalnie wielu baz danych, opóźnienie zapytania może być większe niż w przypadku równoważnych zapytań przesyłanych do jednej wielodostępnej bazy danych. Pamiętaj, aby zaprojektować zapytania, aby zminimalizować dane, które są zwracane. Elastyczne zapytanie jest często najlepiej dostosowane do wykonywania zapytań dotyczących niewielkich ilości danych w czasie rzeczywistym, zamiast tworzyć często używane lub złożone zapytania lub raporty analityczne. Jeśli zapytania nie działają prawidłowo, należy zapoznać się z [planem wykonywania](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) , aby sprawdzić, jaka część zapytania została przekazana do zdalnej bazy danych. I Oceń, ile danych jest zwracanych. Zapytania wymagające złożonego przetwarzania analitycznego mogą być lepiej obsługiwane przez zapisanie wyodrębnionych danych dzierżawy do bazy danych zoptymalizowanej pod kątem zapytań analitycznych. SQL Database i usługa Azure Synapse Analytics (dawniej SQL Data Warehouse) mogą hostować tę bazę danych analitycznych.
 
 Ten wzorzec dla analizy jest wyjaśniony w [samouczku dotyczącym analizy dzierżawców](saas-multitenantdb-tenant-analytics.md).
 

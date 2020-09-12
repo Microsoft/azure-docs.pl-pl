@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950344"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459105"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Zarządzanie migawkami przy użyciu usługi Azure NetApp Files
 
-Azure NetApp Files obsługuje tworzenie migawek na żądanie i Używanie zasad migawek do planowania automatycznego tworzenia migawek.  Możesz również przywrócić migawkę do nowego woluminu.  
+Azure NetApp Files obsługuje tworzenie migawek na żądanie i Używanie zasad migawek do planowania automatycznego tworzenia migawek.  Możesz również przywrócić migawkę do nowego woluminu lub przywrócić pojedynczy plik przy użyciu klienta programu.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Tworzenie migawki na żądanie dla woluminu
 
@@ -41,7 +41,7 @@ Migawki woluminów można tworzyć na żądanie.
 
     ![Nowa migawka](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
-4. Kliknij przycisk **OK**. 
+4. Kliknij pozycję **OK**. 
 
 ## <a name="manage-snapshot-policies"></a>Zarządzanie zasadami migawek
 
@@ -165,7 +165,62 @@ Obecnie można przywrócić migawkę tylko do nowego woluminu.
     Nowy wolumin używa tego samego protokołu, który jest wykorzystywany przez migawkę.   
     Nowy wolumin, do którego zostanie przywrócona migawka, pojawia się w bloku woluminy.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="restore-a-file-from-a-snapshot-using-a-client"></a>Przywracanie pliku z migawki przy użyciu klienta programu
+
+Jeśli nie chcesz [przywracać całej migawki do woluminu](#restore-a-snapshot-to-a-new-volume), możesz przywrócić plik z migawki przy użyciu klienta, na którym jest zainstalowany wolumin.  
+
+Zainstalowany wolumin zawiera katalog migawek o nazwie  `.snapshot` (w klientach NFS) lub `~snapshot` (w klientach SMB), który jest dostępny dla klienta. Katalog migawek zawiera podkatalogi odpowiadające migawkom woluminu. Każdy podkatalog zawiera pliki migawki. Jeśli przypadkowo usuniesz lub zastąpisz plik, możesz przywrócić plik do nadrzędnego katalogu do odczytu i zapisu, kopiując plik z podkatalogu migawek do katalogu do odczytu i zapisu. 
+
+W przypadku wybrania pola wyboru Ukryj ścieżkę migawki podczas tworzenia woluminu katalog migawek jest ukryty. Można wyświetlić stan ścieżki Ukryj migawkę woluminu, wybierając wolumin. Opcję Ukryj ścieżkę migawki można edytować, klikając pozycję **Edytuj** na stronie woluminu.  
+
+![Edycja opcji migawek woluminów](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
+### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Przywracanie pliku przy użyciu klienta systemu plików NFS z systemem Linux 
+
+1. Użyj `ls` polecenia systemu Linux, aby wyświetlić listę plików, które chcesz przywrócić z `.snapshot` katalogu. 
+
+    Na przykład:
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. Użyj `cp` polecenia, aby skopiować plik do katalogu nadrzędnego.  
+
+    Na przykład: 
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### <a name="restore-a-file-by-using-a-windows-client"></a>Przywracanie pliku przy użyciu klienta systemu Windows 
+
+1. Jeśli `~snapshot` katalog woluminu jest ukryty, [Pokaż ukryte elementy](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) w katalogu nadrzędnym do wyświetlenia `~snapshot` .
+
+    ![Wyświetlanie ukrytych elementów](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. Przejdź do podkatalogu w programie `~snapshot` , aby znaleźć plik, który chcesz przywrócić.  Kliknij plik prawym przyciskiem myszy. Wybierz polecenie **Kopiuj**.  
+
+    ![Kopiuj plik do przywrócenia](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. Wróć do katalogu nadrzędnego. Kliknij prawym przyciskiem myszy w katalogu nadrzędnym i wybierz polecenie, `Paste` Aby wkleić plik do katalogu.
+
+    ![Wklej plik do przywrócenia](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. Możesz również kliknąć prawym przyciskiem myszy katalog nadrzędny, wybrać pozycję **Właściwości**, kliknij kartę **poprzednie wersje** , aby wyświetlić listę migawek, a następnie wybierz pozycję **Przywróć** , aby przywrócić plik.  
+
+    ![Właściwości poprzednie wersje](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie hierarchii magazynu usługi Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Limity zasobów dla usługi Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Film Azure NetApp Files migawek 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

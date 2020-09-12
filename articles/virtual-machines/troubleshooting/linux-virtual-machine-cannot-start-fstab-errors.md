@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509056"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441667"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Rozwiązywanie problemów z uruchamianiem maszyny wirtualnej systemu Linux z powodu błędów fstab
 
@@ -107,7 +107,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
 ### <a name="using-single-user-mode"></a>Korzystanie z trybu pojedynczego użytkownika
 
 1. Nawiąż połączenie z [konsolą szeregową](./serial-console-linux.md).
-2. Używanie konsoli szeregowej do przełączanie trybu jednego [użytkownika](../linux/serial-console-grub-single-user-mode.md) w tryb jednego użytkownika
+2. Używanie konsoli szeregowej do przełączanie trybu jednego [użytkownika](serial-console-grub-single-user-mode.md) w tryb jednego użytkownika
 3. Po rozruchu maszyny wirtualnej w trybie jednego użytkownika. Użyj swojego ulubionego edytora tekstu, aby otworzyć plik fstab. 
 
    ```
@@ -119,7 +119,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
    > [!Note]
    > * Pola w każdym wierszu są rozdzielone znakami tabulacji lub spacjami. Puste wiersze są ignorowane. Wiersze, które mają znak numeru (#), jako pierwszy znak to komentarze. Wiersze z komentarzem mogą pozostawać w pliku fstab, ale nie będą przetwarzane. Zaleca się, aby nie usuwać wierszy z fstab wierszy, które nie są już używane.
    > * Aby maszyna wirtualna mogła odzyskiwać i uruchamiać, partycje systemu plików powinny być jedynymi wymaganymi partycjami. Na maszynie wirtualnej mogą wystąpić błędy aplikacji dotyczące dodatkowych partycji z komentarzami. Jednak maszyna wirtualna powinna zostać uruchomiona bez dodatkowych partycji. Możesz później usunąć komentarz z komentarzy do wszystkich wierszy z komentarzem.
-   > * Zalecamy zainstalowanie dysków danych na maszynach wirtualnych platformy Azure przy użyciu identyfikatora UUID partycji systemu plików. Na przykład uruchom następujące polecenie:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Zalecamy zainstalowanie dysków danych na maszynach wirtualnych platformy Azure przy użyciu identyfikatora UUID partycji systemu plików. Na przykład uruchom następujące polecenie: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Aby określić identyfikator UUID systemu plików, uruchom polecenie blkid. Aby uzyskać więcej informacji na temat składni, uruchom polecenie Man blkid.
    > * Opcja nofail pomaga upewnić się, że maszyna wirtualna jest uruchomiona, nawet jeśli system plików jest uszkodzony lub system plików nie istnieje podczas uruchamiania. Zalecamy użycie opcji nofail w pliku fstab, aby umożliwić uruchamianie kontynuuje po wystąpieniu błędów w partycjach, które nie są wymagane do uruchomienia maszyny wirtualnej.
 
@@ -172,7 +172,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
    > [!Note]
    > * Pola w każdym wierszu są rozdzielone znakami tabulacji lub spacjami. Puste wiersze są ignorowane. Wiersze, które mają znak numeru (#), jako pierwszy znak to komentarze. Wiersze z komentarzem mogą pozostawać w pliku fstab, ale nie będą przetwarzane. Zaleca się, aby nie usuwać wierszy z fstab wierszy, które nie są już używane.
    > * Aby maszyna wirtualna mogła odzyskiwać i uruchamiać, partycje systemu plików powinny być jedynymi wymaganymi partycjami. Na maszynie wirtualnej mogą wystąpić błędy aplikacji dotyczące dodatkowych partycji z komentarzami. Jednak maszyna wirtualna powinna zostać uruchomiona bez dodatkowych partycji. Możesz później usunąć komentarz z komentarzy do wszystkich wierszy z komentarzem.
-   > * Zalecamy zainstalowanie dysków danych na maszynach wirtualnych platformy Azure przy użyciu identyfikatora UUID partycji systemu plików. Na przykład uruchom następujące polecenie:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Zalecamy zainstalowanie dysków danych na maszynach wirtualnych platformy Azure przy użyciu identyfikatora UUID partycji systemu plików. Na przykład uruchom następujące polecenie: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Aby określić identyfikator UUID systemu plików, uruchom polecenie blkid. Aby uzyskać więcej informacji na temat składni, uruchom polecenie Man blkid.
    > * Opcja nofail pomaga upewnić się, że maszyna wirtualna jest uruchomiona, nawet jeśli system plików jest uszkodzony lub system plików nie istnieje podczas uruchamiania. Zalecamy użycie opcji nofail w pliku fstab, aby umożliwić uruchamianie kontynuuje po wystąpieniu błędów w partycjach, które nie są wymagane do uruchomienia maszyny wirtualnej.
 
@@ -216,7 +216,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
    > [!Note]
    > * Pola w każdym wierszu są rozdzielone znakami tabulacji lub spacjami. Puste wiersze są ignorowane. Wiersze, które mają znak numeru (#), jako pierwszy znak to komentarze. Wiersze z komentarzem mogą pozostawać w pliku fstab, ale nie będą przetwarzane. Zaleca się, aby nie usuwać wierszy z fstab wierszy, które nie są już używane.
    > * Aby maszyna wirtualna mogła odzyskiwać i uruchamiać, partycje systemu plików powinny być jedynymi wymaganymi partycjami. Na maszynie wirtualnej mogą wystąpić błędy aplikacji dotyczące dodatkowych partycji z komentarzami. Jednak maszyna wirtualna powinna zostać uruchomiona bez dodatkowych partycji. Możesz później usunąć komentarz z komentarzy do wszystkich wierszy z komentarzem.
-   > * Zalecamy zainstalowanie dysków danych na maszynach wirtualnych platformy Azure przy użyciu identyfikatora UUID partycji systemu plików. Na przykład uruchom następujące polecenie:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Zalecamy zainstalowanie dysków danych na maszynach wirtualnych platformy Azure przy użyciu identyfikatora UUID partycji systemu plików. Na przykład uruchom następujące polecenie: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
    > * Aby określić identyfikator UUID systemu plików, uruchom polecenie blkid. Aby uzyskać więcej informacji na temat składni, uruchom polecenie Man blkid. Należy zauważyć, że dysk, który ma zostać odzyskany, jest teraz instalowany na nowej maszynie wirtualnej. Mimo że identyfikatory UUID powinny być spójne, identyfikator partycji urządzeń (na przykład "/dev/sda1") różnią się w tej maszynie wirtualnej. Partycje systemu plików oryginalnego zakończonego niepowodzeniem maszyny wirtualnej, które znajdują się na dysku VHD niesystemowym, nie są dostępne dla maszyny wirtualnej odzyskiwania [przy użyciu poleceń interfejsu wiersza polecenia](./troubleshoot-recovery-disks-linux.md).
    > * Opcja nofail pomaga upewnić się, że maszyna wirtualna jest uruchomiona, nawet jeśli system plików jest uszkodzony lub system plików nie istnieje podczas uruchamiania. Zalecamy użycie opcji nofail w pliku fstab, aby umożliwić uruchamianie kontynuuje po wystąpieniu błędów w partycjach, które nie są wymagane do uruchomienia maszyny wirtualnej.
 
@@ -235,7 +235,7 @@ Aby rozwiązać ten problem, uruchom maszynę wirtualną w trybie awaryjnym przy
 13. Po ponownym utworzeniu maszyny wirtualnej i nawiązaniu z nią połączenia za pośrednictwem protokołu SSH wykonaj następujące czynności:
     * Przejrzyj wszystkie wiersze fstab, które zostały zmienione lub oznaczone jako komentarze podczas odzyskiwania.
     * Upewnij się, że używasz identyfikatora UUID i odpowiednio opcję nofail.
-    * Przetestuj wszystkie zmiany fstab przed ponownym uruchomieniem maszyny wirtualnej. Aby to zrobić, użyj następującego polecenia:``$ sudo mount -a``
+    * Przetestuj wszystkie zmiany fstab przed ponownym uruchomieniem maszyny wirtualnej. Aby to zrobić, użyj następującego polecenia: ``$ sudo mount -a``
     * Utwórz dodatkową kopię poprawionego pliku fstab do użycia w przyszłych scenariuszach odzyskiwania.
 
 ## <a name="next-steps"></a>Następne kroki

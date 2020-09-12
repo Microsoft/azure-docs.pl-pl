@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068730"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436854"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji
 
@@ -130,7 +130,7 @@ Opcjonalne oświadczenia dla aplikacji można skonfigurować za pomocą interfej
 
 **Konfigurowanie opcjonalnych oświadczeń za pomocą interfejsu użytkownika:**
 
-[![Pokazuje, jak skonfigurować opcjonalne oświadczenia przy użyciu interfejsu użytkownika](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Konfigurowanie opcjonalnych oświadczeń w interfejsie użytkownika](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
 1. Wybierz pozycję **Dodaj opcjonalne**pole.
@@ -238,7 +238,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 1. Wybierz aplikację, dla której chcesz skonfigurować oświadczenia opcjonalne na liście
 1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu** .
 1. Wybieranie **żądania dodania grup**
-1. Wybierz typy grup do zwrócenia (**wszystkie grupy**, **zabezpieczenia**lub **DirectoryRole**). Opcja **wszystkie grupy** zawiera pozycje **Security**Group, **DirectoryRole**i **DistributionList**
+1. Wybierz typy grup do zwrócenia (**grupy zabezpieczeń**lub **role katalogu**, **wszystkie grupy**i/lub **grupy przypisane do aplikacji**). **Grupy przypisane do opcji aplikacji** obejmują tylko grupy przypisane do aplikacji. Opcja **wszystkie grupy** zawiera **zabezpieczenia**, **DirectoryRole**i **DistributionList**, ale nie **grup przypisanych do aplikacji**. 
 1. Opcjonalnie: wybierz właściwości określonego typu tokenu, aby zmodyfikować wartość roli role, aby zawierała atrybuty grupy lokalnej lub aby zmienić typ zgłoszenia na rolę
 1. Wybierz pozycję **Zapisz**
 
@@ -256,6 +256,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    - "All" (Ta opcja obejmuje zabezpieczenia, DirectoryRole i DistributionList)
    - Grupy securitygroup
    - "DirectoryRole"
+   - "Aplikacja" (Ta opcja obejmuje tylko grupy, które są przypisane do aplikacji)
 
    Na przykład:
 
@@ -307,7 +308,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
     **Konfiguracja interfejsu użytkownika:**
 
-    [![Pokazuje, jak skonfigurować opcjonalne oświadczenia przy użyciu interfejsu użytkownika](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Konfigurowanie opcjonalnych oświadczeń](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Wpis manifestu aplikacji:**
 
@@ -328,7 +329,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
 
     **Konfiguracja interfejsu użytkownika:**
 
-    [![Pokazuje, jak skonfigurować opcjonalne oświadczenia przy użyciu interfejsu użytkownika](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Opcjonalne oświadczenia w manifeście](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Wpis manifestu aplikacji:**
 
@@ -394,7 +395,7 @@ W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfigu
 
 1. Wybierz pozycję **Dodaj oświadczenie opcjonalne**, wybierz typ tokenu **SAML** , wybierz pozycję **Extn. skypeID** z listy oświadczeń (dotyczy to tylko sytuacji, gdy utworzono obiekt użytkownika usługi Azure AD o nazwie skypeID), a następnie wybierz pozycję **Dodaj**.
 
-    [![Pokazuje, jak skonfigurować opcjonalne oświadczenia przy użyciu interfejsu użytkownika](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Opcjonalne oświadczenia dla tokenu SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Konfiguracja manifestu:**
 

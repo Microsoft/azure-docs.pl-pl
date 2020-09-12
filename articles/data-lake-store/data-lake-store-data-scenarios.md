@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193671"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441055"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Używanie Azure Data Lake Storage Gen1 do wymagań dotyczących danych Big Data
 
@@ -78,7 +78,7 @@ Większość typów klastrów usługi HDInsight (Hadoop, HBase, burza) obsługuj
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Dane przechowywane w lokalnych lub IaaSych klastrach Hadoop
 Duże ilości danych mogą być przechowywane w istniejących klastrach usługi Hadoop lokalnie na maszynach przy użyciu systemu plików HDFS. Klastry Hadoop mogą znajdować się w lokalnym wdrożeniu lub znajdować się w klastrze IaaS na platformie Azure. Mogą istnieć wymagania, aby skopiować takie dane do Azure Data Lake Storage Gen1 na potrzeby jednego podejścia lub w sposób cykliczny. Istnieją różne opcje, których można użyć w celu osiągnięcia tego celu. Poniżej znajduje się lista alternatyw i skojarzonych z nimi zalet.
 
-| Podejście | Szczegóły | Zalety | Istotne zagadnienia |
+| Podejście | Szczegóły | Zalety | Zagadnienia do rozważenia |
 | --- | --- | --- | --- |
 | Użyj Azure Data Factory (ADF), aby skopiować dane bezpośrednio z klastrów usługi Hadoop do Azure Data Lake Storage Gen1 |[ADF jako źródło danych obsługuje system plików HDFS](../data-factory/connector-hdfs.md) |System ADF oferuje wbudowaną obsługę systemu plików HDFS oraz kompleksowe zarządzanie i monitorowanie w pierwszej klasie |Wymaga wdrożenia bramy Zarządzanie danymi w środowisku lokalnym lub w klastrze IaaS |
 | Eksportuj dane z usługi Hadoop jako pliki. Następnie skopiuj pliki do Azure Data Lake Storage Gen1 przy użyciu odpowiedniego mechanizmu. |Można kopiować pliki do Azure Data Lake Storage Gen1 przy użyciu: <ul><li>[Azure PowerShell dla systemu operacyjnego Windows](data-lake-store-get-started-powershell.md)</li><li>[Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)</li><li>Aplikacja niestandardowa korzystająca z dowolnego zestawu Data Lake Storage Gen1 SDK</li></ul> |Szybkie rozpoczynanie pracy. Można dostosować operacje przekazywania |Wieloetapowy proces, który obejmuje wiele technologii. Zarządzanie i monitorowanie zwiększy się w miarę upływu czasu, uwzględniając dostosowany charakter narzędzi |
@@ -130,5 +130,5 @@ Za pomocą różnych usług można tworzyć wizualne reprezentacje danych przech
 
 ![Wizualizowanie danych w Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Wizualizowanie danych w Data Lake Storage Gen1")
 
-* Za pomocą [Azure Data Factory można przenieść dane z Data Lake Storage Gen1 do Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* Następnie można [zintegrować Power BI z Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) , aby utworzyć wizualną reprezentację danych.
+* Za pomocą [Azure Data Factory można przenieść dane z Data Lake Storage Gen1 do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
+* Następnie możesz [zintegrować Power BI z usługą Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) , aby utworzyć wizualną reprezentację danych.

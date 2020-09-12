@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612388"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433940"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -36,12 +36,12 @@ Za pomocą tych narzędzi możesz:
 |Stan wydania:|Ogólnie dostępna|
 |Wpisaną|Warstwa Bezpłatna|
 |Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov (do centrum zdarzeń), inne gov|
 |||
 
 
 
-## <a name="setting-up-a-continuous-export"></a>Konfigurowanie eksportu ciągłego
+## <a name="set-up-a-continuous-export"></a>Konfigurowanie eksportu ciągłego
 
 Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły eksport do Log Analytics obszaru roboczego czy Event Hubs platformy Azure.
 
@@ -55,12 +55,24 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
 
 1. Wybierz typ danych, który chcesz wyeksportować, i wybierz spośród filtrów dla każdego typu (na przykład wyeksportuj tylko alerty o wysokiej ważności).
 
+1. Opcjonalnie, jeśli wybór obejmuje jedno z czterech zaleceń, można dołączyć do nich wyniki oceny luk w zabezpieczeniach:
+
+    - Oceny luk w zabezpieczeniach baz danych SQL należy skorygować
+    - Oceny luk w zabezpieczeniach na serwerach SQL na maszynach należy skorygować (wersja zapoznawcza)
+    - Luki w zabezpieczeniach Azure Container Registry obrazów powinny być skorygowane (obsługiwane przez Qualys)
+    - Luki w zabezpieczeniach maszyn wirtualnych należy skorygować
+
+    Aby uwzględnić ustalenia z tymi zaleceniami, Włącz opcję **Uwzględnij wnioski dotyczące zabezpieczeń** .
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Uwzględnij w konfiguracji eksportu ciągłego funkcję przełączania zabezpieczeń" :::
+
+
 1. W obszarze "Eksportuj element docelowy" Wybierz miejsce, w którym chcesz zapisać dane. Dane można zapisywać w miejscu docelowym w innej subskrypcji (na przykład w centralnym wystąpieniu centrum zdarzeń lub w centralnym obszarze roboczym Log Analytics).
 
 1. Wybierz pozycję **Zapisz**.
 
 
-## <a name="setting-up-continuous-export-via-the-rest-api"></a>Konfigurowanie eksportu ciągłego za pomocą interfejsu API REST
+## <a name="set-up-continuous-export-via-the-rest-api"></a>Konfigurowanie eksportu ciągłego za pomocą interfejsu API REST
 
 Funkcję eksportu ciągłego można skonfigurować i zarządzać nią za pośrednictwem [interfejsu API Azure Security Center automations](https://docs.microsoft.com/rest/api/securitycenter/automations). Ten interfejs API służy do tworzenia lub aktualizowania automatyzacji do eksportowania do dowolnego z następujących możliwych miejsc docelowych:
 
@@ -83,7 +95,7 @@ Więcej informacji na temat interfejsu API usługi automations znajduje się w [
 
 
 
-## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Konfigurowanie integracji SIEM za pomocą usługi Azure Event Hubs
+## <a name="configure-siem-integration-via-azure-event-hubs"></a>Konfigurowanie integracji SIEM za pomocą usługi Azure Event Hubs
 
 Usługa Azure Event Hubs to doskonałe rozwiązanie do programowoego wykorzystywania danych przesyłanych strumieniowo. W przypadku alertów i zaleceń dotyczących Azure Security Center jest to preferowany sposób integrowania z SIEMem innej firmy.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640484"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441922"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Konfigurowanie logowania jednokrotnego opartego na języku SAML
 
@@ -51,7 +51,6 @@ Należy uzyskać wartości od dostawcy aplikacji. Można ręcznie wprowadzić wa
 | **Adres URL logowania** | Wymagane | Nie podawaj | Gdy użytkownik otwiera ten adres URL, dostawca usługi przekierowuje go do usługi Azure AD w celu uwierzytelnienia i zalogowania. Usługa Azure AD używa adresu URL, aby uruchomić aplikację z pakietu Office 365 lub usługi Azure AD moje aplikacje. Gdy to pole jest puste, usługa Azure AD wykonuje logowanie zainicjowane przez dostawcy tożsamości, gdy użytkownik uruchamia aplikację z pakietu Office 365, usługi Azure AD moje aplikacje lub adresu URL rejestracji jednokrotnej usługi Azure AD.|
 | **Stan przekaźnika** | Opcjonalne | Opcjonalne | Określa aplikacji, dokąd przekierować użytkownika po zakończeniu uwierzytelniania. Zazwyczaj wartość jest prawidłowym adresem URL dla aplikacji. Jednak niektóre aplikacje używają tego pola inaczej. Aby uzyskać więcej informacji, skontaktuj się z dostawcą aplikacji.
 | **Adres URL wylogowywania** | Opcjonalne | Opcjonalne | Służy do wysyłania odpowiedzi na wylogowanie SAML z powrotem do aplikacji.
-
 
 ## <a name="user-attributes-and-claims"></a>Atrybuty użytkownika i oświadczenia 
 

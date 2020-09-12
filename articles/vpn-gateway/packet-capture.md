@@ -1,36 +1,36 @@
 ---
-title: 'Azure VPN Gateway: Konfigurowanie przechwytywania pakietów'
-description: Dowiedz się więcej na temat funkcji przechwytywania pakietów, których można używać na bramach sieci VPN.
+title: 'VPN Gateway platformy Azure: Konfigurowanie przechwytywania pakietów'
+description: Informacje na temat funkcji przechwytywania pakietów, których można użyć na bramach sieci VPN, aby pomóc w zawężaniu przyczyny problemu.
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2019
+ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3ba3046367ceece6bf0ddf157451025c79977324
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077202"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441599"
 ---
-# <a name="configure-packet-captures-for-vpn-gateways"></a>Konfigurowanie przechwytywania pakietów dla bram sieci VPN
+# <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurowanie przechwytywania pakietów dla bram sieci VPN
 
-Problemy związane z łącznością i wydajnością są często skomplikowane i bardzo dużo czasu i wysiłku wystarczy, aby zawęzić przyczynę problemu. Możliwość przechwycenia pakietów znacznie pomaga skrócić czas ograniczania zakresu problemu do określonych części sieci, na przykład to, czy problem znajduje się po stronie klienta sieci, stronie platformy Azure, czy w innym miejscu. Po zawężaniu problemu jest znacznie bardziej wydajne debugowanie i podejmowanie akcji zaradczych.
+Problemy związane z łącznością i wydajnością są często skomplikowane. Zawężanie przyczyny problemu może zająć dużo czasu i wysiłku. Przechwytywanie pakietów może pomóc w zawężaniu zakresu problemu do określonych części sieci. Może pomóc w ustaleniu, czy problem znajduje się po stronie klienta sieci, po stronie platformy Azure lub w innym miejscu. Po zawężaniu problemu bardziej wydajne jest debugowanie i podejmowanie akcji zaradczych.
 
-Dostępne są kilka powszechnie dostępnych narzędzi do przechwytywania pakietów. Pobieranie odpowiednich przechwycenia pakietu za pomocą tych narzędzi może być uciążliwe, szczególnie podczas pracy z dużą ilością scenariuszy ruchu sieciowego. Możliwości filtrowania udostępniane przez funkcję przechwytywania pakietów bramy sieci VPN stają się głównym rozróżnieniem. Oprócz powszechnie dostępnych narzędzi do przechwytywania pakietów można użyć funkcji przechwytywania pakietów bramy sieci VPN.
+Dostępne są popularne narzędzia do przechwytywania pakietów. Pobieranie odpowiednich przechwycenia pakietu za pomocą tych narzędzi może być uciążliwe, szczególnie w scenariuszach ruchu o dużej pojemności. Możliwości filtrowania oferowane przez funkcję przechwytywania pakietów VPN Gateway platformy Azure są głównym rozróżnieniem. Możesz użyć przechwycenia pakietu VPN Gateway razem z powszechnie dostępnymi narzędziami do przechwytywania pakietów.
 
-## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Możliwości filtrowania przechwytywania pakietów przez bramę sieci VPN
+## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Możliwości filtrowania przechwytywania pakietów VPN Gateway
 
-Przechwytywanie pakietów usługi VPN Gateway można uruchamiać na bramie lub w określonym połączeniu w zależności od potrzeb klientów. Możesz również uruchomić przechwycenia pakietów na wielu tunelach w tym samym czasie. Można przechwytywać ruch pojedynczy lub dwukierunkowy, ruch IKE i ESP oraz wewnętrzne pakiety wraz z filtrowaniem na bramie sieci VPN.
+W zależności od potrzeb można uruchomić funkcję przechwytywania pakietów VPN Gateway na bramie lub w konkretnym połączeniu. Możesz również uruchomić funkcję przechwytywania pakietów na wielu tunelach jednocześnie. Można przechwytywać ruch jednokierunkowy lub dwukierunkowy, ruch IKE i ESP oraz wewnętrzne pakiety wraz z filtrowaniem na bramie sieci VPN.
 
-Używanie filtru z pięcioma kolekcjami (podsieć źródłowa, podsieć docelowa, port źródłowy, port docelowy, protokół) i flagi TCP (SYN, ACK, FIN, URG, PSH —, RST) jest przydatne w przypadku izolowania problemów dotyczących dużej ilości ruchu sieciowego.
+Warto użyć filtru z pięcioma krotkami (podsieć źródłowa, podsieć docelowa, port źródłowy, port docelowy, protokół) i flagi TCP (SYN, ACK, FIN, URG, PSH —, RST) w przypadku izolowania problemów w ruchu dużej ilości danych.
 
-Zapoznaj się z poniższym przykładem JSON i schemat JSON z objaśnieniem każdej właściwości. Należy również pamiętać o pewnych ograniczeniach podczas uruchamiania przechwytywania pakietów:
-- W schemacie filtr jest pokazywany jako tablica, ale w danym momencie może być używany tylko jeden filtr.
-- Nie można jednocześnie przechwycić wielu pakietów bramy w tym samym czasie.
-- Wielokrotne przechwycenia pakietu na tym samym połączeniu nie są dozwolone. Przechwycenia pakietu można uruchomić na różnych połączeniach w tym samym czasie.
-- Maksymalnie pięć przechwyconych pakietów można uruchamiać równolegle na bramę. Te przechwycenia pakietu mogą być kombinacją przechwytywania pakietów dla całej bramy lub przechwycenia pakietu dla połączenia.
+Poniższe przykłady danych JSON i schematu JSON zawierają wyjaśnienia każdej właściwości. Poniżej przedstawiono niektóre ograniczenia, które należy wziąć pod uwagę podczas uruchamiania przechwytywania pakietów:
+- W schemacie widocznym tutaj filtr jest tablicą, ale w danym momencie może być używany tylko jeden filtr.
+- W tym samym czasie nie można uruchomić wielu przechwyconych pakietów bramy.
+- Nie można uruchomić wielu przechwycenia pakietu jednocześnie dla jednego połączenia. W tym samym czasie można uruchomić wiele przechwyconych pakietów na różnych połączeniach.
+- Maksymalnie pięć przechwyconych pakietów można uruchamiać równolegle na bramę. Te przechwycenia pakietu mogą być kombinacją przechwyconych pakietów bramy i przechwytywania pakietów dla poszczególnych połączeń.
 
 ### <a name="example-json"></a>Przykładowy kod JSON
 ```JSON-interactive
@@ -316,9 +316,9 @@ Zapoznaj się z poniższym przykładem JSON i schemat JSON z objaśnieniem każd
 }
 ```
 
-## <a name="setup-packet-capture-using-powershell"></a>Konfigurowanie przechwytywania pakietów przy użyciu programu PowerShell
+## <a name="set-up-packet-capture-by-using-powershell"></a>Konfigurowanie przechwytywania pakietów przy użyciu programu PowerShell
 
-Zapoznaj się z poniższymi przykładami poleceń programu PowerShell, aby uruchomić i zatrzymać przechwytywanie pakietów. Aby uzyskać więcej informacji na temat opcji parametrów, zobacz ten [dokument](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)programu PowerShell.
+W poniższych przykładach przedstawiono polecenia programu PowerShell, które uruchamiają i zatrzymują przechwytywanie pakietów. Aby uzyskać więcej informacji na temat opcji parametrów, zobacz [ten dokument programu PowerShell](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Rozpocznij przechwytywanie pakietów dla bramy sieci VPN
 
@@ -326,7 +326,7 @@ Zapoznaj się z poniższymi przykładami poleceń programu PowerShell, aby uruch
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Opcjonalny parametr **-danych filtru** może służyć do zastosowania filtru.
+Aby zastosować filtr, można użyć opcjonalnego parametru `-FilterData` .
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Zatrzymywanie przechwytywania pakietu dla bramy sieci VPN
 
@@ -340,7 +340,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Opcjonalny parametr **-danych filtru** może służyć do zastosowania filtru.
+Aby zastosować filtr, można użyć opcjonalnego parametru `-FilterData` .
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Zatrzymywanie przechwytywania pakietu na połączeniu z bramą sieci VPN
 
@@ -350,10 +350,11 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 ## <a name="key-considerations"></a>Najważniejsze zagadnienia
 
-- Przechwytywanie pakietów może mieć wpływ na wydajność. Pamiętaj, aby zatrzymać przechwytywanie pakietów, gdy nie jest to konieczne.
-- Sugerowany minimalny czas trwania przechwytywania pakietów to 600 sekund. Krótszy czas trwania przechwytywania pakietów może nie zapewniać kompletnych danych ze względu na zsynchronizowanie problemów między wieloma składnikami ścieżki.
+- Przechwycenie pakietu może mieć wpływ na wydajność. Pamiętaj, aby zatrzymać przechwytywanie pakietów, gdy nie jest to potrzebne.
+- Sugerowany minimalny czas trwania przechwytywania pakietów to 600 sekund. Ze względu na problemy z synchronizacją między wieloma składnikami w ścieżce krótsze przechwycenia pakietów może nie zapewniać kompletnych danych.
 - Pliki danych przechwytywania pakietów są generowane w formacie PCAP. Otwórz pliki PCAP za pomocą programu Wireshark lub innych powszechnie dostępnych aplikacji.
+- Przechwytywanie pakietów nie jest obsługiwane w bramach opartych na zasadach.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat VPN Gateway, zobacz [Informacje o VPN Gateway](vpn-gateway-about-vpngateways.md)
+Aby uzyskać więcej informacji na temat VPN Gateway, zobacz [co to jest VPN Gateway?](vpn-gateway-about-vpngateways.md).

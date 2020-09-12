@@ -11,20 +11,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: d9b84f2eace9ec268c6ff0942d19b47402e19bde
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7b70460af8126199b19c18118897c93f0477791c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120732"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442207"
 ---
-# <a name="how-to-select-permissions-for-a-given-api"></a>Jak wybrać uprawnienia dla danego interfejsu API 
+# <a name="how-to-select-permissions-for-a-given-api"></a>Jak wybrać uprawnienia dla danego interfejsu API
 
 ## <a name="recommended-documents"></a>Zalecane dokumenty
 
 - Dowiedz się więcej o sposobie używania przez aplikacje klienckie [żądań delegowania i](./developer-glossary.md#permissions) dostępu do zasobów.
-- Zobacz instrukcje krok po kroku dotyczące [konfigurowania żądań uprawnień aplikacji klienta](./quickstart-register-app.md)
-- Aby uzyskać więcej informacji, Dowiedz się, jak aplikacje zasobów uwidaczniają [zakresy](./developer-glossary.md#scopes) i [role aplikacji](./developer-glossary.md#roles) dla aplikacji klienckich, które manifestuje odpowiednio uprawnienia delegowane i aplikacje w Azure Portal. 
+- Zobacz instrukcje krok po kroku dotyczące [konfigurowania żądań uprawnień aplikacji klienta](./quickstart-configure-app-access-web-apis.md)
+- Aby uzyskać więcej informacji, Dowiedz się, jak aplikacje zasobów uwidaczniają [zakresy](./developer-glossary.md#scopes) i [role aplikacji](./developer-glossary.md#roles) dla aplikacji klienckich, które manifestuje odpowiednio uprawnienia delegowane i aplikacje w Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c2d3237e629c7ed5d2931e15939b154e0239f259
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 876a96f579bff8d30e454e927054a951734f44ba
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553111"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441103"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -136,9 +136,8 @@ Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamesp
  
 Aby wyświetlić wyniki w formacie CSV:
 ```powershell
-$errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
-    C:\results.csv -Encoding utf8
+$validation = Invoke-AzStorageSyncCompatibilityCheck C:\DATA
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path C:\results.csv -Encoding utf8
 ```
 
 ### <a name="file-system-compatibility"></a>Zgodność systemu plików
@@ -272,7 +271,7 @@ Druga podstawowa metoda szyfrowania danych polega na zaszyfrowaniu strumienia da
 
 Azure File Sync nie współdziała z szyfrowanym systemem plików NTFS (NTFS EFS) ani rozwiązaniami do szyfrowania innych firm, które znajdują się powyżej systemu plików, ale poniżej strumienia danych pliku. 
 
-### <a name="encryption-in-transit"></a>Szyfrowanie danych przesyłanych
+### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
 
 > [!NOTE]
 > Usługa Azure File Sync spowoduje usunięcie obsługi protokołów TLS 1.0 i 1,1 1 sierpnia 2020. Wszystkie obsługiwane wersje agentów Azure File Sync używają już domyślnie protokołu TLS 1.2. Użycie starszej wersji protokołu TLS może wystąpić, jeśli protokół TLS 1.2 został wyłączony na serwerze lub używany jest serwer proxy. W przypadku korzystania z serwera proxy zalecamy sprawdzenie konfiguracji serwera proxy. Azure File Sync regiony usługi dodane po 5/1/2020 będą obsługiwały protokół TLS 1.2, a obsługa protokołu TLS 1.0 i 1,1 zostaną usunięte z istniejących regionów 1 sierpnia 2020.  Aby uzyskać więcej informacji, zobacz [Przewodnik rozwiązywania problemów](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
@@ -304,37 +303,37 @@ Azure File Sync jest dostępny w następujących regionach:
 
 | Chmura Azure | Region geograficzny | Region platformy Azure | Kod regionu |
 |-------------|-------------------|--------------|-------------|
-| Publiczny | Azja | Azja Wschodnia | `eastasia` |
-| Publiczny | Azja | Southeast Asia | `southeastasia` |
-| Publiczny | Australia | Australia Wschodnia | `australiaeast` |
-| Publiczny | Australia | Australia Południowo-Wschodnia | `australiasoutheast` |
-| Publiczny | Brazylia | Brazil South | `brazilsouth` |
-| Publiczny | Kanada | Kanada Środkowa | `canadacentral` |
-| Publiczny | Kanada | Kanada Wschodnia | `canadaeast` |
-| Publiczny | Europa | Europa Północna | `northeurope` |
-| Publiczny | Europa | West Europe | `westeurope` |
-| Publiczny | Francja | Francja Środkowa | `francecentral` |
-| Publiczny | Francja | Francja Południowa * | `francesouth` |
-| Publiczny | Indie | Indie Środkowe | `centralindia` |
-| Publiczny | Indie | Indie Południowe | `southindia` |
-| Publiczny | Japonia | Japan East | `japaneast` |
-| Publiczny | Japonia | Japonia Zachodnia | `japanwest` |
-| Publiczny | Korea | Korea Środkowa | `koreacentral` |
-| Publiczny | Korea | Korea Południowa | `koreasouth` |
-| Publiczny | Republika Południowej Afryki | Północna Republika Południowej Afryki | `southafricanorth` |
-| Publiczny | Republika Południowej Afryki | Zachodnia Republika Południowej Afryki * | `southafricawest` |
-| Publiczny | Zjednoczone Emiraty Arabskie | Środkowe Zjednoczone Emiraty Arabskie * | `uaecentral` |
-| Publiczny | Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | `uaenorth` |
-| Publiczny | Zjednoczone Królestwo | Południowe Zjednoczone Królestwo | `uksouth` |
-| Publiczny | Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | `ukwest` |
-| Publiczny | USA | Central US | `centralus` |
-| Publiczny | USA | East US | `eastus` |
-| Publiczny | USA | Wschodnie stany USA 2 | `eastus2` |
-| Publiczny | USA | Północno-środkowe stany USA | `northcentralus` |
-| Publiczny | USA | South Central US | `southcentralus` |
-| Publiczny | USA | Zachodnio-środkowe stany USA | `westcentralus` |
-| Publiczny | USA | Zachodnie stany USA | `westus` |
-| Publiczny | USA | Zachodnie stany USA 2 | `westus2` |
+| Public | Azja | Azja Wschodnia | `eastasia` |
+| Public | Azja | Southeast Asia | `southeastasia` |
+| Public | Australia | Australia Wschodnia | `australiaeast` |
+| Public | Australia | Australia Południowo-Wschodnia | `australiasoutheast` |
+| Public | Brazylia | Brazil South | `brazilsouth` |
+| Public | Kanada | Kanada Środkowa | `canadacentral` |
+| Public | Kanada | Kanada Wschodnia | `canadaeast` |
+| Public | Europa | Europa Północna | `northeurope` |
+| Public | Europa | West Europe | `westeurope` |
+| Public | Francja | Francja Środkowa | `francecentral` |
+| Public | Francja | Francja Południowa * | `francesouth` |
+| Public | Indie | Indie Środkowe | `centralindia` |
+| Public | Indie | Indie Południowe | `southindia` |
+| Public | Japonia | Japan East | `japaneast` |
+| Public | Japonia | Japonia Zachodnia | `japanwest` |
+| Public | Korea | Korea Środkowa | `koreacentral` |
+| Public | Korea | Korea Południowa | `koreasouth` |
+| Public | Republika Południowej Afryki | Północna Republika Południowej Afryki | `southafricanorth` |
+| Public | Republika Południowej Afryki | Zachodnia Republika Południowej Afryki * | `southafricawest` |
+| Public | Zjednoczone Emiraty Arabskie | Środkowe Zjednoczone Emiraty Arabskie * | `uaecentral` |
+| Public | Zjednoczone Emiraty Arabskie | Północne Zjednoczone Emiraty Arabskie | `uaenorth` |
+| Public | Zjednoczone Królestwo | Południowe Zjednoczone Królestwo | `uksouth` |
+| Public | Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | `ukwest` |
+| Public | USA | Central US | `centralus` |
+| Public | USA | East US | `eastus` |
+| Public | USA | Wschodnie stany USA 2 | `eastus2` |
+| Public | USA | Północno-środkowe stany USA | `northcentralus` |
+| Public | USA | South Central US | `southcentralus` |
+| Public | USA | Zachodnio-środkowe stany USA | `westcentralus` |
+| Public | USA | Zachodnie stany USA | `westus` |
+| Public | USA | Zachodnie stany USA 2 | `westus2` |
 | US Gov | USA | US Gov Arizona | `usgovarizona` |
 | US Gov | USA | US Gov Teksas | `usgovtexas` |
 | US Gov | USA | US Gov Wirginia | `usgovvirginia` |

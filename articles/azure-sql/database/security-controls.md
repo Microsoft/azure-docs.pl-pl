@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 97d2cd8e9ba51e4fc6ebab8459b04f4f37e876d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eec032ad56d00778627fc147761f61c03ba8bafd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668427"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442092"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Kontrolki zabezpieczeń dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ W tym artykule opisano mechanizmy kontroli zabezpieczeń wbudowane w Azure SQL D
 | Kontrola zabezpieczeń | Tak/Nie | Uwagi|
 |---|---|--|
 | Prewencyjne: Ocena luk w zabezpieczeniach | Tak | Zapoznaj się z tematem [Usługa oceny luk w zabezpieczeniach w usłudze SQL Database](sql-vulnerability-assessment.md). |
-| Prewencyjne: odnajdywanie i Klasyfikacja danych  | Tak | Zobacz [Azure SQL Database i SQL Data Warehouse odnajdywania danych & klasyfikację](data-discovery-and-classification-overview.md). |
+| Prewencyjne: odnajdywanie i Klasyfikacja danych  | Tak | Zapoznaj się z tematem [& klasyfikacji Azure SQL Database i usługi Azure Synapse Analytics Data Discovery](data-discovery-and-classification-overview.md). |
 | Wykrywanie: wykrywanie zagrożeń | Tak | Zobacz [zaawansowaną ochronę przed zagrożeniami dla Azure SQL Database](threat-detection-overview.md). |
 
 ## <a name="next-steps"></a>Następne kroki

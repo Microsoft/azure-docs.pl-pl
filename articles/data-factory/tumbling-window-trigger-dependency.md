@@ -2,21 +2,21 @@
 title: Utwórz zależności wyzwalacza okna wirowania
 description: Dowiedz się, jak utworzyć zależność dla wyzwalacza okna wirowania w Azure Data Factory.
 services: data-factory
-ms.author: daperlov
-author: djpmsft
-manager: anandsub
+ms.author: chez
+author: chez-charlie
+manager: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82870038"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421855"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Tworzenie zależności wyzwalacza okna wirowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ Aby zapoznać się z prezentacją dotyczącą tworzenia potoków zależnych w Az
 
 Aby utworzyć zależność od wyzwalacza, wybierz kolejno pozycje **wyzwalacze > zaawansowane > nowe**, a następnie wybierz wyzwalacz, który będzie zależny od odpowiedniego przesunięcia i rozmiaru. Wybierz pozycję **Zakończ** i Opublikuj zmiany w usłudze Fabryka danych, aby zależności zostały zastosowane.
 
-![Tworzenie zależności](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Tworzenie zależności")
+![Tworzenie zależności](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Tworzenie zależności")
 
 ## <a name="tumbling-window-dependency-properties"></a>Właściwości zależności okna wirowania
 
@@ -133,41 +133,53 @@ Poniżej przedstawiono ilustracje scenariuszy i użycia właściwości zależno�
 
 ### <a name="dependency-offset"></a>Przesunięcie zależności
 
-![Przykład przesunięcia](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Przykład przesunięcia")
+![Przykład przesunięcia](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Przykład przesunięcia")
 
 ### <a name="dependency-size"></a>Rozmiar zależności
 
-![Przykład rozmiaru](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "Przykład rozmiaru")
+![Przykład rozmiaru](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "Przykład rozmiaru")
 
 ### <a name="self-dependency"></a>Samozależność
 
-![Samozależność](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Samozależność")
+![Samozależność](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Samozależność")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Zależność od innego wyzwalacza okna wirowania
 
 Codzienne zadanie przetwarzania danych telemetrycznych w zależności od innego codziennego zadania agregowania danych wyjściowych z ostatnich siedmiu dni i generowania siedmiu codziennych strumieni okna kroczącego:
 
-![Przykład zależności](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Przykład zależności")
+![Przykład zależności](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Przykład zależności")
 
 ### <a name="dependency-on-itself"></a>Zależność od samego siebie
 
 Codzienne zadanie bez przerw w strumieniach wyjściowych zadania:
 
-![Przykład samoobsługowy](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Przykład samoobsługowy")
+![Przykład samoobsługowy](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Przykład samoobsługowy")
 
 ## <a name="monitor-dependencies"></a>Monitorowanie zależności
 
-Można monitorować łańcuch zależności i odpowiadające im okna na stronie monitorowania uruchomienia wyzwalacza. Przejdź do **monitorowania > uruchomienia wyzwalacza**. W kolumnie akcje można ponownie uruchomić wyzwalacz lub wyświetlić jego zależności.
+Można monitorować łańcuch zależności i odpowiadające im okna na stronie monitorowania uruchomienia wyzwalacza. Przejdź do  **monitorowania > uruchomienia wyzwalacza**. Jeśli wyzwalacz okna wirowania ma zależności, Nazwa wyzwalacza będzie zawierać hiperłącze do widoku monitorowanie zależności.  
 
-![Monitorowanie uruchomień wyzwalacza](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorowanie uruchomień wyzwalacza")
+![Monitorowanie uruchomień wyzwalacza](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Monitorowanie uruchomień wyzwalacza — cały widok zależności okna wirowania")
 
-Kliknięcie przycisku "Wyświetl zależności wyzwalacza" umożliwia wyświetlenie stanu zależności. Jeśli jeden z wyzwalaczy zależności ulegnie awarii, należy uruchomić go ponownie w celu uruchomienia wyzwalacza zależnego. Wyzwalacz okna wirowania będzie oczekiwał na zależności przez siedem dni przed upływem limitu czasu.
+Kliknij nazwę wyzwalacza, aby wyświetlić zależności wyzwalacza. Panel po prawej stronie zawiera szczegółowe informacje o uruchamianiu wyzwalacza, takie jak RunID, czas okna, stan itd.
 
-![Monitorowanie zależności](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitorowanie zależności")
+![Widok listy zależności monitora](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Widok listy zależności monitora")
+
+Można zobaczyć stan zależności i systemu Windows dla każdego wyzwalacza zależnego. Jeśli jeden z wyzwalaczy zależności zakończy się niepowodzeniem, należy uruchomić go ponownie w celu uruchomienia wyzwalacza zależnego.
+
+Wyzwalacz okna wirowania będzie oczekiwał na zależności przez _siedem dni_ przed upływem limitu czasu. Po upływie siedmiu dni uruchomienie wyzwalacza zakończy się niepowodzeniem.
 
 Aby uzyskać więcej wizualizacji w celu wyświetlenia harmonogramu zależności wyzwalacza, wybierz widok wykresu Gantta.
 
-![Monitorowanie zależności](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitorowanie zależności")
+![Wykres Gantta zależności monitora](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Widok wykresu Gantta zależności monitora")
+
+Pola przezroczyste pokazują okna zależności dla każdego wyłączonego wyzwalacza zależnego od strumienia, podczas gdy pełne kolorowe pola powyżej pokażą pojedyncze uruchomienia okna. Oto kilka porad dotyczących interpretacji widoku wykresu Gantta:
+
+* Przezroczyste pole renderuje niebieską, gdy zależne okna są w stanie oczekiwania lub uruchamiania
+* Gdy wszystkie okna zakończą się pomyślnie dla wyzwalacza zależnego, przezroczyste pole zmieni kolor na zielony
+* Przezroczyste pole renderuje kolor czerwony, gdy okno zależne nie powiedzie się. Poszukaj pełnego czerwonego pola, aby zidentyfikować uruchomienie okna awarii
+
+Aby ponownie uruchomić okno w widoku wykresu Gantta, zaznacz pole pełnego koloru dla okna, a panel akcji zostanie wyświetlony z informacjami i ponownymi uruchomieniami
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752102"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433453"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -218,7 +218,7 @@ az extension update --name aks-preview
 ### <a name="use-gen2-vms-on-new-clusters-preview"></a>Korzystanie z maszyn wirtualnych Gen2 w nowych klastrach (wersja zapoznawcza)
 Skonfiguruj klaster tak, aby korzystał z maszyn wirtualnych Gen2 dla wybranej jednostki SKU podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić Gen2 jako generację maszyny wirtualnej w nowym klastrze.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -227,7 +227,7 @@ Jeśli chcesz utworzyć zwykły klaster przy użyciu maszyn wirtualnych generacj
 ### <a name="use-gen2-vms-on-existing-clusters-preview"></a>Korzystanie z maszyn wirtualnych Gen2 w istniejących klastrach (wersja zapoznawcza)
 Skonfiguruj nową pulę węzłów do używania maszyn wirtualnych Gen2. Użyj `--aks-custom-headers` flagi, aby ustawić Gen2 jako generację maszyny wirtualnej dla tej puli węzłów.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -276,7 +276,7 @@ az extension update --name aks-preview
 
 Skonfiguruj klaster do używania tymczasowych dysków systemu operacyjnego podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić tymczasowych systemów operacyjnych jako typ dysku systemu operacyjnego dla nowego klastra.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 
@@ -285,7 +285,7 @@ Jeśli chcesz utworzyć zwykły klaster przy użyciu dysków systemu operacyjneg
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Używanie tymczasowych systemów operacyjnych w istniejących klastrach (wersja zapoznawcza)
 Skonfiguruj nową pulę węzłów do używania tymczasowych dysków systemu operacyjnego. Użyj `--aks-custom-headers` flagi, aby ustawić jako typ dysku systemu operacyjnego jako typ dysku systemu operacyjnego dla tej puli węzłów.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 

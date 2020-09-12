@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707297"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441633"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Powtórzona kopia w Azure Data Factory
 
@@ -104,7 +104,7 @@ Działanie kopiowania uruchomiło skrypt oczyszczania, aby usunąć odpowiednie 
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mechanizm 2: korzystanie z sliceIdentifierColumnName
 > [!IMPORTANT]
-> Obecnie sliceIdentifierColumnName nie jest obsługiwane w przypadku Azure SQL Data Warehouse. 
+> Obecnie sliceIdentifierColumnName nie jest obsługiwana w przypadku usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). 
 
 Drugim mechanizmem do osiągnięcia powtarzalności jest posiadanie dedykowanej kolumny (sliceIdentifierColumnName) w tabeli docelowej. Ta kolumna powinna być używana przez Azure Data Factory, aby zapewnić synchronizację źródła i miejsca docelowego. Takie podejście działa, gdy istnieje elastyczność zmiany lub definiowania docelowego schematu tabeli SQL. 
 
@@ -151,5 +151,5 @@ Podobnie jak mechanizm 1, działanie Copy automatycznie czyści dane dla danego 
 Zapoznaj się z następującymi artykułami dotyczącymi łączników, które zawierają kompletne przykłady kodu JSON: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
-- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

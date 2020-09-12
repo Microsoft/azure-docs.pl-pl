@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cda04ad57f1984064692cb1df4accc5a99de0910
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b45f5ae64a7b8fd97d5242c82fb90ee6c57286ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204034"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433895"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OAuth2 w zasadach niestandardowych Azure Active Directory B2C
 
@@ -98,6 +98,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 | ExtraParamsInClaimsEndpointRequest | Nie | Zawiera dodatkowe parametry, które mogą być zwracane w żądaniu **ClaimsEndpoint** przez niektórych dostawców tożsamości. Nazwy wielu parametrów powinny być wyprowadzane i oddzielane przecinkami ",". |
 | IncludeClaimResolvingInClaimsHandling  | Nie | W przypadku oświadczeń wejściowych i wyjściowych określa, czy w profilu technicznym znajduje się [rozpoznawanie oświadczeń](claim-resolver-overview.md) . Możliwe wartości: `true` , lub `false`   (wartość domyślna). Jeśli chcesz użyć programu rozpoznawania oświadczeń w profilu technicznym, ustaw dla tej opcji wartość `true` . |
 | ResolveJsonPathsInJsonTokens  | Nie | Wskazuje, czy profil techniczny rozwiązuje ścieżki JSON. Możliwe wartości: `true` , lub `false` (wartość domyślna). Użyj tych metadanych do odczytu danych z zagnieżdżonego elementu JSON. W [oświadczenie outputclaim](technicalprofiles.md#outputclaims)Ustaw `PartnerClaimType` element na ścieżkę JSON, który ma zostać wyprowadzony. Na przykład: `firstName.localized` , lub `data.0.to.0.email` .|
+|token_endpoint_auth_method| Nie| Określa sposób, w jaki Azure AD B2C wysyła nagłówek uwierzytelniania do punktu końcowego tokenu. Możliwe wartości: `client_secret_post` (ustawienie domyślne) i `client_secret_basic` (publiczna wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [sekcję OpenID Connect Connect Client Authentication](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 
 ## <a name="cryptographic-keys"></a>Klucze kryptograficzne
 

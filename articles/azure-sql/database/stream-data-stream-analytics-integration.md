@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869868"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437075"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Przesyłanie strumieniowe danych do Azure SQL Database przy użyciu integracji Azure Stream Analytics (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Użytkownicy mogą teraz pozyskiwanie, przetwarzać, wyświetlać i analizować 
 - Dodatkowa łatwość użycia z podglądem danych: Podgląd danych przychodzących ze źródła zdarzeń (centrum zdarzeń/IoT Hub) w kontekście wybranej tabeli
 
 > [!IMPORTANT]
-> Zadanie Azure Stream Analytics może wyprowadzać dane wyjściowe do Azure SQL Database, wystąpienia zarządzanego Azure SQL lub usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse). Aby uzyskać więcej informacji, zobacz dane [wyjściowe](../../stream-analytics/sql-database-output.md).
+> Zadanie Azure Stream Analytics może wyprowadzać dane wyjściowe do Azure SQL Database, wystąpienia zarządzanego Azure SQL lub usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). Aby uzyskać więcej informacji, zobacz dane [wyjściowe](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

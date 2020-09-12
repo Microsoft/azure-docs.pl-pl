@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ddab106e11340dd040b99d1e8abf9d93e9338ab7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956393"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441208"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Dostrajanie wydajności w widokach z materiałami
 
@@ -36,7 +36,7 @@ Większość wymagań dotyczących widoku standardowego nadal stosuje się do wi
 |Definicja widoku                 | Przechowywane w puli SQL.              | Przechowywane w puli SQL.
 |Wyświetlanie zawartości                    | Generowane za każdym razem, gdy widok jest używany.   | Wstępnie przetworzony i przechowywany w puli SQL podczas tworzenia widoku. Zaktualizowano w miarę dodawania danych do tabel bazowych.
 |Odświeżanie danych                    | Zawsze aktualizowane                               | Zawsze aktualizowane
-|Szybkość pobierania danych widoku z złożonych zapytań     | Opóźnienie                                         | Fast  
+|Szybkość pobierania danych widoku z złożonych zapytań     | Mała                                         | Duża  
 |Dodatkowy magazyn                   | Nie                                           | Tak
 |Składnia                          | UTWÓRZ WIDOK                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
 
@@ -52,7 +52,7 @@ Właściwie zaprojektowany widok z materiałami zapewnia następujące korzyści
 
 Widoki z materiałami zaimplementowane w puli SQL oferują również następujące dodatkowe korzyści:
 
-W porównaniu z innymi dostawcami magazynu danych, widoki z materiałami zaimplementowane w Azure SQL Data Warehouse oferują również następujące dodatkowe korzyści:
+W porównaniu z innymi dostawcami magazynu danych, widoki z materiałami zaimplementowane w usłudze Azure Synapse Analytics oferują również następujące dodatkowe korzyści:
 
 - Automatyczne i synchroniczne odświeżanie danych ze zmianami danych w tabelach podstawowych. Nie jest wymagane wykonanie jakiejkolwiek czynności przez użytkownika.
 - Szeroka Obsługa funkcji agregujących. Zobacz [Tworzenie widoku z materiałami jako Select (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
@@ -115,7 +115,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
 
 ```sql
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 013d8b77a16a4c7cd0efdadce25fd141793070be
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135537"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459525"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Monitorowanie rozwiązań w Azure Monitor
 
@@ -97,7 +97,7 @@ Członkowie społeczności mogą przesyłać rozwiązania do zarządzania przy u
 
    Musisz [zainstalować interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) przed uruchomieniem poleceń referencyjnych interfejsu CLI.  Jeśli wolisz, możesz również użyć Azure Cloud Shell, aby wykonać kroki opisane w tym artykule.  Azure Cloud Shell to interaktywne środowisko powłoki, które jest używane w przeglądarce.  Rozpocznij Cloud Shell przy użyciu jednej z następujących metod:
 
-   - Otwórz Cloud Shell, przechodząc do[https://shell.azure.com](https://shell.azure.com)
+   - Otwórz Cloud Shell, przechodząc do [https://shell.azure.com](https://shell.azure.com)
 
    - Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu [Azure Portal](https://portal.azure.com)
 
@@ -109,18 +109,18 @@ Członkowie społeczności mogą przesyłać rozwiązania do zarządzania przy u
     az login
     ```
 
-1. Zainstaluj `log-analytics` rozszerzenie
+1. Zainstaluj `log-analytics-solution` rozszerzenie
 
-   `log-analytics`Polecenie to eksperymentalne rozszerzenie interfejsu wiersza polecenia platformy Azure. Dowiedz się więcej na temat odwołań do rozszerzeń w [rozszerzeniu use przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview?).
+   `log-analytics-solution`Polecenie to eksperymentalne rozszerzenie interfejsu wiersza polecenia platformy Azure. Dowiedz się więcej na temat odwołań do rozszerzeń w [rozszerzeniu use przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    Oczekiwane jest następujące ostrzeżenie.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Instalowanie rozwiązania przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -159,7 +159,6 @@ Wszystkie rozwiązania do monitorowania wymagają [log Analytics obszar roboczy]
 
 * Każda instalacja rozwiązania może korzystać tylko z jednego obszaru roboczego Log Analytics i jednego konta usługi Automation. Rozwiązanie można zainstalować oddzielnie w wielu obszarach roboczych.
 * Jeśli rozwiązanie wymaga konta usługi Automation, obszar roboczy Log Analytics i konto usługi Automation muszą być połączone ze sobą. Obszar roboczy Log Analytics może być połączony tylko z jednym kontem usługi Automation, a konto usługi Automation może być połączone tylko z jednym obszarem roboczym Log Analytics.
-* Aby można było połączyć Log Analytics obszar roboczy i konto usługi Automation muszą znajdować się w tej samej subskrypcji, ale mogą znajdować się w różnych grupach zasobów wdrożonych w tym samym regionie. Wyjątkiem jest obszar roboczy w regionie Wschodnie stany USA i konto usługi Automation w regionach Wschodnie stany USA 2.
 
 Po zainstalowaniu rozwiązania w portalu Azure Marketplace zostanie wyświetlony monit dotyczący obszaru roboczego i konta usługi Automation. Łącze między nimi jest tworzone, jeśli nie są jeszcze połączone.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13d483507092892187bc13dd23bfa51ed516c890
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545645"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441157"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalowanie i uruchamianie kontenerów odczytu (wersja zapoznawcza)
 
@@ -55,6 +55,7 @@ Komputer **hosta** to komputer z uruchomionym kontenerem Docker. Host *musi obs�
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > Komputer hosta jest *wymagany* do obsługi AVX2. Kontener *nie będzie* działać poprawnie bez obsługi AVX2.
 
@@ -68,14 +69,14 @@ Dostępne są obrazy kontenerów do odczytu.
 
 | Kontener | Container Registry/repozytorium/nazwa obrazu |
 |-----------|------------|
-| Odczyt | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Odczyt | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 Użyj [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) polecenia, aby pobrać obraz kontenera.
 
 ### <a name="docker-pull-for-the-read-container"></a>Wypychanie platformy Docker dla kontenera odczytu
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -186,13 +187,16 @@ Po pomyślnym uruchomieniu asynchronicznego wpisu zwraca kod stanu **HTTP 202** 
 }
 ```
 
+> [!IMPORTANT]
+> W przypadku wdrożenia wielu kontenerów odczytu za modułem równoważenia obciążenia, na przykład w obszarze Docker Compose lub Kubernetes, wymagana jest zewnętrzna pamięć podręczna. Ponieważ kontener przetwarzania i kontener żądania GET nie mogą być takie same, zewnętrzna pamięć podręczna przechowuje wyniki i udostępnia je między kontenerami. Aby uzyskać szczegółowe informacje na temat ustawień pamięci podręcznej, zobacz [Configure przetwarzanie obrazów Docker Containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 ### <a name="synchronous-read"></a>Odczyt synchroniczne
 
 Operacji można użyć `POST /vision/v2.0/read/core/Analyze` do synchronicznego odczytu obrazu. Gdy obraz jest odczytywany w całości, wówczas i tylko wtedy, gdy interfejs API zwróci odpowiedź JSON. Jedynym wyjątkiem jest to, że wystąpi błąd. Gdy wystąpi błąd, zwracany jest następujący kod JSON:
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 
@@ -283,7 +287,7 @@ W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierani
 ## <a name="next-steps"></a>Następne kroki
 
 * Przegląd [konfigurowania kontenerów](computer-vision-resource-container-config.md) dla ustawień konfiguracji
-* Przejrzyj [przegląd przetwarzanie obrazów](Home.md) , aby dowiedzieć się więcej o rozpoznawaniu tekstu napisanego i odręcznego
+* Przejrzyj [przegląd przetwarzanie obrazów](overview.md) , aby dowiedzieć się więcej o rozpoznawaniu tekstu napisanego i odręcznego
 * Zapoznaj się z [interfejs API przetwarzania obrazów](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) , aby uzyskać szczegółowe informacje na temat metod obsługiwanych przez kontener.
 * Zapoznaj się z [często zadawanymi pytaniami](FAQ.md) , aby rozwiązać problemy związane z funkcjami przetwarzanie obrazów.
 * Użyj więcej [kontenerów Cognitive Services](../cognitive-services-container-support.md)

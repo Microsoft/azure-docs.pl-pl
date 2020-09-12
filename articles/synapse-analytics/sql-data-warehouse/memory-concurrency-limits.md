@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210665"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441684"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limity pamięci i współbieżności dla usługi Azure Synapse Analytics
 
@@ -55,7 +55,7 @@ Maksymalny poziom usług to DW30000c, który ma 60 węzłów obliczeniowych i je
 
 Po wprowadzeniu [grup obciążeń](sql-data-warehouse-workload-isolation.md)nie ma już zastosowania koncepcji dotyczącej miejsc współbieżności.  Zasoby na żądanie są przypisywane na podstawie procentowej i określone w definicji grupy obciążeń.  Jednak nawet w przypadku usuwania miejsc współbieżności w poszczególnych zapytaniach jest wymagana minimalna ilość zasobów na podstawie poziomu usługi.  W poniższej tabeli zdefiniowano minimalną ilość zasobów wymaganych na zapytanie między poziomami usług i skojarzoną współbieżność, która może zostać osiągnięta.
 
-|Poziom usług|Maksymalna liczba współbieżnych zapytań|Minimalna wartość% obsługiwana dla REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Poziom usługi|Maksymalna liczba współbieżnych zapytań|Minimalna wartość% obsługiwana dla REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12,5%|
@@ -83,7 +83,7 @@ Aby upewnić się, że każda kwerenda ma wystarczającą ilość zasobów do wy
 
 W poniższej tabeli przedstawiono maksymalną liczbę współbieżnych zapytań i miejsc współbieżności dla każdej [klasy zasobów statycznych](resource-classes-for-workload-management.md).  
 
-| Poziom usług | Maksymalna liczba współbieżnych zapytań | Dostępne gniazda współbieżności | Gniazda używane przez staticrc10 | Gniazda używane przez staticrc20 | Gniazda używane przez staticrc30 | Gniazda używane przez staticrc40 | Gniazda używane przez staticrc50 | Gniazda używane przez staticrc60 | Gniazda używane przez staticrc70 | Gniazda używane przez staticrc80 |
+| Poziom usługi | Maksymalna liczba współbieżnych zapytań | Dostępne gniazda współbieżności | Gniazda używane przez staticrc10 | Gniazda używane przez staticrc20 | Gniazda używane przez staticrc30 | Gniazda używane przez staticrc40 | Gniazda używane przez staticrc50 | Gniazda używane przez staticrc60 | Gniazda używane przez staticrc70 | Gniazda używane przez staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -106,7 +106,7 @@ W poniższej tabeli przedstawiono maksymalną liczbę współbieżnych zapytań 
 
 W poniższej tabeli przedstawiono maksymalną liczbę współbieżnych zapytań i miejsc współbieżności dla każdej [klasy zasobów dynamicznych](resource-classes-for-workload-management.md). Dynamiczne klasy zasobów używają 3-10-22-70 alokacji procentowej pamięci dla małych i średnich klas zasobów xlarge na wszystkich poziomach usług.
 
-| Poziom usług | Maksymalna liczba współbieżnych zapytań | Dostępne gniazda współbieżności | Gniazda używane przez smallrc | Gniazda używane przez mediumrc | Gniazda używane przez largerc | Gniazda używane przez xlargerc |
+| Poziom usługi | Maksymalna liczba współbieżnych zapytań | Dostępne gniazda współbieżności | Gniazda używane przez smallrc | Gniazda używane przez mediumrc | Gniazda używane przez largerc | Gniazda używane przez xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
@@ -125,7 +125,7 @@ W poniższej tabeli przedstawiono maksymalną liczbę współbieżnych zapytań 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Gdy nie ma wystarczającej liczby miejsc współbieżności, aby rozpocząć wykonywanie zapytania, zapytania są umieszczane w kolejce i wykonywane na podstawie ważności.  W przypadku istnienia równoważnej ważności zapytania są wykonywane na pierwszej, pierwszej zasadzie.  Ponieważ zakończył się zapytania, a liczba zapytań i gniazd spadnie poniżej limitów, SQL Data Warehouse zwalnia w kolejce zapytań.
+Gdy nie ma wystarczającej liczby miejsc współbieżności, aby rozpocząć wykonywanie zapytania, zapytania są umieszczane w kolejce i wykonywane na podstawie ważności.  W przypadku istnienia równoważnej ważności zapytania są wykonywane na pierwszej, pierwszej zasadzie.  Ponieważ zakończyło się zapytania, a liczba zapytań i gniazd spadnie poniżej limitów, usługa Azure Synapse Analytics zwalnia zapytania z kolejki.
 
 ## <a name="next-steps"></a>Następne kroki
 
