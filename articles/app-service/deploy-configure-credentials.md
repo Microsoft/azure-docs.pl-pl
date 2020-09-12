@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223860"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300276"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Skonfiguruj poświadczenia wdrażania dla Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) obsługuje dwa typy poświadczeń dla [lokalnego wdrożenia git](deploy-local-git.md) i [wdrożenia FTP/S](deploy-ftp.md). Te poświadczenia nie są takie same, jak poświadczenia subskrypcji platformy Azure.
@@ -61,7 +61,7 @@ Jeśli skonfigurowano wdrożenie usługi git, na stronie zostanie wyświetlona *
 
 ## <a name="use-user-level-credentials-with-ftpftps"></a>Korzystanie z poświadczeń na poziomie użytkownika przy użyciu protokołu FTP/FTPS
 
-Uwierzytelnianie do punktu końcowego FTP/FTPS przy użyciu poświadczeń na poziomie użytkownika nazwa użytkownika w następującym formacie:`<app-name>\<user-name>`
+Uwierzytelnianie do punktu końcowego FTP/FTPS przy użyciu poświadczeń na poziomie użytkownika nazwa użytkownika w następującym formacie: `<app-name>\<user-name>`
 
 Ponieważ poświadczenia na poziomie użytkownika są połączone z użytkownikiem, a nie konkretnym zasobem, nazwa użytkownika musi być w tym formacie, aby skierować akcję logowania do właściwego punktu końcowego aplikacji.
 
@@ -73,6 +73,36 @@ Aby uzyskać poświadczenia na poziomie aplikacji:
 2. Wybierz pozycję **poświadczenia aplikacji**, a następnie wybierz link **Kopiuj** , aby skopiować nazwę użytkownika lub hasło.
 
 Aby zresetować poświadczenia na poziomie aplikacji, wybierz pozycję **Zresetuj poświadczenia** w tym samym oknie dialogowym.
+
+## <a name="disable-basic-authentication"></a>Wyłącz uwierzytelnianie podstawowe
+
+Niektóre organizacje muszą spełniać wymagania dotyczące zabezpieczeń i raczej wyłączyć dostęp za pośrednictwem protokołu FTP lub webdeploy. W ten sposób członkowie organizacji mogą uzyskiwać dostęp do App Services za pomocą interfejsów API, które są kontrolowane przez Azure Active Directory (Azure AD).
+
+### <a name="ftp"></a>FTP
+
+Aby wyłączyć dostęp do usługi FTP do witryny, uruchom następujące polecenie interfejsu wiersza polecenia. Zamień symbole zastępcze na grupę zasobów i nazwę lokacji. 
+
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Aby upewnić się, że dostęp do usługi FTP jest zablokowany, możesz spróbować uwierzytelnić się przy użyciu klienta FTP, takiego jak FileZilla. Aby pobrać poświadczenia publikowania, przejdź do bloku przegląd witryny, a następnie kliknij pozycję Pobierz profil publikowania. Użyj nazwy hosta FTP, nazwy użytkownika i hasła w celu uwierzytelnienia, a otrzymasz 401 odpowiedź na błąd, wskazując, że nie masz uprawnień.
+
+### <a name="webdeploy-and-scm"></a>Webdeploy i SCM
+
+Aby wyłączyć podstawowy dostęp uwierzytelniania do witryny webdeploy port i SCM, uruchom następujące polecenie interfejsu wiersza polecenia. Zamień symbole zastępcze na grupę zasobów i nazwę lokacji. 
+
+```bash
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Aby upewnić się, że poświadczenia profilu publikowania są blokowane w programie webdeploy, spróbuj [opublikować aplikację sieci Web przy użyciu programu Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+
+### <a name="disable-access-to-the-api"></a>Wyłącz dostęp do interfejsu API
+
+Interfejs API w poprzedniej sekcji to kopia zapasowa Access Control opartej na rolach (RBAC) na platformie Azure, co oznacza, że można [utworzyć rolę niestandardową](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) i przypisać użytkownikom niższych priveldged do roli, aby nie mogli włączyć uwierzytelniania podstawowego w dowolnych lokacjach. Aby skonfigurować rolę niestandardową, [wykonaj te instrukcje](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+
+Możesz również użyć [Azure monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) do inspekcji wszelkich pomyślnych żądań uwierzytelnienia i użyć [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) , aby wymusić tę konfigurację dla wszystkich lokacji w ramach subskrypcji.
 
 ## <a name="next-steps"></a>Następne kroki
 

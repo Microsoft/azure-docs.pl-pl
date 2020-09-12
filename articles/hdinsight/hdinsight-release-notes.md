@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826824"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319801"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Informacje o wersji usługi Azure HDInsight
 
@@ -49,7 +49,7 @@ Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów K
 
 ## <a name="behavior-changes"></a>Zmiany zachowania
 ### <a name="ambari-stack-version-change"></a>Zmiana wersji stosu Ambari
-W tej wersji Ambari wersja została zmieniona z 2. x. x. x na 4,1. Możesz uzyskać wersję Ambari z interfejsu użytkownika Ambari > informacje o programie.
+W tej wersji wersja Ambari zmienia się z 2. x. x. x na 4,1. Możesz sprawdzić wersję stosu (HDInsight 4,1) w Ambari: Ambari > wersje > użytkownika.
 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 Brak przyszłych zmian, do których należy zwrócić uwagę.
@@ -75,4 +75,4 @@ Brak zmian wersji składnika dla tej wersji. Bieżące wersje składników usłu
 
 ## <a name="known-issues"></a>Znane problemy
 
-Problem został rozwiązany w witrynie Azure Portal, w którym użytkownicy napotkali błąd podczas tworzenia klastra usługi Azure HDInsight przy użyciu typu uwierzytelniania SSH klucza publicznego. Gdy użytkownicy klikną opcję **Recenzja + Utwórz**, otrzymają komunikat o błędzie "nie może zawierać żadnych trzech kolejnych znaków z nazwy użytkownika ssh". Ten problem został rozwiązany, ale może być wymagane odświeżenie pamięci podręcznej przeglądarki przez naciśnięcie klawiszy CTRL + F5 w celu załadowania poprawionego widoku. Obejście tego problemu polega na utworzeniu klastra z szablonem ARM. 
+W witrynie Azure Portal rozwiązano problem polegający na tym, że użytkownicy napotykali błąd podczas tworzenia klastra usługi Azure HDInsight przy użyciu uwierzytelniania SSH klucza publicznego. Gdy użytkownicy klikali pozycję **Przeglądanie i tworzenie**, wyświetlany był błąd „Nie może zawierać żadnych trzech kolejnych znaków z nazwy użytkownika protokołu SSH”. Ten problem został rozwiązany, ale może być wymagane odświeżenie pamięci podręcznej przeglądarki przez naciśnięcie klawiszy CTRL + F5 w celu załadowania poprawionego widoku. Obejście tego problemu było utworzeniu klastra przy użyciu szablonu usługi ARM. 

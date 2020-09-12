@@ -2,13 +2,13 @@
 title: Funkcje szablonów
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości, pracy z ciągami i wartościami liczbowymi oraz pobierania informacji o wdrożeniu.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: d237f5c42c1d1eaab7b2236b15a3122bcb55865b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/01/2020
+ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84331410"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378410"
 ---
 # <a name="arm-template-functions"></a>Funkcje szablonu ARM
 
@@ -40,18 +40,18 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
 
 * [array](template-functions-array.md#array)
 * [Concat](template-functions-array.md#concat)
-* [wyświetlana](template-functions-array.md#contains)
+* [zawiera](template-functions-array.md#contains)
 * [przearray](template-functions-array.md#createarray)
 * [puste](template-functions-array.md#empty)
 * [pierwszego](template-functions-array.md#first)
 * [część wspólną](template-functions-array.md#intersection)
 * [ostatniego](template-functions-array.md#last)
-* [Długość](template-functions-array.md#length)
+* [length](template-functions-array.md#length)
 * [długości](template-functions-array.md#min)
 * [Maksymalny](template-functions-array.md#max)
 * [zakresu](template-functions-array.md#range)
 * [Skocz](template-functions-array.md#skip)
-* [czasochłonn](template-functions-array.md#take)
+* [take (pobierz)](template-functions-array.md#take)
 * [Unii](template-functions-array.md#union)
 
 <a id="coalesce" aria-hidden="true"></a>
@@ -66,7 +66,7 @@ Menedżer zasobów udostępnia kilka funkcji do pracy z tablicami.
 Menedżer zasobów udostępnia kilka funkcji do dokonywania porównań w szablonach.
 
 * [łączonych](template-functions-comparison.md#coalesce)
-* [równa się](template-functions-comparison.md#equals)
+* [equals](template-functions-comparison.md#equals)
 * [wcześniejsz](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
@@ -88,7 +88,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z datami.
 Menedżer zasobów udostępnia następujące funkcje do uzyskiwania wartości z sekcji szablonu i wartości związanych ze wdrożeniem:
 
 * [mieszczeniu](template-functions-deployment.md#deployment)
-* [naturalne](template-functions-deployment.md#environment)
+* [środowisko](template-functions-deployment.md#environment)
 * [wejściowe](template-functions-deployment.md#parameters)
 * [modyfikacj](template-functions-deployment.md#variables)
 
@@ -102,9 +102,9 @@ Menedżer zasobów udostępnia następujące funkcje do uzyskiwania wartości z 
 
 Menedżer zasobów udostępnia następujące funkcje do pracy z warunkami logicznymi:
 
-* [oraz](template-functions-logical.md#and)
+* [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
-* [przypadku](template-functions-logical.md#if)
+* [if](template-functions-logical.md#if)
 * [niemożliwe](template-functions-logical.md#not)
 * [lub](template-functions-logical.md#or)
 
@@ -126,7 +126,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 * [add](template-functions-numeric.md#add)
 * [Funkcji copyindex](template-functions-numeric.md#copyindex)
 * [div](template-functions-numeric.md#div)
-* [float](template-functions-numeric.md#float)
+* [liczba zmiennoprzecinkowa](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
 * [długości](template-functions-numeric.md#min)
 * [Maksymalny](template-functions-numeric.md#max)
@@ -140,11 +140,11 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z liczbami całkow
 
 Menedżer zasobów udostępnia kilka funkcji do pracy z obiektami.
 
-* [wyświetlana](template-functions-object.md#contains)
+* [zawiera](template-functions-object.md#contains)
 * [puste](template-functions-object.md#empty)
 * [część wspólną](template-functions-object.md#intersection)
 * [kodu](template-functions-object.md#json)
-* [Długość](template-functions-object.md#length)
+* [length](template-functions-object.md#length)
 * [Unii](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -167,6 +167,7 @@ Menedżer zasobów udostępnia następujące funkcje pobierania wartości zasob�
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [staw](template-functions-resource.md#list)
+* [pickZones](template-functions-resource.md#pickzones)
 * [udostępnia](template-functions-resource.md#providers)
 * [odwoła](template-functions-resource.md#reference)
 * Grupa [zasobów — może](template-functions-resource.md#resourcegroup) być używana tylko we wdrożeniach w ramach grupy.
@@ -214,7 +215,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [Concat](template-functions-string.md#concat)
-* [wyświetlana](template-functions-string.md#contains)
+* [zawiera](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
 * [puste](template-functions-string.md#empty)
@@ -225,7 +226,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [indexOf](template-functions-string.md#indexof)
 * [ostatniego](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
-* [Długość](template-functions-string.md#length)
+* [length](template-functions-string.md#length)
 * [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
 * [stępować](template-functions-string.md#replace)
@@ -234,7 +235,7 @@ Menedżer zasobów udostępnia następujące funkcje do pracy z ciągami:
 * [startsWith](template-functions-string.md#startswith)
 * [ciąg](template-functions-string.md#string)
 * [podciąg](template-functions-string.md#substring)
-* [czasochłonn](template-functions-string.md#take)
+* [take (pobierz)](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
 * [toUpper](template-functions-string.md#toupper)
 * [Trim](template-functions-string.md#trim)

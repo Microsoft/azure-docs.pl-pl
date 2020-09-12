@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76511097"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300378"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Przygotuj środowisko deweloperskie i testowe dla IoT Edge
 
@@ -56,11 +56,11 @@ Szablony modułów dla niektórych języków i usług mają wymagania wstępne, 
 | Szablon modułu | Wymaganie wstępne |
 | --------------- | ------------ |
 | Azure Functions | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
-| C | [Git](https://git-scm.com/) |
+| C | [Narzędzia](https://git-scm.com/) |
 | C# | [Zestaw SDK platformy .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Ustaw zmienną środowiskową JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Narzędzia Yeoman](https://www.npmjs.com/package/yo) <li> [Generator modułów Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Narzędzia](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Rozszerzenie programu Visual Studio 2017/2019
 
@@ -80,12 +80,12 @@ Istnieje kilka narzędzi do testowania, które ułatwiają bardziej wydajne symu
 
 Tylko środowisko uruchomieniowe IoT Edge jest obsługiwane w przypadku wdrożeń produkcyjnych, ale następujące narzędzia umożliwiają symulowanie lub łatwe tworzenie IoT Edge urządzeń do celów deweloperskich i testowych. Te narzędzia nie wykluczają się wzajemnie, ale mogą współdziałać ze sobą, aby uzyskać pełne środowisko programistyczne.
 
-| Narzędzie | Znana także jako | Obsługiwane platformy | Najlepsze dla |
+| Narzędzie | Znana także jako | Obsługiwane platformy | Optymalne zastosowanie |
 | ---- | ------------- | ------------------- | --------- |
-| Narzędzie deweloperskie EdgeHub IoT  | iotedgehubdev | Windows, Linux, MacOS | Symulowanie urządzenia do modułów debugowania. |
-| IoT Edgenie kontenera dev | Microsoft/iotedgedev | Windows, Linux, MacOS | Programowanie bez instalowania zależności. |
-| IoT Edge środowiska uruchomieniowego w kontenerze | iotedgec | Windows, Linux, MacOS, ARM | Testowanie na urządzeniu, które może nie obsługiwać środowiska uruchomieniowego. |
-| Kontener urządzenia IoT Edge | toolboc/Azure-IoT-Device-Container | Windows, Linux, MacOS, ARM | Testowanie scenariusza z wieloma IoT Edge urządzeniami w odpowiedniej skali. |
+| Narzędzie deweloperskie EdgeHub IoT  | iotedgehubdev | Windows, Linux, macOS | Symulowanie urządzenia do modułów debugowania. |
+| IoT Edgenie kontenera dev | Microsoft/iotedgedev | Windows, Linux, macOS | Programowanie bez instalowania zależności. |
+| IoT Edge środowiska uruchomieniowego w kontenerze | iotedgec | Windows, Linux, macOS, ARM | Testowanie na urządzeniu, które może nie obsługiwać środowiska uruchomieniowego. |
+| Kontener urządzenia IoT Edge | toolboc/Azure-IoT-Device-Container | Windows, Linux, macOS, ARM | Testowanie scenariusza z wieloma IoT Edge urządzeniami w odpowiedniej skali. |
 
 ### <a name="iot-edgehub-dev-tool"></a>Narzędzie deweloperskie EdgeHub IoT
 
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz [Azure IoT Edge dev Container](https://h
 
 ### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge środowiska uruchomieniowego w kontenerze
 
-Środowisko uruchomieniowe IoT Edge w kontenerze zapewnia kompletne środowisko uruchomieniowe, które pobiera parametry połączenia urządzenia jako zmienną środowiskową. Ten kontener umożliwia przetestowanie modułów IoT Edge i scenariuszy w systemie, który może nie obsługiwać natywnego środowiska uruchomieniowego, takiego jak MacOS. Wszystkie wdrożone moduły zostaną uruchomione poza kontenerem środowiska uruchomieniowego. Jeśli chcesz, aby środowisko uruchomieniowe i wszystkie wdrożone moduły istniały w tym samym kontenerze, rozważ zamiast tego kontener urządzeń IoT Edge.
+Środowisko uruchomieniowe IoT Edge w kontenerze zapewnia kompletne środowisko uruchomieniowe, które pobiera parametry połączenia urządzenia jako zmienną środowiskową. Ten kontener umożliwia przetestowanie modułów IoT Edge i scenariuszy w systemie, który może nie obsługiwać natywnego środowiska uruchomieniowego, takiego jak macOS. Wszystkie wdrożone moduły zostaną uruchomione poza kontenerem środowiska uruchomieniowego. Jeśli chcesz, aby środowisko uruchomieniowe i wszystkie wdrożone moduły istniały w tym samym kontenerze, rozważ zamiast tego kontener urządzeń IoT Edge.
 
 Aby uzyskać więcej informacji, zobacz [uruchamianie Azure IoT Edge w kontenerze](https://github.com/Azure/iotedgedev/tree/master/docker/runtime).
 
@@ -119,7 +119,7 @@ Gdy wszystko jest gotowe do opracowania rozwiązań w skali dla obszernych scena
 
 Aby uzyskać więcej informacji, wskazówek i przykładów, zobacz następujące strony:
 
-* [Ciągła integracja i ciągłe wdrażanie do Azure IoT Edge](how-to-ci-cd.md)
-* [Utwórz potok ciągłej integracji/ciągłego wdrażania dla IoT Edge z Azure DevOps Projects](how-to-devops-project.md)
+* [Ciągła integracja i ciągłe wdrażanie do Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
+* [Tworzenie potoku ciągłej integracji/ciągłego wdrażania dla IoT Edge przy użyciu usługi Azure DevOps Starter](how-to-devops-starter.md)
 * [Wtyczka Azure IoT Edge Jenkins](https://plugins.jenkins.io/azure-iot-edge)
 * [IoT Edge DevOps repozytorium GitHub](https://github.com/toolboc/IoTEdge-DevOps)

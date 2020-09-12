@@ -3,12 +3,12 @@ title: Skonfiguruj laboratorium działanie hakerskie etyczne z Azure Lab Service
 description: Dowiedz się, jak skonfigurować laboratorium przy użyciu Azure Lab Services do uczenia etycznych działanie hakerskie.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443999"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297590"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurowanie laboratorium do uczenia się klasy działanie hakerskie etycznych 
 W tym artykule opisano sposób konfigurowania klasy, która koncentruje się na dowodowych etycznej działanie hakerskie. Testowanie penetracji, metoda stosowana przez społeczność etyczną działanie hakerskie, występuje, gdy ktoś próbuje uzyskać dostęp do systemu lub sieci w celu zademonstrowania luk w zabezpieczeniach. 
@@ -22,7 +22,7 @@ Aby skonfigurować to laboratorium, musisz mieć subskrypcję platformy Azure, a
 
 Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utworzyć nowe laboratorium, a następnie Zastosuj następujące ustawienia:
 
-| Rozmiar maszyny wirtualnej | Obraz |
+| Rozmiar maszyny wirtualnej | Image (Obraz) |
 | -------------------- | ----- | 
 | Średni (Wirtualizacja zagnieżdżona) | Windows Server 2019 Datacenter |
 
@@ -74,7 +74,7 @@ Obraz Rapid7 Metasploitable to obraz skonfigurowany do celów z lukami w zabezpi
 1. Wybierz przycisk **Pobierz Metasploitable teraz** .
 1. Po pobraniu pliku zip Wyodrębnij plik zip i Zapamiętaj lokalizację.
 1. Przekonwertuj wyodrębniony plik VMDK na plik VHDX, aby można było używać go z funkcją Hyper-V. Aby to zrobić, Otwórz program PowerShell z uprawnieniami administracyjnymi i przejdź do folderu, w którym znajduje się plik VMDK, i wykonaj następujące instrukcje:
-    1. Pobierz [program Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)i uruchom plik mvmc_setup.msi po wyświetleniu monitu.
+    1. Pobierz [program Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)i uruchom plik mvmc_setup.msi po wyświetleniu monitu.
     1. Zaimportuj moduł programu PowerShell.  Domyślna lokalizacja, w której zainstalowano moduł, to C:\Program Files\Microsoft Virtual Machine Converter \
 
         ```powershell
@@ -117,7 +117,7 @@ Obraz Rapid7 Metasploitable to obraz skonfigurowany do celów z lukami w zabezpi
 Szablon jest teraz aktualizowany i zawiera obrazy potrzebne do testowania działanie hakerskiej penetracji etycznej, obrazu z narzędziami do testowania penetracji i innego obrazu z lukami w zabezpieczeniach do odnalezienia. Obraz szablonu można teraz opublikować w klasie. Wybierz przycisk **Publikuj** na stronie szablon, aby opublikować szablon w laboratorium.
   
 
-## <a name="cost"></a>Koszty  
+## <a name="cost"></a>Cost (Koszt)  
 Jeśli chcesz oszacować koszt tego laboratorium, możesz użyć poniższego przykładu: 
  
 W przypadku klasy 25 studentów z upływem 20 godzin planowanego czasu zajęć i 10 godzin przydziału dla prac domowych lub przydziałów, Cena za laboratorium to: 

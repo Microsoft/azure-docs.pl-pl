@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej udziału plików platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180018"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378087"
 ---
 # <a name="about-azure-file-share-backup"></a>Informacje o kopii zapasowej udziału plików platformy Azure
 
@@ -52,9 +52,9 @@ Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze ro
 
 Istnieją dwa koszty związane z rozwiązaniem kopii zapasowej udziału plików platformy Azure:
 
-1. **Koszt magazynu migawek**: opłaty za magazyn w przypadku migawek są rozliczane wraz z użyciem Azure Files zgodnie z szczegółami cennika wymienionymi [tutaj](https://azure.microsoft.com/pricing/details/storage/files/) 
+1. **Koszt magazynu migawek**: opłaty za magazyn w przypadku migawek są rozliczane wraz z użyciem Azure Files zgodnie z szczegółami cennika wymienionymi [tutaj](https://azure.microsoft.com/pricing/details/storage/files/)
 
-2. **Opłata za chronione wystąpienie** : od 1 września do 2020, klienci będą obciążani opłatą za chronione wystąpienie zgodnie z szczegółami cennika wymienionymi [tutaj](https://azure.microsoft.com/en-in/pricing/details/backup/) . Opłata za chronione wystąpienie jest zależna od łącznego rozmiaru chronionych udziałów plików na koncie magazynu.
+2. **Opłata za chronione wystąpienie**: od 1 września do 2020, klienci będą obciążani opłatą za chronione wystąpienie zgodnie z szczegółami cennika wymienionymi [tutaj](https://azure.microsoft.com/pricing/details/backup/). Opłata za chronione wystąpienie jest zależna od łącznego rozmiaru chronionych udziałów plików na koncie magazynu.
 
 Aby uzyskać szczegółowe oszacowania dotyczące tworzenia kopii zapasowych udziałów plików platformy Azure, możesz pobrać szczegółowe [Azure Backup cenowe](https://aka.ms/AzureBackupCostEstimates).  
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925638"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300106"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarami roboczymi w usłudze Azure Monitor
 
@@ -228,14 +228,14 @@ Zobacz [Definiowanie kontroli dostępu dla tabel](#table-level-rbac) poniżej, j
 
     * Przyznaj użytkownikom następujące uprawnienia w obszarze roboczym: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`— wymagane, aby użytkownik mógł wyliczyć obszar roboczy i otworzyć blok obszaru roboczego w Azure Portal
-        * `Microsoft.OperationalInsights/workspaces/query/read`— wymagane przez każdego użytkownika, który może wykonywać zapytania
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`— Aby móc odczytywać dzienniki logowania usługi Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`— Aby można było odczytać dzienniki rozwiązań Update Management
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`— Aby można było odczytać dzienniki rozwiązań Update Management
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`— Aby można było odczytać dzienniki zarządzania aktualizacjami
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`— wymagane jest, aby można było używać rozwiązania Update Management
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`— wymagane jest, aby można było używać rozwiązania Update Management
+        * `Microsoft.OperationalInsights/workspaces/read` — wymagane, aby użytkownik mógł wyliczyć obszar roboczy i otworzyć blok obszaru roboczego w Azure Portal
+        * `Microsoft.OperationalInsights/workspaces/query/read` — wymagane przez każdego użytkownika, który może wykonywać zapytania
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` — Aby móc odczytywać dzienniki logowania usługi Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` — Aby można było odczytać dzienniki rozwiązań Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` — Aby można było odczytać dzienniki rozwiązań Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` — Aby można było odczytać dzienniki zarządzania aktualizacjami
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` — wymagane jest, aby można było używać rozwiązania Update Management
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` — wymagane jest, aby można było używać rozwiązania Update Management
 
     * Udziel użytkownikom następujących uprawnień do swoich zasobów: `*/read` , przypisanych do roli czytelnik lub `Microsoft.Insights/logs/*/read` . 
 
@@ -270,7 +270,7 @@ Aby utworzyć rolę mającą dostęp tylko do tabeli _SecurityBaseline_ , Utwór
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-Powyższe przykłady definiują dozwolonych tabel, które są dozwolone. Ten przykład pokazuje definicję listy zabronionych, gdy użytkownik może uzyskać dostęp do wszystkich tabel, ale _SecurityAlert_ tabelę:
+Powyższe przykłady definiują listę dozwolonych tabel. Ten przykład pokazuje listę zablokowanych definicji, gdy użytkownik może uzyskać dostęp do wszystkich tabel, ale _SecurityAlert_ tabelę:
 
 ```
 "Actions":  [

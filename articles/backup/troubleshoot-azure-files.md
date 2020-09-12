@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 9e8869ed75350fd4063832932f076fb6fd52d4e5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001743"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376982"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -51,7 +51,7 @@ Ponów próbę rejestracji. Jeśli problem będzie się powtarzać, skontaktuj s
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Nie można usunąć magazynu Recovery Services po wyłączeniu ochrony udziału plików
 
-W Azure Portal Otwórz **Vault**  >  konta magazynu**infrastruktury kopii zapasowej**magazynu  >  **Storage accounts** , a następnie kliknij pozycję **Wyrejestruj** , aby usunąć konta magazynu z magazynu Recovery Services.
+W Azure Portal Otwórz **Vault**  >  konta magazynu**infrastruktury kopii zapasowej**magazynu  >  **Storage accounts**. Wybierz pozycję **Wyrejestruj** , aby usunąć konta magazynu z magazynu Recovery Services.
 
 >[!NOTE]
 >Magazyn Recovery Services można usunąć tylko po wyrejestrowaniu wszystkich kont magazynu zarejestrowanych w magazynie.
@@ -318,7 +318,7 @@ Komunikat o błędzie: wykonywanie kopii zapasowej nie powiodło się, ponieważ
 
 Sprawdź, czy kopia zapasowa udziału plików została trwale usunięta. Jeśli tak, Zatrzymaj tworzenie kopii zapasowej udziału plików, aby uniknąć błędów kopii zapasowych. Aby dowiedzieć się, jak zatrzymać ochronę, zobacz [Zatrzymywanie ochrony udziału plików platformy Azure](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat tworzenia kopii zapasowych udziałów plików platformy Azure, zobacz:
 

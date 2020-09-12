@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 082e4a35582e9fe643aefc13c0c46a1c75f443e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318413"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Przewodnik wdrażania funkcji usługi Azure Active Directory
 
@@ -35,19 +35,19 @@ Dodatkowe informacje na temat licencjonowania można znaleźć na następującyc
 * [Zarządzanie licencjonowaniem w usłudze Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Wskazówki dotyczące licencjonowania B2B usługi Azure AD](../b2b/licensing-guidance.md)
+* [Wskazówki dotyczące licencjonowania B2B usługi Azure AD](../external-identities/licensing-guidance.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>Faza 1: Tworzenie podstawy zabezpieczeń
 
 W tej fazie Administratorzy mogą włączyć podstawowe funkcje zabezpieczeń, aby zapewnić bezpieczniejsze i łatwe korzystanie z programu Foundation w usłudze Azure AD przed zaimportowaniem lub utworzeniem normalnych kont użytkowników. Ta faza podstawowa gwarantuje, że jest to bardziej bezpieczny stan od początku i że użytkownicy końcowi muszą tylko wprowadzać nowe koncepcje.
 
-| Zadanie | Szczegóły | Wymagana licencja |
+| Zadanie | Szczegół | Wymagana licencja |
 | ---- | ------ | ---------------- |
 | [Wyznacz więcej niż jednego administratora globalnego](../users-groups-roles/directory-emergency-access.md) | Należy przypisać co najmniej dwa stałe konta administratora globalnego tylko w chmurze do użycia w przypadku wystąpienia sytuacji awaryjnej. Te konta nie są używane codziennie i powinny mieć długie i złożone hasła. | Usługa Azure AD — warstwa Bezpłatna |
 | [W miarę możliwości używaj nieglobalnych ról administracyjnych](../users-groups-roles/directory-assign-admin-roles.md) | Nadaj administratorom tylko dostęp do tych obszarów, do których potrzebują dostępu. Nie wszyscy administratorzy muszą być administratorami globalnymi. | Usługa Azure AD — warstwa Bezpłatna |
 | [Włącz Privileged Identity Management do śledzenia użycia roli administratora](../privileged-identity-management/pim-getting-started.md) | Włącz Privileged Identity Management, aby rozpocząć śledzenie użycia roli administracyjnej. | Usługa Azure AD — wersja Premium P2 |
 | [Wdrażanie funkcji samoobsługowego resetowania haseł](../authentication/howto-sspr-deployment.md) | Zmniejszenie liczby zgłoszeń pomocy technicznej dotyczącej resetowania haseł przez umożliwienie personelowi resetowania własnych haseł przy użyciu zasad, które kontroluje administrator. | |
-| [Utwórz niestandardową listę wykluczonych haseł dla organizacji](../authentication/howto-password-ban-bad-configure.md) | Uniemożliwiaj użytkownikom tworzenie haseł zawierających typowe słowa lub frazy z Twojej organizacji lub obszaru. | |
+| [Utwórz niestandardową listę wykluczonych haseł dla organizacji](../authentication/tutorial-configure-custom-password-protection.md) | Uniemożliwiaj użytkownikom tworzenie haseł zawierających typowe słowa lub frazy z Twojej organizacji lub obszaru. | |
 | [Włączanie integracji lokalnej z ochroną hasłem usługi Azure AD](../authentication/concept-password-ban-bad-on-premises.md) | Rozwiń listę zakazanych haseł do katalogu lokalnego, aby upewnić się, że hasła ustawione lokalnie są zgodne z globalnymi i specyficznymi dla dzierżawą listami haseł. | Usługa Azure AD — wersja Premium P1 |
 | [Włącz wskazówki dotyczące haseł firmy Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Zatrzymaj wymaganie od użytkowników zmiany hasła zgodnie z ustalonym harmonogramem, wyłącz wymagania dotyczące złożoności, a użytkownicy są bardziej apt, aby zapamiętać swoje hasła i zapewnić, że są one bezpieczne. | Usługa Azure AD — warstwa Bezpłatna |
 | [Wyłącz resetowanie haseł okresowych dla kont użytkowników opartych na chmurze](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Okresowe resetowanie haseł zachęca użytkowników do zwiększania istniejących haseł. Skorzystaj z wytycznych zawartych w dokumencie wskazówki dotyczące haseł w firmie Microsoft i podublowania zasad lokalnych w przypadku użytkowników korzystających tylko z chmury. | Usługa Azure AD — warstwa Bezpłatna |
@@ -63,14 +63,14 @@ W tej fazie Administratorzy mogą włączyć podstawowe funkcje zabezpieczeń, a
 
 Następnie dodamy do podstawy ustalonej w fazie 1 przez zaimportowanie naszych użytkowników i włączenie synchronizacji, zaplanowanie dostępu gościa i przygotowanie do obsługi dodatkowych funkcji.
 
-| Zadanie | Szczegóły | Wymagana licencja |
+| Zadanie | Szczegół | Wymagana licencja |
 | ---- | ------ | ---------------- |
-| [Instalowanie programu Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Przygotuj się do synchronizacji użytkowników z istniejącego katalogu lokalnego do chmury. | Usługa Azure AD — warstwa Bezpłatna |
-| [Implementowanie synchronizacji skrótów haseł](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Zsynchronizuj skróty haseł, aby umożliwić Replikowanie zmian haseł, wykrywanie i korygowanie nieprawidłowych haseł oraz zgłaszanie nieujawnionych poświadczeń. | Usługa Azure AD — warstwa Bezpłatna |
-| [Implementuj zapisywanie zwrotne haseł](../authentication/howto-sspr-writeback.md) | Zezwalaj na zapisywanie zmian haseł w chmurze z powrotem do lokalnego środowiska Active Directory systemu Windows Server. | Usługa Azure AD — wersja Premium P1 |
-| [Implementowanie Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Włącz monitorowanie statystyk kondycji klucza dla serwerów Azure AD Connect, serwerów AD FS i kontrolerów domeny. | Usługa Azure AD — wersja Premium P1 |
+| [Instalowanie programu Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md) | Przygotuj się do synchronizacji użytkowników z istniejącego katalogu lokalnego do chmury. | Usługa Azure AD — warstwa Bezpłatna |
+| [Implementowanie synchronizacji skrótów haseł](../hybrid/how-to-connect-password-hash-synchronization.md) | Zsynchronizuj skróty haseł, aby umożliwić Replikowanie zmian haseł, wykrywanie i korygowanie nieprawidłowych haseł oraz zgłaszanie nieujawnionych poświadczeń. | Usługa Azure AD — warstwa Bezpłatna |
+| [Implementuj zapisywanie zwrotne haseł](../authentication/tutorial-enable-sspr-writeback.md) | Zezwalaj na zapisywanie zmian haseł w chmurze z powrotem do lokalnego środowiska Active Directory systemu Windows Server. | Usługa Azure AD — wersja Premium P1 |
+| [Implementowanie Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Włącz monitorowanie statystyk kondycji klucza dla serwerów Azure AD Connect, serwerów AD FS i kontrolerów domeny. | Usługa Azure AD — wersja Premium P1 |
 | [Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Oszczędzaj czas i wysiłku, tworząc grupy licencjonowania, które włączają lub wyłączają funkcje według grup zamiast ustawień dla poszczególnych użytkowników. | |
-| [Utwórz plan dla dostępu gościa](../b2b/what-is-b2b.md) | Współpracuj z użytkownikami-Gośćmi, umożliwiając im logowanie do aplikacji i usług przy użyciu własnych tożsamości służbowych, szkolnych lub społecznościowych. | [Wskazówki dotyczące licencjonowania B2B usługi Azure AD](../b2b/licensing-guidance.md) |
+| [Utwórz plan dla dostępu gościa](../external-identities/what-is-b2b.md) | Współpracuj z użytkownikami-Gośćmi, umożliwiając im logowanie do aplikacji i usług przy użyciu własnych tożsamości służbowych, szkolnych lub społecznościowych. | [Wskazówki dotyczące licencjonowania B2B usługi Azure AD](../external-identities/licensing-guidance.md) |
 | [Decydowanie o strategii zarządzania urządzeniami](../devices/overview.md) | Zdecyduj, co organizacja zezwala na korzystanie z urządzeń. Zarejestrowanie programu vs sprzęgania i przełączenie urządzenia do firmy. | |
 | [Wdróż usługę Windows Hello dla firm w organizacji](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Przygotowywanie do uwierzytelniania bezhaseł przy użyciu funkcji Windows Hello | |
 | [Wdróż metody uwierzytelniania bezhasło dla użytkowników](../authentication/concept-authentication-passwordless.md) | Udostępnianie użytkownikom wygodnych metod uwierzytelniania bez hasła | Usługa Azure AD — wersja Premium P1 |
@@ -79,7 +79,7 @@ Następnie dodamy do podstawy ustalonej w fazie 1 przez zaimportowanie naszych u
 
 W miarę dalszego kompilowania w poprzednich fazach zidentyfikujemy aplikacje kandydujące do migracji i integracji z usługą Azure AD oraz ukończą konfigurację tych aplikacji.
 
-| Zadanie | Szczegóły | Wymagana licencja |
+| Zadanie | Szczegół | Wymagana licencja |
 | ---- | ------ | ---------------- |
 | Zidentyfikuj swoje aplikacje | Zidentyfikuj aplikacje używane w organizacji: lokalne, SaaS aplikacje w chmurze i inne aplikacje biznesowe. Ustal, czy te aplikacje mogą być zarządzane za pomocą usługi Azure AD. | Nie jest wymagana żadna licencja |
 | [Integruj obsługiwane aplikacje SaaS w galerii](../manage-apps/add-application-portal.md) | Usługa Azure AD zawiera galerię zawierającą tysiące wstępnie zintegrowanych aplikacji. Niektóre aplikacje używane przez organizację są prawdopodobnie dostępne w galerii bezpośrednio z Azure Portal. | Usługa Azure AD — warstwa Bezpłatna |
@@ -89,7 +89,7 @@ W miarę dalszego kompilowania w poprzednich fazach zidentyfikujemy aplikacje ka
 
 Faza 4 widzi administratorów egzekwowania najniższych zasad uprawnień do administrowania, wykonywania pierwszej oceny dostępu i włączania automatyzacji typowych zadań związanych z cyklem życia użytkownika.
 
-| Zadanie | Szczegóły | Wymagana licencja |
+| Zadanie | Szczegół | Wymagana licencja |
 | ---- | ------ | ---------------- |
 | [Wymuś korzystanie z Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Usuń role administracyjne z kont użytkowników z normalnym dniem. Po pomyślnym sprawdzeniu uwierzytelniania wieloskładnikowego Użytkownicy administracyjni mogą korzystać z ich roli, zapewniając uzasadnienie biznesowe lub żądając zatwierdzenia od wyznaczenia osób zatwierdzających. | Usługa Azure AD — wersja Premium P2 |
 | [Dokończ przegląd dostępu dla ról katalogu usługi Azure AD w usłudze PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Pracuj z zespołami ds. zabezpieczeń i liderów, aby utworzyć zasady przeglądu dostępu w celu sprawdzenia dostępu administracyjnego na podstawie zasad organizacji. | Usługa Azure AD — wersja Premium P2 |
@@ -101,6 +101,6 @@ Faza 4 widzi administratorów egzekwowania najniższych zasad uprawnień do admi
 
 [Informacje o licencjonowaniu i cenniku usługi Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Konfiguracje tożsamości i dostępu do urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+[Konfiguracje tożsamości i dostępu do urządzeń](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
-[Wspólne zalecane zasady dostępu do tożsamości i urządzeń](https://docs.microsoft.com/microsoft-365/enterprise/identity-access-policies)
+[Wspólne zalecane zasady dostępu do tożsamości i urządzeń](/microsoft-365/enterprise/identity-access-policies)

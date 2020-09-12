@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla programu DPM i usługi Azure Backup Server
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002015"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378461"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (serwera usługi MAB)
 
@@ -51,10 +51,10 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 * Utwórz konto usługi Azure Storage w tej samej subskrypcji co magazyn Recovery Services.
 * Upewnij się, że masz odpowiednie [uprawnienia](../active-directory/develop/howto-create-service-principal-portal.md) do tworzenia aplikacji Azure Active Directory. Przepływ pracy kopii zapasowej offline tworzy aplikację Azure Active Directory w subskrypcji skojarzonej z kontem usługi Azure Storage. Celem aplikacji jest zapewnienie Azure Backup z bezpiecznym i dostępnym zakresem do usługi Azure import, która jest wymagana dla przepływu pracy kopii zapasowej offline.
 * Zarejestruj dostawcę zasobów Microsoft. ImportExport z subskrypcją zawierającą konto usługi Azure Storage. Aby zarejestrować dostawcę zasobów:
-    1. W menu głównym kliknij pozycję **subskrypcje**.
+    1. W menu głównym wybierz pozycję **subskrypcje**.
     2. Jeśli subskrybujesz wiele subskrypcji, wybierz subskrypcję, która jest używana do tworzenia kopii zapasowych w trybie offline. Jeśli używasz tylko jednej subskrypcji, Twoja subskrypcja zostanie wyświetlona.
-    3. W menu subskrypcja kliknij pozycję **dostawcy zasobów** , aby wyświetlić listę dostawców.
-    4. Na liście dostawców przewiń w dół do Microsoft. ImportExport. Jeśli stan to NotRegistered, kliknij pozycję **zarejestruj**.
+    3. W menu subskrypcja wybierz pozycję **dostawcy zasobów** , aby wyświetlić listę dostawców.
+    4. Na liście dostawców przewiń w dół do Microsoft. ImportExport. Jeśli stan to NotRegistered, wybierz pozycję **zarejestruj**.
 
        ![Rejestrowanie dostawcy zasobów](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ Informacje przedstawione w tej sekcji ułatwiają zakończenie przepływu pracy 
 
 ## <a name="initiate-offline-backup"></a>Inicjowanie kopii zapasowej offline
 
-1. Po utworzeniu nowej grupy ochrony z ochroną w trybie online lub dodaniu ochrony w trybie online do istniejącej grupy ochrony zostanie wyświetlony poniższy ekran. Aby wybrać metodę początkowej replikacji online, wybierz pozycję **transfer przy użyciu własnego dysku** i kliknij przycisk **dalej**.
+1. Po utworzeniu nowej grupy ochrony z ochroną w trybie online lub dodaniu ochrony w trybie online do istniejącej grupy ochrony zostanie wyświetlony poniższy ekran. Aby wybrać metodę początkowej replikacji online, wybierz pozycję **transfer przy użyciu własnego dysku** i wybierz pozycję **dalej**.
 
     ![Ekran importowania](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ Poniższa procedura umożliwia zaktualizowanie informacji o wysyłce zadania imp
 * Zwróć szczegóły dotyczące wysyłki dla dysków
 
    1. Zaloguj się do subskrypcji platformy Azure.
-   2. W menu głównym kliknij pozycję **wszystkie usługi** , a następnie w oknie dialogowym wszystkie usługi wpisz import. Gdy zobaczysz **zadania importowania/eksportowania**, kliknij je.
+   2. W menu głównym wybierz pozycję **wszystkie usługi** , a następnie w oknie dialogowym wszystkie usługi wpisz import. Po wyświetleniu **zadań Importuj/Eksportuj**wybierz ją.
        ![Wprowadzanie informacji o wysyłce](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        Zostanie otwarta lista **zadań Importuj/Eksportuj zadania** i zostanie wyświetlona lista wszystkich zadań importu/eksportu w wybranej subskrypcji.
@@ -169,11 +169,11 @@ Poniższa procedura umożliwia zaktualizowanie informacji o wysyłce zadania imp
 
        ![Przejrzyj informacje o wysyłce](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. W menu Ustawienia zadania importowania kliknij pozycję **Zarządzaj informacjami o wysyłce** , a następnie wprowadź szczegóły dotyczące wysyłki zwrotnej.
+   4. W menu Ustawienia zadania importowania wybierz pozycję **Zarządzaj informacjami o wysyłce** i wprowadź szczegóły dotyczące wysyłki zwrotnej.
 
        ![Przechowywanie informacji o wysyłce](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. Jeśli numer śledzenia jest używany przez firmę wysyłkową, kliknij transparent na stronie Przegląd zadania importowania platformy Azure i wprowadź następujące informacje:
+   5. Jeśli numer śledzenia jest używany przez firmę wysyłkową, wybierz transparent na stronie Przegląd zadania importowania platformy Azure i wprowadź następujące informacje:
 
       > [!IMPORTANT]
       > Upewnij się, że informacje o operatorze i numer śledzenia zostały zaktualizowane w ciągu dwóch tygodni od utworzenia zadania importowania platformy Azure. Niepowodzenie weryfikacji tych informacji w ciągu dwóch tygodni może skutkować usunięciem zadania i nieprzetwarzaniem dysków.
@@ -196,6 +196,6 @@ Po zakończeniu zadania importowania dane początkowej kopii zapasowej są dost�
 
 Podczas następnego zaplanowanego zadania tworzenia repliki w trybie online Data Protection Manager wykonuje przyrostową kopię zapasową za pomocą początkowej kopii zapasowej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać odpowiedzi na pytania dotyczące przepływu pracy usługi Azure Import/Export, zobacz [Używanie usługi Microsoft Azure Import/Export do transferowania danych do magazynu obiektów BLOB](../storage/common/storage-import-export-service.md).

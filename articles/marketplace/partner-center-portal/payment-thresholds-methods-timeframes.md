@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: 0d98afb97113f222b9ff0edc8405ea75ad10a3fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607280"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322079"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Progi, metody i horyzonty czasowe płatności
 
@@ -78,7 +78,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Cote D'Ivoire | Tak | Tak | Tak | Nie |
 | Chorwacja | Tak | Tak | Tak | Nie |
 | Cypr | Tak | Tak | Tak | Tak |
-| Republika Czeska | Tak | Tak | Tak | Tak |
+| Czechia | Tak | Tak | Tak | Tak |
 | Dania | Tak | Tak | Tak | Tak |
 | Dominika | Tak | Tak | Nie | Tak |
 | Dominikana | Tak | Tak | Tak | Tak |
@@ -123,7 +123,6 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Liechtenstein | Tak | Tak | Tak | Tak |
 | Litwa | Tak | Tak | Tak | Nie |
 | Luksemburg | Tak | Tak | Tak | Tak |
-| Macedonia | Nie | Tak | Tak | Nie |
 | Madagaskar | Tak | Tak | Tak | Nie |
 | Malawi | Tak | Tak | Tak | Tak |
 | Malezja | Tak | Tak | Tak | Tak |
@@ -142,6 +141,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Nikaragua | Tak | Tak | Tak | Tak |
 | Niger | Tak | Tak | Tak | Nie |
 | Nigeria | Tak | Tak | Tak | Nie |
+| Macedonia Północna | Nie | Tak | Tak | Nie |
 | Norwegia | Tak | Tak | Tak | Tak |
 | Oman | Tak | Tak | Tak | Tak |
 | Pakistan | Tak | Tak | Tak | Nie |

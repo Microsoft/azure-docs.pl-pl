@@ -3,39 +3,25 @@ title: Szyfrowanie dysków platformy Azure w usłudze Azure Kubernetes Service (
 description: Korzystaj z własnych kluczy (BYOK), aby szyfrować system operacyjny AKS i dyski z danymi.
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/01/2020
+ms.openlocfilehash: 8687d95878cde7d0ed3308d67f26ffc266abad1e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796888"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297760"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Przenoszenie własnych kluczy (BYOK) z dyskami platformy Azure w usłudze Azure Kubernetes Service (AKS)
 
-Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać [klucze zarządzane przez klienta][customer-managed-keys] , które będą używane do szyfrowania dla dysków systemu operacyjnego i danych dla klastrów AKS.
+Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać klucze zarządzane przez klienta, które będą używane do szyfrowania dla dysków systemu operacyjnego i danych dla klastrów AKS. Dowiedz się więcej o kluczach zarządzanych przez klienta w systemach [Linux][customer-managed-keys-linux] i [Windows][customer-managed-keys-windows].
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="limitations"></a>Ograniczenia
+* Obsługa szyfrowania dysków danych jest ograniczona do klastrów AKS z systemem Kubernetes w wersji 1,17 lub nowszej.
+* Szyfrowanie systemu operacyjnego i dysku danych z kluczami zarządzanymi przez klienta można włączyć tylko podczas tworzenia klastra AKS.
 
-* W tym artykule przyjęto założenie, że tworzysz *nowy klaster AKS*.
-
+## <a name="prerequisites"></a>Wymagania wstępne
 * Należy włączyć nietrwałe usuwanie i przeczyszczanie ochrony dla *Azure Key Vault* podczas korzystania z Key Vault do szyfrowania dysków zarządzanych.
-
-* Potrzebujesz interfejsu wiersza polecenia platformy Azure w wersji 2.0.79 lub nowszej oraz rozszerzenia AKS-Preview 0.4.26
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Zainstaluj rozszerzenie najnowszej wersji zapoznawczej interfejsu wiersza polecenia AKS
-
-Aby można było używać kluczy zarządzanych przez klienta, wymagany jest interfejs wiersza polecenia *AKS-Preview* w wersji 0.4.26 lub nowszej. Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure w *wersji zapoznawczej* przy użyciu poleceń [AZ Extension Add][az-extension-add] , a następnie wyszukaj wszystkie dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+* Potrzebujesz interfejsu wiersza polecenia platformy Azure w wersji 2.11.1 lub nowszej.
 
 ## <a name="create-an-azure-key-vault-instance"></a>Tworzenie wystąpienia Azure Key Vault
 
@@ -155,11 +141,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## <a name="limitations"></a>Ograniczenia
-
-* Szyfrowanie dysków danych obsługiwane przez program Kubernetes w wersji 1,17 lub nowszej
-* Szyfrowanie z kluczami zarządzanymi przez klienta jest obecnie przeznaczone tylko dla nowych klastrów AKS, nie można uaktualnić istniejących klastrów
-
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi zabezpieczeń klastra AKS][best-practices-security]
@@ -171,6 +152,7 @@ Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi zabezpieczeń klastra A
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
-[customer-managed-keys]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

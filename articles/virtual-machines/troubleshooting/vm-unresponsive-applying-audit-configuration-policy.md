@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942195"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299528"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>Maszyna wirtualna nie odpowiada podczas stosowania zasad konfiguracji zasad inspekcji
 
@@ -27,7 +27,7 @@ Ten artykuł zawiera kroki rozwiązywania problemów, w których maszyna wirtual
 
 ## <a name="symptom"></a>Objaw
 
-W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat o tym, że system operacyjny (OS) został zawieszony podczas rozruchu z **zastosowaniem zasad konfiguracji zasad inspekcji**.
+W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej zostanie wyświetlony komunikat zrzut ekranu przedstawiający, że system operacyjny (OS) nie odpowiadał podczas rozruchu z **zastosowaniem zasad konfiguracji zasad inspekcji**.
 
   ![Rozruch systemu operacyjnego z komunikatem: "stosowanie zasad konfiguracji zasad inspekcji"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

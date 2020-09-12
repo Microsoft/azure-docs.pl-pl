@@ -1,44 +1,43 @@
 ---
 title: Szczegóły podatku dla portalu komercyjnego firmy Microsoft
 Description: Aby zrozumieć kwestie podatkowe dotyczące wyboru cen, implikacji wypłaty i odpowiedzialności podatkowej, zobacz kraje/regiony dystrybucji w poniższych tabelach.
-ms.topic: conceptual
+ms.topic: article
 ms.service: marketplace
-ms.date: 05/04/2020
+ms.date: 09/02/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b0ada7047241e74095fd5b81a261c15295a08737
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 82e70c128b64f0574050c17d5e40509995488666
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319936"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378342"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Szczegóły podatkowe dla komercyjnych wydawców portalu Marketplace
 
 Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za podatek w ramach [umowy wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) lub nowoczesnej umowy wydawcy, zobacz kraje/regiony dystrybucji w poniższych tabelach.
 
-> [!NOTE]
-> Dostosowanie rozwinięcia handlu może mieć wpływ na wypłaty w ograniczonym zestawie krajów/regionów. Aby uzyskać więcej szczegółowych informacji na temat dostosowania rozwinięcia handlu i rynków, w których ma zastosowanie, zobacz [umowę wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) i listę krajów/regionów, których to dotyczy.
+Dostosowanie rozwinięcia handlu może mieć wpływ na wypłaty w ograniczonym zestawie krajów/regionów. Aby uzyskać więcej szczegółowych informacji na temat dostosowania rozwinięcia handlu i rynków, w których ma zastosowanie, zobacz [umowę wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) i listę krajów/regionów, których to dotyczy.
 
 > [!IMPORTANT]
 > Odpowiedzialność za podatek w odniesieniu do krajów/regionów i okoliczności (jak opisano [poniżej](#reseller-countriesregions)) jest objęta [umową wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560), niezależnie od informacji podanych w poniższej tabeli.
 > Zwróć uwagę, że kolumna **implikacje wypłaty** ma zastosowanie tylko do wydawców. Stawki podatku zanotowane w tej kolumnie mogą ulec zmianie w dowolnym momencie, a firma Microsoft nie gwarantuje, że stawki w tabelach poniżej będą zawsze dokładne.
 
-| Kraj/region                   | Opłata podatkowa za wybór cen                                                                                                             | Implikacje wypłaty                    | Obowiązek podatkowy |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
+| Kraj/region  | Opłata podatkowa za wybór cen  | Implikacje wypłaty  | Obowiązek podatkowy |
+|---|---|---|---|
 | Afganistan                      | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Albania                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Algieria                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Samoa Amerykańskie                   | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Andora                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
-| Anguilla                         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Angola                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
+| Anguilla                         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Antarktyda                       | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Antigua i Barbuda              | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Argentyna                        | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.  | Cena pomniejszona o sklep  | Publisher          |
 | Armenia                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o 20% podatku, opłata za magazyn minus       | Microsoft          |
 | Aruba                      | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
-| Australia                        | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                             | Cena pomniejszona o 10% podatku, opłata za magazyn pomniejszona             | Microsoft          |
+| Australia                        | Wybrana cena wyklucza wszelkie stosowane podatki. *        | Cena pomniejszona o magazyn *        | Microsoft          |
 | Austria                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.       | Cena pomniejszona o 20% podatku, opłata za magazyn minus     | Microsoft          |
 | Azerbejdżan                       | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Bahamy                      | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
@@ -83,7 +82,7 @@ Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za p
 | Chorwacja                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.       | Cena pomniejszona o 25% podatku, opłata za magazyn minus   | Microsoft          |
 | Curaçao                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Cypr                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.       | Cena pomniejszona o 19% podatku, opłata za magazyn minus  | Microsoft          |
-| Republika Czeska                   | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.       | Cena pomniejszona o 21% podatku, opłata za magazyn minus   | Microsoft        |
+| Czechia                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.       | Cena pomniejszona o 21% podatku, opłata za magazyn minus   | Microsoft        |
 | Dania                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.       | Cena pomniejszona o 25% podatku, opłata za magazyn minus   | Microsoft          |
 | Dżibuti                         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Dominika                         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
@@ -148,7 +147,6 @@ Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za p
 | Litwa                        | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.              | Cena pomniejszona o 21% podatku, opłata za magazyn minus | Microsoft          |
 | Luksemburg                       | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.              | Cena pomniejszona o 17% podatku, opłata za magazyn minus | Microsoft          |
 | SRA Makau                        | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
-| Macedonia (była Jugosłowiańska Republika Macedonii)                | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Madagaskar                       | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Malawi                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Malezja                         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
@@ -180,6 +178,7 @@ Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za p
 | Nigeria                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Niue                             | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Norfolk                   | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
+| Macedonia Północna                | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Mariany Północne         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Norwegia                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. Podatki są odejmowane od ceny przed wypłatą.              | Cena pomniejszona o 25% podatku, opłata za magazyn minus | Microsoft          |
 | Oman                             | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
@@ -241,7 +240,7 @@ Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za p
 | Wyspy Turks i Caicos         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Tuvalu                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Odległe mniejsze wyspy Stanów Zjednoczonych      | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
-| Stany Zjednoczone — Wyspy Dziewicze              | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
+| Wyspy Dziewicze Stanów Zjednoczonych              | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Uganda                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Ukraina                          | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Zjednoczone Emiraty Arabskie             | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o 5% podatku, opłata za magazyn pomniejszona                 | Microsoft          |
@@ -258,10 +257,12 @@ Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za p
 | Zambia                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 | Zimbabwe                         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Publisher          |
 
+\* W przypadku zakupów dokonywanych przez wszystkie scenariusze zakupu klientów z wyjątkiem Umowa Enterprise.
+
 Poniższe kwestie dotyczą tylko wydawców portalu Azure Marketplace, niezależnie od tego, co zostało opisane powyżej:
 
-| Kraj/region                   | Opłata podatkowa za wybór cen                                                                                                             | Zarządzanie podatkiem                    |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Kraj/region | Opłata podatkowa za wybór cen | Zarządzanie podatkiem |
+| --- |--- | --- |
 | Australia (w przypadku zakupów dokonywanych przez wszystkie scenariusze zakupu klientów z wyjątkiem Umowa Enterprise) | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Microsoft |
 | Australia (tylko w przypadku zakupów dokonywanych za pomocą scenariusza zakupu Umowa Enterprise klienta) | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Publisher |
 | Brazylia | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Wydawca (**patrz kraje/regiony odsprzedawcy**) |
@@ -287,6 +288,6 @@ Poniższe zasady dotyczą tylko wydawców portalu Azure Marketplace:
 | Brazylia (w przypadku zakupów dokonywanych przez wszystkie scenariusze zakupu klientów z wyjątkiem dostawcy CSP) |
 | Meksyk (tylko w przypadku zakupów dokonywanych za pomocą scenariusza zakupu Umowa Enterprise klienta) |
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-step"></a>Następny krok
 
 [Konfigurowanie konta do wypłaty i formularzy podatkowych](set-up-your-payout-account-tax-forms.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164924"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377866"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Dostęp zdalny do aplikacji lokalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -57,6 +57,11 @@ Na poniższym diagramie pokazano, w jaki sposób usługa Azure AD i serwer proxy
 4. Jeśli skonfigurowano Logowanie jednokrotne, łącznik wykonuje dodatkowe wymagane uwierzytelnienie w imieniu użytkownika.
 5. Łącznik wysyła żądanie do aplikacji lokalnej.
 6. Odpowiedź jest wysyłana przez łącznik i usługę serwera proxy aplikacji do użytkownika.
+
+> [!NOTE]
+> Podobnie jak większość agentów hybrydowych usługi Azure AD, łącznik serwera proxy aplikacji nie wymaga otwierania połączeń przychodzących przez zaporę. Ruch użytkownika w kroku 3 kończy działanie w usłudze serwera proxy aplikacji (w usłudze Azure AD). Łącznik serwera proxy aplikacji (lokalny) jest odpowiedzialny za resztę komunikacji.
+>
+
 
 | Składnik | Opis |
 | --------- | ----------- |

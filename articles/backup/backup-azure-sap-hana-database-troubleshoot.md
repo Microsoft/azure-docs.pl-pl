@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi baz danych SAP HANA
 description: Opisuje sposób rozwiązywania typowych błędów, które mogą wystąpić podczas tworzenia kopii zapasowej SAP HANA baz danych przy użyciu Azure Backup.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004174"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377688"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Rozwiązywanie problemów z tworzeniem kopii zapasowych baz danych SAP HANA na platformie Azure
 
@@ -97,7 +97,7 @@ Pamiętaj o następujących kwestiach:
 
 - Domyślnie przywrócona Nazwa bazy danych zostanie wypełniona nazwą elementu kopii zapasowej. W tym przypadku H21 (SDC).
 - Wybranie elementu docelowego jako H11 nie spowoduje automatycznego zmiany przywróconej nazwy bazy danych. **Powinien być edytowany w H11 (SDC)**. W odniesieniu do SDC nazwa przywróconej bazy danych będzie IDENTYFIKATORem wystąpienia docelowego z małymi literami i "SDC" dołączonym w nawiasach.
-- Ponieważ SDC może mieć tylko jedną bazę danych, należy również kliknąć pole wyboru, aby umożliwić przesłonięcie istniejących danych bazy danych z użyciem danych punktu odzyskiwania.
+- Ponieważ SDC może mieć tylko jedną bazę danych, należy również zaznaczyć pole wyboru, aby umożliwić przesłonięcie istniejących danych bazy danych z użyciem danych punktu odzyskiwania.
 - W systemie Linux jest rozróżniana wielkość liter. Należy zachować ostrożność.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Przywracanie wielu baz danych (MDC)
@@ -165,7 +165,7 @@ Uaktualnienia z SDC do MDC, które nie powodują zmiany identyfikatora SID, mog�
 - Wykonaj uaktualnienie. Po zakończeniu system HANA jest teraz MDC z systemową bazą danych i dzierżawcą baz danych
 - Uruchom ponownie [skrypt przed rejestracją](https://aka.ms/scriptforpermsonhana)
 - Zarejestruj ponownie rozszerzenie dla tego samego komputera w Azure Portal (szczegóły widoku**kopii zapasowej**  ->  **View details** -> wybierz odpowiednią maszynę wirtualną platformy Azure — > ponownej rejestracji)
-- Kliknij przycisk ponownie **odkryj baz danych** dla tej samej maszyny wirtualnej. Ta akcja powinna zawierać nowy baz danych w kroku 3 jako SYSTEMDB i bazę danych dzierżawy, a nie SDC
+- Wybierz pozycję **Rediscovery baz danych** dla tej samej maszyny wirtualnej. Ta akcja powinna zawierać nowy baz danych w kroku 3 jako SYSTEMDB i bazę danych dzierżawy, a nie SDC
 - Starsza baza danych SDC będzie nadal istnieć w magazynie i ma stare dane kopii zapasowej przechowywane zgodnie z zasadami
 - Skonfiguruj kopię zapasową tych baz danych
 
@@ -178,7 +178,7 @@ Uaktualnienia z SDC do MDC, które powodują zmianę identyfikatora SID można o
 - Wykonaj uaktualnienie. Po zakończeniu system HANA jest teraz MDC z systemową bazą danych i dzierżawcą baz danych
 - Uruchom ponownie [skrypt poprzedzający rejestrację](https://aka.ms/scriptforpermsonhana) z prawidłowymi szczegółami (nowy identyfikator SID i MDC). Ze względu na zmianę identyfikatora SID mogą wystąpić problemy z pomyślnie uruchomionym skryptem. Skontaktuj się z pomocą techniczną Azure Backup, Jeśli napotykasz problemy.
 - Zarejestruj ponownie rozszerzenie dla tego samego komputera w Azure Portal (szczegóły widoku**kopii zapasowej**  ->  **View details** -> wybierz odpowiednią maszynę wirtualną platformy Azure — > ponownej rejestracji)
-- Kliknij przycisk ponownie **odkryj baz danych** dla tej samej maszyny wirtualnej. Ta akcja powinna zawierać nowy baz danych w kroku 3 jako SYSTEMDB i bazę danych dzierżawy, a nie SDC
+- Wybierz pozycję **Rediscovery baz danych** dla tej samej maszyny wirtualnej. Ta akcja powinna zawierać nowy baz danych w kroku 3 jako SYSTEMDB i bazę danych dzierżawy, a nie SDC
 - Starsza baza danych SDC będzie nadal istnieć w magazynie i ma stare dane kopii zapasowej przechowywane zgodnie z zasadami
 - Skonfiguruj kopię zapasową tych baz danych
 
@@ -202,6 +202,6 @@ Te objawy mogą wystąpić z następujących powodów:
 
 W powyższych scenariuszach zalecamy wyzwolenie operacji ponownego zarejestrowania na maszynie wirtualnej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Przejrzyj [często zadawane pytania](./sap-hana-faq-backup-azure-vm.md) dotyczące tworzenia kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure.

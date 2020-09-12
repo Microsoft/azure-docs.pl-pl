@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974891"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299271"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Jak wycofać certyfikaty urządzeń X. 509
 
@@ -51,7 +51,7 @@ Gdy urządzenie jest początkowo obsługiwane przez funkcję samoobsługowego in
 
 Po przeprowadzeniu nowego certyfikatu liścia do urządzenia nie może on już nawiązać połączenia z usługą IoT Hub, ponieważ używa nowego certyfikatu do nawiązania połączenia. Centrum IoT rozpoznaje tylko urządzenie ze starym certyfikatem. Wynik próby połączenia urządzenia będzie nieautoryzowany. Aby rozwiązać ten problem, należy zaktualizować wpis rejestracji dla urządzenia w celu uwzględnienia nowego certyfikatu liścia urządzenia. Następnie usługa aprowizacji może zaktualizować informacje rejestru urządzenia IoT Hub w miarę potrzeb, gdy urządzenie zostanie ponownie zainicjowane. 
 
-Jednym z możliwych wyjątków dla tego błędu połączenia jest scenariusz, w którym utworzono [grupę rejestracji](concepts-service.md#enrollment-group) dla urządzenia w usłudze aprowizacji. W takim przypadku, jeśli nie powrócisz certyfikatów głównych lub pośrednich w łańcuchu certyfikatów urządzenia zaufania, urządzenie zostanie rozpoznane, jeśli nowy certyfikat jest częścią łańcucha zaufania zdefiniowanego w grupie rejestracyjnej. Jeśli ten scenariusz występuje jako reakcja na naruszenie zabezpieczeń, należy przynajmniej odszukać określonych certyfikatów urządzeń w grupie, które są uważane za naruszone. Aby uzyskać więcej informacji, zobacz Lista [zabronionych urządzeń w grupie rejestracji](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Jednym z możliwych wyjątków dla tego błędu połączenia jest scenariusz, w którym utworzono [grupę rejestracji](concepts-service.md#enrollment-group) dla urządzenia w usłudze aprowizacji. W takim przypadku, jeśli nie powrócisz certyfikatów głównych lub pośrednich w łańcuchu certyfikatów urządzenia zaufania, urządzenie zostanie rozpoznane, jeśli nowy certyfikat jest częścią łańcucha zaufania zdefiniowanego w grupie rejestracyjnej. Jeśli ten scenariusz występuje jako reakcja na naruszenie zabezpieczeń, należy co najmniej nie zezwalać określonym certyfikatom urządzenia w grupie, które są uważane za naruszone. Aby uzyskać więcej informacji, zobacz nie [Zezwalaj na określone urządzenia w grupie rejestracji](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
 
 Aktualizowanie wpisów rejestracji dla wycofanych certyfikatów jest realizowane na stronie **Zarządzanie rejestracjami** . Aby uzyskać dostęp do tej strony, wykonaj następujące kroki:
 
@@ -197,9 +197,9 @@ Innym sposobem, aby stare i nowe certyfikaty były prawidłowe dla krótkiego na
 Po zakończeniu ponownej aprowizacji urządzenia będą mogły nawiązywać połączenia z IoT Hub przy użyciu nowych certyfikatów.
 
 
-## <a name="blacklist-certificates"></a>Listy zablokowanych certyfikatów
+## <a name="disallow-certificates"></a>Nie Zezwalaj na certyfikaty
 
-W odpowiedzi na naruszenie zabezpieczeń może być konieczne odinstalowanie certyfikatu urządzenia. Aby zabroniony certyfikat urządzenia, wyłącz wpis rejestracyjny dla urządzenia docelowego/certyfikatu. Aby uzyskać więcej informacji, zobacz sekcję zabronione urządzenia w artykule [Zarządzanie odrejestrowaniem](how-to-revoke-device-access-portal.md) .
+W odpowiedzi na naruszenie zabezpieczeń może być konieczne niezezwalanie na certyfikat urządzenia. Aby nie zezwalać na certyfikat urządzenia, wyłącz wpis rejestracji dla urządzenia docelowego/certyfikatu. Aby uzyskać więcej informacji, zobacz temat niezezwalanie na urządzenia w artykule [Zarządzanie odrejestrowaniem](how-to-revoke-device-access-portal.md) .
 
 Po dołączeniu certyfikatu jako części wyłączonego wpisu rejestracji wszystkie próby zarejestrowania się w usłudze IoT Hub przy użyciu tych certyfikatów będą kończyć się niepowodzeniem nawet wtedy, gdy zostanie on włączony w ramach innego wpisu rejestracji.
  
@@ -211,13 +211,3 @@ Po dołączeniu certyfikatu jako części wyłączonego wpisu rejestracji wszyst
 - Aby dowiedzieć się więcej o certyfikatach X. 509 w usłudze Device Provisioning, zobacz [zabezpieczenia](concepts-security.md) 
 - Aby dowiedzieć się, jak zrobić dowód posiadania dla certyfikatów urzędu certyfikacji X. 509 za pomocą usługi Azure IoT Hub Device Provisioning Service, zobacz [jak weryfikować certyfikaty](how-to-verify-certificates.md) .
 - Aby dowiedzieć się, jak utworzyć grupę rejestracji przy użyciu portalu, zobacz [Zarządzanie rejestracjami urządzeń za pomocą Azure Portal](how-to-manage-enrollments.md).
-
-
-
-
-
-
-
-
-
-

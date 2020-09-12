@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031289"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320974"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -97,9 +97,9 @@ Aby dodać unikatowy identyfikator globalny (GUID), należy dokonać pojedynczej
 
 1. Otwórz szablon Menedżer zasobów.
 
-1. Dodaj nowy zasób do głównego pliku szablonu. Zasób musi znajdować się w **mainTemplate.js** lubazuredeploy.jstylko **dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
+1. Dodaj nowy zasób typu [Microsoft. resources/Deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) w głównym pliku szablonu. Zasób musi znajdować się w **mainTemplate.js** lubazuredeploy.jstylko ** dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
 
-1. Wprowadź wartość identyfikatora GUID po `pid-` prefiksie (na przykład PID-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Wprowadź wartość identyfikatora GUID po `pid-` prefiksie jako nazwę zasobu. Na przykład jeśli identyfikator GUID to eb7927c8-dd66-43e1-b0cf-c346a422063, nazwą zasobu będzie _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Sprawdź, czy szablon nie ma błędów.
 
@@ -112,11 +112,11 @@ Aby dodać unikatowy identyfikator globalny (GUID), należy dokonać pojedynczej
 Aby włączyć śledzenie zasobów dla szablonu, należy dodać do sekcji Resources następujący dodatkowy zasób. Pamiętaj o zmodyfikowaniu poniższego przykładowego kodu przy użyciu własnych danych wejściowych po dodaniu go do głównego pliku szablonu.
 Zasób należy dodać do **mainTemplate.js** lub **azuredeploy.jstylko dla** pliku, a nie w żadnych zagnieżdżonych lub połączonych szablonach.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -153,6 +153,20 @@ Dla języka Python Użyj atrybutu **config** . Możesz dodać atrybut tylko do U
 
 > [!NOTE]
 > Dodaj atrybut dla każdego klienta. Nie istnieje globalna Konfiguracja statyczna. Użytkownik może oznaczyć fabrykę klienta, aby upewnić się, że każdy klient śledzi śledzenie. Aby uzyskać więcej informacji, zobacz ten [przykład fabryki klienta w serwisie GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+
+#### <a name="example-the-net-sdk"></a>Przykład: zestaw SDK platformy .NET
+
+W przypadku platformy .NET upewnij się, że ustawiono agenta użytkownika. Biblioteka [Microsoft. Azure. Management. Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) może służyć do ustawiania agenta użytkownika przy użyciu następującego kodu (przykład w języku C#):
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Oznacz wdrożenie przy użyciu Azure PowerShell
 
@@ -256,7 +270,7 @@ Podczas wdrażania \<PARTNER> oprogramowania firma Microsoft może zidentyfikowa
 
 Istnieją dwa kanały pomocy technicznej w zależności od występujących problemów.
 
-W przypadku wystąpienia jakichkolwiek problemów w centrum partnerskim, takich jak wyświetlanie raportu dotyczącego użycia klienta lub logowanie, Utwórz żądanie pomocy technicznej z zespołem pomocy technicznej Centrum partnerskiego tutaj:[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+W przypadku wystąpienia jakichkolwiek problemów w centrum partnerskim, takich jak wyświetlanie raportu dotyczącego użycia klienta lub logowanie, Utwórz żądanie pomocy technicznej z zespołem pomocy technicznej Centrum partnerskiego tutaj: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![Zrzut ekranu przedstawiający stronę Uzyskaj pomoc techniczną](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -339,7 +353,7 @@ Możesz utworzyć ofertę maszyny wirtualnej w portalu Marketplace przy użyciu 
 
 **Nie można zaktualizować właściwości *contentversion —* szablonu głównego?**
 
-Prawdopodobnie błąd w niektórych przypadkach, gdy szablon jest wdrażany przy użyciu TemplateLink z innego szablonu, który oczekuje starszej Contentversion — z jakiegoś powodu. Obejście polega na użyciu właściwości Metadata:
+Jest to prawdopodobnie usterka, w przypadkach, gdy szablon jest wdrażany przy użyciu TemplateLink z innego szablonu, który oczekuje starszej Contentversion — z jakiegoś powodu. Obejście polega na użyciu właściwości Metadata:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045335"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322555"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Tworzenie uogólnionych obrazów bez agenta aprowizacji
 
@@ -174,7 +174,7 @@ Jeśli na maszynie wirtualnej nie zainstalowano ani nie jest dostępny język Py
    </Health>
    ```
 
-3. Opublikuj te dane w WireServer:`curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
+3. Opublikuj te dane w WireServer: `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
 
 ### <a name="automating-running-the-code-at-first-boot"></a>Automatyzacja uruchamiania kodu przy pierwszym rozruchu
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Ta usługa systemowa ma trzy rzeczy na potrzeby podstawowej aprowizacji:
 
 1. Raporty gotowe do platformy Azure (w celu wskazania, że zostały pomyślnie dołączone).
-1. Zmienia nazwę maszyny wirtualnej na podstawie nazwy maszyny wirtualnej dostarczonej przez użytkownika, pobierając te dane z IMDS.
+1. Zmienia nazwę maszyny wirtualnej na podstawie nazwy maszyny wirtualnej dostarczonej przez użytkownika, pobierając te dane z [usługi Azure instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Uwaga** IMDS udostępnia również inne [metadane wystąpienia](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), takie jak publiczne klucze SSH, aby można było ustawić więcej niż nazwę hosta.
 1. Wyłącza, tak aby była uruchamiana tylko przy pierwszym rozruchu, a nie w kolejnych ponownych uruchomieniach.
 
 W przypadku jednostki w systemie plików uruchom następujące polecenie, aby je włączyć:

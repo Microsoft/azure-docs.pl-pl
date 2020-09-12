@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796764"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321195"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Przywracanie lub usuwanie ostatnio usuniętego użytkownika przy użyciu Azure Active Directory
 Po usunięciu użytkownika konto pozostaje w stanie wstrzymania przez 30 dni. W tym 30-dniowym oknie można przywrócić konto użytkownika wraz ze wszystkimi jego właściwościami. Po upływie tego 30-dniowego okna użytkownik zostanie automatycznie i trwale usunięty.
@@ -88,6 +88,6 @@ Po przywróceniu lub usunięciu użytkowników można wykonywać następujące p
 
 - [Dodawanie lub zmiana informacji o profilu](active-directory-users-profile-azure-portal.md)
 
-- [Dodawanie użytkowników-Gości z innej organizacji](../b2b/what-is-b2b.md)
+- [Dodawanie użytkowników-Gości z innej organizacji](../external-identities/what-is-b2b.md)
 
 Aby uzyskać więcej informacji na temat innych dostępnych zadań zarządzania użytkownikami, zapoznaj się z [dokumentacją zarządzania użytkownikami usługi Azure AD](../users-groups-roles/index.yml).

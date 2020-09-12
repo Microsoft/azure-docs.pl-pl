@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091457"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299649"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure
 Zarządzane tożsamości dla zasobów platformy Azure zapewniają automatycznie zarządzaną tożsamość w Azure Active Directory do zasobów platformy Azure, takich jak aplikacja w chmurze ze sprężyną Azure. Tej tożsamości można użyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, bez poświadczeń w kodzie.
@@ -21,7 +21,7 @@ W tym artykule pokazano, jak włączyć i wyłączyć zarządzane tożsamości p
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Jeśli nie znasz tożsamości zarządzanych dla zasobów platformy Azure, zobacz [sekcję Omówienie](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Będziesz potrzebować wdrożonego wystąpienia chmury Azure wiosennej. Postępuj zgodnie z [przewodnikiem Szybki Start, aby wdrożyć za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md).
+Będziesz potrzebować wdrożonego wystąpienia chmury Azure wiosennej. Postępuj zgodnie z [przewodnikiem Szybki Start, aby wdrożyć za pomocą interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart.md).
 
 ## <a name="add-a-system-assigned-identity"></a>Dodawanie tożsamości przypisanej do systemu
 Tworzenie aplikacji z tożsamością przypisaną do systemu wymaga ustawienia dodatkowej właściwości aplikacji.
@@ -72,7 +72,7 @@ Aby usunąć tożsamość zarządzaną przypisaną przez system z aplikacji, kt�
 1. Przejdź do odpowiedniej maszyny wirtualnej i wybierz pozycję **tożsamość**.
 1. W **System assigned**obszarze / **stan**przypisane do systemu wybierz pozycję **wyłączone** , a następnie kliknij pozycję **Zapisz**:
 
- ![Tożsamość zarządzana w portalu](./media/spring-cloud-managed-identity/remove-identity.png)
+ ![Tożsamość zarządzana](./media/spring-cloud-managed-identity/remove-identity.png)
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 Aby usunąć tożsamość zarządzaną przypisaną przez system z aplikacji, która nie jest już potrzebna, użyj następującego polecenia:

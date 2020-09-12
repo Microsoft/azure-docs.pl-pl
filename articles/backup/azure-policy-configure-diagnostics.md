@@ -3,12 +3,12 @@ title: Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 description: Skonfiguruj ustawienia diagnostyki Log Analytics dla wszystkich magazynów w danym zakresie przy użyciu Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179984"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378053"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurowanie ustawień diagnostyki magazynu w odpowiedniej skali
 
@@ -22,7 +22,7 @@ Aby uprościć tworzenie ustawień diagnostycznych na dużą skalę (z LA jako m
 
 * Zasady mogą być stosowane jednocześnie do wszystkich magazynów Recovery Services w określonej subskrypcji (lub w grupie zasobów w ramach subskrypcji). Użytkownik przypisujący zasady musi mieć dostęp **właściciela** do subskrypcji, do której przypisane są zasady.
 
-* Obszar roboczy LA określony przez użytkownika (do którego będą wysyłane dane diagnostyczne) może znajdować się w innej subskrypcji niż magazyny, do których te zasady są przypisane. Użytkownik musi mieć dostęp **czytelnika**, **współautora** lub **właściciela** do subskrypcji, w której istnieje określony obszar roboczy La.
+* Obszar roboczy LA określony przez użytkownika (do którego będą wysyłane dane diagnostyczne) może znajdować się w innej subskrypcji niż magazyny, do których te zasady są przypisane. Użytkownik musi mieć dostęp **czytelnika**, **współautora**lub **właściciela** do subskrypcji, w której istnieje określony obszar roboczy La.
 
 * Zakres grupy zarządzania nie jest obecnie obsługiwany.
 

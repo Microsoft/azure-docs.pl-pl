@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą 
 description: Ten artykuł zawiera procedury tworzenia kopii zapasowych i odzyskiwania maszyn wirtualnych przy użyciu programu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: d3648bf6c980049a2e3ccfa90a777bddc1748dc9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011943"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378002"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych funkcji Hyper-V za pomocą Azure Backup Server
 
@@ -78,7 +78,7 @@ Poniżej przedstawiono wymagania wstępne dotyczące tworzenia kopii zapasowych 
 
 2. Skonfiguruj agenta ochrony serwera usługi MAB na serwerze funkcji Hyper-V lub w węzłach klastra funkcji Hyper-V. Jeśli wykonujesz kopię zapasową na poziomie gościa, Zainstaluj agenta na maszynach wirtualnych, dla których chcesz utworzyć kopię zapasową na poziomie gościa.
 
-3. W konsoli administratora serwera usługi MAB kliknij pozycję **Ochrona**  >  **Utwórz grupę ochrony** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** .
+3. W konsoli administratora serwera usługi MAB wybierz pozycję **Ochrona**  >  **Utwórz grupę ochrony** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** .
 
 4. Na stronie **Wybierz członków grupy** wybierz maszyny wirtualne, które chcesz chronić za pomocą serwerów hostów funkcji Hyper-V, na których się znajdują. Zalecane jest umieszczenie wszystkich maszyn wirtualnych, które będą miały te same zasady ochrony, w jednej grupie ochrony. W celu efektywnego wykorzystania miejsca włącz wspólną lokalizację. Przekazywanie danych do wspólnej lokalizacji umożliwia umieszczanie danych pochodzących z różnych grup ochrony w tym samym magazynie dyskowym lub taśmowym, tak aby różne źródła danych miały jedną replikę i wolumin punktu odzyskiwania.
 
@@ -110,7 +110,7 @@ Jeśli serwera usługi MAB jest uruchomiony w systemie Windows Server 2012 R2 lu
 
 **Umożliwia wykonywanie kopii zapasowych dostawcy usług hostingowych** — hostowanego centrum danych można użyć jako lokalizacji repliki, co powoduje, że pomocnicze centrum danych nie jest potrzebne. W takim przypadku umowa SLA dostawcy usług hostingowych wymaga spójnej kopii zapasowej maszyn wirtualnych repliki.
 
-Maszyna wirtualna repliki jest wyłączona do momentu zainicjowania trybu failover, a usługa VSS nie może zagwarantować kopii zapasowej maszyny wirtualnej repliki spójnej na poziomie aplikacji. W związku z tym kopia zapasowa repliki maszyny wirtualnej będzie tylko spójna na poziomie awarii. Jeśli nie można zagwarantować spójności na poziomie awarii, tworzenie kopii zapasowej zakończy się niepowodzeniem, a taka sytuacja może wystąpić w kilku przypadkach:
+Maszyna wirtualna repliki jest wyłączona do momentu zainicjowania trybu failover, a usługa VSS nie może zagwarantować kopii zapasowej maszyny wirtualnej repliki spójnej na poziomie aplikacji. W związku z tym kopia zapasowa maszyny wirtualnej repliki będzie tylko spójna w razie awarii. Jeśli nie można zagwarantować spójności na poziomie awarii, tworzenie kopii zapasowej zakończy się niepowodzeniem, a taka sytuacja może wystąpić w kilku przypadkach:
 
 - Maszyna wirtualna repliki nie jest w dobrej kondycji i jest w stanie krytycznym.
 
@@ -128,13 +128,13 @@ Gdy możesz odzyskać kopię zapasową maszyny wirtualnej, użyj Kreatora odzysk
 
 1. W konsoli administratora serwera usługi MAB wpisz nazwę maszyny wirtualnej lub rozwiń listę chronionych elementów i wybierz maszynę wirtualną, którą chcesz odzyskać.
 
-2. W okienku **Punkty odzyskiwania dla** kliknij w kalendarzu dowolną datę, aby wyświetlić dostępne punkty odzyskiwania. Następnie w okienku **Ścieżka** wybierz punkt odzyskiwania, którego chcesz użyć w Kreatorze odzyskiwania.
+2. W okienku **punkty odzyskiwania dla** w kalendarzu wybierz dowolną datę, aby wyświetlić dostępne punkty odzyskiwania. Następnie w okienku **Ścieżka** wybierz punkt odzyskiwania, którego chcesz użyć w Kreatorze odzyskiwania.
 
-3. W menu **Akcje** kliknij pozycję **Odzyskaj**, aby otworzyć Kreatora odzyskiwania.
+3. Z menu **Akcje** wybierz polecenie **Odzyskaj** , aby otworzyć Kreatora odzyskiwania.
 
-    Wybrana maszyna wirtualna i punkt odzyskiwania są wyświetlane na ekranie **Przegląd wybranego elementu do odzyskania**. Kliknij przycisk **Dalej**.
+    Wybrana maszyna wirtualna i punkt odzyskiwania są wyświetlane na ekranie **Przegląd wybranego elementu do odzyskania**. Wybierz pozycję **Next** (Dalej).
 
-4. Na ekranie **Wybieranie typu odzyskiwania** wybierz, dokąd chcesz przywrócić dane, a następnie kliknij przycisk **Dalej**.
+4. Na ekranie **Wybieranie typu odzyskiwania** wybierz miejsce, w którym chcesz przywrócić dane, a następnie wybierz pozycję **dalej**.
 
     - **Odzyskiwanie do oryginalnego wystąpienia**: podczas odzyskiwania do oryginalnego wystąpienia oryginalny dysk VHD jest usuwany. SERWERA usługi MAB odzyskuje dysk VHD i inne pliki konfiguracji do oryginalnej lokalizacji za pomocą składnika zapisywania usługi VSS funkcji Hyper-V. Po zakończeniu procesu odzyskiwania maszyny wirtualne nadal zapewniają dużą dostępność.
         Aby odzyskiwanie mogło się odbyć, musi być dostępna grupa zasobów. Jeśli grupa nie jest dostępna, wykonaj odzyskiwanie do lokalizacji alternatywnej, a następnie przełącz maszynę wirtualną w tryb wysokiej dostępności.
@@ -143,16 +143,16 @@ Gdy możesz odzyskać kopię zapasową maszyny wirtualnej, użyj Kreatora odzysk
 
     - **Kopiuj do folderu sieciowego**: serwera usługi MAB obsługuje odzyskiwanie na poziomie elementu (ILR), które umożliwia odzyskiwanie plików, folderów, woluminów i wirtualnych dysków twardych (VHD) z kopii zapasowej na poziomie hosta maszyn wirtualnych funkcji Hyper-V do udziału sieciowego lub woluminu na serwerze chronionym serwera usługi MAB. Aby można było przeprowadzić odzyskiwanie na poziomie elementu, Agent ochrony serwera usługi MAB nie musi być zainstalowany w ramach gościa. Jeśli wybierzesz tę opcję, Kreator odzyskiwania wyświetli dodatkowy ekran w celu identyfikacji miejsca docelowego i ścieżki docelowej.
 
-5. W obszarze **Określanie opcji odzyskiwania** skonfiguruj opcje odzyskiwania i kliknij przycisk **Dalej**:
+5. W obszarze **Określ opcje odzyskiwania** Skonfiguruj opcje odzyskiwania i wybierz pozycję **dalej**:
 
-    - Jeśli odzyskujesz maszynę wirtualną w warunkach niskiej przepustowości, kliknij pozycję **Modyfikuj**, aby włączyć pozycję **Ograniczenie przepustowości sieci**. Po włączeniu opcji ograniczania przepustowości możesz określić przepustowość, którą chcesz udostępnić, i czas, kiedy ta przepustowość jest dostępna.
-    - Jeśli sieć jest skonfigurowana, wybierz pozycję **Włącz odzyskiwanie na podstawie sieci SAN z użyciem migawek sprzętowych**.
+    - W przypadku odzyskiwania maszyny wirtualnej z niską przepustowością wybierz pozycję **Modyfikuj** , aby włączyć **ograniczanie użycia przepustowości sieci**. Po włączeniu opcji ograniczania przepustowości możesz określić przepustowość, którą chcesz udostępnić, i czas, kiedy ta przepustowość jest dostępna.
+    - Wybierz opcję **Włącz odzyskiwanie na podstawie sieci SAN, używając migawek sprzętowych** , jeśli skonfigurowano sieć.
     - Wybierz pozycję **Wyślij wiadomość e-mail po zakończeniu odzyskiwania**, a następnie wprowadź adresy e-mail, jeśli chcesz, aby powiadomienia e-mail były wysyłane po zakończeniu procesu odzyskiwania.
 
-6. Na ekranie Podsumowanie upewnij się, że wszystkie szczegóły są poprawne. Jeśli szczegóły nie są poprawne lub chcesz wprowadzić zmiany, kliknij przycisk **Wstecz**. Jeśli ustawienia są zadowalające, kliknij przycisk **Odzyskaj** , aby rozpocząć proces odzyskiwania.
+6. Na ekranie Podsumowanie upewnij się, że wszystkie szczegóły są poprawne. Jeśli szczegóły są nieprawidłowe lub chcesz wprowadzić zmianę, wybierz pozycję **Wstecz**. Jeśli ustawienia są zadowalające, wybierz pozycję **Odzyskaj** , aby rozpocząć proces odzyskiwania.
 
 7. Ekran **Stan odzyskiwania** zawiera informacje o zadaniu odzyskiwania.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 [Odzyskiwanie danych z usługi Azure Backup Server](./backup-azure-alternate-dpm-server.md)

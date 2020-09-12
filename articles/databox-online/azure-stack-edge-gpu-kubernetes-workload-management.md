@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 53bd7a404e4635833b03507e8b5ae93ae40b1c61
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268038"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318985"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Kubernetes zarządzanie obciążeniami na urządzeniu brzegowym Azure Stack
 
@@ -47,7 +47,7 @@ Istnieją trzy podstawowe sposoby wdrażania obciążeń. Każda z tych metod wd
 
 ![Wdrożenie obciążenia Kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Lokalne wdrożenie**: jest to za poorednictwem narzędzia dostępu do wiersza polecenia, takiego jak `kubectl` , które pozwala na wdrożenie Kubernetes `yamls` . Nawiąż połączenie z klastrem Kubernetes na krawędzi Azure Stack utworzonej przy użyciu `kubeconfig` pliku. Aby uzyskać więcej informacji, przejdź do [obszaru dostęp do klastra Kubernetes za pośrednictwem usługi polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Wdrożenie lokalne**: to wdrożenie jest dostępne za pomocą narzędzia wiersza polecenia, takiego jak `kubectl` , które pozwala na wdrożenie Kubernetes `yamls` . Dostęp do klastra Kubernetes można uzyskać na Azure Stackej krawędzi za pomocą `kubeconfig` pliku. Aby uzyskać więcej informacji, przejdź do [obszaru dostęp do klastra Kubernetes za pośrednictwem usługi polecenia kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - **Wdrożenie IoT Edge**: odbywa się to za pomocą IoT Edge, który łączy się z IoT Hub platformy Azure. Nawiąż połączenie z klastrem Kubernetes Azure Stack na urządzeniu brzegowym za pośrednictwem `iotedge` przestrzeni nazw. IoT Edge agenci wdrożoni w tej przestrzeni nazw są odpowiedzialni za łączność z platformą Azure. Konfiguracja zostanie zastosowana `IoT Edge deployment.json` za pomocą usługi Azure DEVOPS Ci/CD. Przestrzeń nazw i zarządzanie IoT Edge są wykonywane za poorednictwem operatora chmury.
 
@@ -59,9 +59,9 @@ Podczas wdrażania aplikacji należy wziąć pod uwagę następujące informacje
 
 - **Jeden lub wiele typów**: można wybrać jedną opcję wdrożenia lub kombinację różnych opcji wdrażania.
 - **Chmura a lokalna**: w zależności od aplikacji można wybrać wdrożenie lokalne za pośrednictwem polecenia kubectl lub wdrożenia w chmurze za pośrednictwem IoT Edge i Azure Arc. 
-    - Wdrożenie lokalne jest bardziej odpowiednie dla scenariuszy programistycznych. W przypadku wybrania wdrożenia lokalnego nastąpi ograniczenie do sieci, w której wdrożono urządzenie Azure Stack Edge.
+    - W przypadku wybrania wdrożenia lokalnego nastąpi ograniczenie do sieci, w której wdrożono urządzenie Azure Stack Edge.
     - Jeśli masz agenta w chmurze, który można wdrożyć, należy wdrożyć operator chmury i użyć zarządzania chmurą.
-- **Usługa IoT vs Azure Arc**: wybór wdrożenia zależy również od intencji scenariusza produktu. W przypadku wdrażania aplikacji lub kontenerów, które mają głębią integrację z ekosystemem IoT lub IoT, należy wybrać IoT Edge sposób wdrażania aplikacji. Jeśli masz istniejące wdrożenia programu Kubernetes, najlepszym wyborem będzie usługa Azure Arc.
+- **Usługa IoT vs Azure Arc**: wybór wdrożenia zależy również od intencji scenariusza produktu. W przypadku wdrażania aplikacji lub kontenerów, które mają większą integrację z usługą IoT lub ekosystem IoT, wybierz IoT Edge w celu wdrożenia aplikacji. Jeśli masz istniejące wdrożenia programu Kubernetes, najlepszym wyborem będzie usługa Azure Arc.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -76,4 +76,4 @@ Aby wdrożyć aplikację za pośrednictwem IoT Edge, zobacz:
 
 Aby wdrożyć aplikację za pośrednictwem usługi Azure ARC, zobacz:
 
-- [Wdróż aplikację przy użyciu usługi Azure Arc](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Wdróż aplikację przy użyciu usługi Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).

@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi baz danych SAP HANAymi na maszynach wirtu
 description: W tym artykule przedstawiono typowe zadania związane z zarządzaniem i monitorowaniem SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 40761415042cc619893ab3a712a763d4fb046e38
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267483"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377458"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
 
@@ -41,7 +41,7 @@ Alerty to prosta metoda monitorowania kopii zapasowych baz danych SAP HANA. Aler
 
   ![Lista alertów dotyczących kopii zapasowych](./media/sap-hana-db-manage/backup-alerts-list.png)
 
-* Kliknij alerty, aby wyświetlić więcej szczegółów:
+* Wybierz alerty, aby wyświetlić więcej szczegółów:
 
   ![Szczegóły alertu](./media/sap-hana-db-manage/alert-details.png)
 
@@ -61,9 +61,9 @@ Azure Backup umożliwia łatwe zarządzanie kopią zapasową bazy danych SAP HAN
 
 Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową można uruchomić na żądanie w następujący sposób:
 
-1. W menu magazyn kliknij pozycję **elementy kopii zapasowej**.
-2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie kliknij pozycję **Utwórz kopię zapasową teraz**.
-3. W obszarze **kopia zapasowa**wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie kliknij przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
+1. W menu magazyn wybierz pozycję **elementy kopii zapasowej**.
+2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie wybierz pozycję **Utwórz kopię zapasową teraz**.
+3. W obszarze **kopia zapasowa**wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie wybierz przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
 4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
 
 Domyślnie przechowywanie kopii zapasowych na żądanie to 45 dni.
@@ -114,7 +114,7 @@ Można zmienić podstawowe zasady dla SAP HANA elementu kopii zapasowej.
   ![Wybierz SAP HANA na maszynie wirtualnej platformy Azure](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
 * Wybierz element kopii zapasowej, którego podstawowe zasady chcesz zmienić
-* Kliknij istniejące zasady tworzenia kopii zapasowych
+* Wybierz istniejące zasady tworzenia kopii zapasowych.
 
   ![Wybierz istniejące zasady tworzenia kopii zapasowych](./media/sap-hana-db-manage/existing-backup-policy.png)
 

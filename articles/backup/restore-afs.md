@@ -3,12 +3,12 @@ title: Przywracanie udziałów plików platformy Azure
 description: Dowiedz się, w jaki sposób używać Azure Portal do przywracania całego udziału plików lub określonych plików z punktu przywracania utworzonego przez Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762828"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376778"
 ---
 # <a name="restore-azure-file-shares"></a>Przywracanie udziałów plików platformy Azure
 
@@ -50,16 +50,16 @@ Można użyć tej opcji przywracania, aby przywrócić pełny udział plików w 
 
    ![Wybierz pozycję Przywróć udział](./media/restore-afs/restore-share.png)
 
-1. Po wybraniu opcji **Przywróć udział**zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, kliknij tekst linku **Wybierz** poniżej pola tekstowego **punkt przywracania** .
+1. Po wybraniu opcji **Przywróć udział**zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, wybierz **opcję Wybierz** tekst linku poniżej pola tekstowego **punkt przywracania** .
 
-    ![Wybierz pozycję punkt przywracania, klikając pozycję Wybierz.](./media/restore-afs/select-restore-point.png)
+    ![Wybierz pozycję punkt przywracania, wybierając pozycję Wybierz.](./media/restore-afs/select-restore-point.png)
 
 1. Po prawej stronie zostanie otwarte okienko kontekstu **Wybierz punkt przywracania** z listą punktów przywracania dostępnych dla wybranego udziału plików. Wybierz punkt przywracania, którego chcesz użyć do wykonania operacji przywracania, a następnie wybierz **przycisk OK**.
 
     ![Wybierz punkt przywracania](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Domyślnie okienko **Wybierz punkt przywracania** zawiera listę punktów przywracania z ostatnich 30 dni. Jeśli chcesz przejrzeć punkty przywracania utworzone w określonym czasie trwania, określ zakres, wybierając odpowiedni **czas rozpoczęcia** i **godzinę zakończenia** , a następnie kliknij przycisk **Odśwież** .
+    >Domyślnie okienko **Wybierz punkt przywracania** zawiera listę punktów przywracania z ostatnich 30 dni. Aby wyszukać punkty przywracania utworzone w określonym czasie trwania, określ zakres, wybierając odpowiedni **czas rozpoczęcia** i **godzinę zakończenia** , a następnie wybierz przycisk **Odśwież** .
 
 1. Następnym krokiem jest wybranie **lokalizacji przywracania**. W sekcji **miejsce docelowe odzyskiwania** określ miejsce lub sposób przywracania danych. Wybierz jedną z następujących dwóch opcji, korzystając z przycisku przełącznika:
 
@@ -93,9 +93,9 @@ Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów
 
     ![Wybierz odzyskiwanie plików](./media/restore-afs/file-recovery.png)
 
-1. Po wybraniu opcji **odzyskiwanie plików**zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, kliknij tekst linku **Wybierz** poniżej pola tekstowego **punkt przywracania** .
+1. Po wybraniu opcji **odzyskiwanie plików**zostanie otwarte okienko **przywracanie** . Aby wybrać punkt przywracania, który ma być używany do wykonywania operacji przywracania, zaznacz pole tekstowe **Wybierz** link poniżej pola tekstowego **punkt przywracania** .
 
-    ![Wybierz pozycję punkt przywracania, klikając pozycję Wybierz.](./media/restore-afs/select-restore-point.png)
+    ![Wybierz pozycję punkt przywracania, wybierając link wybierz](./media/restore-afs/select-restore-point.png)
 
 1. Po prawej stronie zostanie otwarte okienko kontekstu **Wybierz punkt przywracania** z listą punktów przywracania dostępnych dla wybranego udziału plików. Wybierz punkt przywracania, którego chcesz użyć do wykonania operacji przywracania, a następnie wybierz **przycisk OK**.
 
@@ -112,7 +112,7 @@ Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów
 
     ![Oryginalna lokalizacja odzyskiwania na poziomie elementu](./media/restore-afs/original-location-item-level.png)
 
-1. Aby wybrać pliki lub foldery, które chcesz przywrócić, kliknij przycisk **Dodaj plik** . Spowoduje to otwarcie okienka kontekstowego po prawej stronie, wyświetlając zawartość punktu odzyskiwania udziału plików, który został wybrany do przywracania.
+1. Aby wybrać pliki lub foldery, które chcesz przywrócić, wybierz przycisk **Dodaj plik** . Spowoduje to otwarcie okienka kontekstowego po prawej stronie, wyświetlając zawartość punktu odzyskiwania udziału plików, który został wybrany do przywracania.
 
     ![Wybierz pozycję Dodaj plik](./media/restore-afs/add-file.png)
 
@@ -132,7 +132,7 @@ Ta opcja przywracania służy do przywracania pojedynczych plików lub folderów
 1. Na liście rozwijanej **Wybierz udział plików** są wyświetlane udziały plików znajdujące się na koncie magazynu wybranym w kroku 2. Wybierz udział plików, do którego ma zostać przywrócona zawartość kopii zapasowej.
 1. W polu **Nazwa folderu** Określ nazwę folderu, który ma zostać utworzony w docelowym udziale plików z przywróconą zawartością.
 1. Wybierz, czy pominąć, czy zastąpić, jeśli występują konflikty.
-1. Aby wybrać pliki lub foldery, które chcesz przywrócić, kliknij przycisk **Dodaj plik** . Spowoduje to otwarcie okienka kontekstowego po prawej stronie zawierającej zawartość punktu odzyskiwania udziału plików, który został wybrany do przywracania.
+1. Aby wybrać pliki lub foldery, które chcesz przywrócić, wybierz przycisk **Dodaj plik** . Spowoduje to otwarcie okienka kontekstowego po prawej stronie zawierającej zawartość punktu odzyskiwania udziału plików, który został wybrany do przywracania.
 
     ![Wybierz elementy, które mają zostać przywrócone do lokalizacji alternatywnej](./media/restore-afs/restore-to-alternate-location.png)
 

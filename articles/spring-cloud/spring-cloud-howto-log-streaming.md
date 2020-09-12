@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: fb76f7897b9647a688e21993002f9c96fe9487f8
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 45f892064d0910029db37c56f731a072a6c7514e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046752"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299613"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Przesyłanie strumieniowe dzienników aplikacji Azure Spring Cloud w czasie rzeczywistym
 Chmura sprężynowa Azure umożliwia przesyłanie strumieniowe dzienników w interfejsie wiersza polecenia platformy Azure w czasie rzeczywistym w celu rozwiązywania problemów. Możesz również [analizować dzienniki i metryki przy użyciu ustawień diagnostycznych](./diagnostic-services.md).
@@ -20,7 +20,7 @@ Chmura sprężynowa Azure umożliwia przesyłanie strumieniowe dzienników w int
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Zainstaluj [rozszerzenie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) dla chmury wiosennej, minimalną wersję 0.2.0.
-* Wystąpienie **chmurowej platformy Azure** z uruchomioną aplikacją, na przykład [aplikacja Wiosenna w chmurze](./spring-cloud-quickstart-launch-app-cli.md).
+* Wystąpienie **chmurowej platformy Azure** z uruchomioną aplikacją, na przykład [aplikacja Wiosenna w chmurze](./spring-cloud-quickstart.md).
 
 > [!NOTE]
 >  Rozszerzenie interfejsu wiersza polecenia ASC zostało zaktualizowane z wersji 0.2.0 do 0.2.1. Ta zmiana ma wpływ na składnię polecenia przesyłania strumieniowego dzienników: `az spring-cloud app log tail` , która została zastąpiona przez: `az spring-cloud app logs` . Polecenie: `az spring-cloud app log tail` będzie przestarzałe w przyszłej wersji. Jeśli używasz wersji 0.2.0, możesz przeprowadzić uaktualnienie do 0.2.1. Najpierw usuń starą wersję za pomocą polecenia: `az extension remove -n spring-cloud` .  Następnie zainstaluj 0.2.1 przez polecenie: `az extension add -n spring-cloud` .

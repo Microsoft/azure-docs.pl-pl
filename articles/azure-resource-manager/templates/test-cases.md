@@ -2,15 +2,15 @@
 title: Przypadki testowe dla narzędzia Test Toolkit
 description: Opisuje testy uruchamiane przez zestaw narzędzi do testowania szablonów ARM.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255988"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378121"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Domyślne przypadki testowe dla zestawu narzędzi testów dla szablonu ARM
 
@@ -100,6 +100,37 @@ Następny przykład **przekazuje** ten test:
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>Adresy URL środowiska nie mogą być stałe
+
+Nazwa testu: **DeploymentTemplate nie może zawierać identyfikatora URI stałe**
+
+Nie umieszczajj adresów URL środowiska w szablonie. Zamiast tego należy użyć [funkcji środowiska](template-functions-deployment.md#environment) , aby dynamicznie pobrać te adresy URL podczas wdrażania. Aby uzyskać listę blokowanych hostów adresów URL, zobacz [przypadek testowy](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+Poniższy przykład **kończy się niepowodzeniem** tego testu, ponieważ adres URL to stałe.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+Test **kończy się niepowodzeniem** , gdy jest używany z [concat](template-functions-string.md#concat) lub [URI](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+Poniższy przykład **przekazuje** ten test.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>Lokalizacja używa parametru
@@ -351,18 +382,18 @@ To ostrzeżenie jest również wyświetlane, jeśli podano wartość minimalną 
 
 ## <a name="artifacts-parameter-defined-correctly"></a>Parametr artefaktów został zdefiniowany prawidłowo
 
-Nazwa testu: **artefakty — parametr**
+Nazwa testu: **parametr artefaktów**
 
-W przypadku dołączania parametrów dla `_artifactsLocation` i `_artifactsLocationSasToken` należy użyć prawidłowych wartości domyślnych i typów. Aby przekazać ten test, muszą być spełnione następujące warunki:
+W przypadku dołączania parametrów dla `_artifactsLocation` i `_artifactsLocationSasToken` należy użyć prawidłowych wartości domyślnych i typów. Aby przekazać ten test, muszą zostać spełnione następujące warunki:
 
 * w przypadku podania jednego parametru należy podać drugi
-* `_artifactsLocation`musi być **ciągiem**
-* `_artifactsLocation`musi mieć wartość domyślną w szablonie głównym
-* `_artifactsLocation`nie można mieć wartości domyślnej w zagnieżdżonym szablonie 
+* `_artifactsLocation` musi być **ciągiem**
+* `_artifactsLocation` musi mieć wartość domyślną w szablonie głównym
+* `_artifactsLocation` nie można mieć wartości domyślnej w zagnieżdżonym szablonie 
 * `_artifactsLocation``"[deployment().properties.templateLink.uri]"`wartość domyślna musi mieć adres URL lub niesformatowanego repozytorium.
-* `_artifactsLocationSasToken`musi być elementem **secureString**
-* `_artifactsLocationSasToken`może mieć tylko pusty ciąg dla jego wartości domyślnej
-* `_artifactsLocationSasToken`nie można mieć wartości domyślnej w zagnieżdżonym szablonie 
+* `_artifactsLocationSasToken` musi być elementem **secureString**
+* `_artifactsLocationSasToken` może mieć tylko pusty ciąg dla jego wartości domyślnej
+* `_artifactsLocationSasToken` nie można mieć wartości domyślnej w zagnieżdżonym szablonie 
 
 ## <a name="declared-variables-must-be-used"></a>Zadeklarowane zmienne muszą być używane
 
@@ -514,9 +545,9 @@ Ten test ma zastosowanie do:
 
 W przypadku `reference` i `list*` , test **kończy się niepowodzeniem** , gdy jest używany `concat` do konstruowania identyfikatora zasobu.
 
-## <a name="dependson-cant-be-conditional"></a>dependsOn nie może być warunkowe
+## <a name="dependson-best-practices"></a>najlepsze rozwiązania dependsOn
 
-Nazwa testu: **DependsOn nie może być warunkowa**
+Nazwa testu: **najlepsze rozwiązania DependsOn**
 
 Podczas ustawiania zależności wdrożenia nie należy używać funkcji [if](template-functions-logical.md#if) do testowania warunku. Jeśli jeden z zasobów zależy od zasobu, który jest [wdrażany warunkowo](conditional-resource-deployment.md), należy ustawić zależność tak jak w przypadku dowolnego zasobu. Gdy zasób warunkowy nie zostanie wdrożony, Azure Resource Manager automatycznie usuwa go z wymaganych zależności.
 
@@ -572,7 +603,7 @@ Jeśli szablon zawiera maszynę wirtualną z obrazem, upewnij się, że jest uż
 
 ## <a name="use-stable-vm-images"></a>Korzystanie z stabilnych obrazów maszyn wirtualnych
 
-Nazwa testu: **maszyny wirtualne — nie powinna być — wersja zapoznawcza**
+Nazwa testu: **Virtual Machines nie powinna być zapoznawcza**
 
 W przypadku maszyn wirtualnych nie należy używać obrazów w wersji zapoznawczej.
 

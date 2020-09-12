@@ -9,16 +9,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 895e29608a9f0d80b8e03c3bc95c3c74005f7c4c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: dec0503ec369ae473fb592db958c0e30a27a4268
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269713"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297437"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services Terminologia i koncepcje
 

@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ec79fc7c09f2bc1aeb2c07016365e831932fa1ff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018114"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377322"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -61,7 +61,7 @@ W kreatorze są wyświetlane tylko maszyny wirtualne znajdujące się w tym samy
 
 Tak. Kopie zapasowe są uruchamiane, gdy maszyna jest wyłączona. Punkt odzyskiwania jest oznaczony jako spójny pod kątem awarii.
 
-### <a name="can-i-cancel-an-in-progress-backup-job"></a>Czy mogę anulować zadanie tworzenia kopii zapasowej w toku?
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Czy mogę anulować trwające zadanie tworzenia kopii zapasowej?
 
 Tak. Zadanie tworzenia kopii zapasowej można anulować w stanie trwającej **migawki** . Nie można anulować zadania, jeśli transfer danych z migawki jest w toku.
 
@@ -197,6 +197,6 @@ Tak, istnieje limit 100 maszyn wirtualnych, które mogą być skojarzone z tymi 
 
 Obecnie można wyświetlać ustawienia przechowywania na poziomie elementu kopii zapasowej (VM) na podstawie zasad tworzenia kopii zapasowych przypisanych do maszyny wirtualnej.
 
-Jednym ze sposobów wyświetlania ustawień przechowywania kopii zapasowych jest przejście do [pulpitu nawigacyjnego](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) elementu kopii zapasowej maszyny wirtualnej w Azure Portal. Kliknięcie linku do jego zasad tworzenia kopii zapasowej ułatwia wyświetlanie czasu przechowywania wszystkich codziennych, cotygodniowych, miesięcznych i rocznych punktów przechowywania skojarzonych z maszyną wirtualną.
+Jednym ze sposobów wyświetlania ustawień przechowywania kopii zapasowych jest przejście do [pulpitu nawigacyjnego](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) elementu kopii zapasowej maszyny wirtualnej w Azure Portal. Wybranie linku do zasad tworzenia kopii zapasowej ułatwia wyświetlanie czasu przechowywania wszystkich codziennych, cotygodniowych, miesięcznych i rocznych punktów przechowywania skojarzonych z maszyną wirtualną.
 
 Możesz również użyć [Eksploratora kopii zapasowych](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) , aby wyświetlić ustawienia przechowywania dla wszystkich maszyn wirtualnych w jednym okienku szkła. Przejdź do Eksploratora kopii zapasowych z dowolnego magazynu Recovery Services, przejdź do karty **elementy kopii zapasowej** i wybierz widok zaawansowany, aby wyświetlić szczegółowe informacje o przechowywaniu dla każdej maszyny wirtualnej.

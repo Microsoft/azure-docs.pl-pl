@@ -1,0 +1,526 @@
+---
+title: Autozarządzanie urządzeniami przy użyciu usługi DPS
+titleSuffix: Azure Digital Twins
+description: Zobacz jak skonfigurować zautomatyzowany proces, aby udostępnić i wycofać urządzenia IoT w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS).
+author: baanders
+ms.author: baanders
+ms.date: 9/1/2020
+ms.topic: how-to
+ms.service: digital-twins
+ms.openlocfilehash: 1a7ab90cccd78c3b005487938432a0f955d50738
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89380865"
+---
+# <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Autozarządzanie urządzeniami w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning Service (DPS)
+
+W tym artykule dowiesz się, jak zintegrować usługę Azure Digital bliźniaczych reprezentacji z [usługą Device Provisioning Service (DPS)](../iot-dps/about-iot-dps.md).
+
+Rozwiązanie opisane w tym artykule umożliwi automatyzację procesu **_inicjowania obsługi_** i **_wycofywania_** IoT Hub urządzeń w usłudze Azure Digital bliźniaczych reprezentacji przy użyciu usługi Device Provisioning. 
+
+Aby uzyskać więcej _informacji na temat aprowizacji i_ _wycofywania_ etapów oraz lepiej zrozumieć zestaw ogólnych etapów zarządzania urządzeniami, które są wspólne dla wszystkich projektów IoT w przedsiębiorstwie, zobacz [sekcję *cykl życia urządzenia* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) w dokumentacji dotyczącej zarządzania urządzeniami w IoT Hub.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Przed rozpoczęciem konfigurowania aprowizacji należy mieć **wystąpienie usługi Azure Digital bliźniaczych reprezentacji** , które zawiera modele i bliźniaczych reprezentacji. To wystąpienie należy również skonfigurować z możliwością aktualizacji informacji cyfrowych przędzy na podstawie danych. 
+
+Jeśli jeszcze tego nie zrobiono, możesz go utworzyć, postępując zgodnie z samouczkiem Digital bliźniaczych reprezentacji na platformie Azure [*: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md). Ten samouczek przeprowadzi Cię przez proces konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji z modelami i bliźniaczych reprezentacji, połączonymi [IoT Hub](../iot-hub/about-iot-hub.md)platformy Azure i kilkoma [funkcjami platformy Azure](../azure-functions/functions-overview.md) w celu propagowania przepływu danych.
+
+Poniższe wartości będą potrzebne w dalszej części tego artykułu od momentu skonfigurowania wystąpienia. Jeśli musisz ponownie zebrać te wartości, Skorzystaj z poniższych linków, aby uzyskać instrukcje.
+* **_Nazwa hosta_** wystąpienia usługi Azure Digital bliźniaczych reprezentacji ([Znajdź w portalu](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* **_Parametry połączenia_** parametrów połączenia z usługą Azure Event Hubs ([Znajdź w portalu](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+
+Ten przykład używa również **symulatora urządzeń** , który obejmuje obsługę administracyjną przy użyciu usługi Device Provisioning. Symulator urządzeń znajduje się tutaj: [usługa Azure Digital bliźniaczych reprezentacji i przykład integracji z IoT Hub](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Pobierz przykładowy projekt na swoją maszynę, przechodząc do linku przykładowego i wybierając przycisk *Pobierz zip* poniżej tytułu. Rozpakuj pobrany folder.
+
+Symulator urządzeń jest oparty na **Node.js**, w wersji 10.0. x lub nowszej. [*Przygotowanie środowiska programistycznego*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) opisuje sposób instalowania Node.js na potrzeby tego samouczka w systemie Windows lub Linux.
+
+## <a name="solution-architecture"></a>Architektura rozwiązania
+
+Na poniższym obrazie przedstawiono architekturę tego rozwiązania przy użyciu narzędzia Azure Digital bliźniaczych reprezentacji z usługą Device Provisioning. Pokazuje zarówno proces aprowizacji, jak i wycofywania urządzenia.
+
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie "Allocation". Dane z ręcznej akcji "Usuń urządzenie" są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
+
+Ten artykuł jest podzielony na dwie sekcje:
+* [*Inicjowanie obsługi administracyjnej urządzenia przy użyciu usługi Device Provisioning*](#auto-provision-device-using-device-provisioning-service)
+* [*Autowycofywanie urządzenia przy użyciu IoT Hub zdarzeń cyklu życia*](#auto-retire-device-using-iot-hub-lifecycle-events)
+
+Aby uzyskać dokładniejsze wyjaśnienia poszczególnych kroków architektury, zobacz poszczególne sekcje w dalszej części artykułu.
+
+## <a name="auto-provision-device-using-device-provisioning-service"></a>Inicjowanie obsługi administracyjnej urządzenia przy użyciu usługi Device Provisioning
+
+W tej sekcji zostanie dołączana usługa Device Provisioning do usługi Azure Digital bliźniaczych reprezentacji w celu samodzielnego udostępnienia urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
+
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Zainicjuj obsługę przepływu — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Dane są przepływane między urządzeniem termostatu a działem DPS (1 w przypadku urządzenia > DPS i 5 dla usługi DPS > urządzeniu). Dane są również przepływane z usługi DPS do IoT Hub (4) oraz do programu Azure Digital bliźniaczych reprezentacji (3) za pośrednictwem funkcji platformy Azure o nazwie "Allocation" (2).":::
+
+Oto opis przepływu procesu:
+1. Urządzenie kontaktuje się z punktem końcowym DPS, przekazując informacje identyfikacyjne w celu potwierdzenia tożsamości.
+2. Usługa DPS sprawdza poprawność tożsamości urządzenia, sprawdzając Identyfikator rejestracji i klucz na liście rejestracji, a następnie wywołuje [funkcję platformy Azure](../azure-functions/functions-overview.md) w celu wykonania przydziału.
+3. Funkcja platformy Azure tworzy nowe [sznurki](concepts-twins-graph.md) w usłudze Azure Digital bliźniaczych reprezentacji dla urządzenia.
+4. Usługa DPS rejestruje urządzenie w usłudze IoT Hub i wypełnia żądany stan dwuosiowy urządzenia.
+5. Centrum IoT Hub zwraca informacje o IDENTYFIKATORze urządzenia oraz informacje o połączeniu usługi IoT Hub z urządzeniem. Urządzenie może teraz połączyć się z usługą IoT Hub.
+
+W poniższych sekcjach opisano kroki umożliwiające skonfigurowanie tego przepływu urządzenia automatyczne Inicjowanie obsługi.
+
+### <a name="create-a-device-provisioning-service"></a>Tworzenie usługi Device Provisioning
+
+Po zainicjowaniu nowego urządzenia przy użyciu usługi Device Provisioning można utworzyć nową sznurek dla tego urządzenia w usłudze Azure Digital bliźniaczych reprezentacji.
+
+Utwórz wystąpienie usługi Device Provisioning, które będzie używane do udostępniania urządzeń IoT. Możesz użyć poniższych instrukcji interfejsu wiersza polecenia platformy Azure lub użyć Azure Portal: [*Szybki Start: skonfiguruj IoT Hub Device Provisioning Service przy użyciu Azure Portal*](../iot-dps/quick-setup-auto-provision.md).
+
+Następujące polecenie interfejsu wiersza polecenia platformy Azure utworzy usługę Device Provisioning. Należy określić nazwę, grupę zasobów i region. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
+
+```azurecli-interactive
+az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
+```
+
+### <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure
+
+Następnie utworzysz funkcję wyzwalaną przez żądanie HTTP w aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych.
+
+Ta funkcja będzie używana przez usługę Device Provisioning w [niestandardowej zasadzie alokacji](../iot-dps/how-to-use-custom-allocation-policies.md) , która zastrzega nowe urządzenie. Aby uzyskać więcej informacji na temat korzystania z żądań HTTP z usługą Azure Functions, zobacz [*wyzwalacz żądań HTTP platformy Azure dla Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+
+W projekcie aplikacji funkcji Dodaj nową funkcję. Ponadto Dodaj nowy pakiet NuGet do projektu: `Microsoft.Azure.Devices.Provisioning.Service` .
+
+W nowo utworzonym pliku kodu funkcji wklej następujący kod.
+
+```C#
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Devices.Shared;
+using Microsoft.Azure.Devices.Provisioning.Service;
+using System.Net.Http;
+using Azure.Identity;
+using Azure.DigitalTwins.Core;
+using Azure.Core.Pipeline;
+using Azure;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Samples.AdtIothub
+{
+    public static class DpsAdtAllocationFunc
+    {
+        const string adtAppId = "https://digitaltwins.azure.net";
+        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+        private static readonly HttpClient httpClient = new HttpClient();
+
+        [FunctionName("DpsAdtAllocationFunc")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
+        {
+            // Get request body
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            log.LogDebug($"Request.Body: {requestBody}");
+            dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+            // Get registration ID of the device
+            string regId = data?.deviceRuntimeContext?.registrationId;
+
+            bool fail = false;
+            string message = "Uncaught error";
+            ResponseObj obj = new ResponseObj();
+
+            // Must have unique registration ID on DPS request 
+            if (regId == null)
+            {
+                message = "Registration ID not provided for the device.";
+                log.LogInformation("Registration ID: NULL");
+                fail = true;
+            }
+            else
+            {
+                string[] hubs = data?.linkedHubs.ToObject<string[]>();
+
+                // Must have hubs selected on the enrollment
+                if (hubs == null)
+                {
+                    message = "No hub group defined for the enrollment.";
+                    log.LogInformation("linkedHubs: NULL");
+                    fail = true;
+                }
+                else
+                {
+                    // Find or create twin based on the provided registration ID and model ID
+                    dynamic payloadContext = data?.deviceRuntimeContext?.payload;
+                    string dtmi = payloadContext.modelId;
+                    log.LogDebug($"payload.modelId: {dtmi}");
+                    string dtId = await FindOrCreateTwin(dtmi, regId, log);
+
+                    // Get first linked hub (TODO: select one of the linked hubs based on policy)
+                    obj.iotHubHostName = hubs[0];
+
+                    // Specify the initial tags for the device.
+                    TwinCollection tags = new TwinCollection();
+                    tags["dtmi"] = dtmi;
+                    tags["dtId"] = dtId;
+
+                    // Specify the initial desired properties for the device.
+                    TwinCollection properties = new TwinCollection();
+
+                    // Add the initial twin state to the response.
+                    TwinState twinState = new TwinState(tags, properties);
+                    obj.initialTwin = twinState;
+                }
+            }
+
+            log.LogDebug("Response: " + ((obj.iotHubHostName != null) ? JsonConvert.SerializeObject(obj) : message));
+
+            return (fail)
+                ? new BadRequestObjectResult(message)
+                : (ActionResult)new OkObjectResult(obj);
+        }
+
+        public static async Task<string> FindOrCreateTwin(string dtmi, string regId, ILogger log)
+        {
+            // Create Digital Twins client
+            var cred = new ManagedIdentityCredential(adtAppId);
+            var client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+
+            // Find existing twin with registration ID
+            string dtId;
+            string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
+            AsyncPageable<string> twins = client.QueryAsync(query);
+            
+            await foreach (string twinJson in twins)
+            {
+                // Get DT ID from the Twin
+                JObject twin = (JObject)JsonConvert.DeserializeObject(twinJson);
+                dtId = (string)twin["$dtId"];
+                log.LogInformation($"Twin '{dtId}' with Registration ID '{regId}' found in DT");
+                return dtId;
+            }
+
+            // Not found, so create new twin
+            log.LogInformation($"Twin ID not found, setting DT ID to regID");
+            dtId = regId; // use the Registration ID as the DT ID
+
+            // Define the model type for the twin to be created
+            Dictionary<string, object> meta = new Dictionary<string, object>()
+            {
+                { "$model", dtmi }
+            };
+            // Initialize the twin properties
+            Dictionary<string, object> twinProps = new Dictionary<string, object>()
+            {
+                { "$metadata", meta }
+            };
+            twinProps.Add("Temperature", 0.0);
+            await client.CreateDigitalTwinAsync(dtId, System.Text.Json.JsonSerializer.Serialize<Dictionary<string, object>>(twinProps));
+            log.LogInformation($"Twin '{dtId}' created in DT");
+
+            return dtId;
+        }
+    }
+
+    public class ResponseObj
+    {
+        public string iotHubHostName { get; set; }
+        public TwinState initialTwin { get; set; }
+    }
+}
+```
+
+Zapisz plik, a następnie ponownie Opublikuj swoją aplikację funkcji. Instrukcje dotyczące publikowania aplikacji funkcji znajdują się w sekcji [*publikowanie aplikacji*](tutorial-end-to-end.md#publish-the-app) w kompleksowym samouczku.
+
+### <a name="configure-your-function"></a>Skonfiguruj funkcję
+
+Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji, zawierającej odwołanie do utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. W przypadku korzystania z kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) ustawienie zostanie już skonfigurowane.
+
+Dodaj ustawienie za pomocą tego polecenia platformy Azure:
+
+```azurecli-interactive
+az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
+```
+
+Upewnij się, że uprawnienia i zarządzane przypisanie roli tożsamości są poprawnie skonfigurowane dla aplikacji funkcji, zgodnie z opisem w sekcji [*przypisywanie uprawnień do aplikacji funkcji*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) w kompleksowym samouczku.
+
+<!-- 
+* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
+
+```azurecli-interactive
+az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
+``` -->
+
+### <a name="create-device-provisioning-enrollment"></a>Utwórz rejestrację aprowizacji urządzeń
+
+Następnie musisz utworzyć rejestrację w usłudze Device Provisioning przy użyciu **funkcji alokacji niestandardowej**. Postępuj zgodnie z instrukcjami, aby to zrobić w sekcjach [*Tworzenie rejestracji*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) i [*wyprowadzanie unikatowych kluczy urządzeń*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) w artykule usługi Device Provisioning Services — informacje o niestandardowych zasadach alokacji.
+
+Podczas przechodzenia przez ten przepływ nastąpi połączenie rejestracji z właśnie utworzoną funkcją, wybierając funkcję w trakcie tego kroku, aby **wybrać sposób przypisywania urządzeń do centrów**. Po utworzeniu rejestracji nazwa rejestracji i podstawowy lub pomocniczy klucz SAS będą później używane do konfigurowania symulatora urządzeń w tym artykule.
+
+### <a name="set-up-the-device-simulator"></a>Konfigurowanie symulatora urządzeń
+
+Ten przykład korzysta z symulatora urządzeń, który obejmuje obsługę administracyjną przy użyciu usługi Device Provisioning. Symulator urządzeń znajduje się tutaj: [usługa Azure Digital bliźniaczych reprezentacji i przykład integracji z IoT Hub](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Jeśli przykład nie został jeszcze pobrany, Pobierz go teraz, przechodząc do linku przykładowego i wybierając przycisk *Pobierz zip* poniżej tytułu. Rozpakuj pobrany folder.
+
+Otwórz okno polecenia i przejdź do pobranego folderu, a następnie do katalogu *Device-symulator* . Zainstaluj zależności dla projektu przy użyciu następującego polecenia:
+
+```cmd
+npm install
+```
+
+Następnie skopiuj plik *ENV. Template* do nowego pliku o nazwie *ENV*i wprowadź następujące ustawienia:
+
+```cmd
+PROVISIONING_HOST = "global.azure-devices-provisioning.net"
+PROVISIONING_IDSCOPE = "<Device Provisioning Service Scope ID>"
+PROVISIONING_REGISTRATION_ID = "<Device Registration ID>"
+ADT_MODEL_ID = "dtmi:contosocom:DigitalTwins:Thermostat;1"
+PROVISIONING_SYMMETRIC_KEY = "<Device Provisioning Service enrollment primary or secondary SAS key>"
+```
+
+Zapisz i zamknij plik.
+
+### <a name="start-running-the-device-simulator"></a>Rozpocznij pracę z symulatorem urządzeń
+
+W katalogu *Device-symulator* w oknie polecenia Uruchom symulatora urządzeń przy użyciu następującego polecenia:
+
+```cmd
+node .\adt_custom_register.js
+```
+
+Powinno zostać wyświetlone urządzenie zarejestrowane i połączone z IoT Hub, a następnie od momentu wysłania wiadomości.
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="okno Polecenie przedstawiające rejestrowanie urządzeń i wysyłanie komunikatów":::
+
+### <a name="validate"></a>Walidacja
+
+W wyniku przepływu, który został skonfigurowany w tym artykule, urządzenie zostanie automatycznie zarejestrowane w usłudze Azure Digital bliźniaczych reprezentacji. Aby znaleźć sznurki urządzenia w utworzonym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, użyj następującego polecenia [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md) .
+
+```azurecli-interactive
+az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
+```
+
+Powinny być widoczne sznurki urządzenia znajdujące się w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="okno Polecenie pokazujący nowo utworzone sznury":::
+
+## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Autowycofywanie urządzenia przy użyciu IoT Hub zdarzeń cyklu życia
+
+W tej sekcji nastąpi dołączenie IoT Hub zdarzeń cyklu życia do usługi Azure Digital bliźniaczych reprezentacji w celu wycofania urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
+
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Wycofywanie przepływu urządzenia — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Urządzenie termostatu jest wyświetlane bez połączeń z usługami platformy Azure na diagramie. Dane z ręcznej akcji "Usuń urządzenie" są przesyłane za pośrednictwem IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital bliźniaczych reprezentacji (3).":::
+
+Oto opis przepływu procesu:
+1. Proces zewnętrzny lub ręczny wyzwala Usuwanie urządzenia w IoT Hub.
+2. IoT Hub usuwa urządzenie i generuje zdarzenie [cyklu życia urządzenia](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) , które będzie kierowane do [centrum zdarzeń](../event-hubs/event-hubs-about.md).
+3. Funkcja platformy Azure usuwa sznurek urządzenia w usłudze Azure Digital bliźniaczych reprezentacji.
+
+W poniższych sekcjach opisano procedurę konfigurowania tego przepływu urządzeń.
+
+### <a name="create-an-event-hub"></a>Tworzenie centrum zdarzeń
+
+Teraz musisz utworzyć [centrum zdarzeń](../event-hubs/event-hubs-about.md)platformy Azure, które będzie używane do odbierania IoT Hub zdarzeń cyklu życia. 
+
+Wykonaj kroki opisane w sekcji [*Tworzenie centrum zdarzeń*](../event-hubs/event-hubs-create.md) — Szybki Start, używając następujących informacji:
+* Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)), możesz ponownie użyć grupy zasobów utworzonej na potrzeby kompleksowego samouczka.
+* Nazwij centrum zdarzeń *lifecycleevents*lub inny wybór i Zapamiętaj utworzoną przestrzeń nazw. Zostaną one użyte podczas konfigurowania funkcji cyklu życia i IoT Hub trasy w następnych sekcjach.
+
+### <a name="create-an-azure-function"></a>Tworzenie funkcji platformy Azure
+
+Następnie utworzysz funkcję wyzwalającą Event Hubs wewnątrz aplikacji funkcji. Możesz użyć aplikacji funkcji utworzonej w kompleksowym samouczku ([*Samouczek: łączenie kompleksowego rozwiązania*](tutorial-end-to-end.md)) lub własnych. 
+
+Nazwij wyzwalacz centrum zdarzeń *lifecycleevents*i Połącz wyzwalacz centrum zdarzeń z centrum zdarzeń utworzonym w poprzednim kroku. Jeśli użyto innej nazwy centrum zdarzeń, Zmień ją na zgodną z nazwą wyzwalacza poniżej.
+
+Ta funkcja będzie używać zdarzenia cyklu życia urządzenia IoT Hub, aby wycofać istniejące urządzenie. Aby uzyskać więcej informacji o zdarzeniach cyklu życia, zobacz [*IoT Hub zdarzenia telemetrii*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Aby uzyskać więcej informacji na temat używania Event Hubs z usługą Azure Functions, zobacz [*wyzwalacz usługi azure Event Hubs dla Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+
+W opublikowanej aplikacji funkcji Dodaj nową klasę funkcji typu *wyzwalacz centrum zdarzeń*i wklej kod poniżej.
+
+```C#
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Core.Pipeline;
+using Azure.DigitalTwins.Core;
+using Azure.DigitalTwins.Core.Serialization;
+using Azure.Identity;
+using Microsoft.Azure.EventHubs;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace Samples.AdtIothub
+{
+    public static class DeleteDeviceInTwinFunc
+    {
+        private static string adtAppId = "https://digitaltwins.azure.net";
+        private static readonly string adtInstanceUrl = System.Environment.GetEnvironmentVariable("ADT_SERVICE_URL", EnvironmentVariableTarget.Process);
+        private static readonly HttpClient httpClient = new HttpClient();
+
+        [FunctionName("DeleteDeviceInTwinFunc")]
+        public static async Task Run(
+            [EventHubTrigger("lifecycleevents", Connection = "EVENTHUB_CONNECTIONSTRING")] EventData[] events, ILogger log)
+        {
+            var exceptions = new List<Exception>();
+
+            foreach (EventData eventData in events)
+            {
+                try
+                {
+                    //log.LogDebug($"EventData: {System.Text.Json.JsonSerializer.Serialize(eventData)}");
+
+                    string opType = eventData.Properties["opType"] as string;
+                    if (opType == "deleteDeviceIdentity")
+                    {
+                        string deviceId = eventData.Properties["deviceId"] as string;
+                        
+                        // Create Digital Twin client
+                        var cred = new ManagedIdentityCredential(adtAppId);
+                        var client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+
+                        // Find twin based on the original Registration ID
+                        string regID = deviceId; // simple mapping
+                        string dtId = await GetTwinId(client, regID, log);
+                        if (dtId != null)
+                        {
+                            await DeleteRelationships(client, dtId, log);
+
+                            // Delete twin
+                            await client.DeleteDigitalTwinAsync(dtId);
+                            log.LogInformation($"Twin '{dtId}' deleted in DT");
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    // We need to keep processing the rest of the batch - capture this exception and continue.
+                    exceptions.Add(e);
+                }
+            }
+
+            if (exceptions.Count > 1)
+                throw new AggregateException(exceptions);
+
+            if (exceptions.Count == 1)
+                throw exceptions.Single();
+        }
+
+
+        public static async Task<string> GetTwinId(DigitalTwinsClient client, string regId, ILogger log)
+        {
+            string query = $"SELECT * FROM DigitalTwins T WHERE T.$dtId = '{regId}'";
+            AsyncPageable<string> twins = client.QueryAsync(query);
+            await foreach (string twinJson in twins)
+            {
+                JObject twin = (JObject)JsonConvert.DeserializeObject(twinJson);
+                string dtId = (string)twin["$dtId"];
+                log.LogInformation($"Twin '{dtId}' found in DT");
+                return dtId;
+            }
+
+            return null;
+        }
+
+        public static async Task DeleteRelationships(DigitalTwinsClient client, string dtId, ILogger log)
+        {
+            var relationshipIds = new List<string>();
+
+            AsyncPageable<string> relationships = client.GetRelationshipsAsync(dtId);
+            await foreach (var relationshipJson in relationships)
+            {
+                BasicRelationship relationship = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relationshipJson);
+                relationshipIds.Add(relationship.Id);
+            }
+
+            foreach (var relationshipId in relationshipIds)
+            {
+                client.DeleteRelationship(dtId, relationshipId);
+                log.LogInformation($"Twin '{dtId}' relationship '{relationshipId}' deleted in DT");
+            }
+        }
+    }
+}
+```
+
+Zapisz projekt, a następnie ponownie Opublikuj aplikację funkcji. Instrukcje dotyczące publikowania aplikacji funkcji znajdują się w sekcji [*publikowanie aplikacji*](tutorial-end-to-end.md#publish-the-app) w kompleksowym samouczku.
+
+### <a name="configure-your-function"></a>Skonfiguruj funkcję
+
+Następnie musisz ustawić zmienne środowiskowe w aplikacji funkcji z wcześniejszych wersji, zawierającej odwołanie do utworzonego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i centrum zdarzeń. Jeśli używasz kompleksowego samouczka ([*Samouczek: łączenie kompleksowego rozwiązania*](./tutorial-end-to-end.md)), pierwsze ustawienie zostanie już skonfigurowane.
+
+Dodaj ustawienie za pomocą tego polecenia platformy Azure. Polecenie można uruchomić w [Cloud Shell](https://shell.azure.com)lub lokalnie, jeśli [na maszynie jest zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)interfejs wiersza polecenia platformy Azure.
+
+```azurecli-interactive
+az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
+```
+
+Następnie należy skonfigurować zmienną środowiskową funkcji do nawiązywania połączenia z nowo utworzonym centrum zdarzeń.
+
+```azurecli-interactive
+az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
+```
+
+Upewnij się, że uprawnienia i zarządzane przypisanie roli tożsamości są poprawnie skonfigurowane dla aplikacji funkcji, zgodnie z opisem w sekcji [*przypisywanie uprawnień do aplikacji funkcji*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) w kompleksowym samouczku.
+
+### <a name="create-an-iot-hub-route-for-lifecycle-events"></a>Tworzenie trasy IoT Hub dla zdarzeń cyklu życia
+
+Teraz musisz skonfigurować trasę IoT Hub, aby kierować zdarzenia dotyczące cyklu życia urządzenia. W takim przypadku nastąpi nasłuchiwanie zdarzeń usunięcia urządzenia, identyfikowanych przez `if (opType == "deleteDeviceIdentity")` . Spowoduje to wyzwolenie usunięcia elementu wieloosiowego, sfinalizowania wycofania urządzenia i jego cyfrowego sznurka.
+
+Instrukcje dotyczące tworzenia trasy IoT Hub są opisane w tym artykule: [*użyj IoT Hub Routing komunikatów do wysyłania komunikatów z urządzenia do chmury do różnych punktów końcowych*](../iot-hub/iot-hub-devguide-messages-d2c.md). W sekcji *zdarzenia telemetrii* objaśniono, że można użyć **zdarzeń cyklu życia urządzenia** jako źródła danych dla trasy.
+
+Kroki, które należy wykonać w ramach tej konfiguracji, to:
+1. Utwórz niestandardowy punkt końcowy centrum zdarzeń IoT Hub. Ten punkt końcowy powinien wskazywać centrum zdarzeń utworzone w sekcji [*Tworzenie centrum zdarzeń*](#create-an-event-hub) .
+2. Dodaj trasę *zdarzeń cyklu życia urządzenia* . Użyj punktu końcowego utworzonego w poprzednim kroku. Można ograniczyć zdarzenia cyklu życia urządzenia, aby wysyłać tylko zdarzenia Delete przez dodanie zapytania routingu `opType='deleteDeviceIdentity'` .
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Dodawanie trasy":::
+
+Po przeprowadzeniu tego przepływu wszystko jest ustawione na wycofanie urządzeń.
+
+### <a name="validate"></a>Walidacja
+
+Aby wyzwolić proces wycofania, należy ręcznie usunąć urządzenie z IoT Hub.
+
+W [pierwszej połowie tego artykułu](#auto-provision-device-using-device-provisioning-service)utworzono urządzenie w IoT Hub i odpowiadające im sznurki cyfrowe. 
+
+Teraz przejdź do IoT Hub i usuń to urządzenie (możesz to zrobić za pomocą [polecenia interfejsu CLI platformy Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) lub w [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+
+Urządzenie zostanie automatycznie usunięte z usługi Azure Digital bliźniaczych reprezentacji. 
+
+Aby sprawdzić, czy usunięto dwuosiową urządzenie w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, użyj następującego polecenia [interfejsu CLI usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md) .
+
+```azurecli-interactive
+az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
+```
+
+Należy się dowiedzieć, że nie można już znaleźć sznurka urządzenia w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Nie znaleziono okno Polecenie":::
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Jeśli zasoby utworzone w tym artykule nie są już potrzebne, wykonaj następujące kroki, aby je usunąć.
+
+Korzystając z Azure Cloud Shell lub lokalnego interfejsu wiersza polecenia platformy Azure, możesz usunąć wszystkie zasoby platformy Azure w grupie zasobów za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Spowoduje to usunięcie grupy zasobów. wystąpienie usługi Azure Digital bliźniaczych reprezentacji; Centrum IoT i Rejestracja urządzenia Hub; temat dotyczący siatki zdarzeń i skojarzonych subskrypcji; Przestrzeń nazw usługi Event Hub i obie Azure Functions aplikacje, w tym skojarzone zasoby, takie jak magazyn.
+
+> [!IMPORTANT]
+> Usunięcie grupy zasobów jest nieodwracalne. Grupa zasobów oraz wszystkie zawarte w niej zasoby zostaną trwale usunięte. Uważaj, aby nie usunąć przypadkowo niewłaściwych zasobów lub grupy zasobów. 
+
+```azurecli-interactive
+az group delete --name <your-resource-group>
+```
+<!-- 
+Next, delete the Azure AD app registration you created for your client app with this command:
+
+```azurecli
+az ad app delete --id <your-application-ID>
+``` -->
+
+Następnie usuń przykładowy folder projektu pobrany z komputera lokalnego.
+
+## <a name="next-steps"></a>Następne kroki
+
+Cyfrowe bliźniaczych reprezentacji utworzone dla urządzeń są przechowywane jako płaska hierarchia w usłudze Azure Digital bliźniaczych reprezentacji, ale mogą być wzbogacane przy użyciu informacji o modelu i wielopoziomowej hierarchii dla organizacji. Aby dowiedzieć się więcej na temat koncepcji, Przeczytaj:
+
+* [*Pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy*](concepts-twins-graph.md)
+
+Można napisać logikę niestandardową, aby automatycznie podawać te informacje za pomocą modelu i danych grafu przechowywanych już w usłudze Azure Digital bliźniaczych reprezentacji. Aby dowiedzieć się więcej o zarządzaniu, uaktualnianiu i pobieraniu informacji z grafu bliźniaczych reprezentacji, zobacz następujące tematy:
+
+* [*Instrukcje: Zarządzanie dwuosiową cyfrą*](how-to-manage-twin.md)
+* [*Instrukcje: zapytanie o wykres bliźniaczy*](how-to-query-graph.md)

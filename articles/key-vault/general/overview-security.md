@@ -1,5 +1,5 @@
 ---
-title: Zabezpieczenia Azure Key Vault | Microsoft Docs
+title: Zabezpieczenia usługi Azure Key Vault
 description: Zarządzaj uprawnieniami dostępu do Azure Key Vault, kluczy i wpisów tajnych. Obejmuje model uwierzytelniania i autoryzacji dla Key Vault oraz sposób zabezpieczania magazynu kluczy.
 services: key-vault
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: edef64c215f96b34cd0efbff4521a7d5adb98885
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870582"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377577"
 ---
 # <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
-Musisz chronić klucze szyfrowania i wpisy tajne, takie jak certyfikaty, ciągi połączeń i hasła w chmurze, aby używać Azure Key Vault. Ze względu na to, że dane są poufne i ważne, należy podjąć kroki w celu zmaksymalizowania zabezpieczeń magazynów oraz przechowywanych w nich danych. W tym artykule omówiono niektóre koncepcje, które należy wziąć pod uwagę podczas projektowania Azure Key Vault zabezpieczenia.
+Używasz Azure Key Vault do ochrony kluczy szyfrowania i wpisów tajnych, takich jak certyfikaty, ciągi połączeń i hasła w chmurze. W przypadku przechowywania danych poufnych i ważnych, należy podjąć kroki w celu zmaksymalizowania zabezpieczeń magazynów oraz przechowywanych w nich danych.
 
 ## <a name="identity-and-access-management"></a>Zarządzanie tożsamościami i dostępem
 
@@ -65,7 +64,7 @@ Key Vault zasady dostępu udzielają uprawnień oddzielnie do kluczy, wpisów ta
 > [!IMPORTANT]
 > Zasady dostępu Key Vault nie obsługują szczegółowych uprawnień na poziomie obiektów, takich jak określony klucz, klucz tajny lub certyfikat. Gdy użytkownik uzyskuje uprawnienia do tworzenia i usuwania kluczy, mogą wykonywać te operacje na wszystkich kluczach w tym magazynie kluczy.
 
-Aby ustawić zasady dostępu dla magazynu kluczy, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/)lub [interfejsów API REST zarządzania Key Vault](/rest/api/keyvault/).
+Można ustawić zasady dostępu dla magazynu kluczy przy użyciu [Azure Portal](assign-access-policy-portal.md), [interfejsu wiersza polecenia platformy Azure](assign-access-policy-cli.md), [Azure PowerShell](assign-access-policy-powershell.md)lub [interfejsów API REST zarządzania Key Vault](/rest/api/keyvault/).
 
 Dostęp do płaszczyzny danych można ograniczyć za pomocą [punktów końcowych usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md)). [Zapory i reguły sieci wirtualnej](network-security.md) można skonfigurować w celu uzyskania dodatkowej warstwy zabezpieczeń.
 
@@ -93,7 +92,7 @@ Dostęp do informacji o rejestrowaniu można uzyskać w ciągu 10 minut od opera
 - Użyj standardowych metod kontroli dostępu platformy Azure w celu zabezpieczenia dzienników, wprowadzając ograniczenia co do tego, kto może uzyskiwać do nich dostęp.
 - Usuń dzienniki, których nie chcesz już przechowywać na koncie magazynu.
 
-Aby uzyskać zalecenie dotyczące bezpiecznego zarządzania kontami magazynu, zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](../../storage/blobs/security-recommendations.md)
+Aby uzyskać zalecenie dotyczące bezpiecznego zarządzania kontami magazynu, zapoznaj się z [przewodnikiem po zabezpieczeniach usługi Azure Storage](../../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

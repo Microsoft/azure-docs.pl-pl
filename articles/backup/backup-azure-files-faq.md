@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824733"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377424"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
@@ -30,7 +30,7 @@ Sprawdź, czy udział pliku platformy Azure nie jest już chroniony w tym samym 
 
 Tak. Ochrona udziałów plików platformy Azure połączonych z grupami synchronizacji jest włączona.
 
-### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Podczas próby utworzenia kopii zapasowej udziałów plików konto usługi Storage zostało kliknięte w celu odnalezienia w nim udziałów plików. Nie zostały one jednak objęte ochroną. Jak mogę chronić te udziały plików w innym magazynie?
+### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Podczas próby utworzenia kopii zapasowej udziałów plików wybrano konto magazynu w celu odnalezienia znajdujących się w nim udziałów plików. Nie zostały one jednak objęte ochroną. Jak mogę chronić te udziały plików w innym magazynie?
 
 Podczas próby utworzenia kopii zapasowej, wybranie konta magazynu w celu odnalezienia udziałów plików w nim spowoduje zarejestrowanie konta magazynu w magazynie, z którego to zrobiono. W przypadku wybrania opcji ochrony udziałów plików przy użyciu innego magazynu [Wyrejestruj](manage-afs-backup.md#unregister-a-storage-account) wybrane konto magazynu z tego magazynu.
 
@@ -97,13 +97,13 @@ Oto przykład tego, jak to działa:
 
 |Typ przechowywania |Zaplanuj |Przechowywanie  |
 |---------|---------|---------|
-|Codzienne    |    Codziennie o godzinie 8 PM    |  100 dni       |
+|Codziennie    |    Codziennie o godzinie 8 PM    |  100 dni       |
 
 #### <a name="new-policy-modified-p1"></a>Nowe zasady [zmodyfikowano P1]
 
 | Typ przechowywania | Zaplanuj                       | Przechowywanie |
 | -------------- | ------------------------------ | --------- |
-| Codzienne          | Codziennie o godzinie 9 PM              | 50 dni   |
+| Codziennie          | Codziennie o godzinie 9 PM              | 50 dni   |
 | Co tydzień         | W niedzielę o godzinie 9 PM              | 3 tygodnie   |
 | Co miesiąc        | W ubiegłym poniedziałek o godzinie 9 PM         | 1 miesiąc   |
 | Rocznie         | W sty w trzeciej niedzielę o godzinie 9 PM | 4 lata   |
@@ -131,14 +131,14 @@ Oto przykład tego, jak to działa:
 
 | Typ przechowywania | Zaplanuj           | Przechowywanie |
 | -------------- | ------------------ | --------- |
-| Codzienne          | Codziennie o godzinie 8 PM | 50 dni   |
+| Codziennie          | Codziennie o godzinie 8 PM | 50 dni   |
 | Co tydzień         | W poniedziałek o godzinie 8 PM  | 3 tygodnie   |
 
 #### <a name="new-policy-modified-p2"></a>Nowe zasady [zmodyfikowano P2]
 
 | Typ przechowywania | Zaplanuj               | Przechowywanie |
 | -------------- | ---------------------- | --------- |
-| Codzienne          | Codziennie o godzinie 9 PM     | 10 dni   |
+| Codziennie          | Codziennie o godzinie 9 PM     | 10 dni   |
 | Co tydzień         | W poniedziałek o godzinie 9 PM      | 2 tygodnie   |
 | Co miesiąc        | W ubiegłym poniedziałek o godzinie 9 PM | 2 miesiące  |
 

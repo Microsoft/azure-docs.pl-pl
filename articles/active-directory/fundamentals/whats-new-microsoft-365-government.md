@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425548"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318934"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Co nowego w Azure Active Directory w Microsoft 365 instytucji rządowych
 
@@ -53,22 +53,22 @@ W poniższej tabeli przedstawiono punkty końcowe dla wszystkich klientów:
 
 | Nazwa | Szczegóły punktu końcowego |
 |------|------------------|
-| Portale |Microsoft Azure Government:https://portal.azure.us<p>Microsoft 365 rząd — w programie w zatoce:https://portal.office365.us<p>Microsoft 365 rząd — DoD:https://portal.apps.mil |
+| Portale |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 rząd — w programie w zatoce: https://portal.office365.us<p>Microsoft 365 rząd — DoD: https://portal.apps.mil |
 | Punkt końcowy urzędu Azure Active Directory | https://login.microsoftonline.us |
 | Microsoft Graph API dla Microsoft 365 instytucji rządowych — w ramach programu w zatoce | https://graph.microsoft.us |
 | Interfejs API Microsoft Graph dla Microsoft 365 dla instytucji rządowych — DoD | https://dod-graph.microsoft.us |
-| Punkty końcowe usług Azure Government Services | Aby uzyskać szczegółowe informacje, zobacz [przewodnik dewelopera Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 rząd — wysokie punkty końcowe w usłudze w zatoce | Aby uzyskać szczegółowe informacje, zobacz tematy dotyczące [górnych punktów końcowych pakietu Office 365 USA](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 rząd — DoD | Aby uzyskać szczegółowe informacje, zobacz [Office 365 Stany Zjednoczone i punkty końcowe dla instytucji rządowych USA](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Punkty końcowe usług Azure Government Services | Aby uzyskać szczegółowe informacje, zobacz [przewodnik dewelopera Azure Government](../../azure-government/documentation-government-developer-guide.md) |
+| Microsoft 365 rząd — wysokie punkty końcowe w usłudze w zatoce | Aby uzyskać szczegółowe informacje, zobacz tematy dotyczące [górnych punktów końcowych pakietu Office 365 USA](/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 rząd — DoD | Aby uzyskać szczegółowe informacje, zobacz [Office 365 Stany Zjednoczone i punkty końcowe dla instytucji rządowych USA](/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Więcej informacji można znaleźć w następujących artykułach:
 
-- [Co to jest platforma Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- [Co to jest platforma Azure Government?](../../azure-government/documentation-government-welcome.md)
 
 - [Aktualizacja punktu końcowego urzędu usługi AAD Azure Government](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
 - [Microsoft Graph punkty końcowe w chmurze dla instytucji rządowych USA](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Pakiet Office 365 dla instytucji rządowych Stanów Zjednoczonych i DoD.](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Pakiet Office 365 dla instytucji rządowych Stanów Zjednoczonych i DoD.](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

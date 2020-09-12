@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 697c686b61a86cb01327364ad73f30f88e2e151d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 285a41230175392dafb69a99ca08be1f72339439
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268078"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318968"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Access Control oparte na rolach na urządzeniu GPU Azure Stack
 
@@ -32,10 +32,7 @@ Podczas konfigurowania klastra Kubernetes zostaje utworzony jeden użytkownik od
 
 Zasoby Kubernetes, takie jak grupy miar i wdrożenia, są logicznie pogrupowane w przestrzeni nazw. Dzięki tym grupom można logicznie podzielić klaster Kubernetes i ograniczyć dostęp do tworzenia, wyświetlania i zarządzania zasobami. Użytkownicy mogą korzystać tylko z zasobami w ramach przypisanych przestrzeni nazw.
 
-Przestrzenie nazw są przeznaczone do użycia w środowiskach, w których wielu użytkowników rozprzestrzenia się między wieloma zespołami lub projektami. W przypadku klastrów z niewielką liczbą użytkowników nie trzeba tworzyć ani myśleć o przestrzeniach nazw. Zacznij korzystać z przestrzeni nazw, gdy potrzebujesz udostępnianych funkcji.
-
-Aby uzyskać więcej informacji, zobacz [Kubernetes przestrzenie nazw](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
+Przestrzenie nazw są przeznaczone do użycia w środowiskach, w których wielu użytkowników rozprzestrzenia się między wieloma zespołami lub projektami. Aby uzyskać więcej informacji, zobacz [Kubernetes przestrzenie nazw](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
 Urządzenie brzegowe Azure Stack ma następujące przestrzenie nazw:
 
@@ -47,20 +44,18 @@ Urządzenie brzegowe Azure Stack ma następujące przestrzenie nazw:
     - DBE — przestrzeń nazw
     - default
     - Kubernetes — pulpit nawigacyjny
-    - default
     - polecenia — dzierżawa węzła
     - polecenia — publiczny
-    - iotedge
-    - Azure — łuk
+
 
     Upewnij się, że nie używasz nazw zarezerwowanych dla tworzonych przestrzeni nazw użytkownika. 
 <!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
 
-- **Przestrzeń nazw użytkownika** — te przestrzenie nazw można tworzyć za pośrednictwem **polecenia kubectl** do lokalnego wdrażania aplikacji.
+- **Przestrzeń nazw użytkownika** — te przestrzenie nazw można tworzyć za pośrednictwem **polecenia kubectl** lub za pomocą interfejsu programu PowerShell urządzenia do lokalnego wdrażania aplikacji.
  
-- **IoT Edge przestrzeń nazw** — Połącz się z tą `iotedge` przestrzenią nazw, aby wdrażać aplikacje za pośrednictwem IoT Edge.
+- **IoT Edge przestrzeń nazw** — Połącz się z tą `iotedge` przestrzenią nazw, aby zarządzać aplikacjami wdrożonymi za pośrednictwem IoT Edge.
 
-- **Przestrzeń nazw usługi Azure Arc** — Połącz się z tą `azure-arc` przestrzenią nazw, aby wdrażać aplikacje za pośrednictwem usługi Azure Arc. 
+- **Przestrzeń nazw usługi Azure Arc** — Połącz się z tą `azure-arc` przestrzenią nazw, aby zarządzać aplikacjami wdrożonymi za pośrednictwem usługi Azure Arc. Za pomocą usługi Azure Arc można także wdrażać aplikacje w innych obszarach nazw użytkowników. 
 
 ## <a name="namespaces-and-users"></a>Przestrzenie nazw i użytkownicy
 
@@ -96,7 +91,7 @@ Poniżej znajduje się Diagram przedstawiający implementację RBAC na Azure Sta
 
 Na tym diagramie Alicja, Robert i Jan mają dostęp do przypisanych przestrzeni nazw użytkowników, które w tym przypadku są `ns1` , `ns2` i `ns3` odpowiednio. W tych obszarach nazw mają dostęp administratora. Administrator klastra z drugiej strony ma dostęp administratora do przestrzeni nazw systemu i zasobów cały klaster.
 
-Za pomocą `kubectl` poleceń można tworzyć przestrzenie nazw, przypisywać użytkowników, przypisywać użytkowników lub pobierać `kubeconfig` pliki. Oto przepływ pracy wysokiego poziomu:
+Za pomocą `kubectl` poleceń można tworzyć przestrzenie nazw i użytkowników, przypisywać użytkowników do przestrzeni nazw lub pobierać `kubeconfig` pliki. Oto przepływ pracy wysokiego poziomu:
 
 1. Utwórz przestrzeń nazw i użytkownika.  
 
@@ -123,7 +118,7 @@ Podczas pracy z przestrzeniami nazw i użytkownikami na urządzeniach brzegowych
 - Można utworzyć przestrzenie nazw użytkowników i w ramach tych przestrzeni nazw utworzyć dodatkowych użytkowników i udzielić lub odwołać dostęp do przestrzeni nazw dla tych użytkowników.
 - Nie można utworzyć żadnych przestrzeni nazw o nazwach identycznych z tymi dla każdej przestrzeni nazw systemu. Nazwy systemowych przestrzeni nazw są zastrzeżone.  
 - Nie można tworzyć żadnych przestrzeni nazw użytkownika o nazwach, które są już używane przez inne przestrzenie nazw użytkownika. Na przykład, jeśli masz `test-ns` utworzony, nie możesz utworzyć kolejnej `test-ns` przestrzeni nazw.
-- Nie masz uprawnień do tworzenia użytkowników z nazwami, które są już zarezerwowane. Na przykład `aseuser` jest zastrzeżonym administratorem klastra i nie można go użyć.
+- Nie masz uprawnień do tworzenia użytkowników z nazwami, które są już zarezerwowane. Na przykład `aseuser` jest zastrzeżonym użytkownikiem i nie można go użyć.
 
 
 ## <a name="next-steps"></a>Następne kroki

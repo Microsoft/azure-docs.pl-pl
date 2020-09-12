@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180681"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297866"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Korzystanie z pulpitu nawigacyjnego Kubernetes do monitorowania urządzenia z procesorem GPU Azure Stack Edge
 
@@ -26,7 +26,6 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > [!div class="checklist"]
 >
 > * Dostęp do pulpitu nawigacyjnego Kubernetes na urządzeniu
-> * Pobierz `aseuser` konfigurację
 > * Wyświetlanie modułów wdrożonych na urządzeniu
 > * Uzyskaj adres IP dla aplikacji wdrożonych na urządzeniu
 > * Wyświetlanie dzienników kontenerów dla modułów wdrożonych na urządzeniu
@@ -42,26 +41,18 @@ Na urządzeniu Azure Stack Edge możesz użyć pulpitu nawigacyjnego Kubernetes 
 
 Pulpit nawigacyjny Kubernetes jest *tylko do odczytu* i uruchamiany w węźle głównym Kubernetes na porcie 31000. Wykonaj następujące kroki, aby uzyskać dostęp do pulpitu nawigacyjnego: 
 
-1. W lokalnym interfejsie użytkownika urządzenia przejdź do pozycji **urządzenie** , a następnie przejdź do obszaru **punkty końcowe urządzenia**. Wybierz adres URL pulpitu nawigacyjnego Kubernetes, aby otworzyć pulpit nawigacyjny w przeglądarce.
+1. W lokalnym interfejsie użytkownika urządzenia przejdź do pozycji **urządzenie** , a następnie przejdź do obszaru **punkty końcowe urządzenia**. 
+1. Wybierz pozycję **Pobierz konfigurację** , aby pobrać plik `kubeconfig` , który umożliwia dostęp do pulpitu nawigacyjnego. Zapisz `config.json` plik w systemie lokalnym.
+1. Wybierz adres URL pulpitu nawigacyjnego Kubernetes, aby otworzyć pulpit nawigacyjny w przeglądarce.
 
     ![Adres URL pulpitu nawigacyjnego Kubernetes na stronie urządzenia w lokalnym interfejsie użytkownika](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
 
-1. Na stronie **logowania do pulpitu nawigacyjnego Kubernetes** wybierz pozycję **token**. 
-1. Podaj token. 
-    1. Aby uzyskać token, [Połącz się za pośrednictwem interfejsu programu PowerShell urządzenia](azure-stack-edge-gpu-connect-powershell-interface.md).
-    1. Uruchom polecenie:  `Get-HcsKubernetesDashboardToken`
+1. Na stronie **logowania na pulpicie nawigacyjnym Kubernetes** :
     
-    1. Skopiuj przedstawiony ciąg tokenu w wierszu polecenia. Oto przykładowe dane wyjściowe:
-        
-        ```powershell
-        [10.100.10.10]: PS>Get-HcsKubernetesDashboardToken
-        eyJhbGciOiJSUzI1NiIsImtpZCI6IkpFTEtBYTMyZ0Ezb01OYTVFSnVaUV85OWtLdXNETTZQR0k0UlFybGdReFUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi03czZ6ayIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjU3NzY3ZDAzLTJlYWUtNDlkMi1hNDEyLTNkOTU3MDFiMThiMyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.UgNrpVYVJBEaWxFlljuENUQQmzFXMYG2VsJUIYFdp2AO20zX0k5dRvwcCpeGlqSKb9MyYjG0c6RmT9uCOZk-vAwt7btszQLD7KPCwh_nn_NiIyO8ApgGRYZP8NuP8CBTX3tl_hpwfHtZ0ksbuKAduIL-0uPF0rG5wgLk9cTEw6fKSc2UZW6bIzhNSp_uSiP6MexOS6OftF9JFZejkIGd33dSp-k-tgFlm2Zy96sdFJC0q-XsH7jygiVnfxA9XMs5wqW26LkCh0rfO2WI3C1XFK-4TpufRZLJHo5WPlu-Tnsxa8xmtk2jQ3us-sXcBRrvhPNPrNKkbqc9hbjmWfGD0Q
-        [10.100.10.10]: PS>
-        ```
-        
-1. Wybierz pozycję **Zaloguj się**.
-
-    ![Zaloguj się do pulpitu nawigacyjnego Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png)
+    1. Wybierz pozycję **kubeconfig**. 
+        ![Wybierz opcję kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
+    1. Wybierz wielokropek **...**. Przeglądaj i wskaż `kubeconfig` pobrany wcześniej w systemie lokalnym. Wybierz pozycję **Zaloguj się**.
+        ![Przejdź do pliku kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. Teraz możesz wyświetlić pulpit nawigacyjny usługi Kubernetes dla urządzenia brzegowego Azure Stack w trybie tylko do odczytu.
 
@@ -110,6 +101,21 @@ Aby wyświetlić dzienniki kontenerów, wykonaj następujące kroki na pulpicie 
 
     ![Wyświetlanie dzienników kontenerów 2](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-container-logs-1.png)
     
+
+## <a name="view-cpu-memory-usage"></a>Wyświetlanie użycia procesora CPU, pamięci
+
+Pulpit nawigacyjny Kubernetes dla urządzenia brzegowego Azure Stack również zawiera [dodatek serwera metryk](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) , który agreguje użycie procesora i pamięci przez zasoby Kubernetes.
+ 
+Na przykład można wyświetlić procesor i pamięć zużywaną między wdrożeniami we wszystkich przestrzeniach nazw. 
+
+![Wyświetlanie użycia procesora i pamięci we wszystkich wdrożeniach](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-all-1.png)
+
+Można również filtrować według określonej przestrzeni nazw. W poniższym przykładzie można wyświetlić użycie procesora i pamięci tylko dla wdrożeń usługi Azure Arc.  
+
+![Wyświetlanie użycia procesora i pamięci dla wdrożeń usługi Azure Arc](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
+
+Serwer metryk Kubernetes zapewnia potoki skalowania automatycznego, podobnie jak w przypadku [automatycznego skalowania w poziomie](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+
 
 ## <a name="next-steps"></a>Następne kroki
 

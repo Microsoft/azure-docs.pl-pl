@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716320"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377203"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -27,7 +27,7 @@ Azure Active Directory (usługa Azure AD) funkcja samoobsługowego resetowania h
 >
 > Jeśli Twój zespół IT nie włączył możliwości resetowania własnego hasła, skontaktuj się z pomocą techniczną, aby uzyskać dodatkową pomoc.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Jak działa Portal resetowania haseł?
+## <a name="how-does-the-password-reset-process-work"></a>Jak działa proces resetowania haseł?
 
 Użytkownik może zresetować lub zmienić swoje hasło przy użyciu [portalu SSPR](https://aka.ms/sspr). Muszą najpierw zarejestrować odpowiednie metody uwierzytelniania. Gdy użytkownik uzyskuje dostęp do portalu SSPR, platforma Azure traktuje następujące czynniki:
 
@@ -58,6 +58,11 @@ Po wyświetleniu portalu SSPR w wymaganym języku użytkownik zostanie poproszon
   * Jeśli zapisywanie zwrotne SSPR nie zostanie wdrożone i hasło użytkownika jest zarządzane lokalnie, użytkownik zostanie poproszony o skontaktowanie się z administratorem w celu zresetowania hasła.
 
 Jeśli wszystkie poprzednie testy zostały zakończone pomyślnie, użytkownik jest kierowany przez proces resetowania lub zmiany hasła.
+
+> [!NOTE]
+> SSPR może wysyłać powiadomienia e-mail do użytkowników w ramach procesu resetowania hasła. Te wiadomości e-mail są wysyłane przy użyciu usługi przekaźnika SMTP, która działa w trybie aktywny-aktywny w kilku regionach.
+>
+> Usługi przekazywania SMTP odbierają i przetwarzają treści wiadomości e-mail, ale nie przechowują ich. Treść wiadomości e-mail SSPR, która może potencjalnie zawierać informacje dostarczone przez klienta, nie jest przechowywana w dziennikach usługi przekazywania SMTP. Dzienniki zawierają tylko metadane protokołu.
 
 Aby rozpocząć pracę z usługą SSPR, wykonaj następujące czynności:
 
@@ -101,7 +106,7 @@ Dla SSPR są dostępne następujące metody uwierzytelniania:
 
 * Powiadomienie aplikacji mobilnej
 * Kod aplikacji mobilnej
-* Poczta e-mail
+* E-mail
 * Telefon komórkowy
 * Telefon służbowy
 * Pytania zabezpieczające

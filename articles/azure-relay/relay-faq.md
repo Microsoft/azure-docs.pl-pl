@@ -3,12 +3,12 @@ title: Azure Relay często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317028"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299290"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay często zadawane pytania
 
@@ -119,8 +119,8 @@ Opis typowych wyjątków i sugerowanych czynności, które można wykonać, znaj
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Co to jest sygnatura dostępu współdzielonego i jakich języków można użyć do wygenerowania podpisu?
 Sygnatury dostępu współdzielonego (SAS) są mechanizmem uwierzytelniania opartym na bezpiecznych skrótach i identyfikatorach URI SHA-256. Aby uzyskać informacje o sposobach generowania własnych podpisów w Node.js, PHP, Python, Java, C i C#, zobacz [Service Bus Authentication z sygnaturami dostępu współdzielonego][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Czy można dozwolonych punkty końcowe przekaźnika?
-Tak. Klient usługi Relay nawiązuje połączenia z usługą Azure Relay przy użyciu w pełni kwalifikowanych nazw domen. Klienci mogą dodać wpis dla `*.servicebus.windows.net` zapory, które obsługują listy dozwolonych DNS.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>Czy jest możliwe Zezwalanie tylko na niektóre punkty końcowe przekaźnika?
+Tak. Klient usługi Relay nawiązuje połączenia z usługą Azure Relay przy użyciu w pełni kwalifikowanych nazw domen. Klienci mogą dodać wpis dla `*.servicebus.windows.net` zapory, które obsługują listę zatwierdzania DNS.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie przestrzeni nazw](relay-create-namespace-portal.md)

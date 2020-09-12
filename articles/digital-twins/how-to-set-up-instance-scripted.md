@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181378"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298899"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurowanie wystąpienia i uwierzytelniania usługi Azure Digital bliźniaczych reprezentacji (skrypty)
 
@@ -58,6 +58,13 @@ Poniżej przedstawiono procedurę uruchamiania skryptu wdrażania w Cloud Shell.
     * Rejestracja aplikacji: *adres URL odpowiedzi aplikacji usługi Azure AD* dla aplikacji usługi Azure AD. Użyj polecenia `http://localhost`. Skrypt skonfiguruje dla niego identyfikator URI *klienta publicznego/macierzystego (mobile & Desktop)* .
 
 Skrypt utworzy wystąpienie usługi Azure Digital bliźniaczych reprezentacji, przypisze rolę użytkownika platformy Azure *(wersja zapoznawcza)* na tym wystąpieniu i skonfiguruje rejestrację aplikacji usługi Azure AD do użycia.
+
+>[!NOTE]
+>Istnieje obecnie **znany problem** z konfiguracją inicjowaną przez skrypty, w której niektórzy użytkownicy (zwłaszcza użytkownicy korzystający z osobistych [kont Microsoft (kont MSA)](https://account.microsoft.com/account)) mogą znaleźć **przypisanie roli do _usługi Azure Digital bliźniaczych reprezentacji Owner (wersja zapoznawcza)_ nie została utworzona**.
+>
+>Możesz sprawdzić przypisanie roli za pomocą sekcji [*Weryfikuj przypisanie roli użytkownika*](#verify-user-role-assignment) w dalszej części tego artykułu i — w razie konieczności — Skonfiguruj przypisanie roli ręcznie przy użyciu [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) lub [interfejsu wiersza polecenia](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>Więcej szczegółów dotyczących tego problemu można znaleźć [*w temacie Rozwiązywanie problemów: znane problemy w usłudze Azure Digital bliźniaczych reprezentacji*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Poniżej znajduje się fragment dziennika danych wyjściowych ze skryptu:
 
@@ -127,5 +134,9 @@ Najpierw sprawdź, czy ustawienia uprawnień Digital bliźniaczych reprezentacji
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak połączyć aplikację kliencką z wystąpieniem, pisząc kod uwierzytelniania aplikacji klienta:
+Przetestuj poszczególne wywołania interfejsu API REST w wystąpieniu przy użyciu poleceń interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji: 
+* [odwołanie AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Instrukcje: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji*](how-to-use-cli.md)
+
+Lub zapoznaj się z tematem jak połączyć aplikację kliencką z wystąpieniem, pisząc kod uwierzytelniania aplikacji klienta:
 * [*Instrukcje: zapisywanie kodu uwierzytelniania aplikacji*](how-to-authenticate-client.md)

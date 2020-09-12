@@ -4,12 +4,12 @@ description: Access Control oparte na rolach umożliwiają zarządzanie dostępe
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017808"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376132"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Zarządzanie Azure Backup punktów odzyskiwania przy użyciu Access Control opartych na rolach
 
@@ -56,7 +56,7 @@ W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowi
 | Usuń zarejestrowane lokalne serwery z systemem Windows/Client/SCDPM lub Azure Backup Server | Współautor kopii zapasowej | Magazyn usługi Recovery Services |
 
 > [!IMPORTANT]
-> Jeśli określisz współautor maszyny wirtualnej w zakresie zasobów maszyny wirtualnej i klikniesz pozycję Utwórz kopię zapasową w ramach ustawień maszyny wirtualnej, zostanie otwarty ekran "Włącz kopię zapasową", nawet jeśli maszyna wirtualna została już utworzona jako wywołanie weryfikacji stanu kopii zapasowej działa tylko na poziomie subskrypcji. Aby tego uniknąć, należy przejść do magazynu i otworzyć widok elementu kopii zapasowej maszyny wirtualnej lub określić rolę współautor maszyny wirtualnej na poziomie subskrypcji.
+> Jeśli określisz współautor maszyny wirtualnej w zakresie zasobów maszyny wirtualnej i wybierzesz pozycję **kopia zapasowa** jako część ustawień maszyny wirtualnej, zostanie otwarty ekran **Włączanie kopii zapasowej** , nawet jeśli utworzono kopię zapasową maszyny wirtualnej. Wynika to z faktu, że wywołanie weryfikacji stanu kopii zapasowej działa tylko na poziomie subskrypcji. Aby tego uniknąć, należy przejść do magazynu i otworzyć widok elementu kopii zapasowej maszyny wirtualnej lub określić rolę współautor maszyny wirtualnej na poziomie subskrypcji.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Minimalne wymagania roli dla kopii zapasowej udziału plików platformy Azure
 
@@ -75,7 +75,7 @@ W poniższej tabeli przedstawiono akcje zarządzania kopiami zapasowymi i odpowi
 | Wyrejestrowywanie konta magazynu z magazynu |Współautor kopii zapasowej | Magazyn usługi Recovery Services |
 | |Współautor konta magazynu | Zasób konta magazynu|
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Kontrola dostępu oparta na rolach (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): wprowadzenie do kontroli rbac w Azure Portal.
 * Dowiedz się, jak zarządzać dostępem przy użyciu:

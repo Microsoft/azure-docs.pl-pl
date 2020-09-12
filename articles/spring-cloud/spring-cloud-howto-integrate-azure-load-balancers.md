@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3a7ed148c4bc8d58b2dcbc344656137a403c62eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4315427598d004459862bcf12959e22e83c84d5d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037546"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299730"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
 
@@ -26,7 +26,7 @@ Platforma Azure udostępnia już różne rozwiązania do równoważenia obciąż
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Chmura Wiosenna platformy Azure: [jak utworzyć usługę w chmurze Azure wiosną](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
+* Chmura Wiosenna platformy Azure: [jak utworzyć usługę w chmurze Azure wiosną](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager: [jak utworzyć usługę Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
 * Azure App Gateway: [jak utworzyć bramę aplikacji](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 * Moje drzwi platformy Azure: [jak utworzyć drzwi tylne](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
@@ -39,7 +39,7 @@ Aby zintegrować chmurę z usługą Azure wiosną Traffic Manager, Dodaj swoje p
 Dodawanie punktów końcowych w usłudze Traffic Manager:
 1.  Określ **Typ** jako *zewnętrzny punkt końcowy*.
 1.  Wprowadź w pełni kwalifikowaną nazwę domeny (FQDN) każdego publicznego punktu końcowego chmury platformy Azure.
-1. Kliknij przycisk **OK**.
+1. Kliknij pozycję **OK**.
 
     ![Traffic Manager 1 ](media/spring-cloud-load-balancers/traffic-manager-1.png) ![ Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
 

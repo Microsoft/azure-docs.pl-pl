@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832546"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299120"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Wysyłanie żądań do interfejsu API sprawdzania pisowni Bing
 
@@ -42,7 +42,7 @@ Aby uzyskać listę wszystkich nagłówków żądań i odpowiedzi, zobacz [Nagł
 
 Podczas wywołania interfejsu API sprawdzania pisowni Bing za pomocą języka JavaScript funkcje zabezpieczeń wbudowane w przeglądarce mogą uniemożliwić dostęp do wartości tych nagłówków.
 
-Aby rozwiązać ten problem, możesz przekazywać żądania interfejsu API sprawdzania pisowni Bing za pośrednictwem serwera proxy CORS. Odpowiedź z tego serwera proxy zawiera nagłówek `Access-Control-Expose-Headers`, który zezwala na nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
+Aby rozwiązać ten problem, możesz przekazywać żądania interfejsu API sprawdzania pisowni Bing za pośrednictwem serwera proxy CORS. Odpowiedź z takiego serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który filtruje nagłówki odpowiedzi i udostępnia je skryptom JavaScript.
 
 Zainstalowanie serwera proxy CORS w celu zezwolenia [aplikacji samouczka](../tutorials/spellcheck.md) na dostęp do opcjonalnych nagłówków klienta jest łatwe. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Potem wprowadź poniższe polecenie w wierszu polecenia.
 

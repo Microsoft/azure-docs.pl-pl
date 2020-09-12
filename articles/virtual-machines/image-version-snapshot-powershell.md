@@ -1,6 +1,6 @@
 ---
-title: PowerShell — Tworzenie obrazu na podstawie migawki lub dysku VHD w galerii obrazów udostępnionych
-description: Dowiedz się, jak utworzyć obraz na podstawie migawki lub dysku VHD w udostępnionej galerii obrazów przy użyciu programu PowerShell.
+title: PowerShell — Tworzenie obrazu na podstawie migawki lub dysku zarządzanego w galerii obrazów udostępnionych
+description: Dowiedz się, jak utworzyć obraz na podstawie migawki lub dysku zarządzanego w galerii obrazów udostępnionych przy użyciu programu PowerShell.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494721"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300259"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Tworzenie obrazu z dysku VHD lub z migawki w udostępnionej galerii obrazów przy użyciu programu PowerShell
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Tworzenie obrazu z dysku zarządzanego lub migawki w udostępnionej galerii obrazów przy użyciu programu PowerShell
 
-Jeśli masz istniejącą migawkę lub wirtualny dysk twardy, który chcesz migrować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z dysku VHD lub migawki. Po przetestowaniu nowego obrazu można usunąć źródłowy wirtualny dysk twardy lub migawkę. Możesz również utworzyć obraz z dysku VHD lub migawki w udostępnionej galerii obrazów przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-snapshot-cli.md).
+Jeśli masz istniejącą migawkę lub dysk zarządzany, który chcesz migrować do galerii obrazów udostępnionych, możesz utworzyć obraz udostępnionej galerii obrazów bezpośrednio z dysku zarządzanego lub migawki. Po przetestowaniu nowego obrazu można usunąć źródłowy dysk zarządzany lub migawkę. Możesz również utworzyć obraz z dysku zarządzanego lub migawki w udostępnionej galerii obrazów przy użyciu [interfejsu wiersza polecenia platformy Azure](image-version-snapshot-cli.md).
 
 Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym przykładzie:
 - **Definicja obrazu** przenosi informacje o obrazie i wymaganiach dotyczących korzystania z niego. Obejmuje to zarówno system Windows, jak i Linux, wyspecjalizowane lub uogólnione informacje o wersji oraz minimalne i maksymalne wymagania dotyczące pamięci. Jest to definicja typu obrazu. 
@@ -27,14 +27,14 @@ Obrazy w galerii obrazów mają dwa składniki, które zostaną utworzone w tym 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby ukończyć ten artykuł, musisz mieć migawkę lub dysk VHD. 
+Aby ukończyć ten artykuł, musisz mieć migawkę lub dysk zarządzany. 
 
 Jeśli chcesz dołączyć dysk danych, rozmiar dysku danych nie może być większy niż 1 TB.
 
 W trakcie pracy z tym artykułem Zastąp nazwy zasobów, w razie konieczności.
 
 
-## <a name="get-the-snapshot-or-vhd"></a>Pobierz migawkę lub dysk VHD
+## <a name="get-the-snapshot-or-managed-disk"></a>Pobierz migawkę lub dysk zarządzany
 
 Można wyświetlić listę migawek, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
 
@@ -50,17 +50,17 @@ $source = Get-AzSnapshot `
    -ResourceGroupName myResourceGroup
 ```
 
-Można również użyć wirtualnego dysku twardego zamiast migawki. Aby uzyskać dysk VHD, użyj polecenie [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
+Można również użyć dysku zarządzanego zamiast migawki. Aby uzyskać dysk zarządzany, użyj polecenie [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
 
 ```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
-Następnie Pobierz dysk VHD i przypisz go do `$source` zmiennej.
+Następnie należy uzyskać dysk zarządzany i przypisać go do `$source` zmiennej.
 
 ```azurepowershell-interactive
 $source = Get-AzDisk `
-   -SnapshotName mySnapshot
+   -Name myDisk
    -ResourceGroupName myResourceGroup
 ```
 
@@ -88,7 +88,7 @@ $gallery = Get-AzGallery `
 
 Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o obrazie. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. 
 
-Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W tym przykładzie zakładamy, że migawka lub wirtualny dysk twardy jest używany przez maszynę wirtualną, która nie została uogólniona. Jeśli wirtualny dysk twardy lub migawka zostały wykonane z uogólnionego systemu operacyjnego (po uruchomieniu programu Sysprep dla systemu Windows lub [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` lub `-deprovision+user` Linux), Zmień wartość `-OsState` na `generalized` . 
+Podczas tworzenia definicji obrazu upewnij się, że zawiera on wszystkie prawidłowe informacje. W tym przykładzie zakładamy, że migawka lub dysk zarządzany pochodzą z maszyny wirtualnej, która jest używana, i nie został uogólniony. Jeśli na dysku zarządzanym lub migawek utworzono uogólniony system operacyjny (po uruchomieniu programu Sysprep dla systemu Windows lub [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` lub `-deprovision+user` Linux), Zmień wartość `-OsState` na `generalized` . 
 
 Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](./windows/shared-image-galleries.md#image-definitions).
 
@@ -118,7 +118,7 @@ Utwórz wersję obrazu z migawki przy użyciu polecenia [New-AzGalleryImageVersi
 
 Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
 
-Jeśli chcesz, aby obraz zawierał dysk danych, oprócz dysku systemu operacyjnego, Dodaj `-DataDiskImage` parametr i ustaw go na identyfikator migawki dysku danych lub dysku VHD.
+Jeśli chcesz, aby obraz zawierał dysk danych, oprócz dysku systemu operacyjnego, Dodaj `-DataDiskImage` parametr i ustaw go na identyfikator migawki dysku danych lub dysku zarządzanego.
 
 W tym przykładzie wersja obrazu to *1.0.0* i jest replikowana do centrów danych *zachodnio-środkowe stany USA* i południowo- *środkowe stany USA* . Podczas wybierania regionów docelowych na potrzeby replikacji należy pamiętać, że należy również uwzględnić region *źródłowy* jako element docelowy dla replikacji.
 

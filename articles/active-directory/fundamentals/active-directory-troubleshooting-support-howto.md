@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797291"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322538"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory
 Firma Microsoft oferuje globalne wsparcie techniczne, przedsprzedaży, rozliczeń i subskrypcji dla Azure Active Directory (Azure AD). Pomoc techniczna jest dostępna zarówno w trybie online, jak i telefonicznie w przypadku subskrypcji Microsoft Azure płatnych i próbnych. Telefoniczna pomoc techniczna i pomoc online związana z rozliczeniami są dostępne w dodatkowych językach. 
@@ -29,7 +29,7 @@ Firma Microsoft oferuje globalne wsparcie techniczne, przedsprzedaży, rozlicze�
 
 Przed utworzeniem biletu pomocy technicznej zapoznaj się z poniższymi zasobami, aby uzyskać odpowiedzi i informacje. 
 
-* Aby uzyskać zawartość, taką jak informacje lub przykłady kodu dla informatyków i deweloperów, zobacz [dokumentację techniczną w witrynie docs.Microsoft.com](https://docs.microsoft.com/azure/active-directory/).
+* Aby uzyskać zawartość, taką jak informacje lub przykłady kodu dla informatyków i deweloperów, zobacz [dokumentację techniczną w witrynie docs.Microsoft.com](../index.yml).
 
 * [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/) jest miejscem, w którym partnerzy IT i klienci działu IT mogą współpracować, udostępniać i uczyć się. [Centrum informacyjne społeczności technicznej firmy Microsoft](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) jest używane w przypadku anonsów, wpisów w blogu, interakcji z pytaniami (AMA) z ekspertami i nie tylko. Możesz również [dołączyć do społeczności, aby przesłać swoje pomysły](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
@@ -100,4 +100,4 @@ Zapoznaj [się ze stroną kontakt z firmą Microsoft w](https://portal.office.co
 
 * [Witryna Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Dokumentacja techniczna w witrynie docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)
+* [Dokumentacja techniczna w witrynie docs.microsoft.com](../index.yml)

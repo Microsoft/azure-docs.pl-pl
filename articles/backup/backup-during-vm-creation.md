@@ -3,12 +3,12 @@ title: Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej p
 description: Opisuje sposób włączania tworzenia kopii zapasowej podczas tworzenia maszyny wirtualnej platformy Azure przy użyciu Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892307"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377339"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Włączanie tworzenia kopii zapasowej przy tworzeniu maszyny wirtualnej platformy Azure
 
@@ -26,14 +26,14 @@ Jeśli jeszcze nie zalogowano się na koncie, zaloguj się do [Azure Portal](htt
 
 ## <a name="create-a-vm-with-backup-configured"></a>Tworzenie maszyny wirtualnej z skonfigurowaną kopią zapasową
 
-1. W Azure Portal kliknij pozycję **Utwórz zasób**.
+1. W Azure Portal wybierz pozycję **Utwórz zasób**.
 
-2. W witrynie Azure Marketplace kliknij pozycję **obliczenia**, a następnie wybierz obraz maszyny wirtualnej.
+2. W witrynie Azure Marketplace wybierz pozycję **obliczenia**, a następnie wybierz obraz maszyny wirtualnej.
 
 3. Skonfiguruj maszynę wirtualną zgodnie z instrukcjami dla [systemu Windows](../virtual-machines/windows/quick-create-portal.md) lub [Linux](../virtual-machines/linux/quick-create-portal.md) .
 
-4. Na karcie **Zarządzanie** w obszarze **Włączanie kopii zapasowej**kliknij **pozycję włączone.**
-5. Azure Backup kopie zapasowe w magazynie Recovery Services. Kliknij przycisk **Utwórz nowy** , jeśli nie masz istniejącego magazynu.
+4. Na karcie **Zarządzanie** w obszarze **Włączanie kopii zapasowej**wybierz pozycję **włączone**.
+5. Azure Backup kopie zapasowe w magazynie Recovery Services. Wybierz pozycję **Utwórz nowy** , jeśli nie masz istniejącego magazynu.
 6. Zaakceptuj sugerowaną nazwę magazynu lub określ swoje własne.
 7. Określ lub Utwórz grupę zasobów, w której będzie znajdować się magazyn. Magazyn grupy zasobów może się różnić od grupy zasobów maszyny wirtualnej.
 
@@ -76,8 +76,8 @@ Kopia zapasowa maszyny wirtualnej będzie uruchamiana zgodnie z zasadami tworzen
 
 Po utworzeniu maszyny wirtualnej wykonaj następujące czynności:
 
-1. We właściwościach maszyny wirtualnej kliknij pozycję **kopia zapasowa**. Stan maszyny wirtualnej to początkowa kopia zapasowa oczekująca na uruchomienie początkowej kopii zapasowej
-2. Kliknij pozycję **Wykonaj kopię zapasową teraz** , aby uruchomić kopię zapasową na żądanie.
+1. We właściwościach maszyny wirtualnej wybierz pozycję **kopia zapasowa**. Stan maszyny wirtualnej to początkowa kopia zapasowa oczekująca na uruchomienie początkowej kopii zapasowej.
+2. Wybierz pozycję **Utwórz kopię zapasową teraz** , aby uruchomić kopię zapasową na żądanie.
 
     ![Uruchamianie kopii zapasowej na żądanie](./media/backup-during-vm-creation/run-backup.png)
 

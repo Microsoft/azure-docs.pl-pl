@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć kopię zapasową serwera programu Excha
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 043122271bfa91b1cbaa490760da712cd1b867cc
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: eff702cb50317e6b685e19e7df1ffc99b5fc1736
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825039"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377629"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Tworzenie kopii zapasowej serwera programu Exchange na platformie Azure za pomocą Azure Backup Server
 
@@ -24,14 +24,14 @@ Przed kontynuowaniem upewnij się, że Azure Backup Server jest [zainstalowana i
 Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykonaj następujące kroki:
 
 1. Upewnij się, że zapory są prawidłowo skonfigurowane. Zobacz [Configure firewall Exceptions for the Agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Zainstaluj agenta na serwerze Exchange, klikając pozycję **zarządzanie > agenci > Zainstaluj** w serwera usługi MAB Konsola administratora. Szczegółowe instrukcje można znaleźć w temacie [Install the serwera usługi MAB Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+2. Zainstaluj agenta na serwerze programu Exchange, wybierając pozycję **zarządzanie > agenci > Zainstaluj** w Konsola administratora serwera usługi MAB. Szczegółowe instrukcje można znaleźć w temacie [Install the serwera usługi MAB Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Tworzenie grupy ochrony dla serwera programu Exchange
 
-1. W konsola administratora serwera usługi MAB kliknij pozycję **Ochrona**, a następnie kliknij przycisk **Nowy** na Wstążce narzędzi, aby otworzyć kreatora **tworzenia nowej grupy ochrony** .
-2. Na ekranie **powitalnym** kreatora kliknij przycisk **dalej**.
+1. W konsola administratora serwera usługi MAB wybierz pozycję **Ochrona**, a następnie na Wstążce narzędzi wybierz pozycję **Nowy** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** .
+2. Na ekranie **powitalnym** kreatora wybierz pozycję **dalej**.
 3. Na ekranie **Wybierz typ grupy ochrony** wybierz pozycję **serwery** , a następnie kliknij przycisk **dalej**.
-4. Wybierz bazę danych programu Exchange Server, którą chcesz chronić, a następnie kliknij przycisk **dalej**.
+4. Wybierz bazę danych programu Exchange Server, którą chcesz chronić, a następnie wybierz pozycję **dalej**.
 
    > [!NOTE]
    > W przypadku ochrony programu Exchange 2013 Sprawdź [wymagania wstępne programu exchange 2013](/system-center/dpm/back-up-exchange).
@@ -47,7 +47,7 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
 
    * Chcę uzyskać krótkoterminową ochronę za pomocą dysku.
    * Chcę chronić w trybie online.
-6. Kliknij przycisk **Dalej**.
+6. Wybierz pozycję **Next** (Dalej).
 7. Wybierz opcję **Uruchom program Eseutil, aby sprawdzić integralność danych** , jeśli chcesz sprawdzić integralność baz danych programu Exchange Server.
 
     Po wybraniu tej opcji sprawdzanie spójności kopii zapasowej zostanie uruchomione na serwera usługi MAB, aby uniknąć ruchu we/wy wygenerowanego przez uruchomienie polecenia **eseutil** na serwerze Exchange.
@@ -57,21 +57,21 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
    > ![błąd Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Kliknij przycisk **Dalej**.
-9. Wybierz bazę danych **kopii zapasowej**, a następnie kliknij przycisk **dalej**.
+8. Wybierz pozycję **Next** (Dalej).
+9. Wybierz bazę danych **kopii zapasowej**, a następnie wybierz przycisk **dalej**.
 
    > [!NOTE]
    > Jeśli nie wybrano opcji "pełna kopia zapasowa" dla co najmniej jednej kopii DAG bazy danych, dzienniki nie będą obcinane.
    >
    >
-10. Skonfiguruj cele **krótkoterminowej kopii zapasowej**, a następnie kliknij przycisk **dalej**.
-11. Sprawdź ilość dostępnego miejsca na dysku, a następnie kliknij przycisk **dalej**.
-12. Wybierz czas, w którym serwer serwera usługi MAB utworzy replikację początkową, a następnie kliknij przycisk **dalej**.
-13. Wybierz opcje sprawdzania spójności, a następnie kliknij przycisk **dalej**.
-14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Na przykład:
+10. Skonfiguruj cele **krótkoterminowej kopii zapasowej**, a następnie wybierz przycisk **dalej**.
+11. Sprawdź ilość dostępnego miejsca na dysku, a następnie wybierz przycisk **dalej**.
+12. Wybierz czas, w którym serwer serwera usługi MAB utworzy replikację początkową, a następnie wybierz pozycję **dalej**.
+13. Wybierz opcje sprawdzania spójności, a następnie wybierz przycisk **dalej**.
+14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie wybierz pozycję **dalej**. Na przykład:
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Na przykład:
+15. Zdefiniuj harmonogram **Azure Backup**a następnie wybierz przycisk **dalej**. Na przykład:
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -79,21 +79,21 @@ Aby zainstalować agenta ochrony serwera usługi MAB na serwerze Exchange, wykon
     > Uwaga punkty odzyskiwania online są oparte na ekspresowych pełnych punktach odzyskiwania. W związku z tym należy zaplanować punkt odzyskiwania online po upływie czasu określonego dla ekspresowego pełnego odzyskiwania.
     >
     >
-16. Skonfiguruj zasady przechowywania dla **Azure Backup**, a następnie kliknij przycisk **dalej**.
-17. Wybierz opcję replikacja online, a następnie kliknij przycisk **dalej**.
+16. Skonfiguruj zasady przechowywania dla **Azure Backup**, a następnie wybierz przycisk **dalej**.
+17. Wybierz opcję replikacja online i wybierz pozycję **dalej**.
 
     W przypadku dużej bazy danych utworzenie początkowej kopii zapasowej za pośrednictwem sieci może zająć dużo czasu. Aby uniknąć tego problemu, można utworzyć kopię zapasową offline.  
 
     ![Określ zasady przechowywania danych online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
-18. Potwierdź ustawienia, a następnie kliknij przycisk **Utwórz grupę**.
-19. Kliknij przycisk **Zamknij**.
+18. Potwierdź ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
+19. Wybierz pozycję **Close** (Zamknij).
 
 ## <a name="recover-the-exchange-database"></a>Odzyskiwanie bazy danych programu Exchange
 
-1. Aby odzyskać bazę danych programu Exchange, kliknij pozycję **odzyskiwanie** w Konsola administratora serwera usługi MAB.
+1. Aby odzyskać bazę danych programu Exchange, wybierz pozycję **odzyskiwanie** w Konsola administratora serwera usługi MAB.
 2. Znajdź bazę danych programu Exchange, którą chcesz odzyskać.
 3. Z listy rozwijanej *godzina odzyskiwania* wybierz punkt odzyskiwania online.
-4. Kliknij przycisk **Odzyskaj** , aby uruchomić **Kreatora odzyskiwania**.
+4. Wybierz pozycję **Odzyskaj** , aby uruchomić **Kreatora odzyskiwania**.
 
 W przypadku punktów odzyskiwania online istnieje pięć typów odzyskiwania:
 

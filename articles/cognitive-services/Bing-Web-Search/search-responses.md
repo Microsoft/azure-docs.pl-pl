@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202240"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297794"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Struktura odpowiedzi interfejs API wyszukiwania w sieci Web Bing i typy odpowiedzi  
 
@@ -294,11 +294,11 @@ Wyrażenie matematyczne może zawierać następujące symbole:
 |------------|-----------------|
 |+|Dodawanie|
 |-|Odejmowanie|
-|/|Dzielenie|
+|/|Dział|
 |*|Mnożenie|
 |^|Zasilanie|
 |!|Silnia|
-|.|Wartość dziesiętna|
+|.|Liczba dziesiętna|
 |()|Grupowanie pierwszeństwa|
 |[]|Funkcja|
 
@@ -435,7 +435,7 @@ Jeśli Bing określi, że użytkownik może chcieć wyszukać coś innego, odpow
 
 Odpowiedzi z interfejs API wyszukiwania w sieci Web Bing mogą zawierać następujące nagłówki:
 
-| Nagłówek | Opis |
+| Header | Opis |
 |-|-|
 |`X-MSEdge-ClientID`|Unikatowy identyfikator, który jest przypisany do użytkownika usługi Bing|
 |`BingAPIs-Market`|Rynek używany do realizacji żądania|
@@ -445,7 +445,7 @@ Jest to szczególnie ważne, aby zachować identyfikator klienta i zwrócić go 
 
 Jednak po wywołaniu interfejs API wyszukiwania w sieci Web Bing w języku JavaScript wbudowane funkcje zabezpieczeń (CORS) przeglądarki mogą uniemożliwiać dostęp do wartości tych nagłówków.
 
-Aby uzyskać dostęp do nagłówków, można wykonać żądanie interfejs API wyszukiwania w sieci Web Bing za pomocą serwera proxy CORS. Odpowiedź z tego serwera proxy zawiera nagłówek `Access-Control-Expose-Headers`, który zezwala na nagłówki odpowiedzi i udostępnia je dla języka JavaScript.
+Aby uzyskać dostęp do nagłówków, można wykonać żądanie interfejs API wyszukiwania w sieci Web Bing za pomocą serwera proxy CORS. Odpowiedź z takiego serwera proxy ma `Access-Control-Expose-Headers` nagłówek, który filtruje nagłówki odpowiedzi i udostępnia je skryptom JavaScript.
 
 Można łatwo zainstalować serwer proxy CORS, aby umożliwić naszej [aplikacji samouczka](tutorial-bing-web-search-single-page-app.md) dostęp do opcjonalnych nagłówków klienta. Najpierw [zainstaluj platformę Node.js](https://nodejs.org/en/download/), jeśli jeszcze jej nie masz. Potem wprowadź poniższe polecenie w wierszu polecenia.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6bbd54be46effe324199639477f9ca4ab31bea98
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c21a6a2a42aa7417ddb53afd3beda735b54cff3d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091406"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299137"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Powiązywanie usługi Azure cache for Redis z Twoją aplikacją w chmurze platformy Azure 
 
@@ -24,7 +24,7 @@ Zamiast ręcznego konfigurowania aplikacji do rozruchu sprężynowego można aut
 * Pamięć podręczna platformy Azure dla wystąpienia usługi Redis
 * Rozszerzenie chmury Azure wiosny dla interfejsu wiersza polecenia platformy Azure
 
-Jeśli nie masz wdrożonego wystąpienia chmury sieci platformy Azure, wykonaj kroki opisane w [przewodniku szybki start dotyczącym wdrażania aplikacji w chmurze Azure wiosennej](spring-cloud-quickstart-launch-app-portal.md).
+Jeśli nie masz wdrożonego wystąpienia chmury sieci platformy Azure, wykonaj kroki opisane w [przewodniku szybki start dotyczącym wdrażania aplikacji w chmurze Azure wiosennej](spring-cloud-quickstart.md).
 
 ## <a name="bind-azure-cache-for-redis"></a>Powiązywanie pamięci podręcznej platformy Azure dla Redis
 

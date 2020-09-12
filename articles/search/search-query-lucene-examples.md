@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934977"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297998"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Użyj "pełnej" składni wyszukiwania Lucene (zapytania zaawansowane w usłudze Azure Wyszukiwanie poznawcze)
 
@@ -40,13 +40,13 @@ To, czego potrzebujesz, jest to Poster lub równoważne narzędzie do wystawiani
 
 Po określeniu nagłówka żądania można użyć go ponownie dla wszystkich zapytań w tym artykule, zamieniając tylko ciąg **Search =** String. 
 
-  ![Nagłówek żądania narzędzia Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Parametry zestawu nagłówka żądania Poster](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Ustaw adres URL żądania
 
 Żądanie jest poleceniem GET z adresem URL zawierającym punkt końcowy Wyszukiwanie poznawcze platformy Azure i ciąg wyszukiwania.
 
-  ![Nagłówek żądania narzędzia Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Pobieranie nagłówka żądania Poster](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 Kompozycja adresów URL ma następujące elementy:
 
@@ -111,7 +111,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Odpowiedź na to zapytanie powinna wyglądać podobnie do poniższego zrzutu ekranu.
 
-  ![Przykładowa odpowiedź Poster](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Przykładowe odpowiedzi Poster z wynikami](media/search-query-lucene-examples/postman-sample-results.png)
 
 Być może zauważono wynik wyszukiwania w odpowiedzi. Jednolite Punktacja 1 występuje, gdy nie ma żadnej rangi, ponieważ wyszukiwanie nie było wyszukiwaniem pełnotekstowym lub nie zastosowano żadnych kryteriów. W przypadku wyszukiwania wartości null bez kryteriów wiersze są przywracane w dowolnej kolejności. Gdy dołączysz rzeczywiste kryteria wyszukiwania, wyniki wyszukiwania zostaną rozdzielone na znaczące wartości.
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Przykładowa odpowiedź Poster](media/search-query-lucene-examples/intrafieldfilter.png)
+  ![Wyrażenie wyszukiwania przykładowego odpowiedzi Poster](media/search-query-lucene-examples/intrafieldfilter.png)
 
 Można zdefiniować pole operacji wyszukiwania za pomocą składni **NazwaPola: searchExpression** , gdzie wyrażenie wyszukiwania może być pojedynczym słowem lub frazą lub bardziej skomplikowanym wyrażeniem w nawiasach, opcjonalnie z operatorami logicznymi. Oto kilka przykładów:
 

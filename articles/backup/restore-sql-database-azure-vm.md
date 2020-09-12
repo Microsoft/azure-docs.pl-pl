@@ -3,12 +3,12 @@ title: Przywracanie SQL Server baz danych na maszynie wirtualnej platformy Azure
 description: W tym artykule opisano sposób przywracania SQL Server baz danych, które są uruchomione na maszynie wirtualnej platformy Azure i których kopia zapasowa została utworzona przy użyciu Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826560"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377985"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie SQL Server baz danych na maszynach wirtualnych platformy Azure
 
@@ -98,7 +98,7 @@ Przywróć w następujący sposób:
 
         ![Wprowadź ścieżki docelowe](./media/backup-azure-sql-database/target-paths.png)
 
-1. Kliknij przycisk **OK** , aby wyzwolić przywracanie. Śledź postęp przywracania w obszarze **powiadomień** lub śledź go w widoku **zadania tworzenia kopii zapasowej** w magazynie.
+1. Wybierz **przycisk OK** , aby wyzwolić przywracanie. Śledź postęp przywracania w obszarze **powiadomień** lub śledź go w widoku **zadania tworzenia kopii zapasowej** w magazynie.
 
     > [!NOTE]
     > Przywracanie do punktu w czasie jest dostępne tylko dla kopii zapasowych dzienników dla baz danych, które są w trybie odzyskiwania pełnym i zbiorczym.
@@ -130,7 +130,7 @@ Aby przywrócić dane kopii zapasowej jako pliki. bak zamiast bazy danych, wybie
     >- Rozpoczęcie przywracania jako plików z magazynu kopii zapasowych `\\<storageacct>.file.core.windows.net\<filesharename>` jako ścieżki<BR>
     PsExec można pobrać ze strony [Sysinternals](/sysinternals/downloads/psexec) .
 
-1. Wybierz pozycję **OK**.
+1. Wybierz przycisk **OK**.
 
     ![Wybierz pozycję Przywróć jako pliki](./media/backup-azure-sql-database/restore-as-files.png)
 
@@ -150,7 +150,7 @@ Jeśli wybrano opcję **dzienniki (punkt w czasie)** jako typ przywracania, wyko
     ![Otwórz Kalendarz](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Po wybraniu daty wykres osi czasu zawiera dostępne punkty odzyskiwania w ciągłym zakresie.
-1. Określ czas odzyskiwania na wykresie osi czasu lub wybierz godzinę. Następnie wybierz pozycję **OK**.
+1. Określ czas odzyskiwania na wykresie osi czasu lub wybierz godzinę. Następnie wybierz przycisk **OK**.
 
 ### <a name="restore-to-a-specific-restore-point"></a>Przywróć do określonego punktu przywracania
 
@@ -161,7 +161,7 @@ Jeśli wybrano opcję **pełny & różnicowa** jako typ przywracania, wykonaj na
     ![Wybieranie punktu odzyskiwania pełnego](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > Domyślnie wyświetlane są punkty odzyskiwania z ostatnich 30 dni. Punkty odzyskiwania można wyświetlić w starszej wersji niż 30 dni, klikając przycisk **Filtruj** i wybierając zakres niestandardowy.
+    > Domyślnie wyświetlane są punkty odzyskiwania z ostatnich 30 dni. Punkty odzyskiwania można wyświetlić w starszej wersji niż 30 dni, wybierając pozycję **Filtruj** i wybierając zakres niestandardowy.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Przywracanie baz danych o dużej liczbie plików
 

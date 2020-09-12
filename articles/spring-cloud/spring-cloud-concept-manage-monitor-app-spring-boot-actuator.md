@@ -7,19 +7,19 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5cfc13700decf0176b283f5f1f9bd81503c1b10a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037597"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299511"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Zarządzanie aplikacją i monitorowanie jej przy użyciu programu Azure Spring Boot Actuator
 
 Po wdrożeniu nowego pliku binarnego w aplikacji możesz chcieć sprawdzić funkcjonalność i wyświetlić informacje o działającej aplikacji. W tym artykule wyjaśniono, jak uzyskać dostęp do interfejsu API z punktu końcowego testu dostarczonego przez chmurę usługi Azure wiosną i uwidocznić funkcje gotowe do użycia w środowisku produkcyjnym.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym artykule przyjęto założenie, że masz aplikację z systemem wiosny 2. x, która może zostać pomyślnie wdrożona i uruchomiona w usłudze Azure wiosennej w chmurze.  Zobacz [Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
+W tym artykule przyjęto założenie, że masz aplikację z systemem wiosny 2. x, która może zostać pomyślnie wdrożona i uruchomiona w usłudze Azure wiosennej w chmurze.  Zobacz [Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal](spring-cloud-quickstart.md)
 
 ## <a name="verify-app-through-test-endpoint"></a>Weryfikowanie aplikacji przy użyciu punktu końcowego testu
 1. Przejdź do **pulpitu nawigacyjnego aplikacji** i kliknij swoją aplikację, aby wprowadzić stronę przeglądu aplikacji.
@@ -63,12 +63,12 @@ Aby obserwować konfigurację i konfigurowalne środowisko, należy również w�
 Możesz teraz wrócić do okienka przegląd aplikacji i poczekać, aż stan aprowizacji zostanie zmieniony na "powodzenie".  Będzie więcej niż jedno uruchomione wystąpienie.
 
 > [!Note] 
-> Po udostępnieniu aplikacji publicznej te punkty końcowe urządzenia uruchamiającego są również udostępniane publicznie. Można ukryć wszystkie punkty końcowe, usuwając zmienne środowiskowe `management.endpoints.web.exposure.include` i ustawiając`management.endpoints.web.exposure.exclude=*`
+> Po udostępnieniu aplikacji publicznej te punkty końcowe urządzenia uruchamiającego są również udostępniane publicznie. Można ukryć wszystkie punkty końcowe, usuwając zmienne środowiskowe `management.endpoints.web.exposure.include` i ustawiając `management.endpoints.web.exposure.exclude=*`
 
 ## <a name="view-the-actuator-endpoint-to-view-application-information"></a>Wyświetl punkt końcowy siłowni, aby wyświetlić informacje o aplikacji
 1. Teraz możesz uzyskać dostęp do adresu URL, `"<test-endpoint>/actuator/"` Aby zobaczyć wszystkie punkty końcowe udostępniane przez siłownik rozruchu sprężynowego.
 1. Adres URL dostępu `"<test-endpoint>/actuator/env"` , można zobaczyć aktywne profile używane przez aplikację i wszystkie załadowane zmienne środowiskowe.
-1. Jeśli chcesz wyszukać określone środowisko, możesz uzyskać dostęp do adresu URL, `"<test-endpoint>/actuator/env/{toMatch}"` Aby go wyświetlić.
+1. Jeśli chcesz wyszukać określone środowisko, możesz uzyskać dostęp do adresu URL,  `"<test-endpoint>/actuator/env/{toMatch}"` Aby go wyświetlić.
 
 Aby wyświetlić wszystkie wbudowane punkty końcowe, zobacz [Uwidacznianie punktów końcowych](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
 

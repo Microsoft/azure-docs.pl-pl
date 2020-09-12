@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422947"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321960"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Dokumentacja podręcznika obsługi ogólnej Azure Active Directory
 
@@ -49,8 +49,8 @@ Podczas przeglądania listy może być konieczne przypisanie właściciela do za
 
 #### <a name="owners-recommended-reading"></a>Zalecane odczytywanie przez właścicieli
 
-- [Przypisywanie ról administratorów w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Nadzór na platformie Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Przypisywanie ról administratorów w usłudze Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Nadzór na platformie Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Zarządzanie hybrydowe
 
@@ -69,12 +69,12 @@ O ile nie został on ustanowiony, należy zdefiniować proces uaktualniania tych
 
 #### <a name="hybrid-management-recommended-reading"></a>Zalecany odczyt z funkcji zarządzania hybrydowego
 
-- [Azure AD Connect: automatyczne uaktualnianie](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
-- [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD | Aktualizacje automatyczne](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#automatic-updates)
+- [Azure AD Connect: automatyczne uaktualnianie](../hybrid/how-to-connect-install-automatic-upgrade.md)
+- [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD | Aktualizacje automatyczne](../manage-apps/application-proxy-connectors.md#automatic-updates)
 
 ### <a name="azure-ad-connect-health-alert-baseline"></a>Azure AD Connect Health linia bazowa alertu
 
-Organizacje powinny wdrożyć [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#what-is-azure-ad-connect-health) na potrzeby monitorowania i raportowania Azure AD Connect i AD FS. Azure AD Connect i AD FS są podstawowymi składnikami, które mogą przerwać zarządzanie cyklem życia i uwierzytelnianie, a tym samym prowadzić do przestoju. Azure AD Connect Health pomaga monitorować i uzyskiwać wgląd w lokalną infrastrukturę tożsamości w taki sposób, aby zapewnić niezawodność środowiska.
+Organizacje powinny wdrożyć [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) na potrzeby monitorowania i raportowania Azure AD Connect i AD FS. Azure AD Connect i AD FS są podstawowymi składnikami, które mogą przerwać zarządzanie cyklem życia i uwierzytelnianie, a tym samym prowadzić do przestoju. Azure AD Connect Health pomaga monitorować i uzyskiwać wgląd w lokalną infrastrukturę tożsamości w taki sposób, aby zapewnić niezawodność środowiska.
 
 ![Azure AD Connect architektura kondycji](./media/active-directory-ops-guide/active-directory-ops-img16.png)
 
@@ -82,7 +82,7 @@ Podczas monitorowania kondycji środowiska należy natychmiast rozwiązać wszys
 
 #### <a name="azure-ad-connect-health-recommended-reading"></a>Azure AD Connect Health zalecanym odczytywaniem
 
-- [Instalowanie agenta programu Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+- [Instalowanie agenta programu Azure AD Connect Health](../hybrid/how-to-connect-health-agent-install.md)
 
 ### <a name="on-premises-agents-logs"></a>Dzienniki agentów lokalnych
 
@@ -90,11 +90,11 @@ Niektóre usługi zarządzania tożsamościami i dostępem wymagają agentów lo
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Agenci w lokalnych dziennikach rejestrują zalecaną czytelność
 
-- [Rozwiązywanie problemów z serwerem proxy aplikacji](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
-- [Rozwiązywanie problemów z samoobsługowym resetowaniem hasła — Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
-- [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
-- [Azure AD Connect: Rozwiązywanie problemów z uwierzytelnianiem przekazywanym](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication#collecting-pass-through-authentication-agent-logs)
-- [Rozwiązywanie problemów z kodami błędów dla rozszerzenia serwera NPS usługi Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-errors)
+- [Rozwiązywanie problemów z serwerem proxy aplikacji](../manage-apps/application-proxy-troubleshoot.md)
+- [Rozwiązywanie problemów z samoobsługowym resetowaniem hasła — Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](../manage-apps/application-proxy-connectors.md)
+- [Azure AD Connect: Rozwiązywanie problemów z uwierzytelnianiem przekazywanym](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
+- [Rozwiązywanie problemów z kodami błędów dla rozszerzenia serwera NPS usługi Azure MFA](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Zarządzanie agentami lokalnymi
 
@@ -106,14 +106,14 @@ Stosowanie najlepszych rozwiązań może pomóc w optymalnym działaniu agentów
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>Zalecane odczyty lokalnego zarządzania agentami
 
-- [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
+- [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](../manage-apps/application-proxy-connectors.md)
 - [Uwierzytelnianie przekazywane przez usługę Azure AD — Szybki Start](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Zarządzanie na dużą skalę
 
 ### <a name="identity-secure-score"></a>Wskaźnik bezpieczeństwa tożsamości
 
-[Wynikowa tożsamość tożsamości](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score) zapewnia wymierny pomiar stan zabezpieczeń organizacji. Jest to klucz, aby stale przeglądać i rozwiązywać zgłoszone wnioski i dążyć do uzyskania najwyższej możliwej oceny. Ten wskaźnik ułatwi Ci:
+[Wynikowa tożsamość tożsamości](./identity-secure-score.md) zapewnia wymierny pomiar stan zabezpieczeń organizacji. Jest to klucz, aby stale przeglądać i rozwiązywać zgłoszone wnioski i dążyć do uzyskania najwyższej możliwej oceny. Ten wskaźnik ułatwi Ci:
 
 - Obiektywne mierzenie poziomu bezpieczeństwa tożsamości
 - Planowanie poprawy bezpieczeństwa tożsamości
@@ -125,15 +125,15 @@ Jeśli w danej organizacji nie ma obecnie żadnego programu do monitorowania zmi
 
 ### <a name="notifications"></a>Powiadomienia
 
-Firma Microsoft wysyła wiadomości e-mail do administratorów w celu powiadomienia różnych zmian w usłudze, wymaganych aktualizacji konfiguracji i błędów wymagających interwencji administratora. Należy pamiętać, że klienci ustawiają adresy e-mail powiadomień, aby powiadomienia były wysyłane do odpowiednich członków zespołu, którzy będą mogli potwierdzić i korzystać ze wszystkich powiadomień. Zalecamy dodanie wielu odbiorców do [centrum wiadomości pakietu Office 365](https://docs.microsoft.com/office365/admin/manage/message-center) i zażądanie, aby powiadomienia (w tym powiadomienia o Azure AD Connect Healthach) były wysyłane do listy dystrybucyjnej lub udostępnionej skrzynki pocztowej. Jeśli masz tylko jedno konto administratora globalnego z adresem e-mail, pamiętaj, aby skonfigurować co najmniej dwa konta z obsługą poczty e-mail.
+Firma Microsoft wysyła wiadomości e-mail do administratorów w celu powiadomienia różnych zmian w usłudze, wymaganych aktualizacji konfiguracji i błędów wymagających interwencji administratora. Należy pamiętać, że klienci ustawiają adresy e-mail powiadomień, aby powiadomienia były wysyłane do odpowiednich członków zespołu, którzy będą mogli potwierdzić i korzystać ze wszystkich powiadomień. Zalecamy dodanie wielu odbiorców do [centrum wiadomości pakietu Office 365](/office365/admin/manage/message-center) i zażądanie, aby powiadomienia (w tym powiadomienia o Azure AD Connect Healthach) były wysyłane do listy dystrybucyjnej lub udostępnionej skrzynki pocztowej. Jeśli masz tylko jedno konto administratora globalnego z adresem e-mail, pamiętaj, aby skonfigurować co najmniej dwa konta z obsługą poczty e-mail.
 
 Istnieją dwa adresy "od" używane przez usługę Azure AD: <o365mc@email2.microsoft.com> , które wysyła powiadomienia centrum komunikatów pakietu Office 365, a <azure-noreply@microsoft.com> następnie wysyłające powiadomienia powiązane z:
 
-- [Przeglądy dostępu w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
-- [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Usługa Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
-- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
-- [Powiadomienie o wygaśnięciu certyfikatu aplikacji dla przedsiębiorstw](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
+- [Przeglądy dostępu w usłudze Azure AD](../governance/access-reviews-overview.md)
+- [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
+- [Usługa Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-notifications.md)
+- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-email-notifications.md)
+- [Powiadomienie o wygaśnięciu certyfikatu aplikacji dla przedsiębiorstw](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration)
 - Powiadomienia usługi aprowizacji aplikacji dla przedsiębiorstw
 
 Zapoznaj się z poniższą tabelą, aby uzyskać informacje o typie wysyłanych powiadomień i o tym, gdzie je sprawdzić:
@@ -148,13 +148,13 @@ Zapoznaj się z poniższą tabelą, aby uzyskać informacje o typie wysyłanych 
 
 #### <a name="notifications-recommended-reading"></a>Zalecane odczyty
 
-- [Zmień adres organizacji, kontakt techniczny i inne — Office 365](https://docs.microsoft.com/office365/admin/manage/change-address-contact-and-more)
+- [Zmień adres organizacji, kontakt techniczny i inne — Office 365](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Obszar operacyjnej powierzchni
 
 ### <a name="ad-fs-lockdown"></a>Blokada AD FS
 
-Organizacje, które konfigurują aplikacje do uwierzytelniania bezpośrednio w usłudze Azure AD z poziomu [inteligentnego blokowania usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). Jeśli używasz AD FS w systemie Windows Server 2012 R2, zaimplementuj AD FS [Ochrona blokowania ekstranetu](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Jeśli używasz AD FS w systemie Windows Server 2016 lub nowszym, zaimplementuj [inteligentne blokowanie ekstranetu](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Zaleca się włączenie blokowania ekstranetu w taki sposób, aby zawierało ryzyko wymuszania ataków na Active Directory lokalnych. Jeśli jednak masz AD FS w systemie Windows 2016 lub nowszym, należy również włączyć blokadę blokowania ekstranetu, która pomoże ograniczyć ataki z wykorzystaniem [hasła](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
+Organizacje, które konfigurują aplikacje do uwierzytelniania bezpośrednio w usłudze Azure AD z poziomu [inteligentnego blokowania usługi Azure AD](../authentication/concept-sspr-howitworks.md). Jeśli używasz AD FS w systemie Windows Server 2012 R2, zaimplementuj AD FS [Ochrona blokowania ekstranetu](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Jeśli używasz AD FS w systemie Windows Server 2016 lub nowszym, zaimplementuj [inteligentne blokowanie ekstranetu](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Zaleca się włączenie blokowania ekstranetu w taki sposób, aby zawierało ryzyko wymuszania ataków na Active Directory lokalnych. Jeśli jednak masz AD FS w systemie Windows 2016 lub nowszym, należy również włączyć blokadę blokowania ekstranetu, która pomoże ograniczyć ataki z wykorzystaniem [hasła](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
 Jeśli AD FS jest używany tylko w przypadku federacji usługi Azure AD, niektóre punkty końcowe można wyłączyć, aby zminimalizować obszar narażony na ataki. Na przykład jeśli AD FS jest używany tylko w usłudze Azure AD, należy wyłączyć punkty końcowe protokołu WS-Trust inne niż punkty końcowe włączone dla **usernamemixed** i **windowstransport**.
 
@@ -164,7 +164,7 @@ Organizacje powinny blokować dostęp do maszyn z lokalnymi składnikami hybrydo
 
 Active Directory model warstwy administracyjnej został zaprojektowany tak, aby chronić systemy tożsamości przy użyciu zestawu stref buforowych między pełną kontrolą środowiska (warstwa 0) i zasobów stacji roboczej wysokiego ryzyka, które atakują często. ![Diagram przedstawiający trzy warstwy modelu warstwy](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
-[Model warstwowy](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) składa się z trzech poziomów i zawiera tylko konta administracyjne, a nie konta użytkowników standardowych.
+[Model warstwowy](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) składa się z trzech poziomów i zawiera tylko konta administracyjne, a nie konta użytkowników standardowych.
 
 - **Warstwa 0**   — Bezpośrednią kontrolę nad tożsamościami przedsiębiorstwa w środowisku. Warstwa 0 obejmuje konta, grupy i inne zasoby, które mają bezpośrednią lub pośrednią kontrolę administracyjną nad lasem usługi Active Directory, domenami, kontrolerami domeny i wszystkimi zasobami znajdującymi się w tym lesie. Czułość zabezpieczeń wszystkich zasobów warstwy 0 jest równoważna ich wzajemnej, efektywnej kontroli.
 - **Warstwa 1**   — Kontrola nad serwerami i aplikacjami przedsiębiorstwa. Zasoby warstwy 1 obejmują systemy operacyjne serwerów, usługi w chmurze i aplikacje używane w przedsiębiorstwie. Konta administratorów w warstwie 1 umożliwiają prowadzenie nadzoru nad znaczną częścią elementów generujących wartość biznesową, które są hostowane w tych zasobach. Typowym przykładem takiej roli są administratorzy serwerów, którzy obsługują te systemy operacyjne i mogą zmieniać działanie wszystkich usług w przedsiębiorstwie.

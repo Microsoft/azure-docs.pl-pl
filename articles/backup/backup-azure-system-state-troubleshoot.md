@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022364"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376285"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Rozwiązywanie problemów z kopią zapasową stanu systemu
 
@@ -66,20 +66,20 @@ Aby zainstalować Kopia zapasowa systemu Windows Server przy użyciu programu Po
 
 Aby zainstalować Kopia zapasowa systemu Windows Server przy użyciu Menedżer serwera, wykonaj następujące czynności:
 
-1. W oknie **Menedżer serwera**kliknij pozycję **Dodaj role i funkcje**. Zostanie wyświetlony **Kreator dodawania ról i funkcji** .
+1. W oknie **Menedżer serwera**wybierz pozycję **Dodaj role i funkcje**. Zostanie wyświetlony **Kreator dodawania ról i funkcji** .
 
     ![Pulpit nawigacyjny](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Wybierz **Typ instalacji** i kliknij przycisk **dalej**.
+2. Wybierz **Typ instalacji** i wybierz przycisk **dalej**.
 
     ![Typ instalacji](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Wybierz serwer z puli serwerów, a następnie kliknij przycisk **dalej**. W roli serwera pozostaw wybór domyślny i kliknij przycisk **dalej**.
-4. Wybierz pozycję **kopia zapasowa systemu Windows Server** na karcie **funkcje** i kliknij przycisk **dalej**.
+3. Wybierz serwer z puli serwerów, a następnie wybierz pozycję **dalej**. W roli serwera pozostaw wybór domyślny i wybierz pozycję **dalej**.
+4. Wybierz pozycję **kopia zapasowa systemu Windows Server** na karcie **funkcje** i wybierz pozycję **dalej**.
 
     ![Wybierz okno funkcji](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. Na karcie **potwierdzenie** kliknij przycisk **Zainstaluj** , aby rozpocząć proces instalacji.
+5. Na karcie **potwierdzenie** wybierz pozycję **Zainstaluj** , aby rozpocząć proces instalacji.
 6. Na karcie **wyniki** zostanie wyświetlona funkcja kopia zapasowa systemu Windows Server pomyślnie zainstalowana na serwerze z systemem Windows.
 
     ![Wyniki instalacji](./media/backup-azure-system-state-troubleshoot/results.jpg)
@@ -145,6 +145,6 @@ Jeśli zadanie nie powiedzie się, wskazuje to na problem z WSB, który spowoduj
 | -- | --
 | Agent MARS kończy się niepowodzeniem z komunikatem o błędzie: "kopia zapasowa stanu systemu nie powiodła się, ponieważ partycja systemowa EFI jest Może to być spowodowane dostępem do partycji systemowej przez zabezpieczenia innej firmy lub oprogramowanie do tworzenia kopii zapasowych. | — Jeśli problem jest spowodowany przez oprogramowanie zabezpieczeń innej firmy, należy skontaktować się z dostawcą oprogramowania antywirusowego, aby umożliwić mu agenta MARS <br/><br/> — Jeśli działa oprogramowanie do tworzenia kopii zapasowych innej firmy, zaczekaj na jego zakończenie, a następnie ponów próbę wykonania kopii zapasowej
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać więcej informacji na temat stanu systemu Windows w ramach wdrażania Menedżer zasobów, zobacz [Tworzenie kopii zapasowej stanu systemu Windows Server](backup-azure-system-state.md) .

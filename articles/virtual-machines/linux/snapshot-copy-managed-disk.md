@@ -1,5 +1,5 @@
 ---
-title: Tworzenie migawki wirtualnego dysku twardego na platformie Azure
+title: Tworzenie migawki wirtualnego dysku twardego przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Dowiedz się, jak utworzyć kopię dysku VHD na platformie Azure jako kopię zapasową lub rozwiązać problemy.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659954"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89317999"
 ---
-# <a name="create-a-snapshot"></a>Tworzenie migawki 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Tworzenie migawki przy użyciu portalu lub interfejsu wiersza polecenia platformy Azure
 
 Utwórz migawkę dysku systemu operacyjnego lub danych do utworzenia kopii zapasowej lub Rozwiąż problemy z maszyną wirtualną. Migawka to pełna kopia tylko do odczytu dysku VHD. 
 
@@ -65,7 +65,7 @@ az snapshot list \
 5. Wybierz istniejącą grupę zasobów lub wpisz nazwę nowej grupy. 
 7. W polu **dysk źródłowy**wybierz dysk zarządzany do utworzenia migawki.
 8. Wybierz **Typ konta** , który ma być używany do przechowywania migawki. Użyj **HDD w warstwie Standardowa** , chyba że będzie to konieczne w przypadku dysku SSD o wysokiej wydajności.
-9. Kliknij pozycję **Utwórz**.
+9. Kliknij przycisk **Utwórz**.
 
 
 ## <a name="next-steps"></a>Następne kroki

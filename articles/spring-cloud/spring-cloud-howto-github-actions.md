@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 960e480bc3271a24f1fa898e1af6c55bcaaada7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f004be0afc6c73fdabe57e568cd57b51e9abcc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037563"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299686"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Ciągłej integracji/ciągłego wdrażania w chmurze platformy Azure za pomocą akcji GitHub
 
@@ -164,7 +164,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Wdrażanie przy użyciu wtyczki Maven
-Innym rozwiązaniem jest użycie [wtyczki Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) do wdrożenia ustawień aplikacji jar i aktualizującej. Polecenie `mvn azure-spring-cloud:deploy` jest idempotentne i w razie konieczności automatycznie utworzy aplikacje. Nie musisz tworzyć odpowiednich aplikacji z wyprzedzeniem.
+Innym rozwiązaniem jest użycie [wtyczki Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) do wdrożenia ustawień aplikacji jar i aktualizującej. Polecenie `mvn azure-spring-cloud:deploy` jest idempotentne i w razie konieczności automatycznie utworzy aplikacje. Nie musisz tworzyć odpowiednich aplikacji z wyprzedzeniem.
 
 ```
 name: AzureSpringCloud

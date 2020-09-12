@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054716"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320260"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Skonfigurować "pozostania w Twojej rejestracji?" Monituj o konta usługi Azure AD
 
@@ -57,7 +57,7 @@ Szczegóły dotyczące błędu logowania są następujące i wyróżnione w przy
 
 Aby uniemożliwić użytkownikom wyświetlanie przerwania, należy ustawić **opcję Pokaż na** wartość **nie** w ustawieniach zaawansowanych znakowania. Spowoduje to wyłączenie monitu KMSI dla wszystkich użytkowników w katalogu usługi Azure AD.
 
-Można również użyć formantów sesji trwałej przeglądarki w dostępie warunkowym, aby uniemożliwić użytkownikom wyświetlenie monitu KMSI. Ta opcja umożliwia wyłączenie monitu KMSI dla wybranej grupy użytkowników (na przykład administratorów globalnych) bez wpływu na zachowanie logowania dla pozostałych użytkowników w katalogu. Aby uzyskać więcej informacji, zobacz [częstotliwość logowania użytkownika](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+Można również użyć formantów sesji trwałej przeglądarki w dostępie warunkowym, aby uniemożliwić użytkownikom wyświetlenie monitu KMSI. Ta opcja umożliwia wyłączenie monitu KMSI dla wybranej grupy użytkowników (na przykład administratorów globalnych) bez wpływu na zachowanie logowania dla pozostałych użytkowników w katalogu. Aby uzyskać więcej informacji, zobacz [częstotliwość logowania użytkownika](../conditional-access/howto-conditional-access-session-lifetime.md). 
 
 Aby upewnić się, że monit KMSI jest wyświetlany tylko wtedy, gdy może korzystać z użytkownika, monit KMSI nie jest zamierzony w następujących scenariuszach:
 
@@ -72,6 +72,6 @@ Aby upewnić się, że monit KMSI jest wyświetlany tylko wtedy, gdy może korzy
 
 Dowiedz się więcej na temat innych ustawień, które wpływają na limit czasu sesji logowania:
 
-* Microsoft 365 — [limit czasu bezczynności sesji](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Dostęp warunkowy usługi Azure AD — [częstotliwość logowania użytkownika](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Azure Portal — [limit czasu nieaktywności poziomu katalogu](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365 — [limit czasu bezczynności sesji](/sharepoint/sign-out-inactive-users)
+* Dostęp warunkowy usługi Azure AD — [częstotliwość logowania użytkownika](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Azure Portal — [limit czasu nieaktywności poziomu katalogu](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

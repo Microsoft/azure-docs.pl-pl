@@ -3,12 +3,12 @@ title: Przywracanie stanu systemu do systemu Windows Server
 description: Objaśnienie krok po kroku dotyczące przywracania stanu systemu Windows Server z kopii zapasowej na platformie Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178590"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377441"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
 
@@ -56,7 +56,7 @@ Poniższe kroki wyjaśniają, jak wycofać konfigurację systemu Windows Server 
 
 8. Sprawdź szczegóły odzyskiwania w okienku **potwierdzenia** i wybierz polecenie **Odzyskaj**.
 
-   ![Kliknij przycisk Odzyskaj, aby potwierdzić akcję odzyskania](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Wybierz pozycję Odzyskaj, aby potwierdzić akcję odzyskania](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Skopiuj katalog *WindowsImageBackup* w miejscu docelowym odzyskiwania do niekrytycznego woluminu serwera. Zwykle wolumin systemu operacyjnego Windows jest woluminem krytycznym.
 
@@ -104,7 +104,7 @@ Terminologia użyta w tych krokach obejmuje:
 
 11. Sprawdź szczegóły odzyskiwania w okienku potwierdzenia i wybierz polecenie **Odzyskaj**.
 
-    ![Kliknij przycisk Odzyskaj, aby potwierdzić proces odzyskiwania](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Wybierz przycisk Odzyskaj, aby potwierdzić proces odzyskiwania](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Skopiuj katalog *WindowsImageBackup* do niekrytycznego woluminu serwera (na przykład D: \) . Zwykle wolumin systemu operacyjnego Windows jest woluminem krytycznym.
 
