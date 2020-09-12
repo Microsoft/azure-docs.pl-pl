@@ -4,12 +4,12 @@ description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Ev
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27b587e6562b5ba0c9bf28a52a00a9d8e7d9201c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010464"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319506"
 ---
 # <a name="event-processor-host"></a>Host procesora zdarzeń
 > [!NOTE]
@@ -87,6 +87,8 @@ Następnie Utwórz wystąpienie wystąpienia [klasy eventprocessorhost](/dotnet/
 
 Na koniec użytkownicy rejestrują wystąpienie [klasy eventprocessorhost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) za pomocą usługi Event Hubs. Zarejestrowanie klasy procesora zdarzeń z wystąpieniem klasy eventprocessorhost rozpoczyna przetwarzanie zdarzenia. Rejestracja instruuje usługę Event Hubs, aby spodziewać się, że aplikacja konsumencka korzysta z zdarzeń z niektórych partycji i wywołuje kod implementacji [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) za każdym razem, gdy wypycha zdarzenia do użycia. 
 
+> [!NOTE]
+> W consumerGroupName jest rozróżniana wielkość liter.  Zmiany w consumerGroupName mogą spowodować odczytanie wszystkich partycji od początku strumienia.
 
 ### <a name="example"></a>Przykład
 
@@ -186,7 +188,7 @@ Nie zalecamy użycia aplikacji, gdy tworzysz odbiornik z epoką, a następnie pr
 > Zalecamy używanie różnych grup odbiorców dla aplikacji korzystających z epoki i dla tych, które nie używają epoki, aby uniknąć błędów. 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy znasz już hosta procesora zdarzeń, zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o Event Hubs:
 

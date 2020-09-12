@@ -1,28 +1,29 @@
 ---
-title: Tłumaczenie mowy za pomocą usługi mowy
+title: Omówienie tłumaczenia mowy — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Usługa Speech Service umożliwia dodawanie do aplikacji, narzędzi i urządzeń kompleksowego tłumaczenia mowy w czasie rzeczywistym. Ten sam interfejs API może służyć do tłumaczeń polegających na zamianie mowy na mowę i mowy na tekst.
+description: Funkcja tłumaczenia mowy umożliwia dodawanie do aplikacji, narzędzi i urządzeń kompleksowego tłumaczenia mowy w czasie rzeczywistym na wiele języków. Ten sam interfejs API może służyć do tłumaczeń polegających na zamianie mowy na mowę i mowy na tekst. Ten artykuł zawiera omówienie zalet usługi tłumaczenia mowy i jej możliwości.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ms.author: erhopf
-ms.custom: devx-track-csharp
-ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: Tłumaczenie mowy
+ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055536"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401218"
 ---
 # <a name="what-is-speech-translation"></a>Co to jest tłumaczenie mowy?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Tłumaczenie mowy z usługi mowy umożliwia korzystanie z funkcji zamiany mowy na wiele języków w czasie rzeczywistym oraz Tłumaczenie mowy na mowę i zamianę tekstu na tekst strumieni audio. Za pomocą zestawu Speech SDK aplikacje, narzędzia i urządzenia mają dostęp do transkrypcji źródłowych i danych wyjściowych tłumaczenia dla podanego dźwięku. Tymczasowe transkrypcja i wyniki tłumaczenia są zwracane w miarę wykrycia mowy, a końcowe wyniki można przekonwertować na mowę.
+Ten przegląd zawiera informacje o zaletach i możliwościach usługi tłumaczenia mowy, które umożliwiają korzystanie z funkcji zamiany mowy na wiele języków w czasie rzeczywistym oraz Tłumaczenie mowy na mowę i zamianę tekstu na tekst strumieni audio. Za pomocą zestawu Speech SDK aplikacje, narzędzia i urządzenia mają dostęp do transkrypcji źródłowych i danych wyjściowych tłumaczenia dla podanego dźwięku. Tymczasowe transkrypcja i wyniki tłumaczenia są zwracane, gdy wykryto mowę, a końcowe wyniki można przekonwertować na mowę.
 
 Aparat tłumaczenia firmy Microsoft jest obsługiwany przez dwa różne podejścia: tłumaczenia maszyn statystycznych (SMT) i neuronowych Machine Translation (NMT). SMT stosuje zaawansowaną analizę statystyczną do oszacowania najlepszych możliwych tłumaczeń z uwzględnieniem kontekstu kilku wyrazów. Dzięki NMT sieci neuronowych są używane do zapewniania dokładniejszych, naturalnych tłumaczeń przy użyciu pełnego kontekstu zdań do tłumaczenia wyrazów.
 
@@ -35,7 +36,7 @@ Obecnie firma Microsoft używa usługi NMT do tłumaczenia na najpopularniejsze 
 * Obsługa tłumaczenia na wiele języków docelowych.
 * Tymczasowe rozpoznawanie i wyniki tłumaczenia.
 
-## <a name="get-started"></a>Wprowadzenie 
+## <a name="get-started"></a>Rozpoczęcie pracy 
 
 Zapoznaj się z [przewodnikiem Szybki Start](get-started-speech-translation.md) , aby rozpocząć tłumaczenie mowy. Usługa tłumaczenia mowy jest dostępna za pośrednictwem [zestawu Speech SDK](speech-sdk.md) i [interfejsu wiersza polecenia mowy](spx-overview.md).
 

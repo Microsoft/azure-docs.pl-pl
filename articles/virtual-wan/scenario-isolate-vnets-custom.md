@@ -8,18 +8,18 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831026"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400062"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenariusz: niestandardowa izolacja dla sieci wirtualnych
 
 Podczas pracy z routingiem wirtualnego koncentratora sieci WAN jest dość kilka dostępnych scenariuszy. W niestandardowym scenariuszu izolacji dla sieci wirtualnych celem jest uniemożliwienie konkretnego zestawu sieci wirtualnych z możliwością uzyskania dostępu do innego określonego zestawu sieci wirtualnych. Jednak sieci wirtualnych są wymagane do uzyskania dostępu do wszystkich gałęzi (sieci VPN/ER/użytkownika). Aby uzyskać więcej informacji na temat routingu koncentratorów wirtualnych, zobacz [Informacje o routingu koncentratora wirtualnego](about-virtual-hub-routing.md).
 
-## <a name="design"></a><a name="design"></a>Projektowanie
+## <a name="design"></a><a name="design"></a>Projekt
 
 Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łączności. W tym scenariuszu będzie wyglądać podobnie do poniższego, gdzie każda komórka reprezentuje, czy źródło (wiersz) może komunikować się z miejscem docelowym (kolumna):
 
@@ -29,7 +29,7 @@ Aby ustalić, ile tabel tras będzie potrzebnych, można utworzyć macierz łąc
 | **Red sieci wirtualnych**  |   &#8594;|              |       X       |       X      |
 | **Gałęzie**   |   &#8594;|     X        |       X       |       X      |
 
-Każda z komórek w poprzedniej tabeli zawiera opis, czy połączenie wirtualnej sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu.
+Każda z komórek w powyższej tabeli opisuje, czy wirtualne połączenie sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu, gdzie "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN.
 
 Liczba różnych wzorców wierszy będzie wymagana w tym scenariuszu. W takim przypadku trzy tabele tras trasy, które będą wywoływać **RT_BLUE** i **RT_RED** dla sieci wirtualnych, i **domyślne** dla gałęzi. Należy pamiętać, że gałęzie zawsze muszą być skojarzone z domyślną tabelą routingu.
 

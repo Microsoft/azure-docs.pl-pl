@@ -6,14 +6,14 @@ manager: dcscontentpm
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 04/28/2020
+ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 8b5124a0336773412ae9c36a32a0f6f86da62a31
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056248"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321739"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Przygotowywanie dysku VHD lub VHDX systemu Windows do przekazania na platformę Azure
 
@@ -28,73 +28,6 @@ Aby uzyskać informacje o zasadach pomocy technicznej dla maszyn wirtualnych pla
 >
 > - 64-bitowa wersja systemu Windows Server 2008 R2 i nowszych systemów operacyjnych Windows Server. Aby uzyskać informacje o uruchamianiu 32-bitowego systemu operacyjnego na platformie Azure, zobacz [obsługa 32-bitowych systemów operacyjnych na maszynach wirtualnych platformy Azure](https://support.microsoft.com/help/4021388/).
 > - Jeśli do migracji obciążenia, takiego jak Azure Site Recovery lub Azure Migrate, zostanie użyte dowolne narzędzie do odzyskiwania po awarii, ten proces jest nadal wymagany w systemie operacyjnym gościa w celu przygotowania obrazu przed rozpoczęciem migracji.
-
-## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konwertowanie dysku wirtualnego na wirtualny dysk twardy o stałym rozmiarze
-
-Użyj jednej z metod opisanych w tej sekcji, aby przekonwertować dysk wirtualny i zmienić jego rozmiar na wymagany format dla platformy Azure:
-
-1. Przed uruchomieniem konwersji lub zmiany rozmiaru dysku wirtualnego wykonaj kopię zapasową maszyny wirtualnej.
-
-1. Upewnij się, że wirtualny dysk twardy systemu Windows działa poprawnie na serwerze lokalnym. Przed podjęciem próby konwersji lub przekazania na platformę Azure Usuń wszystkie błędy w samej maszynie wirtualnej.
-
-1. Przekonwertuj dysk wirtualny na typ fixed.
-
-1. Zmień rozmiar dysku wirtualnego, aby spełniał wymagania platformy Azure:
-
-   1. Dyski na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MiB. Jeśli wirtualny dysk twardy jest częścią 1 MiB, należy zmienić rozmiar dysku na wielokrotność 1 MiB. Dyski, które są częścią bazy MiB, powodują błędy podczas tworzenia obrazów na podstawie przekazanego wirtualnego dysku twardego. Aby sprawdzić, czy można użyć programu PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) comdlet do wyświetlania "size", który musi być wielokrotnością 1 MIB na platformie Azure, i "rozmiar pliku", która będzie równa "size" i 512 bajtów dla stopki wirtualnego dysku twardego.
-   
-   1. Maksymalny dozwolony rozmiar wirtualnego dysku twardego systemu operacyjnego z maszyną wirtualną generacji 1 to 2 048 GiB (2 TiB), 
-   1. Maksymalny rozmiar dysku danych to 32 767 GiB (32 TiB).
-
-> [!NOTE]
-> - W przypadku przygotowywania dysku systemu operacyjnego Windows po konwersji na dysk stały i zmiany rozmiaru w razie potrzeby należy utworzyć maszynę wirtualną używającą dysku. Uruchom i zaloguj się do maszyny wirtualnej i przejdź do sekcji w tym artykule, aby zakończyć przygotowywanie jej do przekazania.  
-> - Jeśli przygotowywany jest dysk z danymi, można go zatrzymać z tą sekcją i kontynuować przekazywanie dysku.
-
-### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Konwertowanie dysku za pomocą Menedżera funkcji Hyper-V
-
-1. Otwórz Menedżera funkcji Hyper-V i wybierz komputer lokalny po lewej stronie. W menu znajdującym się nad listą komputerów wybierz **Akcja**  >  **Edytuj dysk**.
-1. Na stronie **lokalizowanie wirtualnego dysku twardego** wybierz swój dysk wirtualny.
-1. Na stronie **Wybierz akcję** wybierz pozycję **Konwertuj**  >  **dalej**.
-1. Aby przekonwertować z formatu VHDX, wybierz pozycję **VHD**  >  **dalej**.
-1. Aby skonwertować dynamicznie powiększający dysk, wybierz pozycję **stały rozmiar**  >  **dalej**.
-1. Znajdź i wybierz ścieżkę, w której ma zostać zapisany nowy plik VHD.
-1. Wybierz pozycję **Zakończ**.
-
-### <a name="use-powershell-to-convert-the-disk"></a>Konwertowanie dysku przy użyciu programu PowerShell
-
-Dysk wirtualny można skonwertować przy użyciu polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd) w programie PowerShell. Jeśli potrzebujesz informacji na temat instalowania tego polecenia cmdlet, kliknij [tutaj](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
-
-Poniższy przykład konwertuje dysk z dysku VHDX na dysk VHD. Konwertuje także dysk z dynamicznie powiększanego dysku na dysk o stałym rozmiarze.
-
-```powershell
-Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
-```
-
-W tym przykładzie Zastąp wartość **Path ścieżką** do wirtualnego dysku twardego, który chcesz skonwertować. Zastąp wartość **DestinationPath** nową ścieżką i nazwą konwertowanego dysku.
-
-### <a name="convert-from-vmware-vmdk-disk-format"></a>Konwertuj z formatu dysku VMware VMDK
-
-Jeśli masz obraz maszyny wirtualnej z systemem Windows w [formacie VMDK](https://en.wikipedia.org/wiki/VMDK), użyj [konwertera maszyny wirtualnej firmy Microsoft](https://www.microsoft.com/download/details.aspx?id=42497) , aby przekonwertować go na format VHD. Aby uzyskać więcej informacji, zobacz [jak skonwertować dysk VHD programu VMware VMDK na funkcję Hyper-V](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd).
-
-### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Zmienianie rozmiaru dysku za pomocą Menedżera funkcji Hyper-V
-
-1. Otwórz Menedżera funkcji Hyper-V i wybierz komputer lokalny po lewej stronie. W menu znajdującym się nad listą komputerów wybierz **Akcja**  >  **Edytuj dysk**.
-1. Na stronie **lokalizowanie wirtualnego dysku twardego** wybierz swój dysk wirtualny.
-1. Na stronie **Wybierz akcję** wybierz pozycję **Rozwiń**  >  **dalej**.
-1. Na stronie **lokalizowanie wirtualnego dysku twardego** wprowadź nowy rozmiar w GIB > **dalej**.
-1. Wybierz pozycję **Zakończ**.
-
-### <a name="use-powershell-to-resize-the-disk"></a>Zmienianie rozmiaru dysku przy użyciu programu PowerShell
-
-Można zmienić rozmiar dysku wirtualnego za pomocą polecenia cmdlet [Zmień rozmiar pliku VHD](/powershell/module/hyper-v/resize-vhd) w programie PowerShell. Jeśli potrzebujesz informacji na temat instalowania tego polecenia cmdlet, kliknij [tutaj](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
-
-Poniższy przykład zmienia rozmiar dysku z 100,5 MiB na 101 MiB, aby spełnić wymagania dotyczące wyrównania na platformie Azure.
-
-```powershell
-Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
-```
-
-W tym przykładzie Zastąp wartość **Path ścieżką** do wirtualnego dysku twardego, którego rozmiar chcesz zmienić. Zastąp wartość **SizeBytes** nowym rozmiarem w bajtach dla dysku.
 
 ## <a name="system-file-checker"></a> narzędzie sprawdzania plików systemowych
 
@@ -138,7 +71,7 @@ Po zakończeniu skanowania programu SFC Zainstaluj aktualizacje systemu Windows 
    netsh.exe winhttp reset proxy
    ```
 
-    Jeśli maszyna wirtualna musi pracować z określonym serwerem proxy, Dodaj wyjątek serwera proxy dla adresu IP platformy Azure ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)), aby maszyna wirtualna mogła nawiązać połączenie z platformą Azure:
+    Jeśli maszyna wirtualna musi pracować z określonym serwerem proxy, Dodaj wyjątek serwera proxy dla adresu IP platformy Azure ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)), aby maszyna wirtualna mogła nawiązać połączenie z platformą Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -411,13 +344,13 @@ Upewnij się, że maszyna wirtualna jest w dobrej kondycji, bezpieczna i RDP:
 
 1. Uruchom ponownie maszynę wirtualną, aby upewnić się, że system Windows jest nadal w dobrej kondycji i można go połączyć za pomocą połączenia RDP. Na tym etapie warto utworzyć maszynę wirtualną na lokalnym serwerze funkcji Hyper-V, aby upewnić się, że maszyna wirtualna jest uruchamiana w całości. Następnie przetestuj go, aby upewnić się, że można uzyskać dostęp do maszyny wirtualnej za pomocą protokołu RDP.
 
-1. Usuń wszystkie filtry interfejsu dodatkowego sterownika transportu (TDI). Na przykład Usuń oprogramowanie, które analizuje pakiety TCP lub dodatkowe zapory. Aby przejrzeć to później, możesz to zrobić po wdrożeniu maszyny wirtualnej na platformie Azure.
+1. Usuń wszystkie filtry interfejsu dodatkowego sterownika transportu (TDI). Na przykład Usuń oprogramowanie, które analizuje pakiety TCP lub dodatkowe zapory.
 
 1. Odinstaluj wszelkie inne oprogramowanie lub sterowniki innej firmy, które są powiązane ze składnikami fizycznymi lub innymi technologiami wirtualizacji.
 
 ### <a name="install-windows-updates"></a>Zainstaluj aktualizacje systemu Windows
 
-W idealnym przypadku należy zachować aktualizację komputera na *poziomie poprawki*. Jeśli to nie jest możliwe, upewnij się, że są zainstalowane następujące aktualizacje. Aby uzyskać najnowsze aktualizacje, zobacz strony historii systemu Windows: [Windows 10 i Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 i Windows Server 2012 R2](https://support.microsoft.com/help/4009470) oraz [Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
+W idealnym przypadku należy zachować uaktualnienie komputera do *poziomu poprawki*, jeśli nie jest to możliwe, należy się upewnić, że są zainstalowane następujące aktualizacje. Aby uzyskać najnowsze aktualizacje, zobacz strony historii systemu Windows: [Windows 10, Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 i Windows Server 2012 R2](https://support.microsoft.com/help/4009470) oraz [Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 <br />
 
@@ -438,7 +371,7 @@ W idealnym przypadku należy zachować aktualizację komputera na *poziomie popr
 |                         | vmstorfl.sys   | 6.3.9600.18907 - KB4072650                | 6.3.9600.18080 - KB3063109                  | 6.3.9600.18907 - KB4072650          | 10.0.14393.2007 - KB4345418                 | 10.0.15063.850 - KB4345419 | 10.0.16299.371 - KB4345420                  | -                                           |
 |                         | Fveapi.dll     | 6.1.7601.23311 - KB3125574                | 6.2.9200.20930 - KB2930244                  | 6.3.9600.18294 - KB3172614          | 10.0.14393.576 - KB4022715                  | -                          | -                                           | -                                           |
 |                         | Fveapibase.dll | 6.1.7601.23403 - KB3125574                | 6.2.9200.20930 - KB2930244                  | 6.3.9600.17415 - KB3172614          | 10.0.14393.206 - KB4022715                  | -                          | -                                           | -                                           |
-| Network                 | netvsc.sys     | -                                         | -                                           | -                                   | 10.0.14393.1198 - KB4022715                 | 10.0.15063.250 - KB4020001 | -                                           | -                                           |
+| Sieć                 | netvsc.sys     | -                                         | -                                           | -                                   | 10.0.14393.1198 - KB4022715                 | 10.0.15063.250 - KB4020001 | -                                           | -                                           |
 |                         | mrxsmb10.sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.22108 - KB4022724                  | 6.3.9600.18603 - KB4022726          | 10.0.14393.479 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
 |                         | mrxsmb20.sys   | 6.1.7601.23816 - KB4022722                | 6.2.9200.21548 - KB4022724                  | 6.3.9600.18586 - KB4022726          | 10.0.14393.953 - KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
 |                         | mrxsmb.sys     | 6.1.7601.23816 - KB4022722                | 6.2.9200.22074 - KB4022724                  | 6.3.9600.18586 - KB4022726          | 10.0.14393.953 - KB4022715                  | 10.0.15063.0               | -                                           | -                                           |
@@ -462,7 +395,7 @@ W idealnym przypadku należy zachować aktualizację komputera na *poziomie popr
 > [!NOTE]
 > Aby uniknąć przypadkowego ponownego uruchomienia podczas aprowizacji maszyny wirtualnej, zalecamy upewnienie się, że wszystkie instalacje Windows Update zostały zakończone i że nie ma żadnych oczekujących aktualizacji. Jednym z nich jest zainstalowanie wszystkich możliwych aktualizacji systemu Windows i ponowne uruchomienie komputera przed uruchomieniem `sysprep.exe` polecenia.
 
-### <a name="determine-when-to-use-sysprep"></a>Ustalanie, kiedy należy używać narzędzia Sysprep
+## <a name="determine-when-to-use-sysprep"></a>Ustalanie, kiedy należy używać narzędzia Sysprep
 
 Narzędzie przygotowywania systemu ( `sysprep.exe` ) to proces, który można uruchomić w celu zresetowania instalacji systemu Windows.
 Program Sysprep udostępnia "środowisko pracy", usuwając wszystkie dane osobowe i instalując kilka składników.
@@ -472,7 +405,7 @@ Zwykle uruchamia `sysprep.exe` się, aby utworzyć szablon, na podstawie któreg
 Aby utworzyć tylko jedną maszynę wirtualną na podstawie jednego dysku, nie trzeba używać narzędzia Sysprep. Zamiast tego można utworzyć maszynę wirtualną na podstawie *wyspecjalizowanego obrazu*. Aby uzyskać informacje dotyczące sposobu tworzenia maszyny wirtualnej na podstawie wyspecjalizowanego dysku, zobacz:
 
 - [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego dysku](create-vm-specialized.md)
-- [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego dysku VHD](./create-vm-specialized-portal.md)
+- [Tworzenie maszyny wirtualnej na podstawie wyspecjalizowanego dysku VHD](/azure/virtual-machines/windows/create-vm-specialized-portal)
 
 Aby utworzyć uogólniony obraz, należy uruchomić program Sysprep. Aby uzyskać więcej informacji, zobacz [jak używać narzędzia Sysprep: wprowadzenie](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -488,9 +421,8 @@ W szczególności program Sysprep wymaga całkowicie odszyfrowania dysków przed
 
 1. Zaloguj się do maszyny wirtualnej z systemem Windows.
 1. Uruchom sesję programu PowerShell jako administrator.
-1. Usuń katalog Panther (C:\Windows\Panther).
 1. Zmień katalog na `%windir%\system32\sysprep` . Następnie należy uruchomić polecenie `sysprep.exe`.
-1. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że pole wyboru **generalize** jest zaznaczone.
+1. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i upewnij się, że jest zaznaczone pole wyboru **generalize** .
 
     ![Narzędzie przygotowywania systemu](media/prepare-for-upload-vhd-image/syspre.png)
 1. W obszarze **Opcje zamykania**wybierz pozycję **Zamknij**.
@@ -501,6 +433,73 @@ Teraz dysk VHD jest gotowy do przekazania. Aby uzyskać więcej informacji na te
 
 >[!NOTE]
 > Niestandardowy plik *unattend.xml* nie jest obsługiwany. Chociaż obsługujemy Właściwość **additionalUnattendContent** , która zapewnia tylko ograniczoną obsługę dodawania opcji [instalacji Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) do pliku *unattend.xml* , którego używa Agent aprowizacji platformy Azure. Aby dodać FirstLogonCommands i LogonCommands, można użyć, na przykład [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) . Aby uzyskać więcej informacji, zobacz [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+
+## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konwertowanie dysku wirtualnego na wirtualny dysk twardy o stałym rozmiarze
+
+Użyj jednej z metod opisanych w tej sekcji, aby przekonwertować dysk wirtualny i zmienić jego rozmiar na wymagany format dla platformy Azure:
+
+1. Przed uruchomieniem konwersji lub zmiany rozmiaru dysku wirtualnego wykonaj kopię zapasową maszyny wirtualnej.
+
+1. Upewnij się, że wirtualny dysk twardy systemu Windows działa poprawnie na serwerze lokalnym. Przed podjęciem próby konwersji lub przekazania na platformę Azure Usuń wszystkie błędy w samej maszynie wirtualnej.
+
+1. Przekonwertuj dysk wirtualny na typ fixed.
+
+1. Zmień rozmiar dysku wirtualnego, aby spełniał wymagania platformy Azure:
+
+   1. Dyski na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MiB. Jeśli wirtualny dysk twardy jest częścią 1 MiB, należy zmienić rozmiar dysku na wielokrotność 1 MiB. Dyski, które są częścią bazy MiB, powodują błędy podczas tworzenia obrazów na podstawie przekazanego wirtualnego dysku twardego. Aby sprawdzić rozmiar, można użyć polecenia cmdlet [Get-VHD](/powershell/module/hyper-v/get-vhd) programu PowerShell do wyświetlania "size", który musi być wielokrotnością 1 MIB na platformie Azure, i "rozmiar pliku", który będzie równy "size" i 512 bajtów dla stopki dysku VHD.
+   
+   1. Maksymalny dozwolony rozmiar wirtualnego dysku twardego systemu operacyjnego z maszyną wirtualną generacji 1 to 2 048 GiB (2 TiB), 
+   1. Maksymalny rozmiar dysku danych to 32 767 GiB (32 TiB).
+
+> [!NOTE]
+> - W przypadku przygotowywania dysku systemu operacyjnego Windows po konwersji na dysk stały i zmiany rozmiaru w razie potrzeby należy utworzyć maszynę wirtualną używającą dysku. Uruchom i zaloguj się do maszyny wirtualnej i przejdź do sekcji w tym artykule, aby zakończyć przygotowywanie jej do przekazania.  
+> - Jeśli przygotowywany jest dysk z danymi, można go zatrzymać z tą sekcją i kontynuować przekazywanie dysku.
+
+### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Konwertowanie dysku za pomocą Menedżera funkcji Hyper-V
+
+1. Otwórz Menedżera funkcji Hyper-V i wybierz komputer lokalny po lewej stronie. W menu znajdującym się nad listą komputerów wybierz **Akcja**  >  **Edytuj dysk**.
+1. Na stronie **lokalizowanie wirtualnego dysku twardego** wybierz swój dysk wirtualny.
+1. Na stronie **Wybierz akcję** wybierz pozycję **Konwertuj**  >  **dalej**.
+1. Aby przekonwertować z formatu VHDX, wybierz pozycję **VHD**  >  **dalej**.
+1. Aby skonwertować dynamicznie powiększający dysk, wybierz pozycję **stały rozmiar**  >  **dalej**.
+1. Znajdź i wybierz ścieżkę, w której ma zostać zapisany nowy plik VHD.
+1. Wybierz pozycję **Zakończ**.
+
+### <a name="use-powershell-to-convert-the-disk"></a>Konwertowanie dysku przy użyciu programu PowerShell
+
+Dysk wirtualny można skonwertować przy użyciu polecenia cmdlet [convert-VHD](/powershell/module/hyper-v/convert-vhd) w programie PowerShell. Jeśli potrzebujesz informacji na temat instalowania tego polecenia cmdlet [, zobacz Instalowanie roli funkcji Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+Poniższy przykład konwertuje dysk z dysku VHDX na dysk VHD. Konwertuje także dysk z dynamicznie powiększanego dysku na dysk o stałym rozmiarze.
+
+```powershell
+Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
+```
+
+W tym przykładzie Zastąp wartość **Path ścieżką** do wirtualnego dysku twardego, który chcesz skonwertować. Zastąp wartość **DestinationPath** nową ścieżką i nazwą konwertowanego dysku.
+
+### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Zmienianie rozmiaru dysku za pomocą Menedżera funkcji Hyper-V
+
+1. Otwórz Menedżera funkcji Hyper-V i wybierz komputer lokalny po lewej stronie. W menu znajdującym się nad listą komputerów wybierz **Akcja**  >  **Edytuj dysk**.
+1. Na stronie **lokalizowanie wirtualnego dysku twardego** wybierz swój dysk wirtualny.
+1. Na stronie **Wybierz akcję** wybierz pozycję **Rozwiń**  >  **dalej**.
+1. Na stronie **lokalizowanie wirtualnego dysku twardego** wprowadź nowy rozmiar w GIB > **dalej**.
+1. Wybierz pozycję **Zakończ**.
+
+### <a name="use-powershell-to-resize-the-disk"></a>Zmienianie rozmiaru dysku przy użyciu programu PowerShell
+
+Można zmienić rozmiar dysku wirtualnego za pomocą polecenia cmdlet [Zmień rozmiar pliku VHD](/powershell/module/hyper-v/resize-vhd) w programie PowerShell. Jeśli potrzebujesz informacji na temat instalowania tego polecenia cmdlet [, zobacz Instalowanie roli funkcji Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+Poniższy przykład zmienia rozmiar dysku z 100,5 MiB na 101 MiB, aby spełnić wymagania dotyczące wyrównania na platformie Azure.
+
+```powershell
+Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
+```
+
+W tym przykładzie Zastąp wartość **Path ścieżką** do wirtualnego dysku twardego, którego rozmiar chcesz zmienić. Zastąp wartość **SizeBytes** nowym rozmiarem w bajtach dla dysku.
+
+### <a name="convert-from-vmware-vmdk-disk-format"></a>Konwertuj z formatu dysku VMware VMDK
+
+Jeśli masz obraz maszyny wirtualnej z systemem Windows w [formacie VMDK](https://en.wikipedia.org/wiki/VMDK), możesz użyć [Azure Migrate](https://docs.microsoft.com/azure/migrate/server-migrate-overview) , aby przekonwertować dysk VMDK i przekazać go na platformę Azure.
 
 ## <a name="complete-the-recommended-configurations"></a>Wykonaj zalecane konfiguracje
 
@@ -520,4 +519,4 @@ Następujące ustawienia nie wpływają na przekazywanie wirtualnego dysku tward
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przekazywanie obrazu maszyny wirtualnej z systemem Windows na platformę Azure w celu wdrożenia Menedżer zasobów](upload-generalized-managed.md)
-- [Rozwiązywanie problemów z aktywacją maszyn wirtualnych systemu Windows Azure](../troubleshooting/troubleshoot-activation-problems.md)
+- [Rozwiązywanie problemów z aktywacją maszyn wirtualnych systemu Windows Azure](troubleshoot-activation-problems.md)

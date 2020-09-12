@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760611"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89323457"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Omówienie ponownych rozruchów maszyn wirtualnych — konserwacja a przestój
 Istnieją trzy scenariusze, które mogą spowodować wpływ na maszynę wirtualną na platformie Azure: nieplanowana konserwacja sprzętu, nieoczekiwany przestój i planowana konserwacja.
@@ -33,7 +33,7 @@ Aby zmniejszyć wpływ przestoju spowodowanego co najmniej jednym z tych zdarze�
 * [Konfigurowanie wielu maszyn wirtualnych w zestawie dostępności w celu zapewnienia nadmiarowości]
 * [Używanie dysków zarządzanych dla maszyn wirtualnych w zestawie dostępności]
 * [Używanie zaplanowanych zdarzeń do aktywnego reagowania na zdarzenia wpływające na maszynę wirtualną](../articles/virtual-machines/linux/scheduled-events.md)
-* [Konfigurowanie każdej warstwy aplikacji w osobnych zestawach dostępności]
+* [Konfigurowanie każdej warstwy aplikacji w osobnych zestawach dostępności](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [Łączenie modułu równoważenia obciążenia z strefami dostępności lub zestawami]
 * [Używanie stref dostępności do ochrony przed awariami na poziomie centrum danych]
 
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> W pewnych okolicznościach dwie maszyny wirtualne w tym samym AvailabilitySet mogą współużytkować ten sam FaultDomain. Można to potwierdzić, przechodząc do zestawu dostępności i sprawdzając kolumnę **domena błędów** .
-> Może to być spowodowane następującą sekwencją podczas wdrażania maszyn wirtualnych:
-> - Wdrażanie pierwszej maszyny wirtualnej
-> - Zatrzymaj/Cofnij przydział pierwszej maszyny wirtualnej
-> - W tym przypadku należy wdrożyć drugą maszynę wirtualną. dysk systemu operacyjnego drugiej maszyny wirtualnej może zostać utworzony w tej samej domenie błędów co pierwsza maszyna wirtualna, a druga maszyna wirtualna będzie również znajdować się na tym samym FaultDomain. 
-> Aby uniknąć tego problemu, zaleca się, aby nie zatrzymywać ani cofać alokacji maszyn wirtualnych między wdrożeniami.
+> W pewnych okolicznościach dwie maszyny wirtualne w tym samym zestawie dostępności mogą współużytkować domenę błędów. Można potwierdzić udostępnioną domenę błędów, przechodząc do zestawu dostępności i sprawdzając kolumnę **domena błędów** . Wspólna domena błędów może być spowodowana przez wykonanie następującej sekwencji podczas wdrażania maszyn wirtualnych:
+> 1. Wdróż pierwszą maszynę wirtualną.
+> 1. Zatrzymaj/Cofnij przydział pierwszej maszyny wirtualnej.
+> 1. Wdróż drugą maszynę wirtualną.
+>
+> W tych okolicznościach dysk systemu operacyjnego drugiej maszyny wirtualnej może zostać utworzony w tej samej domenie błędów co pierwsza maszyna wirtualna, więc dwie maszyny wirtualne będą znajdować się w tej samej domenie błędów. Aby uniknąć tego problemu, zalecamy nie zatrzymywanie/cofanie alokacji maszyn wirtualnych między wdrożeniami.
 
 Jeśli planujesz używanie maszyn wirtualnych z dyskami niezarządzanymi, postępuj zgodnie z najlepszymi rozwiązaniami dotyczącymi kont magazynu, w których wirtualne dyski twarde (VHD) maszyn wirtualnych są przechowywane jako [stronicowe obiekty blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

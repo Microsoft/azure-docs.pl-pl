@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553432"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400079"
 ---
 # <a name="scenario-any-to-any"></a>Scenariusz: dowolne
 
@@ -29,7 +29,7 @@ Aby ustalić, ile tabel tras będzie potrzebnych w wirtualnym scenariuszu sieci 
 | Sieci wirtualnych     | &#8594;|      X     |     X    |
 | Gałęzie   | &#8594;|    X     |     X    |
 
-Każda z komórek w poprzedniej tabeli zawiera opis, czy połączenie wirtualnej sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu.
+Każda z komórek w powyższej tabeli opisuje, czy wirtualne połączenie sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu, gdzie "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN.
 
 Ponieważ wszystkie połączenia zarówno z sieci wirtualnych, jak i gałęzi (VPN, ExpressRoute i VPN użytkownika) mają takie same wymagania dotyczące łączności, wymagana jest pojedyncza tabela tras. W związku z tym wszystkie połączenia będą skojarzone i propagowane do tej samej tabeli tras, domyślnej tabeli tras:
 

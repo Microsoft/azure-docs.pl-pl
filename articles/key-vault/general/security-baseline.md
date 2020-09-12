@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d939c03aef8d155d83d20c7d8211e04fae26c228
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230283"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400470"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Punkt odniesienia zabezpieczeń platformy Azure dla usługi Key Vault
 
@@ -411,7 +411,7 @@ Planowanie wdrożenia usługi Azure Multi-Factor Authentication opartej na chmur
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3,7: dziennik i alert dotyczący podejrzanego działania z kont administracyjnych
 
-**Wskazówki**: Użyj Azure Active Directory (AAD) PRIVILEGED Identity Management (PIM) do generowania dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku. Wykorzystaj wykrywanie ryzyka usługi AAD, aby wyświetlać alerty i raporty na temat ryzykownego zachowania użytkowników. Aby uzyskać dodatkowe rejestrowanie, Wyślij Azure Security Center alerty wykrywania ryzyka do Azure Monitor i skonfiguruj niestandardowe alerty/powiadomienia przy użyciu grup akcji.
+**Wskazówki**: Użyj Azure Active Directory (Azure AD) PRIVILEGED Identity Management (PIM) do generowania dzienników i alertów w przypadku wystąpienia podejrzanych lub niebezpiecznych działań w środowisku. Użyj funkcji wykrywania ryzyka usługi Azure AD, aby wyświetlać alerty i raporty na temat ryzykownego zachowania użytkowników. Aby uzyskać dodatkowe rejestrowanie, Wyślij Azure Security Center alerty wykrywania ryzyka do Azure Monitor i skonfiguruj niestandardowe alerty/powiadomienia przy użyciu grup akcji.
 
 Włącz zaawansowaną ochronę przed zagrożeniami (ATP) dla Azure Key Vault, aby generować alerty dla podejrzanych działań.
 
@@ -445,7 +445,7 @@ Jaki jest warunek lokalizacji w Azure Active Directory dostępu warunkowego?: ht
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Użyj Azure Active Directory
 
-**Wskazówki**: Użyj Azure Active Directory (AAD) jako centralnego systemu uwierzytelniania i autoryzacji dla zasobów platformy Azure, takich jak Key Vault. Umożliwia to kontrolę dostępu opartą na rolach (RBAC) do administrowania poufnymi zasobami.
+**Wskazówki**: Użyj Azure Active Directory (Azure AD) jako centralnego systemu uwierzytelniania i autoryzacji dla zasobów platformy Azure, takich jak Key Vault. Umożliwia to kontrolę dostępu opartą na rolach (RBAC) do administrowania poufnymi zasobami.
 
  
 
@@ -460,7 +460,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
-**Wskazówki**: przegląd dzienników Azure Active Directory (AAD), aby ułatwić odnajdywanie starych kont przy użyciu Azure Key Vault ról administracyjnych. Ponadto za pomocą przeglądów dostępu usługi AAD można efektywnie zarządzać członkostwem w grupach, uzyskiwać dostęp do aplikacji firmowych, które mogą być używane do uzyskiwania dostępu do Azure Key Vault i przypisań ról. Dostęp użytkowników powinien być regularnie przeglądany, na przykład co 90 dni, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp.
+**Wskazówki**: przegląd dzienników usługi Azure Active Directory (Azure AD) w celu ułatwienia wykrywania starych kont przy użyciu Azure Key Vault ról administracyjnych. Ponadto za pomocą przeglądów dostępu w usłudze Azure AD można efektywnie zarządzać członkostwem w grupach, uzyskiwać dostęp do aplikacji firmowych, które mogą być używane do uzyskiwania dostępu do Azure Key Vault i przypisań ról. Dostęp użytkowników powinien być regularnie przeglądany, na przykład co 90 dni, aby upewnić się, że tylko Ci użytkownicy mają stały dostęp.
 
 Azure Active Directory raportów i dokumentacji monitorowania:
 
@@ -1009,11 +1009,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Jak utworzyć Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej: 
+Jak przeprowadzić uwierzytelnianie w Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Jak przypisać zasady dostępu Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -1025,16 +1029,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: 
+* [Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [Jak utworzyć Key Vault](quick-create-portal.md)
 
-Jak utworzyć Key Vault: 
+* [Jak przeprowadzić uwierzytelnianie w Key Vault](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:  
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [Jak przypisać zasady dostępu Key Vault](assign-access-policy-portal.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

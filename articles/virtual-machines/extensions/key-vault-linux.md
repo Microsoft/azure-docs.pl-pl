@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e6702ab3753604af50e21f931dd23f63de3c1451
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4c5389e322fdf44e8a71baa8770f87c276c076c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936201"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400402"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
@@ -80,7 +80,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 ### <a name="property-values"></a>Wartości właściwości
 
-| Name (Nazwa) | Wartość/przykład | Typ danych |
+| Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
@@ -206,7 +206,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
 Należy pamiętać o następujących ograniczeniach/wymaganiach:
 - Ograniczenia Key Vault:
   - Musi istnieć w czasie wdrożenia 
-  - Zasady dostępu Key Vault mustbe ustawione dla tożsamości VM/VMSS przy użyciu tożsamości zarządzanej. Zobacz [udostępnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej](../../key-vault/general/managed-identity.md)
+  - Zasady dostępu Key Vault muszą być ustawione dla tożsamości VM/VMSS przy użyciu tożsamości zarządzanej. Zobacz [Jak przeprowadzić uwierzytelnianie, aby Key Vault](/azure/key-vault/general/authentication) i [przypisać zasady dostępu Key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna

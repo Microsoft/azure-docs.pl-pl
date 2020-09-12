@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 2a57c5244630c2328320d7d99eed98c892d49897
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4a98007917e95b1880661fe35bfd3f85f633e9a3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230759"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321773"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Tagi obrazu kontenera Cognitive Services platformy Azure
 
@@ -997,6 +997,32 @@ Ten obraz kontenera ma dostępne następujące znaczniki:
 | `1.0.0-amd64-zh-cn-huihuirus-preview`       | Obraz kontenera z `zh-CN` ustawieniami regionalnymi i `zh-CN-HuihuiRUS` głosem.       |
 | `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Obraz kontenera z `zh-CN` ustawieniami regionalnymi i `zh-CN-Kangkang-Apollo` głosem. |
 | `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Obraz kontenera z `zh-CN` ustawieniami regionalnymi i `zh-CN-Yaoyao-Apollo` głosem.   |
+
+## <a name="neural-text-to-speech"></a>Neuronowych Zamiana tekstu na mowę
+
+Obraz kontenera [neuronowych text-to-Speech] [Sp-ntts] można znaleźć w `containerpreview.azurecr.io` rejestrze kontenerów. Znajduje się w `microsoft` repozytorium i ma nazwę `cognitive-services-neural-text-to-speech` . W pełni kwalifikowana nazwa obrazu kontenera to, `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` .
+
+Ten obraz kontenera ma dostępne następujące znaczniki:
+
+| Tagi obrazu                                  | Uwagi                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Obraz kontenera z `en-US` ustawieniami regionalnymi i `en-US-AriaNeural` głosem.      |
+| `1.1.0-amd64-de-de-katjaneural-preview`     | Obraz kontenera z `de-DE` ustawieniami regionalnymi i `de-DE-KatjaNeural` głosem.     |
+| `1.1.0-amd64-en-au-natashaneural-preview`   | Obraz kontenera z `en-AU` ustawieniami regionalnymi i `en-AU-NatashaNeural` głosem.   |
+| `1.1.0-amd64-en-ca-claraneural-preview`     | Obraz kontenera z `en-CA` ustawieniami regionalnymi i `en-CA-ClaraNeural` głosem.     |
+| `1.1.0-amd64-en-gb-libbyneural-preview`     | Obraz kontenera z `en-GB` ustawieniami regionalnymi i `en-GB-LibbyNeural` głosem.     |
+| `1.1.0-amd64-en-gb-mianeural-preview`       | Obraz kontenera z `en-GB` ustawieniami regionalnymi i `en-GB-MiaNeural` głosem.       |
+| `1.1.0-amd64-en-us-arianeural-preview`      | Obraz kontenera z `en-US` ustawieniami regionalnymi i `en-US-AriaNeural` głosem.      |
+| `1.1.0-amd64-en-us-guyneural-preview`       | Obraz kontenera z `en-US` ustawieniami regionalnymi i `en-US-GuyNeural` głosem.       |
+| `1.1.0-amd64-es-es-elviraneural-preview`    | Obraz kontenera z `es-ES` ustawieniami regionalnymi i `es-ES-ElviraNeural` głosem.    |
+| `1.1.0-amd64-es-mx-dalianeural-preview`     | Obraz kontenera z `es-MX` ustawieniami regionalnymi i `es-MX-DaliaNeural` głosem.     |
+| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Obraz kontenera z `fr-CA` ustawieniami regionalnymi i `fr-CA-SylvieNeural` głosem.    |
+| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Obraz kontenera z `fr-FR` ustawieniami regionalnymi i `fr-FR-DeniseNeural` głosem.    |
+| `1.1.0-amd64-it-it-elsaneural-preview`      | Obraz kontenera z `it-IT` ustawieniami regionalnymi i `it-IT-ElsaNeural` głosem.      |
+| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Obraz kontenera z `ja-JP` ustawieniami regionalnymi i `ja-JP-NanamiNeural` głosem.    |
+| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Obraz kontenera z `ko-KR` ustawieniami regionalnymi i `ko-KR-SunHiNeural` głosem.     |
+| `1.1.0-amd64-pt-br-franciscaneural-preview` | Obraz kontenera z `pt-BR` ustawieniami regionalnymi i `pt-BR-FranciscaNeural` głosem. |
+| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Obraz kontenera z `zh-CN` ustawieniami regionalnymi i `zh-CN-XiaoxiaoNeural` głosem.  |
 
 ## <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
 

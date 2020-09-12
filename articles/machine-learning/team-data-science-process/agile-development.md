@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722105"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440290"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Opracowywanie projektów analizy danych
 
@@ -42,7 +42,7 @@ Poniżej przedstawiono definicje typów elementów roboczych:
 - **Funkcja**: funkcja odpowiada zakontraktowaniu projektu. Różne zaangażowanie z klientem to różne funkcje i najlepiej wziąć pod uwagę różne etapy projektu jako różne funkcje. W przypadku wybrania schematu, takiego jak *\<ClientName>-\<EngagementName>* nazwa funkcji, można łatwo rozpoznać kontekst projektu i zaangażowania z samych nazw.
   
 - **Scenariusz**użycia: historie użytkownika są elementami roboczymi, które są konieczne do zakończenia funkcji. Przykładami scenariuszy użycia są:
-  - Pobierz dane 
+  - Pobieranie danych 
   - Eksplorowanie danych 
   - Generuj funkcje
   - Tworzenie modeli
@@ -51,7 +51,7 @@ Poniżej przedstawiono definicje typów elementów roboczych:
   
 - **Zadanie**: zadania są możliwy do przypisania elementy robocze, które należy wykonać w celu ukończenia określonego scenariusza użytkownika. Na przykład zadania w scenariuszu użytkownika *pobieranie danych* mogą być następujące:
   - Pobierz poświadczenia SQL Server
-  - Przekaż dane do SQL Data Warehouse
+  - Przekazywanie danych do usługi Azure Synapse Analytics
   
 - **Usterka**: usterki są problemy w istniejącym kodzie lub dokumentach, które muszą zostać naprawione, aby można było ukończyć zadanie. Jeśli usterki są spowodowane brakującymi elementami roboczymi, mogą one być eskalacją do scenariuszy użytkownika lub zadań. 
 

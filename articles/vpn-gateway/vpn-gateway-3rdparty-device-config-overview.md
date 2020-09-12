@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/20/2017
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 00291373ae1e30eca2fdf5f9435fc2201a492e40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988062"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400164"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Omówienie konfiguracji urządzeń partnerskiej sieci VPN
 Ten artykuł zawiera omówienie konfigurowania lokalnych urządzeń sieci VPN w celu nawiązania połączenia z bramami sieci VPN platformy Azure. Przykładowa konfiguracja sieci wirtualnej platformy Azure i bramy sieci VPN służy do pokazywania sposobu nawiązywania połączenia z różnymi konfiguracjami lokalnych urządzeń sieci VPN przy użyciu tych samych parametrów.
@@ -43,7 +43,7 @@ Ta sekcja zawiera listę parametrów, które zostały opisane w poprzednich sekc
 | * Lokalne ASN protokołu BGP         | 65050                        |
 | * Lokalny adres IP elementu równorzędnego BGP     | 10.52.255.254                |
 
-\*Opcjonalny parametr tylko dla protokołu BGP.
+\* Opcjonalny parametr tylko dla protokołu BGP.
 
 ### <a name="sample-powershell-script"></a>Przykładowy skrypt programu PowerShell
 Ta sekcja zawiera przykładowy skrypt pozwalający rozpocząć pracę. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie połączenia S2S VPN przy użyciu programu PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).

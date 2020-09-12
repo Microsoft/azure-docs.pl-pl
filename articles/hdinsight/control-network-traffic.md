@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/02/2020
+ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83773410"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400198"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrolowanie ruchu sieciowego w usłudze Azure HDInsight
 
@@ -32,7 +32,11 @@ Jeśli planujesz używać **grup zabezpieczeń sieci** do kontrolowania ruchu si
 
 1. Określ region platformy Azure, który ma być używany przez usługę HDInsight.
 
-2. Zidentyfikuj Tagi usługi wymagane przez usługę HDInsight dla danego regionu. Aby uzyskać więcej informacji, zobacz [Tagi usług sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) dla usługi Azure HDInsight](hdinsight-service-tags.md).
+2. Zidentyfikuj Tagi usługi wymagane przez usługę HDInsight dla danego regionu. Istnieją różne sposoby uzyskiwania następujących tagów usługi:
+    1. Zapoznaj się z listą opublikowanych tagów usługi w [znacznikach usługi Network Security Group (sieciowej grupy zabezpieczeń) w usłudze Azure HDInsight](hdinsight-service-tags.md). 
+    2. Jeśli region nie znajduje się na liście, użyj [interfejsu API odnajdywania tagów usługi](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) , aby znaleźć tag usługi dla regionu.
+    3. Jeśli nie możesz użyć interfejsu API, Pobierz [plik JSON znacznika usługi](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) i wyszukaj żądany region.
+
 
 3. Utwórz lub zmodyfikuj sieciowe grupy zabezpieczeń dla podsieci, w której ma zostać zainstalowana Usługa HDInsight.
 
@@ -51,10 +55,6 @@ Wymuszone tunelowanie jest konfiguracją routingu zdefiniowaną przez użytkowni
 Klienci, którzy chcą skonfigurować Wymuszone tunelowanie, powinni używać [niestandardowych magazynów metadanych](./hdinsight-use-external-metadata-stores.md) i skonfigurować odpowiednią łączność z podsieci klastra lub sieci lokalnej do tych niestandardowych magazynów metadanych.
 
 Aby zapoznać się z przykładem konfiguracji UDR za pomocą zapory platformy Azure, zobacz [Konfigurowanie ograniczeń ruchu sieciowego wychodzącego dla klastrów usługi Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
-
-## <a name="required-ip-addresses"></a>Wymagane adresy IP
-
-Jeśli używasz sieciowych grup zabezpieczeń lub tras zdefiniowanych przez użytkownika do kontroli ruchu, zobacz [adresy IP zarządzania usługą HDInsight](hdinsight-management-ip-addresses.md).
 
 ## <a name="required-ports"></a>Wymagane porty
 

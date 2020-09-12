@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553397"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400045"
 ---
 # <a name="scenario-isolating-vnets"></a>Scenariusz: izolowanie sieci wirtualnych
 
@@ -29,7 +29,7 @@ W tym scenariuszu obciążenie w ramach określonej sieci wirtualnej pozostaje i
 | Sieci wirtualnych     | &#8594;|           |     X    |
 | Gałęzie   | &#8594;|    X     |     X    |
 
-Każda z komórek w poprzedniej tabeli zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) uzyskuje prefiks docelowy (po stronie "do" przepływu, nagłówki kolumn w kursywie) dla określonego przepływu ruchu.
+Każda z komórek w poprzedniej tabeli zawiera opis, czy połączenie wirtualnej sieci WAN (po stronie "od" przepływu, nagłówki wierszy) odnosi się do prefiksu docelowego (po stronie "do" przepływu, nagłówków kolumn w kursywie) dla określonego przepływu ruchu, gdzie "X" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN.
 
 Ta macierz łączności daje nam dwa różne wzorce wierszy, które przekładają się na dwie tabele tras. Wirtualna sieć WAN ma już domyślną tabelę tras, dlatego potrzebna jest inna tabela tras. W tym przykładzie zmienimy nazwę tabeli tras **RT_VNET**.
 

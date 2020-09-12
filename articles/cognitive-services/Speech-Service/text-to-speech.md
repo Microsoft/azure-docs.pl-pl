@@ -1,27 +1,29 @@
 ---
-title: Zamiana tekstu na mowę — usługa mowy
+title: Omówienie zamiany tekstu na mowę — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: Funkcja zamiany tekstu na mowę w usłudze mowy umożliwia aplikacjom, narzędziom i urządzeniom Konwertowanie tekstu na rozpoznawanie mowy przez człowieka. Wybierz wstępnie ustawione głosy lub Utwórz własny niestandardowy głos.
+description: Funkcja zamiany tekstu na mowę w usłudze mowy umożliwia aplikacjom, narzędziom i urządzeniom Konwertowanie tekstu na rozpoznawanie mowy przez człowieka. Ten artykuł zawiera omówienie zalet i możliwości usługi zamiany tekstu na mowę.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: Zamiana tekstu na mowę
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167712"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401184"
 ---
 # <a name="what-is-text-to-speech"></a>Co to jest zamiana tekstu na mowę?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Funkcja zamiany tekstu na mowę z usługi mowy umożliwia aplikacjom, narzędziom i urządzeniom Konwertowanie tekstu na wymowę, przypominającą człowieka. Wybieraj spośród standardowych i neuronowych głosów lub Utwórz niestandardowy głos unikatowy dla danego produktu lub marki. 75 standardowych głosów jest dostępnych w więcej niż 45 językach i ustawieniach regionalnych oraz 5 neuronowych głosów jest dostępnych w wybranej liczbie języków i ustawieniach regionalnych. Aby zapoznać się z pełną listą obsługiwanych głosów, języków i ustawień regionalnych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
+Ten przegląd zawiera informacje na temat zalet i możliwości usługi zamiany tekstu na mowę, która umożliwia aplikacjom, narzędziom i urządzeniom Konwertowanie tekstu na mowę, którą daje człowiek. Wybieraj spośród standardowych i neuronowych głosów lub Utwórz niestandardowy głos unikatowy dla danego produktu lub marki. 75 standardowych głosów jest dostępnych w więcej niż 45 językach i ustawieniach regionalnych oraz 5 neuronowych głosów jest dostępnych w wybranej liczbie języków i ustawieniach regionalnych. Aby zapoznać się z pełną listą obsługiwanych głosów, języków i ustawień regionalnych, zobacz [obsługiwane języki](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Rozpoznawanie mowy Bing został zlikwidowany 15 października 2019. Jeśli Twoje aplikacje, narzędzia lub produkty używają rozpoznawanie mowy Bing interfejsów API lub Custom Speech, zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.
@@ -39,7 +41,7 @@ Funkcja zamiany tekstu na mowę z usługi mowy umożliwia aplikacjom, narzędzio
 
 * Język znaczników syntezy mowy (SSML) — język znaczników oparty na języku XML używany do dostosowywania danych wyjściowych zamiany mowy na tekst. Za pomocą SSML można dostosować gęstość, dodać pauzy, poprawić wymowę, przyspieszyć lub spowalniać liczbę mówienia, zwiększyć lub zmniejszyć ilość, a także dodać wiele głosów do jednego dokumentu. Zobacz [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Zapoznaj się z [przewodnikiem Szybki Start](get-started-text-to-speech.md) , aby rozpocząć pracę z funkcją zamiany tekstu na mowę. Usługa zamiany tekstu na mowę jest dostępna za pośrednictwem [zestawu Speech SDK](speech-sdk.md), [interfejsu API REST](rest-text-to-speech.md)i [wiersza polecenia mowy](spx-overview.md)
 
