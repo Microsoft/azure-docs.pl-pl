@@ -1,18 +1,18 @@
 ---
 title: Nawiązywanie połączenia z lokalnymi maszynami wirtualnymi platformy Azure za pomocą Azure Site Recovery
 description: Zawiera opis sposobu nawiązywania połączenia z maszynami wirtualnymi platformy Azure po przejściu do trybu failover z platformy Azure przy użyciu Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
-ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770496"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568782"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Nawiązywanie połączenia z maszynami wirtualnymi platformy Azure po przejściu w tryb failover z lokalnego 
 
@@ -103,12 +103,12 @@ Przyjrzyjmy się przykładowi.
 - Woodgrove używa Site Recovery do replikowania maszyn lokalnych na platformę Azure.
 - Aplikacje lokalne używają zakodowanych adresów IP, dlatego chcą zachować te same adresy IP na platformie Azure.
 - Lokalne maszyny, na których działają aplikacje, działają w trzech podsieciach:
-    - 192.168.1.0/24.
+    - 192.168.1.0/24
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Aplikacje działające na platformie Azure znajdują się w **sieci** wirtualnej platformy Azure w dwóch podsieciach:
-- 172.16.1.0/24
-- 172.16.2.0/24.
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 Aby zachować adresy, wykonaj czynności przedstawione poniżej.
 

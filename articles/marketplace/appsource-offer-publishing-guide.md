@@ -1,24 +1,24 @@
 ---
 title: Oferowany Przewodnik publikowania dla Microsoft AppSource
-description: Przewodnik krok po kroku i publikacja list kontrolnych dotyczących publikowania aplikacji do Microsoft AppSource pakietu Office 365, Dynamics 365, aplikacji zaawansowanych i Power BI.
+description: Przewodnik krok po kroku i publikacja list kontrolnych dotyczących publikowania aplikacji do Microsoft AppSource dla Microsoft 365, Dynamics 365, aplikacji zaawansowanych i Power BI.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: c0052b515d87ecb744783d57942d2557fc1db913
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110287"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484820"
 ---
-# <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Oferowany Przewodnik publikowania dla pakietu Office 365, Dynamics 365, aplikacji zaawansowanych i Power BI
+# <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Oferowany Przewodnik publikowania dla Microsoft 365, Dynamics 365, aplikacji zaawansowanych i Power BI
 
-Microsoft AppSource obejmuje oferty, które kompilują lub poszerzają pakiet Office 365, Dynamics 365, aplikacje zaawansowane i Power BI. Każdy z tych produktów ma konkretną dokumentację, która przeprowadzi Cię przez proces publikowania. 
+Microsoft AppSource obejmuje oferty, które umożliwiają kompilowanie i poszerzanie Microsoft 365, Dynamics 365, aplikacji zaawansowanych i Power BI. Każdy z tych produktów ma konkretną dokumentację, która przeprowadzi Cię przez proces publikowania. 
 
-AppSource zapłacili oferty, lista i wersje próbne, z wywołaniami akcji *Uzyskaj je teraz*, *skontaktuj się z*nami i *Wypróbuj teraz*.
+AppSource zapłacili oferty, lista i wersje próbne, za pomocą *opcji wyświetlania,* *skontaktuj się*z nami i *Wypróbuj teraz*.
 
 ## <a name="product-specific-guides"></a>Przewodniki specyficzne dla produktu
 
@@ -26,7 +26,7 @@ Linki do publikowania procesów i wytycznych dla każdego typu oferty znajdują 
 
 | Produkt    | Wskazówki dotyczące publikowania  |
 | :------------------- | :-------------------|
-| Office 365 | Przejrzyj [proces publikowania i wskazówki](/office/dev/store/submit-to-appsource-via-partner-center). |
+| Microsoft 365 | Przejrzyj [proces publikowania i wskazówki](/office/dev/store/submit-to-appsource-via-partner-center). |
 | Dynamics 365 Business Central | Aby opublikować ofertę w centrum partnerskim, zobacz temat [Tworzenie nowej oferty Dynamics 365 Business Central](./partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Finance and Operations | Podczas kompilowania wersji Enterprise Edition Przejrzyj [proces publikowania i wskazówki](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>Aby opublikować ofertę w centrum partnerskim, zobacz temat [Tworzenie nowej usługi Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md).  |
 | Dynamics 365 for Customer Engagement | Przejrzyj [proces publikowania i wskazówki](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>Aby opublikować ofertę w centrum partnerskim, zobacz temat [Tworzenie nowej usługi Dynamics 365 na potrzeby zaangażowania klienta & oferty usługi PowerShell](./partner-center-portal/create-new-customer-engagement-offer.md).  |

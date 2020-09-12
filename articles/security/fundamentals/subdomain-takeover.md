@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: e378ffe00be9215c692a832e232fac7e866ab3c9
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890828"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514615"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Zapobiegaj zawieszonego wpisów DNS i unikaj przejęcia domen podrzędnych
 
@@ -27,27 +27,33 @@ W tym artykule opisano typowe zagrożenie bezpieczeństwa związane z przejmowan
 
 ## <a name="what-is-subdomain-takeover"></a>Co to jest przejęcie poddomeny?
 
-Przejęcia poddomen są typowymi zagrożeniami o wysokim znaczeniu dla organizacji, które regularnie tworzą i usuwają wiele zasobów. Przejęcie poddomeny może wystąpić, gdy istnieje rekord DNS wskazujący na niezainicjowany zasób platformy Azure. Takie rekordy DNS są również znane jako wpisy "zawieszonego DNS". Rekordy CNAME są szczególnie zagrożone tym zagrożeniem.
+Przejęcia poddomen są typowymi zagrożeniami o wysokim znaczeniu dla organizacji, które regularnie tworzą i usuwają wiele zasobów. Przejęcie poddomeny może wystąpić, gdy istnieje [rekord DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) wskazujący na niezainicjowany zasób platformy Azure. Takie rekordy DNS są również znane jako wpisy "zawieszonego DNS". Rekordy CNAME są szczególnie zagrożone tym zagrożeniem. Przejęcia domen podrzędnych umożliwiają złośliwym podmiotom przekierowywanie ruchu przeznaczonego dla domeny organizacji do lokacji wykonującej złośliwe działanie.
 
 Typowy scenariusz przejęcia domeny podrzędnej:
 
-1. Zostanie utworzona witryna sieci Web. 
+1. **Tworzenie**
 
-    W tym przykładzie `app-contogreat-dev-001.azurewebsites.net` .
+    1. Zasób platformy Azure można zainicjować przy użyciu w pełni kwalifikowanej nazwy domeny (FQDN) `app-contogreat-dev-001.azurewebsites.net` .
 
-1. Wpis CNAME zostanie dodany do serwera DNS wskazującego na witrynę sieci Web. 
+    1. Do strefy DNS można przypisać rekord CNAME z poddomeną `greatapp.contoso.com` , która kieruje ruch do zasobu platformy Azure.
 
-    W tym przykładzie utworzono następującą przyjazną nazwę: `greatapp.contoso.com` .
+1. **ANULOWANIA obsługi**
 
-1. Po kilku miesiącach lokacja nie będzie już konieczna, więc zostanie usunięta **bez** usuwania odpowiadającego wpisu DNS. 
+    1. Zasób platformy Azure jest cofany lub usuwany, gdy nie jest już wymagany. 
+    
+        W tym momencie rekord CNAME `greatapp.contoso.com` *powinien* zostać usunięty ze strefy DNS. Jeśli rekord CNAME nie zostanie usunięty, jest anonsowany jako aktywna domena, ale nie kieruje ruchu do aktywnego zasobu platformy Azure. Jest to definicja rekordu DNS "zawieszonego".
 
-    Wpis DNS CNAME jest teraz "zawieszonego".
+    1. Poddomena zawieszonego, `greatapp.contoso.com` , jest teraz podatna na zagrożenia i można ją przełączać przez przypisanie do innego zasobu subskrypcji platformy Azure.
 
-1. Niemal natychmiast po usunięciu lokacji aktor zagrożeń odnajduje brakującą lokację i tworzy własną witrynę sieci Web pod adresem `app-contogreat-dev-001.azurewebsites.net` .
+1. **PRZEJĘĆ**
 
-    Teraz ruch przeznaczony dla programu `greatapp.contoso.com` prowadzi do witryny platformy Azure aktora zagrożeń, a aktora zagrożeń kontroluje zawartość, która jest wyświetlana. 
+    1. Korzystając z powszechnie dostępnych metod i narzędzi, aktor zagrożeń odnajduje poddomenę zawieszonego.  
 
-    Usługa DNS zawieszonego była wykorzystywana, a poddomena contoso "GreatApp" jest ofiarą przejęcia poddomeny. 
+    1. Aktor zagrożeń inicjuje zasób platformy Azure o tej samej nazwie FQDN wcześniej kontrolowanego zasobu. W tym przykładzie `app-contogreat-dev-001.azurewebsites.net` .
+
+    1. Ruch wysyłany do domeny podrzędnej `myapp.contoso.com` jest teraz kierowany do zasobu złośliwego aktora, gdzie kontroluje zawartość.
+
+
 
 ![Przejęcie poddomeny z rozinicjowanej witryny sieci Web](./media/subdomain-takeover/subdomain-takeover.png)
 
@@ -57,23 +63,91 @@ Typowy scenariusz przejęcia domeny podrzędnej:
 
 Gdy rekord DNS wskazuje na zasób, który nie jest dostępny, rekord ten powinien zostać usunięty ze strefy DNS. Jeśli nie została usunięta, jest to rekord "zawieszonego DNS" i tworzy możliwość przejęcia poddomeny.
 
-Zawieszonego wpisy DNS umożliwiają uczestnikom zagrożeń przejęcie kontroli nad skojarzoną nazwą DNS w celu hostowania złośliwej witryny sieci Web lub usługi. Złośliwe strony i usługi w poddomenie organizacji mogą skutkować:
+Zawieszonego wpisy DNS umożliwiają uczestnikom zagrożeń przejęcie kontroli nad skojarzoną nazwą DNS w celu hostowania złośliwej witryny sieci Web lub usługi. Złośliwe strony i usługi w poddomenie organizacji mogą spowodować:
 
 - **Utrata kontroli nad zawartością poddomeny** — nieprzerwana prasa dotycząca niezdolności do zabezpieczania swojej zawartości przez organizację oraz uszkodzenia marki i utraty zaufania.
 
 - **Zbieranie plików cookie z niepodejrzanych osób odwiedzających** — często aplikacje sieci Web mogą uwidaczniać pliki cookie sesji w poddomenach (*. contoso.com), w związku z czym każda poddomena może uzyskiwać do nich dostęp. Aktory zagrożeń mogą korzystać z przejęcia poddomeny w celu utworzenia autentycznej strony, nakłonienia niepodejrzanych użytkowników do ich odwiedzenia i zebrania plików cookie (nawet bezpiecznych plików cookie). Powszechna koncepcja polega na tym, że za pomocą certyfikatów SSL chroni lokację oraz pliki cookie użytkowników z przejęcia. Jednak aktor zagrożeń może użyć poddomeny przejętej, aby zastosować do i odebrać prawidłowy certyfikat SSL. Prawidłowe certyfikaty SSL zapewniają im dostęp do zabezpieczonych plików cookie i mogą bardziej zwiększyć postrzeganą wiarygodność złośliwej witryny.
 
-- **Kampanie wyłudzające informacje** — w przypadku kampanii wyłudzających informacje mogą być używane jako autentyczne. Dotyczy to złośliwych witryn, a także dla rekordów MX, które umożliwiają aktorowi zagrożeń odbieranie wiadomości e-mail skierowanych do uprawnionej poddomeny o znanej, bezpiecznej marki.
+- **Kampanie wyłudzające informacje** — w kampaniach wyłudzających informacje mogą być używane jako autentyczne. Dotyczy to złośliwych witryn i rekordów MX, które umożliwiają aktorowi zagrożeń odbieranie wiadomości e-mail skierowanych do uprawnionej poddomeny o znanej, bezpiecznej marki.
 
 - **Dalsze zagrożenia** — złośliwe witryny mogą służyć do eskalacji innych klasycznych ataków, takich jak XSS, CSRF, obejście CORS i nie tylko.
 
 
 
-## <a name="preventing-dangling-dns-entries"></a>Zapobieganie zawieszonego wpisów DNS
+## <a name="identify-dangling-dns-entries"></a>Identyfikowanie wpisów DNS zawieszonego
+
+Aby zidentyfikować wpisy DNS w organizacji, które mogą być zawieszonego, [Użyj narzędzi programu](https://aka.ms/DanglingDNSDomains)PowerShell hostowanych przez usługę GitHub firmy Microsoft.
+
+To narzędzie ułatwia klientom platformy Azure Wyświetlanie listy wszystkich domen z rekordem CNAME skojarzonym z istniejącym zasobem platformy Azure, który został utworzony w ramach ich subskrypcji lub dzierżawców.
+
+Jeśli rekordy CNAME znajdują się w innych usługach DNS i wskaż zasoby platformy Azure, podaj rekordy CNAME w pliku wejściowym do narzędzia.
+
+Narzędzie obsługuje zasoby platformy Azure wymienione w poniższej tabeli. Narzędzie wyodrębnia lub przyjmuje jako dane wejściowe wszystkie rekordy CNAME dzierżawcy.
+
+
+| Usługa                   | Typ                                        | FQDNproperty                               | Przykład                         |
+|---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
+| Azure Front Door          | Microsoft. Network/usługi frontdoor                | Właściwości. cName                           | `abc.azurefd.net`               |
+| Azure Blob Storage        | Microsoft. Storage/storageaccounts           | Properties. obiektu. blob           | `abc. blob.core.windows.net`    |
+| Azure CDN                 | Microsoft. CDN/profile/punkty końcowe            | Właściwości. Nazwa hosta                        | `abc.azureedge.net`             |
+| Publiczne adresy IP       | Microsoft. Network/adresów publicipaddress         | Properties. dnsSettings. FQDN                | `abc.EastUs.cloudapp.azure.com` |
+| Azure Traffic Manager     | Microsoft. Network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
+| Wystąpienie kontenera platformy Azure  | Microsoft. containerinstance/containergroups | Properties. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
+| Usługa Azure API Management      | Microsoft. apimanagement/Service             | Properties. hostnameConfigurations. hostName | `abc.azure-api.net`             |
+| Azure App Service         | Microsoft. Web/witryny                         | Właściwości. defaultHostName                 | `abc.azurewebsites.net`         |
+| Azure App Service — miejsca | Microsoft. Web/Sites/miejsca                   | Właściwości. defaultHostName                 | `abc-def.azurewebsites.net`     |
+
+
+
+### <a name="prerequisites"></a>Wymagania wstępne
+
+Uruchom zapytanie jako użytkownik, który ma:
+
+- co najmniej dostęp na poziomie czytelnika do subskrypcji platformy Azure
+- dostęp do odczytu do grafu zasobów platformy Azure
+
+Jeśli jesteś administratorem globalnym dzierżawy organizacji, Podnieś poziom swojego konta, aby mieć dostęp do całej subskrypcji organizacji przy użyciu wskazówek w temacie [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+
+
+> [!TIP]
+> Wykres zasobów platformy Azure ma ograniczenia dotyczące ograniczania i stronicowania, które należy wziąć pod uwagę w przypadku dużego środowiska platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) o pracy z dużymi zestawami danych zasobów platformy Azure. 
+> 
+> Narzędzie używa tworzenia wsadowych subskrypcji, aby uniknąć tych ograniczeń.
+
+### <a name="run-the-script"></a>Uruchamianie skryptu
+
+Istnieją dwie wersje skryptu, oba mają te same parametry wejściowe i tworzą podobne dane wyjściowe:
+
+|Skrypt  |Informacje  |
+|---------|---------|
+|**Get-DanglingDnsRecordsPsCore.ps1**    |Tryb równoległy jest obsługiwany tylko w programie PowerShell w wersji 7 lub nowszej. w przeciwnym razie zostanie uruchomiony tryb szeregowy.|
+|**Get-DanglingDnsRecordsPsDesktop.ps1** |Obsługiwane tylko w przypadku programu PowerShell w wersji niższej niż 6, ponieważ ten skrypt używa [przepływu pracy systemu Windows](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
+
+Dowiedz się więcej i Pobierz skrypty programu PowerShell z witryny GitHub: https://aka.ms/DanglingDNSDomains .
+
+## <a name="remediate-dangling-dns-entries"></a>Koryguj wpisy DNS zawieszonego 
+
+Przejrzyj strefy DNS i zidentyfikuj rekordy CNAME, które zostały zawieszonego lub przejęcia. Jeśli poddomeny mają być zawieszonego lub przejęte, Usuń zagrożone poddomeny i zmniejsz ryzyko, wykonując następujące czynności:
+
+1. Ze strefy DNS Usuń wszystkie rekordy CNAME wskazujące nazwy FQDN zasobów, które nie są już obsługiwane.
+
+1. Aby włączyć kierowanie ruchu do zasobów w kontrolce, należy udostępnić dodatkowe zasoby z nazwami FQDN określonymi w rekordach CNAME domen zawieszonego.
+
+1. Przejrzyj kod aplikacji w celu odwoływania się do określonych poddomen i zaktualizuj wszystkie nieprawidłowe lub nieaktualne odwołania poddomen.
+
+1. Sprawdź, czy wystąpiło naruszenie, i podejmuj działania zgodnie z procedurami odpowiedzi na zdarzenia w organizacji. Wskazówki i najlepsze rozwiązania dotyczące badania tego problemu można znaleźć poniżej.
+
+    Jeśli logika aplikacji jest taka, że wpisy tajne, takie jak poświadczenia OAuth, zostały wysłane do domeny podrzędnej zawieszonego, lub informacje poufne dla prywatności zostały wysłane do poddomen zawieszonego, te dane mogły zostać ujawnione stronom trzecim.
+
+1. Dowiedz się, dlaczego rekord CNAME nie został usunięty ze strefy DNS, gdy zasób został anulowany, i wykonaj kroki, aby upewnić się, że rekordy DNS są odpowiednio aktualizowane, gdy zasoby platformy Azure zostaną wycofane w przyszłości.
+
+
+## <a name="prevent-dangling-dns-entries"></a>Zapobiegaj zawieszonego wpisów DNS
 
 Upewnienie się, że Twoja organizacja ma zaimplementowane procesy, aby zapobiec zawieszonego wpisów DNS, a wynikiem przejęcia poddomeny jest kluczowy element w programie zabezpieczeń.
 
-Dostępne obecnie miary zapobiegawcze są wymienione poniżej.
+Niektóre usługi platformy Azure oferują funkcje, które ułatwiają tworzenie środków zapobiegawczych i są szczegółowo opisane poniżej. Inne metody przeciwdziałania tego problemu muszą zostać ustanowione w ramach najlepszych praktyk w zakresie lub standardowych procedur operacyjnych.
 
 
 ### <a name="use-azure-dns-alias-records"></a>Użyj Azure DNS rekordów aliasów
@@ -121,110 +195,6 @@ Często deweloperzy i zespoły operacji mogą uruchamiać procesy oczyszczania, 
         - Jesteś posiadaczem potwierdzenia, że masz wszystkie zasoby, które są przeznaczone dla poddomen DNS.
 
     - Obsługa katalogu usług w pełni kwalifikowanych punktów końcowych nazw domen (FQDN) platformy Azure oraz właścicieli aplikacji. Aby skompilować katalog usług, uruchom następujący skrypt zapytania grafu zasobów platformy Azure. Ten skrypt zawiera informacje o punktach końcowych FQDN zasobów, do których masz dostęp, i wyprowadza je w pliku CSV. Jeśli masz dostęp do wszystkich subskrypcji dzierżawy, skrypt traktuje wszystkie te subskrypcje, jak pokazano w poniższym przykładowym skrypcie. Aby ograniczyć wyniki do określonego zestawu subskrypcji, należy edytować skrypt jak pokazano.
-
-        >[!IMPORTANT]
-        > **Uprawnienia** — uruchom zapytanie jako użytkownik, który ma dostęp do wszystkich subskrypcji platformy Azure. 
-        >
-        > **Ograniczenia** — usługa Azure Resource Graph ma limity ograniczania i stronicowania, które należy wziąć pod uwagę w przypadku dużego środowiska platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) o pracy z dużymi zestawami danych zasobów platformy Azure. Poniższy przykładowy skrypt używa tworzenia wsadowego subskrypcji, aby uniknąć tych ograniczeń.
-
-        ```powershell
-        
-            # Fetch the full array of subscription IDs.
-            $subscriptions = Get-AzSubscription
-
-            $subscriptionIds = $subscriptions.Id
-                    # Output file path and names
-                    $date = get-date
-                    $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
-                    $fdate #log to console
-                    $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
-                    $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
-                    $fpath = $rpath + $rname
-                    $fpath #This is the output file of FQDN report.
-
-            # queries
-            $allTypesFqdnsQuery = "where type in ('microsoft.network/frontdoors',
-                                    'microsoft.storage/storageaccounts',
-                                    'microsoft.cdn/profiles/endpoints',
-                                    'microsoft.network/publicipaddresses',
-                                    'microsoft.network/trafficmanagerprofiles',
-                                    'microsoft.containerinstance/containergroups',
-                                    'microsoft.web/sites',
-                                    'microsoft.web/sites/slots')
-                        | extend FQDN = case(
-                            type =~ 'microsoft.network/frontdoors', properties['cName'],
-                            type =~ 'microsoft.storage/storageaccounts', parse_url(tostring(properties['primaryEndpoints']['blob'])).Host,
-                            type =~ 'microsoft.cdn/profiles/endpoints', properties['hostName'],
-                            type =~ 'microsoft.network/publicipaddresses', properties['dnsSettings']['fqdn'],
-                            type =~ 'microsoft.network/trafficmanagerprofiles', properties['dnsConfig']['fqdn'],
-                            type =~ 'microsoft.containerinstance/containergroups', properties['ipAddress']['fqdn'],
-                            type =~ 'microsoft.web/sites', properties['defaultHostName'],
-                            type =~ 'microsoft.web/sites/slots', properties['defaultHostName'],
-                            '')
-                        | project id, type, name, FQDN
-                        | where isnotempty(FQDN)";
-
-            $apiManagementFqdnsQuery = "where type =~ 'microsoft.apimanagement/service'
-                        | project id, type, name,
-                            gatewayUrl=parse_url(tostring(properties['gatewayUrl'])).Host,
-                            portalUrl =parse_url(tostring(properties['portalUrl'])).Host,
-                            developerPortalUrl = parse_url(tostring(properties['developerPortalUrl'])).Host,
-                            managementApiUrl = parse_url(tostring(properties['managementApiUrl'])).Host,
-                            gatewayRegionalUrl = parse_url(tostring(properties['gatewayRegionalUrl'])).Host,
-                            scmUrl = parse_url(tostring(properties['scmUrl'])).Host,
-                            additionaLocs = properties['additionalLocations']
-                        | mvexpand additionaLocs
-                        | extend additionalPropRegionalUrl = tostring(parse_url(tostring(additionaLocs['gatewayRegionalUrl'])).Host)
-                        | project id, type, name, FQDN = pack_array(gatewayUrl, portalUrl, developerPortalUrl, managementApiUrl, gatewayRegionalUrl, scmUrl,             
-                            additionalPropRegionalUrl)
-                        | mvexpand FQDN
-                        | where isnotempty(FQDN)";
-
-            $queries = @($allTypesFqdnsQuery, $apiManagementFqdnsQuery);
-
-            # Paging helper cursor
-            $Skip = 0;
-            $First = 1000;
-
-            # If you have large number of subscriptions, process them in batches of 2,000.
-            $counter = [PSCustomObject] @{ Value = 0 }
-            $batchSize = 2000
-            $response = @()
-
-            # Group the subscriptions into batches.
-            $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
-
-            foreach($query in $queries)
-            {
-                # Run the query for each subscription batch with paging.
-                foreach ($batch in $subscriptionsBatch)
-                { 
-                    $Skip = 0; #Reset after each batch.
-
-                    $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
-                    else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
-                    $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
-                }
-            }
-
-            # View the completed results of the query on all subscriptions
-            $response | Export-Csv -Path $fpath -Append  
-
-        ```
-
-        Lista typów i ich `FQDNProperty` wartości określone w powyższym zapytaniu grafu zasobów:
-
-        |Nazwa zasobu  | `<ResourceType>`  | `<FQDNproperty>`  |
-        |---------|---------|---------|
-        |Azure Front Door|Microsoft. Network/usługi frontdoor|Właściwości. cName|
-        |Azure Blob Storage|Microsoft. Storage/storageaccounts|Properties. obiektu. blob|
-        |Azure CDN|Microsoft. CDN/profile/punkty końcowe|Właściwości. Nazwa hosta|
-        |Publiczne adresy IP|Microsoft. Network/adresów publicipaddress|Properties. dnsSettings. FQDN|
-        |Azure Traffic Manager|Microsoft. Network/trafficmanagerprofiles|Properties. dnsConfig. FQDN|
-        |Wystąpienie kontenera platformy Azure|Microsoft. containerinstance/containergroups|Properties. ipAddress. FQDN|
-        |Azure API Management|Microsoft. apimanagement/Service|Properties. hostnameConfigurations. hostName|
-        |Azure App Service|Microsoft. Web/witryny|Właściwości. defaultHostName|
-        |Azure App Service — miejsca|Microsoft. Web/Sites/miejsca|Właściwości. defaultHostName|
 
 
 - **Utwórz procedury korygowania:**

@@ -1,19 +1,19 @@
 ---
 title: Kopia zapasowa & replikacja dla oprogramowania Apache HBase, Phoenix — Azure HDInsight
 description: Konfigurowanie kopii zapasowej i replikacji dla oprogramowania Apache HBase i Apache Phoenix w usłudze Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705728"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505033"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurowanie kopii zapasowych i replikacji dla oprogramowania Apache HBase i Apache Phoenix w usłudze HDInsight
 

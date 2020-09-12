@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013592"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613729"
 ---
 # <a name="debug-rendering"></a>Debugowanie renderowania
 
@@ -64,7 +64,7 @@ void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight
 > [!NOTE]
 > Wszystkie efekty renderowania debugowania to globalne ustawienia, które mają wpływ na całą ramkę.
 
-## <a name="use-cases"></a>Przypadki zastosowań
+## <a name="use-cases"></a>Przypadki użycia
 
 Interfejs API renderowania debugowania jest przeznaczony dla prostych zadań debugowania, takich jak sprawdzenie, czy połączenie z usługą zostało prawidłowo uruchomione. Opcje renderowania tekstu wpływają bezpośrednio na ramki wideo w dół. Włączenie tych funkcji sprawdza, czy są odbierane nowe ramki i poprawnie zdekodowane wideo.
 
@@ -75,7 +75,11 @@ Jednak podane efekty nie dają żadnych szczegółowych introspekcji w zakresie 
 * Włączenie nakładek tekstu jest nieco nieznacznie niezwiązane z wydajnością.
 * Włączenie trybu szkieletu wiąże się z nieprostym obciążeniem wydajności, ale może się to różnić w zależności od sceny. W przypadku złożonych scen ten tryb może spowodować spadek szybkości klatek poniżej wartości docelowej 60-Hz.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Zdalnymanager::D ebugRenderingSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Tryby renderowania](../../concepts/rendering-modes.md)
 * [Zapytania wydajności po stronie serwera](performance-queries.md)

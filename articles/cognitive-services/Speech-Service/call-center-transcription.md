@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636130"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462738"
 ---
 # <a name="speech-service-for-telephony-data"></a>Usługa mowy dla danych telefonii
 
@@ -60,7 +60,7 @@ Nie jest to nietypowe w przypadku 35% wywołania pomocy technicznej, aby wywoły
 
 ### <a name="translation"></a>Tłumaczenie
 
-Niektóre firmy są eksperymentować z przekazywaniem przetłumaczonych transkrypcji od wywołań obsługi języka obcego, dzięki czemu menedżerowie ds. dostarczania mogą zrozumieć światowe środowisko klientów. Nasze możliwości [tłumaczenia](translation.md) są niezbyt nadmiarowe. Możemy przetłumaczyć dźwięk na dźwięk lub dźwięk na tekst dla dużej liczby ustawień regionalnych.
+Niektóre firmy są eksperymentować z przekazywaniem przetłumaczonych transkrypcji od wywołań obsługi języka obcego, dzięki czemu menedżerowie ds. dostarczania mogą zrozumieć światowe środowisko klientów. Nasze możliwości [tłumaczenia](/azure/cognitive-services/speech-service/speech-translation) są niezbyt nadmiarowe. Możemy przetłumaczyć dźwięk na dźwięk lub dźwięk na tekst dla dużej liczby ustawień regionalnych.
 
 ### <a name="text-to-speech"></a>Zamiana tekstu na mowę
 
@@ -70,7 +70,7 @@ Nasze opóźnienia kompleksowe są znacznie niskie dla różnych technologii, ta
 
 Nasze nowe głosy są również odróżniane od głosów ludzkich. Możesz użyć naszych głosów, aby bot swój unikatowy charakter.
 
-### <a name="search"></a>Wyszukaj
+### <a name="search"></a>Wyszukiwanie
 
 Kolejną zszywaniem funkcji analitycznych jest zidentyfikowanie interakcji w przypadku wystąpienia konkretnego zdarzenia lub doświadczenia. Zwykle jest to wykonywane z jednym z dwóch metod; Wyszukiwanie ad hoc, w którym użytkownik po prostu wpisuje frazę i system odpowiada, lub bardziej strukturalne zapytanie, gdzie analityk może utworzyć zestaw instrukcji logicznych, które identyfikują scenariusz w wywołaniu, a następnie każde wywołanie może być indeksowane względem tego zestawu zapytań. Dobrym przykładem wyszukiwania jest Powszechna Deklaracja zgodności "to wywołanie jest rejestrowane w celach jakościowych... ". W wielu firmach chcemy upewnić się, że ich agenci dostarczą tej odpowiedzialności klientom przed faktycznym zarejestrowaniem połączenia. Większość systemów analitycznych ma możliwość trendu zachowań znalezionych przez algorytmy zapytań i wyszukiwania, a to raportowanie trendów jest ostatecznie jedną z najważniejszych funkcji systemu analitycznego. Za pomocą [katalogu usług poznawczych](https://azure.microsoft.com/services/cognitive-services/directory/search/) kompleksowe rozwiązanie można znacznie rozszerzyć za pomocą funkcji indeksowania i wyszukiwania.
 
@@ -103,7 +103,7 @@ Wewnętrznie korzystamy z powyższych technologii do obsługi wywołań klientó
 
 Niektóre firmy muszą transkrypcja konwersacje w czasie rzeczywistym. Transkrypcja w czasie rzeczywistym może służyć do identyfikowania słów kluczowych i wyzwalania wyszukiwania zawartości i zasobów związanych z konwersacją, monitorowania tonacji, w celu usprawnienia ułatwienia dostępu lub do przekazywania tłumaczeń dla klientów i agentów, którzy nie są natywnymi głośnikami.
 
-W scenariuszach wymagających transkrypcji w czasie rzeczywistym zalecamy użycie [zestawu Speech SDK](speech-sdk.md). Obecnie funkcja zamiany mowy na tekst jest dostępna w [ponad 20 językach](language-support.md), a zestaw SDK jest dostępny w językach C++, C#, Java, Python, Node. js, celu-C i JavaScript. Przykłady są dostępne w każdym języku w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Najnowsze wiadomości i aktualizacje znajdują się w temacie [Informacje o wersji](releasenotes.md).
+W scenariuszach wymagających transkrypcji w czasie rzeczywistym zalecamy użycie [zestawu Speech SDK](speech-sdk.md). Obecnie funkcja zamiany mowy na tekst jest dostępna w [ponad 20 językach](language-support.md), a zestaw SDK jest dostępny w językach C++, C#, Java, Python, Node.js, zamierzenia C i JavaScript. Przykłady są dostępne w każdym języku w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Najnowsze wiadomości i aktualizacje znajdują się w temacie [Informacje o wersji](releasenotes.md).
 
 Wewnętrznie korzystamy z powyższych technologii do analizy w czasie rzeczywistym wywołań klientów firmy Microsoft w miarę ich występowania, jak pokazano na poniższym diagramie.
 

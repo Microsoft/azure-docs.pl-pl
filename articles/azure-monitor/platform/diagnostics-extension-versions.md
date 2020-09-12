@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9fa0fbea9a6c0e95eb9bec2795ae12e5fae36bfb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305095"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568664"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Wersje i historia schematu konfiguracji rozszerzenia Diagnostyka Azure systemu Windows (funkcji wad)
 Ten artykuł zawiera informacje o historii wersji [Diagnostyka Azure rozszerzeń schematu dla systemu Windows (funkcji wad)](diagnostics-extension-overview.md) , które zostały wysłane jako część zestawu Microsoft Azure SDK.  
@@ -21,17 +21,17 @@ Ten artykuł zawiera informacje o historii wersji [Diagnostyka Azure rozszerzeń
 
 |Wersja zestawu Azure SDK | Wersja rozszerzenia diagnostyki | Model|  
 |------------------|-------------------------------|------|  
-|1.x               |1.0                            |Wtyczka|  
-|2,0 – 2,4         |1.0                            |Wtyczka|  
-|2.5               |1.2                            |rozszerzenie|  
+|1.x               |1,0                            |Wtyczka|  
+|2,0 – 2,4         |1,0                            |Wtyczka|  
+|2,5               |1,2                            |rozszerzenie|  
 |2,6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
 |2,8               |1.5                            |"|  
 |2.9               |1.6                            |"|
-|2,96              |1.7                            |"|
+|2,96              |1,7                            |"|
 |2,96              |1.8                            |"|
 |2,96              |1.8.1                          |"|
-|2,96              |1.9                            |"|
+|2,96              |1,9                            |"|
 |2,96              |1,11                           |"|
 
 

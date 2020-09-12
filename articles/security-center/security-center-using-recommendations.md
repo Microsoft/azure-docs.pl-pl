@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783235"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569054"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Używanie zaleceń usługi Azure Security Center w celu ulepszania zabezpieczeń
+
 Aby zmniejszyć prawdopodobieństwo wystąpienia poważnych zdarzeń zabezpieczeń, można skonfigurować zasady zabezpieczeń, a następnie zaimplementować zalecenia udostępniane przez Azure Security Center. W tym artykule pokazano, jak używać zasad zabezpieczeń i zaleceń w Security Center, aby pomóc w ograniczeniu ataku zabezpieczeń. 
 
 Security Center automatycznie uruchamia ciągłego skanowania w celu przeanalizowania stanu zabezpieczeń zasobów platformy Azure. Gdy Security Center identyfikuje potencjalne luki w zabezpieczeniach, tworzy zalecenia, które przeprowadzą Cię przez proces konfigurowania wymaganych kontroli zabezpieczeń. Security Center aktualizuje zalecenia w ciągu 24 godzin, z następującymi wyjątkami:
@@ -66,6 +67,11 @@ W ramach codziennych działań monitorowania Jan loguje się do platformy Azure 
 6. Marcin ma wiele maszyn wirtualnych połączonych z Internetem, a ponieważ ich porty są ujawniane, są martwisz się, że osoba atakująca może przejąć kontrolę nad serwerami. Dlatego Jan wybiera, aby korzystać z [**dostępu just in Time do maszyny wirtualnej**](security-center-just-in-time.md).
 
 Marcin kontynuuje przechodzenie między zaleceniami o wysokim priorytecie i o średnim priorytecie i podejmuje decyzje dotyczące wdrożenia. W przypadku każdego zalecenia firma Jan przegląda szczegółowe informacje udostępniane przez Security Center, aby zrozumieć, jakie zasoby mają wpływ, jaki jest wpływ na to, jakie są te zalecenia, co oznacza, jakie są środki zaradcze w zakresie rozwiązywania problemów.
+
+### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Wymuś zalecenia, aby zapobiec błędom konfiguracji zabezpieczeń
+
+Aby upewnić się, że użytkownicy nie tworzą zasobów, które negatywnie wpływają na ocenę Jan, konfigurują opcje Wymuszaj i Odmów na zaleceniach, które są dla nich najważniejsze. Dowiedz się więcej w temacie [zapobieganie błędom konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md).
+
 
 ## <a name="conclusion"></a>Podsumowanie
 Zalecenia dotyczące monitorowania w Security Center pomagają wyeliminować luki w zabezpieczeniach przed wystąpieniem ataku. W przypadku korygowania zaleceń Twój bezpieczny wynik i stan zabezpieczenia są ulepszane. Security Center automatycznie odnajduje nowe wdrożone zasoby, ocenia je przed zasadami zabezpieczeń i udostępnia nowe zalecenia dotyczące zabezpieczania tych zasobów.

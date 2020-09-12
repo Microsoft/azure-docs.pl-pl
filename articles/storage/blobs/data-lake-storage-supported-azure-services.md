@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b185b6e7706b2049f2821400db9d810588000419
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c3a5f3a984c95af400c9e0c1543e3c1883290668
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848217"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442960"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ Ta tabela zawiera listę usług platformy Azure, których można używać z usł
 |Usługa platformy Azure |Poziom pomocy technicznej |Azure AD |Klucz wspólny| Pokrewne artykuły: |
 |---------------|-------------------|---|---|---|
 |Azure Data Factory|Ogólnie dostępne|Tak|Tak|[Załaduj dane do Azure Data Lake Storage Gen2 z Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure Databricks|Ogólnie dostępne|Tak|Tak|[Używanie z usługą Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [Szybki Start: analizowanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse) <br>[Samouczek: dostęp Data Lake Storage Gen2 danych za pomocą Azure Databricks przy użyciu platformy Spark](data-lake-storage-use-databricks-spark.md)|
+|Azure Databricks|Ogólnie dostępne|Tak|Tak|[Używanie z usługą Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [Szybki Start: analizowanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse) <br>[Samouczek: dostęp Data Lake Storage Gen2 danych za pomocą Azure Databricks przy użyciu platformy Spark](data-lake-storage-use-databricks-spark.md)|
 |Centrum zdarzeń Azure|Ogólnie dostępne|Nie|Tak|[Przechwyć zdarzenia za pomocą usługi Azure Event Hubs na platformie Azure Blob Storage lub Azure Data Lake Storage](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
 |Azure Event Grid|Ogólnie dostępne|Tak|Tak|[Samouczek: implementowanie wzorca przechwytywania danych w celu zaktualizowania tabeli różnicowej datakostki](data-lake-storage-events.md)|
 |Azure Logic Apps|Ogólnie dostępne|Nie|Tak|[Przegląd — co to jest Azure Logic Apps?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
@@ -44,7 +44,6 @@ Ta tabela zawiera listę usług platformy Azure, których można używać z usł
 |Azure Data Explorer|Ogólnie dostępne|Tak|Tak|[Wykonywanie zapytań dotyczących danych w Azure Data Lake przy użyciu usługi Azure Eksplorator danych](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Wersja zapoznawcza|Tak|Tak|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
 |Azure Content Delivery Network|Jeszcze nieobsługiwane|Nie dotyczy|Nie dotyczy|[Indeksowanie i Wyszukiwanie Azure Data Lake Storage Gen2 dokumentów (wersja zapoznawcza)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
-
 
 ## <a name="see-also"></a>Zobacz także
 

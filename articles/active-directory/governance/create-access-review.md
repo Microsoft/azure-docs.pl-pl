@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/06/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783658"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505103"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Tworzenie przeglądu dostępu do grup i aplikacji w przeglądach dostępu usługi Azure AD
 
@@ -100,22 +100,31 @@ Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencji](access-r
 
 1. Aby określić, co się stanie po zakończeniu przeglądu, rozwiń sekcję **po zakończeniu ustawień** .
 
-    ![Tworzenie przeglądu dostępu — po zakończeniu ustawień](./media/create-access-review/upon-completion-settings.png)
+    ![Tworzenie przeglądu dostępu — po zakończeniu ustawień](./media/create-access-review/upon-completion-settings-new.png)
 
-1. Jeśli chcesz automatycznie usunąć dostęp dla niedozwolonych użytkowników, ustaw opcję **automatycznie Zastosuj wyniki do zasobu** do **włączenia**. Jeśli chcesz ręcznie zastosować wyniki po zakończeniu przeglądu, ustaw przełącznik do **wyłączenia**.
+2. Jeśli chcesz automatycznie usunąć dostęp dla niedozwolonych użytkowników, ustaw opcję **automatycznie Zastosuj wyniki do zasobu** do **włączenia**. Jeśli chcesz ręcznie zastosować wyniki po zakończeniu przeglądu, ustaw przełącznik do **wyłączenia**.
 
-1. Użyj listy **powinien nie odpowiadać** , aby określić, co się dzieje w przypadku użytkowników, którzy nie są recenzowani przez recenzenta w okresie przeglądu. To ustawienie nie ma wpływu na użytkowników, którzy zostali ręcznie przejrzał przez recenzentów. Jeśli ostateczna decyzja recenzenta jest odmowa, dostęp użytkownika zostanie usunięty.
+3. Użyj listy **if recenzenci nie odpowiadaj** , aby określić, co się dzieje w przypadku użytkowników, którzy nie są recenzowani przez recenzenta w okresie przeglądu. To ustawienie nie ma wpływu na użytkowników, którzy zostali ręcznie przejrzał przez recenzentów. Jeśli ostateczna decyzja recenzenta jest odmowa, dostęp użytkownika zostanie usunięty.
 
     - **Bez zmian — nie** zmieniaj dostępu użytkownika
     - **Usuwanie dostępu** — Usuwanie dostępu użytkownika
     - **Zatwierdzanie dostępu** — zatwierdzanie dostępu użytkownika
     - Zapoznaj się z **zaleceniami** — zapoznaj się z zaleceniami systemu dotyczącymi odmowy lub zatwierdzenia ciągłego dostępu użytkownika
 
+4. Przeglądania Użyj akcji, aby zastosować do niedozwolonych użytkowników, aby określić, co się dzieje z użytkownikami-Gośćmi, jeśli są odrzucane.
+    - **Opcja 1** spowoduje usunięcie odmowy dostępu użytkownika do przeglądanej grupy lub aplikacji. nadal będzie można zalogować się do dzierżawy. 
+    - **Opcja 2** zablokuje zalogowanych użytkowników do dzierżawy bez względu na to, czy mają dostęp do innych zasobów. Jeśli wystąpił błąd lub jeśli administrator zdecyduje się ponownie włączyć dostęp, może to zrobić w ciągu 30 dni od wyłączenia użytkownika. Jeśli nie wykonano żadnych akcji dla wyłączonych użytkowników, zostaną one usunięte z dzierżawy.
+
+Aby dowiedzieć się więcej o najlepszych rozwiązaniach dotyczących usuwania użytkowników-Gości, którzy nie mają już dostępu do zasobów w organizacji, przeczytaj artykuł zatytułowany [używanie Azure AD Identity Governance do przeglądania i usuwania użytkowników zewnętrznych, którzy nie mają już dostępu do zasobów.](access-reviews-external-users.md)
+
+>[!NOTE]
+> Akcja, która ma zostać zastosowana w odniesieniu do użytkowników, tylko w przypadku, gdy wcześniej przekroczy zakres przeglądu tylko dla użytkowników-Gości (zobacz **Tworzenie co najmniej jednej sekcji przeglądów dostępu** krok 8)
+
 ### <a name="advanced-settings"></a>Ustawienia zaawansowane
 
 1. Aby określić dodatkowe ustawienia, rozwiń sekcję **Ustawienia zaawansowane** .
 
-    ![Tworzenie przeglądu dostępu — Ustawienia zaawansowane](./media/create-access-review/advanced-settings-preview.png)
+    ![Tworzenie przeglądu dostępu — Ustawienia zaawansowane](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Ustaw opcję **Pokaż zalecenia** do **włączenia** , aby wyświetlić recenzentów zalecenia systemowe na podstawie informacji o dostępie użytkownika.
 

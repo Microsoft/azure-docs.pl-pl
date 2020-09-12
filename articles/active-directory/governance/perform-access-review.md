@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077975"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299970"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Przeglądanie dostępu do grup i aplikacji w przeglądach dostępu do usługi Azure AD
 
@@ -33,7 +33,7 @@ Proces przeglądu dostępu można uruchomić z powiadomienia e-mail lub bezpośr
 - **Adres e-mail**:
 
 >[!IMPORTANT]
-> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych się azure-noreply@microsoft.com , aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
+> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dodaj azure-noreply@microsoft.com do listy bezpiecznych adresatów, aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
 
 1. Poszukaj wiadomości e-mail od firmy Microsoft z prośbą o przegląd dostępu. Oto przykładowa wiadomość e-mail, aby przejrzeć dostęp do grupy.
 
@@ -126,10 +126,10 @@ Możesz przejść do nowego środowiska recenzenta przy użyciu zaktualizowanego
 
 3. Kliknij przycisk **Wypróbuj!** na banerze u góry strony. Spowoduje to przejście do nowego środowiska dostępu.
   
-### <a name="email"></a>Poczta e-mail
+### <a name="email"></a>E-mail
 
   >[!IMPORTANT]
-> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dozwolonych się azure-noreply@microsoft.com , aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
+> W przypadku otrzymywania wiadomości e-mail mogą wystąpić opóźnienia, a w niektórych przypadkach może to potrwać do 24 godzin. Dodaj azure-noreply@microsoft.com do listy bezpiecznych adresatów, aby upewnić się, że otrzymujesz wszystkie wiadomości e-mail.
 
    1. Poszukaj wiadomości e-mail od firmy Microsoft z prośbą o przegląd dostępu. Poniżej znajduje się Przykładowa wiadomość e-mail:
 
@@ -144,7 +144,7 @@ Możesz przejść do nowego środowiska recenzenta przy użyciu zaktualizowanego
 
 Możesz również wyświetlić oczekujące przeglądy dostępu za pomocą przeglądarki, aby otworzyć stronę mój dostęp.
 
-1. Zaloguj się do mojego dostępu przy użyciuhttps://myaccess.microsoft.com/
+1. Zaloguj się do mojego dostępu przy użyciu https://myaccess.microsoft.com/
 
 2. Wybierz pozycję **przeglądy dostępu** z menu na pasku po lewej stronie, aby wyświetlić listę oczekujących przeglądów dostępu przypisanych do użytkownika.
 
@@ -206,4 +206,3 @@ Aby zaakceptować zalecenia dla wszystkich użytkowników, upewnij się, że nik
 ## <a name="next-steps"></a>Następne kroki
 
 - [Ukończ przegląd dostępu do grup lub aplikacji](complete-access-review.md)
-

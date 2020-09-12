@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Konfigurowanie komunikacji równorzędnej'
 description: W tym artykule opisano kroki tworzenia i inicjowania obsługi ExpressRoute prywatnych i komunikacji równorzędnej firmy Microsoft. W tym artykule przedstawiono również sposób sprawdzania stanu, aktualizacji lub usuwania komunikacji równorzędnej dla obwodu.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
-ms.author: mialdrid
-ms.openlocfilehash: 6bcbe2bd038a3e27df86b281c51cf0a151c5b5af
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: duau
+ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542912"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395727"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute
 
@@ -115,7 +115,7 @@ Aby usunąć konfigurację komunikacji równorzędnej, kliknij ikonę Usuń, jak
 
 ![Usuwanie komunikacji równorzędnej](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
-## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna Azure
+## <a name="azure-private-peering"></a><a name="private"></a>Prywatna komunikacja równorzędna platformy Azure
 
 Ta sekcja ułatwia tworzenie, pobieranie, aktualizowanie i usuwanie konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute.
 

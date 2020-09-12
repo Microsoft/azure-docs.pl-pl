@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002781"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468644"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
@@ -54,7 +54,7 @@ Aby zarządzać subskrypcją, użyj:
 
 * [budżetów](/azure/templates/microsoft.consumption/budgets)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [tags](/azure/templates/microsoft.resources/tags)
+* [tabliczk](/azure/templates/microsoft.resources/tags)
 
 Inne obsługiwane typy to:
 
@@ -115,7 +115,7 @@ Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć w
 
 ## <a name="deployment-scopes"></a>Zakresy wdrożenia
 
-Podczas wdrażania w ramach subskrypcji można kierować do subskrypcji lub grup zasobów w ramach subskrypcji. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
+Podczas wdrażania w ramach subskrypcji można wskazać jedną subskrypcję i grupy zasobów w ramach subskrypcji. Nie można przeprowadzić wdrożenia w ramach subskrypcji innej niż subskrypcja docelowa. Użytkownik wdrażający szablon musi mieć dostęp do określonego zakresu.
 
 Zasoby zdefiniowane w sekcji zasobów szablonu są stosowane do subskrypcji.
 
@@ -145,7 +145,7 @@ Aby określić grupę zasobów w ramach subskrypcji, Dodaj wdrożenie zagnieżd�
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -154,15 +154,19 @@ Aby określić grupę zasobów w ramach subskrypcji, Dodaj wdrożenie zagnieżd�
 }
 ```
 
+W tym artykule można znaleźć szablony, które pokazują, jak wdrażać zasoby w różnych zakresach. Aby utworzyć szablon, który tworzy grupę zasobów i wdraża do niej konto magazynu, zobacz [Tworzenie grupy zasobów i zasobów](#create-resource-group-and-resources). W przypadku szablonu, który tworzy grupę zasobów, stosuje do niej blokadę i przypisuje rolę dla grupy zasobów, zobacz [Kontrola dostępu](#access-control).
+
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 
 W przypadku wdrożeń na poziomie subskrypcji istnieją pewne ważne zagadnienia dotyczące korzystania z funkcji szablonu:
 
 * Funkcja [przesourceing ()](template-functions-resource.md#resourcegroup) **nie** jest obsługiwana.
 * Obsługiwane są funkcje [Reference ()](template-functions-resource.md#reference) i [list ()](template-functions-resource.md#list) .
-* Użyj funkcji [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) , aby uzyskać identyfikator zasobu dla zasobów wdrożonych na poziomie subskrypcji.
+* Nie należy używać [ResourceID ()](template-functions-resource.md#resourceid) w celu uzyskania identyfikatora zasobu dla zasobów wdrożonych na poziomie subskrypcji.
 
-  Aby na przykład uzyskać identyfikator zasobu definicji zasad, należy użyć:
+  Zamiast tego należy użyć funkcji [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
+
+  Aby na przykład uzyskać identyfikator zasobu definicji zasad wdrożonej w ramach subskrypcji, użyj:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -420,7 +424,7 @@ Można [zdefiniować](../../governance/policy/concepts/definition-structure.md) 
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]

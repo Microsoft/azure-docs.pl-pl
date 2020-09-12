@@ -6,24 +6,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/30/2020
-ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.date: 09/04/2020
+ms.openlocfilehash: 7acfd5e1a1b1c44a9a109bb2b8bc38c7fcc57593
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705881"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484871"
 ---
 # <a name="determine-your-publishing-option"></a>Określanie opcji publikowania
 
 Opcja publikowania wybrana dla oferty odnosi się bezpośrednio zarówno do wymagań dotyczących uprawnień, jak i komercyjnych korzyści GTM na rynku. Co ważniejsze, wybór opcji publikowania i typu oferty definiuje sposób, w jaki użytkownicy będą korzystać z komercyjnej oferty portalu Marketplace.
 
-Aby skonfigurować ofertę, musisz zrozumieć następujące kluczowe koncepcje dotyczące portalu Marketplace: Opcje publikowania, typy ofert i konfiguracji oraz wywołania do akcji, które będą decydować, jak i gdzie oferta zostanie przedstawiona w komercyjnych sklepach online w portalu Marketplace.
+Aby skonfigurować swoją ofertę, musisz zrozumieć następujące kluczowe koncepcje dotyczące portalu Marketplace: Opcje publikowania, typy ofert i konfiguracji oraz informacje o opcjach, które będą decydować, w jaki sposób i gdzie oferta zostanie przedstawiona w komercyjnych sklepach online w portalu Marketplace.
 
 Z tego artykułu dowiesz się:
 
 - Jak ustalić odpowiedni sklep online dla Twojego rozwiązania.
-- Opcje publikowania i wywołania do akcji są dostępne w każdym sklepie online.
+- Opcje publikowania i opcje wyświetlania są dostępne w każdym sklepie online.
 - Jakie typy ofert są dostępne dla każdej opcji publikacji.
 
 ## <a name="commercial-marketplace-publishing-options"></a>Komercyjne opcje publikacji Marketplace
@@ -53,30 +53,30 @@ Dostępne opcje aukcji oferują zróżnicowane zaangażowanie klientów, zapewni
 
 | **Opcja publikowania**    | **Opis**  |
 | :------------------- | :-------------------|
-| **Lista** | Prosta lista aplikacji lub usług, które umożliwiają komercyjnemu użytkownikowi portalu Marketplace zażądać połączenia z klientem za pośrednictwem wywołania do akcji **kontaktowania się ze mną** . |
-| **Wersja próbna** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania, dzięki czemu potencjalni użytkownicy mogą bezpłatnie korzystać z usługi SaaS, IaaS lub firmy Microsoft bez opłat przez ograniczony czas przed zakupem. Opcja wywołania do akcji używana dla opcji publikowania wersji próbnej to **bezpłatna wersja próbna** lub **testowa**. |
-| **BYOL** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansowo. Typy ofert BYOL doskonale sprawdzają się w przypadku migracji do chmury. Wywołanie do akcji jest **teraz odbierane**.
-| **Transakcja** | Oferty Transact są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Wywołanie do akcji jest **teraz odbierane**.|
+| **Lista** | Prosta lista aplikacji lub usług umożliwiających komercyjnemu użytkownikowi portalu Marketplace zażądanie połączenia z klientem za pośrednictwem opcji wyświetlania listy **kontaktów** . |
+| **Wersja próbna** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji wersji próbnej rozwiązania, dzięki czemu potencjalni użytkownicy mogą bezpłatnie korzystać z usługi SaaS, IaaS lub firmy Microsoft bez opłat przez ograniczony czas przed zakupem. Opcja tworzenia listy dla opcji publikowania wersji próbnej to **bezpłatna wersja próbna** lub **testowa**. |
+| **BYOL** | Skorzystaj z komercyjnej witryny Marketplace, aby zwiększyć możliwości wykrywania i automatyzowania aprowizacji rozwiązania oraz dokończyć transakcję finansowo. Typy ofert BYOL doskonale sprawdzają się w przypadku migracji do chmury. Opcja wystaw to **teraz**.
+| **Transakcja** | Oferty Transact są sprzedawane za pomocą komercyjnej witryny Marketplace. Firma Microsoft jest odpowiedzialna za rozliczanie i zbieranie danych. Opcja wystaw to **teraz**.|
 
 > [!Note]
 > W przypadku korzystania z opcji publikacji Transact należy poznać zagadnienia dotyczące cen, rozliczeń, fakturowania i wypłaty przed wybraniem typu oferty i utworzeniem oferty. Aby dowiedzieć się więcej, zapoznaj się z artykułem [komercyjne funkcje Transact Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="selecting-an-online-store"></a>Wybieranie sklepu online
 
-Każdy sklep online obsługuje unikatowe wymagania klienta i kieruje określonych odbiorców. Typ oferty, funkcje Transact i Kategoria określają, gdzie Twoja oferta zostanie opublikowana. Kategorie i podkategorie są mapowane na każdy magazyn online na podstawie docelowych odbiorców:
+Każdy sklep online obsługuje różne wymagania klienta dotyczące rozwiązań firmowych i IT. Typ oferty, funkcje Transact i Kategoria określają, gdzie Twoja oferta zostanie opublikowana. Kategorie i podkategorie są mapowane na każdy sklep online w oparciu o typ publikowanego rozwiązania:
 
-**Microsoft AppSource** są przeznaczone dla użytkowników biznesowych szukających rozwiązań biznesowych lub branżowych oraz usług konsultingowych dla systemu Dynamics 365, Microsoft 365 i platformy.
+**Microsoft AppSource** oferuje rozwiązania biznesowe, takie jak rozwiązania branżowe i usługi doradcze, dla systemu Dynamics 365, Microsoft 365 i platformy.
 
-**Portal Azure Marketplace** przeznaczony dla informatyków i deweloperów szukających rozwiązań opartych na platformie Azure, a także usług konsultingowych, które przyspieszają korzystanie z platformy Azure.
+**Portal Azure Marketplace** oferuje rozwiązania IT przeznaczone dla systemu Azure, a także usługi doradcze, które przyspieszają korzystanie z platformy Azure przez klientów.
 
-Wybierz kategorię i podkategorię, które najlepiej odpowiadają docelowym odbiorcom. Na przykład Zapora aplikacji sieci Web powinna zostać opublikowana w witrynie Azure Marketplace w kategorii zabezpieczenia, ponieważ zamierzone odbiorcy to specjaliści IT. Aplikacja do zarządzania kontraktami powinna zostać opublikowana w usłudze AppSource w kategorii sprzedaż, ponieważ zamierzone odbiorcy są użytkownikami biznesowymi. Wybranie nieprawidłowej kategorii lub podkategorii może spowodować opublikowanie oferty w nieprawidłowym sklepie online.
+Wybierz kategorię i podkategorię, która najlepiej odpowiada typowi rozwiązania. Na przykład Zapora aplikacji sieci Web to rozwiązanie IT, które powinno zostać opublikowane w portalu Azure Marketplace w kategorii zabezpieczenia. Aplikacja do zarządzania kontraktami to rozwiązanie biznesowe, które powinno zostać opublikowane w AppSource w kategorii sprzedaż. Wybranie nieprawidłowej kategorii lub podkategorii może spowodować opublikowanie oferty w nieprawidłowym sklepie online.
 
 ### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publikowanie w sklepach online (tylko oferty SaaS)
 
-Oferty SaaS można publikować w witrynie Azure Marketplace lub AppSource. Jeśli oferta SaaS jest *przeznaczona dla odbiorców* technicznych (Azure Marketplace) i Business odbiorca (AppSource), wybierz kategorię i/lub podkategorię mającą zastosowanie do każdego sklepu online. Oferty opublikowane w ramach obu magazynów online powinny mieć propozycję wartości, która rozciąga się na specjalistów IT *i* użytkowników biznesowych.
+Oferty SaaS można publikować w witrynie Azure Marketplace lub AppSource. Jeśli Twoja oferta *SaaS to rozwiązanie* IT (Azure Marketplace) i rozwiązanie biznesowe (AppSource), wybierz kategorię i/lub podkategorię mającą zastosowanie do każdego sklepu online. Oferty opublikowane w ramach obu magazynów online powinny mieć wartość propozycja jako rozwiązanie IT *i* rozwiązanie biznesowe.
 
 > [!IMPORTANT]
-> Oferty SaaS z naliczanymi opłatami są dostępne w witrynie Azure Marketplace i Azure Portal. Oferty SaaS z tylko planami prywatnymi są dostępne za pomocą Azure Portal.
+> Oferty SaaS z [naliczanymi opłatami](partner-center-portal/saas-metered-billing.md) są dostępne w witrynie Azure Marketplace i Azure Portal. Oferty SaaS z tylko planami prywatnymi są dostępne za pomocą Azure Portal.
 
 | Naliczanie opłat | Plan publiczny | Plan prywatny | Dostępne w: |
 |---|---|---|---|
@@ -91,15 +91,13 @@ Na przykład oferta z naliczaniem opłatowym i tylko planem prywatnym (bez planu
 
 ### <a name="categories"></a>Kategorie
 
-Kategorie i podkategorie są mapowane na każdy sklep online na podstawie docelowych odbiorców. Wybierz kategorie i podkategorie, które najlepiej dopasowują się do oferty i zamierzonych odbiorców. Dostępne są następujące opcje:
+Kategorie i podkategorie są mapowane na każdy sklep online na podstawie typu rozwiązania. Wybierz kategorie i podkategorie, które najlepiej dopasowują się do rozwiązania. Dostępne są następujące opcje:
 
-- Co najmniej jeden i maksymalnie dwie kategorie. Istnieje możliwość wybrania podstawowej i pomocniczej kategorii.
+- Co najmniej jeden i maksymalnie dwie kategorie. Można wybrać kategorię podstawową i pomocniczą.
 - Do dwóch podkategorii dla każdej kategorii podstawowej i/lub pomocniczej. Jeśli nie wybierzesz żadnej podkategorii, oferta nadal będzie wykrywalna w ramach wybranej kategorii.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Po wybraniu opcji publikowania możesz [wybrać typ oferty](./publisher-guide-by-offer-type.md) , który będzie używany do prezentowania oferty.
-- Zapoznaj się z wymaganiami dotyczącymi kwalifikacji w sekcji Opcje publikowania według typu oferty, aby zakończyć wybór i konfigurację oferty.
-- Zapoznaj się z wzorcem publikowania według sklepu online, aby zapoznać się z przykładami dotyczącymi sposobu mapowania rozwiązania na typ oferty i konfigurację.
+- Po wybraniu opcji publikowania zapoznaj się z tematem [Publikowanie podręcznika według typu oferty](./publisher-guide-by-offer-type.md).

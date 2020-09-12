@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642473"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489531"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Co to jest Azure SQL Edge (wersja zapoznawcza)?
 
@@ -67,7 +67,7 @@ Usługa Azure SQL Edge sprawia, że tworzenie i konserwowanie aplikacji jest ła
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) — bezpłatna, do pobrania aplikacja kliencka do zarządzania dowolną infrastrukturą SQL, od SQL Server do SQL Database.
 - [SQL Server narzędzia danych w programie Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/) — bezpłatna, do pobrania aplikacja kliencka służąca do tworzenia SQL Server relacyjnych baz danych, baz danych SQL, pakietów usług Integration services, Analysis Services modeli danych i raportów usług Reporting Services.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/) — bezpłatne, dostępne do pobrania Narzędzie bazy danych międzyplatformowego dla profesjonalistów danych korzystające z rodziny Microsoft lokalnych i chmurowych platform danych w systemach Windows, MacOS i Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs) — bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, MacOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i Azure SQL Data Warehouse.
+- [Visual Studio Code](https://code.visualstudio.com/docs) — bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, MacOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i usługi Azure Synapse Analytics.
 
 
 ## <a name="next-steps"></a>Następne kroki

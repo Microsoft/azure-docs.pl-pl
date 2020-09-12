@@ -3,12 +3,12 @@ title: Używanie Azure DevTest Labs dla środowisk testowych i PaaS Microsoft Do
 description: Dowiedz się, jak używać Azure DevTest Labs na potrzeby scenariuszy środowiska testowego maszyn wirtualnych i PaaS.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9207c070c13c5e276a6ab95e3bcf1bb8671dc382
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 978071aa160098612a5effebfb30d5d58b777df7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272899"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299834"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Używanie Azure DevTest Labs dla środowisk testowych i PaaS
 
@@ -46,7 +46,7 @@ Ten artykuł zawiera informacje o różnych funkcjach Azure DevTest Labs używan
    
    | Zadanie | Omawiane zagadnienia |
    | --- | --- |
-   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, w jaki sposób można dozwolonych obrazy w portalu Azure Marketplace i udostępniać je tylko wybranym dla testerów.|
+   | [Konfigurowanie obrazów z witryny Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Dowiedz się, jak można zezwolić na obrazy w portalu Azure Marketplace, udostępniając tylko wybrane obrazy dla testerów.|
    | [Tworzenie obrazu niestandardowego](devtest-lab-create-template.md) |Utwórz niestandardowy obraz, instalując wstępnie wymagane oprogramowanie, dzięki czemu testerzy mogą szybko utworzyć maszynę wirtualną przy użyciu obrazu niestandardowego.|
    | [Informacje o fabryce obrazu](./devtest-lab-faq.md#blog-post) |Obejrzyj wideo, w którym opisano sposób konfigurowania fabryki obrazów i korzystania z niej.|
 

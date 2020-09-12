@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: c98935781699510d84247f80367d5c57cb388f6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4de0014abfde32fc4b863afe1cc9000b25d30e83
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137641"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503875"
 ---
 # <a name="two-class-decision-forest-module"></a>Moduł dwuklasowego lasu decyzyjnego
 
@@ -76,7 +76,6 @@ Aby uzyskać więcej informacji, zobacz [lasy decyzyjne](https://go.microsoft.co
   
 5.  W celu uzyskania **maksymalnej głębokości drzew decyzyjnych**wpisz liczbę, aby ograniczyć maksymalną głębokość każdego drzewa decyzyjnego. Zwiększenie głębokości drzewa może zwiększyć precyzję w przypadku ryzyka pewnego przekroczenia i zwiększenia czasu uczenia się.
   
-6.  Dla **liczby losowych podziałów na węzeł**wpisz liczbę podziałów, która ma być używana podczas kompilowania każdego węzła drzewa. *Podział* oznacza, że funkcje na każdym poziomie drzewa (węzeł) są losowo podzielone.
   
 7.  Dla **minimalnej liczby próbek na węzeł liścia**wskaż minimalną liczbę przypadków, które są wymagane do utworzenia dowolnego węzła terminalu (liścia) w drzewie.
   

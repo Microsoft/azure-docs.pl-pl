@@ -12,16 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089706"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569088"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Zaawansowana ochrona przed zagrożeniami w usłudze Microsoft Defender przy użyciu Azure Security Center
 
 Azure Security Center integruje się z usługą [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) , aby zapewnić kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR).
+
+
+## <a name="availability"></a>Dostępność
+
+|Aspekt|Szczegóły|
+|----|:----|
+|Stan wydania:|**Ogólna dostępność**|
+|Wpisaną|Warstwa Standardowa|
+|Obsługiwane maszyny:|![Tak](./media/icons/yes-icon.png) Maszyny platformy Azure z systemem Windows<br>![Tak](./media/icons/yes-icon.png) Komputery z systemem Windows w usłudze Azure Arc|
+|Wymagane role i uprawnienia:|Aby włączyć/wyłączyć integrację: **administrator zabezpieczeń** lub **właściciel**<br>Aby wyświetlić alerty MDATP w Security Center: **czytelnik zabezpieczeń**, **czytelnik**, **współautor grupy zasobów**, **właściciel grupy zasobów**, **administrator zabezpieczeń**, **właściciel subskrypcji**lub **współautor subskrypcji**|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne.<br>![Nie](./media/icons/no-icon.png) Klienci korzystający z usług w zatoce w publicznych chmurach platformy Azure<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|||
+
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Funkcje ATP dotyczące programu Microsoft Defender w Security Center
 
@@ -55,7 +68,7 @@ W przypadku korzystania z Azure Security Center do monitorowania serwerów usłu
 Po skonfigurowaniu nie można zmienić lokalizacji, w której są przechowywane dane. Jeśli musisz przenieść dane do innej lokalizacji, skontaktuj się z firmą pomoc techniczna firmy Microsoft w celu zresetowania dzierżawy.
 
 
-## <a name="onboarding-servers-to-security-center"></a>Dołączanie serwerów do usługi Security Center 
+## <a name="onboard-servers-to-security-center"></a>Dołączanie serwerów do Security Center 
 
 Aby dołączać serwery do Security Center, kliknij przycisk **Przejdź do Azure Security Center do** dołączania serwerów z usługi Microsoft Defender ATP Server dołączanie.
 
