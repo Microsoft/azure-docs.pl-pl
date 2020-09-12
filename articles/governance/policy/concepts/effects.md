@@ -3,12 +3,12 @@ title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079663"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425538"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -43,7 +43,7 @@ Następujące efekty są _przestarzałe_:
 
 Gdy dostawca zasobów zwróci kod sukcesu w żądaniu w trybie Menedżer zasobów, **AuditIfNotExists** i **DeployIfNotExists** ocenę, aby określić, czy wymagane jest dodatkowe rejestrowanie zgodności lub akcja.
 
-## <a name="append"></a>Append
+## <a name="append"></a>Dołączanie
 
 Dołączanie służy do dodawania dodatkowych pól do żądanego zasobu podczas tworzenia lub aktualizowania. Typowym przykładem jest określenie dozwolonych adresów IP dla zasobu magazynu.
 
@@ -156,7 +156,8 @@ Właściwość **Details** efektów AuditIfNotExists ma wszystkie właściwości
   - Jeśli **details. Type** jest typem zasobu poniżej zasobu warunku **if** , zasady zapytania dotyczące zasobów tego **typu** w zakresie szacowanego zasobu. W przeciwnym razie zapytania zasad w ramach tej samej grupy zasobów co obliczony zasób.
 - **Nazwa** (opcjonalnie)
   - Określa dokładną nazwę zasobu do dopasowania i powoduje, że zasady umożliwiają pobranie jednego określonego zasobu zamiast wszystkich zasobów określonego typu.
-  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, a następnie **Nazwa** stanie się _wymagana_ i musi być `[field('name')]` . Jednak zamiast tego należy rozważyć efekt [inspekcji](#audit) .
+  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, **Nazwa** jest _wymagana_ i musi być `[field('name')]` lub `[field('fullName')]` dla zasobu podrzędnego.
+    Jednak zamiast tego należy rozważyć efekt [inspekcji](#audit) .
 - **ResourceGroupName** (opcjonalnie)
   - Umożliwia dopasowanie powiązanego zasobu do pochodzącego z innej grupy zasobów.
   - Nie ma zastosowania, jeśli **Typ** jest zasobem, który byłby poniżej zasobu warunku **if** .
@@ -277,7 +278,7 @@ Właściwość **Details** efektu DeployIfNotExists ma wszystkie właściwości,
   - Uruchamia się, próbując pobrać zasób poniżej zasobu warunku **if** , a następnie wykonać zapytania w tej samej grupie zasobów co zasób warunku **if** .
 - **Nazwa** (opcjonalnie)
   - Określa dokładną nazwę zasobu do dopasowania i powoduje, że zasady umożliwiają pobranie jednego określonego zasobu zamiast wszystkich zasobów określonego typu.
-  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, a następnie **Nazwa** stanie się _wymagana_ i musi być `[field('name')]` .
+  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, **Nazwa** jest _wymagana_ i musi być `[field('name')]` lub `[field('fullName')]` dla zasobu podrzędnego.
 - **ResourceGroupName** (opcjonalnie)
   - Umożliwia dopasowanie powiązanego zasobu do pochodzącego z innej grupy zasobów.
   - Nie ma zastosowania, jeśli **Typ** jest zasobem, który byłby poniżej zasobu warunku **if** .

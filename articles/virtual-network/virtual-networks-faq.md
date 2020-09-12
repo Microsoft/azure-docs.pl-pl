@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d39e66e205c592d58a93c1187a1c77269da9e7ad
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205479"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438232"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -410,11 +410,11 @@ Nie ma limitu całkowitej liczby punktów końcowych usługi wirtualnej w sieci 
 |---|---|
 |Azure Storage| 100|
 |Azure SQL| 128|
-|Azure SQL Data Warehouse|  128|
+|Azure Synapse Analytics|   128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Centrum zdarzeń Azure|   128|
-|Usługa Azure Service Bus| 128|
+|Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  
 >[!NOTE]

@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6a37aaa2eee3151087ce33815d37bf5537578329
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: fe562b8202c508c13f4127d14aeb5f994d15f962
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782757"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649609"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym przewodniku dowiesz się, jak definiować różne ustawienia konfiguracji zautomatyzowanych eksperymentów uczenia maszynowego za pomocą [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Automatyczne Uczenie maszynowe wybiera algorytm i parametry i tworzy model gotowy do wdrożenia. Istnieje kilka opcji, których można użyć do skonfigurowania zautomatyzowanych eksperymentów w usłudze Machine Learning.
+W tym przewodniku dowiesz się, jak definiować różne ustawienia konfiguracji zautomatyzowanych eksperymentów uczenia maszynowego za pomocą [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Automatyczne Uczenie maszynowe wybiera algorytm i parametry i tworzy model gotowy do wdrożenia. Istnieje kilka opcji, których można użyć do skonfigurowania zautomatyzowanych eksperymentów w usłudze Machine Learning.
 
 Aby wyświetlić przykłady zautomatyzowanych eksperymentów dotyczących uczenia maszynowego, zobacz [Samouczek: uczenie modelu klasyfikacji przy użyciu zautomatyzowanego uczenia maszynowego](tutorial-auto-train-models.md) lub [modeli szkoleń z automatycznym uczeniem maszynowym w chmurze](how-to-auto-train-remote.md).
 
@@ -31,7 +31,7 @@ Opcje konfiguracji dostępne w ramach automatycznego uczenia maszynowego:
 * Źródło danych, formaty i pobieranie danych
 * Wybierz obiekt docelowy obliczeń: lokalny lub zdalny
 * Ustawienia zautomatyzowanego eksperymentu w usłudze Machine Learning
-* Uruchamianie eksperymentu automatycznego uczenia maszynowego
+* Uruchamianie eksperymentu zautomatyzowanego uczenia maszynowego
 * Eksplorowanie metryk modelu
 * Zarejestruj i Wdróż model
 
@@ -46,7 +46,7 @@ W tym artykule należy
     Aby zainstalować zestaw SDK, można 
     * Utwórz wystąpienie obliczeniowe, które automatycznie zainstaluje zestaw SDK i jest wstępnie skonfigurowany dla przepływów pracy usługi ML. Aby uzyskać więcej informacji [, zobacz co to jest wystąpienie obliczeniowe Azure Machine Learning?](concept-compute-instance.md#managing-a-compute-instance) . 
 
-    * [Samodzielnie Zainstaluj zestaw SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Upewnij się tylko, że dołączysz `automl` dodatkowe. 
+    * [Samodzielnie Zainstaluj zestaw SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Upewnij się tylko, że dołączysz `automl` dodatkowe. 
 
 ## <a name="select-your-experiment-type"></a>Wybieranie typu eksperymentu
 
@@ -69,7 +69,7 @@ Wymagania dotyczące danych szkoleniowych:
 - Dane muszą być w formie tabelarycznej.
 - Wartość do przewidywania, kolumna docelowa, musi znajdować się w danych.
 
-**W przypadku eksperymentów zdalnych**dane szkoleniowe muszą być dostępne ze zdalnych obliczeń. AutoML akceptuje tylko [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) podczas pracy na zdalnym obliczeniu. 
+**W przypadku eksperymentów zdalnych**dane szkoleniowe muszą być dostępne ze zdalnych obliczeń. AutoML akceptuje tylko [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) podczas pracy na zdalnym obliczeniu. 
 
 Azure Machine Learning zestawy danych uwidaczniają funkcje:
 
@@ -312,7 +312,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 Istnieje kilka opcji, które można zdefiniować, aby zakończyć eksperyment.
 
-|Kryteria| description (opis)
+|Kryteria| description
 |----|----
 Brak &nbsp; kryteriów | Jeśli nie określisz żadnych parametrów zakończenia, eksperyment kontynuuje działanie, dopóki nie zostanie wprowadzony kolejny postęp w głównej metryce.
 Po upływie &nbsp; &nbsp; dłuższego &nbsp; &nbsp; czasu| Użyj `experiment_timeout_minutes` Ustawienia w ustawieniach, aby określić czas, w ciągu którego eksperyment powinien nadal działać. <br><br> Aby zapobiec błędom przekroczenia limitu czasu eksperymentu, istnieje co najmniej 15 minut lub 60 minut, jeśli rozmiar wiersza według kolumny przekracza 10 000 000.

@@ -3,12 +3,12 @@ title: Jak zastąpić infrastrukturę taśm
 description: Dowiedz się, jak Azure Backup zapewnia semantykę podobną do taśmy, która umożliwia tworzenie kopii zapasowych i przywracanie danych na platformie Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4174868d391eda70ce4921deee63b8bacf672b4c
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757238"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378444"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Przenoszenie długoterminowego magazynu z taśmy do chmury platformy Azure
 
@@ -62,7 +62,7 @@ Całkowita liczba "punktów przechowywania" (punkty, z których klient może prz
 
 ## <a name="advanced-configuration"></a>Konfiguracja zaawansowana
 
-Klikając przycisk **Modyfikuj** na poprzednim ekranie, klienci mają większą elastyczność w określaniu harmonogramów przechowywania.
+Po wybraniu opcji **Modyfikuj** na poprzednim ekranie klienci mają większą elastyczność w określaniu harmonogramów przechowywania.
 
 ![Modyfikowanie okna zasad](./media/backup-azure-backup-cloud-as-tape/modify.png)
 

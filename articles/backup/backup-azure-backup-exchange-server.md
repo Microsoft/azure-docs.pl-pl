@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć kopię zapasową serwera programu Excha
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 48a0e0f4b838b3f9b26de5a9cf297ddcdfc2a7e9
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 02d1cde7ab48aa951c47cfbfea29c90c3f53f768
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889723"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378393"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Tworzenie kopii zapasowych serwera programu Exchange do usługi Azure Backup przy użyciu programu System Center 2012 R2 DPM
 
@@ -39,14 +39,14 @@ Przed kontynuowaniem upewnij się, że spełniono wszystkie [wymagania wstępne]
 Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj następujące kroki:
 
 1. Upewnij się, że zapory są prawidłowo skonfigurowane. Zobacz [Configure firewall Exceptions for the Agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Zainstaluj agenta na serwerze programu Exchange, klikając pozycję **zarządzanie > agenci > Zainstaluj** w Konsola administratora programu DPM. Szczegółowe instrukcje znajdują się w temacie [Install the DPM Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
+2. Zainstaluj agenta na serwerze programu Exchange, wybierając pozycję **zarządzanie > agenci > Zainstaluj** w Konsola administratora programu DPM. Szczegółowe instrukcje znajdują się w temacie [Install the DPM Protection Agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) .
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Tworzenie grupy ochrony dla serwera programu Exchange
 
-1. W Konsola administratora programu DPM kliknij pozycję **Ochrona**, a następnie kliknij przycisk **Nowy** na Wstążce narzędzi, aby otworzyć kreatora **tworzenia nowej grupy ochrony** .
-2. Na ekranie **powitalnym** kreatora kliknij przycisk **dalej**.
+1. W Konsola administratora programu DPM wybierz pozycję **Ochrona**, a następnie wybierz pozycję **Nowy** na Wstążce narzędzi, aby otworzyć kreatora **tworzenia nowej grupy ochrony** .
+2. Na ekranie **powitalnym** kreatora wybierz pozycję **dalej**.
 3. Na ekranie **Wybierz typ grupy ochrony** wybierz pozycję **serwery** , a następnie kliknij przycisk **dalej**.
-4. Wybierz bazę danych programu Exchange Server, którą chcesz chronić, a następnie kliknij przycisk **dalej**.
+4. Wybierz bazę danych programu Exchange Server, którą chcesz chronić, a następnie wybierz pozycję **dalej**.
 
    > [!NOTE]
    > Jeśli chronisz program Exchange 2013, sprawdź [wymagania wstępne programu exchange 2013](/system-center/dpm/back-up-exchange).
@@ -62,7 +62,7 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
 
    * Chcę uzyskać krótkoterminową ochronę za pomocą dysku.
    * Chcę chronić w trybie online.
-6. Kliknij przycisk **Dalej**.
+6. Wybierz pozycję **Next** (Dalej).
 7. Wybierz opcję **Uruchom program Eseutil, aby sprawdzić integralność danych** , jeśli chcesz sprawdzić integralność baz danych programu Exchange Server.
 
     Po wybraniu tej opcji sprawdzanie spójności kopii zapasowej zostanie uruchomione na serwerze programu DPM, aby uniknąć ruchu we/wy wygenerowanego przez uruchomienie polecenia **eseutil** na serwerze Exchange.
@@ -72,21 +72,21 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
    > ![błąd Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Kliknij przycisk **Dalej**.
-9. Wybierz bazę danych **kopii zapasowej**, a następnie kliknij przycisk **dalej**.
+8. Wybierz pozycję **Next** (Dalej).
+9. Wybierz bazę danych **kopii zapasowej**, a następnie wybierz przycisk **dalej**.
 
    > [!NOTE]
    > Jeśli nie wybrano opcji "pełna kopia zapasowa" dla co najmniej jednej kopii DAG bazy danych, dzienniki nie będą obcinane.
    >
    >
-10. Skonfiguruj cele **krótkoterminowej kopii zapasowej**, a następnie kliknij przycisk **dalej**.
-11. Sprawdź ilość dostępnego miejsca na dysku, a następnie kliknij przycisk **dalej**.
-12. Wybierz czas, w którym serwer programu DPM utworzy replikację początkową, a następnie kliknij przycisk **dalej**.
-13. Wybierz opcje sprawdzania spójności, a następnie kliknij przycisk **dalej**.
-14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie kliknij przycisk **dalej**. Przykład:
+10. Skonfiguruj cele **krótkoterminowej kopii zapasowej**, a następnie wybierz przycisk **dalej**.
+11. Sprawdź ilość dostępnego miejsca na dysku, a następnie wybierz przycisk **dalej**.
+12. Wybierz czas, w którym serwer programu DPM utworzy replikację początkową, a następnie wybierz przycisk **dalej**.
+13. Wybierz opcje sprawdzania spójności, a następnie wybierz przycisk **dalej**.
+14. Wybierz bazę danych, dla której chcesz utworzyć kopię zapasową na platformie Azure, a następnie wybierz pozycję **dalej**. Na przykład:
 
     ![Określ dane ochrony w trybie online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Zdefiniuj harmonogram **Azure Backup**, a następnie kliknij przycisk **dalej**. Przykład:
+15. Zdefiniuj harmonogram **Azure Backup**a następnie wybierz przycisk **dalej**. Na przykład:
 
     ![Określ harmonogram kopii zapasowych online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -94,21 +94,21 @@ Aby zainstalować agenta ochrony programu DPM na serwerze Exchange, wykonaj nast
     > Uwaga punkty odzyskiwania online są oparte na ekspresowych pełnych punktach odzyskiwania. W związku z tym należy zaplanować punkt odzyskiwania online po upływie czasu określonego dla ekspresowego pełnego odzyskiwania.
     >
     >
-16. Skonfiguruj zasady przechowywania dla **Azure Backup**, a następnie kliknij przycisk **dalej**.
-17. Wybierz opcję replikacja online, a następnie kliknij przycisk **dalej**.
+16. Skonfiguruj zasady przechowywania dla **Azure Backup**, a następnie wybierz przycisk **dalej**.
+17. Wybierz opcję replikacja online i wybierz pozycję **dalej**.
 
     W przypadku dużej bazy danych utworzenie początkowej kopii zapasowej za pośrednictwem sieci może zająć dużo czasu. Aby uniknąć tego problemu, można utworzyć kopię zapasową offline.  
 
     ![Określ zasady przechowywania danych online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
-18. Potwierdź ustawienia, a następnie kliknij przycisk **Utwórz grupę**.
-19. Kliknij przycisk **Zamknij**.
+18. Potwierdź ustawienia, a następnie wybierz pozycję **Utwórz grupę**.
+19. Wybierz pozycję **Close** (Zamknij).
 
 ## <a name="recover-the-exchange-database"></a>Odzyskiwanie bazy danych programu Exchange
 
-1. Aby odzyskać bazę danych programu Exchange, kliknij pozycję **odzyskiwanie** w Konsola administratora programu DPM.
+1. Aby odzyskać bazę danych programu Exchange, wybierz pozycję **odzyskiwanie** w Konsola administratora programu DPM.
 2. Znajdź bazę danych programu Exchange, którą chcesz odzyskać.
 3. Z listy rozwijanej *godzina odzyskiwania* wybierz punkt odzyskiwania online.
-4. Kliknij przycisk **Odzyskaj** , aby uruchomić **Kreatora odzyskiwania**.
+4. Wybierz pozycję **Odzyskaj** , aby uruchomić **Kreatora odzyskiwania**.
 
 W przypadku punktów odzyskiwania online istnieje pięć typów odzyskiwania:
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa9786f31e1cf9ee15afdc03d289a04198836133
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086844"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439014"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Kreator kopiowania Azure Data Factory
 > [!NOTE]
@@ -49,7 +49,7 @@ Możesz wyświetlić podgląd części danych z wybranego źródła danych, aby 
 Schemat danych wejściowych może być niezgodny ze schematem danych wyjściowych w niektórych przypadkach. W tym scenariuszu należy zmapować kolumny ze schematu źródłowego do kolumn z schematu docelowego.
 
 > [!TIP]
-> W przypadku kopiowania danych z SQL Server lub Azure SQL Database do Azure SQL Data Warehouse, jeśli tabela nie istnieje w magazynie docelowym, Data Factory obsługuje tworzenie tabel przy użyciu schematu źródła. Dowiedz się więcej od [przenoszenia danych do i z Azure SQL Data Warehouse przy użyciu Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> W przypadku kopiowania danych z SQL Server lub Azure SQL Database do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), jeśli tabela nie istnieje w magazynie docelowym, Data Factory obsługuje tworzenie tabel przy użyciu schematu źródła. Dowiedz się więcej od [przenoszenia danych do i z usługi Azure Synapse Analytics przy użyciu Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
 Użyj listy rozwijanej, aby wybrać kolumnę ze schematu źródłowego do zmapowania do kolumny w schemacie docelowym. Kreator kopiowania próbuje zrozumieć wzorzec dla mapowania kolumn. Stosuje ten sam wzorzec do reszty kolumn, dzięki czemu nie trzeba wybierać każdej z kolumn pojedynczo, aby ukończyć mapowanie schematu. Jeśli wolisz, możesz zastąpić te mapowania przy użyciu list rozwijanych, aby mapować kolumny jeden według jednego. Wzorzec jest dokładniejszy podczas mapowania większej liczby kolumn. Kreator kopiowania ciągle aktualizuje wzorzec i ostatecznie osiągnie prawy wzorzec dla mapowania kolumn, które mają być osiągnięte.     

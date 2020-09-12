@@ -11,20 +11,20 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f76e149339e80ddeba8431afffbd677a4b595ec3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319477"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647327"
 ---
-# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Używanie tożsamości usługi Azure AD z usługą sieci Web Machine Learning w usłudze Azure Kubernetes Service
+# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Używanie tożsamości usługi Azure AD z usługą internetową uczenia maszynowego w usłudze Azure Kubernetes Service
 
 W tym instruktażu dowiesz się, jak przypisać tożsamość usługi Azure Active Directory (AAD) do wdrożonego modelu uczenia maszynowego w usłudze Azure Kubernetes. Projekt [tożsamości usługi AAD pod](https://github.com/Azure/aad-pod-identity) jest umożliwia aplikacjom bezpieczne uzyskiwanie dostępu do zasobów w chmurze przy użyciu [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) i Kubernetes podstawowych. Dzięki temu usługa sieci Web może bezpiecznie uzyskiwać dostęp do zasobów platformy Azure bez konieczności osadzania poświadczeń ani zarządzania tokenami bezpośrednio w `score.py` skrypcie. W tym artykule opisano kroki umożliwiające utworzenie i zainstalowanie tożsamości platformy Azure w klastrze usługi Azure Kubernetes i przypisanie tożsamości do wdrożonej usługi sieci Web.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md), [zestawu Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- [Rozszerzenie interfejsu wiersza polecenia platformy Azure dla usługi Machine Learning](reference-azure-machine-learning-cli.md), [zestawu Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)lub [rozszerzenia Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Dostęp do klastra AKS przy użyciu `kubectl` polecenia. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z klastrem](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
 
@@ -153,7 +153,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> Ten przykład używa DefaultAzureCredential. Aby udzielić dostępu do tożsamości przy użyciu określonych zasad dostępu, zobacz [część 4: Pobieranie klucza tajnego z Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
+> Ten przykład używa DefaultAzureCredential. Aby udzielić dostępu do tożsamości przy użyciu określonych zasad dostępu, zobacz [przypisywanie zasad dostępu Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure](/azure/key-vault/general/assign-access-policy-cli).
 
 ### <a name="access-blob-from-your-web-service"></a>Dostęp do obiektu BLOB z usługi sieci Web
 

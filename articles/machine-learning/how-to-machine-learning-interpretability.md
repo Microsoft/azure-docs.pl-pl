@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 533ecbaebc5d36f8a6660ce22e5cab3630e3655f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d30fe5f8adccba81baf8bfe1070f95a890d1dc7a
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306404"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649445"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretowanie modeli w Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Umożliwienie wyjaśnienia modelu uczenia maszynowego jest ważne w przypadku dw
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretowanie przy użyciu Azure Machine Learning
 
-Klasy z możliwością interpretacji są udostępniane za pomocą wielu pakietów SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
+Klasy z możliwością interpretacji są udostępniane za pomocą wielu pakietów SDK: (Dowiedz się, jak [zainstalować pakiety SDK dla Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
 * `azureml.interpret`Pakiet główny zawierający funkcje obsługiwane przez firmę Microsoft.
 
@@ -69,7 +69,7 @@ Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynow
 
 ## <a name="supported-interpretability-techniques"></a>Obsługiwane techniki interpretacji
 
- `azureml-interpret`używa technik interpretacji opracowanych w ramach [interpretacji Community](https://github.com/interpretml/interpret-community/), pakietu języka Python Open Source na potrzeby uczenia modeli, które mogą być interpretowane i pomagają w wyjaśnieniu systemów Blackbox AI. [Interpretuj — społeczność](https://github.com/interpretml/interpret-community/) służy jako host dla obsługiwanych przez niego OBJAŚNIEŃ zestawu SDK i obecnie obsługuje następujące techniki interpretowania:
+ `azureml-interpret` używa technik interpretacji opracowanych w ramach [interpretacji Community](https://github.com/interpretml/interpret-community/), pakietu języka Python Open Source na potrzeby uczenia modeli, które mogą być interpretowane i pomagają w wyjaśnieniu systemów Blackbox AI. [Interpretuj — społeczność](https://github.com/interpretml/interpret-community/) służy jako host dla obsługiwanych przez niego OBJAŚNIEŃ zestawu SDK i obecnie obsługuje następujące techniki interpretowania:
 
 |Metoda interpretacji|Opis|Typ|
 |--|--|--------------------|
@@ -90,7 +90,7 @@ Oprócz opisanych powyżej technik interpretacji obsługujemy inne objaśnienie 
 * LinearExplainer dla modeli liniowych
 * KernelExplainer dla wszystkich innych modeli
 
-`TabularExplainer`Ponadto wprowadzono znaczące ulepszenia funkcji i wydajności w odniesieniu do wyjaśnień bezpośredniego kształtu:
+`TabularExplainer` Ponadto wprowadzono znaczące ulepszenia funkcji i wydajności w odniesieniu do wyjaśnień bezpośredniego kształtu:
 
 * **Podsumowanie zestawu danych inicjalizacji**. W przypadkach, gdy najważniejsza jest szybkość wyjaśnienia, podsumowujemy zestaw danych inicjalizacji i generuje mały zestaw reprezentatywnych próbek, co przyspiesza generowanie ogólnych i indywidualnych wartości ważności funkcji.
 * **Próbkowanie zestawu danych oceny**. Jeśli użytkownik przejdzie do dużego zestawu próbek ewaluacyjnych, ale nie potrzebuje wszystkich ich do oceny, parametr próbkowania może być ustawiony na wartość true, aby przyspieszyć Obliczanie ogólnych wyjaśnień modelu.
@@ -121,4 +121,4 @@ Wyjaśnienie można uruchomić zdalnie na Azure Machine Learning COMPUTE i zalog
 
 - Zapoznaj się z artykułem jak włączyć funkcję interpretacji dla modeli — zarówno lokalnie, [jak](how-to-machine-learning-interpretability-aml.md) i na Azure Machine Learning zdalnych zasobów obliczeniowych. 
 - Zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) , aby uzyskać dodatkowe scenariusze. 
-- Jeśli interesuje Cię interpretowanie scenariuszy tekstowych, zobacz [Interpretuj-Text](https://github.com/interpretml/interpret-text), powiązane repozytorium typu "open source" w celu [interpretacji społeczności](https://github.com/interpretml/interpret-community/)dla technik interpretowania dla NLP. `azureml.interpret`pakiet nie obsługuje obecnie tych technik, ale można rozpocząć pracę z [przykładowym notesem na klasyfikacji tekstu](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).
+- Jeśli interesuje Cię interpretowanie scenariuszy tekstowych, zobacz [Interpretuj-Text](https://github.com/interpretml/interpret-text), powiązane repozytorium typu "open source" w celu [interpretacji społeczności](https://github.com/interpretml/interpret-community/)dla technik interpretowania dla NLP. `azureml.interpret` pakiet nie obsługuje obecnie tych technik, ale można rozpocząć pracę z [przykładowym notesem na klasyfikacji tekstu](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

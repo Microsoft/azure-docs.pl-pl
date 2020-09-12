@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249282"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439779"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -63,10 +63,10 @@ Ciągłość działania i możliwości odzyskiwania po awarii umożliwiają kont
 
 Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest to konieczne. SQL Database automatycznie tworzy kopie zapasowe baz danych, dzięki czemu nie trzeba już martwić się o planowanie i tworzenie kopii zapasowych oraz zarządzanie nimi. Platforma wykonuje pełną kopię zapasową co tydzień, różnicową kopię zapasową co kilka godzin i kopię zapasową dziennika co 5 minut, aby zapewnić wydajność odzyskiwania po awarii i niewielką utratę danych. Pierwsza pełna kopia zapasowa odbywa się zaraz po utworzeniu bazy danych. Te kopie zapasowe są dostępne przez pewien czas o nazwie "okres przechowywania" i różnią się w zależności od wybranej warstwy usług. SQL Database zapewnia możliwość przywracania do dowolnego punktu w czasie w tym okresie przechowywania przy użyciu funkcji [odzyskiwania do punktu w czasie (kopie)](recovery-using-backups.md#point-in-time-restore).
 
-|Warstwa usług|Okres przechowywania w dniach|
+|Warstwa usługi|Okres przechowywania w dniach|
 |---|:---:|
-|Podstawowy|7|
-|Standardowa (Standard)|35|
+|Podstawowe|7|
+|Standardowa|35|
 |Premium|35|
 |||
 
@@ -104,9 +104,11 @@ Istnieją dwie metody uwierzytelniania oferowane w SQL Database:
 - [Uwierzytelnianie Azure Active Directory](authentication-aad-overview.md)
 - [Uwierzytelnianie SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-Tradycyjne uwierzytelnianie systemu Windows nie jest obsługiwane. Azure Active Directory (Azure AD) to scentralizowana usługa zarządzania tożsamościami i dostępem. Dzięki temu możesz bardzo łatwo zapewnić dostęp logowania jednokrotnego do wszystkich pracowników w organizacji. Oznacza to, że poświadczenia są współużytkowane przez wszystkie usługi platformy Azure w celu łatwiejszego uwierzytelniania. Usługa Azure AD obsługuje [platformę azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) i za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) można zintegrować usługę Azure AD z Active Directory systemu Windows Server. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i SQL Data Warehouse do oferowania kont użytkowników Multi-Factor Authentication i Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
+Tradycyjne uwierzytelnianie systemu Windows nie jest obsługiwane. Azure Active Directory (Azure AD) to scentralizowana usługa zarządzania tożsamościami i dostępem. Dzięki temu możesz bardzo łatwo zapewnić dostęp logowania jednokrotnego do wszystkich pracowników w organizacji. Oznacza to, że poświadczenia są współużytkowane przez wszystkie usługi platformy Azure w celu łatwiejszego uwierzytelniania. 
 
-|**Jeśli ty...**|**SQL Database/SQL Data Warehouse**|
+Usługa Azure AD obsługuje [platformę azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) i za pomocą [kilku kliknięć](../../active-directory/hybrid/how-to-connect-install-express.md) można zintegrować usługę Azure AD z Active Directory systemu Windows Server. Uwierzytelnianie SQL działa tak samo jak w przeszłości. Podaj nazwę użytkownika/hasło, a następnie możesz uwierzytelnić użytkowników w dowolnej bazie danych na danym serwerze. Umożliwia to również SQL Database i usługi Azure Synapse Analytics (wcześniej SQL Data Warehouse) do oferowania kont użytkowników Multi-Factor Authentication i Gości w domenie usługi Azure AD. Jeśli masz już Active Directory lokalnie, możesz sfederować katalog z Azure Active Directory, aby zwiększyć katalog na platformie Azure.
+
+|**Jeśli ty...**|**SQL Database/analiza Synapse Azure**|
 |---|---|
 |Preferuj, aby nie używać Azure Active Directory (Azure AD) na platformie Azure|Użyj [uwierzytelniania SQL](security-overview.md)|
 |Używanie usługi AD na SQL Server lokalnie|[Sfederować usługi AD z usługą Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md)i korzystaj z uwierzytelniania usługi Azure AD. Dzięki temu można korzystać z logowania jednokrotnego.|
@@ -114,7 +116,7 @@ Tradycyjne uwierzytelnianie systemu Windows nie jest obsługiwane. Azure Active 
 |Posiadanie kont Gościa z kont Microsoft (live.com, outlook.com) lub innych domen (gmail.com)|Użyj [uwierzytelniania uniwersalnego usługi Azure AD](authentication-mfa-ssms-overview.md) w usłudze SQL Database/magazyn danych, która korzysta z [funkcji współpracy B2B usługi Azure AD](../../active-directory/b2b/what-is-b2b.md).|
 |Są zalogowane do systemu Windows przy użyciu poświadczeń usługi Azure AD z domeny federacyjnej|Użyj [uwierzytelniania zintegrowanego usługi Azure AD](authentication-aad-configure.md).|
 |Są zalogowane w systemie Windows przy użyciu poświadczeń z domeny niefederacyjnego z platformą Azure|Użyj [uwierzytelniania zintegrowanego usługi Azure AD](authentication-aad-configure.md).|
-|Mają usługi warstwy środkowej, które muszą łączyć się z SQL Database lub SQL Data Warehouse|Użyj [uwierzytelniania zintegrowanego usługi Azure AD](authentication-aad-configure.md).|
+|Posiadanie usług warstwy środkowej, które muszą łączyć się z usługą SQL Database lub Synapse Analytics|Użyj [uwierzytelniania zintegrowanego usługi Azure AD](authentication-aad-configure.md).|
 |||
 
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Jak mogę ograniczanie lub kontrolowanie dostępu do łączności z moją bazą danych
@@ -125,7 +127,7 @@ Istnieje wiele technik do dyspozycji, których można użyć do uzyskania optyma
 - Punkty końcowe usługi sieci wirtualnej
 - Zastrzeżone adresy IP
 
-#### <a name="firewall"></a>Zapora
+#### <a name="firewall"></a>Firewall
 
 Zapora uniemożliwia dostęp do serwera z zewnętrznej jednostki, zezwalając na dostęp tylko określonym podmiotom do serwera. Domyślnie wszystkie połączenia z bazami danych znajdującymi się na serwerze są niedozwolone, z wyjątkiem połączeń (optionally7) pochodzących z innych usług platformy Azure. Za pomocą reguły zapory można otworzyć dostęp do serwera tylko do jednostek (na przykład na komputerze dewelopera), które zostały zatwierdzone przez zezwolenie na ten komputer za pomocą zapory. Pozwala także określić zakres adresów IP, które mają zezwalać na dostęp do serwera. Na przykład adresy IP komputerów deweloperów w organizacji można dodać jednocześnie, określając zakres na stronie Ustawienia zapory.
 
@@ -221,7 +223,7 @@ ExpressRoute umożliwia również przekroczenie limitu liczby przydziałów prze
 
 - [Wprowadzenie do trasy Express](../../expressroute/expressroute-introduction.md)
 - [Wymagania wstępne](../../expressroute/expressroute-prerequisites.md)
-- [Przepływy](../../expressroute/expressroute-workflows.md)
+- [Przepływy pracy](../../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Jest SQL Database zgodne z wymaganiami prawnymi i w jaki sposób pomaga w zakresie zgodności z moją organizacją
 
@@ -299,10 +301,10 @@ Aby uzyskać kompleksowy zestaw zaleceń dotyczących dostrajania problemów z w
 
 SQL Database oferuje różne warstwy usług w warstwach Podstawowa, standardowa i Premium. Każda warstwa usług otrzymuje przewidywalną wydajność, która jest powiązana z tą warstwą usług. W zależności od obciążenia może istnieć szereg aktywności, w których wykorzystanie zasobów może osiągnąć górny limit bieżącego rozmiaru obliczeniowego, w którym się znajdujesz. W takich przypadkach warto najpierw zacząć od oceny, czy dostrojenie może pomóc (na przykład dodając lub modyfikując indeks itp.). Jeśli nadal występują problemy z ograniczeniami, rozważ przeniesienie do wyższej warstwy usług lub rozmiaru obliczeń.
 
-|**Warstwa usług**|**Typowe scenariusze przypadków użycia**|
+|**Warstwa usługi**|**Typowe scenariusze przypadków użycia**|
 |---|---|
-|**Podstawowe**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
-|**Standardowa (Standard)**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
+|**Podstawowa**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
+|**Standardowa**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
 |**Premium**|Aplikacje z dużą liczbą równoczesnych użytkowników, dużym procesorem CPU/pamięci i wysokimi wymaganiami we/wy. Duże współbieżność, Wysoka przepływność i wrażliwe na opóźnienia aplikacje mogą korzystać z poziomu Premium. |
 |||
 

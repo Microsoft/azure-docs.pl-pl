@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: d5210a3788f7bb054492c2d83c595c26fa3c4f42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265715"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461718"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Wdrażanie maszyn wirtualnych na urządzeniu z systemem Azure Stack Edge za pośrednictwem Azure PowerShell
 
@@ -220,8 +220,8 @@ Utwórz dysk zarządzany na podstawie przekazanego wirtualnego dysku twardego.
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 Poniżej przedstawiono przykładowe dane wyjściowe: 
-
-$DiskConfig = New-AzureRmDiskConfig-Location DBELocal-nooption import-SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
+<code>
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
@@ -408,24 +408,39 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## <a name="connect-to-a-vm"></a>Łączenie z maszyną wirtualną
 
-Nawiąż połączenie z maszyną wirtualną przy użyciu prywatnego adresu IP, który został przesłany podczas tworzenia maszyny wirtualnej.
+W zależności od tego, czy utworzono maszynę wirtualną z systemem Windows, czy z systemem Linux, kroki do połączenia mogą być różne.
 
-Otwórz sesję SSH, aby nawiązać połączenie z adresem IP.
+### <a name="connect-to-linux-vm"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Linux
+
+Wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z systemem Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### <a name="connect-to-windows-vm"></a>Nawiązywanie połączenia z maszyną wirtualną z systemem Windows
+
+Wykonaj następujące kroki, aby nawiązać połączenie z maszyną wirtualną z systemem Windows.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
+
+Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-Po wyświetleniu monitu podaj hasło użyte podczas tworzenia maszyny wirtualnej.
+When prompted, provide the password that you used when creating the VM.
 
-Jeśli musisz podać klucz SSH, użyj tego polecenia.
+If you need to provide the SSH key, use this command.
 
-SSH-i c:/Users/Administrator/. ssh/id_rsa Administrator@5.5.41.236
+ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
-Jeśli podczas tworzenia maszyny wirtualnej użyto publicznego adresu IP, możesz użyć tego adresu IP, aby nawiązać połączenie z maszyną wirtualną. Aby uzyskać publiczny adres IP: 
+If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-Publiczny adres IP w tym przypadku będzie taki sam jak prywatny adres IP, który został przesłany podczas tworzenia interfejsu sieci wirtualnej.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## <a name="manage-vm"></a>Zarządzanie maszyną wirtualną

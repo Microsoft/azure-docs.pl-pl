@@ -3,12 +3,12 @@ title: Pobierz dane zgodności zasad
 description: Azure Policy oceny i efekty określają zgodność. Dowiedz się, jak uzyskać szczegóły zgodności zasobów platformy Azure.
 ms.date: 08/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 7795bba9fec79ee13600d9c72f68e9c763b169e4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054656"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648347"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Pobieranie danych zgodności zasobów platformy Azure
 
@@ -94,7 +94,7 @@ Jako proces asynchroniczny punkt końcowy REST do uruchomienia skanowania nie cz
 
 Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które musisz zastąpić własnymi wartościami:
 
-- `{YourRG}`-Zamień na nazwę grupy zasobów
+- `{YourRG}` -Zamień na nazwę grupy zasobów
 - `{subscriptionId}` — zastąp swoim identyfikatorem subskrypcji
 
 Skanowanie obsługuje Obliczanie zasobów w ramach subskrypcji lub grupy zasobów. Rozpocznij skanowanie według zakresu za pomocą polecenia interfejsu API REST **post** przy użyciu następujących struktur identyfikatorów URI:
@@ -117,7 +117,7 @@ Wywołanie zwraca stan **Zaakceptowany 202** . Uwzględniony w nagłówku odpowi
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
-`{ResourceContainerGUID}`jest generowana statycznie dla żądanego zakresu. Jeśli w zakresie jest już uruchomione skanowanie na żądanie, nowe skanowanie nie zostanie uruchomione. Zamiast tego nowe żądanie ma ten sam `{ResourceContainerGUID}` Identyfikator URI **lokalizacji** dla stanu. Polecenie API REST **Get** do identyfikatora URI **lokalizacji** zwraca **202 zaakceptowane** podczas obliczania. Po zakończeniu skanowania ewaluacyjnego zostanie zwrócony stan **200 OK** . Treść ukończonego skanowania jest odpowiedzią JSON o stanie:
+`{ResourceContainerGUID}` jest generowana statycznie dla żądanego zakresu. Jeśli w zakresie jest już uruchomione skanowanie na żądanie, nowe skanowanie nie zostanie uruchomione. Zamiast tego nowe żądanie ma ten sam `{ResourceContainerGUID}` Identyfikator URI **lokalizacji** dla stanu. Polecenie API REST **Get** do identyfikatora URI **lokalizacji** zwraca **202 zaakceptowane** podczas obliczania. Po zakończeniu skanowania ewaluacyjnego zostanie zwrócony stan **200 OK** . Treść ukończonego skanowania jest odpowiedzią JSON o stanie:
 
 ```json
 {
@@ -142,11 +142,15 @@ Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być 
 
 Załóżmy na przykład, że masz grupę zasobów — ContsoRG z pewnymi kontami magazynu (wyróżnioną kolorem czerwonym), które są dostępne w sieciach publicznych.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Konta magazynu udostępniane w sieciach publicznych" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagram kont magazynu narażonych na sieci publiczne w grupie zasobów contoso R G." border="false":::
+   Diagram przedstawiający obrazy pięciu kont magazynu w grupie zasobów contoso R G.  Konta magazynu jedno i trzy są niebieskie, natomiast konta magazynu dwa, cztery i pięć są czerwone.
+:::image-end:::
 
 W tym przykładzie należy zastanowić się nad zagrożeniem bezpieczeństwa. Po utworzeniu przypisania zasad jest ono oceniane dla wszystkich kont magazynu w grupie zasobów ContosoRG. Przeprowadza inspekcję trzech niezgodnych kont magazynu, wskutek zmiany ich Stanów na **niezgodne.**
 
-:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Inspekcja niezgodnych kont magazynu" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram zgodności konta magazynu w grupie zasobów contoso R G." border="false":::
+   Diagram przedstawiający obrazy pięciu kont magazynu w grupie zasobów contoso R G. Konta magazynu jedno i trzy z nich mają teraz zielone znaczniki wyboru poniżej, natomiast konta magazynu dwa, cztery i pięć mają teraz czerwone znaki ostrzegawcze poniżej.
+:::image-end:::
 
 Oprócz **zgodnych** i **niezgodnych**zasad i zasobów mają trzy inne stany:
 
@@ -159,7 +163,7 @@ Azure Policy używa pól **Typ** i **Nazwa** w definicji, aby określić, czy za
 Wartość procentowa zgodności jest określana przez podzielenie **zgodnych** zasobów przez _Łączne zasoby_.
 _Łączna liczba zasobów_ jest definiowana jako suma **zgodnych**, **niezgodnych**i **sprzecznych** zasobów. Ogólne numery zgodności są sumą różnych zasobów, które są **zgodne** , podzieloną przez sumę wszystkich różnych zasobów. Na poniższej ilustracji przedstawiono 20 odrębnych zasobów, które mają zastosowanie i tylko jeden z nich jest **niezgodny**. Ogólna zgodność zasobów wynosi 95% (19 z 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Przykład zgodności z zasadami ze strony zgodności" border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności zasad ze strony zgodności." border="false":::
 
 > [!NOTE]
 > Zgodność z przepisami w Azure Policy jest funkcją w wersji zapoznawczej. Właściwości zgodności z zestawu SDK i stron w portalu różnią się w zależności od włączonych inicjatyw. Aby uzyskać więcej informacji, zobacz [zgodność z przepisami](../concepts/regulatory-compliance.md)
@@ -168,11 +172,11 @@ _Łączna liczba zasobów_ jest definiowana jako suma **zgodnych**, **niezgodnyc
 
 Azure Portal przedstawia graficzne środowisko wizualizacji i zrozumienie stanu zgodności w danym środowisku. Na stronie **zasady** opcja **Przegląd** zawiera szczegółowe informacje dotyczące dostępnych zakresów na potrzeby zgodności obu zasad i inicjatyw. Wraz ze stanem zgodności i liczbą na przypisanie zawiera wykres pokazujący zgodność w ciągu ostatnich siedmiu dni. Strona **zgodność** zawiera wiele tych samych informacji (poza wykresem), ale zapewnia dodatkowe opcje filtrowania i sortowania.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Przykład strony zgodność Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Zrzut ekranu strony zgodność, opcje filtrowania i szczegóły." border="false":::
 
-Ze względu na to, że zasady lub inicjatywy mogą być przypisane do różnych zakresów, tabela zawiera zakres dla każdego przypisania i typ przypisanej definicji. Podano również liczbę niezgodnych zasobów i niezgodnych zasad dla każdego przypisania. Kliknięcie zasad lub inicjatywy w tabeli zapewnia dokładniejsze sprawdzenie zgodności dla danego przypisania.
+Ze względu na to, że zasady lub inicjatywy mogą być przypisane do różnych zakresów, tabela zawiera zakres dla każdego przypisania i typ przypisanej definicji. Podano również liczbę niezgodnych zasobów i niezgodnych zasad dla każdego przypisania. Wybór zasad i inicjatywy w tabeli zapewnia dokładniejsze sprawdzenie zgodności dla danego przypisania.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Przykład strony szczegółów zgodności Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Zrzut ekranu przedstawiający stronę szczegóły zgodności, w tym liczniki i szczegóły zgodne z zasobami." border="false":::
 
 Lista zasobów na karcie **zgodność zasobów** zawiera stan oceny istniejących zasobów dla bieżącego przypisania. Karta domyślnie nie jest **zgodna**, ale można ją filtrować.
 Zdarzenia (append, Audit, Deny, Deploy) wyzwalane przez żądanie utworzenia zasobu są wyświetlane na karcie **zdarzenia** .
@@ -180,15 +184,15 @@ Zdarzenia (append, Audit, Deny, Deploy) wyzwalane przez żądanie utworzenia zas
 > [!NOTE]
 > W przypadku zasad aparatu AKS wyświetlony zasób jest grupą zasobów.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Przykład Azure Policy zdarzeń zgodności" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Zrzut ekranu przedstawiający kartę zdarzenia na stronie Szczegóły zgodności." border="false":::
 
 W przypadku zasobów [trybu dostawcy zasobów](../concepts/definition-structure.md#resource-provider-modes) na karcie **zgodność zasobów** wybierz zasób lub kliknij prawym przyciskiem myszy wiersz i wybierz polecenie **Wyświetl szczegóły zgodności** , aby otworzyć Szczegóły zgodności składnika. Ta strona zawiera również karty umożliwiające wyświetlanie zasad przypisanych do tego zasobu, zdarzeń, zdarzeń składników i historii zmian.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Przykład szczegółów zgodności składników Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Zrzut ekranu przedstawiający kartę zgodność składników i szczegóły zgodności dla przypisania trybu dostawcy zasobów." border="false":::
 
 Wróć do strony zgodność zasobów, kliknij prawym przyciskiem myszy wiersz zdarzenia, dla którego chcesz zebrać więcej szczegółów, a następnie wybierz pozycję **Pokaż dzienniki aktywności**. Zostanie otwarta strona dziennika aktywności, która jest wstępnie filtrowana do wyszukiwania pokazującego szczegóły dotyczące przypisania i zdarzeń. Dziennik aktywności zawiera dodatkowy kontekst i informacje dotyczące tych zdarzeń.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Przykład dziennika aktywności zgodności Azure Policy" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Zrzut ekranu przedstawiający dziennik aktywności Azure Policy działań i ocen." border="false":::
 
 ### <a name="understand-non-compliance"></a>Zrozumienie braku zgodności
 
@@ -639,7 +643,7 @@ Trent Baker
 
 Jeśli masz [obszar roboczy log Analytics](../../../azure-monitor/log-query/log-query-overview.md) z `AzureActivity` [rozwiązania Activity Log Analytics](../../../azure-monitor/platform/activity-log.md) powiązanego z subskrypcją, możesz również wyświetlić wyniki niezgodności z cyklu oceny przy użyciu prostych zapytań Kusto i `AzureActivity` tabeli. Dzięki szczegółowym dziennikom Azure Monitor alerty można skonfigurować tak, aby oglądać niezgodność.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Policy zgodności przy użyciu dzienników Azure Monitor" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Zrzut ekranu przedstawiający dzienniki Azure Monitor pokazujące akcje Azure Policy w tabeli Azure." border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

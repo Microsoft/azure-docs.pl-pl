@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267510"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425640"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -38,13 +38,25 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 >
 > Aby uzyskać szczegółowe informacje, zobacz: [ograniczenia Azure Portal dla Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+
+## <a name="august-2020"></a>Sierpień 2020 r.
+
+### <a name="dynamic-encryption"></a>Szyfrowanie dynamiczne
+Obsługa starszego formatu szyfrowania plików międzyoperacyjnego (PIFF 1,1) w formacie oprogramowania PlayReady jest teraz dostępna w Pakowarce dynamicznym. Zapewnia to obsługę starszych zestawów inteligentnych programów telewizyjnych z firmy Samsung i LG, które zaimplementowali wczesne wersje robocze Common Encryption Standard (CENC) opublikowane przez firmę Microsoft.  Format PIFF 1,1 jest również znany jako format szyfrowania, który był wcześniej obsługiwany przez bibliotekę kliencką Silverlight. Obecnie jedynym scenariuszem przypadku użycia tego formatu szyfrowania jest ukierunkowanie starszej wersji programu Smart TV, w której w niektórych regionach pozostała nieprosta liczba inteligentnych programów telewizyjnych, które obsługują tylko Smooth Streaming z szyfrowaniem PIFF 1,1. 
+
+Aby użyć nowej obsługi szyfrowania w programie PIFF 1,1, Zmień wartość szyfrowania na "PIFF" w ścieżce URL lokalizatora przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [omówienie Content Protection.](content-protection-overview.md)
+Na przykład: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> Obsługa usługi PIFF 1,1 jest zapewniana jako zgodne rozwiązanie z poprzednimi wersjami dla telewizji inteligentnej (Samsung, LG), które implementuje wczesną wersję "Silverlight" Common Encryption. Zalecane jest używanie tylko formatu PIFF, gdy jest to niezbędne do obsługi starszych, inteligentnych telewizorów Samsung lub LG, które zostały wysłane z 2009-2015, które obsługiwały wersję PIFF 1,1 szyfrowania PlayReady. 
+
 ## <a name="july-2020"></a>Lipiec 2020 r.
 
 ### <a name="live-transcriptions"></a>Transkrypcje na żywo
 
 Transkrypcje na żywo obsługują teraz 19 języków i 8 regionów.
 
-## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Ochrona zawartości za pomocą Media Services i usługi Azure AD
+### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Ochrona zawartości za pomocą Media Services i usługi Azure AD
 
 Opublikowano samouczek o nazwie [Kompleksowa ochrona zawartości przy użyciu usługi Azure AD](./azure-ad-content-protection.md).
 
@@ -207,7 +219,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Ulepszenia wydajności
+### <a name="performance-improvements"></a>Usprawnienia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -392,7 +404,7 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 [Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 

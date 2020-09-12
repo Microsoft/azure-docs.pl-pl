@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285632"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612320"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Najlepsze praktyki dotyczące konfiguracji klastra (SQL Server na maszynach wirtualnych platformy Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,26 +35,23 @@ Użyj pojedynczej karty sieciowej na serwer (węzeł klastra) i pojedynczej pods
 
 Mimo że klaster z dwoma węzłami będzie działać bez [zasobów kworum](/windows-server/storage/storage-spaces/understand-quorum), klienci są ściśle zobowiązani do korzystania z zasobów kworum w celu zapewnienia obsługi produkcyjnej. Sprawdzenie poprawności klastra nie spowoduje przekazanie żadnego klastra bez zasobu kworum. 
 
-Technicznie klaster z trzema węzłami może przetrwać utratę jednego węzła (w dół do dwóch węzłów) bez zasobu kworum. Ale po przejściu klastra do dwóch węzłów istnieje ryzyko uruchomienia w programie: 
+Technicznie klaster z trzema węzłami może przetrwać utratę jednego węzła (w dół do dwóch węzłów) bez zasobu kworum. Jednak gdy klaster nie działa w dwóch węzłach, istnieje ryzyko, że zasoby klastrowane przechodzą w tryb offline w przypadku niepowodzenia lub komunikacji między węzłami.
 
-- **Partycja w miejscu** (Podziel mózg): węzły klastra są rozdzielone w sieci z powodu problemu z serwerem, kartą sieciową lub przełącznikiem. 
-- **Partycja w czasie** (Amnesia): węzeł dołącza lub ponownie dołącza do klastra, a następnie próbuje przejąć bezprawną własność grupy klastrów lub roli klastra. 
-
-Zasób kworum chroni klaster przed każdym z tych problemów. 
+Skonfigurowanie zasobu kworum umożliwi kontynuowanie pracy klastra w trybie online z tylko jednym węzłem w trybie online.
 
 Poniższa tabela zawiera listę opcji kworum dostępnych w kolejności zalecanej do użycia z maszyną wirtualną platformy Azure z wybranym monitorem dysku: 
 
 
 ||[Monitor dysku](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Monitor w chmurze](/windows-server/failover-clustering/deploy-cloud-witness)  |[Monitor udziału plików](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Obsługiwane systemy operacyjne**| Wszystkie |Windows Server 2016 +| Windows Server 2012 +|
+|**Obsługiwane systemy operacyjne**| Wszystko |Windows Server 2016 +| Wszystko|
 
 
 
 
 ### <a name="disk-witness"></a>Monitor dysku
 
-Monitor dysku to niewielki dysk klastrowany w grupie magazynów dostępnego klastra. Ten dysk jest wysoce dostępny i może przechodzić w tryb failover między węzłami. Zawiera kopię bazy danych klastra o domyślnym rozmiarze, który jest zwykle mniejszy niż 1 GB. Monitor dysku jest preferowaną opcją kworum dla maszyny wirtualnej platformy Azure, ponieważ może ona rozwiązać problem w czasie, w przeciwieństwie do monitora chmury i monitora udziału plików. 
+Monitor dysku to niewielki dysk klastrowany w grupie magazynów dostępnego klastra. Ten dysk jest wysoce dostępny i może przechodzić w tryb failover między węzłami. Zawiera kopię bazy danych klastra o domyślnym rozmiarze, który jest zwykle mniejszy niż 1 GB. Monitor dysku jest preferowaną opcją kworum dla dowolnego klastra korzystającego z udostępnionych dysków platformy Azure (lub dowolnego rozwiązania udostępnionego na dysku, takiego jak udostępniona magistrala SCSI, iSCSI lub Fibre Channel).  Nie można użyć klastrowanego woluminu udostępnionego jako monitora dysku.
 
 Skonfiguruj dysk udostępniony platformy Azure jako monitor dysku. 
 
@@ -95,8 +92,8 @@ Poniższa tabela zawiera porównanie obsługi połączeń HADR cluster:
 
 | |**Nazwa sieci wirtualnej (VNN)**  |**Nazwa sieci rozproszonej (DNN)**  |
 |---------|---------|---------|
-|**Minimalna wersja systemu operacyjnego**| Windows Server 2012 | Windows Server 2016|
-|**Minimalna wersja SQL Server** |SQL Server 2012 |SQL Server 2019 ZASTOSUJESZ pakietu CU2|
+|**Minimalna wersja systemu operacyjnego**| Wszystko | Wszystko |
+|**Minimalna wersja SQL Server** |Wszystko |SQL Server 2019 ZASTOSUJESZ pakietu CU2|
 |**Obsługiwane rozwiązanie HADR Cluster** | Wystąpienie klastra trybu failover <br/> Grupa dostępności | Wystąpienie klastra trybu failover|
 
 
@@ -108,9 +105,9 @@ W przypadku korzystania z modułu równoważenia obciążenia występuje niewiel
 
 Aby rozpocząć, Dowiedz się, jak [skonfigurować Azure Load Balancer dla FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
-**Obsługiwane systemy operacyjne**: Windows Server 2012 i nowsze   
-**Obsługiwana wersja programu SQL**: SQL Server 2012 i nowsze   
-**Obsługiwane rozwiązanie HADR Cluster**: wystąpienie klastra trybu failover i Grupa dostępności 
+**Obsługiwany system operacyjny**: wszystkie   
+**Obsługiwana wersja programu SQL**: wszystkie   
+**Obsługiwane rozwiązanie HADR Cluster**: wystąpienie klastra trybu failover i Grupa dostępności   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nazwa sieci rozproszonej (DNN)
@@ -138,9 +135,10 @@ Aby rozpocząć, Dowiedz się, jak [skonfigurować zasób DNN dla FCI](hadr-dist
 Podczas pracy z FCI lub grupami dostępności oraz SQL Server na platformie Azure Virtual Machines należy wziąć pod uwagę następujące ograniczenia. 
 
 ### <a name="msdtc"></a>ZNAJDUJĄC 
-Usługa Azure Virtual Machines obsługuje usługę Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem w udostępnionych woluminach klastra (CSV) i [Usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-standard-overview.md).
 
-Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w przypadku systemu Windows Server 2016 lub starszego, ponieważ:
+Usługa Azure Virtual Machines obsługuje usługę Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem na udostępnionych woluminach klastra (CSV) i [Usługa Load Balancer w warstwie Standardowa platformy Azure](../../../load-balancer/load-balancer-standard-overview.md) lub na SQL Server maszynach wirtualnych korzystających z dysków udostępnionych na platformie Azure. 
+
+Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w przypadku systemu Windows Server 2016 lub starszego z klastrowanymi woluminami udostępnionymi, ponieważ:
 
 - Nie można skonfigurować klastrowanego zasobu usługi MSDTC do korzystania z magazynu udostępnionego. W systemie Windows Server 2016, jeśli utworzysz zasób MSDTC, nie będzie widoczny żaden magazyn udostępniony dostępny do użycia, nawet jeśli magazyn jest dostępny. Ten problem został rozwiązany w systemie Windows Server 2019.
 - Podstawowa usługa równoważenia obciążenia nie obsługuje portów RPC.

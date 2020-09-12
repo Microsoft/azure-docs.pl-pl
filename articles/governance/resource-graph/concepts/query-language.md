@@ -3,12 +3,12 @@ title: Opis języka zapytań
 description: Opisuje tabele grafu zasobów i dostępne typy danych Kusto, operatory i funkcje możliwe do użycia w usłudze Azure Resource Graph.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798554"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426405"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informacje o języku zapytań grafu zasobów platformy Azure
 
@@ -32,6 +32,7 @@ Wykres zasobów zawiera kilka tabel służących do przechowywania danych o typa
 |ResourceContainers |Obejmuje subskrypcję (w wersji zapoznawczej-- `Microsoft.Resources/subscriptions` ) i grupy zasobów ( `Microsoft.Resources/subscriptions/resourcegroups` ) oraz typy zasobów i dane. |
 |AdvisorResources |Obejmuje zasoby _związane_ z programem `Microsoft.Advisor` . |
 |AlertsManagementResources |Obejmuje zasoby _związane_ z programem `Microsoft.AlertsManagement` . |
+|GuestConfigurationResources |Obejmuje zasoby _związane_ z programem `Microsoft.GuestConfiguration` . |
 |HealthResources |Obejmuje zasoby _związane_ z programem `Microsoft.ResourceHealth` . |
 |MaintenanceResources |Obejmuje zasoby _związane_ z programem `Microsoft.Maintenance` . |
 |SecurityResources |Obejmuje zasoby _związane_ z programem `Microsoft.Security` . |
@@ -120,7 +121,7 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 
 |KQL |Zapytanie przykładowe grafu zasobów |Uwagi |
 |---|---|---|
-|[count](/azure/kusto/query/countoperator) |[Liczenie magazynów kluczy](../samples/starter.md#count-keyvaults) | |
+|[liczbą](/azure/kusto/query/countoperator) |[Liczenie magazynów kluczy](../samples/starter.md#count-keyvaults) | |
 |[itp](/azure/kusto/query/distinctoperator) |[Pokaż różne wartości dla określonego aliasu](../samples/starter.md#distinct-alias-values) | |
 |[sunąć](/azure/kusto/query/extendoperator) |[Liczba maszyn wirtualnych według typu systemu operacyjnego](../samples/starter.md#count-os) | |
 |[Złącza](/azure/kusto/query/joinoperator) |[Magazyn kluczy z nazwą subskrypcji](../samples/advanced.md#join) |Obsługiwane typy sprzężeń: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [wewnętrzne](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit 3 `join` w pojedynczym zapytaniu. Niestandardowe strategie dołączania, takie jak sprzężenie emisji, nie są dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
@@ -135,14 +136,14 @@ Poniżej znajduje się lista operatorów tabelarycznych KQL obsługiwanych przez
 |[take (pobierz)](/azure/kusto/query/takeoperator) |[Lista wszystkich publicznych adresów IP](../samples/starter.md#list-publicip) |Synonim `limit` |
 |[top (pierwsze)](/azure/kusto/query/topoperator) |[Pokaż pięć pierwszych maszyn wirtualnych według nazwy i ich typu systemu operacyjnego](../samples/starter.md#show-sorted) | |
 |[Unii](/azure/kusto/query/unionoperator) |[Łączenie wyników z dwóch zapytań w jeden wynik](../samples/advanced.md#unionresults) |Dozwolona pojedyncza tabela: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _ColumnName_ \] _Table_. Limit 3 `union` etapów w pojedynczej kwerendzie. Rozpoznawanie rozmyte `union` tabel nogi nie jest dozwolone. Może być używany w jednej tabeli lub między tabelami _zasobów_ i _ResourceContainers_ . |
-|[gdzie](/azure/kusto/query/whereoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
+|[where](/azure/kusto/query/whereoperator) |[Pokaż zasoby zawierające magazyn](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>Zakres zapytania
 
 Zakres subskrypcji, z których zasoby są zwracane przez zapytanie, zależy od metody uzyskiwania dostępu do grafu zasobów. Interfejs wiersza polecenia platformy Azure i Azure PowerShell wypełnić listę subskrypcji do uwzględnienia w żądaniu na podstawie kontekstu autoryzowanego użytkownika. Listę subskrypcji można określić ręcznie dla każdej z użyciem odpowiednio **subskrypcji** i parametrów **subskrypcji** .
 W interfejsie API REST i wszystkich innych zestawów SDK Lista subskrypcji do uwzględnienia zasobów musi być jawnie zdefiniowana w ramach żądania.
 
-Wersja **zapoznawcza**interfejsu API REST `2020-04-01-preview` dodaje właściwość do zakresu zapytania do [grupy zarządzania](../../management-groups/overview.md). Ten interfejs API w wersji zapoznawczej powoduje również, że właściwość subskrypcji jest opcjonalna. Jeśli grupa zarządzania lub Lista subskrypcji nie jest zdefiniowana, zakres zapytania to wszystkie zasoby, do których uwierzytelniony użytkownik może uzyskać dostęp. Nowa `managementGroupId` Właściwość przyjmuje identyfikator grupy zarządzania, który różni się od nazwy grupy zarządzania. Gdy `managementGroupId` jest określony, uwzględniane są zasoby z pierwszych 5000 subskrypcji w lub poniżej określonej hierarchii grupy zarządzania. `managementGroupId` nie mogą być używane w tym samym czasie co `subscriptions` .
+Wersja **zapoznawcza**interfejsu API REST `2020-04-01-preview` dodaje właściwość do zakresu zapytania do [grupy zarządzania](../../management-groups/overview.md). Ten interfejs API w wersji zapoznawczej powoduje również, że właściwość subskrypcji jest opcjonalna. Jeśli grupa zarządzania lub Lista subskrypcji nie jest zdefiniowana, zakres zapytania obejmuje wszystkie zasoby, w tym zasoby [Lighthouse platformy Azure](../../../lighthouse/concepts/azure-delegated-resource-management.md) , do których uwierzytelniony użytkownik może uzyskać dostęp. Nowa `managementGroupId` Właściwość przyjmuje identyfikator grupy zarządzania, który różni się od nazwy grupy zarządzania. Gdy `managementGroupId` jest określony, uwzględniane są zasoby z pierwszych 5000 subskrypcji w lub poniżej określonej hierarchii grupy zarządzania. `managementGroupId` nie mogą być używane w tym samym czasie co `subscriptions` .
 
 Przykład: wykonywanie zapytania dotyczącego wszystkich zasobów w hierarchii grupy zarządzania o nazwie "moja grupa zarządzania" o IDENTYFIKATORze "myMG".
 

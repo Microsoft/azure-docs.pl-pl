@@ -4,14 +4,14 @@ description: Wypychanie i ściąganie artefaktów Open Container Initiative (OCI
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 08/12/2020
 ms.author: stevelas
-ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371056"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485007"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Wypychanie i ściąganie artefaktu OCI przy użyciu usługi Azure Container Registry
 
@@ -54,7 +54,7 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login`używa klienta platformy Docker, aby ustawić token Azure Active Directory w `docker.config` pliku. Aby można było ukończyć indywidualny przepływ uwierzytelniania, należy zainstalować i uruchomić klienta platformy Docker.
+> `az acr login` używa klienta platformy Docker, aby ustawić token Azure Active Directory w `docker.config` pliku. Aby można było ukończyć indywidualny przepływ uwierzytelniania, należy zainstalować i uruchomić klienta platformy Docker.
 
 ## <a name="push-an-artifact"></a>Wypychanie artefaktu
 
@@ -148,6 +148,36 @@ Aby usunąć artefakt z usługi Azure Container Registry, użyj polecenia [AZ AC
 az acr repository delete \
     --name myregistry \
     --image samples/artifact:1.0
+```
+
+## <a name="example-build-docker-image-from-oci-artifact"></a>Przykład: kompilowanie obrazu platformy Docker z artefaktu OCI
+
+Kod źródłowy i pliki binarne do kompilowania obrazu kontenera mogą być przechowywane jako artefakty OCI w rejestrze kontenerów platformy Azure. Można odwoływać się do artefaktu źródłowego jako kontekstu kompilacji dla [zadania ACR](container-registry-tasks-overview.md). Ten przykład przedstawia sposób przechowywania pliku dockerfile jako artefaktu OCI, a następnie odwoływania się do artefaktu w celu utworzenia obrazu kontenera.
+
+Na przykład utwórz jednowierszową pliku dockerfile:
+
+```bash
+echo "FROM hello-world" > hello-world.dockerfile
+```
+
+Zaloguj się do rejestru kontenerów docelowych.
+
+```azurecli
+az login
+az acr login --name myregistry
+```
+
+Utwórz i wypchnij nowy artefakt OCI do rejestru docelowego za pomocą `oras push` polecenia. Ten przykład ustawia domyślny typ nośnika dla artefaktu.
+
+```bash
+oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+```
+
+Uruchom polecenie [AZ ACR Build](/cli/azure/acr#az-acr-build) , aby skompilować obraz Hello-World przy użyciu nowego artefaktu jako kontekstu kompilacji:
+
+```azurecli
+az acr build --registry myregistry --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/hello-world:1.0
 ```
 
 ## <a name="next-steps"></a>Następne kroki

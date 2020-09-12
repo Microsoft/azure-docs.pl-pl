@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a16a83408587a1b99485140174c45e457ac820f8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 08/31/2020
+ms.openlocfilehash: 9564611ee37c2aa2f104bbb14096a3b2f45fb7cd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855100"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485373"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights źródła zdarzeń Gen2
 
@@ -64,7 +64,7 @@ Korzystanie z potoku przesyłania strumieniowego do importowania danych historyc
 
 ## <a name="event-source-timestamp"></a>Sygnatura czasowa źródła zdarzeń
 
-Podczas konfigurowania źródła zdarzeń zostanie wyświetlony monit o podanie właściwości identyfikatora znacznika czasu. Właściwość timestamp służy do śledzenia zdarzeń w czasie. jest to czas, który będzie używany jako $event. $ts w [interfejsach API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) oraz do wykreślania serii w EKSPLORATORZE Azure Time Series Insights TSI. Jeśli w czasie tworzenia nie podano żadnej właściwości, lub jeśli w zdarzeniu brakuje właściwości timestamp, zostanie użyta wartość domyślna "IoT Hub zdarzeń" i centra zdarzeń w kolejce. Wartości właściwości timestamp są przechowywane w formacie UTC.
+Podczas konfigurowania źródła zdarzeń zostanie wyświetlony monit o podanie właściwości identyfikatora znacznika czasu. Właściwość timestamp służy do śledzenia zdarzeń w czasie. jest to czas, który będzie używany jako $event. $ts w [interfejsach API zapytań](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) oraz do wykreślania serii w Eksploratorze Azure Time Series Insights. Jeśli w czasie tworzenia nie podano żadnej właściwości, lub jeśli w zdarzeniu brakuje właściwości timestamp, zostanie użyta wartość domyślna "IoT Hub zdarzeń" i centra zdarzeń w kolejce. Wartości właściwości timestamp są przechowywane w formacie UTC.
 
 Ogólnie rzecz biorąc, użytkownicy będą dostosowywać Właściwość sygnatur czasowych i używać czasu, gdy czujnik lub tag wygenerował odczyt, zamiast korzystać z domyślnego, wbudowanego czasu centrum. Jest to szczególnie konieczne, gdy urządzenia mają nieprzerwaną utratę łączności, a partia opóźnionych komunikatów jest przekazywana do Azure Time Series Insights Gen2.
 

@@ -3,12 +3,12 @@ title: Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych prze
 description: Dowiedz się, jak Azure Backup umożliwia szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022415"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378291"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Szyfrowanie danych kopii zapasowej przy użyciu kluczy zarządzanych przez klienta
 
@@ -66,7 +66,7 @@ Azure Backup używa tożsamości zarządzanej przypisanej przez system do uwierz
 
     ![Ustawienia tożsamości](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Zmień **stan** na **włączone** , a następnie kliknij przycisk **Zapisz**.
+1. Zmień **stan** na **włączone** i wybierz pozycję **Zapisz**.
 
 1. Generowany jest identyfikator obiektu, który jest zarządzaną przez system tożsamością magazynową.
 
@@ -82,13 +82,13 @@ Teraz musisz zezwolić magazynowi Recovery Services na dostęp do Azure Key Vaul
 
     ![Przypisywanie uprawnień klucza](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Przejdź do pozycji **Wybierz podmiot zabezpieczeń** i Wyszukaj swój magazyn w polu wyszukiwania przy użyciu jego nazwy lub tożsamości zarządzanej. Po wyświetleniu listy wybierz magazyn, a następnie kliknij przycisk **Wybierz** w dolnej części okienka.
+1. Przejdź do pozycji **Wybierz podmiot zabezpieczeń** i Wyszukaj swój magazyn w polu wyszukiwania przy użyciu jego nazwy lub tożsamości zarządzanej. Po wyświetleniu listy wybierz magazyn, a następnie wybierz **pozycję Wybierz** w dolnej części okienka.
 
     ![Wybierz podmiot zabezpieczeń](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. Po zakończeniu kliknij przycisk **Dodaj** , aby dodać nowe zasady dostępu.
+1. Po zakończeniu wybierz pozycję **Dodaj** , aby dodać nowe zasady dostępu.
 
-1. Kliknij przycisk **Zapisz** , aby zapisać zmiany wprowadzone w zasadach dostępu Azure Key Vault.
+1. Wybierz pozycję **Zapisz** , aby zapisać zmiany wprowadzone w zasadach dostępu Azure Key Vault.
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Włącz ochronę przed usuwaniem i przeczyszczaniem na Azure Key Vault
 
@@ -148,7 +148,7 @@ Aby przypisać klucz:
 
     ![Ustawienia szyfrowania](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Kliknij przycisk **Aktualizuj** w obszarze **Ustawienia szyfrowania**.
+1. Wybierz pozycję **Aktualizuj** w obszarze **Ustawienia szyfrowania**.
 
 1. W okienku ustawienia szyfrowania wybierz opcję **Użyj własnego klucza** i Kontynuuj, aby określić klucz przy użyciu jednego z następujących sposobów. **Upewnij się, że klucz, którego chcesz użyć, jest kluczem RSA 2048, który jest w stanie włączonym.**
 
@@ -160,7 +160,7 @@ Aby przypisać klucz:
 
         ![Wybierz klucz z magazynu kluczy](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Kliknij pozycję **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 1. **Śledzenie postępu aktualizacji klucza szyfrowania:** Postęp przypisania klucza można śledzić przy użyciu **dziennika aktywności** w magazynie Recovery Services. Stan powinien wkrótce ulec zmianie na **powodzenie**. Magazyn będzie teraz szyfrować wszystkie dane z określonym kluczem jako KEK.
 
@@ -258,6 +258,6 @@ Nie wykonano kroków opisanych w artykule i kontynuowanie ochrony elementów mo�
 
 Korzystanie z szyfrowania CMK dla kopii zapasowych nie wiąże się z żadnymi dodatkowymi kosztami. Można jednak nadal ponosić koszty używania Azure Key Vault, w którym jest przechowywany klucz.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Omówienie funkcji zabezpieczeń w programie Azure Backup](security-overview.md)

@@ -3,16 +3,16 @@ title: Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 description: Dowiedz się, jak tworzyć i konfigurować zasoby techniczne dla oferty maszyny wirtualnej (VM) dla witryny Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 496cd4aeb96ca1849e950331658014d91dc6d6ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143940"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646800"
 ---
 # <a name="create-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
 
@@ -123,7 +123,7 @@ Utwórz maszynę wirtualną generacji 2 (Gen2) w Azure Portal.
 2. Wybierz pozycję **Utwórz zasób**.
 3. Wybierz pozycję **Zobacz wszystko** w witrynie Azure Marketplace po lewej stronie.
 4. Wybierz obraz, który obsługuje Gen2.
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 6. Na karcie **Zaawansowane** w sekcji **generacja maszyny wirtualnej** wybierz opcję **generacji 2** .
 7. Na karcie **podstawowe** w obszarze **szczegóły wystąpienia**przejdź do pozycji **rozmiar** i Otwórz blok **Wybieranie rozmiaru maszyny wirtualnej** .
 8. Wybierz zalecany rozmiar [obsługiwanej maszyny wirtualnej i rozmiaru generacji 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) .

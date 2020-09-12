@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ef46a0040ba767197028d170372a4a9edca9feee
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085110"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442708"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie*MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse).
+Podczas tworzenia nowego serwera w programie Azure SQL Database lub Azure Synapse *Analytics o nazwie*MySQLServer.Database.Windows.NET, na przykład Zapora na poziomie serwera blokuje dostęp do publicznego punktu końcowego dla serwera (dostępną w usłudze *mysqlserver.database.windows.net*). Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy *wystąpienia zarządzanego usługi Azure SQL*. Aby uzyskać informacje o konfiguracji sieci, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../managed-instance/connect-application-instance.md).

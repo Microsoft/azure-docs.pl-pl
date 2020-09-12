@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268778"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433657"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów dotyczących urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
@@ -29,7 +29,7 @@ W tym artykule przyjęto założenie, że [skonfigurowano urządzenia hybrydowe 
 
 - Dostęp warunkowy oparty na urządzeniach
 - [Roaming ustawień przedsiębiorstwa](./enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Windows Hello dla firm](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Ten dokument zawiera wskazówki dotyczące rozwiązywania problemów w celu rozwiązania potencjalnych problemów.
 
@@ -99,7 +99,7 @@ To pole wskazuje, czy urządzenie jest przyłączone do lokalnego Active Directo
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: nie
 
-To pole wskazuje, czy urządzenie jest zarejestrowane w usłudze Azure AD jako urządzenie osobiste (oznaczone jako *dołączone do miejsca pracy*). Ta wartość powinna być **nie** dla komputera przyłączonego do domeny, który jest również przyłączony do hybrydowej usługi Azure AD. Jeśli wartość to **tak**, konto służbowe zostało dodane przed ukończeniem hybrydowego sprzężenia usługi Azure AD. W takim przypadku konto jest ignorowane w przypadku korzystania z aktualizacji z rocznicą systemu Windows 10 (1607).
+To pole wskazuje, czy urządzenie jest zarejestrowane w usłudze Azure AD jako urządzenie osobiste (oznaczone jako *dołączone do miejsca pracy*). Ta wartość powinna być **nie** dla komputera przyłączonego do domeny, który jest również przyłączony do hybrydowej usługi Azure AD. Jeśli wartość to **tak**, konto służbowe zostało dodane przed ukończeniem hybrydowego sprzężenia usługi Azure AD. W takim przypadku konto jest ignorowane w przypadku korzystania z systemu Windows 10 w wersji 1607 lub nowszej.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: tak
 

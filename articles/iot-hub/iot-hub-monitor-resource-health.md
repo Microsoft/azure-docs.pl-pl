@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: c7b2055494d61ba348ae6226e6fc0ad9ce5775bb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022143"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438405"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorowanie kondycji usługi Azure IoT Hub i szybkie diagnozowanie problemów
 
@@ -61,7 +61,7 @@ Kategoria połączenia śledzi zdarzenia łączenia i rozłączania urządzeń z
             "operationName": "deviceConnect",
             "category": "Connections",
             "level": "Information",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
             "location": "Resource location"
         }
     ]
@@ -355,7 +355,7 @@ W tym miejscu `durationMs` nie jest obliczany, ponieważ zegar IoT Hub może nie
 | Właściwość | Typ | Opis |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Liczba całkowita | Rozmiar komunikatu z urządzenia do chmury w bajtach |
-| **deviceId** | Ciąg znaków alfanumerycznych ASCII 7-bitowych | Tożsamość urządzenia |
+| **Identyfikator** | Ciąg znaków alfanumerycznych ASCII 7-bitowych | Tożsamość urządzenia |
 | **callerLocalTimeUtc** | Sygnatura czasowa UTC | Godzina utworzenia komunikatu zgłoszonego przez zegar lokalny urządzenia |
 | **calleeLocalTimeUtc** | Sygnatura czasowa UTC | Godzina przybycia wiadomości w bramie IoT Hubej zgłoszonej przez IoT Hub zegar po stronie usługi |
 
@@ -472,6 +472,42 @@ Kategoria strumienie urządzenia śledzi interakcje z żądaniem odpowiedzi wysy
 }
 ```
 
+### <a name="sdk-version"></a>Wersja zestawu SDK
+
+Niektóre operacje zwracają `sdkVersion` Właściwość w `properties` obiekcie. W przypadku tych operacji, gdy aplikacja urządzenia lub zaplecza korzysta z jednego z zestawów SDK usługi Azure IoT, ta właściwość zawiera informacje o używanym zestawie SDK, wersji zestawu SDK i platformie, w której jest uruchomiony zestaw SDK. W poniższym przykładzie przedstawiono `sdkVersion` Właściwość wyemitowaną dla `deviceConnect` operacji przy użyciu zestawu SDK urządzeń Node.js: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"` . Oto przykład wartości wyemitowanej dla zestawu SDK platformy .NET (C#): `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"` .
+
+W poniższej tabeli przedstawiono nazwę zestawu SDK służącą do różnych zestawów SDK usługi Azure IoT:
+
+| Nazwa zestawu SDK we właściwości sdkVersion | Język |
+|----------|----------|
+| .NET | .NET (C#) |
+| Microsoft. Azure. Devices | Zestaw SDK usługi .NET (C#) |
+| Microsoft. Azure. Devices. Client | Zestaw SDK urządzeń .NET (C#) |
+| usługi iothubclient | C lub Python V1 (przestarzałe) zestaw SDK urządzeń |
+| iothubserviceclient | C lub Python V1 (przestarzałe) SDK usługi |
+| Azure-IoT-Device-iothub-PR | Zestaw SDK urządzenia w języku Python |
+| azure-iot-device | Zestaw SDK urządzeń Node.js |
+| azure-iothub | Zestaw SDK usługi Node.js |
+| com. Microsoft. Azure. iothub-Java-Client | Zestaw SDK urządzeń Java |
+| com. Microsoft. Azure. iothub. Service. Sdk | Zestaw SDK usługi Java |
+| com. Microsoft. Azure. Sdk. IoT. IoT-Device-Client | Zestaw SDK urządzeń Java |
+| com. Microsoft. Azure. Sdk. IoT. IoT-Service-Client | Zestaw SDK usługi Java |
+| C | Embedded C |
+| C + (OSSimplified = Azure RTO) | Azure RTOS |
+
+Właściwość wersji zestawu SDK można wyodrębnić podczas wykonywania zapytań dotyczących dzienników diagnostycznych. Poniższe zapytanie wyodrębnia Właściwość wersji zestawu SDK (i identyfikator urządzenia) z właściwości zwracanych przez zdarzenia połączeń. Te dwie właściwości są zapisywane w wynikach wraz z czasem zdarzenia i IDENTYFIKATORem zasobu Centrum IoT, z którym urządzenie nawiązuje połączenie.
+
+```kusto
+// SDK version of devices
+// List of devices and their SDK versions that connect to IoT Hub
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
+```
+
 ### <a name="read-logs-from-azure-event-hubs"></a>Odczytuj dzienniki z usługi Azure Event Hubs
 
 Po skonfigurowaniu rejestrowania zdarzeń za pomocą ustawień diagnostycznych można utworzyć aplikacje, które odczytują dzienniki, aby można było wykonać akcję na podstawie zawartych w nich informacji. Ten przykładowy kod pobiera dzienniki z centrum zdarzeń:
@@ -557,7 +593,7 @@ Aby sprawdzić kondycję centrów IoT, wykonaj następujące kroki:
 
 Aby dowiedzieć się więcej na temat sposobu interpretacji danych dotyczących kondycji, zobacz [Omówienie usługi Azure Resource Health](../service-health/resource-health-overview.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Informacje o metrykach IoT Hub](iot-hub-metrics.md)
 * [Zdalne monitorowanie i powiadomienia w usłudze IoT przy użyciu Azure Logic Apps łączenia Centrum IoT i skrzynki pocztowej](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

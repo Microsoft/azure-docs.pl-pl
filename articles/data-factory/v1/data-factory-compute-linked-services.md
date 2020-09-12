@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563504"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438827"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory wersji 1
 > [!NOTE]
@@ -32,7 +32,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Działania usługi Machine Learning: wykonywanie wsadowe i aktualizacja zasobów](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Działania procedur składowanych](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Działania procedur składowanych](data-factory-stored-proc-activity.md) |
 
 ## <a name="hdinsight-versions-supported-in-data-factory"></a><a name="supported-hdinsight-versions-in-azure-data-factory"></a>Wersje usługi HDInsight obsługiwane w Data Factory
 Usługa Azure HDInsight obsługuje wiele wersji klastra Hadoop, które można wdrożyć w dowolnym momencie. Każda obsługiwana wersja tworzy określoną wersję dystrybucji Hortonworks Data Platform (HDP) i zestaw składników w dystrybucji. 
@@ -232,7 +232,7 @@ Ten typ konfiguracji jest obsługiwany dla następujących środowisk obliczenio
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL Database, Azure SQL Data Warehouse, SQL Server
+* Azure SQL Database, usługa Azure Synapse Analytics (wcześniej SQL Data Warehouse), SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Połączona usługa Azure HDInsight
 Można utworzyć połączoną usługę HDInsight, aby zarejestrować własny klaster usługi HDInsight z Data Factory.
@@ -462,8 +462,8 @@ Dodaj odwołanie do Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms
 ## <a name="azure-sql-linked-service"></a>Połączona usługa Azure SQL
 Można utworzyć połączoną usługę SQL i użyć jej razem z [działaniem procedury składowanej](data-factory-stored-proc-activity.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse połączona usługa
-Można utworzyć połączoną usługę SQL Data Warehouse i użyć jej razem z [działaniem procedury składowanej](data-factory-stored-proc-activity.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać więcej informacji, zobacz [Azure SQL Data Warehouse łącznik](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
+## <a name="azure-synapse-analytics-linked-service"></a>Połączona usługa Azure Synapse Analytics
+Możesz utworzyć połączoną usługę Azure Synapse Analytics i użyć jej razem z [działaniem procedury składowanej](data-factory-stored-proc-activity.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać więcej informacji, zobacz [Łącznik usługi Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
 ## <a name="sql-server-linked-service"></a>SQL Server połączona usługa
 Można utworzyć połączoną usługę SQL Server i użyć jej razem z [działaniem procedury składowanej](data-factory-stored-proc-activity.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać więcej informacji, zobacz [SQL Server łącznik](data-factory-sqlserver-connector.md#linked-service-properties).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 6ed95f87d2b2a5f811531a5ff258ebe97a9b892a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869205"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378376"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -142,7 +142,7 @@ Aby uzyskać więcej informacji na temat wdrażania tej funkcji, zobacz [Konfigu
 
 ## <a name="properties-source"></a>Właściwości: Źródło
 
-Konstruktor obrazów obecnie obsługuje tylko obrazy i maszyny wirtualne generacji 1. ta `source` sekcja zawiera informacje o obrazie źródłowym, który będzie używany przez Konstruktor obrazów.
+`source`Sekcja zawiera informacje o obrazie źródłowym, który będzie używany przez Konstruktor obrazów. Konstruktor obrazów obecnie obsługuje tylko natywnie tworzenie obrazów generacji funkcji Hyper-V (Gen1) 1 w galerii obrazów udostępnionych (SIG) systemu Azure lub w obrazie zarządzanym. Jeśli chcesz utworzyć obrazy Gen2, musisz użyć źródłowego obrazu Gen2 i rozesłać do dysku VHD. Następnie należy utworzyć obraz zarządzany na podstawie wirtualnego dysku twardego i wprowadzić go do SIG jako obraz Gen2.
 
 Interfejs API wymaga elementu "SourceType", który definiuje Źródło dla kompilacji obrazu, obecnie istnieją trzy typy:
 - PlatformImage — wskazuje, że obraz źródłowy jest obrazem portalu Marketplace.
@@ -571,7 +571,7 @@ Przed rozpoczęciem dystrybucji do galerii obrazów należy utworzyć galerię i
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {
