@@ -1,39 +1,41 @@
 ---
-title: Najlepsze rozwiązania dotyczące Azure Maps Route Service | Mapy Microsoft Azure
+title: Najlepsze rozwiązania dotyczące Azure Maps Route Service w usłudze mapy Microsoft Azure
 description: Dowiedz się, jak kierować pojazdy przy użyciu Route Service z Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 03/11/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b957453758b9b8e34989877516a9083f06a85ed8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132215"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400788"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
 
 Wskazówki dotyczące trasy i interfejsy API macierzy trasy w Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) mogą służyć do obliczania szacowanego czasu przybycia (ETAs) dla każdej żądanej trasy. Interfejsy API tras uwzględniają takie czynniki jak informacje o ruchu w czasie rzeczywistym i historyczne dane o ruchu, takie jak typowe szybkości podróży w dniu tygodnia i o porze dnia. Interfejsy API zwracają najkrótsze lub najszybsze trasy dostępne dla wielu miejsc docelowych jednocześnie w sekwencji lub w kolejności zoptymalizowanej na podstawie czasu lub odległości. Użytkownicy mogą również zażądać wyspecjalizowanych tras i szczegółów dla podejść, rowerzystów i pojazdów komercyjnych, takich jak samochody. W tym artykule udostępnimy najlepsze rozwiązania w zakresie wywoływania Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)i dowiesz się, jak:
 
-* Wybieranie między interfejsami API wskazówek dotyczących tras i interfejsem API routingu macierzy
-* Żądaj historycznych i przewidywanych czasów podróży na podstawie danych o ruchu w czasie rzeczywistym i historycznych
-* Żądaj szczegółowych informacji o trasie, takich jak czas i odległość, dla całej trasy i każdego etapu trasy
-* Zażądaj trasy dla pojazdu komercyjnego, takiego jak ciężarówka
-* Żądaj informacji o ruchu na trasie, takich jak dżemy i informacje o cle
-* Zażądaj trasy, która składa się z co najmniej jednego zatrzymania (waypoints)
-* Optymalizacja trasy jednego lub większej liczby przerw w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania (punkt nawigacyjny)
-* Optymalizuj alternatywne trasy przy użyciu punktów pomocniczych. Można na przykład oferować alternatywne trasy, które przechodzą przez stację ładowania pojazdu elektrycznego.
-* Używanie [Route Service](https://docs.microsoft.com/rest/api/maps/route) z zestawem SDK Azure Maps sieci Web
+> [!div class="checklist"]
+> * Wybieranie między interfejsami API wskazówek dotyczących tras i interfejsem API routingu macierzy
+> * Żądaj historycznych i przewidywanych czasów podróży na podstawie danych o ruchu w czasie rzeczywistym i historycznych
+> * Żądaj szczegółowych informacji o trasie, takich jak czas i odległość, dla całej trasy i każdego etapu trasy
+> * Zażądaj trasy dla pojazdu komercyjnego, takiego jak ciężarówka
+> * Żądaj informacji o ruchu na trasie, takich jak dżemy i informacje o cle
+> * Zażądaj trasy, która składa się z co najmniej jednego zatrzymania (waypoints)
+> * Optymalizacja trasy jednego lub większej liczby przerw w celu uzyskania najlepszej kolejności do odwiedzania każdego zatrzymania (punkt nawigacyjny)
+> * Optymalizuj alternatywne trasy przy użyciu punktów pomocniczych. Można na przykład oferować alternatywne trasy, które przechodzą przez stację ładowania pojazdu elektrycznego.
+> * Używanie [Route Service](https://docs.microsoft.com/rest/api/maps/route) z zestawem SDK Azure Maps sieci Web
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać wywołania do Azure Maps interfejsów API, musisz mieć konto Azure Maps i klucz. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account). Klucz podstawowy jest również znany jako podstawowy klucz subskrypcji lub klucz subskrypcji.
+1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
 
-Aby uzyskać informacje o uwierzytelnianiu w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md). Aby uzyskać więcej informacji na temat pokrycia Route Service, zobacz [pokrycie routingu](routing-coverage.md).
+Aby uzyskać więcej informacji na temat pokrycia Route Service, zobacz [pokrycie routingu](routing-coverage.md).
 
 W tym artykule jest wykorzystywana [aplikacja Poster](https://www.postman.com/downloads/) do kompilowania wywołań REST, ale można wybrać dowolne środowisko deweloperskie interfejsu API.
 
@@ -133,43 +135,23 @@ Domyślnie usługa Route zwróci tablicę współrzędnych. Odpowiedź będzie z
 
 Na poniższej ilustracji przedstawiono `points` element.
 
-<center>
-
-![Lista punktów](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
-
-</center>
+![Element Points](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
 
 Rozwiń `point` element, aby wyświetlić listę współrzędnych ścieżki:
 
-<center>
-
-![Lista punktów](media/how-to-use-best-practices-for-routing/points-list-img.png)
-
-</center>
+![Elementy rozwiniętych punktów](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
 Interfejsy API wskazówek dotyczących trasy obsługują różne formaty instrukcji, które mogą być używane przez określenie parametru **instructiontype** . Aby sformatować instrukcje dotyczące łatwego przetwarzania komputera, użyj **instrukcji instructiontype = kodowane**. Użyj **instrukcji instructiontype = Tagged** , aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje można sformatować jako tekst, w którym są oznaczone niektóre elementy instrukcji, a instrukcja jest prezentowana z formatowaniem specjalnym. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Gdy wymagane są instrukcje, odpowiedź zwraca nowy element o nazwie `guidance` . `guidance`Element zawiera dwie części informacji: instrukcje włączania i podsumowywania instrukcji.
 
-<center>
-
 ![Typ instrukcji](media/how-to-use-best-practices-for-routing/instructions-type-img.png)
-
-</center>
 
 `instructions`Element zawiera wskazówki dotyczące włączania i wyłączania dla podróży oraz `instructionGroups` zawiera podsumowanie instrukcji. Każde podsumowanie instrukcji obejmuje segment rejsu, który może obejmować wiele dróg. Interfejsy API mogą zwrócić szczegóły dotyczące sekcji trasy. taki jak, zakres współrzędnych zakleszczenia ruchu lub bieżącą szybkość ruchu.
 
-<center>
-
 ![Włącz, włączając instrukcje](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
-</center>
-
-<center>
-
 ![Instrukcje podsumowania](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
-
-</center>
 
 ## <a name="request-a-route-for-a-commercial-vehicle"></a>Żądaj trasy dla pojazdu komercyjnego
 
@@ -185,11 +167,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 Interfejs API tras zwraca wskazówki, które uwzględniają Wymiary wózka i odpadów niebezpiecznych. Instrukcje dotyczące trasy można odczytać, rozszerzając `guidance` element.
 
-<center>
-
 ![Ciężarówka z klasą 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
-
-</center>
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
@@ -201,11 +179,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 Poniższa odpowiedź dotyczy ciężarówki przewożącej materiał niebezpieczny klasy 9, który jest mniej bezpieczny niż materiał niebezpieczny klasy 1. Po rozwinięciu `guidance` elementu, aby przeczytać wskazówki, Zauważ, że te wskazówki nie są takie same. Istnieje więcej instrukcji dotyczących trasy dla samochodów przewożących materiał niebezpieczny klasy 1.
 
-<center>
+
 
 ![Ciężarówka z klasą 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
-</center>
+
 
 ## <a name="request-traffic-information-along-a-route"></a>Żądaj informacji o ruchu na trasie
 
@@ -221,19 +199,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 Odpowiedź zawiera sekcje, które są odpowiednie dla ruchu, wzdłuż danego współrzędnych.
 
-<center>
-
-![sekcje ruchu](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
-
-</center>
+![Sekcje ruchu](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
 
 Ta opcja umożliwia kolorowanie sekcji podczas renderowania mapy, jak na poniższym obrazie: 
 
-<center>
-
-![sekcje ruchu](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
-
-</center>
+![Kolorowe sekcje renderowane na mapie](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
 ## <a name="calculate-and-optimize-a-multi-stop-route"></a>Obliczanie i optymalizowanie trasy z obsługą multitransportu
 
@@ -257,19 +227,13 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 Odpowiedź opisuje długość ścieżki do 140 851 gazomierzy i że potrwa 9 991 sekund do podróży tej ścieżki.
 
-<center>
-
 ![Niezoptymalizowana odpowiedź](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
-
-</center>
 
 Poniższy obraz ilustruje ścieżkę podaną w wyniku tego zapytania. Ta ścieżka jest jedną z możliwych tras. Nie jest to optymalna ścieżka oparta na czasie lub odległości.
 
-<center>
-
 ![Obraz niezoptymalizowany](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-</center>
+
 
 Ta punkt nawigacyjny ma następującą kolejność: 0, 1, 2, 3, 4, 5 i 6.
 
@@ -283,19 +247,11 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 Odpowiedź opisuje długość ścieżki do 91 814 gazomierzy i że potrwa 7 797 sekund do podróży tej ścieżki. Odległość podróży i czas podróży są mniejsze w tym miejscu, ponieważ interfejs API zwrócił zoptymalizowaną trasę.
 
-<center>
-
-![Niezoptymalizowana odpowiedź](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
-
-</center>
+![Zoptymalizowana odpowiedź](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
 Poniższy obraz ilustruje ścieżkę podaną w wyniku tego zapytania.
 
-<center>
-
-![Obraz niezoptymalizowany](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
-
-</center>
+![Zoptymalizowany obraz](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
 Optymalna trasa ma następującą kolejność punkt nawigacyjny: 0, 5, 1, 2, 4, 3 i 6.
 
@@ -315,11 +271,7 @@ Podczas wywoływania [interfejsu API wskazówek dotyczących trasy](https://docs
 
 Poniższy obraz przedstawia przykład renderowania alternatywnych tras z określonymi limitami odchyleń dla czasu i odległości.
 
-<center>
-
 ![Alternatywne trasy](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
-
-</center>
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Korzystanie z usługi routingu w aplikacji sieci Web
 

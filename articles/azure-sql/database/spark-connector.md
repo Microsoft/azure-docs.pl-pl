@@ -10,22 +10,25 @@ ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
-ms.date: 09/25/2018
-ms.openlocfilehash: cb7fb7f6c44f9e1c4a9b073c666543a2e892582a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 09/02/2020
+ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985503"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421309"
 ---
-# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Przyspieszenie analizy danych Big Data w czasie rzeczywistym za pomocą łącznika Spark 
+# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Przyspieszenie analizy danych Big Data w czasie rzeczywistym za pomocą łącznika Spark
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+> [!NOTE]
+> Od 2020 tego łącznika nie jest aktywnie utrzymywana. Jednak [Apache Spark łącznik dla SQL Server i Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector) jest teraz dostępny z obsługą powiązań Python i R, łatwiejszym do użycia interfejsem do zbiorczego wstawiania danych i wieloma innymi ulepszeniami. Zdecydowanie zachęcamy do oszacowania i używania nowego łącznika zamiast tego. Informacje o starym łączniku (na stronie) są przechowywane tylko w celach archiwalnych.
 
 Łącznik platformy Spark umożliwia korzystanie z baz danych w Azure SQL Database, wystąpieniu zarządzanym usługi Azure SQL i SQL Server do działania jako dane wejściowe źródła danych lub ujścia danych wyjściowych dla zadań platformy Spark. Umożliwia ona korzystanie z danych transakcyjnych w czasie rzeczywistym w analizie danych Big Data i utrwalanie wyników dla zapytań ad hoc lub raportów. W porównaniu do wbudowanego łącznika JDBC ten łącznik umożliwia zbiorcze Wstawianie danych do bazy danych. Może outperform Wstawianie wierszy po wierszu z 10X, aby 20x wyższą wydajność. Łącznik platformy Spark obsługuje uwierzytelnianie Azure Active Directory (Azure AD) w celu nawiązania połączenia z Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL, umożliwiając łączenie bazy danych z Azure Databricks przy użyciu konta usługi Azure AD. Zapewnia podobne interfejsy za pomocą wbudowanego łącznika JDBC. Migracja istniejących zadań platformy Spark w celu korzystania z tego nowego łącznika jest łatwa.
 
 ## <a name="download-and-build-a-spark-connector"></a>Pobieranie i kompilowanie łącznika platformy Spark
 
-Aby rozpocząć, Pobierz łącznik platformy Spark z [repozytorium Azure-SQLDB-Spark](https://github.com/Azure/azure-sqldb-spark) w witrynie GitHub.
+Repozytorium GitHub dla starego łącznika, który został wcześniej połączony z tą stroną, nie jest aktywnie utrzymywana. Zamiast tego zdecydowanie zachęcamy do oszacowania i używania [nowego łącznika](https://github.com/microsoft/sql-spark-connector).
 
 ### <a name="official-supported-versions"></a>Oficjalne obsługiwane wersje
 

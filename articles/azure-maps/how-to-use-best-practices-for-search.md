@@ -3,41 +3,39 @@ title: Najlepsze rozwiązania dotyczące Azure Maps Search Service | Mapy Micros
 description: Dowiedz się, jak stosować najlepsze rozwiązania w przypadku korzystania z Search Service z map Microsoft Azure.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6565d8056ae8106bd93b7dd096bc709010ec5c3f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064268"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400708"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Najlepsze rozwiązania dotyczące Azure Maps Search Service
 
 Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) obejmuje interfejsy API oferujące różne funkcje, które ułatwiają deweloperom wyszukiwanie adresów, miejsc, aukcji w biznesie według nazw lub kategorii oraz innych informacji geograficznych. Na przykład[interfejs API wyszukiwania rozmytego](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) umożliwia użytkownikom wyszukiwanie adresów lub punktów orientacyjnych (punkt POI).
 
 W tym artykule wyjaśniono, jak stosować metody dźwiękowe podczas wywoływania danych z Azure Maps Search Service. Omawiane tematy:
-
-* Twórz zapytania, aby zwracać odpowiednie dopasowania
-* Ogranicz wyniki wyszukiwania
-* Poznaj różnice między typami wyników
-* Przeczytaj strukturę wyszukiwania adresów — odpowiedź
+> [!div class="checklist"]
+> * Twórz zapytania, aby zwracać odpowiednie dopasowania
+> * Ogranicz wyniki wyszukiwania
+> * Poznaj różnice między typami wyników
+> * Przeczytaj strukturę wyszukiwania adresów — odpowiedź
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać wywołania do interfejsów API usługi Azure Maps, musisz mieć konto Azure Maps i klucz. Aby uzyskać więcej informacji, zobacz [Tworzenie konta](quick-demo-map-app.md#create-an-azure-maps-account) i [Uzyskiwanie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+1. [Utwórz konto Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Uzyskaj podstawowy klucz subskrypcji](quick-demo-map-app.md#get-the-primary-key-for-your-account), nazywany także kluczem podstawowym lub kluczem subskrypcji.
 
-Aby uzyskać informacje o uwierzytelnianiu w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](./how-to-manage-authentication.md).
-
-> [!TIP]
-> Aby wykonać zapytanie Search Service, można użyć [aplikacji Poster](https://www.getpostman.com/apps) do kompilowania wywołań interfejsu API REST. Możesz też użyć dowolnego preferowanego środowiska deweloperskiego interfejsu API.
+W tym artykule jest wykorzystywana [aplikacja Poster](https://www.postman.com/downloads/) do kompilowania wywołań REST, ale można wybrać dowolne środowisko deweloperskie interfejsu API.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Najlepsze rozwiązania dotyczące adresów geokodowych
 
-W przypadku wyszukiwania pełnych lub częściowych adresów przy użyciu Azure Maps Search Service interfejs API odczytuje słowa kluczowe z zapytania wyszukiwania. Następnie zwraca współrzędne długości i szerokości geograficznej adresu. Ten proces jest nazywany *geokodowaniem*. 
+W przypadku wyszukiwania pełnych lub częściowych adresów przy użyciu Azure Maps Search Service interfejs API odczytuje słowa kluczowe z zapytania wyszukiwania. Następnie zwraca współrzędne długości i szerokości geograficznej adresu. Ten proces jest nazywany *geokodowaniem*.
 
 Możliwość geokodu w kraju/regionie zależy od dostępności danych drogowych i dokładności usługi geokodowania. Aby uzyskać więcej informacji na temat możliwości geokodowania Azure Maps według kraju lub regionu, zobacz [pokrycie geokodowania](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
@@ -79,9 +77,9 @@ Zalecamy korzystanie z interfejsu API "Azure Maps [przeszukiwania rozmytego](htt
 
 #### <a name="usage-examples"></a>Przykłady użycia
 
-* `idxSet=POI`— Tylko Wyszukiwanie punktów POI. 
+* `idxSet=POI` — Tylko Wyszukiwanie punktów POI. 
 
-* `idxSet=PAD,Addr`— Tylko adresy wyszukiwania. `PAD`wskazuje adres punktu i `Addr` wskazuje zakres adresów.
+* `idxSet=PAD,Addr` — Tylko adresy wyszukiwania. `PAD` wskazuje adres punktu i `Addr` wskazuje zakres adresów.
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Odwróć kod i filtr dla typu jednostki geografii
 
@@ -95,7 +93,7 @@ Odpowiedź będąca wynikiem zawiera identyfikator geografii i typ jednostki, kt
 https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```JSON
 {
@@ -147,7 +145,7 @@ W poniższym przykładowym zapytaniu usługa adresów wyszukiwania jest wysyłan
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```JSON
 {
@@ -496,7 +494,7 @@ Aby poznać wyszukiwanie markowe, przyjrzyjmy się żądaniu [wyszukiwania kateg
 https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 ```JSON
 {
@@ -777,7 +775,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Skrzyżowanie**: przedziały. Cross Streets reprezentuje połączenia, w których dwa ulice przecinają się.
 
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Przyjrzyjmy się strukturze odpowiedzi. W poniższej odpowiedzi typy obiektów wynikowych są różne. Jeśli szukasz uważnie, zobaczysz trzy typy obiektów wynikowych:
 

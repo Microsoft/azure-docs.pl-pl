@@ -2,17 +2,17 @@
 title: Dołączanie domeny głównej lub wierzchołka do istniejących przednich drzwi Azure Portal
 description: Dowiedz się, jak dołączyć domenę główną lub Apex do istniejących przednich drzwi przy użyciu Azure Portal.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 05267ad43f6e7f89ec50b1765d2475a02fae1702
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743596"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399587"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Dołączanie domeny głównej lub domeny wierzchołkowej do usługi Front Door
 Drzwi frontonu platformy Azure używają rekordów CNAME do weryfikowania własności domeny do dołączania domen niestandardowych. Ponadto drzwi tylne nie ujawniają adresu IP frontonu skojarzonego z Twoim profilem drzwi i dlatego nie można zmapować domeny Apex na adres IP, jeśli zamiarem jest dołączenie go do zewnętrznych drzwi platformy Azure.
@@ -62,7 +62,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="enable-https-on-your-custom-domain"></a>Włączanie protokołu HTTPS w domenie niestandardowej
 
 1. Kliknij domenę niestandardową, która została dodana, i poniżej sekcji adres **https domeny niestandardowej**Zmień stan na **włączone**.
-2. Wybierz **Typ zarządzania certyfikatami** , aby _użyć swojego certyfikatu_.
+2. Wybierz  **Typ zarządzania certyfikatami** , aby _użyć swojego certyfikatu_.
 
 > [!WARNING]
 > Typ zarządzania certyfikatami z przodu nie jest obecnie obsługiwany dla wierzchołków lub domen głównych. Jedyną opcją dostępną w przypadku włączania protokołu HTTPS na wierzchołku lub domenie głównej dla drzwi zewnętrznych jest użycie własnego niestandardowego certyfikatu TLS/SSL hostowanego na Azure Key Vault.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 3c0b0f9f39620996245614b53c7ec274ec965d5b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921202"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400759"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Zasady punktu końcowego usługi sieci wirtualnej w usłudze Azure Storage
 
@@ -58,7 +58,7 @@ Przyjrzyjmy się szybkiemu wyszukiwaniu obiektu zasad punktu końcowego usługi.
 ]
 ```
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 -   Zasady punktu końcowego można skonfigurować w taki sposób, aby ograniczyć ruch sieciowy sieci wirtualnej do określonych kont usługi Azure Storage.
 -   Zasady punktu końcowego są konfigurowane w podsieci sieci wirtualnej. Punkty końcowe usługi Azure Storage powinny być włączone w podsieci, aby zastosować zasady.
@@ -122,7 +122,7 @@ Sieci wirtualne i konta usługi Azure Storage mogą znajdować się w tych samyc
 - Sieci wirtualne muszą znajdować się w tym samym regionie co zasady punktu końcowego usługi.
 - Zasady punktu końcowego usługi możesz zastosować wobec podsieci tylko wtedy, gdy dla usług platformy Azure wymienionych w zasadach zostały skonfigurowane punkty końcowe usługi.
 - Nie możesz użyć zasad punktu końcowego usługi w przypadku ruchu z sieci lokalnej do usług platformy Azure.
-- Usługi zarządzane przez platformę Azure nie obsługują obecnie zasad punktu końcowego. Obejmuje to usługi zarządzane wdrożone w udostępnionych podsieciach (np. *usługa Azure HDInsight, Azure Batch, platforma Azure, usługa Azure APplication Gateway, Brama sieci VPN platformy Azure, Zapora platformy Azure*) lub w dedykowanych podsieciach (np. *Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQL mi, klasycznych usług zarządzanych*).
+- Usługi zarządzane przez platformę Azure nie obsługują obecnie zasad punktu końcowego. Obejmuje to usługi zarządzane wdrożone w podsieciach współużytkowanych (np. *Azure HDInsight, Azure Batch, Azure:, azure Application Gateway, azure VPN Gateway, Azure firewall*) lub w dedykowanych podsieciach (np. *Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQL, i klasycznych usług zarządzanych*).
 
  > [!WARNING]
  > Usługi platformy Azure wdrożone w sieci wirtualnej, np. usługa Azure HDInsight, uzyskują dostęp do innych usług platformy Azure, np. do usługi Azure Storage, w związku z wymaganiami infrastruktury. Ograniczenie zasad punktu końcowego do wybranych zasobów może uniemożliwić dostęp do tych zasobów infrastruktury dla usług platformy Azure wdrożonych w sieci wirtualnej.

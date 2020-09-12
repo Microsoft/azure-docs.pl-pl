@@ -3,20 +3,20 @@ title: Moje drzwi platformy Azure — często zadawane pytania
 description: Na tej stronie znajdują się odpowiedzi na często zadawane pytania dotyczące zewnętrznych drzwi platformy Azure
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
-ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.author: duau
+ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760417"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399739"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -28,7 +28,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ## <a name="general"></a>Ogólne
 
-### <a name="what-is-azure-front-door"></a>Co to jest Azure Front Door?
+### <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
 
 Azure Front Drzwiczks to Application Delivery Network (wdrożenie) jako usługa, oferując różne możliwości równoważenia obciążenia warstwy 7 dla aplikacji. Zapewnia przyspieszanie witryn dynamicznych (DSA) wraz z globalnym równoważeniem obciążenia, umożliwiając przejście w tryb failover prawie w czasie rzeczywistym. Jest to wysoce dostępna i skalowalna usługa, która jest w pełni zarządzana przez platformę Azure.
 
@@ -92,7 +92,7 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
 - Skonfiguruj ACLing IP dla zaplecza, aby akceptować ruch z przestrzeni adresów IP zaplecza platformy Azure i usług infrastruktury platformy Azure. Zapoznaj się z poniższymi informacjami dotyczącymi adresu IP ACLing zaplecza:
  
     - Zapoznaj *się z* sekcją *AzureFrontDoor. zaplecza* w obszarze zakresy adresów IP [platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresu IP zaplecza [IPv4.](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)
-    - Przestrzeń adresów IP zaplecza **protokołu IPv6** znajdujących się na początku i objęta tagiem usługi nie znajduje się na liście w pliku JSON zakresów adresów IP platformy Azure. Jeśli szukasz jawnego zakresu adresów IPv6, jest on obecnie ograniczony do`2a01:111:2050::/44`
+    - Przestrzeń adresów IP zaplecza **protokołu IPv6** znajdujących się na początku i objęta tagiem usługi nie znajduje się na liście w pliku JSON zakresów adresów IP platformy Azure. Jeśli szukasz jawnego zakresu adresów IPv6, jest on obecnie ograniczony do `2a01:111:2050::/44`
     - [Podstawowe usługi infrastruktury](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) platformy Azure za pomocą zwirtualizowanych adresów IP hosta: `168.63.129.16` i`169.254.169.254`
 
     > [!WARNING]
@@ -123,7 +123,7 @@ Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minu
 Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 

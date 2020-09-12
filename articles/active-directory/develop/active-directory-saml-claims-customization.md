@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552836"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421462"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -56,7 +56,7 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Domyślne** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
+| **Wartooć** | Platforma tożsamości firmy Microsoft będzie używać domyślnego formatu źródła. |
 | **Stale** | Platforma tożsamości firmy Microsoft będzie używać trwałego formatu NameID. |
 | **EmailAddress (Adres e-mail)** | Platforma tożsamości firmy Microsoft będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Platforma tożsamości firmy Microsoft będzie używać nieokreślone jako formatu NameID. |
@@ -88,11 +88,11 @@ Możesz również przypisać dowolną stałą (statyczną) wartość do wszelkic
 
 1. Wprowadź wartość stałą bez cudzysłowów w **atrybucie Source** zgodnie z Twoją organizacją, a następnie kliknij przycisk **Zapisz**.
 
-    ![Otwórz sekcję atrybuty użytkownika & oświadczenia w Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Sekcja atrybutów organizacji & oświadczenia w Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. Wartość stała zostanie wyświetlona w następujący sposób.
 
-    ![Otwórz sekcję atrybuty użytkownika & oświadczenia w Azure Portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Edytuj atrybuty & oświadczenia w Azure Portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Specjalne oświadczenia — przekształcenia
 
@@ -121,7 +121,7 @@ Aby zastosować transformację do atrybutu użytkownika:
 2. Wybierz funkcję z listy rozwijanej transformacja. W zależności od wybranej funkcji należy podać parametry i stałą wartość, aby obliczyć transformację. Więcej informacji o dostępnych funkcjach znajduje się w poniższej tabeli.
 3. Aby zastosować wiele transformacji, kliknij pozycję **Dodaj transformację**. Można zastosować maksymalnie dwa przekształcenia do żądania. Na przykład można najpierw wyodrębnić prefiks wiadomości e-mail `user.mail` . Następnie wprowadź wielką literę w postaci ciągu.
 
-   ![Edytuj wartość NameID (identyfikator nazwy)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Przekształcenie wielu oświadczeń](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 Aby przekształcić oświadczenia, można użyć następujących funkcji.
 
@@ -129,8 +129,8 @@ Aby przekształcić oświadczenia, można użyć następujących funkcji.
 |----------|-------------|
 | **ExtractMailPrefix()** | Usuwa sufiks domeny z adresu e-mail lub głównej nazwy użytkownika. Spowoduje to wyodrębnienie tylko pierwszej części nazwy użytkownika, która jest przenoszona przez (na przykład "joe_smith" zamiast joe_smith@contoso.com ). |
 | **Join ()** | Tworzy nową wartość przez Sprzęganie dwóch atrybutów. Opcjonalnie można użyć separatora między dwoma atrybutami. W przypadku transformacji roszczeń NameID przyłączanie jest ograniczone do zweryfikowanej domeny. Jeśli wybrana wartość identyfikatora użytkownika ma domenę, Wyodrębnij nazwę użytkownika w celu dołączenia wybranej zweryfikowanej domeny. Na przykład w przypadku wybrania adresu e-mail ( joe_smith@contoso.com ) jako wartości identyfikatora użytkownika i wybrania opcji contoso.onmicrosoft.com jako zweryfikowanej domeny spowoduje to nastąpić joe_smith@contoso.onmicrosoft.com . |
-| **ToLower ()** | Konwertuje znaki wybranego atrybutu do małych liter. |
-| **ToUpper ()** | Konwertuje znaki wybranego atrybutu na wielkie litery. |
+| **ToLowercase ()** | Konwertuje znaki wybranego atrybutu do małych liter. |
+| **ToUppercase ()** | Konwertuje znaki wybranego atrybutu na wielkie litery. |
 | **Zawiera ()** | Wyprowadza atrybut lub stałą, jeśli dane wejściowe pasują do określonej wartości. W przeciwnym razie można określić inne dane wyjściowe, jeśli nie ma żadnego dopasowania.<br/>Na przykład jeśli chcesz emitować, gdzie wartość jest adresem e-mail użytkownika, jeśli zawiera domenę " @contoso.com ", w przeciwnym razie chcesz utworzyć dane wyjściowe głównej nazwy użytkownika. W tym celu należy skonfigurować następujące wartości:<br/>*Parametr 1 (dane wejściowe)*: User. email<br/>*Wartość*: " @contoso.com "<br/>Parametr 2 (dane wyjściowe): User. email<br/>Parametr 3 (dane wyjściowe w przypadku braku dopasowania): User. userPrincipalName |
 | **EndWith()** | Wyprowadza atrybut lub stałą, jeśli dane wejściowe kończą się określoną wartością. W przeciwnym razie można określić inne dane wyjściowe, jeśli nie ma żadnego dopasowania.<br/>Na przykład, jeśli chcesz emitować, gdzie wartość jest identyfikator pracownika użytkownika, jeśli identyfikator pracownika zostanie zakończony znakiem "000", w przeciwnym razie chcesz wyprowadzić atrybut rozszerzenia. W tym celu należy skonfigurować następujące wartości:<br/>*Parametr 1 (dane wejściowe)*: User. IDPracownika<br/>*Wartość*: "000"<br/>Parametr 2 (Output): User. IDPracownika<br/>Parametr 3 (dane wyjściowe w przypadku braku dopasowania): User. extensionAttribute1 |
 | **StartWith()** | Wyprowadza atrybut lub stałą, jeśli dane wejściowe zaczynają się od określonej wartości. W przeciwnym razie można określić inne dane wyjściowe, jeśli nie ma żadnego dopasowania.<br/>Na przykład jeśli chcesz emitować, gdzie wartość jest identyfikator pracownika użytkownika, jeśli kraj/region zaczyna się od "US", w przeciwnym razie chcesz wyprowadzić atrybut rozszerzenia. W tym celu należy skonfigurować następujące wartości:<br/>*Parametr 1 (wejście)*: User. Country<br/>*Wartość*: "US"<br/>Parametr 2 (Output): User. IDPracownika<br/>Parametr 3 (dane wyjściowe w przypadku braku dopasowania): User. extensionAttribute1 |
@@ -179,4 +179,4 @@ Najpierw platforma tożsamości firmy Microsoft sprawdza, czy Britta typ użytko
 
 * [Zarządzanie aplikacjami w usłudze Azure AD](../manage-apps/what-is-application-management.md)
 * [Konfigurowanie logowania jednokrotnego w aplikacjach, które nie znajdują się w galerii aplikacji usługi Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na protokole SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Rozwiązywanie problemów z logowaniem jednokrotnym opartym na języku SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

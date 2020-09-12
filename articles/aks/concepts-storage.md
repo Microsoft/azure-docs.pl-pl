@@ -3,13 +3,13 @@ title: Pojęcia — Storage w usłudze Azure Kubernetes Services (AKS)
 description: Informacje o magazynie w usłudze Azure Kubernetes Service (AKS), w tym woluminy, woluminy trwałe, klasy magazynu i oświadczenia
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/17/2020
+ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406966"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421156"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opcje magazynu dla aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -32,8 +32,6 @@ Tradycyjne woluminy do przechowywania i pobierania danych są tworzone jako zaso
 
 - Za pomocą *usługi Azure disks* można utworzyć zasób Kubernetes *Datadisk* . Dyski mogą korzystać z usługi Azure Premium Storage, obsługiwanej przez dysków SSD o wysokiej wydajności lub magazynu w warstwie Standardowa platformy Azure, z obsługą regularnego HDD. W przypadku większości obciążeń produkcyjnych i programistycznych należy użyć usługi Premium Storage. Dyski platformy Azure są instalowane jako *ReadWriteOnce*, więc są dostępne tylko dla jednego pod. W przypadku woluminów magazynu, do których można uzyskać dostęp jednocześnie przez wiele zasobników, użyj Azure Files.
 - *Azure Files* można użyć do zainstalowania udziału SMB 3,0 obsługiwanego przez konto usługi Azure Storage w ramach platformy. Pliki umożliwiają udostępnianie danych między wieloma węzłami i zasobnikami. Pliki mogą korzystać z usługi Azure Storage w warstwie Standardowa w ramach regularnego HDD lub Azure Premium Storage, które są obsługiwane przez dysków SSD o wysokiej wydajności.
-> [!NOTE] 
-> Azure Files obsługiwać usługę Premium Storage w klastrach AKS z systemem Kubernetes 1,13 lub nowszym.
 
 W Kubernetes woluminy mogą reprezentować więcej niż tradycyjny dysk, na którym można przechowywać informacje i je pobierać. Woluminy Kubernetes mogą być również używane jako sposób wstrzykiwania danych do użycia przez kontenery. Wspólne dodatkowe typy woluminów w Kubernetes obejmują:
 
@@ -55,12 +53,18 @@ PersistentVolume może być *statycznie* tworzony przez administratora klastra l
 
 Aby zdefiniować różne warstwy magazynu, takie jak Premium i Standard, można utworzyć *StorageClass*. StorageClass również definiuje *reclaimPolicy*. Ta reclaimPolicy kontroluje zachowanie bazowego zasobu usługi Azure Storage, gdy jest on usunięty, a wolumin trwały może nie być już wymagany. Podstawowy zasób magazynu można usunąć lub zachować do użycia w przyszłości.
 
-W AKS są tworzone 4 początkowe StorageClasses:
+W AKS cztery inicjały `StorageClasses` są tworzone dla klastra przy użyciu wtyczek magazynu w drzewie:
 
-- *default* — używa usługi Azure StandardSSD Storage do utworzenia dysku zarządzanego. Zasady odzyskiwania wskazują, że podstawowy dysk platformy Azure jest usuwany, gdy wolumin trwały, który go używał, został usunięty.
-- *Managed-Premium* — używa usługi Azure Premium Storage do tworzenia dysku zarządzanego. Zasady odzyskiwania ponownie wskazują, że podstawowy dysk platformy Azure jest usuwany, gdy wolumin trwały, który go używał, zostanie usunięty.
-- *azurefile* — używa usługi Azure Standard Storage, aby utworzyć udział plików platformy Azure. Zasady odzyskiwania wskazują, że podstawowy udział plików platformy Azure jest usuwany, gdy zostanie usunięty wolumin trwały, który go używał.
-- *azurefile-Premium* — używa usługi Azure Premium Storage do utworzenia udziału plików platformy Azure. Zasady odzyskiwania wskazują, że podstawowy udział plików platformy Azure jest usuwany, gdy zostanie usunięty wolumin trwały, który go używał.
+- `default` — Używa usługi Azure StandardSSD Storage do utworzenia dysku zarządzanego. Zasady odzyskiwania zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
+- `managed-premium` — Używa usługi Azure Premium Storage do utworzenia dysku zarządzanego. Zasady odzyskiwania ponownie zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
+- `azurefile` — Używa usługi Azure Standard Storage, aby utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
+- `azurefile-premium` — Używa usługi Azure Premium Storage do utworzenia udziału plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
+
+W przypadku klastrów korzystających z nowych wtyczek usługi Container Storage Interface (CSI) tworzone są następujące dodatkowe elementy `StorageClasses` :
+- `managed-csi` — Program Azure StandardSSD Storage lokalnie nadmiarowy (LRS) do utworzenia dysku zarządzanego. Zasady odzyskiwania zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. Klasa magazynu konfiguruje również woluminy trwałe do rozwijania, więc wystarczy zmienić wartość w polu trwały zbiorcze żądania o nowy rozmiar.
+- `managed-csi-premium` — Usługa Azure Premium Storage lokalnie nadmiarowy (LRS) umożliwia utworzenie dysku zarządzanego. Zasady odzyskiwania ponownie zapewniają, że podstawowy dysk platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty. Podobnie ta Klasa magazynu pozwala na rozszerzanie woluminów trwałych.
+- `azurefile-csi` — Używa usługi Azure Standard Storage, aby utworzyć udział plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
+- `azurefile-csi-premium` — Używa usługi Azure Premium Storage do utworzenia udziału plików platformy Azure. Zasady odzyskiwania zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty, gdy wolumin trwały, który go używał, zostanie usunięty.
 
 Jeśli dla trwałego woluminu nie określono StorageClass, zostanie użyta wartość domyślna StorageClass. Należy zachować ostrożność podczas żądania woluminów trwałych, aby korzystały z odpowiedniego magazynu, którego potrzebujesz. Można utworzyć StorageClass do dodatkowych potrzeb przy użyciu `kubectl` . Poniższy przykład używa Managed Disks Premium i określa, że podstawowy dysk platformy Azure powinien zostać *zachowany* po usunięciu:
 

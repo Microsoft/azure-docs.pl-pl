@@ -2,20 +2,20 @@
 title: Monitorowanie punktu końcowego usługi Azure Traffic Manager | Microsoft Docs
 description: Ten artykuł pomoże Ci zrozumieć, w jaki sposób Traffic Manager używać monitorowania punktów końcowych i automatycznego trybu failover punktu końcowego, aby pomóc klientom platformy Azure wdrożyć aplikacje o wysokiej dostępności
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: rohink
-ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80757261"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392837"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorowanie punktu końcowego usługi Traffic Manager
 
@@ -69,9 +69,9 @@ Stan monitora punktu końcowego jest wartością wygenerowaną przez Traffic Man
 
 | Stan profilu | Stan punktu końcowego | Stan monitora punktu końcowego | Uwagi |
 | --- | --- | --- | --- |
-| Disabled (Wyłączony) |Enabled (Włączony) |Nieaktywne |Profil został wyłączony. Mimo że stan punktu końcowego jest włączony, stan profilu (wyłączony) ma pierwszeństwo. Punkty końcowe w wyłączonych profilach nie są monitorowane. Kod odpowiedzi NXDOMAIN jest zwracany dla zapytania DNS. |
-| &lt;dowolne&gt; |Disabled (Wyłączony) |Disabled (Wyłączony) |Punkt końcowy został wyłączony. Wyłączone punkty końcowe nie są monitorowane. Punkt końcowy nie jest uwzględniony w odpowiedziach DNS, dlatego nie odbiera ruchu. |
-| Enabled (Włączony) |Enabled (Włączony) |Online |Punkt końcowy jest monitorowany i jest w dobrej kondycji. Jest on uwzględniony w odpowiedziach DNS i może odbierać ruch. |
+| Disabled |Enabled (Włączony) |Nieaktywne |Profil został wyłączony. Mimo że stan punktu końcowego jest włączony, stan profilu (wyłączony) ma pierwszeństwo. Punkty końcowe w wyłączonych profilach nie są monitorowane. Kod odpowiedzi NXDOMAIN jest zwracany dla zapytania DNS. |
+| &lt;dowolne&gt; |Disabled |Disabled |Punkt końcowy został wyłączony. Wyłączone punkty końcowe nie są monitorowane. Punkt końcowy nie jest uwzględniony w odpowiedziach DNS, dlatego nie odbiera ruchu. |
+| Enabled (Włączony) |Enabled (Włączony) |Tryb online |Punkt końcowy jest monitorowany i jest w dobrej kondycji. Jest on uwzględniony w odpowiedziach DNS i może odbierać ruch. |
 | Enabled (Włączony) |Enabled (Włączony) |Obniżona wydajność |Sprawdzanie kondycji monitorowania punktu końcowego kończy się niepowodzeniem. Punkt końcowy nie jest uwzględniony w odpowiedziach DNS i nie odbiera ruchu. <br>Wyjątkiem jest to, czy wszystkie punkty końcowe mają obniżoną wydajność, w tym przypadku wszystkie są uznawane za zwracane w odpowiedzi na zapytanie.</br>|
 | Enabled (Włączony) |Enabled (Włączony) |CheckingEndpoint |Punkt końcowy jest monitorowany, ale wyniki pierwszej sondy nie zostały jeszcze odebrane. CheckingEndpoint jest stanem tymczasowym, który zwykle występuje natychmiast po dodaniu lub włączeniu punktu końcowego w profilu. Punkt końcowy w tym stanie jest dołączony do odpowiedzi DNS i może odbierać ruch. |
 | Enabled (Włączony) |Enabled (Włączony) |Zatrzymano |Aplikacja sieci Web, do której wskazuje punkt końcowy, nie jest uruchomiona. Sprawdź ustawienia aplikacji sieci Web. Może się tak zdarzyć, jeśli punkt końcowy jest typu zagnieżdżonego punktu końcowego, a profil podrzędny jest wyłączony lub nieaktywny. <br>Punkt końcowy ze stanem zatrzymanym nie jest monitorowany. Nie jest on uwzględniony w odpowiedziach DNS i nie odbiera ruchu. Wyjątkiem jest to, czy wszystkie punkty końcowe mają obniżoną wydajność, w tym przypadku wszystkie są uznawane za zwracane w odpowiedzi na zapytanie.</br>|
@@ -87,9 +87,9 @@ Stan monitora profilu jest kombinacją skonfigurowanego stanu profilu oraz warto
 
 | Stan profilu (zgodnie z konfiguracją) | Stan monitora punktu końcowego | Stan monitora profilu | Uwagi |
 | --- | --- | --- | --- |
-| Disabled (Wyłączony) |&lt;dowolny &gt; lub profil bez zdefiniowanych punktów końcowych. |Disabled (Wyłączony) |Profil został wyłączony. |
+| Disabled |&lt;dowolny &gt; lub profil bez zdefiniowanych punktów końcowych. |Disabled |Profil został wyłączony. |
 | Enabled (Włączony) |Stan co najmniej jednego punktu końcowego ma obniżoną wydajność. |Obniżona wydajność |Przejrzyj wartości stanu poszczególnych punktów końcowych, aby określić, które punkty końcowe wymagają dalszej uwagi. |
-| Enabled (Włączony) |Stan co najmniej jednego punktu końcowego jest w trybie online. Żadne punkty końcowe nie mają stanu obniżonej wydajności. |Online |Usługa akceptuje ruch. Nie są wymagane żadne dalsze działania. |
+| Enabled (Włączony) |Stan co najmniej jednego punktu końcowego jest w trybie online. Żadne punkty końcowe nie mają stanu obniżonej wydajności. |Tryb online |Usługa akceptuje ruch. Nie są wymagane żadne dalsze działania. |
 | Enabled (Włączony) |Stan co najmniej jednego punktu końcowego to CheckingEndpoint. Żadne punkty końcowe nie są w trybie online ani nie są w stanie obniżenia wydajności. |CheckingEndpoints |Ten stan przejścia występuje, gdy profil zostanie utworzony lub włączony. Kondycja punktu końcowego jest sprawdzana po raz pierwszy. |
 | Enabled (Włączony) |Stany wszystkich punktów końcowych w profilu są wyłączone lub zatrzymane albo profil nie ma zdefiniowanych punktów końcowych. |Nieaktywne |Punkty końcowe nie są aktywne, ale profil jest nadal włączony. |
 
