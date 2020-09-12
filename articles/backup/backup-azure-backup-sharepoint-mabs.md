@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure z
 description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywrócić dane programu SharePoint. Ten artykuł zawiera informacje dotyczące konfigurowania farmy programu SharePoint w taki sposób, aby wymagane dane mogły być przechowywane na platformie Azure. Chronione dane programu SharePoint można przywrócić z dysku lub z platformy Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 00af51764d5a9454b002de6375b2b16d6e80c300
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017434"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375401"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure za pomocą usługi serwera usługi MAB
 
@@ -74,7 +74,7 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
         Po uruchomieniu ConfigureSharePoint.exe należy uruchomić go ponownie w przypadku zmiany poświadczeń administratora farmy programu SharePoint.
 
-1. Aby utworzyć grupę ochrony, kliknij pozycję **Protection**  >  **Akcje**ochrony  >  **Utwórz grupę ochrony** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** w konsoli programu serwera usługi MAB.
+1. Aby utworzyć grupę ochrony, wybierz pozycję **Protection**  >  **Akcje**ochrony  >  **Utwórz grupę ochrony** , aby otworzyć kreatora **tworzenia nowej grupy ochrony** w konsoli serwera usługi MAB.
 
 1. W obszarze **Wybierz typ grupy ochrony** wybierz pozycję **Serwery**.
 
@@ -102,7 +102,7 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
 1. W obszarze **Wybierz replikację online**Określ, jak będzie wykonywana początkowa pełna replikacja danych. Możesz wykonywać replikację za pośrednictwem sieci lub tworzyć kopie zapasowe offline (rozmieszczanie offline). W przypadku kopii zapasowych offline używana jest funkcja Azure Import. [Przeczytaj więcej](./backup-azure-backup-import-export.md).
 
-1. Na stronie  **Podsumowanie** przejrzyj ustawienia. Po kliknięciu przycisku **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
+1. Na stronie **Podsumowanie** przejrzyj ustawienia. Po wybraniu opcji **Utwórz grupę**następuje Replikacja początkowa danych. Po zakończeniu stan grupy ochrony zostanie wyświetlony na stronie **stan** jako **OK** . Następnie odbywa się tworzenie kopii zapasowych zgodnie z ustawieniami grupy ochrony.
 
 ## <a name="monitoring"></a>Monitorowanie
 
@@ -114,17 +114,17 @@ Po utworzeniu grupy ochrony następuje Replikacja początkowa i serwera usługi 
 
 ### <a name="set-up-monitoring-notifications"></a>Konfigurowanie powiadomień dotyczących monitorowania
 
-1. W Konsola administratora serwera usługi MAB kliknij pozycję **monitorowanie**  >  **Action**  >  **Opcje**akcji.
+1. W Konsola administratora serwera usługi MAB wybierz pozycję **monitorowanie**  >  **Action**  >  **Opcje**akcji.
 
-2. Kliknij pozycję **Serwer SMTP**, wpisz nazwę serwera, port i adres e-mail, z którego będą wysyłane powiadomienia. Adres musi być prawidłowy.
+2. Wybierz pozycję **serwer SMTP**, wpisz nazwę serwera, port i adres e-mail, z którego będą wysyłane powiadomienia. Adres musi być prawidłowy.
 
 3. W obszarze **uwierzytelniony serwer SMTP**wpisz nazwę użytkownika i hasło. Nazwa użytkownika i hasło muszą być nazwą konta domeny osoby, której adres "od" został opisany w poprzednim kroku. W przeciwnym razie dostarczanie powiadomień nie powiedzie się.
 
-4. Aby przetestować ustawienia serwera SMTP, kliknij pozycję **Wyślij testową wiadomość e-mail**, wpisz adres e-mail, na który chcesz wysłać wiadomość testową, a następnie kliknij przycisk **OK**. Kliknij pozycję **Opcje**  >  **powiadomienia** , a następnie wybierz typy alertów, o których odbiorcy chcą być powiadamiani. W polu **odbiorcy** wpisz adres e-mail każdego odbiorcy, do którego chcesz serwera usługi MAB wysyłać kopie powiadomień.
+4. Aby przetestować ustawienia serwera SMTP, wybierz pozycję **Wyślij testową wiadomość e-mail**, wpisz adres e-mail, na który chcesz wysłać wiadomość testową, a następnie wybierz przycisk **OK**. Wybierz pozycję **Opcje**  >  **powiadomienia** , a następnie wybierz typy alertów, o których odbiorcy chcą być powiadamiani. W polu **odbiorcy** wpisz adres e-mail każdego odbiorcy, do którego chcesz serwera usługi MAB wysyłać kopie powiadomień.
 
 ### <a name="publish-operations-manager-alerts"></a>Publikowanie alertów dotyczących programu Operations Manager
 
-1. W Konsola administratora serwera usługi MAB kliknij pozycję **monitorowanie**  >  **Action**  >  **Opcje**akcji Publikuj  >  **Alert Publishing**  >  **Aktywne alerty** .
+1. W Konsola administratora serwera usługi MAB wybierz pozycję **monitorowanie**  >  **Action**  >  **Opcje**akcji  >  **Publikowanie alertów**  >  **Publikuj aktywne alerty**
 
 2. Po włączeniu **publikowania alertów**wszystkie istniejące alerty serwera usługi MAB, które mogą wymagać akcji użytkownika, są publikowane w dzienniku zdarzeń **alertów serwera usługi MAB** . Agent Operations Manager zainstalowany na serwerze serwera usługi MAB następnie publikuje te alerty w Operations Manager i aktualizuje konsolę w miarę generowania nowych alertów.
 
@@ -146,10 +146,10 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
 5. Można także przeglądać różne punkty odzyskiwania i wybierać bazę danych lub element do odzyskania. Wybierz **datę > czas odzyskiwania**, a następnie wybierz prawidłową **bazę danych > farmy programu SharePoint > > elementu punktu odzyskiwania**.
 
     ![SERWERA usługi MAB SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj** , aby otworzyć **Kreatora odzyskiwania**. Kliknij przycisk **Dalej**.
+6. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj** , aby otworzyć **Kreatora odzyskiwania**. Wybierz pozycję **Next** (Dalej).
 
     ![Przegląd wyboru odzyskiwania](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. Wybierz typ odzyskiwania, który chcesz wykonać, a następnie kliknij przycisk **dalej**.
+7. Wybierz typ odzyskiwania, który chcesz wykonać, a następnie wybierz przycisk **dalej**.
 
     ![Typ odzyskiwania](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -170,7 +170,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
     SERWERA usługi MAB dołącza bazę danych zawartości, która hostuje element programu SharePoint, do wystąpienia tymczasowego SQL Server. Z bazy danych zawartości odzyskuje element i umieszcza go w lokalizacji pliku przemieszczania w systemie serwera usługi MAB. Odzyskany element, który znajduje się w lokalizacji tymczasowej, musi zostać wyeksportowany do lokalizacji tymczasowej w farmie programu SharePoint.
 
     ![Location2 przemieszczania](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Wybierz opcję **Określ opcje odzyskiwania**i Zastosuj ustawienia zabezpieczeń do farmy programu SharePoint lub Zastosuj ustawienia zabezpieczeń punktu odzyskiwania. Kliknij przycisk **Dalej**.
+10. Wybierz opcję **Określ opcje odzyskiwania**i Zastosuj ustawienia zabezpieczeń do farmy programu SharePoint lub Zastosuj ustawienia zabezpieczeń punktu odzyskiwania. Wybierz pozycję **Next** (Dalej).
 
     ![Opcje odzyskiwania](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -178,7 +178,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
     > Możesz wybrać opcję ograniczenia użycia przepustowości sieci. Pozwala to zminimalizować wpływ na serwer produkcyjny w godzinach produkcyjnych.
     >
     >
-11. Przejrzyj informacje podsumowujące, a następnie kliknij przycisk **Odzyskaj** , aby rozpocząć odzyskiwanie pliku.
+11. Przejrzyj informacje podsumowujące, a następnie wybierz pozycję **Odzyskaj** , aby rozpocząć odzyskiwanie pliku.
 
     ![Podsumowanie odzyskiwania](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. Teraz wybierz kartę **monitorowanie** w **Konsola administratora serwera usługi MAB** , aby wyświetlić **stan** odzyskiwania.
@@ -201,7 +201,7 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
    > Ponieważ farma programu SharePoint jest chroniona do długoterminowego przechowywania na platformie Azure, na serwerze serwera usługi MAB nie są dostępne żadne informacje o katalogu (metadane). W związku z tym zawsze, gdy baza danych zawartości programu SharePoint do punktu w czasie musi zostać odzyskana, należy ponownie wykazać farmy programu SharePoint.
    >
    >
-3. Kliknij pozycję **ponownie katalog**.
+3. Wybierz pozycję **ponownie katalog**.
 
     ![SERWERA usługi MAB SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -209,10 +209,10 @@ W poniższym przykładzie *element odzyskiwania programu SharePoint* został prz
 
     ![SERWERA usługi MAB SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Kliknij przycisk **Zamknij**.
+    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Wybierz pozycję **Close** (Zamknij).
 
     ![SERWERA usługi MAB SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Kliknij obiekt programu SharePoint wyświetlany na karcie **odzyskiwanie** serwera usługi MAB, aby uzyskać strukturę bazy danych zawartości. Kliknij prawym przyciskiem myszy element, a następnie kliknij polecenie **Odzyskaj**.
+4. Wybierz obiekt programu SharePoint wyświetlany na karcie **odzyskiwanie** serwera usługi MAB, aby uzyskać strukturę bazy danych zawartości. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj**.
 
     ![SERWERA usługi MAB SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. W tym momencie wykonaj kroki odzyskiwania opisane wcześniej w tym artykule, aby odzyskać bazę danych zawartości programu SharePoint z dysku.
@@ -247,7 +247,7 @@ Poniższa procedura używa przykładu farmy serwerów z dwoma serwerami frontonu
 
 1. Na serwerze *Serwer2*w wierszu polecenia Zmień katalog na `_MABS installation location_\bin\` i uruchom **ConfigureSharepoint**. Aby uzyskać więcej informacji na temat ConfigureSharePoint, zobacz [Konfigurowanie kopii zapasowej](#configure-backup).
 
-1. Wybierz grupę ochrony, do której należy farma serwerów, a następnie kliknij przycisk **Modyfikuj grupę ochrony**.
+1. Wybierz grupę ochrony, do której należy farma serwerów, a następnie wybierz pozycję **Modyfikuj grupę ochrony**.
 
 1. W Kreatorze modyfikowania grupy na stronie **Wybierz członków grupy** rozwiń węzeł *Serwer2* i wybierz farmę serwerów, a następnie Ukończ pracę kreatora.
 
@@ -255,7 +255,7 @@ Poniższa procedura używa przykładu farmy serwerów z dwoma serwerami frontonu
 
 1. Jeśli wykonano krok 6, można teraz usunąć wolumin z grupy ochrony.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z artykułem [Tworzenie kopii zapasowej programu Exchange Server](backup-azure-exchange-mabs.md) .
 Zapoznaj się z artykułem [Tworzenie kopii zapasowej SQL Server](backup-azure-sql-mabs.md) .

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021317"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613664"
 ---
 # <a name="pbr-materials"></a>Materiały PBR
 
@@ -55,7 +55,7 @@ Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właści
 
   Jeśli zostanie podana zarówno wartość metalu, jak i mapa metalu, końcowa wartość będzie iloczynem dwóch.
 
-  ![metalowy i niesztywność](./media/metalness-roughness.png)
+  ![Sfery renderowane z różną wielkością metalu i niesztywności](./media/metalness-roughness.png)
 
   Na powyższym rysunku sfera w prawym dolnym rogu wygląda podobnie do rzeczywistego materiału metalowego, po lewej stronie wygląda jak ceramiczna lub plastikowa. Kolor albedo jest zmieniany również w zależności od właściwości fizycznych. Dzięki zwiększeniu sztywności materiał traci ostrość odbicia.
 
@@ -63,13 +63,13 @@ Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właści
 
 * **occlusionMap** i **aoScale:** otoczenie [zamknięcia](https://en.wikipedia.org/wiki/Ambient_occlusion) sprawia, że obiekty z crevices wyglądają bardziej realistycznie przez dodanie cieni do obszarów zamknięte. Zamknięcia zakres wartości z `0.0` do `1.0` , gdzie `0.0` oznacza zaciemnienie (zamknięte) i `1.0` oznacza brak Occlusions. Jeśli tekstura 2D jest określona jako mapa zamknięcia, efekt jest włączony i *aoScale* działa jako mnożnik.
 
-  ![Mapa zamknięcia](./media/boom-box-ao2.gif)
+  ![Obiekt renderowany z zamknięcia otoczenia i bez niego](./media/boom-box-ao2.gif)
 
 * **przezroczysty:** W przypadku materiałów PBR istnieje tylko jedno ustawienie przejrzystości: jest ono włączone lub nie. Nieprzezroczystość jest definiowana przez kanał alfa koloru albedo. Gdy ta funkcja jest włączona, zostanie wywołany bardziej skomplikowany potok renderowania, aby rysować powierzchnie częściowo przezroczyste. Zdalne renderowanie na platformie Azure implementuje prawdziwie [niezależną od kolejności przejrzystości](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
 
   Renderowanie przezroczystej geometrii jest kosztowne. Jeśli potrzebujesz tylko otworów na powierzchni, na przykład dla liści drzewa, lepiej jest użyć przycinania alfa.
 
-  ![Na ](./media/transparency.png) powyższym obrazie powinna zostać wyświetlona informacja o przezroczystości, w jaki sposób najbardziej przejrzysty jest zakres z prawej strony, ale odbicie jest nadal widoczne.
+  ![Sfery renderowane z zerem do pełnej przejrzystości ](./media/transparency.png) na powyższym obrazie, jak najlepiej jest całkowicie przezroczyste sfera z prawej strony, ale odbicie jest wciąż widoczne.
 
   > [!IMPORTANT]
   > Jeśli dowolny materiał ma być przełączany z nieprzezroczystego na przezroczysty w czasie wykonywania, moduł renderowania musi używać [trybu renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* . To ograniczenie nie ma zastosowania do materiałów, które są konwertowane jako przezroczyste materiały, aby zaczynać się od.
@@ -80,6 +80,13 @@ Zdalne renderowanie na platformie Azure używa mikroaspektu Cooka-Torrance BRDF 
 
  Alternatywą dla modelu *"Niesztywności"* używanym podczas renderowania zdalnego na platformie Azure jest model *odblasków-Glossiness* PBR. Ten model może reprezentować szerszy zakres materiałów. Jest to jednak droższe i zwykle nie działa prawidłowo w przypadku przypadków w czasie rzeczywistym.
 Nie zawsze jest możliwe przekonwertowanie z *odblasków-Glossiness* na *sztywność* , ponieważ istnieją pary wartości *(rozpraszające, odblasków)* , których nie można przekonwertować na *(BaseColor, metalu)*. Konwersja w innym kierunku jest prostsza i bardziej precyzyjna, ponieważ wszystkie pary *(BaseColor, metale)* odpowiadają dokładnie zdefiniowanym par *(rozpraszaniem, odblasków)* .
+
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Klasa PbrMaterial języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [Zdalnymanager. demateriał ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [Klasa C++ PbrMaterial](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager:: demateriał ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Następne kroki
 

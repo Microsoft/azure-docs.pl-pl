@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c4dbc63e8829d8a9ca3a3820fbb6675da4fad357
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262080"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442985"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Samouczek: Załaduj zestaw danych Taxicab Nowego Jorku
 
@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 
 10. Po ukończeniu formularza wybierz pozycję **Utwórz** , aby zainicjować obsługę administracyjną bazy danych. Aprowizacja zajmuje kilka minut.
 
-11. Na pasku narzędzi wybierz pozycję **powiadomienia** , aby monitorować proces wdrażania.
+11. Na pasku narzędzi wybierz pozycję **Powiadomienia**, aby monitorować proces wdrażania.
   
      ![powiadomienie](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
@@ -98,7 +98,7 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 Zapora na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem lub dowolnymi bazami danych na serwerze. Aby umożliwić łączność, możesz dodać reguły zezwalające na połączenia dla konkretnych adresów IP.  Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) dla Twojego adresu IP klienta.
 
 > [!NOTE]
-> Usługa SQL Data Warehouse komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
+> Usługa Azure Synapse Analytics komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
 
 1. Po zakończeniu wdrażania wybierz pozycję **bazy danych SQL** w menu po lewej stronie, a następnie wybierz pozycję **mySampleDatabase** na stronach **bazy danych SQL** . Zostanie otwarta strona przeglądu bazy danych zawierająca w pełni kwalifikowaną nazwę serwera (na przykład **mynewserver-20180430.Database.Windows.NET**) i opcje dalszej konfiguracji.
 
@@ -148,7 +148,7 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
     | Typ serwera    | Aparat bazy danych                            | Ta wartość jest wymagana                                       |
     | Nazwa serwera    | W pełni kwalifikowana nazwa serwera            | Nazwa powinna wyglądać następująco: **mynewserver-20180430.Database.Windows.NET**. |
     | Uwierzytelnianie | Uwierzytelnianie programu SQL Server                  | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-    | Identyfikator logowania          | Konto administratora serwera                   | To konto określono podczas tworzenia serwera. |
+    | Zaloguj się          | Konto administratora serwera                   | To konto określono podczas tworzenia serwera. |
     | Hasło       | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
 
     ![łączenie z serwerem](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)

@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące urządzenia Azure Migrate
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące urządzenia Azure Migrateowego.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050679"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514547"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Urządzenie Azure Migrate: typowe pytania
 
@@ -21,7 +21,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Co to jest urządzenie Azure Migrate?
 
-Urządzenie Azure Migrate to lekkie urządzenie, za pomocą którego Azure Migrate: Narzędzie do oceny serwera służy do odnajdywania i oceniania serwerów lokalnych. Azure Migrate: Narzędzie do migracji serwera używa również urządzenia do migracji bez agentów lokalnych maszyn wirtualnych VMware.
+Urządzenie Azure Migrate to lekkie urządzenie, za pomocą którego Azure Migrate: Narzędzie do oceny serwera służy do odnajdywania i oceniania serwerów fizycznych lub wirtualnych z poziomu lokalnego lub dowolnych chmur. Azure Migrate: Narzędzie do migracji serwera używa również urządzenia do migracji bez agentów lokalnych maszyn wirtualnych VMware.
 
 Poniżej przedstawiono więcej informacji o urządzeniu Azure Migrate:
 
@@ -35,13 +35,14 @@ Poniżej przedstawiono więcej informacji o urządzeniu Azure Migrate:
 
 Urządzenie można wdrożyć w następujący sposób:
 
-- Używanie szablonu dla maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V (szablon komórki jajowe dla oprogramowania VMware lub VHD w przypadku funkcji Hyper-V).
-- Jeśli nie chcesz używać szablonu lub jesteś w Azure Government, możesz wdrożyć urządzenie dla oprogramowania VMware lub funkcji Hyper-V za pomocą skryptu programu PowerShell.
-- W przypadku serwerów fizycznych urządzenie jest zawsze wdrażane przy użyciu skryptu.
+- Używanie szablonu do odnajdywania maszyn wirtualnych VMware (. Plik komórki jajowe) i maszyny wirtualne funkcji Hyper-V (. Plik VHD), aby utworzyć nową maszynę wirtualną, która hostuje urządzenie.
+- Jeśli nie chcesz używać szablonu, możesz wdrożyć urządzenie na istniejącej maszynie fizycznej lub wirtualnej na potrzeby odnajdywania maszyn wirtualnych VMware lub maszyn wirtualnych funkcji Hyper-V przy użyciu skryptu Instalatora programu PowerShell dostępnego do pobrania w pliku zip z portalu.
+- W przypadku serwerów fizycznych lub wirtualnych z poziomu lokalnego lub dowolnej chmury zawsze można wdrożyć urządzenie przy użyciu skryptu na istniejącym serwerze.
+- W przypadku Azure Government wszystkie trzy urządzenia można wdrożyć tylko przy użyciu skryptu Instalatora programu PowerShell.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Jak urządzenie nawiązuje połączenie z platformą Azure?
 
-Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute.
+Urządzenie może nawiązać połączenie za pośrednictwem Internetu lub przy użyciu usługi Azure ExpressRoute. Upewnij się, że te [adresy URL](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) są listy dozwolonych, aby urządzenie łączyło się z platformą Azure.
 
 - Aby można było używać usługi Azure ExpressRoute Azure Migrate do obsługi ruchu związanego z replikacją, wymagana jest Komunikacja równorzędna firmy Microsoft lub istniejąca publiczna Komunikacja równorzędna (publiczna Komunikacja równorzędna jest przestarzała w przypadku nowych tworzenia obiektów.).
 - Replikacja za pośrednictwem usługi Azure ExpressRoute z włączoną obsługą prywatnej komunikacji równorzędnej nie jest obsługiwana.
@@ -66,6 +67,7 @@ Zapoznaj się z następującymi artykułami, aby uzyskać informacje na temat da
 
 - **Maszyna wirtualna VMware**: [przeglądanie](migrate-appliance.md#collected-data---vmware) zebranych danych.
 - **Maszyna wirtualna funkcji Hyper-V**: [Przegląd](migrate-appliance.md#collected-data---hyper-v) zebranych danych.
+- **Serwery fizyczne lub wirtualne**:[Przegląd](migrate-appliance.md#collected-data---physical) zebranych danych.
 
 ## <a name="how-is-data-stored"></a>W jaki sposób przechowywane są dane?
 
@@ -107,8 +109,7 @@ Projekt może mieć dołączone wiele urządzeń. Urządzenie może być jednak 
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Czy urządzenie Azure Migrate/urządzenie do replikacji nawiązuje połączenie z tym samym programem vCenter?
 
-Tak. Do tego samego serwera vCenter można dodać urządzenie Azure Migrate (używane do oceny i migracji VMware bez agentów) oraz urządzenie do replikacji (używane do migracji opartej na agentach maszyn wirtualnych VMware).
-
+Tak. Do tego samego serwera vCenter można dodać urządzenie Azure Migrate (używane do oceny i migracji VMware bez agentów) oraz urządzenie do replikacji (używane do migracji opartej na agentach maszyn wirtualnych VMware). Pamiętaj jednak, aby nie konfigurować obu urządzeń na tej samej maszynie wirtualnej, co nie jest obecnie obsługiwane.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Ile maszyn wirtualnych lub serwerów można wykryć przy użyciu urządzenia?
 
@@ -124,7 +125,9 @@ Jednak usunięcie grupy zasobów powoduje również usunięcie innych zarejestro
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>Czy mogę użyć urządzenia z inną subskrypcją lub projektem?
 
-Po zainicjowaniu odnajdywania za pomocą urządzenia nie można ponownie skonfigurować urządzenia do użycia z inną subskrypcją platformy Azure i nie można używać go w innym projekcie Azure Migrate. Nie można również odnajdywać maszyn wirtualnych w innym wystąpieniu vCenter Server. Skonfiguruj nowe urządzenie dla tych zadań.
+Aby można było użyć urządzenia z inną subskrypcją lub projektem, należy ponownie skonfigurować istniejące urządzenie, uruchamiając skrypt Instalatora programu PowerShell dla określonego scenariusza (VMware/Hyper-V/Physical) na komputerze. Skrypt będzie czyścił istniejące składniki i ustawienia urządzenia w celu wdrożenia nowego urządzenia. Przed rozpoczęciem korzystania z nowo wdrożonego programu Configuration Manager upewnij się, że pamięć podręczna przeglądarki została wyczyszczona.
+
+Nie można również użyć istniejącego klucza projektu Azure Migrate na urządzeniu, na którym został skonfigurowany. Upewnij się, że Wygenerowano nowy klucz z żądanej subskrypcji/projektu, aby zakończyć rejestrację urządzenia.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Czy mogę skonfigurować urządzenie na maszynie wirtualnej platformy Azure?
 

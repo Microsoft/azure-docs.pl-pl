@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407697"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485723"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -143,7 +143,7 @@ Jeśli zdecydujesz się używać Azure IR automatycznie Rozwiązuj w sieci publi
   - Podczas kopiowania danych do usługi Salesforce, do której nie można wykryć regionu, działanie Copy jest wykonywane w środowisku IR w regionie Wschodnie stany USA.
 
   >[!TIP] 
-  >Jeśli obowiązują rygorystyczne wymagania dotyczące zgodności danych i konieczne jest zapewnienie, że dane nie opuszczą konkretnego obszaru geograficznego, można jawnie utworzyć środowisko IR Azure w konkretnym regionie i wskazać to środowisko IR dla połączonej usługi przy użyciu właściwości ConnectVia. Jeśli na przykład chcesz skopiować dane z obiektu Blob z regionu Południowe Zjednoczone Królestwo do magazynu danych SQL w tym samym regionie i chcesz mieć pewność, że dane nie opuszczą Zjednoczonego Królestwa, utwórz środowisko IR Azure w regionie Południowe Zjednoczone Królestwo i połącz obie połączone usługi z tym środowiskiem IR.
+  >Jeśli obowiązują rygorystyczne wymagania dotyczące zgodności danych i konieczne jest zapewnienie, że dane nie opuszczą konkretnego obszaru geograficznego, można jawnie utworzyć środowisko IR Azure w konkretnym regionie i wskazać to środowisko IR dla połączonej usługi przy użyciu właściwości ConnectVia. Na przykład, jeśli chcesz skopiować dane z obiektu BLOB w Południowe Zjednoczone Królestwo do usługi Azure Synapse Analytics w Południowe Zjednoczone Królestwo i chcesz upewnić się, że dane nie opuszczają Wielkiej Brytanii, Utwórz Azure IR w Południowe Zjednoczone Królestwo i Połącz obie połączone usługi z tym środowiskiem IR.
 
 - W przypadku wyszukiwania/GetMetadata/usuwania działania (znanych także jako działania potoku), wysyłania działań transformacji (znanych także jako działania zewnętrzne) i operacji tworzenia (połączenie testowe, lista folderów przeglądania i lista tabel, Podgląd danych), ADF używa środowiska IR w regionie usługi Data Factory.
 

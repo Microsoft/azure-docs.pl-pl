@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c90590ac4c47f6ac8d51273fecfb653dfe056b1d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252002"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485774"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure Synapse Analytics (dawniej SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze baza danych skalowalna w poziomie, która umożliwia przetwarzanie dużych ilości danych, zarówno relacyjnych, jak i nierelacyjnych. Usługa Azure Synapse Analytics jest oparta na architekturze wysoce Parallel Processing (MPP) zoptymalizowanej pod kątem obciążeń związanych z magazynem danych w przedsiębiorstwie. Oferuje elastyczność chmury i umożliwia niezależne skalowanie magazynu i obliczanie.
+[Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze baza danych skalowalna w poziomie, która umożliwia przetwarzanie ogromnych ilości danych, zarówno relacyjnych, jak i nierelacyjnych. Usługa Azure Synapse Analytics jest oparta na architekturze wysoce Parallel Processing (MPP) zoptymalizowanej pod kątem obciążeń związanych z magazynem danych w przedsiębiorstwie. Oferuje elastyczność chmury i umożliwia niezależne skalowanie magazynu i obliczanie.
 
 Wprowadzenie do usługi Azure Synapse Analytics jest teraz łatwiejsze niż kiedykolwiek, gdy używasz Azure Data Factory. Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze. Możesz użyć usługi, aby wypełnić analizę usługi Azure Synapse przy użyciu danych z istniejącego systemu i zaoszczędzić czas podczas kompilowania rozwiązań analitycznych.
 
@@ -54,7 +54,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
     * **Nazwa**: wprowadź *LoadSQLDWDemo* dla nazwy. Nazwa fabryki danych musi być * globalnie unikatowa. Jeśli zostanie wyświetlony komunikat o błędzie "Nazwa fabryki danych" LoadSQLDWDemo "jest niedostępna, wprowadź inną nazwę fabryki danych. Można na przykład _**użyć nazwy namename**_**ADFTutorialDataFactory**. Spróbuj ponownie utworzyć fabrykę danych. Artykuł [Data Factory naming rules (Zasady nazewnictwa fabryki danych)](naming-rules.md) zawiera zasady nazewnictwa artefaktów usługi Data Factory.
     * **Subskrypcja**: wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
     * **Grupa zasobów**: wybierz istniejącą grupę zasobów z listy rozwijanej lub wybierz opcję **Utwórz nową** , a następnie wprowadź nazwę grupy zasobów. Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
-    * **Wersja**: wybierz pozycję **v2**.
+    * **Wersja**: Wybierz pozycję **Wersja 2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
 3. Wybierz pozycję **Utwórz**.
@@ -102,13 +102,13 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
     a. Kliknij pozycję **+Utwórz nowe połączenie**, aby dodać połączenie.
 
-    b. Wybierz pozycję **Azure Synapse Analytics (wcześniej SQL DW)** z galerii, a następnie wybierz pozycję **Kontynuuj**. Możesz wpisać ciąg "SQL" w polu wyszukiwania, aby filtrować łączniki.
+    b. Wybierz pozycję **Azure Synapse Analytics (wcześniej SQL Data Warehouse)** z galerii, a następnie wybierz pozycję **Kontynuuj**. Możesz wpisać ciąg "SQL" w polu wyszukiwania, aby filtrować łączniki.
 
-    ![Wybieranie usługi Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+    ![Wybierz pozycję Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
     c. Na stronie **Nowa połączona usługa** wybierz nazwę serwera i nazwę bazy danych z listy rozwijanej, a następnie określ nazwę użytkownika i hasło. Kliknij przycisk **Test connection** , aby sprawdzić poprawność ustawień, a następnie wybierz pozycję **Utwórz**.
 
-    ![Konfigurowanie usługi Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+    ![Konfigurowanie usługi Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. Wybierz nowo utworzoną połączoną usługę jako ujście, a następnie kliknij pozycję **Dalej**.
 

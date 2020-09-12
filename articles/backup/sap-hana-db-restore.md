@@ -3,12 +3,12 @@ title: Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 description: W tym artykule opisano sposób przywracania SAP HANA baz danych uruchomionych w usłudze Azure Virtual Machines.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006316"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375316"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Przywracanie SAP HANA baz danych na maszynach wirtualnych platformy Azure
 
@@ -30,27 +30,27 @@ Przed przywróceniem bazy danych należy zwrócić uwagę na następujące kwest
 
 * Bazę danych można przywrócić tylko do wystąpienia SAP HANA znajdującego się w tym samym regionie.
 
-* Wystąpienie docelowe musi być zarejestrowane w tym samym magazynie co Źródło
+* Wystąpienie docelowe musi być zarejestrowane w tym samym magazynie co źródło.
 
 * Azure Backup nie może zidentyfikować dwóch różnych wystąpień SAP HANA na tej samej maszynie wirtualnej. Dlatego przywracanie danych z jednego wystąpienia do innego na tej samej maszynie wirtualnej nie jest możliwe.
 
 * Aby upewnić się, że docelowe wystąpienie SAP HANA jest gotowe do przywrócenia, sprawdź stan **gotowości do utworzenia kopii zapasowej** :
 
-  1. Otwieranie magazynu, w którym zarejestrowano wystąpienie SAP HANA docelowego
+  1. Otwórz magazyn, w którym zarejestrowano wystąpienie SAP HANA docelowego.
 
-  1. Na pulpicie nawigacyjnym magazynu w obszarze **wprowadzenie**wybierz pozycję **kopia zapasowa**
+  1. Na pulpicie nawigacyjnym magazynu w obszarze **wprowadzenie**wybierz pozycję **kopia zapasowa**.
 
       ![Tworzenie kopii zapasowej na pulpicie nawigacyjnym magazynu](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. W obszarze **kopia zapasowa**w obszarze **co chcesz utworzyć kopię zapasową?** wybierz **SAP HANA na maszynie wirtualnej platformy Azure**
+  1. W obszarze **kopia zapasowa**w obszarze **co chcesz utworzyć kopię zapasową?** wybierz **SAP HANA na maszynie wirtualnej platformy Azure**.
 
       ![Wybierz SAP HANA na maszynie wirtualnej platformy Azure](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. W obszarze **odnajdywanie baz danych na maszynach wirtualnych**kliknij pozycję **Wyświetl szczegóły.**
+  1. W obszarze **odnajdywanie baz danych na maszynach wirtualnych**wybierz pozycję **Wyświetl szczegóły**.
 
       ![Wyświetl szczegóły](media/sap-hana-db-restore/view-details.png)
 
-  1. Przejrzyj **gotowość do tworzenia kopii zapasowej** docelowej maszyny wirtualnej
+  1. Przejrzyj **gotowość do wykonania kopii zapasowej** docelowej maszyny wirtualnej.
 
       ![Serwery chronione](media/sap-hana-db-restore/protected-servers.png)
 
@@ -112,7 +112,7 @@ Do przywrócenia wymagane są następujące uprawnienia:
     > Przywracanie kontenerów pojedyncza baza danych (SDC) musi być zgodne z tymi [sprawdzeniami](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
 1. Jeśli ma to zastosowanie, wybierz opcję **Zastąp, jeśli baza danych o takiej samej nazwie już istnieje w wybranym wystąpieniu platformy Hana**.
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
     ![Przywracanie konfiguracji — Ekran końcowy](media/sap-hana-db-restore/restore-configuration-last.png)
 
@@ -250,6 +250,6 @@ Jeśli wybrano opcję **pełny & różnicowa** jako typ przywracania, wykonaj na
     > [!NOTE]
     > W przypadku przywracania wielu baz danych (MDC) po przywróceniu bazy danych systemowych do wystąpienia docelowego jeden musi ponownie uruchomić skrypt przed rejestracją. Kolejne Przywracanie bazy danych dzierżawy zakończy się powodzeniem. Aby dowiedzieć się więcej, zobacz [temat Rozwiązywanie problemów — przywracanie MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Dowiedz się, jak](sap-hana-db-manage.md) zarządzać bazami danych SAP HANA kopia zapasowa przy użyciu Azure Backup

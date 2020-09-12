@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure p
 description: Ten artykuł zawiera omówienie ochrony programu DPM/Azure Backup serwera w farmie programu SharePoint na platformie Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032888"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375248"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure przy użyciu programu DPM
 
@@ -53,7 +53,7 @@ Aby dowiedzieć się, jak przywrócić element programu SharePoint z dysku za po
    > Ponieważ farma programu SharePoint jest chroniona do długoterminowego przechowywania na platformie Azure, na serwerze DPM nie są dostępne żadne informacje o katalogu (metadane). W związku z tym zawsze, gdy baza danych zawartości programu SharePoint do punktu w czasie musi zostać odzyskana, należy ponownie wykazać farmy programu SharePoint.
    >
    >
-3. Kliknij pozycję **ponownie katalog**.
+3. Wybierz pozycję **ponownie katalog**.
 
     ![Protection10 SharePoint programu DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -61,10 +61,10 @@ Aby dowiedzieć się, jak przywrócić element programu SharePoint z dysku za po
 
     ![Protection11 SharePoint programu DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Kliknij przycisk **Zamknij**.
+    Po zakończeniu wykazania stan zmieni się na *powodzenie*. Wybierz pozycję **Close** (Zamknij).
 
     ![Protection12 SharePoint programu DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Kliknij obiekt programu SharePoint wyświetlony na karcie **odzyskiwanie** programu DPM, aby uzyskać strukturę bazy danych zawartości. Kliknij prawym przyciskiem myszy element, a następnie kliknij polecenie **Odzyskaj**.
+4. Wybierz obiekt programu SharePoint wyświetlany na karcie **odzyskiwanie** programu DPM, aby uzyskać strukturę bazy danych zawartości. Kliknij prawym przyciskiem myszy element, a następnie wybierz polecenie **Odzyskaj**.
 
     ![Protection13 SharePoint programu DPM](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. W tym momencie wykonaj kroki odzyskiwania opisane wcześniej w tym artykule, aby odzyskać bazę danych zawartości programu SharePoint z dysku.

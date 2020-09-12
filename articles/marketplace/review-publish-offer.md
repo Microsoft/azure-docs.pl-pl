@@ -1,5 +1,5 @@
 ---
-title: Przeglądanie i publikowanie oferty w portalu komercyjnym firmy Microsoft
+title: Jak przejrzeć i opublikować ofertę w portalu komercyjnym firmy Microsoft
 description: Skorzystaj z Centrum partnerskiego, aby przesłać ofertę do wersji zapoznawczej, wyświetlić podgląd oferty, a następnie opublikować ją w komercyjnym portalu Microsoft Marketplace.
 ms.reviewer: dannyevers
 ms.service: marketplace
@@ -8,60 +8,51 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: 53e5331ab36d5466bd5cdb495ac505dae29e57bf
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142302"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375888"
 ---
-# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Przeglądanie i publikowanie oferty w portalu komercyjnym
+# <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Jak przejrzeć i opublikować ofertę w portalu komercyjnym
 
-W tym artykule przedstawiono sposób użycia Centrum partnerskiego w celu przesłania oferty do wersji zapoznawczej, przejrzenia oferty, a następnie opublikowania jej w komercyjnym portalu Microsoft Marketplace. Omówiono również sposób sprawdzania stanu publikowania w trakcie wykonywania kroków publikacji. Musisz mieć już utworzoną ofertę, która ma zostać opublikowana.
+W tym artykule przedstawiono sposób użycia Centrum partnerskiego do przesłania oferty do opublikowania, wyświetlenia podglądu oferty, a następnie opublikowania jej w portalu komercyjnym. Omówiono również sposób sprawdzania stanu publikowania w trakcie wykonywania kroków publikacji. Musisz mieć już utworzoną ofertę, która ma zostać opublikowana.
 
-## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Przejdź do oferty w komercyjnej witrynie Marketplace
+## <a name="offer-status"></a>Stan oferty
 
-1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
-3. Na karcie **Przegląd** w obszarze **oferty**w kolumnie **stan** dla każdej oferty zostanie wyświetlony jeden z następujących wskaźników stanu.
+Status oferty można sprawdzić na karcie **Przegląd** pulpitu nawigacyjnego komercyjnego portalu Marketplace w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Jeden z następujących wskaźników stanu jest wyświetlany w kolumnie **stan** dla każdej oferty.
 
-    | Stan | Opis |
-    | ------------ | ------------- |
-    | Wersja robocza | Oferta została utworzona, ale nie jest publikowana. |
-    | Publikowanie w toku | Oferta działa w sposób w trakcie procesu publikowania. |
-    | Wymagana Uwaga | Wykryliśmy problem krytyczny podczas certyfikacji lub w innej fazie publikowania. |
-    | Wersja zapoznawcza | Firma Microsoft potwierdziła ofertę, która teraz czeka na ostateczną weryfikację przez wydawcę. Wybierz pozycję **Przejdź na żywo** , aby opublikować ofertę na żywo. |
-    | Na żywo | Oferta jest aktywna w portalu Marketplace i może być widoczna i nabywana przez klientów. |
-    | Oczekiwanie na zaprzestanie sprzedawania | Wydawca zaznaczył "Zatrzymaj sprzedawanie" w ofercie lub planie, ale akcja nie została jeszcze ukończona. |
-    | Niedostępne w portalu Marketplace | Wcześniej opublikowana oferta w portalu Marketplace została usunięta. |
-    |||
+| Stan | Opis |
+| ------------ | ------------- |
+| Wersja robocza | Oferta została utworzona, ale nie jest publikowana. |
+| Publikowanie w toku | Oferta działa w sposób w trakcie procesu publikowania. |
+| Wymagana Uwaga | Wykryliśmy problem krytyczny podczas certyfikacji lub w innej fazie publikowania. |
+| Wersja zapoznawcza | Firma Microsoft potwierdziła ofertę, która teraz czeka na ostateczną weryfikację przez wydawcę. Wybierz pozycję **Przejdź na żywo** , aby opublikować ofertę na żywo. |
+| Na żywo | Oferta jest aktywna w portalu Marketplace i może być widoczna i nabywana przez klientów. |
+| Oczekiwanie na zaprzestanie sprzedawania | Wydawca zaznaczył "Zatrzymaj sprzedawanie" w ofercie lub planie, ale akcja nie została jeszcze ukończona. |
+| Niedostępne w portalu Marketplace | Wcześniej opublikowana oferta w portalu Marketplace została usunięta. |
+|||
 
-4. W kolumnie **alias oferty** wybierz ofertę, którą chcesz wyświetlić i opublikować.
+## <a name="validation-and-publishing-steps"></a>Sprawdzanie poprawności i publikowanie kroków
 
-## <a name="submit-your-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
-
-1. Aby przesłać ofertę do wersji zapoznawczej, wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu. Zostanie wyświetlona strona **przeglądanie i publikowanie** .
-1. Upewnij się, że kolumna **stan** dla każdej strony jest wyświetlana jako **zakończona**. Trzy możliwe stany są następujące:
+Gdy wszystko będzie gotowe do przesłania oferty do opublikowania, wybierz pozycję **Przeglądaj i Opublikuj** w prawym górnym rogu portalu. Na stronie **Przegląd i publikacja** jest wyświetlany stan każdej strony oferty, która może być jedną z następujących czynności:
 
    - **Nieuruchomione** — strona jest niepełna.
    - **Niekompletne** — Strona nie zawiera wymaganych informacji lub zawiera błędy, które muszą zostać naprawione. Musisz wrócić do strony i zaktualizować ją.
    - **Ukończono** — Strona została ukończona. Wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy.
 
-1. Jeśli którakolwiek ze stron ma stan inny niż **ukończono**, w kolumnie **Strona** wybierz nazwę strony, usuń problem, Zapisz stronę, a następnie wybierz pozycję **Przejrzyj i Opublikuj** ponownie, aby powrócić do tej strony.
-1. Po zakończeniu wszystkich stron w polu **Informacje o certyfikacji** wprowadź instrukcje testowania do zespołu certyfikacji, aby upewnić się, że aplikacja jest poprawnie testowana. Podaj wszelkie dodatkowe uwagi pomocne przy zrozumieniu swojej aplikacji.
-1. Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj**. Zostanie wyświetlona strona **Przegląd oferty** z widocznym stanem publikowania.
+Jeśli którakolwiek ze stron ma stan inny niż **ukończono**, należy rozwiązać problem na tej stronie, a następnie powrócić do strony **Przegląd i publikowanie** , aby potwierdzić, że stan jest teraz pokazywany jako **zakończony**. Niektóre typy ofert wymagają testowania. Jeśli tak, zobaczysz **uwagi dotyczące pola certyfikacji** , w którym należy dostarczyć instrukcje dotyczące testowania do zespołu certyfikacji oraz dodatkowe uwagi pomocne przy zrozumieniu swojej aplikacji.
 
-## <a name="validation-and-publishing-steps"></a>Sprawdzanie poprawności i publikowanie kroków
+Po zakończeniu wszystkich stron i wprowadzeniu odpowiednich uwag dotyczących testowania wybierz pozycję **Publikuj** , aby rozpocząć proces weryfikacji i publikowania. Fazy i ogólna sekwencja mogą się różnić w zależności od typu publikowanej oferty. W poniższej tabeli przedstawiono jeden możliwy do opublikowania przepływ. Poszczególne fazy zostały omówione bardziej szczegółowo w poniższych sekcjach.
 
-Po wybraniu opcji **Publikuj**procesy weryfikacji i publikowania są wykonywane w pożądanej kolejności. W tej tabeli przedstawiono najbardziej typowy proces publikowania:
-
-| Faza | Co się dzieje |
+| Etap | Co się dzieje |
 | ------------ | ------------- | ------------- |
-| Automatyczne sprawdzanie poprawności | Przetwarzamy zestaw zautomatyzowanych walidacji. |
-| Certyfikacja | Przeprowadzamy ręczne walidacje. |
-| Tworzenie podglądu | Strona aukcji dla wersji zapoznawczej oferty jest dostępna dla każdego, kto ma link do wersji zapoznawczej. Jeśli oferta będzie sprzedawana w firmie Microsoft (transacted), tylko odbiorcy określeni na stronie **odbiorca wersji zapoznawczej** oferty będą mogli kupować i uzyskiwać dostęp do oferty do testowania. |
-| Wylogowanie wydawcy | Wyślemy do Ciebie wiadomość e-mail z prośbą o przeszukanie i zaakceptowanie oferty. |
-| Opublikuj | Uruchamiamy serię kroków, aby sprawdzić, czy oferta wersji zapoznawczej została opublikowana na żywo na rynku komercyjnym. |
+| [Automatyczne sprawdzanie poprawności](#automated-validation-phase) | Przetwarzamy zestaw zautomatyzowanych walidacji. |
+| [Certyfikacja](#certification-phase) | Przeprowadzamy ręczne walidacje. |
+| [Tworzenie podglądu](#preview-creation-phase) | Strona aukcji dla wersji zapoznawczej oferty jest dostępna dla każdego, kto ma link do wersji zapoznawczej. Jeśli oferta będzie sprzedawana w firmie Microsoft (transacted), tylko odbiorcy określeni na stronie **odbiorca wersji zapoznawczej** oferty będą mogli kupować i uzyskiwać dostęp do oferty do testowania. |
+| [Wylogowanie wydawcy](#publisher-sign-off-phase) | Wyślemy do Ciebie wiadomość e-mail z prośbą o przeszukanie i zaakceptowanie oferty. |
+| [Publikowanie](#publish-phase) | Uruchamiamy serię kroków, aby sprawdzić, czy oferta wersji zapoznawczej została opublikowana na żywo na rynku komercyjnym. |
 |||
 
 ## <a name="automated-validation-phase"></a>Faza automatycznej weryfikacji
@@ -102,7 +93,7 @@ Każdy typ oferty sprawdza zestaw wymaganych podstawowych kryteriów uprawnień.
 
 #### <a name="content-validation"></a>Weryfikacja zawartości
 
-Informacje wprowadzone podczas tworzenia oferty są sprawdzane pod kątem jakości i przydatności. Te sprawdzenia zapoznają się z wpisami dotyczącymi szczegółowych informacji, cen, dostępności, skojarzonych planów i tak dalej. Aby spełnić kryteria oferty w witrynie Azure Marketplace i Microsoft AppSource, sprawdzimy, czy oferta obejmuje:
+Informacje wprowadzone podczas tworzenia oferty są sprawdzane pod kątem jakości i przydatności. Te sprawdzenia zapoznają się z wpisami dotyczącymi szczegółowych informacji, cen, dostępności, skojarzonych planów i tak dalej. Aby spełnić kryteria oferty Microsoft AppSource i portalu Azure Marketplace, sprawdzimy, czy oferta obejmuje:
 
 - Tytuł, który dokładnie opisuje ofertę
 - Dobrze napisano opisy zawierające szczegółowe omówienie i propozycję wartości
@@ -128,7 +119,7 @@ Jeśli oferta nie zostanie wyświetlona na liście, techniczne lub sprawdzanie z
 
 Ten raport zawiera opisy wszelkich zasad, które zakończyły się niepowodzeniem, a także uwagi dotyczące recenzowania. Przejrzyj ten raport wiadomości e-mail, Rozwiąż wszelkie problemy, w razie potrzeby wprowadź aktualizacje oferty, a następnie prześlij ją ponownie za pomocą [portalu komercyjnej witryny Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) w centrum partnerskim. Ofertę można przesłać ponownie dowolną liczbę razy do momentu przekazania certyfikatu.
 
-## <a name="preview-creation-phase"></a>Faza tworzenia podglądu
+## <a name="preview-creation-phase"></a>Faza tworzenia wersji zapoznawczej
 
 W fazie tworzenia podglądu tworzymy wersję oferty, która będzie dostępna tylko dla odbiorców określonych na stronie **odbiorcy wersji zapoznawczej** oferty (jeśli istnieje). Wersja zapoznawcza oferty nie będzie dostępna dla wszystkich użytkowników spoza wersji zapoznawczej do momentu opublikowania oferty na żywo.
 
@@ -141,21 +132,18 @@ Gdy oferta będzie gotowa do przejrzenia i wylogowania, wyślemy wiadomość e-m
 
 Poniższy zrzut ekranu przedstawia stronę **omówienia oferty** dla oferty SaaS. Kroki walidacji, które zobaczysz na tej stronie, różnią się w zależności od typu oferty i opcji dokonanych podczas tworzenia oferty.
 
-![Przedstawia stronę omówienia oferty dla oferty w centrum partnerskim. Widoczny jest przycisk Przejdź na żywo i linki do wersji zapoznawczej.](./partner-center-portal/media/publish-status-publisher-signoff.png)
+![Przedstawia stronę omówienia oferty dla oferty w centrum partnerskim. Widoczny jest przycisk Przejdź na żywo i linki do wersji zapoznawczej.](./media/publish-status-publisher-signoff.png)
 
-### <a name="to-preview-your-offer-and-sign-off"></a>Aby wyświetlić podgląd oferty i się wylogować
+### <a name="previewing-and-approving-your-offer"></a>Wyświetlanie podglądu i zatwierdzanie oferty
 
-1. Na stronie **Przegląd oferty** , aby wyświetlić podgląd oferty, wybierz link pod przyciskiem **Przejdź na żywo** .
+> [!IMPORTANT]
+> Aby sprawdzić, czy jest to kompleksowa usługa zakupów i konfiguracji, Kup ofertę, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty.
 
-   > [!NOTE]
-   > Będzie dostępny link do wersji zapoznawczej AppSource, wersji zapoznawczej platformy Azure Marketplace lub w zależności od opcji wybranych podczas tworzenia oferty. W przypadku wybrania opcji sprzedaży oferty przez firmę Microsoft każda osoba, która została dodana do odbiorców w wersji zapoznawczej, może przetestować nabycie i wdrożenie oferty, aby upewnić się, że spełnia Twoje wymagania na tym etapie.
+Na stronie **Przegląd oferty** zobaczysz linki do wersji zapoznawczej w obszarze przycisk **Przejdź na żywo** . Będzie dostępny link do wersji zapoznawczej AppSource, wersji zapoznawczej platformy Azure Marketplace lub w zależności od opcji wybranych podczas tworzenia oferty. W przypadku wybrania opcji sprzedaży oferty przez firmę Microsoft każda osoba, która została dodana do odbiorców w wersji zapoznawczej, może przetestować nabycie i wdrożenie oferty, aby upewnić się, że spełnia Twoje wymagania na tym etapie.
 
-1. Jeśli chcesz wprowadzić zmiany po przejrzeniu oferty, możesz je edytować i przesłać ponownie w celu opublikowania nowej wersji zapoznawczej. Aby uzyskać więcej informacji, zobacz temat [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](./partner-center-portal/update-existing-offer.md).
+Po zatwierdzeniu wersji zapoznawczej wybierz pozycję **Przejdź na żywo** , aby opublikować swoją ofertę na żywo w witrynie komercyjnej. 
 
-1. Po zatwierdzeniu wersji zapoznawczej w celu opublikowania oferty na żywo w portalu komercyjnym wybierz pozycję **Przejdź na żywo**.
-
-   > [!TIP]
-   > Jeśli Twoja oferta już działa i jest dostępna publicznie w portalu Marketplace, wszystkie aktualizacje, które wprowadzisz, nie będą aktywne do momentu wybrania pozycji **Przejdź na żywo**.
+Jeśli chcesz wprowadzić zmiany po przejrzeniu oferty, możesz edytować i ponownie przesłać żądanie publikacji. Jeśli Twoja oferta już działa i jest dostępna publicznie w portalu Marketplace, wszystkie aktualizacje, które wprowadzisz, nie będą aktywne do momentu wybrania pozycji **Przejdź na żywo*. Aby uzyskać więcej informacji, zobacz temat [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](./partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Faza publikowania
 
@@ -183,10 +171,6 @@ Teraz, po wybraniu oferty na żywo z ofertą, która udostępnia ją w komercyjn
 
 Po zakończeniu sprawdzania poprawności oferta będzie aktywna w portalu Marketplace.
 
-### <a name="reporting-usage-of-preview-and-other-internal-usage"></a>Raportowanie użycia wersji zapoznawczej i innego wewnętrznego użycia
+## <a name="next-steps"></a>Następne kroki
 
-Aby sprawdzić, czy jest to kompleksowa usługa zakupów i konfiguracji, Kup ofertę, gdy jest ona dostępna w wersji zapoznawczej. Najpierw Powiadom firmę Microsoft za pomocą [biletu pomocy technicznej](https://aka.ms/marketplacesupport) , aby upewnić się, że nie przetwarzamy opłaty.
-
-## <a name="next-step"></a>Następny krok
-
-[Dostęp do raportów analitycznych dla komercyjnego portalu Marketplace w centrum partnerskim](./partner-center-portal/analytics.md)
+[Dostęp do raportów analitycznych dla komercyjnego portalu Marketplace w centrum partnerskim](partner-center-portal/analytics.md)

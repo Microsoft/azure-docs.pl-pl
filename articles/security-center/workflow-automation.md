@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: memildin
-ms.openlocfilehash: d9229137c999157d2cea112ebb5e6e8b169eed96
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: ff358f3c90edfcdabb5a1225ad1efa122818b070
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192777"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375265"
 ---
 # <a name="workflow-automation"></a>Automatyzacja przepływu pracy
 
@@ -33,7 +33,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 |Stan wydania:|Ogólnie dostępna|
 |Wpisaną|Warstwa Bezpłatna|
 |Wymagane role i uprawnienia:|**Rola administratora zabezpieczeń** lub **właściciel** grupy zasobów<br>Musi mieć również uprawnienia do zapisu dla zasobu docelowego<br><br>Aby można było korzystać z przepływów pracy Azure Logic Apps, należy mieć również następujące role/uprawnienia Logic Apps:<br> - Wymagane są uprawnienia [operatora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)<br> - Uprawnienia [współautora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki<br>Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).|
-|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Tak](./media/icons/yes-icon.png) Chiny gov, inne gov|
 |||
 
 

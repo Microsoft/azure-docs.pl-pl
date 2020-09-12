@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: Optymalizowanie routingu'
 description: Ta strona zawiera szczegółowe informacje dotyczące optymalizacji routingu w przypadku, gdy występują co najmniej dwa obwody usługi ExpressRoute łączące firmę Microsoft z siecią firmową.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
-ms.author: charwen
-ms.openlocfilehash: 2672068e505b7c86127b8b765372e7c607c3875a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.author: duau
+ms.openlocfilehash: aef21ecbda26e47dc6ef8a915cbd4403c13430e4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259782"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395234"
 ---
 # <a name="optimize-expressroute-routing"></a>Optymalizacja routingu usługi ExpressRoute
 Jeśli masz wiele obwodów usługi ExpressRoute, masz więcej niż jedną ścieżkę łączenia z firmą Microsoft. W związku z tym może wystąpić routing nieoptymalny, tzn. ruch może użyć dłuższej ścieżki w celu dotarcia do firmy Microsoft lub z firmy Microsoft do sieci użytkownika. Im dłuższa ścieżka sieciowa, tym większe opóźnienie. Opóźnienie ma bezpośredni wpływ na wydajność aplikacji i środowisko użytkownika. W tym artykule przedstawiono ten problem i wyjaśniono, jak zoptymalizować routing przy użyciu standardowych technologii routingu.

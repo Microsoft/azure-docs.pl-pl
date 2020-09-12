@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cda4aa9a811bac0ccf20caec32ee38da9b46b6c7
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021385"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613768"
 ---
 # <a name="color-materials"></a>Materiały kolorów
 
@@ -50,6 +50,13 @@ Następujące właściwości są specyficzne dla materiałów kolorów:
   1. **AlphaBlended:** Ten tryb jest podobny do trybu przezroczystości dla materiałów PBR. Powinien być używany do materiałów do zapatrzenia, takich jak szkło.
 
   1. **Dodatek:** Ten tryb jest najprostszym i najbardziej wydajnym trybem przezroczystości. Wkład materiału jest dodawany do renderowanego obrazu. Tego trybu można użyć do symulowania blasków (ale nadal przezroczystych) obiektów, takich jak znaczniki używane do wyróżniania ważnych obiektów.
+
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Klasa ColorMaterial języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [Zdalnymanager. demateriał ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [Klasa C++ ColorMaterial](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
+* [C++ RemoteManager:: demateriał ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Następne kroki
 

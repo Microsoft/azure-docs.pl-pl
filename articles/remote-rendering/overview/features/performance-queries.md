@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c7212157bb7ef541ac1eb1753f46ea6ad434c2ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cd255896d57d6bda60ec8874430fa994eae69f40
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013371"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613630"
 ---
 # <a name="server-side-performance-queries"></a>Zapytania wydajności po stronie serwera
 
@@ -62,7 +62,7 @@ void QueryFrameData(ApiHandle<AzureSession> session)
 
 Pobrany `FrameStatistics` obiekt zawiera następujące elementy członkowskie:
 
-| Członek | Wyjaśnienie |
+| Członek | Objaśnienie |
 |:-|:-|
 | latencyPoseToReceive | Opóźnienie z aparatu jest szacowane na urządzeniu klienckim do momentu, gdy ramka serwera dla tego ułożenia jest w pełni dostępna dla aplikacji klienckiej. Ta wartość obejmuje sieć w sieci, czas renderowania serwera, dekodowanie wideo i kompensację wahania. Zobacz **interwał 1 na powyższej ilustracji.**|
 | latencyReceiveToPresent | Opóźnienie od dostępności odebranej ramki zdalnej do momentu, gdy aplikacja kliencka wywoła PresentFrame na procesorze CPU. |
@@ -121,7 +121,7 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
 
 W przeciwieństwie do `FrameStatistics` obiektu, `PerformanceAssessment` obiekt zawiera informacje po stronie serwera:
 
-| Członek | Wyjaśnienie |
+| Członek | Objaśnienie |
 |:-|:-|
 | timeCPU | Średni czas procesora CPU serwera na klatkę w milisekundach |
 | timeGPU | Średni czas procesora GPU serwera na klatkę w milisekundach |
@@ -173,7 +173,12 @@ Powyższy kod wypełnia etykietę tekstową następującym tekstem:
 
 Istnieją także warianty elementów członkowskich, które agregują wartości w czasie. Zobacz elementy członkowskie z sufiksem `*Avg` , `*Max` lub `*Total` . Element członkowski `FramesUsedForAverage` wskazuje liczbę ramek, które zostały użyte dla tej agregacji.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Zdalnymanager. QueryServerPerformanceAssessmentAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
+* [Zdalnymanager:: QueryServerPerformanceAssessmentAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Utwórz ślady wydajności](../../how-tos/performance-tracing.md)
 * [Konfigurowanie konwersji modelu](../../how-tos/conversion/configure-model-conversion.md)

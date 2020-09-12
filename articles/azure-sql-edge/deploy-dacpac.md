@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z SQL Database pakietów DAC — Azure SQL Edge (wersja zapoznawcza)
-description: Dowiedz się więcej na temat używania dacpacs w usłudze Azure SQL Edge (wersja zapoznawcza)
+title: Korzystanie z pakietów SQL Database DACPAC i BACPAC — Azure SQL Edge (wersja zapoznawcza)
+description: Dowiedz się więcej o korzystaniu z dacpacs i BacPacs w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: SQL Edge, sqlpackage
 services: sql-edge
 ms.service: sql-edge
@@ -8,19 +8,19 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 0ddd1544c6a51ff1e2f98a28e40d9eb2ee0b47c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 52c8e9586d8ee53cdaac28cb1c48d2927d82c2ed
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233279"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462763"
 ---
-# <a name="sql-database-dac-packages-in-sql-edge"></a>SQL Database pakietów DAC w programie SQL Edge
+# <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Database pakietów DACPAC i BACPAC w programie SQL Edge
 
 Usługa Azure SQL Edge (wersja zapoznawcza) to zoptymalizowany aparat relacyjnej bazy danych umożliwiający wdrażanie IoT i Edge. Jest on oparty na najnowszych wersjach aparatu bazy danych Microsoft SQL Server, który zapewnia wiodące w branży funkcje, zabezpieczenia i przetwarzanie zapytań. Dzięki wiodącym w branży funkcjom zarządzania relacyjnymi bazami danych SQL Server usługa Azure SQL Edge zapewnia wbudowaną funkcję przesyłania strumieniowego na potrzeby analiz w czasie rzeczywistym i złożonych zdarzeń.
 
-Usługa Azure SQL Edge oferuje również natywną implementację SqlPackage.exe, która umożliwia wdrożenie pakietu [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) podczas wdrażania programu SQL Edge. SQL Database dacpacs można wdrożyć w usłudze SQL Edge przy użyciu parametru sqlpackage dostępnego za pośrednictwem `module twin's desired properties` opcji modułu programu SQL Edge:
+Usługa Azure SQL Edge oferuje również natywną implementację SqlPackage.exe, która umożliwia wdrożenie pakietu [SQL Database dacpac i BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) podczas wdrażania programu SQL Edge. SQL Database dacpacs można wdrożyć w usłudze SQL Edge przy użyciu parametru sqlpackage dostępnego za pośrednictwem `module twin's desired properties` opcji modułu programu SQL Edge:
 
 ```json
 {
@@ -34,16 +34,18 @@ Usługa Azure SQL Edge oferuje również natywną implementację SqlPackage.exe,
 
 |Pole | Opis |
 |------|-------------|
-| SqlPackage | Identyfikator URI magazynu obiektów blob platformy Azure dla pliku *. zip, który zawiera pakiet SQL Database DAC.
+| SqlPackage | Identyfikator URI magazynu obiektów blob platformy Azure dla pliku *zip* , który zawiera SQL Database pakiet DAC lub BACPAC. Plik zip może zawierać jednocześnie wiele pakietów DAC lub plików BACPAC.
 | ASAJobInfo | Identyfikator URI magazynu obiektów blob platformy Azure dla zadania ASA Edge.
 
 ## <a name="use-a-sql-database-dac-package-with-sql-edge"></a>Używanie pakietu SQL Database DAC z programem SQL Edge
 
-Aby użyć SQL Database pakietu DAC (*. dacpac) z programem SQL Edge, wykonaj następujące kroki:
+Aby użyć SQL Database pakietu DAC `(*.dacpac)` lub pliku BACPAC z programem `(*.bacpac)` SQL Edge, wykonaj następujące kroki:
 
-1. Utwórz lub Wyodrębnij SQL Database pakiet DAC. Zobacz [wyodrębnianie aplikacji DAC z bazy danych,](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) Aby uzyskać informacje na temat generowania pakietu DAC dla istniejącej bazy danych SQL Server.
+1. Utwórz/Wyodrębnij pakiet DAC lub wyeksportuj plik BACPAC przy użyciu mechanizmu wymienionego poniżej. 
+    - Utwórz lub Wyodrębnij SQL Database pakiet DAC. Zobacz [wyodrębnianie aplikacji DAC z bazy danych,](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) Aby uzyskać informacje na temat generowania pakietu DAC dla istniejącej bazy danych SQL Server.
+    - Eksportowanie wdrożonego pakietu DAC lub bazy danych. Zapoznaj się z tematem [Eksportowanie aplikacji warstwy danych](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) , aby uzyskać informacje na temat generowania pliku BACPAC dla istniejącej bazy danych SQL Server.
 
-2. Zip *. dacpac i przekaż go do konta usługi Azure Blob Storage. Aby uzyskać więcej informacji na temat przekazywania plików do usługi Azure Blob Storage, zobacz [przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Kod zip `*.dacpac` lub `*.bacpac` plik i przekaż go do konta usługi Azure Blob Storage. Aby uzyskać więcej informacji na temat przekazywania plików do usługi Azure Blob Storage, zobacz [przekazywanie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 3. Wygeneruj sygnaturę dostępu współdzielonego dla pliku zip przy użyciu Azure Portal. Aby uzyskać więcej informacji, zobacz [delegowanie dostępu za pomocą sygnatur dostępu współdzielonego (SAS)](../storage/common/storage-sas-overview.md).
 
@@ -68,7 +70,7 @@ Aby użyć SQL Database pakietu DAC (*. dacpac) z programem SQL Edge, wykonaj na
             {
                 "properties.desired":
                 {
-                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac",
+                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac and/or the bacpac files",
                 }
             }
         ```
@@ -79,9 +81,9 @@ Aby użyć SQL Database pakietu DAC (*. dacpac) z programem SQL Edge, wykonaj na
 
     9. Na stronie **Ustawianie modułów** wybierz pozycję **dalej** , a następnie **Prześlij**.
 
-5. Po aktualizacji modułu plik pakietu DAC zostanie pobrany, rozpakowany i wdrożony względem wystąpienia programu SQL Edge.
+5. Po aktualizacji modułu plik pakietu zostanie pobrany, rozpakowany i wdrożony względem wystąpienia programu SQL Edge.
 
-Po każdym ponownym uruchomieniu kontenera usługi Azure SQL Edge pakiet plików *. dacpac jest pobierany i oceniany pod kątem zmian. Jeśli zostanie napotkana Nowa wersja pliku dacpac, zmiany zostaną wdrożone w bazie danych programu SQL Edge.
+Po każdym ponownym uruchomieniu kontenera usługi Azure SQL Edge `*.dacpac` pakiet plików jest pobierany i oceniany pod kątem zmian. Jeśli zostanie napotkana Nowa wersja pliku dacpac, zmiany zostaną wdrożone w bazie danych programu SQL Edge. Pliki BACPAC 
 
 ## <a name="next-steps"></a>Następne kroki
 
