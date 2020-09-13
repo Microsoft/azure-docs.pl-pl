@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771100"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304136"
 ---
 ### <a name="functional-limits"></a>Limity funkcjonalne
 
@@ -42,7 +42,7 @@ Ta tabela odzwierciedla limity szybkości różnych interfejsów API.
 | Interfejs API modeli | Liczba żądań na sekundę | 100 | Tak |
 | Interfejs API Digital bliźniaczych reprezentacji | Liczba żądań na sekundę | 1000 | Tak |
 | Interfejs API zapytań | Liczba żądań na sekundę | 500 | Tak |
-| Interfejs API zapytań | Liczba jednostek zapytania na sekundę | 4000 | Tak |
+| Interfejs API zapytań | Liczba [jednostek zapytania](../articles/digital-twins/concepts-query-units.md) na sekundę | 4000 | Tak |
 | Interfejs API tras zdarzeń | Liczba żądań na sekundę | 100 | Tak |
 
 ### <a name="other-limits"></a>Inne limity

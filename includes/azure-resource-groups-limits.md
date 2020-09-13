@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: f0ab7c2efc499c43245680e56a7e5ca1b5261397
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 949118214851c3eceffd8c1d638a4093bdf7f366
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88748758"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303962"
 ---
 | Zasób | Limit |
 | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "88748758"
 | Długość klucza tagu |512 |
 | Długość wartości tagu |256 |
 
-<sup>1</sup> Począwszy od czerwca 2020, wdrożenia będą automatycznie usuwane z historii, jak zbliżasz się do limitu. Usunięcie wpisu z historii wdrożenia nie ma wpływu na wdrożone zasoby. Aby uzyskać więcej informacji, zobacz [Automatyczne usuwanie z historii wdrażania](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
+<sup>1</sup> Wdrożenia są automatycznie usuwane z historii, jak zbliżasz się do limitu. Usunięcie wpisu z historii wdrożenia nie ma wpływu na wdrożone zasoby. Aby uzyskać więcej informacji, zobacz [Automatyczne usuwanie z historii wdrażania](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### <a name="template-limits"></a>Limity szablonów
 
