@@ -1,6 +1,6 @@
 ---
 title: Projektowanie tożsamości hybrydowej — strategia wdrażania platformy Azure | Microsoft Docs
-description: Przy użyciu kontroli dostępu warunkowego Azure Active Directory sprawdza określone warunki, które można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji. Po spełnieniu tych warunków użytkownik zostanie uwierzytelniony i zezwoli na dostęp do aplikacji.
+description: Przy użyciu kontroli dostępu warunkowego usługa Azure AD sprawdza określone warunki, które można wybrać podczas uwierzytelniania użytkownika i przed zezwoleniem na dostęp do aplikacji.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555376"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659535"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiowanie hybrydowej strategii wdrażania tożsamości
 W tym zadaniu zdefiniujemy hybrydową strategię wdrażania tożsamości dla hybrydowego rozwiązania do obsługi tożsamości, aby spełnić wymagania biznesowe omówione w temacie:
@@ -32,7 +32,7 @@ W tym zadaniu zdefiniujemy hybrydową strategię wdrażania tożsamości dla hyb
 * [Określanie wymagań dotyczących uwierzytelniania wieloskładnikowego](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definiowanie strategii potrzeb firmy
-Pierwsze zadanie określa wymagania biznesowe organizacji.  Może to być bardzo szerokie i zakres może wystąpić, jeśli nie jest to ostrożne.  Na początku należy zachować prostotę, ale zawsze należy pamiętać o zaplanowaniu projektu, który będzie uwzględniał zmiany w przyszłości.  Bez względu na to, czy jest to prosty projekt, czy niezwykle skomplikowany, Azure Active Directory jest platformą tożsamości firmy Microsoft, która obsługuje pakiet Office 365, usługi online firmy Microsoft i aplikacje obsługujące chmurę.
+Pierwsze zadanie określa wymagania biznesowe organizacji.  Może to być bardzo szerokie i zakres może wystąpić, jeśli nie jest to ostrożne.  Na początku należy zachować prostotę, ale zawsze należy pamiętać o zaplanowaniu projektu, który będzie uwzględniał zmiany w przyszłości.  Bez względu na to, czy jest to prosty projekt, czy bardzo skomplikowany, Azure Active Directory jest platformą tożsamości firmy Microsoft, która obsługuje Microsoft 365, usług online firmy Microsoft i aplikacji obsługujących chmurę.
 
 ## <a name="define-an-integration-strategy"></a>Definiowanie strategii integracji
 Firma Microsoft ma trzy główne scenariusze integracji, które są tożsamościami w chmurze, synchronizowanymi tożsamościami i tożsamościami federacyjnymi.  Należy zaplanować przyjęcie jednej z tych strategii integracji.  Wybrana strategia może się różnić, a decyzje w wyborze jednego mogą obejmować, jaki typ środowiska użytkownika ma być udostępniany, czy masz istniejącą infrastrukturę i najbardziej opłacalną.  
@@ -171,7 +171,7 @@ Następujące elementy nie są obsługiwane i nie powinny być wybierane jako im
 * Katalogi usługi Azure AD są według konstrukcji izolowanych. Nie można zmienić konfiguracji Azure AD Connect synchronizacji w celu odczytania danych z innego katalogu usługi Azure AD w celu utworzenia wspólnej i ujednoliconej tabeli zmian między katalogami. Nie jest również możliwe eksportowanie użytkowników jako kontaktów do innej lokalnej usługi AD przy użyciu synchronizacji Azure AD Connect.
 
 > [!NOTE]
-> Jeśli organizacja ogranicza komputery w sieci do łączenia się z Internetem, w tym artykule wymieniono punkty końcowe (nazwy FQDN, IPv4 i IPv6), które powinny zostać uwzględnione na liście dozwolonych wychodzących i zaufanych witryn programu Internet Explorer na komputerach klienckich w celu zapewnienia, że komputery mogą pomyślnie korzystać z pakietu Office 365. Aby uzyskać więcej informacji [, przeczytaj adresy URL i zakresy adresów IP pakietu Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Jeśli organizacja ogranicza komputery w sieci do łączenia się z Internetem, w tym artykule wymieniono punkty końcowe (nazwy FQDN, IPv4 i IPv6), które powinny zostać uwzględnione na liście dozwolonych wychodzących i zaufanych witryn programu Internet Explorer na komputerach klienckich, aby upewnić się, że komputery mogą pomyślnie korzystać z Microsoft 365. Aby uzyskać więcej informacji [, przeczytaj adresy URL i zakresy adresów IP pakietu Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 
@@ -193,9 +193,9 @@ Mimo że można rozliczyć rozwiązanie dla danej strategii, nadal musisz użyć
 | Lokalizacja użytkownika | Preferowana opcja projektowania |
 | --- | --- |
 | Usługa Azure Active Directory |Wiele FactorAuthentication w chmurze |
-| Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |Obie |
-| Azure AD i lokalna usługa AD przy użyciu Azure AD Connect bez synchronizacji haseł |Obie |
-| Usługa Azure AD i lokalna przy użyciu Azure AD Connect z synchronizacją haseł |Obie |
+| Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |Oba |
+| Azure AD i lokalna usługa AD przy użyciu Azure AD Connect bez synchronizacji haseł |Oba |
+| Usługa Azure AD i lokalna przy użyciu Azure AD Connect z synchronizacją haseł |Oba |
 | Lokalna usługi AD |Serwer Multi-Factor Authentication |
 
 > [!NOTE]

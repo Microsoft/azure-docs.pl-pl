@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65950900"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660565"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Określ wymagania dotyczące tożsamości dla rozwiązania do tworzenia tożsamości hybrydowej
 Pierwszym krokiem projektowania rozwiązania tożsamości hybrydowej jest określenie wymagań organizacji biznesowej, które będą korzystać z tego rozwiązania.  Tożsamość hybrydowa jest uruchamiana jako rola pomocnicza (obsługuje ona wszystkie inne rozwiązania w chmurze, zapewniając uwierzytelnianie) i jest dostępna w celu zapewnienia nowych i interesujących funkcji, które blokują nowe obciążenia dla użytkowników.  Te obciążenia lub usługi, które mają zostać przyjęte dla użytkowników, będą określać wymagania dotyczące projektu tożsamości hybrydowej.  Te usługi i obciążenia muszą korzystać z tożsamości hybrydowej zarówno lokalnie, jak i w chmurze.  
@@ -72,10 +72,10 @@ Następnie należy oszacować wymagania dotyczące integracji tożsamości. Ta o
   * Firma dysponuje aplikacjami lokalnymi (wbudowaną wewnętrznie lub inną firmą), która używa protokołu SAML lub podobnych możliwości federacyjnych.
   * Uwierzytelnianie wieloskładnikowe za pośrednictwem kart inteligentnych. SecurID RSA itd.
   * Reguły dostępu klienta, które dotyczą poniższych pytań:
-    1. Czy mogę zablokować dostęp zewnętrzny do pakietu Office 365 na podstawie adresu IP klienta?
-    2. Czy mogę zablokować dostęp zewnętrzny do pakietu Office 365, z wyjątkiem programu Exchange ActiveSync?
-    3. Czy mogę zablokować dostęp zewnętrzny do pakietu Office 365, z wyjątkiem aplikacji opartych na przeglądarce (OWA, SPO)
-    4. Czy można zablokować wszystkim zewnętrznym dostępowi do pakietu Office 365 dla członków Wyznaczeni grup usługi AD
+    1. Czy mogę zablokować dostęp zewnętrzny do Microsoft 365 na podstawie adresu IP klienta?
+    2. Czy mogę zablokować dostęp zewnętrzny do Microsoft 365, z wyjątkiem programu Exchange ActiveSync?
+    3. Czy mogę zablokować dostęp zewnętrzny do Microsoft 365, z wyjątkiem aplikacji opartych na przeglądarce (OWA, SPO)
+    4. Czy mogę zablokować dostęp zewnętrzny do Microsoft 365 dla członków wydzielonych grup usługi AD
 * Zagadnienia dotyczące zabezpieczeń/inspekcji
 * Już istniejące inwestycje w uwierzytelnianie federacyjne
 * Jakiej nazwy Nasza organizacja będzie używać dla naszej domeny w chmurze?

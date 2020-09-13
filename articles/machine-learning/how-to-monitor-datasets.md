@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 270e93302a90c458ccbdfdc4d2ced8f0d3c263af
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4b2b435be2a39b6e31a7f44fa6acbe7e1bc9c2c0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319681"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661669"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Metryki dotyczące dryfu danych można wyświetlić za pomocą zestawu SDK języ
 Aby tworzyć i korzystać z monitorów zestawu danych, potrzebne są:
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md).
-* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), który obejmuje pakiet usługi Azure DataSets.
+* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), który obejmuje pakiet usługi Azure DataSets.
 * Dane ze strukturą (tabelaryczną) z sygnaturą czasową określoną w ścieżce pliku, nazwie pliku lub kolumnie w danych.
 
 ## <a name="what-is-data-drift"></a>Co to jest dryfowanie danych?
@@ -93,7 +93,7 @@ Monitory zestawu danych są zależne od następujących usług platformy Azure.
 | *Zestaw danych* | Funkcja dryf używa Machine Learning zestawów danych, aby pobierać dane szkoleniowe i porównywać dane w celu szkolenia modeli.  Generowanie profilu danych jest używane do generowania niektórych raportowanych metryk, takich jak minimalna, maksymalna, różne wartości, liczba unikatowych wartości. |
 | *Potok i obliczenia w usłudze Azure* | Zadanie obliczania dryfu jest hostowane w potoku Azure.  Zadanie jest wyzwalane na żądanie lub według harmonogramu do uruchomienia w ramach obliczeń skonfigurowanych na czas tworzenia monitora dryfu.
 | *Application Insights*| Dryf emituje metryki do Application Insights należące do obszaru roboczego uczenia maszynowego.
-| *Magazyn obiektów blob platformy Azure*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
+| *Azure Blob Storage*| Dryf emituje metryki w formacie JSON do magazynu obiektów blob platformy Azure.
 
 ## <a name="how-dataset-monitors-data"></a>Jak zestaw danych monitoruje dane
 
@@ -105,7 +105,7 @@ Docelowy zestaw danych wymaga `timeseries` zestawu cech dla niego, określając 
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>Zestaw SDK dla języka Python
 
-[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)Metoda klasy [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) definiuje kolumnę sygnatury czasowej dla zestawu danych.
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)Metoda klasy [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) definiuje kolumnę sygnatury czasowej dla zestawu danych.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -132,9 +132,9 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Pełny przykład użycia `timeseries` cech zestawów danych można znaleźć w [przykładowym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) lub [dokumentacji zestawu SDK zestawów danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Pełny przykład użycia `timeseries` cech zestawów danych można znaleźć w [przykładowym notesie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) lub [dokumentacji zestawu SDK zestawów danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
+### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Studio uczenia maszynowego Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 Jeśli tworzysz zestaw danych przy użyciu Azure Machine Learning Studio, upewnij się, że ścieżka do danych zawiera informacje o znaczniku czasu, Uwzględnij wszystkie podfoldery z danymi i ustaw format partycji.
@@ -208,7 +208,7 @@ monitor = monitor.enable_schedule()
 
 Pełny przykład konfigurowania `timeseries` zestawu danych i wykrywania dryfowania danych można znaleźć w naszym [przykładowym notesie](https://aka.ms/datadrift-notebook).
 
-### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a>Azure Machine Learning Studio
+### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 Aby skonfigurować alerty na monitorze zestawu danych, obszar roboczy, który zawiera zestaw danych, dla którego chcesz utworzyć monitor, musi mieć funkcje wersji Enterprise.
@@ -232,7 +232,7 @@ Kliknij przycisk **+ Utwórz monitor** i Kontynuuj pracę kreatora, klikając pr
     | Nazwa | Nazwa monitora zestawu danych. | | Nie |
     | Funkcje | Lista funkcji, które będą analizowane pod kątem dryfowania danych w czasie. | Ustaw na funkcje wyjściowe modelu, aby zmierzyć dryf koncepcji. Nie dołączaj funkcji, które naturalnie dryfuje w czasie (miesiąc, rok, indeks itp.). Po dostosowaniu listy funkcji można wypełniać i śledzić istniejący monitor dryfowania danych. | Tak | 
     | Docelowy zasób obliczeniowy | Azure Machine Learning miejsce docelowe obliczeń, aby uruchomić zadania monitorowania zestawu danych. | | Tak | 
-    | Włączanie | Włączanie lub wyłączanie harmonogramu dla potoku monitora zestawu danych | Wyłącz harmonogram, aby analizować dane historyczne przy użyciu ustawienia wypełniania. Można ją włączyć po utworzeniu monitora zestawu danych. | Tak | 
+    | Włącz | Włączanie lub wyłączanie harmonogramu dla potoku monitora zestawu danych | Wyłącz harmonogram, aby analizować dane historyczne przy użyciu ustawienia wypełniania. Można ją włączyć po utworzeniu monitora zestawu danych. | Tak | 
     | Częstotliwość | Częstotliwość, która zostanie użyta do zaplanowania zadania potoku i przeanalizowania danych historycznych w przypadku uruchamiania wypełniania. Dostępne opcje to codziennie, co tydzień lub co miesiąc. | Każde uruchomienie porównuje dane w docelowym zestawie danych zgodnie z częstotliwością: <li>Codziennie: Porównaj najnowszy pełny dzień w docelowym zestawie danych z punktem odniesienia <li>Tydzień: porównanie ostatniego pełnego tygodnia (poniedziałek-niedziela) w docelowym zestawie danych z punktem odniesienia <li>Miesięcznie: porównanie ostatniego pełnego miesiąca w docelowym zestawie danych z punktem odniesienia | Nie | 
     | Opóźnienie | Czas, w godzinach, pobiera dane do zestawu danych. Na przykład jeśli dane mają być dostarczone przez trzy dni w bazie danych bazy danych SQL, należy ustawić opóźnienie na 72. | Nie można zmienić po utworzeniu monitora zestawu danych | Nie | 
     | Adresy e-mail | Adresy e-mail dla alertów na podstawie naruszenia progu procentu dryfu danych. | Wiadomości e-mail są wysyłane za poorednictwem Azure Monitor. | Tak | 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 5c5326310887cd5756ae264a35aafe7e771a7863
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 34f781db2a731cc6eb38c8241d0e1897517f2c9a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226798"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661812"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
@@ -33,7 +33,7 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 |Najważniejsze korzyści|Opis|
 |----|----|
 |Produktywność|Możesz tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w programie Azure Machine Learning Studio:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)<br/>Wystąpienie obliczeniowe jest w pełni zintegrowane z Azure Machine Learning obszarem roboczym i Studio. Notesy i dane można udostępniać innym analitykom danych w obszarze roboczym. Możesz również skonfigurować VS Code zdalne Programowanie przy użyciu protokołu [SSH](how-to-set-up-vs-code-remote.md) |
-|Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>— Autoinicjowanie obsługi z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH<br/>Włączono protokół TLS 1,2 |
+|Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>— Autoinicjowanie obsługi z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-secure-training-vnet.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH<br/>Włączono protokół TLS 1,2 |
 |Wstępnie skonfigurowane &nbsp; dla &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
 |W pełni dostosowywalne|Szeroka pomoc techniczna dla typów maszyn wirtualnych platformy Azure, w tym GPU i utrwalone dostosowanie niskiego poziomu, takie jak instalowanie pakietów i sterowników, sprawia, że zaawansowane scenariusze to Breeze. |
 
@@ -69,7 +69,7 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 |Anaconda Python||
 |Jupyter i rozszerzenia||
 |Jupyterlab i rozszerzenia||
-[Zestaw SDK usługi Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>z PyPI|Zawiera większość dodatkowych pakietów platformy Azure.  Aby wyświetlić pełną listę, [Otwórz okno terminalu na wystąpieniu obliczeniowym](how-to-run-jupyter-notebooks.md#terminal) i uruchom polecenie <br/> `conda list -n azureml_py36 azureml*` |
+[Zestaw SDK usługi Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>z PyPI|Zawiera większość dodatkowych pakietów platformy Azure.  Aby wyświetlić pełną listę, [Otwórz okno terminalu na wystąpieniu obliczeniowym](how-to-run-jupyter-notebooks.md#terminal) i uruchom polecenie <br/> `conda list -n azureml_py36 azureml*` |
 |Inne pakiety PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pakiety Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pakiety uczenia głębokiego|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -135,6 +135,9 @@ Te akcje można kontrolować za pomocą RBAC:
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja*
 * *Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja*
+
+Dla twórcy wystąpienia obliczeniowego, aby uzyskać dostęp do Jupyter/JupyterLab/RStudio w wystąpieniu obliczeniowym, muszą mieć uprawnienie RBAC poniżej (lub wyższego)
+* *Microsoft. MachineLearningServices/Workspaces/Computes/applicationaccess*
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Tworzenie wystąpienia obliczeniowego
 

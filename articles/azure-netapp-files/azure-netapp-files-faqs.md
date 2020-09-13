@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 09/09/2020
 ms.author: b-juche
-ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590374"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662448"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -49,6 +49,10 @@ Tak, możesz w przypadku utworzenia wymaganych wpisów DNS. Azure NetApp Files d
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Czy mogę ustawić lub wybrać własny adres IP dla woluminu Azure NetApp Files?  
 
 Nie. Przypisanie adresu IP do woluminów Azure NetApp Files jest dynamiczne. Przypisanie statycznego adresu IP nie jest obsługiwane. 
+
+### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Czy Azure NetApp Files obsługuje sieć wirtualną z podwójnym stosem (IPv4 i IPv6)?
+
+Nie, Azure NetApp Files obecnie nie obsługuje sieci wirtualnej z podwójnym stosem (IPv4 i IPv6).  
  
 ## <a name="security-faqs"></a>Często zadawane pytania dotyczące zabezpieczeń
 
@@ -66,10 +70,9 @@ Wszystkie woluminy Azure NetApp Files są szyfrowane przy użyciu standardu FIPS
 
 Zarządzanie kluczami dla Azure NetApp Files jest obsługiwane przez usługę. Dla każdego woluminu jest generowany unikatowy klucz szyfrowania danych XTS-AES-256. Hierarchia kluczy szyfrowania służy do szyfrowania i ochrony wszystkich kluczy woluminów. Te klucze szyfrowania nigdy nie są wyświetlane ani raportowane w nieszyfrowanym formacie. Klucze szyfrowania są usuwane natychmiast po usunięciu woluminu.
 
-Obsługa kluczy zarządzanych przez użytkownika (wprowadzanie własnych kluczy) przy użyciu dedykowanego modułu HSM platformy Azure jest dostępna na kontrolowanej zasadzie w regionach Południowo-środkowe stany USA, USA West2 i Wschodnie stany USA.  Możesz zażądać dostępu pod adresem **anffeedback@microsoft.com** . Gdy pojemność jest dostępna, żądania zostaną zatwierdzone.
+Obsługa kluczy zarządzanych przez klienta (Bring Your Own Key) za pomocą dedykowanego modułu HSM platformy Azure jest dostępna na kontrolowanej zasadzie w regionach Wschodnie stany USA, Południowo-środkowe stany USA, zachodnie stany USA 2 i US Gov Wirginia. Możesz zażądać dostępu pod adresem [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com) . Po udostępnieniu pojemności żądania zostaną zatwierdzone.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Czy można skonfigurować zasady eksportowania systemu plików NFS, aby kontrolować dostęp do celu instalacji usługi Azure NetApp Files Service?
-
 
 Tak, można skonfigurować maksymalnie pięć reguł w ramach jednej zasady eksportowania NFS.
 

@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760094"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661760"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Dokumentacja aparatu reguł standardowych dla usługi Azure CDN
 
@@ -59,7 +59,7 @@ Znak procentu jest używany do wskazania kodowania adresu URL (na przykład `%20
 
 ### <a name="wildcard-values"></a>Wartości symboli wieloznacznych
 
-Obecnie obsługujemy symbol wieloznaczny w **warunku URLPath Match** w aparacie reguł standardowych. \*Znak jest gwiazdką, która reprezentuje jeden lub więcej znaków. 
+Obecnie obsługujemy symbol wieloznaczny w **warunku URLPath Match** w aparacie reguł standardowych. \*Znak jest symbolem wieloznacznym reprezentującym jeden lub więcej znaków. 
 
 ## <a name="next-steps"></a>Następne kroki
 

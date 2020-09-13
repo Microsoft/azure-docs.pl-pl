@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386133"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660476"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalowanie lokalnej bramy danych dla usługi Azure Logic Apps
 
@@ -33,7 +33,7 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
   * Twoje konto platformy Azure musi być kontem służbowym, które wygląda następująco `username@contoso.com` . Nie można używać kont B2B (gość) platformy Azure ani osobistych kont Microsoft, takich jak @hotmail.com lub @outlook.com .
 
     > [!NOTE]
-    > Jeśli zarejestrowano się w celu uzyskania oferty pakietu Office 365 i nie podano służbowego adresu e-mail, adres może wyglądać następująco `username@domain.onmicrosoft.com` . Twoje konto jest przechowywane w dzierżawie usługi Azure AD. W większości przypadków główna nazwa użytkownika (UPN) konta platformy Azure jest taka sama jak w przypadku Twojego adresu e-mail.
+    > Jeśli zarejestrowano się w celu uzyskania oferty Microsoft 365 i nie podano służbowego adresu e-mail, Twój adres może wyglądać jak `username@domain.onmicrosoft.com` . Twoje konto jest przechowywane w dzierżawie usługi Azure AD. W większości przypadków główna nazwa użytkownika (UPN) konta platformy Azure jest taka sama jak w przypadku Twojego adresu e-mail.
 
     Aby użyć [subskrypcji programu Visual Studio w warstwie Standardowa](https://visualstudio.microsoft.com/vs/pricing/) skojarzonej z konto Microsoft, należy najpierw [utworzyć dzierżawę usługi Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) lub użyć domyślnego katalogu. Dodaj użytkownika z hasłem do katalogu, a następnie nadaj temu użytkownikowi dostęp do subskrypcji platformy Azure. Następnie możesz zalogować się podczas instalacji bramy przy użyciu tej nazwy użytkownika i hasła.
 
@@ -142,7 +142,7 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
 Lokalna Brama danych zależy od [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) łączności z chmurą i ustanawiania odpowiednich połączeń wychodzących do skojarzonego z nią regionu platformy Azure. Jeśli środowisko pracy wymaga, aby ruch przechodzi przez serwer proxy lub zaporę w celu uzyskania dostępu do Internetu, to ograniczenie może uniemożliwić lokalnej bramie danych nawiązanie połączenia z usługą bramy w chmurze i Azure Service Bus. Brama ma kilka ustawień komunikacji, które można dostosować. Więcej informacji można znaleźć w następujących tematach:
 
-* [Dostosuj ustawienia komunikacji dla lokalnej bramy danych](/data-integration/gateway/service-gateway-communication)
+* [Dostosowywanie ustawień komunikacji dla lokalnej bramy danych](/data-integration/gateway/service-gateway-communication)
 * [Konfigurowanie ustawień serwera proxy dla lokalnej bramy danych](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>

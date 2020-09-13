@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356886"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662397"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronizacja tożsamości i odporność względem zduplikowanych atrybutów
 Odporność na zduplikowane atrybuty to funkcja w Azure Active Directory, która eliminuje liczbę problemów spowodowanych **przez** wartości **ProxyAddress** i protokołu SMTP podczas uruchamiania jednego z narzędzi do synchronizacji firmy Microsoft.
@@ -44,7 +44,7 @@ _** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.
 
 Proces odporności atrybutów obsługuje tylko wartości **ProxyAddress** UPN i SMTP.
 
-Jeśli atrybut nie jest wymagany, taki jak **ProxyAddress**, Azure Active Directory po prostu przekwarantanna atrybutu konfliktu i kontynuuje proces tworzenia lub aktualizowania obiektu.
+Jeśli atrybut nie jest wymagany, taki jak  **ProxyAddress**, Azure Active Directory po prostu przekwarantanna atrybutu konfliktu i kontynuuje proces tworzenia lub aktualizowania obiektu.
 
 Po poddawania kwarantannie atrybutu informacje o konflikcie są wysyłane w tym samym wiadomości e-mail z raportem o błędzie użytym w starym zachowaniu. Jednak te informacje są wyświetlane tylko w raporcie o błędzie po raz, gdy Kwarantanna przejdzie, nie jest nadal rejestrowane w przyszłych wiadomościach e-mail. Ponadto, ponieważ eksport dla tego obiektu zakończył się pomyślnie, klient synchronizacji nie rejestruje błędu i nie ponawia próby wykonania operacji tworzenia/aktualizacji przy kolejnych cyklach synchronizacji.
 
@@ -126,7 +126,7 @@ Błędy synchronizacji katalogów można wyświetlić w centrum administracyjnym
 
 ![Aktywni użytkownicy](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Aktywni użytkownicy")
 
-Aby uzyskać instrukcje dotyczące sposobu wyświetlania błędów synchronizacji katalogów w centrum administracyjnym Microsoft 365, zobacz [identyfikowanie błędów synchronizacji katalogów w pakiecie Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Aby uzyskać instrukcje dotyczące wyświetlania błędów synchronizacji katalogów w centrum administracyjnym Microsoft 365, zobacz [identyfikowanie błędów synchronizacji katalogów w Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Synchronizacja tożsamości raport o błędach
 Gdy w nowym zachowaniu jest obsługiwany obiekt ze zduplikowanym konfliktem atrybutów, w wiadomości e-mail dotyczącej standardowego błędu synchronizacji tożsamości zostanie uwzględniona powiadomienie wysyłanego do kontaktu z powiadomieniem technicznym dla dzierżawy. Istnieje jednak ważna zmiana tego zachowania. W przeszłości informacje o zduplikowanym konflikcie atrybutu zostałyby uwzględnione w każdym kolejnym raporcie o błędach do momentu rozwiązania konfliktu. W przypadku tego nowego zachowania powiadomienia o błędzie dla danego konfliktu są wyświetlane tylko raz — w momencie, gdy atrybut powodujący konflikt zostanie poddany kwarantannie.
@@ -145,7 +145,7 @@ W poniższym artykule opisano różne strategie rozwiązywania problemów i rozw
 **Podstawowe zachowanie:**
 
 1. Obiekty z określonymi konfiguracjami atrybutów nadal otrzymują błędy eksportu zamiast zduplikowanych atrybutów, które są poddane kwarantannie.  
-   Przykład:
+   Na przykład:
    
     a. Nowy użytkownik jest tworzony w usłudze AD przy użyciu nazwy UPN Jan ** \@ contoso.com** i ProxyAddress **SMTP: Jan \@ contoso.com**
    
@@ -157,7 +157,7 @@ W poniższym artykule opisano różne strategie rozwiązywania problemów i rozw
 **Raport portalu pakietu Office**:
 
 1. Szczegółowy komunikat o błędzie dla dwóch obiektów w zestawie konfliktów nazw UPN jest taki sam. Oznacza to, że mają obie nazwy UPN zmienione/poddane kwarantannie, gdy tylko jeden z nich zmienił dane.
-2. Szczegółowy komunikat o błędzie dotyczący konfliktu nazw UPN przedstawia niewłaściwy element displayName dla użytkownika, który miał nazwę UPN zmieniono/poddane kwarantannie. Przykład:
+2. Szczegółowy komunikat o błędzie dotyczący konfliktu nazw UPN przedstawia niewłaściwy element displayName dla użytkownika, który miał nazwę UPN zmieniono/poddane kwarantannie. Na przykład:
    
     a. **Użytkownik A** najpierw synchronizuje się z nazwą **UPN = User \@ contoso.com**.
    
@@ -177,5 +177,5 @@ Powinno to wskazywać na [https://aka.ms/duplicateattributeresiliency](https://a
 ## <a name="see-also"></a>Zobacz także
 * [Synchronizacja Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
-* [Zidentyfikuj błędy synchronizacji katalogów w pakiecie Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Zidentyfikuj błędy synchronizacji katalogów w Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

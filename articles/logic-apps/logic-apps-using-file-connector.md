@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 1e6abeff8998e55eb7cbf450d1c3cc32f233e382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065965"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659926"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Łączenie z lokalnymi systemami plików przy użyciu usługi Azure Logic Apps
 
@@ -35,7 +35,7 @@ W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodni
 
 * Dostęp do komputera z systemem plików, który ma być używany. Na przykład w przypadku zainstalowania bramy danych na tym samym komputerze, na którym znajduje się system plików, potrzebne są poświadczenia konta dla tego komputera.
 
-* Konto e-mail dostawcy, który jest obsługiwany przez Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. W przypadku innych dostawców [przejrzyj tę listę łączników](/connectors/). Ta aplikacja logiki korzysta z konta Office 365 Outlook. Jeśli korzystasz z innego konta e-mail, ogólne kroki będą takie same, ale interfejs użytkownika może się trochę różnić.
+* Konto e-mail dostawcy, który jest obsługiwany przez Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. W przypadku innych dostawców [przejrzyj tę listę łączników](/connectors/). Ta aplikacja logiki korzysta z konta służbowego. Jeśli korzystasz z innego konta e-mail, ogólne kroki będą takie same, ale interfejs użytkownika może się trochę różnić.
 
   > [!IMPORTANT]
   > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).

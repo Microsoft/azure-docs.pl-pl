@@ -5,17 +5,17 @@ description: Dowiedz się, jak szkolić model i skonfigurować potok prognozowan
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319613"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661499"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Prognozowanie partii za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,9 +71,12 @@ W tej sekcji utworzysz parametr dataset, aby określić inny zestaw danych do tw
    
     Wprowadź nazwę parametru lub Zaakceptuj wartość domyślną.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>Publikowanie potoku programu Batch inferencing
+    > [!div class="mx-imgBorder"]
+    > ![Ustaw zestaw danych jako parametr potoku](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-Teraz wszystko jest gotowe do wdrożenia potoku inferencing. Spowoduje to wdrożenie potoku i udostępnienie go innym osobom.
+## <a name="publish-your-batch-inference-pipeline"></a>Publikowanie potoku wnioskowania partii
+
+Teraz wszystko jest gotowe do wdrożenia potoku wnioskowania. Spowoduje to wdrożenie potoku i udostępnienie go innym osobom.
 
 1. Wybierz przycisk **Publikuj**.
 
@@ -126,9 +129,7 @@ Informacje o sposobach korzystania z punktów końcowych potoku i opublikowanego
 
 Punkt końcowy REST punktu końcowego potoku można znaleźć w panelu przegląd przebiegu. Wywołując punkt końcowy, korzystasz z domyślnego opublikowanego potoku.
 
-Możesz również wykorzystać opublikowany potok na stronie **opublikowane potoki** . Wybierz opublikowany potok i Znajdź punkt końcowy REST. 
-
-![Szczegóły punktu końcowego REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+Możesz również wykorzystać opublikowany potok na stronie **opublikowane potoki** . Wybierz opublikowany potok i możesz znaleźć punkt końcowy REST w panelu **Przegląd opublikowanych potoków** z prawej strony wykresu. 
 
 Aby można było wywołać metodę REST, potrzebny jest nagłówek uwierzytelniania OAuth 2,0 typu okaziciela. Zapoznaj się z poniższą [sekcją samouczka](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) , aby uzyskać więcej szczegółów na temat konfigurowania uwierzytelniania do obszaru roboczego i wykonywania sparametryzowanych wywołań REST.
 
@@ -142,7 +143,7 @@ Podczas publikowania potoku możesz wybrać opcję nowego domyślnego potoku dla
 
 Możesz również ustawić nowy potok domyślny na karcie **opublikowane potoki** w punkcie końcowym.
 
-![Ustawianie potoku domyślnego](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Ustaw domyślny potok na stronie opublikowanego potoku](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

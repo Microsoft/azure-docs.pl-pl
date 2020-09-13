@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 73cb8396876a5baad74190ec9a86237362037c36
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1449114ad14ebbd064f95ad2853b516893ba4b12
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908904"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661687"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktywny debugowanie za pomocą Visual Studio Code
 
@@ -37,7 +37,7 @@ W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w j
   * Wystąpienie obliczeniowe maszyny wirtualnej notesu w sieci wirtualnej
   * Komputer kliencki, który ma łączność sieci prywatnej z siecią wirtualną, przez sieć VPN lub za pośrednictwem usługi ExpressRoute.
 
-Aby uzyskać więcej informacji na temat używania Virtual Network platformy Azure z usługą Azure Machine Learning, zobacz [bezpieczne zadania eksperymentowania i wnioskowania usługi Azure ml w ramach Virtual Network platformy Azure](how-to-enable-virtual-network.md).
+Aby uzyskać więcej informacji na temat używania Virtual Network platformy Azure z usługą Azure Machine Learning, zobacz [Omówienie izolacji i prywatności w sieci wirtualnej](how-to-network-security-overview.md).
 
 > [!TIP]
 > Chociaż można korzystać z zasobów Azure Machine Learning, które nie znajdują się poza siecią wirtualną, zaleca się użycie sieci wirtualnej.
@@ -281,7 +281,7 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
 W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python zawartego we wdrożeniu modelu. Na przykład, jeśli skrypt wejścia kończy się niepowodzeniem i powód nie może być określony przez dodatkowe rejestrowanie. Za pomocą VS Code i debugpy można dołączyć do kodu działającego wewnątrz kontenera Docker.
 
 > [!IMPORTANT]
-> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) .
+> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) .
 
 Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker w systemie lokalnym. Aby uzyskać więcej informacji na temat korzystania z platformy Docker, zapoznaj się z [dokumentacją platformy Docker](https://docs.docker.com/). Należy pamiętać, że podczas pracy z wystąpieniami obliczeniowymi program Docker jest już zainstalowany.
 

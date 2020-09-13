@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652104"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658564"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -204,9 +204,9 @@ Na przykład Kompilowanie modelu __dla każdego wystąpienia lub poszczególnych
 
 ## <a name="automl-in-azure-machine-learning"></a>AutoML w Azure Machine Learning
 
-Azure Machine Learning oferuje dwa środowiska do pracy z automatycznymi ML
+Azure Machine Learning oferuje dwa środowiska do pracy z zautomatyzowanymi ML:
 
-* W przypadku kodów doświadczonych klientów [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* W przypadku kodów doświadczonych klientów [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * W przypadku klientów z ograniczoną ilością kodu, Azure Machine Learning Studio w [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -277,7 +277,7 @@ Samouczki to kompleksowe przykładowe scenariusze AutoML.
 
  + **W przypadku środowiska z niską lub brakiem kodu**zapoznaj się z [samouczkiem: Tworzenie zautomatyzowanych modeli klasyfikacji ml przy użyciu programu Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Przykład: 
+Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Na przykład 
 
 + Konfigurowanie ustawień automatycznych eksperymentów szkoleniowych
     + W programie Azure Machine Learning Studio [wykonaj te kroki](how-to-use-automated-ml-for-ml-models.md). 
@@ -289,9 +289,9 @@ Jak artykuły zawierają dodatkowe informacje o oferowanych funkcjach AutoML. Pr
 
 Zapoznaj się ze szczegółowymi przykładami kodu i przypadkami użycia w [repozytorium notesu usługi GitHub w celu uzyskania automatycznych próbek usługi Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
-### <a name="python-sdk-reference"></a>Dokumentacja zestawu SDK języka Python 
+### <a name="python-sdk-reference"></a>Dokumentacja zestawu SDK języka Python
 
-Pogłębij wiedzę o wzorcach projektowych zestawu SDK i specyfikacjach klas przy użyciu [dokumentacji dotyczącej klasy AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+Pogłębij wiedzę o wzorcach projektowych zestawu SDK i specyfikacjach klas przy użyciu [dokumentacji dotyczącej klasy AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
 
 > [!Note]
 > Funkcje automatycznego uczenia maszynowego są również dostępne w innych rozwiązaniach firmy Microsoft, takich jak [ml.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) i [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

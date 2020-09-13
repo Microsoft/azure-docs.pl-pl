@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: fbe3f0109ca3af2cf9ff44061c7882e6bd72c8a6
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ab8a49f62735a47c4ccc9fa488eed60088cd9c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508606"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658591"
 ---
 # <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Enterprise (wersja zapoznawcza) i podstawowe wersje Azure Machine Learning 
 
@@ -113,7 +113,7 @@ Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise (w
 | Możliwości     | Wersja                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Obsługa [kontroli dostępu opartej na rolach (Azure RBAC)](how-to-assign-roles.md)                                           | Wszystko                     |
-| Obsługa [Virtual Network (VNET)](how-to-enable-virtual-network.md) dla obliczeń                                         | Wszystko                     |
+| Obsługa [Virtual Network (VNET)](how-to-secure-training-vnet.md) dla obliczeń                                         | Wszystko                     |
 | Ocenianie uwierzytelniania punktu końcowego                                                    | Wszystko                     |
 | [Prywatny link obszaru roboczego](how-to-configure-private-link.md)                                                            | Wszystko                     |
 | [Zarządzanie przydziałami](how-to-manage-quotas.md) w różnych obszarach roboczych                                                 | Tylko wersja Enterprise |

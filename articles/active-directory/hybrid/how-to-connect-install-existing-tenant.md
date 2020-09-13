@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640654"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662252"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Jeśli masz istniejącą dzierżawę
 W większości tematów dotyczących używania Azure AD Connect założono, że zaczynasz od nowej dzierżawy usługi Azure AD i nie ma żadnych użytkowników ani innych obiektów. Ale jeśli rozpoczęłasz korzystanie z dzierżawy usługi Azure AD, wypełnisz ją użytkownikami i innymi obiektami, a teraz chcesz korzystać z programu Connect, ten temat jest dla Ciebie.
@@ -41,7 +41,7 @@ Dopasowanie jest oceniane tylko dla nowych obiektów pochodzących z połączeni
 Jeśli usługa Azure AD odnajdzie obiekt, w którym wartości atrybutów są takie same dla obiektu pochodzącego z połączenia i że już istnieje w usłudze Azure AD, obiekt w usłudze Azure AD jest przełączany przez połączenie. Wcześniej obiekt zarządzany przez chmurę jest oflagowany jako zarządzany lokalnie. Wszystkie atrybuty w usłudze Azure AD z wartością w lokalnej usłudze AD są zastępowane wartością lokalną. Wyjątek występuje, gdy atrybut ma wartość **null** w środowisku lokalnym. W takim przypadku wartość w usłudze Azure AD pozostaje niezmieniona, ale nadal można ją zmienić lokalnie na inną.
 
 > [!WARNING]
-> Ponieważ wszystkie atrybuty w usłudze Azure AD są zastępowane przez wartość lokalną, upewnij się, że masz dobre dane lokalnie. Jeśli na przykład masz tylko zarządzany adres e-mail w pakiecie Office 365 i nie będzie on aktualizowany w AD DS lokalnym, utracisz wszelkie wartości w usłudze Azure AD/pakiecie Office 365 nieobecnym w AD DS.
+> Ponieważ wszystkie atrybuty w usłudze Azure AD są zastępowane przez wartość lokalną, upewnij się, że masz dobre dane lokalnie. Jeśli na przykład masz tylko zarządzany adres e-mail w usłudze Microsoft 365 i nie będzie on aktualizowany w AD DS lokalnym, utracisz wszelkie wartości w usłudze Azure AD/Microsoft 365 nieobecny w AD DS.
 
 > [!IMPORTANT]
 > Jeśli używasz synchronizacji haseł, która jest zawsze używana przez ustawienia ekspresowe, hasło w usłudze Azure AD jest zastępowane hasłem w lokalnej usłudze AD. Jeśli użytkownicy są używani do zarządzania różnymi hasłami, należy poinformować ich o konieczności użycia hasła lokalnego po zainstalowaniu programu Connect.

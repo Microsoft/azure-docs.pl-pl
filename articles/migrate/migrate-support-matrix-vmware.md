@@ -3,12 +3,12 @@ title: Obsługa oceny VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za pomocą oceny serwera Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4f724297f216267dadda31be4bd548eb241b9845
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266973"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660286"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
@@ -33,7 +33,7 @@ Jeśli chcesz przeprowadzić migrację maszyn wirtualnych VMware na platformę A
 
 **VMware** | **Szczegóły**
 --- | ---
-**Program vCenter Server** | Komputery, które mają być odnajdywane i oceniane, muszą być zarządzane przez vCenter Server w wersji 5,5, 6,0, 6,5 lub 6,7.
+**Program vCenter Server** | Komputery, które mają być odnajdywane i oceniane, muszą być zarządzane przez vCenter Server w wersji 5,5, 6,0, 6,5, 6,7 lub 7,0.<br/><br/> Odnajdywanie maszyn wirtualnych VMware przez udostępnienie szczegółów hosta ESXi w urządzeniu nie jest obecnie obsługiwane.
 **Uprawnienia** | Ocena serwera wymaga vCenter Server konta tylko do odczytu na potrzeby odnajdywania i oceny.<br/><br/> Jeśli chcesz przeprowadzić odnajdywanie aplikacji lub wizualizację zależności, konto musi mieć uprawnienia Włącz dla **Virtual Machines**  >  **operacji gościa**.
 
 ## <a name="vm-requirements"></a>Wymagania dotyczące maszyny wirtualnej
@@ -89,7 +89,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 **poświadczenia vCenter Server** | Wizualizacja zależności wymaga konta vCenter Server z dostępem tylko do odczytu, a uprawnienia do Virtual Machines > operacji gościa.
 **Uprawnienia maszyny wirtualnej z systemem Windows** |  W przypadku analizy zależności urządzenie Azure Migrate wymaga konta administratora domeny lub konta administratora lokalnego, aby uzyskać dostęp do maszyn wirtualnych z systemem Windows.
 **Maszyny wirtualne z systemem Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Konto systemu Linux** | W przypadku analizy zależności na komputerach z systemem Linux urządzenie Azure Migrate musi mieć konto użytkownika z uprawnieniami administratora.<br/><br/> Alternatywnie konto użytkownika wymaga tych uprawnień w przypadku plików/bin/netstat i/bin/ls: CAP_DAC_READ_SEARCH i CAP_SYS_PTRACE.
+**Konto systemu Linux** | W przypadku analizy zależności na komputerach z systemem Linux urządzenie Azure Migrate musi mieć konto użytkownika z uprawnieniami administratora.<br/><br/> Alternatywnie konto użytkownika wymaga tych uprawnień w przypadku plików/bin/netstat i/bin/ls: CAP_DAC_READ_SEARCH i CAP_SYS_PTRACE. Te funkcje należy ustawić przy użyciu następujących poleceń: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
 **Wymagani agenci** | Na maszynach, które mają być analizowane, nie jest wymagany żaden Agent.
 **Narzędzia VMware** | Narzędzia VMware (nowsze niż 10,2) muszą być zainstalowane i uruchomione na każdej maszynie wirtualnej, która ma zostać przeanalizowana.
 

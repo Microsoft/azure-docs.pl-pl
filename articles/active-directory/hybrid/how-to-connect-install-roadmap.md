@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bee5ba92f6795df6635dc98a19cabaeb9692a470
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358739"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662141"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Harmonogram instalacji usług Azure AD Connect i Azure AD Connect Health.
 
@@ -49,14 +49,14 @@ Program Azure AD Connect można pobrać z [Centrum pobierania Microsoft](https:/
 |Po instalacji | [Weryfikowanie instalacji i przypisywanie licencji](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Więcej informacji o instalowaniu programu Azure AD Connect
-Warto również przygotować się na kwestie związane z [działaniem](how-to-connect-sync-operations.md). Może być wskazane zastosowanie serwera zapasowego umożliwiającego łatwe przełączenie w przypadku [awarii](how-to-connect-sync-staging-server.md#disaster-recovery). Jeśli planujesz częste wprowadzanie zmian konfiguracji, należy zaplanować serwer [trybu przejściowego](how-to-connect-sync-staging-server.md).
+Warto również przygotować się na kwestie związane z [działaniem](./how-to-connect-sync-staging-server.md). Może być wskazane zastosowanie serwera zapasowego umożliwiającego łatwe przełączenie w przypadku [awarii](how-to-connect-sync-staging-server.md#disaster-recovery). Jeśli planujesz częste wprowadzanie zmian konfiguracji, należy zaplanować serwer [trybu przejściowego](how-to-connect-sync-staging-server.md).
 
 |Temat |Link|  
 | --- | --- |
 |Obsługiwane topologie | [Topologie obsługiwane w programie Azure AD Connect](plan-connect-topologies.md)|
 |Zagadnienia dotyczące projektowania | [Zagadnienia dotyczące projektowania przy korzystaniu z programu Azure AD Connect](plan-connect-design-concepts.md)|
 |Konta używane do instalacji | [Więcej informacji na temat poświadczeń i uprawnień dla programu Azure AD Connect](reference-connect-accounts-permissions.md)|
-|Planowanie operacyjne | [Synchronizacja programu Azure AD Connect: zagadnienia i zadania operacyjne](how-to-connect-sync-operations.md)|
+|Planowanie operacyjne | [Synchronizacja programu Azure AD Connect: zagadnienia i zadania operacyjne](./how-to-connect-sync-staging-server.md)|
 |Opcje logowania użytkowników | [Opcje logowania użytkowników w programie Azure AD Connect](plan-connect-user-signin.md)|
 
 ## <a name="configure-sync-features"></a>Konfigurowanie funkcji synchronizacji
@@ -66,7 +66,7 @@ Program Azure AD Connect zawiera szereg funkcji, które są domyślnie włączon
 
 [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md) umożliwia synchronizowanie skrótów haseł w usłudze Active Directory z usługą Azure AD. Użytkownik końcowy może korzystać z tego samego hasła lokalnie i w chmurze, zarządzając nim w jednej lokalizacji. Ponieważ źródłem jest lokalna usługa Active Directory, można używać również własnych zasad haseł.
 
-[Zapisywanie zwrotne haseł](../authentication/quickstart-sspr.md) umożliwia użytkownikom zmienianie i resetowanie haseł w chmurze i stosowanie lokalnych zasad haseł.
+[Zapisywanie zwrotne haseł](../authentication/tutorial-enable-sspr.md) umożliwia użytkownikom zmienianie i resetowanie haseł w chmurze i stosowanie lokalnych zasad haseł.
 
 [Zapisywanie zwrotne urządzeń](how-to-connect-device-writeback.md) umożliwi zapisanie urządzenia w usłudze Azure AD z powrotem do Active Directory lokalnego, dzięki czemu będzie można go używać na potrzeby dostępu warunkowego.
 
@@ -80,7 +80,7 @@ Funkcja [zapobiegania przypadkowemu usuwaniu](how-to-connect-sync-feature-preven
 |Konfigurowanie filtrowania | [Synchronizacja programu Azure AD Connect: konfigurowanie filtrowania](how-to-connect-sync-configure-filtering.md)|
 |Synchronizacja skrótów haseł | [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md)|
 |Uwierzytelnianie przekazywane | [Uwierzytelnianie przekazywane](how-to-connect-pta.md)
-|Zapisywanie zwrotne haseł | [Wprowadzenie do zarządzania hasłami](../authentication/quickstart-sspr.md)|
+|Zapisywanie zwrotne haseł | [Wprowadzenie do zarządzania hasłami](../authentication/tutorial-enable-sspr.md)|
 |Zapisywanie zwrotne urządzeń | [Włączanie zapisywania zwrotnego urządzeń w programie Azure AD Connect](how-to-connect-device-writeback.md)|
 |Zapobieganie przypadkowemu usuwaniu | [Synchronizacja programu Azure AD Connect: zapobieganie przypadkowemu usuwaniu](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |Automatycznie uaktualnianie | [Azure AD Connect: automatyczne uaktualnianie](how-to-connect-install-automatic-upgrade.md)|
@@ -124,7 +124,7 @@ Jeśli serwer usług AD FS nie został skonfigurowany tak, aby automatycznie akt
 |Wszystkie artykuły dotyczące usług AD FS | [Azure AD Connect i Federacja](how-to-connect-fed-whatis.md)|
 |Konfigurowanie usług AD FS z poddomenami | [Obsługa wielu domen do federowania w usłudze Azure AD](how-to-connect-install-multiple-domains.md)|
 |Zarządzanie farmą usług AD FS | [Dostosowywanie usług AD FS i zarządzanie nimi za pomocą programu Azure AD Connect](how-to-connect-fed-management.md)|
-|Ręczne aktualizowanie certyfikatów federacji | [Odnawianie certyfikatów federacji dla usług Office 365 i Azure AD](how-to-connect-fed-o365-certs.md)|
+|Ręczne aktualizowanie certyfikatów federacji | [Odnawianie certyfikatów federacyjnych dla Microsoft 365 i usługi Azure AD](how-to-connect-fed-o365-certs.md)|
 
 
 ## <a name="get-started-with-azure-ad-connect-health"></a>Wprowadzenie do programu Azure AD Connect Health

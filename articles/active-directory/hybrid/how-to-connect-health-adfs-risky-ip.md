@@ -16,15 +16,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359352"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660838"
 ---
 # <a name="risky-ip-report-public-preview"></a>Raport dotyczący ryzykownych adresów IP (publiczna wersja zapoznawcza)
-Klienci usług AD FS mogą uwidaczniać w Internecie punkty końcowe uwierzytelniania za pomocą hasła w celu udostępniania użytkownikom końcowym usług uwierzytelniania umożliwiających dostęp do aplikacji SaaS, takich jak usługa Office 365. W takim przypadku możliwe są nieuprawnione próby logowania przy użyciu systemu AD FS w celu odgadnięcia hasła użytkownika końcowego i uzyskania dostępu do zasobów aplikacji. Od wersji 2012 R2 systemu Windows Server usługi AD FS udostępniają funkcję blokady konta na ekstranecie, która uniemożliwia przeprowadzenie takich ataków. Jeśli korzystasz ze starszej wersji, zdecydowanie zalecamy uaktualnienie systemu AD FS do wersji 2016 systemu Windows Server. <br />
+AD FS klienci mogą uwidaczniać punkty końcowe uwierzytelniania hasła w Internecie w celu zapewnienia usług uwierzytelniania dla użytkowników końcowych w celu uzyskania dostępu do aplikacji SaaS, takich jak Microsoft 365. W takim przypadku możliwe są nieuprawnione próby logowania przy użyciu systemu AD FS w celu odgadnięcia hasła użytkownika końcowego i uzyskania dostępu do zasobów aplikacji. Od wersji 2012 R2 systemu Windows Server usługi AD FS udostępniają funkcję blokady konta na ekstranecie, która uniemożliwia przeprowadzenie takich ataków. Jeśli korzystasz ze starszej wersji, zdecydowanie zalecamy uaktualnienie systemu AD FS do wersji 2016 systemu Windows Server. <br />
 
 Ponadto możliwe jest podejmowanie szeregu prób logowania z jednego adresu IP przy użyciu danych wielu użytkowników. W takich przypadkach liczba prób na użytkownika może być mniejsza od wartości progowej ochronnej blokady konta w usługach AD FS. Aktualnie program Azure AD Connect Health udostępnia raport ryzykownych adresów IP, który pozwala wykryć ten stan i powiadomić administratorów. Poniżej wymieniono najważniejsze zalety korzystania z tego raportu: 
 - Wykrywanie adresów IP, w przypadku których przekroczono próg nieudanych prób logowania opartego na haśle
@@ -35,7 +35,7 @@ Ponadto możliwe jest podejmowanie szeregu prób logowania z jednego adresu IP p
 
 > [!NOTE]
 > Aby móc korzystać z tego raportu, należy się upewnić, że inspekcja usług AD FS jest włączona. Aby uzyskać więcej informacji, zobacz [Włączanie inspekcji dla usług AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> W celu uzyskania dostępu do wersji zapoznawczej wymagane są uprawnienia administratora globalnego lub [czytelnika zabezpieczeń](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader).  
+> W celu uzyskania dostępu do wersji zapoznawczej wymagane są uprawnienia administratora globalnego lub [czytelnika zabezpieczeń](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>Co znajduje się w raporcie?
@@ -99,7 +99,7 @@ Próg alertu można zaktualizować za pomocą ustawień progowych. W systemie je
 
 ## <a name="faq"></a>Często zadawane pytania
 **Dlaczego w raporcie są widoczne zakresy prywatnych adresów IP?**  <br />
-Prywatne adresy IP (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) i adresy IP programu Exchange są odfiltrowane i oznaczone wartością True na liście dozwolonych adresów IP. Jeśli zakresy prywatnych adresów IP są widoczne, prawdopodobnie zewnętrzny moduł równoważenia obciążenia nie wysyła adresu IP klienta podczas przekazywania żądania do serwera proxy aplikacji internetowych.
+Prywatne adresy IP (<i>10. x. x. x, 172. x. x. x & 192.168. x. x</i>) i adresy IP programu Exchange są filtrowane i oznaczone jako prawdziwe na liście zatwierdzonych adresów IP. Jeśli zakresy prywatnych adresów IP są widoczne, prawdopodobnie zewnętrzny moduł równoważenia obciążenia nie wysyła adresu IP klienta podczas przekazywania żądania do serwera proxy aplikacji internetowych.
 
 **Dlaczego w raporcie widzę adresy IP modułu równoważenia obciążenia?**  <br />
 Jeśli adresy IP modułu równoważenia obciążenia są widoczne, prawdopodobnie zewnętrzny moduł równoważenia obciążenia nie wysyła adresu IP klienta podczas przekazywania żądania do serwera proxy aplikacji internetowych. Skonfiguruj prawidłowo moduł równoważenia obciążenia, aby przekazać adres IP klienta na potrzeby przekazywania dalej. 
@@ -113,9 +113,9 @@ Złośliwy adres IP należy dodać do zapory lub blokady w programie Exchange.  
 - Na farmach AD FS nie włączono inspekcji.
 
 **Dlaczego nie mam dostępu do raportu?**  <br />
-Wymagane są uprawnienia administratora globalnego lub [czytelnika zabezpieczeń](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Skontaktuj się z administratorem globalnym, aby uzyskać dostęp.
+Wymagane są uprawnienia administratora globalnego lub [czytelnika zabezpieczeń](../../role-based-access-control/built-in-roles.md#security-reader). Skontaktuj się z administratorem globalnym, aby uzyskać dostęp.
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalowanie agenta programu Azure AD Connect Health](how-to-connect-health-agent-install.md)

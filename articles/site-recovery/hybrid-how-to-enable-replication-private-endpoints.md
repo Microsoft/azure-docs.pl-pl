@@ -1,24 +1,21 @@
 ---
 title: Włącz replikację dla maszyn lokalnych z prywatnymi punktami końcowymi
 description: W tym artykule opisano sposób konfigurowania replikacji dla maszyn lokalnych przy użyciu prywatnych punktów końcowych w Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 13c19f07ac21f986a5523407e46c59c050ebf96d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142081"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658807"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replikowanie maszyn lokalnych za pomocą prywatnych punktów końcowych
 
-Azure Site Recovery umożliwia używanie prywatnych punktów końcowych prywatnego [linku platformy Azure](../private-link/private-endpoint-overview.md) do replikowania maszyn lokalnych do sieci wirtualnej na platformie Azure. Obsługa dostępu do prywatnego punktu końcowego do magazynu odzyskiwania jest obsługiwana w następujących regionach:
-
-- Komercyjne platformy Azure: Południowo-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA
-- Azure Government: US Gov Wirginia, US Gov Arizona, US Gov Teksas, US DoD (region wschodni), US DoD (region środkowy)
+Azure Site Recovery umożliwia używanie prywatnych punktów końcowych prywatnego [linku platformy Azure](../private-link/private-endpoint-overview.md) do replikowania maszyn lokalnych do sieci wirtualnej na platformie Azure. Dostęp prywatnego punktu końcowego do magazynu odzyskiwania jest obsługiwany we wszystkich regionach instytucji rządowych & handlowych platformy Azure.
 
 W tym artykule opisano sposób wykonywania następujących czynności:
 

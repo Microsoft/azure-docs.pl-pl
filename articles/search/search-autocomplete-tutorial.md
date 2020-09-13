@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c0031b09dbb3335113cb52c9b3ec5e4fd4fa2758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8be53838f6262eaafc643bc78fd08b6f02d9bac6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011583"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660262"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Dodawanie funkcji Autouzupełnianie i sugestii do aplikacji klienckich
 
@@ -139,9 +139,11 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Funkcja Sugeruj
 
-Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie DocumentsOperationsExtensions. sugerował](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+Jeśli używasz języka C# i aplikacji MVC, plik **HomeController.cs** w katalogu controllers jest miejscem, w którym można utworzyć klasę sugerowanych wyników. W programie .NET Funkcja Sugeruj jest oparta na [metodzie DocumentsOperationsExtensions. sugerował](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet). Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](./search-howto-dotnet-sdk.md).
 
-`InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Aby uzyskać więcej informacji na temat zestawu .NET SDK, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](./search-howto-dotnet-sdk.md).
+`InitSearch`Metoda tworzy uwierzytelnionego klienta indeksu http w usłudze Azure wyszukiwanie poznawcze. Właściwości klasy [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) określają, które pola są przeszukiwane i zwracane w wynikach, liczbę dopasowań oraz czy użyto dopasowania rozmytego. 
+
+W przypadku autouzupełniania dopasowywanie rozmyte jest ograniczone do jednej odległości edycji (jeden pominięty lub nieumieszczony znak). Należy zauważyć, że dopasowywanie rozmyte w zapytaniach autouzupełniania może czasami generować nieoczekiwane wyniki w zależności od rozmiaru indeksu i sposobu jego podzielonej na fragmenty. Aby uzyskać więcej informacji, zobacz [pojęcia dotyczące partycji i fragmentowania](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -245,10 +247,10 @@ public ActionResult AutoComplete(string term)
 
 Funkcja Autouzupełnianie pobiera dane wejściowe terminu wyszukiwania. Metoda tworzy [obiekt AutoCompleteParameters](/rest/api/searchservice/autocomplete). Wynik jest następnie konwertowany na format JSON, dzięki czemu można go wyświetlić w kliencie.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Skorzystaj z tych linków, aby uzyskać szczegółowe instrukcje lub kod pokazujący, że oba środowiska wyszukiwania są w trakcie pisania. Oba przykłady kodu obejmują hybrydowe implementacje sugestii i funkcji Autouzupełnianie.
 
 + [Samouczek: Tworzenie pierwszej aplikacji w języku C# (Lekcja 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Przykładowy kod w języku C#: Azure-Search-dotnet-Samples/Create-First-App/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [Przykładowy kod w języku C#: Azure-Search-dotnet-Samples/Create-First-App/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
 + [C# i JavaScript za pomocą przykładowego kodu REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

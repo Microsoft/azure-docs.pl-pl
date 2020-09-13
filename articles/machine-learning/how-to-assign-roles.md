@@ -11,14 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079590"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661925"
 ---
-# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak zarządzać dostępem do obszaru roboczego Azure Machine Learning. [Kontrola dostępu oparta na rolach (Azure RBAC)](/azure/role-based-access-control/overview) służy do zarządzania dostępem do zasobów platformy Azure. Użytkownicy w Azure Active Directory są przypisani do określonych ról, które przyznają dostęp do zasobów. Platforma Azure udostępnia wbudowane role i możliwość tworzenia ról niestandardowych.
@@ -46,7 +46,7 @@ Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role
 - [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
 - [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Szablony usługi Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Szablony Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md), do przypisywania ról użytkownikom można używać poleceń CLI:
 
@@ -135,16 +135,16 @@ Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawni
 | Działanie | Zakres poziomu subskrypcji | Zakres poziomu grupy zasobów | Zakres obszaru roboczego |
 | ----- | ----- | ----- | ----- |
 | Utwórz nowy obszar roboczy | Niewymagane | Właściciel lub współautor | Nie dotyczy (jest właścicielem lub dziedziczy wyższy zakres roli po utworzeniu) |
-| Aktualizowanie wersji obszaru roboczego | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`/workspaces/write` |
-| Żądaj przydziału Amlcompute poziomu subskrypcji lub ustawienia przydziału poziomu obszaru roboczego | Właściciel lub współautor lub rola niestandardowa </br>umożliwiające`/locations/updateQuotas/action`</br> w zakresie subskrypcji | Brak autoryzacji | Brak autoryzacji |
-| Utwórz nowy klaster obliczeniowy | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`/workspaces/computes/write` |
-| Utwórz nowe wystąpienie obliczeniowe | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`/workspaces/computes/write` |
-| Przesyłanie dowolnego typu przebiegu | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publikowanie punktu końcowego potoku | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| Wdrażanie zarejestrowanego modelu w zasobie AKS/ACI | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Aktualizowanie wersji obszaru roboczego | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/write` |
+| Żądaj przydziału Amlcompute poziomu subskrypcji lub ustawienia przydziału poziomu obszaru roboczego | Właściciel lub współautor lub rola niestandardowa </br>umożliwiające `/locations/updateQuotas/action`</br> w zakresie subskrypcji | Brak autoryzacji | Brak autoryzacji |
+| Utwórz nowy klaster obliczeniowy | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/computes/write` |
+| Utwórz nowe wystąpienie obliczeniowe | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/computes/write` |
+| Przesyłanie dowolnego typu przebiegu | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Publikowanie punktu końcowego potoku | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Wdrażanie zarejestrowanego modelu w zasobie AKS/ACI | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Ocenianie względem wdrożonego punktu końcowego AKS | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (jeśli nie używasz uwierzytelniania Azure Active Directory) lub `"/workspaces/read"` (Jeśli używasz uwierzytelniania tokenu) |
-| Uzyskiwanie dostępu do magazynu przy użyciu notesów interaktywnych | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
-| Utwórz nową rolę niestandardową | Właściciel, współautor lub rola niestandardowa zezwalająca na`Microsoft.Authorization/roleDefinitions/write` | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na:`/workspaces/computes/write` |
+| Uzyskiwanie dostępu do magazynu przy użyciu notesów interaktywnych | Niewymagane | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Utwórz nową rolę niestandardową | Właściciel, współautor lub rola niestandardowa zezwalająca na `Microsoft.Authorization/roleDefinitions/write` | Niewymagane | Właściciel, współautor lub rola niestandardowa zezwalająca na: `/workspaces/computes/write` |
 
 > [!TIP]
 > Jeśli wystąpi błąd podczas próby utworzenia obszaru roboczego po raz pierwszy, upewnij się, że rola zezwala `Microsoft.MachineLearningServices/register/action` . Ta akcja umożliwia zarejestrowanie dostawcy zasobów Azure Machine Learning w ramach subskrypcji platformy Azure.
@@ -429,6 +429,6 @@ Aby wykonać wszystkie operacje związane z przydziałami w obszarze roboczym, m
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przegląd zabezpieczeń przedsiębiorstwa](concept-enterprise-security.md)
-- [Bezpieczne uruchamianie eksperymentów i wnioskowania/wyniku w sieci wirtualnej](how-to-enable-virtual-network.md)
+- [Omówienie izolacji i prywatności sieci wirtualnej](how-to-network-security-overview.md)
 - [Samouczek: uczenie modeli](tutorial-train-models-with-aml.md)
 - [Operacje dostawcy zasobów](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

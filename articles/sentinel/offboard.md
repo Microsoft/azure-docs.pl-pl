@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77581688"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662006"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Usuń wskaźnik platformy Azure z obszaru roboczego
 
@@ -48,13 +48,13 @@ Po zidentyfikowaniu rozłączenia rozpocznie się proces odłączania.
 
 -   AWS
 
--   Alerty zabezpieczeń usług firmy Microsoft (Azure ATP, Microsoft Cloud App Security, w tym Cloud Discovery do raportowania IT w tle, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
+-   Alerty zabezpieczeń usług firmy Microsoft: Microsoft Defender for Identity (*dawniej Azure ATP*), Microsoft Cloud App Security, w tym Cloud Discovery raportowanie IT w tle, Azure AD Identity Protection, Microsoft Defender for Endpoint (*dawniej Microsoft Defender ATP*), Azure Defender (*dawniej Azure Security Center*)
 
 -   Analiza zagrożeń
 
--   Typowe dzienniki zabezpieczeń (w tym dzienniki CEF, Barracuda i dziennik systemu) (Jeśli masz Azure Security Center, dzienniki będą nadal zbierane).
+-   Typowe dzienniki zabezpieczeń (w tym dzienniki z systemem CEF, Barracuda i dziennik systemowy) (Jeśli masz usługę Azure Defender, te dzienniki będą nadal zbierane).
 
--   Zdarzenia zabezpieczeń systemu Windows (Jeśli masz Azure Security Center, dzienniki będą nadal zbierane).
+-   Zdarzenia zabezpieczeń systemu Windows (Jeśli masz usługę Azure Defender, te dzienniki będą nadal zbierane).
 
 W ciągu pierwszych 48 godzin reguły danych i analityczne (w tym konfiguracja automatyzacji w czasie rzeczywistym) nie będą już dostępne ani Queryable na platformie Azure.
 

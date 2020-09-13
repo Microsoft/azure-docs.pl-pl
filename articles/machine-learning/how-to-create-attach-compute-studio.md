@@ -1,5 +1,5 @@
 ---
-title: Tworzenie zasobów obliczeniowych w programie Studio
+title: Tworzenie szkoleń & wdrażanie obliczeń (Studio)
 titleSuffix: Azure Machine Learning
 description: Korzystanie z programu Studio do tworzenia zasobów obliczeniowych dotyczących szkoleń i wdrożeń (cele obliczeniowe) dla uczenia maszynowego
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147482"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661953"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Utwórz cele obliczeniowe dla szkolenia i wdrożenia modelu w programie Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +71,7 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
   * [Klastry wnioskowania](#inference-clusters)
   * [Dołączone obliczenia](#attached-compute)
 
-1. Wybierz przycisk __Utwórz__.
+1. Wybierz pozycję __Utwórz__.
 
 1. Wyświetl stan operacji tworzenia, wybierając obiekt docelowy obliczeń z listy:
 
@@ -119,6 +119,9 @@ Podczas tworzenia klastra lub podczas edycji szczegółów klastra obliczenioweg
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### <a name="inference-clusters"></a>Klastry wnioskowania
+
+> [!IMPORTANT]
+> Korzystanie z usługi Azure Kubernetes z Azure Machine Learning ma wiele opcji konfiguracji. Niektóre scenariusze, takie jak obsługa sieci, wymagają dodatkowej instalacji i konfiguracji. Aby uzyskać więcej informacji na temat używania AKS z platformą Azure ML, zobacz [Tworzenie i dołączanie klastra usługi Azure Kubernetes](how-to-create-attach-kubernetes.md).
 
 Utwórz lub Dołącz klaster usługi Azure Kubernetes Service (AKS) dla dużej skali inferencing. Wykonaj [powyższe kroki](#portal-create) , aby utworzyć klaster AKS.  Następnie wypełnij formularz w następujący sposób:
 

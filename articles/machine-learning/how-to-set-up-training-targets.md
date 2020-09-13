@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ca76ec5bef1d908ca3cea6ce0f58b1205c1676ca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: da48b593b8f645566b2f9775fabc5d8e62e625b6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144094"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661571"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>Prześlij przebieg szkolenia do elementu docelowego obliczeń
 
@@ -31,19 +31,19 @@ Wystarczy zdefiniować środowisko dla każdego obiektu docelowego obliczeń w r
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj
-* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md),`ws`
 * Obiekt docelowy obliczeń, `my_compute_target` .  Utwórz obiekt docelowy obliczeń przy użyciu:
   * [Zestaw SDK dla języka Python](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+  * [Studio uczenia maszynowego Azure](how-to-create-attach-compute-studio.md)
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>Co to jest konfiguracja uruchomienia skryptu?
 
-Możesz przesłać eksperyment szkoleniowy z obiektem [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) .  Ten obiekt obejmuje:
+Możesz przesłać eksperyment szkoleniowy z obiektem [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) .  Ten obiekt obejmuje:
 
 * **source_directory**: Katalog źródłowy zawierający skrypt szkoleniowy
 * **skrypt**: Identyfikowanie skryptu szkoleniowego
-* **run_config**: [Konfiguracja uruchamiania](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py), która z kolei definiuje, gdzie nastąpi szkolenie. W obszarze `run_config` Określ obiekt docelowy obliczeń i środowisko, które ma być używane podczas uruchamiania skryptu szkoleniowego.  
+* **run_config**: [Konfiguracja uruchamiania](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true), która z kolei definiuje, gdzie nastąpi szkolenie. W obszarze `run_config` Określ obiekt docelowy obliczeń i środowisko, które ma być używane podczas uruchamiania skryptu szkoleniowego.  
 
 ## <a name="whats-an-environment"></a>Co to jest środowisko?
 
@@ -167,7 +167,7 @@ Zobacz te notesy, aby poznać przykłady szkoleń z różnymi obiektami docelowy
 ## <a name="next-steps"></a>Następne kroki
 
 * [Samouczek: uczenie modelu](tutorial-train-models-with-aml.md) używa zarządzanego obiektu docelowego obliczeń do uczenia modelu.
-* Dowiedz się, jak [efektywnie dostrajać parametry](how-to-tune-hyperparameters.md) , aby tworzyć lepsze modele.
+* Dowiedz się, jak [efektywnie dostrajać parametry](how-to-tune-hyperparameters.md) do tworzenia lepszych modeli.? Widok = Azure-ml-PR&Preserve-View = true)
 * Po uzyskaniu przeszkolonego modelu Dowiedz się, [jak i gdzie wdrażać modele](how-to-deploy-and-where.md).
-* Wyświetl odwołanie do zestawu SDK [klasy RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) .
+* Wyświetl odwołanie do zestawu SDK [klasy RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true) .
 * [Używanie Azure Machine Learning z sieciami wirtualnymi platformy Azure](how-to-enable-virtual-network.md)

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3b2807ccd6d83511dd0c9a32a177ea9fe2c4b642
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075311"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662104"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Użyj usługi ID brokera (wersja zapoznawcza) do zarządzania poświadczeniami
 
@@ -111,7 +111,7 @@ W konfiguracji brokera identyfikatorów można zaktualizować niestandardowe apl
 Po uzyskiwanie tokenu OAuth można użyć go w nagłówku autoryzacji dla żądania HTTP do bramy klastra (np. <clustername> -int.azurehdinsight.NET). Przykładowo polecenie zwinięcie polecenia do interfejsu API usługi Livy może wyglądać następująco:
     
 ```bash
-curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
 
 ## <a name="next-steps"></a>Następne kroki

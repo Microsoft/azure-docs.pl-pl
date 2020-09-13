@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: ac9ff084476f37348b72bdb42b9b74660132b762
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7d29408c126844615666a4ab217027b6ae1d037d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254643"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659952"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-gpu-device"></a>Wdrażanie modułu IoT z włączonym procesorem GPU z poziomu portalu Azure Marketplace na urządzeniu Azure Stack Edge GPU
 
@@ -33,9 +33,7 @@ Moduł przykładowego procesora GPU w tym artykule zawiera przykładowy kod test
 Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 - Masz dostęp do procesora GPU z włączonym 1 węzłem Azure Stack urządzeniem brzegowym. To urządzenie jest aktywowane przy użyciu zasobu na platformie Azure. 
-- Na tym urządzeniu skonfigurowano obliczenia. 
-    - Wykonaj kroki opisane w [samouczku: Konfigurowanie obliczeń na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
-    - Pamiętaj, aby 
+- Na tym urządzeniu skonfigurowano obliczenia. Wykonaj kroki opisane w [samouczku: Konfigurowanie obliczeń na urządzeniu Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
 - Następujące zasoby programistyczne na kliencie systemu Windows:
     - [Visual Studio Code](https://code.visualstudio.com/)  
     - [Rozszerzenie usługi Azure IoT Edge dla programu Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)   

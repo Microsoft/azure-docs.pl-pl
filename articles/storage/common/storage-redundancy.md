@@ -10,12 +10,12 @@ ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 407853152d4f18d8f8daacd8ef7d19c878384076
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871160"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658577"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -49,7 +49,7 @@ LRS to dobry wybór w następujących scenariuszach:
 
 ### <a name="zone-redundant-storage"></a>Magazyn strefowo nadmiarowy
 
-Magazyn strefowo nadmiarowy (ZRS) replikuje dane usługi Azure Storage synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym. Każda strefa dostępności jest oddzielną lokalizacją fizyczną z niezależną mocą, chłodzeniem i siecią. ZRS oferuje trwałość dla obiektów danych usługi Azure Storage, co najmniej 99,9999999999% (12 9) w danym roku.
+Magazyn strefowo nadmiarowy (ZRS) replikuje dane usługi Azure Storage synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym. Każda strefa dostępności jest oddzielną lokalizacją fizyczną z niezależnym zasilaniem, chłodzeniem i siecią. ZRS oferuje trwałość dla obiektów danych usługi Azure Storage, co najmniej 99,9999999999% (12 9) w danym roku.
 
 Dzięki ZRS dane są nadal dostępne dla operacji odczytu i zapisu, nawet jeśli strefa przestanie być dostępna. Jeśli strefa przestanie być dostępna, platforma Azure podniesie aktualizacje sieciowe, takie jak repunktowanie DNS. Te aktualizacje mogą mieć wpływ na aplikację, Jeśli uzyskujesz dostęp do danych przed ukończeniem aktualizacji. Podczas projektowania aplikacji dla ZRS, postępuj zgodnie z zaleceniami dotyczącymi obsługi błędów przejściowych, w tym implementowanie zasad ponawiania z wycofywaniem z powrotem.
 
@@ -64,8 +64,8 @@ W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w który
 | Typ konta magazynu | Obsługiwane regiony | Obsługiwane usługi |
 |--|--|--|
 | Ogólnego przeznaczenia<sup>w wersji 2</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japan East<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2 | Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
-| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Zachodnie stany USA 2| Tylko blokowe obiekty blob w warstwie Premium |
-| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Zachodnie stany USA 2 | Tylko udziały plików Premium |
+| BlockBlobStorage<sup>1</sup> | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2| Tylko blokowe obiekty blob w warstwie Premium |
+| FileStorage | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br /> Europa Zachodnia<br /> Wschodnie stany USA <br /> Wschodnie stany USA 2 <br /> Zachodnie stany USA 2 | Tylko udziały plików Premium |
 
 <sup>1</sup> warstwa archiwum nie jest obecnie obsługiwana dla kont ZRS.<br />
 <sup>2</sup> konta magazynu zawierające dyski zarządzane przez platformę Azure dla maszyn wirtualnych zawsze używają LRS. W przypadku dysków niezarządzanych platformy Azure należy również użyć LRS. Istnieje możliwość utworzenia konta magazynu dla dysków niezarządzanych platformy Azure korzystających z GRS, ale nie jest to zalecane ze względu na potencjalne problemy ze spójnością w przypadku asynchronicznej replikacji geograficznej. Żadne dyski zarządzane ani niezarządzane nie obsługują ZRS ani GZRS. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Cennik usługi Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -80,7 +80,7 @@ Podczas tworzenia konta magazynu należy wybrać region podstawowy dla konta. Sp
 
 Usługa Azure Storage oferuje dwie opcje kopiowania danych do regionu pomocniczego:
 
-- **Magazyn Geograficznie nadmiarowy (GRS)** wielokrotnie kopiuje dane w jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
+- **Magazyn geograficznie nadmiarowy (GRS)** kopiuje dane synchronicznie trzy razy w ramach jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
 - **Magazyn Geograficznie nadmiarowy (GZRS)** kopiuje dane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym przy użyciu ZRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
 
 Podstawowa różnica między GRS i GZRS polega na tym, jak dane są replikowane w regionie podstawowym. W regionie pomocniczym dane są zawsze replikowane synchronicznie trzy razy przy użyciu LRS. LRS w regionie pomocniczym chroni dane przed awariami sprzętowymi.
@@ -94,7 +94,7 @@ Jeśli region podstawowy stanie się niedostępny, możesz wybrać opcję przeł
 
 ### <a name="geo-redundant-storage"></a>Magazyn geograficznie nadmiarowy
 
-Magazyn Geograficznie nadmiarowy (GRS) wielokrotnie kopiuje dane w jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym, który znajduje się setki kilometrów od regionu podstawowego. GRS oferuje trwałość dla obiektów danych usługi Azure Storage, co najmniej 99.99999999999999% (16 9) w danym roku.
+Magazyn geograficznie nadmiarowy (GRS) kopiuje dane synchronicznie trzy razy w ramach jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym, który znajduje się setki kilometrów od regionu podstawowego. GRS oferuje trwałość dla obiektów danych usługi Azure Storage, co najmniej 99.99999999999999% (16 9) w danym roku.
 
 Operacja zapisu jest najpierw zatwierdzana do lokalizacji podstawowej i replikowana przy użyciu LRS. Aktualizacja jest następnie replikowana asynchronicznie do regionu pomocniczego. Gdy dane są zapisywane w lokalizacji dodatkowej, są również replikowane w tej lokalizacji przy użyciu LRS.
 
@@ -165,8 +165,8 @@ Poniższa tabela wskazuje, czy dane są trwałe i dostępne w danym scenariuszu,
 
 | Scenariusz przestoju | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Węzeł w centrum danych jest niedostępny | Yes | Yes | Yes | Yes |
-| Całe centrum danych (zona lub non-Zona) staną się niedostępne | Nie | Yes | Tak<sup>1</sup> | Yes |
+| Węzeł w centrum danych jest niedostępny | Tak | Tak | Tak | Tak |
+| Całe centrum danych (zona lub non-Zona) staną się niedostępne | Nie | Tak | Tak<sup>1</sup> | Tak |
 | Awaria całego regionu występuje w regionie podstawowym | Nie | Nie | Tak<sup>1</sup> | Tak<sup>1</sup> |
 | Dostęp do odczytu do regionu pomocniczego jest dostępny, jeśli region podstawowy stał się niedostępny | Nie | Nie | Tak (z RA-GRS) | Tak (z RA-GZRS) |
 
@@ -191,7 +191,7 @@ Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cenni
 
 Usługa Azure Storage regularnie weryfikuje integralność danych przechowywanych przy użyciu cyklicznych testów nadmiarowości (CRCs). Jeśli wykryto uszkodzenie danych, zostanie ono naprawione przy użyciu nadmiarowych danych. Usługa Azure Storage oblicza również sumy kontrolne dla całego ruchu sieciowego w celu wykrycia uszkodzenia pakietów danych podczas przechowywania lub pobierania danych.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

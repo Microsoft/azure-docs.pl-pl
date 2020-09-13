@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect wiele domen
-description: W tym dokumencie opisano konfigurowanie i Konfigurowanie wielu domen najwyższego poziomu z usługą O365 i usługą Azure AD.
+description: W tym dokumencie opisano konfigurowanie i Konfigurowanie wielu domen najwyższego poziomu za pomocą Microsoft 365 i usługi Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,15 +16,15 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849955"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662444"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Obsługa wielu domen do federowania w usłudze Azure AD
-Poniższa dokumentacja zawiera wskazówki dotyczące korzystania z wielu domen najwyższego poziomu i poddomen, gdy federowanie z pakietem Office 365 lub domenami usługi Azure AD.
+Poniższa dokumentacja zawiera wskazówki dotyczące korzystania z wielu domen najwyższego poziomu i poddomen w przypadku federowanie Microsoft 365 z domenami usługi Azure AD.
 
 ## <a name="multiple-top-level-domain-support"></a>Obsługa wielu domen najwyższego poziomu
 Federowanie wiele domen najwyższego poziomu z usługą Azure AD wymaga dodatkowej konfiguracji, która nie jest wymagana w przypadku federowanie z jedną domeną najwyższego poziomu.
@@ -42,7 +42,7 @@ IssuerUri można wyświetlić za pomocą polecenia programu PowerShell `Get-Msol
 
 Występuje problem podczas dodawania więcej niż jednej domeny najwyższego poziomu.  Załóżmy na przykład, że skonfigurowano federacji między usługą Azure AD a środowiskiem lokalnym.  W przypadku tego dokumentu używana jest domena, bmcontoso.com.  Teraz została dodana druga domena najwyższego poziomu, bmfabrikam.com.
 
-![Domains](./media/how-to-connect-install-multiple-domains/domains.png)
+![Zrzut ekranu przedstawiający wiele domen najwyższego poziomu](./media/how-to-connect-install-multiple-domains/domains.png)
 
 Podczas próby przekonwertowania domeny bmfabrikam.com na federacyjny, wystąpi błąd.  Przyczyną jest to, że usługa Azure AD ma ograniczenie, które nie zezwala, aby Właściwość IssuerUri miała taką samą wartość dla więcej niż jednej domeny.  
 
@@ -63,11 +63,11 @@ Przeglądając ustawienia dla domeny bmfabrikam.com, można wyświetlić następ
 
 ![Błąd Federacji](./media/how-to-connect-install-multiple-domains/settings.png)
 
-`-SupportMultipleDomain`nie zmienia innych punktów końcowych, które są nadal skonfigurowane do wskazywania usługi federacyjnej w adfs.bmcontoso.com.
+`-SupportMultipleDomain` nie zmienia innych punktów końcowych, które są nadal skonfigurowane do wskazywania usługi federacyjnej w adfs.bmcontoso.com.
 
 Inną kwestią `-SupportMultipleDomain` jest to, że system AD FS obejmuje odpowiednią wartość wystawcy w tokenach wystawionych dla usługi Azure AD. Ta wartość jest ustawiana przez pobranie części domeny nazwy UPN użytkowników i ustawienie jej jako domeny w IssuerUri, np. https://{sufiks UPN}/ADFS/Services/Trust.
 
-W tym czasie podczas uwierzytelniania do usługi Azure AD lub Office 365 element IssuerUri w tokenie użytkownika jest używany do lokalizowania domeny w usłudze Azure AD.  Jeśli nie można znaleźć dopasowania, uwierzytelnianie zakończy się niepowodzeniem.
+W tym czasie podczas uwierzytelniania do usługi Azure AD lub Microsoft 365 element IssuerUri w tokenie użytkownika jest używany do lokalizowania domeny w usłudze Azure AD. Jeśli nie można znaleźć dopasowania, uwierzytelnianie zakończy się niepowodzeniem.
 
 Na przykład, jeśli nazwa UPN użytkownika to bsimon@bmcontoso.com , element IssuerUri w tokenie, AD FS problemy, zostanie ustawiony na `http://bmcontoso.com/adfs/services/trust` . Ten element będzie zgodny z konfiguracją usługi Azure AD, a uwierzytelnianie powiedzie się.
 
@@ -106,17 +106,17 @@ Wykonaj następujące kroki, aby usunąć zaufanie online firmy Microsoft i zakt
 2. Po lewej stronie rozwiń węzeł **relacje zaufania** i **relacje zaufania jednostek uzależnionych**
 3. Po prawej stronie Usuń wpis **Microsoft Office 365 Identity platform** .
    ![Usuń firmę Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
-4. Na maszynie, na której zainstalowano [moduł Azure Active Directory dla programu Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) , uruchom następujące polecenia: `$cred=Get-Credential` .  
+4. Na maszynie, na której zainstalowano [moduł Azure Active Directory dla programu Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) , uruchom następujące polecenia: `$cred=Get-Credential` .  
 5. Wprowadź nazwę użytkownika i hasło administratora globalnego dla domeny usługi Azure AD, z którą federowaniesz.
-6. W programie PowerShell wprowadź`Connect-MsolService -Credential $cred`
-7. W programie PowerShell wprowadź `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain` .  Ta aktualizacja dotyczy oryginalnej domeny.  W związku z tym Użyj powyższych domen:`Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
+6. W programie PowerShell wprowadź `Connect-MsolService -Credential $cred`
+7. W programie PowerShell wprowadź `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain` .  Ta aktualizacja dotyczy oryginalnej domeny.  W związku z tym Użyj powyższych domen:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Aby dodać nową domenę najwyższego poziomu przy użyciu programu PowerShell, wykonaj następujące czynności:
 
-1. Na maszynie, na której zainstalowano [moduł Azure Active Directory dla programu Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) , uruchom następujące polecenia: `$cred=Get-Credential` .  
+1. Na maszynie, na której zainstalowano [moduł Azure Active Directory dla programu Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) , uruchom następujące polecenia: `$cred=Get-Credential` .  
 2. Wprowadź nazwę użytkownika i hasło administratora globalnego dla domeny usługi Azure AD, z którą federowaniesz
-3. W programie PowerShell wprowadź`Connect-MsolService -Credential $cred`
-4. W programie PowerShell wprowadź`New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
+3. W programie PowerShell wprowadź `Connect-MsolService -Credential $cred`
+4. W programie PowerShell wprowadź `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
 
 Wykonaj następujące kroki, aby dodać nową domenę najwyższego poziomu przy użyciu Azure AD Connect.
 
@@ -128,11 +128,11 @@ Wykonaj następujące kroki, aby dodać nową domenę najwyższego poziomu przy 
 5. Kliknięcie pozycji Zainstaluj
 
 ### <a name="verify-the-new-top-level-domain"></a>Weryfikowanie nowej domeny najwyższego poziomu
-Za pomocą polecenia programu PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>` można wyświetlić zaktualizowane IssuerUri.  Zrzut ekranu poniżej przedstawia ustawienia Federacji zostały zaktualizowane w oryginalnej domenie`http://bmcontoso.com/adfs/services/trust`
+Za pomocą polecenia programu PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>` można wyświetlić zaktualizowane IssuerUri.  Zrzut ekranu poniżej przedstawia ustawienia Federacji zostały zaktualizowane w oryginalnej domenie `http://bmcontoso.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-A IssuerUri w nowej domenie został ustawiony na`https://bmfabrikam.com/adfs/services/trust`
+A IssuerUri w nowej domenie został ustawiony na `https://bmfabrikam.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 

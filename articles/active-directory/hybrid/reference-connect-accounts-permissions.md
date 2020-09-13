@@ -17,14 +17,14 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255782"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662341"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts and permissions (Azure AD Connect: konta i uprawnienia)
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konta i uprawnienia
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Konta używane do Azure AD Connect
 
@@ -55,7 +55,7 @@ Oprócz tych trzech kont używanych do uruchamiania Azure AD Connect należy ró
 > [!NOTE]
 > Jest on obsługiwany do zarządzania kontami administracyjnymi używanymi w Azure AD Connect z lasu administracyjnego ESAE (znany również jako "Red Forest").
 > Dedykowane lasy administracyjne pozwalają organizacjom hostować konta administratora, stacje robocze i grupy w środowisku zapewniającym silniejsze opcje zabezpieczeń niż te używane w środowisku produkcyjnym.
-> Aby dowiedzieć się więcej na temat dedykowanych lasów administracyjnych, zapoznaj się z [podejściem do projektowania lasów administracyjnych ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> Aby dowiedzieć się więcej na temat dedykowanych lasów administracyjnych, zapoznaj się z [podejściem do projektowania lasów administracyjnych ESAE](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
 > Rola administratora globalnego nie jest wymagana po początkowej konfiguracji i jedynym wymaganym koncie będzie konto roli **konta synchronizacji katalogów** . Nie musi to oznaczać, że chcesz po prostu usunąć konto z rolą administratora globalnego. Lepiej jest zmienić rolę na mniej wydajną rolę, ponieważ całkowite usunięcie konta może spowodować problemy, jeśli kiedykolwiek trzeba ponownie uruchomić kreatora. Zmniejszając uprawnienie roli, można zawsze ponownie podwyższyć poziom uprawnień, jeśli trzeba będzie ponownie użyć Kreatora Azure AD Connect. 
@@ -141,15 +141,15 @@ Musi także mieć przyznane wymagane uprawnienia. Kreator instalacji nie weryfik
 
 Wymagane uprawnienia są zależne od funkcji opcjonalnych, które można włączyć. Jeśli masz wiele domen, uprawnienia muszą zostać przyznane dla wszystkich domen w lesie. Jeśli nie włączysz żadnej z tych funkcji, uprawnienia **użytkownika domeny** domyślnej są wystarczające.
 
-| Obiekt feature | Uprawnienia |
+| Cechy | Uprawnienia |
 | --- | --- |
 | Funkcja MS-DS-ConsistencyGuid |Uprawnienia do zapisu w atrybucie MS-DS-ConsistencyGuid udokumentowanym w [koncepcji projektowania — przy użyciu MS-ds-ConsistencyGuid jako sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja skrótów haseł |<li>Replikowanie zmian w katalogu</li>  <li>Replikuj wszystkie zmiany katalogu |
 | Wdrożenie hybrydowe programu Exchange |Uprawnienia do zapisu w odniesieniu do atrybutów przedstawionych w funkcji [zapisywania zwrotnego hybrydowego programu Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) dla użytkowników, grup i kontaktów. |
 | Folder publiczny poczty programu Exchange |Uprawnienia Odczyt do atrybutów przedstawionych w [folderze publicznym poczty programu Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) dla folderów publicznych. | 
-| Zapisywanie zwrotne haseł |Uprawnienia do zapisu w odniesieniu do atrybutów opisanych w temacie [wprowadzenie do zarządzania hasłami](../authentication/howto-sspr-writeback.md) dla użytkowników. |
+| Zapisywanie zwrotne haseł |Uprawnienia do zapisu w odniesieniu do atrybutów opisanych w temacie [wprowadzenie do zarządzania hasłami](../authentication/tutorial-enable-sspr-writeback.md) dla użytkowników. |
 | Zapisywanie zwrotne urządzeń |Uprawnienia przyznane za pomocą skryptu programu PowerShell zgodnie z opisem w funkcji [zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md). |
-| Zapisywanie zwrotne grup |Umożliwia Stornowanie **grup pakietu Office 365** do lasu z zainstalowanym programem Exchange.|
+| Zapisywanie zwrotne grup |Pozwala na zapisywanie zwrotne **grup Microsoft 365** w lesie z zainstalowanym programem Exchange.|
 
 ## <a name="upgrade"></a>Uaktualnienie
 W przypadku uaktualniania z jednej wersji Azure AD Connect do nowej wersji wymagane są następujące uprawnienia:
@@ -197,8 +197,8 @@ Legenda:
 - Opcja niepogrubiona — obsługiwana
 - Konto lokalne — konto użytkownika lokalnego na serwerze
 - Konto domeny — konto użytkownika domeny
-- Autonomiczne — [Autonomiczne zarządzane konto usługi](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA — [konto usługi zarządzanej przez grupę](https://technet.microsoft.com/library/hh831782.aspx)
+- Autonomiczne — [Autonomiczne zarządzane konto usługi](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA — [konto usługi zarządzanej przez grupę](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Niestandardowy | Zdalne SQL</br>Niestandardowy |
 | --- | --- | --- | --- |
@@ -215,11 +215,11 @@ Atrybut VSA ma być używany w scenariuszach, w których aparat synchronizacji i
 Ta funkcja wymaga systemu Windows Server 2008 R2 lub nowszego. W przypadku zainstalowania Azure AD Connect w systemie Windows Server 2008, instalacja będzie powracać do korzystania z [konta użytkownika](#user-account) .
 
 #### <a name="group-managed-service-account"></a>Konto usługi zarządzane przez grupę
-Jeśli używasz zdalnego programu SQL Server, zalecamy użycie **konta usługi zarządzanego przez grupę**. Aby uzyskać więcej informacji na temat przygotowywania Active Directory dla konta usługi zarządzanego przez grupę, zobacz [Omówienie kont usług zarządzanych przez grupę](https://technet.microsoft.com/library/hh831782.aspx).
+Jeśli używasz zdalnego programu SQL Server, zalecamy użycie **konta usługi zarządzanego przez grupę**. Aby uzyskać więcej informacji na temat przygotowywania Active Directory dla konta usługi zarządzanego przez grupę, zobacz [Omówienie kont usług zarządzanych przez grupę](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
 Aby użyć tej opcji, na stronie [Zainstaluj wymagane składniki](how-to-connect-install-custom.md#install-required-components) wybierz opcję **Użyj istniejącego konta usługi**, a następnie wybierz pozycję **zarządzane konto usługi**.  
 ![ATRYBUTU](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-Jest również obsługiwane w przypadku korzystania z [autonomicznego zarządzanego konta usługi](https://technet.microsoft.com/library/dd548356.aspx). Jednak mogą one być używane tylko na komputerze lokalnym i nie ma korzyści z używania ich przez domyślne konto usługi wirtualnej.
+Jest również obsługiwane w przypadku korzystania z [autonomicznego zarządzanego konta usługi](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). Jednak mogą one być używane tylko na komputerze lokalnym i nie ma korzyści z używania ich przez domyślne konto usługi wirtualnej.
 
 Ta funkcja wymaga systemu Windows Server w wersji 2012 lub nowszej. Jeśli konieczne jest użycie starszego systemu operacyjnego i użycie zdalnego programu SQL, należy użyć [konta użytkownika](#user-account).
 
@@ -247,19 +247,19 @@ Nazwę serwera, na którym konto jest używane, można zidentyfikować w drugiej
 
 Konto jest tworzone przy użyciu długiego hasła złożonego, które nie wygasa. Przyznano specjalne **konta synchronizacji katalogów** ról, które mają tylko uprawnienia do wykonywania zadań synchronizacji katalogów. Nie można udzielić specjalnej wbudowanej roli poza kreatorem Azure AD Connect. Azure Portal pokazuje to konto **użytkownikowi**roli.
 
-W usłudze Azure AD obowiązuje limit 20 kont usługi synchronizacji. Aby uzyskać listę istniejących kont usługi Azure AD w usłudze Azure AD, uruchom następujące polecenie cmdlet programu PowerShell dla usługi Azure AD:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+W usłudze Azure AD obowiązuje limit 20 kont usługi synchronizacji. Aby uzyskać listę istniejących kont usługi Azure AD w usłudze Azure AD, uruchom następujące polecenie cmdlet programu PowerShell dla usługi Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Aby usunąć nieużywane konta usługi Azure AD, uruchom następujące polecenie cmdlet programu PowerShell dla usługi Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Aby usunąć nieużywane konta usługi Azure AD, uruchom następujące polecenie cmdlet programu PowerShell dla usługi Azure AD: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Aby można było użyć powyższych poleceń programu PowerShell, należy zainstalować [moduł Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) i nawiązać połączenie z wystąpieniem usługi Azure AD za pomocą polecenia [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Aby można było użyć powyższych poleceń programu PowerShell, należy zainstalować [moduł Azure Active Directory PowerShell for Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) i nawiązać połączenie z wystąpieniem usługi Azure AD za pomocą polecenia [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
 Aby uzyskać dodatkowe informacje na temat sposobu zarządzania lub resetowania hasła dla konta łącznika usługi Azure AD, zobacz [Zarządzanie kontem Azure AD Connect](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 Jeśli nie odczytano dokumentacji dotyczącej [integrowania tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md), Poniższa tabela zawiera linki do powiązanych tematów.
 
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Pobieranie programu Azure AD Connect | [Pobieranie programu Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalowanie przy użyciu ustawień ekspresowych | [Ekspresowa instalacja programu Azure AD Connect](how-to-connect-install-express.md)|

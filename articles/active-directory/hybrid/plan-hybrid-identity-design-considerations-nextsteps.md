@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f834924a564f92fe7050a1236701701af7f5229
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 96485dabd8cfb2ea9e3fb907940fccb05b5baee3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83647273"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659339"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Zagadnienia dotyczące projektowania tożsamości hybrydowej Azure Active Directory — następne kroki
 Po zdefiniowaniu wymagań i sprawdzeniu wszystkich opcji rozwiązania do zarządzania urządzeniami przenośnym można wykonać kolejne kroki w celu wdrożenia infrastruktury pomocniczej odpowiedniej dla Ciebie i Twojej organizacji.
@@ -29,9 +29,9 @@ Po zdefiniowaniu wymagań i sprawdzeniu wszystkich opcji rozwiązania do zarząd
 ## <a name="hybrid-identity-documentation"></a>Dokumentacja tożsamości hybrydowej
 Koncepcyjna i proceduralna zawartość planowania, wdrażania i administrowania jest przydatna w przypadku wdrażania rozwiązania do zarządzania urządzeniami przenośnymi:
 
-* Rozwiązania [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) mogą pomóc w przechwyceniu i agregowaniu informacji o infrastrukturze, zasadach, procesach i najlepszych rozwiązaniach, dzięki którym pracownicy IT mogą tworzyć systemy i automatyzować operacje z możliwością zarządzania.
-* [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) jest usługą przeznaczoną do zarządzania urządzeniami w chmurze, która ułatwia zarządzanie komputerami i urządzeniami przenośnymi oraz ochronę informacji firmy.
-* Usługa [MDM dla Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) służy do zabezpieczania urządzeń przenośnych, gdy są one połączone z organizacją usługi Office 365, i do zarządzania nimi. Za pomocą rozwiązania MDM dla pakietu Office 365 można ustawiać zasady zabezpieczeń urządzeń i reguły dostępu oraz czyścić urządzenia przenośne, jeśli są one tracone lub skradzione.
+* Rozwiązania [Microsoft System Center](/previous-versions/system-center/developer/cc817313(v=msdn.10)) mogą pomóc w przechwyceniu i agregowaniu informacji o infrastrukturze, zasadach, procesach i najlepszych rozwiązaniach, dzięki którym pracownicy IT mogą tworzyć systemy i automatyzować operacje z możliwością zarządzania.
+* [Microsoft Intune](/mem/intune/) jest usługą przeznaczoną do zarządzania urządzeniami w chmurze, która ułatwia zarządzanie komputerami i urządzeniami przenośnymi oraz ochronę informacji firmy.
+* Rozwiązanie [MDM dla Microsoft 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) umożliwia zarządzanie urządzeniami przenośnymi i ich zabezpieczanie, gdy są one połączone z Microsoft 365 organizacją. Za pomocą rozwiązania MDM dla Microsoft 365 można ustawiać zasady zabezpieczeń urządzeń i reguły dostępu oraz czyścić urządzenia przenośne, jeśli są one tracone lub skradzione.
 
 ## <a name="hybrid-identity-resources"></a>Hybrydowe zasoby tożsamości
 Monitorowanie następujących zasobów często zawiera najnowsze wiadomości i aktualizacje dotyczące rozwiązań do zarządzania urządzeniami przenośnymi:
@@ -43,4 +43,3 @@ Monitorowanie następujących zasobów często zawiera najnowsze wiadomości i a
 
 ## <a name="see-also"></a>Zobacz także
 [Omówienie zagadnień dotyczących projektowania](plan-hybrid-identity-design-considerations-overview.md)
-

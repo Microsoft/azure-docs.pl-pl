@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924490"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662272"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Podobieństwo i ocenianie na platformie Azure Wyszukiwanie poznawcze
 
@@ -40,7 +40,7 @@ Profil oceniania jest częścią definicji indeksu składającą się z pól wa�
 
 ## <a name="scoring-statistics-and-sticky-sessions"></a>Statystyki oceniania i sesje programu Sticky Notes
 
-W celu zapewnienia skalowalności usługa Azure Wyszukiwanie poznawcze dystrybuuje każdy indeks w poziomie za pomocą procesu fragmentowania, co oznacza, że fragmenty indeksu są fizycznie oddzielone.
+W celu zapewnienia skalowalności usługa Azure Wyszukiwanie poznawcze dystrybuuje każdy indeks w poziomie za pomocą procesu fragmentowania, co oznacza, że [fragmenty indeksu są fizycznie oddzielone](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 Domyślnie wynik dokumentu jest obliczany na podstawie właściwości statystycznych danych *w fragmentu*. Takie podejście zwykle nie jest problemem w przypadku dużych korpus danych i zapewnia lepszą wydajność niż Obliczanie wyniku w oparciu o informacje we wszystkich fragmentówach. Wspomniane przy użyciu tej optymalizacji wydajności mogą spowodować, że dwa bardzo podobne dokumenty (lub nawet identyczne dokumenty) kończą się z różnymi wynikami istotności, jeśli zakończą się one w różnych fragmentówach.
 
@@ -105,7 +105,7 @@ W przypadku zapytania przeznaczonego dla pól "Description" i "title" odpowiedź
 Te punkty danych można wykorzystać w [niestandardowych rozwiązaniach do oceniania](https://github.com/Azure-Samples/search-ranking-tutorial) lub użyć tych informacji do debugowania problemów dotyczących istotności.
 
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Dokumentacja interfejsu API REST](/rest/api/searchservice/) [profilów oceniania](index-add-scoring-profiles.md)   
  [Interfejs API dokumentów wyszukiwania](/rest/api/searchservice/search-documents)   

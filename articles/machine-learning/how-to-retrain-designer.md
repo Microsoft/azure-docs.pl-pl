@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319630"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661611"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ponowne trenowanie modeli za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ W tym artykule założono również, że masz podstawową wiedzę na temat tworz
 
 ### <a name="sample-pipeline"></a>Przykładowy potok
 
-Potok użyty w tym artykule to zmieniona wersja [przykładu 3: prognozowanie dochodu](samples-designer.md#classification). Potok używa modułu [Importuj dane](algorithm-module-reference/import-data.md) zamiast przykładowego zestawu danych, aby pokazać, jak szkolić modele przy użyciu własnych danych.
+Potok użyty w tym artykule to zmieniona wersja przykładowego [przewidywania dochodu](samples-designer.md#classification) potoku na stronie głównej projektanta. Potok używa modułu [Importuj dane](algorithm-module-reference/import-data.md) zamiast przykładowego zestawu danych, aby pokazać, jak szkolić modele przy użyciu własnych danych.
 
 ![Zrzut ekranu pokazujący zmodyfikowany potok przykładu z polem wyróżniania modułu Importuj dane](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ Projektant zapisuje wszystkie dane wyjściowe potoku, w tym modele przeszkolone,
 1. Model można znaleźć w innych danych **wyjściowych** wraz z uruchamianiem dzienników.
 1. Alternatywnie wybierz ikonę **Wyświetl dane wyjściowe** . W tym miejscu możesz wykonać instrukcje w oknie dialogowym, aby przejść bezpośrednio do magazynu danych. 
 
-![Zrzut ekranu pokazujący sposób pobierania przeszkolonego modelu](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu pokazujący sposób pobierania przeszkolonego modelu](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publikowanie potoku szkoleniowego
 
@@ -101,9 +102,9 @@ Opublikuj potok w punkcie końcowym potoku, aby łatwo ponownie wykorzystać pot
 
 Teraz, gdy masz opublikowany potok szkoleniowy, możesz go użyć do ponownego nauczenia modelu pod kątem nowych danych. Można przesyłać przebiegi z punktu końcowego potoku w obszarze roboczym Studio lub programowo.
 
-### <a name="submit-runs-by-using-the-designer"></a>Przesyłanie przebiegów przy użyciu narzędzia Projektant
+### <a name="submit-runs-by-using-the-studio-portal"></a>Przesyłanie przebiegów przy użyciu portalu Studio
 
-Wykonaj następujące kroki, aby przesłać sparametryzowany punkt końcowy potoku z narzędzia Projektant:
+Wykonaj następujące kroki, aby przesłać sparametryzowany punkt końcowy potoku z portalu Studio:
 
 1. Przejdź do strony **punkty końcowe** w obszarze roboczym Studio.
 1. Wybierz kartę **punkty końcowe potoku** . Następnie wybierz punkt końcowy potoku.

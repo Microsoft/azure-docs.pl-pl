@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548870"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661854"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronizacja programu Azure AD Connect: opis konfiguracji domyślnej
 W tym artykule wyjaśniono, jakie są reguły konfiguracji. Dokumentuje reguły i sposób, w jaki te reguły wpływają na konfigurację. Przedstawiono w nim również domyślną konfigurację synchronizacji Azure AD Connect. Celem jest to, że czytelnik rozumie, jak model konfiguracji o nazwie deklaracyjne Inicjowanie obsługi działa w świecie rzeczywistym. W tym artykule przyjęto założenie, że już zainstalowano i skonfigurowano synchronizację Azure AD Connect przy użyciu Kreatora instalacji.
@@ -142,7 +142,7 @@ Reguła synchronizacji jest obiektem konfiguracji z zestawem atrybutów przepły
 
 Na przykład zapoznaj się z regułą synchronizacji **w programie z usługi AD — User AccountEnabled**. Oznacz ten wiersz w SRE i wybierz pozycję **Edytuj**.
 
-Ponieważ ta reguła jest regułą, podczas otwierania reguły zostanie wyświetlone ostrzeżenie. Nie należy wprowadzać żadnych [zmian do reguł out-of-Box](how-to-connect-sync-best-practices-changing-default-configuration.md), więc zostanie wyświetlony monit o zamiar. W tym przypadku chcesz tylko wyświetlić regułę. Wybierz **nr**.
+Ponieważ ta reguła jest regułą, podczas otwierania reguły zostanie wyświetlone ostrzeżenie. Nie należy wprowadzać żadnych [zmian do reguł out-of-Box](how-to-connect-sync-best-practices-changing-default-configuration.md), więc zostanie wyświetlony monit o zamiar. W tym przypadku chcesz tylko wyświetlić regułę. Wybierz pozycję **Nie**.
 
 ![Ostrzeżenie o regułach synchronizacji](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
@@ -223,7 +223,7 @@ Teraz wiemy wystarczająco więcej o regułach synchronizacji, aby zrozumieć, j
 | Nazwa | Komentarz |
 |:--- |:--- |
 | W programie z usługi AD — dołączanie użytkownika |Reguła sprzęgania obiektów przestrzeni łącznika z funkcją Metaverse. |
-| W programie z usługi AD — kontoużytkownika |Atrybuty wymagane do logowania się do usługi Azure AD i pakietu Office 365. Chcemy, aby te atrybuty zostały włączone. |
+| W programie z usługi AD — kontoużytkownika |Atrybuty wymagane do logowania się do usługi Azure AD i Microsoft 365. Chcemy, aby te atrybuty zostały włączone. |
 | W programie z usługi AD — wspólne dla użytkownika z programu Exchange |Atrybuty znalezione na globalnej liście adresowej. Przyjęto, że jakość danych jest Najlepsza w lesie, w którym znaleźliśmy skrzynkę pocztową użytkownika. |
 | W programie z usługi AD — wspólne dla użytkowników |Atrybuty znalezione na globalnej liście adresowej. Na wypadek, gdyby nie znaleźć skrzynki pocztowej, każdy inny połączony obiekt może współtworzyć wartość atrybutu. |
 | W programie z usługi AD — wymiana użytkownika |Istnieje tylko w przypadku wykrycia programu Exchange. Przepływa wszystkie atrybuty wymiany infrastruktury. |

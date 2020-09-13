@@ -3,12 +3,12 @@ title: Obsługa oceny serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomocą oceny serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640127"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660347"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
 
@@ -24,7 +24,7 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 --- | ---
 **Limity oceny** | W jednym [Azure Migrate projekcie](migrate-support-matrix.md#azure-migrate-projects)można odnajdywać i oceniać maksymalnie 35 000 serwerów fizycznych.
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz serwerów fizycznych projekt może obejmować maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V, a także limity oceny dla każdego z nich.
-**Odnajdywanie** | Urządzenie Azure Migrate może odnajdywać maksymalnie 1000 serwerów fizycznych.
+**Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 1000 serwerów fizycznych.
 **Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.
@@ -34,8 +34,8 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 | **Pomoc techniczna**                | **Szczegóły**               
 | :-------------------       | :------------------- |
 | **Wdrożenie serwera fizycznego**       | Serwer fizyczny może być autonomiczny lub wdrożony w klastrze. |
-| **Uprawnienia**           | **System Windows:** Użyj konta domeny dla komputerów przyłączonych do domeny oraz konta lokalnego dla maszyn, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. <br/> Alternatywnie upewnij się, że wymagane funkcje są ustawione przy użyciu następujących poleceń. <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk (jeśli/usr/sbin/fdisk nie istnieje) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
-| **System operacyjny** | Wszystkie systemy operacyjne z wyjątkiem systemu Windows Server 2003 i SUSE Linux można ocenić pod kątem migracji. |
+| **Uprawnienia**           | **Windows:** Użyj konta domeny w przypadku maszyn przyłączonych do domeny oraz konta lokalnego w przypadku maszyn, które nie są przyłączone do domeny. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> **Linux:** Potrzebujesz konta głównego na serwerach systemu Linux, które mają być odnajdywane. <br/> Alternatywnie upewnij się, że wymagane funkcje są ustawione przy użyciu następujących poleceń. <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk (jeśli/usr/sbin/fdisk nie istnieje) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
+| **System operacyjny** | Wszystkie systemy operacyjne Windows i Linux można ocenić pod kątem migracji. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Wymagania urządzenia usługi Azure Migrate

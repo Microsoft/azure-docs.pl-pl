@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011043"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662796"
 ---
 Ta kategoria jednostki obejmuje informacje finansowe i oficjalne formy identyfikacji. Dostępne począwszy od wersji modelu `2019-10-01` . Poniżej znajdują się podtypy. 
 
@@ -34,7 +34,7 @@ Ta kategoria jednostki obejmuje informacje finansowe i oficjalne formy identyfik
 > * Numery paszportów
 > * Identyfikatory podatków
 
-Poniższe jednostki są pogrupowane i wyszczególnione według kraju:
+Następujące jednostki są pogrupowane i wyszczególnione według kraju:
 
 Argentyna
 * Numer tożsamości narodowej (DNI) Argentyna
@@ -116,7 +116,7 @@ Francja
 * Francja National ID Card (CNI)
 * Numer paszportu Francji
 * Francja — numer ubezpieczenia społecznego (INSEE)
-* Francja — numer identyfikacji podatkowej (numéro WWH).
+* Francja — numer identyfikacji podatkowej (numéro WWH)
 * Numer NIP dodany przez wartość Francja
 
 Niemcy

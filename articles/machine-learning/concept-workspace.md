@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e765422ebfce1a4328bac9a17edb8b581f87e6f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890918"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661701"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Co to jest obszar roboczy Azure Machine Learning?
 
@@ -54,7 +54,7 @@ Z obszarem roboczym można korzystać w następujący sposób:
 + W sieci Web:
     + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) — dostępne tylko w obszarze roboczym [wersji Enterprise Edition](overview-what-is-azure-ml.md#sku) .
-+ W dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ W dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + W dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r (wersja zapoznawcza)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + W wierszu polecenia przy użyciu [rozszerzenia CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning
 + [Rozszerzenie VS Code Azure Machine Learning](how-to-manage-resources-vscode.md#workspaces)
@@ -94,7 +94,7 @@ Podczas tworzenia obszaru roboczego należy zdecydować, czy ma on zostać utwor
 Istnieje wiele sposobów tworzenia obszaru roboczego:  
 
 * Użyj [Azure Portal](how-to-manage-workspace.md) dla interfejsu typu punkt-i-kliknięcie, aby przeprowadzić Cię przez każdy krok.
-* Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) , aby utworzyć obszar roboczy na bieżąco ze skryptów języka Python lub notesów Jupiter
+* Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#&preserve-view=trueworkspace) , aby utworzyć obszar roboczy na bieżąco ze skryptów języka Python lub notesów Jupiter
 * Użyj [szablonu Azure Resource Manager](how-to-create-workspace-template.md) lub [interfejsu wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md) , gdy zachodzi potrzeba automatyzacji lub dostosowania tworzenia przy użyciu firmowych standardów zabezpieczeń.
 * Jeśli pracujesz w Visual Studio Code, użyj [rozszerzenia vs Code](how-to-manage-resources-vscode.md#create-a-workspace).
 

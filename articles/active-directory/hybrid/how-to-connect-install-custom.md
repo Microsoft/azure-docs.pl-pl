@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850162"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662345"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
 Opcja **Ustawienia niestandardowe** programu Azure AD Connect umożliwia skorzystanie z większej liczby opcji instalacji. Jest używana w przypadku występowania wielu lasów lub w celu skonfigurowania funkcji opcjonalnych, których nie obejmuje instalacja ekspresowa. Jest przydatna w każdej sytuacji, gdy opcja [**instalacji ekspresowej**](how-to-connect-install-express.md) nie zaspokaja potrzeb związanych z wdrożeniem lub topologią.
@@ -50,10 +50,10 @@ Po zainstalowaniu wymaganych składników zostanie wyświetlony monit o wybranie
 
 | Opcja logowania jednokrotnego | Opis |
 | --- | --- |
-| Synchronizacja skrótów haseł |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej. Hasła użytkowników są synchronizowane z usługą Azure AD jako skrót hasła, a uwierzytelnianie odbywa się w chmurze. Więcej informacji znajduje się w temacie [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md). |
-|Uwierzytelnianie przekazywane|Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Hasło użytkownika jest przekazywane do lokalnego kontrolera domeny usługi Active Directory w celu przeprowadzenia walidacji.
-| Federacja z usługami AD FS |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Użytkownicy są przekierowywani do wystąpienia lokalnych usług AD FS w celu zalogowania, a uwierzytelnianie odbywa się lokalnie. |
-| Federacja z serwerem PingFederate|Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Office 365, przy użyciu tego samego hasła, którego używają w sieci lokalnej.  Użytkownicy są przekierowywani do lokalnego wystąpienia serwera PingFederate w celu zalogowania, a uwierzytelnianie odbywa się lokalnie. |
+| Synchronizacja skrótów haseł |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Microsoft 365, przy użyciu tego samego hasła, które są używane w sieci lokalnej. Hasła użytkowników są synchronizowane z usługą Azure AD jako skrót hasła, a uwierzytelnianie odbywa się w chmurze. Więcej informacji znajduje się w temacie [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md). |
+|Uwierzytelnianie przekazywane|Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Microsoft 365, przy użyciu tego samego hasła, które są używane w sieci lokalnej.  Hasło użytkownika jest przekazywane do lokalnego kontrolera domeny usługi Active Directory w celu przeprowadzenia walidacji.
+| Federacja z usługami AD FS |Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Microsoft 365, przy użyciu tego samego hasła, które są używane w sieci lokalnej.  Użytkownicy są przekierowywani do wystąpienia lokalnych usług AD FS w celu zalogowania, a uwierzytelnianie odbywa się lokalnie. |
+| Federacja z serwerem PingFederate|Użytkownicy mogą logować się do usług w chmurze firmy Microsoft, takich jak Microsoft 365, przy użyciu tego samego hasła, które są używane w sieci lokalnej.  Użytkownicy są przekierowywani do lokalnego wystąpienia serwera PingFederate w celu zalogowania, a uwierzytelnianie odbywa się lokalnie. |
 | Nie konfiguruj |Żadna z funkcji logowania użytkownika nie została zainstalowana ani skonfigurowana. Wybierz tę opcję, jeśli masz już serwer federacyjny innej firmy lub korzystasz z innego rozwiązania. |
 |Włącz logowanie jednokrotne|Ta opcja jest dostępna w przypadku synchronizacji skrótów haseł i uwierzytelniania przekazywanego. Udostępnia ona funkcję logowania jednokrotnego użytkownikom pulpitu w sieci firmowej. Aby uzyskać więcej informacji, zobacz [Logowanie jednokrotne](how-to-connect-sso.md). </br>W przypadku klientów usług AD FS ta opcja jest niedostępna, ponieważ usługi AD FS umożliwiają logowanie jednokrotne na tym samym poziomie.</br>
 
@@ -95,15 +95,15 @@ W przypadku kompilacji 1.4.18.0 nie jest już obsługiwane używanie konta admin
 Ta strona umożliwia przeglądanie domen UPN obecnych w lokalnych usługach AD DS oraz tych, które zostały zweryfikowane w usłudze Azure AD. Umożliwia również skonfigurowanie atrybutu dla właściwości userPrincipalName.
 
 ![Niezweryfikowane domeny](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
-Sprawdź wszystkie domeny z oznaczeniem **Nie dodano** lub **Nie zweryfikowano**. Upewnij się, że używane domeny zostały zweryfikowane w usłudze Azure AD. Po zweryfikowaniu domen kliknij symbol Odśwież. Więcej informacji znajduje się w temacie zawierającym opis sposobów [dodawania i weryfikowania domeny](../active-directory-domains-add-azure-portal.md)
+Sprawdź wszystkie domeny z oznaczeniem **Nie dodano** lub **Nie zweryfikowano**. Upewnij się, że używane domeny zostały zweryfikowane w usłudze Azure AD. Po zweryfikowaniu domen kliknij symbol Odśwież. Więcej informacji znajduje się w temacie zawierającym opis sposobów [dodawania i weryfikowania domeny](../fundamentals/add-custom-domain.md)
 
-**UserPrincipalName** — atrybut userPrincipalName jest używany podczas logowania się w usługach Azure AD i Office 365. Używane domeny, zwane również sufiksem głównej nazwy użytkownika, należy zweryfikować w usłudze Azure AD przed zsynchronizowaniem użytkowników. Firma Microsoft zaleca zachowanie domyślnego atrybutu userPrincipalName. Jeśli atrybut ten jest nierutowalny i nie można go zweryfikować, możliwe jest wybranie innego atrybutu. Można na przykład wybrać adres e-mail jako atrybut zawierający identyfikator logowania. Użycie atrybutu innego niż userPrincipalName jest określane jako **alternatywny identyfikator**. Wartość atrybutu alternatywnego identyfikatora musi być zgodna ze standardem RFC822. Alternatywny identyfikator może być używany na potrzeby synchronizacji skrótów haseł, uwierzytelniania przekazywanego i federacji. Atrybut nie może zostać zdefiniowany w usłudze Active Directory jako wielowartościowy nawet wtedy, gdy ma tylko jedną wartość. Aby uzyskać więcej informacji na temat alternatywnego identyfikatora, zobacz [często zadawane pytania](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) .
+**UserPrincipalName** — Atrybut userPrincipalName jest używany podczas logowania do usługi Azure AD i Microsoft 365. Używane domeny, zwane również sufiksem głównej nazwy użytkownika, należy zweryfikować w usłudze Azure AD przed zsynchronizowaniem użytkowników. Firma Microsoft zaleca zachowanie domyślnego atrybutu userPrincipalName. Jeśli atrybut ten jest nierutowalny i nie można go zweryfikować, możliwe jest wybranie innego atrybutu. Można na przykład wybrać adres e-mail jako atrybut zawierający identyfikator logowania. Użycie atrybutu innego niż userPrincipalName jest określane jako **alternatywny identyfikator**. Wartość atrybutu alternatywnego identyfikatora musi być zgodna ze standardem RFC822. Alternatywny identyfikator może być używany na potrzeby synchronizacji skrótów haseł, uwierzytelniania przekazywanego i federacji. Atrybut nie może zostać zdefiniowany w usłudze Active Directory jako wielowartościowy nawet wtedy, gdy ma tylko jedną wartość. Aby uzyskać więcej informacji na temat alternatywnego identyfikatora, zobacz [często zadawane pytania](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) .
 
 >[!NOTE]
 > Po włączeniu funkcji uwierzytelniania przekazywanego trzeba mieć co najmniej jedną zweryfikowaną domenę, aby można było kontynuować pracę w kreatorze.
 
 > [!WARNING]
-> Korzystanie z alternatywnego identyfikatora nie jest zgodne ze wszystkimi zadaniami usługi Office 365. Więcej informacji można znaleźć w temacie [Konfigurowanie alternatywnego identyfikatora logowania](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+> Korzystanie z alternatywnego identyfikatora nie jest zgodne ze wszystkimi obciążeniami Microsoft 365. Więcej informacji można znaleźć w temacie [Konfigurowanie alternatywnego identyfikatora logowania](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
@@ -176,12 +176,12 @@ Na tym ekranie można wybrać funkcje opcjonalne dla określonych scenariuszy.
 
 | Funkcje opcjonalne | Opis |
 | --- | --- |
-| Wdrożenie hybrydowe programu Exchange |Funkcja wdrożenia hybrydowego programu Exchange umożliwia jednoczesne istnienie skrzynek pocztowych programu Exchange lokalnie i w usłudze Office 365. Program Azure AD Connect synchronizuje określony zbiór [atrybutów](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) z usługi Azure AD z katalogiem lokalnym. |
+| Wdrożenie hybrydowe programu Exchange |Funkcja wdrażania hybrydowego programu Exchange umożliwia współistnienie skrzynek pocztowych programu Exchange zarówno lokalnie, jak i w Microsoft 365. Program Azure AD Connect synchronizuje określony zbiór [atrybutów](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) z usługi Azure AD z katalogiem lokalnym. |
 | Foldery publiczne poczty programu Exchange | Funkcja Foldery publiczne poczty programu Exchange umożliwia synchronizowanie obiektów z folderu publicznego wykorzystującego pocztę z lokalnej usługi Active Directory do usługi Azure AD. |
 | Filtrowanie atrybutów i aplikacji usługi Azure AD |Przez włączenie filtrowania atrybutów i aplikacji usługi Azure AD można dostosować zestaw synchronizowanych atrybutów. Ta opcja dodaje do kreatora dwie dodatkowe strony konfiguracji. Więcej informacji znajduje się w temacie [Filtrowanie atrybutów i aplikacji usługi Azure AD](#azure-ad-app-and-attribute-filtering). |
 | Synchronizacja skrótów haseł |Te opcję można włączyć, jeśli jako metodę logowania wybrano federację. Synchronizacja skrótów haseł może być następnie użyta jako opcja tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md). </br></br>W przypadku wybrania uwierzytelniania przekazywanego tę opcję można również włączyć, aby zapewnić obsługę starszych klientów i opcję tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md).|
-| Zapisywanie zwrotne haseł |Po włączeniu zapisywania zwrotnego haseł zmiany hasła, które pochodzą z usługi Azure AD, są ponownie zapisywane w katalogu lokalnym. Więcej informacji można znaleźć w temacie [Wprowadzenie do zarządzania hasłami](../authentication/quickstart-sspr.md) |
-| Zapisywanie zwrotne grup |Jeśli używana jest funkcja **Grupy usługi Office 365**, grupy te mogą być reprezentowane w lokalnej usłudze Active Directory. Ta opcja jest dostępna tylko, jeśli w lokalnej usłudze Active Directory jest dostępny program Exchange. Aby uzyskać więcej informacji, zobacz [Azure AD Connect zapisywania zwrotnego grup](how-to-connect-group-writeback.md)|
+| Zapisywanie zwrotne haseł |Po włączeniu zapisywania zwrotnego haseł zmiany hasła, które pochodzą z usługi Azure AD, są ponownie zapisywane w katalogu lokalnym. Więcej informacji można znaleźć w temacie [Wprowadzenie do zarządzania hasłami](../authentication/tutorial-enable-sspr.md) |
+| Zapisywanie zwrotne grup |Jeśli używasz funkcji **grup Microsoft 365** , możesz mieć te grupy reprezentowane w Active Directory lokalnym. Ta opcja jest dostępna tylko, jeśli w lokalnej usłudze Active Directory jest dostępny program Exchange. Aby uzyskać więcej informacji, zobacz [Azure AD Connect zapisywania zwrotnego grup](how-to-connect-group-writeback.md)|
 | Zapisywanie zwrotne urządzeń |Umożliwia zapisywanie zwrotne obiektów urządzenia w usłudze Azure AD do Active Directory lokalnych dla scenariuszy dostępu warunkowego. Więcej informacji znajduje się w temacie [Włączanie zapisywania zwrotnego urządzeń w programie Azure AD Connect](how-to-connect-device-writeback.md). |
 | Synchronizacja atrybutów rozszerzeń katalogów |Po włączeniu synchronizacji atrybutów rozszerzeń katalogów określone atrybuty są synchronizowane z usługą Azure AD. Więcej informacji znajduje się w temacie [Rozszerzenia katalogów](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -303,7 +303,7 @@ Ta konfiguracja służy do konfiguracji relacji federacyjnej pomiędzy usługami
 ![Domena usługi Azure AD](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Weryfikowanie domeny usługi Azure AD wybranej do federacji
-Po wybraniu domeny do sfederowania program Azure AD Connect dostarcza niezbędne informacje umożliwiające sprawdzenie niezweryfikowanej domeny. Sposób korzystania z tych informacji opisano w temacie [Dodawanie i weryfikowanie domeny](../active-directory-domains-add-azure-portal.md).
+Po wybraniu domeny do sfederowania program Azure AD Connect dostarcza niezbędne informacje umożliwiające sprawdzenie niezweryfikowanej domeny. Sposób korzystania z tych informacji opisano w temacie [Dodawanie i weryfikowanie domeny](../fundamentals/add-custom-domain.md).
 
 ![Domena usługi Azure AD](./media/how-to-connect-install-custom/verifyfeddomain.png)
 
@@ -314,7 +314,7 @@ Po wybraniu domeny do sfederowania program Azure AD Connect dostarcza niezbędne
 
 ## <a name="configuring-federation-with-pingfederate"></a>Konfigurowanie federacji z serwerem PingFederate
 Konfigurowanie serwera PingFederate przy użyciu programu Azure AD Connect jest proste i wymaga zaledwie kilku kliknięć. Jednak wymagane jest spełnienie wymienionych niżej wymagań wstępnych.
-- Serwer PingFederate 8.4 lub nowszy.  Aby uzyskać więcej informacji, zobacz temat [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html) (Integracja serwera PingFederate z usługą Azure Active Directory i usługą Office 365)
+- Serwer PingFederate 8.4 lub nowszy.  Aby uzyskać więcej informacji [, zobacz serwera pingfederate Integration with Azure Active Directory i Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - Certyfikat TLS/SSL dla nazwy usługi federacyjnej, która ma być używana (na przykład sts.contoso.com)
 
 ### <a name="verify-the-domain"></a>Weryfikowanie domeny
@@ -331,7 +331,7 @@ Serwer PingFederate musi być skonfigurowany jako serwer federacyjny dla każdej
 
 Aby rozwiązać problemy z walidacją, skontaktuj się z administratorem serwera PingFederate.  Poniżej przedstawiono przykład serwera PingFederate, który nie ma prawidłowej relacji zaufania na platformie Azure:
 
-![Relacja zaufania](./media/how-to-connect-install-custom/ping5.png)
+![Zaufanie](./media/how-to-connect-install-custom/ping5.png)
 
 
 
@@ -379,7 +379,7 @@ Po kliknięciu przycisku Weryfikuj program Azure AD Connect sprawdza ustawienia 
 
 ![Ukończ](./media/how-to-connect-install-custom/completed.png)
 
-![Weryfikuj](./media/how-to-connect-install-custom/adfs7.png)
+![Weryfikacja](./media/how-to-connect-install-custom/adfs7.png)
 
 Aby sprawdzić poprawność uwierzytelniania na całej trasie, należy ręcznie wykonać przynajmniej jeden z następujących testów:
 
