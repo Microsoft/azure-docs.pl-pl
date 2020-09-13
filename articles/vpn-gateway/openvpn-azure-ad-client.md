@@ -2,17 +2,17 @@
 title: 'VPN Gateway: klient VPN dla połączeń protokołu P2S OpenVPN: uwierzytelnianie usługi Azure AD'
 description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwierzytelniania usługi Azure AD, możesz użyć sieci VPN P2S
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c14d300e2c09316e0665ece3f3e15f7036d5b9a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 781d3aeea6a5568aec065ec4b1cbcfacb74836a6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525079"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434677"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Uwierzytelnianie Azure Active Directory: Konfigurowanie klienta VPN dla połączeń protokołu P2S OpenVPN
 
@@ -20,6 +20,8 @@ Ten artykuł pomaga skonfigurować klienta sieci VPN do łączenia się z sieci�
 
 > [!NOTE]
 > Uwierzytelnianie usługi Azure AD jest obsługiwane tylko dla połączeń protokołu OpenVPN®.
+>
+> Uwierzytelnianie usługi Azure AD wymaga klienta sieci VPN platformy Azure, który jest dostępny tylko dla systemu Windows 10.
 >
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Praca z profilami klientów
@@ -88,11 +90,11 @@ Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkownikó
 
 1. Wybierz wielokropek obok profilu klienta, który chcesz usunąć. Następnie wybierz pozycję **Usuń**.
 
-    ![usunięcie](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Wybierz pozycję **Usuń** , aby usunąć.
 
-    ![usunięcie](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Tworzenie połączenia
 
@@ -154,7 +156,7 @@ Te kroki ułatwiają skonfigurowanie połączenia do automatycznego łączenia z
 
     ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Jak mogę dodać sufiksy DNS do klienta sieci VPN?
 

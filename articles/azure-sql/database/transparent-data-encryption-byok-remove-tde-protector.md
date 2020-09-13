@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 9ffc2af0309f8a682db04b36675a3c29725c44fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67bb77777ee1052a5429dc4599ed30593b9ae2ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324457"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436565"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Usuwanie funkcji ochrony Transparent Data Encryption (TDE) przy użyciu programu PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,7 +35,7 @@ Należy pamiętać, że po usunięciu funkcji ochrony TDE w Key Vault w ciągu m
 Ten przewodnik przedstawia dwa podejścia w zależności od żądanego wyniku po reakcji na zdarzenie z naruszonymi zabezpieczeniami:
 
 - Aby uniemożliwić **dostęp**do baz danych w usłudze Azure SQL Database/Azure Synapse Analytics.
-- Aby uniemożliwić **dostęp**do baz danych Azure SQL Database/Azure SQL Data Warehouse.
+- Aby zapewnić **dostępność**baz danych w Azure SQL Database/Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

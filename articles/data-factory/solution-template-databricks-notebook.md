@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857648"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438453"
 ---
 # <a name="transformation-with-azure-databricks"></a>Przekształcanie za pomocą usługi Azure Databricks
 
@@ -28,7 +28,7 @@ W tym samouczku utworzysz kompleksowy potok zawierający dane dotyczące **weryf
 
 - **Kopiuj dane** duplikują źródłowy zestaw danych do magazynu ujścia, który jest instalowany jako DBFS w notesie Azure Databricks. W ten sposób zestaw danych może być bezpośrednio używany przez platformę Spark.
 
-- **Notes** wyzwala Notes datakostki, który przekształca zestaw danych. Dodaje również zestaw danych do przetworzonego folderu lub Azure SQL Data Warehouse.
+- **Notes** wyzwala Notes datakostki, który przekształca zestaw danych. Dodaje również zestaw danych do przetworzonego folderu lub usługi Azure Synapse Analytics (dawniej SQL Data Warehouse).
 
 Dla uproszczenia szablon w tym samouczku nie tworzy zaplanowanego wyzwalacza. W razie potrzeby można dodać jeden z nich.
 
@@ -165,7 +165,7 @@ W nowym potoku większość ustawień jest konfigurowana automatycznie z wartoś
 
        ![Wybory dla połączonej usługi i ścieżki pliku dla SourceFilesDataset](media/solution-template-Databricks-notebook/source-file-dataset.png)
 
-   - **DestinationFilesDataset** — aby skopiować dane do lokalizacji docelowej ujścia. Wprowadź następujące wartości:
+   - **DestinationFilesDataset** — aby skopiować dane do lokalizacji docelowej ujścia. Użyj następujących wartości:
 
      - **Połączona usługa**  -  `sinkBlob_LS` utworzona w poprzednim kroku.
 

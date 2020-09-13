@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510977"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434643"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Rozwiązywanie problemów z obsługą maszyny wirtualnej za pomocą funkcji Cloud-init
 
@@ -21,7 +21,7 @@ W przypadku tworzenia uogólnionych obrazów niestandardowych przy użyciu funkc
 
 Przykłady problemów dotyczących aprowizacji:
 - Maszyna wirtualna jest zablokowana przy "tworzeniu" przez 40 minut, a Tworzenie maszyny wirtualnej zostanie oznaczone jako zakończone niepowodzeniem
-- `CustomData`nie przetworzono
+- `CustomData` nie przetworzono
 - Nie można zainstalować dysku tymczasowych
 - Użytkownicy nie zostaną utworzeni lub występują problemy z dostępem użytkowników
 - Sieć nie jest prawidłowo skonfigurowana
@@ -29,7 +29,7 @@ Przykłady problemów dotyczących aprowizacji:
 
 W tym artykule opisano sposób rozwiązywania problemów z usługą Cloud-init. Aby uzyskać bardziej szczegółowe informacje, zobacz [Cloud-init głębokie szczegółowe](./cloud-init-deep-dive.md).
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Krok 1. Testowanie wdrożenia bez`customData`
+## <a name="step-1-test-the-deployment-without-customdata"></a>Krok 1. Testowanie wdrożenia bez `customData`
 
 Usługa Cloud-init może akceptować `customData` , która jest przenoszona do niego podczas tworzenia maszyny wirtualnej. Najpierw należy upewnić się, że nie powoduje to problemów z wdrożeniami. Spróbuj zainicjować maszynę wirtualną bez przechodzenia do żadnej konfiguracji. Jeśli okaże się, że nie można zainicjować obsługi administracyjnej maszyny wirtualnej, wykonaj poniższe czynności, jeśli okaże się, że przekazanie konfiguracji nie jest stosowane, przejdź do [kroku 4](). 
 
@@ -56,7 +56,7 @@ Gdy nie można zainicjować obsługi administracyjnej maszyny wirtualnej, platfo
 
 Gdy maszyna wirtualna jest uruchomiona, potrzebne będą dzienniki z maszyny wirtualnej, aby zrozumieć, dlaczego Inicjowanie obsługi nie powiodło się.  Aby zrozumieć, dlaczego Inicjowanie obsługi maszyny wirtualnej nie powiodło się, nie należy zatrzymać maszyny wirtualnej. Pozostaw uruchomioną maszynę wirtualną. W celu zbierania dzienników należy zachować niedziałającą maszynę wirtualną w stanie uruchomienia. Aby zebrać dzienniki, użyj jednej z następujących metod:
 
-- [Konsola szeregowa](./serial-console-grub-single-user-mode.md)
+- [Konsola szeregowa](../troubleshooting/serial-console-grub-single-user-mode.md)
 
 - [Włącz diagnostykę rozruchu](./tutorial-monitor.md#enable-boot-diagnostics) przed utworzeniem maszyny wirtualnej, a następnie [Wyświetl](./tutorial-monitor.md#view-boot-diagnostics) je w trakcie rozruchu.
 
@@ -108,7 +108,7 @@ Po znalezieniu błędu lub ostrzeżenia Odczytaj do tyłu w dzienniku Cloud-init
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Jeśli masz dostęp do [konsoli szeregowej](./serial-console-grub-single-user-mode.md), możesz spróbować ponownie uruchomić polecenie, że usługa Cloud-init podjęła próbę uruchomienia.
+Jeśli masz dostęp do [konsoli szeregowej](../troubleshooting/serial-console-grub-single-user-mode.md), możesz spróbować ponownie uruchomić polecenie, że usługa Cloud-init podjęła próbę uruchomienia.
 
 Rejestrowanie dla programu `/var/log/cloud-init.log` można także zmienić w programie/etc/cloud/cloud.cfg.d/05_logging. cfg. Więcej szczegółów dotyczących rejestrowania w usłudze Cloud-init można znaleźć w [dokumentacji usługi Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -126,7 +126,7 @@ Jeśli nadal nie można wyizolować przyczyny niepowodzenia aprowizacji przez fu
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Krok 4. Badanie przyczyny niestosowania konfiguracji
 Nie każdy błąd w usłudze Cloud-init powoduje niepowodzenie inicjowania obsługi krytycznej. Na przykład jeśli używasz `runcmd` modułu w konfiguracji Cloud-init, niezerowy kod zakończenia z uruchomionego polecenia spowoduje niepowodzenie aprowizacji maszyny wirtualnej. Dzieje się tak, ponieważ jest ono uruchamiane po podstawowej funkcji inicjowania obsługi administracyjnej, która występuje w pierwszych 3 etapach inicjowania usługi Cloud-init. Aby rozwiązać problem z tym, dlaczego konfiguracja nie została zastosowana, Przejrzyj dzienniki w kroku 3 i moduły Cloud-init ręcznie. Na przykład:
 
-- `runcmd`-czy skrypty są uruchamiane bez błędów? Uruchom konfigurację ręcznie z poziomu terminalu, aby upewnić się, że działają one zgodnie z oczekiwaniami.
+- `runcmd` -czy skrypty są uruchamiane bez błędów? Uruchom konfigurację ręcznie z poziomu terminalu, aby upewnić się, że działają one zgodnie z oczekiwaniami.
 - Instalowanie pakietów — czy maszyna wirtualna ma dostęp do repozytoriów pakietów?
 - Należy również sprawdzić `customData` konfigurację danych dostarczoną do maszyny wirtualnej, która znajduje się w temacie `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt` .
 

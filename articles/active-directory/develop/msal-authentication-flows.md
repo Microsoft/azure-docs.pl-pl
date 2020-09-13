@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 0dbd7eb9203f31b580f586a8a7d1fa216533628c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170517"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437874"
 ---
 # <a name="authentication-flows"></a>Przepływy uwierzytelniania
 
@@ -70,7 +70,7 @@ Na powyższym diagramie aplikacja:
 1. Żąda kodu autoryzacji, który jest zrealizowany dla tokenu dostępu.
 2. Używa tokenu dostępu do wywoływania internetowego interfejsu API.
 
-### <a name="considerations"></a>Kwestie do rozważenia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 - Aby zrealizować token, można użyć kodu autoryzacji tylko raz. Nie próbuj uzyskać tokenu wielokrotnie przy użyciu tego samego kodu autoryzacji, ponieważ jest on jawnie zabroniony przez standardową specyfikację protokołu. W przypadku zrealizowania kodu kilka razy, celowo lub, ponieważ nie masz pewności, że struktura robi to również, zostanie wyświetlony następujący błąd:
 
@@ -219,7 +219,7 @@ Ponieważ IWA jest przepływem dyskretnym, musi być spełniony jeden z następu
 Oznacza to, że jest spełniony jeden z następujących warunków:
 
 - Jesteś deweloperem **w Azure Portal** dla siebie.
-- Administrator dzierżawy zaznaczył **zgodę na przyznanie/odwołanie administratora dla {domena dzierżawy}** na karcie **uprawnienia interfejsu API** rejestracji aplikacji w Azure Portal (zobacz [Dodawanie uprawnień dostępu do interfejsów API sieci Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- Administrator dzierżawy zaznaczył **zgodę na przyznanie/odwołanie administratora dla {domena dzierżawy}** na karcie **uprawnienia interfejsu API** rejestracji aplikacji w Azure Portal (zobacz [Dodawanie uprawnień w celu uzyskania dostępu do internetowego interfejsu API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)).
 - Udostępniono sposób, aby użytkownicy mogli wyrazić zgodę na aplikację; Zobacz [żądanie zgody poszczególnych użytkowników](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Podano sposób, w jaki Administrator dzierżawy wyrazi zgodę na aplikację; Zobacz [zgoda administratora](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

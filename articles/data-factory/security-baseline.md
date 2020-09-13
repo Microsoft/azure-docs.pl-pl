@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57786aa343fd2ea863b17f65253e5d4a4a6b88ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226832"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437942"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Podstawa zabezpieczeń platformy Azure dla Azure Data Factory
 
@@ -542,7 +542,7 @@ Użyj funkcji odnajdywania i klasyfikowania danych Azure SQL Database. Funkcja o
 
 **Wskazówki**: implementowanie oddzielnych subskrypcji i/lub grup zarządzania na potrzeby tworzenia, testowania i produkcji. Środowisko Integration Runtime powinno być rozdzielone przez sieć wirtualną (VNet)/Subnet i odpowiednio oznakowane.
 
- Do przeprowadzenia izolacji sieci można także użyć prywatnych punktów końcowych. Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, efektywnie przenosząc usługę do sieci wirtualnej.
+ Do przeprowadzenia izolacji sieci można także użyć prywatnych punktów końcowych. Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z Twojej sieci wirtualnej, skutecznie przenosząc usługę do sieci wirtualnej.
 
 * [Jak utworzyć dodatkowe subskrypcje platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -578,7 +578,7 @@ W przypadku udostępnienia linku prywatnego Użyj prywatnych punktów końcowych
 
 **Wskazówki**: Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w Data Factory i magazynem danych w chmurze są realizowane za pośrednictwem protokołu HTTPS lub TLS bezpiecznego kanału. Używana wersja protokołu TLS to 1,2.
 
-Wszystkie połączenia do Azure SQL Database i Azure SQL Data Warehouse wymagają szyfrowania (SSL/TLS), podczas przesyłania danych do i z bazy danych. Podczas tworzenia potoku przy użyciu formatu JSON należy dodać właściwość szyfrowania i ustawić jej wartość na true w parametrach połączenia. W przypadku usługi Azure Storage można użyć protokołu HTTPS w parametrach połączenia.
+Wszystkie połączenia do Azure SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu formatu JSON należy dodać właściwość szyfrowania i ustawić jej wartość na true w parametrach połączenia. W przypadku usługi Azure Storage można użyć protokołu HTTPS w parametrach połączenia.
 
 * [Informacje o szyfrowaniu podczas przesyłania Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 
@@ -896,7 +896,7 @@ Należy zauważyć, że dotyczy to tylko sytuacji, gdy Integration Runtime jest 
 
 * [Co to jest usługa Azure Firewall?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Co to jest usługa Azure Web Application Firewall?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Co to jest Zapora aplikacji sieci Web platformy Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Sieciowe grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
@@ -1050,7 +1050,9 @@ Możesz również przechowywać poświadczenia lub wartości tajne w Azure Key V
 
 * [Jak utworzyć Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Jak przeprowadzić uwierzytelnianie w Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Jak przypisać zasady dostępu Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 * [Używanie wpisów tajnych usługi Azure Key Vault w działaniach potoku](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 

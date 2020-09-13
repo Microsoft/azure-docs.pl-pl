@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254518"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438538"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Blob Storage przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -31,7 +31,7 @@ ms.locfileid: "85254518"
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych do i z usługi Azure Blob Storage. Jest on używany w artykule dotyczącym [przenoszenia danych](data-factory-data-movement-activities.md) , który przedstawia ogólne omówienie przenoszenia danych za pomocą działania kopiowania.
 
 ## <a name="overview"></a>Omówienie
-Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych na platformę Azure Blob Storage lub z usługi Azure Blob Storage do dowolnego obsługiwanego magazynu danych ujścia. Poniższa tabela zawiera listę magazynów danych obsługiwanych jako źródła lub ujścia przez działanie kopiowania. Można na przykład przenieść dane **z** bazy danych SQL Server lub bazy danych Azure SQL Database **do** magazynu obiektów blob platformy Azure. I można skopiować dane **z** usługi Azure Blob storage **do** Azure SQL Data Warehouse lub do kolekcji Azure Cosmos DB.
+Dane można kopiować z dowolnego obsługiwanego źródłowego magazynu danych na platformę Azure Blob Storage lub z usługi Azure Blob Storage do dowolnego obsługiwanego magazynu danych ujścia. Poniższa tabela zawiera listę magazynów danych obsługiwanych jako źródła lub ujścia przez działanie kopiowania. Można na przykład przenieść dane **z** bazy danych SQL Server lub bazy danych Azure SQL Database **do** magazynu obiektów blob platformy Azure. I można skopiować dane **z** usługi Azure Blob Storage **do** usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) lub do kolekcji Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -188,12 +188,12 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 2. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu, kliknij pozycję **Analiza i analiza**, a następnie kliknij pozycję **Data Factory**.
 3. W okienku **Nowa fabryka danych** :  
     1. Wprowadź **ADFBlobConnectorDF** dla **nazwy**. Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd: `*Data factory name “ADFBlobConnectorDF” is not available` , Zmień nazwę fabryki danych (na przykład yournameADFBlobConnectorDF) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
-    2. Wybierz swoją **subskrypcję** platformy Azure.
+    2. Wybierz swoją **subskrypcję**platformy Azure.
     3. W obszarze Grupa zasobów wybierz pozycję **Użyj istniejącej** , aby wybrać istniejącą grupę zasobów (lub) wybierz pozycję **Utwórz nową** , aby wprowadzić nazwę grupy zasobów.
     4. Wybierz **lokalizację** fabryki danych.
     5. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** u dołu bloku.
-    6. Kliknij pozycję **Utwórz**.
-3. Po zakończeniu tworzenia zostanie wyświetlony blok **Data Factory** , jak pokazano na poniższej ilustracji: ![ Strona główna fabryki danych](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+    6. Kliknij przycisk **Utwórz**.
+3. Po zakończeniu tworzenia zostanie wyświetlony blok **Data Factory** , jak pokazano na poniższej ilustracji:  ![ Strona główna fabryki danych](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Kreator kopiowania
 1. Na stronie głównej Data Factory kliknij przycisk **Kopiuj dane** , aby uruchomić **Kreatora kopiowanie danych** na oddzielnej karcie.  
@@ -221,14 +221,14 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 5. Na stronie **Wybieranie pliku lub folderu wejściowego**:
     1. Kliknij dwukrotnie pozycję **adfblobcontainer**.
     2. Wybierz pozycję **dane wejściowe**, a następnie kliknij pozycję **Wybierz**. W tym instruktażu należy wybrać folder wejściowy. Zamiast tego można również wybrać plik emp.txt w folderze.
-        ![Narzędzie kopiowania — wybieranie pliku lub folderu wejściowego](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        ![Narzędzie kopiowania — Wybieranie pliku wejściowego lub folderu 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. Na stronie **Wybieranie pliku lub folderu wejściowego** :
     1. Upewnij się, że **plik lub folder** jest ustawiony na **adfblobconnector/Input**. Jeśli pliki znajdują się w podfolderach, na przykład 2017/04/01, 2017/04/02 i tak dalej, wprowadź adfblobconnector/Input/{Year}/{Month}/{Day} dla pliku lub folderu. Po naciśnięciu klawisza TAB z pola tekstowego zobaczysz trzy listy rozwijane, aby wybrać formaty rok (RRRR), miesiąc (MM) i dzień (DD).
     2. Nie ustawiaj **cyklicznie pliku kopiowania**. Wybierz tę opcję, aby przeprowadzić cykliczne przechodzenie przez foldery w poszukiwaniu plików do skopiowania do miejsca docelowego.
     3. Nie można **skopiować plików binarnych** . Wybierz tę opcję, aby wykonać kopię binarną pliku źródłowego do miejsca docelowego. Nie zaznaczaj tego przewodnika, aby zobaczyć więcej opcji na następnych stronach.
     4. Upewnij się, że **Typ kompresji** ma wartość **none**. Wybierz wartość tej opcji, jeśli pliki źródłowe są skompresowane w jednym z obsługiwanych formatów.
     5. Kliknij przycisk **Dalej**.
-    ![Narzędzie kopiowania — wybieranie pliku lub folderu wejściowego](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    ![Narzędzie kopiowania — Wybieranie pliku wejściowego lub folderu 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. Na stronie **Ustawienia formatu pliku** są wyświetlane ograniczniki i schemat wykrywany automatycznie przez kreatora w ramach analizy pliku.
     1. Potwierdź następujące opcje:  
         a. **Format pliku** jest ustawiony na **Format tekstu**. Wszystkie obsługiwane formaty są widoczne na liście rozwijanej. Na przykład: JSON, Avro, ORC, Parquet.
@@ -247,7 +247,7 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 9. Na stronie **Określanie konta usługi Azure Blob Storage** :  
     1. Wprowadź **AzureStorageLinkedService** dla pola **Nazwa połączenia** .
     2. Upewnij się, że wybrano opcję **Z subskrypcji Azure** dla ustawienia **Metoda wyboru konta**.
-    3. Wybierz swoją **subskrypcję** platformy Azure.
+    3. Wybierz swoją **subskrypcję**platformy Azure.
     4. Wybierz konto usługi Azure Storage.
     5. Kliknij przycisk **Dalej**.
 10. Na stronie **Wybieranie pliku lub folderu wyjściowego** :  

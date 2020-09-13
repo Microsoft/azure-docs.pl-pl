@@ -13,12 +13,12 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13242a41e1d10b0df031bf10fd646d9ec3cf47c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478165"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437772"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nowe środowisko rejestracji aplikacji Azure Portal
 
@@ -77,12 +77,12 @@ W nowym środowisku **klucze tajne aplikacji** zostały zmienione na **Certyfika
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Platformy/uwierzytelnianie: adresy URL odpowiedzi/identyfikatory URI przekierowania
 W starym doświadczeniu aplikacja zawierała sekcję platforms dla sieci Web, natywnej i internetowego interfejsu API w celu skonfigurowania adresów URL przekierowania, adresu URL wylogowywania i przepływu niejawnego.
 
-W nowym środowisku adresy URL odpowiedzi można znaleźć w \' sekcji uwierzytelnianie aplikacji. Ponadto są one określane jako identyfikatory URI przekierowania, a format identyfikatorów URI przekierowania został zmieniony. Muszą być skojarzone z typem aplikacji (Klient internetowy lub publiczny — Mobile i Desktop). [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+W nowym środowisku adresy URL odpowiedzi można znaleźć w \' sekcji uwierzytelnianie aplikacji. Ponadto są one określane jako identyfikatory URI przekierowania, a format identyfikatorów URI przekierowania został zmieniony. Muszą być skojarzone z typem aplikacji (Klient internetowy lub publiczny — Mobile i Desktop). [Dowiedz się więcej](quickstart-register-app.md#add-a-redirect-uri)
 
 Interfejsy API sieci Web są konfigurowane na stronie Uwidacznianie interfejsu API.
 
 > [!NOTE]
-> Wypróbuj nowe ustawienia uwierzytelniania, w którym można skonfigurować ustawienia dla aplikacji na podstawie platformy lub urządzenia, które mają być docelowe. [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Wypróbuj nowe ustawienia uwierzytelniania, w którym można skonfigurować ustawienia dla aplikacji na podstawie platformy lub urządzenia, które mają być docelowe. [Dowiedz się więcej](quickstart-register-app.md#configure-platform-settings)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Uprawnienia Microsoft Graph/uprawnienia interfejsu API
 

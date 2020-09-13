@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311572"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434541"
 ---
 # <a name="single-page-application-app-registration"></a>Aplikacja jednostronicowa: Rejestracja aplikacji
 
@@ -32,7 +32,7 @@ W przypadku aplikacji opartych na MSAL.js 1,0 i 2,0 Zacznij od wykonania poniżs
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli Twoje konto ma dostęp do wielu dzierżawców, wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz dzierżawcę, który powinien zawierać rejestrację aplikacji, którą chcesz utworzyć.
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzanie** wybierz pozycję **Rejestracje aplikacji**.
-1. Wybierz pozycję **Nowa rejestracja**, wprowadź **nazwę** aplikacji i wybierz **obsługiwane typy kont** dla aplikacji. **Nie** należy wprowadzać **identyfikatora URI przekierowania**. Aby uzyskać opis różnych typów kont, zobacz [Rejestrowanie nowej aplikacji przy użyciu Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Wybierz pozycję **Nowa rejestracja**, wprowadź **nazwę** aplikacji i wybierz **obsługiwane typy kont** dla aplikacji. **Nie** należy wprowadzać **identyfikatora URI przekierowania**. Aby uzyskać opis różnych typów kont, zobacz [Rejestrowanie nowej aplikacji przy użyciu Azure Portal](quickstart-register-app.md).
 1. Wybierz pozycję **zarejestruj** , aby utworzyć rejestrację aplikacji.
 
 Następnie skonfiguruj rejestrację aplikacji za pomocą **identyfikatora URI przekierowania** , aby określić, gdzie platforma tożsamości firmy Microsoft powinna przekierować klienta wraz z wszelkimi tokenami zabezpieczeń. Wykonaj kroki odpowiednie dla używanej wersji programu MSAL.js w aplikacji:

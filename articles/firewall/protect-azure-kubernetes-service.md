@@ -1,20 +1,20 @@
 ---
-title: Używanie zapory platformy Azure do ochrony wdrożeń usługi Azure Kubernetes Service (AKS)
+title: Używanie usługi Azure Firewall do chronienia wdrożeń usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak chronić wdrożenia usługi Azure Kubernetes Service (AKS) przy użyciu zapory platformy Azure
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/03/2020
 ms.author: victorh
-ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87412953"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437857"
 ---
-# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Używanie zapory platformy Azure do ochrony wdrożeń usługi Azure Kubernetes Service (AKS)
+# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Używanie usługi Azure Firewall do chronienia wdrożeń usługi Azure Kubernetes Service (AKS)
 
 Usługa Azure Kubernetes Service (AKS) oferuje zarządzany klaster Kubernetes na platformie Azure. Zmniejsza to złożoność i koszty operacyjne związane z zarządzaniem Kubernetes przez odciążenie większości tej odpowiedzialności do platformy Azure. AKS obsługuje krytyczne zadania, takie jak monitorowanie kondycji i konserwacja, a także oferuje klaster klasy korporacyjnej i bezpieczny z ułatwieniami zarządzania.
 
@@ -47,7 +47,13 @@ Zapora platformy Azure udostępnia tag AKS FQDN, aby uprościć konfigurację. W
    - TCP [*IPAddrOfYourAPIServer*]: 443 jest wymagane, jeśli masz aplikację, która musi komunikować się z serwerem interfejsu API. Tę zmianę można ustawić po utworzeniu klastra.
    - Port TCP 9000 i port UDP 1194 dla frontonu tunelu w celu komunikowania się z końcem tunelu na serwerze interfejsu API.
 
-      Aby uzyskać bardziej szczegółowe informacje, zobacz **. HCP. <location> .. azmk8s.io* i adresy w poniższej tabeli.
+      Aby uzyskać bardziej szczegółowe informacje, zobacz **. HCP. <location> .. azmk8s.io* i adresy w poniższej tabeli:
+
+   | Docelowy punkt końcowy                                                             | Protokół | Port    | Zastosowanie  |
+   |----------------------------------------------------------------------------------|----------|---------|------|
+   | **`*:1194`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Oraz* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
+   | **`*:9000`** <br/> *Oraz* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Oraz* <br/> [Regionalne CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Oraz* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | W przypadku tunelowanej bezpiecznej komunikacji między węzłami i płaszczyzną kontroli. |
+
    - Port UDP 123 dla synchronizacji czasu protokołu NTP (Network Time Protocol) (węzły systemu Linux).
    - Port UDP 53 dla systemu DNS jest wymagany również w przypadku bezpośredniego dostępu do serwera interfejsu API.
 
