@@ -6,21 +6,21 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/11/2020
+ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 5283e20b6121dbdc3ce57587d188ad5ad0e1b6b9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041034"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441582"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Dodawanie połączenia lokacja-lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN (klasyczne)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klasyczny)](vpn-gateway-multi-site.md)
 >
 >
@@ -174,7 +174,7 @@ Zaimportuj plik konfiguracji sieci. Po zaimportowaniu tego pliku ze zmianami zos
 ## <a name="6-download-keys"></a>6. Pobierz klucze
 Po dodaniu nowych tuneli należy użyć polecenia cmdlet "Get-AzureVNetGatewayKey" programu PowerShell, aby pobrać klucze wstępne protokołu IPsec/IKE dla każdego tunelu.
 
-Przykład:
+Na przykład:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

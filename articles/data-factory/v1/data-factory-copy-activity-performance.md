@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196102"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441089"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copy Activity performance and tuning guide (Przewodnik dotyczący wydajności i dostosowywania działania kopiowania)
 
@@ -32,7 +32,7 @@ Azure Data Factory działanie kopiowania zapewnia pierwszą klasę rozwiązanie 
 
 Platforma Azure udostępnia zestaw rozwiązań do magazynowania danych klasy korporacyjnej i magazynów danych, a działanie kopiowania oferuje wysoce zoptymalizowane środowisko ładowania danych, które jest łatwe do skonfigurowania i skonfigurowania. Za pomocą zaledwie jednego działania kopiowania można osiągnąć następujące czynności:
 
-* Ładowanie danych do **Azure SQL Data Warehouse** o **1,2 GB/s**. Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do Azure SQL Data Warehouse na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* Ładowanie danych do **usługi Azure Synapse Analytics** przy **1,2 GB/s**. Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) w obszarze 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Ładowanie danych do **usługi Azure Blob Storage** o **1,0 GB/s**
 * Ładowanie danych do **Azure Data Lake Store** o **1,0 GB/s**
 
@@ -62,11 +62,11 @@ W poniższej tabeli przedstawiono informacje o przepływności kopiowania w MB/s
 * W przypadku kopiowania hybrydowego między magazynami lokalnymi i w chmurze każdy węzeł bramy był uruchomiony na komputerze, który był oddzielony od lokalnego magazynu danych, zgodnie z poniższą specyfikacją. Gdy jedno działanie zostało uruchomione na bramie, operacja kopiowania zużywał tylko niewielką część procesora CPU, pamięci lub przepustowości sieci. Dowiedz się więcej na temat [Zarządzanie danymi Gateway](#considerations-for-data-management-gateway).
     <table>
     <tr>
-        <td>Procesor CPU</td>
+        <td>CPU</td>
         <td>32 rdzenie 2,20 GHz Intel Xeon E5-2660 v2</td>
     </tr>
     <tr>
-        <td>Memory (Pamięć)</td>
+        <td>Pamięć</td>
         <td>128 GB</td>
     </tr>
     <tr>
@@ -183,9 +183,9 @@ Należy pamiętać, że **opłata jest** naliczana na podstawie łącznego czasu
 ## <a name="staged-copy"></a>Kopia przygotowana
 W przypadku kopiowania danych ze źródłowego magazynu danych do magazynu danych ujścia można użyć usługi BLOB Storage jako tymczasowego magazynu przemieszczania. Przygotowanie jest szczególnie przydatne w następujących przypadkach:
 
-1. Chcesz pozyskać **dane z różnych magazynów danych do SQL Data Warehouse za pośrednictwem bazy**. SQL Data Warehouse korzysta z bazy danych wbudowanych jako mechanizmu wysokiej przepływności w celu załadowania dużej ilości dane do SQL Data Warehouse. Dane źródłowe muszą jednak znajdować się w usłudze BLOB Storage i muszą spełniać dodatkowe kryteria. Podczas ładowania danych z magazynu danych innego niż magazyn obiektów blob, można aktywować kopiowanie danych za pośrednictwem tymczasowego tymczasowego magazynu obiektów BLOB. W takim przypadku Data Factory wykonuje wymagane przekształcenia danych, aby upewnić się, że spełnia on wymagania bazy. Następnie używa podstawy, aby załadować dane do SQL Data Warehouse. Aby uzyskać więcej informacji, zobacz [Korzystanie z bazy danych w celu ładowania do Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do Azure SQL Data Warehouse na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+1. Chcesz pozyskać **dane z różnych magazynów danych w usłudze Azure Synapse Analytics za pośrednictwem bazy**. Usługa Azure Synapse Analytics korzysta z bazy jako mechanizmu wysokiej przepływności w celu załadowania dużej ilości danych do usługi Azure Synapse Analytics. Dane źródłowe muszą jednak znajdować się w usłudze BLOB Storage i muszą spełniać dodatkowe kryteria. Podczas ładowania danych z magazynu danych innego niż magazyn obiektów blob, można aktywować kopiowanie danych za pośrednictwem tymczasowego tymczasowego magazynu obiektów BLOB. W takim przypadku Data Factory wykonuje wymagane przekształcenia danych, aby upewnić się, że spełnia on wymagania bazy. Następnie używa podstawy do ładowania danych do usługi Azure Synapse Analytics. Aby uzyskać więcej informacji, zobacz artykuł Tworzenie [bazy danych w usłudze Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics). Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 2. **Czasami trwa przeprowadzenie hybrydowego przenoszenia danych (czyli kopiowania między lokalnym magazynem danych i magazynem danych w chmurze) przez wolne połączenie sieciowe**. Aby zwiększyć wydajność, można skompresować dane lokalnie, aby przełączać dane do tymczasowego magazynu danych w chmurze. Następnie można zdekompresować dane w magazynie przemieszczania przed załadowaniem ich do docelowego magazynu danych.
-3. **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT**. Na przykład podczas kopiowania danych z lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia Azure SQL Data Warehouse, należy aktywować wychodzącą komunikację TCP na porcie 1433 dla zapory systemu Windows i zapory firmowej. W tym scenariuszu należy skorzystać z bramy, aby najpierw skopiować dane do wystąpienia tymczasowego magazynu obiektów BLOB za pośrednictwem protokołu HTTP lub HTTPS na porcie 443. Następnie Załaduj dane do SQL Database lub SQL Data Warehouse z przemieszczania magazynu obiektów BLOB. W tym przepływie nie trzeba włączać portu 1433.
+3. **Nie chcesz otwierać portów innych niż port 80 i port 443 w zaporze ze względu na firmowe zasady IT**. Na przykład podczas kopiowania danych z lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia usługi Azure Synapse Analytics należy aktywować wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej. W tym scenariuszu należy skorzystać z bramy, aby najpierw skopiować dane do wystąpienia tymczasowego magazynu obiektów BLOB za pośrednictwem protokołu HTTP lub HTTPS na porcie 443. Następnie Załaduj dane do SQL Database lub Azure Synapse Analytics z magazynu obiektów BLOB Storage. W tym przepływie nie trzeba włączać portu 1433.
 
 ### <a name="how-staged-copy-works"></a>Jak działa kopia przygotowana
 Gdy uaktywniasz funkcję przemieszczania, najpierw dane są kopiowane z magazynu danych źródłowych do przemieszczania magazynu danych (własne). Następnie dane zostaną skopiowane z tymczasowego magazynu danych do magazynu danych ujścia. Data Factory automatycznie zarządza przepływem dwuetapowym. Data Factory również czyści dane tymczasowe z magazynu tymczasowego po zakończeniu przenoszenia danych.
@@ -208,7 +208,7 @@ Skonfiguruj ustawienie **enableStaging** w działaniu Copy, aby określić, czy 
 | Właściwość | Opis | Wartość domyślna | Wymagane |
 | --- | --- | --- | --- |
 | **enableStaging** |Określ, czy chcesz kopiować dane za pośrednictwem tymczasowego magazynu przemieszczania. |Fałsz |Nie |
-| **linkedServiceName** |Określ nazwę połączonej usługi [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do SQL Data Warehouse za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
+| **linkedServiceName** |Określ nazwę połączonej usługi [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do usługi Azure Synapse Analytics za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
 | **ścieżka** |Określ ścieżkę magazynu obiektów blob, która ma zawierać dane przemieszczane. Jeśli nie podasz ścieżki, usługa tworzy kontener do przechowywania danych tymczasowych. <br/><br/> Określ ścieżkę tylko wtedy, gdy używasz magazynu z sygnaturą dostępu współdzielonego lub potrzebujesz danych tymczasowych, aby znajdować się w określonej lokalizacji. |Nie dotyczy |Nie |
 | **Ustawieniem EnableCompression** |Określa, czy dane mają być kompresowane przed skopiowaniem do lokalizacji docelowej. To ustawienie zmniejsza ilość przesyłanych danych. |Fałsz |Nie |
 
@@ -262,7 +262,7 @@ Zalecamy wykonanie następujących kroków, aby dostroić wydajność usługi Da
      * [Jednostki przenoszenia danych w chmurze](#cloud-data-movement-units)
      * [Kopia przygotowana](#staged-copy)
      * [Skalowalność bramy Zarządzanie danymi](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Zarządzanie danymi Gateway](#considerations-for-data-management-gateway)
+   * [Brama zarządzania danymi](#considerations-for-data-management-gateway)
    * [Element źródłowy](#considerations-for-the-source)
    * [Ujście](#considerations-for-the-sink)
    * [Serializacja i deserializacja](#considerations-for-serialization-and-deserialization)
@@ -282,7 +282,7 @@ Upewnij się, że źródłowy magazyn danych nie jest przeciążony przez inne o
 
 W przypadku magazynów danych firmy Microsoft zapoznaj się z tematami dotyczącymi [monitorowania i dostrajania](#performance-reference) , które są specyficzne dla magazynów danych, i poznanie charakterystyki wydajności magazynu danych, minimalizacji czasów odpowiedzi i maksymalnej przepływności.
 
-Jeśli skopiujesz dane z magazynu obiektów BLOB do SQL Data Warehouse, rozważ użycie **bazy** danych w celu zwiększenia wydajności. Aby uzyskać szczegółowe informacje [, zobacz Korzystanie z bazy Azure SQL Data Warehouse danych](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) . Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do Azure SQL Data Warehouse na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+W przypadku kopiowania danych z magazynu obiektów BLOB do usługi Azure Synapse Analytics należy rozważyć użycie systemu **Base** , aby zwiększyć wydajność. Aby uzyskać szczegółowe informacje, zobacz temat Tworzenie [bazy danych w usłudze Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) . Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Magazyny danych oparte na plikach
 *(W tym magazyn obiektów blob, Data Lake Store, Amazon S3, lokalne systemy plików i lokalne HDFS)*
@@ -292,7 +292,7 @@ Jeśli skopiujesz dane z magazynu obiektów BLOB do SQL Data Warehouse, rozważ 
 * W przypadku scenariusza **lokalnego systemu plików** , w którym **brama zarządzanie danymi** jest wymagana, zapoznaj się z sekcją [uwagi dotyczące zarządzanie danymi Gateway](#considerations-for-data-management-gateway) .
 
 ### <a name="relational-data-stores"></a>Relacyjne magazyny danych
-*(Zawiera SQL Database; SQL Data Warehouse; Amazon RedShift; Bazy danych SQL Server; i bazy danych Oracle, MySQL, DB2, Teradata, Sybase i PostgreSQL itp.)*
+*(Zawiera SQL Database; Azure Synapse Analytics; Amazon RedShift; Bazy danych SQL Server; i bazy danych Oracle, MySQL, DB2, Teradata, Sybase i PostgreSQL itp.)*
 
 * **Wzorzec danych**: schemat tabeli wpływa na przepływność kopiowania. Duży rozmiar wiersza zapewnia lepszą wydajność niż mały rozmiar wiersza w celu skopiowania tej samej ilości danych. Przyczyną jest to, że baza danych może efektywnie pobierać mniejszą liczbę partii danych zawierających mniej wierszy.
 * **Zapytanie lub procedura składowana**: Optymalizacja logiki zapytania lub procedury składowanej określonej w źródle działania kopiowania w celu bardziej wydajnego pobierania danych.
@@ -304,7 +304,7 @@ Upewnij się, że źródłowy magazyn danych nie jest przeciążony przez inne o
 
 W przypadku magazynów danych firmy Microsoft należy zapoznać się z [tematami dotyczącymi monitorowania i dostrajania](#performance-reference) , które są specyficzne dla magazynów danych. Te tematy mogą pomóc w zrozumieniu charakterystyki wydajności magazynu danych i sposobach minimalizowania czasów odpowiedzi i maksymalizacji przepływności.
 
-Jeśli kopiujesz dane z **magazynu obiektów BLOB** do **SQL Data Warehouse**, rozważ użycie **bazy** danych w celu zwiększenia wydajności. Aby uzyskać szczegółowe informacje [, zobacz Korzystanie z bazy Azure SQL Data Warehouse danych](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) . Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do Azure SQL Data Warehouse na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Jeśli kopiujesz dane z **magazynu obiektów BLOB** do **usługi Azure Synapse Analytics**, rozważ użycie **bazy danych Base** , aby zwiększyć wydajność. Aby uzyskać szczegółowe informacje, zobacz temat Tworzenie [bazy danych w usłudze Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) . Aby zapoznać się z przewodnikiem dotyczącym przypadku użycia, zobacz [ładowanie 1 TB do usługi Azure Synapse Analytics na 15 minut z Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Magazyny danych oparte na plikach
 *(W tym magazyn obiektów blob, Data Lake Store, Amazon S3, lokalne systemy plików i lokalne HDFS)*
@@ -315,7 +315,7 @@ Jeśli kopiujesz dane z **magazynu obiektów BLOB** do **SQL Data Warehouse**, r
 * W przypadku scenariuszy **z lokalnymi systemami plików** , które wymagają korzystania z **bramy zarządzanie danymi**, zobacz sekcję [zagadnienia dotyczące zarządzanie danymi bramy](#considerations-for-data-management-gateway) .
 
 ### <a name="relational-data-stores"></a>Relacyjne magazyny danych
-*(Zawiera SQL Database, SQL Data Warehouse, SQL Server baz danych i bazy danych Oracle)*
+*(Obejmuje SQL Database, Azure Synapse Analytics, bazy danych SQL Server i Oracle Database)*
 
 * **Zachowanie kopiowania**: w zależności od właściwości ustawionych dla elementu **sqlsink**, działanie Copy zapisuje dane w docelowej bazie danych na różne sposoby.
   * Domyślnie usługa przenoszenia danych używa interfejsu API kopiowania zbiorczego do wstawiania danych w trybie dołączania, który zapewnia najlepszą wydajność.
@@ -419,7 +419,7 @@ Poniżej znajdują się informacje dotyczące monitorowania wydajności i dostra
 * Azure Blob Storage: [elementy docelowe skalowalności i wydajności dla magazynu obiektów BLOB](../../storage/blobs/scalability-targets.md) i [wydajności i skalowalności dla usługi BLOB Storage](../../storage/blobs/storage-performance-checklist.md).
 * Azure Table Storage: [elementy docelowe skalowalności i wydajności dla magazynu tabel](../../storage/tables/scalability-targets.md) oraz [listę kontrolną wydajności i skalowalności w magazynie tabel](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: można [monitorować wydajność](../../sql-database/sql-database-single-database-monitor.md) i sprawdzać wartość procentową jednostki transakcji bazy danych (DTU)
-* Azure SQL Data Warehouse: jej możliwości są mierzone w jednostkach magazynu danych (jednostek dwu); Zobacz [zarządzanie mocą obliczeniową w Azure SQL Data Warehouse (omówienie)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure Synapse Analytics: jej możliwości są mierzone w jednostkach magazynu danych (jednostek dwu); Zobacz [zarządzanie mocą obliczeniową w usłudze Azure Synapse Analytics (omówienie)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [poziomy wydajności w Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * SQL Server lokalny: [monitorowanie i dostrajanie wydajności](https://msdn.microsoft.com/library/ms189081.aspx)
 * Lokalny serwer plików: [dostrajanie wydajności dla serwerów plików](https://msdn.microsoft.com/library/dn567661.aspx)

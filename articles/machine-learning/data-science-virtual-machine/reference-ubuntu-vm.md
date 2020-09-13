@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: c919e8abc55dd5cb36325ae060340c1ee147a1a0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816307"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440341"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Reference: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -232,7 +232,7 @@ Następujące narzędzia platformy Azure są zainstalowane na maszynie wirtualne
 * **Eksplorator usługi Azure Storage**: Eksplorator usługi Azure Storage to graficzne narzędzie umożliwiające przeglądanie obiektów przechowywanych na koncie usługi Azure Storage oraz przekazywanie i pobieranie danych do i z obiektów blob platformy Azure. Dostęp do Eksplorator usługi Storage można uzyskać za pomocą ikony skrótu pulpitu. Możesz również otworzyć ją z poziomu monitu powłoki, wprowadzając **StorageExplorer**. Użytkownik musi być zalogowany z poziomu klienta usługi X2Go lub mieć skonfigurowane przekazywanie X11.
 * **Biblioteki platformy Azure**: poniżej przedstawiono niektóre z wstępnie zainstalowanych bibliotek.
   
-  * **Python**: biblioteki związane z platformą Azure w języku Python to *Azure* *, Azure,* *pydocumentdb*i *moduł pyodbc*. Za pomocą pierwszych trzech bibliotek można uzyskać dostęp do usług Azure Storage, Azure Machine Learning i Azure Cosmos DB (baza danych NoSQL na platformie Azure). Czwarta biblioteka, moduł pyodbc (wraz ze sterownikiem Microsoft ODBC dla SQL Server) umożliwia dostęp do SQL Server, Azure SQL Database i Azure SQL Data Warehouse z języka Python przy użyciu interfejsu ODBC. Wprowadź **listę PIP** , aby wyświetlić wszystkie wymienione biblioteki. Upewnij się, że uruchamiasz to polecenie w środowiskach Python 2,7 i 3,5.
+  * **Python**: biblioteki związane z platformą Azure w języku Python to *Azure* *, Azure,* *pydocumentdb*i *moduł pyodbc*. Za pomocą pierwszych trzech bibliotek można uzyskać dostęp do usług Azure Storage, Azure Machine Learning i Azure Cosmos DB (baza danych NoSQL na platformie Azure). Czwarta Biblioteka moduł pyodbc (wraz ze sterownikiem Microsoft ODBC dla SQL Server) umożliwia dostęp do SQL Server, Azure SQL Database i Azure Synapse Analytics z poziomu języka Python przy użyciu interfejsu ODBC. Wprowadź **listę PIP** , aby wyświetlić wszystkie wymienione biblioteki. Upewnij się, że uruchamiasz to polecenie w środowiskach Python 2,7 i 3,5.
   * **R**: biblioteki związane z platformą Azure w języku R to Azure i RODBC.
   * **Java**: listę bibliotek Java platformy Azure można znaleźć w katalogu/dsvm/SDK/AzureSDKJava na maszynie wirtualnej. Biblioteki kluczy to usługi Azure Storage i interfejsy API zarządzania, Azure Cosmos DB i sterowniki JDBC dla SQL Server.  
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: de5346387336acb5a4b13457d3a163f529c51b89
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566271"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438691"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Zaawansowane zabezpieczenia danych dla maszyn SQL (wersja zapoznawcza)
 
@@ -65,7 +65,7 @@ Oba te elementy zostały opisane poniżej.
 
     - Jeśli używasz **obszaru roboczego innego niż domyślny**, wybierz odpowiedni **obszar roboczy** (w razie potrzeby wprowadź nazwę obszaru roboczego w filtrze):
 
-        ![tytuł](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+        ![title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 
 1. Przełącz opcję dla **serwerów SQL na maszynach (wersja zapoznawcza)** na wartość włączone. 
@@ -109,7 +109,7 @@ Wyniki oceny luk w zabezpieczeniach można wyświetlić bezpośrednio w Security
     W każdym widoku sprawdzanie zabezpieczeń jest sortowane według **ważności**. Kliknij określone sprawdzanie zabezpieczeń, aby wyświetlić okienko szczegółów z **opisem**, jak **rozwiązać ten** problem, oraz inne powiązane informacje, takie jak **wpływ** lub **test porównawczy**.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-machines-alerts"></a>Zaawansowana ochrona przed zagrożeniami dla serwerów SQL na komputerach
-Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane w [sekcji alerty dla SQL Database i SQL Data Warehouse na stronie informacje o alertach](alerts-reference.md#alerts-sql-db-and-warehouse).
+Alerty są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do maszyn SQL lub korzystania z nich. Zdarzenia te mogą wyzwalać alerty wyświetlane w [sekcji alerty dla SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) na stronie informacje o alertach](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 
 
@@ -131,7 +131,7 @@ Alerty zabezpieczeń są dostępne na stronie Alerty Security Center, na karcie 
 
 W przypadku pokrewnego materiału zapoznaj się z następującym artykułem:
 
-- [Alerty zabezpieczeń dla SQL Database i SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Alerty zabezpieczeń dotyczące SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Konfigurowanie powiadomień e-mail dla alertów zabezpieczeń](security-center-provide-security-contact-details.md)
 - [Dowiedz się więcej na temat platformy Azure — Wskaźnikowanie](https://docs.microsoft.com/azure/sentinel/)
 - [Pakiet zaawansowanej ochrony danych Azure Security Center](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

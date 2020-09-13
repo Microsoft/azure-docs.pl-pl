@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130776"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440647"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -78,7 +78,7 @@ fileForbidden | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFi
 dataInconsistency | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane między magazynem źródłowym i docelowym. <br/> -True: chcesz skopiować resztę, pomijając niespójne dane. <br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych. <br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true. | Prawda <br/>False (domyślnie) | Nie
 logStorageSettings  | Grupa właściwości, które można określić, gdy mają być rejestrowane pominięte nazwy obiektów. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
-ścieżka | Ścieżka do plików dziennika. | Określ ścieżkę, która ma być używana do przechowywania plików dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
+path | Ścieżka do plików dziennika. | Określ ścieżkę, która ma być używana do przechowywania plików dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
 > [!NOTE]
 > Poniżej przedstawiono wymagania wstępne dotyczące włączania odporności błędów w działaniu kopiowania podczas kopiowania plików binarnych.
@@ -126,11 +126,11 @@ Pliki dziennika muszą być plikami CSV. Schemat pliku dziennika jest następuj�
 
 Kolumna | Opis 
 -------- | -----------  
-Znacznik czasu | Sygnatura czasowa w przypadku pomijania pliku przez funkcję ADF.
+Timestamp | Sygnatura czasowa w przypadku pomijania pliku przez funkcję ADF.
 Poziom | Poziom dziennika tego elementu. Będzie on wyświetlany na poziomie "ostrzeżenie" dla elementu pokazującego pomijanie plików.
 OperationName | Zachowanie działania kopiowania APD dla każdego pliku. Będzie to "FileSkip", aby określić plik do pominięcia.
 OperationItem | Nazwy plików, które mają zostać pominięte.
-Komunikat | Więcej informacji o tym, dlaczego pominięto plik.
+Wiadomość | Więcej informacji o tym, dlaczego pominięto plik.
 
 Przykładowy plik dziennika jest następujący: 
 ```
@@ -159,7 +159,7 @@ Działanie Copy obsługuje trzy scenariusze wykrywania, pomijania i rejestrowani
     Na przykład: kopiowanie danych z programu SQL Server do bazy danych SQL. Klucz podstawowy jest zdefiniowany w usłudze SQL Database ujścia, ale nie jest on zdefiniowany w źródłowym programie SQL Server. Zduplikowane wiersze istniejące w źródle nie mogą zostać skopiowane do ujścia. Działanie Copy kopiuje tylko pierwszy wiersz danych źródłowych do ujścia. Kolejne wiersze źródłowe, które zawierają zduplikowaną wartość klucza podstawowego, są wykrywane jako niezgodne i pomijane.
 
 >[!NOTE]
->- Aby można było załadować dane do SQL Data Warehouse przy użyciu bazy danych, należy skonfigurować natywne ustawienia odporności na uszkodzenia bazowe, określając odrzucanie zasad za pośrednictwem elementu "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" w działaniu kopiowania. Nadal można włączyć przekierowywanie niezgodnych wierszy podrzędnych do obiektu BLOB lub ADLS, jak pokazano poniżej.
+>- Aby załadować dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) za pomocą bazy danych Base, skonfiguruj natywne ustawienia odporności na uszkodzenia na podstawie, określając odrzucanie zasad za pośrednictwem elementu "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" w działaniu kopiowania. Nadal można włączyć przekierowywanie niezgodnych wierszy podrzędnych do obiektu BLOB lub ADLS, jak pokazano poniżej.
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania usługi [Amazon RedShift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Ta funkcja nie ma zastosowania, gdy działanie kopiowania jest skonfigurowane do wywoływania [procedury składowanej z ujścia bazy danych SQL](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
@@ -190,7 +190,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 enableSkipIncompatibleRow | Określa, czy pomijać niezgodne wiersze podczas kopiowania. | Prawda<br/>False (domyślnie) | Nie
 logStorageSettings | Grupa właściwości, które można określić, gdy chcesz rejestrować niezgodne wiersze. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania dziennika zawierającego pominięte wiersze. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
-ścieżka | Ścieżka do plików dziennika, która zawiera pominięte wiersze. | Określ ścieżkę, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
+path | Ścieżka do plików dziennika, która zawiera pominięte wiersze. | Określ ścieżkę, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
 ### <a name="monitor-skipped-rows"></a>Monitoruj pominięte wiersze
 Po zakończeniu działania kopiowania można zobaczyć liczbę pominiętych wierszy w danych wyjściowych działania kopiowania:
@@ -215,11 +215,11 @@ Pliki dziennika będą plikami CSV. Schemat pliku dziennika jest następujący:
 
 Kolumna | Opis 
 -------- | -----------  
-Znacznik czasu | Sygnatura czasowa, gdy funkcja ADF pomija niezgodne wiersze
+Timestamp | Sygnatura czasowa, gdy funkcja ADF pomija niezgodne wiersze
 Poziom | Poziom dziennika tego elementu. Jeśli ten element wyświetli pominięte wiersze, będzie działać na poziomie "ostrzeżenie"
 OperationName | Zachowanie działania kopiowania APD dla każdego wiersza. Będzie to "TabularRowSkip", aby określić, że konkretny niezgodny wiersz został pominięty
 OperationItem | Pominięte wiersze z magazynu danych źródłowych.
-Komunikat | Więcej informacji ilustrujących przyczynę niezgodności tego konkretnego wiersza.
+Wiadomość | Więcej informacji ilustrujących przyczynę niezgodności tego konkretnego wiersza.
 
 
 Przykładem zawartości pliku dziennika jest:
@@ -264,7 +264,7 @@ Właściwość | Opis | Dozwolone wartości | Wymagane
 enableSkipIncompatibleRow | Określa, czy pomijać niezgodne wiersze podczas kopiowania. | Prawda<br/>False (domyślnie) | Nie
 redirectIncompatibleRowSettings | Grupa właściwości, które można określić, gdy chcesz rejestrować niezgodne wiersze. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [magazynu Azure](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) do przechowywania dziennika zawierającego pominięte wiersze. | Nazwy `AzureStorage` `AzureDataLakeStore` połączonej usługi lub typu, która odwołuje się do wystąpienia, które ma być używane do przechowywania pliku dziennika. | Nie
-ścieżka | Ścieżka pliku dziennika zawierającego pominięte wiersze. | Określ ścieżkę, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
+path | Ścieżka pliku dziennika zawierającego pominięte wiersze. | Określ ścieżkę, która ma być używana do rejestrowania niezgodnych danych. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
 
 ### <a name="monitor-skipped-rows"></a>Monitoruj pominięte wiersze
 Po zakończeniu działania kopiowania można zobaczyć liczbę pominiętych wierszy w danych wyjściowych działania kopiowania:
@@ -296,7 +296,7 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Przegląd działania kopiowania](copy-activity-overview.md)
+- [Omówienie działania kopiowania](copy-activity-overview.md)
 - [Wydajność działania kopiowania](copy-activity-performance.md)
 
 

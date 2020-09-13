@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 16c37c1492b042e9f2f19e631f7801bfbed2d247
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 434c2c33da73715b4ee8ce1d438626aa247d7431
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761216"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442619"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure w systemie SUSE Linux Enterprise Server for SAP — Przewodnik dotyczący wiele identyfikatorów SID
 
@@ -915,17 +915,20 @@ Przedstawione testy znajdują się w dwóch węzłach klastra z obsługą wiele 
 
    Użyj następujących poleceń, aby uruchomić Pacemaker w zamkniętym węźle, wyczyść komunikaty SBD i wyczyść zasoby zakończone niepowodzeniem.
 
-   ```# run as root
+   ```bash
+   # run as root
    # list the SBD device(s)
-   slesmsscl2:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+
+   # output is like:
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
    
-   slesmsscl2:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message slesmsscl2 clear
+   sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message slesmsscl2 clear
    
-   slesmsscl2:~ # systemctl start pacemaker
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW1_ERS02
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW2_ERS12
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW3_ERS22
+   systemctl start pacemaker
+   crm resource cleanup rsc_sap_NW1_ERS02
+   crm resource cleanup rsc_sap_NW2_ERS12
+   crm resource cleanup rsc_sap_NW3_ERS22
    ```
 
    Stan zasobu po teście:

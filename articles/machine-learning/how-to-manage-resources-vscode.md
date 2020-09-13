@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/03/2020
+ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306149"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440122"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Zarządzanie zasobami Azure Machine Learning przy użyciu rozszerzenia VS Code (wersja zapoznawcza)
 
@@ -48,6 +48,7 @@ Aby uzyskać więcej informacji, zobacz [obszary robocze](concept-workspace.md).
 
 Alternatywne metody tworzenia obszaru roboczego obejmują:
 
+- Otwórz widok palety poleceń **> palecie poleceń** i wprowadź tekst monitu o treść **Azure ml: Tworzenie obszaru roboczego**.
 - Kliknij `+` ikonę w górnej części widoku Azure Machine Learning.
 - Utwórz nowy obszar roboczy po wyświetleniu monitu o wybranie obszaru roboczego podczas aprowizacji innych zasobów.
 
@@ -242,6 +243,39 @@ Po zakończeniu przebiegu warto pobrać dzienniki i zasoby, takie jak model wyge
 ### <a name="view-run-metadata"></a>Wyświetl metadane uruchamiania
 
 W rozszerzeniu można sprawdzić metadane, takie jak konfiguracja uruchomienia używana do uruchamiania, a także szczegóły uruchamiania.
+
+## <a name="compute-instances"></a>Wystąpienia obliczeniowe
+
+Aby uzyskać więcej informacji, zobacz [wystąpienia obliczeniowe](concept-compute-instance.md).
+
+### <a name="create-compute-instance"></a>Tworzenie wystąpienia obliczeniowego
+
+1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
+1. Rozwiń węzeł obszaru roboczego, w którym chcesz utworzyć wystąpienie obliczeniowe.
+1. Kliknij prawym przyciskiem myszy węzeł **wystąpienia obliczeniowe** i wybierz polecenie **Utwórz wystąpienie obliczeniowe**.
+1. W wierszu polecenia:
+    1. Podaj nazwę wystąpienia obliczeniowego.
+    1. Wybierz rozmiar maszyny wirtualnej z listy.
+    1. Zdecyduj, czy chcesz włączyć dostęp SSH.
+        1. Jeśli włączysz dostęp SSH, musisz również podać publiczny klucz SSH lub plik zawierający klucz. Aby uzyskać więcej informacji, zobacz [Przewodnik dotyczący tworzenia i używania kluczy SSH na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+
+### <a name="stop-or-restart-compute-instance"></a>Zatrzymywanie lub ponowne uruchamianie wystąpienia obliczeniowego
+
+1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
+1. Rozwiń węzeł **wystąpienia obliczeniowego** w obszarze roboczym.
+1. Kliknij prawym przyciskiem myszy wystąpienie obliczeniowe, które chcesz zatrzymać lub uruchomić ponownie, a następnie wybierz odpowiednio polecenie **Zatrzymaj wystąpienie obliczeniowe** lub **ponownie uruchom wystąpienie obliczeniowe** .
+
+### <a name="view-compute-instance-configuration"></a>Wyświetl konfigurację wystąpienia obliczeniowego
+
+1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
+1. Rozwiń węzeł **wystąpienia obliczeniowego** w obszarze roboczym.
+1. Kliknij prawym przyciskiem myszy wystąpienie obliczeniowe, które chcesz sprawdzić, i wybierz polecenie **Wyświetl właściwości wystąpienia obliczeniowego**.
+
+### <a name="delete-compute-instance"></a>Usuwanie wystąpienia obliczeniowego
+
+1. Rozwiń węzeł subskrypcji zawierający obszar roboczy.
+1. Rozwiń węzeł **wystąpienia obliczeniowego** w obszarze roboczym.
+1. Kliknij prawym przyciskiem myszy wystąpienie obliczeniowe, które chcesz usunąć, a następnie wybierz polecenie **Usuń wystąpienie obliczeniowe**.
 
 ## <a name="compute-clusters"></a>Klastry obliczeniowe
 

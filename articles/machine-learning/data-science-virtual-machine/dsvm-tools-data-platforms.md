@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012489"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440358"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Platformy danych obsługiwane w Data Science Virtual Machine
 
@@ -53,7 +53,7 @@ Aby uruchomić SQL Server Management Studio, można wyszukać ciąg "SQL Server 
 
 Domyślnie serwer bazy danych z domyślnym wystąpieniem bazy danych jest uruchamiany automatycznie. Aby uzyskać dostęp do bazy danych SQL Server lokalnie, można użyć narzędzi takich jak SQL Server Management Studio na maszynie wirtualnej. Konta administratorów lokalnych mają dostęp administratora do bazy danych programu.
 
-Ponadto DSVM zawiera sterowniki ODBC i JDBC, aby komunikować się z SQL Server, bazami danych SQL Azure i Azure SQL Data Warehouse z aplikacji utworzonych w wielu językach, w tym Python i Machine Learning Server.
+Ponadto DSVM zawiera sterowniki ODBC i JDBC, aby komunikować się z SQL Server, bazami danych Azure SQL i usługą Azure Synapse Analytics z aplikacji utworzonych w wielu językach, w tym Python i Machine Learning Server.
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Jak została skonfigurowana i zainstalowana na DSVM? 
 

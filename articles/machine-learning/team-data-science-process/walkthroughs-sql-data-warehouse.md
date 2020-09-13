@@ -1,6 +1,6 @@
 ---
-title: Analiza na SQL Data Warehouse w języku T-SQL, Python — zespołowym procesie nauki danych
-description: Przykłady służące do przeprowadzania analizy predykcyjnej przy użyciu SQL Data Warehouse.
+title: Analiza w usłudze Azure Synapse Analytics przy użyciu języka T-SQL i środowiska Python — zespołowe przetwarzanie danych
+description: Przykłady służące do przeprowadzania analizy predykcyjnej przy użyciu usługi Azure Synapse Analytics.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,23 +11,23 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f657f02a39a023f6cb620895549105e7fd1eb233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92cd3a9cc82a38cae6a56b7796e22d035979f2d5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128161"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439854"
 ---
-# <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>SQL Data Warehouse przewodniki dotyczące analizy danych przy użyciu języków T-SQL i Python na platformie Azure
+# <a name="azure-synapse-analytics-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Przewodniki dotyczące analizy danych w usłudze Azure Synapse Analytics przy użyciu języka T-SQL i środowiska Python na platformie Azure
 
-Te instruktaże wykorzystują SQL Data Warehouse do wykonywania analiz predykcyjnych. Postępują zgodnie z krokami opisanymi w procesie nauki o danych zespołowych. Aby zapoznać się z omówieniem procesu nauki o danych zespołowych, zobacz [proces nauki o danych](overview.md). Aby zapoznać się z wprowadzeniem do SQL Data Warehouse, zobacz [co to jest Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Te instruktaże wykorzystują usługę Azure Synapse Analytics do wykonywania analiz predykcyjnych. Postępują zgodnie z krokami opisanymi w procesie nauki o danych zespołowych. Aby zapoznać się z omówieniem procesu nauki o danych zespołowych, zobacz [proces nauki o danych](overview.md). Aby zapoznać się z wprowadzeniem do usługi Azure Synapse Analytics, zobacz [co to jest usługa Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Dodatkowe przewodniki dotyczące analizy danych, które wykonują proces nauki o danych zespołowych, są pogrupowane według **platformy** , z której korzystają. Zobacz [przewodniki wykonujące proces nauki danych zespołu](walkthroughs.md) , aby zapoznać się z przykładami.
 
 
-## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-sql-data-warehouse"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu aplikacji T-SQL i IPython z SQL Data Warehouse
+## <a name="predict-taxi-tips-using-t-sql-and-ipython-notebooks-with-azure-synapse-analytics"></a>Przewidywanie wskazówek dotyczących taksówki przy użyciu notesów T-SQL i IPython przy użyciu usługi Azure Synapse Analytics
 
-W instrukcji [Use SQL Data Warehouse](sqldw-walkthrough.md) pokazano, jak tworzyć i wdrażać modele klasyfikacji i regresji uczenia maszynowego przy użyciu SQL Data Warehouse (SQL DW).  Dane to publicznie dostępny zestaw danych o wykorzystaniu NYC i taryfy.
+Wskazówki dotyczące [korzystania z usługi Azure Synapse Analytics](sqldw-walkthrough.md) pokazują, jak tworzyć i wdrażać modele klasyfikacji i regresji uczenia maszynowego przy użyciu usługi Azure Synapse Analytics.  Dane to publicznie dostępny zestaw danych o wykorzystaniu NYC i taryfy.
 
 
 ## <a name="next-steps"></a>Następne kroki

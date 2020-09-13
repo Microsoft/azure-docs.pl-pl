@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021504"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441939"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory — zagadnienia dotyczące zabezpieczeń związane z przenoszeniem danych
 
@@ -26,7 +26,7 @@ ms.locfileid: "84021504"
 ## <a name="introduction"></a>Wprowadzenie
 W tym artykule opisano podstawową infrastrukturę zabezpieczeń, której usługi przenoszenia danych w Azure Data Factory używać do zabezpieczania danych. Zasoby zarządzania Azure Data Factory są oparte na infrastrukturze zabezpieczeń platformy Azure i wykorzystują wszystkie możliwe środki bezpieczeństwa oferowane przez platformę Azure.
 
-W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](data-factory-create-pipelines.md) danych. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Te potoki znajdują się w regionie, w którym została utworzona Fabryka danych. 
+W ramach rozwiązania fabryki danych jest tworzony co najmniej jeden [potok](data-factory-create-pipelines.md) danych. Potok jest logicznym grupowaniem działań, które wspólnie wykonują zadanie. Te potoki znajdują się w regionie, w którym została utworzona Fabryka danych. 
 
 Mimo że Data Factory jest dostępna tylko w regionach **zachodnie stany USA**, **Wschodnie stany USA**i **Europa Północna** , Usługa przenoszenia danych jest dostępna [globalnie w kilku regionach](data-factory-data-movement-activities.md#global). Usługa Data Factory zapewnia, że dane nie opuszczają obszaru geograficznego/regionu, chyba że jawnie poinstruuje usługę, aby używała alternatywnego regionu, jeśli usługa przenoszenia danych nie została jeszcze wdrożona w tym regionie. 
 
@@ -42,7 +42,7 @@ Jeśli interesuje Cię zgodność z platformą Azure i sposób, w jaki platforma
 
 W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dwóch scenariuszach przenoszenia danych: 
 
-- **Scenariusz w chmurze**— w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne za poorednictwem Internetu. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Pełną listę obsługiwanych źródeł danych można znaleźć [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- **Scenariusz w chmurze**— w tym scenariuszu zarówno źródło, jak i miejsce docelowe są publicznie dostępne za poorednictwem Internetu. Obejmują one zarządzane usługi magazynu w chmurze, takie jak Azure Storage, Azure Synapse Analytics (dawniej SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon RedShift, SaaS Services, takie jak Salesforce i protokoły sieci Web, takie jak FTP i OData. Pełną listę obsługiwanych źródeł danych można znaleźć [tutaj](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Scenariusz hybrydowy**— w tym scenariuszu źródłowa lub docelowa znajduje się za zaporą lub wewnątrz lokalnej sieci firmowej albo magazyn danych znajduje się w sieci prywatnej/sieci wirtualnej (najczęściej w źródle) i nie jest publicznie dostępna. Serwery baz danych hostowane na maszynach wirtualnych są również objęte tym scenariuszem.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -55,13 +55,13 @@ Azure Data Factory chroni poświadczenia magazynu danych przez ich **szyfrowanie
 Jeśli magazyn danych w chmurze obsługuje protokół HTTPS lub TLS, wszystkie transfery danych między usługami przenoszenia danych w Data Factory i magazynem danych w chmurze są realizowane za pośrednictwem protokołu HTTPS lub TLS bezpiecznego kanału.
 
 > [!NOTE]
-> Wszystkie połączenia do **Azure SQL Database** i **Azure SQL Data Warehouse** zawsze wymagają szyfrowania (SSL/TLS), podczas przesyłania danych do i z bazy danych. Podczas tworzenia potoku przy użyciu edytora JSON należy dodać właściwość **szyfrowania** i ustawić dla niej **wartość true** w **parametrach połączenia**. W przypadku korzystania z [Kreatora kopiowania](data-factory-azure-copy-wizard.md)Kreator domyślnie ustawia tę właściwość. W przypadku **usługi Azure Storage**można użyć **protokołu HTTPS** w parametrach połączenia.
+> Wszystkie połączenia do **Azure SQL Database** i **Azure Synapse Analytics** zawsze wymagają szyfrowania (SSL/TLS), gdy dane są przesyłane do i z bazy danych. Podczas tworzenia potoku przy użyciu edytora JSON należy dodać właściwość **szyfrowania** i ustawić dla niej **wartość true** w **parametrach połączenia**. W przypadku korzystania z [Kreatora kopiowania](data-factory-azure-copy-wizard.md)Kreator domyślnie ustawia tę właściwość. W przypadku **usługi Azure Storage**można użyć **protokołu HTTPS** w parametrach połączenia.
 
 ### <a name="data-encryption-at-rest"></a>Szyfrowanie danych w spoczynku
 Niektóre magazyny danych obsługują szyfrowanie danych magazynowanych. Zalecamy włączenie mechanizmu szyfrowania danych dla tych magazynów danych. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Transparent Data Encryption (TDE) w Azure SQL Data Warehouse pomaga chronić przed zagrożeniami złośliwych działań, wykonując szyfrowanie i odszyfrowywanie danych w czasie rzeczywistym. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+Transparent Data Encryption (TDE) w usłudze Azure Synapse Analytics pomaga chronić przed zagrożeniami złośliwych działań, wykonując szyfrowanie i odszyfrowywanie danych w czasie rzeczywistym. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie bazy danych w programie Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database obsługuje również funkcję transparent Data Encryption (TDE), która pomaga chronić przed zagrożeniami złośliwego działania przez wykonywanie szyfrowania i odszyfrowywanie danych w czasie rzeczywistym bez konieczności wprowadzania zmian w aplikacji. To zachowanie jest niewidoczne dla klienta. Aby uzyskać więcej informacji, zobacz [transparent Data Encryption z Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
@@ -128,9 +128,9 @@ Poniższa tabela zawiera podsumowanie zaleceń dotyczących konfiguracji sieci i
 
 | Element źródłowy | Element docelowy | Konfiguracja sieci | Konfiguracja bramy |
 | ------ | ----------- | --------------------- | ------------- | 
-| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec sieci VPN (punkt-lokacja lub lokacja-lokacja) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
-| Lokalnie | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | ExpressRoute (prywatna Komunikacja równorzędna) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
-| Lokalnie | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | ExpressRoute (publiczna Komunikacja równorzędna) | Brama musi być zainstalowana lokalnie | 
+| Środowiska lokalne | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | IPSec sieci VPN (punkt-lokacja lub lokacja-lokacja) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
+| Środowiska lokalne | Maszyny wirtualne i usługi w chmurze wdrożone w sieciach wirtualnych | ExpressRoute (prywatna Komunikacja równorzędna) | Bramę można zainstalować lokalnie lub na maszynie wirtualnej platformy Azure w sieci wirtualnej | 
+| Środowiska lokalne | Usługi oparte na platformie Azure, które mają publiczny punkt końcowy | ExpressRoute (publiczna Komunikacja równorzędna) | Brama musi być zainstalowana lokalnie | 
 
 Na poniższych ilustracjach przedstawiono użycie bramy Zarządzanie danymi do przeniesienia danych między lokalną bazą danych i usługami platformy Azure przy użyciu usługi Express Route i sieci VPN IPSec (z Virtual Network):
 
@@ -154,11 +154,11 @@ W poniższej tabeli przedstawiono wymagania dotyczące **portów wychodzących**
 | `*.servicebus.windows.net` | 443, 80 | Wymagane przez bramę do nawiązywania połączenia z usługami przenoszenia danych w Data Factory |
 | `*.core.windows.net` | 443 | Używane przez bramę do nawiązywania połączenia z kontem usługi Azure Storage w przypadku korzystania z funkcji [kopiowania etapowego](data-factory-copy-activity-performance.md#staged-copy) . | 
 | `*.frontend.clouddatahub.net` | 443 | Wymagane przez bramę do nawiązywania połączenia z usługą Azure Data Factory. | 
-| `*.database.windows.net` | 1433   | (Opcjonalnie) wymagana, gdy lokalizacja docelowa to Azure SQL Database/Azure SQL Data Warehouse. Funkcja kopiowania przemieszczania służy do kopiowania danych do Azure SQL Database/Azure SQL Data Warehouse bez otwierania portu 1433. | 
+| `*.database.windows.net` | 1433   | (Opcjonalnie) wymagana, gdy lokalizacja docelowa to Azure SQL Database/analiza Synapse Azure. Funkcja kopiowania przemieszczania służy do kopiowania danych do usługi Azure SQL Database/Azure Synapse Analytics bez konieczności otwierania portu 1433. | 
 | `*.azuredatalakestore.net` | 443 | (Opcjonalnie) wymagana, gdy lokalizacja docelowa to Magazyn Azure Data Lake | 
 
 > [!NOTE] 
-> Może być konieczne zarządzanie portami/domeną listy dozwolonych na poziomie zapory firmowej, zgodnie z wymaganiami odpowiednich źródeł danych. W tej tabeli są stosowane przykłady Azure SQL Database, Azure SQL Data Warehouse Azure Data Lake Store.   
+> Może być konieczne zarządzanie portami/domeną listy dozwolonych na poziomie zapory firmowej, zgodnie z wymaganiami odpowiednich źródeł danych. Ta tabela używa tylko Azure SQL Database usługi Azure Synapse Analytics, Azure Data Lake Store jako przykłady.   
 
 W poniższej tabeli przedstawiono wymagania dotyczące **portów ruchu przychodzącego** dla **zapory systemu Windows**.
 
@@ -174,7 +174,7 @@ Niektóre magazyny danych w chmurze wymagają również listy dozwolonych z adre
 Następujące magazyny danych w chmurze wymagają listy dozwolonych adresu IP maszyny bramy. Niektóre z tych magazynów danych domyślnie mogą nie wymagać listy dozwolonych adresów IP. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
@@ -185,7 +185,7 @@ Następujące magazyny danych w chmurze wymagają listy dozwolonych adresu IP ma
 **Odpowiedź:** Ta funkcja nie jest jeszcze obsługiwana. Aktywnie nad nią pracujemy.
 
 **Pytanie:** Jakie są wymagania dotyczące portów, które mają być wykonywane przez bramę?
-**Odpowiedź:** Brama umożliwia nawiązywanie połączeń z Internetem przy użyciu protokołu HTTP. **Porty wychodzące 443 i 80** muszą zostać otwarte dla bramy w celu nawiązania połączenia. Otwórz **port Przychodzący 8050** tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji Menedżer poświadczeń. Jeśli Azure SQL Database lub Azure SQL Data Warehouse jest używany jako źródło/miejsce docelowe, należy również otworzyć port **1433** . Aby uzyskać więcej informacji, zobacz sekcję [konfiguracje zapory i listy dozwolonych adresy IP](#firewall-configurations-and-whitelisting-ip-address-of gateway) . 
+**Odpowiedź:** Brama umożliwia nawiązywanie połączeń z Internetem przy użyciu protokołu HTTP. **Porty wychodzące 443 i 80** muszą zostać otwarte dla bramy w celu nawiązania połączenia. Otwórz **port Przychodzący 8050** tylko na poziomie komputera (nie na poziomie zapory firmowej) dla aplikacji Menedżer poświadczeń. Jeśli Azure SQL Database lub usługa Azure Synapse Analytics jest używana jako źródło/miejsce docelowe, należy również otworzyć port **1433** . Aby uzyskać więcej informacji, zobacz sekcję [konfiguracje zapory i listy dozwolonych adresy IP](#firewall-configurations-and-whitelisting-ip-address-of gateway) . 
 
 **Pytanie:** Jakie są wymagania dotyczące certyfikatów dla bramy?
 **Odpowiedź:** Bieżąca Brama wymaga certyfikatu, który jest używany przez aplikację Menedżer poświadczeń do bezpiecznego ustawiania poświadczeń magazynu danych. Ten certyfikat jest certyfikatem z podpisem własnym utworzonym i skonfigurowanym przez Instalatora bramy. Zamiast tego możesz użyć własnego certyfikatu TLS/SSL. Aby uzyskać więcej informacji, zobacz sekcję kliknij jednokrotne [polecenie aplikacji Menedżer poświadczeń](#click-once-credentials-manager-app) . 

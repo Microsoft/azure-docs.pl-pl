@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: edf66af2df56785977418a118847991165ab3702
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d291adcf53469825f32b664cb7f4ffdb0bbf244b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041192"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441021"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Wprowadzenie do wielodostępnej aplikacji SaaS, która używa wzorca bazy danych na dzierżawcę z Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Podczas przeglądania samouczków i pracy z aplikacją należy skoncentrować si
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>Samouczki dotyczące SQL Database Wingtip SaaS
 
-Po wdrożeniu aplikacji zapoznaj się z poniższymi samouczkami, które kompilują się po wstępnym wdrożeniu. Te samouczki poznają typowe wzorce SaaS, które korzystają z wbudowanych funkcji SQL Database, Azure SQL Data Warehouse i innych usług platformy Azure. Samouczki zawierają skrypty programu PowerShell ze szczegółowymi wyjaśnieniami. Wyjaśnienia upraszczają zrozumienie i implementację tych samych wzorców zarządzania SaaS w aplikacjach.
+Po wdrożeniu aplikacji zapoznaj się z poniższymi samouczkami, które kompilują się po wstępnym wdrożeniu. Te samouczki eksplorują typowe wzorce SaaS, które korzystają z wbudowanych funkcji SQL Database, Azure Synapse Analytics (dawniej SQL Data Warehouse) i innych usług platformy Azure. Samouczki zawierają skrypty programu PowerShell ze szczegółowymi wyjaśnieniami. Wyjaśnienia upraszczają zrozumienie i implementację tych samych wzorców zarządzania SaaS w aplikacjach.
 
 
 | Samouczek | Opis |

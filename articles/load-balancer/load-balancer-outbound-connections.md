@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4368a025ecc158afa1ee78b8abd86bd6db42ba75
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706068"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438669"
 ---
 # <a name="outbound-connections-in-azure"></a>Połączenia wychodzące na platformie Azure
 
@@ -44,7 +44,7 @@ Azure Load Balancer zapewnia łączność wychodzącą za pośrednictwem różny
 
 Platforma Azure używa algorytmu, aby określić liczbę wstępnie przyalokowanych portów podzestawów adresów sieciowych dostępnych na podstawie rozmiaru puli zaplecza podczas korzystania z usługi. Dla każdego publicznego adresu IP skojarzonego z modułem równoważenia obciążenia dostępne są 64 000 portów jako porty dla każdego protokołu transportu IP. Ta sama liczba portów przydziałów adresów sieciowych jest wstępnie przypisana odpowiednio do protokołów UDP i TCP i zużywana niezależnie na protokół transportowy IP.  Niemniej jednak w zależności od tego, czy przepływ ma wartość UDP czy TCP, jest różne użycie portów. Gdy przepływy wychodzące są tworzone, te porty są używane dynamicznie (do wstępnie przydzielonych limitów) i wydawane, gdy następuje zamknięcie przepływu lub [przekroczenie limitu czasu bezczynności](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) . Porty są używane tylko wtedy, gdy konieczne jest przeprowadzenie unikatowych przepływów.
 
-#### <a name="default-snat-ports-allocated"></a><a name="snatporttable"></a> Przydzielono domyślne porty przydziałów adresów sieciowych
+#### <a name="dynamic-snat-ports-allocated"></a><a name="snatporttable"></a> Przydzielono porty dynamicznego translatora adresów sieciowych
 
 W poniższej tabeli przedstawiono alokacje wstępne portów adresów sieciowych dla warstw rozmiaru puli zaplecza:
 

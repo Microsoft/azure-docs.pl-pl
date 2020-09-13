@@ -1,6 +1,6 @@
 ---
 title: Przekształcanie danych
-description: Dowiedz się, jak przekształcać dane lub przetwarzać dane w Azure Data Factory przy użyciu usługi Hadoop, Machine Learning lub Azure Data Lake Analytics.
+description: Przekształć dane lub Przetwarzaj dane w Azure Data Factory przy użyciu usługi Hadoop, Machine Learning lub Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606612"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442789"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Przekształcanie danych w usłudze Azure Data Factory
 
@@ -78,7 +78,7 @@ W miarę upływu czasu modele predykcyjne w eksperymentach oceniających Machine
 Aby uzyskać szczegółowe informacje o tych Machine Learning działaniach, zobacz temat [używanie Machine Learning działań](transform-data-using-machine-learning.md) . 
 
 ### <a name="stored-procedure-activity"></a>Działanie procedury składowanej
-Możesz użyć działania procedury składowanej SQL Server w potoku Data Factory, aby wywołać procedurę składowaną w jednym z następujących magazynów danych: Azure SQL Database, Azure SQL Data Warehouse, SQL Server bazą danych w przedsiębiorstwie lub maszynie wirtualnej platformy Azure. Szczegóły można znaleźć w artykule dotyczącym [działania procedury składowanej](transform-data-using-stored-procedure.md) .  
+Możesz użyć działania procedury składowanej SQL Server w potoku Data Factory, aby wywołać procedurę składowaną w jednym z następujących magazynów danych: Azure SQL Database, Azure Synapse Analytics (dawniej SQL Data Warehouse), SQL Server Database w przedsiębiorstwie lub maszynie wirtualnej platformy Azure. Szczegóły można znaleźć w artykule dotyczącym [działania procedury składowanej](transform-data-using-stored-procedure.md) .  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics działanie U-SQL
 Data Lake Analytics działanie U-SQL uruchamia skrypt U-SQL w klastrze Azure Data Lake Analytics. Szczegóły można znaleźć w artykule dotyczącym [działania analiza danych U-SQL](transform-data-using-data-lake-analytics.md) . 

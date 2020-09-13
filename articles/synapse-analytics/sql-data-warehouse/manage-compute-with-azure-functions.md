@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60e79ecd4148829c38b237c0e28d60796e84ac01
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 11cb0c30a1a6ed70cca82e494fcec73936975f39
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543660"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442226"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Używanie Azure Functions do zarządzania zasobami obliczeniowymi w puli SQL usługi Azure Synapse Analytics
 
@@ -54,7 +54,7 @@ Po wdrożeniu szablonu należy znaleźć trzy nowe zasoby: bezpłatny plan Azure
 
 3. Obecnie powinna być wyświetlana wartość *%ScaleDownTime%* lub *%ScaleUpTime%*. Te wartości wskazują, że harmonogram jest oparty na wartościach określonych w [ustawieniach aplikacji](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Na razie można zignorować tę wartość i zmienić harmonogram na preferowany czas na podstawie następnych kroków.
 
-4. W obszarze harmonogramu dodaj godzinę, o której wyrażenie CRON ma odzwierciedlać, jak często usługa SQL Data Warehouse ma być skalowana w górę.
+4. W obszarze harmonogram Dodaj godzinę wyrażenia, które chcesz odzwierciedlić, jak często chcesz skalować usługę Azure Synapse Analytics.
 
    ![Zmienianie harmonogramu funkcji](./media/manage-compute-with-azure-functions/change-schedule.png)
 

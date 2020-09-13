@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21bede74ee265ffbe530c7697817186ac0e8dd3b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845701"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440205"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proces nauki danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics
 W ramach tego samouczka przeprowadzimy Cię przez proces tworzenia i wdrażania modelu uczenia maszynowego przy użyciu usługi Azure Synapse Analytics dla publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Model klasyfikacji binarnej skonstruowany przewiduje, czy Porada jest płatna za podróż.  Modele obejmują klasyfikację wieloklasową (bez względu na to, czy jest to Porada) i regresję (dystrybucja dla płatnych sum).
@@ -91,14 +91,14 @@ Aby skonfigurować środowisko nauki danych platformy Azure, wykonaj następują
   * **Nazwa kontenera** (w którym dane mają być przechowywane w usłudze Azure Blob Storage)
 
 **Inicjowanie obsługi administracyjnej wystąpienia usługi Azure Synapse Analytics.**
-Postępuj zgodnie z dokumentacją w temacie [Tworzenie i wykonywanie zapytań dotyczących Azure SQL Data Warehouse w Azure Portal,](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) aby udostępnić wystąpienie usługi Azure Synapse Analytics. Upewnij się, że wprowadzono notację na następujących poświadczeniach usługi Azure Synapse Analytics, które będą używane w dalszych krokach.
+Postępuj zgodnie z dokumentacją w temacie [Tworzenie i wykonywanie zapytań dotyczących usługi Azure Synapse Analytics w Azure Portal,](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) aby udostępnić wystąpienie usługi Azure Synapse Analytics. Upewnij się, że wprowadzono notację na następujących poświadczeniach usługi Azure Synapse Analytics, które będą używane w dalszych krokach.
 
 * **Nazwa serwera**: \<server Name> . Database.Windows.NET
 * **Nazwa SQLDW (baza danych)**
 * **Nazwa użytkownika**
 * **Hasło**
 
-**Zainstaluj program Visual Studio i narzędzia danych SQL Server.** Aby uzyskać instrukcje, zobacz [wprowadzenie do programu Visual Studio 2019 dla SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Zainstaluj program Visual Studio i narzędzia danych SQL Server.** Aby uzyskać instrukcje, zobacz [Rozpoczynanie pracy z programem Visual Studio 2019 for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Połącz się z usługą Azure Synapse Analytics przy użyciu programu Visual Studio.** Aby uzyskać instrukcje, zobacz kroki 1 & 2 w artykule [nawiązywanie połączenia z usługą SQL Analytics w usłudze Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
@@ -655,7 +655,7 @@ Jeśli już skonfigurowano obszar roboczy Azure Machine Learning, możesz bezpo�
 
 W celu uruchomienia przykładowego notesu IPython lub pliku skryptu języka Python są konieczne następujące pakiety języka Python. Jeśli używasz usługi Azure IPython Notes, te pakiety zostały wstępnie zainstalowane.
 
-- pandas
+- Pandas
 - numpy
 - matplotlib
 - pyodbc
@@ -805,7 +805,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
 ![Wykres słupkowy][3]
 
-oraz
+and
 
 ```sql
 pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
@@ -966,7 +966,7 @@ W tym ćwiczeniu zostały już omówione i zaprojektowane dane w usłudze Azure 
 
     ![Importowanie danych z platformy Azure ML][17]
 2. Wybierz **Azure SQL Database** jako **Źródło danych** w panelu **Właściwości** .
-3. Wprowadź nazwę DNS bazy danych w polu **Nazwa serwera bazy danych** . Formatowanie`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Wprowadź nazwę DNS bazy danych w polu **Nazwa serwera bazy danych** . Formatowanie `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Wprowadź **nazwę bazy danych** w odpowiednim polu.
 5. Wprowadź *nazwę użytkownika SQL* w polu **nazwa konta użytkownika serwera**i *hasło* w polu **hasło konta użytkownika serwera**.
 7. W obszarze tekst **kwerendy bazy danych** Edytuj zapytanie, które wyodrębnia niezbędne pola bazy danych (w tym wszystkie pola obliczane, takie jak etykiety), i w dół próbkuje dane do żądanego rozmiaru próbki.

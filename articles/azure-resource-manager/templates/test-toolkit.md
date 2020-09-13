@@ -2,19 +2,19 @@
 title: Zestaw narzędzi do testowania szablonów ARM
 description: Opisuje sposób uruchamiania zestawu narzędzi do testowania szablonów ARM w szablonie. Zestaw narzędzi umożliwia sprawdzenie, czy wdrożono zalecane rozwiązania.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7b88096dfdd1c7fb3e2671a369132e75a8885b8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255982"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439564"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Korzystanie z zestawu narzędzi do testowania szablonów ARM
 
-[Zestaw narzędzi do testowania szablonów ARM](https://aka.ms/arm-ttk) sprawdza, czy szablon używa zalecanych praktyk. Jeśli szablon nie jest zgodny z zalecanymi praktykami, zwraca listę ostrzeżeń z sugerowanymi zmianami. Za pomocą zestawu narzędzi test Toolkit można dowiedzieć się, jak uniknąć typowych problemów związanych z tworzeniem szablonów.
+[Zestaw narzędzi do testowania szablonów Azure Resource Manager (ARM)](https://aka.ms/arm-ttk) sprawdza, czy szablon używa zalecanych praktyk. Jeśli szablon nie jest zgodny z zalecanymi praktykami, zwraca listę ostrzeżeń z sugerowanymi zmianami. Za pomocą zestawu narzędzi test Toolkit można dowiedzieć się, jak uniknąć typowych problemów związanych z tworzeniem szablonów.
 
 Zestaw narzędzi test Toolkit zawiera [zbiór domyślnych testów](test-cases.md). Te testy są zaleceniami, ale nie wymaganiami. Można zdecydować, które testy są odpowiednie dla celów i dostosować testy, które są uruchamiane.
 
@@ -22,53 +22,103 @@ W tym artykule opisano sposób uruchomienia narzędzia Test Toolkit oraz sposobu
 
 Zestaw narzędzi jest zestawem skryptów programu PowerShell, które można uruchomić za pomocą polecenia w programie PowerShell lub interfejsie CLI.
 
-## <a name="download-test-toolkit"></a>Pobierz zestaw narzędzi testów
+## <a name="install-on-windows"></a>Instalowanie w systemie Windows
 
-Aby użyć zestawu narzędzi testowych, można utworzyć rozwidlenie i sklonować [repozytorium](https://aka.ms/arm-ttk) zawierające skrypty lub [pobrać najnowszy plik. zip](https://aka.ms/arm-ttk-latest).
+1. Jeśli nie masz jeszcze programu PowerShell, [Zainstaluj program PowerShell w systemie Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
-W zależności od zasad wykonywania na komputerze, na którym jest uruchamiany skrypt, może wystąpić błąd dotyczący uruchamiania skryptów z Internetu. Należy zmienić [zasady wykonywania](/powershell/module/microsoft.powershell.core/about/about_execution_policies) lub [odblokować pliki skryptów](/powershell/module/microsoft.powershell.utility/unblock-file).
+1. [Pobierz najnowszy plik zip](https://aka.ms/arm-ttk-latest) dla zestawu narzędzi test i wyodrębnij go.
 
-## <a name="run-on-powershell"></a>Uruchom w programie PowerShell
+1. Uruchom program PowerShell.
 
-Przed uruchomieniem testów zaimportuj moduł.
+1. Przejdź do folderu, w którym został wyodrębniony zestaw narzędzi test Toolkit. W tym folderze przejdź do folderu **ARM-TTK** .
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. Jeśli [zasady wykonywania](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blokują skrypty z Internetu, należy odblokować pliki skryptów. Upewnij się, że jesteś w folderze **ARM-TTK** .
 
-Aby uruchomić testy w programie **PowerShell**, użyj następującego polecenia:
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. Zaimportuj moduł.
 
-## <a name="run-on-linux"></a>Uruchom w systemie Linux
+   ```powershell
+   Import-Module .\arm-ttk.psd1
+   ```
 
-Przed uruchomieniem testów Zainstaluj program [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux).
+1. Aby uruchomić testy, użyj następującego polecenia:
 
-Aby uruchomić testy w systemie **Linux** w bash, użyj następującego polecenia:
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## <a name="install-on-linux"></a>Instalowanie w systemie Linux
 
-Test można również uruchomić na pwsh.exe.
+1. Jeśli nie masz jeszcze programu PowerShell, [Zainstaluj program PowerShell w systemie Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-## <a name="run-on-macos"></a>Uruchom w macOS
+1. [Pobierz najnowszy plik zip](https://aka.ms/arm-ttk-latest) dla zestawu narzędzi test i wyodrębnij go.
 
-Przed uruchomieniem testów Zainstaluj program [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-macos). 
+1. Uruchom program PowerShell.
 
-Zainstaluj program `coreutils`:
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. Przejdź do folderu, w którym został wyodrębniony zestaw narzędzi test Toolkit. W tym folderze przejdź do folderu **ARM-TTK** .
 
-Aby uruchomić testy na **macOS**, użyj następującego polecenia:
+1. Jeśli [zasady wykonywania](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blokują skrypty z Internetu, należy odblokować pliki skryptów. Upewnij się, że jesteś w folderze **ARM-TTK** .
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Zaimportuj moduł.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Aby uruchomić testy, użyj następującego polecenia:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
+
+## <a name="install-on-macos"></a>Instalowanie w systemie macOS
+
+1. Jeśli nie masz jeszcze programu PowerShell, [Zainstaluj program PowerShell w programie macOS](/powershell/scripting/install/installing-powershell-core-on-macos).
+
+1. Zainstaluj program `coreutils`:
+
+   ```bash
+   brew install coreutils
+   ```
+
+1. [Pobierz najnowszy plik zip](https://aka.ms/arm-ttk-latest) dla zestawu narzędzi test i wyodrębnij go.
+
+1. Uruchom program PowerShell.
+
+   ```bash
+   pwsh
+   ```
+
+1. Przejdź do folderu, w którym został wyodrębniony zestaw narzędzi test Toolkit. W tym folderze przejdź do folderu **ARM-TTK** .
+
+1. Jeśli [zasady wykonywania](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blokują skrypty z Internetu, należy odblokować pliki skryptów. Upewnij się, że jesteś w folderze **ARM-TTK** .
+
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Zaimportuj moduł.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. Aby uruchomić testy, użyj następującego polecenia:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
 
 ## <a name="result-format"></a>Format wyniku
 

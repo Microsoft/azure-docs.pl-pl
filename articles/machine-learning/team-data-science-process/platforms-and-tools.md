@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028132"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440001"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformy i narzędzia dla projektów do nauki o danych
 
@@ -63,11 +63,11 @@ Tworząc klaster Spark w usłudze HDInsight, tworzysz zasoby obliczeniowe system
 Zespół przetwarzania TDSP od firmy Microsoft opublikował dwa kompleksowe przewodniki dotyczące korzystania z klastrów Azure HDInsight Spark do kompilowania rozwiązań do nauki o danych, a przy użyciu języka Python i innych Scala. Aby uzyskać więcej informacji na temat **klastrów**usługi Azure HDInsight Spark, zobacz [Omówienie: Apache Spark w usłudze HDInsight w systemie Linux](../../hdinsight/spark/apache-spark-overview.md). Aby dowiedzieć się, jak utworzyć rozwiązanie do nauki o danych przy użyciu języka **Python** w klastrze Azure HDInsight Spark, zobacz [Omówienie analizy danych przy użyciu platformy Spark w usłudze Azure HDInsight](spark-overview.md). Aby dowiedzieć się, jak utworzyć rozwiązanie do nauki o danych przy użyciu usługi **Scala** w klastrze Azure HDInsight Spark, zobacz [naukę danych przy użyciu Scala i platformy Spark na platformie Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse pozwala na łatwe skalowanie zasobów obliczeniowych w kilka sekund bez konieczności nadmiernej aprowizacji lub nadmiernej płatności. Oferuje również unikatową opcję wstrzymania korzystania z zasobów obliczeniowych, co pozwala na lepsze zarządzanie kosztami chmury. Możliwość wdrażania skalowalnych zasobów obliczeniowych umożliwia przekazanie wszystkich danych do Azure SQL Data Warehouse. Koszty magazynu są minimalne i można uruchamiać obliczenia tylko dla części zestawów danych, które mają być analizowane. 
+Usługa Azure Synapse Analytics umożliwia łatwe skalowanie zasobów obliczeniowych w kilka sekund bez konieczności nadmiernej aprowizacji lub nadmiernej płatności. Oferuje również unikatową opcję wstrzymania korzystania z zasobów obliczeniowych, co pozwala na lepsze zarządzanie kosztami chmury. Możliwość wdrażania skalowalnych zasobów obliczeniowych umożliwia przenoszenie wszystkich danych do usługi Azure Synapse Analytics. Koszty magazynu są minimalne i można uruchamiać obliczenia tylko dla części zestawów danych, które mają być analizowane. 
 
-Aby uzyskać więcej informacji na temat Azure SQL Data Warehouse, zobacz witrynę sieci Web [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) . Aby dowiedzieć się, jak utworzyć kompleksowe rozwiązania do analizy zaawansowanej przy użyciu SQL Data Warehouse, zobacz proces uczenie [danych zespołu w działaniu: korzystanie z SQL Data Warehouse](sqldw-walkthrough.md).
+Aby uzyskać więcej informacji na temat usługi Azure Synapse Analytics, zobacz witrynę sieci Web [usługi Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse) . Aby dowiedzieć się, jak tworzyć kompleksowe rozwiązania zaawansowanej analizy za pomocą usługi Azure Synapse Analytics, zobacz [proces analizy danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake

@@ -11,12 +11,12 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 515de0fed987f412adb060a3ba58978f0400ae0d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628950"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441956"
 ---
 # <a name="templates"></a>Szablony
 
@@ -56,7 +56,7 @@ Data Factory używa szablonów Azure Resource Manager do zapisywania szablonów 
 
     -   [Kopiowanie przyrostowe z bazy danych](solution-template-delta-copy-with-control-table.md)
 
-    -   Kopiuj z \<source\> do\<destination\>
+    -   Kopiuj z \<source\> do \<destination\>
 
         -   [Z usługi Amazon S3 do Azure Data Lake Store generacji 2](solution-template-migration-s3-azure.md)
 
@@ -68,9 +68,9 @@ Data Factory używa szablonów Azure Resource Manager do zapisywania szablonów 
 
         -   Od SQL Server lokalnych do Azure SQL Database
 
-        -   Od SQL Server lokalnych do Azure SQL Data Warehouse
+        -   Od SQL Server lokalnie do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)
 
-        -   Z programu Oracle on premises do Azure SQL Data Warehouse
+        -   Od firmy Oracle lokalnie do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)
 
 -   Szablony usług SSIS
 

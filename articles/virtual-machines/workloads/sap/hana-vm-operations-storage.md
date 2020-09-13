@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650472"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440698"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -88,7 +88,7 @@ Zalecenia dotyczące buforowania dla dysków z systemem Azure Premium są zakła
 **Zalecenie: w wyniku tych obserwowanych wzorców we/wy według SAP HANA, buforowanie dla różnych woluminów przy użyciu usługi Azure Premium Storage powinno być ustawione na przykład:**
 
 - **/Hana/Data** — brak buforowania lub buforowanie odczytu
-- **/Hana/log** — brak buforowania — wyjątek dla serii M i Mv2, gdzie akcelerator zapisu powinien być włączony bez buforowania odczytu. 
+- **/Hana/log** — brak buforowania — wyjątek dla maszyn wirtualnych z serii M i Mv2, w których powinien być włączony akcelerator zapisu platformy Azure 
 - **/Hana/Shared** — buforowanie odczytu
 - **Dysk systemu operacyjnego** — nie zmieniaj domyślnego buforowania ustawionego przez platformę Azure podczas tworzenia maszyny wirtualnej
 
@@ -236,6 +236,10 @@ W tej konfiguracji należy osobno przechowywać woluminy **/Hana/Data** i **/Han
 
 Zalecenia często przekraczają minimalne wymagania SAP określone wcześniej w tym artykule. Wymienione zalecenia są kompromisem między zaleceniami dotyczącymi rozmiaru w oprogramowaniu SAP a maksymalną przepływności magazynu, które zapewniają różne typy maszyn wirtualnych.
 
+> [!NOTE]
+> Usługa Azure Ultra Disk wymusza minimalną liczbę operacji we/wy na sekundę dysku
+
+
 | Jednostka SKU maszyny wirtualnej | Pamięć RAM | Maksymalnie z WE/WY MASZYNY WIRTUALNEJ<br /> Przepływność | wolumin/Hana/Data | przepływność we/wy/Hana/Data | /Hana/Data IOPS | wolumin/Hana/log | przepływność we/wy/Hana/log | /Hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MB/s | 2500 | 80 GB | 250 MB | 1800 |
@@ -249,11 +253,11 @@ Zalecenia często przekraczają minimalne wymagania SAP określone wcześniej w 
 | M64s | 1 000 GiB | 1 000 MB/s |  1 200 GB | 600 MB/s | 5000 | 512 GB | 250 MB/s  | 2500 |
 | M64ms | 1 750 GiB | 1 000 MB/s | 2 100 GB | 600 MB/s | 5000 | 512 GB | 250 MB/s  | 2500 |
 | M128s | 2 000 GiB | 2 000 MB/s |2 400 GB | 750 MB/s | 7 000 | 512 GB | 250 MB/s  | 2500 | 
-| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 750 MB/s |7 000 | 512 GB | 250 MB/s  | 2500 | 
+| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 750 MB/s |9600 | 512 GB | 250 MB/s  | 2500 | 
 | M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 500 GB | 750 MB/s | 7 000 | 512 GB | 250 MB/s  | 2500 | 
-| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 750 MB/s | 7 000 | 512 GB | 250 MB/s  | 2500 | 
-| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 000 MB/s | 9000 | 512 GB | 400 MB/s  | 4000 | 
-| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 MB/s | 9000 | 512 GB | 400 MB/s  | 4000 |   
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 750 MB/s | 14 400 | 512 GB | 250 MB/s  | 2500 | 
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 000 MB/s | 14 400 | 512 GB | 400 MB/s  | 4000 | 
+| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 MB/s | 28 800 | 512 GB | 400 MB/s  | 4000 |   
 
 **Wymienione wartości mają być punktem początkowym i muszą być oceniane względem rzeczywistych wymagań.** Zalety korzystania z usługi Azure Ultra Disk polega na tym, że wartości operacji we/wy i przepływności można dostosować bez konieczności wyłączania maszyny wirtualnej lub zatrzymania obciążenia zastosowanego do systemu.   
 
@@ -267,7 +271,7 @@ Azure NetApp Files zapewnia natywne udziały NFS, które mogą być używane dla
 > [!IMPORTANT]
 > Protokół NFS v3 zaimplementowany w Azure NetApp Files **nie** jest obsługiwany do użycia dla **/Hana/Data** i **/Hana/log**. Użycie systemu plików NFS 4,1 jest obowiązkowe dla woluminów **/Hana/Data** i **/Hana/log** z punktu widzenia funkcjonalnego. W przypadku woluminu **/Hana/Shared** można użyć systemu NFS v3 lub protokołu NFS v 4.1 z punktu widzenia funkcjonalnego.
 
-### <a name="important-considerations"></a>Istotne zagadnienia
+### <a name="important-considerations"></a>Ważne zagadnienia
 Rozważając Azure NetApp Files dla oprogramowania SAP NetWeaver i SAP HANA, należy pamiętać o następujących kwestiach:
 
 - Minimalna Pula pojemności to 4 TiB.  

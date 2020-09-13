@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/11/2020
-ms.openlocfilehash: 3bc8458aa009920f183b076d12185295ef294e07
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186084"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440579"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosuj konfigurację dla Azure-SSIS Integration Runtime
 
@@ -147,9 +147,9 @@ Jeśli wybierzesz opcję **Zainstaluj licencjonowany typ składnika** dla instal
 
    * W przypadku wybrania składnika **oh22's SQLPhonetics.NET** można zainstalować składnik [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) (jakość danych/dopasowanie) z oh22 na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Aktualna wersja zintegrowana to **1.0.45**.
 
-   * W przypadku wybrania składnika **KingswaySoft usług SSIS Integration** Toolkit można zainstalować pakiet [narzędzi SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) dla aplikacji CRM/ERP/Marketing/Collaboration, takich jak Microsoft Dynamics/SharePoint/Project Server, Chmura marketingowa Oracle/Salesforce, itp. z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **2019,2**.
+   * W przypadku wybrania składnika **KingswaySoft usług SSIS Integration** Toolkit można zainstalować pakiet [narzędzi SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) dla aplikacji CRM/ERP/Marketing/Collaboration, takich jak Microsoft Dynamics/SharePoint/Project Server, Chmura marketingowa Oracle/Salesforce, itp. z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **2020,1**.
 
-   * W przypadku wybrania składnika **pakietu do produkcji SSIS KingswaySoft** można zainstalować pakiet usług [SSIS pakietu Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) dla składników z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **10,0**.
+   * W przypadku wybrania składnika **pakietu do produkcji SSIS KingswaySoft** można zainstalować pakiet usług [SSIS pakietu Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) dla składników z KingswaySoft na Azure-SSIS IR. W tym celu wprowadź wcześniej zakupiony klucz licencji produktu w polu tekstowym **klucz licencji** . Bieżąca wersja zintegrowana to **20,1**.
 
    * Jeśli wybierzesz składnik **Theobald oprogramowania yodrębnij** , możesz zainstalować [yodrębnij to](https://theobald-software.com/en/xtract-is/) pakiet łączników dla systemów SAP (ERP, s/4HANA, BW) z oprogramowania Theobald na Azure-SSIS IR. Aby to zrobić, przeciągnij & upuść/Przekaż plik licencji produktu, który został zakupiony wcześniej w polu wejściowym **plik licencji** . Aktualna wersja zintegrowana to **6.1.1.3**.
 

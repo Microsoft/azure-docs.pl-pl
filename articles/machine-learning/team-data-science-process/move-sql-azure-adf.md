@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 18ded2713ec89a9a0666cd00221d437c1c9ef090
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f2e0b9a797edb2d5529bb0645ed56c44df3121c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092426"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440024"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Przenoszenie danych z bazy danych SQL Server do SQL Database za pomocą Azure Data Factory
 
@@ -60,12 +60,12 @@ W tym samouczku założono, że masz:
 >
 >
 
-## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>Przekaż dane do wystąpienia SQL Server
+## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a> Przekaż dane do wystąpienia SQL Server
 Używamy [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/) w celu zademonstrowania procesu migracji. Zestaw danych NYC taksówki jest dostępny w tym wpisie w przypadku [danych o taksówkach](https://www.andresmh.com/nyctaxitrips/)w usłudze Azure Blob Storage NYC. Dane mają dwa pliki, plik trip_data.csv, zawierający szczegóły dotyczące wyjazdu i plik trip_far.csv, który zawiera szczegółowe informacje o opłatach za każdą podróż. Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
 
 Można dostosować procedurę podaną tutaj do zestawu własnych danych lub postępować zgodnie z instrukcjami w sposób opisany przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do bazy danych SQL Server, wykonaj procedurę opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload).
 
-## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Tworzenie Azure Data Factory
+## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Tworzenie Azure Data Factory
 Poniżej [Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory)przedstawiono instrukcje dotyczące tworzenia nowych Azure Data Factory i grupy zasobów w [Azure Portal](https://portal.azure.com/) . Nazwij nowe wystąpienie ADF *adfdsp* i Nazwij grupę zasobów utworzoną *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Zainstaluj i skonfiguruj Integration Runtime Azure Data Factory
@@ -232,7 +232,7 @@ Korzystając z podanych wcześniej definicji tabeli, definicja potoku dla ADF je
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
+        "description" : "This pipeline has two activities: the first one copies data from SQL Server to Azure Blob, and the second one copies from Azure Blob to Azure Database Table",
         "activities":
         [
             {

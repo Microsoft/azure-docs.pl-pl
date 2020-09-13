@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629086"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441072"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Kopiowanie masowe z bazy danych za pomocą tabeli formantów
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Aby skopiować dane z magazynu danych programu Oracle Server, Netezza, Teradata lub SQL Server do Azure SQL Data Warehouse, należy załadować ogromne ilości danych z wielu tabel. Zwykle dane należy podzielić na partycje w każdej tabeli, aby można było załadować wiersze z wieloma wątkami równolegle z pojedynczej tabeli. W tym artykule opisano szablon, który ma być używany w tych scenariuszach.
+Aby skopiować dane z magazynu danych programu Oracle Server, Netezza, Teradata lub SQL Server do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), należy załadować ogromne ilości danych z wielu tabel. Zwykle dane należy podzielić na partycje w każdej tabeli, aby można było załadować wiersze z wieloma wątkami równolegle z pojedynczej tabeli. W tym artykule opisano szablon, który ma być używany w tych scenariuszach.
 
- >! Uwaga Jeśli chcesz skopiować dane z niewielkiej liczby tabel z stosunkowo małą ilością danych do SQL Data Warehouse, możesz użyć [narzędzia Kopiowanie danych Azure Data Factory](copy-data-tool.md). Szablon opisany w tym artykule jest bardziej niezbędny w przypadku tego scenariusza.
+ >! Uwaga Jeśli chcesz skopiować dane z niewielkiej liczby tabel z stosunkowo małą ilością danych do usługi Azure Synapse Analytics, możesz użyć [narzędzia Kopiowanie danych Azure Data Factory](copy-data-tool.md). Szablon opisany w tym artykule jest bardziej niezbędny w przypadku tego scenariusza.
 
 ## <a name="about-this-solution-template"></a>Informacje o tym szablonie rozwiązania
 
@@ -44,7 +44,7 @@ Szablon definiuje następujące parametry:
 - *Data_Destination_Container* to ścieżka folderu głównego, w której dane są kopiowane do magazynu docelowego. 
 - *Data_Destination_Directory* jest ścieżką katalogu w katalogu głównym, gdzie dane są kopiowane do magazynu docelowego. 
 
-Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym, są widoczne tylko wtedy, gdy wybrane miejsce docelowe jest magazynem opartym na plikach. Jeśli wybierzesz pozycję "Azure Synapse Analytics (wcześniej SQL DW)" jako magazyn docelowy, te parametry nie są wymagane. Nazwy tabel i schematu w SQL Data Warehouse muszą być takie same jak te w źródłowej bazie danych.
+Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym, są widoczne tylko wtedy, gdy wybrane miejsce docelowe jest magazynem opartym na plikach. Jeśli wybierzesz pozycję "Azure Synapse Analytics (wcześniej SQL DW)" jako magazyn docelowy, te parametry nie są wymagane. Jednak nazwy tabel i schematu w usłudze Azure Synapse Analytics muszą być takie same jak te w źródłowej bazie danych.
 
 ## <a name="how-to-use-this-solution-template"></a>Jak używać tego szablonu rozwiązania
 
@@ -94,7 +94,7 @@ Ostatnie trzy parametry, które definiują ścieżkę w magazynie docelowym, są
 
     ![Przejrzyj wynik](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. Obowiązkowe W przypadku wybrania opcji "Azure Synapse Analytics (dawniej SQL DW)" jako miejsca docelowego danych należy wprowadzić połączenie z magazynem obiektów blob platformy Azure na potrzeby przemieszczania, zgodnie z wymaganiami SQL Data Warehouse Base. Szablon spowoduje automatyczne wygenerowanie ścieżki kontenera dla magazynu obiektów BLOB. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
+9. Obowiązkowe W przypadku wybrania opcji "Azure Synapse Analytics (dawniej SQL DW)" jako miejsca docelowego danych należy wprowadzić połączenie z magazynem obiektów blob platformy Azure na potrzeby przemieszczania, zgodnie z wymaganiami platformy Azure Synapse Analytics Base. Szablon spowoduje automatyczne wygenerowanie ścieżki kontenera dla magazynu obiektów BLOB. Sprawdź, czy kontener został utworzony po uruchomieniu potoku.
     
     ![Ustawienie bazy](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

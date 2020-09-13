@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498093"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441718"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Co to jest logiczny serwer SQL w Azure SQL Database i Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -150,7 +150,7 @@ Aby utworzyć serwery, bazy danych i zapory w języku Transact-SQL i zarządzać
 |[Utwórz bazę danych (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Tworzy nową bazę danych w Azure SQL Database. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
 |[Tworzenie bazy danych (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Tworzy nową bazę danych magazynu danych w usłudze Azure Synapse. Aby utworzyć nową bazę danych, musisz mieć połączenie z bazą danych Master.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modyfikuje bazę danych lub pulę elastyczną. |
-|[ALTER DATABASE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modyfikuje bazę danych magazynu danych w usłudze Azure Synapse.|
+|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modyfikuje bazę danych magazynu danych w usłudze Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Usuwa bazę danych.|
 |[sys. database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Zwraca wersję (warstwę usługi), cel usługi (warstwę cenową) i nazwę puli elastycznej (jeśli istnieje) dla bazy danych. Jeśli użytkownik jest zalogowany do bazy danych Master dla serwera, zwraca informacje o wszystkich bazach danych. W przypadku usługi Azure Synapse musisz mieć połączenie z bazą danych Master.|
 |[sys. dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Zwraca użycie procesora CPU, operacji we/wy i pamięci dla bazy danych w Azure SQL Database. Jeden wiersz istnieje przez co 15 sekund, nawet jeśli w bazie danych nie ma żadnych działań.|

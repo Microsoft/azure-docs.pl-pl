@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864081"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439831"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Instruktaże wykonujące proces nauki o danych zespołowych
 
@@ -32,7 +32,7 @@ Poniżej znajdują się krótkie opisy tego, jakie przykłady instruktażowe zna
 - Wskazówki dotyczące usługi [HDInsight Hadoop przy użyciu programu Hive](walkthroughs-hdinsight-hadoop.md) Te instruktaże używają usługi Hive z klastrem usługi HDInsight Hadoop w celu przeprowadzania analizy predykcyjnej.
 - Wskazówki dotyczące [Azure Data Lake przy użyciu języka U-SQL](walkthroughs-azure-data-lake.md) Te instruktaże wykorzystują skrypt U-SQL z Azure Data Lake do wykonywania analiz predykcyjnych.
 - [SQL Server](walkthroughs-sql-server.md) Te instruktaże wykorzystują SQL Server, SQL Server R Services i SQL Server usługi Python do wykonywania analiz predykcyjnych.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) Te instruktaże używają SQL Data Warehouse do wykonywania analiz predykcyjnych. 
+- [Analiza usługi Azure Synapse](walkthroughs-sql-data-warehouse.md) Te instruktaże wykorzystują usługę Azure Synapse Analytics do wykonywania analiz predykcyjnych. 
 
 
 

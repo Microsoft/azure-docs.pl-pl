@@ -11,24 +11,24 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885161"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440953"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: Rejestracja aplikacji
 
 W tym artykule omówiono specyficzne dla rejestracji aplikacji dla aplikacji klasycznych.
 
-## <a name="supported-account-types"></a>Obsługiwane typy konta
+## <a name="supported-account-types"></a>Obsługiwane typy kont
 
 Typy kont obsługiwane w aplikacji klasycznej zależą od środowiska, które chcesz wyrównać. Z powodu tej relacji obsługiwane typy kont zależą od przepływów, które mają być używane.
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Odbiorcy na potrzeby pozyskiwania tokenów interaktywnych
 
-Jeśli aplikacja klasyczna korzysta z uwierzytelniania interakcyjnego, użytkownicy mogą logować się z dowolnego [typu konta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Jeśli aplikacja klasyczna korzysta z uwierzytelniania interakcyjnego, użytkownicy mogą logować się z dowolnego [typu konta](quickstart-register-app.md).
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>Odbiorcy dla przepływów dyskretnych aplikacji klasycznych
 
@@ -41,7 +41,7 @@ Jeśli aplikacja klasyczna korzysta z uwierzytelniania interakcyjnego, użytkown
 Identyfikatory URI przekierowania do użycia w aplikacji klasycznej zależą od przepływu, którego chcesz użyć.
 
 - Jeśli używasz uwierzytelniania interakcyjnego lub przepływu kodu urządzenia, użyj `https://login.microsoftonline.com/common/oauth2/nativeclient` . Aby osiągnąć tę konfigurację, wybierz odpowiedni adres URL w sekcji **uwierzytelnianie** dla swojej aplikacji.
-  
+
   > [!IMPORTANT]
   > Dzisiaj MSAL.NET domyślnie używa innego identyfikatora URI przekierowania w aplikacjach klasycznych, które działają w systemie Windows ( `urn:ietf:wg:oauth:2.0:oob` ). W przyszłości będziemy chcieć zmienić to ustawienie domyślne, dlatego zalecamy korzystanie z programu `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 

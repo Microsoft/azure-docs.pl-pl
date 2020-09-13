@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292790"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441497"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Ponowne włączanie ochrony po przejściu z platformy Azure do środowiska lokalnego
 
 Po przejściu do [trybu failover](site-recovery-failover.md) lokalnych maszyn wirtualnych VMware lub serwerów fizycznych na platformie Azure pierwszy krok powrotu po awarii do lokacji lokalnej polega na ponownej ochronie maszyn wirtualnych platformy Azure, które zostały utworzone podczas pracy w trybie failover. W tym artykule opisano, jak to zrobić. 
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 1. Wykonaj kroki opisane w [tym artykule](vmware-azure-prepare-failback.md) , aby przygotować się do ponownej ochrony i powrotu po awarii, w tym konfigurowania serwera przetwarzania na platformie Azure oraz lokalnego serwera docelowego i konfigurowania sieci VPN typu lokacja-lokacja, lub ExpressRoute prywatnej komunikacji równorzędnej na potrzeby powrotu po awarii.
 2. Upewnij się, że lokalny serwer konfiguracji jest uruchomiony i połączony z platformą Azure. Podczas pracy w trybie failover na platformie Azure lokacja lokalna może być niedostępna, a serwer konfiguracji może być niedostępny lub wyłączony. Podczas powrotu po awarii maszyna wirtualna musi znajdować się w bazie danych serwera konfiguracji. W przeciwnym razie powrót po awarii nie powiedzie się.
@@ -46,6 +46,9 @@ Włącz replikację. Można ponownie włączyć ochronę określonych maszyn wir
 
 - W przypadku ponownego włączenia ochrony planu odzyskiwania należy podać wartości dla każdej chronionej maszyny.
 - Jeśli maszyny wirtualne należą do grupy replikacji w celu zapewnienia spójności z obsługą wiele maszyn wirtualnych, można je ponownie chronić przy użyciu planu odzyskiwania. Maszyny wirtualne w grupie replikacji muszą korzystać z tego samego głównego serwera docelowego
+
+>[!NOTE]
+>Ilość danych wysyłanych z platformy Azure do Erstwhile źródła podczas ponownego włączania ochrony, może być dowolna od 0 bajtów i sumą rozmiaru dysku dla wszystkich chronionych maszyn, i nie może być obliczana.
 
 ### <a name="before-you-start"></a>Przed rozpoczęciem
 

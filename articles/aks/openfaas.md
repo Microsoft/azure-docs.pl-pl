@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631473"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440902"
 ---
 # <a name="using-openfaas-on-aks"></a>Korzystanie z OpenFaaS na AKS
 
@@ -91,7 +91,8 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```console
+kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
 Publiczny adres IP jest tworzony w celu uzyskania dostępu do bramy OpenFaaS. Aby pobrać ten adres IP, użyj polecenia [polecenia kubectl Get Service][kubectl-get] . Przypisanie adresu IP do usługi może potrwać minutę.

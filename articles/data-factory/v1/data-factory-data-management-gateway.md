@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie danymi bramę dla Data Factory
-description: Skonfiguruj bramę danych do przenoszenia danych między środowiskiem lokalnym i chmurą. Użyj Zarządzanie danymi Gateway w Azure Data Factory, aby przenieść dane.
+description: Użyj Zarządzanie danymi Gateway w Azure Data Factory, aby przenieść dane.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087082"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441123"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -121,7 +121,7 @@ Aby utworzyć bramę w portalu i pobrać klucz ze strony **konfiguracji** , wyko
     ![Link do pobierania w portalu](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. Na stronie **Konfiguracja** kliknij pozycję **Utwórz ponownie klucz**. Kliknij przycisk tak w komunikacie ostrzegawczym po starannym przeczytaniu.
 
-    ![Utwórz ponownie klucz](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![Przycisk ponownego tworzenia klucza](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Kliknij przycisk Kopiuj obok klucza. Klucz jest kopiowany do Schowka.
 
     ![Kopiowanie klucza](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -133,7 +133,7 @@ Na poniższej ilustracji przedstawiono niektóre z ikon zasobników, które są 
 
 Po przeniesieniu kursora nad ikoną zasobnika systemowego/komunikat powiadomienia zobaczysz szczegóły dotyczące stanu operacji Brama/aktualizacja w oknie podręcznym.
 
-### <a name="ports-and-firewall"></a>Porty i zapory
+### <a name="ports-and-firewall"></a>Porty i Zapora
 Istnieją dwie zapory, które należy wziąć pod uwagę: **zapora firmowa** uruchomiona na centralnym routerze organizacji, a **Zapora systemu Windows** skonfigurowana jako demon na komputerze lokalnym, na którym zainstalowano bramę.
 
 ![zapory](./media/data-factory-data-management-gateway/firewalls2.png)
@@ -150,15 +150,15 @@ Na poziomie zapory korporacyjnej wymagane jest skonfigurowanie następujących d
 Na poziomie zapory systemu Windows te porty wychodzące są zwykle włączone. W przeciwnym razie można odpowiednio skonfigurować domeny i porty na maszynie bramy.
 
 > [!NOTE]
-> 1. W oparciu o źródło/ujścia, może być konieczne dozwolonych dodatkowych domen i portów wychodzących w zaporze firmowej/systemie Windows.
-> 2. W przypadku niektórych baz danych w chmurze (na przykład: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access)itp.) może zajść konieczność dozwolonych adresu IP maszyny bramy w konfiguracji zapory.
+> 1. W oparciu o źródło/ujścia, może być konieczne zezwolenie na dodatkowe domeny i porty wychodzące w zaporze firmowej/systemie Windows.
+> 2. W przypadku niektórych baz danych w chmurze (na przykład: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access)itp.) może być konieczne zezwolenie na adres IP maszyny bramy w konfiguracji zapory.
 >
 >
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Kopiowanie danych ze źródłowego magazynu danych do magazynu danych ujścia
 Upewnij się, że reguły zapory są prawidłowo włączone w zaporze firmowej, zaporze systemu Windows na maszynie bramy i w samym magazynie danych. Włączenie tych reguł umożliwia bramie łączenie się ze źródłem i ujściam pomyślnie. Włącz reguły dla wszystkich magazynów danych, które są związane z operacją kopiowania.
 
-Na przykład, aby skopiować z **lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia Azure SQL Data Warehouse**, wykonaj następujące czynności:
+Na przykład, aby skopiować z **lokalnego magazynu danych do ujścia Azure SQL Database lub ujścia usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)**, wykonaj następujące czynności:
 
 * Zezwalaj na wychodzącą komunikację **TCP** na porcie **1433** dla zapory systemu Windows i zapory firmowej.
 * Skonfiguruj ustawienia zapory dla logicznego programu SQL Server, aby dodać adres IP maszyny bramy do listy dozwolonych adresów IP.
@@ -175,7 +175,7 @@ Jeśli korporacyjne środowisko sieciowe używa serwera proxy w celu uzyskania d
 
 Brama używa serwera proxy w celu nawiązania połączenia z usługą w chmurze. Kliknij pozycję **Zmień** link podczas początkowej konfiguracji. Zostanie wyświetlone okno dialogowe **Ustawienia serwera proxy** .
 
-![Ustawianie serwera proxy przy użyciu Menedżera konfiguracji](media/data-factory-data-management-gateway/SetProxySettings.png)
+![Ustawianie serwera proxy przy użyciu Menedżera konfiguracji 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 Dostępne są trzy opcje konfiguracji:
 
@@ -194,7 +194,7 @@ Po pomyślnym zarejestrowaniu bramy, jeśli chcesz wyświetlić lub zaktualizowa
 
 Serwer proxy HTTP można wyświetlić i zaktualizować za pomocą narzędzia Configuration Manager.
 
-![Ustawianie serwera proxy przy użyciu Menedżera konfiguracji](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![Ustawianie serwera proxy przy użyciu Menedżera konfiguracji 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > W przypadku skonfigurowania serwera proxy z uwierzytelnianiem NTLM usługa hosta bramy działa w ramach konta domeny. Jeśli później zmienisz hasło dla konta domeny, pamiętaj, aby zaktualizować ustawienia konfiguracji usługi i ponownie je uruchomić. Ze względu na ten wymóg zalecamy użycie dedykowanego konta domeny w celu uzyskania dostępu do serwera proxy, który nie wymaga częstego aktualizowania hasła.
@@ -233,13 +233,13 @@ W przypadku wybrania opcji **Użyj systemowego serwera proxy** dla serwera proxy
 > [!IMPORTANT]
 > Nie zapomnij zaktualizować **obu** diahost.exe.config i diawp.exe.config.
 
-Oprócz tych punktów należy również upewnić się, że Microsoft Azure znajduje się w dozwolonych firmy. Listę prawidłowych adresów IP Microsoft Azure można pobrać z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Oprócz tych punktów należy również upewnić się, że Microsoft Azure znajduje się na liście dozwolonych w firmie. Listę prawidłowych adresów IP Microsoft Azure można pobrać z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Ewentualne objawy dotyczące problemów z zaporą i serwerem proxy
 Jeśli wystąpią błędy podobne do następujących, prawdopodobnie jest to spowodowane nieprawidłową konfiguracją zapory lub serwera proxy, co uniemożliwia bramom łączenie się z Data Factory w celu samodzielnego uwierzytelnienia. Zapoznaj się z poprzednią sekcją, aby upewnić się, że Zapora i serwer proxy zostały prawidłowo skonfigurowane.
 
 1. Podczas próby zarejestrowania bramy pojawia się następujący błąd: "nie można zarejestrować klucza bramy. Przed ponowną próbą zarejestrowania klucza bramy upewnij się, że brama zarządzania danymi jest w stanie połączonym i uruchomiono usługę hosta bramy Zarządzanie danymi. "
-2. Gdy otworzysz Configuration Manager, zobaczysz stan jako "odłączony" lub "łączenie". Podczas wyświetlania dzienników zdarzeń systemu Windows w obszarze "Podgląd zdarzeń" > "Dzienniki aplikacji i usług" > "Zarządzanie danymi brama" są wyświetlane komunikaty o błędach, takie jak następujący błąd:`Unable to connect to the remote server`
+2. Gdy otworzysz Configuration Manager, zobaczysz stan jako "odłączony" lub "łączenie". Podczas wyświetlania dzienników zdarzeń systemu Windows w obszarze "Podgląd zdarzeń" > "Dzienniki aplikacji i usług" > "Zarządzanie danymi brama" są wyświetlane komunikaty o błędach, takie jak następujący błąd: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>Otwórz port 8050 na potrzeby szyfrowania poświadczeń
@@ -382,8 +382,8 @@ W poniższej tabeli przedstawiono możliwe stany **węzła bramy**:
 
 Stan  | Komentarze/scenariusze
 :------- | :------------------
-Online | Węzeł połączony z usługą Data Factory.
-W trybie offline | Węzeł jest w trybie offline.
+Tryb online | Węzeł połączony z usługą Data Factory.
+Tryb offline | Węzeł jest w trybie offline.
 Unowocześnieni | Węzeł jest aktualizowany w sposób autouzupełniania.
 Ograniczone | Z powodu problemu z łącznością. Może to być spowodowane problemem z portem HTTP 8050, problemem z łącznością usługi Service Bus lub problemem z synchronizacją poświadczeń.
 Nieaktywne | Węzeł jest w konfiguracji innej niż Konfiguracja innych węzłów większości.<br/><br/> Węzeł może być nieaktywny, jeśli nie może połączyć się z innymi węzłami.
@@ -393,8 +393,8 @@ W poniższej tabeli przedstawiono możliwe stany **bramy logicznej**. Stan bramy
 Stan | Komentarze
 :----- | :-------
 Wymaga rejestracji | Żaden węzeł nie jest jeszcze zarejestrowany w tej bramie logicznej
-Online | Węzły bramy są w trybie online
-W trybie offline | Brak węzła w stanie online.
+Tryb online | Węzły bramy są w trybie online
+Tryb offline | Brak węzła w stanie online.
 Ograniczone | Nie wszystkie węzły w tej bramie są w dobrej kondycji. Ten stan jest ostrzeżeniem, że niektóre węzły mogą być wyłączone. <br/><br/>Może to być spowodowane problemem z synchronizacją poświadczeń w węźle dyspozytora/proces roboczy.
 
 ## <a name="scale-up-gateway"></a>Skalowanie bramy w górę
@@ -425,7 +425,7 @@ Ta sekcja zawiera instrukcje dotyczące przeniesienia klienta bramy z jednego ko
     ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Na stronie **Konfigurowanie** w portalu kliknij pozycję **Utwórz ponownie klucz** na pasku poleceń, a następnie kliknij przycisk **tak** dla komunikatu ostrzegawczego. Kliknij przycisk **Kopiuj** obok tekstu klucza, który kopiuje klucz do Schowka. Brama na starym komputerze przestaje działać po ponownym utworzeniu klucza.
 
-    ![Utwórz ponownie klucz](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![Utwórz ponownie klucz 2](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. Wklej **klucz** do pola tekstowego na stronie **rejestracja bramy** **Zarządzanie danymi Configuration Manager bramy** na komputerze. obowiązkowe Kliknij pole wyboru **Pokaż klucz bramy** , aby wyświetlić tekst klucza.
 
     ![Kopiuj klucz i zarejestruj](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)

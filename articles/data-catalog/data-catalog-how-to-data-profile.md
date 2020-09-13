@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 0d0f3a45842638915947f5df04e06e2c81a7f5f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081189"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442075"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Jak w Azure Data Catalog źródła danych profilu danych
 
@@ -29,7 +29,7 @@ Profilowanie danych bada dane w zarejestrowanym źródle danych i zbiera statyst
 
 Następujące źródła danych obsługują profilowanie danych:
 
-* SQL Server (w tym tabele i widoki usługi Azure SQL DB i Azure SQL Data Warehouse)
+* SQL Server (w tym tabele i widoki usługi Azure SQL DB i usługi Azure Synapse Analytics)
 * Tabele i widoki programu Oracle
 * Tabele i widoki programu Teradata
 * Tabele Hive
