@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 959a88335c581b998e9cf9c2e6df26354e2a5dc3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226373"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400980"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Podstawowa baza zabezpieczeń Azure dla usługi Batch
 
@@ -1014,13 +1014,17 @@ Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę 
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Jak utworzyć Azure Key Vault:
+Jak utworzyć Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:
+Jak przeprowadzić uwierzytelnianie w Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Jak przypisać zasady dostępu Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitorowanie Azure Security Center**: tak
 

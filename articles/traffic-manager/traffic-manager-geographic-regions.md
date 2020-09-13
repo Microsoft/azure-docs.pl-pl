@@ -3,7 +3,7 @@ title: Hierarchia krajów/regionów używana przez Routing geograficzny — Traf
 description: W tym artykule wymieniono hierarchię kraju/regionu używaną przez typ routingu geograficznego Traffic Manager platformy Azure
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,17 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: rohink
-ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 83300a5c518a3acf853968164031a80e1c882187
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938645"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401241"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarchia krajów/regionów używana przez usługę Azure Traffic Manager dla metody routingu ruchu geograficznego
 
-W tym artykule wymieniono kraje i regiony używane przez metodę routingu ruchu **geograficznego** w usłudze Azure Traffic Manager. Te informacje można również programowo uzyskać, wywołując [interfejs API REST usługi Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+W tym artykule wymieniono kraje i regiony używane przez metodę routingu ruchu **geograficznego**  w usłudze Azure Traffic Manager. Te informacje można również programowo uzyskać, wywołując [interfejs API REST usługi Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - ŚWIAT (świat)
 

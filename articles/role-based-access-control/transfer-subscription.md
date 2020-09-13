@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227036"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400548"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Przenoszenie subskrypcji platformy Azure do innego katalogu usługi Azure AD (wersja zapoznawcza)
 
@@ -79,7 +79,7 @@ Kilka zasobów platformy Azure ma zależność od subskrypcji lub katalogu. W za
 | Azure Data Lake Storage Gen1 | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure Files | Tak | Tak |  | Należy ponownie utworzyć wszystkie listy ACL. |
 | Azure File Sync | Tak | Tak |  |  |
-| Dyski zarządzane platformy Azure | Tak | Brak |  |  |
+| Dyski zarządzane platformy Azure | Tak | Nie dotyczy |  |  |
 | Azure Container Services dla Kubernetes | Tak | Tak |  |  |
 | Usługi Azure Active Directory Domain Services | Tak | Nie |  |  |
 | Rejestracje aplikacji | Tak | Tak |  |  |
@@ -224,7 +224,7 @@ Podczas tworzenia magazynu kluczy jest on automatycznie powiązany z domyślnym 
 > [!WARNING]
 > Jeśli używasz szyfrowania dla zasobu, takiego jak konto magazynu lub baza danych SQL, która ma zależność od magazynu kluczy, który **nie** znajduje się w tej samej subskrypcji, która jest transferowana, może prowadzić do nieodwracalnego scenariusza. W przypadku takiej sytuacji należy wykonać kroki w celu użycia innego magazynu kluczy lub tymczasowo wyłączyć klucze zarządzane przez klienta, aby uniknąć tego nieodwracalnego scenariusza.
 
-- Jeśli masz Magazyn kluczy, użyj AZ Key [magazynu show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) , aby wyświetlić listę zasad dostępu. Aby uzyskać więcej informacji, zobacz temat [zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu](../key-vault/key-vault-group-permissions-for-apps.md).
+- Jeśli masz Magazyn kluczy, użyj AZ Key [magazynu show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) , aby wyświetlić listę zasad dostępu. Aby uzyskać więcej informacji, zobacz [przypisywanie zasad dostępu Key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault

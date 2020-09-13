@@ -3,12 +3,12 @@ title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowyw
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067243"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400589"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
 Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium bazuje na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -28,7 +28,7 @@ Za pomocą Azure Key Vault można zarządzać kluczami i przeprowadzać inspekcj
 W tym artykule pokazano, jak skonfigurować magazyn kluczy z kluczami zarządzanymi przez klienta przy użyciu Azure Portal. Aby dowiedzieć się, jak utworzyć magazyn kluczy przy użyciu Azure Portal, zobacz [Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu Azure Portal](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> Użycie kluczy zarządzanych przez klienta w programie Azure Service Bus wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to: **usuwanie nietrwałe** i **nie przeczyszczanie**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+> Użycie kluczy zarządzanych przez klienta w programie Azure Service Bus wymaga skonfigurowania dwóch wymaganych właściwości magazynu kluczy. Są to:  **usuwanie nietrwałe** i **nie przeczyszczanie**. Te właściwości są domyślnie włączone podczas tworzenia nowego magazynu kluczy w Azure Portal. Jeśli jednak musisz włączyć te właściwości w istniejącym magazynie kluczy, musisz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Włącz klucze zarządzane przez klienta
 Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następujące kroki:
@@ -82,12 +82,12 @@ Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarz�
     > 
     >   * Jeśli funkcja [odzyskiwania po awarii geograficznej](service-bus-geo-dr.md) jest już włączona dla przestrzeni nazw Service Bus i chcesz włączyć klucz zarządzany przez klienta, 
     >     * Przerwij parowanie
-    >     * [Skonfiguruj zasady dostępu](../key-vault/general/managed-identity.md) dla tożsamości zarządzanej zarówno dla głównych, jak i pomocniczych przestrzeni nazw dla magazynu kluczy.
+    >     * [Skonfiguruj zasady dostępu](../key-vault/general/assign-access-policy-portal.md) dla tożsamości zarządzanej zarówno dla głównych, jak i pomocniczych przestrzeni nazw dla magazynu kluczy.
     >     * Skonfiguruj szyfrowanie dla podstawowej przestrzeni nazw.
     >     * Ponowne parowanie podstawowych i pomocniczych przestrzeni nazw.
     > 
     >   * Jeśli chcesz włączyć lokalizację geograficzną w Service Bus przestrzeni nazw, w której klucz zarządzany przez klienta został już skonfigurowany, a następnie —
-    >     * [Skonfiguruj zasady dostępu](../key-vault/general/managed-identity.md) dla zarządzanej tożsamości dla pomocniczej przestrzeni nazw dla magazynu kluczy.
+    >     * [Skonfiguruj zasady dostępu](../key-vault/general/assign-access-policy-portal.md) dla zarządzanej tożsamości dla pomocniczej przestrzeni nazw dla magazynu kluczy.
     >     * Parowanie podstawowych i pomocniczych przestrzeni nazw.
 
 
@@ -164,8 +164,8 @@ W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw 
 
     > [!NOTE]
     > Zastąp następujące wartości: 
-    > - `<ServiceBusNamespaceName>`-Nazwa przestrzeni nazw Service Bus
-    > - `<Location>`— Lokalizacja przestrzeni nazw Service Bus
+    > - `<ServiceBusNamespaceName>` -Nazwa przestrzeni nazw Service Bus
+    > - `<Location>` — Lokalizacja przestrzeni nazw Service Bus
 
     ```json
     {
@@ -287,10 +287,10 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu in
 
     > [!NOTE]
     > Zastąp następujące wartości: 
-    > - `<ServiceBusNamespaceName>`-Nazwa przestrzeni nazw Service Bus
-    > - `<Location>`— Lokalizacja przestrzeni nazw Service Bus
-    > - `<KeyVaultName>`— Nazwa magazynu kluczy
-    > - `<KeyName>`-Nazwa klucza w magazynie kluczy  
+    > - `<ServiceBusNamespaceName>` -Nazwa przestrzeni nazw Service Bus
+    > - `<Location>` — Lokalizacja przestrzeni nazw Service Bus
+    > - `<KeyVaultName>` — Nazwa magazynu kluczy
+    > - `<KeyName>` -Nazwa klucza w magazynie kluczy  
 
     ```json
     {

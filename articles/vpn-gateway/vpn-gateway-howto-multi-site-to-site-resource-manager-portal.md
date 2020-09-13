@@ -7,14 +7,14 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/09/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121429"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401201"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Dodawanie połączenia lokacja-lokacja do sieci wirtualnej z istniejącym połączeniem bramy sieci VPN
 
@@ -35,7 +35,7 @@ Ta tabela jest aktualizowana w miarę jak nowe artykuły i dodatkowe narzędzia 
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before-you-begin"></a><a name="before"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a><a name="before"></a>Przed rozpoczęciem
 Sprawdź następujące elementy:
 
 * Nie konfigurujesz nowej ExpressRoute i konfiguracji VPN Gateway.

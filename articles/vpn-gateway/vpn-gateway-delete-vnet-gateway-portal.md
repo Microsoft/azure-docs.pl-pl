@@ -4,20 +4,20 @@ description: Usuń bramę sieci wirtualnej przy użyciu Azure Portal w modelu wd
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 10/23/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 68856a4c5218232943ac657bbd67759d5ab4b804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a7eb87f57676b469203e45e48b6f863cdf894c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983159"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400657"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Usuwanie bramy sieci wirtualnej przy użyciu portalu
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Witryna Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Program PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (klasyczny)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 

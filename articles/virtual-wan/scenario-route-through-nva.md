@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852089"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400028"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenariusz: kierowanie ruchu przez urządzenie WUS
 
@@ -42,11 +42,11 @@ Następująca macierz łączności podsumowuje przepływy obsługiwane w tym sce
 | Źródło             | Do:|   *URZĄDZENIE WUS szprychy*|*URZĄDZENIE WUS sieci wirtualnych*|*URZĄDZENIE WUS sieci wirtualnych*|*Gałęzie*|
 |---|---|---|---|---|---|
 | **URZĄDZENIE WUS szprychy**   | &#8594; | 0/0 UDR  |  Komunikacja równorzędna |   0/0 UDR    |  0/0 UDR  |
-| **URZĄDZENIE WUS sieci wirtualnych**    | &#8594; |   Statyczny |      X   |        X     |      X    |
-| **URZĄDZENIE WUS sieci wirtualnych**| &#8594; |   Statyczny |      X   |        X     |      X    |
-| **Gałęzie**     | &#8594; |   Statyczny |      X   |        X     |      X    |
+| **URZĄDZENIE WUS sieci wirtualnych**    | &#8594; |   Static |      X   |        X     |      X    |
+| **URZĄDZENIE WUS sieci wirtualnych**| &#8594; |   Static |      X   |        X     |      X    |
+| **Gałęzie**     | &#8594; |   Static |      X   |        X     |      X    |
 
-Każda z komórek w macierzy łączności zawiera opis, czy wirtualne połączenie sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje informacje o prefiksie lokalizacji docelowej (po stronie "do" przepływu, nagłówkach kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu. Rozważ następujące źródła:
+Każda z komórek w macierzy łączności zawiera opis, czy wirtualne połączenie sieci WAN ("od" po stronie przepływu, nagłówki wierszy w tabeli) uzyskuje informacje o prefiksie lokalizacji docelowej (po stronie "do" przepływu, nagłówkach kolumn w postaci kursywy w tabeli) dla określonego przepływu ruchu. "X" oznacza, że łączność jest zapewniana natywnie przez wirtualną sieć WAN, a "static" oznacza, że łączność jest zapewniana przez wirtualną sieć WAN przy użyciu tras statycznych. Rozważ następujące źródła:
 
 * URZĄDZENIE WUS szprych nie są zarządzane przez wirtualną sieć WAN. W efekcie mechanizmy, z którymi będą komunikować się z innymi sieci wirtualnychami lub gałęziami, są obsługiwane przez użytkownika. Łączność z siecią wirtualną urządzenie WUS jest zapewniana przez komunikację równorzędną sieci wirtualnych, a domyślna trasa do 0.0.0.0/0 wskazuje, że urządzenie WUS jako następny przeskok powinien obejmować łączność z Internetem, z innymi szprychami i gałęziami
 * URZĄDZENIE WUS sieci wirtualnych będzie wiedzieć o swoich własnych urządzenie WUS szprych, ale nie o urządzenie WUS szprych podłączonych do innych urządzenie WUS sieci wirtualnych. Na przykład w tabeli 1 Sieć wirtualna 2 wie o sieci VNet 5 i sieci wirtualnej 6, ale nie na temat innych szprych, takich jak sieć wirtualna 7 i Sieć wirtualna 8. Trasa statyczna jest wymagana do wprowadzenia prefiksów innych szprych do urządzenie WUS sieci wirtualnych

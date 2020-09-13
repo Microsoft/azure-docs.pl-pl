@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267857"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400691"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
 
@@ -70,7 +70,7 @@ Obsługiwane dystrybucje i wersje:
 * **Agent systemu Linux w wersji 2.2.0 lub nowszej**. Większość obrazów z galerii maszyn wirtualnych systemu Linux platformy Azure obejmuje wersję 2.2.7 lub nowszą. Uruchom `/usr/sbin/waagent -version` w celu potwierdzenia wersji zainstalowanej na maszynie wirtualnej. Jeśli na maszynie wirtualnej jest uruchomiona Starsza wersja agenta gościa, postępuj zgodnie z [tymi instrukcjami](./update-linux-agent.md) , aby je zaktualizować.
 * **Interfejs wiersza polecenia platformy Azure**. [Skonfiguruj środowisko interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze.
 * Wget polecenie, jeśli nie jest jeszcze: Uruchom `sudo apt-get install wget` .
-* Istniejąca subskrypcja platformy Azure i istniejące konto magazynu w ramach tej subskrypcji do przechowywania danych.
+* Istniejąca subskrypcja platformy Azure i istniejące konto magazynu ogólnego przeznaczenia, w którym są przechowywane dane.  Konta magazynu ogólnego przeznaczenia obsługują magazyn tabel, który jest wymagany.  Konto magazynu obiektów BLOB nie będzie działało.
 
 ### <a name="sample-installation"></a>Przykładowa instalacja
 
@@ -432,7 +432,7 @@ Element | Wartość
 ------- | -----
 namespace | obowiązkowe Przestrzeń nazw OMI, w której należy wykonać zapytanie. Jeśli nie zostanie określony, wartością domyślną jest "root/SCX" wdrożoną przez [dostawców międzyplatformowych programu System Center](https://github.com/Microsoft/SCXcore).
 query | Zapytanie OMI, które ma zostać wykonane.
-table | obowiązkowe Tabela usługi Azure Storage na wyznaczynym koncie magazynu (zobacz [Ustawienia chronione](#protected-settings)).
+table (stolik) | obowiązkowe Tabela usługi Azure Storage na wyznaczynym koncie magazynu (zobacz [Ustawienia chronione](#protected-settings)).
 frequency | obowiązkowe Liczba sekund między wykonaniem zapytania. Wartość domyślna to 300 (5 minut); wartość minimalna to 15 sekund.
 ujścia | obowiązkowe Rozdzielana przecinkami lista nazw dodatkowych obiektów ujścia, do których należy opublikować nieprzetworzone przykładowe wyniki metryki. Żadne agregacje tych nieprzetworzonych próbek nie są obliczane przez rozszerzenie ani za pomocą metryk platformy Azure.
 
@@ -458,7 +458,7 @@ Steruje przechwytywaniem plików dziennika. LAD przechwytuje nowe wiersze tekstu
 Element | Wartość
 ------- | -----
  — plik | Pełna nazwa ścieżki pliku dziennika do obserwowania i przechwycenia. Nazwa ścieżki musi mieć nazwę pojedynczego pliku; nie może to być nazwa katalogu ani zawierać symboli wieloznacznych. Konto użytkownika "omsagent" musi mieć dostęp do odczytu do ścieżki pliku.
-table | obowiązkowe Tabela usługi Azure Storage w wyznaczonym koncie magazynu (zgodnie z konfiguracją chronioną), do której zapisywane są nowe wiersze z "ogona" pliku.
+table (stolik) | obowiązkowe Tabela usługi Azure Storage w wyznaczonym koncie magazynu (zgodnie z konfiguracją chronioną), do której zapisywane są nowe wiersze z "ogona" pliku.
 ujścia | obowiązkowe Rozdzielana przecinkami lista nazw dodatkowych obiektów ujścia, do których są wysyłane wiersze dziennika.
 
 Należy określić "Table" lub "ujścia" albo oba te elementy.

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/02/2020
+ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006675"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400861"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Dostosowywanie klastrów usługi Azure HDInsight za pomocą akcji skryptu
 
@@ -66,13 +66,15 @@ Akcja skryptu to skrypt bash, który działa w węzłach klastra usługi HDInsig
 
     Akcje utrwalonego skryptu muszą mieć unikatową nazwę. Utrwalone skrypty są używane do dostosowywania nowych węzłów procesu roboczego dodanych do klastra za pomocą operacji skalowania. Utrwalony skrypt może również zastosować zmiany do innego typu węzła w przypadku wystąpienia operacji skalowania. Przykładem jest węzeł główny.
 
-    `Ad hoc`skrypty nie są utrwalane. Akcje skryptu używane podczas tworzenia klastra są automatycznie utrwalane. Nie są one stosowane do węzłów procesu roboczego dodanych do klastra po uruchomieniu skryptu. Następnie można podwyższyć poziom skryptu `ad hoc` do utrwalonego skryptu lub obniżyć utrwalony skrypt do `ad hoc` skryptu. Skrypty, które nie są utrwalane, nawet jeśli wskazują, że powinny być.
+    `Ad hoc` skrypty nie są utrwalane. Akcje skryptu używane podczas tworzenia klastra są automatycznie utrwalane. Nie są one stosowane do węzłów procesu roboczego dodanych do klastra po uruchomieniu skryptu. Następnie można podwyższyć poziom skryptu `ad hoc` do utrwalonego skryptu lub obniżyć utrwalony skrypt do `ad hoc` skryptu. Skrypty, które nie są utrwalane, nawet jeśli wskazują, że powinny być.
 
 * Może akceptować parametry, które są używane przez skrypt podczas wykonywania.
 
 * Uruchom z uprawnieniami poziomu głównego w węzłach klastra.
 
 * Mogą być używane w ramach zestawu SDK programu .NET Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub usługi HDInsight.
+
+* Akcje skryptów, które usuwają lub modyfikują pliki usługi na maszynie wirtualnej, mogą mieć wpływ na kondycję usługi i dostępność.
 
 Klaster przechowuje historię wszystkich uruchomionych skryptów. Historia jest pomocna w przypadku konieczności znalezienia identyfikatora skryptu dla operacji podwyższania lub obniżania poziomu.
 
@@ -124,7 +126,7 @@ Status            : Succeeded
 
 Skrypty akcji skryptu mogą być używane w następujących narzędziach:
 
-* Witryna Azure Portal
+* Azure Portal
 * Azure PowerShell
 * Interfejs wiersza polecenia platformy Azure
 * Zestaw SDK usługi HDInsight dla platformy .NET
@@ -330,7 +332,7 @@ Poniższy przykładowy skrypt demonstruje użycie poleceń cmdlet do podniesieni
 
 ### <a name="hdinsight-net-sdk"></a>Zestaw SDK usługi HDInsight dla platformy .NET
 
-Aby zapoznać się z przykładem użycia zestawu SDK platformy .NET do pobierania historii skryptów z klastra, podniesienia lub obniżenia poziomu skryptów, zobacz temat [stosowanie akcji skryptu względem uruchomionego klastra usługi HDInsight opartego na systemie Linux](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Aby zapoznać się z przykładem użycia zestawu SDK platformy .NET do pobierania historii skryptów z klastra, podniesienia lub obniżenia poziomu skryptów, zobacz temat [ stosowanie akcji skryptu względem uruchomionego klastra usługi HDInsight opartego na systemie Linux](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 > [!NOTE]  
 > W tym przykładzie pokazano również, jak zainstalować aplikację usługi HDInsight przy użyciu zestawu .NET SDK.

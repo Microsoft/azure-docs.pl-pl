@@ -1,21 +1,21 @@
 ---
 title: Weryfikowanie przepływności sieci VPN do Microsoft Azure Virtual Network
-description: Celem tego dokumentu jest ułatwienie użytkownikowi zweryfikowania przepływności sieci z zasobów lokalnych do maszyny wirtualnej platformy Azure.
+description: Ten artykuł pomaga sprawdzić przepływność sieci z zasobów lokalnych do maszyny wirtualnej platformy Azure.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 05/29/2019
+ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998480"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398511"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Jak zweryfikować przepływność sieci VPN do sieci wirtualnej
 
@@ -127,7 +127,7 @@ Pobierz [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Aby 
 
 Pobierz najnowszą wersję programu [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Rozważ umieszczenie Latte.exe w osobnym folderze, na przykład`c:\tools`
+Rozważ umieszczenie Latte.exe w osobnym folderze, na przykład `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Zezwalaj na Latte.exe za pomocą zapory systemu Windows
 
@@ -217,7 +217,7 @@ Szybka instalacja
 
 > [!Note]
 > Upewnij się, że podczas testowania przepływności między maszyną wirtualną a bramą nie ma przeskoków pośrednich (np. urządzenia wirtualnego).
-> Jeśli istnieją słabe wyniki (pod względem ogólnej przepływności) pochodzące z testów iPERF/NTTTCP powyżej, zapoznaj się z poniższym artykułem, aby zrozumieć kluczowe czynniki związane z potencjalnymi przyczynami problemu:https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> Jeśli istnieją słabe wyniki (pod względem ogólnej przepływności) pochodzące z testów iPERF/NTTTCP powyżej, zapoznaj się z poniższym artykułem, aby zrozumieć kluczowe czynniki związane z potencjalnymi przyczynami problemu: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
 W szczególności analiza śladów przechwytywania pakietów (Wireshark/Monitor sieci) zebranych równolegle z klienta i serwera podczas tych testów będzie pomocna w ocenie złej wydajności. Te ślady mogą obejmować utratę pakietów, duże opóźnienia i rozmiar jednostki MTU. Fragmentacja, okno TCP 0, fragmenty poza kolejnością i tak dalej.
 
@@ -253,7 +253,7 @@ Opóźnienie można sprawdzić przy użyciu następujących narzędzi:
 
 * WinMTR
 * TCPTraceroute
-* `ping`i `psping` (te narzędzia mogą zapewnić dobre oszacowanie RTT, ale nie mogą być używane we wszystkich przypadkach).
+* `ping` i `psping` (te narzędzia mogą zapewnić dobre oszacowanie RTT, ale nie mogą być używane we wszystkich przypadkach).
 
 ![Opóźnienie sprawdzania](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

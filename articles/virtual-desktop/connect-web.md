@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ca5a591d168e18181a29cf1c00a7d1fead54595
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226050"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400640"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Nawiązywanie połączenia z pulpitem wirtualnym systemu Windows przy użyciu klienta sieci Web
 
@@ -48,6 +48,25 @@ W przeglądarce przejdź do Azure Resource Manager zintegrowanej wersji klienta 
 >Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż ten, który ma być używany dla pulpitu wirtualnego systemu Windows, należy się wylogować lub użyć prywatnego okna przeglądarki.
 
 Po zalogowaniu powinna zostać wyświetlona lista zasobów. Zasoby można uruchamiać, wybierając takie jak normalna aplikacja na karcie **wszystkie zasoby** .
+
+## <a name="using-an-input-method-editor"></a>Korzystanie z edytora metody wejściowej
+
+Klient sieci Web obsługuje używanie edytora IME (Input Method Editor) w sesji zdalnej w wersji **1.0.21.16 lub nowszej**. Pakiet językowy dla klawiatury, który ma być używany w sesji zdalnej, musi być zainstalowany na maszynie wirtualnej hosta. Aby dowiedzieć się więcej o konfigurowaniu pakietów językowych w sesji zdalnej, zapoznaj [się z tematem dodawanie pakietów językowych do obrazu z wieloma sesjami systemu Windows 10](language-packs.md).
+
+Aby włączyć dane wejściowe edytora IME przy użyciu klienta sieci Web:
+
+1. Przed nawiązaniem połączenia z sesją zdalną przejdź do panelu **ustawień** klienta sieci Web.
+
+2. Przełącz ustawienie **Włącz Edytor metody wejściowej** na wartość **włączone**.
+
+3. Z menu rozwijanego wybierz klawiaturę, która będzie używana w sesji zdalnej.
+
+4. Nawiąż połączenie z sesją zdalną.
+
+Klient sieci Web pomija lokalne okno edytora IME, gdy użytkownik nawiąże się z sesją zdalną. Zmiana ustawień edytora IME po nawiązaniu połączenia z sesją zdalną nie będzie miała żadnego efektu.
+
+>[!NOTE]
+>Jeśli pakiet językowy nie jest zainstalowany na maszynie wirtualnej hosta, Sesja zdalna będzie domyślnie w języku angielskim (Stany Zjednoczone).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a6beb1023b3c934cdbb4b7dc479d87e23a7c96be
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230368"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401133"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Podstawa zabezpieczeń platformy Azure dla Event Hubs
 
@@ -882,9 +882,11 @@ Skonfiguruj klucze zarządzane przez klienta dla Event Hubs: https://docs.micros
 
 Jak przeprowadzić integrację z tożsamościami zarządzanymi przez platformę Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Jak utworzyć Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Jak utworzyć Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej: https://docs.microsoft.com/azure/key-vault/managed-identity
+Jak przeprowadzić uwierzytelnianie w Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Jak przypisać zasady dostępu Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitorowanie Azure Security Center**: tak
 

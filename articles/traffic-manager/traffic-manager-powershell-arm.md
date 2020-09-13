@@ -3,20 +3,20 @@ title: Zarządzanie Traffic Manager na platformie Azure przy użyciu programu Po
 description: Za pomocą tej ścieżki szkoleniowej Rozpocznij korzystanie z Azure PowerShell Traffic Manager.
 services: traffic-manager
 documentationcenter: na
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: rohink
-ms.openlocfilehash: e9d995a69a4fc54d6f001ced7503a9138d737dbc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 21076fe23301c189d9987f78706cc81691ce7a4f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089043"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400572"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Zarządzanie Traffic Manager przy użyciu programu PowerShell
 
@@ -125,7 +125,7 @@ W każdym przypadku:
 * Określenie opcji "waga" jest opcjonalne. Wagi są używane tylko wtedy, gdy profil jest skonfigurowany do korzystania z metody routingu ruchu "ważone". W przeciwnym razie są one ignorowane. Jeśli ta wartość jest określona, musi to być liczba z zakresu od 1 do 1000. Wartość domyślna to "1".
 * Określanie priorytetu jest opcjonalne. Priorytety są stosowane tylko wtedy, gdy profil jest skonfigurowany do korzystania z metody routingu ruchu "Priority". W przeciwnym razie są one ignorowane. Prawidłowe wartości to od 1 do 1000 z niższymi wartościami wskazującymi wyższy priorytet. Jeśli określono dla jednego punktu końcowego, muszą one być określone dla wszystkich punktów końcowych. W przypadku pominięcia wartości domyślne zaczynające się od "1" są stosowane w kolejności, w jakiej są wyświetlane punkty końcowe.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Przykład 1: Dodawanie App Service punktów końcowych przy użyciu`Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Przykład 1: Dodawanie App Service punktów końcowych przy użyciu `Add-AzTrafficManagerEndpointConfig`
 
 W tym przykładzie utworzysz profil Traffic Manager i dodasz dwa punkty końcowe App Service przy użyciu `Add-AzTrafficManagerEndpointConfig` polecenia cmdlet.
 
@@ -137,7 +137,7 @@ $webapp2 = Get-AzWebApp -Name webapp2
 Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $TmProfile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Przykład 2: Dodawanie punktu końcowego publicIpAddress za pomocą`New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Przykład 2: Dodawanie punktu końcowego publicIpAddress za pomocą `New-AzTrafficManagerEndpoint`
 
 W tym przykładzie do profilu Traffic Manager zostanie dodany zasób publicznego adresu IP. Publiczny adres IP musi mieć skonfigurowaną nazwę DNS i może być powiązany z kartą sieciową maszyny wirtualnej lub modułem równoważenia obciążenia.
 
@@ -156,7 +156,7 @@ Podczas określania zewnętrznych punktów końcowych:
 * Jeśli jest używana metoda routingu ruchu "Performance", wymagana jest wartość "EndpointLocation". W przeciwnym razie jest to opcjonalne. Wartość musi być [prawidłową nazwą regionu platformy Azure](https://azure.microsoft.com/regions/).
 * "Waga" i "priorytet" są opcjonalne.
 
-### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Przykład 1: dodawanie zewnętrznych punktów końcowych przy użyciu `Add-AzTrafficManagerEndpointConfig` i`Set-AzTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Przykład 1: dodawanie zewnętrznych punktów końcowych przy użyciu `Add-AzTrafficManagerEndpointConfig` i `Set-AzTrafficManagerProfile`
 
 W tym przykładzie utworzysz profil Traffic Manager, dodasz dwa zewnętrzne punkty końcowe i zatwierdzisz zmiany.
 
@@ -167,7 +167,7 @@ Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProf
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Przykład 2: dodawanie zewnętrznych punktów końcowych przy użyciu`New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Przykład 2: dodawanie zewnętrznych punktów końcowych przy użyciu `New-AzTrafficManagerEndpoint`
 
 W tym przykładzie dodamy zewnętrzny punkt końcowy do istniejącego profilu. Profil jest określany przy użyciu nazw profilów i grup zasobów.
 
@@ -186,7 +186,7 @@ Zagnieżdżone punkty końcowe są konfigurowane w profilu nadrzędnym, przy uż
 * "Waga" i "priorytet" są opcjonalne, jak w przypadku punktów końcowych platformy Azure.
 * Parametr "MinChildEndpoints" jest opcjonalny. Wartość domyślna to "1". Jeśli liczba dostępnych punktów końcowych spadnie poniżej tego progu, profil nadrzędny uwzględnia profil podrzędny, a ruch jest przekierowywany do innych punktów końcowych w profilu nadrzędnym.
 
-### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Przykład 1: Dodawanie zagnieżdżonych punktów końcowych przy użyciu `Add-AzTrafficManagerEndpointConfig` i`Set-AzTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Przykład 1: Dodawanie zagnieżdżonych punktów końcowych przy użyciu `Add-AzTrafficManagerEndpointConfig` i `Set-AzTrafficManagerProfile`
 
 W tym przykładzie utworzysz nowe Traffic Manager podrzędne i nadrzędne profile, dodajesz element podrzędny jako zagnieżdżony punkt końcowy do elementu nadrzędnego i zatwierdzisz zmiany.
 
@@ -199,7 +199,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $parent
 
 W przypadku zwięzłości w tym przykładzie nie dodano żadnych innych punktów końcowych do profilów podrzędnych lub nadrzędnych.
 
-### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>Przykład 2: Dodawanie zagnieżdżonych punktów końcowych przy użyciu`New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>Przykład 2: Dodawanie zagnieżdżonych punktów końcowych przy użyciu `New-AzTrafficManagerEndpoint`
 
 W tym przykładzie dodamy istniejący profil podrzędny jako zagnieżdżony punkt końcowy do istniejącego profilu nadrzędnego. Profil jest określany przy użyciu nazw profilów i grup zasobów.
 
@@ -227,7 +227,7 @@ Istnieją dwa sposoby aktualizowania istniejącego punktu końcowego Traffic Man
 1. Pobierz profil Traffic Manager za pomocą polecenia `Get-AzTrafficManagerProfile` , zaktualizuj właściwości punktu końcowego w ramach profilu i zatwierdź zmiany przy użyciu polecenia `Set-AzTrafficManagerProfile` . Ta metoda ma możliwość aktualizowania więcej niż jednego punktu końcowego w ramach jednej operacji.
 2. Pobierz punkt końcowy Traffic Manager za pomocą polecenia `Get-AzTrafficManagerEndpoint` , zaktualizuj właściwości punktu końcowego i zatwierdź zmiany przy użyciu polecenia `Set-AzTrafficManagerEndpoint` . Ta metoda jest prostsza, ponieważ nie wymaga indeksowania do tablicy punktów końcowych w profilu.
 
-### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>Przykład 1: aktualizowanie punktów końcowych przy użyciu `Get-AzTrafficManagerProfile` i`Set-AzTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>Przykład 1: aktualizowanie punktów końcowych przy użyciu `Get-AzTrafficManagerProfile` i `Set-AzTrafficManagerProfile`
 
 W tym przykładzie zmienimy priorytet dwóch punktów końcowych w ramach istniejącego profilu.
 
@@ -238,7 +238,7 @@ $TmProfile.Endpoints[1].Priority = 1
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Przykład 2: aktualizowanie punktu końcowego przy użyciu `Get-AzTrafficManagerEndpoint` i`Set-AzTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Przykład 2: aktualizowanie punktu końcowego przy użyciu `Get-AzTrafficManagerEndpoint` i `Set-AzTrafficManagerEndpoint`
 
 W tym przykładzie zmodyfikujemy wagę pojedynczego punktu końcowego w istniejącym profilu.
 

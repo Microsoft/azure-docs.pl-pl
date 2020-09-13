@@ -3,20 +3,20 @@ title: Azure front-drzwi — zabezpieczenia warstwy aplikacji | Microsoft Docs
 description: Ten artykuł pomaga zrozumieć, w jaki sposób usługa Azure Front Drzwiczks umożliwia ochronę i zabezpieczanie zastrzeżonych aplikacji
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471799"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399943"
 ---
 # <a name="application-layer-security-with-front-door"></a>Zabezpieczenia warstwy aplikacji z przednimi drzwiami
 Drzwi frontonu platformy Azure udostępniają funkcje ochrony aplikacji sieci Web, które chronią aplikacje sieci Web przed atakami sieciowymi i typowymi lukami w zabezpieczeniach sieci Web, takimi jak iniekcja SQL lub obsługa skryptów między lokacjami Włączone dla frontonów http (s), zabezpieczenia warstwy aplikacji dla drzwi przednich są globalnie dystrybuowane i zawsze włączone, zatrzymując złośliwe ataki na granicy sieci platformy Azure, daleko od Twoich założeń. Po dodaniu optymalizacji zabezpieczeń i wydajności, przód drzwi zapewnia szybkie i bezpieczne środowisko sieci Web dla użytkowników końcowych.
