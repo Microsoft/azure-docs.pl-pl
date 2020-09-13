@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: a5a201a9f993db2be00645d8d60a11c5be9cdbe0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554900"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89304034"
 ---
 Standardowe obrazy maszyn wirtualnych (VM) umożliwiają organizacjom Migrowanie do chmury i zapewnianie spójności we wdrożeniach. Obrazy zwykle obejmują wstępnie zdefiniowane ustawienia zabezpieczeń i konfiguracji oraz niezbędne oprogramowanie. Skonfigurowanie własnego potoku obrazu wymaga czasu, infrastruktury i konfiguracji, ale za pomocą konstruktora obrazów maszyn wirtualnych platformy Azure wystarczy utworzyć prostą konfigurację opisującą obraz, przesłać ją do usługi, a obraz został skompilowany i rozdystrybuowany.
  
@@ -100,7 +100,7 @@ Konstruktor obrazów tworzy maszynę wirtualną przy użyciu D1v2 rozmiaru maszy
 Program Azure Image Builder dystrybuuje obraz do wybranych regionów, co może spowodować naliczenie opłat za ruch wychodzący z sieci.
 
 ## <a name="hyper-v-generation"></a>Generowanie funkcji Hyper-V
-Konstruktor obrazów jest obecnie włączony do obsługi obrazów i maszyn wirtualnych funkcji Hyper-V generacji 1.
+Konstruktor obrazów obecnie obsługuje tylko natywnie tworzenie obrazów generacji funkcji Hyper-V (Gen1) 1 w galerii obrazów udostępnionych (SIG) systemu Azure lub w obrazie zarządzanym. Jeśli chcesz utworzyć obrazy Gen2, musisz użyć źródłowego obrazu Gen2 i rozesłać do dysku VHD. Następnie należy utworzyć obraz zarządzany na podstawie wirtualnego dysku twardego i wprowadzić go do SIG jako obraz Gen2.
  
 ## <a name="next-steps"></a>Następne kroki 
  

@@ -4,18 +4,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/29/2020
+ms.date: 08/18/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: debd1eda050e75ea2b9baed45e6e5af0f5a95c46
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 54ccaebd84c6af308ddcfa956add7f84b6e55832
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944439"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321049"
 ---
-### <a name="speech-to-text-or-custom-speech-to-text"></a>Zamiana mowy na tekst lub Custom Speech na tekst
-
 Kontener udostępnia interfejsy API punktu końcowego zapytania opartego na protokole WebSocket, do których można uzyskać dostęp za pośrednictwem [zestawu Speech SDK](../index.yml). Domyślnie zestaw Speech SDK używa usług online Speech Services. Aby użyć kontenera, należy zmienić metodę inicjacji.
 
 > [!TIP]

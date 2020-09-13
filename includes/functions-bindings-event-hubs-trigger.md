@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 7826df83506083e2db1bdb011704cb0fef628801
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8c6b79dca97de3dd46eb9c677f2c94191f276b0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85378555"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303974"
 ---
 Użyj wyzwalacza funkcji, aby odpowiedzieć na zdarzenie wysłane do strumienia zdarzeń centrum zdarzeń. Aby skonfigurować wyzwalacz, musisz mieć dostęp do odczytu do odpowiedniego centrum zdarzeń. Gdy funkcja jest wyzwalana, komunikat przeszedł do funkcji jest wpisywany jako ciąg.
 
@@ -285,6 +285,10 @@ def main(event: func.EventHubEvent):
     logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
     logging.info('  SequenceNumber =', event.sequence_number)
     logging.info('  Offset =', event.offset)
+
+    # Metadata
+    for key in event.metadata:
+        logging.info(f'Metadata: {key} = ', event.metadata[key])
 ```
 
 # <a name="java"></a>[Java](#tab/java)
