@@ -2,19 +2,18 @@
 title: Szyfrowanie dysków systemu operacyjnego przy użyciu kluczy zarządzanych przez klienta w programie Azure DevTest Labs
 description: Dowiedz się, jak szyfrować dyski systemu operacyjnego (OS) przy użyciu kluczy zarządzanych przez klienta w programie Azure DevTest Labs.
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 241f53f0c8f289b43b8de465eb7509489345b955
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/01/2020
+ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815925"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489858"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Szyfruj dyski systemu operacyjnego (OS) przy użyciu kluczy zarządzanych przez klienta w Azure DevTest Labs
 Szyfrowanie po stronie serwera (SSE) chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. Funkcja SSE automatycznie szyfruje dane przechowywane na dyskach zarządzanych na platformie Azure (na dyskach z systemem operacyjnym i danych) domyślnie, gdy są utrwalane w chmurze. Dowiedz się więcej o [szyfrowaniu dysków](../virtual-machines/windows/disk-encryption.md) na platformie Azure. 
 
 W ramach programu DevTest Labs wszystkie dyski systemu operacyjnego i dyski danych utworzone w ramach laboratorium są szyfrowane przy użyciu kluczy zarządzanych przez platformę. Jednak jako właściciel laboratorium możesz wybrać opcję szyfrowania dysków systemu operacyjnego maszyny wirtualnej laboratorium przy użyciu własnych kluczy. Jeśli zdecydujesz się na zarządzanie szyfrowaniem przy użyciu własnych kluczy, możesz określić **klucz zarządzany przez klienta** , który będzie używany do szyfrowania danych na dyskach systemu operacyjnego laboratorium. Aby dowiedzieć się więcej na temat szyfrowania po stronie serwera (SSE) z kluczami zarządzanymi przez klienta i innych typów szyfrowania dysków zarządzanych, zobacz [klucze zarządzane przez klienta](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Ponadto zobacz [ograniczenia związane z korzystaniem z kluczy zarządzanych przez klienta](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
-
 
 > [!NOTE]
 > - Obecnie szyfrowanie dysków z kluczem zarządzanym przez klienta jest obsługiwane tylko w przypadku dysków systemu operacyjnego w DevTest Labs. 
@@ -29,8 +28,11 @@ W poniższej sekcji pokazano, jak właściciel laboratorium może skonfigurować
 
     - Zestaw szyfrowania dysków musi znajdować się **w tym samym regionie i subskrypcji co laboratorium**. 
     - Upewnij się, że (właściciel laboratorium) ma co najmniej **dostęp na poziomie czytnika** do zestawu szyfrowania dysku, który będzie używany do szyfrowania dysków systemu operacyjnego laboratorium. 
-2. W przypadku laboratoriów utworzonych przed 8/1/2020, właściciel laboratorium będzie musiał zapewnić, że tożsamość przypisana przez system laboratorium jest włączona. W tym celu właściciel laboratorium może przejść do laboratorium, kliknąć pozycję **Konfiguracja i zasady**, kliknąć pozycję Karta **tożsamość (wersja zapoznawcza)** , zmienić pozycję **stan** tożsamości przypisane do systemu **na włączone** i kliknąć pozycję **Zapisz**. W przypadku nowych laboratoriów utworzonych po rozpoczęciu przez system 8/1/2020 laboratorium tożsamości przypisanej do systemu będzie domyślnie włączona. 
-3. Aby laboratorium obsługiwało szyfrowanie wszystkich dysków systemu operacyjnego laboratorium, właściciel laboratorium musi jawnie udzielić roli czytnika **tożsamości przypisanej przez system** do laboratorium w zestawie szyfrowania dysków oraz roli współautor maszyny wirtualnej w podstawowej subskrypcji platformy Azure. Właściciel laboratorium może to zrobić, wykonując następujące czynności:
+1. W przypadku laboratoriów utworzonych przed 8/1/2020, właściciel laboratorium będzie musiał zapewnić, że tożsamość przypisana przez system laboratorium jest włączona. W tym celu właściciel laboratorium może przejść do laboratorium, kliknąć pozycję **Konfiguracja i zasady**, kliknąć pozycję Karta **tożsamość (wersja zapoznawcza)** , zmienić pozycję **stan** tożsamości przypisane do systemu **na włączone** i kliknąć pozycję **Zapisz**. W przypadku nowych laboratoriów utworzonych po rozpoczęciu przez system 8/1/2020 laboratorium tożsamości przypisanej do systemu będzie domyślnie włączona. 
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Klucze zarządzane":::
+1. Aby laboratorium obsługiwało szyfrowanie wszystkich dysków systemu operacyjnego laboratorium, właściciel laboratorium musi jawnie udzielić roli czytnika **tożsamości przypisanej przez system** do laboratorium w zestawie szyfrowania dysków oraz roli współautor maszyny wirtualnej w podstawowej subskrypcji platformy Azure. Właściciel laboratorium może to zrobić, wykonując następujące czynności:
 
    
     1. Upewnij się, że jesteś członkiem [roli administratora dostępu użytkowników](../role-based-access-control/built-in-roles.md#user-access-administrator) na poziomie subskrypcji platformy Azure, dzięki czemu możesz zarządzać dostępem użytkowników do zasobów platformy Azure. 
@@ -71,8 +73,24 @@ W poniższej sekcji pokazano, jak właściciel laboratorium może skonfigurować
 1. W polu komunikat z następującym tekstem: *to ustawienie będzie stosowane do nowo utworzonych maszyn w laboratorium. Stary dysk systemu operacyjnego pozostanie zaszyfrowany przy użyciu starego zestawu szyfrowania dysków*, a następnie wybierz **przycisk OK**. 
 
     Po skonfigurowaniu dyski systemu operacyjnego laboratorium zostaną zaszyfrowane za pomocą klucza zarządzanego przez klienta za pomocą zestawu szyfrowanie dysków. 
+   
+## <a name="how-to-validate-if-disks-are-being-encrypted"></a>Sprawdzanie, czy dyski są szyfrowane
 
+1. Przejdź do maszyny wirtualnej laboratorium utworzonej po włączeniu szyfrowania dysku z kluczem zarządzanym przez klienta w laboratorium.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Maszyna wirtualna z włączonym szyfrowaniem dysków":::
+1. Kliknij grupę zasobów maszyny wirtualnej, a następnie kliknij dysk systemu operacyjnego.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Grupa zasobów maszyny wirtualnej":::
+1. Przejdź do pozycji szyfrowanie i sprawdź, czy szyfrowanie jest ustawione na klucz zarządzany przez klienta z wybranym zestawem szyfrowania dysków.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Weryfikuj szyfrowanie":::
+  
 ## <a name="next-steps"></a>Następne kroki
+
 Zobacz następujące artykuły: 
 
 - [Azure Disk Encryption](../virtual-machines/windows/disk-encryption.md). 

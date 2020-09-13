@@ -1,15 +1,15 @@
 ---
 title: Obsługiwane Azure Resource Manager typy zasobów
 description: Podaj listę typów zasobów Azure Resource Manager obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 08/10/2020
+ms.date: 09/04/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 91b8a88fd056db2fd8495c85dccbcc08f4a94fda
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: b81ffcdde074978a9a72c5ab651ec2c5556870bd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066002"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488324"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -25,6 +25,10 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources
 
 - Microsoft. alertsmanagement/alerty
+
+## <a name="guestconfigurationresources"></a>guestconfigurationresources
+
+- Microsoft. guestconfiguration/guestconfigurationassignments
 
 ## <a name="healthresources"></a>healthresources
 
@@ -56,6 +60,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - livearena. Broadcast/Services
 - mailjet. email/Services
 - Microsoft. AAD/DomainServices
+- Microsoft. aadiam/azureadmetrics
 - Microsoft. aadiam/privatelinkforazuread
 - Microsoft. aadiam/dzierżawcy
 - Microsoft. aisupercomputer/konta
@@ -69,6 +74,9 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. appplatform/Sprężyna
 - Microsoft. archiwalne/Kolekcje
 - Microsoft. zaświadczanie/attestationproviders
+- Microsoft. Authorization/resourcemanagementprivatelinks
+- Microsoft. Autozarządzanie/konta
+- Microsoft. Autozarządzanie/configurationprofilepreferences
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/konfiguracje
 - Microsoft. Automation/automationaccounts/elementy Runbook
@@ -76,6 +84,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Automatyczna synchronizacja/privateclouds
 - Microsoft. azconfig/configurationstores
 - Microsoft. usługi azureactivedirectory/b2cdirectories
+- Microsoft. usługi azureactivedirectory/guestusages
 - Microsoft. azuredata/kontrolery datacontrollers
 - Microsoft. azuredata/hybriddatamanagers
 - Microsoft. azuredata/postgresinstances
@@ -84,6 +93,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. azuredata/sqlmanagedinstances
 - Microsoft. azuredata/sqlserverinstances
 - Microsoft. azuredata/SqlServerRegistrations
+- Microsoft. azurestack/edgesubscriptions
 - Microsoft. azurestack/rejestracje
 - Microsoft. azurestackhci/klastry
 - Microsoft. baremetal/consoleconnections
@@ -114,6 +124,10 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. classicstorage/storageaccounts
 - Microsoft. Clouds/accounts
 - Microsoft. cloudsearch/indeksy
+- Microsoft. cloudtest/konta
+- Microsoft. cloudtest/obrazy
+- Microsoft. cloudtest/pule
+- Microsoft. codespaces/plany
 - Microsoft. Cognition/syntheticsaccounts
 - Microsoft. cognitiveservices/konta
 - Microsoft. COMPUTE/availabilitysets
@@ -141,6 +155,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. COMPUTE/virtualmachines/rozszerzenia
 - Microsoft. COMPUTE/virtualmachines/runcommands
 - Microsoft. COMPUTE/virtualmachinescalesets
+- Microsoft. Poprzednia organizacja/organizacje
+- Microsoft. connectedcache/cachenodes
 - Microsoft. containerinstance/containergroups
 - Microsoft. containerregistry/rejestry
 - Microsoft. containerregistry/rejestry/agentpools
@@ -155,11 +171,13 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. contoso/pracownicy
 - Microsoft. costmanagement/łączniki
 - Microsoft. customproviders/resourceproviders
+- Microsoft. d365customerinsights/Instances
 - Microsoft. DATAbox/zadania
 - Microsoft. databoxedge/databoxedgedevices
 - Microsoft. datacegły/obszary robocze
 - Microsoft. datacatalog/wykazy
 - Microsoft. datacatalog/wykazy
+- Microsoft. datacollaboration/obszary robocze
 - Microsoft. usługi Datadog/monitory
 - Microsoft. DataFactory/datafactors
 - Microsoft. DataFactory/fabryki
@@ -169,9 +187,12 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. datamigration/Services/Projects
 - Microsoft. datamigration/Slots
 - Microsoft. dataprotection/backupvaults
+- Microsoft. dataprotection/resourceoperationgatekeepers
 - Microsoft. dataudział/konta
 - Microsoft. dbformariadb/serwery
+- Microsoft. dbformysql/flexibleservers
 - Microsoft. dbformysql/serwery
+- Microsoft. dbforpostgresql/flexibleservers
 - Microsoft. dbforpostgresql/ServerGroups
 - Microsoft. dbforpostgresql/serwery
 - Microsoft. dbforpostgresql/serversv2
@@ -189,6 +210,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Devices/elasticpools/iothubtenants
 - Microsoft. Devices/iothubs
 - Microsoft. Devices/provisioningservices
+- Microsoft. deviceupdate/konta
+- Microsoft. deviceupdate/accounts/Instances
 - Microsoft. DevOps/potoki
 - Microsoft. devspaces/kontrolery
 - Microsoft. wspólny/labcenters
@@ -209,7 +232,9 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. eventhub/klastry
 - Microsoft. eventhub/przestrzenie nazw
 - Microsoft. eksperymentowanie/experimentworkspaces
+- Microsoft. extendedlocation/customlocations
 - Microsoft. Falcon/przestrzenie nazw
+- Microsoft. footprintmonitoring/profile
 - Microsoft. gry/tytuły
 - Microsoft. genomika/konta
 - Microsoft. guestconfiguration/automanagedaccounts
@@ -222,8 +247,13 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. hybridcompute/maszyny
 - Microsoft. hybridcompute/Machines/Extensions
 - Microsoft. hybriddata/datamanagers
+- Microsoft. hybridnetwork/urządzenia
+- Microsoft. hybridnetwork/virtualnetworkfunctions
 - Microsoft. importexport/zadania
+- Microsoft. industrydatalifecycle/custodiancollaboratives
 - Microsoft. industrydatalifecycle/derivedmodels
+- Microsoft. industrydatalifecycle/membercollaboratives
+- Microsoft. industrydatalifecycle/pipelinesets
 - Microsoft. Insights/actiongroups
 - Microsoft. Insights/activitylogalerts
 - Microsoft. Insights/alertrules
@@ -239,9 +269,11 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Insights/webtests
 - Microsoft. Insights/skoroszyty
 - Microsoft. Insights/workbooktemplates
+- Microsoft. intelligentitdigitaltwin/digitaltwins
 - Microsoft. iotcentral/iotapps
 - Microsoft. iotspaces/Graph
 - Microsoft./Magazyn kluczy/hsmpools
+- Microsoft./Magazyn kluczy/managedhsms
 - Microsoft./magazyny kluczy
 - Microsoft. Kubernetes/connectedclusters
 - Microsoft. Kusto/klastry
@@ -256,6 +288,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. machinelearning/obszary robocze
 - Microsoft. machinelearningcompute/operationalizationclusters
 - Microsoft. machinelearningservices/obszary robocze
+- Microsoft. machinelearningservices/Workspaces/inferenceendpoints
+- Microsoft. machinelearningservices/Workspaces/inferenceendpoints/Deployments
 - Microsoft. Maintenance/maintenanceconfigurations
 - Microsoft. Maintenance/maintenancepolicies
 - Microsoft. managedidentity/grupy
@@ -294,9 +328,11 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Network/azurefirewalls
 - Microsoft. Network/bastionhosts
 - Microsoft. Network/Connections
+- Microsoft. Network/customipprefixes
 - Microsoft. Network/ddoscustompolicies
 - Microsoft. Network/ddosprotectionplans
 - Microsoft. Network/dnszones
+- Microsoft. Network/dscpconfigurations
 - Microsoft. Network/expressroutecircuits
 - Microsoft. Network/expressroutecrossconnections
 - Microsoft. Network/expressroutegateways
@@ -308,6 +344,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Network/ipgroups
 - Microsoft. Network/loadbalancers
 - Microsoft. Network/localnetworkgateways
+- Microsoft. Network/mastercustomipprefixes
 - Microsoft. Network/natgateways
 - Microsoft. Network/networkexperimentprofiles
 - Microsoft. Network/networkintentpolicies
@@ -346,6 +383,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Network/vpnsites
 - Microsoft. notificationhubs/przestrzenie nazw
 - Microsoft. notificationhubs/przestrzenie nazw/notificationhubs
+- Microsoft. Nutanix/interfejsy
+- Microsoft. Nutanix/węzły
 - Microsoft. ObjectStore/osnamespaces
 - Microsoft. offazure/hypervsites
 - Microsoft. offazure/importsites
@@ -359,6 +398,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Komunikacja równorzędna/peeringservices
 - Microsoft. Portal/pulpity nawigacyjne
 - Microsoft. portalsdk/rootresources
+- Microsoft. PowerBI/privatelinkservicesforpowerbi
+- Microsoft. PowerBI/dzierżawcy
 - Microsoft. PowerBI/workspacecollections
 - Microsoft. powerbidedicated/pojemności
 - Microsoft. projectbabylon/konta
@@ -412,9 +453,13 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. storagesyncdev/storagesyncservices
 - Microsoft. storagesyncint/storagesyncservices
 - Microsoft. StorSimple/menedżerowie
+- Microsoft. streamanalytics/klastry
 - Microsoft. streamanalytics/streamingjobs
+- Microsoft. swiftlet/virtualmachines
+- Microsoft. Synapse/privatelinkhubs
 - Microsoft. Synapse/obszary robocze
 - Microsoft. Synapse/Workspaces/bigdatapools
+- Microsoft. Synapse/obszary robocze/sqldatabases
 - Microsoft. Synapse/obszary robocze/xmlpools
 - Microsoft. terraformoss/providerregistrations
 - Microsoft. timeseriesinsights/środowiska
@@ -439,6 +484,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. vmwarevirtustream/privateclouds
 - Microsoft. VSOnline/konta
 - Microsoft. VSOnline/plany
+- Microsoft. Web/apimanagementaccounts
 - Microsoft. Web/apimanagementaccounts/interfejsy API
 - Microsoft. Web/certyfikaty
 - Microsoft. Web/connectiongateways
@@ -453,6 +499,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Web/staticsites
 - Microsoft. windowsesu/multipleactivationkeys
 - Microsoft. windowsiot/deviceservices
+- Microsoft. workloadbuilder/obciążenia
 - MyGet. packagemanagement/Services
 - paraleap. cloudmonix/Services
 - pokitdok. platform/usług
@@ -481,10 +528,13 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 
 - Microsoft. Security/Assessments
 - Microsoft. zabezpieczenia/oceny/podoceny
+- Microsoft. Security/Locations/Alerts
 - Microsoft. Security/cenniki
 - Microsoft. Security/regulatorycompliancestandards
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
+- Microsoft. Security/securescores
+- Microsoft. Security/securescores/securescorecontrols
 
 ## <a name="next-steps"></a>Następne kroki
 

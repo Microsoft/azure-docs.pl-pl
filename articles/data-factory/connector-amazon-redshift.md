@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418256"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484548"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiowanie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -102,8 +102,8 @@ Aby skopiować dane z usługi Amazon RedShift, obsługiwane są następujące w�
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonRedshiftTable** | Tak |
-| schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
-| tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| schema | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
+| table (stolik) | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
 **Przykład**
@@ -164,11 +164,11 @@ Dowiedz się więcej na temat sposobu korzystania z usługi UNLOAD w celu wydajn
 
 [Unload](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) to mechanizm zapewniany przez usługę Amazon RedShift, który może zwolnić wyniki zapytania do jednego lub kilku plików w usłudze Amazon Simple Storage Service (Amazon S3). Jest to sposób zalecane przez Amazon do kopiowania dużych zestawów danych z RedShift.
 
-**Przykład: Kopiuj dane z Amazon RedShift do Azure SQL Data Warehouse przy użyciu UNLOAD, kopii etapowej i bazy danych**
+**Przykład: kopiowanie danych z Amazon RedShift do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) przy użyciu UNLOAD, kopii etapowej i bazy danych**
 
-W przypadku tego przykładowego przypadku użycia działanie Copy powoduje odładowanie danych z Amazon RedShift do Amazon S3 zgodnie z konfiguracją w "redshiftUnloadSettings", a następnie skopiowanie danych z usługi Amazon S3 do obiektu blob platformy Azure zgodnie z definicją w "stagingSettings", a następnie użycie bazy danych w celu załadowania do SQL Data Warehouse. Cały format tymczasowy jest obsługiwany przez działanie kopiowania prawidłowo.
+W przypadku tego przykładowego przypadku użycia działanie Copy zwalnia dane z Amazon RedShift do Amazon S3 zgodnie z konfiguracją w "redshiftUnloadSettings", a następnie kopiuje dane z usługi Amazon S3 do obiektu blob platformy Azure zgodnie z definicją w "stagingSettings", a następnie do ładowania danych do analizy Azure Synapse (dawniej SQL Data Warehouse). Cały format tymczasowy jest obsługiwany przez działanie kopiowania prawidłowo.
 
-![Przepływ pracy kopiowania RedShift do magazynu danych SQL](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Przepływ pracy kopiowania RedShift do usługi Azure Synapse Analytics](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[
@@ -221,17 +221,17 @@ Podczas kopiowania danych z usługi Amazon RedShift następujące mapowania są 
 | Amazon RedShift — typ danych | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
 | BIGINT |Int64 |
-| TYPU |String |
-| DELIKATN |String |
-| DATE |DateTime |
-| DOKŁADNOŚCI |Wartość dziesiętna |
+| TYPU |Ciąg |
+| DELIKATN |Ciąg |
+| DATE |Data i godzina |
+| DOKŁADNOŚCI |Liczba dziesiętna |
 | PODWÓJNA PRECYZJA |Double |
 | LICZBA CAŁKOWITA |Int32 |
-| LICZBA RZECZYWISTA |Pojedyncze |
+| LICZBA RZECZYWISTA |Pojedynczy |
 | SMALLINT |Int16 |
-| TEKST |String |
-| ZNACZNIK czasu |DateTime |
-| VARCHAR |String |
+| TEKST |Ciąg |
+| ZNACZNIK czasu |Data i godzina |
+| VARCHAR |Ciąg |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

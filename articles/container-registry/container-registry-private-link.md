@@ -3,27 +3,23 @@ title: Konfigurowanie linku prywatnego
 description: Skonfiguruj prywatny punkt końcowy w rejestrze kontenerów i Włącz dostęp za pośrednictwem prywatnego linku w lokalnej sieci wirtualnej. Prywatny dostęp do linków jest funkcją warstwy usługi Premium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523846"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488749"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Połącz się prywatnie z usługą Azure Container Registry przy użyciu prywatnego linku platformy Azure
 
 
-Ogranicz dostęp do rejestru przez przypisanie prywatnych adresów IP do punktów końcowych rejestru i użycie [linku prywatnego platformy Azure](../private-link/private-link-overview.md). Ruch sieciowy między klientami w sieci wirtualnej a prywatnymi punktami końcowymi rejestru przechodzą przez sieć wirtualną i prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Link prywatny umożliwia również umożliwienie dostępu do rejestru prywatnego z zasobów lokalnych za pośrednictwem prywatnej komunikacji równorzędnej [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) lub [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Ogranicz dostęp do rejestru przez przypisanie prywatnych adresów IP do punktów końcowych rejestru i użycie [linku prywatnego platformy Azure](../private-link/private-link-overview.md). Ruch sieciowy między klientami w sieci wirtualnej a prywatnymi punktami końcowymi rejestru przechodzą przez sieć wirtualną i prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Link prywatny umożliwia również dostęp do rejestru prywatnego z zasobów lokalnych za pośrednictwem prywatnej komunikacji równorzędnej [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) lub [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 [Ustawienia DNS](../private-link/private-endpoint-overview.md#dns-configuration) dla prywatnych punktów końcowych rejestru można skonfigurować tak, aby ustawienia były rozpoznawane jako prywatny adres IP przydzielony do rejestru. Dzięki konfiguracji DNS klienci i usługi w sieci mogą nadal uzyskiwać dostęp do rejestru w w pełni kwalifikowanej nazwie domeny, takiej jak *myregistry.azurecr.IO*. 
 
-Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstw](container-registry-skus.md).
+Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Obecnie można skonfigurować maksymalnie 10 prywatnych punktów końcowych dla rejestru. Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstw](container-registry-skus.md).
 
-
-## <a name="things-to-know"></a>Co należy wiedzieć
-
-* Obecnie skanowanie obrazów przy użyciu Azure Security Center nie jest dostępne w rejestrze skonfigurowanym za pomocą prywatnego punktu końcowego.
-* Obecnie można skonfigurować maksymalnie 10 prywatnych punktów końcowych dla rejestru.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -270,7 +266,7 @@ Skonfiguruj prywatny link podczas tworzenia rejestru lub Dodaj prywatny link do 
     |Strefa Prywatna strefa DNS |Wybierz *(nowy) privatelink.azurecr.IO* |
     |||
 
-1. Wybierz pozycję **Przeglądanie + tworzenie**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+1. Wybierz pozycję **Przejrzyj i utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
 Po utworzeniu prywatnego punktu końcowego ustawienia DNS w strefie prywatnej są wyświetlane na stronie **prywatne punkty końcowe** w portalu:

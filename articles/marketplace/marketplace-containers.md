@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: 81069b0340202a0a481522ef1920806026ebcbe1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119399"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484345"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Przewodnik publikowania dla ofert kontenera
 
 Kontener oferuje pomoc w publikowaniu obrazu kontenera w witrynie Azure Marketplace. Skorzystaj z tego przewodnika, aby poznać wymagania dotyczące tej oferty. 
 
-Oferty kontenerów to oferty transakcji, które są wdrażane i rozliczane za pomocą witryny Azure Marketplace. Wywołanie akcji, którą widzi użytkownik, to "Pobierz teraz".
+Oferty kontenerów to oferty transakcji, które są wdrażane i rozliczane za pomocą witryny Azure Marketplace. Opcja aukcji wyświetlana przez użytkownika to "Pobierz go teraz".
 
 Użyj typu oferty *kontenera* , gdy rozwiązanie jest obrazem kontenera Docker, który jest skonfigurowany jako wystąpienie usługi kontenera platformy Azure opartej na Kubernetes. 
 
@@ -35,7 +35,7 @@ Firma Microsoft obsługuje obecnie bezpłatne modele licencjonowania (BYOL).
 | Rozliczenia i pomiary | Obsługuj model rozliczeń bezpłatny lub BYOL.<br><br> |  
 | Obraz skompilowany na podstawie pliku dockerfile | Obrazy kontenerów muszą być oparte na specyfikacji obrazu platformy Docker i skonstruowane z pliku dockerfile.<br> <br>Więcej informacji o tworzeniu obrazów platformy Docker znajduje się w sekcji "użycie" w temacie [pliku dockerfile Reference](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
 | Hosting w repozytorium Azure Container Registry | Obrazy kontenerów muszą być hostowane w repozytorium Azure Container Registry.<br> <br>Aby uzyskać więcej informacji na temat pracy z Azure Container Registry, zobacz [Szybki Start: Tworzenie prywatnego rejestru kontenerów przy użyciu Azure Portal](../container-registry/container-registry-get-started-portal.md).<br><br> |  
-| Tagowanie obrazów | Obrazy kontenerów muszą zawierać co najmniej jeden tag (maksymalną liczbę tagów: 16).<br><br>Aby uzyskać więcej informacji na temat tagowania obrazu, zobacz `docker tag` stronę w witrynie [platformy Docker](https://docs.docker.com/engine/reference/commandline/tag) .<br><br> |  
+| Oznaczanie obrazów tagami | Obrazy kontenerów muszą zawierać co najmniej jeden tag (maksymalną liczbę tagów: 16).<br><br>Aby uzyskać więcej informacji na temat tagowania obrazu, zobacz `docker tag` stronę w witrynie [platformy Docker](https://docs.docker.com/engine/reference/commandline/tag) .<br><br> |  
 
 ## <a name="next-steps"></a>Następne kroki
 

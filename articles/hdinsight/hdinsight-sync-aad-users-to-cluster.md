@@ -1,19 +1,19 @@
 ---
 title: Synchronizowanie użytkowników Azure Active Directory z klastrem usługi HDInsight
 description: Zsynchronizuj uwierzytelnionych użytkowników z Azure Active Directory do klastra usługi HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 83e168c5f1d1bad58a193937a4b97fe686dde2a3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004419"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504659"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchronizowanie użytkowników usługi Azure Active Directory z klastrem usługi HDInsight
 
@@ -123,7 +123,7 @@ W poniższej metodzie jest używany wpis POST z interfejsem API REST Ambari. Aby
 1. Ten wynik pokazuje, że stan jest **zakończony**, jeden nowy użytkownik został utworzony, a użytkownik przypisał do niego członkostwo. W tym przykładzie użytkownik jest przypisany do synchronizowanej grupy LDAP "HiveUsers", ponieważ użytkownik został dodany do tej samej grupy w usłudze Azure AD.
 
     > [!NOTE]  
-    > Poprzednia metoda synchronizuje grupy usługi Azure AD określone we właściwości **grupy użytkowników dostępu** w ustawieniach domeny podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz [Tworzenie klastra usługi HDInsight](domain-joined/apache-domain-joined-configure.md).
+    > Poprzednia metoda synchronizuje grupy usługi Azure AD określone we właściwości **grupy użytkowników dostępu** w ustawieniach domeny podczas tworzenia klastra. Aby uzyskać więcej informacji, zobacz  [Tworzenie klastra usługi HDInsight](domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Weryfikowanie nowo dodanego użytkownika usługi Azure AD
 
@@ -137,7 +137,7 @@ Otwórz [interfejs użytkownika programu Apache Ambari Web](hdinsight-hadoop-man
 
     ![Menu użytkowników i grup usługi HDInsight](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
-3. Nowy użytkownik powinien być wymieniony w tabeli users (Użytkownicy). Typ ma ustawioną wartość, `LDAP` a nie `Local` .
+3. Nowy użytkownik powinien być wymieniony w tabeli users (Użytkownicy). Typ ma ustawioną wartość, `LDAP` a nie  `Local` .
 
     ![Strona użytkowników usługi HDInsight w usłudze AAD — Omówienie](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 

@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871398"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484306"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrowanie aktywnej nazwy DNS do Azure App Service
 
@@ -40,7 +40,7 @@ Po zakończeniu migracji niestandardowej nazwy DNS ze starej lokacji do aplikacj
 
 ### <a name="get-domain-verification-id"></a>Pobierz identyfikator weryfikacji domeny
 
-Uzyskaj identyfikator weryfikacji domeny dla aplikacji, wykonując czynności opisane w sekcji [Pobieranie identyfikatora weryfikacji domeny](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+Uzyskaj identyfikator weryfikacji domeny dla aplikacji, wykonując czynności opisane w sekcji [Pobieranie identyfikatora weryfikacji domeny](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 
 ### <a name="create-domain-verification-record"></a>Utwórz rekord weryfikacji domeny
 
@@ -48,9 +48,9 @@ Aby sprawdzić własność domeny, Dodaj rekord TXT dla weryfikacji domeny. Nazw
 
 | Przykład rekordu DNS | Host TXT | Wartość TXT |
 | - | - | - |
-| \@ pierwiastek | _asuid_ | [Identyfikator weryfikacji domeny dla aplikacji](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| www (Sub) | _asuid. www_ | [Identyfikator weryfikacji domeny dla aplikacji](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| \* znaku | _asuid_ | [Identyfikator weryfikacji domeny dla aplikacji](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \@ pierwiastek | _asuid_ | [Identyfikator weryfikacji domeny dla aplikacji](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| www (Sub) | _asuid. www_ | [Identyfikator weryfikacji domeny dla aplikacji](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \* znaku | _asuid_ | [Identyfikator weryfikacji domeny dla aplikacji](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
 
 Na stronie rekordów DNS Zwróć uwagę na typ rekordu nazwy DNS, którą chcesz migrować. App Service obsługuje mapowania z rekordów CNAME i A.
 

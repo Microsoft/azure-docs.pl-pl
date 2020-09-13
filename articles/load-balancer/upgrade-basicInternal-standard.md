@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: 10a0c186bb1a0d9f974d485e7d2d1d7326bd849c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033159"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500253"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uaktualnij usługę Azure Internal Load Balancer — nie jest wymagane połączenie wychodzące
 [Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -48,7 +48,7 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
-Pobierz skrypt migracji z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/4.0).
+Pobierz skrypt migracji z  [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/5.0).
 ## <a name="use-the-script"></a>Używanie skryptu
 
 W zależności od konfiguracji i preferencji lokalnego środowiska programu PowerShell dostępne są dwie opcje:

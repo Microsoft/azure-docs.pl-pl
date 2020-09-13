@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.openlocfilehash: 2cb06b6802fdc4cebd04f687266f5ac08dde82c0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270262"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490075"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Udostępnianie i odbieranie danych z Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Gdy dane są odbierane do tabeli, a tabela docelowa jeszcze nie istnieje, udzia�
 
 ### <a name="prerequisites-for-sql-source"></a>Wymagania wstępne dotyczące źródła SQL
 
-* Azure SQL Database lub usługa Azure Synapse Analytics (wcześniej Azure SQL Data Warehouse) z tabelami i widokami, które chcesz udostępnić.
+* Azure SQL Database lub usługa Azure Synapse Analytics (wcześniej SQL Data Warehouse) z tabelami i widokami, które chcesz udostępnić.
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/serwery/bazy danych/zapis*. To uprawnienie istnieje w roli współautor.
 * Uprawnienie do udziału danych w celu uzyskania dostępu do magazynu danych. Można to zrobić, wykonując następujące czynności: 
     1. Ustaw siebie jako Azure Active Directory administrator programu SQL Server.
@@ -90,7 +90,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Rozpocznij udostępnianie danych**.
 
-1. Wybierz przycisk **Utwórz**.   
+1. Wybierz pozycję **Utwórz**.   
 
 1. Wprowadź szczegółowe informacje o udziale. Określ nazwę, typ udziału, opis zawartości udziału i warunki użytkowania (opcjonalnie). 
 
@@ -124,7 +124,7 @@ Utwórz zasób udziału danych platformy Azure w grupie zasobów platformy Azure
 
 1. Wybierz pozycję **Continue** (Kontynuuj).
 
-1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz przycisk **Utwórz**.
+1. Na karcie Recenzja + tworzenie przejrzyj zawartość pakietu, ustawienia, adresatów i ustawienia synchronizacji. Wybierz pozycję **Utwórz**.
 
 Udział danych platformy Azure został utworzony, a odbiorca Twojego udziału danych jest teraz gotowy do zaakceptowania Twojego zaproszenia. 
 
@@ -150,7 +150,7 @@ W przypadku wybrania opcji odbierania danych do usługi Azure Storage poniżej z
 Jeśli zdecydujesz się na otrzymywanie danych do Azure SQL Database, usługa Azure Synapse Analytics poniżej stanowi listę wymagań wstępnych.
 
 * Uprawnienia do zapisu w bazach danych programu SQL Server, które znajdują się w *Microsoft. SQL/Servers/Databases/Write*. To uprawnienie istnieje w roli współautor. 
-* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub Azure SQL Data Warehouse. Można to zrobić, wykonując następujące czynności: 
+* Uprawnienie do zarządzanej tożsamości zasobu udziału danych w celu uzyskania dostępu do Azure SQL Database lub analizy usługi Azure Synapse. Można to zrobić, wykonując następujące czynności: 
     1. Ustaw siebie jako Azure Active Directory administrator programu SQL Server.
     1. Nawiąż połączenie z magazynem Azure SQL Database/danymi przy użyciu Azure Active Directory.
     1. Użyj edytora zapytań (wersja zapoznawcza), aby wykonać poniższy skrypt w celu dodania tożsamości zarządzanej udziału danych jako "db_datareader, db_datawriter, db_ddladmin". Musisz nawiązać połączenie przy użyciu Active Directory, a nie SQL Server uwierzytelniania. 

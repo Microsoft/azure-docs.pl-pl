@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798435"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489650"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Ogranicz uprawnienia dostępu gościa (wersja zapoznawcza) w Azure Active Directory
 
@@ -40,10 +40,7 @@ Aby skonfigurować ustawienia współpracy zewnętrznej, musisz mieć rolę admi
 
 Wprowadziliśmy zmiany w istniejących kontrolkach Azure Portal dla uprawnień użytkowników-Gości.
 
-> [!IMPORTANT]
-> W krótkim czasie nowe kontrolki portalu dla uprawnień użytkownika-gościa będą widoczne tylko przy użyciu adresu URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . Program PowerShell i Microsoft Graph mogą nadal służyć do ustawiania kontrolek, a zmiany będą honorowane przez portal.
-
-1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aka.ms/AADRestrictedGuestAccess) przy użyciu uprawnień administratora globalnego.
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu uprawnień administratora globalnego.
 1. Na stronie Przegląd **Azure Active Directory** organizacji wybierz pozycję **Ustawienia użytkownika**.
 1. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
 1. Na stronie **Ustawienia współpracy zewnętrznej** wybierz opcję **dostęp użytkownika-Gość jest ograniczony do właściwości i członkostw własnych opcji obiektów katalogu** .
@@ -141,7 +138,7 @@ Obsługiwane przez nas oznacza, że środowisko jest zgodnie z oczekiwaniami; je
 
 - Teams
 - Outlook (OWA)
-- SharePoint
+- Sharepoint
 
 ### <a name="services-currently-not-supported"></a>Usługi, które nie są obecnie obsługiwane
 

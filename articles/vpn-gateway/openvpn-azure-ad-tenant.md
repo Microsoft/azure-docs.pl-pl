@@ -2,24 +2,24 @@
 title: 'VPN Gateway: dzierżawa usługi Azure AD dla połączeń sieci VPN P2S: uwierzytelnianie usługi Azure AD'
 description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwierzytelniania usługi Azure AD, możesz użyć sieci VPN P2S
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74999b2bf1a34e3c7b8190dd04206b2b541c465f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 01fe9331d4063ae45a5d30aa3546d6338d30822d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087037"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89499964"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Tworzenie dzierżawy usługi Azure Active Directory dla połączeń protokołu OpenVPN typu punkt-lokacja
 
 Podczas nawiązywania połączenia z siecią wirtualną można użyć uwierzytelniania opartego na certyfikatach lub uwierzytelniania usługi RADIUS. Jednak w przypadku korzystania z otwartego protokołu sieci VPN można również użyć uwierzytelniania Azure Active Directory. Ten artykuł ułatwia skonfigurowanie dzierżawy usługi Azure AD na potrzeby P2S Open VPN Authentication.
 
 > [!NOTE]
-> Uwierzytelnianie usługi Azure AD jest obsługiwane tylko dla połączeń protokołu OpenVPN®.
+> Uwierzytelnianie usługi Azure AD jest obsługiwane tylko dla połączeń protokołu OpenVPN® i wymaga klienta sieci VPN platformy Azure, który jest dostępny tylko dla systemu Windows 10.
 >
 
 
@@ -55,7 +55,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
 
 4. Następnie udziel zgody administratora. Skopiuj i wklej adres URL odnoszący się do lokalizacji wdrożenia na pasku adresu przeglądarki:
 
-    Publiczny
+    Public
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent

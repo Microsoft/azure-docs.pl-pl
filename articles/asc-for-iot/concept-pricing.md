@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 98afd1eb1f8a73c2d6dd3f293a07cdb70780d238
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c76a79f09629b32767c1dcc78989dfa47c678fd
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004770"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504575"
 ---
 # <a name="pricing-and-associated-costs"></a>Cennik i powiązane koszty
 
@@ -48,9 +48,9 @@ Aby zmienić ustawienia:
 
 1. Otwórz IoT Hub.
 
-1. W obszarze **zabezpieczenia**kliknij pozycję **Przegląd**.
+1. W obszarze **zabezpieczenia**kliknij pozycję **Ustawienia**.
 
-1. Kliknij polecenie **Ustawienia**.
+1. Kliknij pozycję **zbieranie danych**.
 
 Poniższa tabela zawiera podsumowanie powiązanych kosztów i implikacje poszczególnych opcji.
 
@@ -73,7 +73,7 @@ Poniższa tabela zawiera podsumowanie powiązanych kosztów i implikacje poszcze
 | | Szczegóły dotyczące postępowania z [alertami](concept-security-alerts.md) i [zaleceniami](concept-recommendations.md) nie są dostępne |
 |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Uzyskiwanie dostępu do [danych pierwotnych zabezpieczeń](how-to-security-data-access.md)
 - [Badanie urządzenia](how-to-investigate-device.md)

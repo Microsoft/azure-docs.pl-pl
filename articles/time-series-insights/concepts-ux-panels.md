@@ -1,5 +1,5 @@
 ---
-title: Wizualizowanie danych w Eksploratorze TSI — Azure Time Series Insights Gen2 | Microsoft Docs
+title: Wizualizowanie danych w Eksploratorze Time Series Insights — Azure Time Series Insights Gen2 | Microsoft Docs
 description: Dowiedz się więcej o funkcjach i opcjach dostępnych w Eksploratorze Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227053"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488171"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Eksplorator Azure Time Series Insights
 
@@ -47,7 +47,7 @@ Eksplorator Azure Time Series Insights składa się z następujących siedmiu el
 
 ## <a name="1-environment-panel"></a>1. Panel środowiska
 
-Panel środowiska zawiera wszystkie Azure Time Series Insights środowiska Gen2, do których masz dostęp. Lista obejmuje środowiska Gen2, a także środowiska generacji 1. Po prostu wybierz środowisko, którego chcesz użyć do natychmiastowego wykonania.
+Panel środowiska zawiera wszystkie Azure Time Series Insights środowiska Gen2, do których masz dostęp. Lista zawiera środowiska Gen2 oraz środowiska Gen1. Po prostu wybierz środowisko, którego chcesz użyć do natychmiastowego wykonania.
 
 1. Wybierz strzałkę listy rozwijanej obok wyświetlanego środowiska.
 
@@ -200,11 +200,11 @@ Eksplorator Azure Time Series Insights obsługuje dwa motywy:
 
   [![Wybrany motyw ciemny](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Kontrolki środowiskowe generacji 1
+## <a name="gen1-environment-controls"></a>Kontrolki środowiska Gen1
 
 ### <a name="gen2-terms-panel"></a>Panel warunków Gen2
 
-Ta sekcja ma zastosowanie tylko do istniejących środowisk generacji 1, które próbują użyć Eksploratora w zaktualizowanym interfejsie użytkownika. Możesz chcieć użyć produktu generacji 1 i produktu Gen2. Dodaliśmy pewne funkcje z istniejącego interfejsu użytkownika do zaktualizowanego Eksploratora, ale w nowym Eksploratorze Azure Time Series Insights można uzyskać pełne środowisko interfejsu użytkownika dla środowiska generacji 1.
+Ta sekcja ma zastosowanie tylko do istniejących środowisk Gen1, które próbują użyć Eksploratora w zaktualizowanym interfejsie użytkownika. Możesz chcieć użyć produktu Gen1 i produktu Gen2 w połączeniu z usługą. Dodaliśmy pewne funkcje z istniejącego interfejsu użytkownika do zaktualizowanego Eksploratora, ale możesz uzyskać pełne środowisko interfejsu użytkownika dla środowiska Gen1 w nowym Eksploratorze Azure Time Series Insights.
 
 Zamiast hierarchii zostanie wyświetlony panel Azure Time Series Insights postanowień Gen2. Panel warunki pozwala definiować zapytania w danym środowisku. Umożliwia ona również filtrowanie danych na podstawie predykatu.
 
@@ -219,7 +219,7 @@ Azure Time Series Insights panel Edytor warunków Gen2 przyjmuje następujące p
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | Ciąg, bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | Ciąg, bool, Double, DateTime, TimeSpan, NULL | Wszystkie operandy powinny być tego samego typu lub być stałe o wartości NULL. |
-| `HAS` | String | Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i wartość NULL są niedozwolone. |
+| `HAS` | Ciąg | Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i wartość NULL są niedozwolone. |
 
 Aby dowiedzieć się więcej o obsługiwanych operacjach zapytań i typach danych, zobacz [wyrażenie szeregów czasowych (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 

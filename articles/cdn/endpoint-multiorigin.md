@@ -1,21 +1,21 @@
 ---
-title: Azure CDN wiele lokalizacji punktu końcowego
+title: Azure CDN wiele lokalizacji punktu końcowego (wersja zapoznawcza)
 description: Rozpocznij pracę z wieloma źródłami punktu końcowego Azure CDN.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
-ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870468"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504677"
 ---
-# <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN wiele lokalizacji punktu końcowego
+# <a name="azure-cdn-endpoint-multi-origin-preview"></a>Azure CDN wiele lokalizacji punktu końcowego (wersja zapoznawcza)
 
 Obsługa wieloskładnikowa eliminuje przestoje i ustala globalną nadmiarowość. 
 
@@ -25,6 +25,10 @@ Skonfiguruj jedną lub więcej grup pochodzenia i wybierz domyślną grupę pier
 
 > [!NOTE]
 > Obecnie ta funkcja jest dostępna tylko w Azure CDN firmy Microsoft. 
+
+> [!IMPORTANT]
+> Wieloskładnikowy punkt końcowy Azure CDN jest obecnie w publicznej wersji zapoznawczej.
+> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-the-origin-group"></a>Tworzenie grupy pochodzenia
 
@@ -86,7 +90,7 @@ Skonfiguruj jedną lub więcej grup pochodzenia i wybierz domyślną grupę pier
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Konfigurowanie ścieżki pochodzenia" border="true":::
 
-5. Wybierz pozycję **OK**.
+5. Wybierz przycisk **OK**.
 
 ## <a name="configure-origins-and-origin-group-settings"></a>Konfigurowanie ustawień pochodzenia i grupy pochodzenia
 

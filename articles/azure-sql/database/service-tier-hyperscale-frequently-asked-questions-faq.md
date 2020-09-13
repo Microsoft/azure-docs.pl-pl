@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500150"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488970"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database często zadawane pytania dotyczące skalowania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,21 +40,21 @@ Warstwa usługi do skalowania jest dostępna tylko dla pojedynczych baz danych k
 
 Warstwy usług oparte na rdzeń wirtualny są zróżnicowane w zależności od dostępności bazy danych i typu magazynu, wydajności i maksymalnego rozmiaru, zgodnie z opisem w poniższej tabeli.
 
-| | Typ zasobu | Ogólnego przeznaczenia |  Hiperskala | Krytyczne dla działania firmy |
+| | Typ zasobu | Ogólnego przeznaczenia |  Hiperskalowanie | Krytyczne dla działania firmy |
 |:---:|:---:|:---:|:---:|:---:|
-| **Optymalne zastosowanie** |Wszystkie|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
+| **Optymalne zastosowanie** |Wszystko|Oferuje zorientowane na budżety Opcje obliczeniowe i magazynowe.|Większość obciążeń firmowych. Skalowanie automatyczne magazynu o rozmiarze do 100 TB, szybkie skalowanie w pionie i w poziomie, szybkie przywracanie bazy danych.|Aplikacje OLTP o wysokim współczynniku transakcji i niskim opóźnieniu we/wy. Oferuje największą odporność na błędy i szybkie przełączanie w tryb failover przy użyciu wielu replik synchronicznie zaktualizowanych.|
 |  **Typ zasobu** ||Wystąpienie zarządzane SQL Database/SQL | Pojedyncza baza danych | Wystąpienie zarządzane SQL Database/SQL |
 | **Rozmiar obliczeń**|SQL Database * | od 1 do 80 rdzeni wirtualnych | od 1 do 80 rdzeni wirtualnych * | od 1 do 80 rdzeni wirtualnych |
-| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Brak | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
-| **Typ magazynu** | Wszystkie |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
+| **Rozmiar obliczeń**|Wystąpienie zarządzane SQL | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych | Nie dotyczy | 8, 16, 24, 32, 40, 64, 80 rdzeni wirtualnych |
+| **Typ magazynu** | Wszystko |Magazyn zdalny w warstwie Premium (na wystąpienie) | Niepołączony magazyn z lokalną pamięcią podręczną dysków SSD (na wystąpienie) | Lokalny magazyn SSD o wysokiej szybkości (na wystąpienie) |
 | **Rozmiar magazynu** | SQL Database *| 5 GB – 4 TB | Do 100 TB | 5 GB – 4 TB |
-| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Brak | 32 GB – 4 TB |
+| **Rozmiar magazynu** | Wystąpienie zarządzane SQL  | 32 GB – 8 TB | Nie dotyczy | 32 GB – 4 TB |
 | **Liczba operacji we/wy na sekundę** | Pojedyncza baza danych | 500 operacji we/wy na sekundę z 7000 maksymalną liczbą IOPS | Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy będą zależeć od obciążenia. | 5000 operacji we/wy z maksymalną liczbą IOPS 200 000|
-| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Brak | 1375 operacji we/wy na sekundę |
-|**Dostępność**|Wszystkie|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
-|**Tworzenie kopii zapasowych**|Wszystkie|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
+| **Liczba operacji we/wy na sekundę** | Wystąpienie zarządzane SQL | Zależy od rozmiaru pliku | Nie dotyczy | 1375 operacji we/wy na sekundę |
+|**Dostępność**|Wszystko|1 replika, brak skalowania do odczytu, brak lokalnej pamięci podręcznej | Wiele replik, do 4 odczyt skalowalny w poziomie, częściowa lokalna pamięć podręczna | 3 repliki, odczyt skalowalny w poziomie, strefa nadmiarowa, pełny magazyn lokalny |
+|**Tworzenie kopii zapasowych**|Wszystko|RA-GRS, 7-35 dni (domyślnie 7 dni)| RA-GRS, 7 dni, stałe odzyskiwanie do czasu w czasie (kopie) | RA-GRS, 7-35 dni (domyślnie 7 dni) |
 
-\*Pule elastyczne nie są obsługiwane w warstwie usługi w ramach skalowania
+\* Pule elastyczne nie są obsługiwane w warstwie usługi w ramach skalowania
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Kto powinien korzystać z warstwy usługi do skalowania
 
@@ -114,11 +114,11 @@ Tak, [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com
 
 Funkcja skalowania obsługuje wszystkie SQL Server obciążenia, ale jest głównie zoptymalizowana pod kątem OLTP. Można również wprowadzać obciążenia hybrydowe (HTAP) i analityczne (składnicy danych).
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Jak mogę wybrać między Azure SQL Data Warehouse i skalowaniem Azure SQL Database
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>Jak mogę wybrać platformę Azure Synapse Analytics i skalowanie Azure SQL Database
 
 W przypadku wykonywania interakcyjnych zapytań analitycznych przy użyciu SQL Server jako magazynu danych funkcja wieloskalowania jest doskonałym rozwiązaniem, ponieważ umożliwia hostowanie małych i średnich magazynów danych (takich jak kilka TB do 100 TB) przy niższych kosztach. można także migrować obciążenia magazynu danych SQL Server do skalowania przy minimalnych zmianach w kodzie T-SQL.
 
-W przypadku korzystania z analizy danych na dużą skalę z złożonymi zapytaniami i pozyskanymi szybkościami pozyskiwania większymi niż 100 MB/s lub przy użyciu usługi Parallel Data Warehouse (PDW), Teradata lub innych magazynów danych z możliwością przetwarzania równoległego (MPP), SQL Data Warehouse mogą być najlepszym wyborem.
+W przypadku korzystania z analizy danych na dużą skalę z złożonymi zapytaniami i pozyskanymi szybkościami pozyskiwania większymi niż 100 MB/s lub przy użyciu usługi Parallel Data Warehouse (PDW), Teradata lub innych magazynów danych (MPP), usługa Azure Synapse Analytics (dawniej SQL Data Warehouse) może być najlepszym wyborem.
   
 ## <a name="hyperscale-compute-questions"></a>Pytania obliczeniowe w ramach skalowania
 
@@ -158,7 +158,7 @@ Dziennik transakcji ze skalą jest praktycznie nieskończony. Nie trzeba martwi�
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Czy moja `tempdb` Skala rośnie wraz z moją bazą danych
 
-`tempdb`Baza danych znajduje się w lokalnym magazynie dysków SSD i ma rozmiar proporcjonalnie do wymaganego rozmiaru obliczeń. `tempdb`Jest zoptymalizowany pod kątem zapewniania maksymalnej wydajności. `tempdb`nie można skonfigurować rozmiaru i jest on zarządzany przez Ciebie.
+`tempdb`Baza danych znajduje się w lokalnym magazynie dysków SSD i ma rozmiar proporcjonalnie do wymaganego rozmiaru obliczeń. `tempdb`Jest zoptymalizowany pod kątem zapewniania maksymalnej wydajności. `tempdb` nie można skonfigurować rozmiaru i jest on zarządzany przez Ciebie.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>Czy rozmiar bazy danych jest automatycznie zwiększany, czy muszę zarządzać rozmiarem plików danych
 
@@ -229,7 +229,7 @@ Przestoje związane z migracją do funkcji skalowania są takie same, jak przest
 
 Skalowanie jest w stanie zużywać 100 MB/s nowych/zmienionych danych, ale czas wymagany do przeniesienia danych do baz danych w Azure SQL Database ma również wpływ na dostępną przepustowość sieci, szybkość odczytu źródła i docelowy poziom usługi bazy danych.
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>Czy mogę odczytywać dane z magazynu obiektów blob i wykonywać szybkie ładowanie (na przykład baza danych w SQL Data Warehouse)
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Czy mogę odczytywać dane z usługi BLOB Storage i wykonywać szybkie ładowanie (na przykład baza danych w usłudze Azure Synapse Analytics)
 
 Aplikacja kliencka może odczytywać dane z usługi Azure Storage i ładować obciążenia danych do bazy danych w formie wieloskali (podobnie jak w przypadku każdej innej bazy danych w Azure SQL Database). Baza Base nie jest obecnie obsługiwana w Azure SQL Database. Alternatywnie, aby zapewnić szybkie ładowanie, można użyć [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)lub użyć zadania spark w [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) z [łącznikiem Spark dla SQL](spark-connector.md). Łącznik platformy Spark do bazy danych SQL obsługuje wstawianie zbiorcze.
 
@@ -269,7 +269,7 @@ Tak.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>Jaki jest cel punktu odzyskiwania (RPO)/Recovery cel (RTO) do przywracania bazy danych w ramach skalowania
 
-Cel punktu odzyskiwania to 0 min. Cel RTO jest krótszy niż 10 minut, niezależnie od rozmiaru bazy danych.
+Cel punktu odzyskiwania to 0 min. Większość operacji przywracania ukończonych w ciągu 60 minut, niezależnie od rozmiaru bazy danych. Czas przywracania może być dłuższy dla większych baz danych, a w przypadku, gdy baza danych miała znaczącą aktywność zapisu przed i do punktu przywracania w czasie.
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>Czy kopia zapasowa bazy danych wpływa na wydajność obliczeń w przypadku replik podstawowych lub pomocniczych
 
@@ -345,9 +345,9 @@ Skalowanie w górę lub w dół powoduje, że istniejące połączenia są usuwa
 
 Użytkownik końcowy. Nie automatycznie.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>Czy rozmiar mojej `tempdb` bazy danych rośnie również, gdy obliczenia są skalowane
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>Czy rozmiar `tempdb` bazy danych i pamięci podręcznej RBPEX również rośnie, gdy obliczenia są skalowane
 
-Tak. `tempdb`Baza danych zostanie automatycznie przeskalowana w miarę wzrostu liczby obliczeń.  
+Tak. `tempdb`Rozmiar [pamięci podręcznej](service-tier-hyperscale.md#distributed-functions-architecture) bazy danych i RBPEX w węzłach obliczeniowych będzie skalowany automatycznie w miarę wzrostu liczby rdzeni.
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Czy można zainicjować obsługę wielu podstawowych replik obliczeniowych, takich jak system z wieloma wzorcami, gdzie wiele podstawowych głowic obliczeniowych może obsługiwać wyższy poziom współbieżności
 
@@ -361,7 +361,7 @@ Domyślnie tworzymy jedną replikę pomocniczą dla baz danych. Jeśli chcesz do
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Jak mogę połączyć się z tymi dodatkowymi replikami obliczeniowymi
 
-Można połączyć się z tymi dodatkowymi replikami obliczeniowymi tylko do odczytu przez ustawienie `ApplicationIntent` argumentu parametrów połączenia na `ReadOnly` . Wszystkie połączenia oznaczone za pomocą `ReadOnly` są automatycznie kierowane do jednej z dodatkowych replik obliczeniowych tylko do odczytu.  
+Można połączyć się z tymi dodatkowymi replikami obliczeniowymi tylko do odczytu przez ustawienie `ApplicationIntent` argumentu parametrów połączenia na `ReadOnly` . Wszystkie połączenia oznaczone za pomocą `ReadOnly` są automatycznie kierowane do jednej z dodatkowych replik obliczeniowych tylko do odczytu. Aby uzyskać szczegółowe informacje, zobacz [Korzystanie z replik tylko do odczytu w celu odciążenia obciążeń zapytań tylko do odczytu](read-scale-out.md).
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>Jak mogę sprawdzić, czy pomyślnie nawiązano połączenie z pomocniczą repliką obliczeń przy użyciu programu SSMS lub innych narzędzi klienta?
 
@@ -390,7 +390,7 @@ Nie. Bazy danych w ramach skalowania mają magazyn udostępniony, co oznacza, ż
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Jak dużo opóźnić między podstawową i pomocniczą repliką obliczeniową
 
-Opóźnienie danych od momentu, gdy transakcja jest zatwierdzona na serwerze podstawowym, do czasu, gdy jest on widoczny w dodatkowej, zależy od bieżącej szybkości generowania dziennika. Typowe opóźnienia danych są w małym milisekundach.
+Opóźnienie danych od momentu, gdy transakcja jest zatwierdzona na serwerze podstawowym do momentu, w którym jest on odczytywany, zależy od bieżącej szybkości generowania dziennika, rozmiaru transakcji, obciążenia repliki i innych czynników. Typowe opóźnienia danych w przypadku małych transakcji wynosi dziesiątki milisekund, ale nie ma górnego ograniczenia opóźnienia danych. Dane w danej replice pomocniczej są zawsze spójne w sposób spójny. Jednak opóźnienie danych w danym momencie może być różne dla różnych replik pomocniczych. Obciążenia, które muszą odczytywać zatwierdzone dane natychmiast, powinny być uruchamiane w replice podstawowej.
 
 ## <a name="next-steps"></a>Następne kroki
 

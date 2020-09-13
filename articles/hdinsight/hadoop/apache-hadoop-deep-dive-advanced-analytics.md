@@ -1,19 +1,19 @@
 ---
 title: Głębokie szczegółowe — analiza zaawansowana — Azure HDInsight
 description: Dowiedz się, w jaki sposób usługa Advanced Analytics używa algorytmów do przetwarzania danych Big Data w usłudze Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: fa2909055259d7832942f9f47434963f7bbb2aa1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079364"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504353"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Głębokie szczegółowe — analiza zaawansowana
 
@@ -42,7 +42,7 @@ Wraz z wybraniem algorytmów najlepszego dopasowania należy wziąć pod uwagę,
 * Nienadzorowany algorytm nie wymaga danych szkoleniowych
 * Algorytm wzmacniania używa agentów oprogramowania do określenia idealnego zachowania w określonym kontekście (często używanym w programie Robotic)
 
-| Kategoria algorytmu| Użycie | Typ uczenia | Algorytmy |
+| Kategoria algorytmu| Zastosowanie | Typ uczenia | Algorytmy |
 | --- | --- | --- | -- |
 | Klasyfikacja | Klasyfikowanie osób lub rzeczy do grup | Nadzorowane | Drzewa decyzyjne, regresja logistyczna, sieci neuronowyche |
 | Klastrowanie | Dzielenie zestawu przykładów do jednorodnych grup | Nienadzorowanych | K-oznacza klastrowanie |
@@ -67,7 +67,7 @@ Istnieją trzy skalowalne biblioteki uczenia maszynowego, które doprowadzają m
 
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) -MLlib zawiera oryginalny interfejs API zbudowany w oparciu o platformę Spark odporne.
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) -SparkML to nowszy pakiet, który udostępnia interfejs API wyższego poziomu, który jest oparty na platformie Spark dataframes do konstruowania potoków ml.
-* [**MMLSpark**](https://github.com/Azure/mmlspark) — Biblioteka Machine Learning firmy Microsoft dla Apache Spark (MMLSpark) została zaprojektowana w celu zwiększenia produktywności analityków danych na platformie Spark, zwiększania liczby eksperymentów i korzystania z najnowocześniejszych technik uczenia maszynowego, w tym głębokiego uczenia się na bardzo dużych zestawach danych. Biblioteka MMLSpark upraszcza typowe zadania modelowania do kompilowania modeli w PySpark.
+* [**MMLSpark**](https://github.com/Azure/mmlspark)  — Biblioteka Machine Learning firmy Microsoft dla Apache Spark (MMLSpark) została zaprojektowana w celu zwiększenia produktywności analityków danych na platformie Spark, zwiększania liczby eksperymentów i korzystania z najnowocześniejszych technik uczenia maszynowego, w tym głębokiego uczenia się na bardzo dużych zestawach danych. Biblioteka MMLSpark upraszcza typowe zadania modelowania do kompilowania modeli w PySpark.
 
 ### <a name="r-and-ml-services"></a>Usługi R i ML
 

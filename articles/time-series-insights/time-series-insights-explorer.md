@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e78b5118a2525fbf10a3089712f75e44cb7deceb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080696"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487304"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Explorer Gen1
 
 W tym artykule opisano funkcje i opcje dla [aplikacji sieci Web](https://insights.timeseries.azure.com/)programu Azure Time Series Insights Gen1 Explorer. W Eksploratorze Azure Time Series Insights przedstawiono zaawansowane możliwości wizualizacji danych zapewniane przez usługę i można uzyskać do nich dostęp w ramach własnego środowiska.
 
-Azure Time Series Insights to w pełni zarządzana usługa związana z analizą, przechowywaniem i wizualizacją, dzięki której z łatwością można badać i analizować miliardy zdarzeń IoT jednocześnie. Udostępnia on globalny widok danych, który umożliwia szybkie Weryfikowanie rozwiązania IoT i uniknięcie kosztownych przestojów w przypadku urządzeń o krytycznym znaczeniu. Można odkrywać ukryte trendy, wykrycia i przeprowadzać analizę głównych przyczyn niemal w czasie rzeczywistym. 
+Azure Time Series Insights to w pełni zarządzana usługa związana z analizą, przechowywaniem i wizualizacją, dzięki której z łatwością można badać i analizować miliardy zdarzeń IoT jednocześnie. Udostępnia on globalny widok danych, który umożliwia szybkie Weryfikowanie rozwiązania IoT i uniknięcie kosztownych przestojów w przypadku urządzeń o krytycznym znaczeniu. Można odkrywać ukryte trendy, wykrycia i przeprowadzać analizę głównych przyczyn niemal w czasie rzeczywistym.
 
 > [!TIP]
 > Aby zapoznać się z przewodnikiem w środowisku demonstracyjnym, Przeczytaj [Azure Time Series Insights przewodniku szybki start](time-series-quickstart.md).
@@ -74,7 +74,7 @@ W ciągu kilku minut od podłączenia źródła zdarzeń do środowiska Azure Ti
          |Operacja  |Obsługiwane typy  |Uwagi  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
-         |**=**, **!=**,**<>**     | **Ciąg**, **bool**, **Double**, **DateTime**, **TimeSpan**, **null**        |         |
+         |**=**, **!=**, **<>**     | **Ciąg**, **bool**, **Double**, **DateTime**, **TimeSpan**, **null**        |         |
          |**PODCZAS**     | **Ciąg**, **bool**, **Double**, **DateTime**, **TimeSpan**, **null**        |  Wszystkie operandy powinny być tego samego typu lub być stałe o **wartości null** .        |
          |**MA**     | **Ciąg**        |  Tylko stałe literały ciągu są dozwolone po prawej stronie. Pusty ciąg i **wartość null** są niedozwolone.       |
 
@@ -108,7 +108,7 @@ W ciągu kilku minut od podłączenia źródła zdarzeń do środowiska Azure Ti
 
 1. Użyj **mapę cieplną** , aby szybko wyszukiwać unikatowe lub nietypowe serie danych w danym zapytaniu. Tylko jeden termin wyszukiwania może być wizualny jako mapę cieplną.
 
-    [![Wykresy mapę cieplną Gen1 Explorer](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![Tworzenie wykresów programu Time Series Insights Explorer mapę cieplną ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Gdy eksplorujesz zdarzenia, zaznaczając lub klikając prawym przyciskiem myszy, panel **zdarzenia** jest dostępny. W tym miejscu możesz przejrzeć wszystkie zdarzenia pierwotne i wyeksportować zdarzenia jako pliki JSON lub CSV. Azure Time Series Insights przechowuje wszystkie nieprzetworzone dane.
 

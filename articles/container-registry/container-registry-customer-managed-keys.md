@@ -2,14 +2,14 @@
 title: Szyfrowanie — przy użyciu klucza zarządzanego przez klienta
 description: Dowiedz się więcej na temat szyfrowania w usłudze Azure Container Registry oraz sposobu szyfrowania rejestru Premium za pomocą klucza zarządzanego przez klienta, który jest przechowywany w Azure Key Vault
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/26/2020
 ms.custom: ''
-ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225890"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487236"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
@@ -22,10 +22,14 @@ Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyska�
 
 ## <a name="things-to-know"></a>Co należy wiedzieć
 
-* Klucz zarządzany przez klienta można obecnie włączyć tylko podczas tworzenia rejestru.
-* Po włączeniu klucza zarządzanego przez klienta w rejestrze nie można go wyłączyć.
+* Klucz zarządzany przez klienta można obecnie włączyć tylko podczas tworzenia rejestru. Po włączeniu klucza należy skonfigurować tożsamość zarządzaną *przypisaną przez użytkownika* , aby uzyskać dostęp do magazynu kluczy.
+* Po włączeniu szyfrowania z kluczem zarządzanym przez klienta w rejestrze nie można wyłączyć szyfrowania.  
 * [Zaufanie zawartości](container-registry-content-trust.md) nie jest obecnie obsługiwane w rejestrze zaszyfrowanym przy użyciu klucza zarządzanego przez klienta.
 * W rejestrze zaszyfrowanym kluczem zarządzanym przez klienta uruchamianie dzienników dla [zadań ACR](container-registry-tasks-overview.md) jest obecnie zachowywane przez zaledwie 24 godziny. Jeśli zachodzi potrzeba przechowywania dzienników przez dłuższy czas, zobacz Wskazówki dotyczące [eksportowania i przechowywania dzienników uruchamiania zadań](container-registry-tasks-logs.md#alternative-log-storage).
+
+
+> [!NOTE]
+> Jeśli dostęp do magazynu kluczy platformy Azure jest ograniczony przy użyciu sieci wirtualnej z [zaporą Key Vault](../key-vault/general/network-security.md), wymagane są dodatkowe czynności konfiguracyjne. Po utworzeniu rejestru i włączeniu klucza zarządzanego przez klienta należy skonfigurować dostęp do klucza przy użyciu tożsamości zarządzanej *przypisanej przez system* do rejestru i skonfigurować rejestr w celu obejścia zapory Key Vaultej. Wykonaj kroki opisane w tym artykule, aby włączyć szyfrowanie z kluczem zarządzanym przez klienta, a następnie zobacz Wskazówki dotyczące [scenariusza zaawansowanego: Key Vault zaporze](#advanced-scenario-key-vault-firewall) w dalszej części tego artykułu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -372,7 +376,7 @@ Po włączeniu klucza zarządzanego przez klienta w rejestrze można wykonać te
 
 ## <a name="rotate-key"></a>Obróć klucz
 
-Obróć klucz zarządzany przez klienta służący do szyfrowania rejestru do zasad zgodności. Utwórz nowy klucz lub zaktualizuj wersję klucza, a następnie zaktualizuj rejestr, aby szyfrować dane przy użyciu klucza. Te kroki można wykonać przy użyciu interfejsu wiersza polecenia platformy Azure lub w portalu.
+Obróć klucz zarządzany przez klienta używany do szyfrowania rejestru zgodnie z zasadami zgodności. Utwórz nowy klucz lub zaktualizuj wersję klucza, a następnie zaktualizuj rejestr, aby szyfrować dane przy użyciu klucza. Te kroki można wykonać przy użyciu interfejsu wiersza polecenia platformy Azure lub w portalu.
 
 Podczas obracania klucza zwykle określana jest ta sama tożsamość użyta podczas tworzenia rejestru. Opcjonalnie można skonfigurować nową tożsamość przypisaną przez użytkownika na potrzeby dostępu do klucza lub włączyć i określić tożsamość przypisaną przez system do rejestru.
 
@@ -439,9 +443,15 @@ az keyvault delete-policy \
 
 Odwołanie klucza skutecznie blokuje dostęp do wszystkich danych rejestru, ponieważ rejestr nie może uzyskać dostępu do klucza szyfrowania. Jeśli dostęp do klucza jest włączony lub usunięty klucz zostanie przywrócony, rejestr wybierze klucz, aby można było ponownie uzyskać dostęp do zaszyfrowanych danych rejestru.
 
-## <a name="advanced-scenarios"></a>Scenariusze zaawansowane
+## <a name="advanced-scenario-key-vault-firewall"></a>Scenariusz zaawansowany: Key Vault zapory
 
-### <a name="system-assigned-identity"></a>Tożsamość przypisana przez system
+Jeśli magazyn kluczy platformy Azure został wdrożony w sieci wirtualnej za pomocą zapory Key Vault, wykonaj następujące dodatkowe kroki po włączeniu szyfrowania klucza zarządzanego przez klienta w rejestrze.
+
+1. Konfigurowanie szyfrowania rejestru do korzystania z tożsamości przypisanej do systemu przez rejestr
+1. Aby obejść Zaporę Key Vault, Włącz rejestr
+1. Obróć klucz zarządzany przez klienta
+
+### <a name="configure-system-assigned-identity"></a>Konfigurowanie tożsamości przypisanej do systemu
 
 Można skonfigurować tożsamość zarządzaną przez system do rejestru, aby uzyskać dostęp do magazynu kluczy dla kluczy szyfrowania. Jeśli nie znasz różnych zarządzanych tożsamości dla zasobów platformy Azure, zapoznaj się z [omówieniem](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -466,14 +476,18 @@ Aby zaktualizować ustawienia szyfrowania rejestru w celu użycia tożsamości:
 1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie**  >  **Zmień klucz**.
 1. W obszarze **tożsamość**wybierz pozycję **przypisana przez system**i wybierz pozycję **Zapisz**.
 
-### <a name="key-vault-firewall"></a>Zapora Key Vault
+### <a name="enable-key-vault-bypass"></a>Włącz obejście magazynu kluczy
 
-Jeśli magazyn kluczy platformy Azure został wdrożony w sieci wirtualnej za pomocą zapory Key Vault, wykonaj następujące czynności:
+Aby uzyskać dostęp do magazynu kluczy skonfigurowanego za pomocą zapory Key Vault, rejestr musi ominąć zaporę. Skonfiguruj Magazyn kluczy, aby zezwalać na dostęp przez dowolną [zaufaną usługę](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry jest jedną z zaufanych usług.
 
-1. Skonfiguruj szyfrowanie rejestru w celu używania tożsamości przypisanej do systemu przez system. Zapoznaj się z poprzednią sekcją.
-2. Skonfiguruj Magazyn kluczy, aby zezwalać na dostęp przez dowolną [zaufaną usługę](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
+1. W portalu przejdź do magazynu kluczy.
+1. Wybierz pozycję **Ustawienia**  >  **Sieć**.
+1. Potwierdź, zaktualizuj lub Dodaj ustawienia sieci wirtualnej. Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie zapór Azure Key Vault i sieci wirtualnych](../key-vault/general/network-security.md).
+1. W obszarze **Zezwól usługom zaufanym firmy Microsoft na ominięcie tej zapory**wybierz pozycję **tak**. 
 
-Aby uzyskać szczegółowe instrukcje, zobacz [Konfigurowanie zapór Azure Key Vault i sieci wirtualnych](../key-vault/general/network-security.md).
+### <a name="rotate-the-customer-managed-key"></a>Obróć klucz zarządzany przez klienta
+
+Po wykonaniu powyższych kroków Obróć klucz na nowy klucz w magazynie kluczy za zaporą. Aby uzyskać instrukcje, zobacz [Obróć klucz](#rotate-key) w tym artykule.
 
 ## <a name="next-steps"></a>Następne kroki
 

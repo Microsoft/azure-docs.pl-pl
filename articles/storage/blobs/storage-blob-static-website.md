@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432514"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486862"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 
-Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze magazynu o nazwie *$Web*. Hosting zawartości w usłudze Azure Storage umożliwia korzystanie z architektur bezserwerowych, które obejmują [Azure Functions](/azure/azure-functions/functions-overview) i innych usług platformy jako usługi (PaaS).
+Zawartości statycznej (HTML, CSS, JavaScript i plików obrazów) można obsłużyć bezpośrednio w kontenerze magazynu o nazwie *$Web*. Hosting zawartości w usłudze Azure Storage umożliwia korzystanie z architektur bezserwerowych, które obejmują [Azure Functions](/azure/azure-functions/functions-overview) i innych usług platformy jako usługi (PaaS). Hostowanie statycznej witryny sieci Web usługi Azure Storage to świetna opcja w przypadkach, gdy nie jest wymagane, aby serwer sieci Web mógł renderować zawartość.
+
+[App Service static Web Apps](https://azure.microsoft.com/services/app-service/static/) to świetna alternatywa dla hostingu statycznej witryny sieci Web usługi Azure Storage i jest również odpowiednia w przypadkach, gdy nie jest wymagane, aby serwer sieci Web wyświetlał zawartość. App Service statyczne Web Apps zapewniają w pełni zarządzane przepływy pracy ciągłej integracji i ciągłego dostarczania (CI/CD) ze źródła GitHub do wdrożenia globalnego.
+
+Jeśli potrzebujesz serwera sieci Web do renderowania zawartości, możesz użyć [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> Jeśli lokacja jest zależna od kodu po stronie serwera, należy zamiast tego użyć [Azure App Service](/azure/app-service/overview) .
-Upewnij się, że utworzono standardowe konto magazynu ogólnego przeznaczenia w wersji 2. Statyczne witryny sieci Web nie są dostępne na żadnym innym typie konta magazynu.
+> Upewnij się, że utworzono standardowe konto magazynu ogólnego przeznaczenia w wersji 2. Statyczne witryny sieci Web nie są dostępne na żadnym innym typie konta magazynu.
 
 ## <a name="setting-up-a-static-website"></a>Konfigurowanie statycznej witryny sieci Web
 
@@ -104,7 +107,12 @@ Nie ma możliwości skonfigurowania nagłówków w ramach funkcji statycznej wit
 
 Jeśli chcesz użyć nagłówków do sterowania buforowaniem, zobacz temat [kontrola Azure CDN buforowania przy użyciu reguł buforowania](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
-## <a name="pricing"></a>Ceny
+## <a name="multi-region-website-hosting"></a>Obsługa wieloregionowej witryny sieci Web
+
+Jeśli planujesz hostowanie witryny sieci Web w wielu lokalizacje geograficzne, zalecamy użycie [Content Delivery Network](https://docs.microsoft.com/azure/cdn/) do buforowania regionalnego. Skorzystaj z [platformy Azure](https://docs.microsoft.com/azure/frontdoor/) , jeśli chcesz udostępniać inną zawartość w poszczególnych regionach. Udostępnia również możliwości pracy w trybie failover. Nie zaleca się korzystania z [platformy Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) , jeśli planujesz używanie domeny niestandardowej. Problemy mogą wynikać z tego, jak usługa Azure Storage weryfikuje niestandardowe nazwy domen.
+
+
+## <a name="pricing"></a>Cennik
 
 Bezpłatnie możesz włączyć hosting statycznej witryny sieci Web. Opłaty są naliczane tylko za magazyn obiektów BLOB wykorzystywany przez lokację i koszty operacji. Aby uzyskać więcej informacji na temat cen usługi Azure Blob Storage, zapoznaj się z [cennikiem usługi azure BLOB Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

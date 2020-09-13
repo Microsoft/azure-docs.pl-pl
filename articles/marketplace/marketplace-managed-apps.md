@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
-ms.date: 04/22/2020
-ms.openlocfilehash: 70922b80139015226445ca62026ec6f5a59b751c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119824"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484243"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Przewodnik publikowania dla aplikacji zarządzanych przez platformę Azure
 
-Oferta *aplikacji zarządzanej* przez platformę Azure to jeden ze sposobów publikowania aplikacji platformy Azure w portalu Azure Marketplace. Aplikacje zarządzane to oferty Transact wdrożone i rozliczane za pomocą witryny Azure Marketplace. Wywołanie akcji, którą widzi użytkownik, jest *teraz gotowe*.
+Oferta *aplikacji zarządzanej* przez platformę Azure to jeden ze sposobów publikowania aplikacji platformy Azure w portalu Azure Marketplace. Aplikacje zarządzane to oferty Transact wdrożone i rozliczane za pomocą witryny Azure Marketplace. Opcja wystaw, którą widzi użytkownik, otrzymuje *teraz*.
 
 W tym artykule wyjaśniono wymagania dotyczące typu oferty aplikacji zarządzanej.
 

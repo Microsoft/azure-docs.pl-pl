@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 53db53f60166c3b5afa117a60a99e3429a14576d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855209"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488562"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Model szeregów czasowych w Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ W tym artykule opisano model szeregów czasowych, możliwości i sposób rozpocz
 > [!TIP]
 >
 > * Zapoznaj się z przykładem środowiska [demonstracyjnego farmy wiatrów firmy Contoso](https://insights.timeseries.azure.com/preview/samples) w przypadku modelu na żywo.
-> * Dowiedz się, [jak korzystać z modelu szeregów czasowych](/azure/time-series-insights/how-to-edit-your-model) przy użyciu EKSPLORATORA Azure Time Series Insights TSI.
+> * Dowiedz się, [jak korzystać z modelu szeregów czasowych](/azure/time-series-insights/how-to-edit-your-model) przy użyciu Eksploratora Azure Time Series Insights.
 
 ## <a name="summary"></a>Podsumowanie
 
@@ -75,7 +75,7 @@ Te składniki są łączone w celu określenia modelu szeregów czasowych i orga
 
 [![Wykres przeglądów modelu szeregów czasowych](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [eksploratora Azure Time Series INSIGHTS TSI](/azure/time-series-insights/concepts-model-overview). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+Model szeregów czasowych można utworzyć i zarządzać nim za pomocą [eksploratora Azure Time Series Insights](/azure/time-series-insights/concepts-model-overview). Ustawienia modelu szeregów czasowych mogą być zarządzane za pomocą [interfejsu API ustawień modelu](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Wystąpienia modelu szeregów czasowych
 
@@ -87,7 +87,7 @@ Wystąpienia mają opisowe informacje skojarzone z tymi nazwami *Właściwości 
 
 *Pola wystąpienia* to zbiór informacji opisowych, które mogą zawierać wartości poziomów hierarchii, a także producenta, operatora i tak dalej.
 
-Po skonfigurowaniu źródła zdarzeń dla środowiska Azure Time Series Insights Gen2 wystąpienia są automatycznie odnajdywane i tworzone w modelu szeregów czasowych. Wystąpienia można tworzyć lub aktualizować za pośrednictwem Eksploratora Azure Time Series Insights TSI przy użyciu zapytań modelu szeregów czasowych.
+Po skonfigurowaniu źródła zdarzeń dla środowiska Azure Time Series Insights Gen2 wystąpienia są automatycznie odnajdywane i tworzone w modelu szeregów czasowych. Wystąpienia można utworzyć lub zaktualizować za pomocą Eksploratora Azure Time Series Insights przy użyciu zapytań modelu szeregów czasowych.
 
 [Demonstracja farmy wiatrów firmy Contoso](https://insights.timeseries.azure.com/preview/samples) zawiera kilka przykładów wystąpienia na żywo.
 
@@ -102,7 +102,7 @@ Wystąpienia są definiowane przez **timeSeriesId**, **typeId**, **name**, **Des
 | timeSeriesId | Unikatowy identyfikator szeregów czasowych, z którym jest skojarzone wystąpienie. W większości przypadków wystąpienia są jednoznacznie identyfikowane przez właściwość, taką jak deviceId lub assetId. W niektórych przypadkach można użyć bardziej szczegółowego identyfikatora złożonego łączącego do 3 właściwości. |
 | Parametru | Unikatowy identyfikator ciągu z rozróżnianą wielkością liter w modelu szeregów czasowych, z którym jest skojarzone wystąpienie. Domyślnie wszystkie wykryte nowe wystąpienia są skojarzone z domyślnym typem.
 | name | Właściwość **name** jest opcjonalna i uwzględnia wielkość liter. Jeśli **Nazwa** nie jest dostępna, wartość domyślna to **timeSeriesId**. W przypadku podanej nazwy **timeSeriesId** jest nadal [dostępny.](time-series-insights-update-explorer.md#4-time-series-well) |
-| description (opis) | Opis tekstowy wystąpienia. |
+| description | Opis tekstowy wystąpienia. |
 | hierarchyIds | Definiuje hierarchie, do których należy wystąpienie. |
 | instanceFields | Właściwości wystąpienia i wszystkie dane statyczne, które definiują wystąpienie. Definiują wartości hierarchii lub właściwości nie będących hierarchią, a także obsługują indeksowanie w celu wykonywania operacji wyszukiwania. |
 
@@ -216,7 +216,7 @@ W przypadku pól wystąpienia używanych w poprzedniej definicji i kilku szereg�
 | ID4 | "Building" = "1000", "piętro" = "10"  |
 | ID5 | Nie ustawiono żadnego z "kompilowania", "podłogi" lub "pokoju". |
 
-Szeregi czasowe **ID1** i **ID4** są wyświetlane jako część hierarchii **H1** w [Eksploratorze Azure Time Series Insights TSI](time-series-insights-update-explorer.md) , ponieważ mają w pełni zdefiniowane i prawidłowo uporządkowane parametry *kompilacji*, *podłogi*i *pokoju* .
+Szeregi czasowe **ID1** i **ID4** są wyświetlane jako część hierarchii **H1** w [Eksploratorze Azure Time Series Insights](time-series-insights-update-explorer.md) , ponieważ mają w pełni zdefiniowane i prawidłowo uporządkowane parametry *kompilacji*, *podłogi*i *pokoju* .
 
 Inne są klasyfikowane jako *nienadrzędne wystąpienia* , ponieważ nie są zgodne z określoną hierarchią danych.
 
@@ -241,7 +241,7 @@ Typy modeli szeregów czasowych są zdefiniowane przez **Identyfikator**, **nazw
 | ---| ---|
 | identyfikator | Unikatowy identyfikator ciągu z rozróżnianą wielkością liter dla typu. |
 | name | Ciąg używany do podania nazwy dla typu. |
-| description (opis) | Opis ciągu dla typu. |
+| description | Opis ciągu dla typu. |
 | modyfikacj | Określ zmienne skojarzone z typem. |
 
 Typy są zgodne z następującym przykładem JSON:

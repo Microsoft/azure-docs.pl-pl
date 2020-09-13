@@ -1,19 +1,19 @@
 ---
 title: Wyodrębnianie, przekształcanie i ładowanie (ETL) w skali — Azure HDInsight
 description: Dowiedz się, jak wyodrębnianie, przekształcanie i ładowanie jest używane w usłudze HDInsight z Apache Hadoop.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e048365ca589d452385607b902ee6b285de8165f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb3c45c01b2e3ca1761e86f3ac991d67f7813856
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084124"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504319"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Wyodrębnianie, przekształcanie i ładowanie (ETL) na dużą skalę
 
@@ -27,7 +27,7 @@ W poniższych sekcjach opisano wszystkie fazy ETL i powiązane z nimi składniki
 
 ## <a name="orchestration"></a>Aranżacja
 
-Aranżacja obejmuje wszystkie fazy potoku ETL. Zadania ETL w usłudze HDInsight często obejmują kilka różnych produktów współpracujących ze sobą. Przykład:
+Aranżacja obejmuje wszystkie fazy potoku ETL. Zadania ETL w usłudze HDInsight często obejmują kilka różnych produktów współpracujących ze sobą. Na przykład:
 
 - Możesz użyć Apache Hive, aby wyczyścić część danych, i Apache świni, aby oczyścić kolejną część.
 - Azure Data Factory można użyć do załadowania danych do Azure SQL Database z Azure Data Lake Store.
@@ -48,7 +48,7 @@ Użyj Azure Data Factory, aby:
 
 1. Tworzenie i planowanie przepływów pracy opartych na danych. Te potoki pobierają dane z różnych magazynów danych.
 1. Przetwarzaj i Przekształcaj dane przy użyciu usług obliczeniowych, takich jak HDInsight lub Hadoop. Dla tego kroku można także użyć platformy Spark, Azure Data Lake Analytics, Azure Batch lub Azure Machine Learning.
-1. Publikowanie danych wyjściowych w magazynach danych, takich jak Azure SQL Data Warehouse, do użycia przez aplikacje analizy biznesowej.
+1. Publikowanie danych wyjściowych w magazynach danych, takich jak Azure Synapse Analytics, do użycia przez aplikacje analizy biznesowej.
 
 Aby uzyskać więcej informacji na temat Azure Data Factory, zobacz [dokumentację](../../data-factory/introduction.md).
 
@@ -84,11 +84,11 @@ W przypadku przekazywania zestawów danych w zakresie terabajtów opóźnienie s
 
 - **Przekazywanie danych z dysków twardych:** [Usługa Azure Import/Export](../../storage/common/storage-import-export-service.md) umożliwia wysyłanie dysków twardych z danymi do centrum danych platformy Azure. Dane są najpierw przekazywane do usługi Azure Blob Storage. Następnie można użyć Azure Data Factory lub narzędzia AdlCopy do kopiowania danych z usługi Azure Blob Storage do Data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse jest odpowiednim rozwiązaniem do przechowywania przygotowanych wyników. Usługa Azure HDInsight umożliwia wykonywanie tych usług dla SQL Data Warehouse.
+Usługa Azure Synapse Analytics jest odpowiednim rozwiązaniem do przechowywania przygotowanych wyników. Usługa Azure HDInsight umożliwia wykonywanie tych usług na potrzeby analiz Zure Synapse.
 
-Azure SQL Data Warehouse to relacyjny magazyn baz danych zoptymalizowany pod kątem obciążeń analitycznych. Skaluje się na podstawie partycjonowanych tabel. Tabele mogą być partycjonowane w wielu węzłach. Węzły są wybierane podczas tworzenia. Mogą one być skalowane po fakcie, ale jest to aktywny proces, który może wymagać przeniesienia danych. Aby uzyskać więcej informacji, zobacz [Zarządzanie obliczeniami w SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Usługa Azure Synapse Analytics to relacyjny magazyn baz danych zoptymalizowany pod kątem obciążeń analitycznych. Skaluje się na podstawie partycjonowanych tabel. Tabele mogą być partycjonowane w wielu węzłach. Węzły są wybierane podczas tworzenia. Mogą one być skalowane po fakcie, ale jest to aktywny proces, który może wymagać przeniesienia danych. Aby uzyskać więcej informacji, zobacz [Zarządzanie obliczeniami w usłudze Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 
@@ -107,7 +107,7 @@ HBase adaptacja zależy od liczby węzłów w klastrze usługi HDInsight.
 Platforma Azure oferuje trzy relacyjne bazy danych PaaS:
 
 * [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) jest implementacją Microsoft SQL Server. Aby uzyskać więcej informacji na temat wydajności, zobacz [dostrajanie wydajności w Azure SQL Database](../../azure-sql/database/performance-guidance.md).
-* [Azure Database for MySQL](../../mysql/overview.md) to implementacja programu Oracle MySQL.
+* [Azure Database for MySQL](../../mysql/overview.md)  to implementacja programu Oracle MySQL.
 * [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) to implementacja PostgreSQL.
 
 Dodaj więcej procesorów i pamięci, aby skalować te produkty.  Możesz również użyć dysków Premium z produktami w celu uzyskania lepszej wydajności operacji we/wy.

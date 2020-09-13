@@ -3,12 +3,12 @@ title: Ograniczanie dostępu przy użyciu punktu końcowego usługi
 description: Ograniczanie dostępu do usługi Azure Container Registry przy użyciu punktu końcowego usług w sieci wirtualnej platformy Azure. Dostęp do punktu końcowego usługi jest funkcją warstwy Premium usługi.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371434"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488675"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Ograniczanie dostępu do rejestru kontenerów przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
 
@@ -28,6 +28,8 @@ Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warst
 * Tylko klaster [usługi Azure Kubernetes](../aks/intro-kubernetes.md) lub [maszyna wirtualna](../virtual-machines/linux/overview.md) platformy Azure może być używany jako host do uzyskiwania dostępu do rejestru kontenerów za pomocą punktu końcowego usługi. *Inne usługi platformy Azure, w tym Azure Container Instances nie są obsługiwane.*
 * Każdy rejestr obsługuje maksymalnie 100 reguł dostępu do sieci.
 * Punkty końcowe usługi dla Azure Container Registry nie są obsługiwane w chmurze platformy Azure dla instytucji rządowych lub platformy Azure w Chinach.
+
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -171,7 +173,7 @@ Zastąp nazwę rejestru następującym poleceniem [AZ ACR Update][az-acr-update]
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli wszystkie zasoby platformy Azure zostały utworzone w tej samej grupie zasobów i nie będą już potrzebne, możesz opcjonalnie usunąć zasoby za pomocą jednego polecenia [AZ Group Delete](/cli/azure/group) :
 

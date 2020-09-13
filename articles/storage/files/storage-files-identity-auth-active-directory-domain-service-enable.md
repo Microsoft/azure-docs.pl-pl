@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4aad485741abc1c0f54e14e00cd8654a8addbca
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: contperfq1
+ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930806"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500321"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
@@ -58,7 +59,7 @@ Przed włączeniem usługi Azure AD za pośrednictwem protokołu SMB dla udział
 
 ## <a name="regional-availability"></a>Dostępność regionalna
 
-Uwierzytelnianie Azure Files za pomocą usługi Azure AD DS jest dostępne we [wszystkich regionach publicznych platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+Uwierzytelnianie Azure Files za pomocą usługi Azure AD DS jest dostępne we [wszystkich regionach usług Azure Public i gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Przegląd przepływu pracy
 

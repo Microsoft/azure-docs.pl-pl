@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833899"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488851"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -124,7 +124,7 @@ Te wymagania wstępne są stosowane, gdy aplikacje logiki działają w środowis
 
 ### <a name="sap-client-library-prerequisites"></a>Wymagania wstępne dotyczące biblioteki klienta SAP
 
-* Upewnij się, że zainstalowano najnowszą wersję, [Łącznik SAP (NCo 3,0) dla Microsoft .NET 3.0.22.0 skompilowany przy użyciu .NET Framework 4,0 — Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Wcześniejsze wersje mogą powodować problemy ze zgodnością. Aby uzyskać więcej informacji, zobacz [wersje biblioteki klienta SAP](#sap-library-versions).
+* Upewnij się, że zainstalowano najnowszą wersję, [Łącznik SAP (NCo 3,0) dla Microsoft .NET 3.0.22.0 skompilowany przy użyciu .NET Framework 4,0 — Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Wcześniejsze wersje mogą powodować problemy ze zgodnością. Aby uzyskać więcej informacji, zobacz [wersje biblioteki klienta SAP](#sap-library-versions).
 
 * Domyślnie Instalator SAP umieszcza pliki zestawu w domyślnym folderze instalacji. Należy skopiować te pliki zestawu do innej lokalizacji w zależności od scenariusza w następujący sposób:
 
@@ -396,7 +396,7 @@ W tym przykładzie jest stosowana aplikacja logiki, która wyzwala, gdy aplikacj
 
    Lub można ręcznie określić akcję:
 
-   ![Ręcznie wprowadź akcję SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Ręcznie wprowadź akcję SAP, która ma być używana](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Oto przykład pokazujący, jak akcja pojawia się po skonfigurowaniu wyzwalacza tak, aby otrzymywał więcej niż jeden komunikat.
 
@@ -606,7 +606,7 @@ W przypadku środowisk produkcyjnych należy utworzyć dwa profile partnerskie. 
 
 1. Aby otworzyć **Narzędzie testowe dla ustawień przetwarzania IDOC** , w interfejsie SAP Użyj kodu transakcji **WE19** (T-Code) z prefiksem **/n** .
 
-1. W obszarze **szablon do testowania**wybierz pozycję **za pośrednictwem pozycji typ komunikatu**, a następnie wprowadź typ wiadomości, na przykład **CREMAS**. Wybierz przycisk **Utwórz**.
+1. W obszarze **szablon do testowania**wybierz pozycję **za pośrednictwem pozycji typ komunikatu**, a następnie wprowadź typ wiadomości, na przykład **CREMAS**. Wybierz pozycję **Utwórz**.
 
 1. Potwierdź, **który typ IDOC?** komunikat, wybierając pozycję **Kontynuuj**.
 
@@ -808,12 +808,12 @@ Aby wygenerować zwykły schemat XML środowiska SAP IDoc, użyj aplikacji **log
 
 Ten przykład deklaruje węzeł główny i przestrzenie nazw. Identyfikator URI w przykładowym kodzie, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send` deklaruje następującą konfigurację:
 
-* `/IDoc`jest główną uwagą dla wszystkich IDocs
-* `/3`jest wersją typów rekordów dla wspólnych definicji segmentu
-* `/ORDERS05`jest typem IDoc
-* `//`jest pustym segmentem, ponieważ nie ma rozszerzenia IDoc
-* `/700`jest wersją SAP
-* `/Send`jest akcją wysłania informacji do SAP
+* `/IDoc` jest główną uwagą dla wszystkich IDocs
+* `/3` jest wersją typów rekordów dla wspólnych definicji segmentu
+* `/ORDERS05` jest typem IDoc
+* `//` jest pustym segmentem, ponieważ nie ma rozszerzenia IDoc
+* `/700` jest wersją SAP
+* `/Send` jest akcją wysłania informacji do SAP
 
 ```xml
 

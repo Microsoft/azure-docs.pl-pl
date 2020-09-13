@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921388"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488613"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Utwórz stronę docelową oferty bezpłatnej usługi SaaS lub wersji próbnej na komercyjnej platformie Marketplace
 
@@ -21,13 +21,13 @@ Ten artykuł przeprowadzi Cię przez proces tworzenia strony docelowej dla bezp�
 
 ## <a name="overview"></a>Omówienie
 
-Stronę docelową możesz traktować jako "poczekalni" dla oferty oprogramowania jako usługi (SaaS). Gdy klient zdecyduje się na uzyskanie swojej aplikacji, komercyjna witryna Marketplace kieruje je do strony docelowej, aby aktywować i skonfigurować swoją subskrypcję w aplikacji SaaS. Podczas tworzenia oferty oprogramowanie jako usługa (SaaS) w centrum partnerskim możesz zdecydować, czy [sprzedawać w firmie Microsoft](partner-center-portal/create-new-saas-offer.md). Jeśli chcesz wyświetlić tylko swoją ofertę w komercyjnym portalu Microsoft Marketplace i nie sprzedawać jej przez firmę Microsoft, możesz określić, jak potencjalni klienci mogą korzystać z oferty. Po włączeniu opcji **Pobierz teraz (bezpłatnie)** lub **bezpłatnej wersji próbnej** należy określić adres URL strony docelowej, do której użytkownik może przejść w celu uzyskania dostępu do bezpłatnej subskrypcji lub wersji próbnej.
+Stronę docelową możesz traktować jako "poczekalni" dla oferty oprogramowania jako usługi (SaaS). Gdy klient zdecyduje się na uzyskanie swojej aplikacji, komercyjna witryna Marketplace kieruje je do strony docelowej, aby aktywować i skonfigurować swoją subskrypcję w aplikacji SaaS. Podczas tworzenia oferty oprogramowanie jako usługa (SaaS) w centrum partnerskim możesz zdecydować, czy [sprzedawać w firmie Microsoft](plan-saas-offer.md#listing-options). Jeśli chcesz wyświetlić tylko swoją ofertę w komercyjnym portalu Microsoft Marketplace i nie sprzedawać jej przez firmę Microsoft, możesz określić, jak potencjalni klienci mogą korzystać z oferty. Po włączeniu opcji **Pobierz teraz (bezpłatnie)** lub **bezpłatnej wersji próbnej** należy określić adres URL strony docelowej, do której użytkownik może przejść w celu uzyskania dostępu do bezpłatnej subskrypcji lub wersji próbnej.
 
 Strona docelowa to po prostu otrzymanie użytkownika w celu aktywowania bezpłatnej wersji próbnej lub bezpłatnej subskrypcji. Korzystając z Azure Active Directory (Azure AD) i Microsoft Graph, będziesz w stanie włączyć logowanie jednokrotne (SSO) dla użytkownika i uzyskać ważne informacje o użytkowniku, którego możesz użyć do aktywowania bezpłatnej wersji próbnej lub bezpłatnej subskrypcji, w tym jej nazwę, adres e-mail i organizację.
 
 Ponieważ informacje wymagane do aktywowania subskrypcji są ograniczone i udostępniane przez usługę Azure AD i Microsoft Graph, nie powinno być wymagane żądanie informacji, które wymagają więcej niż podstawowa zgoda. Jeśli potrzebujesz szczegółowych informacji o użytkownikach, które wymagają dodatkowej zgody dla aplikacji, musisz zażądać tych informacji po zakończeniu aktywacji subskrypcji. Umożliwia to bezproblemową aktywację subskrypcji dla użytkownika i zmniejszenie ryzyka pominięcia.
 
-Strona docelowa zawiera zwykle następujące informacje i wywołania akcji:
+Strona docelowa zawiera zwykle następujące informacje i opcje wyświetlania:
 
 - Zanotuj nazwę i szczegóły bezpłatnej wersji próbnej lub bezpłatnej subskrypcji. Można na przykład określić limity użycia lub czas trwania wersji próbnej.
 - Przedstaw szczegóły konta użytkownika, w tym imię i nazwisko, organizację i adres e-mail.
@@ -43,7 +43,7 @@ Poniższe sekcje tego artykułu przeprowadzą Cię przez proces tworzenia strony
 
 ## <a name="create-an-azure-ad-app-registration"></a>Tworzenie rejestracji aplikacji usługi Azure AD
 
-Komercyjna witryna Marketplace jest w pełni zintegrowana z usługą Azure AD. Użytkownicy docierają do portalu Marketplace uwierzytelnionego za pomocą [konta usługi Azure AD lub konto Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Po uzyskaniu bezpłatnej lub bezpłatnej subskrypcji próbnej za pośrednictwem oferty z jedyną listą użytkownik przechodzi z komercyjnej witryny Marketplace do adresu URL strony docelowej w celu aktywowania i zarządzania subskrypcją aplikacji SaaS. Musisz pozwolić użytkownikom na logowanie się do aplikacji za pomocą logowania jednokrotnego usługi Azure AD. (Adres URL strony docelowej jest określony na [stronie konfiguracji technicznej](partner-center-portal/offer-creation-checklist.md#technical-configuration-page)oferty).
+Komercyjna witryna Marketplace jest w pełni zintegrowana z usługą Azure AD. Użytkownicy docierają do portalu Marketplace uwierzytelnionego za pomocą [konta usługi Azure AD lub konto Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Po uzyskaniu bezpłatnej lub bezpłatnej subskrypcji próbnej za pośrednictwem oferty z jedyną listą użytkownik przechodzi z komercyjnej witryny Marketplace do adresu URL strony docelowej w celu aktywowania i zarządzania subskrypcją aplikacji SaaS. Musisz pozwolić użytkownikom na logowanie się do aplikacji za pomocą logowania jednokrotnego usługi Azure AD. (Adres URL strony docelowej jest określony na stronie [konfiguracji technicznej](plan-saas-offer.md#technical-information) oferty.
 
 Pierwszym krokiem do korzystania z tożsamości jest upewnienie się, że strona docelowa jest zarejestrowana jako aplikacja usługi Azure AD. Zarejestrowanie aplikacji pozwala używać usługi Azure AD do uwierzytelniania użytkowników i żądania dostępu do zasobów użytkownika. Może być uważana za definicję aplikacji, która pozwala usłudze poznać, jak wystawiać tokeny dla aplikacji na podstawie ustawień aplikacji.
 
@@ -103,4 +103,4 @@ Większość aplikacji, które są zarejestrowane w usłudze Azure AD, przyznaje
 > Konta z dzierżawy MSA (z IDENTYFIKATORem dzierżawy `9188040d-6c67-4c5b-b112-36a304b66dad` ) nie zwracają więcej informacji, niż została już zebrana z tokenem ID. Możesz pominąć to wywołanie w interfejs API programu Graph dla tych kont.
 
 ## <a name="next-steps"></a>Następne kroki
-- [Tworzenie oferty SaaS w komercyjnej witrynie Marketplace](./partner-center-portal/create-new-saas-offer.md)
+- [Jak utworzyć ofertę SaaS w komercyjnej witrynie Marketplace](create-new-saas-offer.md)

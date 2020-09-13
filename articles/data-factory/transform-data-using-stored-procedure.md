@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 8543276a338b523a290fb131a8f1b7a55affbd98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248976"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484735"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Przekształcanie danych za pomocą działania procedury składowanej SQL Server w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -37,9 +37,9 @@ Możesz użyć działania procedury składowanej, aby wywołać procedurę skła
 - Baza danych SQL Server.  Jeśli używasz SQL Server, zainstaluj własne środowisko Integration Runtime na tym samym komputerze, na którym znajduje się baza danych programu, lub na oddzielnym komputerze, który ma dostęp do bazy danych programu. Własne środowisko Integration Runtime to składnik, który łączy źródła danych lokalnie/na maszynie wirtualnej platformy Azure z usługami w chmurze w bezpieczny i zarządzany sposób. Szczegółowe informacje można znaleźć w artykule [samodzielne środowisko Integration Runtime](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
-> Podczas kopiowania danych do Azure SQL Database lub SQL Server, można skonfigurować działanie **sqlsink** w działaniu Copy, aby wywołać procedurę składowaną za pomocą właściwości **sqlWriterStoredProcedureName** . Aby uzyskać szczegółowe informacje na temat właściwości, zobacz następujące artykuły dotyczące łącznika: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Wywoływanie procedury składowanej podczas kopiowania danych do usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) za pomocą działania kopiowania nie jest obsługiwane. Można jednak użyć działania procedury składowanej do wywołania procedury składowanej w SQL Data Warehouse. 
+> Podczas kopiowania danych do Azure SQL Database lub SQL Server, można skonfigurować działanie **sqlsink** w działaniu Copy, aby wywołać procedurę składowaną za pomocą właściwości **sqlWriterStoredProcedureName** . Aby uzyskać szczegółowe informacje na temat właściwości, zobacz następujące artykuły dotyczące łącznika: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Wywoływanie procedury składowanej podczas kopiowania danych do usługi Azure Synapse Analytics przy użyciu działania kopiowania nie jest obsługiwane. Można jednak użyć działania procedury składowanej, aby wywołać procedurę składowaną w usłudze Azure Synapse Analytics. 
 >
-> Podczas kopiowania danych z Azure SQL Database lub SQL Server lub Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) można skonfigurować element **sqlsource** w działaniu Copy, aby wywołać procedurę składowaną w celu odczytania danych ze źródłowej bazy danych przy użyciu właściwości **sqlReaderStoredProcedureName** . Aby uzyskać więcej informacji, zobacz następujące artykuły dotyczące łącznika: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)          
+> Podczas kopiowania danych z Azure SQL Database lub SQL Server lub z usługi Azure Synapse Analytics można skonfigurować element **sqlsource** w działaniu Copy, aby wywołać procedurę składowaną w celu odczytania danych ze źródłowej bazy danych przy użyciu właściwości **sqlReaderStoredProcedureName** . Aby uzyskać więcej informacji, zobacz następujące artykuły dotyczące łącznika: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -73,7 +73,7 @@ W poniższej tabeli opisano te właściwości JSON:
 | name                      | Nazwa działania                     | Tak      |
 | description               | Tekst opisujący działanie używanego działania | Nie       |
 | typ                      | W przypadku działania procedury składowanej typem działania jest **SqlServerStoredProcedure** | Tak      |
-| linkedServiceName         | Odnosi się do **Azure SQL Database** lub usługi **Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)** lub **SQL Server** zarejestrowanych jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
+| linkedServiceName         | Odnosi się do **Azure SQL Database** lub do usługi **Azure Synapse Analytics** lub **SQL Server** zarejestrowanych jako usługa połączona w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
 | storedProcedureName       | Określ nazwę procedury składowanej do wywołania. | Tak      |
 | storedProcedureParameters | Określ wartości parametrów procedury składowanej. Służy `"param1": { "value": "param1Value","type":"param1Type" }` do przekazywania wartości parametrów i ich typów obsługiwanych przez źródło danych. Jeśli chcesz przekazać wartość null dla parametru, użyj (w `"param1": { "value": null }` przypadku małych liter). | Nie       |
 
@@ -82,7 +82,7 @@ Typ danych określony dla parametru to typ Azure Data Factory, który jest mapow
 
 | Źródło danych          | Mapowanie typu danych |
 | ---------------------|-------------------|
-| Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |

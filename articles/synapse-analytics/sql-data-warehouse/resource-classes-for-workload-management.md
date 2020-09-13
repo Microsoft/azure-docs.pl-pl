@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1dc9c39192dc478a4ffeba64983a498191417ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c3793daa820d0cb5b5b6900402704756f206425
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213588"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488392"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Zarządzanie obciążeniami przy użyciu klas zasobów w usłudze Azure Synapse Analytics
 
@@ -67,7 +67,7 @@ Dynamiczne klasy zasobów są implementowane przy użyciu tych wstępnie zdefini
 
 Alokacja pamięci dla każdej klasy zasobów jest następująca.
 
-| Poziom usług  | smallrc           | mediumrc               | largerc                | xlargerc               |
+| Poziom usługi  | smallrc           | mediumrc               | largerc                | xlargerc               |
 |:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
 | DW100c         | 25%               | 25%                    | 25%                    | 70%                    |
 | DW200c         | 12,5%             | 12,5%                  | 22                    | 70%                    |
@@ -133,7 +133,7 @@ Następujące instrukcje są wykluczone z klas zasobów i zawsze uruchamiane w s
 - DBCC
 
 <!--
-Removed as these two are not confirmed / supported under SQL DW
+Removed as these two are not confirmed / supported under Azure Synapse Analytics
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
@@ -192,7 +192,7 @@ Zalecamy utworzenie użytkownika, który jest przeznaczony do uruchamiania okre�
 
 ### <a name="resource-classes-for-load-users"></a>Klasy zasobów do załadowania użytkowników
 
-`CREATE TABLE`domyślnie używa klastrowanych indeksów magazynu kolumn. Kompresowanie danych do indeksu magazynu kolumn jest operacją intensywnie dotyczącą pamięci, a wykorzystanie pamięci może zmniejszyć jakość indeksu. Wykorzystanie pamięci może prowadzić do potrzeb wyższych klas zasobów podczas ładowania danych. Aby zapewnić, że ładunki mają wystarczającą ilość pamięci, można utworzyć użytkownika, który jest przeznaczony do uruchamiania obciążeń i przypisać tego użytkownika do wyższej klasy zasobów.
+`CREATE TABLE` domyślnie używa klastrowanych indeksów magazynu kolumn. Kompresowanie danych do indeksu magazynu kolumn jest operacją intensywnie dotyczącą pamięci, a wykorzystanie pamięci może zmniejszyć jakość indeksu. Wykorzystanie pamięci może prowadzić do potrzeb wyższych klas zasobów podczas ładowania danych. Aby zapewnić, że ładunki mają wystarczającą ilość pamięci, można utworzyć użytkownika, który jest przeznaczony do uruchamiania obciążeń i przypisać tego użytkownika do wyższej klasy zasobów.
 
 Pamięć wymagana do wydajnego przetwarzania obciążeń zależy od rodzaju załadowanej tabeli i rozmiaru danych. Aby uzyskać więcej informacji o wymaganiach dotyczących pamięci, zobacz [maksymalizacja jakości grupy wierszy](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -243,9 +243,9 @@ Oto przeznaczenie tej procedury składowanej:
 Składnia:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU:Podaj parametr o wartości NULL, aby wyodrębnić bieżącą jednostek dwu z bazy danych DW lub podać dowolne obsługiwane jednostek dwu w postaci "DW100c"
-2. @SCHEMA_NAME:Podaj nazwę schematu tabeli
-3. @TABLE_NAME:Podaj nazwę interesującej tabeli
+1. @DWU: Podaj parametr o wartości NULL, aby wyodrębnić bieżącą jednostek dwu z bazy danych DW lub podać dowolne obsługiwane jednostek dwu w postaci "DW100c"
+2. @SCHEMA_NAME: Podaj nazwę schematu tabeli
+3. @TABLE_NAME: Podaj nazwę interesującej tabeli
 
 Przykłady wykonywania tego procesu przechowywanego:
 

@@ -2,13 +2,13 @@
 title: Omówienie zadań usługi ACR
 description: Wprowadzenie do ACR zadań, zestaw funkcji w Azure Container Registry, który zapewnia bezpieczną, zautomatyzowaną kompilację, zarządzanie i stosowanie poprawek w chmurze.
 ms.topic: article
-ms.date: 01/22/2020
-ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087285"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488647"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatyzowanie kompilacji i konserwacji obrazów kontenerów za pomocą zadań ACR
 
@@ -100,7 +100,7 @@ Więcej informacji o zadaniach wieloetapowych w [uruchamianiu wieloetapowych zad
 
 ## <a name="context-locations"></a>Lokalizacje kontekstu
 
-W poniższej tabeli przedstawiono kilka przykładów obsługiwanych lokalizacji kontekstu dla zadań ACR:
+W poniższej tabeli przedstawiono przykłady obsługiwanych lokalizacji kontekstu dla zadań ACR:
 
 | Lokalizacja kontekstu | Opis | Przykład |
 | ---------------- | ----------- | ------- |
@@ -111,6 +111,7 @@ W poniższej tabeli przedstawiono kilka przykładów obsługiwanych lokalizacji 
 | Zatwierdzenie w serwisie GitHub | Określone zatwierdzenie w publicznym lub prywatnym repozytorium GitHub. Przykład pokazuje kombinację wartości skrótu zatwierdzenia (SHA) i podfolderu. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Podfolder Azure DevOps | Pliki znajdujące się w podfolderze w publicznym lub prywatnym repozytorium platformy Azure. Przykład przedstawia kombinację specyfikacji gałęzi i podfolderów. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Plik tar zdalnego | Pliki skompresowanego Archiwum na zdalnym serwerze WebServer. | `http://remoteserver/myapp.tar.gz` |
+| Artefakt w rejestrze kontenerów | Pliki [artefaktów OCI](container-registry-oci-artifacts.md) w repozytorium rejestru kontenerów. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > W przypadku korzystania z prywatnego repozytorium git jako kontekstu dla zadania należy podać osobisty token dostępu.
