@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6dc0bb08e3d824c1d3fea155d1b3d4c52e1af4a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499844"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031317"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
@@ -32,8 +32,8 @@ W przypadku wdrożenia produkcyjnego w obszarze roboczym usługi Azure Synapse s
 
 ### <a name="step-1-set-up-security-groups-with-names-following-this-pattern"></a>Krok 1. Konfigurowanie grup zabezpieczeń przy użyciu nazw następujących po tym wzorcu
 
-1. Utwórz grupę zabezpieczeń o nazwie`Synapse_WORKSPACENAME_Users`
-2. Utwórz grupę zabezpieczeń o nazwie`Synapse_WORKSPACENAME_Admins`
+1. Utwórz grupę zabezpieczeń o nazwie `Synapse_WORKSPACENAME_Users`
+2. Utwórz grupę zabezpieczeń o nazwie `Synapse_WORKSPACENAME_Admins`
 3. Dodanie argumentu `Synapse_WORKSPACENAME_Admins` do polecenia `Synapse_WORKSPACENAME_Users`
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage 
 
 1. Przejdź do [ **interfejsu użytkownika sieci Web usługi Azure Synapse**](https://web.azuresynapse.net)
 2. Przejdź do **zarządzania**   >  **Security**  >  **kontrolą dostępu** zabezpieczeń
-3. Kliknij pozycję **Dodaj administratora**, a następnie wybierz pozycję`Synapse_WORKSPACENAME_Admins`
+3. Kliknij pozycję **Dodaj administratora**, a następnie wybierz pozycję `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Krok 4. Konfigurowanie dostępu administratora SQL dla obszaru roboczego
 
@@ -81,8 +81,8 @@ Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage 
 
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Krok 5. Dodawanie i usuwanie użytkowników i administratorów do grup zabezpieczeń
 
-1. Dodaj użytkowników, którzy potrzebują dostępu administracyjnego do`Synapse_WORKSPACENAME_Admins`
-2. Dodaj wszystkich innych użytkowników do`Synapse_WORKSPACENAME_Users`
+1. Dodaj użytkowników, którzy potrzebują dostępu administracyjnego do `Synapse_WORKSPACENAME_Admins`
+2. Dodaj wszystkich innych użytkowników do `Synapse_WORKSPACENAME_Users`
 
 > [!NOTE]
 > Dowiedz się, jak dodać użytkownika jako członka do grupy zabezpieczeń w [tym artykule](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal)

@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3924e609091f4d0975901024f20db74efb6aac5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606884"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032711"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Zarządzanie potencjalnymi klientami w portalu komercyjnym
 
 Klienci są centrum wszelkich dobrych firm. W przypadku przekształcania nabytych produktów dzisiejszych, rynki muszą skupić się bezpośrednio na łączeniu się z klientami i utworzyć relację. Dlatego generowanie wysokiej jakości potencjalnych klientów jest istotnym narzędziem dla cyklu sprzedaży. Po wystawieniu oferty w [centrum partnerskim](https://partner.microsoft.com/)dostępne są narzędzia umożliwiające programowe otrzymywanie informacji kontaktowych klienta bezpośrednio po wprowadzeniu zainteresowania przez klienta lub wdrożeniu produktu w portalu Marketplace. 
 
-## <a name="what-are-leads-in-the-marketplace"></a>Co to są potencjalni klienci w portalu Marketplace?
+## <a name="what-are-leads-in-the-commercial-marketplace"></a>Co to są potencjalni klienci w komercyjnej witrynie Marketplace?
 
-Potencjalni klienci pochodzą od klientów zainteresowanych lub wdrażających produkty z portalu Marketplace. Niezależnie od tego, czy Twój produkt jest wymieniony w witrynie Azure Marketplace, czy AppSource, będziesz mieć możliwość otrzymywania potencjalnych klientów po ich poprawnym skonfigurowaniu z poziomu programu CRM do Twoich aukcji w centrum partnerskim. 
+Potencjalni klienci są pozainteresowani lub wdrażają produkty z komercyjnej witryny Marketplace. Po nawiązaniu połączenia z listą w centrum partnerskim będziesz mieć możliwość otrzymywania potencjalnych klientów z usług Azure Marketplace i AppSource.
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Jak połączyć system CRM z centrum partnerskim
 
-Aby rozpocząć pobieranie potencjalnych klientów, łącznik zarządzania potencjalnymi klientami w centrum partnerskim został zaprojektowany tak, aby można było łatwo podłączyć się z informacjami o programie CRM do listy dostępnych systemów CRM. Teraz można łatwo korzystać z potencjalnych klientów wygenerowanych przez platformę Marketplace bez znacznego wysiłku inżynieryjnego do integracji z systemem zewnętrznym.
+Łącznik zarządzania potencjalnym liderem w centrum partnerskim został zaprojektowany tak, aby można było łatwo podłączyć się z informacjami o programie CRM do listy dostępnych systemów CRM. Teraz można łatwo korzystać z potencjalnych klientów wygenerowanych przez platformę Marketplace bez znacznego wysiłku inżynieryjnego do integracji z systemem zewnętrznym.
 
 Poniżej przedstawiono instrukcje krok po kroku dotyczące sposobu łączenia poszczególnych możliwych miejsc docelowych potencjalnych klientów:
 
@@ -38,25 +38,25 @@ Poniżej przedstawiono instrukcje krok po kroku dotyczące sposobu łączenia po
 
 **Punkt końcowy https** — zobacz [Konfigurowanie zarządzania potencjalnym liderem za pomocą punktu końcowego HTTPS,](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) Aby uzyskać instrukcje dotyczące konfigurowania punktu końcowego HTTPS w celu uzyskania potencjalnych klientów.
 
-Po poprawnym skonfigurowaniu miejsca docelowego potencjalnego klienta i wybraniu pozycji Opublikuj w swojej ofercie zostanie zweryfikowane połączenie i zostanie wysłany klient testowy. Gdy przeglądasz ofertę przed rozpoczęciem pracy, możesz również przetestować połączenie z liderem, próbując uzyskać swoją ofertę w środowisku wersji zapoznawczej. Ważne jest, aby upewnić się, że Twoje ustawienia lidera są aktualne, dzięki czemu nie utracisz żadnych potencjalnych klientów, więc pamiętaj, aby zaktualizować te połączenia, gdy coś się zmieniło.
+Po poprawnym skonfigurowaniu miejsca docelowego potencjalnego klienta i poprosić o opublikowanie oferty zostanie zweryfikowane połączenie i zostanie wysłany klient testowy. Gdy przeglądasz ofertę przed rozpoczęciem pracy, możesz również przetestować połączenie z liderem, próbując uzyskać swoją ofertę w środowisku wersji zapoznawczej. Ważne jest, aby upewnić się, że Twoje ustawienia lidera są aktualne, dzięki czemu nie utracisz żadnych potencjalnych klientów, więc pamiętaj, aby zaktualizować te połączenia, gdy coś się zmieniło.
 
 ### <a name="what-are-the-next-steps"></a>Jakie są następne kroki?
 
-Po zakończeniu instalacji technicznej należy uwzględnić te potencjalną pracę w bieżącej sprzedaży & strategii marketingowej i procesów operacyjnych. Chcielibyśmy lepiej zrozumieć swój ogólny proces sprzedaży i chcemy ściśle współpracować z udostępnianiem wysokiej jakości potencjalnych klientów i wystarczającej ilości danych, aby zapewnić pomyślne działanie. Będziemy nam poznamy Twoją opinię na temat sposobu, w jaki możemy zoptymalizować i zwiększyć liczbę potencjalnych klientów, którzy wyślą Ci dodatkowe dane w celu pomyślnego przeprowadzenia tych klientów. Daj nam znać, Jeśli interesuje Cię przekazywanie opinii i sugestii, aby umożliwić zespołowi sprzedaży lepsze pomyślną pracę z potencjalnymi klientami portalu Marketplace.
+Po zakończeniu instalacji technicznej należy uwzględnić te potencjalną pracę w bieżącej sprzedaży & strategii marketingowej i procesów operacyjnych. Chcemy zrozumieć swój ogólny proces sprzedaży i najlepiej współpracować z nim w celu zapewnienia wysokiej jakości potencjalnych klientów i wystarczającej ilości danych, aby zapewnić pomyślne działanie. Będziemy nam poznamy Twoją opinię na temat sposobu, w jaki możemy zoptymalizować i zwiększyć liczbę potencjalnych klientów, którzy wyślą Ci dodatkowe dane w celu pomyślnego przeprowadzenia tych klientów. Daj nam znać, Jeśli interesuje Cię przekazywanie opinii i sugestii, aby umożliwić zespołowi sprzedaży lepsze pomyślną pracę z komercyjnymi klientami portalu Marketplace.
 
 ## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Typowe błędy konfiguracji potencjalnych klientów podczas publikowania w centrum partnerskim
 
 **Nie można zapisać potencjalnego klienta w programie Dynamics CRM. Sprawdź ustawienia konta programu Dynamics CRM. LastCRMError: nie można zalogować się do programu Dynamics CRM, LastCRMException:** 
 
-> Jeśli wybrano opcję uwierzytelnianie usługi O365, sprawdź, czy konto użytkownika i hasło są prawidłowe. W przypadku wybrania usługi AAD Sprawdź, czy identyfikator dzierżawy, identyfikator aplikacji i klucz tajny aplikacji są zgodne z informacjami skonfigurowanymi w usłudze AAD. Postępuj zgodnie z instrukcjami [tutaj](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Jeśli nazwa użytkownika/hasło konta jest prawidłowe, upewnij się, że ma ona dostęp do usługi Dynamics 365 i ma przypisaną licencję (kroki 11-15 w przypadku używania Azure Active Directory lub ustawień zabezpieczeń, jeśli używasz użytkownika pakietu Office). 
+> Jeśli wybrano opcję Uwierzytelnianie Microsoft 365, sprawdź, czy konto użytkownika i hasło są prawidłowe. Jeśli wybrano Azure Active Directory, sprawdź, czy identyfikator dzierżawy, identyfikator aplikacji i klucz tajny aplikacji są zgodne z ustawieniem na Azure Active Directory. Postępuj zgodnie z instrukcjami [tutaj](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Jeśli nazwa użytkownika/hasło konta jest prawidłowe, upewnij się, że ma ona dostęp do usługi Dynamics 365 i ma przypisaną licencję (kroki 11-15 w przypadku używania Azure Active Directory lub ustawień zabezpieczeń, jeśli używasz użytkownika pakietu Office). 
 
 **Nie można zapisać potencjalnego klienta w programie Dynamics CRM. Użytkownik nie ma uprawnień do tworzenia dla atrybutu leadsourcecode w jednostce potencjalnego klienta.** 
 
-> W aplikacji/użytkowniku brakuje roli zabezpieczeń, aby Microsoft Marketplace składnik zapisywania klienta. Wykonaj kroki 11-15 w przypadku używania Azure Active Directory lub ustawień zabezpieczeń, jeśli używasz [tutaj](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)użytkownika pakietu Office.
+> W aplikacji/użytkowniku brakuje roli zabezpieczeń, aby Microsoft Marketplace składnik zapisywania klienta. Wykonaj kroki 11-15 w przypadku używania Azure Active Directory lub ustawienia zabezpieczeń, jeśli używasz [tutaj](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)użytkownika pakietu Office.
 
 **Nie można zapisać potencjalnego klienta w usłudze Dynamics CRM przy użyciu usługi AAD. Wyjątek:: nie znaleziono dzierżawy. To wystąpienie może wystąpić, jeśli nie ma aktywnych subskrypcji dla dzierżawy.**  
 
-> Identyfikator katalogu podany w sekcji Zarządzanie potencjalnym liderem nie jest prawidłowym katalogiem. Pobierz identyfikator katalogu zgodnie z instrukcjami w kroku 2 (w obszarze Azure Active Directory, w [tym miejscu](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> Identyfikator katalogu podany w sekcji Zarządzanie potencjalnym liderem nie jest prawidłowym katalogiem. Pobierz identyfikator katalogu zgodnie z instrukcjami w kroku 2 (w obszarze Azure Active Directory) [tutaj](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Nie można zapisać potencjalnego klienta w programie Dynamics CRM. LastCRMError: SecLib:: RetrievePrivilegeForUser nie powiodła się — żadne role nie są przypisane do użytkownika.**  
 
@@ -76,7 +76,7 @@ Po zakończeniu instalacji technicznej należy uwzględnić te potencjalną prac
 
 **Nie można zapisać potencjalnego klienta w programie Dynamics CRM. LastCRMError: upłynął limit czasu kanału żądania podczas oczekiwania na odpowiedź po 00:02:00. Zwiększ wartość limitu czasu przekazaną do wywołania żądania lub Zwiększ wartość właściwości SendTimeout dla powiązania. Czas przydzielony na tę operację mógł być częścią dłuższego limitu czasu.**  
 
-> Rozwiązanie: Zaloguj się do Centrum partnerskiego, sprawdź szczegóły sklepu >> miejsce docelowe >> adres URL klienta, sprawdź, czy jest to prawidłowe dynamiczne wystąpienie programu CRM.
+> Rozwiązanie: Zaloguj się do Centrum partnerskiego, sprawdź ustawienia oferty >> klienci klienta >> adres URL, sprawdź, czy jest to prawidłowe dynamiczne wystąpienie programu CRM.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -139,7 +139,7 @@ Każdy potencjalny klient będzie miał dane przekazaną w polach w wybranym mie
 - *Wykonane*
   - "INS" — oznacza instalację. Jest to w witrynie Azure Marketplace lub AppSource za każdym razem, gdy klient trafi na przycisk, aby uzyskać produkt.
   - "PLT" — oznacza próbę przetestowania partnera. Jest to AppSource za każdym razem, gdy klient trafi na przycisk kontakt ze mną.
-  - "DNC" — oznacza nie kontakt. Ta wartość jest włączona w witrynie AppSource, gdy Partner, który został krzyżowo wymieniony na stronie Twojej aplikacji, otrzymuje prośbę o kontakt. Udostępniamy swoje nagłówki, że ten klient został krzyżowo wymieniony w Twojej aplikacji, ale nie trzeba się z nimi skontaktować.
+  - "DNC" — oznacza nie kontakt. Ta wartość jest włączona w witrynie AppSource, gdy Partner, który został krzyżowo wymieniony na stronie Twojej aplikacji, otrzymuje prośbę o kontakt. Udostępniamy, że ten klient został krzyżowo wymieniony w Twojej aplikacji, ale nie trzeba się z nimi skontaktować.
   - "Utwórz" — Ta wartość jest dostępna tylko w Azure Portal i jest zawsze, gdy klient kupi ofertę na swoje konto.
   - "StartTestDrive" — dotyczy tylko dysków testowych i jest za każdym razem, gdy klient uruchamia ich dysk testowy.
 
@@ -190,4 +190,4 @@ Ze względu na zasady ochrony prywatności nie możemy udostępniać informacji 
 
 **Mam skonfigurowany magazyn platformy Azure (obiekt BLOB/tabela) jako miejsce docelowe potencjalnego klienta, ile będzie kosztować?** 
 
-Dane gen potencjalnego klienta są niskie (<1 GB dla niemal wszystkich wydawców). Koszt będzie zależeć od liczby odebranych potencjalnych klientów, jeśli w ciągu miesiąca otrzymasz 1 000 potencjalnych klientów, koszty związane z tym obejmują około 50 centów. 
+Dane generowania potencjalnych klientów są niskie (<1 GB dla niemal wszystkich wydawców). Koszt będzie zależeć od liczby odebranych potencjalnych klientów, jeśli w ciągu miesiąca otrzymasz 1 000 potencjalnych klientów, koszty związane z tym obejmują około 50 centów. 

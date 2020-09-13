@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022449"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031181"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Język zapytań usługi IoT Hub dla urządzeń i bliźniaczych reprezentacji modułów, zadań i routingu komunikatów
 
@@ -234,7 +234,7 @@ Obiekt zapytania uwidacznia wiele **kolejnych** wartości, w zależności od opc
 ### <a name="limitations"></a>Ograniczenia
 
 > [!IMPORTANT]
-> Wyniki zapytania mogą zawierać kilka minut opóźnienia w odniesieniu do najnowszych wartości w urządzeniu bliźniaczych reprezentacji. W przypadku wykonywania zapytań dotyczących poszczególnych urządzeń bliźniaczych reprezentacji według identyfikatora należy użyć [interfejsu API REST Get-bliźniaczy](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Ten interfejs API zawsze zwraca najnowsze wartości i ma wyższe limity ograniczania. Interfejs API REST można wydać bezpośrednio lub użyć funkcji równoważnych w jednym z [zestawów SDK usługi Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Wyniki zapytania mogą zawierać kilka minut opóźnienia w odniesieniu do najnowszych wartości w urządzeniu bliźniaczych reprezentacji. W przypadku wykonywania zapytań dotyczących poszczególnych urządzeń bliźniaczych reprezentacji według identyfikatora należy użyć [interfejsu API REST Get-bliźniaczy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Ten interfejs API zawsze zwraca najnowsze wartości i ma wyższe limity ograniczania. Interfejs API REST można wydać bezpośrednio lub użyć funkcji równoważnych w jednym z [zestawów SDK usługi Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Obecnie porównania są obsługiwane tylko w typach pierwotnych (bez obiektów), na przykład `... WHERE properties.desired.config = properties.reported.config` jest obsługiwane tylko wtedy, gdy te właściwości mają wartości pierwotne.
 
@@ -452,7 +452,7 @@ Obsługiwane są następujące operatory:
 | --- | --- |
 | Arytmetyczny |+, -, *, /, % |
 | Logiczny |AND, OR, NOT |
-| Porównanie |=,! =, <, >, <=, >=,  <> |
+| Porównanie |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funkcje
 
@@ -503,6 +503,6 @@ W warunkach trasy obsługiwane są następujące funkcje ciągów:
 | ENDS_WITH (x, y) | Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu ma kończyć się drugim. |
 | ZAWIERA (x, y) | Zwraca wartość logiczną wskazującą, czy pierwsze wyrażenie ciągu zawiera drugie. |
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak wykonywać zapytania w aplikacjach przy użyciu [zestawów SDK usługi Azure IoT](iot-hub-devguide-sdks.md).

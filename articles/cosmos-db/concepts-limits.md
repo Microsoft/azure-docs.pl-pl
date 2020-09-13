@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400317"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033017"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -163,7 +163,17 @@ Cosmos DB używa algorytmu HMAC do autoryzacji. Możesz użyć klucza głównego
 | Maksymalny czas wygaśnięcia tokenu zasobu | Domyślnie 24 h. Możesz ją zwiększyć, [bilet pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 | Maksymalne przechylenie zegara na potrzeby autoryzacji tokenu| 15 minut |
 
-Cosmos DB obsługuje wykonywanie wyzwalaczy podczas operacji zapisu. Usługa obsługuje maksymalnie jednego wyzwalacza wstępnego i jednego wyzwalacza końcowego dla operacji zapisu. 
+Cosmos DB obsługuje wykonywanie wyzwalaczy podczas operacji zapisu. Usługa obsługuje maksymalnie jednego wyzwalacza wstępnego i jednego wyzwalacza końcowego dla operacji zapisu.
+
+## <a name="metadata-request-limits"></a>Limity żądań metadanych
+
+Azure Cosmos DB przechowuje metadane systemowe dla każdego konta. Te metadane umożliwiają Wyliczenie nieodpłatnie kolekcji, baz danych, innych zasobów Azure Cosmos DB i ich konfiguracji.
+
+| Zasób | Limit domyślny |
+| --- | --- |
+|Maksymalna szybkość tworzenia kolekcji RER minuta| 5|
+|Maksymalna stawka tworzenia bazy danych na minutę|   5|
+|Maksymalna liczba zainicjowanych przepływności na minutę| 5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limity przepływności aprowizacji automatycznego skalowania
 

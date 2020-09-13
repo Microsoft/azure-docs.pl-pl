@@ -106,8 +106,6 @@
   items:
     - name: Logowanie do portalu Moje aplikacje i korzystanie z niego
       href: my-apps-portal-end-user-access.md
-    - name: Aktualizowanie informacji o profilu i koncie
-      href: my-apps-portal-end-user-update-profile.md
     - name: Aktualizowanie informacji o grupach
       href: my-apps-portal-end-user-groups.md
     - name: Organizowanie aplikacji przy użyciu kolekcji

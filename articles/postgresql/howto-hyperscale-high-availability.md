@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/04/2019
-ms.openlocfilehash: 0c7702c8832e22d889a5d785dad845430bfb7d17
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: f08fb01cf26ddf73d31b575242b27d7d8b4017d9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116883"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033283"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Konfigurowanie wysokiej dostępności (Citus)
 
@@ -21,7 +21,7 @@ Azure Database for PostgreSQL-Citus) zapewnia wysoką dostępność (HA), aby un
 > [!IMPORTANT]
 > Ze względu na to, że HA podwaja liczbę serwerów w grupie, zostanie również podwojony koszt.
 
-Włączenie wysokiej dostępności jest możliwe podczas tworzenia grupy serwerów lub później na karcie **Konfiguracja** dla grupy serwerów w Azure Portal. Interfejs użytkownika wygląda podobnie w każdym przypadku. Przeciągnij suwak, aby zapewnić **wysoką dostępność** na wartość tak:
+Włączenie wysokiej dostępności jest możliwe podczas tworzenia grupy serwerów, a następnie na karcie **obliczenia + magazyn** dla grupy serwerów w Azure Portal. Interfejs użytkownika wygląda podobnie w każdym przypadku. Przeciągnij suwak, aby uzyskać **wysoką dostępność** od nie do tak:
 
 ![suwak ha](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 

@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad2b13fbfbd9871a55efb1826fa1e978d4eeb453
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429046"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032303"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Grupowanie według opcji w Synapse SQL
 Synapse SQL umożliwia tworzenie rozwiązań przez implementację różnych opcji Grupuj według. 
@@ -57,7 +57,7 @@ GROUP BY ROLLUP (
 Przy użyciu pakietu zbiorczego poprzedni przykład żąda następujących agregacji:
 
 * Kraj i region
-* Kraj
+* Country (Kraj)
 * Suma końcowa
 
 Aby zastąpić pakiet zbiorczy i zwrócić te same wyniki, można użyć klauzuli UNION ALL i jawnie określić wymagane agregacje:

@@ -2,33 +2,70 @@
 title: Bezpieczny dostęp do hybrydowej usługi Azure AD | Microsoft Docs
 description: W tym artykule opisano rozwiązania partnerskie służące do integrowania starszych aplikacji w chmurze lokalnej, publicznej lub prywatnej z usługą Azure AD. Zabezpiecz starsze aplikacje, łącząc kontrolery dostarczania aplikacji lub sieci z usługą Azure AD.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: gargi-sinha
+manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/18/2019
-ms.author: kenwith
+ms.date: 9/10/2020
+ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295891afbb0136e0b05bcd49f4045e0e8bcff6e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94a118b6d526d538015b7aa076b2715ed68af338
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763044"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032070"
 ---
-# <a name="secure-hybrid-access-secure-legacy-apps-with-app-delivery-controllers-and-networks"></a>Bezpieczny dostęp hybrydowy: Zabezpiecz starsze aplikacje za pomocą kontrolerów dostarczania aplikacji i sieci
+# <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Bezpieczny dostęp hybrydowy: Zabezpiecz starsze aplikacje za pomocą Azure Active Directory
 
-Teraz możesz chronić starsze aplikacje do uwierzytelniania lokalnego i w chmurze, łącząc je z usługą Azure AD przy użyciu istniejącego kontrolera dostarczania aplikacji lub sieci. Dzięki temu można przyciągnąć przerwy i wzmocnić stan zabezpieczeń dla wszystkich aplikacji dzięki możliwościom usługi Azure AD, takim jak dostęp warunkowy usługi Azure AD i Azure AD Identity Protection.
+Teraz możesz chronić starsze aplikacje do uwierzytelniania lokalnego i w chmurze, łącząc je z usługą Azure Active Directory (AD) z:
 
-Korzystając z istniejącego kontrolera sieci i dostarczania, można łatwo chronić starsze aplikacje, które nadal mają kluczowe znaczenie dla procesów firmy, ale nie można było chronić przed usługą Azure AD. Prawdopodobnie masz już wszystko, czego potrzebujesz, aby rozpocząć ochronę tych aplikacji.
+- [serwer proxy aplikacji usługi Azure AD platformy Azure](#secure-hybrid-access-through-azure-ad-application-proxy)
 
-![Obraz przedstawiający bezpieczny dostęp hybrydowy](media/secure-hybrid-access/secure-hybrid-access.png)
+- [Twoje istniejące kontrolery dostarczania aplikacji i sieci](#secure-hybrid-access-through-networking-and-delivery-controllers)
 
-Następujący dostawcy oferują wstępnie skompilowane rozwiązania i szczegółowe wskazówki dotyczące integracji z usługą Azure AD.
+- [Aplikacje wirtualnej sieci prywatnej (VPN)](#secure-hybrid-access-through-vpn-applications)
 
-* [Akamai dostęp do aplikacji (EAA)](../saas-apps/akamai-tutorial.md)
-* [Kontroler dostarczania aplikacji Citrix (ADC)](../saas-apps/citrix-netscaler-tutorial.md)
-* [F5 Big-IP APM](https://aka.ms/f5-hybridaccessguide)
-* [Zscaler Private Access (ZPA)](https://aka.ms/zscaler-hybridaccessguide)
+Możesz przyciągnąć przerwy i wzmocnić stan zabezpieczeń dla wszystkich aplikacji, korzystając z funkcji usługi Azure AD, takich jak [dostęp warunkowy](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) usługi Azure AD i usługa Azure AD [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
+
+## <a name="secure-hybrid-access-through-azure-ad-application-proxy"></a>Bezpieczny dostęp hybrydowy za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
+  
+Za pomocą [serwera proxy aplikacji](https://aka.ms/whyappproxy) można zapewnić [bezpieczny dostęp zdalny](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) do lokalnych aplikacji sieci Web. Użytkownicy nie muszą korzystać z sieci VPN. Użytkownicy mogą łatwo łączyć się z aplikacjami z dowolnego urządzenia po [rejestracji jednokrotnej](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-sso). Serwer proxy aplikacji zapewnia dostęp zdalny jako usługę i umożliwia [łatwe publikowanie aplikacji lokalnych](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application) użytkownikom spoza sieci firmowej. Ułatwia to skalowanie zarządzania dostępem do chmury bez konieczności modyfikowania aplikacji lokalnych. [Zaplanuj wdrożenie usługi Azure serwer proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) w następnym kroku.
+
+## <a name="azure-ad-partner-integrations"></a>Integracje partnerów usługi Azure AD
+
+### <a name="secure-hybrid-access-through-networking-and-delivery-controllers"></a>Bezpieczny dostęp hybrydowy za poorednictwem sieci i kontrolerów dostarczania
+
+Oprócz [usługi Azure serwer proxy aplikacji usługi Azure AD](https://aka.ms/whyappproxy), aby umożliwić korzystanie z [platformy zaufania zerowej](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), partnerzy firmy Microsoft z dostawcami innych firm. Możesz użyć istniejących kontrolerów sieci i dostarczania oraz łatwo chronić starsze aplikacje, które mają kluczowe znaczenie dla procesów firmy, ale nie możesz chronić przed usługą Azure AD. Prawdopodobnie masz już wszystko, czego potrzebujesz, aby rozpocząć ochronę tych aplikacji.
+
+![Obraz pokazuje bezpieczny dostęp hybrydowy przy użyciu partnerów sieciowych i serwera proxy aplikacji](media/secure-hybrid-access/secure-hybrid-access.png)
+
+Następujący dostawcy sieci oferują wstępnie skompilowane rozwiązania i szczegółowe wskazówki dotyczące integracji z usługą Azure AD.
+
+- [Akamai dostęp do aplikacji (EAA)](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
+
+- [Kontroler dostarczania aplikacji Citrix (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)
+
+- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial)
+
+- [Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
+
+### <a name="secure-hybrid-access-through-vpn-applications"></a>Zabezpieczanie hybrydowego dostępu za pośrednictwem aplikacji sieci VPN
+
+Korzystając z rozwiązań sieci VPN, można zapewnić bezpieczny dostęp do sieci przedsiębiorstwa z dowolnego urządzenia, w dowolnym momencie, w dowolnej lokalizacji, chroniąc dane organizacji. Mając usługę Azure AD jako dostawcę tożsamości (dostawcy tożsamości), możesz używać nowoczesnych metod uwierzytelniania i autoryzacji, takich jak [Logowanie](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) jednokrotne usługi Azure AD i [uwierzytelnianie wieloskładnikowe](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) , aby zabezpieczyć lokalne starsze aplikacje.  
+
+![Obraz pokazuje bezpieczny dostęp hybrydowy przy użyciu partnerów sieci VPN i serwera proxy aplikacji ](media/secure-hybrid-access/app-proxy-vpn.png)
+
+Następujący dostawcy sieci VPN oferują wstępnie skompilowane rozwiązania i szczegółowe wskazówki dotyczące integracji z usługą Azure AD.
+
+• [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+
+• [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+
+• [F5 Big-IP APM](https://aka.ms/f5-hybridaccessguide)
+
+• [Palo Alto Networks Global Protect](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
+
+• [Rozwiązania Zscaler prywatny dostęp (ZPA)](https://aka.ms/zscaler-hybridaccessguide)

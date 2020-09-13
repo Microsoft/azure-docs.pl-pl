@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206848"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031402"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurowanie i dostosowywanie zadań kompilacji
 
@@ -143,7 +143,7 @@ Dostępne opcje to:
 >
 >   Jeśli nowe zadanie jest uruchamiane na tym samym agencie co oryginalne zadanie, dane wyjściowe nowego zadania zastąpią dane wyjściowe oryginalnego zadania w folderze źródła *s* . Chociaż dane wyjściowe kompilacji są takie same, zalecamy uruchomienie programu MSBuild, skopiowanie danych wyjściowych do katalogu przemieszczania artefaktów, a następnie uruchomienie analizatorów Roslyn.
 
-Aby uzyskać dodatkowe zasoby dla Roslyn analizatorów, zapoznaj [się z analizatorami opartymi na Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/) na Microsoft docs.
+Aby uzyskać dodatkowe zasoby dla Roslyn analizatorów, zapoznaj [się z analizatorami opartymi na Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) na Microsoft docs.
 
 Pakiet analizatora zainstalowany i używany przez to zadanie kompilacji można znaleźć na stronie narzędzia NuGet [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 

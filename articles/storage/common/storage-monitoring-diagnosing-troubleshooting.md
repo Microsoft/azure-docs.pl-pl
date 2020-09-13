@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462007"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031487"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -220,7 +220,7 @@ Biblioteka klienta usługi Storage dla platformy .NET umożliwia zbieranie danyc
 Możesz przechwytywać ruch między klientem a serwerem, aby podać szczegółowe informacje o danych, które klient i serwer wymieniają, i podstawowych warunkach sieciowych. Przydatne narzędzia do rejestrowania w sieci obejmują:
 
 * [Programu Fiddler](https://www.telerik.com/fiddler) to bezpłatny serwer proxy debugowania sieci Web, który umożliwia badanie nagłówków i danych ładunku komunikatów i żądań HTTP i https. Aby uzyskać więcej informacji, zobacz [dodatek 1: używanie programu Fiddler do przechwytywania ruchu HTTP i https](#appendix-1).
-* [Microsoft Network Monitor (netmon)](https://www.microsoft.com/download/details.aspx?id=4865) i [Wireshark](https://www.wireshark.org/) to bezpłatne analizatory protokołów sieciowych, które umożliwiają wyświetlanie szczegółowych informacji o pakiecie dla szerokiego zakresu protokołów sieciowych. Aby uzyskać więcej informacji na temat programu Wireshark, zobacz "[dodatek 2: korzystanie z programu Wireshark do przechwytywania ruchu sieciowego](#appendix-2)".
+* [Microsoft Network Monitor (netmon)](https://cnet-downloads.com/network-monitor) i [Wireshark](https://www.wireshark.org/) to bezpłatne analizatory protokołów sieciowych, które umożliwiają wyświetlanie szczegółowych informacji o pakiecie dla szerokiego zakresu protokołów sieciowych. Aby uzyskać więcej informacji na temat programu Wireshark, zobacz "[dodatek 2: korzystanie z programu Wireshark do przechwytywania ruchu sieciowego](#appendix-2)".
 * Microsoft Message Analyzer to narzędzie firmy Microsoft, które zastępuje netmon i który oprócz przechwytywania danych pakietów sieciowych pomaga wyświetlać i analizować dane dzienników przechwycone z innych narzędzi. Aby uzyskać więcej informacji, zobacz "[dodatek 3: używanie programu Microsoft Message Analyzer do przechwytywania ruchu sieciowego](#appendix-3)".
 * Jeśli chcesz przeprowadzić podstawowy test łączności, aby sprawdzić, czy komputer kliencki może połączyć się z usługą Azure Storage za pośrednictwem sieci, nie możesz wykonać tego czynności przy użyciu standardowego narzędzia **ping** na kliencie. Można jednak sprawdzić łączność przy użyciu [narzędzia **tcping** ](https://www.elifulkerson.com/projects/tcping.php) .
 
@@ -617,7 +617,7 @@ Szczegóły wyjątku w kliencie obejmują identyfikator żądania (7e84f12d...) 
 
 Dziennik po stronie serwera zawiera również inny wpis z tą samą wartością **Client-Request-ID** (813ea74f...) dla pomyślnego usunięcia operacji usuwania dla tej samej jednostki oraz z tego samego klienta. Ta operacja usuwania została wykonana bardzo krótko przed żądaniem usunięcia zakończonego niepowodzeniem.
 
-Najbardziej prawdopodobną przyczyną tego scenariusza jest wysłanie przez klienta żądania usunięcia dla jednostki do usługi Table Service, która zakończyła się powodzeniem, ale nie otrzymała potwierdzenia z serwera (prawdopodobnie z powodu tymczasowego problemu z siecią). Klient automatycznie ponowi próbę wykonania operacji (przy użyciu tego samego **identyfikatora Client-Request-ID**) i nie powiodła się, ponieważ jednostka została już usunięta.
+Najbardziej prawdopodobną przyczyną tego scenariusza jest to, że klient wysłał żądanie usunięcia dla jednostki do usługi Table Service, która zakończyła się powodzeniem, ale nie otrzymała potwierdzenia z serwera (prawdopodobnie z powodu tymczasowego problemu z siecią). Klient automatycznie ponowi próbę wykonania operacji (przy użyciu tego samego **identyfikatora Client-Request-ID**) i nie powiodła się, ponieważ jednostka została już usunięta.
 
 Jeśli ten problem występuje często, należy zbadać, dlaczego klient nie otrzymuje potwierdzeń z usługi Table Service. Jeśli problem występuje sporadycznie, należy zastosować pułapki "HTTP (404) nie znaleziono" i zalogować się na kliencie, ale zezwolić na kontynuowanie działania klienta.
 

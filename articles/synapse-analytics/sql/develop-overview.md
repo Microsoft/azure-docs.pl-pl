@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070043"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032949"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Projektowanie decyzji i technik kodowania dla funkcji SQL Synapse w usłudze Azure Synapse Analytics
 W tym artykule znajdziesz listę zasobów dla puli SQL i funkcji SQL na żądanie (wersja zapoznawcza) usługi Synapse SQL. Zalecane artykuły są podzielone na dwie sekcje: najważniejsze decyzje projektowe i techniki programowania i kodowania.
@@ -28,14 +28,14 @@ Artykuły poniżej wyróżniają koncepcje i decyzje projektowe dotyczące progr
 | Artykuł | Pula SQL | SQL na żądanie |
 | ------- | -------- | ------------- |
 | [Połączenia](connect-overview.md)                    | Tak | Tak |
-| [Klasy zasobów i współbieżność](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | Nie |
-| [Transakcje](develop-transactions.md)              | Yes | Nie |
+| [Klasy zasobów i współbieżność](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tak    | Nie |
+| [Transakcje](develop-transactions.md)              | Tak | Nie |
 | [Schematy definiowane przez użytkownika](develop-user-defined-schemas.md) | Tak | Tak |
-| [Dystrybucja tabel](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Yes | Nie |
-| [Indeksy tabel](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | Nie |
-| [Partycje tabeli](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | Nie |
+| [Dystrybucja tabel](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Tak | Nie |
+| [Indeksy tabel](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Tak | Nie |
+| [Partycje tabeli](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Tak | Nie |
 | [Statystyki](develop-tables-statistics.md)            | Tak | Tak |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Yes | Nie |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Tak | Nie |
 | [Tabele zewnętrzne](develop-tables-external-tables.md) | Tak | Tak |
 | [CETAS](develop-tables-cetas.md)                     | Tak | Tak |
 
@@ -46,13 +46,13 @@ Poniżej znajdziesz podstawowe artykuły, które podkreślają konkretne technik
 
 | Artykuł | Pula SQL | SQL na żądanie |
 | ------- | -------- | ------------- |
-| [Procedury składowane](develop-stored-procedures.md)  | Yes                | Nie                      |
-| [Etykiety](develop-label.md)                           | Yes                | Nie                      |
+| [Procedury składowane](develop-stored-procedures.md)  | Tak                | Nie                      |
+| [Etykiety](develop-label.md)                           | Tak                | Nie                      |
 | [Widoki](develop-views.md)                             | Tak                | Tak                     |
 | [Tabele tymczasowe](develop-tables-temporary.md)       | Tak                | Tak                     |
 | [Dynamiczny język SQL](develop-dynamic-sql.md)                 | Tak                | Tak                     |
 | [Zapętlenie](develop-loops.md)                         | Tak                | Tak                     |
-| [Grupuj według opcji](develop-group-by-options.md)       | Yes                | Nie                      |
+| [Grupuj według opcji](develop-group-by-options.md)       | Tak                | Nie                      |
 | [Przypisanie zmiennej](develop-variable-assignment.md) | Tak                | Tak                     |
 
 ## <a name="next-steps"></a>Następne kroki

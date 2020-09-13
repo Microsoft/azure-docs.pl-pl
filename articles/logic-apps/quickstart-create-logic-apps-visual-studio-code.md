@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 019c78236ed0cc689de09a9ee04ebb6a0b9243b1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131484"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033595"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Szybki start: Tworzenie definicji przepływu pracy aplikacji logiki i zarządzanie nimi za pomocą programu Visual Studio Code
 
@@ -130,7 +130,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
    Przykładowo poniżej przedstawiono definicję przykładowej przepływu pracy aplikacji logiki, która rozpoczyna się od wyzwalacza RSS i akcji programu Outlook w programie Office 365. Zazwyczaj elementy JSON są wyświetlane alfabetycznie w każdej sekcji. Jednak ten przykład pokazuje te elementy w kolejności, w jakiej są wyświetlane kroki aplikacji logiki w projektancie.
 
    > [!IMPORTANT]
-   > Jeśli chcesz ponownie użyć tej przykładowej definicji aplikacji logiki, potrzebujesz konta organizacyjnego Office 365, na przykład @fabrikam.com . Pamiętaj, aby zamienić fikcyjny adres e-mail na własny adres e-mail. Aby użyć innego łącznika poczty e-mail, takiego jak Outlook.com lub Gmail, Zastąp `Send_an_email_action` akcję podobną akcją dostępną z [łącznika poczty e-mail obsługiwanego przez Azure Logic Apps](../connectors/apis-list.md).
+   > Jeśli chcesz ponownie użyć tej przykładowej definicji aplikacji logiki, musisz mieć konto organizacyjne, na przykład @fabrikam.com . Pamiętaj, aby zamienić fikcyjny adres e-mail na własny adres e-mail. Aby użyć innego łącznika poczty e-mail, takiego jak Outlook.com lub Gmail, Zastąp `Send_an_email_action` akcję podobną akcją dostępną z [łącznika poczty e-mail obsługiwanego przez Azure Logic Apps](../connectors/apis-list.md).
    >
    > Jeśli chcesz korzystać z łącznika usługi Gmail, tylko konta firmowe z zestawu G-Suite mogą używać tego łącznika bez ograniczeń w usłudze Logic Apps. 
    > Jeśli masz konto użytkownika usługi Gmail, możesz użyć tego łącznika z tylko określonymi usługami zatwierdzonymi przez firmę Google lub możesz [utworzyć aplikację kliencką Google, która będzie używana do uwierzytelniania za pomocą łącznika usługi Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). 

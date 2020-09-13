@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a4b0cb9b53adbf6362d79766fcd7bce57f5441ac
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fd68f720f372ee61f7c441ea83bd365bc2a6f36a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322934"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032745"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Podstawa zabezpieczeń platformy Azure dla Azure Monitor
 
@@ -80,7 +80,7 @@ W przypadku korzystania z usługi Azure Monitor z linkiem prywatnym uzyskuje si�
 
 - [Łączenie komputerów bez dostępu do Internetu przy użyciu bramy Log Analytics w programie Azure Monitor](platform/gateway.md) 
 
-- [Zobacz Rozpoczynanie pracy z usługą Application Insights](//azure/azure-monitor/app/app-insights-overview#get-started)
+- [Zobacz Rozpoczynanie pracy z usługą Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
 
 - [Jak skonfigurować testy sieci Web dostępności](app/monitor-web-app-availability.md)
 

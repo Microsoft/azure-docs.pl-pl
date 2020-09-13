@@ -1,25 +1,25 @@
 ---
-title: Rozwiązywanie problemów z przepływami danych
+title: Rozwiązywanie problemów z mapowaniem przepływów danych
 description: Dowiedz się, jak rozwiązywać problemy z przepływem danych w Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
-manager: anandsub
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/16/2020
-ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 09/11/2020
+ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263473"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031861"
 ---
-# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z przepływami danych w Azure Data Factory
+# <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Rozwiązywanie problemów z mapowaniem przepływów danych w Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym artykule przedstawiono typowe metody rozwiązywania problemów z przepływami danych w Azure Data Factory.
+W tym artykule przedstawiono typowe metody rozwiązywania problemów związanych z mapowaniem przepływów danych w programie Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Typowe błędy i komunikaty
 
@@ -43,8 +43,10 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z przepływ
 ### <a name="error-code-df-executor-broadcasttimeout"></a>Kod błędu: DF-wykonawca-BroadcastTimeout
 
 - **Komunikat**: błąd limitu czasu sprzężenia emisji, upewnij się, że strumień emisji produkuje dane w ciągu 60 sekund podczas przebiegów debugowania i 300 s w uruchomieniach zadania
-- **Przyczyny**: emisja ma domyślny limit czasu wynoszący 60 s podczas przebiegów debugowania i 300 s w przebiegach zadania. Strumień wybierany do emisji jest duży, aby można było utworzyć dane w ramach tego limitu.
-- **Zalecenie**: Sprawdź, czy na karcie Optymalizacja przekształceń przepływu danych jest włączona funkcja join, EXISTS i Lookup. Domyślną opcją emisji jest "Auto". Jeśli ta opcja jest ustawiona, lub jeśli ręcznie ustawisz lewą lub prawą stronę do emisji w obszarze "Fixed" (stała), możesz ustawić większą konfigurację Azure Integration Runtime lub wyłączyć opcję emisji. Zalecanym podejściem do uzyskania najlepszej wydajności w przepływach danych jest umożliwienie usłudze Spark emisji przy użyciu opcji "Auto" i użycia zoptymalizowanej pod kątem pamięci Azure IR.
+- **Przyczyny**: emisja ma domyślny limit czasu wynoszący 60 s podczas przebiegów debugowania i 300 sekund w przebiegach zadania. Strumień wybrany do emisji wydaje się zbyt duży, aby można było utworzyć dane w ramach tego limitu.
+- **Zalecenie**: Sprawdź, czy na karcie Optymalizacja przekształceń przepływu danych jest włączona funkcja join, EXISTS i Lookup. Domyślną opcją emisji jest "Auto". W przypadku ustawienia opcji "Auto" lub ręcznego ustawiania lewej lub prawej strony do emisji w obszarze "Fixed" można ustawić większą konfigurację Azure Integration Runtime lub wyłączyć emisję. Zalecanym podejściem do uzyskania najlepszej wydajności w przepływach danych jest umożliwienie usłudze Spark emisji przy użyciu opcji "Auto" i użycia zoptymalizowanej pod kątem pamięci Azure IR.
+
+Jeśli przepływ danych jest wykonywany w ramach wykonywania testu debugowania z przebiegu potoku debugowania, można wykonać ten warunek częściej. Jest to spowodowane tym, że usługa ADF ogranicza limit czasu emisji do 60 sekund, aby zapewnić szybsze debugowanie. Jeśli chcesz, aby przekroczyć limit czasu 300 sekund od uruchomienia wyzwalanego, możesz użyć opcji Debuguj > Użyj środowiska uruchomieniowego działania, aby użyć Azure IR zdefiniowanego w działaniu potoku przepływu danych.
 
 ### <a name="error-code-df-executor-conversion"></a>Kod błędu: DF-wykonawca-Conversion
 
@@ -57,6 +59,46 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z przepływ
 - **Komunikat**: Nazwa kolumny musi być określona w zapytaniu, Ustawianie aliasu, jeśli używana jest funkcja SQL
 - **Przyczyny**: nie określono nazwy kolumny
 - **Zalecenie**: Ustaw alias, jeśli używana jest funkcja SQL, taka jak min ()/Max () itp.
+
+ ### <a name="error-code-df-executor-drivererror"></a>Kod błędu: DF-wykonawca-DriverError
+- **Komunikat**: INT96 jest starszym typem sygnatury czasowej, który nie jest obsługiwany przez ADF przepływu danych. Rozważ uaktualnienie typu kolumny do najnowszych typów.
+- **Przyczyny**: błąd sterownika
+- **Zalecenie**: INT96 jest starszym typem sygnatury czasowej, który nie jest obsługiwany przez ADF przepływu danych. Rozważ uaktualnienie typu kolumny do najnowszych typów.
+
+ ### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Kod błędu: DF-wykonawca-BlockCountExceedsLimitError
+- **Komunikat**: liczba niezatwierdzonych bloków nie może przekroczyć maksymalnego limitu 100 000 bloków. Sprawdź konfigurację obiektu BLOB.
+- **Przyczyny**: Maksymalna liczba niezatwierdzonych bloków w obiekcie blob to 100 000.
+- **Zalecenie**: skontaktuj się z zespołem ds. produktów firmy Microsoft w sprawie tego problemu, aby uzyskać więcej szczegółów
+
+ ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Kod błędu: DF-wykonawca-PartitionDirectoryError
+- **Komunikat**: określona ścieżka źródłowa ma wiele katalogów partycjonowanych (np. <Source Path> /<katalogu głównego partycji 1>/a = 10/b = 20, <Source Path> /<partycji katalogu głównego 2>/c = 10/d = 30) lub partycjonowany katalog z innym plikiem lub katalogiem niepartycjonowanym (na przykład, <Source Path> <katalogu głównego partycji 1>/a = 10/b = 20, <Source Path> pliki/katalog 2/plik1), Usuń katalog główny partycji ze ścieżki źródłowej i przeczytaj go za pomocą oddzielnego przekształcenia źródła.
+- **Przyczyny**: ścieżka źródłowa ma wiele katalogów partycjonowanych lub partycjonowany katalog z innym plikiem lub katalogiem niepartycjonowanym.
+- **Zalecenie**: Usuń partycjonowany katalog główny ze ścieżki źródłowej i przeczytaj go przez oddzielną transformację źródłową.
+
+ ### <a name="error-code-df-executor-outofmemoryerror"></a>Kod błędu: DF-wykonawca-OutOfMemoryError
+- **Komunikat**: Wystąpił problem z pamięcią klastra podczas wykonywania, spróbuj ponownie użyć środowiska Integration Runtime z większą liczbą rdzeni i/lub typem obliczeń zoptymalizowanym pod kątem pamięci
+- **Przyczyny**: za mało pamięci w klastrze
+- **Zalecenie**: klastry debugowania są przeznaczone do celów deweloperskich. Wykorzystanie próbkowania danych, odpowiedniego typu obliczenia i rozmiaru do uruchomienia ładunku. Zapoznaj się z [przewodnikiem dotyczącym wydajności przepływu danych mapowania](concepts-data-flow-performance.md) dla dostrajania, aby osiągnąć najlepszą wydajność.
+
+ ### <a name="error-code-df-executor-illegalargument"></a>Kod błędu: DF-wykonawca-illegalArgument
+- **Komunikat**: Upewnij się, że klucz dostępu w połączonej usłudze jest poprawny
+- **Przyczyny**: Nieprawidłowa nazwa konta lub klucz dostępu
+- **Zalecenie**: Upewnij się, że nazwa konta lub klucz dostępu określony w połączonej usłudze jest poprawny. 
+
+ ### <a name="error-code-df-executor-invalidtype"></a>Kod błędu: DF-wykonawc-nieprawidłowytype
+- **Komunikat**: Upewnij się, że typ parametrów jest zgodny z przekazaną typem wartości. Przekazywanie parametrów zmiennoprzecinkowych z potoków nie jest obecnie obsługiwane.
+- **Przyczyny**: niezgodne typy danych między zadeklarowanym typem a rzeczywistą wartością parametru
+- **Zalecenie**: Sprawdź, czy wartości parametrów przekazane do przepływu danych pasują do zadeklarowanego typu.
+
+ ### <a name="error-code-df-executor-columnunavailable"></a>Kod błędu: DF-wykonawca-ColumnUnavailable
+- **Komunikat**: Nazwa kolumny używana w wyrażeniu jest niedostępna lub nieprawidłowa
+- **Przyczyny**: nieprawidłowa lub niedostępna nazwa kolumny używana w wyrażeniach
+- **Zalecenie**: sprawdzanie nazw kolumn używanych w wyrażeniach
+
+ ### <a name="error-code-df-executor-parseerror"></a>Kod błędu: DF-wykonawca-ParseError
+- **Komunikat**: nie można przeanalizować wyrażenia
+- **Przyczyny**: wyrażenie ma błędy analizy z powodu formatowania
+- **Zalecenie**: sprawdzanie formatowania w wyrażeniu
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Kod błędu: GetCommand OutputAsync nie powiodła się
 

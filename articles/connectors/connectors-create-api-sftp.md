@@ -1,21 +1,22 @@
 ---
-title: Połącz z kontem SFTP
-description: Automatyzowanie zadań i procesów, które monitorują, tworzą, zarządzają i odbierają pliki dla serwera SFTP za pośrednictwem protokołu SSH przy użyciu Azure Logic Apps
+title: Połącz z kontem SFTP (przestarzałe)
+description: Automatyzowanie zadań i procesów, które monitorują, tworzą, zarządzają i odbierają pliki dla serwera SFTP przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ROBOTS: NOINDEX
+ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789277"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033306"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą usługi Azure Logic Apps
+# <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi w Azure Logic Apps
 
 > [!IMPORTANT]
 > Użyj [łącznika SFTP-SSH](../connectors/connectors-sftp-ssh.md) , ponieważ łącznik SFTP jest przestarzały. Nie można już wybierać wyzwalaczy i akcji SFTP w Projektancie aplikacji logiki.
@@ -116,7 +117,7 @@ Ta akcja pobiera zawartość z pliku na serwerze SFTP. Na przykład można doda�
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
-Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane w opisie OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę odwołania](/connectors/sftpconnector/)łącznika.
+Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i limitów, które są opisane w opisie OpenAPI łącznika (dawniej Swagger), przejrzyj [stronę odwołania](/azure/data-factory/connector-sftp)łącznika.
 
 ## <a name="next-steps"></a>Następne kroki
 

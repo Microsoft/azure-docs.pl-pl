@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: bfd4f783c250a7bf0ec28cff903e4c59d8570d89
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4ded10d9475c363c3f44032c7aa8cc7db03ab37f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307526"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033646"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Wybieranie odpowiedniej warstwy usługi IoT Hub dla używanego rozwiązania
 
@@ -77,37 +77,37 @@ Różnica w obsługiwanych możliwościach między warstwami podstawowa i Standa
 
 | Interfejs API | Warstwa Podstawowa | Warstwa Bezpłatna/standardowa |
 | --- | ---------- | ------------- |
-| [Usuń urządzenie](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletedevice) | Tak | Tak |
-| [Pobierz urządzenie](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevice) | Tak | Tak |
-| [Usuń moduł](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletemodule) | Tak | Tak |
-| [Pobierz moduł](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getmodule) | Tak | Tak |
-| [Pobierz statystyki rejestru](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevicestatistics) | Tak | Tak |
-| [Pobierz statystyki usług](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getservicestatistics) | Tak | Tak |
-| [Utwórz lub zaktualizuj urządzenie](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatedevice) | Tak | Tak |
-| [Utwórz lub zaktualizuj moduł](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatemodule) | Tak | Tak |
-| [IoT Hub zapytań](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/queryiothub) | Tak | Tak |
+| [Usuń urządzenie](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Tak | Tak |
+| [Pobierz urządzenie](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Tak | Tak |
+| [Usuń moduł](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Tak | Tak |
+| [Pobierz moduł](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | Tak | Tak |
+| [Pobierz statystyki rejestru](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | Tak | Tak |
+| [Pobierz statystyki usług](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | Tak | Tak |
+| [Utwórz lub zaktualizuj urządzenie](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | Tak | Tak |
+| [Utwórz lub zaktualizuj moduł](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Tak | Tak |
+| [IoT Hub zapytań](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Tak | Tak |
 | [Tworzenie identyfikatora URI SAS przekazywania plików](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Tak | Tak |
 | [Odbieranie powiadomienia powiązanego z urządzeniem](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Tak | Tak |
 | [Wyślij zdarzenie urządzenia](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Tak | Tak |
 | Wyślij zdarzenie modułu | Tylko AMQP i MQTT | Tylko AMQP i MQTT |
 | [Aktualizuj stan przekazywania plików](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Tak | Tak |
-| [Zbiorcza operacja urządzenia](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/bulkdevicecrud) | Tak, z wyjątkiem możliwości IoT Edge | Tak |
-| [Anuluj zadanie importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobclient/cancelimportexportjob) | Tak | Tak |
-| [Tworzenie zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createimportexportjob) | Tak | Tak |
-| [Pobierz zadanie importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjob) | Tak | Tak |
-| [Pobierz zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) | Tak | Tak |
-| [Przeczyść kolejkę poleceń](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) |   | Tak |
-| [Pobierz sznurki urządzenia](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) |   | Tak |
-| [Pobierz sznurki modułu](https://docs.microsoft.com/rest/api/iothub/service/twin/getmoduletwin) |   | Tak |
-| [Wywoływanie metody urządzenia](https://docs.microsoft.com/rest/api/iothub/service/devicemethod/invokedevicemethod) |   | Tak |
-| [Aktualizacja sznurka urządzenia](https://docs.microsoft.com/rest/api/iothub/service/twin/updatedevicetwin) |   | Tak |
-| [Aktualizowanie sznurka modułu](https://docs.microsoft.com/rest/api/iothub/service/twin/updatemoduletwin) |   | Tak |
+| [Zbiorcza operacja urządzenia](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Tak, z wyjątkiem możliwości IoT Edge | Tak |
+| [Anuluj zadanie importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobs/cancelimportexportjob) | Tak | Tak |
+| [Tworzenie zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobs/createimportexportjob) | Tak | Tak |
+| [Pobierz zadanie importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjob) | Tak | Tak |
+| [Pobierz zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) | Tak | Tak |
+| [Przeczyść kolejkę poleceń](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Tak |
+| [Pobierz sznurki urządzenia](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | Tak |
+| [Pobierz sznurki modułu](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Tak |
+| [Wywoływanie metody urządzenia](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) |   | Tak |
+| [Aktualizacja sznurka urządzenia](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) |   | Tak |
+| [Aktualizowanie sznurka modułu](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Tak |
 | [Powiadomienie o porzucenia urządzenia](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Tak |
 | [Ukończ powiadomienie powiązane z urządzeniem](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Tak |
-| [Anuluj zadanie](https://docs.microsoft.com/rest/api/iothub/service/jobclient/canceljob) |   | Tak |
-| [Tworzenie zadania](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | Tak |
-| [Pobierz zadanie](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getjob) |   | Tak |
-| [Zadania zapytań](https://docs.microsoft.com/rest/api/iothub/service/jobclient/queryjobs) |   | Tak |
+| [Anuluj zadanie](https://docs.microsoft.com/rest/api/media/jobs/canceljob) |   | Tak |
+| [Tworzenie zadania](https://docs.microsoft.com/rest/api/media/jobs/create) |   | Tak |
+| [Pobierz zadanie](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | Tak |
+| [Zadania zapytań](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Tak |
 
 ## <a name="message-throughput"></a>Przepływność komunikatów
 

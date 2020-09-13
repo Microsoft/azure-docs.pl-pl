@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141299"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032813"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 
@@ -38,7 +38,7 @@ Internetowy interfejs API jest definiowany przez `scopes` . Bez względu na to, 
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -183,7 +183,7 @@ W systemie Android należy również określić działanie nadrzędne przy użyc
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-Interfejs użytkownika jest ważny, ponieważ jest interaktywny. `AcquireTokenInteractive` ma jeden określony opcjonalny parametr, który może określać, dla platform, które go obsługują, nadrzędny interfejs użytkownika. Gdy jest używany w aplikacji klasycznej, `.WithParentActivityOrWindow` ma inny typ, który zależy od platformy.
+Interfejs użytkownika jest ważny, ponieważ jest interaktywny. `AcquireTokenInteractive` ma jeden określony opcjonalny parametr, który może określać, dla platform, które go obsługują, nadrzędny interfejs użytkownika. Gdy jest używany w aplikacji klasycznej, `.WithParentActivityOrWindow` ma inny typ, który zależy od platformy. Alternatywnie możesz pominąć opcjonalny parametr okna nadrzędnego, aby utworzyć okno, jeśli nie chcesz kontrolować miejsca, w którym okno dialogowe logowania pojawia się na ekranie. Ma to zastosowanie w przypadku aplikacji, które są oparte na wierszu polecenia, służących do przekazywania wywołań do innej usługi zaplecza i nie są potrzebne żadne okna do interakcji z użytkownikiem. 
 
 ```csharp
 // net45
@@ -370,7 +370,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -433,7 +433,7 @@ Aby zalogować użytkownika domeny w domenie lub na komputerze przyłączonym do
   - Lub Administrator dzierżawy musi być wcześniej wysłany do wszystkich użytkowników w dzierżawie, aby mógł korzystać z aplikacji.
   - Innymi słowy:
     - Deweloper zaznaczył przycisk **Udziel** w Azure Portal dla siebie.
-    - Lub Administrator dzierżawy zaznaczył przycisk **Udziel/odwołaj zgodę administratora dla {domena dzierżawy}** na karcie **uprawnienia interfejsu API** rejestracji aplikacji. Aby uzyskać więcej informacji, zobacz [Dodawanie uprawnień dostępu do interfejsów API sieci Web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Lub Administrator dzierżawy zaznaczył przycisk **Udziel/odwołaj zgodę administratora dla {domena dzierżawy}** na karcie **uprawnienia interfejsu API** rejestracji aplikacji. Aby uzyskać więcej informacji, zobacz [Dodawanie uprawnień w celu uzyskania dostępu do internetowego interfejsu API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
     - Możesz też zapewnić użytkownikom zgodę na stosowanie aplikacji. Aby uzyskać więcej informacji, zobacz [żądanie zgody poszczególnych użytkowników](./v2-permissions-and-consent.md#requesting-individual-user-consent).
     - Możesz też zapewnić, że administrator dzierżawy wyrazi zgodę na stosowanie aplikacji. Aby uzyskać więcej informacji, zobacz [zgoda administratora](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -925,7 +925,7 @@ Ten przepływ nie jest obsługiwany w MSAL dla macOS.
 
 Jeśli piszesz narzędzie wiersza polecenia, które nie ma formantów sieci Web, a nie możesz lub nie chcesz używać powyższych przepływów, musisz użyć przepływu kodu urządzenia.
 
-Interaktywne uwierzytelnianie w usłudze Azure AD wymaga przeglądarki sieci Web. Aby uzyskać więcej informacji, zobacz [użycie przeglądarek sieci Web](https://aka.ms/msal-net-uses-web-browser). W celu uwierzytelniania użytkowników na urządzeniach lub w systemach operacyjnych, które nie zapewniają przeglądarki sieci Web, przepływ kodu urządzenia umożliwia użytkownikowi korzystanie z innego urządzenia, takiego jak komputer lub telefon komórkowy, aby zalogować się interaktywnie. Za pomocą przepływu kodu urządzenia aplikacja uzyskuje tokeny przez dwuetapowy proces, który jest przeznaczony dla tych urządzeń lub systemów operacyjnych. Przykładami takich aplikacji są aplikacje uruchamiane w ramach iOT lub narzędzi wiersza polecenia (CLI). Pomysł polega na tym, że:
+Interaktywne uwierzytelnianie w usłudze Azure AD wymaga przeglądarki sieci Web. Aby uzyskać więcej informacji, zobacz [użycie przeglądarek sieci Web](https://aka.ms/msal-net-uses-web-browser). W celu uwierzytelniania użytkowników na urządzeniach lub w systemach operacyjnych, które nie zapewniają przeglądarki sieci Web, przepływ kodu urządzenia umożliwia użytkownikowi korzystanie z innego urządzenia, takiego jak komputer lub telefon komórkowy, aby zalogować się interaktywnie. Za pomocą przepływu kodu urządzenia aplikacja uzyskuje tokeny w ramach dwuetapowego procesu, który jest przeznaczony dla tych urządzeń lub systemów operacyjnych. Przykładami takich aplikacji są aplikacje uruchamiane w ramach iOT lub narzędzi wiersza polecenia (CLI). Pomysł polega na tym, że:
 
 1. Za każdym razem, gdy wymagane jest uwierzytelnienie użytkownika, aplikacja udostępnia kod dla użytkownika. Użytkownik zostanie poproszony o użycie innego urządzenia, takiego jak smartfon połączony z Internetem, aby przejść do adresu URL, na przykład `https://microsoft.com/devicelogin` . Następnie użytkownik zostanie poproszony o wprowadzenie kodu. W tym celu strona sieci Web kieruje użytkownika za pomocą normalnego środowiska uwierzytelniania, w tym w razie potrzeby zawiera również polecenia zgody i uwierzytelniania wieloskładnikowego.
 
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

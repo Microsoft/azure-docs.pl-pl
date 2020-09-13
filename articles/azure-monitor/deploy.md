@@ -1,19 +1,19 @@
 ---
-title: Wdróż Azure Monitor
+title: Wdrażanie usługi Azure Monitor
 description: W tym artykule opisano różne kroki wymagane do wykonania pełnej implementacji Azure Monitor do monitorowania wszystkich zasobów w ramach subskrypcji platformy Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 34a048c702b62caeecaf21e710a9dcd9156e4aea
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801776"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033476"
 ---
-# <a name="deploy-azure-monitor"></a>Wdróż Azure Monitor
+# <a name="deploy-azure-monitor"></a>Wdrażanie usługi Azure Monitor
 Włączenie Azure Monitor monitorowania wszystkich zasobów platformy Azure jest kombinacją konfigurowania składników Azure Monitor i konfigurowania zasobów platformy Azure w celu wygenerowania danych monitorowania dla Azure Monitor do zebrania. W tym artykule opisano różne kroki wymagane do wykonania pełnej implementacji Azure Monitor przy użyciu wspólnej konfiguracji do monitorowania wszystkich zasobów w ramach subskrypcji platformy Azure. Podstawowe opisy poszczególnych kroków są dostępne z linkami do innej dokumentacji dotyczącej szczegółowych wymagań dotyczących konfiguracji.
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ Następujące funkcje Azure Monitor są włączone bez konieczności konfigurowa
 
 
 ### <a name="create-log-analytics-workspace"></a>Tworzenie obszaru roboczego usługi Log Analytics
-Do włączenia [dzienników Azure monitor](platform/data-platform-logs.md)wymagane jest co najmniej jeden obszar roboczy log Analytics, który jest wymagany do zbierania takich danych jak dzienniki z zasobów platformy Azure, zbieranie danych z systemu operacyjnego gościa maszyn wirtualnych platformy Azure oraz większość Azure monitor szczegółowych informacji. Inne usługi, takie jak Azure, i Azure Security Center korzystają również z Log Analytics obszaru roboczego i mogą współużytkować ten sam Azure Monitor. Aby obsłużyć to monitorowanie, możesz rozpocząć pracę z jednym obszarem roboczym, ale zapoznaj się z tematem [projektowanie wdrożenia dzienników Azure monitor](platform/design-logs-deployment.md) , aby uzyskać wskazówki dotyczące używania wielu obszarów roboczych.
+Do włączenia [dzienników Azure monitor](platform/data-platform-logs.md)wymagane jest co najmniej jeden obszar roboczy log Analytics, który jest wymagany do zbierania takich danych jak dzienniki z zasobów platformy Azure, zbieranie danych z systemu operacyjnego gościa maszyn wirtualnych platformy Azure oraz większość Azure monitor szczegółowych informacji. Inne usługi, takie jak Azure, i Azure Security Center korzystają również z Log Analytics obszaru roboczego i mogą współużytkować ten sam Azure Monitor. Aby obsłużyć to monitorowanie, możesz rozpocząć pracę z jednym obszarem roboczym, ale zapoznaj się z tematem  [projektowanie wdrożenia dzienników Azure monitor](platform/design-logs-deployment.md) , aby uzyskać wskazówki dotyczące używania wielu obszarów roboczych.
 
 Nie ma kosztów tworzenia obszaru roboczego Log Analytics, ale istnieje potencjalna opłata za skonfigurowanie danych do zebrania. Aby uzyskać szczegółowe informacje [, zobacz Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](platform/manage-cost-storage.md) .  
 
@@ -118,9 +118,9 @@ Zobacz [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows A
 Azure Monitor monitoruje aplikacje niestandardowe przy użyciu [Application Insights](app/app-insights-overview.md), które należy skonfigurować dla każdej aplikacji, która ma być monitorowana. Proces konfiguracji będzie się różnić w zależności od typu monitorowanej aplikacji i typu monitorowania, które chcesz wykonać. Dane zbierane przez Application Insights są przechowywane w Azure Monitor metrykach, dziennikach Azure Monitor i magazynie obiektów blob platformy Azure, w zależności od funkcji. Dane wydajności są przechowywane zarówno w Azure Monitor metryki, jak i w dziennikach Azure Monitor bez konieczności wykonywania dodatkowych czynności konfiguracyjnych.
 
 ### <a name="create-an-application-resource"></a>Tworzenie zasobu aplikacji
-Należy utworzyć zasób w Application Insights dla każdej aplikacji, która ma być monitorowana. Dane dziennika zbierane przez Application Insights są przechowywane w dziennikach Azure Monitor, ale są oddzielone od obszaru roboczego Log Analytics, zgodnie z opisem w temacie [jak dane w Azure monitor dzienników są uporządkowane?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Obecnie w wersji zapoznawczej można przechowywać dane aplikacji bezpośrednio w obszarze roboczym Log Analytics przy użyciu innych danych. Upraszcza to konfigurację i pozwala aplikacji na korzystanie ze wszystkich funkcji obszaru roboczego Log Analytics.
+Należy utworzyć zasób w Application Insights dla każdej aplikacji, która ma być monitorowana. Dane dziennika zbierane przez Application Insights są przechowywane w dziennikach Azure Monitor dla aplikacji opartej na obszarze roboczym. Dane dziennika dla klasycznych aplikacji są przechowywane niezależnie od obszaru roboczego Log Analytics, zgodnie z opisem w temacie [Struktura danych](platform/data-platform-logs.md#structure-of-data).
 
- Podczas tworzenia aplikacji należy wybrać, czy ma być używana klasyczna czy oparta na obszarze roboczym (wersja zapoznawcza). Zobacz [Tworzenie zasobu Application Insights](app/create-new-resource.md) , aby utworzyć klasyczną aplikację. Zapoznaj się z [zasobami Application Insights opartymi na obszarze roboczym (wersja zapoznawcza)](app/create-workspace-resource.md) w celu utworzenia aplikacji na podstawie obszaru roboczego.
+ Podczas tworzenia aplikacji należy wybrać, czy używać klasycznego, czy opartego na obszarze roboczym. Zobacz [Tworzenie zasobu Application Insights](app/create-new-resource.md) , aby utworzyć klasyczną aplikację. Zapoznaj się z [zasobami Application Insights opartymi na obszarze roboczym (wersja zapoznawcza)](app/create-workspace-resource.md) w celu utworzenia aplikacji na podstawie obszaru roboczego.
 
 ### <a name="configure-codeless-or-code-based-monitoring"></a>Konfigurowanie monitorowania na podstawie kodu lub kodu
 Aby włączyć monitorowanie dla aplikacji, należy zdecydować, czy będzie używane monitorowanie oparte na kodzie, czy też na podstawie kodu. Proces konfiguracji będzie się różnić w zależności od tej decyzji i typu aplikacji, która ma być monitorowana.

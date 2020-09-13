@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475247"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032031"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Używanie modeli Plug and Play IoT w rozwiązaniu IoT
 
@@ -40,7 +40,7 @@ Rozwiązanie może uzyskać identyfikator modelu urządzenia Plug and Play IoT, 
 
 ### <a name="get-device-twin-api"></a>Pobierz interfejs API z urządzeniami bliźniaczymi
 
-Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
+Rozwiązanie może korzystać z interfejsu API " [Get Device bliźniaczy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) " w celu pobrania identyfikatora modelu urządzenia Plug and Play IoT.
 
 W poniższym fragmencie kodu odpowiedzi z urządzeń z sznurem `modelId` zawiera identyfikator modelu urządzenia Plug and Play IoT:
 
@@ -112,7 +112,7 @@ Rozwiązanie używa identyfikatora modelu identyfikowanego powyżej do pobrania 
 
 Rozwiązanie może pobrać definicję modelu przy użyciu jednej z następujących opcji:
 
-### <a name="model-repository"></a>Repozytorium modelu
+### <a name="model-repository"></a>Repozytorium modeli
 
 Rozwiązania mogą używać [repozytorium modelu](concepts-model-repository.md) do pobierania modeli. Konstruktory urządzeń lub konstruktory rozwiązań muszą wcześniej przekazać swoje modele do repozytorium, aby można było je pobrać.
 
@@ -140,6 +140,6 @@ Po zidentyfikowaniu identyfikatora modelu dla nowego połączenia z urządzeniem
 
 Teraz, gdy wiesz już, jak zintegrować modele IoT Plug and Play w rozwiązaniu IoT, Oto kilka sugerowanych następnych kroków:
 
-- [Korzystanie z urządzenia z rozwiązania](quickstart-service-node.md)
+- [Interakcja z urządzeniem z rozwiązania](quickstart-service-node.md)
 - [Interfejs API REST cyfrowego przędzy IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Eksplorator IoT Azure](howto-use-iot-explorer.md)

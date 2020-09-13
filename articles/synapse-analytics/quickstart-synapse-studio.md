@@ -5,22 +5,22 @@ services: synapse-analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b35b281f6a70d5485004dc61563271132734a87
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a45c98192eccdb320814f88f7f4823603357f528
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374154"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031759"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Szybki Start: korzystanie z programu Synapse Studio (wersja zapoznawcza)
 
 W tym przewodniku szybki start dowiesz się, jak wykonywać zapytania dotyczące plików przy użyciu programu Synapse Studio.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 

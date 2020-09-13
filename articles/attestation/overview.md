@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: ad164f8af3e5506ae5ac9121010b99303286dd1f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320600"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033000"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Zaświadczanie na platformie Azure umożliwia korzystanie z odcięć takich odmi
 
 Zaświadczanie platformy Azure odbiera dowody od jednostek obliczeniowych, włącza je do zestawu oświadczeń, weryfikuje je pod kątem konfigurowalnych zasad i tworzy kryptograficzne sprawdzanie dla aplikacji opartych na oświadczeniach (na przykład jednostki uzależnione i urzędy inspekcji).
 
-## <a name="use-cases"></a>Przypadki zastosowań
+## <a name="use-cases"></a>Przypadki użycia
 
 Zaświadczanie platformy Azure zapewnia kompleksowe usługi zaświadczania dla wielu środowisk i charakterystycznych przypadków użycia.
 
@@ -85,7 +85,7 @@ Klastry wdrożone w dwóch regionach będą działać niezależnie w normalnych 
 - [Traffic Manager platformy Azure](../traffic-manager/index.yml) dla regionu wykryje pogorszenie sondy kondycji i przełączenie punktu końcowego na sparowany region
 - Istniejące połączenia nie będą działały i otrzymają wewnętrzny błąd serwera lub problemy z przekroczeniem limitu czasu
 - Wszystkie operacje płaszczyzny kontroli zostaną zablokowane. Klienci nie będą mogli tworzyć dostawców zaświadczania i aktualizować zasad w regionie podstawowym
-- Wszystkie operacje płaszczyzny danych, włącznie z zaświadczeniem, będą nadal działały w regionie podstawowym
+- Wszystkie operacje płaszczyzny danych, w tym zaświadczanie wywołań, będą nadal działały w regionie podstawowym
 
 ## <a name="next-steps"></a>Następne kroki
 - Informacje o [podstawowych pojęciach dotyczących zaświadczania platformy Azure](basic-concepts.md)

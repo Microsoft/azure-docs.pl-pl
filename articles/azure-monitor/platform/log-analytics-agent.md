@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: fb58728e005ad70ac5392aa9e3e6a254ed317276
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016340"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032524"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent Log Analytics platformy Azure zbiera dane telemetryczne z maszyn wirtualnych z systemami Windows i Linux w dowolnej chmurze, maszynach lokalnych i monitorowane przez [System Center Operations Manager](/system-center/scom/) i wysyła je do obszaru roboczego Log Analytics w Azure monitor. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)i [Azure Automation](../../automation/automation-intro.md). Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz metod wdrażania.
@@ -63,7 +63,7 @@ Aby uzyskać szczegółowe informacje na temat łączenia agenta z grupą zarzą
 
 ## <a name="security-limitations"></a>Ograniczenia zabezpieczeń
 
-* Agent systemu Windows obsługuje [Standard FIPS 140](/windows/security/threat-protection/fips-140-validation), a agent Linux nie obsługuje go.  
+* Agenci systemów Windows i Linux obsługują [Standard FIPS 140](/windows/security/threat-protection/fips-140-validation), ale [Inne typy ograniczania funkcjonalności mogą nie być obsługiwane](agent-linux.md#supported-linux-hardening).
 
 
 ## <a name="installation-options"></a>Opcje instalacji
@@ -141,7 +141,7 @@ Na przykład: `https://user01:password@proxy01.contoso.com:30443`
 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * Przejrzyj [źródła danych](agent-data-sources.md) , aby zrozumieć źródła danych dostępne do zbierania danych z systemu Windows lub Linux. 
 * Informacje na temat [zapytań dzienników](../log-query/log-query-overview.md) w celu analizowania danych zebranych ze źródeł danych i rozwiązań. 

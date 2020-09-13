@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 98814060fb9ae669fc4e9a90fcda6319bbfaeacf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ede55196793e7eb19a5f64e539ee870ff0fada9d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182548"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031420"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Ruby do nawiązywania połączenia i wykonywania zapytań dotyczących danych na pojedynczym serwerze Azure Database for PostgreSQL
 
@@ -43,7 +43,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
 ## <a name="connect-and-create-a-table"></a>Łączenie i tworzenie tabeli
 Użyj poniższego kodu w celu nawiązania połączenia i utworzenia tabeli za pomocą instrukcji **CREATE TABLE** języka SQL, a następnie instrukcji **INSERT INTO** języka SQL, aby dodać wiersze do tabeli.
 
-Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia poleceń DROP, CREATE TABLE i INSERT INTO. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
+Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia poleceń DROP, CREATE TABLE i INSERT INTO. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 
 Zastąp ciągi `host`, `database`, `user` i `password` własnymi wartościami. 
 
@@ -87,7 +87,7 @@ end
 ## <a name="read-data"></a>Odczyt danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **SELECT** języka SQL. 
 
-Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia polecenia SELECT z zachowaniem wyników w zestawie wyników. Kolekcja zestawów wyników jest iterowana przy użyciu pętli `resultSet.each do` z zachowaniem bieżących wartości wierszy w zmiennej `row`. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
+Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia polecenia SELECT z zachowaniem wyników w zestawie wyników. Kolekcja zestawów wyników jest iterowana przy użyciu pętli `resultSet.each do` z zachowaniem bieżących wartości wierszy w zmiennej `row`. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 
 Zastąp ciągi `host`, `database`, `user` i `password` własnymi wartościami. 
 
@@ -121,7 +121,7 @@ end
 ## <a name="update-data"></a>Aktualizowanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i zaktualizować dane za pomocą instrukcji **UPDATE** języka SQL.
 
-Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia polecenia UPDATE. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
+Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia polecenia UPDATE. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 
 Zastąp ciągi `host`, `database`, `user` i `password` własnymi wartościami. 
 
@@ -155,7 +155,7 @@ end
 ## <a name="delete-data"></a>Usuwanie danych
 Użyj poniższego kodu, aby nawiązać połączenie i odczytać dane za pomocą instrukcji **DELETE** języka SQL. 
 
-Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia polecenia UPDATE. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
+Kod używa obiektu [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) z konstruktorem [new()](https://www.rubydoc.info/gems/pg/PG/Connection#initialize-instance_method) w celu nawiązania połączenia z usługą Azure Database for PostgreSQL. Następnie kod wywołuje metodę [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) w celu uruchomienia polecenia UPDATE. Kod wyszukuje błędy za pomocą klasy [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). W kolejnym kroku kod wywołuje metodę [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) w celu zamknięcia połączenia przed zakończeniem.
 
 Zastąp ciągi `host`, `database`, `user` i `password` własnymi wartościami. 
 

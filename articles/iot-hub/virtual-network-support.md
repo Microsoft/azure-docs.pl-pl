@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272904"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033527"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -226,6 +226,8 @@ Teraz niestandardowy punkt końcowy usługi Service Bus jest skonfigurowany do k
 
 Funkcja przekazywania plików IoT Hub umożliwia urządzeniom przekazywanie plików do konta magazynu należącego do klienta. Aby umożliwić przekazywanie plików do funkcji, oba urządzenia i IoT Hub muszą mieć łączność z kontem magazynu. Jeśli ograniczenia dotyczące zapory są stosowane na koncie magazynu, urządzenia muszą używać dowolnego mechanizmu obsługiwanego konta magazynu (w tym [prywatnych punktów końcowych](../private-link/create-private-endpoint-storage-portal.md), [punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md)lub [bezpośredniej konfiguracji zapory](../storage/common/storage-network-security.md)) w celu uzyskania łączności. Analogicznie, jeśli istnieją ograniczenia dotyczące zapory na koncie magazynu, IoT Hub należy skonfigurować w celu uzyskania dostępu do zasobu magazynu za pomocą zaufanego wyjątku usług firmy Microsoft. W tym celu IoT Hub musi mieć zarządzaną tożsamość. Gdy zarządzana tożsamość zostanie zainicjowana, wykonaj poniższe kroki, aby udzielić kontroli RBAC tożsamości zasobu centrum w celu uzyskania dostępu do konta magazynu.
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
+
 1. W Azure Portal przejdź do karty **kontroli dostępu konta magazynu (IAM)** , a następnie kliknij przycisk **Dodaj** w sekcji **Dodawanie przypisania roli** .
 
 2. Wybierz opcję **współautor danych obiektu blob magazynu** ([*nie* współautor lub współautor konta magazynu](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) jako **rolę**, **użytkownika usługi Azure AD, grupy lub jednostki usługi** jako **przypisujące dostęp do** i wybierz nazwę zasobu IoT Hub na liście rozwijanej. Kliknij przycisk **Zapisz**.
@@ -250,7 +252,7 @@ Ta funkcja wymaga łączności IoT Hub z kontem magazynu. Aby uzyskać dostęp d
 
 3. Przejdź do karty **zapory i sieci wirtualne** na koncie magazynu i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**. Kliknij przycisk **Zapisz**.
 
-Za pomocą interfejsów API REST usługi Azure IoT można teraz [tworzyć zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) , aby uzyskać informacje na temat korzystania z funkcji zbiorczego importowania/eksportowania. Musisz podać `storageAuthenticationType="identityBased"` w treści żądania, a `inputBlobContainerUri="https://..."` `outputBlobContainerUri="https://..."` także jako wejściowe i wyjściowe adresy URL konta magazynu.
+Za pomocą interfejsów API REST usługi Azure IoT można teraz [tworzyć zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) , aby uzyskać informacje na temat korzystania z funkcji zbiorczego importowania/eksportowania. Musisz podać `storageAuthenticationType="identityBased"` w treści żądania, a `inputBlobContainerUri="https://..."` `outputBlobContainerUri="https://..."` także jako wejściowe i wyjściowe adresy URL konta magazynu.
 
 Zestawy SDK platformy Azure IoT Hub obsługują również tę funkcję w Menedżerze rejestru klienta usługi. Poniższy fragment kodu przedstawia sposób inicjowania zadania importowania lub eksportowania zadania w programie przy użyciu zestawu C# SDK.
 

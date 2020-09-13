@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/21/2020
-ms.openlocfilehash: 6eb4aee1cfe62b09210f62d016028485594a9474
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/02/2020
+ms.openlocfilehash: 48d233dee063d8f9049e6e54baa2d744e1b8b058
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000791"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033459"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Omówienie agentów Azure Monitor
 
@@ -79,7 +79,7 @@ Ograniczenia Azure Monitor agenta obejmują:
 Użyj agenta Log Analytics, jeśli zachodzi taka potrzeba:
 
 * Zbieraj dzienniki i dane wydajności z maszyn wirtualnych lub fizycznych z platformy Azure lub poza nią. 
-* Wyślij dane do obszaru roboczego Log Analytics, aby korzystać z funkcji obsługiwanych przez [dzienniki Azure monitor](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) , takie jak [zapytania dziennika](../log-query/log-query-overview.md).
+* Wyślij dane do obszaru roboczego Log Analytics, aby korzystać z funkcji obsługiwanych przez [dzienniki Azure monitor](data-platform-logs.md) , takie jak [zapytania dziennika](../log-query/log-query-overview.md).
 * Użyj [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) , która pozwala monitorować maszyny wirtualne w odpowiedniej skali i monitoruje ich procesy oraz zależności od innych zasobów i procesów zewnętrznych.  
 * Zarządzaj zabezpieczeniami maszyn wirtualnych przy użyciu [Azure Security Center](../../security-center/security-center-intro.md)  lub [platformy Azure](../../sentinel/overview.md).
 * Użyj [Azure Automation zarządzania aktualizacjami](../../automation/update-management/update-mgmt-overview.md), [Azure Automation konfiguracji stanu](../../automation/automation-dsc-overview.md)lub [Azure Automation Change Tracking i spisu](../../automation/change-tracking.md) , aby zapewnić kompleksowe zarządzanie maszynami wirtualnymi platformy Azure
@@ -148,7 +148,7 @@ W poniższej tabeli wymieniono systemy operacyjne, które są obsługiwane przez
 | Windows Server 2012 z dodatkiem R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 z dodatkiem R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(w tym wiele sesji) i Pro  |   | X | X | X |
+| Windows 10 Enterprise<br>(w tym wiele sesji) i Pro  | X | X | X | X |
 | Windows 8 Enterprise i Pro                             |   | X | X |   |
 | Windows 7 z dodatkiem SP1                                            |   | X | X |   |
 
@@ -159,6 +159,7 @@ W poniższej tabeli wymieniono systemy operacyjne, które są obsługiwane przez
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017,09                                     |   | X |   |   |
 | CentOS Linux 7                                           | X | X |   | X |
+| CentOS Linux 7,8                                         | X | X | X | X |
 | CentOS Linux 7,6                                         | X | X | X | X |
 | CentOS Linux 6                                           | X | X |   |   |
 | CentOS Linux 6.5 +                                        | X | X |   | X |
@@ -170,11 +171,11 @@ W poniższej tabeli wymieniono systemy operacyjne, które są obsługiwane przez
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           | X | X |   |   |
 | Oracle Linux 6.4 +                                        | X | X |   | X |
-| Red Hat Enterprise Linux Server 8                        | X | X |   |   |
+| Red Hat Enterprise Linux Server 8                        |   | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        | X | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 +                     | X | X | X | X |
-| SUSE Linux Enterprise Server 15                          | X | X | X |   |
+| SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 18,04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
@@ -202,7 +203,7 @@ Ponieważ agent zależności działa na poziomie jądra, pomoc techniczna jest r
 | Debian                          | 9      | 4,9  | 
 
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Więcej informacji na temat każdego z agentów znajduje się w następujących tematach:
 

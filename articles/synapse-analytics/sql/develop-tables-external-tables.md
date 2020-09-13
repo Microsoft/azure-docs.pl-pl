@@ -5,16 +5,16 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 070d933394b19ea38a9632f25909812943f7bff8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c0373e8a476e65a61ef4b3ea945b98e0763c0a22
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255834"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032932"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
@@ -96,7 +96,7 @@ data_source_name
 Określa zdefiniowaną przez użytkownika nazwę źródła danych. Nazwa musi być unikatowa w obrębie bazy danych.
 
 #### <a name="location"></a>Lokalizacja
-LOCATION = `'<prefix>://<path>'` — udostępnia protokół połączenia i ścieżkę do zewnętrznego źródła danych. W lokalizacji można używać następujących wzorców:
+LOCATION = `'<prefix>://<path>'`   — udostępnia protokół połączenia i ścieżkę do zewnętrznego źródła danych. W lokalizacji można używać następujących wzorców:
 
 | Zewnętrzne źródło danych        | Prefiks lokalizacji | Ścieżka lokalizacji                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
@@ -105,7 +105,7 @@ LOCATION = `'<prefix>://<path>'` — udostępnia protokół połączenia i ście
 | Azure Data Lake Store Gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
 | Azure Data Lake Store Gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
 
-`https:`prefiks umożliwia użycie podfolderu w ścieżce.
+`https:` prefiks umożliwia użycie podfolderu w ścieżce.
 
 #### <a name="credential"></a>Poświadczenie
 CREDENTIAL = `<database scoped credential>` to opcjonalne poświadczenie, które będzie używane do uwierzytelniania w usłudze Azure Storage. Zewnętrzne źródło danych bez poświadczeń może uzyskać dostęp do konta magazynu publicznego. 

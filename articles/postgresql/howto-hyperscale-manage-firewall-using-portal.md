@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 9/12/2019
-ms.openlocfilehash: c84616e8a9b9ff9722f5a104175c80c37dbcbcc3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 9/11/2020
+ms.openlocfilehash: 35d5b101f4ad5fe4498c0566227c5f0a9d102b60
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116917"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032574"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Zarządzanie regułami zapory dla Azure Database for PostgreSQL-ze skalowaniem (Citus)
 Reguły zapory na poziomie serwera mogą służyć do zarządzania dostępem do węzła koordynatora ze skalowaniem (Citus) z określonego adresu IP lub zakresu adresów IP.
@@ -24,14 +24,14 @@ Aby krokowo poprowadzić ten przewodnik, musisz:
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Tworzenie reguły zapory na poziomie serwera w witrynie Azure Portal
 
 > [!NOTE]
-> Te ustawienia są również dostępne podczas tworzenia grupy serwerów Azure Database for PostgreSQL-Citus. Na karcie **Sieć** kliknij pozycję **publiczny punkt końcowy**.
+> Te ustawienia są również dostępne podczas tworzenia grupy serwerów Azure Database for PostgreSQL-Citus. Na karcie **Sieć** kliknij pozycję **dostęp publiczny**.
 > ![Azure Portal — karta sieciowa](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. Na stronie Grupa serwerów PostgreSQL w obszarze nagłówek zabezpieczeń kliknij pozycję **Sieć** , aby otworzyć reguły zapory.
 
    ![Azure Portal — kliknij pozycję Sieć](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. Kliknij pozycję **Dodaj adres IP klienta**, na pasku narzędzi (opcja A) lub w łączu (opcja B). W obu przypadkach program automatycznie tworzy regułę zapory z publicznym adresem IP komputera, jak zostało to postrzegane przez system Azure.
+2. Kliknij przycisk **Dodaj bieżący adres IP klienta** , aby utworzyć regułę zapory z publicznym adresem IP komputera, jak zostało to postrzegane przez system Azure.
 
    ![Azure Portal kliknij pozycję Dodaj adres IP klienta](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -55,7 +55,7 @@ Istnieje prosty sposób udzielania dostępu do bazy danych w ramach aplikacji ho
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Zarządzanie istniejącymi regułami zapory na poziomie serwera przy użyciu witryny Azure Portal
 Powtórz kroki, aby zarządzać regułami zapory.
-* Aby dodać bieżący komputer, kliknij przycisk i **Dodaj adres IP klienta**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
+* Aby dodać bieżący komputer, kliknij przycisk, aby **dodać bieżący adres IP klienta**. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 * Aby dodać kolejne adresy IP, wpisz nazwę reguły, początkowy adres IP i końcowy adres IP. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 * Aby zmodyfikować istniejącą regułę, kliknij dowolne pole w regule i wprowadź zmiany. Kliknij przycisk **Zapisz**, aby zapisać zmiany.
 * Aby usunąć istniejącą regułę, kliknij przycisk wielokropka [...], a następnie kliknij przycisk **Usuń** , aby usunąć regułę. Kliknij przycisk **Zapisz**, aby zapisać zmiany.

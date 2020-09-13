@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.date: 09/11/2020
+ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007761"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032116"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -22,7 +22,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące komercyjn
 
 ### <a name="what-is-the-microsoft-commercial-marketplace"></a>Co to jest komercyjne oprogramowanie Microsoft Marketplace?
 
-Komercyjna witryna Marketplace łączy agencje biznesowe i rządowe z rozwiązaniami utworzonymi przez naszych partnerów. Nasi Partnerzy tworzą i zarządzają ofertami w centrum partnerskim, a klienci mogą odkrywać i kupować rozwiązania za pośrednictwem środowisk w środowisku produkcyjnym, takich jak Microsoft AppSource, Azure Marketplace, odsprzedawców w programie dostawcy rozwiązań w chmurze i naszych zespołów sprzedaży za pośrednictwem programu współsprzedaży.
+Komercyjna witryna Marketplace łączy agencje biznesowe i rządowe z rozwiązaniami utworzonymi przez naszych partnerów. Nasi Partnerzy tworzą i zarządzają ofertami w centrum partnerskim, a klienci mogą odkrywać i kupować rozwiązania za pomocą środowisk w środowisku produkcyjnym, takich jak Microsoft AppSource, Azure Marketplace, odsprzedawców w programie dostawcy rozwiązań w chmurze i naszych zespołów sprzedaży za pomocą programu współsprzedaży.
 
 Aby dowiedzieć się więcej, przejdź do [komercyjnego centrum portalu Microsoft Marketplace](https://partner.microsoft.com/asset/collection/commercial-marketplace#/).
 
@@ -42,7 +42,7 @@ Komercyjna witryna Marketplace jest dostępna w 141 regionach na podstawie planu
 
 Zarządzamy płatnościami podatkowymi w wielu krajach/regionach i Zapewniamy dostęp do naszej sieci globalnej kanału odsprzedawcy. Możesz użyć umowy lub Umowa Enterprise klienta firmy Microsoft do sprzedaży do organizacji bez konieczności tworzenia nowej relacji kupowania.
 
-Aby dowiedzieć się więcej, zapoznaj się z filmem wideo o tym, jak [sprzedawać w portalu Marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
+Aby dowiedzieć się więcej, zobacz [Microsoft Commercial Marketplace Hub](https://aka.ms/commercialmarketplacehub).
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Czy istnieje opłata za korzystanie z usługi Microsoft Commercial Marketplace?
 
@@ -67,7 +67,7 @@ Sposoby korzystania z komercyjnej oferty portalu Marketplace zależą od tego, j
 
 Po utworzeniu konta i zaakceptowaniu umowy wydawcy będziesz mieć dostęp do strony komercyjnej witryny Marketplace w centrum partnerskim. Jest to miejsce, w którym można tworzyć i zarządzać ofertami oraz wyświetlać raporty analityczne. W przypadku aplikacji Microsoft 365 należy również aktywować program Office Store w centrum partnerskim.
 
-Aby uzyskać więcej informacji, zobacz [Witamy w komercyjnej witrynie Marketplace](index.yml) i [Zarabiaj dodatek pakietu Office 365 za pomocą portalu komercyjnego firmy Microsoft](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Aby uzyskać więcej informacji, zobacz [Witamy w komercyjnej witrynie Marketplace](index.yml) i [Zarabiaj dodatek Microsoft 365 za pomocą komercyjnego portalu Microsoft Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Jak mogę uzyskać pomoc techniczną dotyczącą komercyjnej witryny Marketplace?
 
@@ -329,7 +329,7 @@ Zalecamy następujące zasoby:
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Gdzie mogę dowiedzieć się więcej o centrum administracyjnym firmy Microsoft?
 
-Aby uzyskać informacje o centrum administracyjnym firmy Microsoft, zobacz [Zarządzanie subskrypcjami aplikacji innych firm w organizacji](https://docs.microsoft.com/microsoft-365/commerce/manage-saas-apps?view=o365-worldwide).
+Aby uzyskać informacje o centrum administracyjnym firmy Microsoft, zobacz [Zarządzanie subskrypcjami aplikacji innych firm w organizacji](/microsoft-365/commerce/manage-saas-apps).
 
 ### <a name="where-can-i-learn-more-about-azure-billing"></a>Gdzie mogę dowiedzieć się więcej na temat rozliczeń na platformie Azure?
 

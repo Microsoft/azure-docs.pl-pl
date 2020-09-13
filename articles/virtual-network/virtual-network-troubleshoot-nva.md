@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 112792d4ccee2be7f85e6a5a6c0caf64df9a019e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7046062b1c2e42f47d650df6d616d6fb73c8d1ca
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286074"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033068"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemy z sieciowym urządzeniem wirtualnym na platformie Azure
 
@@ -140,7 +140,7 @@ Przechwyć jednoczesne śledzenie sieci na źródłowej maszynie wirtualnej, urz
    sudo tcpdump-S0-i eth0-X-w vmtrace. Cap
 
 2. Użyj **PsPing** lub **Nmap** ze źródłowej maszyny wirtualnej na docelowej maszynie wirtualnej (na przykład: `PsPing 10.0.0.4:80` lub `Nmap -p 80 10.0.0.4` ).
-3. Otwórz ślad sieci z docelowej maszyny wirtualnej przy użyciu [Monitor sieci](https://www.microsoft.com/download/details.aspx?id=4865) lub tcpdump. Zastosuj filtr wyświetlania dla adresu IP źródłowej maszyny wirtualnej, z której uruchomiono **PsPing** lub **Nmap** , na przykład `IPv4.address==10.0.0.4 (Windows netmon)` lub `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
+3. Otwórz ślad sieci z docelowej maszyny wirtualnej przy użyciu [Monitor sieci](https://cnet-downloads.com/network-monitor) lub tcpdump. Zastosuj filtr wyświetlania dla adresu IP źródłowej maszyny wirtualnej, z której uruchomiono **PsPing** lub **Nmap** , na przykład `IPv4.address==10.0.0.4 (Windows netmon)` lub `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Analizowanie śladów
 

@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/10/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800717"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033663"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -190,7 +190,7 @@ Aby uzyskać więcej informacji na temat GAC, zobacz [ten artykuł](https://docs
 
 #### <a name="symptoms"></a>Objawy
 
-Samodzielne środowisko Integration Runtime jest nieoczekiwane w trybie offline bez klucza, poniżej zostanie wyświetlony komunikat o błędzie w dzienniku zdarzeń:`Authentication Key is not assigned yet`
+Samodzielne środowisko Integration Runtime jest nieoczekiwane w trybie offline bez klucza, poniżej zostanie wyświetlony komunikat o błędzie w dzienniku zdarzeń: `Authentication Key is not assigned yet`
 
 ![Brak klucza uwierzytelniania](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
@@ -351,7 +351,7 @@ Nie można znaleźć przycisku **register** w interfejsie użytkownika Configura
 
 #### <a name="cause"></a>Przyczyna
 
-Ponieważ wersja *Integration Runtime 3,0*, przycisk **zarejestruj** na istniejącym węźle Integration Runtime został usunięty, aby umożliwić bardziej przejrzyste i bezpieczniejsze środowisko. Jeśli węzeł został zarejestrowany w niektórych Integration Runtime (w trybie online lub nie), aby ponownie zarejestrować go w innym Integration Runtime, należy odinstalować poprzedni węzeł, a następnie zainstalować i zarejestrować węzeł.
+Ponieważ wersja *Integration Runtime 3,0*, przycisk **zarejestruj** na istniejącym węźle Integration Runtime został usunięty, aby umożliwić bardziej przejrzyste i bezpieczniejsze środowisko. Jeśli zarejestrowano węzeł w dowolnym środowisku IR (online lub nie), to aby zainstalować go ponownie w innym środowisku IR, należy odinstalować poprzedni węzeł, a następnie zainstalować i zarejestrować nowy.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -519,7 +519,7 @@ To zachowanie występuje, gdy węzły nie mogą komunikować się ze sobą.
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problem z łącznością między własnym hostowanym środowiskiem IR i Data Factory lub własnym środowiskiem IR i źródłem danych/ujściam
 
-Aby rozwiązać problem z łącznością sieciową, należy wiedzieć, jak [zebrać ślad sieci](#how-to-collect-netmon-trace), zrozumieć, jak z niego korzystać i [analizować ślad netmon](#how-to-analyze-netmon-trace) przed zastosowaniem narzędzi netmon w rzeczywistych przypadkach z własnego środowiska IR.
+Aby rozwiązać problem z łącznością sieciową, należy wiedzieć, jak zebrać ślad sieci, zrozumieć, jak z niego korzystać i [analizować ślad netmon](#how-to-analyze-netmon-trace) przed zastosowaniem narzędzi netmon w rzeczywistych przypadkach z własnego środowiska IR.
 
 #### <a name="symptoms"></a>Objawy
 
@@ -577,7 +577,7 @@ Wykonaj śledzenie netmon i Przeanalizuj je ponownie.
 
 ### <a name="how-to-collect-netmon-trace"></a>Jak zbierać ślady netmon
 
-1.  Pobierz narzędzia netmon z [tej witryny sieci Web](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)i zainstaluj je na komputerze serwera (dowolnego serwera z problemem) i klienta (takiego jak samoobsługowe środowisko IR).
+1.  Pobierz narzędzia netmon z [tej witryny sieci Web](https://cnet-downloads.com/network-monitor)i zainstaluj je na komputerze serwera (dowolnego serwera z problemem) i klienta (takiego jak samoobsługowe środowisko IR).
 
 2.  Utwórz folder, na przykład w następującej ścieżce: *D:\netmon*. Upewnij się, że ma wystarczająco dużo miejsca, aby zapisać dziennik.
 
@@ -621,7 +621,10 @@ Wykonaj śledzenie netmon i Przeanalizuj je ponownie.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Jak analizować śledzenie netmon
 
-Gdy próbujesz wykonać polecenie telnet **8.8.8.8 888** z powyżej zebranych śladów netmon, zobaczysz następujący ślad:
+> [!NOTE] 
+> Poniższa instrukcja ma zastosowanie do śledzenia netmon. Ponieważ śledzenie netmon jest obecnie poza wsparciem, możesz korzystać z programu Wireshark jako tego samego.
+
+Gdy próbujesz wykonać polecenie telnet **8.8.8.8 888** przy użyciu zebranych śladów netmon, zobaczysz następujący ślad:
 
 ![Śledzenie netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 
@@ -676,7 +679,7 @@ Aby uzyskać pomoc dotyczącą rozwiązywania problemów, wypróbuj następując
 
 *  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Forum przepełnienia stosu dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)

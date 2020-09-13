@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: 57830ae14c5d6653f6a2225924160fcb75646c12
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d4df4ea96f8dafa2f0eb26e27fcc08ab4ec89003
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590764"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033578"
 ---
 # <a name="run-experiments-using-azure-automated-ml-and-apache-spark"></a>Uruchamiaj eksperymenty przy użyciu zautomatyzowanych i Apache Spark platformy Azure
 
@@ -28,7 +28,7 @@ W tym samouczku przedstawiono następujące zadania:
 - Uczenie zautomatyzowanego modelu regresji uczenia maszynowego
 - Oblicz dokładność modelu
 
-### <a name="before-you-begin"></a>Zanim rozpoczniesz
+### <a name="before-you-begin"></a>Przed rozpoczęciem
 - Utwórz pulę Apache Spark, postępując zgodnie z [samouczkiem Tworzenie puli Apache Spark](../quickstart-create-apache-spark-pool-studio.md).
 - Ukończ [samouczek konfiguracji obszaru roboczego Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) , jeśli nie masz istniejącego obszaru roboczego Azure Machine Learning. 
 

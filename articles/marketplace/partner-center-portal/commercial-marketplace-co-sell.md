@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104235"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033255"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Wspólna sprzedaż w Centrum partnerskim
 
@@ -62,11 +62,11 @@ Możesz dodać maksymalnie trzy obszary rozwiązań dla swojej oferty. Dla każd
 
 ## <a name="documents"></a>Dokumenty
 
-W celu oceny potrzeb klientów można dostarczyć firmie Microsoft zabezpieczenie.
+Istnieje możliwość udostępnienia dodatkowych dokumentów, których firma Microsoft będzie używać, aby dowiedzieć się więcej o ofercie i oszacować jej dopasowanie do potrzeb klientów. Wszystkie dokumenty wymienione w poniższej tabeli są opcjonalne.
 
 | **Dokumenty**    | **Opis**  |
 | :------------------- | :-------------------|
-| *Klient z jednym modułem stronicowania* | Gotowy do użycia opis oferty przez klienta. Zespoły sprzedaży firmy Microsoft mogą współdzielić te informacje z klientami, aby pomóc w ustaleniu, czy oferta może być dobrze dopasowana, i upewnić się, że jest ona gotowa dla klienta. <br> <br> Użyj jednego z odpowiednich szablonów dostępnych w centrum partnerskim: <br> <ul> <li> Microsoft Azure szablon z jednym modułem stronicowania </li> <li> Microsoft Dynamics 365 1 — szablon modułu stronicowania </li> <li> Office 365 1 — szablon modułu stronicowania </li> <li> Windows 10 1 — szablon modułu stronicowania </li> </ul> |
+| *Klient z jednym modułem stronicowania* | Gotowy do użycia opis oferty przez klienta. Zespoły sprzedaży firmy Microsoft mogą współdzielić te informacje z klientami, aby pomóc w ustaleniu, czy oferta może być dobrze dopasowana, i upewnić się, że jest ona gotowa dla klienta. <br> <br> Użyj jednego z odpowiednich szablonów dostępnych w centrum partnerskim: <br> <ul> <li> Microsoft Azure szablon z jednym modułem stronicowania </li> <li> Microsoft Dynamics 365 1 — szablon modułu stronicowania </li> <li> Microsoft 365 1 — szablon modułu stronicowania </li> <li> Windows 10 1 — szablon modułu stronicowania </li> </ul> |
 | *Prezentacja klienta* | Przesuń na talię swoje rozwiązanie i jego wartość. Po upewnieniu się, że oferta jest gotowa dla klienta, zespoły sprzedaży firmy Microsoft mogą udostępniać prezentację klientom, aby ideach wartość, którą obie firmy przyniosły podczas wdrażania wspólnego rozwiązania. Prezentacja powinna obejmować to, co to jest rozwiązanie, w jaki sposób może pomóc klientom, co to jest rozwiązanie, a także w porównaniu z rozwiązaniami konkurującymi. <br> <br> Użyj szablonu dostępnego w centrum partnerskim.|
 | *Analiza przypadku klienta* | Te informacje pokazują potencjalnego klienta, w przypadku których firma Microsoft pomyślnie wdrożyła to rozwiązanie we wcześniejszych przypadkach. <br> <br> Użyj szablonu dostępnego w centrum partnerskim. |
 | *Zweryfikowanie klienta WINS (opcjonalnie)* | Określone przykłady sukcesu klientów po wdrożeniu rozwiązania. |
@@ -79,14 +79,14 @@ W celu oceny potrzeb klientów można dostarczyć firmie Microsoft zabezpieczeni
 
 Informacje kontaktowe umożliwiają zespołom sprzedaży firmy Microsoft i odsprzedawców kanałów zażądać dodatkowych informacji od odpowiedniego zasobu w organizacji. Informacje kontaktowe są dostępne dla wszystkich zespołów sprzedaży firmy Microsoft. Jeśli wybierzesz opcję udostępnienia oferty w programie CSP, informacje kontaktowe są również dostępne dla odsprzedawcaów kanałów.
 
-Ten dokument zawiera wskazówki dotyczące różnych ról partnerów oraz sposób wybierania między nimi. Możesz udostępnić swoje kontakty, pobierając szablon CSV z Centrum partnerskiego, wypełniając każdy wiersz informacjami o kontakcie i importując ten plik CSV. Importowanie pliku CSV spowoduje zastąpienie istniejących kontaktów.
+Możesz udostępnić swoje kontakty, pobierając szablon CSV z Centrum partnerskiego, wypełniając każdy wiersz informacjami o kontakcie i importując ten plik CSV. Importowanie pliku CSV spowoduje zastąpienie istniejących kontaktów.
 
 Możesz również wyeksportować istniejącą listę kontaktów oferty, a następnie wprowadzić zmiany w tym pliku.
 
 * *Nazwa (wymagana)*: nazwa kontaktu.
 * *Adres e-mail (wymagane)*: adres e-mail osoby kontaktowej.
 * *Stanowisko (wymagane)*: stanowisko stanowiska.
-* *Rola (wymagana)*: Użyj jednej z następujących ról w tym polu w szablonie.
+* *Rola (wymagana)*: Użyj dowolnej z następujących ról.
 
     | **Role**    | **Opis**  |
     | :------------------- | :-------------------|

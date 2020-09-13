@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e53ac189e0d612b09c362e82ba5bc2fe5fec8d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 18f472da30b34fcacd70bba9ea7371b56f1a7abf
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696831"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032915"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS z Synapse SQL
 
@@ -144,7 +144,7 @@ CETAS może służyć do przechowywania zestawów wyników przy użyciu następu
 - varbinary
 - char
 - varchar
-- data
+- date
 - time
 - datetime2
 - decimal
