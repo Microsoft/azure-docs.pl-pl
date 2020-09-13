@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025884"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468610"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
 
@@ -86,6 +86,10 @@ PRT jest odnawiany w dwóch różnych metodach:
 * **Wtyczka usługi Azure AD wam podczas żądań tokenów aplikacji**: Wtyczka Menedżera wam umożliwia logowanie jednokrotne na urządzeniach z systemem Windows 10 przez włączenie żądań tokenów dyskretnych dla aplikacji. Wtyczka Menedżera WAM może odnowić PRT podczas tych żądań tokenów na dwa różne sposoby:
    * Aplikacja żąda WAM dla tokenu dostępu dyskretnie, ale nie ma dostępnego tokenu odświeżania dla tej aplikacji. W takim przypadku WAM używa PRT do żądania tokenu dla aplikacji i pobiera nowy PRT w odpowiedzi.
    * Aplikacja żąda WAM dla tokenu dostępu, ale PRT jest nieprawidłowa lub usługa Azure AD wymaga dodatkowej autoryzacji (na przykład Azure Multi-Factor Authentication). W tym scenariuszu jednostka WAM inicjuje Logowanie interakcyjne wymagające ponownego uwierzytelnienia użytkownika lub zapewnienia dodatkowej weryfikacji, a nowe PRT są wydawane po pomyślnym uwierzytelnieniu.
+
+W środowisku usług AD FS bezpośredni wiersz wglądu do kontrolera domeny nie jest wymagany do odnowienia PRT. Odnowienie PRT wymaga włączenia tylko/ADFS/Services/Trust/2005/usernamemixed i/ADFS/Services/Trust/13/usernamemixed punktów końcowych na serwerze proxy przy użyciu protokołu WS-Trust.
+
+Punkty końcowe transportu systemu Windows są wymagane do uwierzytelniania hasła tylko w przypadku zmiany hasła, a nie do odnawiania PRT.
 
 ### <a name="key-considerations"></a>Najważniejsze zagadnienia
 

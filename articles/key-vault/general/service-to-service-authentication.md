@@ -5,16 +5,16 @@ keywords: poświadczenia lokalne uwierzytelniania magazynu kluczy Azure
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 08/08/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 860f9b0e49423b5d144d56ecd965153f7a362d87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 00799f7c5239bfd744268f7353e1bac6cb038294
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180919"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483341"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Uwierzytelnianie między usługami Azure Key Vault przy użyciu platformy .NET
 
@@ -54,7 +54,7 @@ W przypadku aplikacji .NET Najprostszym sposobem pracy z zarządzaną tożsamoś
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-Nie trzeba sprawdzać wygaśnięcia tokenu przed wywołaniem `GetAccessTokenAsync` metody, ponieważ `AzureServiceTokenProvider` buforuje token w pamięci i pobiera go z usługi Azure AD tuż przed wygaśnięciem. 
+Klasa bezpieczna wątkowo `AzureServiceTokenProvider` buforuje token w pamięci i pobiera go z usługi Azure AD tuż przed wygaśnięciem. Oznacza to, że nigdy nie trzeba sprawdzać wygaśnięcia tokenu przed wywołaniem `GetAccessTokenAsync` metody. 
 
 `GetAccessTokenAsync`Metoda wymaga identyfikatora zasobu. Aby dowiedzieć się więcej na temat usług Microsoft Azure Services, zobacz [co to jest tożsamość zarządzana dla zasobów platformy Azure](../../active-directory/msi-overview.md).
 

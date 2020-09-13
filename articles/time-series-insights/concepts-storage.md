@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0f1e7789c0cebdd1cb5b22f21151020a0be09c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855117"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483273"
 ---
 # <a name="data-storage"></a>Magazyn danych
 
@@ -24,7 +24,7 @@ Podczas tworzenia środowiska Azure Time Series Insights Gen2 należy utworzyć 
 * Środowisko Azure Time Series Insights Gen2, które można skonfigurować pod kątem magazynowania w pamięci podgrzanej.
 * Konto usługi Azure Storage na potrzeby magazynu zimnych danych.
 
-Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md) i [Eksploratora TSI Azure Time Series Insights](./time-series-insights-update-explorer.md). Sklep ciepły będzie zawierał ostatnie dane w [okresie przechowywania](./time-series-insights-update-plan.md#the-preview-environment) wybranym podczas tworzenia środowiska Azure Time Series Insights Gen2.
+Dane w magazynie ciepłym są dostępne tylko za pośrednictwem [interfejsów API zapytań szeregów czasowych](./time-series-insights-update-tsq.md) i [Eksploratora Azure Time Series Insights](./time-series-insights-update-explorer.md). Sklep ciepły będzie zawierał ostatnie dane w [okresie przechowywania](./time-series-insights-update-plan.md#the-preview-environment) wybranym podczas tworzenia środowiska Azure Time Series Insights Gen2.
 
 Azure Time Series Insights Gen2 zapisuje dane w chłodnym sklepie w usłudze Azure Blob Storage w [formacie pliku Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 zarządza wyłącznie tym zimnym magazynem danych, ale jest dostępny do odczytu bezpośrednio jako standardowe pliki Parquet.
 
@@ -58,7 +58,7 @@ Aby zapewnić wydajność zapytań i dostępność danych, nie należy edytować
 
 #### <a name="accessing-cold-store-data"></a>Uzyskiwanie dostępu do danych zimnego magazynu
 
-Oprócz uzyskiwania dostępu do danych z interfejsów API programu [Azure Time Series INSIGHTS TSI](./time-series-insights-update-explorer.md) i [zapytań szeregów czasowych](./time-series-insights-update-tsq.md)możesz również uzyskać dostęp do danych bezpośrednio z plików Parquet przechowywanych w chłodnym magazynie. Na przykład można odczytywać, przekształcać i czyścić dane w notesie Jupyter, a następnie używać go do uczenia modelu Azure Machine Learning w tym samym przepływie pracy platformy Spark.
+Oprócz uzyskiwania dostępu do danych z interfejsów API zapytań programu [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) i [szeregów czasowych](./time-series-insights-update-tsq.md)możesz również uzyskać dostęp do danych bezpośrednio z plików Parquet przechowywanych w chłodnym magazynie. Na przykład można odczytywać, przekształcać i czyścić dane w notesie Jupyter, a następnie używać go do uczenia modelu Azure Machine Learning w tym samym przepływie pracy platformy Spark.
 
 Aby uzyskać dostęp do danych bezpośrednio z konta usługi Azure Storage, musisz mieć dostęp do odczytu do konta używanego do przechowywania Azure Time Series Insights danych Gen2. Następnie można odczytać wybrane dane na podstawie czasu utworzenia pliku Parquet znajdującego się w `PT=Time` folderze opisanym poniżej w sekcji [Format pliku Parquet](#parquet-file-format-and-folder-structure) .  Aby uzyskać więcej informacji na temat włączania dostępu do odczytu do konta magazynu, zobacz [Zarządzanie dostępem do zasobów konta magazynu](../storage/blobs/storage-manage-access-to-resources.md).
 

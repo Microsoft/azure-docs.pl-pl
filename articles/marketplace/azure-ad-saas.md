@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 0d8e2ee684bc08ec23e052229d50b7e9d62c0ecb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/04/2020
+ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328495"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483630"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Oferty usługi Azure AD i transacte SaaS w portalu komercyjnym
 
@@ -23,11 +23,11 @@ Ponadto Logowanie jednokrotne w usłudze [Azure AD](https://docs.microsoft.com/a
 
 Postępując zgodnie ze wskazówkami w tym artykule, pomożesz zatwierdzić swoją ofertę SaaS na komercyjnym rynku. Aby uzyskać więcej informacji na temat certyfikacji, zapoznaj się z szczegółowymi [komercyjnymi zasadami certyfikacji portalu Marketplace](https://aka.ms/commercial-marketplace-certification-policies#100-general), w tym [określonymi dla SaaS](https://aka.ms/commercial-marketplace-certification-policies#1000-software-as-a-service-saas).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Po [utworzeniu oferty SaaS](./partner-center-portal/create-new-saas-offer.md) w centrum partnerskim można wybrać jeden z zestawów konkretnych wywołań opcji akcji, które będą wyświetlane na liście ofert. Wybór określa sposób, w jaki Twoja oferta została zrealizowana na komercyjnym rynku. Oferty sprzedawane za poorednictwem firmy Microsoft są nazywane ofertami transakcyjnymi. Klient jest obciążany w Twoim imieniu wszystkimi ofertami z obsługą transakcji. W przypadku wybrania opcji sprzedaży za pomocą firmy Microsoft i zrealizowania transakcji hostów w Twoim imieniu (opcja **tak** ) wybrano opcję utworzenia oferty transakcyjnej i tego artykułu. Zalecamy, aby przeczytał go w całości.
+Po [utworzeniu oferty SaaS](./partner-center-portal/create-new-saas-offer.md) w centrum partnerskim możesz wybrać jedną z opcji wyświetlania listy, która będzie wyświetlana na liście oferty. Wybór określa sposób, w jaki Twoja oferta została zrealizowana na komercyjnym rynku. Oferty sprzedawane za poorednictwem firmy Microsoft są nazywane ofertami transakcyjnymi. Klient jest obciążany w Twoim imieniu wszystkimi ofertami z obsługą transakcji. W przypadku wybrania opcji sprzedaży za pomocą firmy Microsoft i zrealizowania transakcji hostów w Twoim imieniu (opcja **tak** ) wybrano opcję utworzenia oferty transakcyjnej i tego artykułu. Zalecamy, aby przeczytał go w całości.
 
-Jeśli zdecydujesz się na wystawianie oferty tylko w przypadku, gdy komercyjne transakcje rynkowe i procesy są niezależne ( **Brak** opcji), masz trzy opcje, dla których potencjalni klienci uzyskają dostęp do oferty: Pobierz teraz (bezpłatnie), bezpłatna wersja próbna i skontaktuj się ze mną. Jeśli wybierzesz pozycję **Pobierz teraz (bezpłatnie)** lub **bezpłatną wersję próbną**, ten artykuł nie zostanie wyświetlony. Zamiast tego, aby uzyskać więcej informacji, zobacz sekcję [Tworzenie strony docelowej dla oferty bezpłatnej lub próbnej SaaS w portalu komercyjnym](./azure-ad-free-or-trial-landing-page.md) . Jeśli wybierzesz opcję **kontakt ze mną**, nie ma bezpośrednich obowiązków wydawcy. Kontynuuj tworzenie oferty w centrum partnerskim.
+Jeśli zdecydujesz się na wyświetlanie oferty tylko za pomocą komercyjnej witryny Marketplace i Przetwarzaj transakcje osobno ( **bez** opcji), masz trzy opcje, w przypadku których potencjalni klienci uzyskają dostęp do oferty: Pobierz teraz (bezpłatnie), bezpłatna wersja próbna i skontaktuj się ze mną. Jeśli wybierzesz pozycję **Pobierz teraz (bezpłatnie)** lub **bezpłatną wersję próbną**, ten artykuł nie zostanie wyświetlony. Zamiast tego, aby uzyskać więcej informacji, zobacz sekcję [Tworzenie strony docelowej dla oferty bezpłatnej lub próbnej SaaS w portalu komercyjnym](./azure-ad-free-or-trial-landing-page.md) . Jeśli wybierzesz opcję **kontakt ze mną**, nie ma bezpośrednich obowiązków wydawcy. Kontynuuj tworzenie oferty w centrum partnerskim.
 
 ## <a name="how-azure-ad-works-with-the-commercial-marketplace-for-saas-offers"></a>Jak usługa Azure AD współpracuje z komercyjnymi ofertami w witrynie Marketplace for SaaS
 
@@ -88,5 +88,6 @@ Kroki od 7 do 9 są opcjonalnymi krokami procesu zarządzania użytkownikami. Za
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie oferty SaaS w komercyjnej witrynie Marketplace](./partner-center-portal/create-new-saas-offer.md)
-- [Utwórz stronę docelową dla oferty SaaS z transakcyjnymi w komercyjnej witrynie Marketplace](./azure-ad-transactable-saas-landing-page.md)
+- [Utwórz stronę docelową dla oferty SaaS z transakcyjnymi w komercyjnej witrynie Marketplace](azure-ad-transactable-saas-landing-page.md)
+- [Utwórz stronę docelową oferty bezpłatnej usługi SaaS lub wersji próbnej na komercyjnej platformie Marketplace](azure-ad-free-or-trial-landing-page.md)
+- [Jak utworzyć ofertę SaaS w komercyjnej witrynie Marketplace](create-new-saas-offer.md)

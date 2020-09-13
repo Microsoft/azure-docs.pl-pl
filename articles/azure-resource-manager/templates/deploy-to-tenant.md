@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002765"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468559"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Tworzenie zasobów na poziomie dzierżawy
 
@@ -151,7 +151,7 @@ Aby wskazać grupę zarządzania w ramach dzierżawy, Dodaj wdrożenie zagnieżd
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -167,9 +167,11 @@ W przypadku wdrożeń dzierżawców istnieją pewne ważne zagadnienia dotycząc
 * Funkcja [przesourceing ()](template-functions-resource.md#resourcegroup) **nie** jest obsługiwana.
 * Funkcja [Subscription ()](template-functions-resource.md#subscription) **nie** jest obsługiwana.
 * Obsługiwane są funkcje [Reference ()](template-functions-resource.md#reference) i [list ()](template-functions-resource.md#list) .
-* Użyj funkcji [tenantResourceId ()](template-functions-resource.md#tenantresourceid) , aby uzyskać identyfikator zasobu dla zasobów wdrożonych na poziomie dzierżawy.
+* Nie należy używać [ResourceID ()](template-functions-resource.md#resourceid) w celu uzyskania identyfikatora zasobu dla zasobów wdrożonych na poziomie dzierżawy.
 
-  Aby na przykład uzyskać identyfikator zasobu definicji zasad, należy użyć:
+  Zamiast tego należy użyć funkcji [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
+
+  Na przykład aby uzyskać identyfikator zasobu dla wbudowanej definicji zasad, użyj:
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691398"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462585"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Wdrażanie narzędzia do zarządzania pulpitem wirtualnym systemu Windows (klasycznego) przy użyciu szablonu Azure Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "88691398"
 
 Instrukcje zawarte w tym artykule przedstawiają sposób wdrażania interfejsu użytkownika przy użyciu szablonu Azure Resource Manager.
 
-## <a name="important-considerations"></a>Istotne zagadnienia
+## <a name="important-considerations"></a>Ważne zagadnienia
 
 Ponieważ aplikacja wymaga zgody na współdziałanie z pulpitem wirtualnym systemu Windows, to narzędzie nie obsługuje scenariuszy biznes-to-Business (B2B). Każda subskrypcja dzierżawy usługi Azure Active Directory (AAD) będzie potrzebować oddzielnego wdrożenia narzędzia do zarządzania.
 
@@ -98,7 +98,7 @@ Po udzieleniu zgody na organizację lub dla określonego użytkownika można w d
 
 Postępuj zgodnie z poniższymi instrukcjami, aby uruchomić narzędzie:
 
-1. Wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład  <https://rdmimgmtweb-210520190304.azurewebsites.net> .
+1. Wybierz zasób App Services platformy Azure o nazwie podanej w szablonie (na przykład Apr3UX) i przejdź do adresu URL skojarzonego z nim. na przykład  `https://rdmimgmtweb-210520190304.azurewebsites.net` .
 2. Zaloguj się przy użyciu poświadczeń pulpitu wirtualnego systemu Windows.
 3. Po wyświetleniu monitu o wybranie grupy dzierżawców wybierz z listy rozwijanej pozycję **Domyślna grupa dzierżawców** .
 4. Po wybraniu **domyślnej grupy dzierżawców**menu powinno być wyświetlane po lewej stronie okna. W tym menu Znajdź nazwę grupy dzierżawców i wybierz ją.

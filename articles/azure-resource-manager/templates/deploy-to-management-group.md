@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w grupie zarządzania
 description: Opisuje sposób wdrażania zasobów w zakresie grupy zarządzania w szablonie Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 2265f1d31176052c7e7c358ee8ed4cb06fb50ee7
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002906"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469800"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Tworzenie zasobów na poziomie grupy zarządzania
 
@@ -43,7 +43,7 @@ W przypadku szablonów zagnieżdżonych wdrażanych w ramach subskrypcji lub gru
 
 Aby zarządzać zasobami, użyj:
 
-* [tags](/azure/templates/microsoft.resources/tags)
+* [tabliczk](/azure/templates/microsoft.resources/tags)
 
 ### <a name="schema"></a>Schemat
 
@@ -136,7 +136,7 @@ Aby wskazać inną grupę zarządzania, Dodaj wdrożenie zagnieżdżone i okreś
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-different-mg
                 }
             }
         }
@@ -172,7 +172,7 @@ Aby uzyskać subskrypcję w grupie zarządzania, należy użyć zagnieżdżonego
               "properties": {
                 "mode": "Incremental",
                 "template": {
-                  nested-template
+                  nested-template-with-resources-in-resource-group
                 }
               }
             }
@@ -184,6 +184,8 @@ Aby uzyskać subskrypcję w grupie zarządzania, należy użyć zagnieżdżonego
 }
 ```
 
+Aby użyć wdrożenia grupy zarządzania do utworzenia grupy zasobów w ramach subskrypcji i wdrożenia konta magazynu w tej grupie zasobów, zobacz [wdrażanie w ramach subskrypcji i grupy zasobów](#deploy-to-subscription-and-resource-group).
+
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 
 W przypadku wdrożeń grup zarządzania istnieją pewne ważne zagadnienia dotyczące korzystania z funkcji szablonu:
@@ -191,87 +193,91 @@ W przypadku wdrożeń grup zarządzania istnieją pewne ważne zagadnienia dotyc
 * Funkcja [przesourceing ()](template-functions-resource.md#resourcegroup) **nie** jest obsługiwana.
 * Funkcja [Subscription ()](template-functions-resource.md#subscription) **nie** jest obsługiwana.
 * Obsługiwane są funkcje [Reference ()](template-functions-resource.md#reference) i [list ()](template-functions-resource.md#list) .
-* Funkcja [ResourceID ()](template-functions-resource.md#resourceid) jest obsługiwana. Służy do uzyskiwania identyfikatora zasobu dla zasobów używanych w wdrożeniach na poziomie grupy zarządzania. Nie należy podawać wartości parametru grupy zasobów.
+* Nie należy używać funkcji [ResourceID ()](template-functions-resource.md#resourceid) dla zasobów wdrożonych w grupie zarządzania.
 
-  Aby na przykład uzyskać identyfikator zasobu definicji zasad, należy użyć:
+  Zamiast tego należy użyć funkcji [extensionResourceId ()](template-functions-resource.md#extensionresourceid) dla zasobów, które są zaimplementowane jako rozszerzenia grupy zarządzania. Niestandardowe definicje zasad wdrożone w grupie zarządzania to rozszerzenia grupy zarządzania.
+
+  Aby uzyskać identyfikator zasobu dla niestandardowej definicji zasad na poziomie grupy zarządzania, użyj:
   
   ```json
-  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
-  
-  Identyfikator zwróconego zasobu ma następujący format:
+
+  Użyj funkcji [tenantResourceId](template-functions-resource.md#tenantresourceid) dla zasobów dzierżawy, które są dostępne w grupie zarządzania. Wbudowane definicje zasad to zasoby na poziomie dzierżawy.
+
+  Aby uzyskać identyfikator zasobu dla wbudowanej definicji zasad, użyj:
   
   ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
 ## <a name="azure-policy"></a>Azure Policy
 
-### <a name="define-policy"></a>Definiowanie zasad
-
-Poniższy przykład pokazuje, jak [zdefiniować](../../governance/policy/concepts/definition-structure.md) zasady na poziomie grupy zarządzania.
+Poniższy przykład pokazuje, jak [zdefiniować](../../governance/policy/concepts/definition-structure.md) zasady na poziomie grupy zarządzania i przypisać je.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMG": {
+            "type": "string",
+            "metadata": {
+                "description": "Target Management Group"
+            }
+        },
+        "allowedLocations": {
+            "type": "array",
+            "defaultValue": [
+                "australiaeast",
+                "australiasoutheast",
+                "australiacentral"
+            ],
+            "metadata": {
+                "description": "An array of the allowed locations, all other locations will be denied by the created policy."
+            }
         }
-      }
-    }
-  ]
-}
-```
-
-### <a name="assign-policy"></a>Przypisywanie zasad
-
-Poniższy przykład przypisuje istniejącą definicję zasad do grupy zarządzania. Jeśli zasady pobierają parametry, podaj je jako obiekt. Jeśli zasady nie przyjmują parametrów, Użyj domyślnego pustego obiektu.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
     },
-    "policyName": {
-      "type": "string"
+    "variables": {
+        "mgScope": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('targetMG'))]",
+        "policyDefinition": "LocationRestriction"
     },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/policyDefinitions",
+            "name": "[variables('policyDefinition')]",
+            "apiVersion": "2019-09-01",
+            "properties": {
+                "policyType": "Custom",
+                "mode": "All",
+                "parameters": {
+                },
+                "policyRule": {
+                    "if": {
+                        "not": {
+                            "field": "location",
+                            "in": "[parameters('allowedLocations')]"
+                        }
+                    },
+                    "then": {
+                        "effect": "deny"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/policyAssignments",
+            "name": "location-lock",
+            "apiVersion": "2019-09-01",
+            "dependsOn": [
+                "[variables('policyDefinition')]"
+            ],
+            "properties": {
+                "scope": "[variables('mgScope')]",
+                "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', variables('policyDefinition'))]"
+            }
+        }
+    ]
 }
 ```
 

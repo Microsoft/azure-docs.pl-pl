@@ -1,6 +1,6 @@
 ---
 title: Środowiska obliczeniowe obsługiwane przez Azure Data Factory
-description: Informacje o środowiskach obliczeniowych, których można użyć w potokach Azure Data Factory (takich jak usługa Azure HDInsight) do przekształcania lub przetwarzania danych.
+description: Środowiska obliczeniowe, które mogą być używane z potokami Azure Data Factory (na przykład Azure HDInsight) do przekształcania lub przetwarzania danych.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563742"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483193"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 
@@ -33,7 +33,7 @@ Poniższa tabela zawiera listę środowisk obliczeniowych obsługiwanych przez D
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning wykonywania potoku](transform-data-machine-learning-service.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning wykonywania potoku](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedura składowana](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (dawniej SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedura składowana](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notes](transform-data-databricks-notebook.md), [jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Funkcja platformy Azure](#azure-function-linked-service)         | [Działanie funkcji platformy Azure](control-flow-azure-function-activity.md)
 >  
@@ -45,8 +45,8 @@ Zapoznaj się z poniższą tabelą, aby uzyskać szczegółowe informacje na tem
 | W połączonej usłudze COMPUTE | Nazwa właściwości                | Opis                                                  | Obiekt blob | ADLS Gen2 | Azure SQL DB | Usługa ADLS Gen 1 |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------ | ---- | --------- | ------------ | ---------- |
 | Na żądanie                 | linkedServiceName            | Połączona usługa Azure Storage, która będzie używana przez klaster na żądanie do przechowywania i przetwarzania danych. | Tak  | Tak       | Nie           | Nie         |
-|                           | additionalLinkedServiceNames | Określa dodatkowe konta magazynu dla połączonej usługi HDInsight, aby usługa Data Factory mogła zarejestrować je w Twoim imieniu. | Yes  | Nie        | Nie           | Nie         |
-|                           | hcatalogLinkedServiceName    | Nazwa połączonej usługi Azure SQL, która wskazuje bazę danych HCatalog. Klaster usługi HDInsight na żądanie jest tworzony przy użyciu bazy danych Azure SQL Database jako magazynu metadanych. | Nie   | Nie        | Yes          | Nie         |
+|                           | additionalLinkedServiceNames | Określa dodatkowe konta magazynu dla połączonej usługi HDInsight, aby usługa Data Factory mogła zarejestrować je w Twoim imieniu. | Tak  | Nie        | Nie           | Nie         |
+|                           | hcatalogLinkedServiceName    | Nazwa połączonej usługi Azure SQL, która wskazuje bazę danych HCatalog. Klaster usługi HDInsight na żądanie jest tworzony przy użyciu bazy danych Azure SQL Database jako magazynu metadanych. | Nie   | Nie        | Tak          | Nie         |
 | BYOC                      | linkedServiceName            | Odwołanie do połączonej usługi Azure Storage.                | Tak  | Tak       | Nie           | Nie         |
 |                           | additionalLinkedServiceNames | Określa dodatkowe konta magazynu dla połączonej usługi HDInsight, aby usługa Data Factory mogła zarejestrować je w Twoim imieniu. | Nie   | Nie        | Nie           | Nie         |
 |                           | hcatalogLinkedServiceName    | Odwołanie do połączonej usługi Azure SQL, która wskazuje bazę danych HCatalog. | Nie   | Nie        | Nie           | Nie         |
@@ -265,7 +265,7 @@ Ten typ konfiguracji jest obsługiwany dla następujących środowisk obliczenio
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL DB, Azure SQL DW, SQL Server
+* Azure SQL DB, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Połączona usługa Azure HDInsight
 Możesz utworzyć połączoną usługę Azure HDInsight, aby zarejestrować własny klaster usługi HDInsight przy użyciu Data Factory.
@@ -562,9 +562,9 @@ Można utworzyć **Azure Databricks połączonej usługi** , aby zarejestrować 
 
 Utworzysz połączoną usługę Azure SQL i użyjesz jej razem z [działaniem procedury składowanej](transform-data-using-stored-procedure.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać szczegółowe informacje na temat tej połączonej usługi, zobacz artykuł dotyczący [łącznika usługi Azure SQL](connector-azure-sql-database.md#linked-service-properties) .
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse połączona usługa
+## <a name="azure-synapse-analytics-linked-service"></a>Połączona usługa Azure Synapse Analytics
 
-Utworzysz połączoną usługę Azure SQL Data Warehouse i użyj jej z [działaniem procedury składowanej](transform-data-using-stored-procedure.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać szczegółowe informacje na temat tej połączonej usługi, zobacz artykuł dotyczący [łącznika Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#linked-service-properties) .
+Utworzysz połączoną usługę Azure Synapse Analytics (wcześniej SQL Data Warehouse) i użyj jej razem z [działaniem procedury składowanej](transform-data-using-stored-procedure.md) , aby wywołać procedurę składowaną z potoku Data Factory. Aby uzyskać szczegółowe informacje na temat tej połączonej usługi, zobacz artykuł dotyczący [łącznika usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](connector-azure-sql-data-warehouse.md#linked-service-properties) .
 
 ## <a name="sql-server-linked-service"></a>SQL Server połączona usługa
 
@@ -574,7 +574,7 @@ Utworzysz połączoną usługę SQL Server i użyj jej z [działaniem procedury 
 
 Utworzysz połączoną usługę funkcji platformy Azure i użyjesz jej razem z [działaniem funkcji platformy Azure](control-flow-azure-function-activity.md) , aby uruchamiać Azure Functions w potoku Data Factory. Zwracany typ funkcji platformy Azure musi być prawidłowy `JObject` . (Należy pamiętać, że [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *nie* jest `JObject` .) Każdy typ zwracany inny niż błąd `JObject` i podnosi zawartość odpowiedzi na błędy użytkownika *nie jest prawidłowym JObject*.
 
-| **Wartość** | **Opis** | **Wymagane** |
+| **Właściwość** | **Opis** | **Wymagane** |
 | --- | --- | --- |
 | typ   | Właściwość Type musi mieć wartość: **AzureFunction** | tak |
 | adres URL aplikacji funkcji | Adres URL aplikacja funkcji platformy Azure. Format to `https://<accountname>.azurewebsites.net` . Ten adres URL jest wartością w sekcji **adresu URL** podczas wyświetlania aplikacja funkcji w Azure Portal  | tak |

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 131811ffd268f001a047a7031170f0723770d24c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213571"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462330"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Ciągła integracja i wdrażanie na potrzeby magazynowania danych
 
@@ -44,13 +44,13 @@ W tym prostym samouczku przedstawiono sposób integrowania projektu bazy danych 
 
 W tym momencie istnieje proste środowisko, w którym każde ewidencjonowanie gałęzi głównej repozytorium kontroli źródła powinno automatycznie wyzwolić pomyślną kompilację projektu bazy danych w programie Visual Studio. Sprawdź, czy Automatyzacja działa na zakończenie, wprowadzając zmianę w lokalnym projekcie bazy danych i sprawdzając tę zmianę w gałęzi głównej.
 
-## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Ciągłe wdrażanie przy użyciu zadania wdrażania Azure SQL Data Warehouse (lub bazy danych)
+## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Ciągłe wdrażanie za pomocą zadania wdrażania usługi Azure Synapse Analytics (lub bazy danych)
 
-1. Dodaj nowe zadanie przy użyciu [zadania wdrażania Azure SQL Database](/azure/devops/pipelines/targets/azure-sqldb) i Wypełnij wymagane pola, aby nawiązać połączenie z docelowym magazynem danych. Po uruchomieniu tego zadania DACPAC wygenerowanego przez poprzedni proces kompilacji jest wdrażany w docelowym magazynie danych. Można również użyć [zadania wdrażania Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
+1. Dodaj nowe zadanie przy użyciu [zadania wdrażania Azure SQL Database](/azure/devops/pipelines/targets/azure-sqldb) i Wypełnij wymagane pola, aby nawiązać połączenie z docelowym magazynem danych. Po uruchomieniu tego zadania DACPAC wygenerowanego przez poprzedni proces kompilacji jest wdrażany w docelowym magazynie danych. Można również użyć [zadania wdrożenia usługi Azure Synapse Analytics](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Zadanie wdrażania](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Zadanie wdrażania")
 
-2. Jeśli używasz agenta samoobsługowego, upewnij się, że ustawisz zmienną środowiskową tak, aby używała poprawnych SqlPackage.exe dla SQL Data Warehouse. Ścieżka powinna wyglądać następująco:
+2. Jeśli używasz agenta samoobsługowego, upewnij się, że ustawisz zmienną środowiskową tak, aby korzystała z poprawnej SqlPackage.exe usługi Azure Synapse Analytics. Ścieżka powinna wyglądać następująco:
 
       ![Zmienna środowiskowa](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Zmienna środowiskowa")
 

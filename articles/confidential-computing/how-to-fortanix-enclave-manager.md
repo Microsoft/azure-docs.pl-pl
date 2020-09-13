@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826297"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462432"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Instrukcje: uruchamianie aplikacji za pomocą Menedżera Fortanix enklawy 
 
@@ -24,7 +24,7 @@ Zacznij korzystać z aplikacji w usłudze Azure poufne dane przy użyciu program
 Fortanix to dostawca oprogramowania innej firmy z produktami i usługami opartymi na infrastrukturze platformy Azure. Istnieją inni dostawcy innych firm oferujących podobne poufne usługi obliczeniowe na platformie Azure.
 
 > [!Note] 
- > PRODUKTY, DO KTÓRYCH ODWOŁUJE SIĘ TEN DOKUMENT, NIE SĄ POD KONTROLĄ FIRMY MICROSOFT. FIRMA MICROSOFT UDOSTĘPNIA TE INFORMACJE TYLKO JAKO WYGODA, A ODWOŁANIE DO TYCH PRODUKTÓW INNYCH FIRM NIE OZNACZA POTWIERDZENIA PRZEZ FIRMĘ MICROSOFT.
+ > Produkty, do których odwołuje się ten dokument, nie są pod kontrolą firmy Microsoft. Firma Microsoft udostępnia te informacje tylko jako wygoda, a odwołanie do tych produktów innych firm nie oznacza potwierdzenia przez firmę Microsoft.
 
 
 
@@ -43,7 +43,7 @@ W tym samouczku pokazano, jak przekonwertować obraz aplikacji na obraz chronion
 > Konta bezpłatnych wersji próbnych nie mają dostępu do maszyn wirtualnych używanych w tym samouczku. Przeprowadź uaktualnienie do subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem.
 
 ## <a name="add-an-application-to-fortanix-enclave-manager"></a>Dodawanie aplikacji do Menedżera Fortanix enklawy
-1. Zaloguj się do [FORTANIX em](https://fortanix.com)
+1. Zaloguj się do [Fortanix enklawy Manager (FORTANIX em)](https://em.fortanix.com)
 1. Przejdź do strony **konta** i wybierz pozycję **Dodaj konto** , aby utworzyć nowe konto. 
     
 ![Tworzenie konta](media/how-to-fortanix-enclave-manager/create-account.png)
@@ -120,7 +120,7 @@ Utworzenie agenta węzła Fortanix spowoduje wdrożenie maszyny wirtualnej, inte
 1. Na tej stronie będziesz wprowadzać informacje w celu wdrożenia maszyny wirtualnej. Ta maszyna wirtualna jest maszyną wirtualną z obsługą serii DCsv2 Intel SGX z platformy Azure z zainstalowanym oprogramowaniem agenta Node Fortanix. Agent węzła zezwoli na bezpieczne działanie konwertowanego obrazu w węzłach Intel SGX na platformie Azure.  Wybierz **subskrypcję** i **grupę zasobów** , w której chcesz wdrożyć maszynę wirtualną i skojarzone z nią zasoby. 
  
     > [!NOTE]
-    > Istnieją ograniczenia podczas wdrażania maszyn wirtualnych z serii DCsv2 na platformie Azure. Może być konieczne przekroczenie limitu przydziału dla dodatkowych rdzeni. Aby uzyskać więcej informacji, Przeczytaj o [rozwiązaniach do przetwarzania danych poufnych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) . 
+    > Istnieją ograniczenia podczas wdrażania maszyn wirtualnych z serii DCsv2 na platformie Azure. Może być konieczne przekroczenie limitu przydziału dla dodatkowych rdzeni. Aby uzyskać więcej informacji, Przeczytaj o [rozwiązaniach do przetwarzania danych poufnych na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) . 
 
 1. Wybierz dostępny region.
 1. Wprowadź nazwę maszyny wirtualnej w polu **nazwa węzła** . 

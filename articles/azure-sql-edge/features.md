@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/13/2020
-ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/03/2020
+ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539214"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462704"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Obsługiwane funkcje usługi Azure SQL Edge (wersja zapoznawcza) 
 
@@ -67,8 +67,8 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | Obszar | Nieobsługiwana funkcja lub usługa |
 |-----|-----|
 | **Projekt bazy danych** | OLTP w pamięci i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
-| &nbsp; | `HierarchyID`Typ danych i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
-| &nbsp; | `Spatial`Typ danych i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
+| &nbsp; | `HierarchyID` Typ danych i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
+| &nbsp; | `Spatial` Typ danych i powiązane polecenia języka DDL oraz funkcje Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
 | &nbsp; | Rozciągaj bazę danych oraz powiązane polecenia języka DDL oraz funkcje języka Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania. |
 | &nbsp; | Indeksy pełnotekstowe i wyszukiwanie oraz powiązane polecenia języka DDL oraz funkcje języka Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania.|
 | &nbsp; | `FileTable`, `FILESTREAM` , i powiązane polecenia języka DDL oraz funkcje języka Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania.|
@@ -89,6 +89,10 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | &nbsp; | Widok wykazu dat i godzin zależnych od CLR, funkcje i klauzule zapytania. |
 | &nbsp; | Rozszerzenie puli buforów. |
 | &nbsp; | Poczta bazy danych. |
+| &nbsp; | Service Broker |
+| &nbsp; | Zarządzanie oparte na zasadach |
+| &nbsp; | Magazyn danych zarządzania |
+| &nbsp; | Zawarte bazy danych |
 | **Program SQL Server Agent** |  Podsystemy: CmdExec, PowerShell, czytniki kolejek, SSIS, SSAS i SSRS. |
 | &nbsp; | Alerty. |
 | &nbsp; | Zarządzana kopia zapasowa. |

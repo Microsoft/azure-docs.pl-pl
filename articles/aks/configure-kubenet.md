@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: f9bc0cd229888d952821509ced6cc5410000ee52
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078728"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462143"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak za pomocą sieci *korzystającą wtyczki kubenet* u
 
 * Sieć wirtualna klastra AKS musi zezwalać na wychodzącą łączność z Internetem.
 * Nie należy tworzyć więcej niż jednego klastra AKS w tej samej podsieci.
-* Klastry AKS nie mogą `169.254.0.0/16` używać `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` zakresu adresów usługi Kubernetes,,, ani.
+* Klastry AKS nie mogą korzystać z zakresów adresów usługi Kubernetes,,, ani ich zakresu, z zakresu adresów `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` lub zakresu adresów sieci wirtualnej klastra.
 * Nazwa główna usługi używana przez klaster AKS musi mieć co najmniej rolę [współautor sieci](../role-based-access-control/built-in-roles.md#network-contributor) w podsieci w sieci wirtualnej. Musisz również mieć odpowiednie uprawnienia, takie jak właściciel subskrypcji, aby utworzyć nazwę główną usługi i przypisać im uprawnienia. Jeśli chcesz zdefiniować [rolę niestandardową](../role-based-access-control/custom-roles.md) , zamiast korzystać z wbudowanej roli współautor sieci, wymagane są następujące uprawnienia:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`

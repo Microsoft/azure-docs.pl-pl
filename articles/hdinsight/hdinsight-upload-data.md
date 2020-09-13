@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085875"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462568"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight
 
@@ -37,7 +37,7 @@ Firma Microsoft udostępnia następujące narzędzia do pracy z usługą Azure S
 
 | Narzędzie | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Witryna Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Interfejs wiersza polecenia platformy Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -58,7 +58,7 @@ Po nawiązaniu połączenia możesz użyć następującej składni, aby przekaza
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Na przykład: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Na przykład `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Ponieważ domyślny system plików dla usługi HDInsight znajduje się w usłudze Azure Storage,/example/Data/data.txt jest w rzeczywistości w usłudze Azure Storage. Można również odwołać się do pliku jako:
 
@@ -68,7 +68,7 @@ lub
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
-Aby zapoznać się z listą innych poleceń usługi Hadoop, które pracują z plikami, zobacz[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Aby zapoznać się z listą innych poleceń usługi Hadoop, które pracują z plikami, zobacz [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > W przypadku klastrów Apache HBase domyślny rozmiar bloku używany podczas pisania danych to 256 KB. Chociaż jest to dobre rozwiązanie w przypadku używania interfejsów API HBase lub interfejsów API REST, użycie `hadoop` `hdfs dfs` poleceń lub do zapisu danych o rozmiarze większym niż ~ 12 GB powoduje wystąpienie błędu. Aby uzyskać więcej informacji, zobacz [wyjątek magazynu do zapisu w obiekcie blob](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
@@ -88,7 +88,7 @@ Istnieje również kilka aplikacji, które udostępniają interfejs graficzny s�
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Instalowanie usługi Azure Storage jako dysku lokalnego
 
-Zobacz [Instalowanie usługi Azure Storage jako dysku lokalnego](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Zobacz [Instalowanie usługi Azure Storage jako dysku lokalnego](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Przekaż za pomocą usług
 

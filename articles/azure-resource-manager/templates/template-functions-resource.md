@@ -2,13 +2,13 @@
 title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 7f485d258074959c4a0a17449c65c38fa9648502
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/03/2020
+ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661405"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468678"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -16,6 +16,7 @@ Menedżer zasobów udostępnia następujące funkcje do pobierania wartości zas
 
 * [extensionResourceId](#extensionresourceid)
 * [staw](#list)
+* [pickZones](#pickzones)
 * [udostępnia](#providers)
 * [odwoła](#reference)
 * [resourceGroup](#resourcegroup)
@@ -101,6 +102,12 @@ Poniższy przykład zwraca identyfikator zasobu dla blokady grupy zasobów.
 }
 ```
 
+Definicja zasad niestandardowych wdrożona w grupie zarządzania jest zaimplementowana jako zasób rozszerzenia. Aby utworzyć i przypisać zasady, wdróż następujący szablon w grupie zarządzania.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Aby zapoznać się z przykładem wdrażania wbudowanej definicji zasad, zobacz [tenantResourceId](#tenantresourceid).
+
 <a id="listkeys"></a>
 <a id="list"></a>
 
@@ -130,9 +137,16 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 
 | Typ zasobu | Nazwa funkcji |
 | ------------- | ------------- |
+| Microsoft. Dodatki/supportProviders | listsupportplaninfo |
 | Microsoft. AnalysisServices/serwery | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft. ApiManagement/Service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
+| Microsoft. ApiManagement/Service/Gateways | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
+| Microsoft. ApiManagement/Service/skojarzeni | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
+| Microsoft. ApiManagement/Service/namedValues | [Wartość listy](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
+| Microsoft. ApiManagement/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft. AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
-| Microsoft. AppConfiguration/configurationStores | ListKeys |
+| Microsoft. AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
+| Microsoft. AppPlatform/Sprężyna | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft. Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/obszary robocze/eksperymenty/zadania | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -144,10 +158,15 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. ContainerRegistry/rejestry | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft. ContainerRegistry/rejestry | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft. ContainerRegistry/rejestry | [listUsages](/rest/api/containerregistry/registries/listusages) |
+| Microsoft. ContainerRegistry/rejestry/agentpools | listQueueStatus |
+| Microsoft. ContainerRegistry/rejestry/buildTasks | listSourceRepositoryProperties |
+| Microsoft. ContainerRegistry/rejestry/buildTasks/kroki | listBuildArguments |
+| Microsoft. ContainerRegistry/rejestry/taskruns | listDetails |
 | Microsoft. ContainerRegistry/rejestry/elementy webhook | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft. ContainerRegistry/rejestry/uruchomienia | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
 | Microsoft. ContainerRegistry/rejestry/zadania | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft. ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft. ContainerService/managedClusters | [listClusterMonitoringUserCredential](/rest/api/aks/managedclusters/listclustermonitoringusercredentials) |
 | Microsoft. ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
 | Microsoft. ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
 | Microsoft. DataBox/zadania | listCredentials |
@@ -168,6 +187,7 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. wspólny/Labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft. DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft. EventGrid/domeny | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -206,7 +226,9 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. NotificationHubs/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft. OperationalInsights/obszary robocze | [list](/rest/api/loganalytics/workspaces/list) |
+| Microsoft. OperationalInsights/obszary robocze | listKeys |
 | Microsoft. PolicyInsights/korygowania | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
+| Microsoft. RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
 | Microsoft. Relay/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft. Relay/przestrzenie nazw/disasterRecoveryConfigs/reguł autoryzacji | listkeys |
 | Microsoft. Relay/przestrzenie nazw/HybridConnections/reguł autoryzacji | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
@@ -225,6 +247,7 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. StorSimple/menedżerowie/urządzenia | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
 | Microsoft. StorSimple/menedżerowie | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
 | Microsoft. StorSimple/menedżerowie | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
+| Microsoft. Synapse/Workspaces/integrationRuntimes | [listAuthKeys](/rest/api/synapse/integrationruntimeauthkeys/list) |
 | Microsoft. Web/connectionGateways | ListStatus |
 | Microsoft. Web/Connections | listconsentlinks |
 | Microsoft. Web/customApis | listWsdlInterfaces |
@@ -315,6 +338,94 @@ W następnym przykładzie pokazano funkcję listy, która przyjmuje parametr. W 
 ```
 
 Przykład listKeyValue można znaleźć w sekcji [Szybki Start: Wdrażanie maszyny wirtualnej z konfiguracją aplikacji i szablonem Menedżer zasobów](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
+
+## <a name="pickzones"></a>pickZones
+
+`pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
+
+Określa, czy typ zasobu obsługuje strefy dla regionu.
+
+### <a name="parameters"></a>Parametry
+
+| Parametr | Wymagane | Typ | Opis |
+|:--- |:--- |:--- |:--- |
+| providerNamespace | Tak | ciąg | Przestrzeń nazw dostawcy zasobów dla typu zasobu, aby sprawdzić obsługę strefy. |
+| resourceType | Tak | ciąg | Typ zasobu służący do sprawdzania obsługi strefy. |
+| location | Tak | ciąg | Region, w którym ma zostać wyszukana obsługa strefy. |
+| numberOfZones | Nie | liczba całkowita | Liczba stref logicznych do zwrócenia. Domyślnym ustawieniem jest 1. Liczba musi być dodatnią liczbą całkowitą z przedziału od 1 do 3.  W przypadku zasobów z jedną strefą Użyj wartości 1. W przypadku zasobów z obsługą wielu stref wartość musi być mniejsza lub równa liczbie obsługiwanych stref. |
+| przesunięcie | Nie | liczba całkowita | Przesunięcie od początkowej strefy logicznej. Funkcja zwraca błąd, jeśli Offset plus numberOfZones przekracza liczbę obsługiwanych stref. |
+
+### <a name="return-value"></a>Wartość zwracana
+
+Tablica z obsługiwanymi strefami. W przypadku używania wartości domyślnych dla przesunięcia i numberOfZones, typ zasobu i region obsługujący strefy zwracają następującą tablicę:
+
+```json
+[
+    "1"
+]
+```
+
+Gdy `numberOfZones` parametr jest ustawiony na 3, zwraca:
+
+```json
+[
+    "1",
+    "2",
+    "3"
+]
+```
+
+Gdy typ zasobu lub region nie obsługuje stref, zwracana jest pusta tablica.
+
+```json
+[
+]
+```
+
+### <a name="pickzones-example"></a>przykład pickZones
+
+Poniższy szablon przedstawia trzy wyniki przy użyciu funkcji pickZones.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "supported": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+        },
+        "notSupportedRegion": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+        },
+        "notSupportedType": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
+        }
+    }
+}
+```
+
+Dane wyjściowe z powyższych przykładów zwracają trzy tablice.
+
+| Nazwa | Typ | Wartość |
+| ---- | ---- | ----- |
+| Obsługiwane | array | ["1"] |
+| notSupportedRegion | array | [] |
+| notSupportedType | array | [] |
+
+Możesz użyć odpowiedzi z pickZones, aby określić, czy podać wartość null dla stref lub przypisać maszyny wirtualne do różnych stref. Poniższy przykład ustawia wartość dla strefy na podstawie dostępności stref.
+
+```json
+"zones": {
+    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+},
+```
 
 ## <a name="providers"></a>dostawców
 
@@ -740,23 +851,27 @@ Gdy szablon zostanie wdrożony w zakresie grupy zasobów, identyfikator zasobu j
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-W przypadku użycia w ramach [wdrożenia na poziomie subskrypcji](deploy-to-subscription.md)identyfikator zasobu jest zwracany w następującym formacie:
+Można użyć funkcji resourceId dla innych zakresów wdrożenia, ale format identyfikatora zmienia się.
+
+Jeśli używasz resourceId podczas wdrażania subskrypcji, identyfikator zasobu jest zwracany w następującym formacie:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-W przypadku użycia we [wdrożeniu na poziomie grupy zarządzania](deploy-to-management-group.md) lub na poziomie dzierżawy identyfikator zasobu jest zwracany w następującym formacie:
+Jeśli używasz resourceId podczas wdrażania do grupy zarządzania lub dzierżawy, identyfikator zasobu jest zwracany w następującym formacie:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Aby uzyskać identyfikator w innych formatach, zobacz:
+Aby uniknąć nieporozumień, zalecamy użycie resourceId podczas pracy z zasobami wdrożonymi w subskrypcji, grupie zarządzania lub dzierżawie. Zamiast tego należy użyć funkcji identyfikatora, która została zaprojektowana dla zakresu.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+W przypadku [zasobów na poziomie subskrypcji](deploy-to-subscription.md)należy użyć funkcji [subscriptionResourceId](#subscriptionresourceid) .
+
+W przypadku [zasobów na poziomie grupy zarządzania](deploy-to-management-group.md)Użyj funkcji [extensionResourceId](#extensionresourceid) , aby odwołać się do zasobu, który jest zaimplementowany jako rozszerzenie grupy zarządzania. Na przykład niestandardowe definicje zasad wdrożone w grupie zarządzania to rozszerzenia grupy zarządzania. Użyj funkcji [tenantResourceId](#tenantresourceid) , aby odwoływać się do zasobów wdrożonych w dzierżawie, ale dostępnych w grupie zarządzania. Na przykład wbudowane definicje zasad są implementowane jako zasoby na poziomie dzierżawy.
+
+W przypadku [zasobów na poziomie dzierżawy](deploy-to-tenant.md)Użyj funkcji [tenantResourceId](#tenantresourceid) . Użyj tenantResourceId dla wbudowanych definicji zasad, ponieważ są one implementowane na poziomie dzierżawy.
 
 ### <a name="remarks"></a>Uwagi
 
@@ -1019,6 +1134,44 @@ Identyfikator jest zwracany w następującym formacie:
 ### <a name="remarks"></a>Uwagi
 
 Ta funkcja służy do pobierania identyfikatora zasobu dla zasobu, który jest wdrażany w dzierżawie. Zwrócony identyfikator różni się od wartości zwracanych przez inne funkcje identyfikatora zasobu, nie uwzględniając wartości grup zasobów lub subskrypcji.
+
+### <a name="tenantresourceid-example"></a>przykład tenantResourceId
+
+Wbudowane definicje zasad to zasoby na poziomie dzierżawy. Aby wdrożyć przypisanie zasad odwołujące się do wbudowanej definicji zasad, użyj funkcji tenantResourceId.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

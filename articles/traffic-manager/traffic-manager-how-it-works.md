@@ -3,7 +3,7 @@ title: Jak działa usługa Azure Traffic Manager | Microsoft Docs
 description: Ten artykuł pomoże Ci zrozumieć, jak Traffic Manager kieruje ruchem w celu uzyskania wysokiej wydajności i dostępności aplikacji sieci Web
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: rohink
-ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 471895f1a615770521584a627e6bca850b87d0ac
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80294868"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462636"
 ---
 # <a name="how-traffic-manager-works"></a>Jak działa Traffic Manager
 
@@ -62,8 +62,8 @@ Kontynuując z poprzedniego przykładu, gdy klient zażąda strony `https://part
     - Bieżąca kondycja każdego punktu końcowego określona przez Traffic Manager sprawdzenia kondycji. Aby uzyskać więcej informacji, zobacz [Traffic Manager monitorowania punktów końcowych](traffic-manager-monitoring.md).
     - Wybrana metoda routingu ruchu. Aby uzyskać więcej informacji, zobacz [Traffic Manager metod routingu](traffic-manager-routing-methods.md).
 
-5. Wybrany punkt końcowy jest zwracany jako inny rekord CNAME DNS. W takim przypadku powiadom nas o tym, że contoso-us.cloudapp.net jest zwracany.
-6. Następnie cykliczna usługa DNS znajduje serwery nazw dla domeny "cloudapp.net". Kontaktuje się z tymi serwerami nazw, aby zażądać rekordu DNS "contoso-us.cloudapp.net". Zwracany jest rekord "A" DNS zawierający adres IP usługi opartej na USA.
+5. Wybrany punkt końcowy jest zwracany jako inny rekord CNAME DNS. W takim przypadku powiadom nas o tym, że contoso-eu.cloudapp.net jest zwracany.
+6. Następnie cykliczna usługa DNS znajduje serwery nazw dla domeny "cloudapp.net". Kontaktuje się z tymi serwerami nazw, aby zażądać rekordu DNS "contoso-eu.cloudapp.net". Zwracany jest rekord DNS "A" zawierający adres IP punktu końcowego usługi opartej na Unii Europejskiej.
 7. Rekursywna usługa DNS konsoliduje wyniki i zwraca pojedynczą odpowiedź DNS do klienta.
 8. Klient odbiera wyniki DNS i łączy się z podanym adresem IP. Klient łączy się z punktem końcowym usługi aplikacji bezpośrednio, a nie za pomocą Traffic Manager. Ponieważ jest to punkt końcowy HTTPS, Klient wykonuje niezbędną uzgadnianie SSL/TLS, a następnie wysyła żądanie HTTP GET dla strony "/login.aspx".
 

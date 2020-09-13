@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382915"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470089"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory integrację z usługą Azure Red Hat OpenShift
 
@@ -30,7 +30,7 @@ Utwórz nowego użytkownika Azure Active Directory "właściciel", aby zalogowa�
 1. Przejdź do bloku [Użytkownicy — wszyscy użytkownicy](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) .
 2. Kliknij pozycję **+ nowy użytkownik** , aby otworzyć okienko **użytkownika** .
 3. Wprowadź **nazwę** dla tego użytkownika.
-4. Utwórz **nazwę użytkownika** na podstawie nazwy utworzonej dzierżawy z `.onmicrosoft.com` dołączonym na końcu. Na przykład `yourUserName@yourTenantName.onmicrosoft.com`. Zapisz tę nazwę użytkownika. Będzie on potrzebny do zalogowania się do klastra.
+4. Utwórz **nazwę użytkownika** na podstawie nazwy utworzonej dzierżawy z  `.onmicrosoft.com` dołączonym na końcu. Na przykład `yourUserName@yourTenantName.onmicrosoft.com`. Zapisz tę nazwę użytkownika. Będzie on potrzebny do zalogowania się do klastra.
 5. Kliknij pozycję **rola katalogu** , aby otworzyć okienko rola katalogu, a następnie wybierz pozycję **właściciel** , a następnie kliknij przycisk **OK** w dolnej części okienka.
 6. W okienku **użytkownika** kliknij pozycję **Pokaż hasło** i Zarejestruj hasło tymczasowe. Po pierwszym zalogowaniu zostanie wyświetlony monit o zresetowanie go.
 7. W dolnej części okienka kliknij pozycję **Utwórz** , aby utworzyć użytkownika.
@@ -86,9 +86,9 @@ Wygeneruj klucz tajny klienta na potrzeby uwierzytelniania aplikacji w Azure Act
 
 ![Zrzut ekranu przedstawiający okienko certyfikaty i wpisy tajne](./media/howto-create-tenant/create-key.png)
 
-Aby uzyskać więcej informacji na temat obiektów aplikacji platformy Azure, zobacz temat [obiekty główne aplikacji i usługi w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Aby uzyskać więcej informacji na temat obiektów aplikacji platformy Azure, zobacz temat [obiekty główne aplikacji i usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Aby uzyskać szczegółowe informacje na temat tworzenia nowej aplikacji usługi Azure AD, zobacz [Rejestrowanie aplikacji za pomocą punktu końcowego Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Aby uzyskać szczegółowe informacje na temat tworzenia nowej aplikacji usługi Azure AD, zobacz [Rejestrowanie aplikacji za pomocą punktu końcowego Azure Active Directory v 1.0](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-api-permissions"></a>Dodawanie uprawnień do interfejsu API
 
@@ -110,12 +110,12 @@ Aby uzyskać szczegółowe informacje na temat tworzenia nowej aplikacji usługi
 > [!IMPORTANT]
 > Synchronizacja grupy Administratorzy klastra będzie działała dopiero po udzieleniu zgody. Zobaczysz zielony okrąg z zaznaczeniem i komunikatem "udzielono dla *nazwy subskrypcji*" w kolumnie *wymagana zgoda administratora* .
 
-Aby uzyskać szczegółowe informacje na temat zarządzania administratorami i innymi rolami, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Aby uzyskać szczegółowe informacje na temat zarządzania administratorami i innymi rolami, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="resources"></a>Zasoby
 
-* [Aplikacje i obiekty główne usługi w Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Szybki start: rejestrowanie aplikacji z punktem końcowym usługi Azure Active Directory w wersji 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Aplikacje i obiekty główne usługi w Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Szybki start: rejestrowanie aplikacji z punktem końcowym usługi Azure Active Directory w wersji 1.0](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,18 +1,18 @@
 ---
-title: Migrowanie z usługi Azure Red Hat OpenShift 3,11 do platformy Azure Red Hat OpenShift 4
-description: Migrowanie z usługi Azure Red Hat OpenShift 3,11 do platformy Azure Red Hat OpenShift 4
+title: Migrowanie z usługi Azure Red Hat OpenShift 3.11 do usługi Azure Red Hat OpenShift 4
+description: Migrowanie z usługi Azure Red Hat OpenShift 3.11 do usługi Azure Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: Migracja, ARO, OpenShift, Red Hat
-ms.openlocfilehash: 68e8be24273dfab490d2423b76c372f2ff9f2b38
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513262"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469749"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migrowanie z usługi Azure Red Hat OpenShift 3,11 do platformy Azure Red Hat OpenShift 4
 
@@ -25,7 +25,7 @@ W tym artykule pokazano, jak przeprowadzić migrację z klastra Red Hat OpenShif
 > [!NOTE]
 > Narzędzi do migracji Red Hat OpenShift, takich jak narzędzie do migracji płaszczyzny kontroli i narzędzie do migracji aplikacji klastra (kamera) nie mogą być używane w przypadku klastrów Red Hat OpenShift 3,11 platformy Azure.
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 W tym artykule przyjęto założenie, że masz istniejący klaster usługi Azure Red Hat OpenShift 3,11.
 
@@ -100,7 +100,7 @@ Aby uzyskać informacje dotyczące konfigurowania tych typów magazynów, zobacz
 
 W systemie Azure Red Hat OpenShift 4 można tworzyć obrazy z kodu źródłowego, wdrażać je i zarządzać ich cyklem życia. Aby to umożliwić, usługa Azure Red Hat OpenShift zapewnia 4 [wewnętrzny, zintegrowany rejestr obrazów kontenerów](https://docs.openshift.com/aro/4/registry/registry-options.html) , który można wdrożyć w środowisku usługi Azure Red Hat OpenShift do lokalnego zarządzania obrazami.
 
-W przypadku korzystania z rejestrów zewnętrznych, takich jak [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), rejestrów z systemem [Red Hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options)lub [uwierzytelnianie z włączonym systemem Red Hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), wykonaj kroki w celu dostarczenia poświadczeń do klastra, aby umożliwić klastrowi dostęp do repozytoriów.
+W przypadku korzystania z rejestrów zewnętrznych, takich jak [Azure Container Registry](../container-registry/index.yml), rejestrów z systemem [Red Hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options)lub [uwierzytelnianie z włączonym systemem Red Hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), wykonaj kroki w celu dostarczenia poświadczeń do klastra, aby umożliwić klastrowi dostęp do repozytoriów.
 
 ### <a name="monitoring"></a>Monitorowanie
 
@@ -128,4 +128,3 @@ az openshift delete --name $CLUSTER_NAME
 ```
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z dokumentacją usługi Azure Red Hat OpenShift dostarczoną przez Red Hat [tutaj](https://docs.openshift.com/aro/4/welcome/index.html).
-

@@ -3,15 +3,15 @@ title: Dostosowywanie właściwości RDP przy użyciu programu PowerShell — Az
 description: Jak dostosować właściwości protokołu RDP dla pulpitu wirtualnego systemu Windows przy użyciu poleceń cmdlet programu PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009107"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462228"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Dostosowywanie właściwości Remote Desktop Protocol (RDP) dla puli hostów
 
@@ -21,6 +21,16 @@ ms.locfileid: "88009107"
 Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich jak środowisko monitorowania i przekierowania audio, zapewnia optymalne środowisko dla użytkowników zgodnie z ich potrzebami. Właściwości protokołu RDP można dostosować na pulpicie wirtualnym systemu Windows przy użyciu Azure Portal lub za pomocą parametru *-CustomRdpProperty* w poleceniu cmdlet **Update-AzWvdHostPool** .
 
 Zobacz [obsługiwane ustawienia plików RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) , aby uzyskać pełną listę obsługiwanych właściwości i ich wartości domyślne.
+
+## <a name="default-rdp-file-properties"></a>Domyślne właściwości pliku RDP
+
+Domyślnie pliki RDP mają następujące właściwości:
+
+|Właściwość RDP|Na pulpicie|Jako usługi RemoteApp|
+|---|---|---|
+|Tryb z obsługą kilku monitorów|Enabled (Włączony)|Nie dotyczy|
+|Przekierowania dysków włączone|Dyski, schowek, drukarki, porty COM, urządzenia USB i karty inteligentne|Dyski, schowek i drukarki|
+|Tryb zdalny audio|Odtwórz lokalnie|Odtwórz lokalnie|
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

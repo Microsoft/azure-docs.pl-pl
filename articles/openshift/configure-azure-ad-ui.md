@@ -8,18 +8,18 @@ author: sabbour
 ms.author: asabbour
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 10a7dc662993327b71d43c27f44d22166a3f3611
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590323"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469885"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Konfigurowanie uwierzytelniania Azure Active Directory na potrzeby klastra usługi Azure Red Hat OpenShift 4 (Portal)
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Utwórz **adres URL wywołania zwrotnego protokołu OAuth** klastra i zanotuj go. Pamiętaj, aby zastąpić **ciąg ARO-RG** nazwą grupy zasobów i **wystawić klaster** z nazwą klastra.
 
@@ -50,7 +50,7 @@ Przejdź do **omówienia** i zanotuj identyfikator **aplikacji (klienta) identyf
 
 ## <a name="configure-optional-claims"></a>Konfigurowanie opcjonalnych oświadczeń
 
-Deweloperzy aplikacji mogą używać [opcjonalnych oświadczeń](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) w swoich aplikacjach usługi Azure AD, aby określić, które oświadczenia mają być wysyłane do aplikacji.
+Deweloperzy aplikacji mogą używać [opcjonalnych oświadczeń](../active-directory/develop/active-directory-optional-claims.md) w swoich aplikacjach usługi Azure AD, aby określić, które oświadczenia mają być wysyłane do aplikacji.
 
 Opcjonalne oświadczenia można używać do:
 
@@ -68,7 +68,7 @@ Przejdź do obszaru **Konfiguracja tokenu (wersja zapoznawcza)** i kliknij pozyc
 
 Aplikacje zarejestrowane w dzierżawie usługi Azure Active Directory (Azure AD) są domyślnie dostępne dla wszystkich użytkowników dzierżawy, którzy pomyślnie uwierzytelniają się. Usługa Azure AD umożliwia administratorom dzierżawy i deweloperom ograniczenie aplikacji do określonego zestawu użytkowników lub grup zabezpieczeń w dzierżawie.
 
-Postępuj zgodnie z instrukcjami w dokumentacji Azure Active Directory, aby [przypisać użytkowników i grupy do aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Postępuj zgodnie z instrukcjami w dokumentacji Azure Active Directory, aby [przypisać użytkowników i grupy do aplikacji](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Konfigurowanie uwierzytelniania OpenShift OpenID Connect
 
@@ -100,7 +100,7 @@ Adres URL konsoli klastra można znaleźć, uruchamiając następujące poleceni
 
 Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin` poświadczeń.
 
-Przejdź do opcji **Administracja**, kliknij pozycję **Ustawienia klastra**, a następnie wybierz kartę **Konfiguracja globalna** . Przewiń, aby wybrać opcję **OAuth**.
+Przejdź do opcji **Administracja**, kliknij pozycję **Ustawienia klastra**, a następnie wybierz kartę **Konfiguracja globalna** . Przewiń, aby wybrać protokół **OAuth**.
 
 Przewiń w dół do pozycji **Dodaj** w obszarze **dostawcy tożsamości** i wybierz pozycję **OpenID Connect Connect (Połącz**).
 ![Wybierz pozycję OpenID Connect Połącz z listy rozwijanej dostawcy tożsamości](media/aro4-oauth-idpdrop.png)

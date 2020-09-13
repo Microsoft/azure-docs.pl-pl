@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114663"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468542"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Wdrażanie Cloud Shell w sieci wirtualnej platformy Azure
 > [!NOTE]
@@ -52,7 +52,7 @@ W ramach wybranej sieci wirtualnej należy używać dedykowanej podsieci do Clou
 Profil sieci to szablon konfiguracji sieci dla zasobów platformy Azure, który określa pewne właściwości sieci dla zasobu.
 
 ### <a name="azure-relay"></a>Azure Relay
-[Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) zezwala na dwa punkty końcowe, które nie są bezpośrednio dostępne do komunikacji. W takim przypadku służy do zezwalania przeglądarce administratora na komunikowanie się z kontenerem w sieci prywatnej.
+[Azure Relay](../azure-relay/relay-what-is-it.md) zezwala na dwa punkty końcowe, które nie są bezpośrednio dostępne do komunikacji. W takim przypadku służy do zezwalania przeglądarce administratora na komunikowanie się z kontenerem w sieci prywatnej.
 
 Azure Relay wystąpienie używane dla Cloud Shell można skonfigurować do kontrolowania, które sieci mogą uzyskać dostęp do zasobów kontenera: 
 - Dostępne z publicznej sieci Internet: w tej konfiguracji Cloud Shell zapewnia sposób dostępu do wewnętrznych zasobów z zewnątrz. 
@@ -66,7 +66,7 @@ Podobnie jak w przypadku standardowej Cloud Shell konto magazynu jest wymagane p
 
 * W wersji zapoznawczej dla Cloud Shell w sieci wirtualnej obsługiwane są mniej regionów. Jest to obecnie ograniczone do: Zachodnie i WestCentralUS.
 
-* [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) nie jest bezpłatną usługą, zobacz [Cennik](https://azure.microsoft.com/pricing/details/service-bus/). W scenariuszu Cloud Shell jedno połączenie hybrydowe jest używane dla każdego administratora podczas korzystania z Cloud Shell. Połączenie zostanie automatycznie zamknięte po zakończeniu sesji Cloud Shell.
+* [Azure Relay](../azure-relay/relay-what-is-it.md) nie jest bezpłatną usługą, zobacz [Cennik](https://azure.microsoft.com/pricing/details/service-bus/). W scenariuszu Cloud Shell jedno połączenie hybrydowe jest używane dla każdego administratora podczas korzystania z Cloud Shell. Połączenie zostanie automatycznie zamknięte po zakończeniu sesji Cloud Shell.
 
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
@@ -114,4 +114,4 @@ Połącz się z Cloud Shell, zostanie wyświetlony monit z pierwszym uruchomieni
 ![Ilustruje ustawienia Cloud Shell izolowanej sieci wirtualnej pierwszego środowiska.](media/private-vnet/vnet-settings.png)
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o usłudze Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+[Dowiedz się więcej o usłudze Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)

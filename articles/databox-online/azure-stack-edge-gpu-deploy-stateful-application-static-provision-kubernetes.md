@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d9200b66d51292271f546eb111f3355649318b91
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254376"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462721"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Użyj polecenia kubectl, aby uruchomić aplikację stanową Kubernetes z PersistentVolume na urządzeniu Azure Stack Edge
 
@@ -55,7 +55,10 @@ Możesz przystąpić do wdrażania aplikacji stanowej na urządzeniu Azure Stack
 
 ## <a name="provision-a-static-pv"></a>Udostępnianie statycznego PV
 
-Aby statycznie zainicjować obsługę PV, należy utworzyć udział na urządzeniu. Wykonaj następujące kroki, aby zainicjować obsługę PV dla udziału SMB lub NFS. 
+Aby statycznie zainicjować obsługę PV, należy utworzyć udział na urządzeniu. Wykonaj następujące kroki, aby zainicjować obsługę PV w udziale SMB. 
+
+> [!NOTE]
+> Konkretny przykład użyty w tym artykule zawierającym instrukcje nie działa z udziałami NFS. Ogólnie rzecz biorąc, udziały NFS mogą być obsługiwane na urządzeniu z systemem Azure Stack Edge przy użyciu aplikacji innych niż bazy danych.
 
 1. Wybierz, czy chcesz utworzyć udział graniczny lub udział lokalny krawędzi. Postępuj zgodnie z instrukcjami w temacie [Dodawanie udziału](azure-stack-edge-manage-shares.md#add-a-share) , aby utworzyć udział. Pamiętaj, aby zaznaczyć pole wyboru **Użyj udziału z obliczeniem krawędzi**.
 
@@ -71,7 +74,7 @@ Aby statycznie zainicjować obsługę PV, należy utworzyć udział na urządzen
 
         ![Zainstaluj istniejący udział lokalny na potrzeby funkcji PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. Zanotuj nazwę udziału. Po utworzeniu tego udziału tworzony jest automatycznie obiekt woluminu trwałego w klastrze Kubernetes odpowiadającym utworzonemu udziałowi SMB lub NFS. 
+1. Zanotuj nazwę udziału. Po utworzeniu tego udziału tworzony jest automatycznie obiekt woluminu trwałego w klastrze Kubernetes odpowiadającym utworzonemu udziałowi SMB. 
 
 ## <a name="deploy-mysql"></a>Wdrażanie bazy danych MySQL
 
@@ -147,7 +150,7 @@ Wszystkie `kubectl` polecenia używane do tworzenia i zarządzania wdrożeniami 
               claimName: mysql-pv-claim
     ```
     
-2. Skopiuj i Zapisz jako `mysql-pv.yml` plik w tym samym folderze, w którym został zapisany `mysql-deployment.yml` . Aby użyć udziału SMB lub NFS utworzonego wcześniej w programie `kubectl` , należy ustawić `volumeName` pole w obiekcie PVC na nazwę udziału. 
+2. Skopiuj i Zapisz jako `mysql-pv.yml` plik w tym samym folderze, w którym został zapisany `mysql-deployment.yml` . Aby użyć udziału SMB utworzonego wcześniej w programie `kubectl` , należy ustawić `volumeName` pole w obiekcie PVC na nazwę udziału. 
 
     > [!NOTE] 
     > Upewnij się, że pliki YAML mają poprawne wcięcia. Możesz sprawdzić za pomocą [YAML lint](http://www.yamllint.com/) , aby sprawdzić poprawność, a następnie zapisać.
@@ -158,8 +161,8 @@ Wszystkie `kubectl` polecenia używane do tworzenia i zarządzania wdrożeniami 
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -289,7 +292,6 @@ Wszystkie `kubectl` polecenia używane do tworzenia i zarządzania wdrożeniami 
 
 ## <a name="verify-mysql-is-running"></a>Sprawdź, czy program MySQL jest uruchomiony
 
-Poprzedni plik YAML tworzy usługę, która umożliwia uzyskanie dostępu do bazy danych w klastrze. Opcja usługi clusterIP: None umożliwia rozpoznanie nazwy DNS usługi bezpośrednio na adresie IP pod. Jest to optymalne, gdy masz tylko jedno za usługę i nie zamierzasz zwiększyć liczby zasobników.
 
 Aby uruchomić polecenie względem kontenera w obszarze, w którym działa baza danych MySQL, wpisz:
 

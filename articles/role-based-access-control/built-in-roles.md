@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/31/2020
+ms.date: 09/04/2020
 ms.custom: generated
-ms.openlocfilehash: b58316cf5a56eae46c81056a78446dc6c3d10764
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 25c231265bb4ec497af5559624b7228167add76d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226764"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483460"
 ---
 # <a name="azure-built-in-roles"></a>Role wbudowane platformy Azure
 
@@ -27,7 +27,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 ## <a name="all"></a>Wszystko
 
 > [!div class="mx-tableFixed"]
-> | Wbudowana rola | Opis | ID |
+> | Wbudowana rola | Opis | ID (Identyfikator) |
 > | --- | --- | --- |
 > | **Ogólne** |  |  |
 > | [Współautor](#contributor) | Przyznaje pełen dostęp do zarządzania wszystkimi zasobami, ale nie umożliwia przypisywania ról w usłudze Azure RBAC. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -518,7 +518,7 @@ Umożliwia zarządzanie maszynami wirtualnymi, ale nie dostęp do nich, a nie do
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | Tworzenie zestawów dostępności obliczeń i zarządzanie nimi |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/Locations/* | Tworzenie lokalizacji obliczeniowych i zarządzanie nimi |
-> | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Tworzenie maszyn wirtualnych i zarządzanie nimi |
+> | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | Wykonaj wszystkie działania maszyn wirtualnych, w tym tworzenie, aktualizowanie, usuwanie, uruchamianie, ponowne uruchamianie i wyłączanie maszyn wirtualnych. Wykonaj wstępnie zdefiniowane skrypty na maszynach wirtualnych. |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | Tworzenie zestawów skalowania maszyn wirtualnych i zarządzanie nimi |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/disks/Write | Tworzy nowy dysk lub aktualizuje istniejący |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/disks/Read | Pobieranie właściwości dysku |
@@ -6313,7 +6313,7 @@ Wykonaj wszystkie operacje płaszczyzny danych w magazynie kluczy i wszystkie ob
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on certificates, keys and secrets of a key vault, except manage permissions.",
+  "description": "Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483",
   "name": "00482a5a-887f-4fb3-b363-3b7fe8e74483",
   "permissions": [
@@ -6373,7 +6373,7 @@ Wykonaj dowolną akcję dotyczącą certyfikatów magazynu kluczy, z wyjątkiem 
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on the certificates of a key vault, except manage permissions.",
+  "description": "Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a4417e6f-fecd-4de8-b567-7b0420556985",
   "name": "a4417e6f-fecd-4de8-b567-7b0420556985",
   "permissions": [
@@ -6486,7 +6486,7 @@ Wykonaj dowolną akcję dotyczącą kluczy magazynu kluczy, z wyjątkiem uprawni
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on the keys of a key vault, except manage permissions.",
+  "description": "Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
   "name": "14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
   "permissions": [
@@ -6538,7 +6538,7 @@ Odczytywanie metadanych kluczy i wykonywanie operacji zawijania/odpakowania. Dzi
   "assignableScopes": [
     "/"
   ],
-  "description": "Can read metadata of keys and perform wrap/unwrap operations.",
+  "description": "Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e147488a-f6f5-4113-8e2d-b22465e65bf6",
   "name": "e147488a-f6f5-4113-8e2d-b22465e65bf6",
   "permissions": [
@@ -6587,7 +6587,7 @@ Wykonywanie operacji kryptograficznych przy użyciu kluczy. Działa tylko w przy
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform cryptographic operations on keys and certificates.",
+  "description": "Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/12338af0-0e69-4776-bea7-57ae8d297424",
   "name": "12338af0-0e69-4776-bea7-57ae8d297424",
   "permissions": [
@@ -6644,7 +6644,7 @@ Odczytywanie metadanych magazynów kluczy oraz jego certyfikatów, kluczy i wpis
   "assignableScopes": [
     "/"
   ],
-  "description": "Can read metadata of key vaults and its certificates, keys and secrets. Cannot read sensitive values such as secret contents or key material.",
+  "description": "Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/21090545-7ca7-4776-b22c-e363652d74d2",
   "name": "21090545-7ca7-4776-b22c-e363652d74d2",
   "permissions": [
@@ -6704,7 +6704,7 @@ Wykonaj wszelkie działania dotyczące wpisów tajnych magazynu kluczy, z wyjąt
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform any action on the secrets of a key vault, except manage permissions.",
+  "description": "Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
   "name": "b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
   "permissions": [
@@ -6755,7 +6755,7 @@ Odczytaj zawartość wpisu tajnego. Działa tylko w przypadku magazynów kluczy,
   "assignableScopes": [
     "/"
   ],
-  "description": "Can read secret contents.",
+  "description": "Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
   "name": "4633458b-17de-408a-b874-0445c86b69e6",
   "permissions": [
