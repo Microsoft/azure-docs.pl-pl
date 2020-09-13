@@ -1,6 +1,6 @@
 ---
 title: Przegląd weryfikacji wydawcy — platforma tożsamości firmy Microsoft | Azure
-description: Zawiera omówienie programu weryfikacji wydawcy (wersja zapoznawcza) dla platformy tożsamości firmy Microsoft. Zawiera listę korzyści, wymagań programu i często zadawanych pytań. Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta Microsoft Partner Network, które ukończyło proces weryfikacji i skojarzył to konto MPN z rejestracją aplikacji.
+description: Zawiera omówienie programu weryfikacji wydawcy dla platformy tożsamości firmy Microsoft. Zawiera listę korzyści, wymagań programu i często zadawanych pytań. Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta Microsoft Partner Network, które ukończyło proces weryfikacji i skojarzył to konto MPN z rejestracją aplikacji.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068477"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005795"
 ---
-# <a name="publisher-verification-preview"></a>Weryfikacja wydawcy (wersja zapoznawcza)
+# <a name="publisher-verification"></a>Weryfikacja wydawcy
 
-Weryfikacja wydawcy (wersja zapoznawcza) pomaga administratorom i użytkownikom końcowym zrozumieć autentyczność deweloperów aplikacji integrujących się z platformą tożsamości firmy Microsoft. Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) i skojarzył to konto MPN z rejestracją aplikacji. 
+Weryfikacja wydawcy pomaga administratorom i użytkownikom końcowym zrozumieć autentyczność deweloperów aplikacji, którzy integrują się z platformą tożsamości firmy Microsoft. Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) i skojarzył to konto MPN z rejestracją aplikacji. 
 
 Niebieski wskaźnik "sprawdzony" pojawia się w monicie o zgodę usługi Azure AD i innych ekranach: ![ monit o zgodę](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -38,7 +38,7 @@ Weryfikacja wydawcy zapewnia następujące korzyści:
 - **Ulepszona Ocena ryzyka**— wykrycia firmy Microsoft dla "ryzykownych" żądań zgody będą obejmować weryfikację wydawcy jako sygnał. 
 
 ## <a name="requirements"></a>Wymagania
-Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których część zostanie już ukończona przez wielu partnerów firmy Microsoft. Oto one: 
+Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których część zostanie już ukończona przez wielu partnerów firmy Microsoft. Są to: 
 
 -  IDENTYFIKATOR MPN dla prawidłowego konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) . To konto MPN musi być [kontem globalnym partnera (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) dla Twojej organizacji. 
 

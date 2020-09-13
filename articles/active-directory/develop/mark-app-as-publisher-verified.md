@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477689"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006948"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Oznaczanie aplikacji jako zweryfikowanej przez wydawcę (wersja zapoznawcza)
+# <a name="mark-your-app-as-publisher-verified"></a>Oznaczanie aplikacji jako zweryfikowanej przez wydawcę
 
 Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca sprawdził swoją tożsamość przy użyciu konta Microsoft Partner Network (MPN) i skojarzył to konto MPN z rejestracją aplikacji. W tym artykule opisano, jak ukończyć proces [weryfikacji wydawcy (wersja zapoznawcza)](publisher-verification-overview.md) .
 
 ## <a name="quickstart"></a>Szybki start
 Jeśli użytkownik jest już zarejestrowany w Microsoft Partner Network (MPN) i spełnił [wymagania wstępne](publisher-verification-overview.md#requirements), można zacząć od razu: 
 
-1. Przejdź do [portalu rejestracji aplikacji](https://aka.ms/PublisherVerificationPreview)w wersji zapoznawczej.
+1. Przejdź do [portalu rejestracji aplikacji](https://aka.ms/PublisherVerificationPreview).
 
 1. Wybierz aplikację, a następnie kliknij pozycję **znakowanie**. 
 
@@ -37,7 +37,7 @@ Jeśli użytkownik jest już zarejestrowany w Microsoft Partner Network (MPN) i 
 Aby uzyskać więcej informacji na temat określonych korzyści, wymagań i często zadawanych pytań, zobacz [Omówienie](publisher-verification-overview.md).
 
 
-## <a name="mark-your-app-as-publisher-verified"></a>Oznacz aplikację jako zweryfikowaną przez wydawcę
+## <a name="mark-your-app-as-publisher-verified"></a>Oznaczanie aplikacji jako zweryfikowanej przez wydawcę
 Upewnij się, że spełniono [wymagania wstępne](publisher-verification-overview.md#requirements), a następnie wykonaj następujące kroki, aby oznaczyć aplikacje jako zweryfikowane przez wydawcę.  
 
 1. Upewnij się, że zalogowano się przy użyciu konta organizacji (Azure AD), które jest autoryzowane do wprowadzania zmian w aplikacjach, które chcesz oznaczyć jako zweryfikowane przez wydawcę, a na koncie MPN w centrum partnerskim. 
@@ -46,7 +46,7 @@ Upewnij się, że spełniono [wymagania wstępne](publisher-verification-overvie
 
     - W centrum partnerskim ten użytkownik musi mieć następujące role: Administrator MPN, administrator kont lub Administrator globalny (jest to rola udostępniona w usłudze Azure AD). 
 
-1. Przejdź do wersji zapoznawczej portalu rejestracji aplikacji:  
+1. Przejdź do portalu rejestracji aplikacji:  
 
 1. Kliknij aplikację, którą chcesz oznaczyć jako zweryfikowaną przez wydawcę, a następnie otwórz blok znakowania. 
 

@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 09/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ebfd03935f5189a544f11e5b8bbdd4b46e2aa989
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 660c346669c684921164f6488647f589492c7416
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037069"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006622"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Tworzenie połączenia typu lokacja-lokacja w witrynie Azure Portal
 
@@ -31,7 +31,7 @@ Połączenie bramy sieci VPN typu lokacja-lokacja umożliwia łączenie sieci lo
 
 ![Diagram połączenia bramy VPN Gateway typu lokacja-lokacja obejmującego wiele lokalizacji](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Przed rozpoczęciem konfiguracji sprawdź, czy są spełnione następujące kryteria:
 
@@ -86,7 +86,7 @@ W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie
 
 ## <a name="3-create-the-local-network-gateway"></a><a name="LocalNetworkGateway"></a>3. Utwórz bramę sieci lokalnej
 
-Brama sieci lokalnej zazwyczaj odwołuje się do lokalizacji lokalnej. Nadaj lokacji nazwę, za pomocą której platforma Azure może odwołać się do niej, a następnie określ adres IP lokalnego urządzenia sieci VPN, z którym będzie tworzone połączenie. Określ również prefiksy adresów IP, które będą kierowane za pośrednictwem bramy sieci VPN do urządzenia sieci VPN. Określone prefiksy adresów są prefiksami znajdującymi się w Twojej sieci lokalnej. W przypadku zmiany sieci lokalnej lub jeśli trzeba zmienić publiczny adres IP urządzenia sieci VPN, można łatwo zaktualizować wartości później.
+Brama sieci lokalnej jest określonym obiektem, który reprezentuje lokalizację lokalną (lokację) do celów routingu. Nadaj lokacji nazwę, za pomocą której platforma Azure może odwołać się do niej, a następnie określ adres IP lokalnego urządzenia sieci VPN, z którym będzie tworzone połączenie. Określ również prefiksy adresów IP, które będą kierowane za pośrednictwem bramy sieci VPN do urządzenia sieci VPN. Określone prefiksy adresów są prefiksami znajdującymi się w Twojej sieci lokalnej. W przypadku zmiany sieci lokalnej lub jeśli trzeba zmienić publiczny adres IP urządzenia sieci VPN, można łatwo zaktualizować wartości później.
 
 **Przykładowe wartości**
 

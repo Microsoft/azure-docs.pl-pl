@@ -4,15 +4,15 @@ description: Dowiedz się, jak skonfigurować wiele wzorców dla aplikacji przy 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/02/2019
+ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 94465e44a6cc2c4fa94ec8ea4504cbed80742f0f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 68f3beb0ee1c12aa06b6cce0f9ddd480b0ce5f2f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019151"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015249"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurowanie wielu wzorców w aplikacjach korzystających z Azure Cosmos DB
 
@@ -121,14 +121,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
                                     'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Przeczytaj następujące artykuły:
 
 * [Używanie tokenów sesji do zarządzania spójnością w Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
 * [Conflict types and resolution policies in Azure Cosmos DB (Typy konfliktów i zasady ich rozwiązywania w usłudze Azure Cosmos DB)](conflict-resolution-policies.md)
 * [High availability in Azure Cosmos DB (Wysoka dostępność w usłudze Azure Cosmos DB)](high-availability.md)
-* [Poziomy spójności w Azure Cosmos DB](consistency-levels.md)
+* [Poziomy spójności w usłudze Azure Cosmos DB](consistency-levels.md)
 * [Wybierz odpowiedni poziom spójności w Azure Cosmos DB](consistency-levels-choosing.md)
 * [Wady dotyczące spójności, dostępności i wydajności w Azure Cosmos DB](consistency-levels-tradeoffs.md)
 * [Wady dostępności i wydajności dla różnych poziomów spójności](consistency-levels-tradeoffs.md)

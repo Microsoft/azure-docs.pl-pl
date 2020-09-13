@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: d425953b278a98af35a172d8777ab758db52709e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0b3e1b3bc296676c44eddf34b35a0d4e06d3b8c4
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257759"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007336"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostyka rozruchu platformy Azure
 
@@ -24,7 +24,7 @@ Podczas tworzenia maszyny wirtualnej w Azure Portal Diagnostyka rozruchu jest do
 Alternatywna Obsługa diagnostyki rozruchu polega na użyciu konta magazynu zarządzanego przez użytkownika. Użytkownik może utworzyć nowe konto magazynu lub użyć istniejącego.
 
 > [!IMPORTANT]
-> Klienci platformy Azure nie będą obciążani kosztami usługi Storage associted z użyciem diagnostyki rozruchu przy użyciu zarządzanego konta magazynu do października 2020.
+> Klienci platformy Azure nie będą obciążani kosztami magazynu związanymi z diagnostyką rozruchu przy użyciu zarządzanego konta magazynu do 2020 października.
 
 ## <a name="boot-diagnostics-view"></a>Widok diagnostyki rozruchu
 W bloku maszyna wirtualna opcja Diagnostyka rozruchu znajduje się w sekcji *Pomoc techniczna i rozwiązywanie problemów* w Azure Portal. Wybranie opcji Diagnostyka rozruchu spowoduje wyświetlenie zrzutu ekranu i informacji o dzienniku seryjnym. Dziennik seryjny zawiera komunikaty jądra, a zrzut ekranu jest migawką bieżącego stanu maszyn wirtualnych. Na podstawie tego, czy na maszynie wirtualnej jest uruchomiony system Windows lub Linux, decyduje o tym, jak będzie wyglądać oczekiwany zrzut ekranu. W przypadku systemu Windows użytkownicy zobaczą tło pulpitu i system Linux zobaczy monit logowania.
@@ -36,6 +36,7 @@ W bloku maszyna wirtualna opcja Diagnostyka rozruchu znajduje się w sekcji *Pom
 ## <a name="limitations"></a>Ograniczenia
 - Diagnostyka rozruchu jest dostępna tylko dla maszyn wirtualnych Azure Resource Manager. 
 - Diagnostyka rozruchu nie obsługuje kont usługi Premium Storage, jeśli konto magazynu w warstwie Premium jest używane na potrzeby diagnostyki rozruchu, `StorageAccountTypeNotSupported` podczas uruchamiania maszyny wirtualnej wystąpi błąd. 
+- Zarządzane konta magazynu są obsługiwane w Menedżer zasobów interfejsie API w wersji "2020-06-01" i nowszych.
 - Usługa Azure serial Console jest obecnie niezgodna z zarządzanym kontem magazynu na potrzeby diagnostyki rozruchu. Dowiedz się więcej o [usłudze Azure serial Console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
 
 ## <a name="next-steps"></a>Następne kroki

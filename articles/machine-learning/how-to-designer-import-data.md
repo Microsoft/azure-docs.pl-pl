@@ -5,17 +5,17 @@ description: Dowiedz się, jak importować dane do programu Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495375"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006988"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -38,19 +38,28 @@ Możesz również zarejestrować dane wyjściowe dla dowolnego modułu projektan
 
 1. Wybierz moduł, który wyprowadza dane, które chcesz zarejestrować.
 
-1. W okienku właściwości wybierz pozycję **wyjściowy**  >  **zestaw danych**.
+1. W okienku właściwości wybierz pozycję dane **wyjściowe + dzienniki**  >  **zarejestruj zestaw danych**.
 
     ![Zrzut ekranu przedstawiający sposób nawigowania do opcji Zarejestruj zestaw danych](media/how-to-designer-import-data/register-dataset-designer.png)
 
+Jeśli dane wyjściowe modułu są w formacie tabelarycznym, należy wybrać zarejestrowanie danych wyjściowych jako **zestawu danych** lub **tabelarycznego zestawu danych**.
+
+ - **Zestaw danych plików** rejestruje folder wyjściowy modułu jako zestaw danych pliku. Folder wyjściowy zawiera plik danych i meta pliki używane wewnętrznie przez projektanta. Wybierz tę opcję, jeśli chcesz nadal używać zarejestrowanego zestawu danych w projektancie. 
+
+ - **Tabelaryczny zestaw** danych rejestruje tylko plik danych wyjściowych modułu jako tabelaryczny zestaw danych. Ten format jest łatwo używany przez inne narzędzia, na przykład w zautomatyzowanym Machine Learning lub w zestawie Python SDK. Wybierz tę opcję, jeśli planujesz używać zarejestrowanego zestawu danych poza projektantem.  
+
+
+
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych
 
-Zarejestrowane zestawy danych można znaleźć w palecie modułów w obszarze **zestawy danych**  >  **Moje zestawy danych**. Aby użyć zestawu danych, przeciągnij i upuść go na kanwie potoku. Następnie połącz port wyjściowy zestawu danych z innymi modułami w palecie.
+Zarejestrowane zestawy danych można znaleźć w palecie modułów w obszarze **zestawy danych**. Aby użyć zestawu danych, przeciągnij i upuść go na kanwie potoku. Następnie połącz port wyjściowy zestawu danych z innymi modułami na kanwie. 
 
 ![Zrzut ekranu przedstawiający lokalizację zapisanych zestawów danych w palecie projektanta](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> Projektant obecnie obsługuje tylko przetwarzanie [tabelarycznych zestawów danych](how-to-create-register-datasets.md#dataset-types). Jeśli chcesz użyć [zestawów danych plików](how-to-create-register-datasets.md#dataset-types), użyj zestawu SDK Azure Machine Learning dostępnego dla języków Python i R.
+> Projektant obsługuje [przechowywanie wersji zestawu danych](how-to-version-track-datasets.md). Określ wersję zestawu danych w panelu Właściwości modułu DataSet.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>Importowanie danych przy użyciu modułu Importuj dane
 
@@ -80,9 +89,9 @@ Projektant obsługuje tabelaryczne zestawy danych utworzone na podstawie następ
 
 Projektant wewnętrznie rozpoznaje następujące typy danych:
 
-* String
-* Integer
-* Wartość dziesiętna
+* Ciąg
+* Liczba całkowita
+* Liczba dziesiętna
 * Wartość logiczna
 * Date
 
@@ -94,7 +103,7 @@ Moduły w projektancie są ograniczone przez rozmiar obiektu docelowego oblicze�
 
 ## <a name="access-data-in-a-virtual-network"></a>Dostęp do danych w sieci wirtualnej
 
-Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz wykonać dodatkowe czynności konfiguracyjne, aby wizualizować dane w projektancie. Aby uzyskać więcej informacji na temat sposobu korzystania z magazynów danych i ich zestawów w sieci wirtualnej, zapoznaj się z tematem [izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi](how-to-enable-virtual-network.md#machine-learning-studio).
+Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz wykonać dodatkowe czynności konfiguracyjne, aby wizualizować dane w projektancie. Aby uzyskać więcej informacji na temat korzystania z magazynów danych i zestawów w sieci wirtualnej, zobacz [Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure](how-to-enable-studio-virtual-network.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

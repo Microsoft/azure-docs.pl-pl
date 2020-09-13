@@ -5,16 +5,16 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 04/28/2019
 ms.author: sideeksh
-ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021651"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007795"
 ---
-# <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Włącz odzyskiwanie strefy do strefy odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
+# <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Włączanie odzyskiwania po awarii maszyny wirtualnej platformy Azure między strefami dostępności
 
 W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure w trybie failover i powrotu po awarii z jednej strefy dostępności do innej w ramach tego samego regionu świadczenia usługi Azure.
 
@@ -27,6 +27,8 @@ Usługa Site Recovery przyczynia się do zachowania ciągłości działania i od
 
 Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa ma co najmniej jedno centrum danych. 
 
+Jeśli chcesz przenieść maszyny wirtualne do strefy dostępności w innym regionie, [zapoznaj się z tym artykułem](../resource-mover/move-region-availability-zone.md).
+
 ## <a name="using-availability-zones-for-disaster-recovery"></a>Korzystanie z Strefy dostępności na potrzeby odzyskiwania po awarii 
 
 Zwykle Strefy dostępności są używane do wdrażania maszyn wirtualnych w konfiguracji o wysokiej dostępności. Mogą być zbyt blisko siebie, aby służyć jako rozwiązanie odzyskiwania po awarii w przypadku klęski żywiołowej.
@@ -37,7 +39,7 @@ Jednak w niektórych scenariuszach Strefy dostępności można wykorzystać na p
 
 - Wielu innych klientów ma skomplikowaną infrastrukturę sieciową i nie chce jej ponownie utworzyć w regionie pomocniczym ze względu na koszt i złożoność. Odzyskiwanie po awarii strefy do strefy zmniejsza złożoność, ponieważ wykorzystuje nadmiarowe koncepcje sieci w Strefy dostępności, co znacznie upraszcza konfigurację. Ci klienci wolą prostotę i mogą również używać Strefy dostępności do odzyskiwania po awarii.
 
-- W niektórych regionach, które nie mają sparowanego regionu w ramach tej samej jurysdykcji prawnej (na przykład Południowo-Wschodnia), odzyskiwanie po awarii strefy do strefy może być uznawane za niefaktyczne rozwiązanie do odzyskiwania po awarii, ponieważ pomaga zapewnić zgodność z przepisami, ponieważ aplikacje i dane nie przekraczają granic krajowych. 
+- W niektórych regionach, które nie mają sparowanego regionu w ramach tej samej jurysdykcji prawnej (na przykład Południowo-Wschodnia), odzyskiwanie po awarii strefy do strefy może obsłużyć jako niefaktyczne rozwiązanie do odzyskiwania po awarii, ponieważ pomaga zapewnić zgodność z przepisami, ponieważ aplikacje i dane nie przechodzą między granicami krajowymi. 
 
 - Odzyskiwanie po awarii strefy do strefy oznacza replikację danych na krótszych odległość w porównaniu z platformą Azure z odzyskiwaniem po awarii platformy Azure. w związku z tym można zobaczyć małe opóźnienia i w związku z tym niższy cel punktu odzyskiwania.
 
@@ -69,8 +71,8 @@ Przed wdrożeniem strefy do odzyskiwania po awarii strefy dla maszyn wirtualnych
 |---------|---------|
 |Klasyczne maszyny wirtualne   |     Nieobsługiwane    |
 |Maszyny wirtualne ARM    |    Obsługiwane    |
-|Azure Disk Encryption V1 (podwójny przebieg, z usługą AAD)     |     Obsługiwane |
-|Azure Disk Encryption v2 (Single Pass, bez usługi AAD)    |    Obsługiwane    |
+|Azure Disk Encryption V1 (podwójny przebieg, z Azure Active Directory (Azure AD))     |     Obsługiwane   |
+|Azure Disk Encryption v2 (Single Pass, bez usługi Azure AD)    |    Obsługiwane    |
 |Dyski niezarządzane    |    Nieobsługiwane    |
 |Dyski zarządzane    |    Obsługiwane    |
 |Klucze zarządzane przez klienta    |    Obsługiwane    |
@@ -82,7 +84,7 @@ Przed wdrożeniem strefy do odzyskiwania po awarii strefy dla maszyn wirtualnych
 
 ### <a name="log-in"></a>Logowanie się
 
-Zaloguj się do Azure Portal.
+Zaloguj się w witrynie Azure Portal.
 
 ### <a name="enable-replication-for-the-zonal-azure-virtual-machine"></a>Włącz replikację dla strefowej maszyny wirtualnej platformy Azure
 
@@ -119,7 +121,7 @@ Plan zespołu Site Recovery i zarządzanie pojemnością platformy Azure w celu 
 Odzyskiwanie po awarii strefy do strefy obsługuje te same systemy operacyjne co platforma Azure do odzyskiwania po awarii platformy Azure. Zapoznaj się z macierzą pomocy technicznej [tutaj](./azure-to-azure-support-matrix.md).
 
 **5. czy źródłowa i docelowa Grupa zasobów jest taka sama?**
-Nie, musisz przełączyć się w tryb failover do innej grupy zasobów.
+Nie, należy przełączyć się w tryb failover do innej grupy zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 

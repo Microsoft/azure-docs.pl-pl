@@ -1,27 +1,27 @@
 ---
-title: Przegląd podsumowania wypłaty — Azure Marketplace
+title: Omówienie podsumowania wypłaty, Azure Marketplace
 description: Podsumowanie wypłaty zawiera szczegółowe informacje o pieniędzy uzyskanych w ramach oferty. Pozwala on również wiedzieć, kiedy otrzymasz płatności i ile będziesz płacić.
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 708fc2c0783bdefa4ac4fa4b73f10733bba0bc04
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479816"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006928"
 ---
 # <a name="payout-summary-overview"></a>Omówienie podsumowania wypłat
 
 [Podsumowanie wypłaty](./payout-summary.md) zawiera szczegółowe informacje o pieniędzy uzyskanych w firmie Microsoft. Pozwala on również wiedzieć, kiedy otrzymasz płatności i ile będziesz płacić.
 
-Jeśli sprzedajesz oferty w portalu Azure Marketplace, zobaczysz również informacje o pomyślnych wypłatach w podsumowaniu wypłat. Aby uzyskać więcej informacji o płatnościach w portalu Azure Marketplace, zobacz [zasady uczestnictwa w portalu Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) i [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Jeśli sprzedajesz oferty w portalu Azure Marketplace, zobaczysz również informacje o pomyślnych wypłatach w podsumowaniu wypłat. Aby uzyskać więcej informacji o płatnościach w portalu Azure Marketplace, zobacz artykuł dotyczący sprzedaży [komercyjnej](./get-paid.md) i [umowy Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Aby można było skorzystać z wypłat, Twoje przejścia muszą osiągać [próg płatności](./payment-thresholds-methods-timeframes.md) wynoszący $50. Aby uzyskać szczegółowe informacje na temat progu płatności, zobacz [umowę wydawcy Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+> Aby można było skorzystać z wypłat, Twoje przejścia muszą osiągać próg płatności wynoszący $50. Aby uzyskać szczegółowe informacje, zobacz [umowę wydawcy firmy Microsoft](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Aby wyświetlić szczegóły wypłaty, zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home) i wybierz ikonę wypłaty w prawym górnym rogu ekranu:
 
@@ -29,7 +29,7 @@ Aby wyświetlić szczegóły wypłaty, zaloguj się do [Centrum partnerskiego](h
 
 ## <a name="roles-and-permissions"></a>Role i uprawnienia
 
-Są to role i uprawnienia umożliwiające dostęp do raportu wypłaty:
+Oto role i uprawnienia umożliwiające dostęp do raportu wypłaty:
 
 | Raporty/strony | Właściciel konta | Menedżer | Deweloper | Współautor firmy | Współautor finansów | Wiodący |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Są to role i uprawnienia umożliwiające dostęp do raportu wypłaty:
 
 ## <a name="payment-schedules"></a>Harmonogramy płatności
 
-Omówienie harmonogramów płatności, w tym okresów przechowywania, widoczności partnerów i sytuacji, gdy klient korzysta z karty kredytowej lub faktury, zapoznaj się z sekcją [harmonogramy płatności](./payout-policy-details.md#payment-schedules) w temacie **szczegóły wypłaty** .
+Omówienie harmonogramów płatności, w tym okresów przechowywania, widoczności partnerów i sytuacji, gdy klient korzysta z karty kredytowej lub faktury, zapoznaj się z sekcją [harmonogramy płatności](./payout-policy-details.md#payment-schedules) artykułu **szczegóły wypłaty** .
 
 ## <a name="transaction-history-download-export"></a>Pobieranie historii transakcji — eksport
 

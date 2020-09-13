@@ -4,20 +4,20 @@ description: Zawiera omówienie przechodzenia zasobów platformy Azure między r
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 22d8bcee96b4ac52641d4f0841267195f44fe15a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75485210"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007642"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Przeniesienie zasobów platformy Azure między regionami
 
 Ten artykuł zawiera informacje o przenoszeniu zasobów platformy Azure między regionami platformy Azure.
 
-Usługa Azure lokalizacje geograficzne, regiony i Strefy dostępności stanowią podstawę globalnej infrastruktury platformy Azure. Usługa Azure [lokalizacje geograficzne](https://azure.microsoft.com/global-infrastructure/geographies/) zwykle zawiera co najmniej dwa [regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/). Region jest obszarem w obszarze geograficznym zawierającym Strefy dostępności i wiele centrów danych. 
+Strefy usługi Azure lokalizacje geograficzne, regiony i dostępność stanowią podstawę globalnej infrastruktury platformy Azure. Usługa Azure [lokalizacje geograficzne](https://azure.microsoft.com/global-infrastructure/geographies/) zwykle zawiera co najmniej dwa [regiony platformy Azure](https://azure.microsoft.com/global-infrastructure/regions/). Region jest obszarem w obszarze geograficznym zawierającym Strefy dostępności i wiele centrów danych. 
 
 Po wdrożeniu zasobów w konkretnym regionie platformy Azure istnieje kilka powodów, dla których warto przenieść zasoby do innego regionu.
 
@@ -29,20 +29,50 @@ Po wdrożeniu zasobów w konkretnym regionie platformy Azure istnieje kilka powo
 - **Odpowiadanie na wymagania dotyczące wdrażania**: Przenieś zasoby, które zostały wdrożone w ramach błędu, lub przejdź w odpowiedzi na potrzeby pojemności. 
 - **Reagowanie na likwidowanie**: Przenieś zasoby z powodu likwidacji regionów.
 
-## <a name="move-process"></a>Przenieś proces
+## <a name="move-resources-with-resource-mover"></a>Przenoszenie zasobów przy użyciu przenoszenia zasobów
 
-Rzeczywisty proces przenoszenia zależy od zasobów, które są przenoszone. Jednak istnieją pewne typowe kluczowe kroki:
+Zasoby można przenosić do innego regionu za pomocą [usługi Azure Resource](../../resource-mover/overview.md)przenoszącej. Program do przenoszenia zasobów oferuje następujące informacje:
 
-- **Sprawdzanie wymagań wstępnych**: wymagania wstępne obejmują upewnienie się, że zasoby, które są potrzebne, są dostępne w regionie docelowym, sprawdzają, czy masz wystarczające limity przydziału i sprawdzają, czy subskrypcja ma dostęp do regionu docelowego.
-- **Analizowanie zależności**: zasoby mogą mieć zależności od innych zasobów. Przed przeniesieniem Ustal zależności, aby przeniesione zasoby nadal działały zgodnie z oczekiwaniami po przeniesieniu.
-- **Przygotuj do przeniesienia**: te czynności należy wykonać w regionie podstawowym przed przeniesieniem. Na przykład może być konieczne wyeksportowanie szablonu Azure Resource Manager lub rozpoczęcie replikowania zasobów z lokalizacji źródłowej do docelowej.
-- **Przenoszenie zasobów**: sposób przenoszenia zasobów zależy od tego, co się stało. Może być konieczne wdrożenie szablonu w regionie docelowym lub awaria zasobów w celu przełączenia do obiektu docelowego.
-- **Odrzuć zasoby docelowe**: po przeniesieniu zasobów możesz chcieć teraz przyjrzeć się zasobom w regionie docelowym i zdecydować, czy nie ma żadnych niepotrzebnych elementów.
-- **Zatwierdź przeniesienie**: po sprawdzeniu zasobów w regionie docelowym niektóre zasoby mogą wymagać ostatecznej akcji zatwierdzania. Na przykład w regionie docelowym, który jest teraz regionem podstawowym, może być konieczne skonfigurowanie odzyskiwania po awarii do nowego regionu pomocniczego. 
-- **Wyczyść Źródło**: wreszcie po zakończeniu i uruchomieniu w nowym regionie można wyczyścić i zlikwidować zasoby utworzone w ramach przenoszenia oraz zasoby w regionie podstawowym.
+- Jedno centrum do przemieszczania zasobów między regionami.
+- Krótszy czas przenoszenia i złożoność. Wszystko, czego potrzebujesz, znajduje się w jednej lokalizacji.
+- Proste i spójne środowisko do przemieszczania różnych typów zasobów platformy Azure.
+- Prosty sposób identyfikowania zależności między zasobami, które chcesz przenieść. Ułatwia to przenoszenie powiązanych zasobów razem, dzięki czemu wszystko działa zgodnie z oczekiwaniami w regionie docelowym po przeniesieniu.
+- Automatyczne czyszczenie zasobów w regionie źródłowym, jeśli chcesz je usunąć po przeniesieniu.
+- Testowy. Możesz wypróbować przechodzenie, a następnie odrzucić go, jeśli nie chcesz wykonać pełnego przeniesienia.
+
+Zasoby można przenosić do innego regionu przy użyciu kilku różnych metod:
+
+- **Rozpocznij przenoszenie zasobów z grupy zasobów**: przy użyciu tej metody można rozpocząć przenoszenie regionu z grupy zasobów. Po wybraniu zasobów, które chcesz przenieść, proces kontynuuje się w centrum przenoszenia zasobów, aby sprawdzić zależności zasobów i zorganizować proces przenoszenia. [Dowiedz się więcej](../../resource-mover/move-region-within-resource-group.md).
+- **Rozpocznij przenoszenie zasobów bezpośrednio z centrum przenoszenia zasobów**: dzięki tej metodzie można uruchomić proces przenoszenia regionu bezpośrednio w centrum. [Dowiedz się więcej](../../resource-mover/tutorial-move-region-virtual-machines.md).
+
+
+## <a name="support-for-region-move"></a>Obsługa przenoszenia regionów
+
+Za pomocą przenoszenia zasobów można obecnie przenieść te zasoby do innego regionu:
+
+- Maszyny wirtualne platformy Azure i skojarzone dyski
+- Karty interfejsów sieciowych
+- Zestawy dostępności
+- Sieci wirtualne platformy Azure
+- Publiczne adresy IP
+- Sieciowe grupy zabezpieczeń
+- Wewnętrzne i publiczne usługi równoważenia obciążenia
+- Bazy danych SQL Azure i pule elastyczne
+
+## <a name="region-move-process"></a>Proces przenoszenia regionu
+
+Rzeczywisty proces przemieszczania zasobów między regionami zależy od zasobów, które są przenoszone. Jednak istnieją pewne typowe kluczowe kroki:
+
+1. **Sprawdzanie wymagań wstępnych**: wymagania wstępne obejmują upewnienie się, że zasoby, które są potrzebne, są dostępne w regionie docelowym, sprawdzają, czy masz wystarczające limity przydziału i sprawdzają, czy subskrypcja ma dostęp do regionu docelowego.
+2. **Analizowanie zależności**: zasoby mogą mieć zależności od innych zasobów. Przed przeniesieniem Ustal zależności, aby przeniesione zasoby nadal działały zgodnie z oczekiwaniami po przeniesieniu.
+3. **Przygotuj do przeniesienia**: te czynności należy wykonać w regionie podstawowym przed przeniesieniem. Na przykład może być konieczne wyeksportowanie szablonu Azure Resource Manager lub rozpoczęcie replikowania zasobów z lokalizacji źródłowej do docelowej.
+4. **Przenoszenie zasobów**: sposób przenoszenia zasobów zależy od tego, co się stało. Może być konieczne wdrożenie szablonu w regionie docelowym lub awaria zasobów w celu przełączenia do obiektu docelowego.
+5. **Odrzuć zasoby docelowe**: po przeniesieniu zasobów możesz chcieć teraz przyjrzeć się zasobom w regionie docelowym i zdecydować, czy nie ma żadnych niepotrzebnych elementów.
+6. **Zatwierdź przeniesienie**: po sprawdzeniu zasobów w regionie docelowym niektóre zasoby mogą wymagać ostatecznej akcji zatwierdzania. Na przykład w regionie docelowym, który jest teraz regionem podstawowym, może być konieczne skonfigurowanie odzyskiwania po awarii do nowego regionu pomocniczego. 
+7. **Wyczyść Źródło**: wreszcie po zakończeniu i uruchomieniu w nowym regionie można wyczyścić i zlikwidować zasoby utworzone w ramach przenoszenia oraz zasoby w regionie podstawowym.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z listą zasobów, które obsługują przenoszenie między regionami, zobacz [przenoszenie operacji przenoszenia zasobów](region-move-support.md).
+[Dowiedz się więcej](../../resource-mover/about-move-process.md) o procesie przenoszenia w obszarze przenoszenia zasobów.

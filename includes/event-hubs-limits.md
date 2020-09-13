@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 333f2317fcc834a10b7336bbda9a43ba16a7ad38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8700bbfe697a6b5fb81380831950d704fcb1f5ff
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84317582"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90012894"
 ---
 W poniższych tabelach przedstawiono limity przydziału i limity dotyczące [usługi Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Aby uzyskać informacje na temat cennika Event Hubs, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -35,24 +35,24 @@ W warstwach Podstawowa i Standardowa są wspólne następujące ograniczenia.
 ### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Event Hubs podstawowe i standardowe przydziały i limity
 | Limit | Zakres | Uwagi | Podstawowa | Standardowa (Standard) |
 | --- | --- | --- | -- | --- |
-| Maksymalny rozmiar zdarzenia Event Hubs|Jednostka | &nbsp; | 256 KB | 1 MB |
+| Maksymalny rozmiar zdarzenia Event Hubs|Jednostka | &nbsp; | 256 KB | 1 MB |
 | Liczba grup odbiorców na centrum zdarzeń |Jednostka | &nbsp; |1 |20 |
 | Liczba połączeń AMQP na przestrzeń nazw |Przestrzeń nazw |Kolejne żądania dla dodatkowych połączeń są odrzucane i występuje wyjątek przez wywoływany kod. |100 |5000|
 | Maksymalny okres przechowywania danych zdarzenia |Jednostka | &nbsp; |1 dzień |1-7 dni |
-|Apache Kafka włączona przestrzeń nazw|Przestrzeń nazw |Event Hubs przestrzeni nazw strumieniuje aplikacje przy użyciu protokołu Kafka |Nie | Tak |
-|Przechwytywanie |Jednostka | Gdy ta funkcja jest włączona, mikro partie w tym samym strumieniu |Nie |Tak |
+|Apache Kafka włączona przestrzeń nazw|Przestrzeń nazw |Event Hubs przestrzeni nazw strumieniuje aplikacje przy użyciu protokołu Kafka. Aby uzyskać więcej informacji, zobacz [Korzystanie z usługi Azure Event Hubs z aplikacji Apache Kafka](../articles/event-hubs/event-hubs-for-kafka-ecosystem-overview.md). |Nie | Tak |
+|Przechwytywanie |Jednostka | Gdy ta funkcja jest włączona, mikro partie w tym samym strumieniu. Aby uzyskać więcej informacji, zobacz [przechwytywanie zdarzeń za pomocą usługi azure Event Hubs na platformie azure BLOB Storage lub Azure Data Lake Storage](../articles/event-hubs/event-hubs-capture-overview.md). |Nie |Tak |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs — warstwa Dedykowana — przydziały i limity
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
-| Cecha | Limity |
+| Cechy | Limity |
 | --- | ---|
 | Przepustowość |  20 jednostek |
 | Przestrzenie nazw | 50 na CU |
 | Event Hubs |  1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Dołączono |
-| Rozmiar komunikatu | 1 MB |
+| Rozmiar komunikatu | 1 MB |
 | Partycje | 2000 na CU |
 | Grupy odbiorców | Brak limitu na wartość CU, 1000 na centrum zdarzeń |
 | Połączenia obsługiwane przez brokera | 100 K uwzględnionych |

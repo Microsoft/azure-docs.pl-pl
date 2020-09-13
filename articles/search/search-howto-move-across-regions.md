@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926953"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007047"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Przenoszenie usługi Wyszukiwanie poznawcze platformy Azure do innego regionu platformy Azure
 
@@ -23,7 +23,13 @@ Czasami klienci pytają o przeniesienie usługi wyszukiwania do innego regionu. 
 > [!NOTE]
 > W Azure Portal wszystkie usługi mają polecenie **eksportu szablonu** . W przypadku usługi Azure Wyszukiwanie poznawcze to polecenie tworzy podstawową definicję usługi (nazwę, lokalizację, warstwę, replikę i liczbę partycji), ale nie rozpoznaje zawartości usługi ani nie przeprowadzi z kluczy, ról ani dzienników. Chociaż to polecenie istnieje, nie zaleca się używania go do przeniesienia usługi wyszukiwania.
 
-## <a name="guidance-for-moving-a-service"></a>Wskazówki dotyczące przesuwania usługi
+## <a name="prerequisites"></a>Wymagania wstępne
+
++ Upewnij się, że usługi i funkcje używane przez konto są obsługiwane w regionie docelowym.
+
++ W przypadku funkcji w wersji zapoznawczej upewnij się, że subskrypcja znajduje się na liście dozwolonych elementów dla regionu docelowego.
+
+## <a name="prepare-and-move"></a>Przygotowywanie i przenoszenie
 
 1. Zidentyfikuj zależności i powiązane usługi, aby zrozumieć pełny wpływ zmiany lokalizacji usługi na wypadek, gdyby trzeba było przenieść więcej niż tylko Wyszukiwanie poznawcze platformy Azure.
 
@@ -41,7 +47,9 @@ Czasami klienci pytają o przeniesienie usługi wyszukiwania do innego regionu. 
 
 1. Zaktualizuj aplikacje klienckie i zestawy testów, aby użyć nowej nazwy usługi i kluczy interfejsu API, i przetestuj wszystkie aplikacje.
 
-1. Usuń starą usługę, gdy nowa usługa zostanie w pełni przetestowana i działa.
+## <a name="discard-or-clean-up"></a>Odrzucanie lub czyszczenie
+
+Usuń starą usługę, gdy nowa usługa zostanie w pełni przetestowana i działa. Usunięcie usługi spowoduje automatyczne usunięcie całej zawartości skojarzonej z usługą.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie organizacjami z poziomu portalu My Account — Azure AD
-description: Jak wyświetlać i opuszczać organizacje połączone z kontem służbowym ze strony organizacje portalu My account.
+description: Jak wyświetlać i opuszczać organizacje, do których masz dostęp, na stronie organizacji portalu My account.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798180"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005075"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Zarządzaj połączonymi organizacjami ze strony organizacji
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Zarządzanie organizacjami, do których masz dostęp w portalu My Account
 
-Strona **organizacje** w portalu **My Account** ułatwia zarządzanie organizacjami (zazwyczaj nazwą organizacji) połączoną z kontem służbowym. Na stronie **organizacje** są wyświetlane dwa typy organizacji:
+Strona **organizacje** portalu **My Account** ułatwia zarządzanie organizacjami (zazwyczaj nazwą organizacji), do której masz dostęp. Na stronie **organizacje** są wyświetlane dwa typy organizacji:
 
 - **Organizacja główna.** Organizacja główna jest organizacją, która jest właścicielem Twojego konta służbowego. Nie możesz opuścić swojej organizacji.
 
@@ -30,7 +30,7 @@ Strona **organizacje** w portalu **My Account** ułatwia zarządzanie organizacj
 - **Inne organizacje.** Inne organizacje to wszystkie grupy, do których użytkownik zalogował się wcześniej przy użyciu konta służbowego. W każdej chwili możesz opuścić każdą z tych organizacji.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji połączone z kontem służbowym. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](../users-groups-roles/index.yml).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących zaktualizować informacje o organizacji, do których uzyskuje dostęp za pomocą konta służbowego. Jeśli jesteś administratorem, który szuka informacji o zarządzaniu grupami i użytkownikami dla pracowników i innych użycia, zobacz [dokumentację dotyczącą zarządzania użytkownikami przedsiębiorstwa](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Wyświetlanie organizacji
 
@@ -44,7 +44,7 @@ Strona **organizacje** w portalu **My Account** ułatwia zarządzanie organizacj
 
     ![Strona organizacji](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Zapoznaj się z innymi skojarzonymi organizacjami, aby rozpoznać wszystkie organizacje połączone z Twoim kontem.
+4. Zapoznaj się z innymi organizacjami, aby rozpoznać wszystkie organizacje, do których masz dostęp.
 
 ## <a name="leave-an-organization"></a>Opuszczanie organizacji
 

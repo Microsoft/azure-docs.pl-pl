@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z weryfikacją wydawcy — platforma tożsamości firmy Microsoft | Azure
-description: Opisuje sposób rozwiązywania problemów z weryfikacją wydawcy (wersja zapoznawcza) dla platformy tożsamości firmy Microsoft przez wywoływanie Microsoft Graph interfejsów API.
+description: Opisuje sposób rozwiązywania problemów z weryfikacją wydawcy dla platformy tożsamości firmy Microsoft przez wywoływanie Microsoft Graph interfejsów API.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282980"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007557"
 ---
-# <a name="troubleshoot-publisher-verification-preview"></a>Rozwiązywanie problemów z weryfikacją wydawcy (wersja zapoznawcza)
-Jeśli nie możesz zakończyć procesu lub występują nieoczekiwane zachowanie w przypadku [weryfikacji wydawcy (wersja zapoznawcza)](publisher-verification-overview.md), należy zacząć od wykonania następujących czynności w przypadku otrzymywania błędów lub wyświetlenia nieoczekiwanego zachowania: 
+# <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
+Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
 
 1. Zapoznaj się z [wymaganiami](publisher-verification-overview.md#requirements) i upewnij się, że zostały one spełnione.
 
@@ -62,7 +62,7 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
 
 ## <a name="making-microsoft-graph-api-calls"></a>Wykonywanie wywołań interfejsu API Microsoft Graph 
 
-Jeśli występuje problem, ale nie można zrozumieć, dlaczego jest on oparty na tym, co widzisz w interfejsie użytkownika, może być przydatne dalsze Rozwiązywanie problemów przy użyciu Microsoft Graph wywołań, aby wykonać te same operacje, które można wykonać w portalu rejestracji aplikacji. W fazie zapoznawczej te interfejsy API będą dostępne tylko w punkcie końcowym/beta Microsoft Graph.  
+Jeśli występuje problem, ale nie można zrozumieć, dlaczego jest on oparty na tym, co widzisz w interfejsie użytkownika, może być przydatne dalsze Rozwiązywanie problemów przy użyciu Microsoft Graph wywołań, aby wykonać te same operacje, które można wykonać w portalu rejestracji aplikacji.
 
 Najprostszym sposobem, aby te żądania były przy użyciu [Eksploratora grafów](https://developer.microsoft.com/graph/graph-explorer). Możesz również rozważyć inne opcje, takie jak użycie programu [Poster](https://www.postman.com/)lub [wywołanie żądania sieci Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7)za pomocą środowiska PowerShell.  
 
@@ -84,7 +84,7 @@ POST /applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec/setVerifiedPublisher
 } 
 ```
  
-Odpowiedź 
+Reakcja 
 ```
 204 No Content 
 ```
@@ -98,7 +98,7 @@ Odpowiedź
 POST /applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec/unsetVerifiedPublisher 
 ```
  
-Odpowiedź 
+Reakcja 
 ```
 204 No Content 
 ```

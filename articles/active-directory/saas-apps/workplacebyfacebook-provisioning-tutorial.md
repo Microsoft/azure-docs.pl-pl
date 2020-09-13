@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526403"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006095"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie miejsca pracy przez serwis Facebook w celu automatycznego aprowizacji użytkowników
 
@@ -105,28 +105,36 @@ Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, kt�
 
    |Atrybut|Typ|
    |---|---|
-   |userName|String|
-   |displayName|String|
-   |aktywne|Boolean|
-   |tytuł|Boolean|
-   |wiadomości e-mail [Type EQ "Work"]. Value|String|
-   |Nazwa. imię|String|
-   |Nazwa. rodzina|String|
-   |Nazwa. sformatowana|String|
-   |adresy [typ EQ "Work"]. sformatowane|String|
-   |adresy [typ EQ "Work"]. streetAddress|String|
-   |adresy [typ EQ "Work"]. locale|String|
-   |addresss [Type EQ "Work"]. region|String|
-   |addresss [Type EQ "Work"]. Country|String|
-   |addresss [Type EQ "Work"]. KodPocztowy|String|
-   |adresy [Type EQ "Other"]. sformatowane|String|
-   |numer telefonu [typ EQ "Work"]. wartość|String|
-   |numer telefonu [typ EQ "Mobile"]. Value|String|
-   |numer telefonu [typ EQ "Fax"]. wartość|String|
-   |externalId|String|
-   |preferredLanguage|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|String|
-   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |userName|Ciąg|
+   |displayName|Ciąg|
+   |aktywne|Wartość logiczna|
+   |title|Wartość logiczna|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |Nazwa. sformatowana|Ciąg|
+   |adresy [typ EQ "Work"]. sformatowane|Ciąg|
+   |adresy [typ EQ "Work"]. streetAddress|Ciąg|
+   |adresy [typ EQ "Work"]. locale|Ciąg|
+   |addresss [Type EQ "Work"]. region|Ciąg|
+   |addresss [Type EQ "Work"]. Country|Ciąg|
+   |addresss [Type EQ "Work"]. KodPocztowy|Ciąg|
+   |adresy [Type EQ "Other"]. sformatowane|Ciąg|
+   |numer telefonu [typ EQ "Work"]. wartość|Ciąg|
+   |numer telefonu [typ EQ "Mobile"]. Value|Ciąg|
+   |numer telefonu [typ EQ "Fax"]. wartość|Ciąg|
+   |externalId|Ciąg|
+   |preferredLanguage|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Manager|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Department|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. dzielenie|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. Organization|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. costCenter|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Enterprise: 1.0. employeeNumber|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: auth_method: 1.0: auth_method|Ciąg|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: teraźniejszości: 1.0. is_frontline|Wartość logiczna|
+   |urn: Standard scim: schematy: rozszerzenie: Facebook: starttermdates: 1.0. startDate|Liczba całkowita|
+
 
 10. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +161,10 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 
 ## <a name="troubleshooting-tips"></a>Wskazówki dotyczące rozwiązywania problemów
 *  Jeśli zobaczysz, że użytkownik zostanie niepomyślnie utworzony i istnieje zdarzenie dziennika inspekcji z kodem "1789003", oznacza to, że użytkownik pochodzi z niezweryfikowanej domeny.
+
+## <a name="change-log"></a>Dziennik zmian
+
+* 09/10/2020 — dodano obsługę atrybutów przedsiębiorstwa "dzielenie", "organizacja", "costCenter" i "employeeNumber". Dodano obsługę atrybutów niestandardowych "startDate", "auth_method" i "teraźniejszości"
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

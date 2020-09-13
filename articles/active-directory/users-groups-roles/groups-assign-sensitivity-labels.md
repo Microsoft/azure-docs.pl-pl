@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f056b34df0a70374e8bae909f210bfabf107ed4a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795316"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005942"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Przypisywanie etykiet czułości do grup Microsoft 365 w Azure Active Directory
 
@@ -68,7 +68,7 @@ Aby zastosować opublikowane etykiety do grup, należy najpierw włączyć tę f
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-To wszystko. Włączono funkcję i można zastosować opublikowane etykiety do grup.
+Należy również zsynchronizować etykiety czułości z usługą Azure AD. Aby uzyskać instrukcje, zobacz [jak włączyć etykiety czułości dla kontenerów i zsynchronizować etykiety](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Przypisywanie etykiety do nowej grupy w Azure Portal
 
@@ -113,7 +113,8 @@ Po włączeniu tej funkcji klasyfikacje "klasyczny" dla grup będą widoczne tyl
 Opcja etykiety czułości jest wyświetlana tylko dla grup, gdy spełnione są wszystkie następujące warunki:
 
 1. Etykiety są publikowane w centrum zgodności Microsoft 365 dla tej organizacji usługi Azure AD.
-1. Funkcja jest włączona, EnableMIPLabels jest ustawiona na true w programie PowerShell.
+1. Funkcja jest włączona, EnableMIPLabels jest ustawiona na wartość true w module Azure AD PowerShell.
+1. Poszukiwaniu są synchronizowane z usługą Azure AD za pomocą polecenia cmdlet Execute-AzureAdLabelSync w module zgodności z zabezpieczeniami &.
 1. Grupa jest grupą Microsoft 365.
 1. Organizacja ma aktywną licencję na Azure Active Directory — wersja Premium P1.
 1. Bieżący zalogowany użytkownik ma wystarczające uprawnienia do przypisywania etykiet. Użytkownik musi być administratorem globalnym, administratorem grupy lub właścicielem grupy.

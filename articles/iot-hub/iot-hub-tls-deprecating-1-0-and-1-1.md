@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 5c717a02c2008436617d16f08625a1cecc204340
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcf7620f53c9bfdb51eb62598f2c8b441574eca6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83849522"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006084"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Wycofanie protokołu TLS 1,0 i 1,1 w IoT Hub
 
@@ -38,9 +38,9 @@ IoT Hub będzie nadal obsługiwał protokół TLS 1.0/1.1 do momentu dalszej uwa
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-## <a name="tls-12-ciphers"></a>Szyfrowanie TLS 1,2
+## <a name="tls-12-cipher-suites"></a>Mechanizmy szyfrowania TLS 1,2
 
-Zobacz [IoT Hub szyfrowania TLS 1,2](iot-hub-tls-support.md#recommended-ciphers).
+Zobacz [IoT Hub szyfrowania TLS 1,2](iot-hub-tls-support.md#cipher-suites).
  
 ## <a name="customer-feedback"></a>Opinie klientów
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59318cca33ba1607498546161764aa3aaaaea13e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260327"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014943"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
@@ -128,9 +128,9 @@ W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla a
 
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja początkowa klienta usługi Azure wiosny Cloud
 ---|---|---
-2.1 | Greenwich. RELEASE | 2.1.2
-2.2 | Hoxton.SR8 | Nie jest wymagany
-2.3 | Hoxton.SR8 | Nie jest wymagany
+2.1. x | Greenwich. RELEASE | 2.1.2
+2.2. x | Hoxton.SR8 | Nie jest wymagany
+2.3. x | Hoxton.SR8 | Nie jest wymagany
 
 Jeśli używasz sieci z rozruchem sprężynowym 2,1, Dołącz następujący dependenciy do pliku pom.xml.
 
@@ -232,7 +232,7 @@ Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipk
 
  Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Aby uzyskać informacje o sposobach używania Application Insights z chmurą Azure wiosennej, zapoznaj się z [dokumentacją śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Analizowanie dzienników i metryk aplikacji](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 * [Konfigurowanie serwera konfiguracji](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
 * [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

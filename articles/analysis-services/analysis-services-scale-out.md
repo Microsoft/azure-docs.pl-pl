@@ -4,15 +4,15 @@ description: Replikowanie Azure Analysis Services serwerów z skalowaniem w pozi
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716932"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007710"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Skalowanie w poziomie usług Azure Analysis Services
 
@@ -41,6 +41,8 @@ Podczas kolejnej operacji skalowania w poziomie, na przykład zwiększając licz
 * Wykonaj synchronizację *przed operacją skalowania w poziomie* , aby uniknąć nadmiarowego uzupełniania dodanych replik. Współbieżne synchronizowanie i operacje skalowania w poziomie uruchomione w tym samym czasie są niedozwolone.
 
 * Podczas automatyzowania operacji przetwarzania *i* skalowania w poziomie ważne jest, aby najpierw przetworzyć dane na serwerze podstawowym, a następnie przeprowadzić synchronizację, a następnie wykonać operację skalowania w poziomie. Ta sekwencja gwarantuje minimalny wpływ na QPU i zasoby pamięci.
+
+* Podczas operacji skalowania w poziomie wszystkie serwery w puli zapytań, w tym serwer podstawowy, są tymczasowo w trybie offline.
 
 * Synchronizacja jest dozwolona nawet wtedy, gdy w puli zapytań nie ma żadnych replik. W przypadku skalowania z zera do co najmniej jednej repliki z nowymi danymi z operacji przetwarzania na serwerze podstawowym Wykonaj synchronizację najpierw bez replik w puli zapytań, a następnie Skaluj w poziomie. Synchronizacja przed skalowaniem nie pozwala na uniknięcie nadmiarowego uzupełniania nowo dodanych replik.
 
@@ -114,7 +116,7 @@ Operacje synchronizacji należy wykonać ręcznie lub przy użyciu interfejsu AP
 
 W obszarze **przegląd** > model > **zsynchronizuj model**.
 
-![Suwak skalowania w poziomie](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Ikona synchronizacji](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>Interfejs API REST
 

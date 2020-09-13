@@ -1,20 +1,20 @@
 ---
-title: Informacje Azure Files
-description: Znajdź informacje dotyczące interfejsów API usługi Azure Storage, plików README i pakietów biblioteki klienta.
+title: Dokumentacja usługi Azure Files
+description: Znajdź Azure Files informacje o interfejsie API, pliki Readme i pakiety biblioteki klienta.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: c5799b7ec9f6ecce1b9203345446b2d3240beb80
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cbbd4960a498516182323748e6609b834b1d4884
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527850"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014688"
 ---
-# <a name="azure-files-reference"></a>Informacje Azure Files
+# <a name="azure-files-reference"></a>Dokumentacja usługi Azure Files
 
 Znajdź informacje o interfejsie API Azure Files, pakietach bibliotek, plikach Readme i artykułach rozpoczynających pracę.
 
@@ -66,8 +66,8 @@ W poniższej tabeli wymieniono informacje referencyjne i przykładowe dokumenty 
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteki klienta usługi Azure Storage V12 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Przykłady](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Biblioteki klienckie usługi Azure Storage w wersji 2 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python) |
+| 12. x | [Biblioteki klienta usługi Azure Storage V12 dla języka Python](/azure/developer/python/sdk/storage/overview) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Przykłady](/python/api/overview/azure/storage-file-share-readme#examples) |
+| 2.x | [Biblioteki klienckie usługi Azure Storage w wersji 2 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python) |
 
 ## <a name="javascript-client-libraries"></a>Biblioteki klienckie języka JavaScript
 
@@ -88,7 +88,7 @@ Poniższa tabela zawiera listę referencyjną i przykładową dokumentację dla 
 
 ### <a name="other-rest-reference"></a>Inne odwołanie do REST
 
-- [Interfejs API REST usługi Azure Storage Import-Export](/rest/api/storageimportexport/) ułatwia zarządzanie zadaniami importu/eksportu w celu przesyłania danych do lub z magazynu obiektów BLOB.
+- [Interfejs API REST usługi Azure Storage Import-Export ](/rest/api/storageimportexport/) ułatwia zarządzanie zadaniami importu/eksportu w celu przesyłania danych do lub z magazynu obiektów BLOB.
 
 ## <a name="other-languages-and-platforms"></a>Inne języki i platformy
 
@@ -106,8 +106,9 @@ Poniższa tabela zawiera linki do najnowszej wersji zawartości referencyjnej.
 
 | Wersja | Platforma |
 | ------- | -------- |
-|  wersji  | [Program PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [Program PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  4.x  | [Program PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  wersji  | [Program PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2.x  | [Program PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

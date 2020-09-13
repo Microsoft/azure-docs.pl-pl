@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000009"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007574"
 ---
 # <a name="features"></a>Funkcje
 
@@ -27,7 +27,7 @@ Obecnie obsługiwane są również poprzednie wersje: `3.0.2`
 
 ## <a name="rest-api"></a>Interfejs API REST
 
-| interfejs API                            | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz                                             |
+| Interfejs API                            | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | przeczytaj                           | Tak       | Tak       | Tak       |                                                     |
 | vread                          | Tak       | Tak       | Tak       |                                                     |
@@ -98,14 +98,24 @@ Wszystkie typy parametrów wyszukiwania są obsługiwane.
 | Operacje wyszukiwania       | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Nie        | Nie        | Nie        |         |
-| `_sort`                 | Nie        | Częściowe   | Częściowe        |   `_sort=_lastUpdated` jest obsługiwana       |
+| `_sort`                 | Częściowe        | Częściowe   | Częściowe        |   `_sort=_lastUpdated` jest obsługiwana       |
 | `_score`                | Nie        | Nie        | Nie        |         |
 | `_count`                | Tak       | Tak       | Tak       |         |
 | `_summary`              | Częściowe   | Częściowe   | Częściowe   | `_summary=count` jest obsługiwana |
 | `_include`              | Nie        | Tak       | Nie        |         |
 | `_revinclude`           | Nie        | Tak       | Nie        | Uwzględnione elementy są ograniczone do 100. |
 | `_contained`            | Nie        | Nie        | Nie        |         |
-| `_elements`             | Nie        | Nie        | Nie        |         |
+| `_elements`             | Tak        | Tak        | Tak        |         |
+
+## <a name="extended-operations"></a>Operacje rozszerzone
+
+Wszystkie obsługiwane operacje, które zwiększają interfejs API RESTful.
+
+| Typ parametru wyszukiwania | Obsługiwane — PaaS | Obsługiwane — OSS (SQL) | Obsługiwane — OSS (Cosmos DB) | Komentarz |
+|-----------------------|-----------|-----------|-----------|---------|
+| $export (cały system)                | Tak       | Tak       | Tak       |         |
+| Pacjent/$export         | Tak       | Tak       | Tak       |         |
+| Grupuj/$export               | Tak       | Tak       | Tak       |         |
 
 ## <a name="persistence"></a>Trwałość
 
@@ -121,7 +131,7 @@ Serwer FHIR używa [Azure Active Directory](https://azure.microsoft.com/services
 
 Obecnie dozwolone akcje dla danej roli są stosowane *globalnie* w interfejsie API.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Ten artykuł zawiera informacje o obsługiwanych funkcjach FHIR w interfejsie API platformy Azure dla FHIR. Następnie wdróż interfejs API platformy Azure dla usługi FHIR.
  

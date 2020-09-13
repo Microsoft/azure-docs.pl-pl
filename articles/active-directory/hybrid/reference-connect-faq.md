@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256683"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014637"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect często zadawane pytania
 
@@ -32,15 +32,15 @@ Firma Microsoft zaleca, aby zabezpieczyć serwer Azure AD Connect, aby zmniejszy
 
 * Wdrażanie Azure AD Connect na serwerze przyłączonym do domeny i ograniczanie dostępu administracyjnego do administratorów domeny lub innych chronionych grup zabezpieczeń
 
-Aby dowiedzieć się więcej, zobacz następujące artykuły: 
+Aby dowiedzieć się więcej, zobacz: 
 
-* [Zabezpieczanie grup administratorów](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [Zabezpieczanie grup administratorów](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Zabezpieczanie wbudowanego konta administratora](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [Zabezpieczanie wbudowanego konta administratora](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Poprawa zabezpieczeń i utrzymywanie poprzez zmniejszenie powierzchni ataków](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [Poprawa zabezpieczeń i utrzymywanie poprzez zmniejszenie powierzchni ataków](/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Zmniejszanie obszaru ataków Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Zmniejszanie obszaru ataków Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **P: czy instalacja będzie działała, jeśli administrator globalny usługi Azure Active Directory (Azure AD) ma włączone uwierzytelnianie dwuskładnikowe (funkcji 2FA)?**  
 Zgodnie z kompilacjami 2016 w lutym, ten scenariusz jest obsługiwany.
@@ -139,10 +139,10 @@ Nie, Azure AD Connect nie obsługuje czystego środowiska IPv6.
 Nie, używanie Azure AD Connect przez translatora adresów sieciowych nie jest obsługiwane. 
 
 ## <a name="federation"></a>Federacja
-**Pytanie: co zrobić, jeśli otrzymam wiadomość e-mail z prośbą o odnowienie certyfikatu pakietu Office 365?**  
+**Pytanie: co zrobić, jeśli otrzymam wiadomość e-mail z prośbą o odnowienie certyfikatu Microsoft 365?**  
 Aby uzyskać wskazówki dotyczące odnawiania certyfikatu, zobacz [Renew Certificates](how-to-connect-fed-o365-certs.md).
 
-**P: mam "automatycznie Aktualizuj jednostkę uzależnioną" dla jednostki uzależnionej pakietu Office 365. Czy muszę podejmować jakieś działania, gdy token certyfikatu podpisywania jest automatycznie przenoszone?**  
+**P: mam "automatycznie Aktualizuj jednostkę uzależnioną" dla Microsoft 365 jednostki uzależnionej. Czy muszę podejmować jakieś działania, gdy token certyfikatu podpisywania jest automatycznie przenoszone?**  
 Skorzystaj z wskazówek przedstawionych w artykule [Odnów certyfikaty](how-to-connect-fed-o365-certs.md).
 
 ## <a name="environment"></a>Środowisko
@@ -152,17 +152,17 @@ Nie. Zmiana nazwy serwera renderuje aparat synchronizacji nie może nawiązać p
 **P: czy reguły synchronizacji usług kryptograficznych (NGC) są obsługiwane przez maszynę z obsługą standardu FIPS?**  
 Nie.  Nie są one obsługiwane.
 
-**P. Jeśli wyłączono urządzenie zsynchronizowane (na przykład: HAADJ) w Azure Portal, dlaczego jest ono ponownie włączone?**<br>
+**Pytania. Czy w Azure Portal jest wyłączone urządzenie zsynchronizowane (na przykład: HAADJ), dlaczego jest ponownie włączone?**<br>
 Zsynchronizowane urządzenia mogą być utworzone lub być tworzone w środowisku lokalnym. Jeśli zsynchronizowane urządzenie jest włączone lokalnie, można je ponownie włączyć w Azure Portal, nawet jeśli zostało wcześniej wyłączone przez administratora. Aby wyłączyć zsynchronizowane urządzenie, użyj Active Directory lokalnej, aby wyłączyć konto komputera.
 
-**P. Jeśli zablokujesz Logowanie użytkownika w witrynie Office 365 lub portalu usługi Azure AD dla synchronizowanych użytkowników, dlaczego jest odblokowane po ponownym zalogowaniu?**<br>
+**Pytania. Jeśli zablokujesz Logowanie użytkownika na Microsoft 365 lub portalu usługi Azure AD dla synchronizowanych użytkowników, dlaczego jest odblokowane po ponownym zalogowaniu?**<br>
 Zsynchronizowani użytkownicy mogą być autorami lub być zarządzani w środowisku lokalnym. Jeśli konto jest włączone w środowisku lokalnym, może odblokować blok logowania umieszczony przez administratora.
 
 ## <a name="identity-data"></a>Dane tożsamości
 **P: Dlaczego Atrybut userPrincipalName (UPN) w usłudze Azure AD nie jest zgodny z lokalną nazwą UPN?**  
 Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
-* [Nazwy użytkowników w pakietach Office 365, Azure lub Intune nie są zgodne z lokalną nazwą UPN lub alternatywnym IDENTYFIKATORem logowania](https://support.microsoft.com/kb/2523192)
+* [Nazwy użytkowników w Microsoft 365, Azure lub Intune nie są zgodne z lokalną nazwą UPN lub alternatywnym IDENTYFIKATORem logowania](https://support.microsoft.com/kb/2523192)
 * [Zmiany nie są synchronizowane przez narzędzie Azure Active Directory Sync po zmianie nazwy UPN konta użytkownika w celu użycia innej domeny federacyjnej](https://support.microsoft.com/kb/2669550)
 
 Możesz również skonfigurować usługę Azure AD, aby umożliwić aparatowi synchronizacji aktualizowanie nazwy UPN, zgodnie z opisem w temacie [funkcje usługi synchronizacji Azure AD Connect](how-to-connect-syncservice-features.md).
@@ -253,19 +253,19 @@ Tak, funkcja autouaktualniania uaktualnia również Azure AD Connect Health.
 Tak, możesz uaktualnić serwer Azure AD Connect, który jest w trybie przejściowym.
 
 **P: Jeśli autouaktualnienie nie powiedzie się, a serwer Azure AD Connect nie zostanie uruchomiony, co mam zrobić?**  
-W rzadkich przypadkach usługa Azure AD Connect nie zostanie uruchomiona po przeprowadzeniu uaktualnienia. W takich przypadkach ponowne uruchomienie serwera zwykle rozwiązuje ten problem. Jeśli usługa Azure AD Connect nadal nie zostanie uruchomiona, Otwórz bilet pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Tworzenie żądania obsługi w celu skontaktowania się z pomocą techniczną pakietu Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
+W rzadkich przypadkach usługa Azure AD Connect nie zostanie uruchomiona po przeprowadzeniu uaktualnienia. W takich przypadkach ponowne uruchomienie serwera zwykle rozwiązuje ten problem. Jeśli usługa Azure AD Connect nadal nie zostanie uruchomiona, Otwórz bilet pomocy technicznej. Aby uzyskać więcej informacji, zobacz temat [Tworzenie żądania obsługi w celu skontaktowania się z pomocą techniczną Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support). 
 
 **P: nie wiem, jakie jest ryzyko związane z uaktualnieniem do nowszej wersji Azure AD Connect. Czy można zadzwonić do mnie, aby pomóc Ci w uaktualnieniu?**  
-Jeśli potrzebujesz pomocy w uaktualnieniu do nowszej wersji Azure AD Connect, Otwórz bilet pomocy technicznej na temat [tworzenia żądania usługi, aby skontaktować się z pomocą techniczną pakietu Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+Jeśli potrzebujesz pomocy w uaktualnieniu do nowszej wersji Azure AD Connect, Otwórz bilet pomocy technicznej na temat [tworzenia żądania obsługi, aby skontaktować się z pomocą techniczną Microsoft 365](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
 
 ## <a name="operational-best-practice"></a>Najlepsze rozwiązanie w zakresie działania    
 Poniżej przedstawiono niektóre najlepsze rozwiązania, które należy zaimplementować podczas synchronizacji między Active Directory i Azure Active Directory systemu Windows Server.
 
-**Zastosuj Multi-Factor Authentication dla wszystkich zsynchronizowanych kont** Usługa Azure Multi-Factor Authentication pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe zabezpieczenia, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie za pośrednictwem różnych metod uwierzytelniania. Użytkownicy mogą lub nie mogą zakwestionować usługi MFA w oparciu o decyzje konfiguracyjne wykonywane przez administratora. Więcej informacji na temat usługi MFA można znaleźć tutaj:https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**Zastosuj Multi-Factor Authentication dla wszystkich zsynchronizowanych kont** Usługa Azure Multi-Factor Authentication pomaga w zabezpieczeniu dostępu do danych i aplikacji przy jednoczesnym zachowaniu prostoty dla użytkowników. Zapewnia dodatkowe zabezpieczenia, wymagając drugiej formy uwierzytelniania i zapewnia silne uwierzytelnianie za pośrednictwem różnych metod uwierzytelniania. Użytkownicy mogą lub nie mogą zakwestionować usługi MFA w oparciu o decyzje konfiguracyjne wykonywane przez administratora. Więcej informacji na temat usługi MFA można znaleźć tutaj: https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
-**Postępuj zgodnie z zaleceniami dotyczącymi zabezpieczeń serwera Azure AD Connect** Serwer Azure AD Connect zawiera krytyczne dane tożsamości i powinien być traktowany jako składnik warstwy 0, zgodnie z opisem w [Active Directory modelu warstwy administracyjnej](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Zapoznaj się również z naszymi [wskazówkami dotyczącymi zabezpieczania serwera AADConnect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server).
+**Postępuj zgodnie z zaleceniami dotyczącymi zabezpieczeń serwera Azure AD Connect** Serwer Azure AD Connect zawiera krytyczne dane tożsamości i powinien być traktowany jako składnik warstwy 0, zgodnie z opisem w [Active Directory modelu warstwy administracyjnej](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). Zapoznaj się również z naszymi [wskazówkami dotyczącymi zabezpieczania serwera AADConnect](./how-to-connect-install-prerequisites.md#azure-ad-connect-server).
 
-**Włącz PHS na potrzeby wykrywania przecieków poświadczeń** Synchronizacja skrótów haseł umożliwia również [Wykrywanie przecieków poświadczeń](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) dla kont hybrydowych. Firma Microsoft współpracuje z najciemniejszymi specjalistami z sieci Web i agencjami ścigania, aby znaleźć publicznie dostępne pary nazw i haseł. Jeśli którakolwiek z tych par pasuje do tych użytkowników, skojarzone konto jest przenoszone do wysokiego ryzyka. 
+**Włącz PHS na potrzeby wykrywania przecieków poświadczeń** Synchronizacja skrótów haseł umożliwia również [Wykrywanie przecieków poświadczeń](../identity-protection/concept-identity-protection-risks.md) dla kont hybrydowych. Firma Microsoft współpracuje z najciemniejszymi specjalistami z sieci Web i agencjami ścigania, aby znaleźć publicznie dostępne pary nazw i haseł. Jeśli którakolwiek z tych par pasuje do tych użytkowników, skojarzone konto jest przenoszone do wysokiego ryzyka. 
 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
@@ -275,11 +275,11 @@ Poniżej przedstawiono niektóre najlepsze rozwiązania, które należy zaimplem
 
 * Zapoznaj się z artykułami z artykułu KB, aby poznać typowe problemy związane z rozwiązywaniem problemów dotyczących obsługi Azure AD Connect.
 
-[Strona pytania&pytań Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Strona pytania&pytań Azure Active Directory](/answers/topics/azure-active-directory.html)
 
-* Wyszukaj pytania techniczne i odpowiedzi lub zadawaj swoje pytania, przechodząc do [społeczności usługi Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Wyszukaj pytania techniczne i odpowiedzi lub zadawaj swoje pytania, przechodząc do [społeczności usługi Azure AD](/answers/topics/azure-active-directory.html).
 
-[Uzyskiwanie pomocy technicznej dla usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+[Uzyskiwanie pomocy technicznej dla usługi Azure AD](../fundamentals/active-directory-troubleshooting-support-howto.md)
 
 **P: Dlaczego widzę zdarzenia 6311 i 6401 występują po błędach kroków synchronizacji?**
 

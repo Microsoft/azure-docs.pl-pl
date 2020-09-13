@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-javascript
 - devx-track-csharp
-ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3e1de8b5c35c2f62c65b2bdd4751df86127010ad
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017689"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015130"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -249,7 +249,7 @@ Należy pamiętać, że wszystkie funkcje dostępne na urządzeniach są udostę
 
 Punkty końcowe dostępne na urządzeniu są (niezależnie od protokołu):
 
-| Punkt końcowy | Funkcja |
+| Punkt końcowy | Funkcjonalność |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Wysyłanie komunikatów z urządzenia do chmury. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Odbieraj komunikaty z chmury do urządzenia. |
@@ -321,7 +321,7 @@ Składniki usługi mogą generować tylko tokeny zabezpieczające przy użyciu z
 
 Poniżej przedstawiono funkcje usługi uwidocznione w punktach końcowych:
 
-| Punkt końcowy | Funkcja |
+| Punkt końcowy | Funkcjonalność |
 | --- | --- |
 | `{iot hub host name}/devices` |Tworzenie, aktualizowanie, pobieranie i usuwanie tożsamości urządzeń. |
 | `{iot hub host name}/messages/events` |Odbieraj komunikaty z urządzenia do chmury. |
@@ -361,7 +361,12 @@ Obsługiwane są następujące certyfikaty:
 
 Na urządzeniu może być używany certyfikat X. 509 lub token zabezpieczający, ale nie oba te elementy.
 
-Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu urzędu certyfikacji, zobacz [uwierzytelnianie urządzeń za pomocą certyfikatów X. 509 urzędu certyfikacji](iot-hub-x509ca-overview.md).
+Następujące funkcje nie są obsługiwane w przypadku urządzeń korzystających z uwierzytelniania urzędu certyfikacji X. 509:
+
+* HTTPS, MQTT za pośrednictwem obiektów WebSockets i AMQP za pośrednictwem protokołów WebSockets.
+* Operacje przekazywania plików (wszystkie protokoły).
+
+Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu urzędu certyfikacji, zobacz [uwierzytelnianie urządzeń za pomocą certyfikatów X. 509 urzędu certyfikacji](iot-hub-x509ca-overview.md). Aby uzyskać informacje na temat przekazywania i weryfikowania urzędu certyfikacji za pomocą usługi IoT Hub, zobacz [Konfigurowanie zabezpieczeń X. 509 w usłudze Azure IoT Hub](iot-hub-security-x509-get-started.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Rejestrowanie certyfikatu X. 509 dla urządzenia
 
@@ -466,7 +471,7 @@ Inne tematy referencyjne w przewodniku dewelopera IoT Hub obejmują:
 
 * [RFC 5246 — protokół Transport Layer Security (TLS) w wersji 1,2](https://tools.ietf.org/html/rfc5246/) zawiera więcej informacji na temat uwierzytelniania TLS.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy wiesz już, jak kontrolować dostęp IoT Hub, warto zainteresować Cię następujące IoT Hub tematy dotyczące przewodnika dla deweloperów:
 
