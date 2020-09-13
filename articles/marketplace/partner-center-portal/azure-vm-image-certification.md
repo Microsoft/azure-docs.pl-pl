@@ -3,16 +3,16 @@ title: Sprawdzanie poprawności obrazu maszyny wirtualnej platformy Azure — Az
 description: Dowiedz się, jak testować i przesyłać ofertę maszyny wirtualnej w komercyjnej witrynie Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: fd8f41f88b6184eee15477c460dc9d2e521d25e6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144191"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647830"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Sprawdzanie poprawności obrazu maszyny wirtualnej platformy Azure
 
@@ -589,7 +589,7 @@ Narzędzie Test certyfikacji dla certyfikatu platformy Azure jest uruchamiane na
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Pokazuje wybór nazwy użytkownika i hasła maszyny wirtualnej.":::
 
-6. Wybierz pozycję **Dalej**.
+6. Wybierz pozycję **Next** (Dalej).
 
 #### <a name="run-a-certification-test"></a>Uruchamianie testu certyfikacji
 

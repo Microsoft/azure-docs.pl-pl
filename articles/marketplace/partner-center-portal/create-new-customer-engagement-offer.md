@@ -3,16 +3,16 @@ title: Tworzenie oferty usługi Dynamics 365 dla klientów & usługi PowerApps w
 description: Jak utworzyć nowy Dynamics 365 dla zaangażowania klienta & ofertę usługi PowerApps w celu uzyskania listy lub sprzedaży w witrynie Azure Marketplace, AppSource lub za pomocą programu Cloud Solution Provider (CSP) w centrum partnerskim.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 93e7a720e9d39eca6d808c8c49b3b340226997ff
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c488daeafefce23d1fc65fe61e8c0f39cd1c0490
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817038"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646722"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps
 
@@ -212,7 +212,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagany jest co najmniej jeden zrzut ekranu i można dodać maksymalnie pięć. Wszystkie zrzuty ekranu muszą mieć 1280 x 720 pikseli.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Opcjonalnie możesz dodać do czterech filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli)
 

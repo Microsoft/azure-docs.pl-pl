@@ -3,16 +3,16 @@ title: Tworzenie oferty aplikacji platformy Azure — Microsoft Commercial Marke
 description: Zapoznaj się z instrukcjami i zagadnieniami dotyczącymi tworzenia nowej oferty aplikacji platformy Azure w portalu komercyjnej witryny Marketplace w centrum partnerskim. Możesz wyświetlić lub sprzedać swoją ofertę aplikacji platformy Azure w portalu Azure Marketplace lub za pomocą programu Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 071d3fc972e99d61a226492350b7eee146584df6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815673"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646945"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -265,7 +265,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Każdy zrzut ekranu musi mieć 1280 x 720 pikseli w rozmiarze i formacie PNG. Każdy zrzut ekranu musi zawierać podpis.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Powinny one być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę, adres sieci Web i obraz miniatury PNG wideo o godzinie 1280 x 720 pikseli.
 

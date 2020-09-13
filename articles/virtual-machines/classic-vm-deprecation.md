@@ -1,6 +1,6 @@
 ---
-title: Wycofywanie klasycznych maszyn wirtualnych platformy Azure w dniu 1 marca 2023
-description: Artykuł zawiera ogólne omówienie klasycznej emerytury maszyny wirtualnej
+title: Wycofywanie maszyn wirtualnych platformy Azure (klasyczne) 1 marca 2023
+description: Ten artykuł zawiera ogólne omówienie wycofania maszyn wirtualnych utworzonych przy użyciu klasycznego modelu wdrażania.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -8,56 +8,64 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 0b2b995a6fe4cedd14b2e4ceeddc5747ec2423cf
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 7f2db507176d65e7794607e83db8605b2f892c1c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88754807"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646637"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrowanie zasobów IaaS do Azure Resource Manager 1 marca 2023 
 
-W 2014 uruchomiono IaaS na Azure Resource Manager i dodaliśmy możliwości kiedykolwiek od. Ponieważ [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) ma teraz pełnych możliwości IaaS i innych zaliczeń, firma Microsoft zakończyła zarządzanie maszynami wirtualnymi IaaS za pośrednictwem [platformy Azure Service Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) 28 lutego 2020. Ta funkcja zostanie całkowicie wycofana 1 marca 2023. 
+W systemie 2014 uruchomiono infrastrukturę jako usługę (IaaS) na [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Dodaliśmy możliwości kiedykolwiek od. Ponieważ Azure Resource Manager ma teraz pełne możliwości IaaS i inne zaawansowania, firma Microsoft zakończyła zarządzanie maszynami wirtualnymi IaaS za pośrednictwem [platformy Azure Service Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) 28 lutego 2020. Ta funkcja zostanie całkowicie wycofana 1 marca 2023. 
 
-Obecnie około 90% maszyn wirtualnych IaaS korzysta z Azure Resource Manager. Jeśli używasz zasobów IaaS za pomocą usługi Azure Service Manager (ASM), Rozpocznij Planowanie migracji teraz i uzupełnij ją do 1 marca 2023, aby skorzystać z [Azure Resource Manager](../azure-resource-manager/management/index.yml).
+Dzisiaj około 90 procent maszyn wirtualnych IaaS korzysta z Azure Resource Manager. Jeśli używasz zasobów IaaS za pomocą narzędzia ASM, Rozpocznij Planowanie migracji teraz. Aby skorzystać z [Azure Resource Manager](../azure-resource-manager/management/index.yml), uzupełnij je do 1 marca 2023.
 
-Klasyczne maszyny wirtualne będą miały następujące [nowoczesne zasady cyklu życia](https://support.microsoft.com/help/30881/modern-lifecycle-policy) dla wycofania.
+Maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrażania będą zgodne z [nowoczesnymi zasadami cyklu życia](https://support.microsoft.com/help/30881/modern-lifecycle-policy) dla wycofania.
 
 ## <a name="how-does-this-affect-me"></a>Jak to wpłynie na mnie? 
 
-- Od 28 lutego 2020 Klienci, którzy nie korzystali z maszyn wirtualnych IaaS za pośrednictwem platformy Azure Service Manager (ASM) w miesiącu lutego 2020, nie będą już mogli tworzyć klasycznych maszyn wirtualnych. 
-- 1 marca 2023 klienci nie będą już mogli uruchamiać IaaS maszyn wirtualnych przy użyciu usługi Azure Service Manager, a wszystkie te, które nadal działają lub są przydzieleni, zostaną zatrzymane i cofnięte alokacje. 
-- 1 marca 2023, subskrypcje, które nie zostały zmigrowane do Azure Resource Manager, będą otrzymywać informacje dotyczące osi czasu na potrzeby usuwania pozostałych klasycznych maszyn wirtualnych.  
+- Od 28 lutego 2020 Klienci, którzy nie korzystali z maszyn wirtualnych IaaS za pośrednictwem ASM w miesiącu lutego 2020, nie mogą już tworzyć maszyn wirtualnych (klasycznych). 
+- 1 marca 2023 klienci nie będą już mogli uruchamiać IaaS maszyn wirtualnych za pomocą ASM. Wszystkie nadal uruchomione lub przydzielono zostaną zatrzymane i cofnięte alokacje. 
+- 1 marca 2023, subskrypcje, które nie zostały zmigrowane do Azure Resource Manager, będą otrzymywać informacje dotyczące osi czasu na potrzeby usuwania pozostałych maszyn wirtualnych (klasycznych).  
 
-Ta wycofanie **nie** wpłynie na następujące usługi i funkcje platformy Azure: 
-- Cloud Services 
-- **Konta magazynu** nieużywane przez klasyczne maszyny wirtualne 
-- Sieci wirtualne (sieci wirtualnych) **nie** są używane przez klasyczne maszyny wirtualne. 
+Wycofanie *nie ma wpływu na* następujące usługi i funkcje platformy Azure: 
+- usług Azure Cloud Services 
+- *Konta magazynu* nieużywane przez maszyny wirtualne (klasyczne) 
+- *Sieci wirtualne* nieużywane przez maszyny wirtualne (klasyczne) 
 - Inne zasoby klasyczne
 
 ## <a name="what-actions-should-i-take"></a>Jakie akcje należy wykonać? 
 
-- Rozpocznij Planowanie migracji do Azure Resource Manager, dzisiaj. 
+Rozpocznij Planowanie migracji do Azure Resource Manager, dzisiaj. 
 
-- Utwórz listę wszystkich maszyn wirtualnych, których to dotyczy. Maszyna wirtualna typu "Virtual Machines (klasyczna)" w [bloku maszyny wirtualnej w witrynie Azure Portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) dotyczy wszystkich maszyn wirtualnych objętych subskrypcją. 
+1. Utwórz listę wszystkich maszyn wirtualnych, których to dotyczy: 
 
-- [Dowiedz się więcej](./windows/migration-classic-resource-manager-overview.md) na temat migrowania klasycznych maszyn wirtualnych z systemem [Linux](./linux/migration-classic-resource-manager-plan.md) i [Windows](./windows/migration-classic-resource-manager-plan.md) do Azure Resource Manager.
+   - Maszyny wirtualne typu **Virtual Machines (klasyczne)** w [okienku maszyny wirtualnej Azure Portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) są wszystkie maszyny wirtualne, których dotyczy ta subskrypcja. 
+   - Możesz również wysyłać zapytania do grafu zasobów platformy Azure przy użyciu [portalu](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) lub [programu PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) , aby wyświetlić listę wszystkich oflagowanych maszyn wirtualnych (klasycznych) i powiązanych informacji dotyczących wybranych subskrypcji. 
+   - 8 lutego i 2 września 2020, wysłaliśmy do właścicieli subskrypcji wiadomość e-mail z listą wszystkich subskrypcji zawierających te maszyny wirtualne (klasyczne). Użyj ich, aby skompilować tę listę. 
 
-- Aby uzyskać więcej informacji, zapoznaj się z [często zadawanymi pytaniami dotyczącymi migracji klasycznej do Azure Resource Manager](./migration-classic-resource-manager-faq.md) .
+1. [Dowiedz się więcej](./windows/migration-classic-resource-manager-overview.md) na temat migrowania maszyn wirtualnych z systemem [Linux](./linux/migration-classic-resource-manager-plan.md) i [Windows](./windows/migration-classic-resource-manager-plan.md) (klasyczny) do Azure Resource Manager. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące klasycznej migracji Azure Resource Manager](./migration-classic-resource-manager-faq.md).
 
-- Aby uzyskać pytania techniczne, problemy i Dodawanie subskrypcji do listy dozwolonych, [skontaktuj się z pomocą techniczną](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+1. Zalecamy rozpoczęcie planowania przy użyciu [Narzędzia do migracji platformy obsługiwanej przez platformę](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) w celu migrowania istniejących maszyn wirtualnych z trzema łatwymi krokami: Weryfikuj, przygotuj i zatwierdzaj. Narzędzie jest przeznaczone do migrowania maszyn wirtualnych w minimalnym stopniu do przestoju. 
 
-- Aby uzyskać inne pytania, które nie są częścią często zadawanych pytań i opinii, Skomentuj poniżej.
+   1. Pierwszy krok, weryfikowanie, nie ma wpływu na istniejące wdrożenie i zawiera listę wszystkich nieobsługiwanych scenariuszy migracji. 
+   1. Zapoznaj się z [listą obejść](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) , aby naprawić wdrożenie i przygotować je do migracji. 
+   1. Najlepiej po naprawieniu wszystkich błędów walidacji nie należy napotkać żadnych problemów podczas kroków przygotowywania i zatwierdzania. Po pomyślnym zatwierdzeniu wdrożenie jest migrowane na żywo do Azure Resource Manager i może być zarządzane za pomocą nowych interfejsów API udostępnianych przez Azure Resource Manager. 
 
-- Dokończ migrację najszybciej, jak to możliwe, aby zapobiec wpływowi na działalność biznesową i zwiększyć wydajność, & nowe funkcje zapewniane przez Azure Resource Manager. 
+   Jeśli narzędzie migracji nie jest odpowiednie do migracji, można zapoznać się z [innymi ofertami obliczeniowymi](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) dotyczącymi migracji. Ponieważ istnieje wiele ofert obliczeniowych platformy Azure, które różnią się od siebie, nie możemy udostępnić im ścieżki migracji obsługiwanej przez platformę.  
 
-## <a name="what-resources-are-provided-to-me-for-this-migration"></a>Jakie zasoby są udostępniane dla tej migracji?
+1. Aby uzyskać pytania techniczne, problemy i pomoc dotyczącą dodawania subskrypcji do listy dozwolonych, [skontaktuj się z pomocą techniczną](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
-- [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-virtual-machines-migration.html): Pomoc techniczna firmy Microsoft & Community na potrzeby migracji
+1. Dokończ migrację najszybciej, jak to możliwe, aby zapobiec wpływowi na działalność biznesową i korzystać z ulepszonej wydajności, zabezpieczeń i nowych funkcji Azure Resource Manager. 
 
-- [Obsługa migracji platformy Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): dedykowany zespół pomocy technicznej w zakresie pomocy technicznej podczas migracji
+## <a name="what-resources-are-available-for-this-migration"></a>Jakie zasoby są dostępne dla tej migracji?
 
-- [Microsoft Fast](https://www.microsoft.com/fasttrack)Track: zespół Microsoft Fast Track może zapewnić pomoc techniczną podczas migracji do kwalifikujących się klientów. 
+- [Microsoft Q&a](https://docs.microsoft.com/answers/topics/azure-virtual-machines-migration.html): Pomoc techniczna firmy Microsoft i społeczność dla migracji.
 
-- Jeśli Twoja firma/organizacja współpracuje z firmą Microsoft i/lub pracują z przedstawicielem firmy Microsoft, takim jak partner rozwiązań w chmurze (CSA), menedżerowie ds. kont technicznych (TAMs)), Pracuj z nimi w celu uzyskania dodatkowych zasobów na potrzeby migracji. 
+- [Obsługa migracji platformy Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): dedykowany zespół pomocy technicznej w zakresie pomocy technicznej podczas migracji.
+
+- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): zespół, który może zapewnić pomoc techniczną podczas migracji do kwalifikujących się klientów. 
+
+Jeśli firma/organizacja ma partnerów firmy Microsoft lub współpracuje z przedstawicielami firmy Microsoft (takimi jak Architekt rozwiązań w chmurze (CSAs) lub menedżerami technicznymi (TAMs)), należy pracować z nimi w celu uzyskania dodatkowych zasobów na potrzeby migracji. 
 

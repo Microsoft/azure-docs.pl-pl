@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74782023"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648683"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania klastrem usługi HDInsight
 
@@ -62,6 +62,8 @@ Poznaj najlepsze rozwiązania dotyczące zarządzania klastrami usługi HDInsigh
 | Skalowanie ręczne | [Skalowanie klastrów usługi Azure HDInsight](./hdinsight-scaling-best-practices.md) |
 | Monitorowanie za pomocą Ambari| [Monitorowanie wydajności klastra w usłudze Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Monitorowanie za pomocą dzienników Azure Monitor | [Monitorowanie klastrów usługi HDInsight za pomocą dzienników usługi Azure Monitor](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Problemy z usługą, planowana konserwacja, usługi kondycji & Security Advisor | [Subskrybowanie alertów dotyczących kondycji usługi dla subskrypcji](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Jak mogę sprawdzić usuniętych klastrów usługi HDInsight?
 

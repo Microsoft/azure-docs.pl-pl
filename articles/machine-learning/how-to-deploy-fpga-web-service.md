@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a5f56beb179f7c72fe66c7423999201f3460b143
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648789"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646289"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Co to są tablice z bramą programowalną w polu (FPGA) i sposób wdrażania
 
@@ -78,7 +78,7 @@ Aby zoptymalizować opóźnienia i przepływność, klient wysyłający dane do 
 
 ## <a name="deploy-models-on-fpgas"></a>Wdróż modele na FPGA
 
-Model można wdrożyć jako usługę sieci Web na FPGA z [Modele z przyspieszaniem sprzętowym Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). Korzystanie z usługi FPGA zapewnia bardzo małe ilości opóźnienia, nawet w przypadku pojedynczego rozmiaru partii. Wnioskowanie lub ocenianie modelu to faza, w której wdrożony model jest używany do prognozowania, najczęściej dotyczący danych produkcyjnych.
+Model można wdrożyć jako usługę sieci Web na FPGA z [Modele z przyspieszaniem sprzętowym Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). Korzystanie z usługi FPGA zapewnia bardzo małe ilości opóźnienia, nawet w przypadku pojedynczego rozmiaru partii. Wnioskowanie lub ocenianie modelu to faza, w której wdrożony model jest używany do prognozowania, najczęściej dotyczący danych produkcyjnych.
 
 Wdrożenie modelu do FPGA obejmuje następujące kroki:
 
@@ -121,7 +121,7 @@ W tym przykładzie utworzysz Graf TensorFlow na potrzeby wstępnego przetwarzani
     ```
 ### <a name="1-define-the-tensorflow-model"></a>1. Zdefiniuj model TensorFlow
 
-Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) , aby utworzyć definicję usługi. Definicja usługi jest plikiem opisującym potok grafów (Input, featurized i klasyfikator) oparty na TensorFlow. Polecenie wdrożenia automatycznie kompresuje definicje i wykresy do pliku ZIP i przekazuje je do usługi Azure Blob Storage. DNN jest już wdrożony do uruchamiania na FPGA.
+Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) , aby utworzyć definicję usługi. Definicja usługi jest plikiem opisującym potok grafów (Input, featurized i klasyfikator) oparty na TensorFlow. Polecenie wdrożenia automatycznie kompresuje definicje i wykresy do pliku ZIP i przekazuje je do usługi Azure Blob Storage. DNN jest już wdrożony do uruchamiania na FPGA.
 
 1. Załaduj obszar roboczy Azure Machine Learning
 
@@ -389,7 +389,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń usługę sieci Web, obraz i model (należy wykonać w tej kolejności, ponieważ istnieją zależności).
 

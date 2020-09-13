@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128679"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646565"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor dla sieci (wersja zapoznawcza)
-Azure Monitor dla sieci zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji. Funkcja wyszukiwania zaawansowanego pomaga identyfikować zależności zasobów, umożliwiając takie scenariusze jak identyfikowanie zasobów, które są hostowane w witrynie sieci Web, a także w przypadku wyszukiwania nazwy witryny sieci Web.
+Azure Monitor dla sieci zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji. Funkcja wyszukiwania zaawansowanego pomaga identyfikować zależności zasobów, które umożliwiają scenariuszom, takim jak identyfikowanie zasobów, które obsługują witrynę sieci Web, wyszukując nazwę hostowanej witryny sieci Web.
 
 Strona **przegląd** Azure monitor dla sieci zapewnia bezproblemowy sposób wizualizacji spisu zasobów sieciowych wraz z kondycją zasobów i alertami. Jest podzielony na cztery kluczowe obszary funkcjonalne:
 
@@ -30,7 +30,7 @@ Widok Kondycja zasobów i alerty można dostosować za pomocą filtrów, takich 
 
 Pole wyszukiwania może służyć do wyszukiwania zasobów i skojarzonych zasobów. Na przykład publiczny adres IP jest skojarzony z Application Gateway. Wyszukiwanie publicznych adresów IP nazwa DNS będzie identyfikować zarówno publiczny, jak i skojarzony Application Gateway.
 
-![Wyszukaj](media/network-insights-overview/search.png)
+![Wyszukiwanie](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health i metryka
@@ -52,11 +52,11 @@ Widok **zależności** pomaga wizualizować sposób konfiguracji zasobu. Obecnie
 
 ![Widok Application Gateway](media/network-insights-overview/application-gateway.png)
 
-Widok **zależności** dla Application Gateway zawiera uproszczony widok sposobu, w jaki adresy IP frontonu są połączone z odbiornikami, regułami i pulą zaplecza. Krawędzie łączące są kodowane kolorami i zawierają dodatkowe informacje na podstawie kondycji puli zaplecza. Widok zawiera również szczegółowy widok Application Gateway metryk i metryki dla wszystkich powiązanych pul zaplecza, takich jak VMSS i wystąpienia maszyn wirtualnych.
+Widok **zależności** dla Application Gateway zawiera uproszczony widok sposobu, w jaki adresy IP frontonu są połączone z odbiornikami, regułami i pulą zaplecza. Krawędzie łączące są kodowane kolorami i zawierają dodatkowe informacje na podstawie kondycji puli zaplecza. Widok zawiera również szczegółowy widok Application Gateway metryk i metryki dla wszystkich powiązanych pul zaplecza, takich jak zestaw skalowania maszyn wirtualnych i wystąpienia maszyn wirtualnych.
 
 ![Widok zależności](media/network-insights-overview/dependency-view.png)
 
-Wykres zależności umożliwia łatwe nawigowanie do ustawień konfiguracji. Kliknij prawym przyciskiem myszy pulę zaplecza, aby uzyskać dostęp do innych funkcji. Na przykład, jeśli Pula zaplecza jest maszyną wirtualną, możesz bezpośrednio uzyskać dostęp do usługi VM Insights i Network Watcher rozwiązywać problemy z połączeniami.
+Wykres zależności umożliwia łatwe nawigowanie do ustawień konfiguracji. Kliknij prawym przyciskiem myszy pulę zaplecza, aby uzyskać dostęp do innych funkcji. Na przykład, jeśli Pula zaplecza jest maszyną wirtualną, możesz bezpośrednio uzyskać dostęp do usługi Virtual Machine Insights oraz połączenia Network Watcher, aby rozwiązać problemy z łącznością i zidentyfikować je.
 
 ![Menu widoku zależności](media/network-insights-overview/dependency-view-menu.png)
 
@@ -66,7 +66,7 @@ Wyszukiwanie i pasek filtru w widoku zależności umożliwiają łatwe przeszuki
 
 Różne filtry zapewniają pomoc w zawężaniu do określonej ścieżki i stanu. Na przykład wybierz pozycję tylko *zła kondycja* z listy rozwijanej **stan kondycji** , aby wyświetlić wszystkie krawędzie, w których stan jest *nieprawidłowy*.
 
-Kliknij pozycję **szczegółowy widok metryki** , aby uruchomić wstępnie skonfigurowany skoroszyt ze szczegółowymi metrykami dla bramy aplikacji, wszystkie zasoby puli zaplecza i frontony adresy IP. 
+Kliknij pozycję **szczegółowy widok metryki** , aby uruchomić wstępnie skonfigurowany skoroszyt ze szczegółowymi metrykami dla bramy aplikacji, wszystkich zasobów puli zaplecza i adresów IP frontonu. 
 
 ## <a name="next-steps"></a>Następne kroki 
 

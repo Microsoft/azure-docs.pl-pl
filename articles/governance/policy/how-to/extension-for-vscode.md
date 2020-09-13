@@ -3,12 +3,12 @@ title: Azure Policy rozszerzenie dla Visual Studio Code
 description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Azure Resource Manager.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970760"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648334"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
@@ -52,7 +52,7 @@ W przypadku użytkownika w chmurze krajowej wykonaj następujące kroki, aby naj
 
 1. Wybierz z listy chmurę krajową:
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Ustaw domyślne logowanie w chmurze platformy Azure dla Visual Studio Code" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Zrzut ekranu przedstawiający wybór kraju logowania w chmurze platformy Azure dla Visual Studio Code." border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Nawiązywanie połączenia z kontem platformy Azure
 
@@ -64,13 +64,13 @@ Aby oszacować zasoby i aliasy wyszukiwania, musisz nawiązać połączenie z ko
 
      Z poziomu rozszerzenia Azure Policy wybierz pozycję **Zaloguj się do platformy Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Logowanie w chmurze platformy Azure dla Visual Studio Code z rozszerzenia Azure Policy" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Zrzut ekranu przedstawiający Visual Studio Code i ikonę rozszerzenia Azure Policy." border="false":::
 
    - Paleta poleceń
 
      Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**i wprowadź **Azure: Zaloguj się**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Logowanie w chmurze platformy Azure dla Visual Studio Code z palety poleceń" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Zrzut ekranu przedstawiający opcje logowania w chmurze platformy Azure dla Visual Studio Code z palety poleceń." border="false":::
 
 1. Postępuj zgodnie z instrukcjami logowania, aby zalogować się do platformy Azure. Po nawiązaniu połączenia nazwa konta platformy Azure zostanie wyświetlona na pasku stanu u dołu okna Visual Studio Code.
 
@@ -125,7 +125,7 @@ Po wybraniu zasobu, niezależnie od tego, czy za pomocą interfejsu wyszukiwania
 
 Gdy zasób jest otwarty, wskaźnik myszy nad nazwą właściwości Menedżer zasobów lub wartością wyświetla alias Azure Policy, jeśli taki istnieje. W tym przykładzie zasób jest `Microsoft.Compute/virtualMachines` typem zasobu, a właściwość **właściwości. obszarze storageprofile. elementu imagereference. Offer** jest umieszczana na początku. Umieszczenie kursora powoduje wyświetlenie pasujących aliasów.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy aktywowania rozszerzenia pokazuje alias właściwości Menedżer zasobów" border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Zrzut ekranu rozszerzenia Azure Policy dla Visual Studio Code aktywowania właściwości w celu wyświetlenia nazw aliasów." border="false":::
 
 > [!NOTE]
 > Rozszerzenie VS Code uwidacznia tylko właściwości trybu Menedżer zasobów i nie wyświetla żadnych właściwości [trybu dostawcy zasobów](../concepts/definition-structure.md#mode) .

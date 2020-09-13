@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0daa094a6d804cd8a40c4ba76b696e3c9b580f8a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230351"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647419"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Datas
 
 
 > [!TIP]
-> Udoskonalone środowisko przekazywania danych tymczasowych między etapami potoku jest dostępne w publicznych wersjach zapoznawczych  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) i [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  Te klasy to [eksperymentalne](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie.
+> Udoskonalone środowisko przekazywania danych tymczasowych między etapami potoku jest dostępne w publicznych wersjach zapoznawczych  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) i [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  Te klasy to [eksperymentalne](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) funkcje w wersji zapoznawczej i mogą ulec zmianie w dowolnym momencie.
 
 `AutoMLStep`Konfiguracja jest konfigurowana za pośrednictwem `AutoMLConfig` obiektu. `AutoMLConfig` jest elastyczną klasą, jak opisano w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -49,7 +49,7 @@ Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Datas
 
 W celu utworzenia konkretnych elementów ten artykuł tworzy prosty potok dla zadania klasyfikacji. Zadanie jest przewidywane przewidywalność Titanic, ale nie będziemy omawiać danych ani zadań poza przekazywaniem.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="retrieve-initial-dataset"></a>Pobierz początkowy zestaw danych
 
@@ -251,7 +251,7 @@ dataprep_step = PythonScriptStep(
 `prepped_data_path`Obiekt jest typu `PipelineOutputFileDataset` . Należy zauważyć, że jest on określony zarówno `arguments` w `outputs` argumentach, jak i. W przypadku przejrzenia poprzedniego kroku zobaczysz, że w kodzie przygotowywania danych wartość argumentu `'--output_path'` jest ścieżką pliku, do której zapisano plik Parquet. 
 
 > [!TIP]
-> Udoskonalone środowisko przekazywania pośrednich danych między etapami potoku jest dostępne z publiczną klasą zapoznawczą `OutputFileDatasetConfig` . Dowiedz się więcej o `OutputFileDatasetConfig` wzorcach i metodach projektowania w [dokumentacji referencyjnej dotyczącej zestawu SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> Udoskonalone środowisko przekazywania pośrednich danych między etapami potoku jest dostępne z publiczną klasą zapoznawczą [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Aby zapoznać się z przykładem kodu przy użyciu `OutputFileDatasetConfig` klasy, zobacz jak [utworzyć dwa krokowe potoku](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## <a name="train-with-automlstep"></a>Uczenie z AutoMLStep
 
@@ -270,7 +270,7 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 Poniższy fragment kodu tworzy wysoką wydajność na `PipelineOutputTabularDataset` podstawie `PipelineOutputFileDataset` danych wyjściowych kroku przygotowywania danych.
 
 > [!TIP]
-> Klasa publicznej wersji zapoznawczej `OutputFileDatasetConfig` ma również możliwość konwersji `OutputFileDatasetConfig` do programu w [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) celu użycia w AutoML uruchomieniach. Dowiedz się więcej o `OutputFileDatasetConfig` wzorcach i metodach projektowania w [dokumentacji referencyjnej dotyczącej zestawu SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> Klasa publicznej wersji zapoznawczej [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) zawiera metodę [read_delimited_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py#&preserve-view=trueread-delimited-files-include-path-false--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none--path-glob-none--set-column-types-none-) , która konwertuje `OutputFileDatasetConfig` do na wartość w [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) celu użycia w AutoML uruchomieniach.
 
 Innym rozwiązaniem jest użycie `Dataset` obiektów zarejestrowanych w obszarze roboczym:
 

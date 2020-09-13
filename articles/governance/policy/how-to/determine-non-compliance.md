@@ -3,12 +3,12 @@ title: Ustalanie przyczyn niezgodności
 description: Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Dowiedz się, co spowodowało niezgodność.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512031"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648566"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Ustalanie przyczyn niezgodności
 
@@ -30,17 +30,17 @@ Jeśli zasób nie jest zgodny, szczegóły zgodności dla tego zasobu są dostę
 
 Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
 
-1. Uruchom usługę Azure Policy w witrynie Azure Portal, klikając opcję **Wszystkie usługi** i następnie wyszukując i wybierając opcję **Zasada**.
+1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
 
 1. Na stronie **Przegląd** lub **zgodność** wybierz zasady w **stanie zgodności** , które _nie są zgodne_.
 
 1. Na karcie **zgodność zasobów** na stronie **zgodność z zasadami** kliknij prawym przyciskiem myszy lub wybierz wielokropek zasobu w **stanie zgodności** , który jest _niezgodny_. Następnie wybierz pozycję **Wyświetl szczegóły zgodności**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Wyświetl szczegóły zgodności" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link "Wyświetl szczegóły zgodności" na karcie Zgodność zasobów." border="false":::
 
 1. W okienku **szczegóły zgodności** są wyświetlane informacje z najnowszej wersji ewaluacyjnej zasobu do bieżącego przypisania zasad. W tym przykładzie można znaleźć wartość pola **Microsoft. SQL/Server/version** na _12,0_ , gdy oczekiwano definicji zasad _14,0_. Jeśli zasób nie jest zgodny z wieloma przyczynami, każda z nich jest wymieniona w tym okienku.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Okienko Szczegóły zgodności i przyczyny braku zgodności" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Zrzut ekranu przedstawiający okienko Szczegóły zgodności oraz przyczyny braku zgodności, których bieżąca wartość wynosi 12, a wartość docelowa to czternaście." border="false":::
 
    W przypadku definicji zasad **auditIfNotExists** lub **deployIfNotExists** szczegóły obejmują Właściwość **details. Type** i wszelkie opcjonalne właściwości. Aby uzyskać listę, zobacz [Właściwości auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) i [deployIfNotExists](../concepts/effects.md#deployifnotexists-properties). **Ostatni szacowany zasób** jest powiązanym zasobem z sekcji **szczegółów** definicji.
 
@@ -69,7 +69,7 @@ Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Okienko Szczegóły zgodności-* ifNotExists" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Zrzut ekranu przedstawiający okienko Szczegóły zgodności dla ifNotExists, w tym ocenianą liczbę zasobów." border="false":::
 
 > [!NOTE]
 > Aby chronić dane, gdy wartość właściwości jest _tajna_ , bieżąca wartość Wyświetla gwiazdki.
@@ -114,13 +114,13 @@ Użytkownik może również nie mieć dostępu do bezpośredniego logowania się
 
 Zacznij od wykonania tych samych kroków w powyższej sekcji, aby wyświetlić szczegóły zgodności zasad.
 
-W widoku Szczegóły zgodności kliknij pozycję Połącz **ostatnio obliczony zasób**.
+W widoku Szczegóły zgodności wybierz pozycję **ostatni szacowany zasób**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Wyświetl szczegóły definicji auditIfNotExists" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Zrzut ekranu przedstawiający wyświetlanie szczegółów zgodności definicji auditIfNotExists." border="false":::
 
 Na stronie **przypisanie gościa** są wyświetlane wszystkie dostępne szczegóły zgodności. Każdy wiersz w widoku reprezentuje ocenę, która została wykonana w ramach maszyny. W kolumnie **Przyczyna** zostanie wyświetlona fraza opisująca, dlaczego przypisanie gościa _nie jest zgodne_. Na przykład w przypadku inspekcji zasad haseł w kolumnie **Przyczyna** zostanie wyświetlony tekst zawierający bieżącą wartość dla każdego ustawienia.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Wyświetl szczegóły zgodności" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności przypisania gościa." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +191,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 W ramach nowej **publicznej wersji zapoznawczej**historia zmian jest dostępna dla wszystkich zasobów platformy Azure, które obsługują [usuwanie w trybie pełnym](../../../azure-resource-manager/templates/complete-mode-deletion.md). Historia zmian zawiera szczegółowe informacje o tym, kiedy wykryto zmianę i _różnicą wizualną_ dla każdej zmiany. Wykrywanie zmian jest wyzwalane po dodaniu, usunięciu lub zmianie Azure Resource Manager właściwości.
 
-1. Uruchom usługę Azure Policy w witrynie Azure Portal, klikając opcję **Wszystkie usługi** i następnie wyszukując i wybierając opcję **Zasada**.
+1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
 
 1. Na stronie **Przegląd** lub **zgodność** wybierz zasady w dowolnym **stanie zgodności**.
 
@@ -199,11 +199,11 @@ W ramach nowej **publicznej wersji zapoznawczej**historia zmian jest dostępna d
 
 1. Na stronie **zgodność zasobów** wybierz kartę **historia zmian (wersja zapoznawcza)** . Zostanie wyświetlona lista wykrytych zmian (jeśli istnieją).
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Karta historia zmian Azure Policy na stronie zgodności zasobów" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Zrzut ekranu karty Historia zmian i wykryto zmiany czasu na stronie Zgodność zasobu." border="false":::
 
 1. Wybierz jedną z wykrytych zmian. _Różnica wizualna_ dla zasobu jest wyświetlana na stronie **historia zmian** .
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Na stronie historii zmian Azure Policy Zmień wizualną różnicę historii" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Zrzut ekranu przedstawiający wizualną różnicę między Stanami i po nim właściwości na stronie historii zmian." border="false":::
 
 _Wizualna różnica_ aides w identyfikacji zmian w zasobie. Wykryte zmiany mogą nie być powiązane z bieżącym stanem zgodności zasobu.
 

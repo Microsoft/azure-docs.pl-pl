@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795236"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646605"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
 
@@ -85,6 +85,8 @@ Ta lista przedstawia oświadczenia JWT, które w większości id_tokens są domy
 |`unique_name` | Ciąg | Udostępnia zrozumiałą wartość identyfikującą podmiot tokenu. Ta wartość jest unikatowa w danym punkcie w czasie, ale jako że można ponownie użyć wiadomości e-mail i innych identyfikatorów, ta wartość może być ponownie wyświetlana na innych kontach i dlatego powinna być używana tylko do wyświetlania. Wystawione wyłącznie w wersji 1.0 `id_tokens` . |
 |`uti` | Ciąg nieprzezroczysty | Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Powinien być ignorowany. |
 |`ver` | Ciąg, 1,0 lub 2,0 | Wskazuje wersję id_token. |
+|`hasgroups`|Wartość logiczna|Jeśli jest obecny, zawsze prawda, oznacza to, że użytkownik należy do co najmniej jednej grupy. Używane zamiast roszczeń grupowych dla JWTs w niejawnym wyznaczonym przepływie, jeśli w ramach żądania Full Groups zostanie rozbudowany fragment identyfikatora URI wykraczający poza limity długości adresów URL (obecnie 6 lub więcej grup). Wskazuje, że klient powinien używać interfejsu API Microsoft Graph do określenia grup użytkownika ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ).|
+|`groups:src1`|Obiekt JSON | W przypadku żądań tokenów, które nie mają ograniczonej długości (patrz `hasgroups` powyżej), ale wciąż za duże dla tokenu, zostanie uwzględniony link do listy pełnych grup dla użytkownika. W przypadku JWTs jako roszczeń rozproszonych, w przypadku protokołu SAML jako nowego odszkodowania zamiast `groups` zgłoszenia. <br><br>**Przykładowa wartość JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Aby uzyskać więcej informacji, zobacz [Group nadwyżkowe żądania](#groups-overage-claim).|
 
 > [!NOTE]
 > W wersji 1.0 i 2.0 id_token istnieją różnice w ilości informacji, które będą się znajdować na podstawie powyższych przykładów. Wersja jest oparta na punkcie końcowym, w którym został żądany. Istniejące aplikacje mogą korzystać z punktu końcowego usługi Azure AD, dlatego nowe aplikacje powinny korzystać z punktu końcowego "Microsoft Identity platform" w wersji 2.0.
@@ -102,6 +104,26 @@ Poprawne przechowywanie informacji dla poszczególnych użytkowników, użycie `
 > Nie należy używać `idp` roszczeń do przechowywania informacji o użytkowniku w próbie skorelowania użytkowników w dzierżawach.  Nie będzie ona działać, ponieważ `oid` i `sub` oświadczenia dla użytkownika zmienią się między dzierżawcami, w celu zapewnienia, że aplikacje nie będą mogli śledzić użytkowników w dzierżawach.  
 >
 > Scenariusze gościa, w przypadku których użytkownik znajduje się w jednej dzierżawie i uwierzytelnia w innym, powinny traktować użytkownika tak, jakby był to zupełnie nowy użytkownik usługi.  Twoje dokumenty i uprawnienia w dzierżawie contoso nie powinny być stosowane w dzierżawie firmy Fabrikam. Jest to ważne, aby zapobiec przypadkowemu wyciekowi danych między dzierżawcami.
+
+### <a name="groups-overage-claim"></a>Zgłoszenie nadwyżkowe grup
+Aby mieć pewność, że rozmiar tokenu nie przekracza limitów rozmiaru nagłówka HTTP, usługa Azure AD ogranicza liczbę identyfikatorów obiektów uwzględnionych w ramach `groups` żądania. Jeśli użytkownik jest członkiem większej liczby grup niż limit nadwyżkowy (150 dla tokenów SAML, 200 dla tokenów JWT), usługa Azure AD nie emituje roszczeń grupowych w tokenie. Zamiast tego zawiera w tokenie wystąpienie nadwyżkowe, które wskazuje aplikacji, w której ma być wysyłana kwerenda Microsoft Graph interfejsu API w celu pobrania członkostwa w grupie użytkownika.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>Sprawdzanie poprawności id_token
 

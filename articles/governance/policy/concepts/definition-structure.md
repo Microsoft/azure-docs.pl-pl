@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079034"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648727"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -17,12 +17,12 @@ Dowiedz się więcej o [warunkach](#conditions).
 
 Dzięki zdefiniowaniu Konwencji można kontrolować koszty i łatwiej zarządzać zasobami. Można na przykład określić, że dozwolone są tylko niektóre typy maszyn wirtualnych. Lub można wymagać, aby zasoby miały określony tag. Przypisania zasad są dziedziczone przez zasoby podrzędne. Jeśli przypisanie zasad zostanie zastosowane do grupy zasobów, ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
 
-Schemat definicji zasad znajduje się tutaj: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+Schemat _Klasa policyrule_ definicji zasad znajduje się tutaj: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zawiera elementy dla:
 
 - Nazwa wyświetlana
-- opis
+- description
 - tryb
 - metadane
 - parameters
@@ -619,7 +619,7 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
 
   Użyj [rozszerzenia Azure Policy](../how-to/extension-for-vscode.md) , aby Visual Studio Code do wyświetlania i odnajdywania aliasów dla właściwości zasobów.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy rozszerzenie dla Visual Studio Code" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Zrzut ekranu rozszerzenia Azure Policy dla Visual Studio Code aktywowania właściwości w celu wyświetlenia nazw aliasów." border="false":::
 
 - Azure Resource Graph
 

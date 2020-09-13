@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273205"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649744"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
 
@@ -47,87 +47,7 @@ W przypadku jednostki SKU v2 model cenowy jest oparty na zużyciu i nie jest ju�
 
 Każda jednostka pojemności składa się z co najwyżej: 1 jednostka obliczeniowa, 2500 połączeń trwałych i przepływności do 2,22 MB/s.
 
-Wskazówki dotyczące jednostek obliczeniowych:
-
-- **Standard_v2** — każda jednostka obliczeniowa jest w stanie około 50 połączeń na sekundę z certyfikatem klucza RSA 2048-bitowym.
-- **WAF_v2** — każda jednostka obliczeniowa może obsłużyć około 10 współbieżnych żądań na sekundę w przypadku 70-30% ruchu z 70% żądań mniejszych niż 2 KB Get/post i pozostałych. Obecnie nie ma to wpływ na wydajność WAF.
-
-> [!NOTE]
-> Każde wystąpienie może obecnie obsługiwać około 10 jednostek pojemności.
-> Liczba żądań, które może obsłużyć jednostka obliczeniowa, zależy od różnych kryteriów, takich jak rozmiar klucza certyfikatu TLS, algorytm wymiany kluczy, ponowne zapisywanie nagłówka i wielkość żądania przychodzącego WAF. Zalecamy przeprowadzanie testów aplikacji w celu określenia liczby żądań na jednostkę obliczeniową. Jednostka pojemności i jednostka obliczeniowa zostaną udostępnione jako Metryka przed rozpoczęciem rozliczania.
-
-W poniższej tabeli przedstawiono przykładowe ceny i służą tylko do celów ilustracyjnych.
-
-**Cennik w regionie Wschodnie stany USA**:
-
-|              Nazwa jednostki SKU                             | Stała cena ($/godz.)  | Cena jednostkowa wydajności ($/CU-hr)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0,20             | 0,0080                          |
-| WAF_v2                                            |    0.36             | 0,0144                          |
-
-Aby uzyskać więcej informacji o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Przykład 1**
-
-Standard_v2 Application Gateway jest inicjowana bez skalowania automatycznego w trybie skalowania ręcznego ze stałą pojemnością pięciu wystąpień.
-
-Stała cena = 744 (godziny) * $0,20 = $148,8 <br>
-Jednostki pojemności = 744 (godz.) * 10 jednostek wydajności na wystąpienie * 5 wystąpień * $0,008 za godzinę jednostki pojemności = $297,6
-
-Łączna cena = $148,8 + $297,6 = $446,4
-
-**Przykład 2**
-
-Application Gateway standard_v2 jest inicjowana przez miesiąc, z zerowymi wystąpieniami i w tym momencie otrzymuje 25 nowych połączeń TLS/s, średnia z 8,88-MB/s. Przy założeniu, że połączenia są krótkotrwałe, cena będzie:
-
-Stała cena = 744 (godziny) * $0,20 = $148,8
-
-Cena jednostkowa wydajności = 744 (godz.) * Max (25/50 jednostek obliczeniowych dla połączeń/s, jednostka pojemności 8.88/2.22 na potrzeby przepływności) * $0,008 = 744 * 4 * 0,008 = $23,81
-
-Łączna cena = $148.8 + 23.81 = $172,61
-
-Jak widać, opłaty są naliczane tylko za cztery jednostki pojemności, a nie dla całego wystąpienia. 
-
-> [!NOTE]
-> Funkcja Max zwraca największą wartość w parze wartości.
-
-
-**Przykład 3**
-
-Application Gateway standard_v2 jest inicjowana przez miesiąc z co najmniej pięcioma wystąpieniami. Przy założeniu, że ruch i połączenia są krótkotrwałe, cena będzie następująca:
-
-Stała cena = 744 (godziny) * $0,20 = $148,8
-
-Cena jednostki wydajności = 744 (godz.) * Max (0/50 jednostek obliczeniowych dla połączeń/s, 0/2.22 Jednostka pojemności dla przepływności) * $0,008 = 744 * 50 * 0,008 = $297,60
-
-Łączna cena = $148.80 + 297.60 = $446,4
-
-W tym przypadku opłaty są naliczane w całości z pięciu wystąpień nawet wtedy, gdy nie ma żadnego ruchu.
-
-**Przykład 4**
-
-Application Gateway standard_v2 jest inicjowana przez miesiąc, z co najmniej pięcioma wystąpieniami, ale w tym momencie istnieje średnia 125-MB/s transferu danych i 25 połączeń TLS na sekundę. Przy założeniu, że ruch i połączenia są krótkotrwałe, cena będzie następująca:
-
-Stała cena = 744 (godziny) * $0,20 = $148,8
-
-Cena jednostkowa wydajności = 744 (godz.) * Max (25/50 jednostek obliczeniowych dla połączeń/s, jednostka pojemności 125/2.22 dla przepływności) * $0,008 = 744 * 57 * 0,008 = $339,26
-
-Łączna cena = $148.80 + 339.26 = $488,06
-
-W tym przypadku opłaty są naliczane za całe pięć wystąpień oraz siedem jednostek pojemności (czyli 7/10 wystąpienia).  
-
-**Przykład 5**
-
-WAF_v2 Application Gateway jest inicjowany przez miesiąc. W tym czasie otrzymujesz 25 nowych połączeń TLS/s, średnia z 8,88-MB/s transmisji danych i wysyła żądania 80 na sekundę. Przy założeniu, że połączenia są krótkotrwałe i obliczenia jednostek obliczeniowych dla aplikacji obsługują 10 RPS pliku na jednostkę obliczeniową, cena będzie:
-
-Stała cena = 744 (godziny) * $0,36 = $267,84
-
-Cena jednostkowa wydajności = 744 (godz.) * Max (maksymalna liczba jednostek obliczeniowych (25/50 dla połączeń/s, 80/10 WAF RPS pliku), 8.88/2.22 jednostki pojemności dla przepływności) * $0,0144 = 744 * 8 * 0,0144 = $85,71
-
-Łączna cena = $267,84 + $85,71 = $353,55
-
-> [!NOTE]
-> Funkcja Max zwraca największą wartość w parze wartości.
+Aby dowiedzieć się więcej, zobacz temat [Omówienie cen](understanding-pricing.md).
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Skalowanie Application Gateway i WAF v2
 
@@ -180,7 +100,7 @@ W tej sekcji opisano funkcje i ograniczenia dotyczące jednostki SKU w wersji 2,
 |--|--|
 |Certyfikat uwierzytelniania|Nieobsługiwane.<br>Aby uzyskać więcej informacji, zobacz [Omówienie kompleksowej usługi TLS z Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Mieszanie Standard_v2 i Application Gateway standardowych w tej samej podsieci|Nieobsługiwane|
-|Trasa zdefiniowana przez użytkownika (UDR) w podsieci Application Gateway|Obsługiwane (określone scenariusze). W wersji zapoznawczej.<br> Aby uzyskać więcej informacji na temat obsługiwanych scenariuszy, zobacz [Omówienie konfiguracji Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
+|Trasa zdefiniowana przez użytkownika (UDR) w podsieci Application Gateway|Obsługiwane (określone scenariusze). W wersji zapoznawczej.<br> Aby uzyskać więcej informacji na temat obsługiwanych scenariuszy, zobacz [Omówienie konfiguracji Application Gateway](configuration-infrastructure.md#supported-user-defined-routes).|
 |SIECIOWEJ grupy zabezpieczeń dla zakresu portów przychodzących| -65200 do 65535 dla Standard_v2 jednostki SKU<br>-65503 do 65534 dla standardowej jednostki SKU.<br>Aby uzyskać więcej informacji, zobacz [często zadawane pytania](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Dzienniki wydajności w usłudze Diagnostyka Azure|Nieobsługiwane.<br>Należy używać metryk platformy Azure.|
 |Rozliczenia|Rozliczenia zaplanowane do rozpoczęcia od 1 lipca 2019.|

@@ -3,18 +3,18 @@ title: Usuń maszyny wirtualne z Azure Automation Update Management
 description: W tym artykule opisano sposób usuwania maszyn zarządzanych przy użyciu Update Management.
 services: automation
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 09/09/2020
 ms.custom: mvc
-ms.openlocfilehash: d7f7e4aa8b2c192688020b4449c8750f94af29f6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 66631adbb56a98431e70f956f3e860b16e8f7ea2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450443"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648631"
 ---
 # <a name="remove-vms-from-update-management"></a>Usuwanie maszyn wirtualnych z rozwiązania Update Management
 
-Po zakończeniu zarządzania aktualizacjami na maszynach wirtualnych w środowisku można zatrzymać zarządzanie maszynami wirtualnymi za pomocą funkcji [Update Management](update-mgmt-overview.md) .
+Po zakończeniu zarządzania aktualizacjami na maszynach wirtualnych w środowisku można zatrzymać zarządzanie maszynami wirtualnymi za pomocą funkcji [Update Management](update-mgmt-overview.md) . Aby przestać zarządzać nimi, Edytuj zapisane zapytanie wyszukiwania `MicrosoftDefaultComputerGroup` w obszarze roboczym log Analytics, który jest połączony z kontem usługi Automation.
 
 ## <a name="sign-into-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
@@ -22,7 +22,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="to-remove-your-vms"></a>Aby usunąć maszyny wirtualne
 
-1. Z poziomu konta usługi Automation wybierz pozycję **Update Management** w obszarze **Update Management**.
+1. W Azure Portal Uruchom **Cloud Shell** od górnego nawigowania Azure Portal. Jeśli nie znasz Azure Cloud Shell, zobacz [omówienie Azure Cloud Shell](../../cloud-shell/overview.md).
 
 2. Użyj następującego polecenia, aby zidentyfikować identyfikator UUID komputera, który chcesz usunąć z zarządzania.
 
@@ -30,18 +30,18 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. W obszarze roboczym Log Analytics w obszarze **Ogólne**uzyskaj dostęp do zapisanych wyszukiwań dla konfiguracji zakresu `MicrosoftDefaultScopeConfig-Updates` .
+3. W Azure Portal przejdź do **obszaru log Analytics obszary robocze**. Z listy wybierz swój obszar roboczy.
 
-4. Dla zapisanego wyszukiwania `MicrosoftDefaultComputerGroup` kliknij wielokropek z prawej strony i wybierz pozycję **Edytuj**.
+4. W obszarze roboczym Log Analytics wybierz pozycję **dzienniki** , a następnie wybierz pozycję **Eksplorator zapytań** z menu najważniejsze akcje.
 
-5. Usuń identyfikator UUID dla maszyny wirtualnej.
+5. W **Eksploratorze zapytań** w okienku po prawej stronie rozwiń pozycję **zapisane Queries\Updates** i wybierz zapisane zapytanie wyszukiwania, `MicrosoftDefaultComputerGroup` aby je edytować.
 
-6. Powtórz kroki dla innych maszyn wirtualnych do usunięcia.
+6. W edytorze zapytań przejrzyj zapytanie i Znajdź identyfikator UUID dla maszyny wirtualnej. Usuń identyfikator UUID dla maszyny wirtualnej i powtórz kroki dla innych maszyn wirtualnych, które chcesz usunąć.
 
-7. Zapisz zapisane wyszukiwanie po zakończeniu edycji.
+7. Zapisz zapisane wyszukiwanie po zakończeniu edycji, wybierając pozycję **Zapisz** na górnym pasku.
 
 >[!NOTE]
->Po wyrejestrowaniu maszyn nadal są one wyświetlane, ponieważ zgłaszamy wszystkie maszyny ocenione w ciągu ostatnich 24 godzin. Po rozłączeniu komputera należy odczekać 24 godziny, zanim nie będą już wyświetlane.
+>Po wyrejestrowaniu maszyn nadal są one wyświetlane, ponieważ zgłaszamy wszystkie maszyny ocenione w ciągu ostatnich 24 godzin. Po usunięciu komputera należy odczekać 24 godziny, zanim nie będą już wyświetlane.
 
 ## <a name="next-steps"></a>Następne kroki
 

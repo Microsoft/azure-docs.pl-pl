@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 294652a42d3b6a2468f024ce7ebdbdfc3615f9e1
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494999"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647879"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Korzystanie z procedur składowanych w puli SQL
 
@@ -62,7 +62,7 @@ Jeśli druga procedura wykonuje następnie dynamiczny SQL, poziom zagnieżdżeni
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
-EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
+EXEC sp_executesql N'SELECT ''another nest level'''  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
@@ -78,7 +78,7 @@ Pula SQL nie zezwala na używanie zestawu wyników procedury składowanej z inst
 
 Istnieją pewne aspekty procedur składowanych Transact-SQL, które nie są zaimplementowane w puli SQL.
 
-Oto one:
+Są to:
 
 * tymczasowe procedury składowane
 * numerowane procedury składowane

@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3ece750ab63c2c8e33fbfb46739eec55de4f5d07
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320191"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646076"
 ---
 # <a name="collect-data-from-models-in-production"></a>Zbieranie danych z modeli w środowisku produkcyjnym
 
@@ -67,11 +67,11 @@ Dane wyjściowe są zapisywane w magazynie obiektów BLOB. Ponieważ dane są do
 
 - Potrzebny jest klaster AKS. Aby uzyskać informacje na temat sposobu tworzenia i wdrażania ich w programie, zobacz artykuł [jak wdrożyć i gdzie](how-to-deploy-and-where.md).
 
-- [Skonfiguruj środowisko](how-to-configure-environment.md) i zainstaluj [zestaw SDK monitorowania Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+- [Skonfiguruj środowisko](how-to-configure-environment.md) i zainstaluj [zestaw SDK monitorowania Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 ## <a name="enable-data-collection"></a>Włączanie zbierania danych
 
-[Zbieranie danych](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) można włączyć niezależnie od modelu wdrażanego za pomocą Azure Machine Learning lub innych narzędzi.
+[Zbieranie danych](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) można włączyć niezależnie od modelu wdrażanego za pomocą Azure Machine Learning lub innych narzędzi.
 
 Aby włączyć zbieranie danych, należy:
 
@@ -149,7 +149,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Analizowanie danych modelu za pomocą Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a> Analizowanie danych modelu za pomocą Power BI
 
 1. Pobierz i Otwórz [Power BI Desktop](https://www.powerbi.com).
 
@@ -185,7 +185,7 @@ Możesz wybrać narzędzie preferencji do analizowania danych zbieranych w magaz
 
 1. Zacznij tworzyć niestandardowe raporty dotyczące danych modelu.
 
-### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analizowanie danych modelu za pomocą Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analizowanie danych modelu za pomocą Azure Databricks
 
 1. Utwórz [obszar roboczy Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 

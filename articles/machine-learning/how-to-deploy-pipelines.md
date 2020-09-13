@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 4515eda6723a9a347a7a0aa56187f40ed4269cdc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 08529d1bb50a1a5d5b3c7d0296aa36f021f45e98
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942225"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646091"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publikowanie i śledzenie potoków uczenia maszynowego
 
@@ -38,7 +38,7 @@ Potoki usługi Machine Learning to przepływy pracy wielokrotnego użytku dla za
 
 Po utworzeniu potoku i uruchomieniu można opublikować potok, aby działał z innymi danymi wejściowymi. Dla punktu końcowego REST już opublikowanego potoku, aby akceptować parametry, należy skonfigurować potok tak, aby używał `PipelineParameter` obiektów dla argumentów, które będą się różnić.
 
-1. Aby utworzyć parametr potoku, użyj obiektu [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) z wartością domyślną.
+1. Aby utworzyć parametr potoku, użyj obiektu [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) z wartością domyślną.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -73,7 +73,7 @@ Po utworzeniu potoku i uruchomieniu można opublikować potok, aby działał z i
 
 Wszystkie opublikowane potoki mają punkt końcowy REST. Za pomocą punktu końcowego potoku można wyzwolić uruchomienie potoku z dowolnego systemu zewnętrznego, w tym klientów spoza języka Python. Ten punkt końcowy włącza "zarządzaną powtarzalność" w ramach oceniania wsadowego i scenariuszy ponownego szkolenia.
 
-Aby wywołać poprzedni potok, wymagany jest token nagłówka Azure Active Directory Authentication. Ten token jest opisany w dokumentacji [klasy AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) i w obszarze [uwierzytelnianie w Azure Machine Learning](https://aka.ms/pl-restep-auth) notesie.
+Aby wywołać poprzedni potok, wymagany jest token nagłówka Azure Active Directory Authentication. Ten token jest opisany w dokumentacji [klasy AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py&preserve-view=true) i w obszarze [uwierzytelnianie w Azure Machine Learning](https://aka.ms/pl-restep-auth) notesie.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -150,10 +150,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Można włączyć ją ponownie za pomocą `p.enable()` . Aby uzyskać więcej informacji, zobacz [PublishedPipeline klasy](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) Reference.
+Można włączyć ją ponownie za pomocą `p.enable()` . Aby uzyskać więcej informacji, zobacz [PublishedPipeline klasy](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py&preserve-view=true) Reference.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Te notesy Jupyter w usłudze GitHub](https://aka.ms/aml-pipeline-readme) umożliwiają dalsze Eksplorowanie potoków usługi Machine Learning.
-- Zapoznaj się z dokumentacją zestawu SDK dla pakietu [Azure-Pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) oraz pakietem [kroków potoków usługi Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) .
+- Zapoznaj się z dokumentacją zestawu SDK dla pakietu [Azure-Pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) oraz pakietem [kroków potoków usługi Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) .
 - Zobacz Porady [dotyczące debugowania](how-to-debug-pipelines.md) i rozwiązywania problemów z potokami.
