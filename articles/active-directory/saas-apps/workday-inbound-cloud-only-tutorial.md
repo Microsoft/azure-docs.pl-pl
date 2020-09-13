@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540970"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015487"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie obsługi administracyjnej użytkowników w usłudze Azure AD
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać, aby udostępnić dane procesu roboczego z produktu Workday do Azure Active Directory. 
@@ -27,13 +27,13 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać, ab
 
 [Usługa aprowizacji użytkowników Azure Active Directory](../app-provisioning/user-provisioning.md) integruje się z [interfejsem API zasobów ludzkich firmy Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) , aby udostępnić konta użytkowników. Przepływy pracy aprowizacji użytkowników platformy Workday obsługiwane przez usługę aprowizacji użytkowników w usłudze Azure AD umożliwiają automatyzację następujących scenariuszy dotyczących zasobów ludzkich i zarządzania cyklem życia tożsamości:
 
-* **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do produktu Workday konto użytkownika jest automatycznie tworzone w Azure Active Directory i opcjonalnie pakiet Office 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md), z możliwością zapisu z powrotem w adresie e-mail.
+* **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do produktu Workday konto użytkownika jest automatycznie tworzone w Azure Active Directory i opcjonalnie Microsoft 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md)z możliwością zapisu zwrotnego adresu e-mail.
 
-* **Aktualizacje atrybutu i profilu pracownika** — gdy rekord pracownika zostanie zaktualizowany w usłudze Workday (na przykład jego nazwa, tytuł lub Menedżer), jego konto użytkownika zostanie automatycznie zaktualizowane Azure Active Directory i opcjonalnie z pakietem Office 365 i [innymi aplikacjami SaaS obsługiwanymi przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* **Aktualizacje atrybutu i profilu pracownika** — gdy rekord pracownika zostanie zaktualizowany w dniach roboczych (takich jak nazwa, tytuł lub Menedżer), jego konto użytkownika zostanie automatycznie zaktualizowane Azure Active Directory i opcjonalnie Microsoft 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Zakończenie zatrudnienia pracownika** — gdy pracownik zostanie przerwany w dniach roboczych, jego konto użytkownika jest automatycznie wyłączone w Azure Active Directory i opcjonalnie aplikacje pakietu Office 365 i [innych aplikacji SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* **Zakończenie zatrudnienia pracownika** — gdy pracownik zostanie zakończony w dniach roboczych, jego konto użytkownika zostanie automatycznie wyłączone w Azure Active Directory i opcjonalnie Microsoft 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
-* Przedziały **pracownika** — gdy pracownik jest ponownie zatrudniany w dniu Workday, jego stare konto może zostać automatycznie ponownie uaktywnione lub zainicjowane (zależnie od preferencji) do Azure Active Directory i opcjonalnie pakietu Office 365 i [innych aplikacji SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* Przedziały **pracownika** — gdy pracownik jest ponownie zatrudniany w dniu Workday, jego stare konto może zostać automatycznie ponownie uaktywnione lub zainicjowane (zależnie od preferencji) do Azure Active Directory i opcjonalnie Microsoft 365 i [innych aplikacji SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Dla kogo to rozwiązanie do aprowizacji użytkowników jest najlepiej dopasowane?
 
@@ -45,7 +45,7 @@ Ten roboczy Azure Active Directory rozwiązanie do aprowizacji użytkowników je
 
 * Organizacje, które wymagają aprowizacji użytkowników przy użyciu danych uzyskanych z produktu Workday
 
-* Organizacje korzystające z pakietu Office 365 do obsługi poczty e-mail
+* Organizacje korzystające z Microsoft 365 do poczty e-mail
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 
@@ -91,7 +91,7 @@ W poniższych sekcjach opisano kroki konfigurowania aprowizacji użytkowników z
 
 **Aby skonfigurować dzień roboczy do Azure Active Directory aprowizacji dla użytkowników tylko w chmurze:**
 
-1. Przejdź do adresu <https://portal.azure.com>.
+1. Przejdź do witryny <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 

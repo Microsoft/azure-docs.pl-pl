@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: df8a75c2297dc68549b2788a2d78dd2c7f576bc2
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e31fdec18ab4c6135031bf21d2387585141c2735
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146848"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018224"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Śledzenie metryk modelu i wdrażanie modeli ML przy użyciu MLflow i Azure Machine Learning (wersja zapoznawcza)
 
@@ -44,10 +44,10 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 
  Poniższa tabela zawiera podsumowanie różnych klientów, którzy mogą używać Azure Machine Learning i ich możliwości funkcji.
 
- Śledzenie MLflow oferuje funkcje rejestrowania metryk i magazynu artefaktów, które są dostępne tylko w innym przypadku za pośrednictwem [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Śledzenie MLflow oferuje funkcje rejestrowania metryk i magazynu artefaktów, które są dostępne tylko w innym przypadku za pośrednictwem [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
 
-| Możliwość | MLflow &nbsp; śledzenie & | Azure Machine Learning Python SDK |  Interfejs wiersza polecenia Azure Machine Learning | Studio uczenia maszynowego Azure|
+| Możliwość | MLflow śledzenie & | Azure Machine Learning Python SDK |  Interfejs wiersza polecenia Azure Machine Learning | Studio uczenia maszynowego Azure|
 |---|---|---|---|---|
 | Zarządzanie obszarem roboczym |   | ✓ | ✓ | ✓ |
 | Korzystanie z magazynów danych  |   | ✓ | ✓ | |
@@ -62,7 +62,7 @@ Na poniższym diagramie przedstawiono, że śledzenie MLflow umożliwia śledzen
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * [Zainstaluj MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Zainstaluj zestaw sdk Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) na komputerze lokalnym, zestaw SDK zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
+* [Zainstaluj zestaw sdk Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) na komputerze lokalnym, zestaw SDK zapewnia łączność z MLflow w celu uzyskania dostępu do obszaru roboczego.
 * [Utwórz obszar roboczy usługi Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="track-local-runs"></a>Śledź uruchomienia lokalne
@@ -75,7 +75,7 @@ Zainstaluj `azureml-mlflow` pakiet, aby używać śledzenia MLflow z Azure Machi
 pip install azureml-mlflow
 ```
 
-Zaimportuj `mlflow` klasy i, [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) Aby uzyskać dostęp do śledzenia identyfikatorów URI MLflow i skonfigurować obszar roboczy.
+Zaimportuj `mlflow` klasy i, [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py&preserve-view=true) Aby uzyskać dostęp do śledzenia identyfikatorów URI MLflow i skonfigurować obszar roboczy.
 
 W poniższym kodzie `get_mlflow_tracking_uri()` Metoda przypisuje unikatowy adres URI śledzenia do obszaru roboczego, `ws` a następnie wskazuje na ten `set_tracking_uri()` adres identyfikator URI śledzenia MLflow.
 
@@ -107,7 +107,7 @@ with mlflow.start_run():
 
 Zdalne uruchomienia umożliwiają uczenie modeli przy większej liczbie zaawansowanych obliczeń, takich jak maszyny wirtualne obsługujące procesor GPU lub klastry środowisko obliczeniowe usługi Machine Learning. Aby dowiedzieć się więcej o różnych opcjach obliczeniowych, zobacz [use Target COMPUTE for model Training](how-to-set-up-training-targets.md) .
 
-Skonfiguruj środowisko uruchomieniowe obliczeniowe i szkoleniowe za pomocą [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) klasy. Dołącz `mlflow` i `azureml-mlflow` PIP pakiety w sekcji środowiska [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) . Następnie Utwórz  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) z użyciem obliczeń zdalnych jako element docelowy obliczeń.
+Skonfiguruj środowisko uruchomieniowe obliczeniowe i szkoleniowe za pomocą [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) klasy. Dołącz `mlflow` i `azureml-mlflow` PIP pakiety w sekcji środowiska [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py&preserve-view=true) . Następnie Utwórz  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) z użyciem obliczeń zdalnych jako element docelowy obliczeń.
 
 ```Python
 from azureml.core.environment import Environment
@@ -273,7 +273,7 @@ Najpierw określ konfigurację wdrożenia. Usługa Azure Container Instance (ACI
 
 #### <a name="deploy-to-aci"></a>Wdrażanie w usłudze ACI
 
-Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
+Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -286,7 +286,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-Następnie zarejestruj i Wdróż model przy użyciu metody [wdrażania](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) Azure Machine Learning SDK. 
+Następnie zarejestruj i Wdróż model przy użyciu metody [wdrażania](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) Azure Machine Learning SDK. 
 
 ```python
 (webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
@@ -300,7 +300,7 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### <a name="deploy-to-aks"></a>Wdrażanie w usłudze AKS
 
-Aby wdrożyć AKS, należy najpierw utworzyć klaster AKS. Utwórz klaster AKS przy użyciu metody [ComputeTarget. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) . Utworzenie nowego klastra może potrwać 20-25 minut.
+Aby wdrożyć AKS, należy najpierw utworzyć klaster AKS. Utwórz klaster AKS przy użyciu metody [ComputeTarget. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#&preserve-view=truecreate-workspace--name--provisioning-configuration-) . Utworzenie nowego klastra może potrwać 20-25 minut.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -320,7 +320,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
+Skonfiguruj konfigurację wdrożenia za pomocą metody [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Możesz również dodać tagi i opisy, aby pomóc w śledzeniu usługi sieci Web.
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -328,8 +328,9 @@ from azureml.core.webservice import Webservice, AksWebservice
 # Set the web service configuration (using default here with app insights)
 aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, compute_target_name='aks-mlflow')
 
+```
 
-Then, deploy the image by using the Azure Machine Learning SDK [deploy()](Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Następnie wdróż obraz przy użyciu zestawu SDK Azure Machine Learning [Deploy ()] (następnie zarejestruj i Wdróż model przy użyciu metody [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) Azure Machine Learning SDK. 
 
 ```python
 # Webservice creation using single command

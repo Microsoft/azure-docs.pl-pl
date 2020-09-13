@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355917"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016269"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Rozwiązywanie problemów Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -29,7 +29,7 @@ Ten artykuł ułatwia znalezienie informacji o rozwiązywaniu problemów dotycz�
 - W kilku przypadkach włączenie bezproblemowego logowania jednokrotnego może potrwać do 30 minut.
 - Jeśli wyłączysz i ponownie włączysz bezproblemową rejestrację jednokrotną w dzierżawie, użytkownicy nie będą mogli korzystać z logowania jednokrotnego do buforowanych biletów Kerberos, zwykle przez 10 godzin wygasły.
 - Jeśli bezproblemowe logowanie jednokrotne powiedzie się, użytkownik nie ma możliwości wybrania opcji nie **wylogowuj mnie**. Ze względu na to zachowanie, [scenariusze mapowania programu SharePoint i usługi OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) nie działają.
-- Klienci Win32 pakietu Office 365 (Outlook, Word, Excel i inne) z wersjami 16.0.8730. xxxx i nowszymi są obsługiwani przy użyciu nieinteraktywnego przepływu. Inne wersje nie są obsługiwane. w tych wersjach użytkownicy będą wprowadzać nazwy użytkowników, ale nie hasła, aby się zalogować. W przypadku usługi OneDrive konieczne będzie aktywowanie [funkcji konfiguracji dyskretnej usługi OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) w celu zalogowania dyskretnego.
+- Microsoft 365 klienci Win32 (Outlook, Word, Excel i inne) z wersjami 16.0.8730. xxxx i powyżej są obsługiwane za pomocą nieinteraktywnego przepływu. Inne wersje nie są obsługiwane. w tych wersjach użytkownicy będą wprowadzać nazwy użytkowników, ale nie hasła, aby się zalogować. W przypadku usługi OneDrive konieczne będzie aktywowanie [funkcji konfiguracji dyskretnej usługi OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) w celu zalogowania dyskretnego.
 - Bezproblemowe logowanie jednokrotne nie działa w trybie przeglądania prywatnego w przeglądarce Firefox.
 - Bezproblemowe logowanie jednokrotne nie działa w programie Internet Explorer, gdy włączony jest rozszerzony tryb chroniony.
 - Bezproblemowe logowanie jednokrotne nie działa w przeglądarkach mobilnych w systemach iOS i Android.
@@ -74,9 +74,9 @@ Przejdź do **Azure Active Directory**  >  **logowania** w [centrum administracy
 Użyj poniższej listy kontrolnej, aby rozwiązać problemy z logowaniem jednokrotnym:
 
 - Upewnij się, że funkcja bezproblemowego logowania jednokrotnego jest włączona w Azure AD Connect. Jeśli nie możesz włączyć funkcji (na przykład ze względu na zablokowany port), upewnij się, że zostały spełnione wszystkie [wymagania wstępne](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) .
-- Jeśli włączono [usługę Azure AD Join](../active-directory-azureadjoin-overview.md) i bezproblemową rejestrację jednokrotną w dzierżawie, upewnij się, że problem nie jest przyłączany do usługi Azure AD. Logowanie jednokrotne z usługi Azure AD ma wyższy priorytet niż bezproblemowe logowanie jednokrotne, jeśli urządzenie jest zarejestrowane w usłudze Azure AD i przyłączone do domeny. W przypadku logowania jednokrotnego z usługi Azure AD użytkownik widzi kafelek logowania "połączony z systemem Windows".
+- Jeśli włączono [usługę Azure AD Join](../devices/overview.md) i bezproblemową rejestrację jednokrotną w dzierżawie, upewnij się, że problem nie jest przyłączany do usługi Azure AD. Logowanie jednokrotne z usługi Azure AD ma wyższy priorytet niż bezproblemowe logowanie jednokrotne, jeśli urządzenie jest zarejestrowane w usłudze Azure AD i przyłączone do domeny. W przypadku logowania jednokrotnego z usługi Azure AD użytkownik widzi kafelek logowania "połączony z systemem Windows".
 - Upewnij się, że adres URL usługi Azure AD ( `https://autologon.microsoftazuread-sso.com` ) jest częścią ustawień strefy intranetowej użytkownika.
-- Upewnij się, że urządzenie firmowe jest przyłączone do domeny Active Directory. Aby bezproblemowe logowanie jednokrotne działało, urządzenie _nie_ musi być [przyłączone do usługi Azure AD](../active-directory-azureadjoin-overview.md) .
+- Upewnij się, że urządzenie firmowe jest przyłączone do domeny Active Directory. Aby bezproblemowe logowanie jednokrotne działało, urządzenie _nie_ musi być [przyłączone do usługi Azure AD](../devices/overview.md) .
 - Upewnij się, że użytkownik jest zalogowany na urządzeniu za pomocą konta domeny Active Directory.
 - Upewnij się, że konto użytkownika pochodzi z lasu Active Directory, w którym skonfigurowano bezproblemowe logowanie jednokrotne.
 - Upewnij się, że urządzenie jest połączone z siecią firmową.
@@ -106,7 +106,7 @@ Jeśli Rozwiązywanie problemów nie powiodło się, można ręcznie zresetować
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Krok 1. zaimportowanie bezproblemowego modułu programu PowerShell logowania jednokrotnego
 
-1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Zaimportuj bezproblemowy moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
 

@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157946"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017102"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Zarządzanie urządzeniami w aplikacji IoT Central platformy Azure
-
-
 
 W tym artykule opisano, jak za pomocą operatora zarządzać urządzeniami w aplikacji IoT Central platformy Azure. Jako operator można:
 
@@ -51,7 +49,7 @@ Aby dodać urządzenie do aplikacji usługi Azure IoT Central:
 
 1. Zmień przełącznik **symulowany** na **włączony** lub **wyłączony**. Rzeczywiste urządzenie dotyczy urządzenia fizycznego połączonego z aplikacją Azure IoT Central. Urządzenie symulowane ma przykładowe dane wygenerowane przez usługę Azure IoT Central.
 
-1. Kliknij pozycję **Utwórz**.
+1. Kliknij przycisk **Utwórz**.
 
 1. To urządzenie jest teraz widoczne na liście urządzeń dla tego szablonu. Wybierz urządzenie, aby wyświetlić stronę szczegóły urządzenia, która zawiera wszystkie widoki dla urządzenia.
 
@@ -71,7 +69,7 @@ Aby przeprowadzić zbiorczą rejestrację urządzeń w aplikacji:
     > [!NOTE]
     > Jeśli nie masz jeszcze szablonu urządzenia, możesz zaimportować urządzenia ze **wszystkich urządzeń** i zarejestrować je bez szablonu. Po zaimportowaniu urządzeń można migrować je do szablonu.
 
-1. Wybierz pozycję **Import**.
+1. Wybierz pozycję **Importuj**.
 
     ![Importuj akcję](./media/howto-manage-devices/bulkimport1a.png)
 

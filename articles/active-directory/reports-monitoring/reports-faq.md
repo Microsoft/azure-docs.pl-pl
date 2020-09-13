@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231048"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015334"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Często zadawane pytania dotyczące Azure Active Directory raportów
 
@@ -37,7 +37,7 @@ Odp **.:** Zapoznaj się z dokumentacją [interfejsu API](https://developer.micr
 
 **P: obecnie używam `https://graph.windows.net/<tenant-name>/reports/` interfejsów API punktu końcowego do ściągania raportów zabezpieczeń usługi Azure AD (określone typy wykrywania, takie jak nieujawnione poświadczenia lub logowania z anonimowych adresów IP) w naszych systemach raportowania programistycznie. Z czym mam się przełączyć?**
 
-Odp **.:** Korzystając z [interfejsu API wykrywania ryzyka ochrony tożsamości](../identity-protection/howto-identity-protection-graph-api.md), można   uzyskać dostęp do wykrywania zabezpieczeń za pomocą Microsoft Graph. Ten nowy format zapewnia większą elastyczność w zakresie wykonywania zapytań dotyczących danych, z zaawansowanymi filtrowaniem, zaznaczaniem pól i wieloma innymi, a także umożliwia ujednolicenie wykrywania ryzyka w jednym typie w celu łatwiejszej integracji z rozwiązań Siem i innymi narzędziami zbierania danych. Ponieważ dane są w innym formacie, nie można zastąpić nowego zapytania dla starych zapytań. Jednak [Nowy interfejs API używa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), który jest standardem firmy Microsoft dla takich interfejsów API jak O365 lub Azure AD. W związku z tym wymagana nakład pracy może stanowić zwiększenie bieżącej Microsoft Graph inwestycji lub pomóc Ci w rozpoczęciu przejścia na nową platformę standardową.
+Odp **.:** Korzystając z [interfejsu API wykrywania ryzyka ochrony tożsamości](../identity-protection/howto-identity-protection-graph-api.md), można   uzyskać dostęp do wykrywania zabezpieczeń za pomocą Microsoft Graph. Ten nowy format zapewnia większą elastyczność w zakresie wykonywania zapytań dotyczących danych, z zaawansowanymi filtrowaniem, zaznaczaniem pól i wieloma innymi, a także umożliwia ujednolicenie wykrywania ryzyka w jednym typie w celu łatwiejszej integracji z rozwiązań Siem i innymi narzędziami zbierania danych. Ponieważ dane są w innym formacie, nie można zastąpić nowego zapytania dla starych zapytań. Jednak [Nowy interfejs API używa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), który jest standardem firmy Microsoft dla takich interfejsów api jak Microsoft 365 lub Azure AD. W związku z tym wymagana nakład pracy może stanowić zwiększenie bieżącej Microsoft Graph inwestycji lub pomóc Ci w rozpoczęciu przejścia na nową platformę standardową.
 
 ---
 
@@ -81,15 +81,15 @@ Odp **.:** Dzienniki inspekcji mają opóźnienie z przedziału od 15 minut do g
 
 ---
 
-**P: Czy można uzyskać informacje o dzienniku aktywności pakietu Office 365 za pomocą Azure Portal?**
+**P: Czy można uzyskać Microsoft 365 informacje dziennika aktywności za pomocą Azure Portal?**
 
-Odp **.:** Mimo że działania pakietu Office 365 i dzienniki aktywności usługi Azure AD współdzielą wiele zasobów katalogu, aby uzyskać pełny widok dzienników aktywności pakietu Office 365, należy przejść do [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com) , aby uzyskać informacje o dzienniku aktywności pakietu Office 365.
+Odp **.:** Mimo że Microsoft 365 działania i dzienniki aktywności usługi Azure AD dzielą wiele zasobów katalogu, aby uzyskać pełny widok Microsoft 365 dzienników aktywności, należy przejść do [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com) , aby uzyskać informacje o dzienniku aktywności pakietu Office 365.
 
 ---
 
-**P: które interfejsy API są używane do uzyskiwania informacji o dziennikach aktywności pakietu Office 365?**
+**P: które interfejsy API są używane do uzyskiwania informacji o Microsoft 365 dziennikach aktywności?**
 
-Odp **.:** Użyj [interfejsów API zarządzania pakietu office 365](/office/office-365-management-api/office-365-management-apis-overview) , aby uzyskać dostęp do dzienników aktywności pakietu Office 365 za pomocą interfejsu API.
+Odp **.:** Użyj [interfejsów API zarządzania Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview) , aby uzyskać dostęp do dzienników aktywności Microsoft 365 za pomocą interfejsu API.
 
 ---
 

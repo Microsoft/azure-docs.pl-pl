@@ -1,22 +1,22 @@
 ---
-title: Co to jest ryzyko? Azure AD Identity Protection
+title: Co to jest ryzyko? Usługa Azure AD Identity Protection
 description: Wyjaśnienie ryzyka w Azure AD Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/10/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047109"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016405"
 ---
 # <a name="what-is-risk"></a>Co to jest ryzyko?
 
@@ -29,6 +29,8 @@ Ochrona tożsamości zapewnia organizacjom dostęp do zaawansowanych zasobów i 
 ## <a name="risk-types-and-detection"></a>Typy ryzyka i wykrywanie
 
 Istnieją dwa typy **użytkowników** ryzyka i **logowania** oraz dwa typy wykrywania lub obliczeń w czasie **rzeczywistym** i **w trybie offline**.
+
+Wykrywanie w czasie rzeczywistym może nie być wyświetlane w raporcie przez pięć do dziesięciu minut. Wykrywanie w trybie offline może nie być wyświetlane w ramach raportowania przez dwa do czterech godzin.
 
 ### <a name="user-risk"></a>Ryzyko związane z użytkownikiem
 

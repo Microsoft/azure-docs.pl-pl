@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 33c878b2af64a72212a8aac060e9ccac83b79a53
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2289ff37a0e524bc765163047608eb604c02372e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326515"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019805"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Uwierzytelnianie urządzeń za pomocą certyfikatów X.509 urzędu certyfikacji
 
@@ -27,6 +27,8 @@ W tym artykule opisano, jak za pomocą certyfikatów urzędu certyfikacji X. 509
 * Jak zarejestrować certyfikat certyfikatu X. 509 urzędu certyfikacji w celu IoT Hub
 * Jak podpisać urządzenia przy użyciu certyfikatów programu X. 509 urzędu certyfikacji
 * Jak są uwierzytelniane urządzenia z urzędem certyfikacji X. 509
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Omówienie
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755912"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018581"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Wymuś minimalną wymaganą wersję Transport Layer Security (TLS) dla żądań kierowanych do konta magazynu
 
@@ -92,11 +92,13 @@ Jeśli masz pewność, że ruch od klientów korzystających ze starszych wersji
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu, ustaw wersję **MinimumTlsVersion** dla konta. Ta właściwość jest dostępna dla wszystkich kont magazynu utworzonych za pomocą modelu wdrażania Azure Resource Manager. Aby uzyskać więcej informacji o modelu wdrażania Azure Resource Manager, zobacz temat [konto magazynu — Omówienie](storage-account-overview.md).
 
 > [!NOTE]
-> Właściwość **minimumTlsVersion** nie jest domyślnie ustawiona i nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null**.
+> Właściwość **MinimumTlsVersion** jest obecnie dostępna tylko dla kont magazynu w chmurze publicznej platformy Azure.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu z Azure Portal, wykonaj następujące kroki:
+Podczas tworzenia konta magazynu przy użyciu Azure Portal minimalna wersja protokołu TLS jest domyślnie ustawiona na 1,2.
+
+Aby skonfigurować minimalną wersję protokołu TLS dla istniejącego konta magazynu z Azure Portal, wykonaj następujące czynności:
 
 1. W witrynie Azure Portal przejdź do swojego konta magazynu.
 1. Wybierz ustawienie **konfiguracji** .
@@ -108,6 +110,8 @@ Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu z Azure 
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą programu PowerShell, zainstaluj [Azure PowerShell w wersji 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) lub nowszej. Następnie skonfiguruj Właściwość **MinimumTLSVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **MinimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
 
+Właściwość **MinimumTlsVersion** nie jest domyślnie ustawiana podczas tworzenia konta magazynu przy użyciu programu PowerShell. Ta właściwość nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null**.
+
 Poniższy przykład tworzy konto magazynu i ustawia **MinimumTLSVersion** na TLS 1,1, a następnie aktualizuje konto i ustawia **MinimumTLSVersion** na TLS 1,2. Przykład pobiera również wartość właściwości w każdym przypadku. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
 ```powershell
@@ -116,18 +120,18 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
-    -Location $location \
-    -SkuName Standard_GRS \
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -137,6 +141,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName \
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Aby skonfigurować minimalną wersję protokołu TLS dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, zainstaluj interfejs wiersza polecenia platformy Azure w wersji 2.9.0 lub nowszej. Aby uzyskać więcej informacji, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Następnie skonfiguruj Właściwość **minimumTlsVersion** dla nowego lub istniejącego konta magazynu. Prawidłowe wartości dla **minimumTlsVersion** to `TLS1_0` , `TLS1_1` i `TLS1_2` .
+
+Właściwość **minimumTlsVersion** nie jest domyślnie ustawiana podczas tworzenia konta magazynu przy użyciu interfejsu wiersza polecenia platformy Azure. Ta właściwość nie zwraca wartości, dopóki nie zostanie jawnie ustawiona. Konto magazynu zezwala na żądania wysyłane z użyciem protokołu TLS w wersji 1,0 lub nowszej, jeśli wartość właściwości jest **równa null**.
 
 Poniższy przykład tworzy konto magazynu i ustawia **minimumTLSVersion** na TLS 1,1. Następnie aktualizuje konto i ustawia właściwość **minimumTLSVersion** na TLS 1,2. Przykład pobiera również wartość właściwości w każdym przypadku. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 

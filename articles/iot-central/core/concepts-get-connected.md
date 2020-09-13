@@ -7,15 +7,17 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+- device-developer
+ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337096"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018195"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Nawiązywanie połączenia z usługą Azure IoT Central
 
@@ -147,10 +149,10 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Grupuj klucz podstawowy z grupy rejestracji SAS-IoT-Devices":::
 
-1. Użyj narzędzia [DPS-Keygen](https://www.npmjs.com/package/dps-keygen) do wygenerowania kluczy SAS urządzeń. Użyj klucza podstawowego grupy z poprzedniego kroku. Identyfikatory urządzeń muszą mieć wielkie litery:
+1. Użyj `az iot central device compute-device-key` polecenia, aby wygenerować klucze SAS urządzenia. Użyj klucza podstawowego grupy z poprzedniego kroku. Identyfikatory urządzeń muszą mieć wielkie litery:
 
-    ```cmd
-    dps-keygen -mk:<group primary key> -di:<device ID>
+    ```azurecli
+    az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
 1. Producent OEM błyskuje każde urządzenie przy użyciu identyfikatora urządzenia, wygenerowanego klucza sygnatury dostępu współdzielonego urządzenia oraz wartości **zakresu identyfikatora** aplikacji.
@@ -195,12 +197,12 @@ IoT Central obsługuje następujące mechanizmy zaświadczania dotyczące poszcz
 - **Zaświadczenie klucza symetrycznego:** Zaświadczenie klucza symetrycznego to proste podejście do uwierzytelniania urządzenia za pomocą wystąpienia DPS. Aby utworzyć rejestrację indywidualną, która używa kluczy symetrycznych, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **sygnatura dostępu współdzielonego (SAS)** jako mechanizm. Wprowadź klucze podstawowe i pomocnicze kodowane algorytmem Base64 i Zapisz zmiany. Aby połączyć urządzenie, użyj **zakresu identyfikatora**, **identyfikatora urządzenia**i klucza podstawowego lub pomocniczego.
 
     > [!TIP]
-    > W celu przetestowania można użyć **OpenSSL** , aby generować zakodowane klucze Base64:`openssl rand -base64 64`
+    > W celu przetestowania można użyć **OpenSSL** , aby generować zakodowane klucze Base64: `openssl rand -base64 64`
 
 - **Certyfikaty X. 509:** Aby utworzyć rejestrację indywidualną za pomocą certyfikatów X. 509, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia oraz **Certyfikaty (X. 509)** jako mechanizm. Certyfikaty urządzeń używane z indywidualnym wpisem rejestracji mają wymaganie, aby wystawca i CN podmiotu zostały ustawione na identyfikator urządzenia.
 
     > [!TIP]
-    > Do testowania można użyć [narzędzi dla zestawu SDK urządzenia usługi Azure IoT Device Provisioning dla Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) w celu wygenerowania certyfikatu z podpisem własnym:`node create_test_cert.js device "mytestdevice"`
+    > Do testowania można użyć [narzędzi dla zestawu SDK urządzenia usługi Azure IoT Device Provisioning dla Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) w celu wygenerowania certyfikatu z podpisem własnym: `node create_test_cert.js device "mytestdevice"`
 
 - **Zaświadczanie moduł TPM (TPM):** [Moduł TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) jest typem sprzętowego modułu zabezpieczeń. Korzystanie z modułu TPM jest jednym z najbardziej bezpiecznych sposobów łączenia urządzeń. W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM. Nie używaj moduły TPM oprogramowania w środowisku produkcyjnym. Aby utworzyć rejestrację indywidualną korzystającą z modułu TPM, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **moduł TPM** jako mechanizm. Wprowadź klucz poręczenia modułu TPM i Zapisz informacje o połączeniu z urządzeniem.
 
@@ -276,7 +278,7 @@ Poniższa tabela zawiera podsumowanie sposobu mapowania funkcji usługi Azure Io
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
-| Telemetry | Obsługa komunikatów przesyłanych z urządzeń do chmury |
+| Telemetria | Obsługa komunikatów przesyłanych z urządzeń do chmury |
 | Właściwość | Właściwości zgłoszone przez urządzenie |
 | Właściwość (zapisywalny) | Wymagane i zgłoszone właściwości dotyczące sznurka urządzenia |
 | Polecenie | Metody bezpośrednie |

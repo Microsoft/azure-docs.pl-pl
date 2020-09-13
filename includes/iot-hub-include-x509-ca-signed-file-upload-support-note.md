@@ -1,0 +1,20 @@
+---
+title: plik dołączania
+description: plik dołączania
+services: iot-hub
+author: robinsh
+ms.service: iot-hub
+ms.topic: include
+ms.date: 09/09/2020
+ms.author: robinsh
+ms.custom: include file
+ms.openlocfilehash: 0c6aefe590e2ec348542736290c39f1f3401adca
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018133"
+---
+> [!IMPORTANT]
+> Funkcja przekazywania plików nie jest obsługiwana na urządzeniach korzystających z uwierzytelniania urzędu certyfikacji X. 509. Jest ona obsługiwana na urządzeniach korzystających z uwierzytelniania odcisku palca X. 509. Aby dowiedzieć się więcej o uwierzytelnianiu X. 509 za pomocą IoT Hub, zobacz [obsługiwane certyfikaty x. 509](../articles/iot-hub/iot-hub-devguide-security.md#supported-x509-certificates).  
+>

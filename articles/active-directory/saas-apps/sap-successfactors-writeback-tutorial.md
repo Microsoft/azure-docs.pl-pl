@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534000"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017935"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors
 Celem tego samouczka jest przedstawienie kroków związanych z zapisywaniem atrybutów z usługi Azure AD do oprogramowania SAP SuccessFactors Employee Central. 
@@ -40,7 +40,7 @@ Można skonfigurować aplikację do zapisywania zwrotnego SAP SuccessFactors w c
 
 To rozwiązanie SuccessFactors zapisywania zwrotnego użytkownika jest idealnym rozwiązaniem dla:
 
-* Organizacje korzystające z pakietu Office 365, które chcą, aby powracać do SuccessFactorsych atrybutów autorytatywnych (takich jak adres e-mail, telefon lub nazwa użytkownika).
+* Organizacje korzystające z Microsoft 365, które chcą pisać i przywracać atrybuty autorytatywne, zarządzane przez nią (takie jak adres e-mail, telefon, nazwa użytkownika) z powrotem do SuccessFactors Employee Central.
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Konfigurowanie SuccessFactors na potrzeby integracji
 

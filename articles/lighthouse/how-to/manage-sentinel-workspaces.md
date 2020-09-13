@@ -3,12 +3,12 @@ title: Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą s
 description: Dowiedz się, jak efektywnie zarządzać wskaźnikami platformy Azure na delegowanych zasobach klientów.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050815"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019737"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Zarządzanie obszarami roboczymi wskaźników platformy Azure na dużą skalę
 
@@ -65,7 +65,7 @@ Jeśli zarządzasz zasobami wskaźnikowymi platformy Azure dla wielu klientów, 
 
 [Azure monitor skoroszyty na platformie Azure — wskaźnik](../../sentinel/overview.md#workbooks) pomocy, aby wizualizować i monitorować dane z połączonych źródeł danych, aby uzyskać szczegółowe informacje. Możesz użyć wbudowanych szablonów skoroszytów w wskaźniku kontrolnym platformy Azure albo utworzyć niestandardowe skoroszyty dla swoich scenariuszy.
 
-Możesz wdrażać skoroszyty w dzierżawie zarządzającej i tworzyć pulpity nawigacyjne na skalę na potrzeby monitorowania i wykonywania zapytań dotyczących danych w dzierżawach klientów. Aby uzyskać więcej informacji, zobacz [monitorowanie między obszarami roboczymi](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Należy pamiętać, że niektóre funkcje [nie są obsługiwane w wielu obszarach roboczych](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+Możesz wdrażać skoroszyty w dzierżawie zarządzającej i tworzyć pulpity nawigacyjne na skalę na potrzeby monitorowania i wykonywania zapytań dotyczących danych w dzierżawach klientów. Aby uzyskać więcej informacji, zobacz [monitorowanie między obszarami roboczymi](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 Skoroszyty można również wdrażać bezpośrednio w poszczególnych dzierżawach, którymi można zarządzać w scenariuszach specyficznych dla danego klienta.
 
@@ -76,8 +76,6 @@ Twórz i zapisuj Log Analytics zapytania dotyczące wykrywania zagrożeń centra
 ## <a name="use-automation-for-cross-workspace-management"></a>Używanie automatyzacji do zarządzania między obszarami roboczymi
 
 Za pomocą usługi Automation można zarządzać wieloma obszarami roboczymi usługi Azure wskaźnikami i konfigurować [zapytania łowieckie](../../sentinel/hunting.md), elementy playbook i skoroszyty. Aby uzyskać więcej informacji, zobacz [Zarządzanie między obszarami roboczymi przy użyciu usługi Automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Należy pamiętać, że niektóre funkcje [nie są obecnie obsługiwane w wielu obszarach roboczych](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Zarządzanie zabezpieczeniami środowisk pakietu Office 365
 

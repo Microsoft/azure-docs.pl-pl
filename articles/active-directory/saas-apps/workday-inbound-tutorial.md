@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 51ab05a995ba5b620b759f419fb5b4594873d2f5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527812"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018105"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -31,13 +31,13 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać, ab
 
 [Usługa aprowizacji użytkowników Azure Active Directory](../app-provisioning/user-provisioning.md) integruje się z [interfejsem API zasobów ludzkich firmy Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) , aby udostępnić konta użytkowników. Przepływy pracy aprowizacji użytkowników platformy Workday obsługiwane przez usługę aprowizacji użytkowników w usłudze Azure AD umożliwiają automatyzację następujących scenariuszy dotyczących zasobów ludzkich i zarządzania cyklem życia tożsamości:
 
-* **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do produktu Workday konto użytkownika jest automatycznie tworzone w Active Directory, Azure Active Directory i opcjonalnie pakiet Office 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md), z możliwością zapisu informacji kontaktowych zarządzanych przez dział IT w dniach roboczych.
+* **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do produktu Workday konto użytkownika jest automatycznie tworzone w Active Directory, Azure Active Directory i opcjonalnie Microsoft 365 i [innych aplikacjach SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md)z możliwością zapisu informacji kontaktowych zarządzanych przez dział IT do produktu Workday.
 
-* **Aktualizacje atrybutu pracownika i profilu** — gdy rekord pracownika zostanie zaktualizowany w dniach roboczych (na przykład nazwa, tytuł lub Menedżer), jego konto użytkownika zostanie automatycznie zaktualizowane w Active Directory, Azure Active Directory i opcjonalnie pakiet Office 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* **Aktualizacje atrybutu pracownika i profilu** — gdy rekord pracownika zostanie zaktualizowany w dniach roboczych (takich jak nazwa, tytuł lub Menedżer), jego konto użytkownika zostanie automatycznie zaktualizowane w Active Directory, Azure Active Directory i opcjonalnie Microsoft 365 i [innych aplikacjach SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Zakończenie zatrudnienia pracownika** — gdy pracownik zostanie przerwany w dniach roboczych, jego konto użytkownika jest automatycznie wyłączone w Active Directory, Azure Active Directory i opcjonalnie pakiet Office 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* **Zakończenie zatrudnienia pracownika** — gdy pracownik zostanie przerwany w dniach roboczych, jego konto użytkownika jest automatycznie wyłączone w Active Directory, Azure Active Directory i opcjonalnie Microsoft 365 i [innych aplikacjach SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
-* Przedziały **pracownika** — gdy pracownik jest ponownie zatrudniany w dniu Workday, jego stare konto może zostać automatycznie ponownie uaktywnione lub zainicjowane (zależnie od preferencji) do Active Directory, Azure Active Directory i opcjonalnie pakietu Office 365 i [innych aplikacji SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* Przedziały **pracownika** — gdy pracownik jest ponownie zatrudniany w dniu Workday, jego stare konto może zostać automatycznie ponownie uaktywnione lub zainicjowane (zależnie od preferencji) do Active Directory, Azure Active Directory i opcjonalnie Microsoft 365 i [innych aplikacji SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="whats-new"></a>Co nowego
 W tej sekcji znajdują się najnowsze ulepszenia integracji z produktem Workday. Aby uzyskać listę kompleksowych aktualizacji, planowanych zmian i archiwów, odwiedź stronę [co nowego w Azure Active Directory?](../fundamentals/whats-new.md) 
@@ -60,7 +60,7 @@ Rozwiązanie do aprowizacji użytkowników w ramach platformy Workday jest ideal
 
 * Organizacje, które wymagają przyłączenia, przeniesienia i opuszczenia użytkowników do co najmniej jednego Active Directory lasów, domen i jednostek organizacyjnych na podstawie informacji o zmianach wykrytych w module Workday HCM (zobacz [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
-* Organizacje korzystające z pakietu Office 365 do obsługi poczty e-mail
+* Organizacje korzystające z Microsoft 365 do poczty e-mail
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 
@@ -286,7 +286,7 @@ Ta sekcja zawiera kroki dla aprowizacji konta użytkownika z produktu Workday do
 
 **Aby skonfigurować dzień roboczy do Active Directory aprowizacji:**
 
-1. Przejdź do adresu <https://portal.azure.com>.
+1. Przejdź do witryny <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
@@ -373,7 +373,7 @@ Przenieś pobrany Instalator agenta na hosta serwera i wykonaj kroki podane poni
 1. Sprawdź instalację agenta i upewnij się, że jest uruchomiona, otwierając przystawkę "usługi" i Wyszukaj usługę o nazwie "Microsoft Azure AD Połącz agenta aprowizacji"
 
    >[!div class="mx-imgBorder"]
-   >![Usługi](./media/workday-inbound-tutorial/services.png)
+   >![Zrzut ekranu przedstawiający agenta aprowizacji Microsoft Azure AD nawiązywanie połączenia z usługami](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Część 3: w aplikacji aprowizacji Skonfiguruj łączność z produktem Workday i Active Directory
 W tym kroku ustanawiamy łączność z produktem Workday i Active Directory w Azure Portal. 
@@ -503,7 +503,7 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 | **Przedsiębiorstwo**         | company   |     |  Utwórz i zaktualizuj |
 | **SupervisoryOrganization**  | działu,  |     |  Utwórz i zaktualizuj |
 | **ManagerReference**   | manager  |     |  Utwórz i zaktualizuj |
-| **BusinessTitle**   |  tytuł     |     |  Utwórz i zaktualizuj | 
+| **BusinessTitle**   |  title     |     |  Utwórz i zaktualizuj | 
 | **AddressLineData**    |  streetAddress  |     |   Utwórz i zaktualizuj |
 | **Gmina**   |   l   |     | Utwórz i zaktualizuj |
 | **CountryReferenceTwoLetter**      |   co |     |   Utwórz i zaktualizuj |
@@ -1049,7 +1049,7 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 8.    Kliknij łącze małe **Konfigurowanie** poniżej okienka żądanie/odpowiedź, aby ustawić poświadczenia dla produktu Workday. Sprawdź pozycję **uwierzytelnianie**, a następnie wprowadź nazwę użytkownika i hasło do konta systemu integracji z programem Workday. Upewnij się, że nazwa użytkownika jest sformatowana jako \@ dzierżawca, i pozostaw wybraną opcję **WS-Security UsernameToken** .
    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
-9. Kliknij przycisk **OK**.
+9. Wybierz przycisk **OK**.
 
 10. W okienku **żądanie** wklej poniższy kod XML. Ustaw **EMPLOYEE_ID** identyfikator pracownika rzeczywistego użytkownika w dzierżawie platformy Workday. Ustaw wartość **WD: Version** do wersji WWS, która ma zostać użyta. Wybierz użytkownika, który ma atrybut wypełniony, który ma zostać wyodrębniony.
 

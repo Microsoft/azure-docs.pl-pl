@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2020
+ms.date: 09/10/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959157"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015453"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |Nazwa. imię |
-| Stanowiska |tytuł |
+| Stanowiska |title |
 | mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
@@ -147,7 +147,7 @@ Jeśli tworzysz aplikację, która obsługuje interfejs API zarządzania użytko
 W [specyfikacji protokołu standard scim 2,0](http://www.simplecloud.info/#Specification), aplikacja musi spełniać następujące wymagania:
 
 * Obsługuje tworzenie użytkowników, a także grupy, zgodnie z sekcją [3,3 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.3).  
-* Obsługuje modyfikowanie użytkowników lub grup przy użyciu żądań poprawek, zgodnie z [sekcją 3.5.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Obsługuje modyfikowanie użytkowników lub grup przy użyciu żądań poprawek, zgodnie z [sekcją 3.5.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.5.2). Obsługa gwarantuje, że grupy i użytkownicy są obsługiwani w sposób efektywny. 
 * Obsługuje pobieranie znanego zasobu dla użytkownika lub grupy utworzonej wcześniej, zgodnie [z sekcją 1 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
 * Obsługuje kwerendy użytkowników lub grup, zgodnie z sekcją [3.4.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Domyślnie użytkownicy są pobierani przez ich i sprawdzani według `id` ich `username` , a `externalId` grupy są pytani przez `displayName` .  
 * Obsługuje zapytania użytkownika według identyfikatora i Menedżera, zgodnie z sekcją 3.4.2 protokołu Standard scim.  
@@ -746,7 +746,7 @@ Minimalny pasek mechanizmów szyfrowania TLS 1,2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Zakresy adresów IP
-Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory i AzureActiveDirectoryDomainServices, jak wymieniono w [tym miejscu](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Trwa wykonywanie zadań konsolidacji do tylko zakresów adresów IP w obszarze usługi azureactivedirectory. 
+Usługa Azure AD Provisioning obecnie działa pod zakresem adresów IP dla usługi azureactivedirectory jak wymieniono [tutaj](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Możesz dodać zakresy adresów IP wymienione w tagu usługi azureactivedirectory, aby zezwolić na ruch z usługi Azure AD Provisioning do aplikacji. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Krok 3. Tworzenie punktu końcowego Standard scim
 
@@ -1175,7 +1175,7 @@ Jeśli tworzysz aplikację, która będzie używana przez więcej niż jedną dz
 Postępuj zgodnie z poniższą listą kontrolną, aby upewnić się, że aplikacja została podłączona, a klienci mają płynne środowisko wdrażania. Informacje zostaną zebrane z użytkownika podczas dołączania do galerii. 
 > [!div class="checklist"]
 > * Obsługa punktu końcowego użytkownika i grupy [standard scim 2,0 ](#step-2-understand-the-azure-ad-scim-implementation) (tylko jeden jest wymagany, ale oba są zalecane)
-> * Obsługa co najmniej 25 żądań na sekundę na dzierżawcę (wymagane)
+> * Obsługa co najmniej 25 żądań na sekundę na dzierżawcę, aby upewnić się, że użytkownicy i grupy są zainicjowani i są cofane bez opóźnień (wymagane)
 > * Ustanów kontakty inżynieryjne i pomoc techniczną, aby Przewodnik po dołączaniu do galerii (wymagany)
 > * 3 niewygasające poświadczenia testów dla aplikacji (wymagane)
 > * Obsługa przydzielenia kodu autoryzacji OAuth lub tokenu długotrwałego, zgodnie z poniższym opisem (wymagane)

@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: historia wersji | Microsoft Docs'
-description: W tym artykule wymieniono wszystkie wersje Azure AD Connect i Azure AD Sync
+description: W tym artykule wymieniono wszystkie wersje Azure AD Connect i Azure AD Sync.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b0b0a98e80fb7f343411b49ff2ccd11046bcdc5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88052933"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018445"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -48,7 +48,7 @@ Nie wszystkie wersje Azure AD Connect będą udostępniane do autouaktualniania.
 >
 >Jeśli włączono Azure AD Connect do synchronizacji, wkrótce rozpocznie się automatyczne otrzymywanie powiadomień o kondycji, które ostrzegają o nadchodzących zastosowaniach, gdy korzystasz z jednej ze starszych wersji.
 >
->Zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) , aby dowiedzieć się więcej o tym, jak uaktualnić Azure AD Connect do najnowszej wersji.
+>Zapoznaj się z [tym artykułem](./how-to-upgrade-previous-version.md) , aby dowiedzieć się więcej o tym, jak uaktualnić Azure AD Connect do najnowszej wersji.
 >
 >Informacje o historii wersji dotyczące przestarzałych wersji znajdują się w temacie [Azure AD Connect archiwalny historia wersji archiwum](reference-connect-version-history-archive.md)
 
@@ -74,7 +74,7 @@ Jest to poprawka do rozwiązania problemu. W tej wersji nie ma żadnych zmian fu
 ### <a name="functional-changes"></a>Zmiany funkcjonalne
 W tej wersji uwzględniono publiczną wersję zapoznawczą funkcji eksportowania konfiguracji istniejącego serwera Azure AD Connect do programu. Plik JSON, którego można następnie użyć podczas instalowania nowego serwera Azure AD Connect, aby utworzyć kopię oryginalnego serwera.
 
-Szczegółowy opis tej nowej funkcji można znaleźć w [tym artykule](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config) .
+Szczegółowy opis tej nowej funkcji można znaleźć w [tym artykule](./how-to-connect-import-export-config.md) .
 
 ### <a name="fixed-issues"></a>Naprawione problemy
 - Naprawiono usterkę powodującą fałszywe ostrzeżenie o rozmiarze lokalnego bazy danych w zlokalizowanych kompilacjach podczas uaktualniania.
@@ -244,7 +244,7 @@ Rozwiązano błąd w narzędziu kompresji błędy synchronizacji, które nie obs
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Istnieje znany problem z uaktualnianiem Azure AD Connect ze starszej wersji do 1.3.21.0, gdzie portal usługi O365 nie odzwierciedla zaktualizowanej wersji, nawet jeśli pomyślnie uaktualniono Azure AD Connect.
+>Istnieje znany problem z uaktualnianiem Azure AD Connect ze starszej wersji do 1.3.21.0, gdzie Portal Microsoft 365 nie odzwierciedla zaktualizowanej wersji, nawet jeśli Azure AD Connect uaktualniono pomyślnie.
 >
 > Aby rozwiązać ten problem, należy zaimportować moduł **AdSync** , a następnie uruchomić `Set-ADSyncDirSyncConfiguration` polecenie cmdlet programu PowerShell na serwerze Azure AD Connect.  Można wykonać następujące czynności:
 >

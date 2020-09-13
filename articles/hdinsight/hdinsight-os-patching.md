@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: ddc70ccbbb5c964f16b078470517ce667bc878f1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082645"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019669"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurowanie harmonogramu poprawek systemu operacyjnego dla klastrów usługi HDInsight opartych na systemie Linux
 
@@ -22,8 +22,8 @@ ms.locfileid: "86082645"
 
 Usługa HDInsight zapewnia obsługę typowych zadań w klastrze, takich jak instalowanie poprawek systemu operacyjnego, aktualizacji zabezpieczeń i węzłów ponownego uruchamiania. Te zadania są wykonywane przy użyciu następujących dwóch skryptów, które mogą być uruchamiane jako [Akcje skryptu](hdinsight-hadoop-customize-cluster-linux.md)i skonfigurowane z parametrami:
 
-- `schedule-reboots.sh`-Wykonaj natychmiastowe ponowne uruchomienie lub Zaplanuj ponowne uruchomienie w węzłach klastra.
-- `install-updates-schedule-reboots.sh`-Zainstaluj wszystkie aktualizacje, tylko aktualizacje jądra + zabezpieczenia lub tylko aktualizacje jądra.
+- `schedule-reboots.sh` -Wykonaj natychmiastowe ponowne uruchomienie lub Zaplanuj ponowne uruchomienie w węzłach klastra.
+- `install-updates-schedule-reboots.sh` -Zainstaluj wszystkie aktualizacje, tylko aktualizacje jądra + zabezpieczenia lub tylko aktualizacje jądra.
 
 > [!NOTE]  
 > Akcje skryptu nie będą automatycznie stosowały aktualizacji dla wszystkich przyszłych cykli aktualizacji. Uruchom skrypty za każdym razem, gdy trzeba zastosować nowe aktualizacje, aby zainstalować aktualizacje, a następnie uruchom ponownie maszynę wirtualną.
@@ -32,11 +32,16 @@ Usługa HDInsight zapewnia obsługę typowych zadań w klastrze, takich jak inst
 
 Przed wdrożeniem w środowisku produkcyjnym należy zastosować poprawkę do reprezentatywnego środowiska nieprodukcyjnego. Opracowywanie planu w celu odpowiedniego przetestowania systemu przed rzeczywistą poprawką.
 
-Od czasu do czasu z sesji SSH z klastrem może zostać wyświetlony komunikat informujący o tym, że uaktualnienie jest dostępne. Komunikat może wyglądać mniej więcej tak:
+Od czasu do czasu z sesji SSH z klastrem może zostać wyświetlony komunikat informujący o tym, że aktualizacje zabezpieczeń są dostępne. Komunikat może wyglądać mniej więcej tak:
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 Stosowanie poprawek jest opcjonalne i według własnego uznania.
@@ -64,6 +69,9 @@ Skrypt [Install-Updates-Schedule-Reboots.sh](https://hdiconfigactions.blob.core.
 
 > [!NOTE]
 > Skrypt należy oznaczyć jako utrwalony po zastosowaniu go w istniejącym klastrze. W przeciwnym razie wszystkie nowe węzły utworzone za pomocą operacji skalowania będą używały domyślnego harmonogramu poprawek. Jeśli zastosujesz skrypt w ramach procesu tworzenia klastra, zostanie on utrwalony automatycznie.
+
+> [!NOTE]
+> Opcja zaplanowane ponowne uruchomienie powoduje automatyczne ponowne uruchomienie aktualizacji węzłów klastra w okresie od 12 do 24 godzin i uwzględnia zagadnienia dotyczące wysokiej dostępności, domeny aktualizacji i domeny błędów. Zaplanowane ponowne uruchomienie nie kończy pracy z uruchomionymi obciążeniami, ale może odrzucać wydajność klastra w tymczasowym czasie, gdy węzły są niedostępne, co prowadzi do dłuższego czasu przetwarzania. 
 
 ## <a name="next-steps"></a>Następne kroki
 

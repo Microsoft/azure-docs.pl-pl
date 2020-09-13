@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a62694790505dcf8355b3011387d9bdfd036b6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057247"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018496"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: archiwum historii wersji
 
@@ -166,7 +166,7 @@ Uaktualnianie Azure AD Connect kończy się niepowodzeniem, jeśli dla usługi A
 
 ### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
 
-- Integracja z usługą ping Sfederować w Azure AD Connect jest teraz dostępna do ogólnej dostępności. [Dowiedz się więcej na temat sposobu federacyjnego usługi Azure AD za pomocą polecenia ping Sfederować](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Integracja z usługą ping Sfederować w Azure AD Connect jest teraz dostępna do ogólnej dostępności. [Dowiedz się więcej na temat sposobu federacyjnego usługi Azure AD za pomocą polecenia ping Sfederować](./plan-connect-user-signin.md#federation-with-pingfederate)
 - Azure AD Connect teraz tworzy kopię zapasową zaufania usługi Azure AD w AD FS za każdym razem, gdy aktualizacja zostanie wprowadzona i zapisuje ją w osobnym pliku do łatwego przywracania, jeśli jest to wymagane. [Dowiedz się więcej na temat nowych funkcji i zarządzania relacjami zaufania usługi Azure AD w Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
 - Nowe narzędzia do rozwiązywania problemów ułatwiają rozwiązywanie problemów z zmianą podstawowego adresu e-mail i ukrywaniem konta z globalnej listy adresów
 - Azure AD Connect zaktualizowano w celu uwzględnienia najnowszego klienta SQL Server 2012 Native
@@ -355,7 +355,7 @@ Dodano ulepszenia do Azure AD Connect wersji 1.1.654.0 (i po), aby upewnić się
 
 >[!NOTE]
 >Ta wersja usuwa tylko lukę w zabezpieczeniach dla nowych instalacji Azure AD Connect, w których konto usługi jest tworzone przez proces instalacji. W przypadku istniejących instalacji lub w przypadkach, w których konto jest używane samodzielnie, należy się upewnić, że ta usterka nie istnieje.
-#### <a name="lock-down-access-to-the-ad-ds-account"></a><a name="lock"></a>Zablokuj dostęp do konta AD DS
+#### <a name="lock-down-access-to-the-ad-ds-account"></a><a name="lock"></a> Zablokuj dostęp do konta AD DS
 Zablokuj dostęp do konta AD DS, implementując następujące zmiany uprawnień w lokalnej usłudze AD:  
 
 *   Wyłącz dziedziczenie dla określonego obiektu
@@ -402,7 +402,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Aby sprawdzić, czy ta luka w zabezpieczeniach została użyta w celu naruszenia konfiguracji Azure AD Connect należy zweryfikować datę ostatniego resetowania hasła konta usługi.  Jeśli sygnatura czasowa w nieoczekiwanym czasie, dalsze badanie przez dziennik zdarzeń dla tego zdarzenia resetowania hasła, należy podjąć.
 
-Aby uzyskać więcej informacji, zobacz [Poradnik zabezpieczeń firmy Microsoft 4056318](https://technet.microsoft.com/library/security/4056318)
+Aby uzyskać więcej informacji, zobacz [Poradnik zabezpieczeń firmy Microsoft 4056318](/security-updates/securityadvisories/2017/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Stan: Październik 27 2017
@@ -443,7 +443,7 @@ Stan: październik 19 2017
 
 * Rozwiązano problem, który spowodował, że uaktualnienie Azure AD Connect nie powiodło się z powodu błędu "*nie można uaktualnić usługi synchronizacji*". Ponadto usługa synchronizacji nie może już się zaczynać z powodu błędu zdarzenia "*nie można uruchomić usługi, ponieważ wersja bazy danych jest nowsza niż zainstalowana wersja plików binarnych*". Ten problem występuje, gdy administrator przeprowadzający uaktualnienie nie ma uprawnień administratora systemu do programu SQL Server, który jest używany przez Azure AD Connect. Ta poprawka Azure AD Connect wymaga, aby administrator miał uprawnienia db_owner do bazy danych ADSync podczas uaktualniania.
 
-* Rozwiązano problem z uaktualnieniem Azure AD Connect, którego dotyczą Klienci, którzy włączyli [bezproblemowe logowanie jednokrotne](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). Po uaktualnieniu Azure AD Connect bezproblemowo działające Logowanie jednokrotne jest wyświetlane jako wyłączone w Kreatorze Azure AD Connect, mimo że funkcja pozostanie włączona i w pełni funkcjonalna. W przypadku tej poprawki funkcja jest teraz wyświetlana prawidłowo w kreatorze.
+* Rozwiązano problem z uaktualnieniem Azure AD Connect, którego dotyczą Klienci, którzy włączyli [bezproblemowe logowanie jednokrotne](./how-to-connect-sso.md). Po uaktualnieniu Azure AD Connect bezproblemowo działające Logowanie jednokrotne jest wyświetlane jako wyłączone w Kreatorze Azure AD Connect, mimo że funkcja pozostanie włączona i w pełni funkcjonalna. W przypadku tej poprawki funkcja jest teraz wyświetlana prawidłowo w kreatorze.
 
 * Rozwiązano problem, który spowodował, że Kreator Azure AD Connect, aby zawsze wyświetlał monit "*Konfigurowanie zakotwiczenia źródła*" na stronie *gotowe do skonfigurowania* , nawet jeśli nie wprowadzono żadnych zmian związanych z kotwicą źródła.
 
@@ -457,7 +457,7 @@ Stan: październik 19 2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 > [!NOTE]
-> Uwaga: usługa synchronizacji ma interfejs WMI, który umożliwia tworzenie własnych niestandardowych harmonogramów. Ten interfejs jest obecnie przestarzały i zostanie usunięty z przyszłych wersji Azure AD Connect dostarczonego po 30 czerwca 2018. Klienci, którzy chcą dostosować harmonogram synchronizacji, powinni używać [wbudowanego harmonogramu](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Uwaga: usługa synchronizacji ma interfejs WMI, który umożliwia tworzenie własnych niestandardowych harmonogramów. Ten interfejs jest obecnie przestarzały i zostanie usunięty z przyszłych wersji Azure AD Connect dostarczonego po 30 czerwca 2018. Klienci, którzy chcą dostosować harmonogram synchronizacji, powinni używać [wbudowanego harmonogramu](./how-to-connect-sync-feature-scheduler.md).
 #### <a name="fixed-issues"></a>Naprawione problemy
 * Gdy Kreator Azure AD Connect tworzy konto łącznika usługi AD wymagane do synchronizacji zmian z Active Directory lokalnych, nie przypisze prawidłowo konta uprawnienia wymaganego do odczytu obiektów PublicFolder. Ten problem dotyczy zarówno instalacji ekspresowej, jak i instalacji niestandardowej. Ta zmiana rozwiązuje ten problem.
 
@@ -470,7 +470,7 @@ Stan: październik 19 2017
 
 ### <a name="ad-fs-management"></a>Usługi AD FS zarządzania
 #### <a name="fixed-issue"></a>Rozwiązano problem 
-* Rozwiązano problem związany z korzystaniem z [usługi MS-ds-ConsistencyGuid jako funkcji kotwicy źródłowej](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) . Ten problem ma wpływ na klientów, którzy skonfigurowali *Federacji z AD FS* jako metodę logowania użytkownika. Podczas wykonywania zadania *konfigurowania zakotwiczenia źródła* w Kreatorze Azure AD Connect przełącza do używania * MS-ds-ConsistencyGuid jako atrybutu Source dla immutableId. W ramach tej zmiany Azure AD Connect próbuje zaktualizować reguły dotyczące usługi ImmutableId w programie AD FS. Jednak ten krok nie powiódł się, ponieważ Azure AD Connect nie ma poświadczeń administratora wymaganych do skonfigurowania AD FS. W przypadku tej poprawki Azure AD Connect teraz zostanie wyświetlony komunikat z prośbą o wprowadzenie poświadczeń administratora dla AD FS, gdy zostanie wykonane zadanie *konfigurowania kotwicy źródłowej* .
+* Rozwiązano problem związany z korzystaniem z [usługi MS-ds-ConsistencyGuid jako funkcji kotwicy źródłowej](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) . Ten problem ma wpływ na klientów, którzy skonfigurowali *Federacji z AD FS* jako metodę logowania użytkownika. Podczas wykonywania zadania *konfigurowania zakotwiczenia źródła* w Kreatorze Azure AD Connect przełącza do używania * MS-ds-ConsistencyGuid jako atrybutu Source dla immutableId. W ramach tej zmiany Azure AD Connect próbuje zaktualizować reguły dotyczące usługi ImmutableId w programie AD FS. Jednak ten krok nie powiódł się, ponieważ Azure AD Connect nie ma poświadczeń administratora wymaganych do skonfigurowania AD FS. W przypadku tej poprawki Azure AD Connect teraz zostanie wyświetlony komunikat z prośbą o wprowadzenie poświadczeń administratora dla AD FS, gdy zostanie wykonane zadanie *konfigurowania kotwicy źródłowej* .
 
 
 
@@ -485,7 +485,7 @@ Stan: wrzesień 05 2017
 * Istnieje znany problem z uaktualnieniem Azure AD Connect, który ma wpływ na klientów, którzy włączyli [bezproblemowe logowanie jednokrotne](how-to-connect-sso.md). Po uaktualnieniu Azure AD Connect funkcja zostanie wyświetlona jako wyłączona w kreatorze, mimo że funkcja pozostanie włączona. Rozwiązanie tego problemu będzie dostępne w przyszłym wydaniu. Klienci, którzy są zainteresowani tym problemem dotyczącym wyświetlania, mogą ręcznie rozwiązać ten problem, włączając bezproblemową rejestrację jednokrotną w kreatorze.
 
 #### <a name="fixed-issues"></a>Naprawione problemy
-* Rozwiązano problem uniemożliwiający Azure AD Connect aktualizacji reguł oświadczeń w lokalnym AD FS podczas włączania funkcji [MS-ds-ConsistencyGuid as Source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) . Problem występuje, jeśli spróbujesz włączyć funkcję dla istniejącego wdrożenia Azure AD Connect, które ma AD FS skonfigurowany jako metoda logowania. Ten problem występuje, ponieważ Kreator nie monituje o poświadczenia usług ADFS przed próbą zaktualizowania reguł oświadczeń w AD FS.
+* Rozwiązano problem uniemożliwiający Azure AD Connect aktualizacji reguł oświadczeń w lokalnym AD FS podczas włączania funkcji [MS-ds-ConsistencyGuid as Source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) . Problem występuje, jeśli spróbujesz włączyć funkcję dla istniejącego wdrożenia Azure AD Connect, które ma AD FS skonfigurowany jako metoda logowania. Ten problem występuje, ponieważ Kreator nie monituje o poświadczenia usług ADFS przed próbą zaktualizowania reguł oświadczeń w AD FS.
 * Rozwiązano problem, który spowodował niepowodzenie instalacji Azure AD Connect, jeśli lokalny Las usługi AD ma wyłączone NTLM. Problem jest spowodowany tym, że Kreator Azure AD Connect nie udostępnia w pełni kwalifikowanych poświadczeń podczas tworzenia kontekstów zabezpieczeń wymaganych do uwierzytelniania Kerberos. Powoduje to niepowodzenie uwierzytelniania Kerberos i Azure AD Connect kreatora, aby wrócić do korzystania z protokołu NTLM.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
@@ -631,16 +631,16 @@ Występuje problem polegający na tym, że **opcja Synchronizuj wszystkie domeny
 
 #### <a name="fixed-issues"></a>Naprawione problemy
 
-* Rozwiązano problem z funkcją zapisywania zwrotnego haseł, która umożliwia administratorowi usługi Azure AD Resetowanie hasła do lokalnego konta użytkownika uprzywilejowanego usługi AD. Ten problem występuje, gdy Azure AD Connect przyznano uprawnienia resetowania hasła na koncie uprzywilejowanym. Ten problem został rozwiązany w tej wersji programu Azure AD Connect przez nieumożliwienie administratorowi usługi Azure AD resetowania hasła do dowolnego lokalnego konta użytkownika, które ma uprzywilejowane konto usługi AD, chyba że administrator jest właścicielem tego konta. Więcej informacji można znaleźć w [dokumencie Security Advisory 4033453](https://technet.microsoft.com/library/security/4033453).
+* Rozwiązano problem z funkcją zapisywania zwrotnego haseł, która umożliwia administratorowi usługi Azure AD Resetowanie hasła do lokalnego konta użytkownika uprzywilejowanego usługi AD. Ten problem występuje, gdy Azure AD Connect przyznano uprawnienia resetowania hasła na koncie uprzywilejowanym. Ten problem został rozwiązany w tej wersji programu Azure AD Connect przez nieumożliwienie administratorowi usługi Azure AD resetowania hasła do dowolnego lokalnego konta użytkownika, które ma uprzywilejowane konto usługi AD, chyba że administrator jest właścicielem tego konta. Więcej informacji można znaleźć w [dokumencie Security Advisory 4033453](/security-updates/SecurityAdvisories/2017/4033453).
 
-* Rozwiązano problem związany z funkcją [zakotwiczenia usługi MS-ds-ConsistencyGuid jako źródła,](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) w której Azure AD Connect nie ma zapisywania zwrotnego w lokalnym atrybucie AD MS-ds-ConsistencyGuid. Ten problem występuje, gdy w Azure AD Connect istnieje wiele lokalnych lasów usługi AD, a w *wielu katalogach jest wybrana opcja tożsamości użytkowników* . Gdy taka konfiguracja jest używana, wynikowe reguły synchronizacji nie wypełniają atrybutu sourceAnchorBinary w obiekcie Metaverse. Atrybut sourceAnchorBinary jest używany jako atrybut źródłowy dla atrybutu MS-DS-ConsistencyGuid. W związku z tym nie występuje Zapis zwrotny do atrybutu MS-DSConsistencyGuid. Aby rozwiązać ten problem, następujące reguły synchronizacji zostały zaktualizowane, aby upewnić się, że atrybut sourceAnchorBinary w obiekcie Metaverse jest zawsze wypełniony:
+* Rozwiązano problem związany z funkcją [zakotwiczenia usługi MS-ds-ConsistencyGuid jako źródła,](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) w której Azure AD Connect nie ma zapisywania zwrotnego w lokalnym atrybucie AD MS-ds-ConsistencyGuid. Ten problem występuje, gdy w Azure AD Connect istnieje wiele lokalnych lasów usługi AD, a w *wielu katalogach jest wybrana opcja tożsamości użytkowników* . Gdy taka konfiguracja jest używana, wynikowe reguły synchronizacji nie wypełniają atrybutu sourceAnchorBinary w obiekcie Metaverse. Atrybut sourceAnchorBinary jest używany jako atrybut źródłowy dla atrybutu MS-DS-ConsistencyGuid. W związku z tym nie występuje Zapis zwrotny do atrybutu MS-DSConsistencyGuid. Aby rozwiązać ten problem, następujące reguły synchronizacji zostały zaktualizowane, aby upewnić się, że atrybut sourceAnchorBinary w obiekcie Metaverse jest zawsze wypełniony:
   * W programie z poziomu usługi AD — klasa InetOrgPerson AccountEnabled.xml
   * W programie z poziomu usługi AD — klasa InetOrgPerson Common.xml
   * W programie z usługi AD AccountEnabled.xml użytkownika
   * W programie z usługi AD Common.xml użytkownika
   * W programie z poziomu usługi AD-User Join SOAInAAD.xml
 
-* Wcześniej, nawet jeśli funkcja [zakotwiczenia MS-ds-ConsistencyGuid as Source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) nie jest włączona, reguła synchronizacji "do usługi AD – użytkownik ImmutableId" jest nadal dodawana do Azure AD Connect. Efekt jest niegroźny i nie powoduje zapisywania zwrotnego atrybutu MS-DS-ConsistencyGuid. Aby uniknąć nieporozumień, dodano logikę, aby upewnić się, że reguła synchronizacji jest dodawana tylko wtedy, gdy ta funkcja jest włączona.
+* Wcześniej, nawet jeśli funkcja [zakotwiczenia MS-ds-ConsistencyGuid as Source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) nie jest włączona, reguła synchronizacji "do usługi AD – użytkownik ImmutableId" jest nadal dodawana do Azure AD Connect. Efekt jest niegroźny i nie powoduje zapisywania zwrotnego atrybutu MS-DS-ConsistencyGuid. Aby uniknąć nieporozumień, dodano logikę, aby upewnić się, że reguła synchronizacji jest dodawana tylko wtedy, gdy ta funkcja jest włączona.
 
 * Rozwiązano problem, który spowodował niepowodzenie synchronizacji skrótów haseł i zdarzenia błędu 611. Ten problem występuje, gdy co najmniej jeden kontroler domeny został usunięty z lokalnej usługi AD. Na koniec każdego cyklu synchronizacji haseł plik cookie synchronizacji wystawiony przez lokalną usługi AD zawiera identyfikatory wywołań usuniętych kontrolerów domeny z wartością USN (numer sekwencji aktualizacji) 0. Menedżer synchronizacji haseł nie może utrwalać pliku cookie synchronizacji zawierającego wartość numeru USN 0 i kończy się niepowodzeniem z powodu błędu 611. W następnym cyklu synchronizacji Menedżer synchronizacji haseł ponownie używa ostatniego utrwalonego pliku cookie synchronizacji, który nie zawiera wartości USN równej 0. Powoduje to, że zmiany hasła zostaną ponownie zsynchronizowane. W przypadku tej poprawki Menedżer synchronizacji haseł zachowuje plik cookie synchronizacji prawidłowo.
 
@@ -648,12 +648,12 @@ Występuje problem polegający na tym, że **opcja Synchronizuj wszystkie domeny
 
 #### <a name="new-features-and-improvements"></a>Nowe funkcje i ulepszenia
 
-* Wcześniej funkcja [kotwicy MS-ds-ConsistencyGuid as Source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) była dostępna tylko dla nowych wdrożeń. Teraz jest dostępny dla istniejących wdrożeń. Więcej szczegółów:
+* Wcześniej funkcja [kotwicy MS-ds-ConsistencyGuid as Source](./plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) była dostępna tylko dla nowych wdrożeń. Teraz jest dostępny dla istniejących wdrożeń. Więcej szczegółów:
   * Aby uzyskać dostęp do tej funkcji, uruchom Kreatora Azure AD Connect i wybierz opcję *Aktualizuj zakotwiczenie źródła* .
   * Ta opcja jest widoczna tylko dla istniejących wdrożeń, które używają parametru objectGuid jako atrybutu sourceAnchor.
   * Podczas konfigurowania opcji Kreator sprawdza poprawność stanu atrybutu MS-DS-ConsistencyGuid w lokalnym Active Directory. Jeśli atrybut nie jest skonfigurowany w żadnym obiekcie użytkownika w katalogu, Kreator użyje właściwości MS-DS-ConsistencyGuid jako atrybutu sourceAnchor. Jeśli atrybut jest skonfigurowany w co najmniej jednym obiekcie użytkownika w katalogu, Kreator końcowy ten atrybut jest używany przez inne aplikacje i nie jest odpowiedni jako atrybut sourceAnchor i nie zezwala na przechodzenie przez zakotwiczenie źródłowe. Jeśli masz pewność, że atrybut nie jest używany przez istniejące aplikacje, musisz skontaktować się z pomocą techniczną, aby uzyskać informacje na temat sposobu pomijania tego błędu.
 
-* Specyficzne dla atrybutu **userCertificate** obiektów urządzeń, Azure AD Connect teraz szuka wartości certyfikatów wymaganych do [połączenia urządzeń przyłączonych do domeny z usługą Azure AD dla systemu Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) i wyfiltruje resztę przed synchronizacją do usługi Azure AD. Aby włączyć to zachowanie, Zaktualizowano regułę synchronizacji out-of-Box do usługi AAD-Device Join SOAInAD ".
+* Specyficzne dla atrybutu **userCertificate** obiektów urządzeń, Azure AD Connect teraz szuka wartości certyfikatów wymaganych do [połączenia urządzeń przyłączonych do domeny z usługą Azure AD dla systemu Windows 10](../devices/hybrid-azuread-join-plan.md) i wyfiltruje resztę przed synchronizacją do usługi Azure AD. Aby włączyć to zachowanie, Zaktualizowano regułę synchronizacji out-of-Box do usługi AAD-Device Join SOAInAD ".
 
 * Azure AD Connect teraz obsługuje Stornowanie atrybutu **cloudPublicDelegates** usługi Exchange Online do lokalnego atrybutu AD **publicDelegates** . Dzięki temu scenariusz, w którym można przyznać dostęp do skrzynki pocztowej usługi Exchange Online użytkownikom z lokalną skrzynek pocztowych programu Exchange. Aby można było obsłużyć tę funkcję, dodano nową regułę synchronizacji poza Box "do usługi AD — funkcja zapisywania zwrotnego hybrydowego programu Exchange PublicDelegates". Ta reguła synchronizacji jest dodawana tylko do Azure AD Connect, gdy włączono funkcję hybrydową programu Exchange.
 
@@ -844,7 +844,7 @@ Synchronizacja programu Azure AD Connect
 * W ramach dzierżawy usługi Azure AD istnieje konfiguracja usługi, która wskazuje, czy funkcja synchronizacji haseł jest włączona dla Twojej dzierżawy. Wcześniej konfiguracja usługi może być niepoprawnie skonfigurowana przez Azure AD Connect, gdy istnieje aktywny i przejściowy serwer. Teraz Azure AD Connect podejmie próbę zachowania spójności konfiguracji usługi tylko z aktywnym serwerem Azure AD Connect.
 * Kreator Azure AD Connect wykrywa teraz i zwraca ostrzeżenie, jeśli lokalna usługa AD nie ma włączonego Kosza usługi AD.
 * Wcześniej eksport do usługi Azure AD kończy się niepowodzeniem, jeśli łączny rozmiar obiektów w partii przekracza określony próg. Teraz usługa synchronizacji podejmie ponowną próbę wysłania obiektów w oddzielnych mniejszych partiach, jeśli wystąpił problem.
-* Aplikacja do zarządzania kluczami usługi synchronizacji została usunięta z menu Start systemu Windows. Zarządzanie kluczami szyfrowania będzie nadal obsługiwane za pośrednictwem interfejsu wiersza polecenia przy użyciu miiskmu.exe. Aby uzyskać informacje dotyczące zarządzania kluczem szyfrowania, zapoznaj się z artykułem " [porzucanie klucza szyfrowania Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key)".
+* Aplikacja do zarządzania kluczami usługi synchronizacji została usunięta z menu Start systemu Windows. Zarządzanie kluczami szyfrowania będzie nadal obsługiwane za pośrednictwem interfejsu wiersza polecenia przy użyciu miiskmu.exe. Aby uzyskać informacje dotyczące zarządzania kluczem szyfrowania, zapoznaj się z artykułem " [porzucanie klucza szyfrowania Azure AD Connect Sync](./how-to-connect-sync-change-serviceacct-pass.md#abandoning-the-adsync-service-account-encryption-key)".
 * Wcześniej w przypadku zmiany hasła do konta usługi synchronizacji Azure AD Connect nie będzie można uruchomić usługi synchronizacji, dopóki nie zostanie porzucony klucz szyfrowania i ponownie zainicjowano hasło konta usługi synchronizacji Azure AD Connect. Teraz ten proces nie jest już wymagany.
 
 Logowanie jednokrotne na komputerze
@@ -1072,7 +1072,7 @@ Wydanie: listopad 2015
 
 **Nowy obsługiwany scenariusz:**
 
-* Obsługuje wiele lokalnych organizacji programu Exchange. Aby uzyskać więcej informacji, zobacz [wdrażanie hybrydowe z wieloma lasami Active Directory](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
+* Obsługuje wiele lokalnych organizacji programu Exchange. Aby uzyskać więcej informacji, zobacz [wdrażanie hybrydowe z wieloma lasami Active Directory](/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150)).
 
 **Rozwiązano problemy:**
 
@@ -1181,7 +1181,7 @@ Wydanie: grudzień 2014
 **Nowe funkcje:**
 
 * Synchronizacja haseł z filtrowaniem opartym na atrybutach jest teraz obsługiwana. Aby uzyskać więcej informacji, zobacz [Synchronizacja haseł z filtrowaniem](how-to-connect-sync-configure-filtering.md).
-* Atrybut MS-DS-ExternalDirectoryObjectID jest zapisywana z powrotem do Active Directory. Ta funkcja dodaje obsługę aplikacji pakietu Office 365. Używa OAuth2 do uzyskiwania dostępu do online i lokalnych skrzynek pocztowych w hybrydowym wdrożeniu programu Exchange.
+* Atrybut MS-DS-ExternalDirectoryObjectID jest zapisywana z powrotem do Active Directory. Ta funkcja dodaje obsługę aplikacji Microsoft 365. Używa OAuth2 do uzyskiwania dostępu do online i lokalnych skrzynek pocztowych w hybrydowym wdrożeniu programu Exchange.
 
 **Naprawione problemy z uaktualnianiem:**
 

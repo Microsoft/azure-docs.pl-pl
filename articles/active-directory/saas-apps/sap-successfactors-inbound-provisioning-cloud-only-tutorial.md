@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 9c94d2ab2e0c49fe38142e42cf934c440746da75
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b7571b0a064e10faf5f002c9487ecc804ac78665
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546682"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017901"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Samouczek: Konfigurowanie aprowizacji oprogramowania SAP SuccessFactors w usłudze Azure AD
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia danych procesu roboczego od SuccessFactors pracowników centralnych do Azure Active Directory z opcjonalnym zapisem adresu e-mail do SuccessFactors. 
@@ -29,13 +29,13 @@ Celem tego samouczka jest przedstawienie czynności, które należy wykonać w c
 
 Przepływy pracy aprowizacji użytkowników SuccessFactors obsługiwane przez usługę aprowizacji użytkowników w usłudze Azure AD umożliwiają automatyzację następujących scenariuszy dotyczących zasobów ludzkich i zarządzania cyklem życia tożsamości:
 
-* **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do usługi SuccessFactors konto użytkownika jest automatycznie tworzone w Azure Active Directory i opcjonalnie pakiet Office 365 oraz [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md)z zwrotem adresu e-mail na SuccessFactors.
+* **Zatrudnianie nowych pracowników** — po dodaniu nowego pracownika do usługi SuccessFactors konto użytkownika jest automatycznie tworzone w Azure Active Directory i opcjonalnie Microsoft 365 i [innych aplikacjach SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md)z zwrotem adresu e-mail na SuccessFactors.
 
-* **Aktualizacje atrybutu pracownika i profilu** — gdy rekord pracownika zostanie zaktualizowany w SuccessFactors (takie jak nazwa, tytuł lub Menedżer), jego konto użytkownika zostanie automatycznie zaktualizowane Azure Active Directory i opcjonalnie pakiet Office 365 oraz [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* **Aktualizacje atrybutu i profilu pracownika** — gdy rekord pracownika zostanie zaktualizowany w SuccessFactors (takie jak nazwa, tytuł lub Menedżer), jego konto użytkownika zostanie automatycznie zaktualizowane Azure Active Directory i opcjonalnie Microsoft 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Zakończenie zatrudnienia pracownika** — gdy pracownik zostanie zakończony w SuccessFactors, jego konto użytkownika zostanie automatycznie wyłączone w Azure Active Directory i opcjonalnie w pakiecie Office 365 i [innych aplikacjach SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* **Zakończenie zatrudnienia pracownika** — gdy pracownik zostanie zakończony w SuccessFactors, jego konto użytkownika zostanie automatycznie wyłączone w Azure Active Directory i opcjonalnie Microsoft 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
-* Przedziały **pracownika** — gdy pracownik jest ponownie zatrudniany w usłudze SuccessFactors, jego stare konto może zostać automatycznie ponownie uaktywnione lub zainicjowane (zależnie od preferencji) do Azure Active Directory i opcjonalnie pakietu Office 365 i [innych aplikacji SaaS obsługiwanych przez usługę Azure AD](../app-provisioning/user-provisioning.md).
+* Przedziały **pracownika** — gdy pracownik jest ponownie zatrudniany w usłudze SuccessFactors, jego stare konto może zostać automatycznie ponownie uaktywnione lub zainicjowane (zależnie od preferencji), aby Azure Active Directory i opcjonalnie Microsoft 365 i [inne aplikacje SaaS obsługiwane przez usługę Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Dla kogo to rozwiązanie do aprowizacji użytkowników jest najlepiej dopasowane?
 
@@ -47,7 +47,7 @@ Ta SuccessFactors do Azure Active Directory rozwiązanie do aprowizacji użytkow
 
 * Organizacje, które wymagają, aby użytkownicy korzystali z danych uzyskanych od [SuccessFactors Employee Central (WE)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
 
-* Organizacje korzystające z pakietu Office 365 do obsługi poczty e-mail
+* Organizacje korzystające z Microsoft 365 do poczty e-mail
 
 ## <a name="solution-architecture"></a>Architektura rozwiązania
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 7e59229f6664dc8966aa491e9d2ded1abbd5536f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323047"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019567"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Punkty końcowe IoT Hub odwołania
 
@@ -26,7 +26,7 @@ ms.locfileid: "87323047"
 
 ## <a name="iot-hub-names"></a>Nazwy IoT Hub
 
-Nazwę hosta Centrum IoT Hub, który hostuje punkty końcowe w portalu, można znaleźć na stronie **omówienia** centrum. Domyślnie nazwa DNS Centrum IoT wygląda następująco: `{your iot hub name}.azure-devices.net` .
+Nazwę hosta Centrum IoT Hub, który hostuje punkty końcowe w portalu, można znaleźć na stronie  **omówienia** centrum. Domyślnie nazwa DNS Centrum IoT wygląda następująco: `{your iot hub name}.azure-devices.net` .
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista wbudowanych punktów końcowych IoT Hub
 
@@ -55,6 +55,8 @@ Na poniższej liście opisano punkty końcowe:
   * *Pobierz i zaktualizuj właściwości sznurka urządzenia*. Urządzenie używa tego punktu końcowego do uzyskiwania dostępu do właściwości [sznurka urządzenia](iot-hub-devguide-device-twins.md). Protokół HTTPS nie jest obsługiwany.
 
   * *Odbieraj żądania metody bezpośredniej*. Urządzenie używa tego punktu końcowego do nasłuchiwania żądań [bezpośredniej metody](iot-hub-devguide-direct-methods.md). Protokół HTTPS nie jest obsługiwany.
+
+  [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 * **Punkty końcowe usługi**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych dla zaplecza rozwiązania do komunikowania się z urządzeniami. Z jednym wyjątkiem te punkty końcowe są ujawniane tylko przy użyciu protokołów [AMQP](https://www.amqp.org/) i AMQP over WebSockets. Punkt końcowy wywołania metody bezpośredniej jest udostępniany za pośrednictwem protokołu HTTPS.
   

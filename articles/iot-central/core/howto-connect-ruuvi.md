@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758943"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016762"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Łączenie czujnika RuuviTag z aplikacją IoT Central platformy Azure
 
-*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
+*Ten artykuł ma zastosowanie do konstruktorów rozwiązań.*
 
 W tym artykule opisano sposób, w jaki Konstruktor rozwiązań umożliwia połączenie czujnika RuuviTag z aplikacją IoT Central Microsoft Azure.
 
@@ -45,8 +45,8 @@ Aby dołączyć czujnik RuuviTag do wystąpienia aplikacji platformy Azure IoT C
 
 Aby dodać szablon urządzenia RuuviTag:
 
-1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy**: ![ Utwórz nowy szablon urządzenia ](./media/howto-connect-ruuvi/devicetemplate-new.png) strona umożliwia ***utworzenie szablonu niestandardowego*** lub ***użycie wstępnie skonfigurowanego szablonu urządzenia***
-1. Wybierz szablon urządzenia RuuviTag z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej: ![ Wybierz szablon urządzenia RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Przejdź do karty ***Szablony urządzeń*** w lewym okienku, wybierz pozycję **+ Nowy**:  ![ Utwórz nowy szablon urządzenia ](./media/howto-connect-ruuvi/devicetemplate-new.png) strona umożliwia ***utworzenie szablonu niestandardowego*** lub ***użycie wstępnie skonfigurowanego szablonu urządzenia***
+1. Wybierz szablon urządzenia RuuviTag z listy wstępnie skonfigurowanych szablonów urządzeń, jak pokazano poniżej:  ![ Wybierz szablon urządzenia RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. Wybierz pozycję ***Dalej: Dostosuj*** , aby przejść do następnego kroku.
 1. Na następnym ekranie wybierz pozycję ***Utwórz*** , aby dołączyć szablon urządzenia C500 do aplikacji IoT Central.
 
@@ -69,7 +69,7 @@ Jeśli nie masz fizycznego urządzenia RuuviTag, możesz utworzyć symulowaną s
 Aby utworzyć symulowaną RuuviTag:
 
 1. Wybierz pozycję **urządzenia > RuuviTag**.
-1. Wybierz pozycję **+ Nowy**.
+1. Wybierz pozycję **+ Nowe**.
 1. Określ unikatowy **Identyfikator urządzenia** i przyjazną **nazwę urządzenia**.  
 1. Włącz ustawienie **symulowane** .
 1. Wybierz pozycję **Utwórz**.  

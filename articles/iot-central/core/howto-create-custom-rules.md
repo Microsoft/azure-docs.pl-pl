@@ -9,16 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017859"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018200"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Rozszerzanie usługi Azure IoT Central o niestandardowe reguły przy użyciu usług Stream Analytics, Azure Functions i SendGrid
-
-
 
 Ten przewodnik zawiera informacje o sposobie rozbudowywania aplikacji IoT Central przy użyciu niestandardowych reguł i powiadomień. W przykładzie pokazano Wysyłanie powiadomienia do operatora, gdy urządzenie przestanie wysyłać dane telemetryczne. Rozwiązanie używa zapytania [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) w celu wykrycia, kiedy urządzenie zatrzymało wysyłanie danych telemetrycznych. Zadanie Stream Analytics używa [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) do wysyłania powiadomień e-mail przy użyciu [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
@@ -42,7 +40,7 @@ Utwórz aplikację IoT Central w witrynie programu [Azure IoT Central Applicatio
 
 | Ustawienie | Wartość |
 | ------- | ----- |
-| Plan cenowy | Standard |
+| Plan cenowy | Standardowa |
 | Szablon aplikacji | Analiza warunków w sklepie — monitorowanie |
 | Nazwa aplikacji | Zaakceptuj wartość domyślną lub wybierz własną nazwę |
 | Adres URL | Zaakceptuj domyślny lub wybierz własny unikatowy prefiks adresu URL |
@@ -321,8 +319,8 @@ W witrynie sieci Web programu [Azure IoT Central Application Manager](https://ak
     | Przestrzeń nazw usługi Event Hubs | Nazwa przestrzeni nazw Event Hubs |
     | Centrum zdarzeń | centralexport |
     | Miary | Włączone |
-    | Urządzenia | Wyłączone |
-    | Szablony urządzeń | Wyłączone |
+    | Urządzenia | Wyłączony |
+    | Szablony urządzeń | Wyłączony |
 
 ![Ciągła konfiguracja eksportu danych](media/howto-create-custom-rules/cde-configuration.png)
 
@@ -349,7 +347,7 @@ Aby uporządkowanego się po tym, jak to zrobić, i uniknąć niepotrzebnych kos
 
 Aplikację IoT Central można usunąć ze strony **zarządzania** w ramach aplikacji.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym przewodniku krok po kroku przedstawiono następujące informacje:
 

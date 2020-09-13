@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a098d4bab4ea8cb083658b205dcb73da619fdbde
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2fd0269744c7ee49c72806e3cb0e1227035de4f0
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035709"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019176"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory
 
@@ -79,7 +79,7 @@ Gdy próbujesz uzyskać dostęp do danych obiektu BLOB lub kolejki, Azure Portal
 
 Aby uzyskać dostęp do danych obiektu BLOB lub kolejki z Azure Portal przy użyciu konta usługi Azure AD, musisz mieć uprawnienia dostępu do danych obiektów blob i kolejek, a także potrzebujesz uprawnień do nawigowania po zasobach konta magazynu w Azure Portal. Wbudowane role udostępniane przez usługę Azure Storage zapewniają dostęp do zasobów obiektów blob i kolejek, ale nie udzielają uprawnień do zasobów konta magazynu. Z tego powodu dostęp do portalu wymaga również przypisania roli Azure Resource Manager, takiej jak rola [czytnika](../../role-based-access-control/built-in-roles.md#reader) , w zakresie do poziomu konta magazynu lub wyższego. Rola **czytelnika** umożliwia dostęp do najbardziej ograniczonych uprawnień, ale można również uzyskać inną rolę Azure Resource Manager, która udziela dostępu do zasobów zarządzania kontami magazynu. Aby dowiedzieć się więcej na temat przypisywania uprawnień użytkownikom na potrzeby dostępu do danych w Azure Portal za pomocą konta usługi Azure AD, zobacz [udzielanie dostępu do obiektów blob platformy Azure i danych w kolejce przy użyciu RBAC w Azure Portal](storage-auth-aad-rbac-portal.md).
 
-Azure Portal wskazuje, który schemat autoryzacji jest używany podczas przechodzenia do kontenera lub kolejki. Aby uzyskać więcej informacji o dostępie do danych w portalu, zobacz [używanie Azure Portal do uzyskiwania dostępu do danych obiektu BLOB lub kolejki](storage-access-blobs-queues-portal.md).
+Azure Portal wskazuje, który schemat autoryzacji jest używany podczas przechodzenia do kontenera lub kolejki. Aby uzyskać więcej informacji o dostępie do danych w portalu, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-blob-access-portal.md) i [Wybieranie metody autoryzacji dostępu do danych w kolejce w Azure Portal](../queues/authorize-queue-access-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Dostęp do danych z programu PowerShell lub interfejsu wiersza polecenia platformy Azure
 

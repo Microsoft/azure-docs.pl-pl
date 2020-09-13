@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526834"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017476"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Samouczek: Konfigurowanie zapisywania zwrotnego atrybutów z usługi Azure AD do produktu Workday
 Celem tego samouczka jest wyświetlenie czynności, które należy wykonać w celu przeprowadzenia zapisywania atrybutów zapisu z usługi Azure AD do produktu Workday. Aplikacja do obsługi funkcji zapisywania zwrotnego dla produktu Workday obsługuje Przypisywanie wartości do następujących atrybutów produktu Workday:
@@ -34,7 +34,7 @@ Po skonfigurowaniu integracji przychodzącej aprowizacji przy użyciu aplikacji 
 
 To rozwiązanie do obsługi funkcji zapisywania zwrotnego użytkowników w programie Workday jest idealnym rozwiązaniem dla:
 
-* Organizacje korzystające z pakietu Office 365, które chcą zapisać zwrot autorytatywnych atrybutów zarządzanych przez dział IT (takich jak adres e-mail, nazwa użytkownika i numer telefonu) z powrotem do produktu Workday
+* Organizacje używające Microsoft 365 do zapisywania zwrotnego autorytatywnych atrybutów zarządzanych przez niego (takich jak adres e-mail, nazwa użytkownika i numer telefonu) z powrotem do produktu Workday
 
 ## <a name="configure-integration-system-user-in-workday"></a>Konfiguruj użytkownika systemu integracji w programie Workday
 
@@ -52,7 +52,7 @@ Postępuj zgodnie z tymi instrukcjami, aby skonfigurować Stornowanie adresów e
 
 **Aby skonfigurować łącznik zapisywania zwrotnego dla produktu Workday:**
 
-1. Przejdź do adresu <https://portal.azure.com>.
+1. Przejdź do witryny <https://portal.azure.com>.
 
 2. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
 

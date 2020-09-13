@@ -13,16 +13,18 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: 1c1e29d43fefa6be1586aefc28249fe2f0f9e9fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8c9555bc208766d5275e392ee22889f5b618e216
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001029"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018309"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurowanie zabezpieczeń X.509 w usłudze Azure IoT Hub
 
 W tym samouczku przedstawiono kroki potrzebne do zabezpieczenia usługi Azure IoT Hub przy użyciu *uwierzytelniania certyfikatu X. 509*. Na potrzeby ilustracji korzystamy z narzędzia typu "open source" OpenSSL do tworzenia certyfikatów lokalnie na komputerze z systemem Windows. Zalecamy korzystanie z tego samouczka tylko do celów testowych. W środowisku produkcyjnym należy zakupić certyfikaty z *głównego urzędu certyfikacji (CA)*.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -194,7 +196,7 @@ Następnie pokażemy, jak utworzyć aplikację w języku C# w celu symulowania u
 
    ![Uruchom aplikację urządzenia](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat zabezpieczania rozwiązania IoT, zobacz:
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: ae145f5a1ce462edb28171a1f5bb6f3ebb72f538
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7a80fb47122d21e078cf2724b805fa56c5a73aeb
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018216"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018134"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (.NET)
 
@@ -47,6 +47,8 @@ Na końcu tego samouczka uruchomisz dwie aplikacje konsolowe programu .NET:
 
 > [!NOTE]
 > IoT Hub obsługuje wiele platform i języków urządzeń, w tym C, Java, Python i JavaScript, za pomocą zestawów SDK urządzeń usługi Azure IoT. Zapoznaj się z [Centrum deweloperów Azure IoT](https://azure.microsoft.com/develop/iot) , aby uzyskać instrukcje krok po kroku dotyczące sposobu łączenia urządzenia z usługą Azure IoT Hub.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -186,7 +188,7 @@ Teraz wszystko jest gotowe do uruchomienia aplikacji.
 
     ![Zrzut ekranu przedstawiający ekran danych wyjściowych](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób użycia funkcji przekazywania plików IoT Hub, aby uprościć przekazywanie plików z urządzeń. Możesz nadal eksplorować IoT Hub funkcje i scenariusze z następującymi artykułami:
 

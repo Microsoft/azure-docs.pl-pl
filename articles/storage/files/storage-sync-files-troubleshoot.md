@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056265"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018598"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -220,13 +220,13 @@ Punkt końcowy serwera może nie rejestrować aktywności synchronizacji przez k
 <a id="serverendpoint-pending"></a>**Kondycja punktu końcowego serwera jest w stanie oczekiwania przez kilka godzin**  
 Ten problem jest oczekiwany w przypadku utworzenia punktu końcowego w chmurze i użycia udziału plików platformy Azure, który zawiera dane. Zadanie wyliczania zmian, które skanuje w poszukiwaniu zmian w udziale plików platformy Azure, musi zostać zakończone, zanim pliki będą synchronizowane między punktami końcowymi chmury i serwera. Czas do ukończenia zadania zależy od rozmiaru przestrzeni nazw w udziale plików platformy Azure. Kondycja punktu końcowego serwera powinna zostać zaktualizowana po zakończeniu zadania wyliczania zmian.
 
-### <a name="how-do-i-monitor-sync-health"></a><a id="broken-sync"></a>Jak monitorować kondycję synchronizacji?
+### <a name="how-do-i-monitor-sync-health"></a><a id="broken-sync"></a>Jak mogę monitorowanie kondycji synchronizacji?
 # <a name="portal"></a>[Portal](#tab/portal1)
 W ramach każdej grupy synchronizacji można przejść do szczegółów poszczególnych punktów końcowych serwera, aby zobaczyć stan ostatnich ukończonych sesji synchronizacji. Zielona kolumna kondycji i pliki, które nie są synchronizowane wartość 0 wskazują, że synchronizacja działa zgodnie z oczekiwaniami. Jeśli tak nie jest, zobacz poniżej, aby zapoznać się z listą typowych błędów synchronizacji i jak obsłużyć pliki, które nie są synchronizowane. 
 
 ![Zrzut ekranu przedstawiający Azure Portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# <a name="server"></a>[Serwer](#tab/server)
+# <a name="server"></a>[Server](#tab/server) (Serwer)
 Przejdź do dzienników telemetrii serwera, które znajdują się w Podgląd zdarzeń pod adresem `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` . Zdarzenie 9102 odpowiada zakończonej sesji synchronizacji; Aby uzyskać najnowszy stan synchronizacji, poszukaj najnowszego zdarzenia o IDENTYFIKATORze 9102. SyncDirection informuje o tym, czy ta sesja była przekazaniem czy pobraniem. Jeśli HResult ma wartość 0, sesja synchronizacji zakończyła się pomyślnie. Wynik o wartości innej niż zero oznacza, że wystąpił błąd podczas synchronizacji; Lista typowych błędów znajduje się poniżej. Jeśli wartość PerItemErrorCount jest większa od 0, oznacza to, że niektóre pliki lub foldery nie zostały prawidłowo zsynchronizowane. Istnieje możliwość, że wynik HResult równy 0, ale PerItemErrorCount jest większy niż 0.
 
 Poniżej znajduje się przykład pomyślnego przekazania. Ze względu na zwięzłości są wyświetlane tylko niektóre wartości zawarte w każdym zdarzeniu 9102. 
@@ -261,7 +261,7 @@ Czasami synchronizacja sesji kończy się niepowodzeniem lub mieć PerItemErrorC
 # <a name="portal"></a>[Portal](#tab/portal1)
 W ramach grupy synchronizacji przejdź do punktu końcowego serwera, a następnie zapoznaj się z sekcją aktywność synchronizacji, aby zobaczyć liczbę plików przekazanych lub pobranych w bieżącej sesji synchronizacji. Pamiętaj, że ten stan zostanie opóźniony o około 5 minut. Jeśli sesja synchronizacji jest wystarczająco mała, aby mogła zostać zakończona w tym okresie, może nie zostać zgłoszona w portalu. 
 
-# <a name="server"></a>[Serwer](#tab/server)
+# <a name="server"></a>[Server](#tab/server) (Serwer)
 Zapoznaj się z najnowszym zdarzeniem 9302 w dzienniku telemetrii na serwerze (w Podgląd zdarzeń przejdź do pozycji aplikacje i usługi Logs\Microsoft\FileSync\Agent\Telemetry). To zdarzenie wskazuje stan bieżącej sesji synchronizacji. TotalItemCount wskazuje, ile plików ma być synchronizowanych, AppliedItemCount liczbę plików, które zostały zsynchronizowane do tej pory, i PerItemErrorCount liczbę plików, które nie są synchronizowane (zobacz poniżej, aby dowiedzieć się, jak to zrobić).
 
 ```
@@ -283,7 +283,7 @@ Upewnij się, że dla każdego serwera w danej grupie synchronizacji:
 - W polu działanie synchronizacji są wyświetlane bardzo mało plików, które mają zostać zsynchronizowane.
 - W przypadku plików, które nie są synchronizowane, jest wartością 0 w przypadku przekazywania i pobierania.
 
-# <a name="server"></a>[Serwer](#tab/server)
+# <a name="server"></a>[Server](#tab/server) (Serwer)
 Zapoznaj się z zakończonymi sesjami synchronizacji, które są oznaczone przez 9102 zdarzeń w dzienniku zdarzeń telemetrii dla każdego serwera (w Podgląd zdarzeń, przejdź do `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` ). 
 
 1. Na dowolnym serwerze upewnij się, że najnowsze sesje przekazywania i pobierania zostały ukończone pomyślnie. W tym celu należy sprawdzić, czy wartość HResult i PerItemErrorCount są równe 0 w przypadku przekazywania i pobierania (pole SyncDirection wskazuje, czy dana sesja jest sesjami przekazywania lub pobierania). Należy pamiętać, że jeśli ostatnio ukończona sesja synchronizacji nie zostanie wyświetlona, prawdopodobnie sesja synchronizacji jest obecnie w toku, która jest oczekiwana w przypadku dodania lub zmodyfikowania dużej ilości danych.
@@ -1107,7 +1107,7 @@ Jeśli nie ma warstwy do Azure Files:
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Nie można przeprowadzić warstwy dla pliku z powodu problemu z usługą Azure Storage. | Jeśli błąd będzie się powtarzać, Otwórz żądanie obsługi. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | Nie można wykonać warstwy dla pliku, ponieważ został on odwywoływany w tym samym czasie. | Żadna akcja nie jest wymagana. Plik zostanie warstwowy po zakończeniu odwoływania, a plik nie jest już używany. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Nie można wykonać warstwy dla pliku, ponieważ nie został on zsynchronizowany z udziałem plików platformy Azure. | Żadna akcja nie jest wymagana. Plik zostanie warstwowy po zsynchronizowaniu z udziałem plików platformy Azure. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Nie można wykonać warstwy dla pliku, ponieważ nie uruchomiono sterownika filtru warstwowego chmury (storagesync.sys). | Aby rozwiązać ten problem, Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie:`fltmc load storagesync`<br>Jeśli nie można załadować sterownika filtru storagesync podczas uruchamiania polecenia polecenie fltmc, Odinstaluj agenta Azure File Sync, ponownie uruchom serwer i ponownie zainstaluj agenta Azure File Sync. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Nie można wykonać warstwy dla pliku, ponieważ nie uruchomiono sterownika filtru warstwowego chmury (storagesync.sys). | Aby rozwiązać ten problem, Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie: `fltmc load storagesync`<br>Jeśli nie można załadować sterownika filtru storagesync podczas uruchamiania polecenia polecenie fltmc, Odinstaluj agenta Azure File Sync, ponownie uruchom serwer i ponownie zainstaluj agenta Azure File Sync. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Brak warstwy pliku z powodu niewystarczającej ilości miejsca na dysku w woluminie, na którym znajduje się punkt końcowy serwera. | Aby rozwiązać ten problem, zwolnij co najmniej 100 MB miejsca na dysku w woluminie, na którym znajduje się punkt końcowy serwera. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Nie można wykonać warstwy dla pliku, ponieważ nie został on zsynchronizowany z udziałem plików platformy Azure. | Żadna akcja nie jest wymagana. Plik zostanie warstwowy po zsynchronizowaniu z udziałem plików platformy Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Nie można wykonać warstwy dla pliku, ponieważ jest on nieobsługiwanym punktem ponownej analizy. | Jeśli plik jest punktem ponownej analizy deduplikacji danych, wykonaj kroki opisane w [przewodniku planowania](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) , aby włączyć obsługę deduplikacji danych. Pliki z punktami ponownej analizy inne niż Deduplikacja danych nie są obsługiwane i nie zostaną warstwowe.  |
@@ -1257,23 +1257,7 @@ Jeśli wystąpią problemy z Azure File Sync na serwerze, należy najpierw wykon
 
 Jeśli problem nie zostanie rozwiązany, uruchom narzędzie AFSDiag i Wyślij plik. zip do inżyniera pomocy technicznej przypisanego do Twojego przypadku w celu przeprowadzenia dalszej diagnostyki.
 
-W przypadku agenta w wersji v11 lub nowszej:
-
-1. Otwórz okno programu PowerShell z podwyższonym poziomem uprawnień, a następnie uruchom następujące polecenia (naciśnij klawisz Enter po każdym poleceniu):
-
-    > [!NOTE]
-    >AFSDiag utworzy katalog wyjściowy i folder Temp w nim przed zbieraniem dzienników i spowoduje usunięcie folderu tymczasowego po wykonaniu. Określ lokalizację wyjściową, która nie zawiera danych.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. Odtwórz problem. Po zakończeniu wprowadź **D**.
-3. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony. 
-
-W przypadku agenta w wersji V10 i starszych:
+Aby uruchomić AFSDiag, wykonaj następujące czynności:
 1. Utwórz katalog, w którym zostaną zapisane dane wyjściowe AFSDiag (na przykład C:\Output).
     > [!NOTE]
     >AFSDiag usunie całą zawartość z katalogu wyjściowego przed zbieraniem dzienników. Określ lokalizację wyjściową, która nie zawiera danych.

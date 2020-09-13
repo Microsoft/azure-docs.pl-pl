@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758246"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016847"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Podłączanie Rigado kaskadowego urządzenia bramy 500 do aplikacji IoT Central platformy Azure
 
-*Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
+*Ten artykuł ma zastosowanie do konstruktorów rozwiązań.*
 
 W tym artykule opisano, jak w ramach konstruktora rozwiązań można podłączyć urządzenie bramy Rigado Kaskada 500 do aplikacji IoT Central Microsoft Azure. 
 
@@ -51,7 +51,7 @@ Aby dodać kaskadowy szablon urządzenia 500:
 
 Teraz musisz pobrać **Identyfikator zakresu** i **klucz podstawowy** aplikacji IoT Central platformy Azure, aby połączyć urządzenie kaskadowe 500. 
 
-1. W lewym okienku przejdź do obszarze **Administracja** , a następnie kliknij pozycję **połączenie z urządzeniem**. 
+1. W lewym okienku przejdź do obszarze **Administracja**  , a następnie kliknij pozycję **połączenie z urządzeniem**. 
 2. Zanotuj **Identyfikator zakresu** dla aplikacji IoT Central.
 ![Identyfikator zakresu aplikacji](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 3. Teraz kliknij przycisk **Wyświetl klucze** i zanotuj klucz **Primary key** 
@@ -65,7 +65,7 @@ Gdy urządzenie jest połączone z Internetem, Rigado będzie w stanie wypchną�
 
 Ta aktualizacja zastosuje IoT Central szczegóły połączenia na urządzeniu kaskadowym 500 i pojawi się na liście urządzeń. 
 
-![Klucz podstawowy](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![Lista urządzeń](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 Teraz możesz przystąpić do korzystania z urządzenia C500 w aplikacji IoT Central!
 
