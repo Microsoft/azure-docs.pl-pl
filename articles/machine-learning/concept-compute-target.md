@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146740"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651199"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning? 
 
@@ -49,9 +49,9 @@ Dowiedz się [, gdzie i jak wdrożyć model w miejscu docelowym obliczeń](how-t
 Zarządzany zasób obliczeniowy jest tworzony i zarządzany przez Azure Machine Learning. To obliczenie jest zoptymalizowane pod kątem obciążeń uczenia maszynowego. Azure Machine Learning klastrami obliczeniowymi i [wystąpieniami obliczeniowymi](concept-compute-instance.md) są jedyne zarządzane obliczenia. 
 
 Można tworzyć Azure Machine Learning wystąpienia obliczeniowe lub Klastry obliczeniowe z:
-* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+* [Studio uczenia maszynowego Azure](how-to-create-attach-compute-studio.md)
 * Azure Portal
-* Klasy [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) i [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) zestawu SDK języka Python
+* Klasy [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) i [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) zestawu SDK języka Python
 * [Zestaw SDK języka R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (wersja zapoznawcza)
 * Szablon Menedżer zasobów. Aby zapoznać się z przykładowym szablonem, zobacz [create Azure Machine Learning COMPUTE Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Rozszerzenie uczenia maszynowego [dla interfejsu wiersza polecenia platformy Azure](reference-azure-machine-learning-cli.md#resource-management).  

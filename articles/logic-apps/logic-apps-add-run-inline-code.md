@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a1c3828a4b1899ff4b22c0a9520f676add21fe02
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a1fca14035dd4a9af00ecfb8d1d01dc27ab0b8d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420128"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658164"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Dodawanie i uruchamianie fragmentów kodu przy użyciu kodu śródwierszowego w Azure Logic Apps
 
@@ -29,7 +29,7 @@ Gdy chcesz uruchomić fragment kodu wewnątrz aplikacji logiki, możesz dodać w
 
 Ta akcja uruchamia fragment kodu i zwraca dane wyjściowe z tego fragmentu jako token nazwany **wynik**, którego można użyć w kolejnych akcjach w aplikacji logiki. W przypadku innych scenariuszy, w których chcesz utworzyć funkcję dla kodu, wypróbuj [Tworzenie i wywoływanie funkcji platformy Azure](../logic-apps/logic-apps-azure-functions.md) w aplikacji logiki.
 
-W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej wiadomości e-mail w ramach konta Office 365 Outlook. Fragment kodu wyodrębnia i zwraca adresy e-mail, które są wyświetlane w treści wiadomości e-mail.
+W tym artykule Przykładowa aplikacja logiki jest wyzwalana po nadejściu nowej wiadomości e-mail w ramach konta służbowego. Fragment kodu wyodrębnia i zwraca adresy e-mail, które są wyświetlane w treści wiadomości e-mail.
 
 ![Przykład — Omówienie](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
@@ -261,7 +261,7 @@ Jeśli wybierzesz pozycję **Akcje**, zostanie wyświetlony monit o akcje, któr
 
 1. Aby dodać kolejną akcję, wybierz pozycję **Dodaj nowy element**.
 
-## <a name="reference"></a>Tematy pomocy
+## <a name="reference"></a>Dokumentacja
 
 Aby uzyskać więcej informacji o strukturze i składni akcji **Wykonaj kod JavaScript** w źródłowej definicji przepływu pracy aplikacji logiki przy użyciu języka definicji przepływu pracy, zapoznaj się z [sekcją odwołania](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)tej akcji.
 

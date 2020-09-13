@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066526"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658201"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Ciągłość działania i odzyskiwanie po awarii dla Azure Logic Apps
 
@@ -69,7 +69,7 @@ Ten przykład pokazuje poprzednie główne i pomocnicze wystąpienia aplikacji l
 
 ## <a name="connections-to-resources"></a>Połączenia z zasobami
 
-Azure Logic Apps udostępnia [wbudowane wyzwalacze i akcje oraz setki zarządzanych łączników](../connectors/apis-list.md) , które mogą być używane przez aplikację logiki do pracy z innymi aplikacjami, usługami, systemami i innymi zasobami, takimi jak konta usługi Azure Storage, bazy danych SQL Server, konta E-mail programu Outlook w usłudze Office 365 itd. Jeśli aplikacja logiki potrzebuje dostępu do tych zasobów, tworzysz połączenia uwierzytelniające dostęp do tych zasobów. Każde połączenie jest osobnym zasobem platformy Azure, który istnieje w określonej lokalizacji i nie może być używany przez zasoby w innych lokalizacjach.
+Azure Logic Apps udostępnia [wbudowane wyzwalacze i akcje oraz setki zarządzanych łączników](../connectors/apis-list.md) , które mogą być używane przez aplikację logiki do pracy z innymi aplikacjami, usługami, systemami i innymi zasobami, takimi jak konta usługi Azure Storage, bazy danych SQL Server, służbowe konta e-mail i tak dalej. Jeśli aplikacja logiki potrzebuje dostępu do tych zasobów, tworzysz połączenia uwierzytelniające dostęp do tych zasobów. Każde połączenie jest osobnym zasobem platformy Azure, który istnieje w określonej lokalizacji i nie może być używany przez zasoby w innych lokalizacjach.
 
 W przypadku strategii odzyskiwania po awarii należy wziąć pod uwagę lokalizacje, w których istnieją zasoby zależne względem wystąpień aplikacji logiki:
 
@@ -102,8 +102,8 @@ Można skonfigurować lokalizacje podstawowe i dodatkowe, aby wystąpienia aplik
 
 | Rola podstawowa — pomocnicza | Opis |
 |------------------------|-------------|
-| *Aktywne-aktywne* | Główne i pomocnicze wystąpienia aplikacji logiki w obu lokalizacjach aktywnie obsługują żądania, wykonując jeden z następujących wzorców: <p><p>- *Równoważenie obciążenia*: możliwe, że oba wystąpienia nasłuchują punktu końcowego i równoważenia obciążenia ruchem do każdego wystąpienia, w razie potrzeby. <p>- *Konkurujący konsumenci*: można mieć oba wystąpienia jako konkurujących odbiorców, aby wystąpienia konkurują o komunikaty z kolejki. Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienie przejmuje obciążenie. |
-| *Aktywne — pasywne* | Główne wystąpienie aplikacji logiki aktywnie obsługuje całe obciążenie, podczas gdy wystąpienie pomocnicze jest pasywne (wyłączone lub nieaktywne). Pomocniczy czeka na sygnał, że podstawowy jest niedostępny lub nie działa z powodu przerwy lub awarii i przejmuje obciążenie jako aktywne wystąpienie. |
+| *Aktywne/aktywne* | Główne i pomocnicze wystąpienia aplikacji logiki w obu lokalizacjach aktywnie obsługują żądania, wykonując jeden z następujących wzorców: <p><p>- *Równoważenie obciążenia*: możliwe, że oba wystąpienia nasłuchują punktu końcowego i równoważenia obciążenia ruchem do każdego wystąpienia, w razie potrzeby. <p>- *Konkurujący konsumenci*: można mieć oba wystąpienia jako konkurujących odbiorców, aby wystąpienia konkurują o komunikaty z kolejki. Jeśli jedno wystąpienie nie powiedzie się, inne wystąpienie przejmuje obciążenie. |
+| *Aktywne/pasywne* | Główne wystąpienie aplikacji logiki aktywnie obsługuje całe obciążenie, podczas gdy wystąpienie pomocnicze jest pasywne (wyłączone lub nieaktywne). Pomocniczy czeka na sygnał, że podstawowy jest niedostępny lub nie działa z powodu przerwy lub awarii i przejmuje obciążenie jako aktywne wystąpienie. |
 | Kombinacja | Niektóre aplikacje logiki odgrywają rolę Active-Active, podczas gdy inne aplikacje logiki odgrywają rolę Active-pasywną. |
 |||
 

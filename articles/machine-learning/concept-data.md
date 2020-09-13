@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146693"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651164"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Bezpieczny dostęp do danych w Azure Machine Learning
 
@@ -81,9 +81,9 @@ Zestawy danych mogą być tworzone na podstawie plików lokalnych, publicznych a
 
 Istnieją dwa typy zestawów danych: 
 
-+ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
++ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) odwołuje się do jednego lub wielu plików w magazynach danych lub publicznych adresach URL. Jeśli dane zostały już oczyszczone i gotowe do użycia w eksperymentach szkoleniowych, możesz [pobrać lub zainstalować pliki](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) , do których odwołuje się FileDatasets, do obiektu docelowego obliczeń.
 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) reprezentuje dane w formacie tabelarycznym przez analizowanie dostarczonego pliku lub listy plików. Aby ułatwić manipulowanie i czyszczenie, można załadować TabularDataset do Pandas lub Spark Dataframe. Aby uzyskać pełną listę formatów danych, z których można utworzyć TabularDatasets, zobacz [Klasa TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 Dodatkowe możliwości zestawów danych można znaleźć w następującej dokumentacji:
 

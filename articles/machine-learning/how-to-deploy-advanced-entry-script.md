@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 0499cd6885454604e89ce4cadc313b2f68c45156
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 95d3570d93aa4966fcf6864838ec01735b8662db
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544642"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650286"
 ---
-# <a name="advanced-entry-script-authoring"></a>Tworzenie zaawansowanego skryptu wprowadzania
+# <a name="advanced-entry-script-authoring"></a>Tworzenie zaawansowanego skryptu wejściowego
 
 W tym artykule pokazano, jak napisać skrypty wprowadzania dla wyspecjalizowanych przypadków użycia.
 
@@ -90,7 +90,7 @@ def run(data):
 ```
 
 
-## <a name="binary-ie-image-data"></a><a id="binary-data"></a>Dane binarne (tj. obrazu)
+## <a name="binary-ie-image-data"></a><a id="binary-data"></a> Dane binarne (tj. obrazu)
 
 Jeśli model akceptuje dane binarne, takie jak obraz, należy zmodyfikować `score.py` plik używany we wdrożeniu w celu akceptowania żądań nieprzetworzonych http. Aby zaakceptować dane pierwotne, użyj `AMLRequest` klasy w skrypcie wpisu i Dodaj `@rawhttp` dekoratora do `run()` funkcji.
 
@@ -260,7 +260,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Podczas rejestrowania modelu należy podać nazwę modelu, która jest używana do zarządzania modelem w rejestrze. Ta nazwa jest używana z metodą [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) w celu pobrania ścieżki pliku lub plików modelu w lokalnym systemie plików. Po zarejestrowaniu folderu lub kolekcji plików ten interfejs API zwróci ścieżkę do katalogu, który zawiera te pliki.
+Podczas rejestrowania modelu należy podać nazwę modelu, która jest używana do zarządzania modelem w rejestrze. Ta nazwa jest używana z metodą [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) w celu pobrania ścieżki pliku lub plików modelu w lokalnym systemie plików. Po zarejestrowaniu folderu lub kolekcji plików ten interfejs API zwróci ścieżkę do katalogu, który zawiera te pliki.
 
 Po zarejestrowaniu modelu nadaj mu nazwę. Nazwa odnosi się do lokalizacji modelu, lokalnie lub podczas wdrażania usługi.
 
@@ -269,9 +269,9 @@ Po zarejestrowaniu modelu nadaj mu nazwę. Nazwa odnosi się do lokalizacji mode
 * [Rozwiązywanie problemów z niepowodzeniem wdrożenia](how-to-troubleshoot-deployment.md)
 * [Wdrażanie w usłudze Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Tworzenie aplikacji klienckich w celu korzystania z usług sieci Web](how-to-consume-web-service.md)
-* [Aktualizowanie usługi sieci Web](how-to-deploy-update-web-service.md)
+* [Aktualizowanie usługi internetowej](how-to-deploy-update-web-service.md)
 * [Jak wdrożyć model przy użyciu niestandardowego obrazu platformy Docker](how-to-deploy-custom-docker-image.md)
-* [Użyj protokołu TLS do zabezpieczenia usługi sieci Web za pomocą Azure Machine Learning](how-to-secure-web-service.md)
+* [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 * [Monitoruj modele Azure Machine Learning przy użyciu Application Insights](how-to-enable-app-insights.md)
 * [Zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md)
 * [Tworzenie alertów zdarzeń i wyzwalaczy na potrzeby wdrożeń modeli](how-to-use-event-grid.md)

@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: df254e0766a755754aabcfb8c98a8c140b43cb20
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144043"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650842"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Miejsce zapisywania i zapisywania plików do Azure Machine Learning eksperymentów
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ Podczas uruchamiania szkoleń w [obiekcie docelowym obliczeń](concept-compute-t
 
 Przed zainicjowaniem eksperymentu w elemencie docelowym obliczeń lub na komputerze lokalnym należy upewnić się, że wymagane pliki są dostępne dla tego obiektu docelowego obliczeń, takich jak pliki zależności i pliki danych, które muszą zostać uruchomione w kodzie.
 
-Azure Machine Learning uruchamia skrypty szkoleniowe, kopiując cały katalog źródłowy. Jeśli masz poufne dane, które nie mają być przekazywane, użyj [pliku. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dołączaj go do katalogu źródłowego. Zamiast tego można uzyskiwać dostęp do danych przy użyciu usługi [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+Azure Machine Learning uruchamia skrypty szkoleniowe, kopiując cały katalog źródłowy. Jeśli masz poufne dane, które nie mają być przekazywane, użyj [pliku. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) lub nie dołączaj go do katalogu źródłowego. Zamiast tego można uzyskiwać dostęp do danych przy użyciu usługi [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
 
 Limit magazynu migawek eksperymentu wynosi 300 MB i/lub 2000 plików.
 
 Z tego powodu zalecamy:
 
-* **Przechowywanie plików w Azure Machine Learning [magazynie](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)danych.** Zapobiega to problemom z opóźnieniami eksperymentu i ma zalety uzyskiwania dostępu do danych z zdalnego obiektu docelowego obliczeń, co oznacza, że uwierzytelnianie i Instalowanie jest zarządzane przez Azure Machine Learning. Dowiedz się więcej na temat określania magazynu danych jako katalogu źródłowego i przekazywania plików do magazynu danych w artykule [dostępnym ze sklepów datastores](how-to-access-data.md) .
+* **Przechowywanie plików w Azure Machine Learning [magazynie](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)danych.** Zapobiega to problemom z opóźnieniami eksperymentu i ma zalety uzyskiwania dostępu do danych z zdalnego obiektu docelowego obliczeń, co oznacza, że uwierzytelnianie i Instalowanie jest zarządzane przez Azure Machine Learning. Dowiedz się więcej na temat określania magazynu danych jako katalogu źródłowego i przekazywania plików do magazynu danych w artykule [dostępnym ze sklepów datastores](how-to-access-data.md) .
 
 * **Jeśli potrzebujesz tylko kilku plików danych i skryptów zależności i nie będzie można użyć sklepu datastore,** Umieść pliki w tym samym katalogu folderu co skrypt szkoleniowy. Określ ten folder jako `source_directory` bezpośrednio w skrypcie szkoleniowym lub w kodzie, który wywołuje skrypt szkoleniowy.
 

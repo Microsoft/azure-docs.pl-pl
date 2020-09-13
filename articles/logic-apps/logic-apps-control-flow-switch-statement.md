@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066218"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657452"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Utwórz instrukcje Switch, które uruchamiają akcje przepływu pracy na podstawie określonych wartości w Azure Logic Apps
 
@@ -27,7 +27,7 @@ Załóżmy na przykład, że chcesz, aby aplikacja logiki, która wykonuje róż
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Aby postępować zgodnie z przykładem w tym artykule, [Utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przy użyciu konta programu Outlook Outlook.com lub Office 365.
+* Aby postępować zgodnie z przykładem w tym artykule, [Utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przy użyciu konta Outlook.com lub konta służbowego.
 
   1. Po dodaniu akcji do wysyłania wiadomości e-mail Znajdź i wybierz tę akcję: **Wyślij wiadomość e-mail z zatwierdzeniem**
 
@@ -67,7 +67,7 @@ Załóżmy na przykład, że chcesz, aby aplikacja logiki, która wykonuje róż
    |--------|--------------------|--------|
    | Przypadek 1 | **Zatwierdzenie** | Dodaj akcję **Wyślij wiadomość e-mail** do programu Outlook w celu wysłania szczegółowych informacji o elemencie RSS tylko wtedy, gdy osoba zatwierdzająca zabrała **zatwierdzenie**. |
    | Przypadek 2 | **Reject** | Dodaj akcję **Wyślij wiadomość e-mail** do programu Outlook, aby poinformować inne osoby zatwierdzające o odrzuceniu elementu RSS. |
-   | Domyślne | Brak | Nie trzeba podejmować żadnych działań. W tym przykładzie **domyślnym** przypadkiem jest pusty, ponieważ **SelectedOption** ma tylko dwie opcje. |
+   | Domyślny | Brak | Nie trzeba podejmować żadnych działań. W tym przykładzie **domyślnym** przypadkiem jest pusty, ponieważ **SelectedOption** ma tylko dwie opcje. |
    |||
 
    ![Zakończono przełączanie instrukcji](./media/logic-apps-control-flow-switch-statement/finished-switch.png)

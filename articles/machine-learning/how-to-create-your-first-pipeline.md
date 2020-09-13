@@ -11,18 +11,18 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 0d917ea686c2003bf46b6fca872ef67fb0363107
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 968685b64b1412751ca990842d95e9d2ffb251a6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228923"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650559"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak utworzyć i uruchomić [potok uczenia maszynowego](concept-ml-pipelines.md) przy użyciu [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Użyj **potoków ml** , aby utworzyć przepływ pracy, który będzie łączyć różne fazy ml. Następnie opublikuj ten potok na potrzeby późniejszego dostępu lub udostępniania innym osobom. Śledź potoki ML, aby zobaczyć, jak model działa w świecie rzeczywistym i wykrywać dryfowanie danych. Potoki ML doskonale nadają się do scenariuszy wsadowych oceniania, przy użyciu różnych obliczeń, ponownej realizacji czynności zamiast uruchamiania ich, a także udostępniania przepływów pracy ML innym osobom.
+W tym artykule dowiesz się, jak utworzyć i uruchomić [potok uczenia maszynowego](concept-ml-pipelines.md) przy użyciu [zestawu SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Użyj **potoków ml** , aby utworzyć przepływ pracy, który będzie łączyć różne fazy ml. Następnie opublikuj ten potok na potrzeby późniejszego dostępu lub udostępniania innym osobom. Śledź potoki ML, aby zobaczyć, jak model działa w świecie rzeczywistym i wykrywać dryfowanie danych. Potoki ML doskonale nadają się do scenariuszy wsadowych oceniania, przy użyciu różnych obliczeń, ponownej realizacji czynności zamiast uruchamiania ich, a także udostępniania przepływów pracy ML innym osobom.
 
 Chociaż możesz użyć innego rodzaju potoku o nazwie [potoku platformy Azure](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) do automatyzacji wykonywania zadań w usłudze ml, ten typ potoku nie jest przechowywany w obszarze roboczym. [Porównaj te różne potoki](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
@@ -56,7 +56,7 @@ Utwórz zasoby wymagane do uruchomienia potoku ML:
 * Skonfiguruj obiekt w taki `Dataset` sposób, aby wskazywał trwałe dane, które znajdują się w, lub jest dostępny w magazynie danych. Skonfiguruj `PipelineData` obiekt dla danych tymczasowych przesyłanych między krokami potoku. 
 
     > [!TIP]
-    > Ulepszona obsługa przekazywania danych tymczasowych między etapami potoku jest dostępna w publicznej wersji zapoznawczej  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) .  Ta klasa jest [eksperymentalną](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
+    > Ulepszona obsługa przekazywania danych tymczasowych między etapami potoku jest dostępna w publicznej wersji zapoznawczej  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .  Ta klasa jest [eksperymentalną](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) funkcją w wersji zapoznawczej i może ulec zmianie w dowolnym momencie.
 
 * Skonfiguruj [cele obliczeń](concept-azure-machine-learning-architecture.md#compute-targets) , na których będą uruchamiane kroki potoku.
 
@@ -85,14 +85,14 @@ Kroki zwykle wykorzystują dane i generują dane wyjściowe. Krok może tworzyć
 Preferowanym sposobem zapewnienia danych do potoku jest obiekt [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) . `Dataset`Obiekt wskazuje dane, które znajdują się w lub są dostępne z magazynu danych lub w adresie URL sieci Web. `Dataset`Klasa jest abstrakcyjna, dlatego utworzysz wystąpienie `FileDataset` (odwołujące się do jednego lub kilku plików) lub `TabularDataset` utworzone przez z jednego lub kilku plików z rozdzielonymi kolumnami danych.
 
 
-Tworzysz `Dataset` metody using, takie jak [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) lub [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
+Tworzysz `Dataset` metody using, takie jak [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) lub [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
-Dane pośrednie (lub dane wyjściowe kroku) są reprezentowane przez obiekt [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) . `output_data1` jest tworzony jako dane wyjściowe kroku i używany jako dane wejściowe jednego lub kilku przyszłych kroków. `PipelineData` wprowadza zależność danych między krokami i tworzy niejawną kolejność wykonywania w potoku. Ten obiekt będzie później używany podczas tworzenia kroków potoku.
+Dane pośrednie (lub dane wyjściowe kroku) są reprezentowane przez obiekt [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) . `output_data1` jest tworzony jako dane wyjściowe kroku i używany jako dane wejściowe jednego lub kilku przyszłych kroków. `PipelineData` wprowadza zależność danych między krokami i tworzy niejawną kolejność wykonywania w potoku. Ten obiekt będzie później używany podczas tworzenia kroków potoku.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -105,7 +105,7 @@ output_data1 = PipelineData(
 ```
 
 > [!TIP]
-> Utrwalanie danych pośrednich między etapami potoku jest również możliwe z klasą publicznej wersji zapoznawczej `OutputFileDatasetConfig` . Dowiedz się więcej o `OutputFileDatasetConfig` wzorcach i metodach projektowania w [dokumentacji referencyjnej dotyczącej zestawu SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> Utrwalanie danych pośrednich między etapami potoku jest również możliwe z klasą publicznej wersji zapoznawczej [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Aby zapoznać się z przykładem kodu przy użyciu `OutputFileDatasetConfig` klasy, zobacz jak [utworzyć dwa krokowe potoku](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 ## <a name="set-up-a-compute-target"></a>Konfigurowanie celu obliczeń
 
@@ -179,7 +179,7 @@ W powyższym kodzie przedstawiono dwie opcje obsługi zależności. Jak przedsta
 
 ## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Konstruowanie kroków potoku
 
-Po utworzeniu zasobu i środowiska obliczeniowego można przystąpić do definiowania kroków potoku. Istnieje wiele wbudowanych kroków dostępnych za pośrednictwem zestawu SDK Azure Machine Learning, jak widać w [dokumentacji referencyjnej `azureml.pipeline.steps` pakietu](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py). Najbardziej elastyczną klasą jest [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), która uruchamia skrypt języka Python.
+Po utworzeniu zasobu i środowiska obliczeniowego można przystąpić do definiowania kroków potoku. Istnieje wiele wbudowanych kroków dostępnych za pośrednictwem zestawu SDK Azure Machine Learning, jak widać w [dokumentacji referencyjnej `azureml.pipeline.steps` pakietu](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true). Najbardziej elastyczną klasą jest [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py&preserve-view=true), która uruchamia skrypt języka Python.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -234,12 +234,12 @@ Powyższy kod jest bardzo podobny do tego dla kroku przygotowywania danych. Kod 
 
 
 > [!TIP]
-> Aby uzyskać Ulepszone środowisko i możliwość zapisywania pośrednich danych z powrotem do magazynów danych na końcu uruchomienia potoku, użyj klasy publicznej wersji zapoznawczej `OutputFileDatasetConfig` . Dowiedz się więcej o `OutputFileDatasetConfig` wzorcach i metodach projektowania w [dokumentacji referencyjnej dotyczącej zestawu SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
+> Aby uzyskać Ulepszone środowisko i możliwość zapisywania pośrednich danych z powrotem do magazynów danych na końcu uruchomienia potoku, użyj klasy publicznej wersji zapoznawczej [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Aby zapoznać się z przykładami kodu, zobacz jak [utworzyć dwa etapowe potoku](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) i [jak zapisywać dane z powrotem do magazynów danych po zakończeniu wykonywania](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
 Po zdefiniowaniu kroków można skompilować potok za pomocą niektórych lub wszystkich tych kroków.
 
 > [!NOTE]
-> Podczas definiowania kroków lub kompilowania potoku nie są przekazywane żadne pliki ani dane do Azure Machine Learning. Pliki są przekazywane po wywołaniu [eksperymentu. Submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-).
+> Podczas definiowania kroków lub kompilowania potoku nie są przekazywane żadne pliki ani dane do Azure Machine Learning. Pliki są przekazywane po wywołaniu [eksperymentu. Submit ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-).
 
 ```python
 # list of steps to run (`compare_step` definition not shown)
@@ -253,12 +253,12 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych 
 
-Zestawy danych utworzone z usługi Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL mogą być używane jako dane wejściowe do dowolnego etapu potoku. Możesz zapisać dane wyjściowe w [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)lub, jeśli chcesz zapisać danych do określonego magazynu datastore, użyj [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+Zestawy danych utworzone z usługi Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database i Azure Database for PostgreSQL mogą być używane jako dane wejściowe do dowolnego etapu potoku. Możesz zapisać dane wyjściowe w [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true)lub, jeśli chcesz zapisać danych do określonego magazynu datastore, użyj [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true). 
 
 > [!IMPORTANT]
 > Zapisywanie danych wyjściowych z powrotem do magazynu danych za pomocą PipelineData jest obsługiwane tylko w przypadku obiektów blob platformy Azure i magazynów danych usługi Azure File Share. 
 >
-> Aby zapisać dane wyjściowe z powrotem do obiektu blob platformy Azure, usługi Azure File Share, ADLS Gen 1 i ADLS Gen 2 datastores wykorzystują publiczną klasę zapoznawczą [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py) .
+> Aby zapisać dane wyjściowe z powrotem do obiektu blob platformy Azure, usługi Azure File Share, ADLS Gen 1 i ADLS Gen 2 datastores wykorzystują publiczną klasę zapoznawczą [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) .
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -269,7 +269,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-Następnie można pobrać zestaw danych w potoku przy użyciu słownika [Run. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets) .
+Następnie można pobrać zestaw danych w potoku przy użyciu słownika [Run. input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueinput-datasets) .
 
 ```python
 # iris_train.py
@@ -293,7 +293,7 @@ Aby uzyskać bardziej szczegółowe informacje, w tym alternatywne sposoby przek
 ## <a name="caching--reuse"></a>Buforowanie & ponownie używane  
 
 Aby zoptymalizować i dostosować zachowanie potoków, można wykonać kilka czynności związanych z buforowaniem i wielokrotnym użyciem. Można na przykład wybrać następujące opcje:
-+ Wyłącz **domyślne ponowne użycie kroku Uruchom dane wyjściowe** przez ustawienie `allow_reuse=False` podczas [definiowania kroku](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Ponowne użycie jest kluczem przy użyciu potoków w środowisku współpracy, ponieważ wyeliminowanie niepotrzebnych uruchomień zapewnia elastyczność. Można jednak zrezygnować z ponownego użycia.
++ Wyłącz **domyślne ponowne użycie kroku Uruchom dane wyjściowe** przez ustawienie `allow_reuse=False` podczas [definiowania kroku](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true). Ponowne użycie jest kluczem przy użyciu potoków w środowisku współpracy, ponieważ wyeliminowanie niepotrzebnych uruchomień zapewnia elastyczność. Można jednak zrezygnować z ponownego użycia.
 + **Wymuś ponowne wygenerowanie danych wyjściowych dla wszystkich kroków w przebiegu** z `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 Domyślnie `allow_reuse` dla kroków jest włączone, a `source_directory` określone w definicji kroku są skrótem. Tak więc, jeśli skrypt dla danego kroku pozostaje taki sam ( `script_name` , dane wejściowe i parametry), a żadne inne elementy w programie ` source_directory` nie zmieniły się, dane wyjściowe przebiegu poprzedniego kroku są ponownie używane, zadanie nie zostanie przesłane do obliczenia, a wyniki z poprzedniego uruchomienia są natychmiast dostępne w następnym kroku.
@@ -336,7 +336,7 @@ Podczas pierwszego uruchomienia potoku Azure Machine Learning:
 
 ![Diagram uruchamiania eksperymentu jako potoku](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-Aby uzyskać więcej informacji, zobacz informacje o [klasie eksperymentów](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) .
+Aby uzyskać więcej informacji, zobacz informacje o [klasie eksperymentów](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) .
 
 ## <a name="view-results-of-a-pipeline"></a>Wyświetlanie wyników potoku
 
@@ -359,6 +359,6 @@ Po rozpoczęciu szkolenia w przypadku, gdy katalog źródłowy jest lokalnym rep
 
 - Aby udostępnić potok współpracownikom lub klientom, zobacz [Publikowanie potoków uczenia maszynowego](how-to-deploy-pipelines.md)
 - Korzystaj z [tych notesów Jupyter w witrynie GitHub](https://aka.ms/aml-pipeline-readme) , aby dowiedzieć się więcej o potokach uczenia maszynowego
-- Zapoznaj się z informacjami dotyczącymi zestawu SDK dla [potoków usługi Azure Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) i pakietu z instrukcjami dotyczącymi [potoków usługi Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
+- Zapoznaj się z informacjami dotyczącymi zestawu SDK dla [potoków usługi Azure Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) i pakietu z instrukcjami dotyczącymi [potoków usługi Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)
 - Zobacz [instrukcje](how-to-debug-pipelines.md) dotyczące debugowania i rozwiązywania problemów z potokami =
 - Dowiedz się, jak uruchamiać notesy, korzystając z [notesów Jupyter do eksplorowania tej usługi](samples-notebooks.md).

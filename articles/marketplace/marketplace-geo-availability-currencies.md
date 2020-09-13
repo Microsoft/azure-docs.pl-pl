@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826773"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650982"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -57,7 +57,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Chorwacja                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Cypr                              | CY        | EUR          |
-| Republika Czeska                      | CZ        | EUR          |
+| Czechia                      | CZ        | EUR          |
 | Dania                             | DK        | DKK          |
 | Dominikana                  | DO        | USD          |
 | Ekwador                             | EC        | USD          |
@@ -79,7 +79,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Węgry                             | HU        | EUR          |
 | Islandia                             | IS        | EUR          |
 | Indie                               | IN        | INR          |
-| Indonezja                           | ID        | USD          |
+| Indonezja                           | ID (Identyfikator)        | USD          |
 | Irak                                | IQ        | USD          |
 | Irlandia                             | IE        | EUR          |
 | Izrael                              | IL        | USD          |
@@ -99,7 +99,6 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Litwa                           | LT        | EUR          |
 | Luksemburg                          | LU        | EUR          |
 | SRA Makau                           | MO        | USD          |
-| Macedonia Północna                     | MK        | USD          |
 | Malezja                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |
@@ -115,6 +114,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Nowa Zelandia                         | NZ        | NZD          |
 | Nikaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
+| Macedonia Północna                     | MK        | USD          |
 | Norwegia                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
@@ -166,7 +166,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* W przypadku klientów w Brazylii Portal Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
+\* W przypadku klientów w Brazylii commcercial Marketplace za pośrednictwem dostawców rozwiązań w chmurze (CSP) używa USD.
 
 \** Tylko bezpłatne i BYOL obrazy maszyn wirtualnych.
 
@@ -177,14 +177,16 @@ W przypadku wszystkich płatnych typów ofert możesz skorzystać z opcji wprowa
 Aby dostosować cenę przed opublikowaniem, po prostu wyeksportuj arkusz cen, zmodyfikuj go i przekaż go ze zmianami.
 
 > [!NOTE]
-> Po opublikowaniu ceny na rynku planu nie można jej później zmienić. Aby upewnić się, że ceny są prawidłowe przed ich opublikowaniem, wyeksportuj arkusz cen i przejrzyj ceny na każdym rynku.
+> Po opublikowaniu ceny na rynku planu nie można jej zmienić. Aby upewnić się, że ceny są prawidłowe przed ich opublikowaniem, wyeksportuj arkusz cen i przejrzyj ceny na każdym rynku.
 
 Cena oferty jest zawsze wyświetlana klientom w lokalnej walucie. Cena wybrana w centrum partnerskim jest konwertowana na lokalną walutę klientów zgodnie z kursem wymiany w momencie zapisania ceny w centrum partnerskim. Cena pokazywana klientom w sklepach online nie zmienia się, chyba że zostanie ponownie opublikowana oferta.
 
 Firma Microsoft odbiera płatności od klientów w ich lokalnej walucie i płaci w lokalnej walucie. Firma Microsoft konwertuje walutę lokalną klienta na walutę lokalną przy użyciu kursu wymiany dnia zakupu.
 
 > [!NOTE]
-> Firma Microsoft przelicza ceny oferty przy użyciu kursu wymiany od firmy Microsoft.
+> Firma Microsoft przelicza ceny oferty przy użyciu kursów wymiany od firmy Microsoft.
+
+[![Przepływ konwersji waluty.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## <a name="retrieving-currency-information-by-api"></a>Pobieranie informacji o walucie według interfejsu API
 

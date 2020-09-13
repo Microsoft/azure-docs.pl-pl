@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386456"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650917"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Zobacz, jak to zrobić:
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 * Obszar roboczy Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 
-## <a name="create-notebooks"></a><a name="create"></a>Tworzenie notesów
+## <a name="create-notebooks"></a><a name="create"></a> Tworzenie notesów
 
 W obszarze roboczym Azure Machine Learning Utwórz nowy Notes Jupyter i Rozpocznij pracę. Nowo utworzony Notes jest przechowywany w domyślnym magazynie obszarów roboczych. Ten Notes może być udostępniany wszystkim użytkownikom mającym dostęp do obszaru roboczego. 
 
@@ -43,12 +43,12 @@ Aby utworzyć nowy Notes:
 
 1. Otwórz obszar roboczy w programie [Azure Machine Learning Studio](https://ml.azure.com).
 1. Po lewej stronie wybierz pozycję **notesy**. 
-1. Wybierz ikonę **Utwórz nowy plik** nad listą **plików użytkownika** w sekcji **Moje pliki** .
+1. Wybierz ikonę  **Utwórz nowy plik** nad listą **plików użytkownika** w sekcji **Moje pliki** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Utwórz nowy plik":::
 
 1. Nazwij plik. 
-1. Dla plików Jupyter Notebook wybierz pozycję **Notes Python** jako typ pliku.
+1. Dla plików Jupyter Notebook wybierz opcję **Notes** jako typ pliku.
 1. Wybierz katalog plików.
 1. Wybierz pozycję **Utwórz**.
 
@@ -65,7 +65,7 @@ Obszar roboczy zawiera folder **Samples** z notesami, które ułatwiają zapozna
 
 Aby zapoznać się z przykładem, zobacz [Samouczek: Tworzenie pierwszego eksperymentu z](tutorial-1st-experiment-sdk-setup.md#azure)tablicą.
 
-### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a>Używaj plików z narzędzia Git i wersji plików my
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Używaj plików z narzędzia Git i wersji plików my
 
 Dostęp do wszystkich operacji git można uzyskać przy użyciu okna terminalu. Wszystkie pliki i foldery git będą przechowywane w systemie plików obszaru roboczego.
 
@@ -82,7 +82,7 @@ Aby uzyskać dostęp do terminalu:
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Otwórz Terminal":::
 
-1. Jeśli nie widzisz ikony, wybierz pozycję **...** z prawej strony elementu docelowego obliczeń, a następnie wybierz pozycję **Otwórz Terminal** .
+1. Jeśli nie widzisz ikony, wybierz pozycję **...** z prawej strony elementu docelowego obliczeń, a następnie wybierz pozycję **Otwórz Terminal**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Otwórz Terminal z...":::
 
@@ -92,7 +92,7 @@ Dowiedz się więcej [na temat klonowania repozytoriów Git w systemie plików o
 
 ### <a name="share-notebooks-and-other-files"></a>Udostępnianie notesów i innych plików
 
-Skopiuj i wklej adres URL, aby udostępnić Notes lub plik.  Tylko inni użytkownicy obszaru roboczego będą mogli uzyskać dostęp do tego adresu URL.  Dowiedz się więcej o [udzielaniu dostępu do obszaru roboczego](how-to-assign-roles.md).
+Skopiuj i wklej adres URL, aby udostępnić Notes lub plik.  Tylko inni użytkownicy obszaru roboczego mogą uzyskać dostęp do tego adresu URL.  Dowiedz się więcej o [udzielaniu dostępu do obszaru roboczego](how-to-assign-roles.md).
 
 ## <a name="edit-a-notebook"></a>Edytowanie notesu
 
@@ -109,6 +109,22 @@ Na pasku narzędzi notesu można również uruchomić Jupyter lub JupyterLab.  A
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) to pomoc dla uzupełniania kodu, która obejmuje wiele funkcji: członków listy, informacji o parametrach, szybkich informacji i kompletnego wyrazu. Te funkcje pozwalają dowiedzieć się więcej o kodzie, którego używasz, śledzić parametry, które wpisujesz, i dodawać wywołania do właściwości i metod za pomocą tylko kilku naciśnięć klawiszy.  
 
 Podczas wpisywania kodu naciśnij klawisze CTRL + SPACJA, aby wyzwolić funkcję IntelliSense.
+
+### <a name="clean-your-notebook-preview"></a>Oczyść Notes (wersja zapoznawcza)
+
+> [!IMPORTANT]
+> Funkcja zbierania jest obecnie w publicznej wersji zapoznawczej.
+> Wersja zapoznawcza jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+W trakcie tworzenia notesu zazwyczaj możesz kończyć się komórkami używanymi do eksploracji lub debugowania danych. Funkcja *zbierania* pomoże Ci w wykorzystaniu czystego notesu bez takich niezbędnych komórek.
+
+1. Uruchom wszystkie komórki notesu.
+1. Wybierz komórkę zawierającą kod, który ma zostać uruchomiony w nowym notesie. Na przykład kod, który przesyła eksperyment lub może być kodem, który rejestruje model.
+1. Wybierz ikonę **Zbierz** , która pojawia się na pasku narzędzi komórki.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Zrzut ekranu: wybierz ikonę zbierania":::
+1. Wprowadź nazwę nowego notesu "zebrana".  
+
+Nowy notes zawiera tylko komórki kodu, a wszystkie komórki wymagane do wygenerowania tych samych wyników co Komórka wybrana do zebrania.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Zapisz i Utwórz punkt kontrolny notesu
 
@@ -141,7 +157,7 @@ Wybierz **punkty kontrolne** w menu Notes, aby utworzyć nazwany punkt kontrolny
 Notesy **plików użytkownika** *można* usuwać w dowolny z następujących sposobów:
 
 * W programie Studio wybierz pozycję **...** na końcu folderu lub pliku.  Upewnij się, że używasz obsługiwanej przeglądarki (Microsoft Edge, Chrome lub Firefox).
-* Na dowolnym pasku narzędzi notesu wybierz pozycję [**Otwórz Terminal**](#terminal) , aby uzyskać dostęp do okna terminalu wystąpienia obliczeniowego.
+* Na dowolnym pasku narzędzi notesu wybierz pozycję [**Otwórz Terminal**](#terminal)  , aby uzyskać dostęp do okna terminalu wystąpienia obliczeniowego.
 * W Jupyter lub JupyterLab z narzędziami.
 
 ## <a name="run-an-experiment"></a>Uruchamianie eksperymentu
@@ -157,7 +173,7 @@ Można wyświetlać i używać tylko utworzonych wystąpień obliczeniowych.  **
 
 ### <a name="view-logs-and-output"></a>Wyświetlanie dzienników i danych wyjściowych
 
-Użyj [widżetów Notes](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) , aby wyświetlić postęp przebiegów i dzienników. Widżet jest asynchroniczny i udostępnia aktualizacje do momentu zakończenia szkolenia. Azure Machine Learning widżety są również obsługiwane w Jupyter i JupterLab.
+Użyj [widżetów Notes](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) , aby wyświetlić postęp przebiegów i dzienników. Widżet jest asynchroniczny i udostępnia aktualizacje do momentu zakończenia szkolenia. Azure Machine Learning widżety są również obsługiwane w Jupyter i JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Zmień środowisko notesu
 
@@ -208,7 +224,7 @@ Można zainstalować dowolne z [dostępnych jądra Jupyter](https://github.com/j
 
 Wskaźnik obok listy rozwijanej **obliczenia** pokazuje swój stan.  Stan jest również wyświetlany na liście rozwijanej.  
 
-|Kolor |Stan obliczeń |
+|Color (Kolor) |Stan obliczeń |
 |---------|---------| 
 | Green (Zielony) | Uruchomione obliczenia |
 | Red (Czerwony) |Obliczanie nie powiodło się | 
@@ -218,7 +234,7 @@ Wskaźnik obok listy rozwijanej **obliczenia** pokazuje swój stan.  Stan jest r
 
 Wskaźnik obok menu rozwijanego **jądra** pokazuje jego stan.
 
-|Kolor |Stan jądra |
+|Color (Kolor) |Stan jądra |
 |---------|---------|
 |  Green (Zielony) |Jądro połączone, bezczynne, zajęte|
 |  Szary |Jądro niepołączone |

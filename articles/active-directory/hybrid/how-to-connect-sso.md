@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf7db5f27ed6f612d0896bff0899feda3311883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357753"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658355"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -53,22 +53,22 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 
 - Nazwa użytkownika logowania może być lokalną domyślną nazwą użytkownika ( `userPrincipalName` ) lub innym atrybutem skonfigurowanym w Azure AD Connect ( `Alternate ID` ). Oba przypadki użycia działają, ponieważ bezproblemowe logowanie jednokrotne korzysta z `securityIdentifier` roszczeń w biletu protokołu Kerberos w celu wyszukania odpowiedniego obiektu użytkownika w usłudze Azure AD.
 - Bezproblemowe logowanie jednokrotne jest funkcją oportunistyczną. Jeśli z jakiegoś powodu nie powiedzie się, środowisko logowania użytkownika powróci do regularnego zachowania — oznacza to, że użytkownik musi wprowadzić hasło na stronie logowania.
-- Jeśli aplikacja (na przykład `https://myapps.microsoft.com/contoso.com` ) przekaże `domain_hint` parametr (OpenID Connect Connect) lub `whr` (SAML), identyfikujący dzierżawcę lub `login_hint` parametr-identyfikujący użytkownika w ŻĄDANIU logowania usługi Azure AD, użytkownicy są automatycznie zalogowani bez wprowadzania nazw użytkowników ani haseł.
+- Jeśli aplikacja (na przykład  `https://myapps.microsoft.com/contoso.com` ) przekaże `domain_hint` parametr (OpenID Connect Connect) lub `whr` (SAML), identyfikujący dzierżawcę lub `login_hint` parametr-identyfikujący użytkownika w ŻĄDANIU logowania usługi Azure AD, użytkownicy są automatycznie zalogowani bez wprowadzania nazw użytkowników ani haseł.
 - Użytkownicy mogą również korzystać z dyskretnych funkcji logowania, jeśli aplikacja (na przykład `https://contoso.sharepoint.com` ) wysyła żądania logowania do punktów końcowych usługi Azure AD skonfigurowanych jako dzierżawcy — to jest `https://login.microsoftonline.com/contoso.com/<..>` lub `https://login.microsoftonline.com/<tenant_ID>/<..>` zamiast wspólnego punktu końcowego usługi Azure AD, czyli `https://login.microsoftonline.com/common/<...>` .
 - Wylogowywanie jest obsługiwane. Dzięki temu użytkownicy mogą wybrać inne konto usługi Azure AD, aby zalogować się za pomocą programu, a nie automatycznie logować się automatycznie za pomocą bezproblemowego logowania jednokrotnego.
-- Klienci Win32 pakietu Office 365 (Outlook, Word, Excel i inne) z wersjami 16.0.8730. xxxx i nowszymi są obsługiwani przy użyciu nieinteraktywnego przepływu. W przypadku usługi OneDrive konieczne będzie aktywowanie [funkcji konfiguracji dyskretnej usługi OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) w celu zalogowania dyskretnego.
+- Microsoft 365 klienci Win32 (Outlook, Word, Excel i inne) z wersjami 16.0.8730. xxxx i powyżej są obsługiwane za pomocą nieinteraktywnego przepływu. W przypadku usługi OneDrive konieczne będzie aktywowanie [funkcji konfiguracji dyskretnej usługi OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) w celu zalogowania dyskretnego.
 - Można ją włączyć za pośrednictwem Azure AD Connect.
 - Jest to bezpłatna funkcja i nie są potrzebne żadne płatne wersje usługi Azure AD do użycia.
-- Jest ona obsługiwana w klientach opartych na przeglądarce sieci Web i klientach pakietu Office, którzy obsługują [nowoczesne uwierzytelnianie](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) na platformach i przeglądarkach obsługujących uwierzytelnianie Kerberos:
+- Jest ona obsługiwana w klientach opartych na przeglądarce sieci Web i klientach pakietu Office, którzy obsługują [nowoczesne uwierzytelnianie](/office365/enterprise/modern-auth-for-office-2013-and-2016) na platformach i przeglądarkach obsługujących uwierzytelnianie Kerberos:
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Tak\*|Tak|Yes|Tak\*\*\*|Nie dotyczy
-|Windows 8.1|Tak\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
-|Windows 8|Tak\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
+|Windows 10|Tak\*|Tak|Tak|Tak\*\*\*|Nie dotyczy
+|Windows 8.1|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
+|Windows 8|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
 |Windows 7|Tak\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
 |System Windows Server 2012 R2 lub nowszy|Opcję\*\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
-|Mac OS X|Nie dotyczy|Nie dotyczy|Tak\*\*\*|Tak\*\*\*|Tak\*\*\*
+|Mac OS X|NIE DOTYCZY|NIE DOTYCZY|Tak\*\*\*|Tak\*\*\*|Tak\*\*\*
 
 
 \*Wymaga programu Internet Explorer w wersji 10 lub nowszej
@@ -88,4 +88,3 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 - [**Często zadawane pytania**](how-to-connect-sso-faq.md) — odpowiedzi na często zadawane pytania.
 - [**Rozwiązywanie problemów**](tshoot-connect-sso.md) — Dowiedz się, jak rozwiązywać typowe problemy z funkcją.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) — w przypadku zgłaszania nowych żądań funkcji.
-

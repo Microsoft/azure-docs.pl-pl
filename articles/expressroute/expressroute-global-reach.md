@@ -2,59 +2,42 @@
 title: 'Azure ExpressRoute: łączenie się z Microsoft Cloud przy użyciu Global Reach'
 description: Dowiedz się, jak usługa Azure ExpressRoute Global Reach umożliwia łączenie obwodów ExpressRoute ze sobą, aby utworzyć sieć prywatną między sieciami lokalnymi.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.author: cherylmc
-ms.openlocfilehash: 5c747253a56476b0fd9431311294d487ef336e69
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 09/02/2020
+ms.author: duau
+ms.openlocfilehash: 8c6ed19a585bc1ebae65045cd1cc4c442f113597
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190749"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651488"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
-ExpressRoute to prywatny i odporny na podłączenie sieci lokalnych do Microsoft Cloud. Możesz uzyskać dostęp do wielu usług w chmurze firmy Microsoft, takich jak Azure, i pakietu Office 365 z prywatnego centrum danych lub sieci firmowej. Na przykład możesz mieć oddział w sieci San Francisco z obwodem usługi ExpressRoute w Dolina krzemu i innym biurze oddziału w Londynie z obwodem usługi ExpressRoute w tym samym mieście. Obie biura oddziałów mogą mieć dużą szybkość łączności z zasobami platformy Azure w regionie zachodnie stany USA i Południowe Zjednoczone Królestwo. Oddziały nie mogą jednak wymieniać danych bezpośrednio. Innymi słowy, 10.0.1.0/24 może wysyłać dane do 10.0.3.0/24 i 10.0.4.0/24, ale nie do 10.0.2.0/24.
+ExpressRoute to prywatny i odporny na połączenie sieci lokalnych z Microsoft Cloud. Dostęp do wielu usług w chmurze firmy Microsoft, takich jak Azure i Microsoft 365, można uzyskać z prywatnego centrum danych lub sieci firmowej. Na przykład możesz mieć oddział w sieci San Francisco z obwodem usługi ExpressRoute w Dolina krzemu i innym biurze oddziału w Londynie z obwodem usługi ExpressRoute w tym samym mieście. Obie biura oddziałów mają wysoką szybkość łączności z zasobami platformy Azure w zachodnich stanach USA i Południowe Zjednoczone Królestwo. Oddziały nie mogą jednak łączyć i wysyłać danych bezpośrednio ze sobą. Innymi słowy, 10.0.1.0/24 może wysyłać dane do sieci 10.0.3.0/24 i 10.0.4.0/24, ale nie do sieci 10.0.2.0/24.
 
-![konieczności][1]
+![Diagram przedstawiający obwody, które nie są połączone ze sobą za pomocą usługi Express Route Global Reach.][1]
 
 Program **ExpressRoute Global REACH**umożliwia łączenie obwodów ExpressRoute ze sobą w celu naprowadzenia prywatnej sieci między sieciami lokalnymi. W powyższym przykładzie, przy dodawaniu ExpressRoute Global Reach, Sieć San Francisco Office (10.0.1.0/24) może bezpośrednio wymieniać dane z biurem w Londynie (10.0.2.0/24) za pośrednictwem istniejących obwodów usługi ExpressRoute i sieci globalnej firmy Microsoft. 
 
-![się][2]
+![Diagram przedstawiający obwody połączone ze sobą za pomocą usługi Express Route Global Reach.][2]
 
 ## <a name="use-case"></a>Przypadek użycia
 ExpressRoute Global Reach zaprojektowano w celu uzupełnienia implementacji sieci WAN dostawcy usług i łączenia biur oddziałów na całym świecie. Na przykład, jeśli dostawca usług działa głównie w Stany Zjednoczone i łączy wszystkie gałęzie w Stanach Zjednoczonych, ale dostawca usług nie działa w Japonii i Hong Kongu, z ExpressRoute Global Reach można pracować z lokalnym dostawcą usług, a firma Microsoft łączy Twoje gałęzie w Stanach Zjednoczonych przy użyciu ExpressRoute i naszej sieci globalnej.
 
-![przypadek użycia][3]
+![Diagram przedstawiający przypadek użycia dla Global Reach usługi Express Route.][3]
 
 ## <a name="availability"></a>Dostępność 
-ExpressRoute Global Reach obecnie jest obsługiwana w następujących miejscach.
+ExpressRoute Global Reach jest obsługiwana w większości regionów, w których ExpressRoute jest obecnie obsługiwany. Można odwołać się do [dostawców połączeń ExpressRoute](expressroute-locations-providers.md#partners) dla bieżących obsługiwanych regionów. 
 
-* Australia
-* Kanada
-* Francja
-* Niemcy
-* SRA Hongkong
-* Irlandia
-* Japonia
-* Korea
-* Holandia
-* Nowa Zelandia
-* Norwegia
-* Singapur
-* Szwecja
-* Szwajcaria
-* Zjednoczone Królestwo
-* Stany Zjednoczone
-
-Obwody usługi ExpressRoute muszą zostać utworzone w [lokalizacjach komunikacji równorzędnej ExpressRoute](expressroute-locations.md) w powyższych krajach lub regionach. Aby umożliwić ExpressRoute Global Reach między [różnymi regionami geopolitycznych](expressroute-locations.md), obwody muszą być jednostkami SKU w warstwie Premium.
+> [!NOTE] 
+> Aby umożliwić ExpressRoute Global Reach między [różnymi regionami geopolitycznych](expressroute-locations-providers.md#locations), obwody muszą być **jednostkami SKU w warstwie Premium**.
 
 ## <a name="next-steps"></a>Następne kroki
-1. [Wyświetlanie Global Reach często zadawanych pytań](expressroute-faqs.md#globalreach)
-2. [Dowiedz się, jak włączyć Global Reach](expressroute-howto-set-global-reach.md)
-3. [Dowiedz się, jak połączyć obwód ExpressRoute z siecią wirtualną](expressroute-howto-linkvnet-arm.md)
-
+- Wyświetl [Global REACH często zadawanych pytań](expressroute-faqs.md#globalreach).
+- Dowiedz się, jak [włączyć Global REACH](expressroute-howto-set-global-reach.md).
+- Dowiedz się, jak [połączyć obwód ExpressRoute z siecią wirtualną](expressroute-howto-linkvnet-arm.md).
 
 <!--Image References-->
 [1]: ./media/expressroute-global-reach/1.png "Diagram bez globalnego zasięgu"

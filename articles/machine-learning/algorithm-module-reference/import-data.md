@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68bf47f370a57fe277d4ab9679af0b920a0d81ec
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611819"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658113"
 ---
 # <a name="import-data-module"></a>Importuj moduł danych
 
@@ -45,7 +45,7 @@ Po zdefiniowaniu danych, które chcesz połączyć ze źródłem, **[Importowani
 Jeśli dane źródłowe zmienią się, można odświeżyć zestaw danych i dodać nowe dane przez ponowne uruchomienie [importowania danych](./import-data.md).
 
 > [!WARNING]
-> Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz skonfigurować magazyny danych tak, aby korzystały z funkcji wizualizacji z danymi projektanta. Aby uzyskać więcej informacji na temat sposobu korzystania z magazynów danych i ich zestawów w sieci wirtualnej, zapoznaj się z tematem [izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi](../how-to-enable-virtual-network.md#machine-learning-studio).
+> Jeśli obszar roboczy znajduje się w sieci wirtualnej, musisz skonfigurować magazyny danych tak, aby korzystały z funkcji wizualizacji z danymi projektanta. Aby uzyskać więcej informacji na temat korzystania z magazynów danych i zestawów w sieci wirtualnej, zobacz [Korzystanie z programu Azure Machine Learning Studio w sieci wirtualnej platformy Azure](../how-to-enable-studio-virtual-network.md).
 
 
 ## <a name="how-to-configure-import-data"></a>Jak skonfigurować Importowanie danych

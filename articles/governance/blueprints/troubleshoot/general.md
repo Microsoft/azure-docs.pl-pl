@@ -3,12 +3,12 @@ title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem, przypisywaniem i usuwaniem planów, takich jak naruszenia zasad i funkcje parametrów planu.
 ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557508"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651325"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Rozwiązywanie problemów z błędami przy użyciu planów platformy Azure
 
@@ -22,9 +22,9 @@ Wiele błędów będzie wynikiem przypisywania strategii do zakresu. Jeśli przy
 
 1. Wybierz pozycję **przypisane plany** na stronie z lewej strony i użyj pola wyszukiwania, aby odfiltrować przypisania strategii w celu znalezienia nieudanego przypisania. Możesz również posortować tabelę przypisań według kolumny **stan aprowizacji** , aby zobaczyć wszystkie niezakończone przydziały zgrupowane razem.
 
-1. Kliknij prawym przyciskiem myszy plan o stanie _Niepowodzenie_ lub kliknij, a następnie wybierz pozycję **Wyświetl szczegóły przydziału**.
+1. Wybierz plan o stanie _Niepowodzenie_ lub kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Wyświetl szczegóły przydziału**.
 
-1. Ostrzeżenie o czerwoniu baneru, którego przypisanie nie powiodło się, znajduje się w górnej części strony przypisanie strategii. Kliknij gdziekolwiek na banerze, aby uzyskać więcej szczegółów.
+1. Ostrzeżenie o czerwoniu baneru, którego przypisanie nie powiodło się, znajduje się w górnej części strony przypisanie strategii. Wybierz dowolne miejsce na banerze, aby uzyskać więcej szczegółów.
 
 Często przyczyną błędu może być artefakt, a nie plan jako całość. Jeśli artefakt tworzy Key Vault i Azure Policy zapobiega tworzeniu Key Vault, całe przypisanie zakończy się niepowodzeniem.
 

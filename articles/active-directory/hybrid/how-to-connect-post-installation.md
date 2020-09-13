@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a859a10e02a5738ee023db5d653ea14403b9bcad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358450"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657124"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Następne kroki i sposób zarządzania Azure AD Connect
 Korzystając z procedur operacyjnych w tym artykule, można dostosować program Azure Active Directory (Azure AD) Connect, aby spełniał potrzeby i wymagania organizacji.  
@@ -30,7 +30,7 @@ Korzystając z procedur operacyjnych w tym artykule, można dostosować program 
 Domyślnie tylko użytkownik, który wykonał instalację i Administratorzy lokalni, może zarządzać zainstalowanym aparatem synchronizacji. Aby dodatkowe osoby mogły uzyskać dostęp do aparatu synchronizacji i zarządzać nim, zlokalizuj grupę o nazwie ADSyncAdmins na serwerze lokalnym i Dodaj ją do tej grupy.
 
 ## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Przypisywanie licencji do Azure AD — wersja Premium i użytkowników pakietu Enterprise Mobility Suite
-Teraz, gdy użytkownicy zostali zsynchronizowani z chmurą, należy przypisać im licencję, aby umożliwić im przechodzenie do aplikacji w chmurze, takich jak Office 365.
+Teraz, gdy użytkownicy zostali zsynchronizowani z chmurą, należy przypisać im licencję, aby umożliwić im przechodzenie do aplikacji w chmurze, takich jak Microsoft 365.
 
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Aby przypisać licencję na Azure AD — wersja Premium lub pakiet Enterprise Mobility Suite
 

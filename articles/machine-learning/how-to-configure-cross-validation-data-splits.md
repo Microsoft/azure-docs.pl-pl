@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 900d5cd435a913c0859c862d176fd30130e0a079
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321500"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650735"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Konfigurowanie podziałów danych i wzajemnego sprawdzania poprawności w ramach automatycznego uczenia maszynowego
 
@@ -24,7 +24,7 @@ Ten artykuł zawiera informacje o różnych opcjach związanych z konfigurowanie
 
 W Azure Machine Learning, gdy używasz AutoML do kompilowania wielu modeli ML, każdy przebieg podrzędny musi sprawdzić poprawność modelu, obliczając metryki jakości dla tego modelu, takie jak dokładność lub waga AUC. Te metryki są obliczane przez porównanie prognoz wykonanych z poszczególnymi modelami z rzeczywistymi etykietami z ostatnich obserwacji w danych sprawdzania poprawności. 
 
-Eksperymenty AutoML automatycznie sprawdzają poprawność modelu. W poniższych sekcjach opisano, jak można modyfikować ustawienia walidacji za pomocą [zestawu SDK języka Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+Eksperymenty AutoML automatycznie sprawdzają poprawność modelu. W poniższych sekcjach opisano, jak można modyfikować ustawienia walidacji za pomocą [zestawu SDK języka Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 Aby zapoznać się z niską ilością kodu lub bez kodu, zobacz [Tworzenie zautomatyzowanych eksperymentów uczenia maszynowego w programie Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ W tym artykule należy
 
 ## <a name="default--data-splits-and-cross-validation"></a>Domyślne podziały danych i wzajemne sprawdzanie poprawności
 
-Użyj obiektu [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) , aby zdefiniować ustawienia eksperymentu i szkolenia. W poniższym fragmencie kodu należy zauważyć, że są zdefiniowane tylko wymagane parametry, które są parametrami dla `n_cross_validation` lub `validation_ data` **nie** są uwzględniane.
+Użyj obiektu [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) , aby zdefiniować ustawienia eksperymentu i szkolenia. W poniższym fragmencie kodu należy zauważyć, że są zdefiniowane tylko wymagane parametry, które są parametrami dla `n_cross_validation` lub `validation_ data` **nie** są uwzględniane.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -93,7 +93,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Podaj rozmiar zestawu walidacji
 
-W takim przypadku dla eksperymentu jest dostarczany tylko jeden zestaw danych. Oznacza to, że `validation_data` parametr **nie** jest określony, a podany zestaw danych jest przypisany do `training_data` parametru.  W `AutoMLConfig` obiekcie można ustawić `validation_size` parametr, aby wytrzymać część danych szkoleniowych na potrzeby walidacji. Oznacza to, że zestaw walidacji zostanie podzielony przez AutoML z `training_data` podanego początkowego. Ta wartość powinna należeć do przedziału od 0,0 do 1,0 (na przykład 0,2 oznacza, że 20% danych jest przechowywanych na potrzeby sprawdzania poprawności danych).
+W takim przypadku dla eksperymentu jest dostarczany tylko jeden zestaw danych. Oznacza to, że `validation_data` parametr **nie** jest określony, a podany zestaw danych jest przypisany do  `training_data` parametru.  W `AutoMLConfig` obiekcie można ustawić `validation_size` parametr, aby wytrzymać część danych szkoleniowych na potrzeby walidacji. Oznacza to, że zestaw walidacji zostanie podzielony przez AutoML z `training_data` podanego początkowego. Ta wartość powinna należeć do przedziału od 0,0 do 1,0 (na przykład 0,2 oznacza, że 20% danych jest przechowywanych na potrzeby sprawdzania poprawności danych).
 
 Zobacz następujący przykład kodu:
 

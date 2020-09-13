@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: 34ddea1445ef8a8eb8554add3ee8920078a6e573
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/10/2020
+ms.openlocfilehash: 883c88386e4796f8d0cd2631b7754c06ce13d141
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182569"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657264"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -51,7 +51,7 @@ Dla działania kopiowania ten łącznik magazynu obiektów BLOB obsługuje:
 >[!IMPORTANT]
 >Jeśli włączysz opcję **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu** w ustawieniach zapory usługi Azure Storage i chcesz używać środowiska Azure Integration Runtime do nawiązywania połączenia z usługą BLOB Storage, musisz użyć [uwierzytelniania tożsamości zarządzanej](#managed-identity).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -67,7 +67,7 @@ Ten łącznik magazynu obiektów BLOB obsługuje następujące typy uwierzytelni
 - [Zarządzane tożsamości na potrzeby uwierzytelniania zasobów platformy Azure](#managed-identity)
 
 >[!NOTE]
->W przypadku korzystania z bazy danych w celu ładowania do Azure SQL Data Warehouse, Jeśli źródłowy lub tymczasowy magazyn obiektów BLOB jest skonfigurowany za pomocą punktu końcowego usługi Azure Virtual Network, należy użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami bazy danych. Należy również użyć własnego środowiska Integration Runtime w wersji 3,18 lub nowszej. Więcej informacji na temat wymagań wstępnych dotyczących konfiguracji można znaleźć w sekcji [uwierzytelnianie tożsamości zarządzanej](#managed-identity) .
+>Gdy korzystasz z bazy danych Base, aby załadować dane do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), Jeśli źródłowy lub przejściowy magazyn obiektów BLOB jest skonfigurowany za pomocą punktu końcowego usługi Azure Virtual Network, musisz użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami sieci podstawowej. Należy również użyć własnego środowiska Integration Runtime w wersji 3,18 lub nowszej. Więcej informacji na temat wymagań wstępnych dotyczących konfiguracji można znaleźć w sekcji [uwierzytelnianie tożsamości zarządzanej](#managed-identity) .
 
 >[!NOTE]
 >Działania usługi Azure HDInsight i Azure Machine Learning obsługują tylko uwierzytelnianie wykorzystujące klucze konta usługi Azure Blob Storage.
@@ -234,6 +234,7 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Tak |
 | Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Tak |
+| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage**lub **BlockBlobStorage**. <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. |Nie |
 | servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak |
 | servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
 | dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz ją przez umieszczenie kursora w prawym górnym rogu Azure Portal. | Tak |
@@ -252,6 +253,7 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -281,7 +283,7 @@ Aby uzyskać ogólne informacje o uwierzytelnianiu usługi Azure Storage, zobacz
     - **Jako ujścia**w **kontroli dostępu (IAM)** Przydziel co najmniej rolę **współautor danych obiektu blob magazynu** .
 
 >[!IMPORTANT]
->Jeśli korzystasz z bazy danych Base, aby załadować dane z magazynu obiektów BLOB (jako źródło lub jako tymczasowe) do SQL Data Warehouse, podczas korzystania z uwierzytelniania tożsamości zarządzanej dla usługi BLOB Storage upewnij się, że w [tych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)zostały opisane kroki 1 i 2. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. Jeśli usługa BLOB Storage została skonfigurowana za pomocą punktu końcowego usługi Azure Virtual Network, aby można było załadować z niej dane, należy użyć uwierzytelniania tożsamości zarządzanej, zgodnie z wymaganiami firmy Base.
+>Jeśli korzystasz z bazy danych Base, aby załadować dane z magazynu obiektów BLOB (jako źródło lub jako tymczasowe) do usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), podczas korzystania z uwierzytelniania tożsamości zarządzanej dla magazynu obiektów blob, upewnij się, że w [tych wskazówkach](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)zostały opisane kroki 1 i 2. Te kroki spowodują zarejestrowanie serwera w usłudze Azure AD i przypisanie roli współautor danych obiektów blob magazynu do serwera. Data Factory obsługuje resztę. Jeśli usługa BLOB Storage została skonfigurowana za pomocą punktu końcowego usługi Azure Virtual Network, aby można było załadować z niej dane, należy użyć uwierzytelniania tożsamości zarządzanej, zgodnie z wymaganiami firmy Base.
 
 Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 
@@ -289,6 +291,7 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Tak |
 | Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Tak |
+| accountKind | Określ rodzaj konta magazynu. Dozwolone wartości to: **Storage** (ogólnego przeznaczenia w wersji 1), **StorageV2** (ogólnego przeznaczenia w wersji 2), **BlobStorage**lub **BlockBlobStorage**. <br/> W przypadku korzystania z połączonej usługi Azure BLOB w przepływie danych tożsamość zarządzana lub uwierzytelnianie nazwy głównej usługi nie są obsługiwane, jeśli typ konta jest pusty lub "magazyn". Określ odpowiedni rodzaj konta, wybierz inne uwierzytelnianie lub Uaktualnij konto magazynu do ogólnego przeznaczenia w wersji 2. |Nie |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 > [!NOTE]
@@ -302,7 +305,8 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

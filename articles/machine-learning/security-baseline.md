@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 168aec49dc9b14af57df98ebc4c997f8dfb27c9e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228362"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657351"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Podstawa zabezpieczeń platformy Azure dla Azure Machine Learning
 
@@ -28,7 +28,7 @@ Podstawą zabezpieczeń platformy Azure dla Microsoft Azure Machine Learning są
 
 Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu.
 
-- [Jak bezpiecznie uruchamiać eksperymenty i wnioskować w izolowanej sieci wirtualnej](how-to-enable-virtual-network.md)
+- [Omówienie izolacji i prywatności sieci wirtualnej](how-to-network-security-overview.md)
 
 - [Używanie obszaru roboczego za zaporą platformy Azure w celu Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -58,7 +58,7 @@ Włącz dzienniki przepływu sieciowych grup zabezpieczeń i Wyślij dzienniki d
 
 - [Zabezpieczanie usługi internetowej za pomocą usługi Azure Machine Learning przy użyciu protokołu TLS](how-to-secure-web-service.md)
 
-- [Izolacja sieci podczas szkoleń związanych &amp; z prywatnymi sieciami wirtualnymi](how-to-enable-virtual-network.md)
+- [Omówienie izolacji i prywatności sieci wirtualnej](how-to-network-security-overview.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -94,7 +94,7 @@ Wdróż zaporę platformy Azure w każdej z granic sieci organizacji przy włąc
 
 **Wskazówki**: należy wdrożyć wybrane rozwiązanie zapory na wszystkich granicach sieci organizacji w celu wykrycia i/lub zablokowania złośliwego ruchu.
 
-Wybierz ofertę z portalu Azure Marketplace, która obsługuje funkcje identyfikatorów/adresów IP z możliwościami inspekcji ładunku.  Gdy inspekcja ładunku nie jest wymagana, można użyć analizy zagrożeń zapory platformy Azure. Filtrowanie oparte na analizie zagrożeń dla zapory platformy Azure służy do wyzwalania alertów dotyczących i/lub blokowania ruchu do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft.
+Wybierz ofertę z witryny Azure Marketplace, która obsługuje funkcje identyfikatorów/adresów IP z możliwościami inspekcji ładunku.  Gdy inspekcja ładunku nie jest wymagana, można użyć analizy zagrożeń zapory platformy Azure. Filtrowanie oparte na analizie zagrożeń dla zapory platformy Azure służy do wyzwalania alertów dotyczących i/lub blokowania ruchu do i ze znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą z kanału informacyjnego analizy zagrożeń firmy Microsoft.
 
 - [Jak wdrożyć zaporę platformy Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -122,7 +122,7 @@ Azure Machine Learning usługa dokumentuje listę tagów usługi dla swoich cel�
 
 - [Aby uzyskać więcej informacji na temat używania tagów usługi](../virtual-network/service-tags-overview.md)
 
-- [Dla Azure Machine Learning sieci wirtualnej](how-to-enable-virtual-network.md)
+- [Omówienie izolacji i prywatności sieci wirtualnej](how-to-network-security-overview.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -326,7 +326,7 @@ Przy użyciu modułu Azure AD PowerShell można również wykonywać zapytania a
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3,3: Użyj dedykowanych kont administracyjnych
 
-**Wskazówki**: Azure Machine Learning zawiera trzy role domyślne podczas tworzenia nowego obszaru roboczego, należy utworzyć standardowe procedury operacyjne dotyczące korzystania z kont właścicieli.
+**Wskazówki**: Azure Machine Learning zawiera trzy role domyślne podczas tworzenia nowego obszaru roboczego, tworząc standardowe procedury operacyjne dotyczące korzystania z kont właścicieli.
 
 Możesz również włączyć dostęp just in Time do kont administracyjnych przy użyciu Azure AD Privileged Identity Management i Azure Resource Manager. 
 
@@ -402,7 +402,7 @@ Możesz również włączyć dostęp just in Time do kont administracyjnych przy
  
 Dostęp do roli można ograniczyć do wielu poziomów na platformie Azure. W przypadku Machine Learning role mogą być zarządzane na poziomie obszaru roboczego, na przykład dostęp właściciela do obszaru roboczego może nie mieć dostępu właściciela do grupy zasobów, która zawiera obszar roboczy. Zapewnia to bardziej szczegółowe kontrole dostępu w celu oddzielenia ról w ramach tej samej grupy zasobów. 
 
-- [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md) 
+- [Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning](how-to-assign-roles.md) 
  
 - [Jak utworzyć i skonfigurować wystąpienie usługi Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -527,7 +527,7 @@ W przypadku podstawowej platformy zarządzanej przez firmę Microsoft Firma Micr
 
 **Wskazówki**: Azure Machine Learning obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań Machine Learning zasobów. Korzystając z usługi Azure AD, możesz użyć kontroli dostępu opartej na rolach (RBAC) na platformie Azure, aby przyznać uprawnienia do podmiotu zabezpieczeń, który może być użytkownikiem lub podmiotem usługi aplikacji.
 
-- [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md)
+- [Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning](how-to-assign-roles.md)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -979,7 +979,9 @@ Użyj Azure Key Vault, aby bezpiecznie przekazywać klucze tajne do zdalnego uru
 
 - [Jak utworzyć Key Vault](/azure/key-vault/quick-create-portal)
 
-- [Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej](/azure/key-vault/managed-identity)
+- [Jak przeprowadzić uwierzytelnianie w Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [Jak przypisać zasady dostępu Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -990,7 +992,7 @@ Użyj Azure Key Vault, aby bezpiecznie przekazywać klucze tajne do zdalnego uru
 **Wskazówki**: Azure Machine Learning obsługuje zarówno role wbudowane, jak i możliwość tworzenia ról niestandardowych. Użyj tożsamości zarządzanych, aby zapewnić usługom platformy Azure automatyczną tożsamość zarządzaną w usłudze Azure AD. Zarządzane tożsamości umożliwiają uwierzytelnianie w dowolnej usłudze obsługującej uwierzytelnianie w usłudze Azure AD, w tym Key Vault, bez żadnych poświadczeń w kodzie.
 
  
-- [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md)
+- [Zarządzanie dostępem do obszaru roboczego usługi Azure Machine Learning](how-to-assign-roles.md)
 
 - [Jak skonfigurować tożsamości zarządzane dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

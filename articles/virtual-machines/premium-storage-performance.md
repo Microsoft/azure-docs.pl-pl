@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855547"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650710"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: projektowanie pod kątem wysokiej wydajności
 
@@ -102,7 +102,7 @@ Następnie Zmierz maksymalne wymagania dotyczące wydajności aplikacji przez ca
 | Maksymalnie z Przepływność | | | |
 | Długości. Opóźnienie | | | |
 | Średnie opóźnienie | | | |
-| Maksymalnie z Procesor CPU | | | |
+| Maksymalnie z CPU | | | |
 | Średni procesor CPU | | | |
 | Maksymalnie z Pamięć | | | |
 | Średnia pamięć | | | |
@@ -127,10 +127,10 @@ Liczniki Monitora wydajności są dostępne dla procesora, pamięci i każdego d
 | **Opóźnienie** |Łączny czas wykonywania żądania we/wy dysku. |Średni czas dysku w s/odczyt <br> Średni czas dysku w s/zapis |await <br> svctm |
 | **Rozmiar we/wy** |Rozmiar żądań we/wy dotyczy dysków magazynu. |Średnia liczba bajtów dysku/odczyt <br> Średnia liczba bajtów dysku/zapis |avgrq — sz |
 | **Głębokość kolejki** |Liczba oczekujących żądań we/wy oczekujących na odczytanie lub zapis na dysku magazynu. |Bieżąca długość kolejki dysku |avgqu — sz |
-| **Maksymalny. Rozmiar** |Ilość pamięci wymaganej do bezproblemowego uruchamiania aplikacji |Zadeklarowane bajty w użyciu (%) |Użyj vmstat |
-| **Maksymalny. TESTY** |Ilość czasu wymagana do bezproblemowego uruchamiania aplikacji |Czas procesora (%) |% util |
+| **Maks. pamięć** |Ilość pamięci wymaganej do bezproblemowego uruchamiania aplikacji |Zadeklarowane bajty w użyciu (%) |Użyj vmstat |
+| **Max. CPU** |Ilość czasu wymagana do bezproblemowego uruchamiania aplikacji |Czas procesora (%) |% util |
 
-Dowiedz się więcej na temat [iostat](https://linux.die.net/man/1/iostat) i [monitora wydajności](https://msdn.microsoft.com/library/aa645516.aspx).
+Dowiedz się więcej na temat [iostat](https://linux.die.net/man/1/iostat) i [monitora wydajności](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -169,7 +169,7 @@ Rozmiar we/wy to jeden z ważniejszych czynników. Rozmiar we/wy to rozmiar żą
 
 Niektóre aplikacje umożliwiają zmianę rozmiaru operacji we/wy, podczas gdy niektóre aplikacje nie są. Na przykład SQL Server określa optymalny rozmiar we/wy i nie zapewnia użytkownikom żadnych pokrętłów, aby je zmienić. Z drugiej strony firma Oracle udostępnia parametr o nazwie [ \_ DataBlock \_ size](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , za pomocą którego można skonfigurować rozmiar żądania we/wy bazy danych.
 
-Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Przykład:
+Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Na przykład
 
 * Aplikacja OLTP generuje miliony małych i losowych żądań we/wy. Aby obsłużyć te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większych liczb IOPS.  
 * Aplikacja do magazynowania danych generuje duże i sekwencyjne żądania we/wy. Aby obsługiwać te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większej przepustowości lub przepływności.

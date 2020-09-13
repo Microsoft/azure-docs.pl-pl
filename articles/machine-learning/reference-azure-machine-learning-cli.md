@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: f037ea30a1507d4736db7f837e5286701db030e0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 3803b9770d3caf3f45f109b62145677a38c5bcc2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146706"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657208"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & Użyj rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -246,7 +246,7 @@ Zarządzanie wystąpieniami obliczeniowymi.  We wszystkich przykładach nazwa wy
     > [!TIP]
     > `az ml folder attach`Polecenie tworzy `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig. 
     >
-    > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchomieniowej, możesz użyć [runconfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) , aby zapisać go jako plik runconfig.
+    > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchomieniowej, możesz użyć [runconfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) , aby zapisać go jako plik runconfig.
     >
     > Pełny schemat runconfig można znaleźć w tym [pliku JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). Schemat jest dokumentem samoobsługowym przez `description` klucz każdego obiektu. Ponadto istnieją wyliczenia dla możliwych wartości i fragmentu szablonu na końcu.
 
@@ -366,7 +366,7 @@ Następujące polecenia pokazują, jak tworzyć, rejestrować i wyświetlać lis
 
 ### <a name="environment-configuration-schema"></a>Schemat konfiguracji środowiska
 
-Jeśli użyto `az ml environment scaffold` polecenia, generuje `azureml_environment.json` plik szablonu, który może być modyfikowany i używany do tworzenia niestandardowych konfiguracji środowiska przy użyciu interfejsu wiersza polecenia. Obiekt najwyższego poziomu jest luźno mapowany do [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klasy w zestawie SDK języka Python. 
+Jeśli użyto `az ml environment scaffold` polecenia, generuje `azureml_environment.json` plik szablonu, który może być modyfikowany i używany do tworzenia niestandardowych konfiguracji środowiska przy użyciu interfejsu wiersza polecenia. Obiekt najwyższego poziomu jest luźno mapowany do [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) klasy w zestawie SDK języka Python. 
 
 ```json
 {
@@ -410,17 +410,17 @@ Jeśli użyto `az ml environment scaffold` polecenia, generuje `azureml_environm
 }
 ```
 
-Poniższa tabela zawiera szczegółowe informacje o każdym polu najwyższego poziomu w pliku JSON, jego typie i opisie. Jeśli typ obiektu jest połączony z klasą z zestawu Python SDK, istnieje luźne dopasowanie 1:1 między wszystkimi polami JSON i nazwą zmiennej publicznej w klasie języka Python. W niektórych przypadkach pole może mapować do argumentu konstruktora, a nie zmiennej klasy. Na przykład pole jest `environmentVariables` mapowane na `environment_variables` zmienną w [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klasie.
+Poniższa tabela zawiera szczegółowe informacje o każdym polu najwyższego poziomu w pliku JSON, jego typie i opisie. Jeśli typ obiektu jest połączony z klasą z zestawu Python SDK, istnieje luźne dopasowanie 1:1 między wszystkimi polami JSON i nazwą zmiennej publicznej w klasie języka Python. W niektórych przypadkach pole może mapować do argumentu konstruktora, a nie zmiennej klasy. Na przykład pole jest `environmentVariables` mapowane na `environment_variables` zmienną w [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) klasie.
 
 | Pole JSON | Typ | Opis |
 |---|---|---|
 | `name` | `string` | Nazwa środowiska. Nie rozpoczynaj nazwy od **firmy Microsoft** ani platformy **Azure**. |
 | `version` | `string` | Wersja środowiska. |
 | `environmentVariables` | `{string: string}` | Mapa skrótu nazw zmiennych środowiskowych i wartości. |
-| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) | Obiekt definiujący środowisko i interpreter języka Python do użycia w docelowym zasobie obliczeniowym. |
-| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | Definiuje ustawienia w celu dostosowania obrazu platformy Docker skompilowanego do specyfikacji środowiska. |
-| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | Sekcja konfiguruje ustawienia platformy Spark. Jest on używany tylko wtedy, gdy platforma jest ustawiona na PySpark. |
-| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Konfiguruje zależności biblioteki datakosteks. |
+| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true)Hat definiuje środowisko i interpreter języka Python do użycia w docelowym zasobie obliczeniowym. |
+| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py&preserve-view=true) | Definiuje ustawienia w celu dostosowania obrazu platformy Docker skompilowanego do specyfikacji środowiska. |
+| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py&preserve-view=true) | Sekcja konfiguruje ustawienia platformy Spark. Jest on używany tylko wtedy, gdy platforma jest ustawiona na PySpark. |
+| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py&preserve-view=true) | Konfiguruje zależności biblioteki datakosteks. |
 | `inferencingStackVersion` | `string` | Określa wersję stosu inferencing dodaną do obrazu. Aby uniknąć dodawania stosu inferencing, pozostaw to pole `null` . Prawidłowa wartość: "Najnowsza". |
 
 ## <a name="ml-pipeline-management"></a>Zarządzanie potoku ML

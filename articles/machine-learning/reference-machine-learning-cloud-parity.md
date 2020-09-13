@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: c899d14b6e0eea8135b996aadfe2a7388a8fcb89
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861200"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657568"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning z niezależną międzychmurową parzystością
 
@@ -34,7 +34,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Cecha | Stan chmury publicznej  | US — Wirginia | US — Arizona| 
+| Cechy | Stan chmury publicznej  | US — Wirginia | US — Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Zautomatyzowane uczenie maszynowe** | | | |
 | Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność                   | TAK                | TAK         |
@@ -96,7 +96,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | niestandardowe znaczniki w Azure Machine Learning do implementowania arkuszy danych              | Ogólna dostępność                   | NO                 | NO          |
 | Integracja z programem Azure                                               | Publiczna wersja zapoznawcza       | NO                 | NO          |
 | Zestaw SDK do interpretacji                                                      | Ogólna dostępność                   | TAK                | TAK         |
-| **Szkolącej** |   | | |
+| **Szkolenia** |   | | |
 | Przesyłanie strumieniowe dzienników eksperymentów                                              | Ogólna dostępność                   | TAK                | TAK         |
 | Uczenie wzmacniające                                                     | Publiczna wersja zapoznawcza       | NO                 | NO          |
 | Interfejs użytkownika eksperymentowania                                                         | Ogólna dostępność                   | TAK                | TAK         |
@@ -136,7 +136,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 * W przypadku wystąpień obliczeniowych Azure Machine Learning możliwość odświeżenia tokenu trwającego więcej niż 24 godziny nie jest dostępna w Azure Government.
 * Profilowanie modelu nie obsługuje 4 procesorów CPU w regionie US-Arizona.   
 * Przykładowe notesy mogą nie zadziałały w Azure Government, jeśli potrzebują dostępu do danych publicznych.
-* Adresy IP: polecenie interfejsu wiersza polecenia używane w sieci [wirtualnej i Wymuszone tunelowanie](how-to-enable-virtual-network.md#forced-tunneling) nie zwraca zakresów adresów IP. W zamian użyj [zakresów adresów IP platformy Azure i tagów usługi dla Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) .
+* Adresy IP: polecenie interfejsu wiersza polecenia używane w sieci [wirtualnej i Wymuszone tunelowanie](how-to-secure-training-vnet.md#forced-tunneling) nie zwraca zakresów adresów IP. W zamian użyj [zakresów adresów IP platformy Azure i tagów usługi dla Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) .
 * W przypadku zaplanowanych potoków udostępniamy również mechanizm wyzwalania oparty na obiektach Blob. Ten mechanizm nie jest obsługiwany w przypadku obszarów roboczych CMK. Aby włączyć wyzwalacz oparty na obiektach Blob dla obszarów roboczych CMK, należy wykonać dodatkowe czynności konfiguracyjne. Aby uzyskać więcej informacji, zobacz [wyzwalanie przebiegu potoku uczenia maszynowego z poziomu aplikacji logiki](how-to-trigger-published-pipeline.md).
 * Zapory: w przypadku używania regionu Azure Government należy dodać następujące dodatkowe hosty do ustawienia zapory:
 
@@ -147,7 +147,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 
 ## <a name="azure-china-21vianet"></a>Azure w Chinach — 21Vianet 
 
-| Cecha                                       | Stan chmury publicznej | CH-wschód-2 | CH — północ-3 |
+| Cechy                                       | Stan chmury publicznej | CH-wschód-2 | CH — północ-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | **Zautomatyzowane uczenie maszynowe** |    | | |
 | Twórz i uruchamiaj eksperymenty w notesach                                    | Ogólna dostępność               | TAK       | Nie dotyczy        |
@@ -209,7 +209,7 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
 | niestandardowe znaczniki w Azure Machine Learning do implementowania arkuszy danych              | Ogólna dostępność               | NO        | Nie dotyczy        |
 | Integracja z programem Azure                                               | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | Zestaw SDK do interpretacji                                                      | Ogólna dostępność               | TAK       | Nie dotyczy        |
-| **Szkolącej** |    | | |
+| **Szkolenia** |    | | |
 | Przesyłanie strumieniowe dzienników eksperymentów                                              | Ogólna dostępność               | TAK       | Nie dotyczy        |
 | Uczenie wzmacniające                                                     | Publiczna wersja zapoznawcza   | NO        | Nie dotyczy        |
 | Interfejs użytkownika eksperymentowania                                                         | Ogólna dostępność               | TAK       | Nie dotyczy        |
@@ -233,10 +233,10 @@ Chcemy zapewnić maksymalną zgodność między chmurą publiczną i suwerennymi
     |------------------|--------------------------------------------|--------------------------------------------|
     | Płaszczyzna zarządzania | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Płaszczyzna danych       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
-    | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
+    | Usługa Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Przykładowy Notes może nie zadziałał, jeśli potrzebny jest dostęp do danych publicznych.
-* Zakresy adresów IP: polecenie interfejsu wiersza polecenia używane w instrukcjach [wymuszonego tunelowania sieci wirtualnej](how-to-enable-virtual-network.md#forced-tunneling) nie zwraca zakresów adresów IP. Zamiast tego należy użyć [zakresów adresów IP i usług platformy Azure dla Chin](https://www.microsoft.com//download/details.aspx?id=57062) .
+* Zakresy adresów IP: polecenie interfejsu wiersza polecenia używane w instrukcjach [wymuszonego tunelowania sieci wirtualnej](how-to-secure-training-vnet.md#forced-tunneling) nie zwraca zakresów adresów IP. Zamiast tego należy użyć [zakresów adresów IP i usług platformy Azure dla Chin](https://www.microsoft.com//download/details.aspx?id=57062) .
 * Azure Machine Learning w wersji zapoznawczej wystąpienia obliczeniowe nie są obsługiwane w obszarze roboczym, w którym jest teraz włączone łącze prywatne, ale element CI będzie obsługiwany w następnym wdrożeniu dla rozszerzenia usługi do wszystkich regionów AML.
 
 ## <a name="next-steps"></a>Następne kroki

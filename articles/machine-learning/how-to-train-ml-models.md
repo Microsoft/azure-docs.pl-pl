@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 70e965e26d3b82cdc63a3c0e147919b8b40585af
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 69987210d69855b0fcaa676e406ec6a1c02a4d85
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146593"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650606"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Uczenie modeli za pomocą Azure Machine Learning przy użyciu szacowania
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "89146593"
 Za pomocą Azure Machine Learning można łatwo przesłać skrypt szkoleniowy do [różnych obiektów docelowych obliczeń](how-to-set-up-training-targets.md)przy użyciu [obiektu RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) i [obiektu ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ten wzorzec zapewnia dużą elastyczność i maksymalną kontrolę.
 
 
-Klasa szacowania ułatwia uczenie modeli o głębokiej uczeniu i wzmacnianiu uczenia się. Zapewnia abstrakcję wysokiego poziomu, która umożliwia łatwe konstruowanie konfiguracji uruchomieniowej. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) do przesyłania skryptu szkoleniowego za pomocą wybranej platformy szkoleniowej (na przykład scikit-Learning) na dowolnym wybranym miejscu docelowym obliczeń, niezależnie od tego, czy jest to maszyna lokalna, jedna maszyna wirtualna na platformie Azure czy klaster GPU na platformie Azure. W przypadku zadań związanych z PyTorch, TensorFlow, łańcuchem i wzmocnieniem, Azure Machine Learning oferuje także odpowiednie [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [łańcucher](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)i [wzmocnienie kształcenia](how-to-use-reinforcement-learning.md) szacowania, aby uprościć korzystanie z tych platform.
+Klasa szacowania ułatwia uczenie modeli o głębokiej uczeniu i wzmacnianiu uczenia się. Zapewnia abstrakcję wysokiego poziomu, która umożliwia łatwe konstruowanie konfiguracji uruchomieniowej. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) do przesyłania skryptu szkoleniowego za pomocą wybranej platformy szkoleniowej (na przykład scikit-Learning) na dowolnym wybranym miejscu docelowym obliczeń, niezależnie od tego, czy jest to maszyna lokalna, jedna maszyna wirtualna na platformie Azure czy klaster GPU na platformie Azure. W przypadku zadań związanych z PyTorch, TensorFlow, łańcuchem i wzmocnieniem, Azure Machine Learning oferuje także odpowiednie [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true), [łańcucher](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true)i [wzmocnienie kształcenia](how-to-use-reinforcement-learning.md) szacowania, aby uprościć korzystanie z tych platform.
 
 ## <a name="train-with-an-estimator"></a>Uczenie z szacowania
 
@@ -111,12 +111,12 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Powyższy kod uwidacznia następujące nowe parametry `Estimator` konstruktorowi:
 
-Parametr | Opis | Domyślne
+Parametr | Opis | Domyślny
 --|--|--
 `custom_docker_image`| Nazwa obrazu, którego chcesz użyć. Udostępniaj tylko obrazy dostępne w publicznych repozytoriach platformy Docker (w tym przypadku Docker Hub). Aby użyć obrazu z prywatnego repozytorium platformy Docker, użyj `environment_definition` zamiast niego parametru konstruktora.| `None`
 `node_count`| Liczba węzłów, które mają być używane dla zadania szkoleniowego. | `1`
 `process_count_per_node`| Liczba procesów (lub "pracowników") do uruchomienia w każdym węźle. W takim przypadku używane są `2` procesory GPU dostępne w każdym węźle.| `1`
-`distributed_training`| Obiekt [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) do uruchamiania szkoleń rozproszonych przy użyciu zaplecza MPI.  | `None`
+`distributed_training`| Obiekt [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) do uruchamiania szkoleń rozproszonych przy użyciu zaplecza MPI.  | `None`
 
 
 Na koniec Prześlij zadanie szkoleniowe:
@@ -129,7 +129,7 @@ print(run.get_portal_url())
 
 Po przeszkoleniu modelu możesz go zapisać i zarejestrować w obszarze roboczym. Rejestracja modelu umożliwia przechowywanie modeli i ich wersji w obszarze roboczym w celu uproszczenia [zarządzania modelami i ich wdrażania](concept-model-management-and-deployment.md).
 
-Uruchomienie następującego kodu spowoduje zarejestrowanie modelu w Twoim obszarze roboczym i udostępnienie go do odwołania według nazwy w zdalnych kontekstach obliczeniowych lub w skryptach wdrożenia. [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)Więcej informacji i dodatkowe parametry można znaleźć w dokumentacji referencyjnej.
+Uruchomienie następującego kodu spowoduje zarejestrowanie modelu w Twoim obszarze roboczym i udostępnienie go do odwołania według nazwy w zdalnych kontekstach obliczeniowych lub w skryptach wdrożenia. [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)Więcej informacji i dodatkowe parametry można znaleźć w dokumentacji referencyjnej.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)

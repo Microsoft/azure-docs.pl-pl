@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358566"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652078"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementowanie synchronizacji skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 Ten artykuł zawiera informacje potrzebne do synchronizacji haseł użytkowników z wystąpienia lokalnego Active Directory do wystąpienia Azure Active Directory opartego na chmurze (Azure AD).
@@ -32,7 +32,7 @@ Aby zsynchronizować hasło, Azure AD Connect Sync wyodrębnia skrót hasła z l
 
 Rzeczywisty przepływ danych procesu synchronizacji skrótów haseł jest podobny do synchronizacji danych użytkownika. Hasła są jednak synchronizowane częściej niż okno synchronizacja katalogu standardowego dla innych atrybutów. Proces synchronizacji skrótów haseł jest uruchamiany co 2 minuty. Nie można zmodyfikować częstotliwości tego procesu. Synchronizacja hasła powoduje zastąpienie istniejącego hasła w chmurze.
 
-Po pierwszym włączeniu funkcji synchronizacji skrótów haseł wykonywana jest początkowa synchronizacja haseł wszystkich użytkowników należących do zakresu. Nie można jawnie zdefiniować podzbioru haseł użytkowników, które mają zostać zsynchronizowane. Jeśli jednak istnieje wiele łączników, można wyłączyć synchronizację skrótów haseł dla niektórych łączników, ale nie inne za pomocą polecenia cmdlet [Set-ADSyncAADPasswordSyncConfiguration](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) .
+Po pierwszym włączeniu funkcji synchronizacji skrótów haseł wykonywana jest początkowa synchronizacja haseł wszystkich użytkowników należących do zakresu. Nie można jawnie zdefiniować podzbioru haseł użytkowników, które mają zostać zsynchronizowane. Jeśli jednak istnieje wiele łączników, można wyłączyć synchronizację skrótów haseł dla niektórych łączników, ale nie inne za pomocą polecenia cmdlet [Set-ADSyncAADPasswordSyncConfiguration](../../active-directory-domain-services/tutorial-configure-password-hash-sync.md) .
 
 Po zmianie hasła lokalnego zaktualizowane hasło jest synchronizowane najczęściej, w ciągu kilku minut.
 Funkcja synchronizacji skrótów haseł automatycznie ponawia próbę synchronizacji nie powiodła się. Jeśli wystąpi błąd podczas próby zsynchronizowania hasła, w Podglądzie zdarzeń zostanie zarejestrowany błąd.
@@ -51,12 +51,12 @@ W poniższej sekcji opisano szczegółowo, jak działa synchronizacja skrótów 
 
 ![Szczegółowy przepływ hasła](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
-1. Co dwie minuty Agent synchronizacji skrótów haseł na serwerze programu AD Connect żąda zapisanych skrótów haseł (atrybut unicodePwd) z kontrolera domeny.  To żądanie jest realizowane za pośrednictwem standardowego protokołu replikacji [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) służącego do synchronizowania danych między kontrolerami domeny. Konto usługi musi mieć zmiany w katalogu replikacji i replikowanie katalogu zmienia wszystkie uprawnienia usługi AD (przyznane domyślnie podczas instalacji), aby uzyskać skróty haseł.
+1. Co dwie minuty Agent synchronizacji skrótów haseł na serwerze programu AD Connect żąda zapisanych skrótów haseł (atrybut unicodePwd) z kontrolera domeny.  To żądanie jest realizowane za pośrednictwem standardowego protokołu replikacji [MS-DRSR](/openspecs/windows_protocols/ms-drsr/f977faaa-673e-4f66-b9bf-48c640241d47) służącego do synchronizowania danych między kontrolerami domeny. Konto usługi musi mieć zmiany w katalogu replikacji i replikowanie katalogu zmienia wszystkie uprawnienia usługi AD (przyznane domyślnie podczas instalacji), aby uzyskać skróty haseł.
 2. Przed wysłaniem kontroler domeny szyfruje skrót hasła algorytmu MD4 przy użyciu klucza, który jest skrótem [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) klucza sesji RPC i soli. Następnie wysyła wynik do agenta synchronizacji skrótów haseł za pośrednictwem usługi RPC. Kontroler domeny przekazuje także sól do agenta synchronizacji przy użyciu protokołu replikacji kontrolera domeny, dzięki czemu agent będzie mógł odszyfrować kopertę.
-3. Gdy Agent synchronizacji skrótów haseł ma zaszyfrowaną kopertę, używa [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) i soli do wygenerowania klucza w celu odszyfrowania odebranych danych z powrotem do oryginalnego formatu MD4. Agent synchronizacji skrótów haseł nigdy nie ma dostępu do hasła w postaci zwykłego tekstu. Użycie algorytmu MD5 przez agenta synchronizacji skrótów haseł jest przeznaczone wyłącznie do zapewnienia zgodności protokołu z kontrolerem domeny i jest używane tylko lokalnie między kontrolerem domeny i agentem synchronizacji skrótów haseł.
+3. Gdy Agent synchronizacji skrótów haseł ma zaszyfrowaną kopertę, używa [MD5CryptoServiceProvider](/dotnet/api/system.security.cryptography.md5cryptoserviceprovider?view=netcore-3.1) i soli do wygenerowania klucza w celu odszyfrowania odebranych danych z powrotem do oryginalnego formatu MD4. Agent synchronizacji skrótów haseł nigdy nie ma dostępu do hasła w postaci zwykłego tekstu. Użycie algorytmu MD5 przez agenta synchronizacji skrótów haseł jest przeznaczone wyłącznie do zapewnienia zgodności protokołu z kontrolerem domeny i jest używane tylko lokalnie między kontrolerem domeny i agentem synchronizacji skrótów haseł.
 4. Agent synchronizacji skrótów haseł rozszerza wartość 16-bajtowego skrótu hasła binarnego na 64 bajtów przez konwertowanie skrótu do 32-bajtowego ciągu szesnastkowego, a następnie przekonwertowanie tego ciągu z powrotem na dane binarne przy użyciu kodowania UTF-16.
 5. Agent synchronizacji skrótów haseł dodaje sól dla użytkownika, składającą się z 10-bajtowej soli długości, do 64-bajtowego pliku binarnego w celu dalszej ochrony oryginalnego skrótu.
-6. Agent synchronizacji skrótów haseł łączy skrót MD4 ze znakiem poszczególnych użytkowników i wprowadza je do funkcji [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iteracji algorytmem wyznaczania wartości skrótu [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) . 
+6. Agent synchronizacji skrótów haseł łączy skrót MD4 ze znakiem poszczególnych użytkowników i wprowadza je do funkcji [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) . 1000 iteracji algorytmem wyznaczania wartości skrótu [HMAC-SHA256](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) . 
 7. Agent synchronizacji skrótów haseł pobiera wynikowy 32-bajtowy, łączy zarówno sól dla użytkownika, jak i liczbę iteracji SHA256 (na użytek usługi Azure AD), a następnie przesyła ciąg z Azure AD Connect do usługi Azure AD za pośrednictwem protokołu TLS.</br> 
 8. Gdy użytkownik próbuje zalogować się do usługi Azure AD i wprowadzi swoje hasło, jest ono uruchamiane za pomocą tego samego procesu MD4 + sól + PBKDF2 + HMAC-SHA256. Jeśli wynikowy skrót jest zgodny z wartością skrótu przechowywaną w usłudze Azure AD, użytkownik wprowadził poprawne hasło i zostanie uwierzytelniony.
 
@@ -132,7 +132,7 @@ Funkcja hasła tymczasowego pomaga zapewnić, że przeniesienie własności poś
 
 Aby obsłużyć tymczasowe hasła w usłudze Azure AD dla synchronizowanych użytkowników, można włączyć funkcję *ForcePasswordChangeOnLogOn* , uruchamiając następujące polecenie na serwerze Azure AD Connect:
 
-`Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
+`Set-ADSyncAADCompanyFeature -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
 > Wymuszanie użytkownikowi zmiany hasła przy następnym logowaniu wymaga zmiany hasła w tym samym czasie.  Azure AD Connect nie spowoduje pobrania przez siebie flagi "Wymuszaj zmianę hasła". jest uzupełnieniem wykrytej zmiany hasła, która występuje podczas synchronizacji skrótów haseł.
@@ -142,7 +142,7 @@ Aby obsłużyć tymczasowe hasła w usłudze Azure AD dla synchronizowanych uży
 
 #### <a name="account-expiration"></a>Wygaśnięcie konta
 
-Jeśli organizacja używa atrybutu accountExpires jako części zarządzania kontami użytkowników, ten atrybut nie jest synchronizowany z usługą Azure AD. W związku z tym wygasłe konto Active Directory w środowisku skonfigurowanym do synchronizacji skrótów haseł będzie nadal aktywne w usłudze Azure AD. Zalecamy, aby Jeśli konto wygasło, Akcja przepływu pracy powinna wyzwolić skrypt programu PowerShell, który wyłącza konto usługi Azure AD użytkownika (Użyj polecenia cmdlet [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) ). Po włączeniu konta należy włączyć wystąpienie usługi Azure AD.
+Jeśli organizacja używa atrybutu accountExpires jako części zarządzania kontami użytkowników, ten atrybut nie jest synchronizowany z usługą Azure AD. W związku z tym wygasłe konto Active Directory w środowisku skonfigurowanym do synchronizacji skrótów haseł będzie nadal aktywne w usłudze Azure AD. Zalecamy, aby Jeśli konto wygasło, Akcja przepływu pracy powinna wyzwolić skrypt programu PowerShell, który wyłącza konto usługi Azure AD użytkownika (Użyj polecenia cmdlet [Set-AzureADUser](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) ). Po włączeniu konta należy włączyć wystąpienie usługi Azure AD.
 
 ### <a name="overwrite-synchronized-passwords"></a>Zastąp zsynchronizowane hasła
 
@@ -213,7 +213,7 @@ Jeśli serwer został zablokowany zgodnie z normą FIPS (Federal Information Pro
 1. Przejdź do%programfiles%\Azure usługi AD Sync\Bin.
 2. Otwórz miiserver.exe.config.
 3. Przejdź do węzła Konfiguracja/środowisko uruchomieniowe na końcu pliku.
-4. Dodaj następujący węzeł:`<enforceFIPSPolicy enabled="false"/>`
+4. Dodaj następujący węzeł: `<enforceFIPSPolicy enabled="false"/>`
 5. Zapisz zmiany.
 
 Aby uzyskać odwołanie, ten fragment kodu powinien wyglądać następująco:

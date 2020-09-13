@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012947"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651217"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -86,19 +86,19 @@ Moduł może zawierać zestaw parametrów, za pomocą których można konfigurow
 
 Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algorytmów uczenia maszynowego, zobacz [Omówienie algorytmu & modułu](algorithm-module-reference/module-reference.md). Aby uzyskać pomoc dotyczącą wybierania algorytmu, zobacz [arkusz Azure Machine Learning Algorithm Ściągawka](algorithm-cheat-sheet.md).
 
-## <a name="compute-resources"></a><a name="compute"></a>Zasoby obliczeniowe
+## <a name="compute-resources"></a><a name="compute"></a> Zasoby obliczeniowe
 
 Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe w czasie rzeczywistym lub punkty końcowe potoku (na potrzeby wnioskowania wsadowego). Obsługiwane elementy docelowe obliczeń są następujące:
 
-| Docelowy zasób obliczeniowy | Szkolenie | Wdrożenie |
+| Docelowy zasób obliczeniowy | Szkolenia | Wdrożenie |
 | ---- |:----:|:----:|
 | Azure Machine Learning obliczeń | ✓ | |
-| Wystąpienie obliczeniowe Azure Machine Learning | ✓ | |
+| Wystąpienie obliczeniowe usługi Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="deploy"></a>Wdróż
+## <a name="deploy"></a>Wdrażanie
 
 Aby wykonać inferencing w czasie rzeczywistym, należy wdrożyć potok jako **punkt końcowy w czasie rzeczywistym**. Punkt końcowy w czasie rzeczywistym tworzy interfejs między aplikacją zewnętrzną a modelem oceniania. Wywołanie punktu końcowego w czasie rzeczywistym zwraca wyniki prognozowania do aplikacji w czasie rzeczywistym. Aby wykonać wywołanie do punktu końcowego w czasie rzeczywistym, należy przekazać klucz interfejsu API, który został utworzony podczas wdrażania punktu końcowego. Punkt końcowy jest oparty na pozostałej, popularnej architekturze dla projektów programowania w sieci Web.
 
@@ -106,7 +106,7 @@ Punkty końcowe w czasie rzeczywistym muszą zostać wdrożone w klastrze usług
 
 Aby dowiedzieć się, jak wdrożyć model, zobacz [Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą projektanta](tutorial-designer-automobile-price-deploy.md).
 
-## <a name="publish"></a>Opublikuj
+## <a name="publish"></a>Publikowanie
 
 Możesz również opublikować potok w **punkcie końcowym potoku**. Podobnie jak w przypadku punktu końcowego w czasie rzeczywistym, punkt końcowy potoku umożliwia przesyłanie nowych uruchomień potoków z aplikacji zewnętrznych przy użyciu wywołań REST. Nie można jednak wysyłać ani odbierać danych w czasie rzeczywistym za pomocą punktu końcowego potoku.
 
@@ -114,7 +114,7 @@ Opublikowane potoki są elastyczne, ale mogą być używane do uczenia lub ponow
 
 Opublikowany potok jest uruchamiany na zasobach obliczeniowych zdefiniowanych w wersji roboczej potoku dla każdego modułu.
 
-Projektant tworzy ten sam obiekt [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) , co zestaw SDK.
+Projektant tworzy ten sam obiekt [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) , co zestaw SDK.
 
 ## <a name="next-steps"></a>Następne kroki
 

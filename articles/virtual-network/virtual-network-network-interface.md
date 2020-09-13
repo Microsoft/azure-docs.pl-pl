@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 1eb32fe4950a3a27ec97026b9170d08996de0c89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99905e58cbcd9d0a5c5397aee125675a70e799fe
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707433"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657962"
 ---
-# <a name="create-change-or-delete-a-network-interface"></a>Tworzenie, zmienianie lub usuwanie interfejsu sieciowego
+# <a name="create-change-or-delete-a-network-interface"></a>Create, change, or delete a network interface (Tworzenie, zmienianie i usuwanie interfejsów sieciowych)
 
 Dowiedz się, jak tworzyć, zmieniać ustawienia i usuwać interfejs sieciowy. Interfejs sieciowy umożliwia maszynie wirtualnej platformy Azure komunikowanie się z Internetem, platformą Azure i zasobami lokalnymi. Podczas tworzenia maszyny wirtualnej przy użyciu Azure Portal Portal tworzy jeden interfejs sieciowy z ustawieniami domyślnymi. Zamiast tego można utworzyć interfejsy sieciowe z ustawieniami niestandardowymi i dodać do maszyny wirtualnej co najmniej jeden interfejs sieciowy podczas jego tworzenia. Możesz również zmienić ustawienia domyślne interfejsu sieciowego dla istniejącego interfejsu sieciowego. W tym artykule wyjaśniono, jak utworzyć interfejs sieciowy z ustawieniami niestandardowymi, zmienić istniejące ustawienia, takie jak filtr sieci (Grupa zabezpieczeń sieci), przypisywanie podsieci, ustawienia serwera DNS i przekazywanie adresów IP oraz usuwanie interfejsu sieciowego.
 
@@ -83,7 +83,7 @@ Można wyświetlać i zmieniać większość ustawień interfejsu sieciowego po 
 3. Następujące elementy są wyświetlane dla wybranego interfejsu sieciowego:
    - **Przegląd:** Zawiera informacje o interfejsie sieciowym, takie jak przypisane do niego adresy IP, Sieć wirtualna/podsieć, do której jest przypisany interfejs sieciowy, oraz do maszyny wirtualnej, do której jest dołączony interfejs sieciowy (jeśli jest on dołączony do jednego). Na poniższej ilustracji przedstawiono ustawienia dotyczące interfejsu sieciowego o nazwie **mywebserver256**: ![ Network Interface Overview](./media/virtual-network-network-interface/nic-overview.png)
 
-     Interfejs sieciowy można przenieść do innej grupy zasobów lub subskrypcji, wybierając pozycję (**Zmień**) obok nazwy **grupy zasobów** lub **subskrypcji**. W przypadku przenoszenia interfejsu sieciowego należy przenieść wszystkie zasoby związane z interfejsem sieciowym. Jeśli interfejs sieciowy jest podłączony do maszyny wirtualnej, na przykład należy również przenieść maszynę wirtualną i inne zasoby związane z maszyną wirtualną. Aby przenieść interfejs sieciowy, zobacz [przenoszenie zasobu do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). Artykuł zawiera listę wymagań wstępnych oraz sposób przenoszenia zasobów przy użyciu Azure Portal, programu PowerShell i interfejsu wiersza polecenia platformy Azure.
+     Interfejs sieciowy można przenieść do innej grupy zasobów lub subskrypcji, wybierając pozycję (**Zmień**) obok nazwy **grupy zasobów** lub **subskrypcji**. Jeśli przeniesiesz interfejs sieciowy do nowej subskrypcji, musisz przenieść wszystkie zasoby związane z interfejsem sieciowym. Jeśli interfejs sieciowy jest podłączony do maszyny wirtualnej, na przykład należy również przenieść maszynę wirtualną i inne zasoby związane z maszyną wirtualną. Aby przenieść interfejs sieciowy, zobacz [przenoszenie zasobu do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). Artykuł zawiera listę wymagań wstępnych oraz sposób przenoszenia zasobów przy użyciu Azure Portal, programu PowerShell i interfejsu wiersza polecenia platformy Azure.
    - **Konfiguracje protokołu IP:** Publiczne i prywatne adresy IPv4 i IPv6 przypisane do konfiguracji protokołu IP są wymienione tutaj. Jeśli adres IPv6 jest przypisany do konfiguracji adresu IP, adres nie jest wyświetlany. Aby dowiedzieć się więcej na temat konfiguracji protokołu IP oraz jak dodawać i usuwać adresy IP, zobacz [Konfigurowanie adresów IP dla interfejsu sieciowego platformy Azure](virtual-network-network-interface-addresses.md). W tej sekcji konfigurowane są również przekazywanie adresów IP i przypisanie podsieci. Aby dowiedzieć się więcej na temat tych ustawień, zobacz [Włączanie lub wyłączanie przekazywania adresów IP](#enable-or-disable-ip-forwarding) i [Zmienianie przypisania podsieci](#change-subnet-assignment).
    - **Serwery DNS:** Można określić, który serwer DNS ma być przypisany przez serwery DHCP platformy Azure. Interfejs sieciowy może dziedziczyć ustawienia z sieci wirtualnej, do której jest przypisany interfejs sieciowy, lub mieć niestandardowe ustawienie, które zastępuje ustawienie sieci wirtualnej, do której jest przypisane. Aby zmodyfikować wyświetlane elementy, zobacz [Zmienianie serwerów DNS](#change-dns-servers).
    - **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** Wskazuje, który sieciowej grupy zabezpieczeń jest skojarzony z interfejsem sieciowym (jeśli istnieje). SIECIOWEJ grupy zabezpieczeń zawiera reguły ruchu przychodzącego i wychodzącego do filtrowania ruchu sieciowego dla interfejsu sieciowego. Jeśli sieciowej grupy zabezpieczeń jest skojarzona z interfejsem sieciowym, zostanie wyświetlona nazwa skojarzonego sieciowej grupy zabezpieczeń. Aby zmodyfikować wyświetlane elementy, zobacz [kojarzenie lub usuwanie skojarzenia sieciowej grupy zabezpieczeń](#associate-or-dissociate-a-network-security-group).
@@ -182,7 +182,7 @@ Możesz dodać interfejs sieciowy do lub usunąć interfejs sieciowy z grupy zab
 1. W polu wyszukiwania w górnej części portalu wprowadź *interfejsy sieciowe* w polu wyszukiwania. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz interfejs sieciowy z listy, do której chcesz skojarzyć sieciową grupę zabezpieczeń, lub usuń skojarzenie sieciowej grupy zabezpieczeń z.
 3. W obszarze **Ustawienia**wybierz pozycję **sieciowa Grupa zabezpieczeń** .
-4. Wybierz pozycję **Edytuj**.
+4. Kliknij pozycję **Edytuj**.
 5. Wybierz pozycję **sieciowa Grupa zabezpieczeń** , a następnie wybierz grupę zabezpieczeń sieci, która ma zostać skojarzona z interfejsem sieciowym, lub wybierz opcję **Brak**, aby usunąć skojarzenie sieciowej grupy zabezpieczeń.
 6. Wybierz pozycję **Zapisz**.
 

@@ -1,26 +1,23 @@
 ---
-title: Przyspieszenie zapytań Azure Data Lake Storage (wersja zapoznawcza)
-description: Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja dla Azure Data Lake Storage, która umożliwia aplikacjom i platformom analitycznym znacznie zoptymalizować przetwarzanie danych przez pobranie tylko danych wymaganych do wykonania operacji przetwarzania.
+title: Przyspieszenie kwerendy Azure Data Lake Storage
+description: Przyspieszenie zapytań umożliwia aplikacjom i platformom analitycznym znaczne Optymalizowanie przetwarzania danych przez pobranie tylko tych danych, które są wymagane dla operacji przetwarzania.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176706"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657641"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Przyspieszenie zapytań Azure Data Lake Storage (wersja zapoznawcza)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Przyspieszenie kwerendy Azure Data Lake Storage
 
-Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja Azure Data Lake Storage, która umożliwia aplikacjom i platformom analitycznym znaczne Optymalizowanie przetwarzania danych przez pobranie tylko tych danych, których potrzebują do wykonania danej operacji. Pozwala to skrócić czas i moc obliczeniową, która jest wymagana do uzyskania kluczowych informacji o przechowywanych danych.
-
-> [!NOTE]
-> Funkcja przyspieszenia zapytań jest w publicznej wersji zapoznawczej i jest dostępna w regionach Kanada Środkowa i Francja środkowa. Aby zapoznać się z ograniczeniami, zobacz artykuł [znane problemy](data-lake-storage-known-issues.md) . Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adls/qa-preview-signup).  
+Przyspieszenie zapytań umożliwia aplikacjom i platformom analitycznym znaczne Optymalizowanie przetwarzania danych przez pobranie tylko tych danych, których potrzebują do wykonania danej operacji. Pozwala to skrócić czas i moc obliczeniową, która jest wymagana do uzyskania kluczowych informacji o przechowywanych danych.
 
 ## <a name="overview"></a>Omówienie
 
@@ -57,7 +54,7 @@ Aby obliczyć zagregowaną wartość, aplikacje zwykle pobierają **wszystkie** 
 
 Mimo że platforma Azure oferuje wiodącą w branży sieć, pod względem przepływności i opóźnień, niepotrzebnie transfer danych w sieci jest w dalszym ciągu kosztowny dla wydajności aplikacji. Dzięki filtrowaniu niechcianych danych podczas żądania magazynu przyspieszenie zapytań eliminuje ten koszt.
 
-Ponadto obciążenie procesora CPU, które jest wymagane do analizowania i filtrowania niepotrzebnych danych, wymaga, aby aplikacja mogła zapewnić większą liczbę i większe maszyny wirtualne w celu wykonania tej czynności. Dzięki przeniesieniu tego obciążenia obliczeń do przyspieszenia zapytań aplikacje mogą korzystać z znaczących oszczędności kosztów.
+Ponadto obciążenie procesora CPU, które jest wymagane do analizowania i filtrowania niepotrzebnych danych, wymaga, aby aplikacja mogła zapewnić większą liczbę i większe maszyny wirtualne w celu wykonania pracy. Dzięki przeniesieniu tego obciążenia obliczeń do przyspieszenia zapytań aplikacje mogą korzystać z znaczących oszczędności kosztów.
 
 ## <a name="applications-that-can-benefit-from-query-acceleration"></a>Aplikacje, które mogą korzystać z przyspieszania zapytań
 
@@ -65,11 +62,11 @@ Przyspieszenie zapytań jest przeznaczone do obsługi rozproszonych platform ana
 
 Struktury analizy rozproszonej, takie jak Apache Spark i Apache Hive, obejmują warstwę abstrakcji magazynu w ramach struktury. Te aparaty obejmują również optymalizacje zapytań, które mogą uwzględniać wiedzę o możliwościach podstawowej usługi we/wy podczas określania optymalnego planu zapytania dla zapytań użytkowników. Te platformy zaczynają integrować przyspieszenie zapytań. W związku z tym użytkownicy tych struktur zobaczą ulepszone opóźnienia zapytań i niższy całkowity koszt posiadania bez konieczności wprowadzania jakichkolwiek zmian w zapytaniach. 
 
-Przyspieszenie zapytań jest również przeznaczone dla aplikacji do przetwarzania danych. Te typy aplikacji zwykle wykonują przekształcenia danych o dużej skali, które mogą nie prowadzić bezpośrednio do analizy szczegółowych informacji, aby nie zawsze używały ustalonych struktur analizy rozproszonej. Te aplikacje często mają bardziej bezpośrednią relację z podstawową usługą magazynu, dzięki czemu mogą korzystać bezpośrednio z funkcji, takich jak przyspieszenie zapytań. 
+Przyspieszenie zapytań jest również przeznaczone dla aplikacji do przetwarzania danych. Te typy aplikacji zwykle wykonują przekształcenia danych na dużą skalę, które mogą nie prowadzić bezpośrednio do analizy szczegółowych informacji, aby nie zawsze używały ustalonych struktur analizy rozproszonej. Te aplikacje często mają bardziej bezpośrednią relację z podstawową usługą magazynu, dzięki czemu mogą korzystać bezpośrednio z funkcji, takich jak przyspieszenie zapytań. 
 
 Aby zapoznać się z przykładem, jak aplikacja może zintegrować przyspieszenie zapytań, zobacz [filtrowanie danych za pomocą Azure Data Lake Storage przyspieszania zapytań](data-lake-storage-query-acceleration-how-to.md).
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Ze względu na zwiększone obciążenie obliczeniowe w ramach usługi Azure Data Lake Storage Model cenowy dla użycia przyspieszania zapytań różni się od normalnego Azure Data Lake Storage modelu transakcji. Przyspieszenie zapytań obciąża koszt ilości skanowanych danych, a także koszt ilości danych zwracanych do obiektu wywołującego. Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
@@ -77,8 +74,7 @@ Pomimo zmiany modelu rozliczeń, model cen przyspieszania zapytań został zapro
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Formularz rejestracji przyspieszania zapytań](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrowanie danych przy użyciu przyspieszania zapytań Azure Data Lake Storage (wersja zapoznawcza)](data-lake-storage-query-acceleration-how-to.md)
-- [Informacje dotyczące języka SQL przyspieszania zapytań (wersja zapoznawcza)](query-acceleration-sql-reference.md)
+- [Filtrowanie danych za pomocą przyspieszania zapytań Azure Data Lake Storage](data-lake-storage-query-acceleration-how-to.md)
+- [Dokumentacja języka SQL przyspieszania zapytań](query-acceleration-sql-reference.md)
 
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 351d52128660c25c557c536f2835e0e71c0115f7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ac1df12b10e32f35e8edbd52c3488b2d38db638a
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842964"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650816"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planowanie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning dla języka Python
 
@@ -66,7 +66,7 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>Tworzenie harmonogramu opartego na czasie
 
-`ScheduleRecurrence`Konstruktor ma wymagany `frequency` argument, który musi być jednym z następujących ciągów: "minute", "Hour", "Day", "Week" lub "Month". Wymaga również `interval` argumentu Integer określającego, ile `frequency` jednostek powinna upłynąć między harmonogramem. Opcjonalne argumenty umożliwiają bardziej szczegółowe określenie czasu rozpoczęcia, zgodnie z opisem w dokumentacji [zestawu SDK ScheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+`ScheduleRecurrence`Konstruktor ma wymagany `frequency` argument, który musi być jednym z następujących ciągów: "minute", "Hour", "Day", "Week" lub "Month". Wymaga również `interval` argumentu Integer określającego, ile `frequency` jednostek powinna upłynąć między harmonogramem. Opcjonalne argumenty umożliwiają bardziej szczegółowe określenie czasu rozpoczęcia, zgodnie z opisem w dokumentacji [zestawu SDK ScheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py&preserve-view=true).
 
 Utwórz `Schedule` Uruchamianie co 15 minut:
 
@@ -83,11 +83,11 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Potoki wyzwalane przez zmiany plików mogą być bardziej wydajne niż harmonogramy oparte na czasie. Na przykład możesz chcieć wykonać krok przetwarzania wstępnego, gdy plik zostanie zmieniony lub gdy nowy plik zostanie dodany do katalogu danych. Możesz monitorować wszelkie zmiany w magazynie danych lub zmiany w określonym katalogu w magazynie danych. W przypadku monitorowania określonego katalogu zmiany w podkatalogach tego katalogu _nie_ będą powodowały uruchomienia.
 
-Aby utworzyć plik — reaktywny `Schedule` , należy ustawić `datastore` parametr w wywołaniu metody [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Aby monitorować folder, należy ustawić `path_on_datastore` argument.
+Aby utworzyć plik — reaktywny `Schedule` , należy ustawić `datastore` parametr w wywołaniu metody [Schedule. Create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Aby monitorować folder, należy ustawić `path_on_datastore` argument.
 
 `polling_interval`Argument pozwala określić, w minutach, częstotliwość sprawdzania zmian w magazynie danych.
 
-Jeśli potok został skonstruowany przy użyciu [ścieżki datapath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py), można ustawić tę zmienną na nazwę zmienionego pliku przez ustawienie `data_path_parameter_name` argumentu.
+Jeśli potok został skonstruowany przy użyciu [ścieżki datapath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py&preserve-view=true) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py&preserve-view=true), można ustawić tę zmienną na nazwę zmienionego pliku przez ustawienie `data_path_parameter_name` argumentu.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")

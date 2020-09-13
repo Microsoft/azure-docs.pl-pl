@@ -1,25 +1,22 @@
 ---
 title: Włącz replikację prywatnych punktów końcowych w Azure Site Recovery
 description: W tym artykule opisano sposób konfigurowania replikacji dla maszyn wirtualnych z prywatnymi punktami końcowymi z jednego regionu świadczenia usługi Azure do innego przy użyciu Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 16cde1cf43c6463cbbe640d9e0a80a9ea88f1f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097895"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658259"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Replikowanie maszyn z prywatnymi punktami końcowymi
 
-Azure Site Recovery umożliwia używanie prywatnych punktów końcowych prywatnego [linku platformy Azure](../private-link/private-endpoint-overview.md) do replikowania maszyn z wewnątrz izolowanej sieci wirtualnej. Obsługa dostępu do prywatnego punktu końcowego do magazynu odzyskiwania jest obsługiwana w następujących regionach:
-
-- Komercyjne platformy Azure: Południowo-środkowe stany USA, zachodnie stany USA 2, Wschodnie stany USA
-- Azure Government: US Gov Wirginia, US Gov Arizona, US Gov Teksas, US DoD (region wschodni), US DoD (region środkowy)
+Azure Site Recovery umożliwia używanie prywatnych punktów końcowych prywatnego [linku platformy Azure](../private-link/private-endpoint-overview.md) do replikowania maszyn z wewnątrz izolowanej sieci wirtualnej. Dostęp prywatnego punktu końcowego do magazynu odzyskiwania jest obsługiwany we wszystkich regionach instytucji rządowych & handlowych platformy Azure.
 
 Ten artykuł zawiera instrukcje dotyczące wykonywania następujących czynności:
 
@@ -140,7 +137,7 @@ Przed włączeniem replikacji maszyn wirtualnych, zarządzana tożsamość magaz
 
 - Konta magazynu oparte na Menedżer zasobów (typ standardowy):
   - [Współautor](../role-based-access-control/built-in-roles.md#contributor)
-  - [Współautor danych obiektu blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+  - [Współautor danych obiektu blob usługi Storage](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Konta magazynu oparte na Menedżer zasobów (typ warstwy Premium):
   - [Współautor](../role-based-access-control/built-in-roles.md#contributor)
   - [Właściciel danych obiektów blob magazynu](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
@@ -154,7 +151,7 @@ W poniższych krokach opisano, jak dodać przypisanie roli do kont magazynu, poj
 
 1. Po włączeniu **kontroli dostępu (IAM)** w polu "Dodaj przypisanie roli" Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Pokazuje stronę kontroli dostępu (IAM) na koncie magazynu i przycisk Dodaj przypisanie roli w Azure Portal.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Pokazuje stronę kontroli dostępu (IAM) na koncie magazynu i przycisk "Dodaj przypisanie roli" w Azure Portal.":::
 
 1. Na stronie "Dodawanie przypisania roli" Wybierz rolę z powyższej listy na liście rozwijanej **rola** . Wprowadź **nazwę** magazynu i wybierz pozycję **Zapisz**.
 
@@ -176,7 +173,7 @@ Utwórz jedną prywatną strefę DNS, aby zezwolić agentowi mobilności na rozp
 
    1. Wyszukaj ciąg "Prywatna strefa DNS Zone" na pasku wyszukiwania **wszystkie usługi** i wybierz pozycję "strefy prywatna strefa DNS" z listy rozwijanej.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Pokazuje wyszukiwanie prywatne strefy DNS na nowych zasobach w Azure Portal.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Pokazuje wyszukiwanie "prywatne strefy DNS" na nowych zasobach w Azure Portal.":::
 
    1. Na stronie "Prywatna strefa DNS Zones" Wybierz przycisk ** \+ Dodaj** , aby rozpocząć tworzenie nowej strefy.
 
@@ -209,7 +206,7 @@ Utwórz jedną prywatną strefę DNS, aby zezwolić agentowi mobilności na rozp
 
    1. Na otwartej stronie "Dodawanie zestawu rekordów" Dodaj wpis dla każdej w pełni kwalifikowanej nazwy domeny i prywatnego adresu IP jako rekord _typu._ Listę w pełni kwalifikowanych nazw domen i adresów IP można uzyskać ze strony "prywatny punkt końcowy" w temacie **Omówienie**. Jak pokazano w poniższym przykładzie, pierwsza w pełni kwalifikowana nazwa domeny z prywatnego punktu końcowego jest dodawana do zestawu rekordów w prywatnej strefie DNS.
 
-      Te w pełni kwalifikowane nazwy domen pasują do wzorca:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Te w pełni kwalifikowane nazwy domen pasują do wzorca: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Pokazuje stronę umożliwiającą dodanie rekordu typu DNS dla w pełni kwalifikowanej nazwy domeny do prywatnego punktu końcowego w Azure Portal.":::
 

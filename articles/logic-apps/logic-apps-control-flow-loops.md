@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495611"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657476"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Tworzenie pętli, które powtarzają akcje przepływu pracy lub tablice procesów w usłudze Azure Logic Apps
 
@@ -40,12 +40,12 @@ Aby powtarzać akcje do momentu spełnienia warunku lub zmiany stanu, można utw
 
 * Aby uzyskać przewidywalne wyniki operacji na zmiennych w każdej iteracji pętli, Uruchom te pętle sekwencyjnie. Na przykład gdy zakończona współbieżnie uruchomiona pętla, zwiększanie, zmniejszanie i dołączanie do zmiennych operacji zwraca przewidywalne wyniki. Jednak podczas każdej iteracji w pętli współbieżnie działającej operacje te mogą zwracać nieprzewidywalne wyniki. 
 
-* Akcje w pętli "foreach" używają[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+* Akcje w pętli "foreach" używają [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 wyrażenie, aby odwoływać się do każdego elementu w tablicy i przetworzyć je. Jeśli określisz dane, które nie są w tablicy, przepływ pracy aplikacji logiki zakończy się niepowodzeniem. 
 
 Ta przykładowa aplikacja logiki wysyła dzienne Podsumowanie dla kanału informacyjnego RSS witryny sieci Web. Aplikacja używa pętli "foreach", która wysyła wiadomość e-mail dla każdego nowego elementu.
 
-1. [Utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przy użyciu konta programu Outlook Outlook.com lub Office 365.
+1. [Utwórz tę przykładową aplikację logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) przy użyciu konta Outlook.com lub konta służbowego.
 
 2. Między wyzwalaczem RSS i akcją Wyślij wiadomość e-mail Dodaj pętlę "foreach". 
 
@@ -232,7 +232,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
       | Właściwość | Wartość | Opis |
       | -------- | ----- | ----------- | 
-      | **Do** | *\<email-address\@domain>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
+      | **Działanie** | *\<email-address\@domain>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
       | **Temat** | Bieżąca wartość **limitu** | Określ temat wiadomości e-mail. Na potrzeby tego przykładu upewnij się, że dołączysz zmienną **limitu** . | 
       | **Treść** | <*Poczta e-mail — zawartość*> | Określ zawartość wiadomości e-mail, która ma zostać wysłana. Na potrzeby tego przykładu wpisz dowolny tekst. | 
       |||| 
