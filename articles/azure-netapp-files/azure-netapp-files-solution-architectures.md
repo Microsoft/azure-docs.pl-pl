@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/08/2020
 ms.author: b-juche
-ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ca17dccd8b17a2e0ff7e9b960c74b4c5a36018f5
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690548"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567323"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architektury rozwiązań używające usługi Azure NetApp Files
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach, które mogą pomóc w zrozumieniu architektur rozwiązań na potrzeby używania Azure NetApp Files.  
@@ -50,8 +50,8 @@ Ta sekcja zawiera odwołania do aplikacji systemu Windows i rozwiązań SQL Serv
 ### <a name="sql-server"></a>SQL Server
 
 * [Wdrażanie SQL Server za pośrednictwem protokołu SMB z Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
-* [Wdróż klaster trybu failover w systemie SQL Server za pośrednictwem protokołu SMB z Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
-* [Wdróż zawsze włączone grupy dostępności przy użyciu Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
+<!-- * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) --> 
+<!-- * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) --> 
 
 ## <a name="sap-on-azure-solutions"></a>Rozwiązania SAP na platformie Azure
 
@@ -89,7 +89,7 @@ Ta sekcja zawiera odwołania do rozwiązań infrastruktury pulpitu wirtualnego.
 * [Korzyści związane z używaniem usługi Azure NetApp Files w usłudze Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
 * [Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
-* [Pulpit wirtualny systemu Windows w skali przedsiębiorstwa](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Usługa Windows Virtual Desktop w skali przedsiębiorstwa](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="hpc-solutions"></a>Rozwiązania HPC
 
@@ -125,7 +125,7 @@ Ta sekcja zawiera rozwiązania dla usług platformy Azure.
 * [Nieaktualna Kubernetes wydajność na platformie Azure dzięki Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident-Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 
-### <a name="azure-batch"></a>Usługa Azure Batch
+### <a name="azure-batch"></a>Azure Batch
 
 * [Uruchamianie obciążeń MPI z użyciem Azure Batch i Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
  

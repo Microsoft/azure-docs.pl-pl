@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502702"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595248"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Kierowanie ruchu internetowego na podstawie adresu URL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -23,13 +23,12 @@ Jako administrator IT zarządzający ruchem internetowym chcesz pomóc swoim kli
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Tworzenie grupy zasobów dla potrzebnych zasobów sieciowych
-> * Tworzenie zasobów sieciowych
-> * Tworzenie bramy aplikacji na potrzeby ruchu pochodzącego z aplikacji
-> * Określanie pul serwerów i reguł rozsyłania dla różnych typów ruchu
-> * Tworzenie zestawów skalowania dla poszczególnych pul umożliwiających ich automatycznie skalowanie
-> * Uruchamianie testu sprawdzającego, czy różne typy ruchu trafiają do poprawnych pul
+* Tworzenie grupy zasobów dla potrzebnych zasobów sieciowych
+* Tworzenie zasobów sieciowych
+* Tworzenie bramy aplikacji na potrzeby ruchu pochodzącego z aplikacji
+* Określanie pul serwerów i reguł rozsyłania dla różnych typów ruchu
+* Tworzenie zestawów skalowania dla poszczególnych pul umożliwiających ich automatycznie skalowanie
+* Uruchamianie testu sprawdzającego, czy różne typy ruchu trafiają do poprawnych pul
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-url-route-powershell.md) lub [Azure Portal](create-url-route-portal.md).
 

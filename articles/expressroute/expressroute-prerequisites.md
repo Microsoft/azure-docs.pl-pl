@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: wymagania wstępne'
 description: Ta strona zawiera listę wymagań, które należy spełnić przed zamówieniem obwodu usługi Azure ExpressRoute. Zawiera listę kontrolną.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 87c8a7523222afd3ae4daeb8fb5824025e693cd1
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74083357"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569632"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Wymagania wstępne usługi ExpressRoute i lista kontrolna
 Aby połączyć się z usługami w chmurze firmy Microsoft za pomocą usługi ExpressRoute, należy sprawdzić, czy zostały spełnione wymagania wymienione w poniższych sekcjach.
@@ -20,8 +20,8 @@ Aby połączyć się z usługami w chmurze firmy Microsoft za pomocą usługi Ex
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Konto platformy Azure
-* Prawidłowe i aktywne konto platformy Microsoft Azure. To konto jest wymagane do skonfigurowania obwodu usługi ExpressRoute. Obwody usługi ExpressRoute to zasoby w ramach subskrypcji platformy Azure. Subskrypcja platformy Azure jest wymagana, nawet jeśli łączność jest ograniczona do usług w chmurze firmy Microsoft, takich jak Office 365.
-* Aktywna subskrypcja usługi Office 365 (w przypadku korzystania z usług Office 365). Więcej informacji znajduje się w tym artykule w sekcji dotyczącej określonych wymagań dotyczących usługi Office 365.
+* Prawidłowe i aktywne konto platformy Microsoft Azure. To konto jest wymagane do skonfigurowania obwodu usługi ExpressRoute. Obwody usługi ExpressRoute to zasoby w ramach subskrypcji platformy Azure. Subskrypcja platformy Azure jest wymagana, nawet jeśli łączność jest ograniczona do usług w chmurze firmy Microsoft innych niż Azure, takich jak Microsoft 365.
+* Aktywna subskrypcja Microsoft 365 (w przypadku korzystania z usług Microsoft 365 Services). Aby uzyskać więcej informacji, zapoznaj się z sekcją Microsoft 365 specyficzne wymagania tego artykułu.
 
 ## <a name="connectivity-provider"></a>Dostawca połączenia
 
@@ -36,16 +36,16 @@ Aby połączyć się z usługami w chmurze firmy Microsoft za pomocą usługi Ex
 * **Technologia QoS**: program Skype dla firm oferuje różne usługi (np. połączenia głosowe, wideo, usługi tekstowe), które wymagają zróżnicowanej obsługi w technologii QoS. Użytkownik i jego dostawca powinni postępować zgodnie z [wymaganiami technologii QoS](expressroute-qos.md).
 * **Bezpieczeństwo sieci**: podczas łączenia z usługą Microsoft Cloud za pośrednictwem usługi ExpressRoute miej na uwadze [bezpieczeństwo sieci](../best-practices-network-security.md).
 
-## <a name="office-365"></a>Office 365
-Jeśli zamierzasz włączyć usługę Office 365 w ramach usługi ExpressRoute, przejrzyj następujące dokumenty, aby uzyskać więcej informacji o wymaganiach dotyczących usługi Office 365.
+## <a name="microsoft-365"></a>Microsoft 365
+Jeśli planujesz włączyć Microsoft 365 w ExpressRoute, przejrzyj następujące dokumenty, aby uzyskać więcej informacji na temat wymagań dotyczących Microsoft 365.
 
-* [Omówienie usługi ExpressRoute dla usługi Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
-* [Routing za pomocą usługi ExpressRoute dla usługi Office 365](https://support.office.com/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+* [Usługa Azure ExpressRoute dla Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
+* [Routing z ExpressRoute dla Microsoft 365](/microsoft-365/enterprise/routing-with-expressroute)
 * [Wysoka dostępność i tryb failover w usłudze ExpressRoute](https://aka.ms/erhighavailability)
-* [Adresy URL i zakresy adresów IP usługi Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-* [Planowanie sieci i dostrajanie wydajności dla usługi Office 365](https://support.office.com/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
-* [Narzędzia i kalkulatory przepustowości sieci](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
-* [Integracja usługi Office 365 ze środowiskiem lokalnym](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Adresy URL Microsoft 365 i zakresy adresów IP](/microsoft-365/enterprise/urls-and-ip-address-ranges)
+* [Planowanie sieci i dostrajanie wydajności dla Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
+* [Planowanie sieci i migracji dla Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
+* [Integracja Microsoft 365 ze środowiskami lokalnymi](/microsoft-365/enterprise/microsoft-365-integration)
 * [Usługa ExpressRoute w usłudze Office 365 — szkoleniowe filmy wideo dla zaawansowanych](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>Następne kroki

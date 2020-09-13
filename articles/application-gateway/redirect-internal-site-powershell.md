@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: ab1cedf324c0391ce54773202b030b519c3e4766
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e3f53cc14b22e7d689e246c3f0609ce80c29ec4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804262"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594309"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu Azure PowerShell
 
@@ -21,12 +21,11 @@ Za pomocą programu Azure PowerShell można skonfigurować [przekierowywanie ruc
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji
-> * Dodaj odbiorniki i regułę przekierowania
-> * Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
-> * Tworzenie rekordu CNAME w domenie
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji
+* Dodaj odbiorniki i regułę przekierowania
+* Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
+* Tworzenie rekordu CNAME w domenie
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

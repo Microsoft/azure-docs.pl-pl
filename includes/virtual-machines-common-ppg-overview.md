@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81421961"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570246"
 ---
 Umieszczanie maszyn wirtualnych w jednym regionie zmniejsza odległość fizyczną między wystąpieniami. Umieszczenie ich w ramach pojedynczej strefy dostępności spowoduje również, że zostaną one fizycznie bliżej siebie. Jednak w miarę zwiększania się rozmiaru platformy Azure jedna strefa dostępności może obejmować wiele fizycznych centrów danych, co może skutkować opóźnieniami sieciowymi wpływającymi na aplikację. 
 
@@ -34,7 +34,7 @@ Grupa umieszczania bliskości jest grupą logiczną używaną w celu upewnienia 
 
 Grupa umieszczania bliskości jest nowym typem zasobów na platformie Azure. Należy utworzyć je przed użyciem z innymi zasobami. Po utworzeniu można go używać z maszynami wirtualnymi, zestawami dostępności lub zestawami skalowania maszyn wirtualnych. Należy określić grupę umieszczania bliskości podczas tworzenia zasobów obliczeniowych, podając identyfikator grupy umieszczania sąsiedztwa. 
 
-Możesz również przenieść istniejący zasób do grupy umieszczania sąsiedztwa. Podczas przenoszenia zasobu do grupy umieszczania w sąsiedztwie należy najpierw zatrzymać (cofnąć przydział) element zawartości, ponieważ zostanie on ponownie wdrożony w innym centrum danych w regionie, tak aby spełniał ograniczenie wspólnej lokalizacji. 
+Możesz również przenieść istniejący zasób do grupy umieszczania sąsiedztwa. Podczas przenoszenia zasobu do grupy umieszczania bliskości należy najpierw zatrzymać (cofnąć przydział) element zawartości, ponieważ zostanie on ponownie wdrożony w innym centrum danych w regionie w celu spełnienia ograniczenia wspólnej lokalizacji. 
 
 W przypadku zestawów dostępności i zestawów skalowania maszyn wirtualnych należy ustawić grupę umieszczania sąsiedztwa na poziomie zasobu, a nie na poszczególnych maszynach wirtualnych. 
 

@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: plik dołączania
+description: plik dołączania
 services: api-management
 author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 072f13f5a0884cf95fe760e17ff0d770111f4da0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204639"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570112"
 ---
 | Zasób | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -42,6 +42,6 @@ ms.locfileid: "82204639"
 <sup>5</sup> Ten limit dotyczy warstw Podstawowa, standardowa i Premium. W warstwie zużycia rozmiar dokumentu zasad jest ograniczony do 4 KiB.<br/>
 <sup>6</sup> Wiele domen niestandardowych jest obsługiwanych tylko w warstwach deweloper i Premium.<br/>
 <sup>7</sup> Certyfikaty urzędu certyfikacji nie są obsługiwane w warstwie zużycia.<br/>
-<sup>8</sup> Ten zasób ma zastosowanie tylko do warstwy zużycia.<br/>
+<sup>8</sup> Ten limit dotyczy tylko warstwy zużycia. W tych kategoriach nie ma ograniczeń dotyczących innych warstw.<br/>
 <sup>9</sup> Dotyczy tylko warstwy zużycia. Zawiera ciąg zapytania o długości do 2048 bajtów.<br/>
 <sup>10</sup> Bramy samoobsługowe są obsługiwane tylko w warstwach deweloper i Premium. Limit ma zastosowanie do liczby [zasobów bramy samoobsługowej](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Aby zgłosić ten limit, skontaktuj się z [pomocą techniczną](https://azure.microsoft.com/support/options/). Należy zauważyć, że liczba węzłów (lub replik) skojarzonych z nieobsługiwanym zasobem bramy jest nieograniczona w warstwie Premium i ograniczona do jednego węzła w warstwie dewelopera.

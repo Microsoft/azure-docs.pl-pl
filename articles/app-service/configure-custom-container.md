@@ -3,12 +3,12 @@ title: Konfigurowanie niestandardowego kontenera systemu Linux
 description: Informacje dotyczące konfigurowania niestandardowego kontenera systemu Linux w Azure App Service. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 2f26f1b041b2d369b68aeb11755c8e8053862b16
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9a27abe5457cf8adf2963db545c629134ae53709
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083021"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566980"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Service
 
@@ -54,7 +54,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem. Aby kontener niestandardowy obsługiwał protokół SSH, należy dodać go do samego pliku dockerfile.
 
 > [!TIP]
-> Wszystkie wbudowane kontenery systemu Linux dodaliśmy instrukcje protokołu SSH w swoich repozytoriach obrazów. Aby zobaczyć, jak to jest włączone, możesz przejść przez następujące instrukcje dotyczące [repozytoriumNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) .
+> Wszystkie wbudowane kontenery systemu Linux dodaliśmy instrukcje protokołu SSH w swoich repozytoriach obrazów. Aby zobaczyć, jak to jest włączone, możesz przejść przez następujące instrukcje dotyczące [ repozytoriumNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) .
 
 - Użyj instrukcji [Run](https://docs.docker.com/engine/reference/builder/#run) , aby zainstalować serwer SSH i ustawić hasło dla konta głównego `"Docker!"` . Na przykład dla obrazu opartego na systemie [Alpine Linux](https://hub.docker.com/_/alpine)wymagane są następujące polecenia:
 
@@ -88,7 +88,7 @@ Protokół SSH umożliwia bezpieczną komunikację między kontenerem i klientem
     /usr/sbin/sshd
     ```
 
-    Aby zapoznać się z przykładem, zobacz jak domyślny [kontenerNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) uruchamia serwer SSH.
+    Aby zapoznać się z przykładem, zobacz jak domyślny [ kontenerNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) uruchamia serwer SSH.
 
 ## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 
@@ -147,6 +147,7 @@ Wiele kontenerów jest obecnie w wersji zapoznawczej. Następujące funkcje plat
 
 - Uwierzytelnianie/autoryzacja
 - Tożsamości zarządzane
+- CORS
 
 ### <a name="docker-compose-options"></a>Opcje Docker Compose
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: scottnap
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 8a22e8f0bde2d13b4055566d96680fadc2db6e11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80337091"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595363"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Praca zdalna: zagadnienia dotyczące sieciowego urządzenia wirtualnego (urządzenie WUS) na potrzeby pracy zdalnej
 
@@ -52,6 +52,8 @@ Każde rozwiązanie urządzenie WUS ma własne narzędzia i zasoby do monitorowa
 Większość głównych partnerów urządzenie WUS opublikowała wskazówki dotyczące skalowania pod kątem nagłego i nieoczekiwanego wzrostu w trakcie COVID-19. Poniżej przedstawiono kilka przydatnych linków do zasobów partnerskich.
 
 [Barracuda umożliwia korzystanie z domu podczas zabezpieczania danych podczas COVID-19](https://www.barracuda.com/covid-19/work-from-home "Włącz pracy z domu podczas zabezpieczania danych w trakcie COVID-19")
+
+[Zapoznaj się z bezpiecznym pracownikiem zdalnym podczas coronavirus](https://www.checkpoint.com/solutions/secure-remote-workforce-during-coronavirus/ "Zabezpiecz pracowników zdalnych podczas coronavirus")
 
 [Implementacje programu Cisco AnyConnect i wydajność/skalowanie dla przygotowania COVID-19](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Implementacje programu Cisco AnyConnect i wydajność/skalowanie dla przygotowania COVID-19")
 

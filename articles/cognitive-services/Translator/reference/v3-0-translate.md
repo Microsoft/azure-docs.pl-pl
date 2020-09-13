@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903990"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566606"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: tłumaczenie
 
@@ -43,7 +43,7 @@ Parametry żądania przesłane na ciągu zapytania są następujące:
     <td><em>Wymagany parametr</em>.<br/>Wersja interfejsu API żądana przez klienta. Wartość musi być <code>3.0</code> .</td>
   </tr>
   <tr>
-    <td>na</td>
+    <td>na wartość</td>
     <td><em>Wymagany parametr</em>.<br/>Określa język tekstu wyjściowego. Język docelowy musi być jednym z <a href="./v3-0-languages.md">obsługiwanych języków</a> zawartych w <code>translation</code> zakresie. Na przykład użyj, <code>to=de</code> Aby przetłumaczyć na język niemiecki.<br/>Możliwe jest przetłumaczenie na wiele języków jednocześnie przez powtarzanie parametru w ciągu zapytania. Na przykład użyj, <code>to=de&to=it</code> Aby przetłumaczyć na język niemiecki i włoski.</td>
   </tr>
 </table>
@@ -95,7 +95,7 @@ Parametry żądania przesłane na ciągu zapytania są następujące:
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td><em>Opcjonalny parametr</em>.<br/>Określa, że usługa może przewracać do ogólnego systemu, gdy nie istnieje system niestandardowy. Możliwe wartości to: <code>true</code> (ustawienie domyślne) lub <code>false</code> .<br/><br/><code>allowFallback=false</code>Określa, że tłumaczenie ma używać tylko systemów wyszkolonych dla <code>category</code> określonego przez żądanie. Jeśli tłumaczenie języka X na język t wymaga łańcucha za pośrednictwem języka Pivot E, wszystkie systemy w łańcuchu (X->E i E->Y) będą musiały być niestandardowe i mieć tę samą kategorię. Jeśli nie zostanie znaleziony żaden system z określoną kategorią, żądanie zwróci kod stanu 400. <code>allowFallback=true</code>Określa, że usługa może przewracać do ogólnego systemu, gdy nie istnieje system niestandardowy.
+    <td><em>Opcjonalny parametr</em>.<br/>Określa, że usługa może przewracać do ogólnego systemu, gdy nie istnieje system niestandardowy. Możliwe wartości to: <code>true</code> (ustawienie domyślne) lub <code>false</code> .<br/><br/><code>allowFallback=false</code> Określa, że tłumaczenie ma używać tylko systemów wyszkolonych dla <code>category</code> określonego przez żądanie. Jeśli tłumaczenie języka X na język t wymaga łańcucha za pośrednictwem języka Pivot E, wszystkie systemy w łańcuchu (X->E i E->Y) będą musiały być niestandardowe i mieć tę samą kategorię. Jeśli nie zostanie znaleziony żaden system z określoną kategorią, żądanie zwróci kod stanu 400. <code>allowFallback=true</code> Określa, że usługa może przewracać do ogólnego systemu, gdy nie istnieje system niestandardowy.
 </td>
   </tr>
 </table> 
@@ -174,7 +174,7 @@ Pomyślna odpowiedź to tablica JSON z jednym wynikiem dla każdego ciągu w tab
 
     Granice zdania są uwzględniane tylko wtedy, gdy parametr request `includeSentenceLength` ma wartość `true` .
 
-  * `sourceText`: Obiekt z właściwością pojedynczego ciągu o nazwie `text` , która daje tekst wejściowy w domyślnym skrypcie języka źródłowego. `sourceText`Właściwość jest obecna tylko wtedy, gdy dane wejściowe są wyrażane w skrypcie, który nie jest zwykłym skryptem dla danego języka. Na przykład jeśli dane wejściowe były zapisywane w języku łacińskim w skrypcie łaciński, to ten `sourceText.text` sam tekst arabski konwertowany do arabskiej skryptu.
+  * `sourceText`: Obiekt z właściwością pojedynczego ciągu o nazwie `text` , która daje tekst wejściowy w domyślnym skrypcie języka źródłowego. `sourceText` Właściwość jest obecna tylko wtedy, gdy dane wejściowe są wyrażane w skrypcie, który nie jest zwykłym skryptem dla danego języka. Na przykład jeśli dane wejściowe były zapisywane w języku łacińskim w skrypcie łaciński, to ten `sourceText.text` sam tekst arabski konwertowany do arabskiej skryptu.
 
 Przykład odpowiedzi JSON znajduje się w sekcji [przykładów](#examples) .
 
@@ -280,7 +280,7 @@ Treść odpowiedzi:
     }
 ]
 ```
-Odpowiedź jest podobna do odpowiedzi z poprzedniego przykładu. Ponieważ zażądano autowykrywania języka, odpowiedź zawiera również informacje dotyczące języka wykrytego dla tekstu wejściowego. 
+Odpowiedź jest podobna do odpowiedzi z poprzedniego przykładu. Ponieważ zażądano autowykrywania języka, odpowiedź zawiera również informacje dotyczące języka wykrytego dla tekstu wejściowego. Funkcja autowykrywania języka działa lepiej z dłuższym tekstem wejściowym.
 
 ### <a name="translate-with-transliteration"></a>Tłumaczenie przy użyciu Przekształć
 

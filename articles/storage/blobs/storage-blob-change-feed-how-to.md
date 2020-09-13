@@ -1,29 +1,26 @@
 ---
-title: Kanał informacyjny zmiany procesu w usłudze Azure Blob Storage (wersja zapoznawcza) | Microsoft Docs
+title: Źródło zmian procesu na platformie Azure Blob Storage | Microsoft Docs
 description: Dowiedz się, jak przetwarzać dzienniki źródeł zmian w aplikacji klienckiej platformy .NET
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018964"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568255"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Kanał informacyjny zmiany procesu w usłudze Azure Blob Storage (wersja zapoznawcza)
+# <a name="process-change-feed-in-azure-blob-storage"></a>Kanał informacyjny zmiany procesu w usłudze Azure Blob Storage
 
 Źródło zmian zawiera dzienniki transakcji wszystkich zmian, które wystąpiły w obiektach Blob i metadanych obiektów BLOB na koncie magazynu. W tym artykule opisano sposób odczytywania rekordów źródła zmian przy użyciu biblioteki procesora źródła zmian obiektów BLOB.
 
-Aby dowiedzieć się więcej na temat źródła zmian, zobacz temat [zmiana źródła danych w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md).
-
-> [!NOTE]
-> Źródło zmian jest w publicznej wersji zapoznawczej i jest dostępne w ograniczonych regionach. Aby dowiedzieć się więcej na temat tej funkcji wraz ze znanymi problemami i ograniczeniami, zobacz temat [Obsługa kanałów zmian w usłudze Azure Blob Storage](storage-blob-change-feed.md). Biblioteka procesora kanału informacyjnego zmian może ulec zmianie między tymi elementami i wtedy, gdy ta biblioteka będzie ogólnie dostępna.
+Aby dowiedzieć się więcej na temat źródła zmian, zobacz temat [zmiana źródła danych w usłudze Azure Blob Storage](storage-blob-change-feed.md).
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Pobieranie biblioteki procesora kanału informacyjnego zmiany obiektu BLOB
 
@@ -217,6 +214,6 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
 
 Określony czas rozpoczęcia jest zaokrąglany w dół do najbliższej godziny, a czas zakończenia jest zaokrąglany do najbliższej godziny. Istnieje możliwość, że użytkownicy mogą zobaczyć zdarzenia, które wystąpiły przed upływem czasu rozpoczęcia i czasu zakończenia. Istnieje również możliwość, że niektóre zdarzenia występujące między czasem rozpoczęcia i zakończenia nie będą wyświetlane. Wynika to z faktu, że zdarzenia mogą być rejestrowane w ciągu godziny wcześniejszej niż godzina rozpoczęcia lub w ciągu godziny po zakończeniu.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o dziennikach źródła zmian. Zobacz artykuł [Zmiana kanału informacyjnego w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md)
+Dowiedz się więcej o dziennikach źródła zmian. Zobacz artykuł [Zmiana kanału informacyjnego w usłudze Azure Blob Storage](storage-blob-change-feed.md)

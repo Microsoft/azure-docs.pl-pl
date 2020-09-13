@@ -3,12 +3,12 @@ title: Koncepcje grafu multimediów — Azure
 description: Graf multimedialny pozwala określić, gdzie mają być przechwytywane nośniki, jak należy je przetworzyć i gdzie mają zostać dostarczone wyniki. Ten artykuł zawiera szczegółowy opis koncepcji wykresu multimedialnego.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048430"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567943"
 ---
 # <a name="media-graph"></a>Graf multimedialny
 
@@ -21,7 +21,8 @@ ms.locfileid: "89048430"
 
 Graf multimedialny pozwala określić, gdzie mają być przechwytywane nośniki, jak należy je przetworzyć i gdzie mają zostać dostarczone wyniki. W tym celu należy połączyć składniki lub węzły w odpowiedni sposób. Poniższy diagram przedstawia graficzną reprezentację grafu multimedialnego.  
 
-![Graficzna reprezentacja grafu multimediów](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Graf multimedialny":::
 
 Analiza filmów wideo na żywo na IoT Edge obsługuje różne typy źródeł, procesorów i ujścia.
 
@@ -39,7 +40,8 @@ Wartości parametrów w topologii są określane podczas tworzenia wystąpień g
 
 Cykl życia topologii wykresu i wystąpienia grafu są wyświetlane na poniższym diagramie stanu.
 
-![Cykl życia topologii wykresu i wystąpienia grafu](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Cykl życia topologii wykresu i wystąpienia grafu":::
 
 Zaczynasz od [tworzenia topologii wykresu](direct-methods.md#graphtopologyset). Następnie dla każdego na żywo kanału informacyjnego wideo, który chcesz przetworzyć z tą topologią, [utworzysz wystąpienie grafu](direct-methods.md#graphinstanceset). 
 
@@ -88,11 +90,11 @@ Węzeł procesora filtru szybkości klatek umożliwia próbkowanie ramek z przyc
 
 #### <a name="http-extension-processor"></a>Procesor rozszerzeń HTTP
 
-Węzeł procesora rozszerzenia HTTP umożliwia łączenie własnych modułów IoT Edge z wykresem multimedialnym. Ten węzeł wykonuje zdekodowaną ramkę wideo jako dane wejściowe i przekazuje te ramki do punktu końcowego REST protokołu HTTP uwidocznionego przez moduł. Ten węzeł ma możliwość uwierzytelniania przy użyciu punktu końcowego REST, jeśli jest to wymagane. Ponadto węzeł ma wbudowany program formatujący obrazy służący do skalowania i kodowania klatek wideo przed ich przekazaniem do punktu końcowego REST. W ramach skalowania dostępne są opcje współczynnika proporcji obrazu, które mają być zachowane, uzupełnione lub rozciągnięte. Koder obrazu obsługuje format JPEG, PNG lub BMP.
+Węzeł procesora rozszerzenia HTTP umożliwia łączenie własnych modułów IoT Edge z wykresem multimedialnym. Ten węzeł wykonuje zdekodowaną ramkę wideo jako dane wejściowe i przekazuje te ramki do punktu końcowego REST protokołu HTTP uwidocznionego przez moduł. Ten węzeł ma możliwość uwierzytelniania przy użyciu punktu końcowego REST, jeśli jest to wymagane. Ponadto węzeł ma wbudowany program formatujący obrazy służący do skalowania i kodowania klatek wideo przed ich przekazaniem do punktu końcowego REST. W ramach skalowania dostępne są opcje współczynnika proporcji obrazu, które mają być zachowane, uzupełnione lub rozciągnięte. Koder obrazu obsługuje format JPEG, PNG lub BMP. Więcej informacji na temat procesora [znajdziesz tutaj](media-graph-extension-concept.md#http-extension-processor).
 
 #### <a name="grpc-extension-processor"></a>Procesor rozszerzenia gRPC
 
-Węzeł procesora rozszerzenia gRPC wykonuje dekodowane ramki wideo jako dane wejściowe i przekazuje te ramki do punktu końcowego [gRPC](terminology.md#grpc) uwidocznionego przez moduł. Ponadto węzeł ma wbudowany program formatujący obrazy służący do skalowania i kodowania klatek wideo przed ich przekazaniem do punktu końcowego gRPC. W ramach skalowania dostępne są opcje współczynnika proporcji obrazu, które mają być zachowane, uzupełnione lub rozciągnięte. Koder obrazu obsługuje format JPEG, PNG lub BMP.
+Węzeł procesora rozszerzenia gRPC wykonuje dekodowane ramki wideo jako dane wejściowe i przekazuje te ramki do punktu końcowego [gRPC](terminology.md#grpc) uwidocznionego przez moduł. Węzeł obsługuje transfer danych przy użyciu [pamięci współdzielonej](https://en.wikipedia.org/wiki/Shared_memory) lub bezpośrednio osadzanie zawartości w treści gRPC komunikatów. Ponadto węzeł ma wbudowany program formatujący obrazy służący do skalowania i kodowania klatek wideo przed ich przekazaniem do punktu końcowego gRPC. W ramach skalowania dostępne są opcje współczynnika proporcji obrazu, które mają być zachowane, uzupełnione lub rozciągnięte. Koder obrazu obsługuje format JPEG, PNG lub BMP. Więcej informacji na temat procesora [znajdziesz tutaj](media-graph-extension-concept.md#grpc-extension-processor).
 
 #### <a name="signal-gate-processor"></a>Procesor bramy sygnałów  
 

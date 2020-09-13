@@ -3,14 +3,13 @@ title: Wdrażanie grupy kontenerów w usłudze Azure Virtual Network
 description: Dowiedz się, jak wdrożyć grupę kontenerów w nowej lub istniejącej sieci wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f1678dee9c43d2ce9652018f0d09fe1738659f54
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c5eff486299a3974e8fb9b4b12d6bb74880c48d8
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407153"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569394"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Wdrażanie wystąpień kontenerów w sieci wirtualnej platformy Azure
 
@@ -186,7 +185,7 @@ Name              ResourceGroup    Status    Image                              
 appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ### <a name="delete-container-instances"></a>Usuwanie wystąpień kontenerów
 

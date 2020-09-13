@@ -3,13 +3,12 @@ title: Zbieranie & analizowanie dzienników zasobów
 description: Dowiedz się, jak wysyłać dzienniki zasobów i dane zdarzeń z grup kontenerów w Azure Container Instances do dzienników Azure Monitor
 ms.topic: article
 ms.date: 07/13/2020
-ms.author: danlep
-ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b39cf31dc28ece7d4e4f938dae21a4fbf6a1a832
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524016"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566674"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Rejestrowanie grup kontenerów i wystąpień przy użyciu dzienników Azure Monitor
 
@@ -107,7 +106,7 @@ Aby wyświetlić dzienniki grupy kontenerów w `ContainerInstanceLog_CL` tabeli:
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
 1. W obszarze **Ogólne**wybierz pozycję **dzienniki** .  
-1. Wpisz następujące zapytanie:`ContainerInstanceLog_CL | limit 50`
+1. Wpisz następujące zapytanie: `ContainerInstanceLog_CL | limit 50`
 1. Wybierz pozycję **Uruchom**
 
 Należy zobaczyć kilka wyników wyświetlanych przez zapytanie. Jeśli pierwsze wyniki nie są widoczne, odczekaj kilka minut, a następnie wybierz przycisk **Uruchom** , aby ponownie uruchomić zapytanie. Domyślnie wpisy dziennika są wyświetlane w formacie **tabeli** . Następnie możesz rozwijać wiersze, aby wyświetlić zawartość poszczególnych wpisów dziennika.
@@ -120,7 +119,7 @@ Możesz również wyświetlać zdarzenia dla wystąpień kontenera w Azure Porta
 
 1. W witrynie Azure Portal przejdź do obszaru roboczego usługi Log Analytics
 1. W obszarze **Ogólne**wybierz pozycję **dzienniki** .  
-1. Wpisz następujące zapytanie:`ContainerEvent_CL | limit 50`
+1. Wpisz następujące zapytanie: `ContainerEvent_CL | limit 50`
 1. Wybierz pozycję **Uruchom**
 
 Należy zobaczyć kilka wyników wyświetlanych przez zapytanie. Jeśli pierwsze wyniki nie są widoczne, odczekaj kilka minut, a następnie wybierz przycisk **Uruchom** , aby ponownie uruchomić zapytanie. Domyślnie wpisy są wyświetlane w formacie **tabeli** . Następnie można rozwinąć wiersz, aby zobaczyć zawartość pojedynczego wpisu.

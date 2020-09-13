@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797432"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569496"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Wytyczne dotyczące planowania sieci usługi Azure NetApp Files
 
@@ -27,7 +27,7 @@ Planowanie architektury sieci to kluczowy element projektowania dowolnej infrast
 
 Woluminy Azure NetApp Files są zaprojektowane w celu zapełnienia w podsieć specjalnego przeznaczenia o nazwie [delegowana podsieć](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) w ramach Virtual Network platformy Azure. Z tego względu można uzyskać dostęp do woluminów bezpośrednio z sieci wirtualnej, z sieci wirtualnych komunikacji równorzędnej w tym samym regionie lub lokalnie za pośrednictwem bramy Virtual Network (ExpressRoute lub VPN Gateway) w razie potrzeby. Podsieć jest przeznaczona dla Azure NetApp Files i nie ma łączności z innymi usługami platformy Azure ani z Internetem.
 
-## <a name="considerations"></a>Istotne zagadnienia  
+## <a name="considerations"></a>Zagadnienia do rozważenia  
 
 Należy pamiętać o kilku kwestiach związanych z planowaniem Azure NetApp Files sieci.
 
@@ -42,6 +42,7 @@ Poniższe funkcje nie są obecnie obsługiwane w przypadku Azure NetApp Files:
 * Azure Virtual WAN 
 * Strefy nadmiarowe Virtual Network bramy (jednostki SKU bramy za pomocą AZ) 
 * Aktywne/aktywne Virtual Network GWs 
+* Sieć wirtualna z podwójnym stosem (IPv4 i IPv6)
 
 Następujące ograniczenia dotyczące sieci mają zastosowanie do Azure NetApp Files:
 

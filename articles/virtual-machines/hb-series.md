@@ -5,19 +5,21 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: e735b389b5e223e558736f5eaa3c393f8bc29004
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14d5e5af6f485346b0e1f070e84843a9bf085126
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926267"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595346"
 ---
 # <a name="hb-series"></a>Seria HB
 
 Maszyny wirtualne z serii HB są zoptymalizowane pod kątem aplikacji korzystających z przepustowości pamięci, takich jak dynamika płynów, jawnej, skończonej analizy elementów i modelowania pogody. HB VM funkcja 60 AMD EPYC 7551 rdzeni procesora, 4 GB pamięci RAM na rdzeń procesora CPU i bez jednoczesnego wielowątkowości. Maszyna wirtualna HB oferuje do 260 GB/s przepustowości pamięci.
+
+Funkcja maszyn wirtualnych z serii HB 100 GB/s Mellanox EDR InfiniBand. Te maszyny wirtualne są połączone w nieblokującym drzewie FAT na potrzeby zoptymalizowanej i spójnej wydajności RDMA. Te maszyny wirtualne obsługują Routing adaptacyjny oraz transporty połączone dynamicznie (DCT, w tym dodatkowe do standardowych wersji RC i transport UD). Te funkcje rozszerzają wydajność, skalowalność i spójność aplikacji, a ich użycie jest zdecydowanie zalecane.
 
 ACU: 199-216
 
@@ -31,7 +33,7 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
 | Rozmiar | Procesor wirtualny | Procesor | Pamięć (GB) | Przepustowość pamięci GB/s | Podstawowa częstotliwość procesora CPU (GHz) | Częstotliwość wszystkich rdzeni (GHz, szczyt) | Częstotliwość jednordzeniowa (GHz, szczytowa) | Wydajność RDMA (GB/s) | Obsługa MPI | Magazyn tymczasowy (GB) | Maks. liczba dysków danych | Maksymalna liczba kart sieciowych Ethernet |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | PROCESOR AMD EPYC 7551 | 240 | 263 | 2,0 | 2.55 | 2.55 | 100 | Wszyscy | 700 | 4 | 1 |
+| Standard_HB60rs | 60 | PROCESOR AMD EPYC 7551 | 240 | 263 | 2,0 | 2.55 | 2.55 | 100 | Wszystko | 700 | 4 | 1 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

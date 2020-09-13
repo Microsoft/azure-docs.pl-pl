@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56948b700f816c13d35915400658136ffcf48846
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783590"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567422"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Zmiana ról zasobów dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -72,13 +72,13 @@ Zarządzanie prawami może automatycznie dodawać użytkowników do grupy lub ze
 - Gdy grupa lub zespół jest częścią pakietu dostępu, a użytkownik jest przypisany do tego pakietu, użytkownik zostanie dodany do tej grupy lub zespołu, jeśli jeszcze nie istnieje.
 - Po wygaśnięciu przypisania pakietu dostępu użytkownika są one usuwane z grupy lub zespołu, chyba że są obecnie przypisane do innego pakietu dostępu, który zawiera tę samą grupę lub zespół.
 
-Możesz wybrać dowolną [grupę zabezpieczeń usługi Azure AD lub grupę Office 365](../fundamentals/active-directory-groups-create-azure-portal.md). Administratorzy mogą dodać dowolną grupę do wykazu; Właściciele wykazu mogą dodać dowolną grupę do wykazu, jeśli są właścicielami grupy. Podczas wybierania grupy należy pamiętać o następujących ograniczeniach usługi Azure AD:
+Możesz wybrać dowolną [grupę zabezpieczeń usługi Azure AD lub grupę Microsoft 365](../fundamentals/active-directory-groups-create-azure-portal.md). Administratorzy mogą dodać dowolną grupę do wykazu; Właściciele wykazu mogą dodać dowolną grupę do wykazu, jeśli są właścicielami grupy. Podczas wybierania grupy należy pamiętać o następujących ograniczeniach usługi Azure AD:
 
 - Gdy użytkownik, łącznie z gościem, jest dodawany jako członek do grupy lub zespołu, może zobaczyć wszystkich innych członków tej grupy lub zespołu.
 - Usługa Azure AD nie może zmienić członkostwa w grupie, która została zsynchronizowana z systemem Windows Server Active Directory przy użyciu Azure AD Connect lub która została utworzona w usłudze Exchange Online jako grupa dystrybucyjna.  
 - Członkostwa w grupach dynamicznych nie można zaktualizować przez dodanie lub usunięcie elementu członkowskiego, więc członkostwa w grupie dynamicznej nie są odpowiednie do użytku z zarządzaniem prawami.
 
-Aby uzyskać więcej informacji, zobacz [porównywanie grup](/office365/admin/create-groups/compare-groups) i [grup pakietu Office 365 oraz Microsoft Teams](/microsoftteams/office-365-groups).
+Aby uzyskać więcej informacji, zobacz [porównywanie grup](/office365/admin/create-groups/compare-groups) i [grup Microsoft 365 i Microsoft Teams](/microsoftteams/office-365-groups).
 
 1. Na stronie **Dodaj rolę zasobów do pakietu dostępu** kliknij pozycję **grupy i zespoły** , aby otworzyć okienko Wybieranie grup.
 
@@ -94,8 +94,8 @@ Aby uzyskać więcej informacji, zobacz [porównywanie grup](/office365/admin/cr
     | --- | --- |
     | Zabezpieczenia | Służy do udzielania dostępu do zasobów. |
     | Dystrybucja | Służy do wysyłania powiadomień do grupy osób. |
-    | O365 | Grupa pakietu Office 365, która nie jest włączona dla zespołów. Używany do współpracy między użytkownikami i spoza niej. |
-    | Zespół | Grupa pakietu Office 365, dla której włączono zespoły. Używany do współpracy między użytkownikami i spoza niej. |
+    | Microsoft 365 | Grupa Microsoft 365, która nie jest włączona dla zespołów. Używany do współpracy między użytkownikami i spoza niej. |
+    | Zespół | Grupa Microsoft 365 z włączoną obsługą zespołów. Używany do współpracy między użytkownikami i spoza niej. |
 
 1. Na liście **rola** wybierz pozycję **właściciel** lub **członek**.
 
@@ -178,7 +178,7 @@ Usługa Azure AD może automatycznie przypisywać użytkownikom dostęp do witry
 
 W obszarze Zarządzanie prawami usługa Azure AD będzie przetwarzać zmiany zbiorcze dotyczące przypisywania i zasobów w pakietach dostępu kilka razy dziennie. Dlatego w przypadku przypisania lub zmiany ról zasobów pakietu dostępu może upłynąć nawet 24 godziny, gdy zmiana zostanie wprowadzona w usłudze Azure AD, oraz czas, w którym konieczne jest propagowanie tych zmian do innych usług online firmy Microsoft lub połączonych aplikacji SaaS. Jeśli zmiana ma wpływ tylko na kilka obiektów, zmiana będzie prawdopodobnie trwać tylko kilka minut w usłudze Azure AD, po której inne składniki usługi Azure AD będą wykrywać zmiany i aktualizować aplikacje SaaS. Jeśli zmiana wpłynie na tysiące obiektów, zmiana będzie trwać dłużej. Jeśli na przykład masz pakiet dostępu z 2 aplikacjami i przypisaniami użytkowników 100 i zdecydujesz się dodać rolę witryny programu SharePoint do pakietu dostępu, może się zdarzyć, że wszyscy użytkownicy będą częścią tej roli witryny programu SharePoint. Postęp można monitorować w dzienniku inspekcji usługi Azure AD, dzienniku aprowizacji usługi Azure AD oraz w dziennikach inspekcji witryny programu SharePoint.
 
-Po usunięciu członka zespołu są one również usuwane z grupy usługi Office 365. Usunięcie z funkcji czatu zespołu może być opóźnione. Aby uzyskać więcej informacji, zobacz [członkostwo w grupie](/microsoftteams/office-365-groups#group-membership).
+Po usunięciu członka zespołu są one również usuwane z grupy Microsoft 365. Usunięcie z funkcji czatu zespołu może być opóźnione. Aby uzyskać więcej informacji, zobacz [członkostwo w grupie](/microsoftteams/office-365-groups#group-membership).
 
 ## <a name="next-steps"></a>Następne kroki
 

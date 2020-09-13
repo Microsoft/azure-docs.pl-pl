@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie zmian delegowania w dzierżawie zarządzającej
 description: Dowiedz się, jak monitorować działania delegowania od dzierżawców klientów do dzierżawy zarządzającej.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589745"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567609"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorowanie zmian delegowania w dzierżawie zarządzającej
 
@@ -48,6 +48,9 @@ Ponieważ jest to szeroki poziom dostępu, zalecamy przypisanie tej roli do kont
 - Upewnij się, że ta jednostka usługi nie ma dostępu do żadnych delegowanych zasobów klienta.
 - [Użyj certyfikatu do uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) i [bezpiecznego przechowywania w Azure Key Vault](../../key-vault/general/best-practices.md).
 - Ogranicz użytkowników, którzy mają dostęp do działania w imieniu jednostki usługi.
+
+> [!NOTE]
+> Możesz również przypisać wbudowaną rolę czytnika monitorowania platformy Azure w zakresie głównym do poszczególnych użytkowników lub grup użytkowników. Może to być przydatne, jeśli użytkownik ma mieć możliwość [wyświetlania informacji o delegowaniu bezpośrednio w Azure Portal](#view-delegation-changes-in-the-azure-portal). W takim przypadku należy pamiętać, że jest to szeroki poziom dostępu, który powinien być ograniczony do możliwie najmniejszej liczby użytkowników.
 
 Użyj jednej z następujących metod, aby utworzyć przypisania zakresu głównego.
 
@@ -164,6 +167,15 @@ else {
 
 > [!TIP]
 > Chociaż odwołujemy się do dostawców usług i klientów w tym temacie, [przedsiębiorstwa zarządzające wieloma dzierżawcami](../concepts/enterprise.md) mogą korzystać z tych samych procesów.
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Wyświetl zmiany delegowania w Azure Portal
+
+Użytkownicy, którym przypisano wbudowaną rolę czytelnik monitorowania platformy Azure w zakresie głównym, mogą przeglądać zmiany delegowania bezpośrednio w Azure Portal.
+
+1. Przejdź do strony **moi klienci** , a następnie wybierz pozycję **Dziennik aktywności** z menu nawigacji po lewej stronie.
+1. Upewnij się, że w filtrze w górnej części ekranu zaznaczono **aktywność katalogu** .
+
+Zostanie wyświetlona lista zmian delegowania. Możesz wybrać opcję **Edytuj kolumny** , aby pokazać lub ukryć **stan**, **kategorię zdarzenia**, **godzinę**, **sygnaturę czasową**, **subskrypcję**, **zdarzenie zainicjowane przez**, **grupę zasobów**, **Typ zasobu**i wartości **zasobów** .
 
 ## <a name="next-steps"></a>Następne kroki
 

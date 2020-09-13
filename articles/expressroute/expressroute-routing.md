@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: wymagania dotyczące routingu'
 description: Ta strona zawiera szczegółowe wymagania dotyczące konfigurowania routingu oraz zarządzania nim na potrzeby obwodów usługi ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.author: cherylmc
-ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341363"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569615"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -83,7 +83,7 @@ Do konfigurowania sesji protokołu BGP należy użyć posiadanych publicznych ad
 Do prywatnej komunikacji równorzędnej można używać publicznych lub prywatnych adresów IPv4. Zapewniamy kompleksową izolację ruchu, w związku z czym w warunkach prywatnej komunikacji równorzędnej nie ma możliwości, aby adresy się nakładały. Te adresy nie są anonsowane w Internecie. 
 
 ### <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
-Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft. Lista usług obejmuje usługi Office 365, takie jak Exchange Online, SharePoint Online, Skype dla firm i Microsoft Teams. Firma Microsoft zapewnia obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany do usług w chmurze firmy Microsoft musi uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft.
+Ścieżka komunikacji równorzędnej firmy Microsoft umożliwia nawiązanie połączenia z usługami w chmurze firmy Microsoft. Lista usług zawiera Microsoft 365 usług, takich jak Exchange Online, SharePoint Online, Skype dla firm i Microsoft Teams. Firma Microsoft zapewnia obsługę dwukierunkowej łączności w oparciu o komunikację równorzędną firmy Microsoft. Ruch skierowany do usług w chmurze firmy Microsoft musi uzyskać prawidłowe publiczne adresy IPv4, zanim wejdzie do sieci firmy Microsoft.
 
 Zadbaj o to, aby adres IP i numer AS zostały zarejestrowane na Ciebie w jednym z następujących rejestrów:
 
@@ -100,7 +100,7 @@ Jeśli Twoje prefiksy i numer systemu autonomicznego nie są przypisane do Ciebi
 Prywatny numer systemu autonomicznego jest dozwolony dla komunikacji równorzędnej firmy Microsoft, ale będzie również wymagał ręcznej weryfikacji. Ponadto firma Microsoft usuwa prywatne numery AS w ścieżce AS dla odebranych prefiksów. W związku z tym nie można dołączyć prywatnych numerów AS do ścieżki AS, aby [wpłynąć na routing komunikacji równorzędnej firmy Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Nie należy anonsować tej samej publicznej trasy IP do publicznego Internetu i za pośrednictwem ExpressRoute. Aby zmniejszyć ryzyko niepoprawnej konfiguracji powodującej Routing asymetryczny, zdecydowanie zalecamy, aby [adresy IP translatora adresów sieciowych](expressroute-nat.md) anonsowane do firmy Microsoft przez ExpressRoute były z zakresu, który nie jest anonsowany w Internecie. Jeśli nie jest to możliwe, należy się upewnić, że anonsuje bardziej konkretny zakres od ExpressRoute niż ten, na którym nadano połączenie internetowe. Poza trasą publiczną dla translatora adresów sieciowych można także anonsować za pośrednictwem usługi ExpressRoute publiczne adresy IP używane przez serwery w sieci lokalnej, które komunikują się z punktami końcowymi pakietu Office 365 w firmie Microsoft. 
+> Nie należy anonsować tej samej publicznej trasy IP do publicznego Internetu i za pośrednictwem ExpressRoute. Aby zmniejszyć ryzyko niepoprawnej konfiguracji powodującej Routing asymetryczny, zdecydowanie zalecamy, aby [adresy IP translatora adresów sieciowych](expressroute-nat.md) anonsowane do firmy Microsoft przez ExpressRoute były z zakresu, który nie jest anonsowany w Internecie. Jeśli nie jest to możliwe, należy się upewnić, że anonsuje bardziej konkretny zakres od ExpressRoute niż ten, na którym nadano połączenie internetowe. Poza trasą publiczną dla translatora adresów sieciowych można także anonsować za pośrednictwem ExpressRoute publicznych adresów IP używanych przez serwery w sieci lokalnej, które komunikują się z punktami końcowymi Microsoft 365 w firmie Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ Trasy domyślne są dozwolone tylko w sesjach prywatnej komunikacji równorzędn
 * Używasz routingu zdefiniowanego przez użytkownika, aby zezwolić na połączenie z Internetem dla każdej podsieci wymagającej takiego połączenia.
 
 > [!NOTE]
-> Anonsowanie tras domyślnych spowoduje awarię aktywacji licencji maszyn wirtualnych systemu Windows i innych systemów. Aby obejść ten problem, postępuj zgodnie z instrukcjami zamieszczonymi [tutaj](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
+> Anonsowanie tras domyślnych spowoduje awarię aktywacji licencji maszyn wirtualnych systemu Windows i innych systemów. Aby obejść ten problem, postępuj zgodnie z instrukcjami zamieszczonymi [tutaj](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).
 > 
 > 
 
@@ -156,21 +156,21 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | **Region platformy Microsoft Azure** | **Regionalna społeczność protokołu BGP** | **Społeczność protokołu BGP magazynu** | **Społeczność protokołu BGP SQL** | **Cosmos DB społeczność protokołu BGP** | **Utwórz kopię zapasową społeczności BGP** |
 | --- | --- | --- | --- | --- | --- |
 | **Ameryka Północna** | |
-| Wschodnie stany USA | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
+| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
 | Wschodnie stany USA 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
 | Zachodnie stany USA | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
 | Zachodnie stany USA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
 | Zachodnio-środkowe stany USA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
 | Północno-środkowe stany USA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
-| Południowo-środkowe stany USA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
-| Środkowe stany USA | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 | 12076:55009 |
+| South Central US | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
+| Central US | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 | 12076:55009 |
 | Kanada Środkowa | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 | 12076:55020 |
 | Kanada Wschodnia | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 | 12076:55021 |
 | **Ameryka Południowa** | |
-| Brazylia Południowa | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 | 12076:55014 |
+| Brazil South | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 | 12076:55014 |
 | **Europa** | |
 | Europa Północna | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 | 12076:55003 |
-| Europa Zachodnia | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 | 12076:55002 |
+| West Europe | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 | 12076:55002 |
 | Południowe Zjednoczone Królestwo | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 | 12076:55024 |
 | Zachodnie Zjednoczone Królestwo | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 | 12076:55025 |
 | Francja Środkowa | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 | 12076:55030 |
@@ -183,9 +183,9 @@ Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolit
 | Norwegia Zachodnia | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 12076:55043 | 
 | **Azja i Pacyfik** | |
 | Azja Wschodnia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
-| Azja Południowo-Wschodnia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
+| Southeast Asia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Japonia** | |
-| Japonia Wschodnia | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
+| Japan East | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
 | Japonia Zachodnia | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Australia** | |
 | Australia Wschodnia | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
@@ -229,10 +229,10 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | Azure Resource Manager |12076:5070 |
 | Inne usługi online pakietu Office 365 * * | 12076:5100 |
 
-\*W tej chwili usługi globalne platformy Azure zawierają tylko usługę Azure DevOps.
-\*\*Autoryzacja wymagana przez firmę Microsoft, zapoznaj się z tematem [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)\
-\*\*\*Ta społeczność publikuje także odpowiednie trasy dla usług Microsoft Team Services. \
-\*\*\*\*Program CRM Online obsługuje Dynamics v 8.2 i poniżej. W przypadku wyższych wersji wybierz społeczność regionalną dla wdrożeń programu Dynamics.
+\* W tej chwili usługi globalne platformy Azure zawierają tylko usługę Azure DevOps.
+\*\* Autoryzacja wymagana przez firmę Microsoft, zapoznaj się z tematem [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)\
+\*\*\* Ta społeczność publikuje także odpowiednie trasy dla usług Microsoft Team Services. \
+\*\*\*\* Program CRM Online obsługuje Dynamics v 8.2 i poniżej. W przypadku wyższych wersji wybierz społeczność regionalną dla wdrożeń programu Dynamics.
 
 > [!NOTE]
 > Firma Microsoft nie uznaje żadnych wartości społeczności BGP ustawionych na trasach anonsowanych do firmy Microsoft.

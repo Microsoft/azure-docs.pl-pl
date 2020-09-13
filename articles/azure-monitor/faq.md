@@ -7,16 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 8ace82147f17e6ee7e888553c58f32ec6e5ba271
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782944"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569207"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
-Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor.
+Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor. Jeśli masz dodatkowe pytania, przejdź do [forum dyskusyjnego](https://docs.microsoft.com/answers/questions/topics/single/24223.html) i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
+
 
 ## <a name="general"></a>Ogólne
 
@@ -98,7 +99,7 @@ Obszar roboczy można przenieść między grupami zasobów lub subskrypcjami, al
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Dlaczego otrzymuję błąd: "Zarejestruj dostawcę zasobów" Microsoft. Insights "dla tej subskrypcji, aby włączyć to zapytanie" podczas otwierania Log Analytics z maszyny wirtualnej? 
 Wielu dostawców zasobów jest automatycznie rejestrowanych, ale może być konieczne ręczne zarejestrowanie niektórych dostawców zasobów. Zakres rejestracji jest zawsze subskrypcją. Aby uzyskać więcej informacji, zobacz [Dostawcy zasobów i ich typy](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Dlaczego otrzymuję komunikat o błędzie dostępu podczas otwierania Log Analytics z maszyny wirtualnej? 
+### <a name="why-am-i-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Dlaczego otrzymuję komunikat o błędzie dostępu podczas otwierania Log Analytics z maszyny wirtualnej? 
 Aby wyświetlić dzienniki maszyn wirtualnych, musisz mieć uprawnienia do odczytu w obszarze roboczym, w którym są przechowywane dzienniki maszyn wirtualnych. W takich przypadkach administrator musi udzielić użytkownikowi uprawnienia do uprawnień na platformie Azure.
 
 ## <a name="metrics"></a>Metryki
@@ -398,7 +399,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 ```
 
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 
@@ -523,9 +524,54 @@ Jednak nadal istnieją przypadki, gdy monitorowanie po stronie serwera jest wł�
 
 W tym scenariuszu odpowiedź 502 lub 503 może zostać zwrócona do klienta z powodu problemu w warstwie odwrotnego serwera proxy i nie będzie przechwytywana przez Application Insights. Aby pomóc w wykrywaniu problemów w tej warstwie, może być konieczne przekazanie dzienników z zwrotnego serwera proxy w celu Log Analytics i utworzenia niestandardowej reguły w celu sprawdzenia, czy 502/503 odpowiedzi. Aby dowiedzieć się więcej na temat typowych przyczyn błędów 502 i 503, zapoznaj się z [artykułem Rozwiązywanie problemów w Azure App Service dotyczącym "502 zła brama" i "usługa 503 niedostępna"](../app-service/troubleshoot-http-502-http-503.md).     
 
-## <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
 
-Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor kontenerów. Jeśli masz dodatkowe pytania dotyczące rozwiązania, przejdź do [forum dyskusyjnego](https://feedback.azure.com/forums/34192--general-feedback) i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
+## <a name="opentelemetry"></a>OpenTelemetry
+
+### <a name="what-is-opentelemetry"></a>Co to jest OpenTelemetry
+
+Nowy standard typu open source do przestrzegania. Dowiedz się więcej o [https://opentelemetry.io/](https://opentelemetry.io/) .
+
+### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Dlaczego firma Microsoft/Azure Monitor inwestować w OpenTelemetry?
+
+Uważamy, że lepiej obsłużymy naszych klientów z trzech powodów:
+   1. Włącz obsługę większej liczby scenariuszy klientów.
+   2. Instrumentacja bez obaw o blokadę dostawcy.
+   3. Zwiększ przejrzystość i zaangażowanie klientów.
+
+Jest on również zgodny z strategią firmy Microsoft w celu zaprojektowania oprogramowania [Open Source](https://opensource.microsoft.com/).
+
+### <a name="what-additional-value-does-opentelemetry-give-me"></a>Jaką dodatkową wartość robi OpenTelemetry?
+
+Oprócz powyższych powodów OpenTelemetry jest bardziej wydajny i zapewnia spójne projektowanie/konfiguracje w różnych językach.
+
+### <a name="how-can-i-test-out-opentelemetry"></a>Jak mogę przetestować OpenTelemetry?
+
+Utwórz konto, aby przystąpić do naszego Azure Monitor Application Insights wczesnej społeczności użytkowników w systemie [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) .
+
+### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>Co to jest średnia w kontekście OpenTelemetry?
+
+Społeczność OpenTelemetry definiuje ogólnie dostępną wersję (GA [).](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302) Jednak OpenTelemetry "GA" nie oznacza parzystości funkcji przy użyciu istniejących zestawów SDK Application Insights. Azure Monitor nadal zalecamy korzystanie z aktualnych zestawów SDK Application Insights dla klientów wymagających takich funkcji jak [metryki wstępnie zagregowane](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [metryki na żywo](app/live-stream.md), [adaptacyjne próbkowanie](app/sampling.md#adaptive-sampling), [Profiler](app/profiler-overview.md)i [debuger migawek](app/snapshot-debugger.md) do momentu, gdy zestaw SDK osiągnie funkcję.
+
+### <a name="can-i-use-preview-builds-in-production-environments"></a>Czy mogę używać kompilacji w wersji zapoznawczej w środowiskach produkcyjnych?
+
+Nie jest to zalecane. Aby uzyskać więcej informacji [, zobacz dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure.
+
+### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>Jaka jest różnica między zestawem SDK OpenTelemetry a autoinstrumentacją?
+
+Specyfikacja OpenTelemetry definiuje [zestaw SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk). Krótko mówiąc, "SDK" to pakiet specyficzny dla języka, który zbiera dane telemetryczne w różnych składnikach aplikacji i wysyła je do Azure Monitor przez eksportera.
+
+Koncepcja autoinstrumentacji (czasami określana jako iniekcja kodu bajtowego, bezkodowego lub opartego na agentach) odnosi się do możliwości Instrumentacji aplikacji bez konieczności zmieniania kodu. Aby uzyskać więcej informacji, zapoznaj się z tematem [README OpenTelemetry Java autoinstrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) .
+
+### <a name="whats-the-opentelemetry-collector"></a>Co to jest moduł OpenTelemetry?
+
+Moduł zbierający OpenTelemetry został opisany w [pliku Readme usługi GitHub](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). Obecnie firma Microsoft nie korzysta z modułu zbierającego OpenTelemetry i zależy od bezpośrednich eksporterów wysyłanych do Application Insights Azure Monitor.
+
+### <a name="whats-the-difference-between-opencensus-and-opentelemetry"></a>Jaka jest różnica między OpenCensus i OpenTelemetry?
+
+[OpenCensus](https://opencensus.io/) to prekursor do [OpenTelemetry](https://opentelemetry.io/). Firma Microsoft pomogła połączyć się z [OpenTracing](https://opentracing.io/) i OpenCensus w celu utworzenia OpenTelemetry, jednego ze standardów zauważalnych dla całego świata. Azure Monitor bieżący, [zalecany w środowisku produkcyjnym zestaw SDK języka Python](app/opencensus-python.md) jest oparty na OpenCensus, ale ostatecznie wszystkie zestawy SDK Azure monitor są oparte na OpenTelemetry.
+
+
+## <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
 
 ### <a name="health-feature-is-in-private-preview"></a>Funkcja kondycji jest w prywatnej wersji zapoznawczej
 
@@ -660,12 +706,12 @@ Może zostać wyświetlony następujący błąd: **adres URL odpowiedzi określo
 
 Jeśli po włączeniu Azure Monitor dla kontenerów dla klastra AKS zostanie usunięty obszar roboczy Log Analytics, do którego klaster wysłał swoje dane, podczas próby uaktualnienia klastra zakończy się niepowodzeniem. Aby obejść ten krok, należy wyłączyć monitorowanie, a następnie włączyć go ponownie, odwołując się do innego prawidłowego obszaru roboczego w ramach subskrypcji. Podczas próby ponownego wykonania uaktualnienia klastra należy przetworzyć i zakończyć pracę.  
 
-### <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Które porty i domeny muszę otworzyć/dozwolonych dla agenta?
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>Które porty i domeny muszę otworzyć/zezwolić dla agenta?
 
 Zapoznaj się z [wymaganiami dotyczącymi zapory sieciowej](insights/container-insights-onboard.md#network-firewall-requirements) dotyczącymi informacji o konfiguracji serwera proxy i zapory wymaganych przez agenta kontenerów z platformą Azure oraz z PLATFORMą Microsoft Azure dla instytucji rządowych i Azure Chiny.
 
+
 ## <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
-Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor dla maszyn wirtualnych. Jeśli masz dodatkowe pytania dotyczące rozwiązania, przejdź do [forum dyskusyjnego](https://feedback.azure.com/forums/34192--general-feedback) i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>Czy mogę dołączyć do istniejącego obszaru roboczego?
 Jeśli Twoje maszyny wirtualne są już połączone z obszarem roboczym Log Analytics, można nadal korzystać z tego obszaru roboczego podczas dołączania do Azure Monitor dla maszyn wirtualnych, pod warunkiem, że znajduje się on w jednym z [obsługiwanych regionów](insights/vminsights-configure-workspace.md#supported-regions).

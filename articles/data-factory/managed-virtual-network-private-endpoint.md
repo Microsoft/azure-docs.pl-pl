@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225686"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594360"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Managed Virtual Network (wersja zapoznawcza)
 
@@ -59,7 +59,7 @@ Prywatny punkt końcowy używa prywatnego adresu IP w zarządzanym Virtual Netwo
 > Zaleca się utworzenie zarządzanych prywatnych punktów końcowych, aby połączyć się ze wszystkimi źródłami danych platformy Azure. 
  
 > [!WARNING]
-> Jeśli magazyn danych PaaS (BLOB, ADLS Gen2, SQL DW) ma już prywatny punkt końcowy, a nawet jeśli zezwala na dostęp ze wszystkich sieci, funkcja ADF będzie mogła uzyskać do niego dostęp przy użyciu zarządzanego prywatnego punktu końcowego. Upewnij się, że tworzysz prywatny punkt końcowy w takich scenariuszach. 
+> Jeśli magazyn danych PaaS (BLOB, ADLS Gen2, Azure Synapse Analytics) ma już utworzony prywatny punkt końcowy, a nawet jeśli zezwala na dostęp ze wszystkich sieci, funkcja ADF będzie mogła uzyskać do niego dostęp przy użyciu zarządzanego prywatnego punktu końcowego. Upewnij się, że tworzysz prywatny punkt końcowy w takich scenariuszach. 
 
 Połączenie prywatnego punktu końcowego jest tworzone w stanie "oczekiwanie" podczas tworzenia zarządzanego prywatnego punktu końcowego w Azure Data Factory. Zainicjowano przepływ pracy zatwierdzania. Właściciel zasobu link prywatny jest odpowiedzialny za zaakceptowanie lub odrzucenie połączenia.
 
@@ -83,6 +83,23 @@ Poniższe źródła danych umożliwiają łączenie się za pośrednictwem prywa
 - Azure CosmosDB — SQL
 - W usłudze Azure Key Vault
 - Usługa linków prywatnych platformy Azure
+- Azure Search
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Database for MariaDB
+
+### <a name="supported-regions"></a>Obsługiwane regiony
+- East US
+- Wschodnie stany USA 2
+- Zachodnio-środkowe stany USA
+- Zachodnie stany USA 2
+- South Central US
+- Central US
+- Europa Północna
+- West Europe
+- Południowe Zjednoczone Królestwo
+- Southeast Asia
+- Australia Wschodnia
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Komunikacja wychodząca za pośrednictwem publicznego punktu końcowego z zarządzanych Virtual Network APD
 - Tylko port 443 jest otwarty dla komunikacji wychodzącej.

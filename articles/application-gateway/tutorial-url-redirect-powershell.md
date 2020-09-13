@@ -7,24 +7,23 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7a0e29d3fc90d50f23247a9c11cd4846aa4fb158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806029"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595278"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą programu Azure PowerShell
 
-Za pomocą programu Azure PowerShell możesz skonfigurować [reguły routingu na podstawie adresu URL](application-gateway-url-route-overview.md) w trakcie tworzenia [bramy aplikacji](application-gateway-introduction.md). W tym artykule opisano tworzenie pul zaplecza przy użyciu [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Następnie utworzysz reguły routingu na podstawie adresów URL, aby zapewnić przekierowywanie ruchu internetowego do odpowiedniej puli zaplecza.
+Za pomocą programu Azure PowerShell możesz skonfigurować [reguły routingu na podstawie adresu URL](application-gateway-url-route-overview.md) w trakcie tworzenia [bramy aplikacji](application-gateway-introduction.md). W tym artykule opisano tworzenie pul zaplecza przy użyciu  [zestawów skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Następnie utworzysz reguły routingu na podstawie adresów URL, aby zapewnić przekierowywanie ruchu internetowego do odpowiedniej puli zaplecza.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
-> [!div class="checklist"]
-> * Konfigurowanie sieci
-> * Tworzenie bramy aplikacji
-> * Dodawanie odbiorników i reguł routingu
-> * Tworzenie zestawów skalowania maszyn wirtualnych dla pul zaplecza
+* Konfigurowanie sieci
+* Tworzenie bramy aplikacji
+* Dodawanie odbiorników i reguł routingu
+* Tworzenie zestawów skalowania maszyn wirtualnych dla pul zaplecza
 
 Poniższy przykład przedstawia kierowanie ruchu w witrynie, przychodzącego z portów 8080 i 8081, do tych samych pul zaplecza:
 

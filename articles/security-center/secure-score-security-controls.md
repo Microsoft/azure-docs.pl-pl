@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 91935e8c052a9130d0a40ed292ca466bc1ab5427
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272284"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567628"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Ulepszony bezpieczny wynik w Azure Security Center
 
@@ -45,17 +45,17 @@ Na stronie "zabezpieczenia oceny" Security Center należą:
 > Wcześniejsze wersje Security Center przyznanych punktów na poziomie zalecenia: po skorygowaniu zalecenia dotyczącego pojedynczego zasobu Ulepszono bezpieczny wynik. Dzisiaj wynik poprawia się tylko wtedy, gdy korygujesz *wszystkie* zalecenia dotyczące pojedynczego zasobu w formancie. Dzięki temu wynik jest ulepszany tylko wtedy, gdy Ulepszono zabezpieczenia zasobu.
 
 
-## <a name="accessing-your-secure-score"></a>Uzyskiwanie dostępu do Twojego bezpiecznego wyniku
+## <a name="access-your-secure-score"></a>Uzyskaj dostęp do swojego bezpiecznego wyniku
 
 Możesz znaleźć ogólny, bezpieczny wynik, a także ocenę dla każdej subskrypcji, za pomocą Azure Portal lub programowo za pomocą interfejsu API REST Azure Security Center.
 
-### <a name="getting-your-secure-score-from-the-portal"></a>Uzyskiwanie bezpiecznego wyniku z portalu
+### <a name="get-your-secure-score-from-the-portal"></a>Pobierz swój Bezpieczny wynik z portalu
 
 Security Center wyświetla wyniki w portalu w widocznym miejscu: jest to pierwsza czynność wyświetlana na stronie Przegląd. Jeśli klikniesz pozycję przez użytkownika na stronie dedykowany zabezpieczony wskaźnik, zobaczysz wynik podzielony przez subskrypcję. Kliknij jedną subskrypcję, aby wyświetlić szczegółową listę zaleceń z priorytetami i potencjalny wpływ, który korygowaniem ich na ocenę subskrypcji.
 
 ![Ogólny bezpieczny wynik, jak pokazano w portalu](media/secure-score-security-controls/single-secure-score-via-ui.png)
 
-### <a name="getting-your-secure-score-from-the-rest-api"></a>Uzyskiwanie bezpiecznego wyniku z interfejsu API REST
+### <a name="get-your-secure-score-from-the-rest-api"></a>Uzyskiwanie bezpiecznego wyniku z interfejsu API REST
 
 Możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API bezpiecznego oceny](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (obecnie w wersji zapoznawczej). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
 
@@ -91,13 +91,22 @@ Maksymalny wynik tej kontrolki, zastosowanie aktualizacji systemu, to zawsze 6. 
 |**Wskaźnik bezpieczeństwa**<br>Wiele subskrypcji|<br>Bieżące wyniki dla wszystkich zasobów we wszystkich subskrypcjach są dodawane, a obliczenia są takie same jak w przypadku pojedynczej subskrypcji<br><br>Podczas przeglądania wielu subskrypcji, funkcja Secure Score szacuje wszystkie zasoby we wszystkich włączonych zasadach i grupuje ich łączny wpływ na maksymalny wynik kontroli zabezpieczeń.<br>![Zabezpieczony wynik dla wielu subskrypcji z włączonymi wszystkimi kontrolkami](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Połączony wynik **nie** jest średni; jest to raczej oceniane stan stanu wszystkich zasobów we wszystkich subskrypcjach.<br>Tutaj, jeśli przejdziesz do strony rekomendacje i dodasz dostępne punkty, zobaczysz, że jest to różnica między bieżącym wynikiem (24) i maksymalnym dostępnym wynikiem (60).|
 ||||
 
-## <a name="improving-your-secure-score"></a>Ulepszanie bezpiecznego wyniku
+### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Jakie zalecenia są zawarte w zabezpieczonych obliczeniach oceny?
+
+Tylko wbudowane zalecenia mają wpływ na bezpieczny wynik.
+
+Ponadto zalecenia oflagowane jako **wersja zapoznawcza** nie są uwzględniane w obliczeniach bezpiecznego wyniku. Powinny być nadal korygowane wszędzie tam, gdzie jest to możliwe, więc po zakończeniu okresu korzystania z wersji zapoznawczej będą one wchodzić w skład Twojego wyniku.
+
+Przykład zalecenia dotyczącego wersji zapoznawczej:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Zalecenie z flagą wersji zapoznawczej":::
+
+
+## <a name="improve-your-secure-score"></a>Poprawianie oceny bezpieczeństwa
 
 Aby ulepszyć bezpieczny wynik, skoryguj zalecenia dotyczące zabezpieczeń z listy rekomendacji. Wszystkie zalecenia można skorygować ręcznie dla każdego zasobu lub przy użyciu **szybkiej poprawki** . Opcja (jeśli jest dostępna) w celu szybkiego zastosowania skorygowania zalecenia do grupy zasobów. Aby uzyskać więcej informacji, zobacz temat [korygowanie zaleceń](security-center-remediate-recommendations.md).
 
->[!IMPORTANT]
-> Tylko wbudowane zalecenia mają wpływ na bezpieczny wynik.
-
+Innym sposobem ulepszania oceny i upewnienia się, że użytkownicy nie tworzą zasobów, które nie mają negatywnego wpływu na ocenę, to skonfigurowanie opcji Wymuszaj i Odmów na odpowiednich zaleceniach. Dowiedz się więcej w temacie [zapobieganie błędom konfiguracji z zaleceń Wymuszaj/Odmów](prevent-misconfigurations.md).
 
 ## <a name="security-controls-and-their-recommendations"></a>Kontrola zabezpieczeń i ich zalecenia
 
@@ -144,7 +153,7 @@ W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Skoryguj konfiguracje zabezpieczeń (maksymalny wynik 4)</p></strong>Nieprawidłowo skonfigurowane zasoby IT mają większe ryzyko ataku. Podstawowe akcje związane z ograniczaniem funkcjonalności są często zapominane, gdy zasoby są wdrażane, a terminy ostateczne muszą zostać spełnione. Konfiguracje zabezpieczeń mogą znajdować się na dowolnym poziomie infrastruktury: od systemów operacyjnych i urządzeń sieciowych do zasobów chmury.<br>Azure Security Center ciągle porównuje konfigurację zasobów z wymaganiami dotyczącymi standardów branżowych, regulacji i testów porównawczych. Po skonfigurowaniu odpowiednich "pakietów zgodności" (standardy i linie bazowe), które są przeznaczone dla organizacji, wszelkie luki spowodują zaleceń w zakresie zabezpieczeń, które obejmują CCEID oraz wyjaśnienie potencjalnego wpływu na bezpieczeństwo.<br>Często używane pakiety to <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">testy zabezpieczeń platformy Azure i usługi</a> <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure w wersji testowej 1.1.0</a></td>
-    <td class="tg-lboi"; width=55%>- Zasady zabezpieczeń pod muszą być zdefiniowane w usługach Kubernetes Services<br>- Luki w zabezpieczeniach w konfiguracjach zabezpieczeń kontenerów należy skorygować<br>- Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować<br>- Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować<br>- Agent monitorowania powinien być zainstalowany na maszynach wirtualnych<br>- Agent monitorowania powinien być zainstalowany na swoich maszynach<br>- Agenta Log Analytics należy zainstalować na komputerach z systemem Windows Azure ARC (wersja zapoznawcza)<br>- Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure ARC (wersja zapoznawcza)<br>- Agent monitorowania powinien być zainstalowany w zestawach skalowania maszyn wirtualnych<br>- Na maszynach należy rozwiązać problemy z kondycją agenta monitorowania</td>
+    <td class="tg-lboi"; width=55%>- Luki w zabezpieczeniach w konfiguracjach zabezpieczeń kontenerów należy skorygować<br>- Luki w zabezpieczeniach konfiguracji zabezpieczeń na maszynach należy skorygować<br>- Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować<br>- Agent monitorowania powinien być zainstalowany na maszynach wirtualnych<br>- Agent monitorowania powinien być zainstalowany na swoich maszynach<br>- Agenta Log Analytics należy zainstalować na komputerach z systemem Windows Azure ARC (wersja zapoznawcza)<br>- Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure ARC (wersja zapoznawcza)<br>- Agent monitorowania powinien być zainstalowany w zestawach skalowania maszyn wirtualnych<br>- Na maszynach należy rozwiązać problemy z kondycją agenta monitorowania</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Ogranicz nieautoryzowany dostęp do sieci (maksymalny wynik 4)</p></strong>Punkty końcowe w organizacji zapewniają bezpośrednie połączenie z sieci wirtualnej z obsługiwanymi usługami platformy Azure. Maszyny wirtualne w podsieci mogą komunikować się ze wszystkimi zasobami. Aby ograniczyć komunikację do i z zasobów w podsieci, Utwórz sieciową grupę zabezpieczeń i skojarz ją z podsiecią. Organizacje mogą ograniczać i chronić przed nieautoryzowanym ruchem, tworząc reguły ruchu przychodzącego i wychodzącego.</td>

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009413"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568697"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opcje magazynu dla kontenerów profilów FSLogix w programie Virtual Desktop systemu Windows
 
@@ -29,7 +29,7 @@ W poniższych tabelach porównano oferty magazynów usługi Azure Storage dla sy
 |Usługa platformy|Tak, rozwiązanie platformy Azure — natywne|Tak, rozwiązanie platformy Azure — natywne|Nie, samozarządzane|
 |Dostępność regionalna|Wszystkie regiony|[Wybierz regiony](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Wszystkie regiony|
 |Nadmiarowość|Lokalnie nadmiarowy/strefowo nadmiarowy/Geograficznie nadmiarowy|Lokalnie nadmiarowy|Lokalnie nadmiarowy/strefowo nadmiarowy/Geograficznie nadmiarowy|
-|Warstwy i wydajność|Standardowa (Standard)<br>Premium<br>Maksymalnie Maksymalna liczba operacji we/wy 100 000 na udział dzięki 5 GB/s na udział na około 3 ms opóźnienia|Standardowa (Standard)<br>Premium<br>Ultrafiolet<br>Do 320k (16 KB) operacji wejścia/wyjścia na sekundę z 4,5 GB/s|HDD w warstwie Standardowa: maksymalnie 500 limitów liczby operacji we/wy na dysku<br>SSD w warstwie Standardowa: maksymalnie 4 k limity liczby operacji we/wy na dysku<br>SSD w warstwie Premium: maksymalnie 20 000 limitów liczby operacji we/wy na dysku<br>Zalecamy używanie dysków w warstwie Premium dla Bezpośrednie miejsca do magazynowania|
+|Warstwy i wydajność|Standardowa (Standard)<br>Premium<br>Maksymalnie Maksymalna liczba operacji we/wy 100 000 na udział dzięki 5 GB/s na udział na około 3 ms opóźnienia|Standardowa (Standard)<br>Premium<br>Ultra<br>Do 320k (16 KB) operacji wejścia/wyjścia na sekundę z 4,5 GB/s|HDD w warstwie Standardowa: maksymalnie 500 limitów liczby operacji we/wy na dysku<br>SSD w warstwie Standardowa: maksymalnie 4 k limity liczby operacji we/wy na dysku<br>SSD w warstwie Premium: maksymalnie 20 000 limitów liczby operacji we/wy na dysku<br>Zalecamy używanie dysków w warstwie Premium dla Bezpośrednie miejsca do magazynowania|
 |Pojemność|100 TiB na udział|100 TiB na wolumin, do 12,5 PiB na subskrypcję|Maksymalna 32 TiB na dysk|
 |Wymagana infrastruktura|Minimalny rozmiar udziału 1 GiB|Minimalna Pula pojemności 4 TiB, minimalny rozmiar woluminu 100 GiB|Dwie maszyny wirtualne na platformie Azure IaaS (+ Monitor w chmurze) lub co najmniej trzy maszyny wirtualne bez opłat i kosztów dysków|
 |Protokoły|SMB 2.1/3. i REST|NFSv3, NFSv 4.1 (wersja zapoznawcza), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
@@ -51,7 +51,7 @@ Aby dowiedzieć się więcej na temat kontenerów profilów FSLogix, dysków pro
 
 Jeśli chcesz utworzyć własne kontenery profilu FSLogix, zacznij korzystać z jednego z następujących samouczków:
 
-- [Wprowadzenie do kontenerów profilów FSLogix na Azure Files na pulpicie wirtualnym systemu Windows](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Wprowadzenie do kontenerów profilów FSLogix na Azure Files na pulpicie wirtualnym systemu Windows](create-file-share.md)
 - [Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu plików NetApp platformy Azure](create-fslogix-profile-container.md)
 - Instrukcje w temacie [Wdrażanie serwera plików skalowalnego w poziomie bezpośrednie miejsca do magazynowania na potrzeby magazynu UPD na platformie Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) mają zastosowanie również w przypadku używania kontenera profilu FSLogix zamiast dysku profilu użytkownika.
 

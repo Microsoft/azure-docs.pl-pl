@@ -3,12 +3,12 @@ title: Monitorowanie i rejestrowanie — Azure
 description: Ten artykuł zawiera omówienie analizy filmów wideo na żywo na IoT Edge monitorowania i rejestrowania.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934297"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567558"
 ---
 # <a name="monitoring-and-logging"></a>Monitorowanie i rejestrowanie
 
@@ -20,7 +20,8 @@ Dowiesz się również, jak można kontrolować dzienniki generowane przez modu�
 
 Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane telemetryczne zgodnie z następującą taksonomią.
 
-![Analiza wideo na żywo na IoT Edge schemacie telemetrii](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taksonomia zdarzeń":::
 
 * Działa: zdarzenia generowane jako część akcji wykonywanych przez użytkownika lub podczas wykonywania [grafu multimedialnego](media-graph-concept.md).
    
@@ -71,6 +72,7 @@ Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane te
    * Przykłady:
       
       Wykryto ruch (poniżej), wynik wnioskowania.
+
    ```      
    {
      "body": {
@@ -98,15 +100,19 @@ Usługa Analiza filmów wideo na żywo na IoT Edge emituje zdarzenia lub dane te
      }
    }
    ```
+
 Zdarzenia emitowane przez moduł są wysyłane do [centrum IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)i z tego powodu mogą być kierowane do innych miejsc docelowych. 
 
 ### <a name="timestamps-in-analytic-events"></a>Sygnatury czasowe w zdarzeniach analitycznych
+
 Jak wskazano powyżej, zdarzenia generowane w ramach analizy wideo mają skojarzone z nimi sygnaturę czasową. Po [zarejestrowaniu wideo na żywo](video-recording-concept.md) jako części topologii wykresu, Ta sygnatura czasowa ułatwia znalezienie miejsca w zarejestrowanym filmie wideo, które wystąpiło. Poniżej przedstawiono wskazówki dotyczące sposobu mapowania sygnatury czasowej w zdarzeniu analitycznym na oś czasu filmu wideo zarejestrowanego w [usłudze Azure Media Service](terminology.md#asset).
 
 Najpierw Wyodrębnij `eventTime` wartość. Użyj tej wartości w [filtrze zakresu czasu](playback-recordings-how-to.md#time-range-filters) , aby pobrać odpowiednią część nagrania. Na przykład możesz chcieć pobrać wideo, które zaczyna 30 sekund `eventTime` , a następnie zakończy 30 sekund. W powyższym przykładzie, gdzie `eventTime` jest 2020-05-12T23:33:09.381 z, żądanie dotyczące manifestu HLS dla okna +/-30 s będzie wyglądać następująco:
+
 ```
 https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
 ```
+
 Powyższy adres URL zwróci nazwę [głównej listy odtwarzania](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), zawierającą adresy URL dla list odtwarzania multimediów. Lista odtwarzania multimediów zawiera następujące wpisy:
 
 ```

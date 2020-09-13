@@ -4,12 +4,12 @@ description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami m
 ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258424"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595567"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -137,13 +137,15 @@ Ta funkcja jest obecnie obsługiwana w przypadku metryk platformy (nie metryk ni
 
 | Usługa | Publiczna platforma Azure | Instytucje rządowe | Chiny |
 |:--------|:--------|:--------|:--------|
-| Maszyny wirtualne  | **Tak** | Nie | Nie |
+| Maszyny wirtualne<sup>1</sup>  | **Tak** | Nie | Nie |
 | Bazy danych programu SQL Server | **Tak** | **Tak** | **Tak** |
 | Elastyczne pule programu SQL Server | **Tak** | **Tak** | **Tak** |
 | Pule pojemności plików NetApp | **Tak** | **Tak** | **Tak** |
 | Woluminy plików NetApp | **Tak** | **Tak** | **Tak** |
 | Magazyny kluczy | **Tak** | **Tak** | **Tak** |
 | Urządzenia brzegowe pola danych | **Tak** | **Tak** | **Tak** |
+
+<sup>1</sup> nie są obsługiwane przez metryki sieci maszyny wirtualnej (łącznie z siecią, łączny czas, przepływy przychodzące, przepływy wychodzące, maksymalna szybkość tworzenia przepływów przychodzących, maksymalna szybkość tworzenia przepływów wychodzących).
 
 Zakres monitorowania można określić za pomocą jednej reguły alertu metryki na jeden z trzech sposobów. Na przykład z maszynami wirtualnymi można określić zakres jako:  
 

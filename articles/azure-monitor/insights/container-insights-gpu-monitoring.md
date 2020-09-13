@@ -3,12 +3,12 @@ title: Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla
 description: W tym artykule opisano, jak można skonfigurować monitorowanie klastrów Kubernetes z węzłami z obsługą procesorów NVIDIA i AMD przy użyciu Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373312"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569700"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Konfigurowanie monitorowania procesora GPU przy użyciu Azure Monitor dla kontenerów
 
@@ -22,7 +22,10 @@ Azure Monitor kontenerów obsługuje monitorowanie klastrów procesora GPU od na
 
 - [PROCESORÓW](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie użycia procesora GPU w węzłach oraz procesor GPU żądający zasobników i obciążeń, zbierając następujące metryki w interwałach 60sec i przechowując je w tabeli **InsightMetrics** :
+Azure Monitor dla kontenerów automatycznie uruchamia monitorowanie użycia procesora GPU w węzłach oraz procesor GPU żądający zasobników i obciążeń, zbierając następujące metryki w interwałach 60sec i przechowując je w tabeli **InsightMetrics** .
+
+>[!NOTE]
+>Po zainicjowaniu obsługi administracyjnej klastra z węzłami GPU upewnij się, że [Sterownik procesora GPU](../../aks/gpu-cluster.md) jest zainstalowany zgodnie z wymaganiami AKS do uruchamiania obciążeń procesora GPU. Azure Monitor kontenerów zbiera metryki procesora GPU przy użyciu zasobników procesora GPU uruchomionych w węźle. 
 
 |Nazwa metryki |Wymiar metryki (Tagi) |Opis |
 |------------|------------------------|------------|

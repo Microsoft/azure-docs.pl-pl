@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: obwody i Komunikacja równorzędna'
 description: Ta strona zawiera omówienie obwodów usługi ExpressRoute oraz domen routingu/komunikacji równorzędnej.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: mialdrid
-ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537024"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566504"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Obwody usługi ExpressRoute i komunikacja równorzędna)
 
@@ -44,7 +44,7 @@ Obwód usługi ExpressRoute ma skojarzone wiele domen routingu/komunikacji równ
 
 ![Diagram przedstawiający sposób, w jaki usługa Azure Public, Private i Komunikacja równorzędna firmy Microsoft jest konfigurowana w obwodzie usługi ExpressRoute.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### <a name="azure-private-peering"></a><a name="privatepeering"></a>Prywatna komunikacja równorzędna Azure
+### <a name="azure-private-peering"></a><a name="privatepeering"></a>Prywatna komunikacja równorzędna platformy Azure
 
 Usługi obliczeniowe platformy Azure, a w tym maszyny wirtualne (IaaS) i Cloud Services (PaaS), które są wdrożone w ramach sieci wirtualnej, można połączyć za pomocą domeny prywatnej komunikacji równorzędnej. Prywatna domena komunikacji równorzędnej jest uznawana za zaufane rozszerzenie sieci podstawowej na Microsoft Azure. Można skonfigurować dwukierunkową łączność między siecią podstawową i sieciami wirtualnymi platformy Azure (sieci wirtualnych). Ta Komunikacja równorzędna umożliwia łączenie się z maszynami wirtualnymi i usługami w chmurze bezpośrednio z ich prywatnych adresów IP.  
 
@@ -54,7 +54,7 @@ Można połączyć więcej niż jedną sieć wirtualną z domeną prywatnej komu
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Połączenie z programem Microsoft Usługi online (pakietem Office 365 i usługami Azure PaaS Services) odbywa się za pośrednictwem komunikacji równorzędnej firmy Microsoft. Włączenie dwukierunkowej łączności między sieciami WAN i usługami firmy Microsoft w chmurze odbywa się za pośrednictwem domeny routingu komunikacji równorzędnej firmy Microsoft. Musisz nawiązać połączenie z usługami firmy Microsoft w chmurze tylko za pośrednictwem publicznych adresów IP, które są własnością użytkownika lub dostawcy połączenia, i musisz przestrzegać wszystkich zdefiniowanych reguł. Aby uzyskać więcej informacji, zobacz stronę [wymagań wstępnych ExpressRoute](expressroute-prerequisites.md) .
+Łączność z usługą Microsoft Usługi online (Microsoft 365 i usługi Azure PaaS Services) odbywa się za pośrednictwem komunikacji równorzędnej firmy Microsoft. Włączenie dwukierunkowej łączności między sieciami WAN i usługami firmy Microsoft w chmurze odbywa się za pośrednictwem domeny routingu komunikacji równorzędnej firmy Microsoft. Musisz nawiązać połączenie z usługami firmy Microsoft w chmurze tylko za pośrednictwem publicznych adresów IP, które są własnością użytkownika lub dostawcy połączenia, i musisz przestrzegać wszystkich zdefiniowanych reguł. Aby uzyskać więcej informacji, zobacz stronę [wymagań wstępnych ExpressRoute](expressroute-prerequisites.md) .
 
 Na [stronie często zadawanych pytań](expressroute-faqs.md) znajdziesz więcej informacji na temat obsługiwanych usług, kosztów i szczegółów konfiguracji. Zapoznaj się z informacjami na stronie [lokalizacje ExpressRoute](expressroute-locations.md) , aby uzyskać informacje na temat listy dostawców połączeń oferujących obsługę komunikacji równorzędnej firmy Microsoft.
 

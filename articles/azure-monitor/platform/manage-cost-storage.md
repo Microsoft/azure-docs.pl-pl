@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933668"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595655"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor    
 
@@ -160,13 +160,16 @@ Można również określić różne ustawienia przechowywania dla poszczególnyc
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Należy pamiętać, że typ danych (tabela) uwzględnia wielkość liter.  Aby uzyskać bieżące ustawienia przechowywania typu danych dla określonego typu danych (w tym przykładzie SecurityEvent), użyj:
+Należy pamiętać, że typ danych (tabela) uwzględnia wielkość liter.  Aby pobrać bieżące ustawienia przechowywania typu danych dla określonego typu danych (w tym przykładzie SecurityEvent), użyj:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
-Aby uzyskać bieżące ustawienia przechowywania typu danych dla wszystkich typów danych w obszarze roboczym, wystarczy pominąć określony typ danych, na przykład:
+> [!NOTE]
+> Przechowywanie jest zwracane tylko dla typu danych, jeśli przechowywanie zostało jawnie ustawione dla.  Typy danych, które nie mają jawnie ustawionego przechowywania (i w ten sposób dziedziczą przechowywanie obszaru roboczego) nie zwracają niczego z tego wywołania. 
+
+Aby pobrać bieżące ustawienia przechowywania typu danych dla wszystkich typów danych w obszarze roboczym, dla których ustawiono przechowywanie ich typów danych, wystarczy pominąć określony typ danych, na przykład:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
@@ -575,9 +578,9 @@ Aby alertować, jeśli ilość danych do rozliczenia w ostatnich 24 godzinach by
 - **Zdefiniuj warunek alertu** — określ obszar roboczy usługi Log Analytics jako element docelowy zasobu.
 - **Kryteria alertu** — określ następujące informacje:
    - **Nazwa sygnału** — wybierz pozycję **Przeszukiwanie dzienników niestandardowych**
-   - **Wyszukaj zapytanie** do `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
+   - **Wyszukaj zapytanie** do `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Jeśli chcesz differetn 
    - **Alert logiki****opiera się na** *liczbie wyników*, a **warunek** jest *większy niż ***próg ** wynoszący *0*
-   - **Okres** wynoszący *1440* minut i **częstotliwość alertów** do co *1440* minut, które mają być uruchamiane raz dziennie.
+   - **Okres** wynoszący *1440* minut i **częstotliwość alertów** do każdego *1440* minutesto są uruchamiane raz dziennie.
 - **Zdefiniuj szczegóły alertu** — określ następujące informacje:
    - **Nazwa** z *ilością danych do rozliczenia większa niż 50 GB w ciągu 24 godzin*
    - **Ważność** na *Ostrzeżenie*
@@ -604,7 +607,7 @@ Jeśli zbieranie danych jest zatrzymane, stan OperationStatus ma wartość **Ost
 |Zakończenie zbierania danych o przyczynie| Rozwiązanie| 
 |-----------------------|---------|
 |Osiągnięto dzienny limit Twojego obszaru roboczego|Poczekaj na automatyczne ponowne uruchomienie kolekcji lub Zwiększ dzienny limit ilości danych opisany w temacie Zarządzanie maksymalnym dziennym woluminem danych. Dzienny czas resetowania zostanie wyświetlony na stronie **dzienne zakończenie** . |
-| W Twoim obszarze roboczym osiągnięto [współczynnik głośności](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) pozyskiwania danych | Domyślny próg współczynnika objętości pozyskiwania wynoszący 500 MB (skompresowany) dotyczy obszarów roboczych, czyli około **6 GB/min** nieskompresowanych — rzeczywisty rozmiar może się różnić między typami danych w zależności od długości dziennika i jego stosunku kompresji. Ten próg dotyczy wszystkich danych pobieranych, niezależnie od tego, czy są wysyłane z zasobów platformy Azure przy użyciu [ustawień diagnostycznych](diagnostic-settings.md), [interfejsu API modułu zbierającego dane](data-collector-api.md) i agentów. W przypadku wysyłania danych do obszaru roboczego o współczynniku ilościowym wyższym niż 80% wartości progowej skonfigurowanej w obszarze roboczym, zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. Gdy ilość pozyskiwanych woluminów jest wyższa niż wartość progowa, niektóre dane są porzucane, a zdarzenie jest wysyłane do tabeli *operacji* w obszarze roboczym co 6 godzin, podczas gdy próg nadal zostanie przekroczony. W przypadku przekroczenia progu przez okres pozyskiwania lub oczekujesz, że zostanie on wkrótce osiągnięty, możesz poprosić o zwiększenie go w obszarze roboczym, otwierając żądanie pomocy technicznej. Aby otrzymywać powiadomienia o takim zdarzeniu w obszarze roboczym, należy utworzyć [regułę alertu dziennika](alerts-log.md) przy użyciu następującego zapytania z logiką alertu na podstawie liczby wyników większej niż zero, okresu oceny wynoszącego 5 minut i częstotliwości wynoszącej 5 minut. Współczynnik wolumenu pozyskiwania osiągnął 80% wartości progowej: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Osiągnięto próg ilości woluminu pozyskiwania: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
+| W Twoim obszarze roboczym osiągnięto [współczynnik głośności](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) pozyskiwania danych | Domyślny limit szybkości pozyskiwania danych wysyłanych z zasobów platformy Azure przy użyciu ustawień diagnostycznych wynosi około 6 GB/min na obszar roboczy. Jest to przybliżona wartość, ponieważ dokładny rozmiar może się różnić w zależności od typu danych, długości dziennika i jego poziomu kompresji. Ten limit nie dotyczy danych wysyłanych z agentów ani interfejsu API modułu zbierającego dane. Jeśli dane wysyłane są szybciej do jednego obszaru roboczego, niektóre z nich mogą zostać utracone, a w czasie, w którym limit jest przekroczony, co sześć godzin jest wysyłane zdarzenie do tabeli Operacja w obszarze roboczym. Jeśli ilość pozyskiwanych danych stale przekracza limit szybkości lub spodziewasz się osiągnąć ten limit wkrótce, możesz zażądać zwiększenia limitu dla obszaru roboczego, wysyłając wiadomość e-mail na adres LAIngestionRate@microsoft.com lub wniosek o pomoc techniczną. Zdarzenie, które wskazuje na limit szybkości pozyskiwania danych, można znaleźć przy użyciu zapytania `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
 |Osiągnięto dzienny limit starszych bezpłatnych warstw cenowych |Poczekaj na automatyczne ponowne uruchomienie kolekcji lub Zmień ją na płatną warstwę cenową.|
 |Subskrypcja platformy Azure jest w stanie wstrzymania z powodu:<br> Bezpłatna wersja próbna została zakończona<br> Upłynął okres ważności platformy Azure<br> Osiągnięto miesięczny limit wydatków (na przykład w subskrypcji MSDN lub Visual Studio)|Konwersja na płatną subskrypcję<br> Usuń limit lub zaczekaj na zresetowanie limitu|
 

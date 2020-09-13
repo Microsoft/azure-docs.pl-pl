@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343121"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567127"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie wizualne w Azure Data Factory
 
@@ -39,9 +39,17 @@ Domyślne środowisko tworzenia wizualizacji działa bezpośrednio z usługą Da
 
 W przypadku zasobów najwyższego poziomu, takich jak potoki, zestawy danych i przepływy, właściwości wysokiego poziomu można edytować w okienku właściwości po prawej stronie kanwy. Okienko właściwości zawiera właściwości, takie jak nazwa, opis, adnotacje i inne właściwości wyższego poziomu. Podzasoby, takie jak działania potokowe i przekształcenia przepływu danych, są edytowane przy użyciu panelu w dolnej części kanwy. 
 
-![Kanwa tworzenia](media/author-visually/properties-pane.png)
+![Okienko właściwości](media/author-visually/properties-pane.png)
 
 Okienko właściwości zostanie otwarte domyślnie podczas tworzenia zasobu. Aby go edytować, kliknij ikonę okienka właściwości znajdującą się w prawym górnym rogu kanwy.
+
+### <a name="related-resources"></a>Powiązane zasoby
+
+W okienku właściwości można zobaczyć, jakie zasoby są zależne od wybranego zasobu, wybierając kartę **pokrewne** . Wszystkie zasoby odwołujące się do bieżącego zasobu zostaną wyświetlone w tym miejscu.
+
+![Powiązane zasoby](media/author-visually/related-resources.png)
+
+Na przykład na powyższym obrazie jeden potok i dwa przepływy danych używają aktualnie wybranego zestawu danych.
 
 ## <a name="management-hub"></a>Centrum zarządzania
 
@@ -63,7 +71,7 @@ Spowoduje to otwarcie **konstruktora wyrażeń Data Factory** , w którym można
 
 Aby uzyskać informacje na temat języka wyrażeń, zobacz [Expressions and Functions in Azure Data Factory](control-flow-expression-language-functions.md).
 
-## <a name="provide-feedback"></a>Wyraź opinię
+## <a name="provide-feedback"></a>Przekazywanie opinii
 
 Wybierz **opinię** , aby skomentować informacje o funkcjach lub powiadomić firmę Microsoft o problemach z narzędziem:
 

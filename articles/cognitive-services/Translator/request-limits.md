@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903411"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566589"
 ---
 # <a name="request-limits-for-translator"></a>Limity żądań dla translatora
 
@@ -31,7 +31,7 @@ W poniższej tabeli wymieniono limity elementów tablicy i znaków dla każdej o
 |:----|:----|:----|:----|
 | Tłumaczenie | 10 000    | 100   | 10 000 |
 | Transliteracja | 5000 | 10    | 5000 |
-| Wykrywanie | 10 000 | 100 |   50 000 |
+| Wykrywanie | 50 000 | 100 |   50 000 |
 | BreakSentence | 50 000    | 100 | 50 000 |
 | Wyszukiwanie w słowniku| 100 |  10  | 1000 |
 | Przykłady słowników | 100 dla tekstu i 100 dla tłumaczenia (łącznie 200)| 10|   2000 |
@@ -69,9 +69,9 @@ W przypadku korzystania z funkcji [BreakSentence](https://docs.microsoft.com/azu
 | Chiński | zh | 166 |
 | niemiecki | de | 800 |
 | Włoski | it | 800 |
-| Japoński | ja | 166 |
+| japoński | ja | 166 |
 | Portugalski | pkt. | 800 |
-| Hiszpański | Tak | 800 |
+| Hiszpański | es | 800 |
 | Tajlandzki | th | 180 |
 
 > [!NOTE]

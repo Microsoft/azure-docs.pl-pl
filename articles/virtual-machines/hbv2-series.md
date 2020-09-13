@@ -5,19 +5,21 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: b7655f4cb13e80d6262c3d4871c1ab69f4a6a051
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bf6828ff96f5bff8a65b5f62793df8bf0e65a309
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905471"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595159"
 ---
 # <a name="hbv2-series"></a>Seria HBv2
 
 Maszyny wirtualne z serii HBv2 są zoptymalizowane pod kątem aplikacji opartych na przepustowości pamięci, takich jak dynamika płynów, skończone analizy elementów i symulacja zbiornika. HBv2 maszyny wirtualne z funkcją 120 AMD EPYC 7742 rdzeni procesora, 4 GB pamięci RAM na rdzeń procesora CPU i bez jednoczesnego wielowątkowości. Każda maszyna wirtualna w HBv2 zapewnia do 340 GB/s przepustowości pamięci oraz do 4 teraflopa obliczeń FP64.
+
+Funkcja maszyn wirtualnych z serii HBv2 200 GB/s, karta Mellanox HDR InfiniBand. Te maszyny wirtualne są połączone w nieblokującym drzewie FAT na potrzeby zoptymalizowanej i spójnej wydajności RDMA. Te maszyny wirtualne obsługują Routing adaptacyjny oraz transporty połączone dynamicznie (DCT, w tym dodatkowe do standardowych wersji RC i transport UD). Te funkcje rozszerzają wydajność, skalowalność i spójność aplikacji, a ich użycie jest zdecydowanie zalecane.
 
 Premium Storage: obsługiwane
 

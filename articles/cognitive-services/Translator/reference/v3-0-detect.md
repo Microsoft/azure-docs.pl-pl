@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592291"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566640"
 ---
 # <a name="translator-30-detect"></a>Translator 3,0: wykrywanie
 
@@ -67,7 +67,7 @@ Nagłówki żądań obejmują:
 
 ## <a name="request-body"></a>Treść żądania
 
-Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o nazwie `Text` . Wykrywanie języka jest stosowane do wartości `Text` właściwości. Przykładowa treść żądania wygląda następująco:
+Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o nazwie `Text` . Wykrywanie języka jest stosowane do wartości `Text` właściwości. Funkcja autowykrywania języka działa lepiej z dłuższym tekstem wejściowym. Przykładowa treść żądania wygląda następująco:
 
 ```json
 [
@@ -78,7 +78,6 @@ Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON 
 Obowiązują następujące ograniczenia:
 
 * Tablica może zawierać maksymalnie 100 elementów.
-* Wartość tekstowa elementu tablicy nie może być dłuższa niż 10 000 znaków, w tym spacje.
 * Cały tekst zawarty w żądaniu nie może zawierać więcej niż 50 000 znaków, w tym spacji.
 
 ## <a name="response-body"></a>Treść odpowiedzi
