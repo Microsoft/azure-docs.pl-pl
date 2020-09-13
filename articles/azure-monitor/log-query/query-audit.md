@@ -5,21 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/25/2020
-ms.openlocfilehash: cb38dcba2f61a432decb56164b816688ad3192d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.date: 09/03/2020
+ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893751"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458641"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Inspekcja zapytań w dziennikach Azure Monitor (wersja zapoznawcza)
 Dzienniki inspekcji zapytań dzienników udostępniają dane telemetryczne dotyczące zapytań dzienników uruchomionych w Azure Monitor. Obejmuje to takie informacje, jak w przypadku uruchomienia zapytania, jego uruchomienia, używanego narzędzia, tekstu zapytania i statystyki wydajności opisującej wykonywanie zapytania.
-
-## <a name="current-limitations"></a>Bieżące ograniczenia
-W publicznej wersji zapoznawczej obowiązują następujące ograniczenia:
-
-- Rejestrowane są tylko zapytania skoncentrowane na obszarze roboczym. Zapytania są uruchamiane w trybie skoncentrowanym na zasobach lub uruchamiane w oparciu o Application Insights, które nie są skonfigurowane jako oparte na obszarze roboczym, nie będą rejestrowane.
 
 
 ## <a name="configure-query-auditing"></a>Skonfiguruj inspekcję zapytań
@@ -55,10 +50,11 @@ Rekord inspekcji jest tworzony przy każdym uruchomieniu zapytania. Jeśli dane 
 | QueryTimeRangeEnd     | Koniec zakresu czasu wybranego dla zapytania. Ta wartość może nie być wypełniana w niektórych scenariuszach, na przykład gdy zapytanie jest uruchamiane z Log Analytics, a zakres czasu jest określony wewnątrz zapytania, a nie w selektorze czasu.  |
 | QueryText             | Tekst zapytania, które zostało uruchomione. |
 | RequestTarget         | Adres URL interfejsu API został użyty do przesłania zapytania.  |
-| RequestContext        | Lista zasobów, względem których zażądano uruchomienia zapytania. Zawiera do trzech tablic ciągów: obszary robocze, aplikacje i zasoby. Subskrypcje lub grupy zasobów zapytania kierowane będą wyświetlane jako *zasoby*. Zawiera obiekt docelowy implikowany przez RequestTarget. |
+| RequestContext        | Lista zasobów, względem których zażądano uruchomienia zapytania. Zawiera do trzech tablic ciągów: obszary robocze, aplikacje i zasoby. Subskrypcje lub grupy zasobów zapytania kierowane będą wyświetlane jako *zasoby*. Zawiera obiekt docelowy implikowany przez RequestTarget.<br>Identyfikator zasobu dla każdego zasobu zostanie uwzględniony, jeśli będzie można go rozpoznać. Nie można rozwiązać tego problemu, jeśli wystąpił błąd podczas uzyskiwania dostępu do zasobu. W takim przypadku określony tekst z kwerendy zostanie użyty.<br>Jeśli zapytanie używa niejednoznacznej nazwy, takiej jak nazwa obszaru roboczego istniejąca w wielu subskrypcjach, zostanie użyta niejednoznaczna nazwa. |
 | RequestContextFilters | Zestaw filtrów określony jako część wywołania zapytania. Obejmuje maksymalnie trzy możliwe tablice ciągów:<br>-ResourceTypes-typ zasobu, aby ograniczyć zakres zapytania<br>-Obszary robocze — lista obszarów roboczych, które ograniczają zapytanie do programu<br>-WorkspaceRegions-lista regionów obszaru roboczego, aby ograniczyć zapytanie |
 | ResponseCode          | Kod odpowiedzi HTTP zwrócony podczas przesyłania zapytania. |
 | ResponseDurationMs    | Godzina zwrócenia odpowiedzi.  |
+| ResponseRowCount     | Łączna liczba wierszy zwracanych przez zapytanie. |
 | StatsCPUTimeMs       | Łączny czas obliczeń używany do obliczania, analizowania i pobierania danych. Wypełniane tylko wtedy, gdy kwerenda zwraca kod stanu 200. |
 | StatsDataProcessedKB | Ilość danych, do których uzyskano dostęp do przetwarzania zapytania. Wpływ na rozmiar tabeli docelowej, użyty zakres czasu, zastosowane filtry i liczbę kolumn, do których istnieją odwołania. Wypełniane tylko wtedy, gdy kwerenda zwraca kod stanu 200. |
 | StatsDataProcessedStart | Czas najstarszych danych, do których uzyskano dostęp do przetwarzania zapytania. Wpływ na zapytanie o jawny zakres czasu i filtry. Może to być większe niż jawne przedział czasu z powodu partycjonowania danych. Wypełniane tylko wtedy, gdy kwerenda zwraca kod stanu 200. |
@@ -66,7 +62,11 @@ Rekord inspekcji jest tworzony przy każdym uruchomieniu zapytania. Jeśli dane 
 | StatsWorkspaceCount | Liczba obszarów roboczych, do których uzyskuje dostęp zapytanie. Wypełniane tylko wtedy, gdy kwerenda zwraca kod stanu 200. |
 | StatsRegionCount | Liczba regionów, do których uzyskuje dostęp zapytanie. Wypełniane tylko wtedy, gdy kwerenda zwraca kod stanu 200. |
 
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
+- Statystyki wydajności nie są dostępne dla zapytań pochodzących z serwera proxy usługi Azure Eksplorator danych. Wszystkie inne dane dla tych zapytań będą nadal wypełniane.
+- Wskazówki *h* dotyczące ciągów, które [zasłaniają literały ciągu](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) , nie będą miały wpływu na dzienniki inspekcji zapytań. Zapytania zostaną przechwycone dokładnie tak, jak zostało przesłane bez wycofywania ciągu. Należy upewnić się, że tylko użytkownicy z prawami zgodności do wyświetlania tych danych mogą korzystać z różnych trybów RBAC dostępnych w obszarze roboczym Log Analytics.
+- W przypadku zapytań zawierających dane z wielu obszarów roboczych zapytanie zostanie przechwycone tylko w tych obszarach roboczych, do których użytkownik ma dostęp.
 
 ## <a name="next-steps"></a>Następne kroki
 

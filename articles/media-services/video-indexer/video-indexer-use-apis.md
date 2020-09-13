@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022432"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458301"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Samouczek: używanie interfejsu API usługi Video Indexer
 
@@ -36,7 +36,6 @@ W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usł
    > * Musisz użyć tego samego dostawcy, który został użyty podczas tworzenia konta w usłudze Video Indexer.
    > * Osobiste konta Google i Microsoft (Outlook/Live) mogą być używane tylko w przypadku kont próbnych. Konta połączone z platformą Azure wymagają usługi Azure AD.
    > * Na adres e-mail może istnieć tylko jedno aktywne konto. Jeśli użytkownik próbuje zalogować się przy użyciu usługi user@gmail.com LinkedIn lub nowszej w user@gmail.com przypadku usługi Google, zostanie wyświetlona strona błędu z informacją o tym, że użytkownik już istnieje.
-
 2. Subskrybuj.
 
     Wybierz kartę [produkty](https://api-portal.videoindexer.ai/products) . Następnie wybierz pozycję autoryzacja i Subskrybuj.
@@ -46,7 +45,7 @@ W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usł
     > [!NOTE]
     > Nowi użytkownicy automatycznie subskrybują autoryzację.
     
-    Po zasubskrybowaniu możesz zobaczyć swoją subskrypcję oraz klucze podstawowe i pomocnicze. Te klucze należy chronić. Powinno się ich używać tylko w kodzie serwera. Nie powinny być dostępne po stronie klienta (. js,. html itp.).
+    Po zasubskrybowaniu możesz znaleźć swoją subskrypcję w **Products**obszarze  ->  **autoryzacja**produktów. Na stronie subskrypcja znajdują się klucze podstawowe i pomocnicze. Te klucze należy chronić. Powinno się ich używać tylko w kodzie serwera. Nie powinny być dostępne po stronie klienta (. js,. html itp.).
 
     ![Subskrypcja i klucze w portalu Video Indexer Developer](./media/video-indexer-use-apis/video-indexer-api03.png)
 
@@ -208,12 +207,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Omówienie usługi Video Indexer](video-indexer-overview.md)
 - [Regiony](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Badanie szczegółów wyjściowego JSON](video-indexer-output-json-v2.md)
 - Zapoznaj się z [przykładowym kodem](https://github.com/Azure-Samples/media-services-video-indexer) , który demonstruje istotny aspekt przekazywania i indeksowania wideo. Po będzie kodu zawarto informacje na temat korzystania z naszego interfejsu API na potrzeby podstawowych funkcji. Zapoznaj się z komentarzami wbudowanymi i zwróć uwagę na nasze wskazówki dotyczące najlepszych rozwiązań.

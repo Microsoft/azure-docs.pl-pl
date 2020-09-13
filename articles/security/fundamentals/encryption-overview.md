@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542963"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458624"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie szyfrowania na platformie Azure
 
@@ -83,7 +83,7 @@ Na koniec można także użyć biblioteki klienta usługi Azure Storage dla jęz
 
 #### <a name="transparent-data-encryption"></a>Niewidoczne szyfrowanie danych
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) jest używany do szyfrowania plików danych [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)i [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w czasie rzeczywistym przy użyciu klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) jest używany do szyfrowania plików danych programu [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)i [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w czasie rzeczywistym przy użyciu klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania.
 
 TDE chroni pliki danych i dziennika przy użyciu algorytmów szyfrowania AES i Triple Data Encryption Standard (3DES). Szyfrowanie pliku bazy danych odbywa się na poziomie strony. Strony w zaszyfrowanej bazie danych są szyfrowane przed zapisaniem ich na dysku i są odszyfrowywane, gdy są one odczytywane w pamięci. Funkcja TDE jest teraz domyślnie włączona w nowo utworzonych bazach danych SQL platformy Azure.
 

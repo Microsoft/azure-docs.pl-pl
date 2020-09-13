@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71122728"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460120"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Rozwiązywanie problemów z rolami usługi w chmurze, których nie można uruchomić
 Poniżej przedstawiono niektóre typowe problemy i rozwiązania dotyczące ról Cloud Services platformy Azure, których nie można uruchomić.
@@ -66,7 +66,7 @@ Możesz użyć Pulpit zdalny, aby uzyskać dostęp do roli i wyświetlić więce
 3. W Microsoft Azure Portal, gdy wystąpienie wskazuje stan **gotowe**, zdalny do wystąpienia. Aby uzyskać więcej informacji na temat używania pulpitu zdalnego z Cloud Services, zobacz [zdalne w wystąpieniach roli](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Zaloguj się do maszyny wirtualnej przy użyciu poświadczeń określonych podczas konfiguracji Pulpit zdalny.
 6. Otwórz okno polecenia.
-7. Wpisz polecenie `IPconfig`.
+7. Wpisz `IPconfig`.
 8. Zanotuj wartość adres IPV4.
 9. Otwórz program Internet Explorer.
 10. Wpisz adres i nazwę aplikacji sieci Web. Na przykład `http://<IPV4 Address>/default.aspx`.
@@ -124,4 +124,4 @@ Po sprawdzeniu, czy wszystkie błędy zostały poprawione, można wdrożyć usł
 ## <a name="next-steps"></a>Następne kroki
 Zobacz więcej [artykułów do rozwiązywania problemów](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) dotyczących usług Cloud Services.
 
-Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Piotr Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Aby dowiedzieć się, jak rozwiązywać problemy z rolą usługi w chmurze, korzystając z danych diagnostycznych dotyczących komputerów z usługą Azure PaaS, zobacz [Seria blogów Piotr Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

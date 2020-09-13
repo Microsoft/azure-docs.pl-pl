@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985228"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459423"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Rozwiązywanie problemów z łącznością i innych błędów przy użyciu Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -119,7 +119,7 @@ Zazwyczaj administrator usługi może wykonać następujące kroki, aby dodać p
 4. Jeśli nazwa użytkownika logowania SQL nie istnieje, utwórz ją, wykonując następujące czynności:
 
    1. W programie SSMS kliknij dwukrotnie pozycję **zabezpieczenia** , aby ją rozwinąć.
-   2. Kliknij prawym przyciskiem myszy pozycję **Nazwy logowania**, a następnie wybierz polecenie **Nowa nazwa logowania**.
+   2. Kliknij prawym przyciskiem myszy pozycję **logowania**, a następnie wybierz pozycję **Nowa nazwa logowania**.
    3. W wygenerowanym skrypcie z symbolami zastępczymi Edytuj i uruchom następujące zapytanie SQL:
 
    ```sql
@@ -128,10 +128,10 @@ Zazwyczaj administrator usługi może wykonać następujące kroki, aby dodać p
    GO
    ```
 
-5. Kliknij dwukrotnie pozycję **Baza danych**.
+5. Kliknij dwukrotnie pozycję **baza danych**.
 6. Wybierz bazę danych, do której chcesz przyznać uprawnienia użytkownika.
-7. Kliknij dwukrotnie pozycję **Zabezpieczenia**.
-8. Kliknij prawym przyciskiem myszy pozycję **Użytkownicy**, a następnie wybierz polecenie **Nowy użytkownik**.
+7. Kliknij dwukrotnie pozycję **zabezpieczenia**.
+8. Kliknij prawym przyciskiem myszy pozycję **Użytkownicy**, a następnie wybierz polecenie **nowy użytkownik**.
 9. W wygenerowanym skrypcie z symbolami zastępczymi Edytuj i uruchom następujące zapytanie SQL:
 
    ```sql
@@ -194,13 +194,13 @@ Aby obejść ten problem, wypróbuj jedną z następujących metod:
 2. Określ **bufor wejściowy** dla bloku głównego.
 3. Dostrajanie zapytania bloku nagłówkowego.
 
-   Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+   Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 Jeśli baza danych konsekwentnie osiągnie swój limit, niezależnie od blokowania i długotrwałych zapytań, rozważ uaktualnienie [do wersji o](https://azure.microsoft.com/pricing/details/sql-database/)większej liczbie zasobów.
 
 Aby uzyskać więcej informacji na temat dynamicznych widoków zarządzania, zobacz [dynamiczne zarządzanie dynamicznymi widokami](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-Aby uzyskać więcej informacji na temat limitów baz danych, zobacz [SQL Database limitów zasobów dla serwerów](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Aby uzyskać więcej informacji na temat limitów baz danych, zobacz  [SQL Database limitów zasobów dla serwerów](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
 
 ### <a name="error-10929-resource-id-1"></a>Błąd 10929: Identyfikator zasobu: 1
 
@@ -261,7 +261,7 @@ Jeśli ten błąd wystąpi wielokrotnie, spróbuj rozwiązać problem, wykonują
 
 Należy również rozważyć przetwarzanie wsadowe zapytań. Aby uzyskać informacje na temat tworzenia pakietów wsadowych, zobacz [jak używać usługi Batch w celu ulepszania SQL Database aplikacji](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Błąd 40551: sesja została przerwana z powodu nadmiernego użycia bazy danych TEMPDB
 
@@ -292,7 +292,7 @@ Spróbuj zmniejszyć liczbę wierszy, które są bezpośrednio obsługiwane prze
 
 Aby obejść ten problem, spróbuj zoptymalizować zapytanie.
 
-Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Aby uzyskać szczegółową procedurę rozwiązywania problemów, zobacz [czy moje zapytanie działa prawidłowo w chmurze?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabela dodatkowych komunikatów o błędach nadzoru zasobów
 
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Gdy wyjątek jest wyzwalany przez problemy z kwerendą, zobaczysz stos wywołań podobny do poniższego (należy zwrócić uwagę na odwołanie do klasy **SqlCommand** ). W tej sytuacji [Dostosuj swoje zapytania](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Gdy wyjątek jest wyzwalany przez problemy z kwerendą, zobaczysz stos wywołań podobny do poniższego (należy zwrócić uwagę na odwołanie do klasy **SqlCommand** ). W tej sytuacji [Dostosuj swoje zapytania](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

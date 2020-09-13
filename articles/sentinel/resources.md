@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77585275"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461735"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Przydatne zasoby do pracy z platformą Azure — wskaźnikiem
 
@@ -28,7 +28,7 @@ ms.locfileid: "77585275"
 
 W tym artykule wymieniono zasoby, które mogą pomóc uzyskać więcej informacji na temat pracy z platformą Azure — wskaźnikiem.
 
-Łączniki Azure Logic Apps:<https://docs.microsoft.com/connectors/>
+Łączniki Azure Logic Apps: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Inspekcja i raportowanie
@@ -68,7 +68,7 @@ Te dane można wyświetlić, przesyłając je strumieniowo z dziennika aktywnoś
 
 ## <a name="vendor-documentation"></a>Dokumentacja dostawcy
 
-| **Dostawca**  | **Korzystanie z zdarzeń na platformie Azure — wskaźnik** | **Link**|
+| **Dostawca**  | **Korzystanie z zdarzeń na platformie Azure — wskaźnik** | **Powiązań**|
 |----|----|----|
 | GitHub| Służy do uzyskiwania dostępu do strony społeczności| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Konfigurowanie CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
@@ -82,4 +82,4 @@ Wyświetl wpisy w blogu dotyczące platformy Azure wskaźnikowego z [TechCommuni
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie przedstawiono listę zasobów, które są przydatne podczas pracy z platformą Azure — wskaźnikiem. Dodatkowe informacje na temat zabezpieczeń i zgodności platformy Azure można znaleźć na [blogu Microsoft Azure zabezpieczenia i zgodność](https://blogs.msdn.com/b/azuresecurity/).
+W tym dokumencie przedstawiono listę zasobów, które są przydatne podczas pracy z platformą Azure — wskaźnikiem. Dodatkowe informacje na temat zabezpieczeń i zgodności platformy Azure można znaleźć na [blogu Microsoft Azure zabezpieczenia i zgodność](https://docs.microsoft.com/archive/blogs/azuresecurity/).

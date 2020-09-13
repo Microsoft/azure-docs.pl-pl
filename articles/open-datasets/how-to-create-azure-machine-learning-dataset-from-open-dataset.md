@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998078"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461514"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Tworzenie zestawów danych Azure Machine Learning przy użyciu otwartych zestawów danych platformy Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,7 +111,7 @@ Możesz również tworzyć Azure Machine Learning zestawy danych z platformy Azu
 
     ![Wybierz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Zobacz [wykaz otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/op[en-datasets/catalog/) , aby uzyskać szczegółowe informacje, takie jak opisy pól i zakresy dat. Wybierz pozycję **Utwórz**.
+1. Wybierz nazwę, pod którą ma zostać zarejestrowany zestaw danych, i opcjonalnie odfiltruj dane przy użyciu dostępnych filtrów. W tym przypadku dla zestawu danych **dni wolnych** , należy odfiltrować przedział czasu do jednego roku i kod kraju tylko do USA. Zobacz [wykaz otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog) , aby uzyskać szczegółowe informacje, takie jak opisy pól i zakresy dat. Wybierz pozycję **Utwórz**.
 
     ![Ustaw parametry zestawu danych i Utwórz zestaw danych](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 
@@ -126,7 +126,7 @@ Używaj Twoich zestawów danych w eksperymentach uczenia maszynowego do uczenia 
 
 Aby zapoznać się z przykładami i pokazami funkcji otwartych zestawów danych, zobacz te [przykładowe notesy](samples.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Uczenie swojego pierwszego modelu ml](../machine-learning/tutorial-1st-experiment-sdk-train.md).
 

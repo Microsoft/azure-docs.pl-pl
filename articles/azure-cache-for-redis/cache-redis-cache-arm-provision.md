@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078422"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461242"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Tworzenie pamięci podręcznej platformy Azure dla usługi Redis przy użyciu szablonu Menedżer zasobów
 
@@ -27,7 +27,7 @@ Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w kor
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* **Konto magazynu**: aby je utworzyć, zobacz [Tworzenie konta usługi Azure Storage](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). Konto magazynu jest używane na potrzeby danych diagnostycznych.
+* **Konto magazynu**: aby je utworzyć, zobacz [Tworzenie konta usługi Azure Storage](/azure/storage/common/storage-account-create?tabs=azure-portal). Konto magazynu jest używane na potrzeby danych diagnostycznych.
 
 ## <a name="review-the-template"></a>Przegląd szablonu
 
@@ -38,7 +38,7 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 Następujące zasoby są zdefiniowane w szablonie:
 
 * [Microsoft. cache/Redis](/azure/templates/microsoft.cache/redis)
-* [Microsoft. Insights/diagnosticsettings](/azure/templates/diagnosticsettings)
+* [Microsoft. Insights/diagnosticsettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 Dostępne są również szablony Menedżer zasobów dla nowej [warstwy Premium](cache-overview.md#service-tiers) .
 

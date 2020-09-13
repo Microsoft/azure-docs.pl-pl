@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011348"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461038"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planowanie wdrożenia Azure Active Directory przeglądy dostępu
 
@@ -93,7 +93,7 @@ Aby zapoznać się z przeglądami dostępu, prawdopodobnie zostaną uwzględnion
 
 * **Administracja IT** służy do zarządzania infrastrukturą IT i administrowania inwestycjami w chmurze oraz aplikacjami oprogramowania jako usługi (SaaS). Ten zespół będzie:
 
-   * Przejrzyj dostęp uprzywilejowany do infrastruktury i aplikacji, w tym pakietu Office 365 i usługi Azure AD.
+   * Przejrzyj dostęp uprzywilejowany do infrastruktury i aplikacji, w tym Microsoft 365 i usługi Azure AD.
 
    * Zaplanuj i uruchom przeglądy dostępu dla grup, które są używane do obsługi list wyjątków lub projektów pilotażowych IT, aby zachować aktualne listy dostępu.
 
@@ -180,7 +180,7 @@ Typowe elementy docelowe do przeglądu obejmują:
 
 * [Aplikacje zintegrowane z usługą Azure AD na potrzeby logowania jednokrotnego](../manage-apps/what-is-application-management.md) (na przykład SaaS).
 
-* [Członkostwo](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) w grupach (synchronizowane z usługą Azure AD lub utworzone w usłudze Azure AD lub Office 365, w tym Microsoft Teams).
+* [Członkostwo](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) w grupach (synchronizowane z usługą Azure AD lub utworzone w usłudze Azure ad lub Microsoft 365, w tym Microsoft Teams).
 
 * [Pakiet dostępu](/azure/active-directory/governance/entitlement-management-overview) , który grupuje zasoby (grupy, aplikacje i lokacje) w jednym pakiecie w celu zarządzania dostępem.
 
@@ -304,7 +304,7 @@ Otwórz kartę cykl życia, aby przewinąć w dół do okna przeglądy dostępu.
 
 ## <a name="plan-access-reviews-for-groups"></a>Planowanie przeglądów dostępu dla grup
 
-Oprócz pakietów dostępu przeglądanie członkostwa w grupie jest najbardziej skutecznym sposobem na dostęp. Zaleca się, aby dostęp do zasobów był przypisywany za pośrednictwem [grup zabezpieczeń lub grup Office 365](../fundamentals/active-directory-manage-groups.md), a użytkownicy są dodawani do tych grup w celu uzyskania dostępu.
+Oprócz pakietów dostępu przeglądanie członkostwa w grupie jest najbardziej skutecznym sposobem na dostęp. Zaleca się, aby dostęp do zasobów był przypisany za pośrednictwem [grup zabezpieczeń lub grup Microsoft 365](../fundamentals/active-directory-manage-groups.md), a użytkownicy są dodawani do tych grup w celu uzyskania dostępu.
 
 Pojedynczej grupie można udzielić dostępu do wszystkich odpowiednich zasobów. Dostęp do grupy można przypisać do poszczególnych zasobów lub do pakietu dostępu, który grupuje aplikacje i inne zasoby. Za pomocą tej metody można przeglądać dostęp do grupy, a nie dostęp do poszczególnych aplikacji. 
 
@@ -322,9 +322,9 @@ Członkostwo w grupie może być analizowane przez:
 
 Zaleca się, aby właściciele grup przeglądali członkostwo, ponieważ są one najlepszym rozwiązaniem, aby wiedzieć, kto potrzebuje dostępu. Własność grup różni się od typu grupy:
 
-Grupy utworzone w pakietach Office 365 i Azure AD mają co najmniej jednego dobrze zdefiniowanego właściciela. W większości przypadków tacy właściciele tworzą idealnych recenzentów dla własnych grup, ponieważ wiedzą, kto powinien mieć dostęp. 
+Grupy, które są tworzone w Microsoft 365 i usługa Azure AD, mają co najmniej jednego dobrze zdefiniowanego właściciela. W większości przypadków tacy właściciele tworzą idealnych recenzentów dla własnych grup, ponieważ wiedzą, kto powinien mieć dostęp. 
 
-Na przykład firma Microsoft Teams korzysta z grup pakietu Office 365 jako podstawowego modelu autoryzacji, aby umożliwić użytkownikom dostęp do zasobów w programie SharePoint, programie Exchange, programie OneNote lub innych usługach pakietu Office 365. Twórca zespołu automatycznie otrzymuje właściciela i powinien być odpowiedzialny za zaświadczenie członkostwa w tej grupie. 
+Na przykład firma Microsoft Teams używa grup Microsoft 365 jako podstawowego modelu autoryzacji, aby udzielić użytkownikom dostępu do zasobów w programie SharePoint, programie Exchange, programie OneNote lub w innych usługach Microsoft 365. Twórca zespołu automatycznie otrzymuje właściciela i powinien być odpowiedzialny za zaświadczenie członkostwa w tej grupie. 
 
 Grupy utworzone ręcznie w portalu usługi Azure AD lub za pośrednictwem skryptów za pośrednictwem Microsoft Graph mogą nie mieć zdefiniowanych właścicieli. Zalecamy Definiowanie ich za pośrednictwem portalu usługi Azure AD w sekcji "właściciele" grupy lub za pośrednictwem grafu.
 
@@ -403,7 +403,7 @@ Przeglądy dostępu umożliwiają recenzentom potwierdzenie, czy użytkownicy na
 
 * Administrator zabezpieczeń
 
-* Wszystkie role administracyjne pakietu Office 365 i usługi Dynamics
+* Wszystkie role administracyjne usług Microsoft 365 i Dynamics
 
 Role wybrane w tym miejscu obejmują stałą i kwalifikującą się rolę. 
 
@@ -511,7 +511,7 @@ Działania przeglądów dostępu są rejestrowane i dostępne w [dziennikach ins
 
 Aby uzyskać bardziej zaawansowane zapytania i analizę kontroli dostępu, a także śledzić zmiany i dokonywać przeglądów, zalecamy wyeksportowanie dzienników inspekcji usługi Azure AD do [usługi azure log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) lub centrum zdarzeń platformy Azure. W przypadku przechowywania danych w usłudze Azure Log Analytics można użyć [zaawansowanego języka analitycznego](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) — i utworzyć własne pulpity nawigacyjne.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej na temat pokrewnych technologii.
 

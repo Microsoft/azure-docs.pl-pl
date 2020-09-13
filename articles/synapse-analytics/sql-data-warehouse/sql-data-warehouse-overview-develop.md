@@ -1,6 +1,6 @@
 ---
 title: Zasoby służące do tworzenia puli SQL Synapse w usłudze Azure Synapse Analytics
-description: Koncepcje dotyczące programowania, decyzje projektowe, zalecenia i techniki kodowania dla SQL Data Warehouse.
+description: Pojęcia dotyczące programowania, decyzje projektowe, zalecenia i techniki kodowania dla usługi Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a3c0d7924fb550761d050c9c404b1065c7d3cf72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211497"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460613"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Projektowanie decyzji i technik kodowania dla puli SQL Synapse w usłudze Azure Synapse Analytics 
  W tym artykule znajdziesz dodatkowe zasoby, które pomogą lepiej zrozumieć najważniejsze decyzje projektowe, zalecenia i techniki kodowania dla puli SQL w usłudze Azure Synapse.
@@ -38,7 +38,7 @@ Poniższe artykuły zawierają charakterystyczne techniki kodowania, porady i za
 
 * [procedury składowane](sql-data-warehouse-develop-stored-procedures.md)
 * [Etykieta](sql-data-warehouse-develop-label.md)
-* [Widoki](sql-data-warehouse-develop-views.md)
+* [Widoki](performance-tuning-materialized-views.md)
 * [tabele tymczasowe](sql-data-warehouse-tables-temporary.md)
 * [dynamiczny SQL](sql-data-warehouse-develop-dynamic-sql.md)
 * [pętli](sql-data-warehouse-develop-loops.md)

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 6662beec47d663f92e453f52d190e41518108b0d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 170f20cbd3405ea6af8aef5650e4dd7ebeaeef7f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191491"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458216"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Porównanie Azure Data Lake Storage Gen1 i platformy Azure Blob Storage
 
@@ -29,7 +29,7 @@ W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen
 | Interfejs API po stronie serwera |[Interfejs API REST zgodny z WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Interfejs API REST usługi Azure Blob Storage](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Klient systemu plików Hadoop |Tak |Tak |
 | Operacje na danych — uwierzytelnianie |Na podstawie [tożsamości Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Na podstawie [kluczy dostępu](../storage/common/storage-account-keys-manage.md) współdzielonego i [kluczy sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
-| Operacje na danych — protokół uwierzytelniania |OAuth 2,0. Wywołania muszą zawierać prawidłowy JWT (token sieci Web JSON) wystawiony przez Azure Active Directory |Kod uwierzytelniania wiadomości oparte na skrótach (HMAC). Wywołania muszą zawierać skrót SHA-256 zakodowany algorytmem Base64 w ramach żądania HTTP. |
+| Operacje na danych — protokół uwierzytelniania |[OpenID Connect](https://openid.net/connect/). Wywołania muszą zawierać prawidłową wartość JWT (token sieci Web JSON) wydaną przez Azure Active Directory.|Kod uwierzytelniania wiadomości oparte na skrótach (HMAC). Wywołania muszą zawierać skrót SHA-256 zakodowany algorytmem Base64 w ramach żądania HTTP. |
 | Operacje na danych — autoryzacja |Listy Access Control POSIX (ACL).  Listy ACL oparte na tożsamościach Azure Active Directory można ustawić na poziomie plików i folderów. |W przypadku autoryzacji na poziomie konta — Użyj [kluczy dostępu do konta](../storage/common/storage-account-keys-manage.md)<br>Dla konta, kontenera lub autoryzacji obiektów BLOB — Użyj [kluczy sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operacje na danych — Inspekcja |Udostępnione. Aby [uzyskać więcej informacji](data-lake-store-diagnostic-logs.md) , zobacz. |Dostępne |
 | Szyfrowanie danych w spoczynku |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w usłudze Azure Keys</li></ul></ul> |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w magazynie kluczy platformy Azure (wersja zapoznawcza)</li></ul><li>Szyfrowania po stronie klienta</li></ul> |

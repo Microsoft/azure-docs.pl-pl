@@ -1,5 +1,5 @@
 ---
-title: Ładowanie danych detalicznych firmy Contoso do magazynu Synapse SQL Data Warehouse
+title: Ładowanie danych detalicznych contoso do Synapse SQL
 description: Użyj poleceń Base i T-SQL, aby załadować dwie tabele z danych sprzedaży Contoso do Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213316"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461701"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Ładowanie danych detalicznych contoso do Synapse SQL 
 
-W ramach tego samouczka nauczysz się używać poleceń wielobazowych i T-SQL do ładowania dwóch tabel z danych sprzedaży firmy Contoso do usługi Synapse SQL Data Warehouse.
+W ramach tego samouczka nauczysz się używać poleceń wielobazowych i T-SQL do załadowania dwóch tabel z danych sprzedaży Contoso do Synapse SQL.
 
 W tym samouczku wykonasz następujące instrukcje:
 
@@ -30,11 +30,11 @@ W tym samouczku wykonasz następujące instrukcje:
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Do uruchomienia tego samouczka potrzebne jest konto platformy Azure, które ma już Synapse SQL Data Warehouse. Jeśli nie masz obsługiwanego magazynu danych, zobacz [Tworzenie magazynu danych i Ustawianie reguły zapory na poziomie serwera](create-data-warehouse-portal.md).
+Do uruchomienia tego samouczka potrzebne jest konto platformy Azure, które ma już Synapse SQL. Jeśli nie masz obsługiwanego magazynu danych, zobacz [Tworzenie magazynu danych i Ustawianie reguły zapory na poziomie serwera](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Konfigurowanie źródła danych
 
-Baza kodu używa zewnętrznych obiektów T-SQL do definiowania lokalizacji i atrybutów danych zewnętrznych. Definicje obiektów zewnętrznych są przechowywane w usłudze Synapse SQL Data Warehouse. Dane są przechowywane zewnętrznie.
+Baza kodu używa zewnętrznych obiektów T-SQL do definiowania lokalizacji i atrybutów danych zewnętrznych. Definicje obiektów zewnętrznych są przechowywane w Synapse SQL. Dane są przechowywane zewnętrznie.
 
 ## <a name="create-a-credential"></a>Utwórz poświadczenie
 
@@ -122,7 +122,7 @@ GO
 
 Uruchom następujący skrypt, aby utworzyć tabele zewnętrzne DimProduct i FactOnlineSales. W tym miejscu Wystarczy zdefiniować nazwy kolumn i typy danych oraz powiązać je z lokalizacją i formatem plików magazynu obiektów blob platformy Azure. Definicja jest przechowywana w magazynie danych, a dane nadal znajdują się w Azure Storage Blob.
 
-Parametr **Location** jest folderem w folderze głównym w Azure Storage BLOB. Każda tabela znajduje się w innym folderze.
+Parametr  **Location** jest folderem w folderze głównym w Azure Storage BLOB. Każda tabela znajduje się w innym folderze.
 
 ```sql
 --DimProduct
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optymalizowanie kompresji magazynu kolumn
 
-Domyślnie magazyn danych SQL Synapse przechowuje tabelę jako klastrowany indeks magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieją różne przyczyny, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
+Domyślnie Synapse SQL przechowuje tabelę jako klastrowany indeks magazynu kolumn. Po zakończeniu ładowania niektóre wiersze danych mogą nie zostać skompresowane do magazynu kolumn.  Istnieją różne przyczyny, dla których może się to zdarzyć. Aby dowiedzieć się więcej, zobacz [Zarządzanie indeksami magazynu kolumn](sql-data-warehouse-tables-index.md).
 
 Aby zoptymalizować wydajność zapytań i kompresję magazynu kolumn po załadowaniu, należy ponownie skompilować tabelę, aby wymusić, że indeks magazynu kolumn będzie kompresowany ze wszystkimi wierszami.
 
@@ -340,7 +340,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>Nieodblokowane osiągnięcie!
 
-Dane publiczne zostały pomyślnie załadowane do magazynu danych. Wspaniałe zadanie!
+Dane publiczne zostały pomyślnie załadowane do magazynu danych. Dobra robota!
 
 Teraz możesz zacząć wysyłać zapytania do tabel, aby eksplorować dane. Uruchom następujące zapytanie, aby dowiedzieć się o całkowitej sprzedaży za markę:
 
