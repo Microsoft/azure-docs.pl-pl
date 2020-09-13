@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852161"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614058"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Portal deweloperów API Management platformy Azure — omówienie
 
@@ -31,9 +31,9 @@ W tym artykule opisano różnice między samodzielnymi i zarządzanymi wersjami 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!NOTE]
-> <a name="migrate-from-legacy"></a>Nowy portal dla deweloperów jest niezgodny z starszym portalem deweloperów i zautomatyzowana migracja nie jest możliwa. Musisz ręcznie odtworzyć zawartość (strony, tekst, pliki multimedialne) i dostosować wygląd nowego portalu. Aby uzyskać wskazówki, zapoznaj się z [samouczkiem](api-management-howto-developer-portal-customize.md) dotyczącym portalu dla deweloperów.
+> <a name="migrate-from-legacy"></a> Nowy portal dla deweloperów jest niezgodny z starszym portalem deweloperów i zautomatyzowana migracja nie jest możliwa. Musisz ręcznie odtworzyć zawartość (strony, tekst, pliki multimedialne) i dostosować wygląd nowego portalu. Aby uzyskać wskazówki, zapoznaj się z [samouczkiem](api-management-howto-developer-portal-customize.md) dotyczącym portalu dla deweloperów.
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Zarządzane i samodzielne wersje
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Zarządzane i samodzielne wersje
 
 Portal dla deweloperów można skompilować na dwa sposoby:
 
@@ -67,27 +67,27 @@ Składniki portalu można logicznie podzielić na dwie kategorie: *kod* i *zawar
 
 Portal jest oparty na dostosowaniu rozwidlenia [struktury Paperbits](https://paperbits.io/). Oryginalne funkcje Paperbits zostały rozszerzone, aby zapewnić widżety specyficzne dla API Management (na przykład listę interfejsów API, listę produktów) i łącznik do API Management usługi do zapisywania i pobierania zawartości.
 
-## <a name="frequently-asked-questions"></a><a name="faq"></a>Często zadawane pytania
+## <a name="frequently-asked-questions"></a><a name="faq"></a> Często zadawane pytania
 
 W tej sekcji znajdziesz odpowiedzi na często zadawane pytania dotyczące portalu dla deweloperów, który ma charakter ogólny. Pytania specyficzne dla własnej wersji hostowanej można znaleźć w [sekcji wiki repozytorium GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Jak przeprowadzić migrację z wersji zapoznawczej portalu?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Jak przeprowadzić migrację z wersji zapoznawczej portalu?
 
-Korzystając z wersji zapoznawczej portalu dla deweloperów, Zainicjowano obsługę zawartości w wersji zapoznawczej w usłudze API Management. Zawartość domyślna została znacząco zmodyfikowana w ogólnie dostępnej wersji w celu lepszego środowiska użytkownika. Zawiera również nowe widżety.
+Po pierwszym uruchomieniu wersji zapoznawczej portalu dla deweloperów udostępniono wersję zapoznawczą swojej domyślnej zawartości w usłudze API Management. Zawartość domyślna została znacząco zmodyfikowana w ogólnie dostępnej wersji. Na przykład wersja zapoznawcza domyślnej zawartości nie zawiera przycisków OAuth na stronach logowania, używa różnych widżetów do wyświetlania interfejsów API i opiera się na ograniczonej możliwościach tworzenia struktury stron portalu deweloperów. Mimo że istnieją różnice w zawartości, aparat portalu (w tym bazowe widżety) jest automatycznie aktualizowany przy każdym publikowaniu portalu dla deweloperów.
 
-Jeśli używasz zarządzanej wersji, zresetuj zawartość portalu, klikając pozycję **Zresetuj zawartość** w sekcji menu **operacje** . Potwierdzenie tej operacji spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Aparat portalu został automatycznie zaktualizowany w usłudze API Management.
+Jeśli masz mocno dostosowany Portal w oparciu o wersję zapoznawczą zawartości, możesz nadal używać jej jako i ręcznie umieszczać nowe widżety na stronach portalu. W przeciwnym razie zalecamy zastąpienie zawartości portalu nową domyślną zawartością.
+
+Aby zresetować zawartość w portalu zarządzanym, kliknij pozycję **Zresetuj zawartość** w sekcji menu **operacje** . Ta operacja spowoduje usunięcie całej zawartości portalu i udostępnienie nowej zawartości domyślnej. Wszystkie dostosowania i zmiany w portalu deweloperów zostaną utracone. **Tej akcji nie można cofnąć**.
 
 ![Resetuj zawartość portalu](media/api-management-howto-developer-portal/reset-content.png)
 
-Jeśli używasz wersji samohostowanej, Użyj usługi `scripts/cleanup.bat` i `scripts/generate.bat` z repozytorium GitHub, aby usunąć istniejącą zawartość i udostępnić nową zawartość. Upewnij się, że kod portalu został uaktualniony do najnowszej wersji z repozytorium GitHub wcześniej.
+Jeśli używasz używanej przez siebie wersji, uruchom program `scripts.v2/cleanup.bat` i `scripts.v2/generate.bat` skrypty z repozytorium GitHub, aby usunąć istniejącą zawartość i udostępnić nową zawartość. Upewnij się, że uaktualniono kod portalu do najnowszej wersji z repozytorium GitHub wcześniej.
 
-Jeśli nie chcesz resetować zawartości portalu, możesz rozważyć użycie nowo dostępnych widżetów na stronach. Istniejące widżety zostały automatycznie zaktualizowane do najnowszych wersji.
-
-Jeśli Twój portal został zainicjowany po ogólnym ogłoszeniu dostępności, powinien już obsługiwać nową zawartość domyślną. Nie jest wymagana żadna akcja ze strony użytkownika.
+Jeśli po raz pierwszy uzyskujesz dostęp do portalu po ogólnym ogłoszeniu dostępności w listopadzie 2019, powinien on już obsłużyć nową zawartość domyślną i nie jest wymagana żadna dodatkowa akcja.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Czy Portal ma wszystkie funkcje starszej wersji portalu?
 
-Portal dla deweloperów nie obsługuje już *aplikacji* i *problemów*.
+Portal dla deweloperów nie obsługuje już *aplikacji*, *problemów*i bezpośredniej integracji z dostawcami usługi Facebook, Microsoft, Twitter i Google as (można użyć Azure AD B2C zamiast tego).
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>Czy starszy Portal jest przestarzały?
 
@@ -145,7 +145,7 @@ Po skonfigurowaniu delegowania należy [ponownie opublikować Portal](api-manage
 
 Większość zmian konfiguracji (na przykład Sieć wirtualna, logowanie i warunki produktu) wymagają [ponownego opublikowania portalu](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Otrzymuję błąd CORS podczas korzystania z konsoli interaktywnej
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Otrzymuję błąd CORS podczas korzystania z konsoli interaktywnej
 
 Konsola interaktywna wykonuje żądanie interfejsu API po stronie klienta z przeglądarki. Rozwiąż problem CORS przez dodanie [zasad CORS](api-management-cross-domain-policies.md#CORS) do interfejsów API.
 

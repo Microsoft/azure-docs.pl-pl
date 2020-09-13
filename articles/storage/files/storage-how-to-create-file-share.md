@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930676"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645580"
 ---
 # <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
 Aby utworzyć udział plików platformy Azure, musisz odpowiedzieć na trzy pytania dotyczące sposobu ich używania:
@@ -231,7 +231,7 @@ To polecenie zakończy się niepowodzeniem, jeśli konto magazynu jest zawarte w
 > Nazwa udziału plików musi się składać z samych małych liter. Aby uzyskać szczegółowe informacje o nazewnictwie udziałów plików i plików, zobacz [nazewnictwo i odwoływanie się do udziałów, katalogów, plików i metadanych](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### <a name="create-a-hot-or-cool-file-share"></a>Utwórz gorącą lub chłodny udział plików
-Udział plików w ramach **konta magazynu ogólnego przeznaczenia w wersji 2 (GPv2)** może zawierać optymalizację transakcji, gorącą lub chłodną udziałów plików (lub ich mieszaninę). Udziały zoptymalizowane pod kątem transakcji są dostępne we wszystkich regionach świadczenia usługi Azure, ale udziały plików gorąca i chłodna są dostępne tylko [w podzbiorze regionów](storage-files-planning.md#storage-tiers). Można utworzyć gorącą lub chłodny udział plików przy użyciu modułu Azure PowerShell w wersji zapoznawczej lub interfejsu wiersza polecenia platformy Azure. 
+**Konto magazynu ogólnego przeznaczenia w wersji 2 (GPv2)** może zawierać optymalizację transakcji, gorącą lub chłodną udziałów plików (lub ich mieszaninę). Udziały zoptymalizowane pod kątem transakcji są dostępne we wszystkich regionach świadczenia usługi Azure, ale udziały plików gorąca i chłodna są dostępne tylko [w podzbiorze regionów](storage-files-planning.md#storage-tiers). Można utworzyć gorącą lub chłodny udział plików przy użyciu modułu Azure PowerShell w wersji zapoznawczej lub interfejsu wiersza polecenia platformy Azure. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Azure Portal nie obsługuje jeszcze tworzenia udziałów plików gorąca i chłodna, a także przenosi istniejące zoptymalizowane udziały plików do warstwy gorąca lub chłodna. Zapoznaj się z instrukcjami dotyczącymi tworzenia udziału plików za pomocą programu PowerShell lub interfejsu wiersza polecenia platformy Azure.

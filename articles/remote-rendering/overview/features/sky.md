@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2a871e409761116182f67eb877f3727038fe0dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013643"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613751"
 ---
 # <a name="sky-reflections"></a>Odbicia nieba
 
@@ -28,8 +28,8 @@ Poniższe obrazy pokazują wyniki oświetlenia różnych powierzchni tylko przy 
 
 | Niesztywność  | 0                                        | 0,25                                          | 0,5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| Bez metalu  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| Bez metalu  | ![Nieelektryczny, niesztywność = 0](media/dielectric-0.png)   | ![Nieelektryczny, niesztywność = 0,25](media/dielectric-0.25.png)  | ![Nieelektryczny, niesztywność = 0,5](media/dielectric-0.5.png)  | ![Nieelektryczny, niesztywność = 0,75](media/dielectric-0.75.png)  | ![Nieelektryczny, niesztywność = 1](media/dielectric-1.png)  |
+| Metal      | ![Metal, niesztywność = 0](media/metallic-0.png)  | ![Metal, niesztywność = 0,25](media/metallic-0.25.png)    | ![Metal, niesztywność = 0,5](media/metallic-0.5.png)    | ![Metal, niesztywność = 0,75](media/metallic-0.75.png)    | ![Metal, niesztywność = 1](media/metallic-1.png)    |
 
 Aby uzyskać więcej informacji na temat modelu oświetlenia, zapoznaj się z rozdziałem [materiały](../../concepts/materials.md) .
 
@@ -84,7 +84,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
             }
             else
             {
-                printf("Texture loading failed!");
+                printf("Texture loading failed!\n");
             }
         });
 }
@@ -121,22 +121,27 @@ Zdalne renderowanie na platformie Azure udostępnia kilka wbudowanych map środo
 
 |Identyfikator                         | Opis                                              | Ilustracji                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Różne światełka, jasne oświetlenie podstawowe    | ![Autozakupy](media/autoshop.png)
-|builtin://BoilerRoom               | Jasne ustawienie oświetlenia, wiele świateł okna      | ![BoilerRoom](media/boiler-room.png)
-|builtin://ColorfulStudio           | Zróżnicuj kolorowe sygnalizatory w ustawieniu średniego oświetlenia lekkiego  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Średnio jasne światełko korytarza                     | ![SmallHangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Przyciemnij ustawienia wewnętrzne z kontrastem jasnym i ciemnym              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Światło w otoczeniu Daytime, jasne oświetlenie obszaru okna     | ![Lebombo](media/lebombo.png)
-|builtin://SataraNight              | Ciemna noc i Ziemia z wieloma otaczającymi światłami   | ![SataraNight](media/satara-night.png)
-|builtin://SunnyVondelpark          | Jasne światło słoneczne i kontrast cień                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Jasne oświetlenie o umiarkowanej powierzchni            | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Średnio różne słońce i cieniowanie                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Jasne podejście Dusk                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Jasne, Lush-zielone i białe światła, wyszarzone | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Dzienne oświetlenie otoczenia                 | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | Analogicznie jak TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | Różne światełka, jasne oświetlenie podstawowe    | ![Autoshop skybox używany do lekkiego obiektu](media/autoshop.png)
+|builtin://BoilerRoom               | Jasne ustawienie oświetlenia, wiele świateł okna      | ![BoilerRoom skybox używany do lekkiego obiektu](media/boiler-room.png)
+|builtin://ColorfulStudio           | Zróżnicuj kolorowe sygnalizatory w ustawieniu średniego oświetlenia lekkiego  | ![ColorfulStudio skybox używany do lekkiego obiektu](media/colorful-studio.png)
+|builtin://Hangar                   | Średnio jasne światełko korytarza                     | ![SmallHangar skybox używany do lekkiego obiektu](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Przyciemnij ustawienia wewnętrzne z kontrastem jasnym i ciemnym              | ![IndustrialPipeAndValve skybox używany do lekkiego obiektu](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Światło w otoczeniu Daytime, jasne oświetlenie obszaru okna     | ![Lebombo skybox używany do lekkiego obiektu](media/lebombo.png)
+|builtin://SataraNight              | Ciemna noc i Ziemia z wieloma otaczającymi światłami   | ![SataraNight skybox używany do lekkiego obiektu](media/satara-night.png)
+|builtin://SunnyVondelpark          | Jasne światło słoneczne i kontrast cień                      | ![SunnyVondelpark skybox używany do lekkiego obiektu](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Jasne oświetlenie o umiarkowanej powierzchni            | ![Syferfontein skybox używany do lekkiego obiektu](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Średnio różne słońce i cieniowanie                         | ![TearsOfSteelBridge skybox używany do lekkiego obiektu](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Jasne podejście Dusk                    | ![VeniceSunset skybox używany do lekkiego obiektu](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Jasne, Lush-zielone i białe światła, wyszarzone | ![WhippleCreekRegionalPark skybox używany do lekkiego obiektu](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Dzienne oświetlenie otoczenia                 | ![WinterRiver skybox używany do lekkiego obiektu](media/winter-river.png)
+|builtin://DefaultSky               | Analogicznie jak TearsOfSteelBridge                               | ![DefaultSky skybox używany do lekkiego obiektu](media/tears-of-steel-bridge.png)
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Właściwość RemoteManager. SkyReflectionSettings języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [Zdalnymanager:: SkyReflectionSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Światła](../../overview/features/lights.md)
 * [Materiały](../../concepts/materials.md)

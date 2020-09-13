@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806493"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595948"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Rozwiązywanie problemów z App Service w programie Application Gateway
 
@@ -23,9 +23,8 @@ Dowiedz się, jak diagnozować i rozwiązywać problemy, które mogą wystąpić
 
 W tym artykule dowiesz się, jak rozwiązywać następujące problemy:
 
-> [!div class="checklist"]
-> * Adres URL usługi App Service jest ujawniany w przeglądarce w przypadku przekierowania.
-> * Domena plików cookie ARRAffinity usługi App Service jest ustawiona na nazwę hosta usługi App Service, example.azurewebsites.net zamiast oryginalnego hosta.
+* Adres URL usługi App Service jest ujawniany w przeglądarce w przypadku przekierowania.
+* Domena plików cookie ARRAffinity usługi App Service jest ustawiona na nazwę hosta usługi App Service, example.azurewebsites.net zamiast oryginalnego hosta.
 
 Gdy aplikacja zaplecza wysyła odpowiedź przekierowania, możesz chcieć przekierować klienta na inny adres URL niż określony przez aplikację zaplecza. Można to zrobić, gdy usługa App Service jest hostowana za bramą aplikacji i wymaga, aby klient przetworzył przekierowanie do swojej ścieżki względnej. Przykładem jest przekierowanie z contoso.azurewebsites.net/path1 do contoso.azurewebsites.net/path2. 
 

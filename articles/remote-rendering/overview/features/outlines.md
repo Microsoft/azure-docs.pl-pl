@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3b4ba62072e26f16a0e39416c9ae346d1acefd9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5dd6d682c9db044763cad64eec420c1974d4ac03
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997527"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613710"
 ---
 # <a name="outline-rendering"></a>Renderowanie konturów
 
@@ -29,7 +29,7 @@ Klasa `OutlineSettings` przechowuje ustawienia związane z właściwościami kon
 | `PulseRateHz`    | float   | Szybkość, z jaką krzywe konspektu na sekundę|
 | `PulseIntensity` | float   | Intensywność efektu impulsu konturu. Musi mieć długość od 0,0 do bez napędu i 1,0 do pełnego napędu. Intensywność ustawia minimalną nieprzezroczystość konspektu jako `MinOpacity = 1.0 - PulseIntensity` . |
 
-![Pokreśl ](./media/outlines.png) skutki zmiany `color` parametru z żółtego (z lewej) na amarantowy (wyśrodkuj) i `pulseIntensity` od 0 do 0,8 (prawo).
+![Obiekt renderowany trzykrotnie przy użyciu różnych parametrów konspektu ](./media/outlines.png) , wpływ zmiany `color` parametru z żółtego (z lewej) na amarantowy (środek) i `pulseIntensity` od 0 do 0,8 (prawo).
 
 ## <a name="example"></a>Przykład
 
@@ -61,6 +61,11 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 
 Renderowanie konspektu może mieć znaczny wpływ na wydajność renderowania. Ten wpływ zależy od relacji przestrzennej między zaznaczonymi i niewybranymi obiektami dla danej ramki.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Właściwość RemoteManager. OutlineSettings języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [Zdalnymanager:: OutlineSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Składnik przesłonięcia stanu hierarchicznego](../../overview/features/override-hierarchical-state.md)

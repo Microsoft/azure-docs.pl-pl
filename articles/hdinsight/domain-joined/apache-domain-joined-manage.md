@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079738"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595788"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Zarządzanie klastrami usługi HDInsight przy użyciu pakiet Enterprise Security
 
@@ -47,7 +47,7 @@ Normalny klaster można połączyć przy użyciu nazwy użytkownika Ambari Manag
 
 Pakiet Enterprise Security (wcześniej znany jako HDInsight Premium) zapewnia dostęp do klastra przez wiele użytkowników, w którym uwierzytelnianie jest wykonywane przez Active Directory i autoryzację przez usługi Apache Ranger i listy ACL magazynu (ADLS list ACL). Autoryzacja zapewnia bezpieczne granice między wieloma użytkownikami i zezwala na dostęp do danych tylko użytkownikom uprzywilejowanym na podstawie zasad autoryzacji.
 
-Zabezpieczenia i izolacja użytkowników są ważne dla klastra usługi HDInsight z pakiet Enterprise Security. Aby spełnić te wymagania, dostęp SSH do klastra z pakiet Enterprise Security jest blokowany. W poniższej tabeli przedstawiono zalecane metody dostępu dla każdego typu klastra:
+Zabezpieczenia i izolacja użytkowników są ważne dla klastra usługi HDInsight z pakiet Enterprise Security. Aby spełnić te wymagania, dostęp SSH do klastra z pakiet Enterprise Security jest obsługiwany przez użytkownika lokalnego wybranego podczas tworzenia klastra, a także użytkownikom dostępnym w usłudze AAD-DS (tj. Kerberos). W poniższej tabeli przedstawiono zalecane metody dostępu dla każdego typu klastra:
 
 |Obciążenie|Scenariusz|Metoda dostępu|
 |--------|--------|-------------|

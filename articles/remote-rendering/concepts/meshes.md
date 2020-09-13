@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b800272a538243d39a89e4eed64bc5cbc2d53ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eea43f48abef5e2b258251d46eca1061a2263519
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681768"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613840"
 ---
 # <a name="meshes"></a>Siatki
 
@@ -37,6 +37,13 @@ Siatki są niezmiennym [zasobem udostępnionym](../concepts/lifetime.md), które
 * **Materiały:** Tablica materiałów określona w samym składniku siatki. Tablica będzie zawsze miała taką samą długość jak tablica *materiałów* w zasobie siatki. Materiały, które nie są zastępowane wartością domyślną siatki, są ustawione na *wartość null* w tej tablicy.
 
 * **UsedMaterials:** Tablica rzeczywiście używanych materiałów dla każdej podsiatki. Będzie taka sama jak dane w tablicy *materiałów* dla wartości innych niż null. W przeciwnym razie zawiera wartość z tablicy *materiałów* w wystąpieniu siatki.
+
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Klasa siatki C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
+* [Klasa MeshComponent języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
+* [Klasa siatki C++](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
+* [Klasa C++ MeshComponent](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
 
 ## <a name="next-steps"></a>Następne kroki
 

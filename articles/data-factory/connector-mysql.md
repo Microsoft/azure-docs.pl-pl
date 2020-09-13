@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 09/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16f7a1481b15f280995bb71fa9e30ed3a129ab6d
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83635781"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612625"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiowanie danych z programu MySQL przy użyciu Azure Data Factory
+
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Bieżąca wersja](connector-mysql.md)
@@ -66,7 +67,9 @@ Typowe parametry połączenia to `Server=<server>;Port=<port>;Database=<database
 
 | Właściwość | Opis | Opcje | Wymagane |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Ta opcja określa, czy sterownik używa szyfrowania i weryfikacji TLS podczas łączenia z bazą danych MySQL. Np.,`SSLMode=<0/1/2/3/4>`| WYŁĄCZONE (0)/PREFEROWANe (1) **(wartość domyślna)** /wymagane (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Nie |
+| SSLMode | Ta opcja określa, czy sterownik używa szyfrowania i weryfikacji TLS podczas łączenia z bazą danych MySQL. Np  `SSLMode=<0/1/2/3/4>` ..| WYŁĄCZONE (0)/PREFEROWANe (1) **(wartość domyślna)** /wymagane (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Nie |
+| SSLCert | Pełna ścieżka i nazwa pliku PEM zawierającego certyfikat SSL używany do udowodnienia tożsamości klienta. <br/> Aby określić klucz prywatny służący do szyfrowania tego certyfikatu przed jego wysłaniem do serwera, użyj `SSLKey` właściwości.| | Tak, w przypadku korzystania z dwukierunkowej weryfikacji protokołu SSL. |
+| SSLKey | Pełna ścieżka i nazwa pliku zawierającego klucz prywatny służący do szyfrowania certyfikatu po stronie klienta podczas dwukierunkowej weryfikacji protokołu SSL.|  | Tak, w przypadku korzystania z dwukierunkowej weryfikacji protokołu SSL. |
 | UseSystemTrustStore | Ta opcja umożliwia określenie, czy certyfikat urzędu certyfikacji ma być używany z magazynu zaufania systemu, czy z określonego pliku PEM. Na przykład `UseSystemTrustStore=<0/1>;`| Włączone (1)/wyłączone (0) **(wartość domyślna)** | Nie |
 
 **Przykład:**

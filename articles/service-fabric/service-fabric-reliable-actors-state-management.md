@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007795"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611721"
 ---
 # <a name="reliable-actors-state-management"></a>Zarządzanie stanem Reliable Actors
 Reliable Actors są obiektami jednowątkowymi, które mogą hermetyzować zarówno logikę, jak i stan. Ze względu na to, że aktorzy działają na Reliable Services, mogą niezawodnie zachować stan przy użyciu tych samych mechanizmów trwałości i replikacji. W ten sposób aktory nie utracą swojego stanu po błędach, po ponownym aktywowaniu po wyrzucaniu elementów bezużytecznych lub gdy są one przenoszone między węzłami w klastrze z powodu zrównoważenia zasobów lub uaktualniania.
@@ -117,7 +117,7 @@ Należy wyczyścić zasady dotyczące zarządzania rozmiarem stanu w każdej par
  
 Jeśli zobaczysz, że rozmiar pliku bazy danych usługi aktora rośnie poza oczekiwanym rozmiarem, upewnij się, że korzystasz z powyższych wytycznych. Jeśli przestrzegasz tych wytycznych i nadal występują problemy z rozmiarem plików bazy danych, należy [otworzyć bilet pomocy technicznej](service-fabric-support.md) z zespołem produktu, aby uzyskać pomoc.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Stan, który jest przechowywany w Reliable Actors musi być serializowany przed zapisem na dysku i replikowany w celu zapewnienia wysokiej dostępności. Dowiedz się więcej o [serializacji typu aktora](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

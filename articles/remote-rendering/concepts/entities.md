@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020290"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613925"
 ---
 # <a name="entities"></a>Jednostki
 
@@ -21,7 +21,7 @@ ms.locfileid: "89020290"
 
 Jednostki mają transformację zdefiniowaną przez pozycję, rotację i skalę. Przez same jednostki nie mają żadnych zauważalnych funkcji. Zamiast tego, zachowanie jest dodawane przez składniki, które są dołączone do jednostek. Na przykład dołączenie elementu [CutPlaneComponent](../overview/features/cut-planes.md)  spowoduje utworzenie płaszczyzny wycinania na pozycji jednostki.
 
-Najważniejszym aspektem samej jednostki jest hierarchia i wyniki transformacji hierarchicznej. Na przykład jeśli wiele jednostek jest dołączanych jako elementy podrzędne do współużytkowanej jednostki nadrzędnej, wszystkie te jednostki można przenieść, obrócić i skalować w artykułem, zmieniając transformację jednostki nadrzędnej.
+Najważniejszym aspektem samej jednostki jest hierarchia i wyniki transformacji hierarchicznej. Na przykład jeśli wiele jednostek jest dołączanych jako elementy podrzędne do współużytkowanej jednostki nadrzędnej, wszystkie te jednostki można przenieść, obrócić i skalować w artykułem, zmieniając transformację jednostki nadrzędnej. Ponadto stan jednostki może służyć `enabled` do wyłączania widoczności i odpowiedzi na rzutowanie promieni dla pełnego wykresu podrzędnego w hierarchii.
 
 Obiekt jest jednoznacznie własnością elementu nadrzędnego, co oznacza, że gdy element nadrzędny zostanie zniszczony za pomocą `Entity.Destroy()` , to są jego elementy podrzędne i wszystkie połączone [składniki](components.md). W ten sposób usuwanie modelu z sceny odbywa się przez wywołanie `Destroy` na głównym węźle modelu, zwrócone przez `AzureSession.Actions.LoadModelAsync()` lub jego wariant SAS `AzureSession.Actions.LoadModelFromSASAsync()` .
 
@@ -95,7 +95,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### <a name="querying-spatial-bounds"></a>Wykonywanie zapytania dotyczącego granic przestrzennych
 
 Zapytania dotyczące powiązań to wywołania asynchroniczne, które działają w całej hierarchii obiektów, przy użyciu jednej jednostki jako katalogu głównego. Zobacz dedykowany rozdział dotyczący [granic obiektów](object-bounds.md).
@@ -138,7 +137,14 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 
 Zapytanie powiedzie się, nawet jeśli obiekt nie zawiera żadnych metadanych.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Klasa jednostki C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [Zdalnymanager. GetEntity () C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [Klasa jednostki C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [C++ RemoteManager:: GetEntity ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Składniki](components.md)
 * [Granice obiektów](object-bounds.md)

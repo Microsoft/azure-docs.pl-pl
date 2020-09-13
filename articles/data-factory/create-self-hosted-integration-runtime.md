@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655871"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596123"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -320,6 +320,7 @@ Na poziomie zapory firmowej należy skonfigurować następujące domeny i porty 
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 Na poziomie zapory systemu Windows lub na poziomie komputera te porty wychodzące są zwykle włączone. Jeśli nie, możesz skonfigurować domeny i porty na własnym komputerze Integration Runtime.
 
 > [!NOTE]
@@ -331,13 +332,13 @@ Na poziomie zapory systemu Windows lub na poziomie komputera te porty wychodząc
 
 Upewnij się, że reguły zapory zostały prawidłowo włączone w zaporze firmowej, w zaporze systemu Windows środowiska Integration Runtime (własna) i w samym magazynie danych. Włączenie tych reguł umożliwia pomyślne połączenie środowiska Integration Runtime ze źródłem i ujściam. Włącz reguły dla wszystkich magazynów danych, które są związane z operacją kopiowania.
 
-Na przykład, aby skopiować z lokalnego magazynu danych do ujścia SQL Database lub ujścia Azure SQL Data Warehouse, wykonaj następujące czynności:
+Na przykład, aby skopiować z lokalnego magazynu danych do ujścia SQL Database lub ujścia usługi Azure Synapse Analytics (dawniej SQL Data Warehouse), wykonaj następujące czynności:
 
 1. Zezwalaj na wychodzącą komunikację TCP na porcie 1433 zarówno dla zapory systemu Windows, jak i zapory firmowej.
 1. Skonfiguruj ustawienia zapory SQL Database, aby dodać adres IP maszyny środowiska Integration Runtime (samodzielne) do listy dozwolonych adresów IP.
 
 > [!NOTE]
-> Jeśli Zapora nie zezwala na port wychodzący 1433, własne środowisko Integration Runtime nie może bezpośrednio uzyskać dostępu do bazy danych SQL. W takim przypadku można użyć [kopii przygotowanej](copy-activity-performance.md) do SQL Database i SQL Data Warehouse. W tym scenariuszu do przenoszenia danych wymagane jest tylko HTTPS (port 443).
+> Jeśli Zapora nie zezwala na port wychodzący 1433, własne środowisko Integration Runtime nie może bezpośrednio uzyskać dostępu do bazy danych SQL. W takim przypadku można użyć [kopii przygotowanej](copy-activity-performance.md) do SQL Database i usługi Azure Synapse Analytics. W tym scenariuszu do przenoszenia danych wymagane jest tylko HTTPS (port 443).
 
 ## <a name="proxy-server-considerations"></a>Zagadnienia dotyczące serwera proxy
 
@@ -362,7 +363,7 @@ Po zarejestrowaniu własnego środowiska Integration Runtime, jeśli chcesz wyś
 1. Otwórz **Configuration Manager Microsoft Integration Runtime**.
 1. Wybierz kartę **Ustawienia**.
 1. W obszarze **serwer proxy HTTP**wybierz łącze **Zmień** , aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP** .
-1. Wybierz pozycję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
+1. Wybierz pozycję **Next** (Dalej). Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
 
 Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować serwer proxy HTTP.
 

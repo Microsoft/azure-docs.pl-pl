@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043960"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612153"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testowanie zadania Azure Stream Analytics w portalu
 
@@ -96,6 +96,21 @@ Zamiast korzystać z danych na żywo, można użyć przykładowych danych z plik
    ![Azure Stream Analytics wybrane dane wyjściowe](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. Po sprawdzeniu wyników wyświetlanych w przeglądarce można **uruchomić** zadanie.
+
+## <a name="limitations"></a>Ograniczenia
+
+1.  Zasady czasu nie są obsługiwane w testowaniu portalu:
+
+   * Poza kolejnością: wszystkie zdarzenia przychodzące zostaną uporządkowane.
+   * Późne nadejście: nie będzie zdarzenie późnego przybycia, ponieważ Stream Analytics może używać tylko istniejących danych do testowania.
+   
+2.  Język C# nie jest obsługiwany.
+
+3.  Wszystkie testy zostaną uruchomione z zadaniem o jednej jednostce przesyłania strumieniowego.
+
+4.  Limit czasu wynosi jedną minutę. W związku z tym wszelkie zapytania o rozmiarze okna większym niż jedna minuta nie mogą pobierać żadnych danych.
+
+5.  Uczenie maszynowe nie jest obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Utwórz rozwiązanie IoT przy użyciu Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): ten samouczek przeprowadzi Cię przez proces tworzenia kompleksowego rozwiązania przy użyciu generatora danych, który symuluje ruch w kabinie.

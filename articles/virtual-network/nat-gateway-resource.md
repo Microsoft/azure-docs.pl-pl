@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135831"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612899"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
 
@@ -217,7 +217,7 @@ Jeśli w scenariuszu są wymagane przychodzące punkty końcowe, dostępne są d
 
 W przypadku wdrażania wystąpień maszyn wirtualnych w wielu strefach w tej samej podsieci nie można osiągnąć obietnicy strefy przy użyciu zasobów bramy translatora adresów sieciowych.   Nawet jeśli z podsiecią dołączono wiele bram translatora adresów sieciowych, wystąpienie maszyny wirtualnej nie wie, który zasób bramy NAT ma zostać wybrany.
 
-Strefa Promise does't istnieje, gdy nie są wyrównane strefy wystąpienia maszyny wirtualnej i stref bramy translatora adresów sieciowych, lub b) zasób bramy NAT jest używany z wystąpieniami maszyn wirtualnych stref.
+Strefa Promise does't istnieje, gdy nie są wyrównane strefy wystąpienie maszyny wirtualnej i strefa bramy translatora adresów sieciowych, lub b) zasób bramy NAT jest używany z wystąpieniami maszyn wirtualnych stref.
 
 Gdy scenariusz będzie działał, jego model kondycji i tryb błędu nie są zdefiniowane z punktu strefy dostępności. Rozważ przechodzenie przez stosy stref lub wszystkie regionalne.
 
@@ -345,7 +345,7 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Brak możliwości? Zapoznaj si
 * Informacje o interfejsie API zasobów bramy translatora adresów sieciowych
   - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [Program PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Dowiedz się więcej o [strefach dostępności](../availability-zones/az-overview.md).
 * Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md).
 * Dowiedz się więcej na temat [stref dostępności i standardowego modułu równoważenia obciążenia](../load-balancer/load-balancer-standard-availability-zones.md).

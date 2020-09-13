@@ -3,12 +3,12 @@ title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509879"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645593"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
@@ -57,13 +57,13 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
      1. Zarejestruj dostawców zasobów **Microsoft. ContainerService** i **Microsoft. PolicyInsights** . Aby uzyskać instrukcje, zobacz [dostawcy zasobów i ich typy](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-     1. Uruchom usługę Azure Policy w witrynie Azure Portal, klikając opcję **Wszystkie usługi** i następnie wyszukując i wybierając opcję **Zasada**.
+     1. Uruchom usługę Azure Policy w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **zasady**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Wyszukaj zasady w obszarze wszystkie usługi" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Zrzut ekranu przedstawiający wyszukiwanie zasad w wszystkich usługach." border="false":::
 
      1. Wybierz pozycję **Dołącz podgląd** w lewej części strony Azure Policy.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Dołącz do zasad usługi AKS Preview" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Zrzut ekranu przedstawiający węzeł "Join Preview" na stronie zasad." border="false":::
 
      1. Wybierz wiersz subskrypcji, która ma zostać dodana do wersji zapoznawczej.
 
@@ -120,17 +120,17 @@ Po zakończeniu powyższych kroków wymagań wstępnych Zainstaluj dodatek Azure
 
 - Azure Portal
 
-  1. Uruchom usługę AKS w Azure Portal, klikając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **usługi Kubernetes Services**.
+  1. Uruchom usługę AKS w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **usługi Kubernetes Services**.
 
   1. Wybierz jeden z klastrów AKS.
 
   1. Wybierz pozycję **zasady (wersja zapoznawcza)** po lewej stronie usługi Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definicje zasad z klastra AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł "zasady (wersja zapoznawcza)" na stronie usługi Kubernetes." border="false":::
 
   1. Na stronie głównej wybierz przycisk **Włącz dodatek** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Włącz Azure Policy dla dodatku AKS":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk "Włącz dodatek" na stronie "Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S)".":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -404,7 +404,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - **Wyłączone** — nie Wymuszaj zasad w klastrze. Żądania odmowy Kubernetes z naruszeniami nie są odrzucane. Wyniki oceny zgodności są nadal dostępne. Podczas wdrażania nowych definicji zasad do uruchamiania klastrów, opcja _wyłączone_ jest przydatna do testowania definicji zasad, ponieważ żądania dopuszczenia z naruszeniami nie są odrzucane.
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Next** (Dalej).
 
 1. Ustaw **wartości parametrów**
 
@@ -460,17 +460,17 @@ Aby usunąć dodatek Azure Policy z klastra AKS, użyj Azure Portal lub interfej
 
 - Azure Portal
 
-  1. Uruchom usługę AKS w Azure Portal, klikając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **usługi Kubernetes Services**.
+  1. Uruchom usługę AKS w Azure Portal, wybierając pozycję **wszystkie usługi**, a następnie wyszukując i wybierając pozycję **usługi Kubernetes Services**.
 
   1. Wybierz klaster AKS, w którym chcesz wyłączyć dodatek Azure Policy.
 
   1. Wybierz pozycję **zasady (wersja zapoznawcza)** po lewej stronie usługi Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definicje zasad z klastra AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł "zasady (wersja zapoznawcza)" na stronie usługi Kubernetes." border="false":::
 
   1. Na stronie głównej wybierz przycisk **Wyłącz dodatek** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Wyłącz Azure Policy dla dodatku AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk "Wyłącz dodatek" na stronie "Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S)"." border="false":::
 
 - Interfejs wiersza polecenia platformy Azure
 

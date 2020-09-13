@@ -3,12 +3,12 @@ title: Zgodność z przepisami w definicjach inicjatyw
 description: Opisuje sposób użycia definicji inicjatywy do grupy zasad według domeny regulacyjnej, takiej jak Access Control, zarządzania konfiguracją i innych.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544625"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645529"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Zgodność z przepisami w Azure Policy
 
@@ -33,18 +33,18 @@ Po utworzeniu definicji inicjatywy z [grupami](./initiative-definition-structure
 
 Nowa karta, **kontrolki** są dodawane do strony. Filtrowanie jest dostępne przez **domenę zgodności** i definicje zasad są pogrupowane według `title` pola z obiektu **policyMetadata** . Każdy wiersz reprezentuje **kontrolkę** , która pokazuje jej stan zgodności, **domenę zgodności** , **do której należy**, informacje o odpowiedzialności oraz liczbę niezgodnych i zgodnych definicji zasad.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Przykład przeglądu zgodności z przepisami dla wbudowanej definicji NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Zrzut ekranu przedstawiający przegląd zgodności z przepisami dla programu NIST SP 800-53 R4 — wbudowana definicja pokazująca zgodne i niezgodne kontrolki.":::
 
 Wybranie **kontrolki** powoduje otwarcie strony ze szczegółowymi informacjami o tym formancie. **Przegląd** zawiera informacje z `description` i `requirements` . Na karcie **zasady** znajdują się wszystkie poszczególne definicje zasad w ramach inicjatywy, które przyczyniają się do tej **kontrolki**. Karta **zgodność zasobów** zawiera szczegółowy widok wszystkich zasobów, które są oceniane przez zasady elementu członkowskiego aktualnie wyświetlanej **kontrolki**.
 
 > [!NOTE]
 > Typ oceny **zarządzanej przez firmę Microsoft** jest przeznaczony dla definicji zasad [statycznych](./definition-structure.md#type) `type` .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Przykład definicji zasad zgodności z przepisami w ramach kontroli ochrony granicznej w domenie ochrony systemu i komunikacji w ramach wbudowanej definicji programu NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Zrzut ekranu przedstawiający szczegóły zgodności z przepisami dotyczącymi kontroli ochrony granic w ramach wbudowanej definicji programu NIST SP 800-53 R4.":::
 
 Na tej samej stronie **kontrolnej** zmiana na karcie **zgodność zasobów** powoduje wyświetlenie wszystkich zasobów zawierających definicje zasad tej **kontrolki**. Filtry są dostępne dla nazwy lub identyfikatora, stanu zgodności, typu zasobu i lokalizacji.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Przykład zasobów zgodności z przepisami, których dotyczą definicje zasad w kontroli ochrony granicznej w domenie ochrony systemu i komunikacji w ramach wbudowanej definicji typu NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Zrzut ekranu przedstawiający zgodność zasobów z kontrolą ochrony granic w ramach wbudowanej definicji programu NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Zgodność z przepisami w zestawie SDK
 

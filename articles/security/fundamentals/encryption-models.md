@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143737"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645745"
 ---
 # <a name="data-encryption-models"></a>Modele szyfrowania danych
 
@@ -157,9 +157,9 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | QnA Maker                        | Tak                | Tak                | -                  |
 | Usługi mowy                  | Tak                | Tak                | -                  |
 | Tłumaczenie tekstu w usłudze Translator                  | Tak                | Tak                | -                  |
-| Power BI                         | Tak                | Wersja zapoznawcza, RSA 2048-bit | -                  |
+| Power BI                         | Tak                | Tak, RSA 4096-bit  | -                  |
 | **Analiza**                    |                    |                    |                    |
-| Usługa Azure Stream Analytics           | Tak                | NIE DOTYCZY\*              | -                  |
+| Usługa Azure Stream Analytics           | Tak                | Nie dotyczy\*              | -                  |
 | Event Hubs                       | Tak                | Tak                | -                  |
 | Funkcje                        | Tak                | Tak                | -                  |
 | Azure Analysis Services          | Tak                | -                  | -                  |
@@ -175,7 +175,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Container Instances              | Tak                | Tak                | -                  |
 | Container Registry               | Tak                | Tak                | -                  |
 | **Środowisko obliczeniowe**                      |                    |                    |                    |
-| Virtual Machines                 | Tak                | Tak                | -                  |
+| Maszyny wirtualne                 | Tak                | Tak                | -                  |
 | Zestaw skalowania maszyn wirtualnych        | Tak                | Tak                | -                  |
 | SAP HANA                         | Tak                | Tak                | -                  |
 | App Service                      | Tak                | Opcję\*\*            | -                  |
@@ -197,7 +197,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Table Storage                    | Tak                | Tak                | Tak                |
 | Azure Cosmos DB                  | Tak                | Tak                | -                  |
 | Azure Databricks                 | Tak                | Tak                | -                  |
-| Azure Database Migration Service | Tak                | NIE DOTYCZY\*              | -                  |
+| Azure Database Migration Service | Tak                | Nie dotyczy\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Usługa Azure DevOps Services            | Tak                | -                  | Tak                |
 | Azure Repos                      | Tak                | -                  | Tak                |
@@ -230,7 +230,7 @@ Usługi platformy Azure, które obsługują każdy model szyfrowania:
 | Usługa File Sync                        | Tak                | Tak                | -                  |
 | Queue Storage                    | Tak                | Tak                | Tak                |
 | Avere vFXT                       | Tak                | -                  | -                  |
-| Azure Cache for Redis            | Tak                | NIE DOTYCZY\*              | -                  |
+| Azure Cache for Redis            | Tak                | Nie dotyczy\*              | -                  |
 | Azure NetApp Files               | Tak                | Tak                | -                  |
 | Archive Storage                  | Tak                | Tak                | -                  |
 | StorSimple                       | Tak                | Tak                | Tak                |

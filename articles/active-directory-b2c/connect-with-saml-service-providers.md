@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 09/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520213"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611608"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Rejestrowanie aplikacji SAML w Azure AD B2C
 
@@ -274,7 +274,7 @@ Twoje zasady niestandardowe i dzierżawa Azure AD B2C są teraz gotowe. Następn
 1. Wprowadź **nazwę** aplikacji. Na przykład *SAMLApp1*.
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://localhost` . Tę wartość należy zmodyfikować później w manifeście rejestracji aplikacji.
-1. Wybierz pozycję **Rejestruj**.
+1. Wybierz pozycję **Zarejestruj**.
 
 ### <a name="42-update-the-app-manifest"></a>4,2. Zaktualizuj manifest aplikacji
 
@@ -354,7 +354,8 @@ Aby ukończyć ten samouczek przy użyciu [aplikacji testowej SAML][samltest]:
 
 Wybierz pozycję **Zaloguj** , a następnie Wyświetl ekran logowania użytkownika. Po zalogowaniu potwierdzenie SAML jest wydawane z powrotem do przykładowej aplikacji.
 
-## <a name="enable-encypted-assertions"></a>Włącz potwierdzenia zaszyfrowana
+## <a name="enable-encrypted-assertions-optional"></a>Włącz zaszyfrowane potwierdzenia (opcjonalnie)
+
 Aby zaszyfrować potwierdzenia SAML wysyłane z powrotem do dostawcy usług, Azure AD B2C będzie używać certyfikatu klucza publicznego usługodawców. Klucz publiczny musi znajdować się w metadanych SAML przedstawionych w powyższym ["samlMetadataUrl"](#samlmetadataurl) jako deskryptora klucza z użyciem "szyfrowania".
 
 Poniżej znajduje się przykładowy deskryptora metadanych SAML z użyciem zestawu do szyfrowania:
@@ -369,35 +370,50 @@ Poniżej znajduje się przykładowy deskryptora metadanych SAML z użyciem zesta
 </KeyDescriptor>
 ```
 
-Aby umożliwić Azure AD B2C wysyłania zaszyfrowanych zatwierdzeń, Ustaw element metadanych **WantsEncryptedAssertion** na wartość true w profilu technicznym jednostki uzależnionej, jak pokazano poniżej.
+Aby umożliwić Azure AD B2C wysyłania zaszyfrowanych zatwierdzeń, Ustaw element metadanych **WantsEncryptedAssertion** na wartość `true` w [profilu technicznym jednostki uzależnionej](relyingparty.md#technicalprofile). Można również skonfigurować algorytm używany do szyfrowania potwierdzenia SAML. Aby uzyskać więcej informacji, zobacz [metadane profilu technicznego jednostki uzależnionej](relyingparty.md#metadata). 
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="contoso.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin_saml"
-  PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_signup_signin_saml">
- ..
- ..
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="SAML2"/>
-      <Metadata>
-          <Item Key="WantsEncryptedAssertions">true</Item>
-      </Metadata>
-     ..
-     ..
-     ..
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
 ```
+
+## <a name="enable-identity-provider-initiated-flow-optional"></a>Włącz przepływ zainicjowany przez dostawcę tożsamości (opcjonalnie)
+
+W przepływie zainicjowanym przez dostawcę tożsamości proces logowania jest inicjowany przez dostawcę tożsamości (Azure AD B2C), co powoduje wysłanie nieżądanej odpowiedzi SAML do dostawcy usług (aplikacja jednostki uzależnionej). Aby włączyć przepływ zainicjowany przez dostawcę tożsamości, Ustaw element metadanych **IdpInitiatedProfileEnabled** na `true` w [profilu technicznym jednostki uzależnionej](relyingparty.md#technicalprofile).
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="IdpInitiatedProfileEnabled">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+Aby zalogować się lub zarejestrować użytkownika za pomocą przepływu zainicjowanego przez dostawcę tożsamości, użyj następującego adresu URL:
+
+```
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+```
+
+Zastąp następujące wartości:
+
+* **Nazwa dzierżawy** z nazwą dzierżawy
+* **Nazwa zasad** z nazwą zasad jednostki UZALEŻNIONej SAML
 
 ## <a name="sample-policy"></a>Przykładowe zasady
 

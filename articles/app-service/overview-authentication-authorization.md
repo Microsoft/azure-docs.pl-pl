@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962829"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596043"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -149,11 +149,11 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 
 ## <a name="more-resources"></a>Dodatkowe zasoby
 
-[Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](tutorial-auth-aad.md)  
-[Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
-[Dostosuj uwierzytelnianie i autoryzację w App Service](app-service-authentication-how-to.md) 
- [Integracja z platformą .NET Core w usłudze Azure appService EasyAuth (trzecia firma)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
- [Pobieranie Azure App Service uwierzytelniania podczas pracy z platformą .NET Core (inna firma)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](tutorial-auth-aad.md)  
+* [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
+* [Dostosuj uwierzytelnianie i autoryzację w App Service](app-service-authentication-how-to.md)
+* [Integracja z platformą .NET Core w usłudze Azure AppService EasyAuth (trzecia firma)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [Pobieranie Azure App Service uwierzytelniania podczas pracy z platformą .NET Core (inna firma)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Przewodniki z poszczególnymi dostawcami:
 

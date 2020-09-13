@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f1778d1f37217a5f65624be2fcc6c58c68002931
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2f9feb75cf46eee4329c9392771fe2e329a1d6d5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013286"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613618"
 ---
 # <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: dawania
 
@@ -66,7 +66,12 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 }
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Właściwość RemoteManager. SingleSidedSettings języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
+* [Zdalnymanager:: SingleSidedSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Wycięte płaszczyzny](cut-planes.md)
 * [Konfigurowanie konwersji modelu](../../how-tos/conversion/configure-model-conversion.md)

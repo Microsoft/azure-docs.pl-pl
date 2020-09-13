@@ -11,17 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d8bf3f087592a7d629a247b1c10721237699fdc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590068"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613531"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Wystąpienie zarządzane usługi Azure SQL to inteligentna, skalowalna usługa bazy danych w chmurze, która łączy najszerszą SQL Serverą zgodność aparatu bazy danych ze wszystkimi zaletami w pełni zarządzanej i Evergreen platformy jako usługi. Wystąpienie zarządzane SQL ma prawie 100% zgodność z najnowszym aparatem bazy danych SQL Server (Enterprise Edition), zapewniając natywną implementację [sieci wirtualnej (VNET)](../../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy związane z bezpieczeństwem, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany dla istniejących SQL Server klientów. Wystąpienie zarządzane SQL umożliwia istniejącym klientom SQL Server na podniesienie i przesunięcia aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i baz danych. W tym samym czasie wystąpienie zarządzane SQL zachowuje wszystkie możliwości PaaS (automatyczne stosowanie poprawek i aktualizacji wersji, [zautomatyzowane kopie zapasowe](../database/automated-backups-overview.md), [wysoka dostępność](../database/high-availability-sla.md)), które znacząco zmniejszają koszty zarządzania i całkowity koszt posiadania.
+
+Jeśli dopiero zaczynasz skorzystać z usługi Azure SQL Managed instance, zapoznaj się z klipem wideo dotyczącym *wystąpienia zarządzanego usługi Azure SQL* z naszej szczegółowej [serii wideo usługi Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61/player]
 
 > [!IMPORTANT]
 > Aby zapoznać się z listą regionów, w których jest obecnie dostępne wystąpienie zarządzane SQL, zobacz [Obsługiwane regiony](resource-limits.md#supported-regions).
@@ -41,7 +44,7 @@ Wystąpienie zarządzane SQL łączy najlepsze funkcje, które są dostępne zar
 
 | **Korzyści z PaaS** | **Ciągłość działalności biznesowej** |
 | --- | --- |
-|Bez kupowania i zarządzania sprzętem <br>Brak obciążeń związanych z zarządzaniem podstawową infrastrukturą <br>Szybka obsługa i skalowanie usług <br>Automatyczne stosowanie poprawek i uaktualnianie wersji <br>Integracja z innymi usługami danych PaaS |Umowa SLA na 99,99% czasu  <br>Wbudowana [wysoka dostępność](../database/high-availability-sla.md) <br>Dane chronione za pomocą [zautomatyzowanych kopii zapasowych](../database/automated-backups-overview.md) <br>Okres przechowywania kopii zapasowych konfigurowalnych przez klienta <br>[Kopie zapasowe](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) inicjowane przez użytkownika <br>Możliwość [przywracania bazy danych do punktu w czasie](../database/recovery-using-backups.md#point-in-time-restore) |
+|Bez kupowania i zarządzania sprzętem <br>Brak obciążeń związanych z zarządzaniem podstawową infrastrukturą <br>Szybka obsługa i skalowanie usług <br>Automatyczne stosowanie poprawek i uaktualnianie wersji <br>Integracja z innymi usługami danych PaaS |Umowa SLA na 99,99% czasu  <br>Wbudowana [wysoka dostępność](../database/high-availability-sla.md) <br>Dane chronione za pomocą [zautomatyzowanych kopii zapasowych](../database/automated-backups-overview.md) <br>Okres przechowywania kopii zapasowych konfigurowalnych przez klienta <br>[Kopie zapasowe](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) inicjowane przez użytkownika <br>Możliwość [przywracania bazy danych do punktu w czasie](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Zabezpieczenia i zgodność** | **Zarządzanie**|
 |Środowisko izolowane (Integracja z siecią[wirtualną](connectivity-architecture-overview.md), usługa pojedynczej dzierżawy, dedykowane zasoby obliczeniowe i magazyn) <br>[Przezroczyste szyfrowanie danych (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Uwierzytelnianie Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), obsługa logowania jednokrotnego <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Nazwy główne serwera usługi Azure AD (logowania)</a>  <br>Stosuje się do standardów zgodności, takich jak Azure SQL Database <br>[Inspekcja SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |Azure Resource Manager interfejs API do automatyzowania aprowizacji i skalowania usługi <br>Azure Portal funkcje ręcznego inicjowania obsługi i skalowania usługi <br>Usługa Data Migration Service
 
@@ -182,7 +185,7 @@ Wystąpienie zarządzane SQL kieruje scenariusze użytkownika z migracją masowe
 
 ### <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie  
 
-Podejście do migracji wykorzystuje kopie zapasowe SQL do usługi Azure Blob Storage. Kopie zapasowe przechowywane w usłudze Azure Storage BLOB mogą być bezpośrednio przywracane do wystąpienia zarządzanego przy użyciu [polecenia Przywróć T-SQL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+Podejście do migracji wykorzystuje kopie zapasowe SQL do usługi Azure Blob Storage. Kopie zapasowe przechowywane w usłudze Azure Storage BLOB mogą być bezpośrednio przywracane do wystąpienia zarządzanego przy użyciu [polecenia Przywróć T-SQL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - Aby zapoznać się z przewodnikiem Szybki Start pokazujący, jak przywrócić plik kopii zapasowej o szerokim świecie standardowym, zobacz [przywracanie pliku kopii zapasowej do wystąpienia zarządzanego](restore-sample-database-quickstart.md). Ten przewodnik Szybki Start przedstawia, że musisz przekazać plik kopii zapasowej do usługi Azure Blob Storage i zabezpieczyć go przy użyciu klucza sygnatury dostępu współdzielonego (SAS).
 - Aby uzyskać informacje o przywracaniu z adresu URL, zobacz [natywne przywracanie z adresu URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
@@ -202,7 +205,7 @@ Wystąpienie zarządzane SQL obsługuje zgodność z poprzednimi wersjami z baza
   
 Na poniższym diagramie przedstawiono zgodność obszaru powierzchni w wystąpieniu zarządzanym SQL:  
 
-![Migracja](./media/sql-managed-instance-paas-overview/migration.png)
+![zgodność obszaru powierzchni](./media/sql-managed-instance-paas-overview/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-sql-managed-instance"></a>Kluczowe różnice między SQL Server lokalnymi i wystąpieniem zarządzanym SQL
 
