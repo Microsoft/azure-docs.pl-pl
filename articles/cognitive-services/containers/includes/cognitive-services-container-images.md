@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: ac8e49c85147576e489b16a3a421c75d60ad4aee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff039d6d5879e036aecc63b46359d84673f84a0e
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104417"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424648"
 ---
 ### <a name="container-repositories-and-images"></a>Repozytoria kontenerów i obrazy
 
@@ -73,4 +73,5 @@ Poniższe kontenery w wersji zapoznawczej są hostowane w rejestrze w wersji zap
 | [Interfejs API usługi rozpoznawania mowy](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech do tekstu | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [Interfejs API usługi rozpoznawania mowy](../../speech-service/speech-container-howto.md?tab=tts) | Zamiana tekstu na mowę | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [Interfejs API usługi rozpoznawania mowy](../../speech-service/speech-container-howto.md?tab=ctts) | Niestandardowa Zamiana tekstu na mowę | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
-| [analiza tekstu dla kondycji](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | analiza tekstu dla kondycji | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
+| [Interfejs API usługi rozpoznawania mowy](../../speech-service/speech-container-howto.md?tab=ntts) | Neuronowych Zamiana tekstu na mowę | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` |
+| [analiza tekstu dla kondycji](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analiza tekstu dla opieki zdrowotnej | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

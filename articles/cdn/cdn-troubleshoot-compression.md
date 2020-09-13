@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192522"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433674"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Rozwiązywanie problemów związanych z kompresją pliku CDN
 Ten artykuł pomaga w rozwiązywaniu problemów z [kompresją plików](cdn-improve-performance.md)w sieci CDN.
@@ -111,8 +111,8 @@ Za pomocą narzędzi deweloperskich w przeglądarce sprawdź nagłówki odpowied
 
 Aby można było kwalifikować się do kompresji, plik musi spełniać następujące wymagania dotyczące rozmiaru:
 
-* Więcej niż 128 bajtów.
-* Mniejsze niż 1 MB.
+* Więcej niż 128 bajtów (długość zawartości: 128)
+* Mniejsze niż 3 MB
 
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Sprawdź żądanie na serwerze pochodzenia dla nagłówka **Via**
 Nagłówek **za pośrednictwem** protokołu HTTP wskazuje serwerowi sieci Web, że żądanie jest przesyłane przez serwer proxy.  Serwery sieci Web programu Microsoft IIS domyślnie nie kompresują odpowiedzi, gdy żądanie zawiera nagłówek **Via** .  Aby zastąpić to zachowanie, wykonaj następujące czynności:

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/19/2018
+ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: f693f6a40b87d024430c7626736fab0d0a032238
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082005"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426182"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Przykładowa konfiguracja: urządzenie Cisco ASA (IKEv2/No BGP)
 Ten artykuł zawiera przykładowe konfiguracje do łączenia urządzeń Cisco adaptacyjnego urządzenia zabezpieczeń (ASA) z bramami sieci VPN platformy Azure. Przykład dotyczy urządzeń Cisco ASA z uruchomioną IKEv2 bez Border Gateway Protocol (BGP). 
@@ -62,7 +62,7 @@ Ta sekcja zawiera listę parametrów dla przykładu.
 | * Lokalny adres IP elementu równorzędnego BGP     | 10.52.255.254                |
 |                              |                              |
 
-\*Opcjonalny parametr tylko dla protokołu BGP.
+\* Opcjonalny parametr tylko dla protokołu BGP.
 
 ### <a name="ipsecike-policy-and-parameters"></a>Parametry i zasady protokołu IPsec/IKE
 W poniższej tabeli wymieniono Algorytmy IPsec/IKE i parametry, które są używane w przykładzie. Aby sprawdzić algorytmy obsługiwane przez modele urządzeń sieci VPN i wersje oprogramowania układowego, należy zapoznać się ze specyfikacją urządzenia sieci VPN.
@@ -80,7 +80,7 @@ W poniższej tabeli wymieniono Algorytmy IPsec/IKE i parametry, które są używ
 | Klucz wstępny   | PreSharedKey                         |
 |                  |                                      |
 
-\*Na niektórych urządzeniach integralność protokołu IPsec musi mieć wartość null, jeśli algorytm szyfrowania IPsec to AES-GCM.
+\* Na niektórych urządzeniach integralność protokołu IPsec musi mieć wartość null, jeśli algorytm szyfrowania IPsec to AES-GCM.
 
 ### <a name="asa-device-support"></a>Obsługa urządzeń ASA
 

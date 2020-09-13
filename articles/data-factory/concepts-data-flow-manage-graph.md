@@ -1,51 +1,64 @@
 ---
-title: Wykresy przepływu danych
-description: Jak korzystać z wykresów przepływu danych w usłudze Data Factory
+title: Zarządzanie wykresem przepływu danych mapowania
+description: Efektywne zarządzanie i edytowanie grafu przepływu danych mapowania
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/02/2020
+ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605354"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420115"
 ---
-# <a name="mapping-data-flow-graphs"></a>Mapowanie wykresów przepływu danych
+# <a name="managing-the-mapping-data-flow-graph"></a>Zarządzanie wykresem przepływu danych mapowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Na powierzchni projektowej mapowania przepływów danych jest powierzchnia "konstrukcja", w której tworzysz przepływy danych w dół, od lewej do prawej. Istnieje Przybornik dołączony do każdego przekształcenia ze znakiem plus (+). Skoncentrowanie się na logice biznesowej zamiast łączenia węzłów za pomocą krawędzi w wolnym środowisku DAG.
+Mapowanie przepływów danych jest tworzone przy użyciu powierzchni projektowej znanej jako wykres przepływu danych. Na wykresie logika transformacji jest tworzona od lewej do prawej, a dodatkowe strumienie danych są dodawane z góry. Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji.
 
-Poniżej przedstawiono wbudowane mechanizmy zarządzania wykresem przepływu danych.
+![Kanwa](media/data-flow/canvas2.png "Kanwa")
 
-## <a name="move-nodes"></a>Przenoszenie węzłów
+Ponieważ przepływy danych są bardziej skomplikowane, użyj następujących mechanizmów, aby efektywnie nawigować do wykresu przepływu danych i zarządzać nim. 
 
-![Agregacja opcji transformacji](media/data-flow/agghead.png "Nagłówek agregatora")
+## <a name="moving-transformations"></a>Przeniesienie transformacji
 
-Bez modelu typu "przeciągnij i upuść" sposób "Przenieś" węzeł przekształcenia polega na zmianie strumienia przychodzącego. Zamiast tego przechodzą przekształcenia, zmieniając "strumień przychodzący".
+W mapowaniu przepływów danych zestaw połączonej logiki transformacji jest znany jako **strumień**. Pole **strumień przychodzący** określa, który strumień danych ponosi bieżące przekształcenie. Każda transformacja ma jeden lub dwa strumienie przychodzące w zależności od funkcji i reprezentuje strumień wyjściowy. Schemat danych wyjściowych strumieni przychodzących określa, które metadane kolumny mogą być przywoływane przez bieżące przekształcenie.
 
-## <a name="streams-of-data-inside-of-data-flow"></a>Strumienie danych w przepływie danych
+![Przenieś węzeł](media/data-flow/move-nodes.png "Przenieś węzeł")
 
-W przepływie danych Azure Data Factory strumienie reprezentują przepływ danych. W okienku Ustawienia transformacji zobaczysz pole "strumień przychodzący". Oznacza to, że przychodzący strumień danych ma na celu przekształcenie. Lokalizację fizyczną węzła transformacji można zmienić na wykresie, klikając nazwę strumienia przychodzącego i wybierając inny strumień danych. Bieżąca transformacja wraz ze wszystkimi kolejnymi transformacjemi w tym strumieniu zostanie przeniesiona do nowej lokalizacji.
-
-Jeśli przenosisz transformację przy użyciu co najmniej jednego przekształcenia po nim, Nowa lokalizacja w przepływie danych zostanie przyłączona za pośrednictwem nowej gałęzi.
-
-Jeśli po wybranym węźle nie ma żadnych kolejnych przekształceń, tylko ta transformacja zostanie przeniesiona do nowej lokalizacji.
+W przeciwieństwie do kanwy potoku przekształcenia przepływu danych nie są edytowane przy użyciu modelu przeciągania i upuszczania. Aby zmienić strumień przychodzący lub "Przenieś" transformację, wybierz inną wartość z listy rozwijanej **strumienia przychodzącego** . Po wykonaniu tej czynności wszystkie przekształcenia podrzędne zostaną przeniesione obok edytowanej transformacji. Wykres zostanie automatycznie zaktualizowany, aby pokazać Nowy przepływ logiczny. W przypadku zmiany strumienia przychodzącego na transformację, która ma już transformację przechodzącą, zostanie utworzony nowy gałąź lub równoległy strumień danych. Dowiedz się więcej [na temat nowych gałęzi w mapowaniu przepływu danych](data-flow-new-branch.md).
 
 ## <a name="hide-graph-and-show-graph"></a>Ukryj wykres i Pokaż wykres
 
-Istnieje przycisk w prawym górnym rogu dolnego okienka konfiguracji, w którym można rozwinąć dolne okienko do pełnego ekranu podczas pracy z konfiguracjami transformacji. Umożliwi to nawigowanie po konfiguracjach grafu za pomocą przycisków "Previous" i "dalej". Aby wrócić do widoku wykresu, kliknij przycisk w dół i wróć do ekranu podzielonego.
+Podczas edytowania przekształcenia można rozwinąć panel konfiguracji, aby przejąć całą kanwę, ukrywając wykres. Kliknij cudzysłów ostrokątny w górę znajdujący się po prawej stronie kanwy.
 
-## <a name="search-graph"></a>Wyszukaj wykres
+![Ukryj wykres](media/data-flow/hide-graph.png "Ukryj wykres")
 
-Wykres można wyszukać na powierzchni projektowej.
+Gdy wykres jest ukryty, można przechodzić między transformacjemi w strumieniu, klikając przycisk **dalej** lub **poprzedni**. Kliknij cudzysłów ostrokątny w dół, aby wyświetlić wykres.
 
-![Wyszukiwanie](media/data-flow/search001.png "Wyszukaj wykres")
+![Pokaż wykres](media/data-flow/show-graph.png "Pokaż wykres")
+
+## <a name="searching-for-transformations"></a>Wyszukiwanie transformacji
+
+Aby szybko znaleźć transformację w grafie, kliknij ikonę **wyszukiwania** powyżej ustawienia powiększenia.
+
+![Wyszukiwanie](media/data-flow/search-1.png "Wyszukaj wykres")
+
+Aby zlokalizować transformację, można wyszukać według nazwy lub opisu transformacji.
+
+![Wyszukiwanie](media/data-flow/search-2.png "Wyszukaj wykres")
+
+## <a name="hide-reference-nodes"></a>Ukryj węzły odniesienia
+
+Jeśli przepływ danych ma jakiekolwiek sprzężenia, odnośnik, istnieje lub przekształcenia Union, przepływ danych pokazuje węzły odwołań do wszystkich strumieni przychodzących. Jeśli chcesz zminimalizować ilość zajętego miejsca w pionie, możesz zminimalizować węzły odwołań. Aby to zrobić, kliknij prawym przyciskiem myszy kanwę i wybierz pozycję **Ukryj węzły odniesienia**.
+
+![Ukryj węzły odniesienia](media/data-flow/hide-reference-nodes.png "Ukryj węzły odniesienia")
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po ukończeniu projektu przepływu danych Włącz przycisk Debuguj i przetestuj go w trybie debugowania bezpośrednio w [Projektancie przepływu danych](concepts-data-flow-debug-mode.md) lub w [debugowaniu potoku](control-flow-execute-data-flow-activity.md).
+Po ukończeniu logiki przepływu danych Włącz [tryb debugowania](concepts-data-flow-debug-mode.md) i przetestuj go w podglądzie danych.

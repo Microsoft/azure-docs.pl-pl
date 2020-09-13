@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/12/2020
-ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/02/2020
+ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212071"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419984"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapowanie przepływów danych w Azure Data Factory
 
@@ -41,7 +41,7 @@ Mapowanie przepływu danych ma unikatową kanwę tworzenia, która umożliwia ł
 
 ### <a name="graph"></a>Graph
 
-Wykres przedstawia strumień transformacji. Pokazuje on dane źródłowe w miarę ich przepływu w jednym lub większej liczbie zlewów. Aby dodać nowe źródło, wybierz pozycję **Dodaj źródło**. Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji.
+Wykres przedstawia strumień transformacji. Pokazuje on dane źródłowe w miarę ich przepływu w jednym lub większej liczbie zlewów. Aby dodać nowe źródło, wybierz pozycję **Dodaj źródło**. Aby dodać nową transformację, wybierz znak plus w prawym dolnym rogu istniejącej transformacji. Dowiedz się więcej na temat [zarządzania wykresem przepływu danych](concepts-data-flow-manage-graph.md).
 
 ![Kanwa](media/data-flow/canvas2.png "Kanwa")
 
@@ -61,7 +61,7 @@ Pierwsza karta w okienku Konfiguracja każdej transformacji zawiera ustawienia s
 
 Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematów partycjonowania. Aby dowiedzieć się więcej na temat optymalizowania przepływów danych, zobacz [Przewodnik dotyczący wydajności przepływu danych](concepts-data-flow-performance.md).
 
-![Zoptymalizować](media/data-flow/optimize.png "Optymalizacja")
+![Optymalizacja](media/data-flow/optimize.png "Optymalizacja")
 
 #### <a name="inspect"></a>Skontrol
 
@@ -109,7 +109,7 @@ Mapowanie przepływów danych jest dostępne w następujących regionach:
 | Australia Południowo-Wschodnia   | ✓ | ✓ |
 | Brazil South  | ✓ |  |
 | Kanada Środkowa | ✓ |  |
-| Central India | ✓ |   ✓ |
+| Indie Środkowe | ✓ |   ✓ |
 | Central US    | ✓ |   ✓ |
 | Chiny Wschodnie |      | ✓ |
 | Chiny Wschodnie 2  |   |    |
