@@ -3,12 +3,12 @@ title: Przechwytywanie zdarzeń przesyłania strumieniowego — Azure Event Hubs
 description: Ten artykuł zawiera omówienie funkcji przechwytywania, która umożliwia przechwytywanie zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 201fde24e50fc9403d5e9faf314550520fb7b865
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522129"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667442"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Przechwyć zdarzenia za pomocą usługi Azure Event Hubs na platformie Azure Blob Storage lub Azure Data Lake Storage
 Usługa Azure Event Hubs umożliwia automatyczne przechwytywanie danych przesyłanych strumieniowo w Event Hubs w usłudze [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) lub w ramach wybranego konta [Azure Data Lake Storage generacji 1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) , z dodatkową elastycznością określania interwału czasu lub rozmiaru. Konfigurowanie przechwytywania jest szybkie, nie ma kosztów administracyjnych do uruchomienia i jest automatycznie skalowane przy użyciu [jednostek przepływności](event-hubs-scalability.md#throughput-units)Event Hubs. Przechwytywanie Event Hubs jest najprostszym sposobem ładowania danych przesyłanych strumieniowo na platformę Azure i umożliwia skoncentrowanie się na przetwarzaniu danych, a nie na przechwytywaniu danych.
@@ -132,7 +132,7 @@ Przechwytywanie nie zużywa limitu przydziału ruchu wychodzącego, ponieważ je
 
 ## <a name="integration-with-event-grid"></a>Integracja z usługą Event Grid 
 
-Jako źródło można utworzyć Azure Event Grid subskrypcję z przestrzenią nazw Event Hubs. W poniższym samouczku pokazano, jak utworzyć Event Grid subskrypcję z centrum zdarzeń jako źródło i Azure Functions aplikację jako ujścia: [proces i migrowanie przechwyconych danych Event Hubs do SQL Data Warehouse przy użyciu Event Grid i Azure Functions](store-captured-data-data-warehouse.md).
+Jako źródło można utworzyć Azure Event Grid subskrypcję z przestrzenią nazw Event Hubs. W poniższym samouczku pokazano, jak utworzyć Event Grid subskrypcję z centrum zdarzeń jako źródło i Azure Functions aplikację jako ujścia: [proces i migracja przechwyconej Event Hubs danych do usługi Azure Synapse Analytics przy użyciu Event Grid i Azure Functions](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>Następne kroki
 Przechwytywanie Event Hubs jest najprostszym sposobem na pobieranie danych na platformę Azure. Korzystając z Azure Data Lake, Azure Data Factory i usługi Azure HDInsight, możesz wykonać przetwarzanie wsadowe i inne analizy przy użyciu znanych narzędzi i platform wybieranych w dowolnej skali.
@@ -147,7 +147,7 @@ Dowiedz się, jak włączyć tę funkcję przy użyciu szablonu Azure Portal i A
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
 [Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html

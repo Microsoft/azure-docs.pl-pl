@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420315"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669189"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Usługa Load Balancer w warstwie Standardowa i strefy dostępności
 
 Usługa Azure usługa Load Balancer w warstwie Standardowa obsługuje scenariusze stref dostępności. Możesz użyć standardowego modułu równoważenia obciążenia, aby zwiększyć dostępność w całym scenariuszu przez wyrównanie zasobów do i dystrybucja między strefami. Strefy dostępności w połączeniu z usługą równoważenia obciążenia w warstwie Standardowa są rozległych i elastycznym zestawem funkcji, który może tworzyć wiele różnych scenariuszy.  Zapoznaj się z tym dokumentem, aby poznać te [koncepcje](#concepts) i podstawowe [wskazówki dotyczące projektowania](#design).
 
-## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a>Koncepcje Strefy dostępności zastosowane do Load Balancer
+## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a> Koncepcje Strefy dostępności zastosowane do Load Balancer
 
 Moduł równoważenia obciążenia dziedziczy konfigurację strefy z jej składników: 
 
@@ -67,7 +67,7 @@ Ponadto jest obsługiwane korzystanie z stref frontonów bezpośrednio dla punkt
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Virtual Network translator adresów sieciowych">
 </p>
 
-*Rysunek: strefowo nadmiarowy moduł równoważenia obciążenia*
+*Ilustracja: moduł równoważenia obciążenia w Zona*
 
 Jeśli chcesz mieszać te koncepcje (strefowo nadmiarowe i zona dla tego samego zaplecza), przejrzyj [wiele frontonów dla Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -101,7 +101,7 @@ W przypadku korzystania ze strefowo nadmiarowych frontonów moduł równoważeni
 
 Inne strefy, które mogą nawiązać połączenie z tą maszyną wirtualną, mogą nadal obsłużyć maszynę wirtualną z odpowiednich frontonów. W przypadku wystąpienia błędów każda strefa może mieć różne dystrybucje nowych przepływów przy jednoczesnej ochronie ogólnej kondycji usługi.
 
-## <a name="design-considerations"></a><a name="design"></a>Zagadnienia dotyczące projektowania
+## <a name="design-considerations"></a><a name="design"></a> Zagadnienia dotyczące projektowania
 
 Usługa równoważenia obciążenia jest elastyczna w kontekście stref dostępności. Dla każdej reguły można wybrać opcję Wyrównaj do stref lub być nadmiarowe strefy. Zwiększona dostępność może być naliczana w cenie zwiększonej złożoności. Zaprojektuj dostępność w celu uzyskania optymalnej wydajności.
 
@@ -113,7 +113,7 @@ Nadmiarowość strefy nie oznacza hitless datapath lub płaszczyzny kontrolnej; 
 
 Może to wpływać na przepływy ruchu korzystające z strefy w czasie awarii strefy, ale aplikacje mogą je odzyskać. Ruch kontynuuje się w strefach zdrowych w regionie podczas ponownej transmisji, gdy platforma Azure połączyła się z awarią strefy.
 
-### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a>Granice między strefami
+### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a> Granice między strefami
 
 Ważne jest, aby zrozumieć, że kiedykolwiek usługa przekroczy strefy, możesz udostępniać losy nie tylko jednej strefie, ale potencjalnie w wielu strefach. W związku z tym usługa mogła nie uzyskać dostępności w ramach wdrożeń nienależących do stref.
 

@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501018"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667596"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Udzielanie zgody administratora całej dzierżawy dla aplikacji
 
@@ -32,15 +32,12 @@ Przyznanie zgody administratora całej dzierżawy wymaga zalogowania się jako [
 > [!IMPORTANT]
 > Gdy aplikacja otrzymuje zgodę na dostęp do całej dzierżawy, wszyscy użytkownicy będą mogli zalogować się do aplikacji, o ile nie została skonfigurowana tak, aby wymagała przypisania użytkownika. Aby określić, którzy użytkownicy mogą logować się do aplikacji, należy zażądać przypisania użytkownika, a następnie przypisać użytkowników lub grupy do aplikacji. Aby uzyskać więcej informacji, zobacz [metody przypisywania użytkowników i grup](methods-for-assigning-users-and-groups.md).
 >
-> Rola administratora globalnego jest wymagana w celu zapewnienia zgody administratora na Microsoft Graph interfejs API.
->
-
+> Rola administratora globalnego jest wymagana w celu zapewnienia zgody administratora na uprawnienia aplikacji do interfejsu API Microsoft Graph.
 
 > [!WARNING]
 > Przyznanie administratorowi zgody na dostęp do całej dzierżawy dla aplikacji spowoduje przyznanie aplikacji i wydawcy aplikacji dostępu do danych organizacji. Uważnie Przejrzyj uprawnienia, których aplikacja żąda przed udzieleniem zgody.
 >
-> Rola administratora globalnego jest wymagana w celu zapewnienia zgody administratora na Microsoft Graph interfejs API.
->
+> Rola administratora globalnego jest wymagana w celu zapewnienia zgody administratora na uprawnienia aplikacji do interfejsu API Microsoft Graph.
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Udziel zgody administratora z Azure Portal
 
@@ -56,6 +53,9 @@ Aby udzielić zgody administratora na poziomie dzierżawy aplikacji wymienionej 
 4. Wybierz pozycję **uprawnienia** , a następnie kliknij pozycję **Udziel zgody administratora**.
 5. Uważnie Przejrzyj uprawnienia wymagane przez aplikację.
 6. Jeśli wyrażasz zgodę na uprawnienia wymagane przez aplikację, udziel zgody. Jeśli nie, kliknij przycisk **Anuluj** lub Zamknij okno.
+
+> [!WARNING]
+> Przyznanie zgody administratora w całej dzierżawie za poorednictwem **aplikacji dla przedsiębiorstw** spowoduje odwołanie wszelkich uprawnień, które zostały wcześniej przyznane w całej dzierżawie. Nie wpłynie to na uprawnienia, które zostały wcześniej przyznane przez użytkowników w ich imieniu. 
 
 ### <a name="grant-admin-consent-in-app-registrations"></a>Udzielanie zgody administratora w Rejestracje aplikacji
 
@@ -82,10 +82,13 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 
 gdzie:
 
-* `{client-id}`jest IDENTYFIKATORem klienta aplikacji (znanym także jako identyfikator aplikacji).
-* `{tenant-id}`jest IDENTYFIKATORem dzierżawy organizacji lub dowolną zweryfikowaną nazwą domeny.
+* `{client-id}` jest IDENTYFIKATORem klienta aplikacji (znanym także jako identyfikator aplikacji).
+* `{tenant-id}` jest IDENTYFIKATORem dzierżawy organizacji lub dowolną zweryfikowaną nazwą domeny.
 
 Zawsze należy uważnie przejrzeć uprawnienia żądania aplikacji przed udzieleniem zgody.
+
+> [!WARNING]
+> Przyznanie zgody administratora w całej dzierżawie przy użyciu tego adresu URL spowoduje odwołanie wszelkich uprawnień, dla których wcześniej udzielono dzierżawy. Nie wpłynie to na uprawnienia, które były wcześniej ggranted przez użytkowników w ich imieniu. 
 
 ## <a name="next-steps"></a>Następne kroki
 

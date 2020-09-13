@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4b895054f8fa81526bf72cadd2fea1a3691d758
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eef04be1891eac35577a5f4cb18d5b83b8d0f301
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909457"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669386"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Dodaj firmę Google jako dostawcę tożsamości dla użytkowników gościa B2B
 
@@ -51,39 +51,43 @@ Możesz również udzielić użytkownikom usługi Google gość bezpośredniego 
 ## <a name="step-1-configure-a-google-developer-project"></a>Krok 1. Konfigurowanie projektu dla deweloperów Google
 Najpierw utwórz nowy projekt w konsoli firmy Google Developers w celu uzyskania identyfikatora klienta i klucza tajnego klienta, który można później dodać do usługi Azure AD. 
 1. Przejdź do interfejsów API usługi Google at https://console.developers.google.com i zaloguj się przy użyciu konta Google. Zalecamy używanie udostępnionego konta Google zespołu.
-2. Utwórz nowy projekt: na pulpicie nawigacyjnym wybierz pozycję **Utwórz projekt**, a następnie wybierz pozycję **Utwórz**. Na stronie Nowy projekt wprowadź **nazwę projektu**, a następnie wybierz pozycję **Utwórz**.
+2. Zaakceptuj warunki korzystania z usługi, jeśli zostanie wyświetlony monit
+3. Utwórz nowy projekt: na pulpicie nawigacyjnym wybierz pozycję **Utwórz projekt**, Nadaj projektowi nazwę (np. "Azure AD B2B"), a następnie wybierz pozycję **Utwórz**. 
    
    ![Zrzut ekranu przedstawiający nową stronę projektu dla usługi Google](media/google-federation/google-new-project.png)
 
-3. Upewnij się, że nowy projekt został wybrany w menu Projekt. Następnie w obszarze **interfejsy api & usługi**wybierz pozycję **ekran wyrażania zgody na uwierzytelnianie OAuth**.
+4. Na stronie **usługi api & Services** , która jest teraz prezentowana, kliknij pozycję **Wyświetl** w obszarze nowego projektu.
 
-4. Wybierz pozycję **zewnętrzny**, a następnie wybierz pozycję **Utwórz**. 
-5. Na **ekranie wyrażanie zgody na uwierzytelnianie OAuth**wprowadź **nazwę aplikacji**. (Pozostaw pozostałe ustawienia).
+5. Kliknij pozycję **Przejdź do interfejsów API przegląd** na karcie interfejsy API. Wybierz **ekran wyrażania zgody na uwierzytelnianie OAuth**.
+
+6. Wybierz pozycję **zewnętrzny**, a następnie wybierz pozycję **Utwórz**. 
+
+7. Na **ekranie wyrażanie zgody na uwierzytelnianie OAuth**wprowadź **nazwę aplikacji**. 
 
    ![Zrzut ekranu przedstawiający opcję Ekran zgody usługi Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
-6. Przewiń do sekcji **autoryzowane domeny** i wprowadź microsoftonline.com.
+8. Przewiń do sekcji **autoryzowane domeny** i wprowadź microsoftonline.com.
 
-   ![Zrzut ekranu przedstawiający sekcję autoryzowane domeny](media/google-federation/google-oauth-authorized-domains.png)
+   ![Zrzut ekranu przedstawiający sekcję autoryzowane domeny](media/google-federation/google-oauth-authorized-domains.PNG)
 
-7. Wybierz pozycję **Zapisz**.
+9. Wybierz pozycję **Zapisz**.
 
-8. Wybierz pozycję **poświadczenia**. W menu **Tworzenie poświadczeń** wybierz pozycję **Identyfikator klienta OAuth**.
+10. Wybierz pozycję **poświadczenia**. W menu **Tworzenie poświadczeń** wybierz pozycję **Identyfikator klienta OAuth**.
 
-   ![Zrzut ekranu przedstawiający opcję tworzenia poświadczeń usługi Google API](media/google-federation/google-api-credentials.png)
+    ![Zrzut ekranu przedstawiający opcję tworzenia poświadczeń usługi Google API](media/google-federation/google-api-credentials.png)
 
-9. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web**, a następnie w obszarze **autoryzowane identyfikatory URI przekierowania**wprowadź następujące identyfikatory URI:
-   - `https://login.microsoftonline.com` 
-   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(gdzie `<directory id>` jest identyfikatorem katalogu)
+11. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web** i nadaj aplikacji odpowiednią nazwę, na przykład "Azure AD B2B", a następnie w obszarze **autoryzowane identyfikatory URI przekierowania**wprowadź następujące identyfikatory URI:
+    - `https://login.microsoftonline.com` 
+    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(gdzie `<directory id>` jest identyfikatorem katalogu)
    
-     > [!NOTE]
-     > Aby znaleźć identyfikator katalogu, przejdź do https://portal.azure.com , a w obszarze **Azure Active Directory**wybierz pozycję **Właściwości** i skopiuj **Identyfikator katalogu**.
+    > [!NOTE]
+    > Aby znaleźć identyfikator katalogu, przejdź do https://portal.azure.com , a w obszarze **Azure Active Directory**wybierz pozycję **Właściwości** i skopiuj **Identyfikator katalogu**.
 
-   ![Zrzut ekranu przedstawiający sekcję autoryzowane identyfikatory URI przekierowania](media/google-federation/google-create-oauth-client-id.png)
+    ![Zrzut ekranu przedstawiający sekcję autoryzowane identyfikatory URI przekierowania](media/google-federation/google-create-oauth-client-id.png)
 
-10. Wybierz przycisk **Utwórz**. Skopiuj identyfikator klienta i klucz tajny klienta, który będzie używany podczas dodawania dostawcy tożsamości w portalu usługi Azure AD.
+12. Wybierz pozycję **Utwórz**. Skopiuj identyfikator klienta i klucz tajny klienta, który będzie używany podczas dodawania dostawcy tożsamości w portalu usługi Azure AD.
 
-   ![Zrzut ekranu przedstawiający identyfikator klienta OAuth i klucz tajny klienta](media/google-federation/google-auth-client-id-secret.png)
+    ![Zrzut ekranu przedstawiający identyfikator klienta OAuth i klucz tajny klienta](media/google-federation/google-auth-client-id-secret.png)
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>Krok 2. Konfigurowanie usługi Google Federation w usłudze Azure AD 
 Teraz ustawisz identyfikator klienta Google i klucz tajny klienta, wprowadzając go w portalu usługi Azure AD lub przy użyciu programu PowerShell. Pamiętaj, aby przetestować konfigurację Federacji Google, zapraszając siebie przy użyciu adresu Gmail i próbując zrealizować zaproszenie przy użyciu zaproszonego konta Google. 
@@ -92,7 +96,7 @@ Teraz ustawisz identyfikator klienta Google i klucz tajny klienta, wprowadzając
 1. Przejdź do witryny [Azure Portal](https://portal.azure.com). W lewym okienku wybierz pozycję **Azure Active Directory**. 
 2. Wybierz **tożsamości zewnętrzne**.
 3. Wybierz pozycję **Wszyscy dostawcy tożsamości**, a następnie kliknij przycisk **Google** .
-4. Wprowadź nazwę. Następnie wprowadź wcześniej otrzymany identyfikator klienta i klucz tajny klienta. Wybierz pozycję **Zapisz**. 
+4. Następnie wprowadź wcześniej otrzymany identyfikator klienta i klucz tajny klienta. Wybierz pozycję **Zapisz**. 
 
    ![Zrzut ekranu przedstawiający stronę Dodawanie dostawcy usługi Google Identity](media/google-federation/google-identity-provider.png)
 

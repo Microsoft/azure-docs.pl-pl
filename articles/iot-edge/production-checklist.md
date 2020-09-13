@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258786"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669604"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -41,7 +41,7 @@ Urządzenia IoT Edge mogą być dowolne od Raspberry Pi do laptopu do maszyny wi
 Każde urządzenie IoT Edge w środowisku produkcyjnym wymaga zainstalowanego certyfikatu urzędu certyfikacji urządzenia (CA). Ten certyfikat urzędu certyfikacji jest następnie deklarowany do środowiska uruchomieniowego IoT Edge w pliku config. YAML. W przypadku scenariuszy projektowania i testowania środowisko uruchomieniowe IoT Edge tworzy certyfikaty tymczasowe, jeśli w pliku config. YAML nie zadeklarowano żadnych certyfikatów. Jednak te certyfikaty tymczasowe wygasną po trzech miesiącach i nie są bezpieczne w scenariuszach produkcyjnych. W przypadku scenariuszy produkcyjnych należy podać własny certyfikat urzędu certyfikacji z podpisem własnym lub zakupionego od komercyjnego urzędu certyfikacji.
 
 > [!NOTE]
-> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2038.
 
 Aby zrozumieć rolę certyfikatu urzędu certyfikacji, zobacz [jak Azure IoT Edge używa certyfikatów](iot-edge-certs.md).
 
@@ -182,7 +182,7 @@ Uzyskaj obrazy z poleceniem "Docker pull", które ma zostać umieszczone w rejes
 | Kontener środowiska uruchomieniowego IoT Edge | Polecenie Docker pull |
 | --- | --- |
 | [Agent Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
 Następnie należy zaktualizować odwołania do obrazu w deployment.template.jspliku dla modułów systemowych edgeAgent i edgeHub. Zastąp ciąg `mcr.microsoft.com` nazwą rejestru i serwerem dla obu modułów.
 
@@ -231,7 +231,7 @@ Ta lista kontrolna jest punktem początkowym dla reguł zapory:
 Niektóre z tych reguł zapory są dziedziczone z Azure Container Registry. Aby uzyskać więcej informacji, zobacz [Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą](../container-registry/container-registry-firewall-access-rules.md).
 
 > [!NOTE]
-> Aby zapewnić spójną nazwę FQDN między punktami końcowymi REST i Data, począwszy od **15 czerwca 2020** , punkt końcowy danych Microsoft Container Registry zmieni się z `*.cdn.mscr.io` na`*.data.mcr.microsoft.com`  
+> Aby zapewnić spójną nazwę FQDN między punktami końcowymi REST i Data, począwszy od **15 czerwca 2020** , punkt końcowy danych Microsoft Container Registry zmieni się z `*.cdn.mscr.io` na `*.data.mcr.microsoft.com`  
 > Aby uzyskać więcej informacji, zobacz [Konfiguracja reguł zapory klienta firmy Microsoft Container Registry](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 Jeśli nie chcesz konfigurować zapory w taki sposób, aby zezwalała na dostęp do rejestrów publicznych kontenerów, możesz przechowywać obrazy w rejestrze prywatnych kontenerów, jak opisano w [kontenerach środowiska uruchomieniowego magazynu w rejestrze prywatnym](#store-runtime-containers-in-your-private-registry).
@@ -321,9 +321,9 @@ Można to zrobić w **opcjach** dla każdego modułu. Na przykład:
 
 ### <a name="consider-tests-and-cicd-pipelines"></a>Rozważ użycie testów i potoków ciągłej integracji/ciągłego wdrażania
 
-Aby zapoznać się z najbardziej wydajnym scenariuszem wdrażania IoT Edge, rozważ integrację wdrożenia produkcyjnego z potokami testowania i ciągłej integracji/ciągłego dostarczania. Azure IoT Edge obsługuje wiele platform ciągłej integracji/ciągłego wdrażania, w tym Azure DevOps. Aby uzyskać więcej informacji, zobacz [ciągła integracja i ciągłe wdrażanie do Azure IoT Edge](how-to-ci-cd.md).
+Aby zapoznać się z najbardziej wydajnym scenariuszem wdrażania IoT Edge, rozważ integrację wdrożenia produkcyjnego z potokami testowania i ciągłej integracji/ciągłego dostarczania. Azure IoT Edge obsługuje wiele platform ciągłej integracji/ciągłego wdrażania, w tym Azure DevOps. Aby uzyskać więcej informacji, zobacz [ciągła integracja i ciągłe wdrażanie do Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [IoT Edge wdrożeniu automatycznym](module-deployment-monitoring.md).
-* Zobacz, jak IoT Edge obsługuje [ciągłą integrację i ciągłe wdrażanie](how-to-ci-cd.md).
+* Zobacz, jak IoT Edge obsługuje [ciągłą integrację i ciągłe wdrażanie](how-to-continuous-integration-continuous-deployment.md).

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b34bd51e9d84629682565592c733b23a320597aa
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083688"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669767"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Rozwiązywanie typowych problemów z chmurą wiosenną platformy Azure
 
@@ -48,18 +48,23 @@ Gdy debugujesz awarie aplikacji, Zacznij od sprawdzenia stanu uruchomienia i sta
 * Jeśli stan odnajdywania jest _ustawiony_, przejdź do pozycji metryki, aby sprawdzić kondycję aplikacji. Sprawdź następujące metryki:
 
 
-  - `TomcatErrorCount`(_tomcat. Global. Error_): w tym miejscu są zliczane wszystkie wyjątki aplikacji wiosennej. Jeśli ta liczba jest duża, przejdź do usługi Azure Log Analytics w celu sprawdzenia dzienników aplikacji.
+  - `TomcatErrorCount` (_tomcat. Global. Error_): w tym miejscu są zliczane wszystkie wyjątki aplikacji wiosennej. Jeśli ta liczba jest duża, przejdź do usługi Azure Log Analytics w celu sprawdzenia dzienników aplikacji.
 
-  - `AppMemoryMax`(_JVM. Memory. Max_): Maksymalna ilość pamięci dostępnej dla aplikacji. Kwota może być niezdefiniowana lub może ulec zmianie w czasie, jeśli jest zdefiniowana. Jeśli jest zdefiniowana, ilość używanej i zadeklarowanej pamięci jest zawsze mniejsza lub równa max. Jednak alokacja pamięci może zakończyć się niepowodzeniem z `OutOfMemoryError` komunikatem, jeśli alokacja próbuje zwiększyć używaną pamięć, która jest *używana > zatwierdzone*, nawet jeśli *użyto <= Max* jest nadal true. W takiej sytuacji spróbuj zwiększyć maksymalny rozmiar sterty przy użyciu `-Xmx` parametru.
+  - `AppMemoryMax` (_JVM. Memory. Max_): Maksymalna ilość pamięci dostępnej dla aplikacji. Kwota może być niezdefiniowana lub może ulec zmianie w czasie, jeśli jest zdefiniowana. Jeśli jest zdefiniowana, ilość używanej i zadeklarowanej pamięci jest zawsze mniejsza lub równa max. Jednak alokacja pamięci może zakończyć się niepowodzeniem z `OutOfMemoryError` komunikatem, jeśli alokacja próbuje zwiększyć używaną pamięć, która jest *używana > zatwierdzone*, nawet jeśli *użyto <= Max* jest nadal true. W takiej sytuacji spróbuj zwiększyć maksymalny rozmiar sterty przy użyciu `-Xmx` parametru.
 
-  - `AppMemoryUsed`(_JVM. Memory. użyty_): ilość pamięci w bajtach, która jest obecnie używana przez aplikację. W przypadku normalnej aplikacji Java do załadowania ta seria metryk tworzy wzorzec *powoduje piłokształtny* , w którym użycie pamięci stale rośnie i zmniejsza się w małych przyrostach i nagle porzuca dużo, a następnie wzorzec powtarza się. Ta seria metryk występuje ze względu na wyrzucanie elementów bezużytecznych wewnątrz maszyny wirtualnej Java, gdzie akcje kolekcji reprezentują porzucenia wzorca powoduje piłokształtny.
+  - `AppMemoryUsed` (_JVM. Memory. użyty_): ilość pamięci w bajtach, która jest obecnie używana przez aplikację. W przypadku normalnej aplikacji Java do załadowania ta seria metryk tworzy wzorzec *powoduje piłokształtny* , w którym użycie pamięci stale rośnie i zmniejsza się w małych przyrostach i nagle porzuca dużo, a następnie wzorzec powtarza się. Ta seria metryk występuje ze względu na wyrzucanie elementów bezużytecznych wewnątrz maszyny wirtualnej Java, gdzie akcje kolekcji reprezentują porzucenia wzorca powoduje piłokształtny.
     
     Ta Metryka jest ważna, aby ułatwić identyfikowanie problemów z pamięcią, takich jak:
     * Rozłożenie pamięci na bardzo rozpoczęciu.
     * Alokacja pamięci przepięcia dla określonej ścieżki logicznej.
     * Stopniowe przecieki pamięci.
-
   Aby uzyskać więcej informacji, zobacz [metryki](spring-cloud-concept-metrics.md).
+  
+* Jeśli uruchomienie aplikacji nie powiedzie się, sprawdź, czy aplikacja ma prawidłowe parametry JVM. Jeśli pamięć JVM jest zbyt duża, w dziennikach może pojawić się następujący komunikat o błędzie:
+
+  >"wymagana pamięć 2728741K jest większa niż 2000M dostępna do przydzielenia"
+
+
 
 Aby dowiedzieć się więcej o usłudze Azure Log Analytics, zobacz Wprowadzenie do [log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
@@ -138,7 +143,7 @@ Jeśli sondowanie zostanie przerwane, możesz użyć następującego polecenia, 
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-Należy jednak pamiętać, że jedno wystąpienie usługi w chmurze Azure wiosennej może wyzwolić tylko jedno zadanie kompilacji w jednym z nich. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji](spring-cloud-quickstart-launch-app-portal.md) i [Konfigurowanie środowiska tymczasowego w chmurze Azure wiosennej](spring-cloud-howto-staging-environment.md).
+Należy jednak pamiętać, że jedno wystąpienie usługi w chmurze Azure wiosennej może wyzwolić tylko jedno zadanie kompilacji w jednym z nich. Aby uzyskać więcej informacji, zobacz [wdrażanie aplikacji](spring-cloud-quickstart.md) i [Konfigurowanie środowiska tymczasowego w chmurze Azure wiosennej](spring-cloud-howto-staging-environment.md).
 
 ### <a name="my-application-cant-be-registered"></a>Nie można zarejestrować mojej aplikacji
 
@@ -159,7 +164,7 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
 > [!WARNING]
 > Ta procedura udostępnia zmienne środowiskowe za pomocą punktu końcowego testu.  Nie należy przechodzić, jeśli punkt końcowy testu jest publicznie dostępny lub jeśli przypisano nazwę domeny do aplikacji.
 
-1. Przejdź do adresu `https://<your application test endpoint>/actuator/health`.  
+1. Przejdź do witryny `https://<your application test endpoint>/actuator/health`.  
     - Odpowiedź podobna do `{"status":"UP"}` wskazuje, że punkt końcowy został włączony.
     - Jeśli odpowiedź jest ujemna, Uwzględnij w pliku *POM.xml* następujący zależność:
 
@@ -174,7 +179,7 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
 
 1. Uruchom ponownie aplikację.
 
-1. Przejdź do `https://<your application test endpoint>/actuator/env` i sprawdź odpowiedź.  Powinno ono wyglądać następująco:
+1. Przejdź do `https://<your application test endpoint>/actuator/env` i sprawdź odpowiedź.  Powinien on wyglądać następująco:
 
     ```json
     {
@@ -193,7 +198,7 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
 Wyszukaj węzeł podrzędny o nazwie `systemEnvironment` .  Ten węzeł zawiera zmienne środowiskowe aplikacji.
 
 > [!IMPORTANT]
-> Pamiętaj, aby wycofać narażenie zmiennych środowiskowych przed udostępnieniem aplikacji publicznie.  Przejdź do Azure Portal, Wyszukaj stronę Konfiguracja aplikacji i Usuń tę zmienną środowiskową: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
+> Pamiętaj, aby wycofać narażenie zmiennych środowiskowych przed udostępnieniem aplikacji publicznie.  Przejdź do Azure Portal, Wyszukaj stronę Konfiguracja aplikacji i Usuń tę zmienną środowiskową:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Nie mogę znaleźć metryk lub dzienników dla mojej aplikacji
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 8c18a4d2fa6e5bdb211b77d4d7bb28af7e5b1c1a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948117"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004310"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -363,9 +363,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | availabilitysets | Nie | 
+> | availabilitysets | Tak <br/><br/> Przenoszenie zestawów dostępności przy użyciu [usługi Azure Resource przeprowadzki](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
 > | diskencryptionsets | Nie | 
-> | dysku | Nie | 
+> | dysku | Tak <br/><br/> Przenoszenie maszyn wirtualnych platformy Azure i powiązanych dysków za pomocą [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
 > | znajduj | Nie | 
 > | Galerie/obrazy | Nie | 
 > | Galerie/obrazy/wersje | Nie | 
@@ -377,7 +377,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sharedvmimages | Nie | 
 > | sharedvmimages/wersje | Nie | 
 > | Migawki | Nie | 
-> | virtualmachines | Tak | 
+> | virtualmachines | Tak <br/><br/> Przenoszenie maszyn wirtualnych platformy Azure przy użyciu [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
 > | virtualmachines/rozszerzenia | Nie | 
 > | virtualmachinescalesets | Nie | 
 
@@ -908,13 +908,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | expressrouteports | Nie | 
 > | usługi frontdoor | Nie | 
 > | frontdoorwebapplicationfirewallpolicies | Nie | 
-> | loadbalancers | Tak <br/><br/> Istnieje możliwość wyeksportowania istniejącej konfiguracji jako szablonu i wdrożenia szablonu w nowym regionie. Dowiedz się, jak przenieść [zewnętrzny](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) lub [wewnętrzny](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) moduł równoważenia obciążenia. |
+> | loadbalancers | Tak <br/><br/> Przenoszenie wewnętrznych i zewnętrznych modułów równoważenia obciążenia przy użyciu [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . |
 > | localnetworkgateways |  Nie | 
 > | natgateways |  Nie | 
 > | networkintentpolicies |  Nie | 
-> | networkinterfaces | Tak | 
+> | networkinterfaces | Tak <br/><br/> Przenoszenie kart sieciowych za pomocą [usługi Azure Resource](../../resource-mover/tutorial-move-region-virtual-machines.md) przenoszącej. | 
 > | networkprofiles | Nie | 
-> | networksecuritygroups | Tak | 
+> | networksecuritygroups | Tak <br/><br/> Przenoszenie sieciowych grup zabezpieczeń (NGSs) przy użyciu [usługi Azure Resource](../../resource-mover/tutorial-move-region-virtual-machines.md) . | 
 > | networkwatchers |  Nie |  
 > | networkwatchers / connectionmonitors |  Nie | 
 > | networkwatchers/soczewki |  Nie | 
@@ -924,7 +924,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | privatednszones / virtualnetworklinks |  Nie |  
 > | privateendpoints | Nie | 
 > | privatelinkservices | Nie | 
-> | adresów publicipaddress | Tak<br/><br/> Istnieje możliwość wyeksportowania istniejącej konfiguracji publicznego adresu IP jako szablonu i wdrożenia szablonu w nowym regionie. [Dowiedz się więcej](../../virtual-network/move-across-regions-publicip-portal.md) o przenoszeniu publicznego adresu IP. |
+> | adresów publicipaddress | Tak<br/><br/> Przenoszenie publicznych adresów IP za pomocą [usługi Azure Resource Recovery](../../resource-mover/tutorial-move-region-virtual-machines.md) . |
 > | publicipprefixes | Nie | 
 > | routefilters | Nie | 
 > | routetables |  Nie | 
@@ -1134,11 +1134,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | instancepools | Nie | 
-> | managedinstances | Tak | 
+> | managedinstances | Tak <br/><br/> [Dowiedz się więcej](/azure/azure-sql/database/move-resources-across-regions) o przenoszeniu wystąpień zarządzanych między regionami. | 
 > | ManagedInstances/bazy danych | Tak | 
 > | serwerem | Tak | 
-> | Serwery/bazy danych | Tak | 
-> | serwery/elasticpools | Tak | 
+> | Serwery/bazy danych | Tak <br/><br/> [Dowiedz się więcej](/azure/azure-sql/database/move-resources-across-regions) o przenoszeniu baz danych między regionami.<br/><br/> [Dowiedz się więcej](../../resource-mover/tutorial-move-region-sql.md) o używaniu funkcji przenoszenia zasobów platformy Azure do przenoszenia baz danych SQL Azure.  | 
+> | serwery/elasticpools | Tak <br/><br/> [Dowiedz się więcej](/azure/azure-sql/database/move-resources-across-regions) o przenoszeniu pul elastycznych między regionami.<br/><br/> [Dowiedz się więcej](../../resource-mover/tutorial-move-region-sql.md) o korzystaniu z funkcji przenoszenia zasobów platformy Azure do przenoszenia pul elastycznych usługi Azure SQL.  | 
 > | virtualclusters | Tak | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine

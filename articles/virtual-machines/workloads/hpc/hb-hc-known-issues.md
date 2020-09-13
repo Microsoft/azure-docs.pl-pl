@@ -1,6 +1,6 @@
 ---
-title: Znane problemy z maszynami wirtualnymi z serii HB i HC — Virtual Machines platformy Azure | Microsoft Docs
-description: Poznaj znane problemy dotyczące rozmiarów maszyn wirtualnych z serii HB na platformie Azure.
+title: Rozwiązywanie znanych problemów z maszynami wirtualnymi HPC i GPU — Azure Virtual Machines | Microsoft Docs
+description: Informacje o rozwiązywaniu znanych problemów z rozmiarami maszyn wirtualnych HPC i procesora GPU na platformie Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -10,19 +10,47 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/19/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 42a27092a87488e39d1195dba5fb64173cf52af7
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660099"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004208"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Znane problemy z maszynami wirtualnymi z serii H i N
 
-Ten artykuł zawiera najczęstsze problemy i rozwiązania dotyczące korzystania z maszyn wirtualnych serii [H](../../sizes-hpc.md) i [N](../../sizes-gpu.md) .
+W tym artykule przedstawiono najczęstsze [problemy i rozwiązania](../../sizes-gpu.md) dotyczące korzystania z [serii H](../../sizes-hpc.md) i maszyn wirtualnych procesora GPU.
+
+## <a name="infiniband-driver-installation-on-n-series-vms"></a>Instalacja sterownika InfiniBand na maszynach wirtualnych z serii N
+
+NC24r_v3 i ND40r_v2 są włączone SR-IOV, gdy NC24r i NC24r_v2 nie obsługują funkcji SR-IOV. Niektóre szczegóły [dotyczące bifurcation.](../../sizes-hpc.md#rdma-capable-instances)
+InfiniBand (IB) można skonfigurować na rozmiarach maszyn wirtualnych z włączoną funkcją SR-IOV przy użyciu sterowników OFED, natomiast rozmiary maszyn wirtualnych bez wirtualizacji SR-IOV wymagają sterowników ND. Ta pomoc techniczna jest dostępna odpowiednio w [CentOS-HPC VMIs](configure.md). W przypadku usługi Ubuntu zapoznaj się z [instrukcjami](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) dotyczącymi instalowania zarówno sterowników OFED, jak i ND, [zgodnie z opisem w dokumentacji.](enable-infiniband.md#vm-images-with-infiniband-drivers)
+
+## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplikowanie komputerów MAC z usługą Cloud-init z Ubuntu na maszynach wirtualnych serii H i N
+
+Istnieje znany problem z obsługą funkcji Cloud-init w obrazach maszyn wirtualnych Ubuntu, ponieważ próbuje on wywołać interfejs IB. Może to być spowodowane ponownym uruchomieniem maszyny wirtualnej lub przy próbie utworzenia obrazu maszyny wirtualnej po uogólnieniu. Dzienniki rozruchowe maszyny wirtualnej mogą zawierać błąd podobny do tego: "Uruchamianie usługi sieciowej... RuntimeError: znaleziono zduplikowany adres MAC. zarówno "eth1", jak i "ib0" mają komputery Mac ".
+
+Jest to znany problem z tym "zduplikowanym komputerem MAC z chmurą Ubuntu". Obejście to:
+1) Wdrażanie obrazu maszyny wirtualnej z maszyną wirtualną (Ubuntu 18,04)
+2) Zainstaluj wymagane pakiety oprogramowania, aby włączyć system IB ([instrukcje tutaj](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
+3) Edytuj waagent. conf, aby zmienić EnableRDMA = y
+4) Wyłączanie sieci w chmurze — init
+    ```console
+    echo network: {config: disabled} | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+    ```
+5) Edytuj plik konfiguracji sieciowej planu sieciowego wygenerowany przez funkcję Cloud-init, aby usunąć komputer MAC
+    ```console
+    sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
+    network:
+        ethernets:
+        eth0:
+            dhcp4: true
+        version: 2
+    EOF
+    ```
 
 ## <a name="dram-on-hb-series"></a>Pamięci DRAM w serii HB
 
@@ -30,7 +58,7 @@ Maszyny wirtualne z serii HB mogą teraz uwidocznić 228 GB pamięci RAM na masz
 
 ## <a name="accelerated-networking"></a>Accelerated Networking
 
-Usługa Azure przyspieszone sieci nie jest obecnie włączona, ale będzie postępować w okresie zapoznawczym. Klienci będą powiadamiani o tym, gdy ta funkcja jest obsługiwana.
+W tej chwili nie włączono usługi Azure przyspieszonej sieci na platformie HPC z włączonymi PROCESORAmi i maszynami wirtualnymi. Klienci będą powiadamiani o tym, gdy ta funkcja jest obsługiwana.
 
 ## <a name="qp0-access-restriction"></a>qp0 ograniczenia dostępu
 
@@ -48,7 +76,7 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 W systemach HPC często warto oczyścić pamięć po zakończeniu zadania przed przypisaniem kolejnego użytkownika do tego samego węzła. Po uruchomieniu aplikacji w systemie Linux może się okazać, że dostępna pamięć zmniejszy się, gdy pamięć buforu rośnie, mimo że nie są uruchomione żadne aplikacje.
 
-![Zrzut ekranu przedstawiający wiersz polecenia](./media/known-issues/cache-cleaning-1.png)
+![Zrzut ekranu przedstawiający wiersz polecenia przed czyszczeniem](./media/known-issues/cache-cleaning-1.png)
 
 Przy użyciu programu `numactl -H` zostaną wyświetlone, które NUMAnode pamięci są buforowane (ewentualnie wszystkie). W systemie Linux użytkownicy mogą czyścić pamięć podręczną w trzech sposobach, aby przywrócić pamięć buforowaną lub buforowaną w pamięci podręcznej. Musisz być elementem głównym lub mieć uprawnienia sudo.
 
@@ -58,11 +86,11 @@ echo 2 > /proc/sys/vm/drop_caches [frees slab objects e.g. dentries, inodes]
 echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
-![Zrzut ekranu przedstawiający wiersz polecenia](./media/known-issues/cache-cleaning-2.png)
+![Zrzut ekranu przedstawiający wiersz polecenia po czyszczeniu](./media/known-issues/cache-cleaning-2.png)
 
 ## <a name="kernel-warnings"></a>Ostrzeżenia jądra
 
-Podczas uruchamiania maszyny wirtualnej z serii HB w systemie Linux mogą pojawić się następujące komunikaty ostrzegawcze jądra.
+Podczas uruchamiania maszyny wirtualnej z serii HB w systemie Linux można zignorować następujące komunikaty ostrzegawcze jądra. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, które będzie dotyczyło w miarę upływu czasu.
 
 ```console
 [  0.004000] WARNING: CPU: 4 PID: 0 at arch/x86/kernel/smpboot.c:376 topology_sane.isra.3+0x80/0x90
@@ -82,17 +110,9 @@ Podczas uruchamiania maszyny wirtualnej z serii HB w systemie Linux mogą pojawi
 [  0.004000] ---[ end trace 73fc0e0825d4ca1f ]---
 ```
 
-Można zignorować to ostrzeżenie. Jest to spowodowane znanym ograniczeniem funkcji hypervisor platformy Azure, które będzie dotyczyło w miarę upływu czasu.
-
-
-## <a name="infiniband-driver-installation-on-infiniband-enabled-n-series-vm-sizes"></a>Instalacja sterownika InfiniBand na maszynach wirtualnych z serii N z obsługą InfiniBand
-
-NC24r_v3 i ND40r_v2 są włączone SR-IOV, gdy NC24r i NC24r_v2 nie obsługują funkcji SR-IOV. Niektóre szczegóły [dotyczące bifurcation.](../../sizes-hpc.md#rdma-capable-instances)
-InfiniBand (IB) można skonfigurować na rozmiarach maszyn wirtualnych z włączoną funkcją SR-IOV przy użyciu sterowników OFED, natomiast rozmiary maszyn wirtualnych bez wirtualizacji SR-IOV wymagają sterowników ND. Ta pomoc techniczna jest dostępna odpowiednio w [CentOS-HPC VMIs](configure.md). W przypadku usługi Ubuntu zapoznaj się z [instrukcjami](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) dotyczącymi instalowania zarówno sterowników OFED, jak i ND, [zgodnie z opisem w dokumentacji.](enable-infiniband.md#vm-images-with-infiniband-drivers)
-
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Zapoznaj się z [omówieniem HB-Series](hb-series-overview.md) i [omówieniem z serii HC](hc-series-overview.md) , aby dowiedzieć się więcej o optymalnym konfigurowaniu obciążeń dotyczących wydajności i skalowalności.
 - Przeczytaj o najnowszych anonsach i niektórych przykładach HPC oraz wyniki na [blogach społecznościowych usługi Azure COMPUTE](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Aby zapoznać się z widokiem architektury w przypadku uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).
+- Aby zapoznać się z ogólnym widokiem architektury uruchamiania obciążeń HPC, zobacz [wysoka wydajność obliczeń (HPC) na platformie Azure](/azure/architecture/topics/high-performance-computing/).

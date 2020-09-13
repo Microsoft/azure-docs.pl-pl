@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291801"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667491"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -143,7 +143,7 @@ Szczegóły wartości właściwości:
 - **azPowerShellVersion** / **azCliVersion**: Określ wersję modułu, która ma zostać użyta. Aby zapoznać się z listą obsługiwanych wersji programu PowerShell i interfejsu wiersza polecenia, zobacz [wymagania wstępne](#prerequisites).
 - **argumenty**: Określ wartości parametrów. Wartości są rozdzielone spacjami.
 
-    Skrypty wdrażania dzielą argumenty na tablicę ciągów przez wywoływanie wywołania systemowego [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Jest to konieczne, ponieważ argumenty są przekazane jako [Właściwość polecenia](/rest/api/container-instances/containergroups/createorupdate#containerexec) do wystąpienia kontenera platformy Azure, a właściwość polecenia jest tablicą ciągów.
+    Skrypty wdrażania dzielą argumenty na tablicę ciągów przez wywoływanie wywołania systemowego [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Jest to konieczne, ponieważ argumenty są przekazane jako [Właściwość polecenia](/rest/api/container-instances/containergroups/createorupdate#containerexec) do wystąpienia kontenera platformy Azure, a właściwość polecenia jest tablicą ciągów.
 
     Jeśli argumenty zawierają znaki ucieczki, użyj [JsonEscaper](https://www.jsonescaper.com/) do podwójnego ucieczki znaków. Wklej oryginalny ciąg ucieczki do narzędzia, a następnie wybierz pozycję **ucieczki**.  Narzędzie wyprowadza podwójnie zmieniony ciąg. Na przykład w poprzednim przykładowym szablonie argument ma wartość **-name \\ "Jan dole \\ "**.  Ciąg ucieczki to **-name \\ \\ \\ "Jan dole \\ \\ \\ "**.
 
@@ -181,7 +181,7 @@ Następujący szablon ma zdefiniowany jeden zasób z `Microsoft.Resources/deploy
 > [!NOTE]
 > Ponieważ wbudowane skrypty wdrażania są ujęte w podwójne cudzysłowy, ciągi wewnątrz skryptów wdrażania muszą być wyprowadzane przy użyciu **&#92;** lub ujęte w apostrofy. Można również rozważyć użycie podstawienia ciągów, tak jak pokazano w poprzednim przykładzie JSON.
 
-Skrypt przyjmuje jeden parametr i wyprowadza wartość parametru. **DeploymentScriptOutputs** jest używany do przechowywania danych wyjściowych.  W sekcji dane wyjściowe wiersz **wartości** pokazuje, jak uzyskać dostęp do przechowywanych wartości. `Write-Output`jest używany do celów debugowania. Aby dowiedzieć się, jak uzyskać dostęp do pliku wyjściowego, zobacz [monitorowanie i rozwiązywanie problemów ze skryptami wdrażania](#monitor-and-troubleshoot-deployment-scripts).  Aby zapoznać się z opisami właściwości, zobacz [przykładowe szablony](#sample-templates).
+Skrypt przyjmuje jeden parametr i wyprowadza wartość parametru. **DeploymentScriptOutputs** jest używany do przechowywania danych wyjściowych.  W sekcji dane wyjściowe wiersz **wartości** pokazuje, jak uzyskać dostęp do przechowywanych wartości. `Write-Output` jest używany do celów debugowania. Aby dowiedzieć się, jak uzyskać dostęp do pliku wyjściowego, zobacz [monitorowanie i rozwiązywanie problemów ze skryptami wdrażania](#monitor-and-troubleshoot-deployment-scripts).  Aby zapoznać się z opisami właściwości, zobacz [przykładowe szablony](#sample-templates).
 
 Aby uruchomić skrypt, wybierz opcję **Wypróbuj** , aby otworzyć Cloud Shell, a następnie wklej poniższy kod do okienka powłoki.
 
@@ -217,7 +217,7 @@ Użytkownik jest odpowiedzialny za zapewnienie integralności skryptów, do któ
 
 ## <a name="use-supporting-scripts"></a>Używanie skryptów pomocniczych
 
-Skomplikowane logiki można rozdzielić na jeden lub więcej plików skryptów pomocniczych. `supportingScriptURI`Właściwość pozwala udostępnić tablicę identyfikatorów URI w plikach skryptów pomocniczych w razie potrzeby:
+Skomplikowane logiki można rozdzielić na jeden lub więcej plików skryptów pomocniczych. `supportingScriptUris`Właściwość pozwala udostępnić tablicę identyfikatorów URI w plikach skryptów pomocniczych w razie potrzeby:
 
 ```json
 "scriptContent": "
@@ -263,7 +263,7 @@ Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i ro
 
 - Obsługiwane rodzaje kont magazynu:
 
-    | Jednostka SKU             | Obsługiwany rodzaj     |
+    | SKU             | Obsługiwany rodzaj     |
     |-----------------|--------------------|
     | Premium_LRS     | FileStorage        |
     | Premium_ZRS     | FileStorage        |

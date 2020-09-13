@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257840"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669032"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Zarządzanie certyfikatami na urządzeniu IoT Edge
 
@@ -49,7 +49,7 @@ Aby utworzyć następujące pliki, należy użyć własnego urzędu certyfikacji
 Ten artykuł zawiera informacje o tym, jako że *główny urząd certyfikacji* nie jest najwyższym urzędem certyfikatu dla organizacji. Jest to najwyższy urząd certyfikacji dla scenariusza IoT Edge, do którego moduł IoT Edge Hub, moduły użytkownika i wszystkie urządzenia podrzędne używają do ustanawiania relacji zaufania między sobą.
 
 > [!NOTE]
-> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2038.
 
 Aby zapoznać się z przykładem tych certyfikatów, przejrzyj skrypty, które tworzą certyfikaty demonstracyjne w [zarządzaniu testowymi certyfikatami urzędu certyfikacji dla przykładów i samouczków](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -59,9 +59,9 @@ Zainstaluj łańcuch certyfikatów na urządzeniu IoT Edge i skonfiguruj środow
 
 Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-test-certificates.md)użyto przykładowych skryptów, Skopiuj następujące pliki na urządzenie usługi IoT Edge:
 
-* Certyfikat urzędu certyfikacji urządzenia:`<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-* Klucz prywatny urzędu certyfikacji urządzenia:`<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-* Główny urząd certyfikacji:`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+* Certyfikat urzędu certyfikacji urządzenia: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
+* Klucz prywatny urzędu certyfikacji urządzenia: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
+* Główny urząd certyfikacji: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 1. Skopiuj trzy pliki certyfikatów i kluczy na urządzenie IoT Edge.
 
@@ -69,8 +69,8 @@ Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-
 
 1. Otwórz plik konfiguracji demona Security IoT Edge.
 
-   * Systemy`C:\ProgramData\iotedge\config.yaml`
-   * System`/etc/iotedge/config.yaml`
+   * Systemy `C:\ProgramData\iotedge\config.yaml`
+   * System `/etc/iotedge/config.yaml`
 
 1. Ustaw właściwości **certyfikatu** w pliku config. YAML na ścieżkę identyfikatora URI, aby uzyskać certyfikat i pliki kluczy na urządzeniu IoT Edge. Usuń `#` znak przed właściwościami certyfikatu, aby usunąć komentarz z czterech wierszy. Upewnij się, że w wierszu **Certyfikaty:** nie ma powyższego odstępu, a elementy zagnieżdżone są wcięte o dwie spacje. Na przykład:
 
@@ -96,9 +96,9 @@ Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-
 
 1. Jeśli przed uruchomieniem lub ponownym IoT Edge uruchomieniem usługi IoT Edge na urządzeniu zostały wcześniej użyte inne certyfikaty, usuń je z następujących dwóch katalogów:
 
-   * Windows: `C:\ProgramData\iotedge\hsm\certs` i`C:\ProgramData\iotedge\hsm\cert_keys`
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` i `C:\ProgramData\iotedge\hsm\cert_keys`
 
-   * Linux: `/var/lib/iotedge/hsm/certs` i`/var/lib/iotedge/hsm/cert_keys`
+   * Linux: `/var/lib/iotedge/hsm/certs` i `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="customize-certificate-lifetime"></a>Dostosuj okres istnienia certyfikatu
 
@@ -114,7 +114,9 @@ Dla tych dwóch automatycznie generowanych certyfikatów istnieje możliwość u
 >[!NOTE]
 >Istnieje trzeci certyfikat wygenerowany automatycznie, który zostanie utworzony przez program IoT Edge Security Manager, **certyfikat serwera centrum IoT Edge**. Ten certyfikat zawsze ma 90 dzień okresu istnienia, ale jest automatycznie odnawiany przed wygaśnięciem. Wartość **auto_generated_ca_lifetime_days** nie ma wpływu na ten certyfikat.
 
-Aby skonfigurować wygaśnięcie certyfikatu do wartości innej niż domyślna 90 dni, Dodaj wartość w dniach do sekcji **Certyfikaty** w pliku config. YAML.
+Aby skonfigurować wygaśnięcie certyfikatu do wartości innej niż domyślna 90 dni, Dodaj wartość w dniach do sekcji **Certyfikaty** w pliku **config. YAML** .
+
+Po upływie określonej liczby dni należy ponownie uruchomić demona zabezpieczeń IoT Edge, aby ponownie wygenerować certyfikat urzędu certyfikacji urządzenia, nie zostanie on automatycznie odnowiony.
 
 ```yaml
 certificates:
@@ -125,15 +127,13 @@ certificates:
 ```
 
 > [!NOTE]
-> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2038.
 
-Jeśli podano własne certyfikaty urzędu certyfikacji, ta wartość nadal ma zastosowanie do certyfikatu urzędu certyfikacji, pod warunkiem, że ustawiona wartość okresu istnienia jest krótsza niż okres istnienia certyfikatu urzędu certyfikacji.
-
-Po określeniu flagi w pliku config. YAML wykonaj następujące czynności:
+Po określeniu wartości w pliku config. YAML wykonaj następujące czynności:
 
 1. Usuń zawartość `hsm` folderu.
 
-   System Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
+   System Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux: `/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 
 1. Uruchom ponownie usługę IoT Edge.
 

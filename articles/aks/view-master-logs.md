@@ -4,12 +4,12 @@ description: Informacje na temat włączania i wyświetlania dzienników dla wę
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048282"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004871"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Włączanie i wyświetlanie dzienników węzła master platformy Kubernetes w usłudze Azure Kubernetes Service
 
@@ -69,42 +69,43 @@ pod/nginx created
 
 Włączenie i wyświetlenie dzienników diagnostycznych może potrwać kilka minut. W Azure Portal przejdź do klastra AKS, a następnie wybierz pozycję **dzienniki** po lewej stronie. Zamknij okno *przykładowe zapytania* , jeśli pojawia się.
 
-
 Po lewej stronie wybierz pozycję **dzienniki**. Aby wyświetlić dzienniki *inspekcji polecenia* , w polu tekstowym wprowadź następujące zapytanie:
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
 ```
 
 Jest możliwe zwrócenie wielu dzienników. Aby przekroczyć zakres zapytania, aby wyświetlić dzienniki dotyczące NGINX powyżej utworzonego w poprzednim kroku, Dodaj dodatkową instrukcję *WHERE* , aby wyszukać *Nginx* , jak pokazano w poniższym przykładowym zapytaniu:
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| where log_s contains "nginx"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
+| where Name contains "nginx"
 ```
-
-Aby wyświetlić dodatkowe dzienniki, można zaktualizować zapytanie dla nazwy *kategorii* do *polecenia-Controller-Manager* lub *polecenia-Scheduler*, w zależności od tego, jakie dodatkowe dzienniki są włączane. Dodatkowe instrukcje *WHERE* mogą być następnie używane do uściślenia szukanych zdarzeń.
 
 Aby uzyskać więcej informacji na temat wykonywania zapytań i filtrowania danych dziennika, zobacz [Wyświetlanie lub analizowanie danych zbieranych za pomocą wyszukiwania dzienników usługi log Analytics][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Schemat zdarzeń dziennika
 
-Aby ułatwić analizowanie danych dziennika, w poniższej tabeli przedstawiono schemat używany dla każdego zdarzenia:
+AKS rejestruje następujące zdarzenia:
 
-| Nazwa pola               | Opis |
-|--------------------------|-------------|
-| *Identyfikator*             | Zasób platformy Azure, który wygenerował dziennik |
-| *pierwszym*                   | Sygnatura czasowa przekazywania dziennika |
-| *kategorii*               | Nazwa kontenera/składnika generującego dziennik |
-| *operationName*          | Zawsze *Microsoft. ContainerService/managedClusters/diagnosticLogs/Read* |
-| *Właściwości. log*         | Pełny tekst dziennika ze składnika |
-| *Właściwości. Stream*      | *stderr* lub *stdout* |
-| *Właściwości. pod*         | Pod nazwą, z której pochodzi dziennik |
-| *Properties. containerID* | Identyfikator kontenera platformy Docker, z którego pochodzi ten dziennik |
+* [AzureActivity][log-schema-azureactivity]
+* [AzureMetrics][log-schema-azuremetrics]
+* [ContainerImageInventory][log-schema-containerimageinventory]
+* [ContainerInventory][log-schema-containerinventory]
+* [ContainerLog][log-schema-containerlog]
+* [ContainerNodeInventory][log-schema-containernodeinventory]
+* [ContainerServiceLog][log-schema-containerservicelog]
+* [Puls][log-schema-heartbeat]
+* [InsightsMetrics][log-schema-insightsmetrics]
+* [KubeEvents][log-schema-kubeevents]
+* [KubeHealth][log-schema-kubehealth]
+* [KubeMonAgentEvents][log-schema-kubemonagentevents]
+* [KubeNodeInventory][log-schema-kubenodeinventory]
+* [KubePodInventory][log-schema-kubepodinventory]
+* [KubeServices][log-schema-kubeservices]
+* [Wydajność][log-schema-perf]
 
 ## <a name="log-roles"></a>Role dziennika
 
@@ -131,3 +132,19 @@ W tym artykule przedstawiono sposób włączania i przeglądania dzienników dla
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
+[log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
+[log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory
+[log-schema-containerlog]: /azure/azure-monitor/reference/tables/containerlog
+[log-schema-containernodeinventory]: /azure/azure-monitor/reference/tables/containernodeinventory
+[log-schema-containerservicelog]: /azure/azure-monitor/reference/tables/containerservicelog
+[log-schema-heartbeat]: /azure/azure-monitor/reference/tables/heartbeat
+[log-schema-insightsmetrics]: /azure/azure-monitor/reference/tables/insightsmetrics
+[log-schema-kubeevents]: /azure/azure-monitor/reference/tables/kubeevents
+[log-schema-kubehealth]: /azure/azure-monitor/reference/tables/kubehealth
+[log-schema-kubemonagentevents]: /azure/azure-monitor/reference/tables/kubemonagentevents
+[log-schema-kubenodeinventory]: /azure/azure-monitor/reference/tables/kubenodeinventory
+[log-schema-kubepodinventory]: /azure/azure-monitor/reference/tables/kubepodinventory
+[log-schema-kubeservices]: /azure/azure-monitor/reference/tables/kubeservices
+[log-schema-perf]: /azure/azure-monitor/reference/tables/perf

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908919"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668967"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Właściwości Azure Active Directory użytkownika współpracy B2B
 
@@ -71,7 +71,7 @@ Ta właściwość wskazuje relację użytkownika z dzierżawcą hosta. Ta właś
   > [!NOTE]
   > Użytkownik nie ma żadnego powiązania z logowaniem użytkownika, rolą katalogu użytkownika i tak dalej. Ta właściwość po prostu wskazuje relację użytkownika z organizacją hosta i umożliwia organizacji wymuszanie zasad, które są zależne od tej właściwości.
 
-### <a name="source"></a>Źródło
+### <a name="source"></a>Element źródłowy
 Ta właściwość wskazuje, w jaki sposób użytkownik loguje się.
 
 - Zaproszony użytkownik: ten użytkownik został zaproszony, ale jeszcze nie zakończył zaproszenia.
@@ -108,7 +108,7 @@ Tak. Domyślnie obiekty gościa nie są widoczne na globalnej liście adresowej 
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Czy mogę zaktualizować adres e-mail użytkownika-gościa?
 
-Jeśli użytkownik-Gość zaakceptuje Twoje zaproszenie i zmieni swój adres e-mail, nowy adres e-mail nie zostanie automatycznie zsynchronizowany z obiektem użytkownika-gościa w katalogu. Właściwość mail jest tworzona za pośrednictwem [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Możesz zaktualizować Właściwość poczty za pośrednictwem Centrum administracyjnego programu Exchange lub programu [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps), a zmiana zostanie odzwierciedlona w obiekcie użytkownika gościa usługi Azure AD.
+Jeśli użytkownik-Gość zaakceptuje Twoje zaproszenie i zmieni swój adres e-mail, nowy adres e-mail nie zostanie automatycznie zsynchronizowany z obiektem użytkownika-gościa w katalogu. Właściwość mail jest tworzona za pośrednictwem [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Możesz zaktualizować Właściwość poczty za pośrednictwem interfejsu API Microsoft Graph, centrum administracyjnego programu Exchange lub programu [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). Zmiana zostanie odzwierciedlona w obiekcie użytkownika gościa usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

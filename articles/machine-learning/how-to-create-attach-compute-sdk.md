@@ -1,5 +1,5 @@
 ---
-title: Tworzenie zasobów obliczeniowych za pomocą zestawu SDK języka Python
+title: Tworzenie szkoleń & wdrażanie obliczeń (Python)
 titleSuffix: Azure Machine Learning
 description: Użyj zestawu SDK języka Python Azure Machine Learning, aby utworzyć zasoby obliczeniowe szkolenia i wdrożenia (cele obliczeniowe) dla uczenia maszynowego
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147499"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662540"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Utwórz cele obliczeniowe dla szkolenia i wdrażania modelu w języku Python SDK
 
@@ -31,8 +31,12 @@ W tym artykule Użyj zestawu SDK języka Python Azure Machine Learning, aby utwo
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj
-* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Zestaw Azure Machine Learning SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Obszar roboczy Azure Machine Learning](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>Ograniczenia
+
+Niektóre scenariusze wymienione w tym dokumencie są oznaczone jako __wersja zapoznawcza__. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>Co to jest obiekt docelowy obliczeń?
 
@@ -55,16 +59,33 @@ Skorzystaj z poniższych sekcji, aby skonfigurować te elementy docelowe oblicze
 * [Zdalne maszyny wirtualne](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>Cele obliczeniowe do wnioskowania
+
+Podczas wykonywania wnioskowania Azure Machine Learning tworzy kontener platformy Docker, który będzie hostować model i skojarzone zasoby niezbędne do korzystania z niego. Ten kontener jest następnie używany w jednym z następujących scenariuszy wdrażania:
+
+* Jako __Usługa sieci Web__ , która jest używana do wnioskowania w czasie rzeczywistym. Wdrożenia usług sieci Web używają jednego z następujących elementów docelowych obliczeń:
+
+    * [Komputer lokalny](#local)
+    * [Wystąpienie obliczeniowe usługi Azure Machine Learning](#instance)
+    * [Azure Container Instances](#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (wersja zapoznawcza). Wdrożenie do Azure Functions opiera się tylko na Azure Machine Learning do skompilowania kontenera Docker. Z tego miejsca jest wdrażana za pomocą Azure Functions. Aby uzyskać więcej informacji, zobacz [Wdrażanie modelu uczenia maszynowego w Azure Functions (wersja zapoznawcza)](how-to-deploy-functions.md).
+
+* Jako punkt końcowy __wnioskowania partii__ , który jest używany do okresowego przetwarzania partii danych. Wnioskowanie wsadowe używa [Azure Machine Learning klastra obliczeniowego](#amlcompute).
+
+* Na __urządzeniu IoT__ (wersja zapoznawcza). Wdrożenie na urządzeniu IoT opiera się tylko na Azure Machine Learning do skompilowania kontenera Docker. Z tego miejsca jest wdrażana za pomocą Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [wdrażanie jako moduł IoT Edge (wersja zapoznawcza)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="local-computer"></a><a id="local"></a>Komputer lokalny
 
-W przypadku korzystania z komputera lokalnego do szkolenia nie ma potrzeby tworzenia obiektu docelowego obliczeń.  Po prostu [Prześlij przebieg szkolenia](how-to-set-up-training-targets.md) z komputera lokalnego.
+W przypadku korzystania z komputera lokalnego do **szkolenia**nie ma potrzeby tworzenia obiektu docelowego obliczeń.  Po prostu [Prześlij przebieg szkolenia](how-to-set-up-training-targets.md) z komputera lokalnego.
+
+W przypadku korzystania z komputera lokalnego do **wnioskowania**należy zainstalować platformę Docker. Aby przeprowadzić wdrożenie, użyj [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) w celu zdefiniowania portu, który będzie używany przez usługę sieci Web. Następnie użyj normalnego procesu wdrażania, zgodnie z opisem w artykule [Wdrażanie modeli za pomocą Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning klaster obliczeniowy
 
 Azure Machine Learning klaster obliczeniowy to infrastruktura obliczeniowa, która umożliwia łatwe tworzenie obliczeń jednego lub wielowęzłowego. Obliczenia są tworzone w regionie obszaru roboczego jako zasób, który może być współużytkowany z innymi użytkownikami w obszarze roboczym. Obliczenia są skalowane automatycznie podczas przesyłania zadania i mogą być umieszczane w Virtual Network platformy Azure. Obliczenia są wykonywane w środowisku kontenerowym i pakiety zależności modelu w [kontenerze platformy Docker](https://www.docker.com/why-docker).
 
-Za pomocą obliczeń Azure Machine Learning można dystrybuować proces uczenia w klastrze procesorów CPU lub węzłów obliczeniowych procesora GPU w chmurze. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, które obejmują procesory GPU, zobacz [rozmiary maszyny wirtualnej zoptymalizowanej według procesora GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Za pomocą usługi Azure Machine Learning COMPUTE można rozpowszechnić proces szkolenia lub przetwarzania wsadowego w klastrze węzłów obliczeniowych procesora CPU lub procesora GPU w chmurze. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, które obejmują procesory GPU, zobacz [rozmiary maszyny wirtualnej zoptymalizowanej według procesora GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Azure Machine Learning COMPUTE ma limity domyślne, takie jak liczba rdzeni, które można przydzielić. Aby uzyskać więcej informacji, zobacz [Zarządzanie przydziałami zasobów platformy Azure i ich żądania](how-to-manage-quotas.md).
 
@@ -87,7 +108,7 @@ Azure Machine Learning obliczeń można użyć ponownie w ramach przebiegów. Ob
 
     Można też utworzyć i dołączyć trwały zasób obliczeniowy Azure Machine Learning w programie [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#portal-create).
 
-Teraz, po dołączeniu obliczeń, następnym krokiem jest [przesłanie tego przebiegu szkoleniowego](how-to-set-up-training-targets.md).
+Teraz, po dołączeniu obliczeń, następnym krokiem jest [przesłanie szkolenia](how-to-set-up-training-targets.md) lub [uruchomienie wnioskowania wsadowego](how-to-use-parallel-run-step.md).
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Obniż koszt klastra obliczeniowego
 
@@ -201,8 +222,15 @@ Wystąpienia obliczeniowe mogą bezpiecznie uruchamiać zadania w [środowisku s
         instance.wait_for_completion(show_output=True)
     ```
 
-Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie przebiegu szkoleniowego](how-to-set-up-training-targets.md)
+Teraz, po dołączeniu i skonfigurowaniu przebiegu, następnym krokiem jest [przesłanie szkolenia](how-to-set-up-training-targets.md) lub [wdrożenie modelu do wnioskowania](how-to-deploy-local-container-notebook-vm.md).
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Wystąpienie kontenera platformy Azure
+
+Azure Container Instances (ACI) są tworzone dynamicznie podczas wdrażania modelu. Nie można utworzyć ani dołączyć ACI do obszaru roboczego w żaden inny sposób. Aby uzyskać więcej informacji, zobacz [Wdrażanie modelu do Azure Container Instances](how-to-deploy-azure-container-instance.md).
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+Usługa Azure Kubernetes Service (AKS) umożliwia korzystanie z różnych opcji konfiguracji w przypadku korzystania z Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [jak utworzyć i dołączyć usługę Azure Kubernetes](how-to-create-attach-kubernetes.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Zdalne maszyny wirtualne
 
@@ -437,7 +465,7 @@ except ComputeTargetException:
 Aby zapoznać się z bardziej szczegółowym przykładem, zobacz [przykładowy Notes](https://aka.ms/pl-adla) w witrynie GitHub.
 
 > [!TIP]
-> Potoki Azure Machine Learning mogą korzystać tylko z danych przechowywanych w domyślnym magazynie danych konta Data Lake Analytics. Jeśli dane, które mają być używane, należą do magazynu innego niż domyślny, można użyć programu [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) do skopiowania danych przed szkoleniem.
+> Potoki Azure Machine Learning mogą korzystać tylko z danych przechowywanych w domyślnym magazynie danych konta Data Lake Analytics. Jeśli dane, które mają być używane, należą do magazynu innego niż domyślny, można użyć programu [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) do skopiowania danych przed szkoleniem.
 
 ## <a name="notebook-examples"></a>Przykłady notesu
 

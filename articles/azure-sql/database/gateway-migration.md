@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507522"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004276"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,14 @@ Klienci będą powiadamiani za pośrednictwem poczty e-mail i w Azure Portal ró
 ## <a name="status-updates"></a>Aktualizacje stanu
 
 # <a name="in-progress"></a>[W toku](#tab/in-progress-ip)
+### <a name="october-2020"></a>Październik 2020
+
+Nowe bramy SQL są dodawane do następujących regionów:
+
+- Niemcy Środkowo-Zachodnie: 51.116.240.0, 51.116.248.0
+
+Te bramy SQL zaczynają akceptować ruch klienta w dniu 12 października 2020. 
+
 ### <a name="september-2020"></a>Wrzesień 2020
 Nowe bramy SQL są dodawane do następujących regionów. Te bramy SQL zaczynają akceptować ruch klienta na **15 września 2020**:
 

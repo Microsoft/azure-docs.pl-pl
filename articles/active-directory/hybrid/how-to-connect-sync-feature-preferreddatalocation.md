@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Skonfiguruj preferowaną lokalizację danych dla zasobów pakietu Office 365'
-description: Opisuje sposób umieszczenia zasobów użytkowników pakietu Office 365 blisko użytkownika z synchronizacją Azure Active Directory Connect.
+title: 'Azure AD Connect: Skonfiguruj preferowaną lokalizację danych dla zasobów Microsoft 365'
+description: Opisuje sposób umieszczania Microsoft 365 zasobów użytkowników blisko użytkownika z Azure Active Directory Connect synchronizacji.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,29 +16,29 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357413"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662513"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect Sync: Konfigurowanie preferowanej lokalizacji danych dla zasobów pakietu Office 365
-W tym temacie opisano sposób konfigurowania atrybutu dla preferowanej lokalizacji danych w programie Azure Active Directory (Azure AD) Connect Sync. Gdy ktoś korzysta z funkcji wieloznacznych w pakiecie Office 365, ten atrybut służy do określania lokalizacji geograficznej danych pakietu Office 365 użytkownika. ( *Region* terminów i *geograficznie* są używane zamiennie).
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect Sync: Konfigurowanie preferowanej lokalizacji danych dla zasobów Microsoft 365
+W tym temacie opisano sposób konfigurowania atrybutu dla preferowanej lokalizacji danych w programie Azure Active Directory (Azure AD) Connect Sync. Gdy ktoś korzysta z możliwości wieloznacznych w Microsoft 365, użyj tego atrybutu, aby określić lokalizację geograficzną Microsoft 365 danych użytkownika. ( *Region* terminów i *geograficznie* są używane zamiennie).
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Włącz synchronizację preferowanej lokalizacji danych
-Domyślnie zasoby pakietu Office 365 dla użytkowników znajdują się w tej samej lokalizacji geograficznej co dzierżawy usługi Azure AD. Na przykład jeśli dzierżawa znajduje się w Ameryka Północna, skrzynki pocztowe użytkowników programu Exchange są również zlokalizowane w Ameryka Północna. W przypadku organizacji wielonarodowej może to nie być optymalne.
+Domyślnie zasoby Microsoft 365 dla użytkowników znajdują się w tej samej lokalizacji geograficznej co dzierżawy usługi Azure AD. Na przykład jeśli dzierżawa znajduje się w Ameryka Północna, skrzynki pocztowe użytkowników programu Exchange są również zlokalizowane w Ameryka Północna. W przypadku organizacji wielonarodowej może to nie być optymalne.
 
-Ustawiając atrybut **preferredDataLocation**, można zdefiniować geograficzną użytkownika. Możesz mieć zasoby pakietu Office 365, takie jak Skrzynka pocztowa i usługa OneDrive, w tym samym georegionie, w którym znajduje się użytkownik, i nadal mieć jedną dzierżawę dla całej organizacji.
+Ustawiając atrybut **preferredDataLocation**, można zdefiniować geograficzną użytkownika. Użytkownik może Microsoft 365 zasoby, takie jak Skrzynka pocztowa i usługa OneDrive, w tym samym georegionie, w którym znajduje się użytkownik, i nadal mieć jedną dzierżawę dla całej organizacji.
 
 > [!IMPORTANT]
-> Wiele lokalizacji geograficznych jest obecnie dostępnych dla klientów z aktywną Umowa Enterprise i co najmniej 500 subskrypcji usług Office 365. Skontaktuj się z przedstawicielem firmy Microsoft, aby uzyskać szczegółowe informacje.
+> Wiele lokalizacji geograficznych jest obecnie dostępnych dla klientów z aktywną Umowa Enterprise i co najmniej 250 subskrypcji usług Microsoft 365 Services. Skontaktuj się z przedstawicielem firmy Microsoft, aby uzyskać szczegółowe informacje.
 >
 >
 
-Listę wszystkich Georegiony dla pakietu Office 365 można znaleźć w temacie [gdzie znajdują się Twoje dane?](https://aka.ms/datamaps).
+Listę wszystkich Georegiony dla Microsoft 365 można znaleźć w lokalizacji, w [której znajdują się Twoje dane?](https://aka.ms/datamaps).
 
-Georegiony w pakiecie Office 365 dostępne dla wielogeograficzne:
+Georegiony Microsoft 365 dostępne dla wielościeżkowego:
 
 | Obszar geograficzny | preferredDataLocation wartość |
 | --- | --- |
@@ -58,7 +58,7 @@ Georegiony w pakiecie Office 365 dostępne dla wielogeograficzne:
 
 * Jeśli lokalizacja geograficzna nie jest wymieniona w tej tabeli (na przykład Ameryka Południowa), nie można jej używać w przypadku używania wiele lokalizacji geograficznych.
 
-* Nie wszystkie obciążenia pakietu Office 365 obsługują użycie ustawienia geograficznego użytkownika.
+* Nie wszystkie obciążenia Microsoft 365 obsługują użycie ustawienia geograficznego użytkownika.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Obsługa Azure AD Connect synchronizacji
 
@@ -67,7 +67,7 @@ Azure AD Connect obsługuje synchronizację atrybutu **preferredDataLocation** d
 * Schemat typu obiektu **użytkownika** w łączniku usługi Azure AD został rozszerzony w celu uwzględnienia atrybutu **preferredDataLocation** . Ten atrybut jest typu String o pojedynczej wartości.
 * Schemat **typu obiektu** w obiekcie Metaverse został rozszerzony tak, aby obejmował atrybut **preferredDataLocation** . Ten atrybut jest typu String o pojedynczej wartości.
 
-Domyślnie **preferredDataLocation** nie jest włączona na potrzeby synchronizacji. Ta funkcja jest przeznaczona dla dużych organizacji. Schemat Active Directory w systemie Windows Server 2019 ma atrybut **msDS-preferredDataLocation** , którego należy użyć w tym celu. Jeśli schemat Active Directory nie został zaktualizowany i nie można tego zrobić, należy zidentyfikować atrybut do przechowywania geograficznego pakietu Office 365 dla użytkowników. Jest to różne dla każdej organizacji.
+Domyślnie **preferredDataLocation** nie jest włączona na potrzeby synchronizacji. Ta funkcja jest przeznaczona dla dużych organizacji. Schemat Active Directory w systemie Windows Server 2019 ma atrybut **msDS-preferredDataLocation** , którego należy użyć w tym celu. Jeśli schemat Active Directory nie został zaktualizowany i nie można tego zrobić, należy zidentyfikować atrybut do przechowywania Microsoft 365 geograficznych dla użytkowników. Jest to różne dla każdej organizacji.
 
 > [!IMPORTANT]
 > Usługa Azure AD zezwala na bezpośrednią konfigurację atrybutu **preferredDataLocation** w **obiektach użytkowników w chmurze** przy użyciu programu Azure AD PowerShell. Aby skonfigurować ten atrybut dla **synchronizowanych obiektów użytkownika**, należy użyć Azure AD Connect.
@@ -146,7 +146,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
     | Opis | *Podaj niestandardowy opis* |  |
     | Połączony system | *Wybieranie łącznika Active Directory lokalnego* |  |
     | Typ połączonego obiektu systemu | **Użytkownik** |  |
-    | Typ obiektu metaverse | **Person (Osoba)** |  |
+    | Typ obiektu metaverse | **Osoba** |  |
     | Typ łącza | **Dołącz** |  |
     | Pierwszeństwo | *Wybierz liczbę z zakresu od 1 do 99* | 1 – 99 jest zarezerwowany dla reguł synchronizacji niestandardowej. Nie wybieraj wartości, która jest używana przez inną regułę synchronizacji. |
 
@@ -175,7 +175,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
     | Opis | *Podaj opis* ||
     | Połączony system | *Wybieranie łącznika usługi Azure AD* ||
     | Typ połączonego obiektu systemu | **Użytkownik** ||
-    | Typ obiektu metaverse | **Person (Osoba)** ||
+    | Typ obiektu metaverse | **Osoba** ||
     | Typ łącza | **Dołącz** ||
     | Pierwszeństwo | *Wybierz liczbę z zakresu od 1 do 99* | 1 – 99 jest zarezerwowany dla reguł synchronizacji niestandardowej. Nie wybieraj wartości, która jest używana przez inną regułę synchronizacji. |
 
@@ -250,7 +250,7 @@ Ogólnie rzecz biorąc, wymagany jest pełny cykl synchronizacji. Wynika to z fa
 Włącz ponownie wbudowany harmonogram synchronizacji:
 
 1. Rozpocznij sesję programu PowerShell.
-2. Ponownie włącz zaplanowaną synchronizację, uruchamiając to polecenie cmdlet:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Ponownie włącz zaplanowaną synchronizację, uruchamiając to polecenie cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 ## <a name="step-9-verify-the-result"></a>Krok 9. Sprawdzenie wyniku
 Teraz można sprawdzić konfigurację i włączyć ją dla użytkowników.
@@ -264,7 +264,7 @@ Przy założeniu, że dzierżawca został oznaczony do korzystania z tej funkcji
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o wielu lokalizacjach w pakiecie Office 365:
+Dowiedz się więcej o wielu lokalizacjach geograficznych w Microsoft 365:
 
 * [Sesje wielogeograficzne podczas zapłonu](https://aka.ms/MultiGeoIgnite)
 * [Wiele lokalizacji geograficznych w usłudze OneDrive](https://aka.ms/OneDriveMultiGeo)

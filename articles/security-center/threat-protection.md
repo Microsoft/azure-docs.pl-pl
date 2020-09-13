@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e2f72cc0ea6851caaf5d0db2f17f8e16473d420e
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272505"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667553"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Ochrona przed zagrożeniami w usłudze Azure Security Center
 
@@ -25,7 +25,7 @@ Ochrona przed zagrożeniami w Azure Security Center zapewnia kompleksową ochron
 
 * **Ochrona przed zagrożeniami dla zasobów obliczeniowych platformy Azure**: maszyny z systemem Windows, komputery z systemem Linux, Azure App Service i kontenery platformy Azure
 
-* **Ochrona przed zagrożeniami dla zasobów danych platformy Azure**: SQL Database i SQL Data Warehouse, Azure Storage i Azure Cosmos DB
+* **Ochrona przed zagrożeniami dla zasobów danych platformy Azure**: SQL Database i Azure Synapse Analytics (dawniej SQL Data Warehouse), Azure Storage i Azure Cosmos DB
 
 * **Ochrona przed zagrożeniami dla warstw usług platformy Azure**: warstwa sieci platformy Azure, warstwa zarządzania azure (Azure Resource Manager) (wersja zapoznawcza) i Azure Key Vault (wersja zapoznawcza)
 
@@ -119,7 +119,7 @@ Aby uzyskać więcej informacji na temat planów App Service, zobacz [plany App 
 |Stan wydania:|Ogólnie dostępna|
 |Wpisaną|Warstwa Standardowa|
 |Wymagane role i uprawnienia:|**Administrator zabezpieczeń** może odrzucić alerty.<br>**Czytelnik zabezpieczeń** może przeglądać wyniki.|
-|Połączeń|![Yes](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Nie](./media/icons/no-icon.png) National/suwerenne (US Gov, Chiny gov, inne gov)|
 |||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
@@ -131,19 +131,19 @@ Aby uzyskać więcej informacji na temat planów App Service, zobacz [plany App 
 
 
 
-## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>Ochrona przed zagrożeniami dla SQL Database i SQL Data Warehouse <a name="data-sql"></a>
+## <a name="threat-protection-for-sql-database-and-azure-synapse-analytics-formerly-sql-data-warehouse"></a>Ochrona przed zagrożeniami dla SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) <a name="data-sql"></a>
 
 Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database wykrywa anomalie działania wskazujące nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do baz danych lub ich wykorzystania.
 
 Zobaczysz alerty w przypadku podejrzanych działań bazy danych, potencjalnych luk w zabezpieczeniach lub ataków wstrzykiwania kodu SQL oraz nietypowego dostępu do bazy danych i wzorców zapytań.
 
-Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database i SQL jest częścią ujednoliconego pakietu [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) w celu uzyskania zaawansowanych możliwości zabezpieczeń SQL, obejmujących Azure SQL Database, wystąpienia zarządzane usługi Azure SQL, bazy danych Azure SQL Data Warehouse i serwery SQL na platformie Azure Virtual Machines.
+Zaawansowana ochrona przed zagrożeniami dla Azure SQL Database i SQL jest częścią ujednoliconego pakietu [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) w celu uzyskania zaawansowanych możliwości zabezpieczeń SQL, obejmujących Azure SQL Database, wystąpienia zarządzane usługi Azure SQL, bazy danych usługi Azure Synapse Analytics (dawniej SQL Data Warehouse) i serwery SQL na platformie Azure Virtual Machines.
 
 Aby uzyskać więcej informacji, zobacz:
 
 * [Jak włączyć zaawansowaną ochronę przed zagrożeniami dla Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [Jak włączyć zaawansowaną ochronę przed zagrożeniami dla serwerów SQL na platformie Azure Virtual Machines](security-center-iaas-advanced-data.md)
-* [Lista alertów dotyczących ochrony przed zagrożeniami dla SQL Database i SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+* [Lista alertów dotyczących ochrony przed zagrożeniami dla SQL Database i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 
 
@@ -155,7 +155,7 @@ Aby uzyskać więcej informacji, zobacz:
 |----|:----|
 |Stan wydania:|[BLOB Storage](https://azure.microsoft.com/services/storage/blobs/) (ogólna dostępność)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (wersja zapoznawcza)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (wersja zapoznawcza)|
 |Wpisaną|Warstwa Standardowa|
-|Połączeń|![Yes](./media/icons/yes-icon.png) Chmury komercyjne<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
+|Połączeń|![Tak](./media/icons/yes-icon.png) Chmury komercyjne<br>![Tak](./media/icons/yes-icon.png) US Gov<br>![Nie](./media/icons/no-icon.png) Chiny gov, inne gov|
 |||
 
 
@@ -164,8 +164,6 @@ Aby uzyskać więcej informacji, zobacz:
 Ochrona przed zagrożeniami dla usługi Azure Storage wykrywa potencjalnie szkodliwe działanie na kontach usługi Azure Storage. Dane można chronić, niezależnie od tego, czy są przechowywane jako kontenery obiektów blob, udziały plików czy jeziora danych.
 
 Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń *bez* konieczności posiadania eksperta zabezpieczeń oraz zarządzania systemami monitorowania zabezpieczeń.
-
-Twoje konta magazynu są chronione 
 
 ### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Jakiego rodzaju alerty zapewnia ochrona przed zagrożeniami dla usługi Azure Storage?
 
@@ -204,7 +202,7 @@ Aby uzyskać więcej informacji, zobacz:
 
 
 
-## <a name="threat-protection-for-azure-cosmos-db"></a>Ochrona przed zagrożeniami dla Azure Cosmos DB <a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Ochrona przed zagrożeniami dla Azure Cosmos DB (wersja zapoznawcza) <a name="cosmos-db"></a>
 
 Alerty Azure Cosmos DB są generowane przez nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont Azure Cosmos DB lub ich wykorzystania.
 

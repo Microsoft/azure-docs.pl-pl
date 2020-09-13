@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606516"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669230"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Przygotuj maszynę źródłową do instalacji wypychanej agenta mobilności
 
@@ -25,8 +25,12 @@ Na każdej maszynie z systemem Windows, która ma być chroniona, wykonaj nastę
 1. Utwórz konto, za pomocą którego serwer przetwarzania będzie mógł uzyskać dostęp do komputera. Konto powinno mieć uprawnienia administratora, lokalne lub domeny. Użyj tego konta tylko w przypadku instalacji wypychanej i aktualizacji agenta.
 2. Jeśli nie korzystasz z konta domeny, wyłącz kontrolę dostępu użytkowników zdalnych na komputerze lokalnym w następujący sposób:
     - W obszarze HKEY_LOCAL_MACHINE klucz rejestru \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System Dodaj nową wartość DWORD: **LocalAccountTokenFilterPolicy**. Ustaw wartość na **1**.
-    -  Aby to zrobić, w wierszu polecenia Uruchom następujące polecenie:  
-   "REG ADD HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System/v LocalAccountTokenFilterPolicy/t REG_DWORD/d
+    -  Aby to zrobić, w wierszu polecenia Uruchom następujące polecenie:
+    
+       ```
+       REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+       ```
+
 3. W zaporze systemu Windows na komputerze, który chcesz chronić, wybierz opcję **Zezwalaj aplikacji lub funkcji przez zaporę**. Włącz **udostępnianie plików i drukarek** oraz **Instrumentacja zarządzania Windows (WMI)**. W przypadku komputerów należących do domeny możesz skonfigurować ustawienia zapory przy użyciu obiektu zasady grupy (GPO).
 
    ![Ustawienia zapory](./media/vmware-azure-install-mobility-service/mobility1.png)

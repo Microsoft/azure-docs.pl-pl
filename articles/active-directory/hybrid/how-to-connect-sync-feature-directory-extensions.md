@@ -16,18 +16,18 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019765"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662496"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Synchronize: rozszerzenia katalogów
-Możesz użyć rozszerzeń katalogów, aby rozszerzać schemat w Azure Active Directory (Azure AD) z własnymi atrybutami z Active Directory lokalnych. Ta funkcja umożliwia tworzenie aplikacji biznesowych przez konsumowanie atrybutów, które nadal są zarządzane lokalnie. Te atrybuty mogą być używane przez [rozszerzenia](https://docs.microsoft.com/graph/extensibility-overview
+Możesz użyć rozszerzeń katalogów, aby rozszerzać schemat w Azure Active Directory (Azure AD) z własnymi atrybutami z Active Directory lokalnych. Ta funkcja umożliwia tworzenie aplikacji biznesowych przez konsumowanie atrybutów, które nadal są zarządzane lokalnie. Te atrybuty mogą być używane przez [rozszerzenia](/graph/extensibility-overview
 ). Dostępne atrybuty można wyświetlić za pomocą [eksploratora Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Za pomocą tej funkcji można także tworzyć grupy dynamiczne w usłudze Azure AD.
 
-W tej chwili żadne obciążenie pakietu Office 365 nie korzysta z tych atrybutów.
+W obecnym przypadku żadne obciążenie Microsoft 365 nie korzysta z tych atrybutów.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Dostosuj atrybuty, które mają być synchronizowane z usługą Azure AD
 
@@ -69,11 +69,11 @@ Te atrybuty są teraz dostępne za pośrednictwem interfejsu API Microsoft Graph
 >[!NOTE]
 > W interfejsie API Microsoft Graph należy poproszony o zwrócenie atrybutów. Jawnie wybierz następujące atrybuty: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` .
 >
-> Aby uzyskać więcej informacji, zobacz [Microsoft Graph: Użyj parametrów zapytania](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Aby uzyskać więcej informacji, zobacz [Microsoft Graph: Użyj parametrów zapytania](/graph/query-parameters#select-parameter).
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>Używanie atrybutów w grupach dynamicznych
 
-Jednym z bardziej przydatnych scenariuszy jest użycie tych atrybutów w grupach zabezpieczeń dynamicznych lub Office 365.
+Jednym z bardziej przydatnych scenariuszy jest użycie tych atrybutów w zabezpieczeniach dynamicznych lub w grupach Microsoft 365.
 
 1. Utwórz nową grupę w usłudze Azure AD. Nadaj mu dobrą nazwę i upewnij się, że **Typ członkostwa** to **użytkownik dynamiczny**.
 

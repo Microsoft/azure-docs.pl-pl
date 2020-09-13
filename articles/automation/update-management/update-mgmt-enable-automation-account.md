@@ -2,19 +2,19 @@
 title: Włącz Update Management Azure Automation z konta usługi Automation
 description: W tym artykule opisano sposób włączania Update Management na koncie usługi Automation.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 930861c61843c5963c83d8fa6dc1efdce20853f4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450657"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669505"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Włączanie rozwiązania Update Management z poziomu konta usługi Automation
 
-W tym artykule opisano, jak za pomocą konta usługi Automation włączyć funkcję [Update Management](update-mgmt-overview.md) dla maszyn wirtualnych w środowisku. Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, należy włączyć istniejącą maszynę wirtualną przy użyciu Update Management.
+W tym artykule opisano, jak za pomocą konta usługi Automation włączyć funkcję [Update Management](update-mgmt-overview.md) dla maszyn wirtualnych w środowisku, w tym maszyn lub serwerów zarejestrowanych przy użyciu [usługi Azure ARC z obsługą serwerów](../../azure-arc/servers/overview.md) (wersja zapoznawcza). Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, musisz włączyć istniejącą maszynę wirtualną platformy Azure przy użyciu Update Management.
 
 > [!NOTE]
 > Podczas włączania Update Management tylko niektóre regiony są obsługiwane na potrzeby łączenia obszaru roboczego Log Analytics i konta usługi Automation. Aby uzyskać listę obsługiwanych par mapowania, zobacz [Mapowanie regionów dla konta usługi Automation i obszaru roboczego log Analytics](../how-to/region-mappings.md).
@@ -23,7 +23,7 @@ W tym artykule opisano, jak za pomocą konta usługi Automation włączyć funkc
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Konto usługi Automation](../index.yml) do zarządzania maszynami.
-* [Maszyna wirtualna](../../virtual-machines/windows/quick-create-portal.md).
+* [Maszyna wirtualna platformy Azure](../../virtual-machines/windows/quick-create-portal.md)lub maszyna wirtualna lub serwer zarejestrowani z serwerami z włączoną funkcją ARC (wersja zapoznawcza). Na maszynach wirtualnych lub serwerach innych niż platformy Azure musi być zainstalowany [agent log Analytics](../../azure-monitor/platform/log-analytics-agent.md) dla systemu Windows lub Linux, a raportowanie do obszaru roboczego połączonego z kontem usługi Automation Update Management jest włączone w programie. Agenta można zainstalować na serwerach z obsługą ARC, wdrażając [rozszerzenie maszyny wirtualnej log Analytics platformy](../../azure-arc/servers/manage-vm-extensions.md) Azure za pomocą usługi Azure Arc.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -65,16 +65,21 @@ Ręcznie zainstalowane maszyny lub maszyny, które są już raportowane do obsza
 
     ![Zapisane wyszukiwania](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Aby włączyć Update Management dla wszystkich dostępnych maszyn, wybierz pozycję **Włącz na wszystkich dostępnych maszynach** na stronie Zarządzanie komputerami. Ta akcja powoduje wyłączenie kontrolki do dodawania maszyn osobno. To zadanie dodaje wszystkie nazwy maszyn, które są raportowane do obszaru roboczego do zapisanego zapytania wyszukiwania grupy komputerów. Po wybraniu tej akcji program wyłącza przycisk **Zarządzaj maszynami** .
+3. Aby włączyć Update Management dla wszystkich dostępnych maszyn, które są raportowane do obszaru roboczego, wybierz pozycję **Włącz na wszystkich dostępnych maszynach** na stronie Zarządzanie komputerami. Ta akcja powoduje wyłączenie kontrolki do dodawania maszyn osobno. To zadanie dodaje wszystkie nazwy maszyn, które są raportowane do obszaru roboczego do zapisanego zapytania wyszukiwania grupy komputerów `MicrosoftDefaultComputerGroup` . Po wybraniu tej akcji program wyłącza przycisk **Zarządzaj maszynami** .
 
-4. Aby włączyć funkcję dla wszystkich dostępnych maszyn i przyszłych maszyn, wybierz pozycję **Włącz na wszystkich dostępnych i przyszłych maszynach**. Ta opcja usuwa zapisane wyszukiwania i konfiguracje zakresów z obszaru roboczego i otwiera funkcję dla wszystkich maszyn platformy Azure i spoza platformy Azure, które są raportowane do obszaru roboczego. Po wybraniu tej akcji przycisk **Zarządzaj maszynami** zostaje trwale wyłączony, ponieważ nie pozostała konfiguracja zakresu.
+4. Aby włączyć funkcję dla wszystkich dostępnych maszyn i przyszłych maszyn, wybierz pozycję **Włącz na wszystkich dostępnych i przyszłych maszynach**. Ta opcja powoduje usunięcie zapisanej konfiguracji wyszukiwania i zakresu z obszaru roboczego, a także umożliwia uwzględnienie wszystkich maszyn platformy Azure i innych niż platformy Azure, które są obecnie lub w przyszłości, raport w obszarze roboczym. Po wybraniu tej akcji przycisk **Zarządzaj maszynami** zostaje trwale wyłączony, ponieważ nie jest dostępna żadna konfiguracja zakresu.
 
-5. W razie potrzeby można dodać konfiguracje zakresów ponownie, dodając początkowe zapisane wyszukiwania. Aby uzyskać więcej informacji, zobacz [Ograniczanie zakresu wdrożenia Update Management](update-mgmt-scope-configuration.md).
+    > [!NOTE]
+    > Ponieważ ta opcja usuwa zapisane wyszukiwania i konfiguracje zakresów w ramach Log Analytics, należy usunąć wszystkie blokady usuwania w obszarze roboczym Log Analytics przed wybraniem tej opcji. W przeciwnym razie opcja zakończy się niepowodzeniem, aby usunąć konfiguracje i należy usunąć je ręcznie.
+
+5. W razie potrzeby można dodać konfiguracje zakresów ponownie, dodając początkowe zapisane zapytanie wyszukiwania. Aby uzyskać więcej informacji, zobacz [Ograniczanie zakresu wdrożenia Update Management](update-mgmt-scope-configuration.md).
 
 6. Aby włączyć tę funkcję dla jednej lub wielu maszyn, wybierz pozycję **Włącz na wybranych maszynach** i wybierz pozycję **Dodaj** obok każdej maszyny. To zadanie dodaje wybrane nazwy maszyn do grupy komputerów zapisane zapytanie wyszukiwania dla tej funkcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych](update-mgmt-manage-updates-for-vm.md).
+
+* Gdy nie musisz już zarządzać maszynami wirtualnymi ani serwerami przy użyciu Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](update-mgmt-remove-vms.md).
 
 * Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](../troubleshoot/update-management.md).

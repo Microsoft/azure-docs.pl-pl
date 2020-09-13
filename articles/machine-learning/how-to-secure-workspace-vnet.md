@@ -1,0 +1,282 @@
+---
+title: Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
+titleSuffix: Azure Machine Learning
+description: Użyj izolowanego Virtual Network platformy Azure do zabezpieczenia obszaru roboczego Azure Machine Learning i skojarzonych zasobów.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.reviewer: larryfr
+ms.author: aashishb
+author: aashishb
+ms.date: 07/07/2020
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: e718ed13cfd67092b50b42584d861a2bcf5dacc5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89665143"
+---
+# <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Zabezpieczanie obszaru roboczego Azure Machine Learning przy użyciu sieci wirtualnych
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+Ten artykuł zawiera informacje na temat zabezpieczania obszaru roboczego Azure Machine Learning i skojarzonych z nim zasobów w sieci wirtualnej.
+
+
+Ten artykuł jest drugą częścią serii składającej się z pięciu części, która przeprowadzi Cię przez proces zabezpieczania przepływów pracy Azure Machine Learning. Zdecydowanie zalecamy zapoznanie się z [częścią poniżej: Omówienie sieci wirtualnej](how-to-network-security-overview.md) , aby zrozumieć ogólną architekturę. 
+
+Zapoznaj się z innymi artykułami w tej serii:
+
+[1. Sieć wirtualna — Omówienie](how-to-network-security-overview.md)  >  **2. Zabezpiecz obszar roboczy**  >  [3. Zabezpiecz środowisko szkoleniowe](how-to-secure-training-vnet.md)  >  [4. Zabezpiecz środowisko inferencing](how-to-secure-inferencing-vnet.md)  >  [5. Włącz funkcje programu Studio](how-to-enable-studio-virtual-network.md)
+
+W tym artykule dowiesz się, jak włączyć następujące zasoby obszarów roboczych w sieci wirtualnej:
+> [!div class="checklist"]
+> - Obszar roboczy usługi Azure Machine Learning
+> - Konta usługi Azure Storage
+> - Azure Machine Learning magazyny i zestawy danych
+> - W usłudze Azure Key Vault
+> - Azure Container Registry
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
++ Zapoznaj się z artykułem [Omówienie zabezpieczeń sieci](how-to-network-security-overview.md) , aby poznać typowe scenariusze sieci wirtualnej i ogólną architekturę sieci wirtualnej.
+
++ Istniejąca sieć wirtualna i podsieć do użycia z zasobami obliczeniowymi.
+
++ Aby można było wdrożyć zasoby w sieci wirtualnej lub podsieci, konto użytkownika musi mieć uprawnienia do następujących akcji w kontroli dostępu opartej na rolach (RBAC) na platformie Azure:
+
+    - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
+    - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
+
+    Aby uzyskać więcej informacji na temat RBAC w sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
+
+
+## <a name="secure-the-workspace-with-private-endpoint"></a>Zabezpieczanie obszaru roboczego za pomocą prywatnego punktu końcowego
+
+Link prywatny platformy Azure umożliwia nawiązanie połączenia z obszarem roboczym przy użyciu prywatnego punktu końcowego. Prywatny punkt końcowy to zestaw prywatnych adresów IP w sieci wirtualnej. Następnie można ograniczyć dostęp do obszaru roboczego tylko w przypadku prywatnych adresów IP. Link prywatny pomaga ograniczyć ryzyko związane z eksfiltracji danych.
+
+Aby uzyskać więcej informacji na temat konfigurowania prywatnego obszaru roboczego łącza, zobacz [jak skonfigurować link prywatny](how-to-configure-private-link.md).
+
+
+## <a name="secure-azure-storage-accounts"></a>Zabezpieczanie kont usługi Azure Storage
+
+W tej sekcji dowiesz się, jak zabezpieczyć konto usługi Azure Storage za pomocą punktów końcowych usług. Można jednak używać prywatnych punktów końcowych do zabezpieczania usługi Azure Storage. Aby uzyskać więcej informacji, zobacz [Używanie prywatnych punktów końcowych usługi Azure Storage](../storage/common/storage-private-endpoints.md).
+
+> [!IMPORTANT]
+> _Konto magazynu domyślnego_ można umieścić dla Azure Machine Learning lub _kont magazynu innych niż domyślne_ w sieci wirtualnej.
+>
+> Domyślne konto magazynu jest automatycznie inicjowane podczas tworzenia obszaru roboczego.
+>
+> W przypadku kont magazynu innych niż domyślne `storage_account` parametr w [ `Workspace.create()` funkcji](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) umożliwia określenie NIESTANDARDOWEGO konta magazynu według identyfikatora zasobu platformy Azure.
+
+Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej, wykonaj następujące czynności:
+
+1. W Azure Portal przejdź do usługi magazynu, która ma być używana w obszarze roboczym.
+
+   [![Magazyn połączony z obszarem roboczym Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+
+1. Na stronie konto usługi magazynu wybierz pozycję __zapory i sieci wirtualne__.
+
+   ![Obszar "zapory i sieci wirtualne" na stronie usługi Azure Storage w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+
+1. Na stronie __zapory i sieci wirtualne__ wykonaj następujące czynności:
+    1. Wybierz pozycję __Wybrane sieci__.
+    1. W obszarze __sieci wirtualne__wybierz łącze __Dodaj istniejące sieci wirtualne__ . Ta akcja powoduje dodanie sieci wirtualnej, w której znajdują się obliczenia (zobacz krok 1).
+
+        > [!IMPORTANT]
+        > Konto magazynu musi znajdować się w tej samej sieci wirtualnej i podsieci co wystąpienia obliczeniowe lub klastry używane do uczenia lub wnioskowania.
+
+    1. Zaznacz pole wyboru __Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu__ .
+
+    > [!IMPORTANT]
+    > Podczas pracy z zestawem SDK Azure Machine Learning środowisko programistyczne musi mieć możliwość nawiązania połączenia z kontem usługi Azure Storage. Gdy konto magazynu znajduje się w sieci wirtualnej, zapora musi zezwalać na dostęp ze swojego adresu IP środowiska deweloperskiego.
+    >
+    > Aby włączyć dostęp do konta magazynu, odwiedź __zapory i sieci wirtualne__ dla konta magazynu *z przeglądarki sieci Web na kliencie deweloperskim*. Następnie użyj pola wyboru __Dodaj adres IP klienta__ , aby dodać adres IP klienta do __zakresu adresów__. Możesz również użyć pola __zakres adresów__ , aby ręcznie wprowadzić adres IP środowiska deweloperskiego. Po dodaniu adresu IP klienta może on uzyskać dostęp do konta magazynu przy użyciu zestawu SDK.
+
+   [![Okienko "zapory i sieci wirtualne" w Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## <a name="secure-datastores-and-datasets"></a>Zabezpieczanie magazynów danych
+
+W tej sekcji dowiesz się, jak korzystać ze sklepu danych i użycia DataSet dla środowiska zestawu SDK w sieci wirtualnej. Aby uzyskać więcej informacji na temat środowiska Studio, zobacz Korzystanie z programu [Azure Machine Learning Studio w sieci wirtualnej](how-to-enable-studio-virtual-network.md).
+
+Aby uzyskać dostęp do danych przy użyciu zestawu SDK, należy użyć metody uwierzytelniania wymaganej przez poszczególne usługi, w których są przechowywane dane. Jeśli na przykład zarejestrujesz magazyn danych w celu uzyskania dostępu do Azure Data Lake Store Gen2, nadal musisz używać nazwy głównej usługi zgodnie z opisem w temacie [Connect to Azure Storage Services](how-to-access-data.md#azure-data-lake-storage-generation-2).
+
+### <a name="disable-data-validation"></a>Wyłącz weryfikację danych
+
+Domyślnie Azure Machine Learning sprawdza ważność danych i sprawdzanie poświadczeń podczas próby dostępu do danych za pomocą zestawu SDK. Jeśli dane znajdują się za siecią wirtualną, Azure Machine Learning nie mogą zakończyć tych kontroli. Aby tego uniknąć, należy utworzyć magazyny danych i zestawy DataSet, które pomijają weryfikację.
+
+### <a name="use-datastores"></a>Korzystanie z magazynów danych
+
+ Azure Data Lake Store Gen1 i Azure Data Lake Store Gen2 Pomijaj walidację domyślnie, więc nie są wymagane żadne dalsze działania. Jednak dla następujących usług można użyć podobnej składni, aby pominąć walidację magazynu danych:
+
+- Azure Blob Storage
+- Udział plików platformy Azure
+- PostgreSQL
+- Azure SQL Database
+
+Poniższy przykład kodu tworzy nowy magazyn danych obiektów blob platformy Azure `skip_validation=True` .
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+### <a name="use-datasets"></a>Korzystanie z zestawów danych
+
+Składnia do pomijania walidacji zestawu danych jest podobna do następujących typów zestawów danych:
+- Rozdzielany plik
+- JSON 
+- Parquet
+- SQL
+- Plik
+
+Poniższy kod tworzy nowy zestaw danych JSON i zestawy `validate=False` .
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
+
+## <a name="secure-azure-key-vault"></a>Bezpieczny Azure Key Vault
+
+Azure Machine Learning używa skojarzonego wystąpienia Key Vault do przechowywania następujących poświadczeń:
+* Powiązane parametry połączenia konta magazynu
+* Hasła do wystąpień repozytorium kontenerów platformy Azure
+* Parametry połączenia do magazynów danych
+
+Aby korzystać z funkcji eksperymentowania Azure Machine Learning z Azure Key Vault za siecią wirtualną, wykonaj następujące czynności:
+
+1. Przejdź do Key Vault, która jest skojarzona z obszarem roboczym.
+
+1. Na stronie __Key Vault__ w lewym okienku wybierz pozycję __Sieć__.
+
+1. Na karcie __zapory i sieci wirtualne__ wykonaj następujące czynności:
+    1. W obszarze __Zezwalaj na dostęp z__, wybierz pozycję __prywatny punkt końcowy i wybrane sieci__.
+    1. W obszarze __sieci wirtualne__wybierz pozycję __Dodaj istniejące sieci wirtualne__ , aby dodać sieć wirtualną, w której znajduje się obliczenie eksperymentu.
+    1. W obszarze __Zezwalaj zaufanym usługom firmy Microsoft na ominięcie tej zapory?__ wybierz pozycję __tak__.
+
+   [![Sekcja "zapory i sieci wirtualne" w okienku Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+
+## <a name="enable-azure-container-registry-acr"></a>Włącz Azure Container Registry (ACR)
+
+Aby używać Azure Container Registry wewnątrz sieci wirtualnej, należy spełnić następujące wymagania:
+
+* Obszar roboczy Azure Machine Learning musi być w wersji Enterprise Edition. Informacje o uaktualnianiu programu znajdują się w temacie [Upgrade to Enterprise Edition](how-to-manage-workspace.md#upgrade).
+
+* Azure Container Registry musi być w wersji Premium. Aby uzyskać więcej informacji na temat uaktualniania, zobacz [Zmiana jednostek SKU](/azure/container-registry/container-registry-skus#changing-skus).
+
+* Azure Container Registry musi znajdować się w tej samej sieci wirtualnej i podsieci co konto magazynu i cele obliczeniowe używane do uczenia lub wnioskowania.
+
+* Obszar roboczy Azure Machine Learning musi zawierać [Azure Machine Learning klaster obliczeniowy](how-to-create-attach-compute-sdk.md#amlcompute).
+
+    Gdy ACR znajduje się za siecią wirtualną, Azure Machine Learning nie może użyć jej do bezpośredniego tworzenia obrazów platformy Docker. Zamiast tego klaster obliczeniowy jest używany do kompilowania obrazów.
+
+Po spełnieniu tych wymagań wykonaj następujące kroki, aby włączyć Azure Container Registry.
+
+1. Znajdź nazwę Azure Container Registry w obszarze roboczym, korzystając z jednej z następujących metod:
+
+    __Witryna Azure Portal__
+
+    W sekcji przegląd obszaru roboczego wartość __rejestru__ łączy się z Azure Container Registry.
+
+    :::image type="content" source="./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png" alt-text="Azure Container Registry obszaru roboczego" border="true":::
+
+    __Interfejs wiersza polecenia platformy Azure__
+
+    Jeśli [zainstalowano rozszerzenie Machine Learning dla interfejsu wiersza polecenia platformy Azure](reference-azure-machine-learning-cli.md), możesz użyć `az ml workspace show` polecenie, aby wyświetlić informacje o obszarze roboczym.
+
+    ```azurecli-interactive
+    az ml workspace show -w yourworkspacename -g resourcegroupname --query 'containerRegistry'
+    ```
+
+    To polecenie zwraca wartość podobną do `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"` . Ostatnia część ciągu jest nazwą Azure Container Registry obszaru roboczego.
+
+1. Ogranicz dostęp do sieci wirtualnej, wykonując czynności opisane w sekcji [Konfigurowanie dostępu do sieci dla rejestru](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). Podczas dodawania sieci wirtualnej wybierz sieć wirtualną i podsieć dla zasobów Azure Machine Learning.
+
+1. Użyj Azure Machine Learning Python SDK, aby skonfigurować klaster obliczeniowy do tworzenia obrazów platformy Docker. Poniższy fragment kodu ilustruje, jak to zrobić:
+
+    ```python
+    from azureml.core import Workspace
+    # Load workspace from an existing config file
+    ws = Workspace.from_config()
+    # Update the workspace to use an existing compute cluster
+    ws.update(image_build_compute = 'mycomputecluster')
+    ```
+
+    > [!IMPORTANT]
+    > Twoje konto magazynu, klaster obliczeniowy i Azure Container Registry muszą znajdować się w tej samej podsieci sieci wirtualnej.
+    
+    Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
+
+1. Zastosuj następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR.
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "keyVaultArmId": {
+        "type": "string"
+        },
+        "workspaceName": {
+        "type": "string"
+        },
+        "containerRegistryArmId": {
+        "type": "string"
+        },
+        "applicationInsightsArmId": {
+        "type": "string"
+        },
+        "storageAccountArmId": {
+        "type": "string"
+        },
+        "location": {
+        "type": "string"
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.MachineLearningServices/workspaces",
+        "apiVersion": "2019-11-01",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "identity": {
+            "type": "SystemAssigned"
+        },
+        "sku": {
+            "tier": "enterprise",
+            "name": "enterprise"
+        },
+        "properties": {
+            "sharedPrivateLinkResources":
+    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
+            "keyVault": "[parameters('keyVaultArmId')]",
+            "containerRegistry": "[parameters('containerRegistryArmId')]",
+            "applicationInsights": "[parameters('applicationInsightsArmId')]",
+            "storageAccount": "[parameters('storageAccountArmId')]"
+        }
+        }
+    ]
+    }
+    ```
+
+## <a name="next-steps"></a>Następne kroki
+
+Ten artykuł jest częścią jednej z czterech części serii sieci wirtualnych. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
+
+* [Część 1: Omówienie usługi Virtual Network](how-to-network-security-overview.md)
+* [Część 3: Zabezpieczanie środowiska szkoleniowego](how-to-secure-training-vnet.md)
+* [Część 4: Zabezpieczanie środowiska inferencing](how-to-secure-inferencing-vnet.md)
+* [Część 5. Włączanie funkcji programu Studio](how-to-enable-studio-virtual-network.md)

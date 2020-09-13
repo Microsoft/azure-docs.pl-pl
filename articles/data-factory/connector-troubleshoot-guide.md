@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/20/2020
+ms.date: 09/10/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: c8edb36345de4516077b3c857cff33389062cc7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62a5f3b18d4b8329c4a15086bc23d09805b786ab
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044552"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668898"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
 
@@ -22,12 +22,11 @@ ms.locfileid: "87044552"
 
 W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznikami w Azure Data Factory.
   
-
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
 ### <a name="error-code--azurebloboperationfailed"></a>Kod błędu: AzureBlobOperationFailed
 
-- **Komunikat**:`Blob operation Failed. ContainerName: %containerName;, path: %path;.`
+- **Komunikat**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
 - **Przyczyna**: problem z trafieniem magazynu obiektów BLOB.
 
@@ -36,17 +35,17 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Kod błędu: AzureBlobServiceNotReturnExpectedDataLength
 
-- **Komunikat**:`Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
+- **Komunikat**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
 
 
 ### <a name="error-code--azureblobnotsupportmultiplefilesintosingleblob"></a>Kod błędu: AzureBlobNotSupportMultipleFilesIntoSingleBlob
 
-- **Komunikat**:`Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
+- **Komunikat**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
 
 
 ### <a name="error-code--azurestorageoperationfailedconcurrentwrite"></a>Kod błędu: AzureStorageOperationFailedConcurrentWrite
 
-- **Komunikat**:`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+- **Komunikat**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -127,7 +126,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--adlsgen2operationfailed"></a>Kod błędu: AdlsGen2OperationFailed
 
-- **Komunikat**:`ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+- **Komunikat**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
 - **Przyczyna**: ADLS Gen2 zgłasza błąd wskazujący, że operacja nie powiodła się.
 
@@ -144,22 +143,22 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--adlsgen2invalidurl"></a>Kod błędu: AdlsGen2InvalidUrl
 
-- **Komunikat**:`Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
+- **Komunikat**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
 
 
 ### <a name="error-code--adlsgen2invalidfolderpath"></a>Kod błędu: AdlsGen2InvalidFolderPath
 
-- **Komunikat**:`The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
+- **Komunikat**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
 
 
 ### <a name="error-code--adlsgen2operationfailedconcurrentwrite"></a>Kod błędu: AdlsGen2OperationFailedConcurrentWrite
 
-- **Komunikat**:`Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+- **Komunikat**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
 ### <a name="error-code-adlsgen2timeouterror"></a>Kod błędu: AdlsGen2TimeoutError
 
-- **Komunikat**:`Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
+- **Komunikat**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Usługa Azure Data Lake Storage 1. generacji
@@ -174,8 +173,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Walidacja certyfikatu nie powiodła się podczas UZGADNIANIA protokołu TLS.
 
-- **Rozwiązanie**: obejście: Użyj kopii etapowej, aby pominąć weryfikację TLS dla ADLS Gen1. Trzeba odtworzyć ten problem i zebrać ślad netmon, a następnie skontaktować się z zespołem sieci, aby sprawdzić konfigurację sieci lokalnej w [tym artykule](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace).
-
+- **Rozwiązanie**: obejście: Użyj kopii etapowej, aby pominąć weryfikację TLS dla ADLS Gen1. Trzeba odtworzyć ten problem i zebrać ślad netmon, a następnie skontaktować się z zespołem sieci, aby sprawdzić konfigurację sieci lokalnej.
 
     ![Rozwiązywanie problemów ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
 
@@ -207,15 +205,15 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 - **Rozwiązanie**: ponownie uruchom działanie kopiowania po kilku minutach.
                   
 
-## <a name="azure-sql-data-warehouseazure-sql-databasesql-server"></a>Azure SQL Data Warehouse/Azure SQL Database/SQL Server
+## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (dawniej SQL Data Warehouse)/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Kod błędu: SqlFailedToConnect
 
-- **Komunikat**:`Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
+- **Komunikat**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "SqlException", SQL Database zgłasza błąd wskazujący, że określona operacja nie powiodła się.
 
-- **Zalecenie**: Aby uzyskać więcej informacji, Wyszukaj według kodu błędu SQL w tym dokumencie odwołania: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
+- **Zalecenie**: Wyszukaj według kodu błędu SQL w tym dokumencie odwołania, aby uzyskać więcej szczegółów: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "klient z adresem IP"... " nie ma dostępu do serwera "i próbujesz nawiązać połączenie z Azure SQL Database, zwykle jest to spowodowane przez Azure SQL Database problem z zaporą.
 
@@ -224,12 +222,13 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqloperationfailed"></a>Kod błędu: SqlOperationFailed
 
-- **Komunikat**:`A database operation failed. Please search error to get more details.`
+- **Komunikat**: `A database operation failed. Please search error to get more details.`
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "SqlException", SQL Database zgłasza błąd wskazujący, że określona operacja nie powiodła się.
 
-- **Zalecenie**: Jeśli błąd SQL nie jest wyczyszczony, spróbuj zmienić bazę danych na najnowszy poziom zgodności "150". Może zgłosić najnowsze wersje programu SQL Server. Zapoznaj się z dokumentem szczegółowym: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat .
-        Aby rozwiązać problemy związane z programem SQL, wyszukaj kod błędu SQL w tym dokumencie odwołania, aby uzyskać więcej szczegółów: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
+- **Zalecenie**: Jeśli błąd SQL nie jest wyczyszczony, spróbuj zmienić bazę danych na najnowszy poziom zgodności "150". Może zgłosić najnowsze wersje programu SQL Server. Zapoznaj się z [dokumentem szczegółowym](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
+
+    Aby rozwiązać problemy związane z programem SQL, wyszukaj kod błędu SQL w tym dokumencie odwołania, aby uzyskać więcej szczegółów: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera "PdwManagedToNativeInteropException", zazwyczaj jest spowodowany niezgodnością rozmiarów kolumn źródłowych i ujścia.
 
@@ -243,7 +242,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Kod błędu: SqlUnauthorizedAccess
 
-- **Komunikat**:`Cannot connect to '%connectorName;'. Detail Message: '%message;'`
+- **Komunikat**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
 - **Przyczyna**: poświadczenie jest niepoprawne lub konto logowania nie może uzyskać dostępu do SQL Database.
 
@@ -252,7 +251,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlopenconnectiontimeout"></a>Kod błędu: SqlOpenConnectionTimeout
 
-- **Komunikat**:`Open connection to database timeout after '%timeoutValue;' seconds.`
+- **Komunikat**: `Open connection to database timeout after '%timeoutValue;' seconds.`
 
 - **Przyczyna**: może być SQL Database błąd przejściowy.
 
@@ -261,7 +260,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlautocreatetabletypemapfailed"></a>Kod błędu: SqlAutoCreateTableTypeMapFailed
 
-- **Komunikat**:`Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
+- **Komunikat**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
 - **Przyczyna**: tabela autotworzenia nie może spełnić wymagań źródłowych.
 
@@ -270,7 +269,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqldatatypenotsupported"></a>Kod błędu: SqlDataTypeNotSupported
 
-- **Komunikat**:`A database operation failed. Check the SQL errors.`
+- **Komunikat**: `A database operation failed. Check the SQL errors.`
 
 - **Przyczyna**: Jeśli problem występuje w źródle SQL, a błąd jest związany z przepełnieniem SqlDateTime, wartość danych jest poza zakresem typów logiki (1/1/1753 12:00:00 AM-12/31/9999 11:59:59 PM).
 
@@ -283,7 +282,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlinvaliddbstoredprocedure"></a>Kod błędu: SqlInvalidDbStoredProcedure
 
-- **Komunikat**:`The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
+- **Komunikat**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
 - **Przyczyna**: określona procedura składowana jest nieprawidłowa. Może to być spowodowane tym, że procedura składowana nie zwraca żadnych danych.
 
@@ -292,7 +291,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlinvaliddbquerystring"></a>Kod błędu: SqlInvalidDbQueryString
 
-- **Komunikat**:`The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
+- **Komunikat**: `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
 - **Przyczyna**: określone zapytanie SQL jest nieprawidłowe. Przyczyną może być to, że zapytanie nie zwraca żadnych danych
 
@@ -301,7 +300,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlinvalidcolumnname"></a>Kod błędu: SqlInvalidColumnName
 
-- **Komunikat**:`Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
+- **Komunikat**: `Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
 
 - **Przyczyna**: nie można odnaleźć kolumny. Nieprawidłowa konfiguracja.
 
@@ -310,21 +309,21 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlcolumnnamemismatchbycasesensitive"></a>Kod błędu: SqlColumnNameMismatchByCaseSensitive
 
-- **Komunikat**:`Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
+- **Komunikat**: `Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
 
 
 ### <a name="error-code--sqlbatchwritetimeout"></a>Kod błędu: SqlBatchWriteTimeout
 
-- **Komunikat**:`Timeouts in SQL write operation.`
+- **Komunikat**: `Timeouts in SQL write operation.`
 
 - **Przyczyna**: może być SQL Database błąd przejściowy.
 
-- **Zalecenie**: spróbuj ponownie. Jeśli problem Odtwórz, skontaktuj się z pomocą techniczną Azure SQL.
+- **Zalecenie**: ponów próbę. Jeśli problem Odtwórz, skontaktuj się z pomocą techniczną Azure SQL.
 
 
 ### <a name="error-code--sqlbatchwritetransactionfailed"></a>Kod błędu: SqlBatchWriteTransactionFailed
 
-- **Komunikat**:`SQL transaction commits failed`
+- **Komunikat**: `SQL transaction commits failed`
 
 - **Przyczyna**: Jeśli szczegóły wyjątku stale informują o limicie czasu transakcji, opóźnienie sieci między środowiskiem Integration Runtime i bazą danych jest większe niż domyślna wartość progowa co 30 sekund.
 
@@ -337,7 +336,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>Kod błędu: SqlBulkCopyInvalidColumnLength
 
-- **Komunikat**:`SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
+- **Komunikat**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
 - **Przyczyna**: Kopiowanie zbiorcze SQL nie powiodło się z powodu odebrania nieprawidłowej długości kolumny od klienta bcp.
 
@@ -346,52 +345,52 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--sqlconnectionisclosed"></a>Kod błędu: SqlConnectionIsClosed
 
-- **Komunikat**:`The connection is closed by SQL Database.`
+- **Komunikat**: `The connection is closed by SQL Database.`
 
 - **Przyczyna**: połączenie SQL jest zamknięte przez SQL Database w przypadku dużego połączenia współbieżnego przebiegu i przerwania serwera.
 
-- **Zalecenie**: serwer zdalny zamknął połączenie SQL. Spróbuj ponownie. Jeśli problem Odtwórz, skontaktuj się z pomocą techniczną Azure SQL.
+- **Zalecenie**: serwer zdalny zamknął połączenie SQL. Spróbuj ponownie wykonać. Jeśli problem Odtwórz, skontaktuj się z pomocą techniczną Azure SQL.
 
 
 ### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>Kod błędu: SqlCreateTableFailedUnsupportedType
 
-- **Komunikat**:`Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
+- **Komunikat**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
 
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Komunikat o błędzie: konwersja nie powiodła się podczas konwertowania ciągu znaków na unikatowy identyfikator
 
-- **Objawy**: w przypadku kopiowania danych ze źródła danych tabelarycznych (takich jak SQL Server) do Azure SQL Data Warehouse przy użyciu kopiowania etapowego i bazy, wystąpił następujący błąd:
+- **Objawy**: w przypadku kopiowania danych ze źródła danych tabelarycznych (takich jak SQL Server) do usługi Azure Synapse Analytics przy użyciu kopiowania etapowego i wielopodstawa, wystąpił następujący błąd:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **Przyczyna**: Azure SQL Data Warehouse baza nie może przekonwertować pustego ciągu na identyfikator GUID.
+- **Przyczyna**: baza narzędziowa usługi Azure Synapse Analytics nie może przekonwertować pustego ciągu na identyfikator GUID.
 
 - **Rozwiązanie**: w ujścia działania kopiowania w obszarze Ustawienia bazy danych ustaw wartość false dla opcji**Użyj typu domyślnego**.
 
 ### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>Komunikat o błędzie: Oczekiwano typu danych: DECIMAL (x, x), wartość powodująca problemy
 
-- **Objawy**: podczas kopiowania danych ze źródła danych tabelarycznych (takich jak SQL Server) do usługi SQL DW przy użyciu kopiowania etapowego i wielopodstawa, wystąpił następujący błąd:
+- **Objawy**: w przypadku kopiowania danych ze źródła danych tabelarycznych (takich jak SQL Server) do usługi Azure Synapse Analytics przy użyciu kopiowania etapowego i wielopodstawa, wystąpił następujący błąd:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **Przyczyna**: Azure SQL Data Warehouse Base nie może wstawić pustego ciągu (wartość null) do kolumny dziesiętnej.
+- **Przyczyna**: Baza wiedzy Azure Synapse Analytics Base nie może wstawić pustego ciągu (wartość null) do kolumny dziesiętnej.
 
 - **Rozwiązanie**: w ujścia działania kopiowania w obszarze Ustawienia bazy danych ustaw wartość false dla opcji**Użyj typu domyślnego**.
 
 ### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>Komunikat o błędzie: komunikat o wyjątku Java: HdfsBridge:: CreateRecordReader
 
-- **Objawy**: skopiujesz dane do Azure SQL Data Warehouse przy użyciu bazy danych Base i wystąpił następujący błąd:
+- **Objawy**: skopiujesz dane do usługi Azure Synapse Analytics przy użyciu bazy danych Base i wystąpił następujący błąd:
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -400,7 +399,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **Przyczyna**: możliwe przyczyny jest to, że schemat (całkowita szerokość kolumny) jest zbyt duży (większy niż 1 MB). Sprawdź schemat docelowej tabeli programu SQL DW przez dodanie rozmiaru wszystkich kolumn:
+- **Przyczyna**: możliwe przyczyny jest to, że schemat (całkowita szerokość kolumny) jest zbyt duży (większy niż 1 MB). Sprawdź schemat docelowej tabeli usługi Azure Synapse Analytics przez dodanie rozmiaru wszystkich kolumn:
 
     - Int-> 4 bajty
     - Bigint-> 8 bajtów
@@ -424,22 +423,22 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Komunikat o błędzie: warunek określony przy użyciu nagłówków warunkowych HTTP nie jest spełniony
 
-- **Objawy**: używasz zapytania SQL do ściągania danych z Azure SQL Data Warehouse i wystąpił następujący błąd:
+- **Objawy**: używasz zapytania SQL do ściągania danych z usługi Azure Synapse Analytics i wystąpił następujący błąd:
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **Przyczyna**Azure SQL Data Warehouse: Wystąpił błąd podczas wysyłania zapytania do tabeli zewnętrznej w usłudze Azure Storage.
+- **Przyczyna**: problem z analizą usługi Azure Synapse Analytics w tabeli zewnętrznej w usłudze Azure Storage.
 
-- **Rozwiązanie**: Uruchom to samo zapytanie w programie SSMS i sprawdź, czy widzisz ten sam wynik. Jeśli tak, otwórz bilet pomocy technicznej dotyczący usługi Azure SQL Data Warehouse i podaj nazwę serwera i bazy danych SQL DW, aby kontynuować rozwiązywanie problemów.
+- **Rozwiązanie**: Uruchom to samo zapytanie w programie SSMS i sprawdź, czy widzisz ten sam wynik. Jeśli tak, Otwórz bilet pomocy technicznej w usłudze Azure Synapse Analytics i podaj nazwę serwera usługi Azure Synapse Analytics oraz bazę danych, aby kontynuować rozwiązywanie problemów.
             
 
 ## <a name="delimited-text-format"></a>Format tekstu rozdzielanego
 
 ### <a name="error-code--delimitedtextcolumnnamenotallownull"></a>Kod błędu: DelimitedTextColumnNameNotAllowNull
 
-- **Komunikat**:`The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
+- **Komunikat**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
 - **Przyczyna**: w przypadku ustawienia opcji "użycia" w działaniu pierwszy wiersz będzie używany jako nazwa kolumny. Ten błąd oznacza, że pierwszy wiersz zawiera wartość pustą. Na przykład: "ColumnName,, ColumnB".
 
@@ -448,7 +447,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>Kod błędu: DelimitedTextMoreColumnsThanDefined
 
-- **Komunikat**:`Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+- **Komunikat**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
 - **Przyczyna**: liczba kolumn problematycznych wierszy jest duża niż liczba kolumn w pierwszym wierszu. Może to być spowodowane problemem z danymi lub nieprawidłowym ogranicznikiem kolumny/ustawieniami znaku cudzysłowu.
 
@@ -465,17 +464,17 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--delimitedtextincorrectrowdelimiter"></a>Kod błędu: DelimitedTextIncorrectRowDelimiter
 
-- **Komunikat**:`The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+- **Komunikat**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
 
 
 ### <a name="error-code--delimitedtexttoolargecolumncount"></a>Kod błędu: DelimitedTextTooLargeColumnCount
 
-- **Komunikat**:`Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
+- **Komunikat**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
 
 
 ### <a name="error-code--delimitedtextinvalidsettings"></a>Kod błędu: DelimitedTextInvalidSettings
 
-- **Komunikat**:`%settingIssues;`
+- **Komunikat**: `%settingIssues;`
 
 
 
@@ -483,7 +482,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--dynamicscreateserviceclienterror"></a>Kod błędu: DynamicsCreateServiceClientError
 
-- **Komunikat**:`This is a transient issue on dynamics server side. Try to rerun the pipeline.`
+- **Komunikat**: `This is a transient issue on dynamics server side. Try to rerun the pipeline.`
 
 - **Przyczyna**: jest to przejściowy problem po stronie serwera Dynamics.
 
@@ -495,37 +494,37 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--jsoninvalidarraypathdefinition"></a>Kod błędu: JsonInvalidArrayPathDefinition
 
-- **Komunikat**:`Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+- **Komunikat**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
 
 
 ### <a name="error-code--jsonemptyjobjectdata"></a>Kod błędu: JsonEmptyJObjectData
 
-- **Komunikat**:`The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+- **Komunikat**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
 
 
 ### <a name="error-code--jsonnullvalueinpathdefinition"></a>Kod błędu: JsonNullValueInPathDefinition
 
-- **Komunikat**:`Null JSONPath detected in JsonPathDefinition.`
+- **Komunikat**: `Null JSONPath detected in JsonPathDefinition.`
 
 
 ### <a name="error-code--jsonunsupportedhierarchicalcomplexvalue"></a>Kod błędu: JsonUnsupportedHierarchicalComplexValue
 
-- **Komunikat**:`The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
+- **Komunikat**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
 
 
 ### <a name="error-code--jsonconflictpartitiondiscoveryschema"></a>Kod błędu: JsonConflictPartitionDiscoverySchema
 
-- **Komunikat**:`Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
+- **Komunikat**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
 
 
 ### <a name="error-code--jsoninvaliddataformat"></a>Kod błędu: JsonInvalidDataFormat
 
-- **Komunikat**:`Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
+- **Komunikat**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
 
 
 ### <a name="error-code--jsoninvaliddatamixedarrayandobject"></a>Kod błędu: JsonInvalidDataMixedArrayAndObject
 
-- **Komunikat**:`Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+- **Komunikat**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
 
 
 
@@ -533,11 +532,11 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetjavainvocationexception"></a>Kod błędu: ParquetJavaInvocationException
 
-- **Komunikat**:`An error occurred when invoking java, message: %javaException;.`
+- **Komunikat**: `An error occurred when invoking java, message: %javaException;.`
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera "Java. lang. OutOfMemory", "Space sterty Java" i "doubleCapacity", zazwyczaj jest to problem z zarządzaniem pamięcią w starej wersji środowiska Integration Runtime.
 
-- **Zalecenie**: Jeśli używasz samoobsługowego Integration Runtime a wersja jest wcześniejsza niż 3.20.7159.1, Sugeruj, aby uaktualnić do najnowszej wersji.
+- **Zalecenie**: Jeśli korzystasz z samodzielnej Integration Runtime, a wersja jest wcześniejsza niż 3.20.7159.1, zaleca się uaktualnienie do najnowszej wersji.
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera plik "Java. lang. OutOfMemory", środowisko Integration Runtime nie ma wystarczającej ilości zasobów, aby przetworzyć pliki.
 
@@ -545,12 +544,12 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "NullPointerReference", możliwe, że jest to błąd przejściowy.
 
-- **Zalecenie**: spróbuj ponownie. Jeśli problem będzie się powtarzać, skontaktuj się z pomocą techniczną.
+- **Zalecenie**: ponów próbę. Jeśli problem będzie się powtarzać, skontaktuj się z pomocą techniczną.
 
 
 ### <a name="error-code--parquetinvalidfile"></a>Kod błędu: ParquetInvalidFile
 
-- **Komunikat**:`File is not a valid parquet file.`
+- **Komunikat**: `File is not a valid parquet file.`
 
 - **Przyczyna**: problem z plikiem Parquet.
 
@@ -559,7 +558,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetnotsupportedtype"></a>Kod błędu: ParquetNotSupportedType
 
-- **Komunikat**:`Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
+- **Komunikat**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
 - **Przyczyna**: format Parquet nie jest obsługiwany w Azure Data Factory.
 
@@ -568,7 +567,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Kod błędu: ParquetMissedDecimalPrecisionScale
 
-- **Komunikat**:`Decimal Precision or Scale information is not found in schema for column: %column;.`
+- **Komunikat**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
 
 - **Przyczyna**: Spróbuj przeanalizować dokładność i skalę liczby, ale nie ma takich informacji.
 
@@ -577,7 +576,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetinvaliddecimalprecisionscale"></a>Kod błędu: ParquetInvalidDecimalPrecisionScale
 
-- **Komunikat**:`Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
+- **Komunikat**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
 - **Przyczyna**: schemat jest nieprawidłowy.
 
@@ -586,7 +585,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetcolumnnotfound"></a>Kod błędu: ParquetColumnNotFound
 
-- **Komunikat**:`Column %column; does not exist in Parquet file.`
+- **Komunikat**: `Column %column; does not exist in Parquet file.`
 
 - **Przyczyna**: schemat źródłowy jest niezgodny ze schematem ujścia.
 
@@ -595,7 +594,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetinvaliddataformat"></a>Kod błędu: ParquetInvalidDataFormat
 
-- **Komunikat**:`Incorrect format of %srcValue; for converting to %dstType;.`
+- **Komunikat**: `Incorrect format of %srcValue; for converting to %dstType;.`
 
 - **Przyczyna**: nie można przekonwertować danych na typ określony w mapowaniu. Źródło
 
@@ -604,7 +603,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Kod błędu: ParquetDataCountNotMatchColumnCount
 
-- **Komunikat**:`The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
+- **Komunikat**: `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
 
 - **Przyczyna**: niezgodność liczby kolumn źródłowych i liczby kolumn ujścia
 
@@ -622,16 +621,16 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetbridgeinvaliddata"></a>Kod błędu: ParquetBridgeInvalidData
 
-- **Komunikat**:`%message;`
+- **Komunikat**: `%message;`
 
 - **Przyczyna**: wartość danych przekracza ograniczenie
 
-- **Zalecenie**: spróbuj ponownie. Jeśli problem będzie się powtarzać, skontaktuj się z nami.
+- **Zalecenie**: ponów próbę. Jeśli problem będzie się powtarzać, skontaktuj się z nami.
 
 
 ### <a name="error-code--parquetunsupportedinterpretation"></a>Kod błędu: ParquetUnsupportedInterpretation
 
-- **Komunikat**:`The given interpretation '%interpretation;' of parquet format is not supported.`
+- **Komunikat**: `The given interpretation '%interpretation;' of parquet format is not supported.`
 
 - **Przyczyna**: nieobsługiwany scenariusz
 
@@ -640,7 +639,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--parquetunsupportfilelevelcompressionoption"></a>Kod błędu: ParquetUnsupportFileLevelCompressionOption
 
-- **Komunikat**:`File level compression is not supported for Parquet.`
+- **Komunikat**: `File level compression is not supported for Parquet.`
 
 - **Przyczyna**: nieobsługiwany scenariusz
 
@@ -652,16 +651,16 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--jrenotfound"></a>Kod błędu: JreNotFound
 
-- **Komunikat**:`Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
+- **Komunikat**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
 - **Przyczyna**: własne środowisko Integration Runtime nie może znaleźć środowiska uruchomieniowego języka Java. Środowisko uruchomieniowe Java jest wymagane do odczytywania określonego źródła.
 
-- **Zalecenie**: Sprawdź środowisko Integration Runtime, doc Reference:https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
+- **Zalecenie**: Sprawdź środowisko Integration Runtime, doc Reference: https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
 
 
 ### <a name="error-code--wildcardpathsinknotsupported"></a>Kod błędu: WildcardPathSinkNotSupported
 
-- **Komunikat**:`Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
+- **Komunikat**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 
 - **Przyczyna**: zestaw danych ujścia nie obsługuje symboli wieloznacznych.
 
@@ -670,22 +669,22 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 ### <a name="error-code--mappinginvalidpropertywithemptyvalue"></a>Kod błędu: MappingInvalidPropertyWithEmptyValue
 
-- **Komunikat**:`One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
+- **Komunikat**: `One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
 
 
 ### <a name="error-code--mappinginvalidpropertywithnamepathandordinal"></a>Kod błędu: MappingInvalidPropertyWithNamePathAndOrdinal
 
-- **Komunikat**:`Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
+- **Komunikat**: `Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
 
 
 ### <a name="error-code--mappingduplicatedordinal"></a>Kod błędu: MappingDuplicatedOrdinal
 
-- **Komunikat**:`Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
+- **Komunikat**: `Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
 
 
 ### <a name="error-code--mappinginvalidordinalforsinkcolumn"></a>Kod błędu: MappingInvalidOrdinalForSinkColumn
 
-- **Komunikat**:`Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
+- **Komunikat**: `Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
 
 
 ## <a name="next-steps"></a>Następne kroki

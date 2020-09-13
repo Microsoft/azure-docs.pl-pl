@@ -1,0 +1,274 @@
+---
+title: Bezpieczne środowiska inferencing z sieciami wirtualnymi
+titleSuffix: Azure Machine Learning
+description: Użyj izolowanego Virtual Network platformy Azure, aby zabezpieczyć środowisko Azure Machine Learning inferencing.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: how-to
+ms.reviewer: larryfr
+ms.author: aashishb
+author: aashishb
+ms.date: 07/16/2020
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 43d8211c7cbe5d785f6004157ff40c0bf9dfa788
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89665176"
+---
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Zabezpieczanie środowiska Azure Machine Learning inferencing z sieciami wirtualnymi
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+W tym artykule dowiesz się, jak zabezpieczyć środowiska inferencing przy użyciu sieci wirtualnej w Azure Machine Learning.
+
+Ten artykuł jest czwartą częścią serii składającej się z pięciu części, która przeprowadzi Cię przez proces zabezpieczania przepływów pracy Azure Machine Learning. Zdecydowanie zalecamy zapoznanie się z [częścią poniżej: Omówienie sieci wirtualnej](how-to-network-security-overview.md) , aby zrozumieć ogólną architekturę. 
+
+Zapoznaj się z innymi artykułami w tej serii:
+
+[1. Omówienie sieci wirtualnej](how-to-network-security-overview.md)  >  [Zabezpiecz obszar roboczy](how-to-secure-workspace-vnet.md)  >  [3. Zabezpiecz środowisko szkoleniowe](how-to-secure-training-vnet.md)  >  **4. Zabezpiecz środowisko inferencing**  >  [5. Włącz funkcje programu Studio](how-to-enable-studio-virtual-network.md)
+
+W tym artykule dowiesz się, jak zabezpieczyć następujące zasoby inferencing w sieci wirtualnej:
+> [!div class="checklist"]
+> - Domyślny klaster usługi Azure Kubernetes Service (AKS)
+> - Prywatny klaster AKS
+> - Azure Container Instances (ACI)
+
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
++ Zapoznaj się z artykułem [Omówienie zabezpieczeń sieci](how-to-network-security-overview.md) , aby poznać typowe scenariusze sieci wirtualnej i ogólną architekturę sieci wirtualnej.
+
++ Istniejąca sieć wirtualna i podsieć do użycia z zasobami obliczeniowymi.
+
++ Aby można było wdrożyć zasoby w sieci wirtualnej lub podsieci, konto użytkownika musi mieć uprawnienia do następujących akcji w kontroli dostępu opartej na rolach (RBAC) na platformie Azure:
+
+    - "Microsoft. Network/virtualNetworks/Join/Action" w zasobie sieci wirtualnej.
+    - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" w zasobie podsieci.
+
+    Aby uzyskać więcej informacji na temat RBAC w sieci, zobacz [wbudowane role sieciowe](/azure/role-based-access-control/built-in-roles#networking) .
+
+<a id="aksvnet"></a>
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+Aby można było użyć klastra AKS w sieci wirtualnej, należy spełnić następujące wymagania dotyczące sieci:
+
+> [!div class="checklist"]
+> * Postępuj zgodnie z wymaganiami wstępnymi w temacie [Konfigurowanie zaawansowanej sieci w usłudze Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
+> * Wystąpienie AKS i Sieć wirtualna muszą znajdować się w tym samym regionie. W przypadku zabezpieczenia kont usługi Azure Storage używanych przez obszar roboczy w sieci wirtualnej, muszą one znajdować się w tej samej sieci wirtualnej co wystąpienie AKS.
+
+
+Aby dodać AKS w sieci wirtualnej do obszaru roboczego, wykonaj następujące czynności:
+
+1. Zaloguj się do [Azure Machine Learning Studio](https://ml.azure.com/), a następnie wybierz swoją subskrypcję i obszar roboczy.
+
+1. Wybierz pozycję __obliczenia__ po lewej stronie.
+
+1. Wybierz z centrum pozycję __klastry wnioskowania__ , a następnie wybierz pozycję __+__ .
+
+1. W oknie dialogowym __nowy klaster wnioskowania__ wybierz pozycję __Zaawansowane__ w obszarze __Konfiguracja sieci__.
+
+1. Aby skonfigurować ten zasób obliczeniowy do korzystania z sieci wirtualnej, wykonaj następujące czynności:
+
+    1. Z listy rozwijanej __Grupa zasobów__ wybierz grupę zasobów zawierającą sieć wirtualną.
+    1. Z listy rozwijanej __Sieć wirtualna__ wybierz sieć wirtualną, która zawiera podsieć.
+    1. Z listy rozwijanej __podsieć__ wybierz podsieć.
+    1. W polu __zakres adresów usługi Kubernetes__ Wprowadź zakres adresów usługi Kubernetes. Ten zakres adresów używa zakresu adresów IP notacji CIDR (Classless Inter-Domain Routing) do definiowania adresów IP, które są dostępne dla klastra. Nie może się nakładać na żadne zakresy adresów IP podsieci (na przykład 10.0.0.0/16).
+    1. W polu __adres IP usługi KUBERNETES DNS__ wprowadź adres IP usługi DNS Kubernetes. Ten adres IP jest przypisywany do usługi DNS Kubernetes. Musi ona należeć do zakresu adresów usługi Kubernetes (na przykład 10.0.0.10).
+    1. W polu __adres mostka platformy Docker__ wprowadź adres mostka platformy Docker. Ten adres IP jest przypisany do mostka platformy Docker. Nie może być w żadnym z zakresów adresów IP podsieci lub zakres adresów usługi Kubernetes (na przykład 172.17.0.1/16).
+
+   ![Azure Machine Learning: środowisko obliczeniowe usługi Machine Learning ustawień sieci wirtualnej](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+
+1. Upewnij się, że grupa sieciowej grupy zabezpieczeń kontrolująca sieć wirtualną ma włączoną regułę zabezpieczeń dla punktu końcowego oceniania, tak aby można ją było wywołać spoza sieci wirtualnej.
+   > [!IMPORTANT]
+   > Zachowaj domyślne reguły ruchu wychodzącego dla sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz domyślne reguły zabezpieczeń w [grupach zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+
+   [![Reguła zabezpieczeń dla ruchu przychodzącego](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+
+Możesz również użyć zestawu SDK Azure Machine Learning, aby dodać usługę Azure Kubernetes w sieci wirtualnej. Jeśli masz już klaster AKS w sieci wirtualnej, dołącz go do obszaru roboczego, zgodnie z opisem w artykule [wdrażanie w AKS](how-to-deploy-and-where.md). Poniższy kod tworzy nowe wystąpienie AKS w `default` podsieci sieci wirtualnej o nazwie `mynetwork` :
+
+```python
+from azureml.core.compute import ComputeTarget, AksCompute
+
+# Create the compute configuration and set virtual network information
+config = AksCompute.provisioning_configuration(location="eastus2")
+config.vnet_resourcegroup_name = "mygroup"
+config.vnet_name = "mynetwork"
+config.subnet_name = "default"
+config.service_cidr = "10.0.0.0/16"
+config.dns_service_ip = "10.0.0.10"
+config.docker_bridge_cidr = "172.17.0.1/16"
+
+# Create the compute target
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name="myaks",
+                                  provisioning_configuration=config)
+```
+
+Po zakończeniu procesu tworzenia można uruchomić wnioskowanie lub ocenianie modelu w klastrze AKS za siecią wirtualną. Aby uzyskać więcej informacji, zobacz [How to Deploy to AKS](how-to-deploy-and-where.md).
+
+## <a name="private-aks-cluster"></a>Prywatny klaster AKS
+
+Domyślnie klastry AKS mają płaszczyznę kontroli lub serwer interfejsu API z publicznymi adresami IP. Można skonfigurować AKS do korzystania z prywatnej płaszczyzny kontroli, tworząc prywatny klaster AKS. Aby uzyskać więcej informacji, zobacz [Tworzenie prywatnego klastra usługi Azure Kubernetes Service](../aks/private-clusters.md).
+
+Po utworzeniu prywatnego klastra AKS [Dołącz klaster do sieci wirtualnej](how-to-create-attach-kubernetes.md) , aby używać go z Azure Machine Learning.
+
+## <a name="internal-aks-load-balancer"></a>Wewnętrzny moduł równoważenia obciążenia AKS
+
+Domyślnie wdrożenia AKS używają [publicznego modułu równoważenia obciążenia](../aks/load-balancer-standard.md). W tej sekcji dowiesz się, jak skonfigurować AKS do korzystania z wewnętrznego modułu równoważenia obciążenia. Używany jest wewnętrzny (lub prywatny) moduł równoważenia obciążenia, w przypadku którego jako frontonu można używać tylko prywatnych adresów IP. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej
+
+Prywatny moduł równoważenia obciążenia jest włączony przez skonfigurowanie AKS do korzystania z _wewnętrznego modułu równoważenia obciążenia_. 
+
+### <a name="network-contributor-role"></a>Rola współautor sieci
+
+> [!IMPORTANT]
+> Jeśli utworzysz lub dołączysz klaster AKS, dostarczając wcześniej utworzoną sieć wirtualną, należy przyznać jednostce usługi (SP) lub tożsamość zarządzaną dla klastra AKS rolę _współautor sieci_ do grupy zasobów zawierającej sieć wirtualną. Należy to zrobić przed podjęciem próby zmiany wewnętrznego modułu równoważenia obciążenia na prywatny adres IP.
+>
+> Aby dodać tożsamość jako współautor sieci, wykonaj następujące czynności:
+
+1. Aby znaleźć nazwę główną usługi lub identyfikator tożsamości zarządzanej dla AKS, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure. Zamień `<aks-cluster-name>` na nazwę klastra. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _klaster AKS_:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+    ``` 
+
+    Jeśli to polecenie zwróci wartość `msi` , użyj następującego polecenia, aby zidentyfikować Identyfikator podmiotu zabezpieczeń dla tożsamości zarządzanej:
+
+    ```azurecli-interactive
+    az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+    ```
+
+1. Aby znaleźć identyfikator grupy zasobów zawierającej daną sieć wirtualną, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę grupy zasobów zawierającej _sieć wirtualną_:
+
+    ```azurecli-interactive
+    az group show -n <resource-group-name> --query id
+    ```
+
+1. Aby dodać nazwę główną usługi lub tożsamość zarządzaną jako współautor sieci, użyj następującego polecenia. Zamień na `<SP-or-managed-identity>` Identyfikator zwrócony dla jednostki usługi lub tożsamości zarządzanej. Zamień na `<resource-group-id>` Identyfikator zwrócony dla grupy zasobów zawierającej sieć wirtualną:
+
+    ```azurecli-interactive
+    az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+    ```
+Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równoważenia obciążenia z programem AKS, zobacz [Korzystanie z wewnętrznego modułu równoważenia obciążenia z usługą Azure Kubernetes Service](/azure/aks/internal-lb).
+
+### <a name="enable-private-load-balancer"></a>Włączanie prywatnego modułu równoważenia obciążenia
+
+> [!IMPORTANT]
+> Nie można włączyć prywatnego adresu IP podczas tworzenia klastra usługi Azure Kubernetes. Musi być włączona jako aktualizacja istniejącego klastra.
+
+Poniższy fragment kodu przedstawia sposób __tworzenia nowego klastra AKS__, a następnie aktualizowania go do korzystania z prywatnego modułu równoważenia obciążenia IP/wewnętrznego:
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute, ComputeTarget
+
+# Verify that cluster does not exist already
+try:
+    aks_target = AksCompute(workspace=ws, name=aks_cluster_name)
+    print("Found existing aks cluster")
+
+except:
+    print("Creating new aks cluster")
+
+    # Subnet to use for AKS
+    subnet_name = "default"
+    # Create AKS configuration
+    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    # Set info for existing virtual network to create the cluster in
+    prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
+    prov_config.vnet_name = "myvnetname"
+    prov_config.service_cidr = "10.0.0.0/16"
+    prov_config.dns_service_ip = "10.0.0.10"
+    prov_config.subnet_name = subnet_name
+    prov_config.docker_bridge_cidr = "172.17.0.1/16"
+
+    # Create compute target
+    aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+    
+    # Update AKS configuration to use an internal load balancer
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+    aks_target.update(update_config)
+    # Wait for the operation to complete
+    aks_target.wait_for_completion(show_output = True)
+```
+
+__Interfejs wiersza polecenia platformy Azure__
+
+```azurecli-interactive
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
+```
+
+Zawartość `body.json` pliku, do którego odwołuje się polecenie, jest podobna do następującego dokumentu JSON:
+
+```json
+{ 
+    "location": "<region>", 
+    "properties": { 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
+        "computeType": "AKS", 
+        "provisioningState": "Succeeded", 
+        "properties": { 
+            "loadBalancerType": "InternalLoadBalancer", 
+            "agentCount": <agent-count>, 
+            "agentVmSize": "vm-size", 
+            "clusterFqdn": "<cluster-fqdn>" 
+        } 
+    } 
+} 
+```
+
+W przypadku __dołączania istniejącego klastra__ do obszaru roboczego należy poczekać, aż po zakończeniu operacji dołączania usługa równoważenia obciążenia zostanie skonfigurowana.
+
+Aby uzyskać informacje na temat dołączania klastra, zobacz [dołączanie istniejącego klastra AKS](how-to-create-attach-kubernetes.md).
+
+Po dołączeniu istniejącego klastra można zaktualizować klaster tak, aby korzystał z prywatnego adresu IP.
+
+```python
+import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute import AksCompute
+
+# ws = workspace object. Creation not shown in this snippet
+aks_target = AksCompute(ws,"myaks")
+
+# Change to the name of the subnet that contains AKS
+subnet_name = "default"
+# Update AKS configuration to use an internal load balancer
+update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+aks_target.update(update_config)
+# Wait for the operation to complete
+aks_target.wait_for_completion(show_output = True)
+```
+
+## <a name="enable-azure-container-instances-aci"></a>Włącz Azure Container Instances (ACI)
+
+Azure Container Instances są tworzone dynamicznie podczas wdrażania modelu. Aby umożliwić Azure Machine Learning tworzenia ACI wewnątrz sieci wirtualnej, należy włączyć __delegowanie podsieci__ dla podsieci używanej przez wdrożenie.
+
+> [!WARNING]
+> W przypadku korzystania z Azure Container Instances w sieci wirtualnej Sieć wirtualna musi znajdować się w tej samej grupie zasobów co obszar roboczy Azure Machine Learning.
+>
+> W przypadku korzystania z Azure Container Instances wewnątrz sieci wirtualnej Azure Container Registry (ACR) dla obszaru roboczego nie może być również w sieci wirtualnej.
+
+Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czynności:
+
+1. Aby włączyć delegowanie podsieci w sieci wirtualnej, Skorzystaj z informacji zawartych w artykule [Dodawanie lub usuwanie delegowania podsieci](../virtual-network/manage-subnet-delegation.md) . Delegowanie można włączyć podczas tworzenia sieci wirtualnej lub dodać je do istniejącej sieci.
+
+    > [!IMPORTANT]
+    > Podczas włączania delegowania Użyj `Microsoft.ContainerInstance/containerGroups` wartości jako __delegowanej podsieci do usługi__ .
+
+2. Wdróż model przy użyciu [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), użyj `vnet_name` parametrów i `subnet_name` . Ustaw te parametry na nazwę sieci wirtualnej i podsieć, w której włączono delegowanie.
+
+
+## <a name="next-steps"></a>Następne kroki
+
+Ten artykuł jest trzecią częścią serii sieci wirtualnych z czterema częściami. Zapoznaj się z pozostałymi artykułami, aby dowiedzieć się, jak zabezpieczyć sieć wirtualną:
+
+* [Część 1: Omówienie usługi Virtual Network](how-to-network-security-overview.md)
+* [Część 2: Zabezpieczanie zasobów obszaru roboczego](how-to-secure-workspace-vnet.md)
+* [Część 3: Zabezpieczanie środowiska szkoleniowego](how-to-secure-training-vnet.md)
+* [Część 5. Włączanie funkcji programu Studio](how-to-enable-studio-virtual-network.md)

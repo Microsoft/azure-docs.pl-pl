@@ -9,12 +9,12 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c54690645286a4fceb3fd786d85652b1cf77d7aa
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e01255a34e97f6c11e4909287b98fcd3d15fca92
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260036"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669045"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509
 
@@ -52,7 +52,7 @@ Aby skonfigurować automatyczną Inicjowanie obsługi przy użyciu pliku X. 509,
 * Certyfikat pośredniego lub głównego urzędu certyfikacji z łańcucha certyfikatów zaufania. Ten certyfikat jest przekazywany do programu DPS w przypadku utworzenia rejestracji grupy.
 
 > [!NOTE]
-> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2050.
+> Obecnie ograniczenie w libiothsm uniemożliwia korzystanie z certyfikatów, które wygasną od 1 stycznia 2038.
 
 ### <a name="use-test-certificates"></a>Korzystanie z certyfikatów testowych
 

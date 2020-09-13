@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357583"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662476"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Interfejs API usługi Azure AD Connect Sync w wersji 2 (publiczna wersja zapoznawcza) 
 Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, który poprawia wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje następujące elementy:
@@ -26,14 +26,14 @@ Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, któr
  - wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD
  
 > [!NOTE]
-> Obecnie nowy punkt końcowy nie ma skonfigurowanego limitu rozmiaru grupy dla grup usługi O365, które są zapisywane z powrotem. Może to mieć wpływ na Active Directory i opóźnienia cyklu synchronizacji.  Zaleca się przyrostowe zwiększenie rozmiarów grup.  
+> Obecnie nowy punkt końcowy nie ma skonfigurowanego limitu rozmiaru grupy dla grup Microsoft 365, które są zapisywane z powrotem. Może to mieć wpływ na Active Directory i opóźnienia cyklu synchronizacji. Zaleca się przyrostowe zwiększenie rozmiarów grup.  
 
 
 ## <a name="pre-requisites"></a>Wymagania wstępne  
 Aby można było korzystać z nowego punktu końcowego v2, należy użyć Azure AD Connect w [wersji 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) lub nowszej i postępować zgodnie z poniższymi instrukcjami wdrażania, aby włączyć punkt końcowy V2 dla Azure AD Connect serwera.   
 
 >[!NOTE]
->Obecnie ta publiczna wersja zapoznawcza jest dostępna tylko w chmurze globalnej platformy Azure i nie jest dostępna dla [chmur krajowych](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+>Obecnie ta publiczna wersja zapoznawcza jest dostępna tylko w chmurze globalnej platformy Azure i nie jest dostępna dla [chmur krajowych](../develop/authentication-national-cloud.md).
 
 ### <a name="public-preview-limitations"></a>Ograniczenia publicznej wersji zapoznawczej  
 Mimo że ta wersja została poddana szerokim testom, nadal mogą wystąpić problemy. Jednym z celów tej publicznej wersji zapoznawczej jest znalezienie i rozwiązanie tych problemów.  
@@ -44,14 +44,14 @@ Mimo że ta wersja została poddana szerokim testom, nadal mogą wystąpić prob
 ## <a name="deployment-guidance"></a>Wskazówki dotyczące wdrażania 
 Musisz wdrożyć [Azure AD Connect w wersji 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) lub nowszej, aby użyć punktu końcowego v2. Użyj linku podanego do pobrania. 
 
-Zaleca się, aby postępować zgodnie z metodą [migracji wahadłowej](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) w celu wdrażania nowego punktu końcowego w środowisku. Dzięki temu będzie można jasno zaplanować sytuacje awaryjne w przypadku, gdy konieczne jest poważne wycofanie. Poniższy przykład ilustruje, jak w tym scenariuszu może być używana migracja wahadła. Aby uzyskać więcej informacji na temat metody wdrożenia migracji na zasięg, zapoznaj się z udostępnionym linkiem. 
+Zaleca się, aby postępować zgodnie z metodą [migracji wahadłowej](./how-to-upgrade-previous-version.md#swing-migration) w celu wdrażania nowego punktu końcowego w środowisku. Dzięki temu będzie można jasno zaplanować sytuacje awaryjne w przypadku, gdy konieczne jest poważne wycofanie. Poniższy przykład ilustruje, jak w tym scenariuszu może być używana migracja wahadła. Aby uzyskać więcej informacji na temat metody wdrożenia migracji na zasięg, zapoznaj się z udostępnionym linkiem. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>Migracja na zasięg dla wdrożenia punktu końcowego v2
 Poniższe kroki przeprowadzą Cię przez proces wdrażania punktu końcowego v2 przy użyciu metody wahadłowej.
 
 1. Wdróż punkt końcowy V2 na bieżącym serwerze tymczasowym. Ten serwer będzie znany jako **serwer v2** w poniższych krokach. Bieżący aktywny serwer będzie kontynuował przetwarzanie obciążenia produkcyjnego przy użyciu punktu końcowego V1, który zostanie wywołany z **serwerem V1** poniżej.
 1. Sprawdź, czy **serwer v2** nadal przetwarza Importy zgodnie z oczekiwaniami. Na tym etapie duże grupy nie będą obsługiwane w usłudze Azure AD ani w usłudze AD Premium, ale będzie można sprawdzić, czy uaktualnienie nie spowodowało żadnego innego nieoczekiwanego wpływu na istniejący proces synchronizacji. 
-2. Po zakończeniu walidacji Przełącz serwer w **wersji 2** na serwer, który będzie serwerem aktywnym i **serwerem V1** . W tej chwili duże grupy, które znajdują się w zakresie synchronizacji, zostaną zainicjowane do usługi Azure AD, a także w przypadku dużych grup ujednoliconych usługi O365 zostanie zainicjowana Usługa AD, jeśli włączono funkcję zapisywania zwrotnego grup.
+2. Po zakończeniu walidacji Przełącz serwer w **wersji 2** na serwer, który będzie serwerem aktywnym i **serwerem V1** . W tej chwili duże grupy, które znajdują się w zakresie synchronizacji, będą obsługiwane do usługi Azure AD, a także duże Microsoft 365 ujednolicone grupy będą obsługiwane w usłudze AD, jeśli włączono funkcję zapisywania zwrotnego grup.
 3. Sprawdź, czy **serwer v2** działa i czy przetwarzanie dużych grup powiodło się. Możesz pozostawać w tym kroku i monitorować proces synchronizacji przez okres.
   >[!NOTE]
   > Jeśli musisz przejść z powrotem do poprzedniej konfiguracji, możesz przeprowadzić przechodzenie między **serwerami z wersji 2** do wersji **1**. Ponieważ punkt końcowy V1 nie obsługuje grup mających ponad 50 000 członków, każda duża grupa, która została zainicjowana przez Azure AD Connect w usłudze Azure AD lub w usłudze Premium AD, zostanie następnie usunięta. 
@@ -153,7 +153,7 @@ Podczas kolejnej podwyżki do limitu elementu członkowskiego grupy w regule syn
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> Jeśli masz ujednolicone grupy usługi O365, które mają więcej niż 50 000 członków, grupy zostaną odczytane do Azure AD Connect i jeśli włączono funkcję zapisywania zwrotnego grup, zostaną one zarejestrowane w lokalnej usłudze AD. 
+> Jeśli masz Microsoft 365 ujednoliconych grup, które mają więcej niż 50 000 członków, grupy zostaną odczytane do Azure AD Connect i jeśli włączono funkcję zapisywania zwrotnego grup, zostaną one zapisaną w lokalnej usłudze AD. 
 
 ## <a name="rollback"></a>Wycofywania 
 Jeśli włączono punkt końcowy w wersji 2 i konieczne jest wycofanie, wykonaj następujące kroki: 
@@ -181,7 +181,7 @@ Jeśli włączono punkt końcowy w wersji 2 i konieczne jest wycofanie, wykonaj 
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> Po przełączeniu z powrotem z punktów końcowych z przedziału od 2 do v1 grupy zsynchronizowane z więcej niż 50 000 Członkowie zostaną usunięte po uruchomieniu pełnej synchronizacji, dla obu grup usługi AD przywidzianych do usług Azure AD i O365 Unified Groups, które są udostępnione w usłudze AD. 
+> Po przełączeniu z powrotem z punktów końcowych z przedziału od 2 do 1 grupy synchronizowane z więcej niż 50 000 członkami zostaną usunięte po uruchomieniu pełnej synchronizacji dla grup usługi AD, które są udostępnione w usłudze Azure AD, i Microsoft 365 ujednoliconych grup zainicjowanych do usługi AD. 
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania  
 **P: czy klient może korzystać z tej funkcji w środowisku produkcyjnym?**  
