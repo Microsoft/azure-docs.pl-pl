@@ -8,19 +8,19 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ec06fc23b147eb3e4a5922242aa922063f4172c
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038618"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514156"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorowanie zabezpieczeń kontenerów
 
 Na tej stronie wyjaśniono, jak korzystać z funkcji zabezpieczeń kontenerów opisanych w artykule dotyczącym [zabezpieczeń kontenera](container-security.md) w naszej sekcji pojęcia.
 
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Skanowanie rejestrów kontenerów opartych na usłudze ARM pod kątem luk w zabezpieczeniach 
+## <a name="scan-your-arm-based-container-registries-for-vulnerabilities"></a>Skanowanie rejestrów kontenerów opartych na usłudze ARM pod kątem luk w zabezpieczeniach 
 
 1. Aby włączyć skanowanie Azure Container Registry obrazów:
 
@@ -30,13 +30,13 @@ Na tej stronie wyjaśniono, jak korzystać z funkcji zabezpieczeń kontenerów o
 
         Security Center jest teraz gotowa do skanowania obrazów, które są przekazywane do rejestru. 
 
-        >[!NOTE]
-        >Ta funkcja jest naliczana za obraz.
+      >[!NOTE]
+      >Ta funkcja jest naliczana za obraz.
 
 
 1. Aby wyzwolić skanowanie obrazu, wypchnij go do rejestru. 
 
-    Po zakończeniu skanowania (zwykle po około 2 minutach, ale może to być maksymalnie 15 minut), ustalenia są dostępne jako Security Center zalecenia:
+    Po zakończeniu skanowania (zwykle po około 2 minutach, ale może to potrwać do 15 minut), ustalenia są dostępne jako zalecenia Security Center.
 
 1. Aby wyświetlić wyniki, przejdź do strony **zalecenia** . W przypadku znalezienia problemów zobaczysz następujące zalecenie:
 
@@ -86,7 +86,7 @@ Na tej stronie wyjaśniono, jak korzystać z funkcji zabezpieczeń kontenerów o
     1. Jeśli masz pewność, że zaktualizowany obraz został wypchnięci, przeskanowany i nie jest już wyświetlany w zaleceniu, Usuń z rejestru "stary" obraz z zagrożeniem.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Ograniczanie funkcjonalności hostów platformy Docker kontenerów
+## <a name="harden-your-containers-docker-hosts"></a>Ograniczanie funkcjonalności hostów platformy Docker kontenerów
 
 Security Center stale monitoruje konfigurację hostów platformy Docker i generuje zalecenia dotyczące zabezpieczeń, które odzwierciedlają standardy branżowe.
 

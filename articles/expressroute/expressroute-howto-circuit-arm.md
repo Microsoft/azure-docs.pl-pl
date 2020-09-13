@@ -2,21 +2,21 @@
 title: 'Azure ExpressRoute: modyfikowanie obwodu: PowerShell'
 description: Tworzenie, Inicjowanie obsługi, weryfikowanie, aktualizowanie, usuwanie i cofanie aprowizacji obwodu ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/08/2020
-ms.author: cherylmc
-ms.openlocfilehash: aba29c46a781c8e687c79a197d37758699a9acf5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.author: duau
+ms.openlocfilehash: e9bf9dbe0f4146101513ab9786b298ac6b43b6a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984469"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566301"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Tworzenie i modyfikowanie obwodu ExpressRoute za pomocą programu PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
 > * [Szablon usługi Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
@@ -73,7 +73,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Upewnij się, że określono poprawną warstwę SKU i rodzinę SKU:
 
-* Warstwa SKU określa, czy obwód ExpressRoute jest [lokalny](expressroute-faqs.md#expressroute-local), standardowy czy [Premium](expressroute-faqs.md#expressroute-premium). Możesz określić *Local*, *Standard* lub *Premium*.
+* Warstwa SKU określa, czy obwód ExpressRoute jest [lokalny](expressroute-faqs.md#expressroute-local), standardowy czy [Premium](expressroute-faqs.md#expressroute-premium). Możesz określić *Local*, *Standard* lub *Premium*. Nie można zmienić jednostki SKU z warstwy *standardowa/Premium* na *lokalną*.
 * Rodzina SKU określa typ rozliczeń. Możesz określić *Metereddata* dla mierzonego planu taryfowego i *Unlimiteddata* dla nieograniczonego planu taryfowego. Typ rozliczeń można zmienić z *Metereddata* na *Unlimiteddata*, ale nie można zmienić typu z *Unlimiteddata* na *Metereddata*. Obwód *lokalny* jest zawsze *Unlimiteddata*.
 
 > [!IMPORTANT]
@@ -306,7 +306,7 @@ Niektóre właściwości obwodu usługi ExpressRoute można modyfikować bez wp�
 
 W przypadku braku przestojów można wykonać następujące zadania:
 
-* Włącz lub Wyłącz dodatek ExpressRoute Premium dla obwodu usługi ExpressRoute.
+* Włącz lub Wyłącz dodatek ExpressRoute Premium dla obwodu usługi ExpressRoute. Zmiana jednostki SKU z warstwy *standardowa/Premium* na *lokalną* nie jest obsługiwana.
 * Zwiększ przepustowość obwodu ExpressRoute pod warunkiem, że na porcie jest dostępna pojemność. Obniżenie przepustowości obwodu nie jest obsługiwane.
 * Zmień plan pomiaru z danych mierzonych na dane nieograniczone. Zmiana planu pomiaru z nieograniczonej ilości danych na dane taryfowe nie jest obsługiwana.
 * Można włączać i wyłączać *Zezwalanie na klasyczne operacje*.

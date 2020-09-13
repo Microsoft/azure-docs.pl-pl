@@ -1,19 +1,19 @@
 ---
 title: Phoenix Query Server zestaw SDK REST — Azure HDInsight
 description: Zainstaluj i użyj zestawu SDK REST dla Phoenix Query Server w usłudze Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
-ms.openlocfilehash: 4ad6d16e4c6d91b44061d99ffa1c397fb0e0ec28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 051d7b37f5f78ce28134fa7c4ee188f3dde81812
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019644"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504846"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Zestaw SDK REST serwera Apache Phoenix Query
 
@@ -539,7 +539,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 * [Oprogramowanie Apache Phoenix w usłudze HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Korzystanie z zestawu Apache HBase REST SDK](apache-hbase-rest-sdk.md)

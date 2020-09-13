@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak zarządzać operacjami przywracani
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f9cd0cca938dac79071d7ded6f6139f4e3c3840d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011194"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506682"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Przywracanie maszyn wirtualnych platformy Azure przy użyciu interfejsu API REST
 
@@ -244,6 +244,30 @@ Następująca treść żądania definiuje właściwości wymagane do wyzwolenia 
 }
 ```
 
+### <a name="restore-disks-selectively"></a>Selektywne przywracanie dysków
+
+W przypadku [selektywnego tworzenia kopii zapasowych dysków](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), aktualna lista dysków kopii zapasowej znajduje się w [podsumowaniu punktu odzyskiwania](#select-recovery-point) i [szczegółowej odpowiedzi](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Możesz również wybiórczo przywracać dyski i więcej szczegółów można znaleźć [tutaj](selective-disk-backup-restore.md#selective-disk-restore). Aby wybiórczo przywrócić dysk między listą kopii zapasowych dysków, Znajdź numer LUN dysku z odpowiedzi punktu odzyskiwania i Dodaj właściwość **restoreDiskLunList** do [treści żądania powyżej](#example-request) , jak pokazano poniżej.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
+```
+
 Po przeprowadzeniu śledzenia odpowiedzi zgodnie z [powyższym](#responses)opisem, gdy długotrwałe zadanie jest ukończone, dyski i Konfiguracja kopii zapasowej maszyny wirtualnej ("VMConfig.json") będą obecne na danym koncie magazynu.
 
 ### <a name="replace-disks-in-a-backed-up-virtual-machine"></a>Zastępowanie dysków w kopii zapasowej maszyny wirtualnej
@@ -327,7 +351,7 @@ Jak wyjaśniono [powyżej](#restore-operations), następująca treść żądania
 
 Odpowiedź powinna być obsługiwana w taki sam sposób, jak [wyjaśniono powyżej w przypadku przywracania dysków](#responses).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat Azure Backup interfejsów API REST, zobacz następujące dokumenty:
 

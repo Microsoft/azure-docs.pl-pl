@@ -14,16 +14,16 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce0d543f11a1dcc61616d8a386176272ab44aee
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797274"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565059"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Co to jest Licencjonowanie oparte na grupach w Azure Active Directory?
 
-Płatne usługi w chmurze firmy Microsoft, takie jak usługa Office 365, pakiet Enterprise Mobility + Security, usługa Dynamics 365 i inne podobne produkty firmy Microsoft, wymagają licencji. Te licencje są przypisywane do każdego użytkownika, który potrzebuje dostępu do tych usług. Aby zarządzać licencjami, administratorzy korzystają z jednego z portali zarządzania (Office lub Azure) i poleceń cmdlet programu PowerShell. Azure Active Directory (Azure AD) to podstawowa infrastruktura, która obsługuje zarządzanie tożsamościami dla wszystkich usług w chmurze firmy Microsoft. Usługa Azure AD przechowuje informacje o stanach przypisania licencji dla użytkowników.
+Płatne usługi w chmurze firmy Microsoft, takie jak Microsoft 365, Enterprise Mobility + Security, Dynamics 365 i inne podobne produkty, wymagają licencji. Te licencje są przypisywane do każdego użytkownika, który potrzebuje dostępu do tych usług. Aby zarządzać licencjami, administratorzy korzystają z jednego z portali zarządzania (Office lub Azure) i poleceń cmdlet programu PowerShell. Azure Active Directory (Azure AD) to podstawowa infrastruktura, która obsługuje zarządzanie tożsamościami dla wszystkich usług w chmurze firmy Microsoft. Usługa Azure AD przechowuje informacje o stanach przypisania licencji dla użytkowników.
 
 Do tej pory licencje mogły być przypisywane tylko na poziomie pojedynczego użytkownika, co może utrudniać zarządzanie na dużą skalę. Na przykład aby dodać lub usunąć licencje użytkowników na podstawie zmian w organizacji, takich jak dołączenie użytkownika do organizacji lub działu albo opuszczenie organizacji lub działu przez użytkownika, administrator często musi napisać złożony skrypt programu PowerShell. Ten skrypt wykonuje poszczególne wywołania usługi w chmurze.
 
@@ -45,9 +45,9 @@ Poniżej przedstawiono główne funkcje licencjonowania opartego na grupach:
 
 - Licencje można przypisać do dowolnej grupy zabezpieczeń w usłudze Azure AD. Grupy zabezpieczeń można synchronizować z poziomu lokalnego przy użyciu Azure AD Connect. Można również utworzyć grupy zabezpieczeń bezpośrednio w usłudze Azure AD (tak zwane grupy tylko w chmurze) lub automatycznie, za pomocą funkcji grupy dynamicznej usługi Azure AD.
 
-- Po przypisaniu licencji produktu do grupy administrator może wyłączyć poszczególne plany usług w ramach produktu. Zwykle to przypisanie jest wykonywane, gdy organizacja nie jest jeszcze gotowa do rozpoczęcia korzystania z usługi zawartej w produkcie. Na przykład administrator może przypisać usługę Office 365 do działu, ale tymczasowo wyłączyć usługę Yammer.
+- Po przypisaniu licencji produktu do grupy administrator może wyłączyć poszczególne plany usług w ramach produktu. Zwykle to przypisanie jest wykonywane, gdy organizacja nie jest jeszcze gotowa do rozpoczęcia korzystania z usługi zawartej w produkcie. Na przykład administrator może przypisywać Microsoft 365 do działu, ale tymczasowo wyłączyć usługę Yammera.
 
-- Obsługiwane są wszystkie usługi w chmurze firmy Microsoft, które wymagają licencjonowania na poziomie użytkownika. Ta obsługa obejmuje wszystkie produkty pakietu Office 365, Enterprise Mobility + Security i Dynamics 365.
+- Obsługiwane są wszystkie usługi w chmurze firmy Microsoft, które wymagają licencjonowania na poziomie użytkownika. Ta obsługa obejmuje wszystkie Microsoft 365 produkty, Enterprise Mobility + Security i Dynamics 365.
 
 - Licencjonowanie oparte na grupach jest obecnie dostępne tylko za pośrednictwem [Azure Portal](https://portal.azure.com). Jeśli korzystasz głównie z innych portali zarządzania na potrzeby zarządzania użytkownikami i grupami, takimi jak [Microsoft 365 centrum administracyjnym](https://admin.microsoft.com), możesz kontynuować tę czynność. Jednak do zarządzania licencjami na poziomie grupy należy używać witryny Azure Portal.
 

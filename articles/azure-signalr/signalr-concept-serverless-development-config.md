@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928568"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513948"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Programowanie i konfigurowanie w usłudze Azure Functions za pomocą usługi Azure SignalR Service
 
@@ -51,7 +51,9 @@ Aby dowiedzieć się więcej o sposobie tworzenia uwierzytelnionego tokenu, zapo
 
 Użyj powiązania *wyzwalacza sygnalizującego* , aby obsłużyć komunikaty wysyłane z usługi sygnalizującej. Można wyzwalać, gdy klienci wysyłają lub odłączają wiadomości.
 
-Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach *wyzwalacza sygnału*](../azure-functions/functions-bindings-signalr-service-trigger.md)
+Aby uzyskać więcej informacji, zobacz [Informacje o powiązaniach *wyzwalacza sygnału* ](../azure-functions/functions-bindings-signalr-service-trigger.md).
+
+Należy również skonfigurować punkt końcowy funkcji jako nadrzędny, aby usługa wyzwoli funkcję, w której zostanie wyświetlony komunikat od klienta. Aby uzyskać więcej informacji na temat konfigurowania nadrzędnego, zapoznaj się z tym [dokumentem](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Wysyłanie komunikatów i zarządzanie członkostwem w grupie
 
@@ -109,7 +111,7 @@ Wszystkie funkcje, które chcą wykorzystać model oparty na klasie, muszą być
 
 ### <a name="define-hub-method"></a>Zdefiniuj metodę Hub
 
-Wszystkie metody centrum **muszą**  mieć `[SignalRTrigger]` atrybut i **muszą** korzystać z konstruktora bez parametrów. Następnie **Nazwa metody** jest traktowana jako **zdarzenie**parametru.
+Wszystkie metody centrum **muszą** mieć argument `InvocationContext` dekoracyjny według `[SignalRTrigger]` atrybutu i używać konstruktora bez parametrów. Następnie **Nazwa metody** jest traktowana jako **zdarzenie**parametru.
 
 Domyślnie, `category=messages` z wyjątkiem nazwy metody jest jedną z następujących nazw:
 
@@ -202,7 +204,11 @@ Aby uzyskać więcej informacji na temat korzystania z zestawu SDK klienta sygna
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>Wysyłanie komunikatów z klienta do usługi
 
-Mimo że zestaw SDK sygnalizujący umożliwia aplikacjom klienckim wywoływanie logiki zaplecza w centrum sygnałów, ta funkcja nie jest jeszcze obsługiwana w przypadku korzystania z usługi sygnalizującej z Azure Functions. Użyj żądań HTTP do wywołania Azure Functions.
+W przypadku skonfigurowania elementu [nadrzędnego](concept-upstream.md) dla zasobu sygnalizującego można wysyłać komunikaty z klienta do Azure Functions przy użyciu dowolnego klienta sygnalizującego. Oto przykład kodu JavaScript:
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## <a name="azure-functions-configuration"></a>Konfiguracja Azure Functions
 

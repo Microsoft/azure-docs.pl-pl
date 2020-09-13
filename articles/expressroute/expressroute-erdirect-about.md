@@ -2,17 +2,17 @@
 title: Informacje o usłudze Azure ExpressRoute Direct
 description: Poznaj kluczowe funkcje usługi Azure ExpressRoute Direct i informacje niezbędne do dołączenia do ExpressRoute bezpośrednio, takie jak dostępne jednostki SKU i wymagania techniczne.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jaredro
-ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192353"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566402"
 ---
 # <a name="about-expressroute-direct"></a>Informacje o usłudze ExpressRoute Direct
 
@@ -44,7 +44,7 @@ Przed użyciem usługi ExpressRoute Direct należy najpierw zarejestrować swoj�
 
 ## <a name="expressroute-direct-circuits"></a>Obwody bezpośrednie ExpressRoute
 
-Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure i Office 365.
+Usługa Microsoft Azure ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute można nawiązywać połączenia z usługami w chmurze firmy Microsoft, takimi jak Microsoft Azure i Microsoft 365.
 
 Każda lokalizacja komunikacji równorzędnej ma dostęp do sieci globalnej firmy Microsoft i ma domyślnie dostęp do każdego regionu w strefie geopolitycznej i może uzyskać dostęp do wszystkich regionów globalnych za pomocą obwodu Premium.  
 

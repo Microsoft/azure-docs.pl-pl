@@ -3,12 +3,12 @@ title: Instalowanie agenta połączonej maszyny przy użyciu programu Windows Po
 description: W tym artykule dowiesz się, jak połączyć maszyny z platformą Azure przy użyciu serwerów z obsługą usługi Azure ARC (wersja zapoznawcza) przy użyciu programu Windows PowerShell DSC.
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 25d6e435c261a83bf81c15d5dd445a936d48a08b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213082"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565824"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Jak zainstalować agenta połączonej maszyny przy użyciu programu Windows PowerShell DSC
 
@@ -82,7 +82,7 @@ Po zainstalowaniu agenta programu i skonfigurowaniu go w celu nawiązania połą
 
 Ten zasób można dodać do istniejących konfiguracji DSC, aby reprezentować konfigurację kompleksową dla maszyny. Na przykład możesz chcieć dodać ten zasób do konfiguracji, która ustawia bezpieczne ustawienia systemu operacyjnego.
 
-Moduł [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) z Galeria programu PowerShell może służyć do tworzenia [zasobów złożonych](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) przykładowej konfiguracji, aby dodatkowo uprościć łączenie konfiguracji.
+Moduł [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) z Galeria programu PowerShell może służyć do tworzenia [zasobów złożonych](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) przykładowej konfiguracji, aby dodatkowo uprościć łączenie konfiguracji.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,18 +2,18 @@
 title: 'Tworzenie i modyfikowanie obwodu usługi ExpressRoute: interfejs wiersza polecenia platformy Azure'
 description: W tym artykule przedstawiono sposób tworzenia, inicjowania obsługi, sprawdzania, aktualizowania, usuwania i anulowania aprowizacji obwodu usługi ExpressRoute przy użyciu interfejsu wiersza polecenia.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503586"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566147"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Tworzenie i modyfikowanie obwodu usługi ExpressRoute za pomocą interfejsu wiersza polecenia
 
@@ -24,7 +24,7 @@ W tym artykule opisano sposób tworzenia obwodu usługi Azure ExpressRoute za po
 > * [Witryna Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Program PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-circuit-cli.md)
-> * [Szablon Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Szablon usługi Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-circuit-classic.md)
 >
@@ -142,7 +142,7 @@ Poniższy przykład pokazuje, jak utworzyć obwód ExpressRoute 200 MB/s za pomo
 
 Upewnij się, że określono poprawną warstwę SKU i rodzinę SKU:
 
-* Warstwa SKU określa, czy obwód ExpressRoute jest [lokalny](expressroute-faqs.md#expressroute-local), standardowy czy [Premium](expressroute-faqs.md#expressroute-premium). Możesz określić *Local*, *Standard* lub *Premium*.
+* Warstwa SKU określa, czy obwód ExpressRoute jest [lokalny](expressroute-faqs.md#expressroute-local), standardowy czy [Premium](expressroute-faqs.md#expressroute-premium). Możesz określić *Local*, *Standard* lub *Premium*. Nie można zmienić jednostki SKU z warstwy *standardowa/Premium* na *lokalną*.
 * Rodzina SKU określa typ rozliczeń. Możesz określić *Metereddata* dla mierzonego planu taryfowego i *Unlimiteddata* dla nieograniczonego planu taryfowego. Typ rozliczeń można zmienić z *Metereddata* na *Unlimiteddata*, ale nie można zmienić typu z *Unlimiteddata* na *Metereddata*. Obwód *lokalny* jest tylko *Unlimiteddata* .
 
 
@@ -280,7 +280,7 @@ Następnie połącz sieć wirtualną z obwodem ExpressRoute. Skorzystaj z artyku
 
 Niektóre właściwości obwodu usługi ExpressRoute można modyfikować bez wpływu na łączność. Możesz wprowadzić następujące zmiany bez przestoju:
 
-* Możesz włączyć lub wyłączyć dodatek ExpressRoute Premium dla obwodu usługi ExpressRoute.
+* Możesz włączyć lub wyłączyć dodatek ExpressRoute Premium dla obwodu usługi ExpressRoute. Zmiana jednostki SKU z warstwy *standardowa/Premium* na *lokalną* nie jest obsługiwana.
 * Można zwiększyć przepustowość obwodu ExpressRoute pod warunkiem, że na porcie jest dostępna pojemność. Jednak obniżenie przepustowości obwodu nie jest obsługiwane.
 * Plan pomiaru można zmienić z danych mierzonych na dane nieograniczone. Jednak zmiana planu pomiaru z nieograniczonej ilości danych na dane taryfowe nie jest obsługiwana.
 * Można włączać i wyłączać *Zezwalanie na klasyczne operacje*.

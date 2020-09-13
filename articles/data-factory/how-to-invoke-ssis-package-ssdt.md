@@ -11,13 +11,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/10/2020
-ms.openlocfilehash: 006b7db9f63f5ba74fee936383206b18c42aa038
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 09/06/2020
+ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041871"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504948"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Wykonywanie pakietów SSIS na platformie Azure z SSDT
 
@@ -45,7 +45,7 @@ Po utworzeniu projektu z obsługą platformy Azure zostanie wyświetlony monit o
 
 Jeśli chcesz od razu nawiązać połączenie z Azure-SSIS IR, zobacz [łączenie z Azure-SSIS IR](#connectssisir) , aby uzyskać więcej szczegółów. Możesz również nawiązać połączenie później, klikając prawym przyciskiem myszy węzeł projektu w Eksplorator rozwiązań oknie SSDT, aby wyskakujące menu. Następnie wybierz pozycję **Połącz z usługą SSIS w Azure Data Factory** element w programie **SSIS w Azure Data Factory** podmenu.
 
-### <a name="azure-enabling-existing-ssis-projects"></a><a name="azureenableproject"></a>Platforma Azure — Włączanie istniejących projektów SSIS
+### <a name="azure-enabling-existing-ssis-projects"></a><a name="azureenableproject"></a> Platforma Azure — Włączanie istniejących projektów SSIS
 
 W przypadku istniejących projektów usług SSIS można je włączyć na platformie Azure, wykonując następujące czynności:
 
@@ -57,13 +57,13 @@ W przypadku istniejących projektów usług SSIS można je włączyć na platfor
 
    ![Wybierz konfigurację programu Visual Studio](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. Platforma Azure — włączenie istniejących projektów usług SSIS wymaga ustawienia wersji serwera docelowego jako najnowszej obsługiwanej przez Azure-SSIS IR. Obecnie Azure-SSIS IR ma domyślny poziom zgodności 140, który jest równy **SQL Server 2017**. Upewnij się, że pakiety nie zawierają dodatkowych składników, które nie są obsługiwane w SQL Server 2017. Upewnij się również, że wszystkie zgodne dodatkowe składniki zostały również zainstalowane na Azure-SSIS IR za pośrednictwem instalacji niestandardowych, zobacz [dostosowywanie Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Wybierz przycisk **dalej** , aby kontynuować.
+3. Platforma Azure — włączenie istniejących projektów usług SSIS wymaga ustawienia wersji serwera docelowego jako najnowszej obsługiwanej przez Azure-SSIS IR. Azure-SSIS IR jest obecnie oparta na **SQL Server 2017**. Upewnij się, że pakiety nie zawierają dodatkowych składników, które nie są obsługiwane w SQL Server 2017. Upewnij się również, że wszystkie zgodne dodatkowe składniki zostały również zainstalowane na Azure-SSIS IR za pośrednictwem instalacji niestandardowych, zobacz [dostosowywanie Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Wybierz przycisk **dalej** , aby kontynuować.
 
    ![Przełącz wersję serwera docelowego](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 
 4. Zobacz [łączenie się z Azure-SSIS IR](#connectssisir) , aby zakończyć łączenie projektu z Azure-SSIS IR.
 
-## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a><a name="connectssisir"></a>Połącz projekty z obsługą platformy Azure z usługą SSIS w Azure Data Factory
+## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a><a name="connectssisir"></a> Połącz projekty z obsługą platformy Azure z usługą SSIS w Azure Data Factory
 
 Łącząc swoje projekty z platformą Azure z usługami SSIS w podajniku APD, można przekazać pakiety do Azure Files i uruchamiać je na Azure-SSIS IR. Można to zrobić, wykonując następujące czynności:
 
@@ -117,7 +117,7 @@ Po upewnieniu się, że niektóre potencjalne problemy ze zgodnością z chmurą
 
 ## <a name="execute-ssis-packages-in-azure"></a>Wykonywanie pakietów SSIS na platformie Azure
 
-### <a name="configuring-azure-enabled-settings"></a><a name="azureenabledsettings"></a>Konfigurowanie ustawień z obsługą platformy Azure
+### <a name="configuring-azure-enabled-settings"></a><a name="azureenabledsettings"></a> Konfigurowanie ustawień z obsługą platformy Azure
 
 Przed wykonaniem pakietów na platformie Azure można skonfigurować dla nich ustawienia z obsługą platformy Azure. Na przykład możesz włączyć uwierzytelnianie systemu Windows na Azure-SSIS IR, aby uzyskać dostęp do magazynów danych lokalnych/w chmurze, wykonując następujące czynności:
 
@@ -151,7 +151,7 @@ Po nawiązaniu połączenia z projektami z obsługą platformy Azure z usługą 
 
 Jeśli pakiety zawierają zadania wykonywania pakietów, które odwołują się do pakietów podrzędnych przechowywanych w lokalnych systemach plików, wykonaj następujące dodatkowe czynności:
 
-1. Przekaż pakiety podrzędne do Azure Files przy użyciu tego samego konta usługi Azure Storage połączonego z projektami i uzyskaj nową ścieżkę Universal Naming Convention (UNC), np.`\\YourStorageAccountName.file.core.windows.net\ssdtexecution\YourChildPackage1.dtsx`
+1. Przekaż pakiety podrzędne do Azure Files przy użyciu tego samego konta usługi Azure Storage połączonego z projektami i uzyskaj nową ścieżkę Universal Naming Convention (UNC), np. `\\YourStorageAccountName.file.core.windows.net\ssdtexecution\YourChildPackage1.dtsx`
 
 2. Zastąp ścieżkę pliku pakietów podrzędnych w Menedżerze połączeń plików zadania wykonywania pakietów z nową ścieżką UNC
    - Jeśli maszyna lokalna z systemem SSDT nie może uzyskać dostępu do nowej ścieżki UNC, możesz wprowadzić ją w panelu Właściwości Menedżera połączeń plików
@@ -168,7 +168,7 @@ Wykonywanie pakietów SSIS na platformie Azure nie **EncryptSensitiveWithUserKey
 
 Jeśli pakiety są już skonfigurowane do korzystania z **EncryptSensitiveWithPassword** / poziomów ochrony EncryptSensitiveWithPassword**EncryptAllWithPassword** , zachowamy je bez zmian. Będziemy nadal losowo generować hasła szyfrowania podczas przekazywania pakietów do Azure Files w celu wykonania na Azure-SSIS IR.
 
-### <a name="switching-package-execution-environments"></a><a name="switchenvironment"></a>Przełączanie środowisk wykonywania pakietów
+### <a name="switching-package-execution-environments"></a><a name="switchenvironment"></a> Przełączanie środowisk wykonywania pakietów
 
 W przypadku Sparametryzuj projektu/pakietów w modelu wdrażania projektu można utworzyć wiele konfiguracji programu VS, aby przełączyć środowiska wykonywania pakietów. W ten sposób można przypisywać wartości specyficzne dla środowiska do parametrów projektu/pakietu w czasie wykonywania. Zaleca się, aby w środowiskach lokalnych i chmurowych było co najmniej dwie różne konfiguracje programu VS, dzięki czemu można je włączyć do konfiguracji chmury. Oto przykładowy krok po kroku przełączania środowisk wykonywania pakietów między komputerem lokalnym i platformą Azure:
 

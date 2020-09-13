@@ -3,12 +3,12 @@ title: Architektura urządzenia usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919747"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514575"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architektura urządzenia usługi Azure Migrate
 
@@ -62,15 +62,15 @@ Dane zbierane przez klienta programu dla wszystkich scenariuszy wdrażania są p
 
 ## <a name="discovery-and-collection-process"></a>Proces odnajdywania i kolekcjonowania
 
-![Architektura](./media/migrate-appliance-architecture/architecture.png)
+![Architektura](./media/migrate-appliance-architecture/architecture1.png)
 
 Urządzenie komunikuje się z serwerami vCenter i hostami/klastrami funkcji Hyper-V przy użyciu następującego procesu.
 
 1. **Rozpocznij odnajdowanie**:
-    - Po rozpoczęciu odnajdywania na urządzeniu funkcji Hyper-V komunikuje się z hostami funkcji Hyper-V na portach usługi WinRM 5985 (HTTP) i 5986 (HTTPS).
+    - Po rozpoczęciu odnajdywania na urządzeniu funkcji Hyper-V komunikuje się z hostami funkcji Hyper-V na porcie WinRM 5985 (HTTP).
     - Po rozpoczęciu odnajdywania na urządzeniu VMware program domyślnie komunikuje się z serwerem vCenter na porcie TCP 443. Jeśli serwer vCenter nasłuchuje na innym porcie, można go skonfigurować w aplikacji sieci Web urządzenia.
 2. **Zbierz dane dotyczące metadanych i wydajności**:
-    - Urządzenie używa sesji model wspólnych informacji (CIM) do zbierania danych maszyny wirtualnej funkcji Hyper-V z hosta funkcji Hyper-V na portach 5985 i 5986.
+    - Urządzenie używa sesji model wspólnych informacji (CIM) do zbierania danych maszyny wirtualnej funkcji Hyper-V z hosta funkcji Hyper-V na porcie 5985.
     - Urządzenie domyślnie komunikuje się z portem 443, aby zebrać dane maszyn wirtualnych VMware z vCenter Server.
 3. **Wyślij dane**: urządzenie wysyła zebrane dane w celu Azure Migrate oceny serwera i migracji serwera Azure Migrate przez port SSL 443. Urządzenie może połączyć się z platformą Azure za pośrednictwem Internetu lub można użyć usługi ExpressRoute z usługą komunikacji równorzędnej Public/Microsoft.
     - W przypadku danych dotyczących wydajności urządzenie zbiera dane użycia w czasie rzeczywistym.
@@ -81,17 +81,12 @@ Urządzenie komunikuje się z serwerami vCenter i hostami/klastrami funkcji Hype
     - W przypadku migracji serwera urządzenie uruchamia zbieranie danych maszyny wirtualnej i replikuje je na platformie Azure.
 4. **Ocenianie i migrowanie**: teraz można tworzyć oceny z metadanych zebranych przez urządzenie przy użyciu funkcji oceny serwera Azure Migrate. Ponadto można rozpocząć Migrowanie maszyn wirtualnych VMware przy użyciu migracji serwera Azure Migrate, aby organizować replikację maszyn wirtualnych bez agentów.
 
-
-
-
-
 ## <a name="appliance-upgrades"></a>Uaktualnienia urządzeń
 
 Urządzenie zostanie uaktualnione w miarę aktualizowania Azure Migrate agentów działających na urządzeniu. Dzieje się tak automatycznie, ponieważ automatyczna aktualizacja jest domyślnie włączona na urządzeniu. Można zmienić to ustawienie domyślne, aby ręcznie zaktualizować agentów.
 
 Aby wyłączyć automatyczne aktualizowanie w rejestrze, należy ustawić klucz "auto\software\microsoft\azureappliance" HKEY_LOCAL_MACHINE "AutoUpdate" na 0 (DWORD).
 
- 
 
 ## <a name="next-steps"></a>Następne kroki
 

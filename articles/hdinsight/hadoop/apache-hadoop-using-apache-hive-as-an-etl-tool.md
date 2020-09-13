@@ -1,19 +1,19 @@
 ---
 title: Używanie Apache Hive jako narzędzia ETL — Azure HDInsight
 description: Użyj Apache Hive do wyodrębniania, przekształcania i ładowania danych (ETL) w usłudze Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 1627fccb49f0ddbf7a3a0a42f5a483059101dae2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9b9dcd683915c17ae6909ebb88927d275e9a5896
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076066"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505288"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Użyj Apache Hive jako narzędzia wyodrębniania, przekształcania i ładowania (ETL)
 
@@ -69,19 +69,19 @@ Typowymi krokami korzystania z usługi Hive do wykonania ETL są następujące:
 Można użyć programu Hive do wyprowadzania danych do różnych rodzajów obiektów docelowych, takich jak:
 
 * Relacyjna baza danych, taka jak SQL Server lub Azure SQL Database.
-* Magazyn danych, taki jak Azure SQL Data Warehouse.
+* Magazyn danych, taki jak Azure Synapse Analytics.
 * Excel.
 * Azure Table i BLOB Storage.
 * Aplikacje lub usługi, które wymagają, aby dane były przetwarzane do określonych formatów lub jako pliki, które zawierają określone typy struktury informacji.
 * Magazyn dokumentów JSON, taki jak Azure Cosmos DB.
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Model ETL jest zazwyczaj używany, gdy chcesz:
 
-`*`Ładowanie danych strumienia lub dużych ilości danych z częściową strukturą lub bez struktury ze źródeł zewnętrznych do istniejącej bazy danych lub systemu informacji.
-`*`Wyczyść, Przekształć i sprawdź poprawność danych przed ich załadowaniem, na przykład za pomocą więcej niż jednego przebiegu transformacji przez klaster.
-`*`Generowanie raportów i wizualizacji, które są regularnie aktualizowane. Na przykład jeśli generowanie raportu trwa zbyt długo, możesz zaplanować uruchamianie raportu w nocy. Aby automatycznie uruchomić zapytanie programu Hive, można użyć [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) i programu PowerShell.
+`*` Ładowanie danych strumienia lub dużych ilości danych z częściową strukturą lub bez struktury ze źródeł zewnętrznych do istniejącej bazy danych lub systemu informacji.
+`*` Wyczyść, Przekształć i sprawdź poprawność danych przed ich załadowaniem, na przykład za pomocą więcej niż jednego przebiegu transformacji przez klaster.
+`*` Generowanie raportów i wizualizacji, które są regularnie aktualizowane. Na przykład jeśli generowanie raportu trwa zbyt długo, możesz zaplanować uruchamianie raportu w nocy. Aby automatycznie uruchomić zapytanie programu Hive, można użyć [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) i programu PowerShell.
 
 Jeśli obiekt docelowy danych nie jest bazą danych, można wygenerować plik w odpowiednim formacie w ramach zapytania, na przykład wolumin CSV. Następnie można zaimportować ten plik do programu Excel lub Power BI.
 

@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056775"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505356"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Tworzenie klastra prywatnego usługi Azure Red Hat OpenShift 4
 
@@ -23,17 +23,35 @@ W tym artykule opisano przygotowanie środowiska do tworzenia prywatnych klastr�
 > * Skonfiguruj wymagania wstępne i utwórz wymaganą sieć wirtualną i podsieci
 > * Wdrażanie klastra z punktem końcowym prywatnego serwera interfejsu API i prywatnym kontrolerem danych przychodzących
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Zanim rozpoczniesz
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-### <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
+### <a name="register-the-resource-providers"></a>Rejestrowanie dostawców zasobów
 
-Następnie musisz zarejestrować `Microsoft.RedHatOpenShift` dostawcę zasobów w ramach subskrypcji.
+1. Jeśli masz wiele subskrypcji platformy Azure, określ odpowiedni identyfikator subskrypcji:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Zarejestruj `Microsoft.RedHatOpenShift` dostawcę zasobów:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+
+1. Zarejestruj `Microsoft.Compute` dostawcę zasobów:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Zarejestruj `Microsoft.Storage` dostawcę zasobów:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Pobierz wpis tajny Red Hat (opcjonalnie)
 
@@ -141,7 +159,7 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Wyłącz zasady prywatnego punktu końcowego podsieci](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) w podsieci głównej.** Jest to wymagane, aby mieć możliwość nawiązywania połączenia z klastrem i zarządzania nim.
+5. **[Wyłącz zasady prywatnego punktu końcowego podsieci](../private-link/disable-private-link-service-network-policy.md) w podsieci głównej.** Jest to wymagane, aby mieć możliwość nawiązywania połączenia z klastrem i zarządzania nim.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -197,7 +215,7 @@ Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kube
 }
 ```
 
-Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco:`https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+Adres URL konsoli klastra można znaleźć, uruchamiając następujące polecenie, które będzie wyglądać następująco: `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -207,7 +225,7 @@ Adres URL konsoli klastra można znaleźć, uruchamiając następujące poleceni
 ```
 
 >[!IMPORTANT]
-> Aby można było nawiązać połączenie z prywatnym klastrem Red Hat OpenShift platformy Azure, należy wykonać następujący krok z hosta, który znajduje się w utworzonym Virtual Network lub w Virtual Network połączonym z Virtual Networkm, w [którym został](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) wdrożony klaster.
+> Aby można było nawiązać połączenie z prywatnym klastrem Red Hat OpenShift platformy Azure, należy wykonać następujący krok z hosta, który znajduje się w utworzonym Virtual Network lub w Virtual Network połączonym z Virtual Networkm, w [którym został](../virtual-network/virtual-network-peering-overview.md) wdrożony klaster.
 
 Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin` poświadczeń.
 
@@ -230,7 +248,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 ```
 
 >[!IMPORTANT]
-> Aby można było nawiązać połączenie z prywatnym klastrem Red Hat OpenShift platformy Azure, należy wykonać następujący krok z hosta, który znajduje się w utworzonym Virtual Network lub w Virtual Network połączonym z Virtual Networkm, w [którym został](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) wdrożony klaster.
+> Aby można było nawiązać połączenie z prywatnym klastrem Red Hat OpenShift platformy Azure, należy wykonać następujący krok z hosta, który znajduje się w utworzonym Virtual Network lub w Virtual Network połączonym z Virtual Networkm, w [którym został](../virtual-network/virtual-network-peering-overview.md) wdrożony klaster.
 
 Zaloguj się do serwera interfejsu API klastra OpenShift przy użyciu następującego polecenia. Zamień na **\<kubeadmin password>** hasło, które zostało właśnie pobrane.
 

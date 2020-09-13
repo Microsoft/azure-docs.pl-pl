@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559448"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514241"
 ---
 # <a name="upstream-settings"></a>Ustawienia nadrzędne
 
-Nadrzędny to funkcja, która umożliwia usłudze Azure sygnalizującej wysyłanie komunikatów i zdarzeń połączeń do zestawu punktów końcowych w trybie bezserwerowym. Można użyć nadrzędnego, aby wywołać metodę Hub od klientów w trybie bezserwerowym i umożliwić punktom końcowym otrzymywanie powiadomień, gdy połączenia klienckie są połączone lub rozłączone.
+Funkcja nadrzędnego jest funkcją w wersji zapoznawczej, która umożliwia usłudze Azure sygnalizującej wysyłanie komunikatów i zdarzeń połączeń do zestawu punktów końcowych w trybie bezserwerowym. Można użyć nadrzędnego, aby wywołać metodę Hub od klientów w trybie bezserwerowym i umożliwić punktom końcowym otrzymywanie powiadomień, gdy połączenia klienckie są połączone lub rozłączone.
 
 > [!NOTE]
 > Tylko tryb bezserwerowy może konfigurować ustawienia nadrzędne.
@@ -40,7 +40,7 @@ Możesz Sparametryzuj adres URL, aby obsługiwać różne wzorce. Istnieją trzy
 |kategorii| Kategoria może być jedną z następujących wartości: <ul><li>**połączenia**: zdarzenia okresu istnienia połączenia. Jest on uruchamiany, gdy połączenie z klientem jest połączone lub rozłączone. Obejmuje to połączone i odłączone zdarzenia.</li><li>**komunikaty**: wywoływane, gdy klienci wywołują metodę Hub. Zawiera wszystkie inne zdarzenia, z wyjątkiem tych w kategorii **połączenia** .</li></ul>|
 |wydarzen| W przypadku kategorii **wiadomości** zdarzenie jest obiektem docelowym w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) wysyłanym przez klientów. W przypadku kategorii **połączenia** używane są tylko *połączone* i *rozłączone* .|
 
-Te wstępnie zdefiniowane parametry mogą być używane we wzorcu adresu URL. Parametry zostaną zastąpione określoną wartością podczas oceniania nadrzędnego adresu URL. Przykład: 
+Te wstępnie zdefiniowane parametry mogą być używane we wzorcu adresu URL. Parametry zostaną zastąpione określoną wartością podczas oceniania nadrzędnego adresu URL. Na przykład: 
 ```
 http://host.com/{hub}/api/{category}/{event}
 ```
@@ -60,6 +60,10 @@ Reguły dla *reguł centrum*, *reguł kategorii*i *reguł zdarzeń* można ustaw
 - Użyj przecinka (,), aby dołączyć wiele zdarzeń. Na przykład `connected, disconnected` dopasowuje zdarzenia połączone i odłączone.
 - Użyj pełnej nazwy zdarzenia, aby dopasować zdarzenie. Na przykład `connected` dopasowuje zdarzenie połączone.
 
+> [!NOTE]
+> Jeśli używasz Azure Functions i [wyzwalacza sygnalizującego](../azure-functions/functions-bindings-signalr-service-trigger.md), wyzwalacz sygnalizujący udostępni pojedynczy punkt końcowy w następującym formacie: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` .
+> Po prostu można skonfigurować szablon adresu URL na tym adresie URL.
+
 ### <a name="authentication-settings"></a>Ustawienia uwierzytelniania
 
 Uwierzytelnianie dla każdego elementu ustawienia nadrzędnego można skonfigurować osobno. W przypadku konfigurowania uwierzytelniania token jest ustawiany w `Authentication` nagłówku komunikatu nadrzędnego. Obecnie usługa sygnałów platformy Azure obsługuje następujące typy uwierzytelniania:
@@ -78,7 +82,7 @@ Po wybraniu `ManagedIdentity` tej opcji należy najpierw włączyć zarządzaną
 3. Dodaj adresy URL w ramach **wzorca nadrzędnego adresu URL**. Następnie ustawienia, takie jak **reguły centrum** , będą zawierać wartość domyślną.
 4. Aby ustawić ustawienia dla **reguł centrum**, **reguły zdarzeń**, **reguły kategorii**i **uwierzytelnianie nadrzędne**, wybierz wartość **reguły centrum**. Zostanie wyświetlona strona, która umożliwia edytowanie ustawień:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Ustawienia nadrzędne":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Szczegóły ustawienia nadrzędnego":::
 
 5. Aby ustawić **uwierzytelnianie nadrzędne**, upewnij się, że została najpierw włączona tożsamość zarządzana. Następnie wybierz pozycję **Użyj tożsamości zarządzanej**. Zgodnie z potrzebami można wybrać opcje w obszarze **Identyfikator zasobu uwierzytelniania**. Szczegóły można znaleźć w temacie [zarządzane tożsamości dla usługi Azure Signal Service](howto-use-managed-identity.md) .
 
@@ -139,7 +143,7 @@ Content-Type: Application/JSON
 
 #### <a name="disconnected"></a>Odłączony
 
-Typ zawartości:`application/json`
+Typ zawartości: `application/json`
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
@@ -147,12 +151,12 @@ Typ zawartości:`application/json`
 
 #### <a name="invocation-message"></a>Komunikat wywołania
 
-Typ zawartości: `application/json` lub`application/x-msgpack`
+Typ zawartości: `application/json` lub `application/x-msgpack`
 
 |Nazwa  |Typ  |Opis  |
 |---------|---------|---------|
 |InvocationId |ciąg | Opcjonalny ciąg, który reprezentuje komunikat wywołania. Znajdź szczegóły w [wywołaniach](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
-|Środowisko docelowe |ciąg | Taka sama jak zdarzenie i taka sama jak wartość docelowa w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |
+|Cel |ciąg | Taka sama jak zdarzenie i taka sama jak wartość docelowa w [komunikacie wywołania](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |
 |Argumenty |Tablica obiektów |Tablica zawierająca argumenty, które mają zostać zastosowane do metody, do której odwołuje się `Target` . |
 
 ### <a name="signature"></a>Podpis

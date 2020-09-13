@@ -1,25 +1,25 @@
 ---
 title: Uruchamianie niestandardowych programów MapReduce — Azure HDInsight
 description: Kiedy i jak uruchamiać niestandardowe programy Apache MapReduce w klastrach usługi Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 8751a54393f310c1d5a77ccbfdb553ee3643f74a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 1dcc2a944fc527e4cbc8c7c1072503377ecb5798
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080112"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505271"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Uruchamianie niestandardowych programów MapReduce
 
 Oparte na Apache Hadoop systemy danych Big Data, takie jak HDInsight, umożliwiają przetwarzanie danych przy użyciu szerokiej gamy narzędzi i technologii. W poniższej tabeli opisano główne zalety i zagadnienia dotyczące każdego z nich.
 
-| Mechanizm zapytania | Zalety | Istotne zagadnienia |
+| Mechanizm zapytania | Zalety | Zagadnienia do rozważenia |
 | --- | --- | --- |
 | **Apache Hive przy użyciu HiveQL** | <ul><li>Doskonałe rozwiązanie do przetwarzania wsadowego i analizy dużych ilości niezmiennych danych, podsumowania danych i wykonywania zapytań na żądanie. Używa znanej składni podobnej do języka SQL.</li><li>Może służyć do tworzenia trwałych tabel danych, które można łatwo podzielić na partycje i zindeksować.</li><li>Dla tych samych danych można tworzyć wiele tabel i widoków zewnętrznych.</li><li>Obsługuje ona prostą implementację magazynu danych, która zapewnia ogromne możliwości skalowania i odporności na uszkodzenia na potrzeby przechowywania i przetwarzania danych.</li></ul> | <ul><li>Wymaga, aby dane źródłowe miały co najmniej pewną rozpoznawalną strukturę.</li><li>Nie jest to odpowiednie dla zapytań w czasie rzeczywistym i aktualizacji na poziomie wiersza. Najlepiej jest używać do zadań wsadowych w dużych zestawach danych.</li><li>Może nie być możliwe przeprowadzenie niektórych typów złożonych zadań przetwarzania.</li></ul> |
 | **Apache świnie z użyciem wieprzowiny** | <ul><li>Doskonałe rozwiązanie do manipulowania danymi jako zestawy, scalanie i filtrowanie zestawów danych, stosowanie funkcji do rekordów lub grup rekordów oraz na potrzeby restrukturyzacji danych przez definiowanie kolumn, grupowanie wartości lub konwersja kolumn do wierszy.</li><li>Można użyć podejścia opartego na przepływie pracy jako sekwencji operacji na danych.</li></ul> | <ul><li>Użytkownicy SQL mogą znaleźć mniej znane i trudniejsze na korzystanie z HiveQL.</li><li>Domyślnym wyjściem jest zwykle plik tekstowy, więc może być trudniejszy do użycia z narzędziami do wizualizacji, takimi jak program Excel. Zazwyczaj warstwy Hive zostaną przełączone na dane wyjściowe.</li></ul> |

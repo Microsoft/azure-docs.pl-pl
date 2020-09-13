@@ -1,0 +1,124 @@
+---
+title: Włączanie i wyłączanie zasad przechowywania danych — Azure SQL Edge (wersja zapoznawcza)
+description: Informacje o włączaniu i wyłączaniu zasad przechowywania danych w usłudze Azure SQL Edge (wersja zapoznawcza)
+keywords: SQL Edge, przechowywanie danych
+services: sql-edge
+ms.service: sql-edge
+ms.topic: conceptual
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: sstein
+ms.date: 09/04/2020
+ms.openlocfilehash: 9787f2cfa87a16d9e7dd1753e4389977c6753b81
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89550662"
+---
+# <a name="enable-and-disable-data-retention-policies"></a>Włączanie i wyłączanie zasad przechowywania danych
+
+W tym temacie opisano sposób włączania i wyłączania zasad przechowywania danych dla bazy danych i tabeli. 
+
+## <a name="enable-data-retention-for-a-database"></a>Włączanie przechowywania danych dla bazy danych
+
+Poniższy przykład pokazuje, jak włączyć przechowywanie danych przy użyciu [polecenia ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+
+> [!NOTE]
+> Aby włączyć funkcję przechowywania danych w usłudze Azure SQL Edge (wersja zapoznawcza), Włącz TF 12825 jako opcję uruchamiania lub użyj polecenia DBCC TRACEON. Aby uzyskać więcej informacji na temat włączania flag śledzenia przy użyciu pliku MSSQL. conf, zobacz [Konfigurowanie przy użyciu pliku MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file). 
+
+```sql
+ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
+```
+
+## <a name="check-if-data-retention-is-enabled-for-a-database"></a>Sprawdź, czy dla bazy danych jest włączone przechowywanie danych
+
+Następujące polecenie służy do sprawdzania, czy dla bazy danych jest włączone przechowywanie danych
+```sql
+SELECT is_data_retention_enabled, name
+FROM sys.databases;
+```
+
+## <a name="enable-data-retention-for-a-table"></a>Włączanie przechowywania danych w tabeli
+
+Przechowywanie danych musi być włączone dla każdej tabeli, dla której dane mają być automatycznie przeczyszczane. Po włączeniu przechowywania danych w bazie danych i tabeli zadanie systemu w tle okresowo skanuje tabelę w celu zidentyfikowania i usunięcia wszelkich przestarzałych (przestarzałych) wierszy. Przechowywanie danych można włączyć w tabeli podczas tworzenia tabeli za pomocą instrukcji [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) lub using [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+
+Poniższy przykład pokazuje, jak włączyć przechowywanie danych dla tabeli przy użyciu polecenia [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+
+```sql
+CREATE TABLE [dbo].[data_retention_table] 
+(
+[dbdatetime2] datetime2(7), 
+[product_code] int, 
+[value] char(10),  
+CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_code])
+) WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 1 day ) )
+```
+
+`WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 1 day ) )`Część polecenia CREATE TABLE umożliwia ustawienie przechowywania danych w tabeli. Polecenie używa następujących wymaganych parametrów 
+
+- DATA_DELETION — wskazuje, czy przechowywanie danych jest włączone czy wyłączone.
+- FILTER_COLUMN-Name w kolumnie w tabeli, która zostanie użyta do sprawdzenia, czy wiersze są przestarzałe. Kolumna filtru może być tylko kolumną z następującymi typami danych 
+    - Data
+    - SmallDateTime
+    - Data i godzina
+    - DateTime2
+    - DateTimeOffset
+- RETENTION_PERIOD — wartość całkowita, a po niej deskryptor jednostki. Dozwolone jednostki to dzień, tydzień, miesiąc i rok.
+
+Poniższy przykład pokazuje, jak włączyć przechowywanie danych dla tabeli przy użyciu [instrukcji ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+
+```sql
+Alter Table [dbo].[data_retention_table]
+SET (DATA_DELETION = On (FILTER_COLUMN = [timestamp], RETENTION_PERIOD = 1 day))
+```
+
+## <a name="check-if-data-retention-is-enabled-for-a-table"></a>Sprawdź, czy w tabeli jest włączone przechowywanie danych
+
+Następujące polecenie służy do sprawdzania tabel, dla których jest włączone przechowywanie danych
+
+```sql
+select name, data_retention_period, data_retention_period_unit from sys.tables
+```
+
+Wartość data_retention_period =-1 i data_retention_period_unit jako NIESKOŃCZONość wskazuje, że przechowywanie danych nie jest ustawione w tabeli.
+
+Poniższe zapytanie może służyć do identyfikowania kolumny używanej jako filter_column do przechowywania danych. 
+
+```sql
+Select name from sys.columns
+where is_data_deletion_filter_column =1 
+and object_id = object_id(N'dbo.data_retention_table', N'U')
+```
+
+## <a name="corelating-db-and-table-data-retention-settings"></a>Ustawienia przechowywania danych i tabel współzwiązanych z danymi
+
+Ustawienie przechowywania danych w bazie danych i tabeli służy do określenia, czy autoczyszczenie dla przestarzałych wierszy zostanie uruchomione w tabelach, czy nie. 
+
+|Opcja bazy danych | Opcja tabeli | Zachowanie |
+|----------------|--------------|----------|
+| WYŁ. | WYŁ. | Zasady przechowywania danych są wyłączone, a autoczyszczenie przestarzałych rekordów jest wyłączone.|
+| WYŁ. | ON  | Zasady przechowywania danych są włączone dla tabeli, ale wyłączono zarówno Auto, jak i ręczne czyszczenie przestarzałych rekordów. |
+| ON | WYŁ. | Zasady przechowywania danych są włączone na poziomie bazy danych. Jednak ta opcja jest wyłączona na poziomie tabeli, ale nie jest wykonywane czyszczenie przestarzałych wierszy.|
+| ON | ON | Zasady przechowywania danych są włączone zarówno dla bazy danych, jak i dla tabel. Autoczyszczenie przestarzałych rekordów jest włączone |
+
+## <a name="disable-data-retention-on-a-table"></a>Wyłączanie przechowywania danych w tabeli 
+
+Przechowywanie danych można wyłączyć w tabeli przy użyciu [instrukcji ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). Następujące polecenie służy do wyłączania przechowywania danych w tabeli.
+
+```sql
+Alter Table [dbo].[data_retention_table]
+Set (DATA_DELETION = OFF)
+```
+
+## <a name="disable-data-retention-on-a-database"></a>Wyłączanie przechowywania danych w bazie danych
+
+Przechowywanie danych można wyłączyć w tabeli przy użyciu [polecenia ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). Następujące polecenie służy do wyłączania przechowywania danych w bazie danych.
+
+```sql
+ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;
+```
+
+## <a name="next-steps"></a>Następne kroki
+- [Przechowywanie danych i automatyczne czyszczenie danych](data-retention-overview.md)
+- [Zarządzanie danymi historycznymi przy użyciu zasad przechowywania](data-retention-cleanup.md)

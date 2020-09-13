@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: modele łączności'
-description: W tym artykule opisano różne tryby łączności między sieciami i Microsoft Azure klienta oraz usługi pakietu Office 365. Klienci mogą korzystać z dostawców MPLS, wymian w chmurze i dostawców sieci Ethernet.
+description: Zapoznaj się z łącznością między siecią klienta, Microsoft Azure i usługami Microsoft 365. Klienci mogą korzystać z dostawców MPLS, wymian chmur i sieci Ethernet.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: 375d2f9d3b455c0495c69f2b23d62b1ab6522710
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f2a15b63e11d8ad93672a93fee4f327c47dd6277
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710460"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566470"
 ---
 # <a name="expressroute-connectivity-models"></a>Modele połączeń usługi ExpressRoute
 Połączenie między siecią lokalną i chmurą firmy Microsoft można utworzyć na trzy sposoby: [kolokacja CloudExchange](#CloudExchange), [połączenie Ethernet typu punkt-punkt](#Ethernet) i [łączność typu dowolna-dowolna (IPVPN)](#IPVPN). Dostawcy połączenia oferują po jednym modelu łączności lub większą ich liczbę. Można współpracować z dostawcą połączenia w celu wybrania najlepszego dla siebie modelu.
@@ -26,7 +26,7 @@ Jeśli użytkownik jest kolokowany w ramach infrastruktury z wymianą w chmurze,
 ## <a name="point-to-point-ethernet-connections"></a><a name="Ethernet"></a>Połączenia Ethernet typu punkt-punkt
 Lokalne centra danych/biura można połączyć z chmurą Microsoft za pośrednictwem łączy Ethernet typu punkt-punkt. Dostawcy sieci Ethernet typu punkt-punkt oferują połączenia w warstwie 2 lub zarządzane połączenia w warstwie 3 między witryną użytkownika i chmurą Microsoft.
 
-## <a name="any-to-any-ipvpn-networks"></a><a name="IPVPN"></a>Sieci dowolnych (IPVPN)
+## <a name="any-to-any-ipvpn-networks"></a><a name="IPVPN"></a>Sieci typu dowolna-dowolna (IPVPN)
 Sieć WAN można zintegrować z chmurą Microsoft. Dostawcy sieci IPVPN (zwykle MPLS VPN) oferują łączność typu dowolna-dowolna między biurami oddziałów i centrami danych. Chmurę Microsoft można połączyć z siecią WAN w taki sposób, aby wyglądało to tak jak każde inne biuro oddziału. Dostawcy sieci WAN oferują zazwyczaj łączność zarządzaną w warstwie 3. Wszystkie możliwości i funkcje usługi ExpressRoute są identyczne we wszystkich powyższych modelach łączności. 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035029"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536195"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Łączenie produktów/usług ITSM za pomocą łącznika zarządzania usługami IT
 Ten artykuł zawiera informacje dotyczące sposobu konfigurowania połączenia między produktem narzędzia ITSM/usługą a łącznik zarządzania usługami IT (ITSMC) w Log Analytics, aby centralnie zarządzać elementami roboczymi. Aby uzyskać więcej informacji na temat ITSMC, zobacz [Omówienie](./itsmc-overview.md).
@@ -39,7 +39,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 - Aplikacja sieci Web Service Manager (aplikacja sieci Web) została wdrożona i skonfigurowana. [Tutaj znajdziesz](#create-and-deploy-service-manager-web-app-service)informacje o aplikacji sieci Web.
 - Utworzono i skonfigurowano połączenie hybrydowe. Więcej informacji: [Skonfiguruj połączenie hybrydowe](#configure-the-hybrid-connection).
 - Obsługiwane wersje Service Manager: 2012 R2 lub 2016.
-- Rola użytkownika: [Zaawansowany operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Rola użytkownika:  [Zaawansowany operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
@@ -234,7 +234,7 @@ Aby utworzyć połączenie usługi ServiceNow, wykonaj czynności opisane w poni
 | **Nazwa użytkownika**   | Wpisz nazwę użytkownika integracji utworzoną w aplikacji usługi ServiceNow, aby umożliwić obsługę połączenia z usługą ITSMC. Więcej informacji: [Utwórz rolę użytkownika aplikacji usługi ServiceNow](#create-integration-user-role-in-servicenow-app).|
 | **Hasło**   | Wpisz hasło skojarzone z tą nazwą użytkownika. **Uwaga**: Nazwa użytkownika i hasło są używane do generowania tokenów uwierzytelniania i nie są przechowywane w żadnym miejscu w ramach usługi ITSMC.  |
 | **Adres URL serwera**   | Wpisz adres URL wystąpienia usługi ServiceNow, które chcesz połączyć z ITSMC. Adres URL powinien wskazywać obsługiwaną wersję SaaS z sufiksem ". servicenow.com".|
-| **Identyfikator klienta**   | Wpisz identyfikator klienta, który ma być używany na potrzeby uwierzytelniania OAuth2 wygenerowanego wcześniej.  Więcej informacji na temat generowania identyfikatora klienta i klucza tajnego: [konfiguracja uwierzytelniania OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **Identyfikator klienta**   | Wpisz identyfikator klienta, który ma być używany na potrzeby uwierzytelniania OAuth2 wygenerowanego wcześniej.  Więcej informacji na temat generowania identyfikatora klienta i klucza tajnego:   [konfiguracja uwierzytelniania OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Klucz tajny klienta**   | Wpisz klucz tajny klienta wygenerowany dla tego identyfikatora.   |
 | **Zakres synchronizacji danych**   | Wybierz usługi ServiceNow elementy robocze, które chcesz synchronizować z usługą Azure Log Analytics przy użyciu ITSMC.  Wybrane wartości są importowane do usługi log Analytics.   **Opcje:**  Zdarzenia i żądania zmiany.|
 | **Synchronizuj dane** | Wpisz liczbę dni, z których dane mają być używane. **Maksymalny limit**: 120 dni. |
@@ -265,7 +265,7 @@ Użytkownik Poniższa procedura:
 2. Po zakończeniu instalacji odwiedź lewy pasek nawigacyjny wystąpienia usługi ServiceNow, Wyszukaj i wybierz pakiet Microsoft OMS Integrator.  
 3. Kliknij pozycję **Lista kontrolna instalacji**.
 
-   Stan jest wyświetlany jako **nieukończony** , Jeśli rola użytkownika nie została jeszcze utworzona.
+   Stan jest wyświetlany jako  **nieukończony** , Jeśli rola użytkownika nie została jeszcze utworzona.
 
 4. W polach tekstowych obok pozycji **Utwórz użytkownika integracji**wprowadź nazwę użytkownika, który może nawiązać połączenie z ITSMC na platformie Azure.
 5. Wprowadź hasło dla tego użytkownika, a następnie kliknij przycisk **OK**.  
@@ -298,6 +298,10 @@ Po pomyślnym utworzeniu użytkownika stan **sprawdzenia listy kontrolnej instal
 
 Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączenia produktu Provance z ITSMC na platformie Azure.
 
+> [!NOTE]
+> 
+> Od 1 do 2020 Provance narzędzia ITSM integracja z usługą Azure alert nie zostanie już włączona dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane. 
+> Istniejące połączenia narzędzia ITSM będą obsługiwane.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -352,6 +356,11 @@ Dowiedz się więcej: [Utwórz narzędzia ITSM elementy robocze z alertów platf
 
 Poniższe sekcje zawierają szczegółowe informacje dotyczące sposobu łączenia produktu Cherwell z ITSMC na platformie Azure.
 
+> [!NOTE]
+> 
+> Od 1 do 2020 Cherwell narzędzia ITSM integracja z usługą Azure alert nie zostanie już włączona dla nowych klientów. Nowe połączenia narzędzia ITSM nie będą obsługiwane. 
+> Istniejące połączenia narzędzia ITSM będą obsługiwane.
+
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 Upewnij się, że zostały spełnione następujące wymagania wstępne:
@@ -362,7 +371,7 @@ Upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 ### <a name="connection-procedure"></a>Procedura połączenia
 
-Aby utworzyć połączenie Provance, wykonaj czynności opisane w poniższej procedurze:
+Aby utworzyć połączenie Cherwell, wykonaj czynności opisane w poniższej procedurze:
 
 1. W Azure Portal przejdź do pozycji **wszystkie zasoby** i Znajdź pozycję **Servicedesk (YourWorkspaceName).**
 

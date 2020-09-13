@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure M
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771380"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536442"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizowanie zależności maszyny (bez agentów)
 
@@ -25,7 +25,7 @@ W tym artykule opisano sposób konfigurowania analizy zależności bez agentów 
 
 - W widoku Analiza zależności nie można obecnie dodawać ani usuwać serwera z grupy.
 - Mapa zależności dla grupy serwerów jest obecnie niedostępna.
-- Nie można pobrać danych zależności w formacie tabelarycznym.
+- Zbieranie danych zależności można skonfigurować współbieżnie dla serwerów 400. Można analizować większą liczbę serwerów przez sekwencjonowanie w partiach 400.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 

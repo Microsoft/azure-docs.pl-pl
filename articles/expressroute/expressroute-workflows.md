@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: przepływ pracy konfiguracji obwodu'
 description: Na tej stronie przedstawiono przepływ pracy konfigurowania obwodów usługi ExpressRoute i komunikacji równorzędnej
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.author: cherylmc
+ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 229b7c145fa38443d2bc5f99005078ffa7f77065
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814080"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565927"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Przepływy pracy ExpressRoute dla aprowizacji obwodu i stanów obwodu
 
@@ -86,7 +86,7 @@ Włącz prywatną komunikację równorzędną, aby połączyć się z maszynami 
 
 #### <a name="for-microsoft-peering"></a>W przypadku komunikacji równorzędnej firmy Microsoft
 
-Włącz tę opcję, aby uzyskać dostęp do programu Microsoft Usługi online, takiego jak pakiet Office 365. Ponadto wszystkie usługi Azure PaaS są dostępne za pomocą komunikacji równorzędnej firmy Microsoft. Musisz się upewnić, że używasz oddzielnego serwera proxy/krawędzi do łączenia się z firmą Microsoft niż ten, który jest używany przez Internet. Korzystanie z tej samej krawędzi zarówno dla ExpressRoute, jak i Internetu spowoduje, że Routing asymetryczny i spowoduje awarię łączności dla sieci.
+Włącz tę opcję, aby uzyskać dostęp do programu Microsoft Usługi online, takiego jak Microsoft 365. Ponadto wszystkie usługi Azure PaaS są dostępne za pomocą komunikacji równorzędnej firmy Microsoft. Musisz się upewnić, że używasz oddzielnego serwera proxy/krawędzi do łączenia się z firmą Microsoft niż ten, który jest używany przez Internet. Korzystanie z tej samej krawędzi zarówno dla ExpressRoute, jak i Internetu spowoduje, że Routing asymetryczny i spowoduje awarię łączności dla sieci.
 
 * Podsieć komunikacji równorzędnej dla ścieżki 1 (/30) — musi być publicznym adresem IP
 * Podsieć komunikacji równorzędnej dla ścieżki 2 (/30) — musi być publicznym adresem IP

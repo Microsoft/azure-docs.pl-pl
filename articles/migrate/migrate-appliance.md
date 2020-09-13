@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927519"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514360"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -121,7 +121,7 @@ download.microsoft.com/download | Zezwalaj na pobieranie z usługi Microsoft Dow
 graph.windows.net | Zaloguj się do subskrypcji platformy Azure.
 login.microsoftonline.us  | Utwórz aplikacje Azure Active Directory (AD) dla urządzenia, aby komunikować się z Azure Migrate.
 management.usgovcloudapi.net | Utwórz aplikacje usługi Azure AD dla urządzenia, aby komunikować się z usługą Azure Migrate.
-dc.services.visualstudio.com | Przekaż Dzienniki aplikacji używane do wewnętrznego monitorowania.
+*.services.visualstudio.com | Przekaż Dzienniki aplikacji używane do wewnętrznego monitorowania.
 *. vault.usgovcloudapi.net | Zarządzanie wpisami tajnymi w Azure Key Vault.
 aka.ms/* | Zezwalaj na dostęp do linków aliasów. Używany do Azure Migrate aktualizacji urządzenia.
 download.microsoft.com/download | Zezwalaj na pobieranie z usługi Microsoft Download.
@@ -180,7 +180,7 @@ Adresy IPv6 | maszyn. Guest.Net
 Przepływność odczytu (MB na sekundę) | NET. Receive. Average
 Przepływność zapisu (MB na sekundę) | NET. reprzesłane. średnia
 **Szczegóły ścieżki spisu** | 
-Name (Nazwa) | wbudowane. GetType (). Nazwij
+Nazwa | wbudowane. GetType (). Nazwij
 Typ obiektu podrzędnego | wbudowane. Typ podrzędny
 Szczegóły odwołania | wbudowane. MoRef
 Szczegóły nadrzędne | Kontener. Parent
@@ -227,7 +227,7 @@ Poniżej przedstawiono informacje o funkcjach zbieranych przez urządzenie z ka�
 
 **Dane**  | **Polecenie cmdlet programu PowerShell** | **Właściwość**
 --- | --- | ---
-Name (Nazwa)  | Get-WindowsFeature  | Name (Nazwa)
+Nazwa  | Get-WindowsFeature  | Nazwa
 Typ funkcji | Get-WindowsFeature  | Element featuretype
 Nadrzędny  | Get-WindowsFeature  | Nadrzędny
 
@@ -237,7 +237,7 @@ Oto metadane programu SQL Server zbierane przez urządzenie z maszyn wirtualnych
 
 **Dane**  | **Lokalizacja rejestru**  | **Klucz**
 --- | --- | ---
-Name (Nazwa)  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Nazwa  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Wersja  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Wersja 
 Dodatek Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | REQUIREMENT
 Wersja  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Wersja 
@@ -248,7 +248,7 @@ Oto dane systemu operacyjnego, które urządzenie zbiera dla każdej maszyny wir
 
 Dane  | Klasa WMI  | Właściwość klasy usługi WMI
 --- | --- | ---
-Name (Nazwa)  | Win32_operatingsystem  | Caption
+Nazwa  | Win32_operatingsystem  | Caption
 Wersja  | Win32_operatingsystem  | Wersja
 Architektura  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Oto dane aplikacji, które są zbierane przez urządzenie z każdej maszyny wirt
 
 Dane  | Polecenie
 --- | --- 
-Name (Nazwa) | rpm, serwerach dpkg-Query, Snap
+Nazwa | rpm, serwerach dpkg-Query, Snap
 Wersja | rpm, serwerach dpkg-Query, Snap
 Dostawca | rpm, serwerach dpkg-Query, Snap
 
@@ -268,7 +268,7 @@ Oto dane systemu operacyjnego, które urządzenie zbiera dla każdej maszyny wir
 
 **Dane**  | **Polecenie** 
 --- | --- | ---
-Name (Nazwa) <br/> version | Zebrane z co najmniej jednego z następujących plików:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Nazwa <br/> version | Zebrane z co najmniej jednego z następujących plików:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Architektura | uname
 
 
@@ -507,7 +507,7 @@ W przypadku korzystania ze starszej wersji programu należy odinstalować usług
 
 1. Aby sprawdzić dostępność najnowszych wersji usługi dla urządzeń, [pobierz](https://aka.ms/latestapplianceservices) LatestComponents.jspliku.
 2.    Po pobraniu otwórz LatestComponents.jsplik w Notatniku.
-3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Przykład:
+3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Na przykład:
 
     "Name": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 

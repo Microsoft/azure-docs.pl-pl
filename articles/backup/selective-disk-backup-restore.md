@@ -4,12 +4,12 @@ description: W tym artykule poznasz informacje o kopii zapasowej i przywracaniu 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961996"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506699"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektywne tworzenie kopii zapasowych i przywracanie dysków dla maszyn wirtualnych platformy Azure
 
@@ -269,6 +269,10 @@ Po włączeniu tworzenia kopii zapasowej przy użyciu Azure Portal można wybra�
 
 ![Konfiguruj kopię zapasową tylko dla dysku systemu operacyjnego](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
 
+## <a name="using-azure-rest-api"></a>Korzystanie z interfejsu API REST platformy Azure
+
+Kopię zapasową maszyny wirtualnej platformy Azure można skonfigurować za pomocą kilku wybranych dysków lub zmodyfikować ochronę istniejącej maszyny wirtualnej w celu uwzględnienia/wykluczenia kilku dysków zgodnie z opisem w [tym miejscu](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
+
 ## <a name="selective-disk-restore"></a>Selektywne przywracanie dysków
 
 Funkcja przywracania dysków selektywnych jest dodatkową funkcją pobieraną po włączeniu funkcji tworzenia kopii zapasowych na dyskach selektywnych. Korzystając z tej funkcji, można przywrócić dyski selektywne ze wszystkich dysków, których kopia zapasowa jest wykonywana w punkcie odzyskiwania. Jest to wydajniejsze i pomaga zaoszczędzić czas w scenariuszach, w których wiesz, które dyski muszą zostać przywrócone.
@@ -291,7 +295,7 @@ Kopia zapasowa maszyny wirtualnej platformy Azure jest zgodna z istniejącym mod
 
 **Koszt chronionego wystąpienia (PI)** jest obliczany dla dysku systemu operacyjnego tylko w przypadku, gdy użytkownik zdecyduje się utworzyć kopię zapasową przy użyciu opcji **tylko dysk systemu operacyjnego** .  W przypadku skonfigurowania kopii zapasowej i wybrania co najmniej jednego dysku z danymi koszt PI zostanie obliczony dla wszystkich dysków dołączonych do maszyny wirtualnej. **Koszt magazynu kopii zapasowych** jest obliczany na podstawie tylko dołączonych dysków, dzięki czemu można zaoszczędzić koszt magazynu. **Koszt migawki** jest zawsze obliczany dla wszystkich dysków w maszynie wirtualnej (dysków dołączonych i wykluczonych).  
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 - [Tabela obsługi kopii zapasowych maszyn wirtualnych platformy Azure](backup-support-matrix-iaas.md)
 - [Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](backup-azure-vm-backup-faq.md)

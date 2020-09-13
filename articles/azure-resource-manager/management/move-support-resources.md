@@ -2,13 +2,13 @@
 title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 69fcb271ac94df3faf8e9e37c1ef30a6c0681441
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079505"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566130"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 
@@ -243,7 +243,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | konfiguracja | Nie | Nie |
 > | dzienniki | Nie | Nie |
 > | operacje | Nie | Nie |
-> | raporty | Nie | Nie |
+> | reports | Nie | Nie |
 > | servicehealthmetrics | Nie | Nie |
 > | services | Nie | Nie |
 
@@ -728,7 +728,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | możliwości | Nie | Nie |
 > | checkdomainnameavailability | Nie | Nie |
-> | domainnames | Yes | Nie |
+> | domainnames | Tak | Nie |
 > | DomainNames/możliwości | Nie | Nie |
 > | domainnames / internalloadbalancers | Nie | Nie |
 > | DomainNames/servicecertificates | Nie | Nie |
@@ -744,7 +744,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | quotas | Nie | Nie |
 > | resourcetypes | Nie | Nie |
 > | validatesubscriptionmoveavailability | Nie | Nie |
-> | virtualmachines | Tak | Nie |
+> | virtualmachines | Tak | Tak |
 > | virtualmachines/diagnosticsettings | Nie | Nie |
 > | virtualmachines/metricdefinitions | Nie | Nie |
 > | virtualmachines/metryki | Nie | Nie |
@@ -796,7 +796,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | osplatformimages | Nie | Nie |
 > | publicimages | Nie | Nie |
 > | quotas | Nie | Nie |
-> | storageaccounts | Yes | Nie |
+> | storageaccounts | Tak | Nie |
 > | storageaccounts/blobservices | Nie | Nie |
 > | storageaccounts/FileServices | Nie | Nie |
 > | storageaccounts/metricdefinitions | Nie | Nie |
@@ -1053,7 +1053,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | query | Nie | Nie |
 > | zarejestruj | Nie | Nie |
 > | reportconfigs | Nie | Nie |
-> | raporty | Nie | Nie |
+> | reports | Nie | Nie |
 > | ustawienia | Nie | Nie |
 > | showbackrules | Nie | Nie |
 > | widoki | Nie | Nie |
@@ -1437,10 +1437,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | labcenters | Nie | Nie |
-> | Labs | Yes | Nie |
+> | Labs | Tak | Nie |
 > | laboratoria/środowiska | Tak | Tak |
 > | laboratoria/servicerunner | Tak | Tak |
-> | Labs/virtualmachines | Yes | Nie |
+> | Labs/virtualmachines | Tak | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/operacje | Nie | Nie |
 > | operacje | Nie | Nie |
@@ -1866,8 +1866,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | Nie | Nie |
 > | integrationaccounts | Tak | Tak |
-> | integrationserviceenvironments | Yes | Nie |
-> | integrationserviceenvironments/managedapis | Yes | Nie |
+> | integrationserviceenvironments | Tak | Nie |
+> | integrationserviceenvironments/managedapis | Tak | Nie |
 > | isolatedenvironments | Nie | Nie |
 > | locations | Nie | Nie |
 > | Lokalizacje/przepływy pracy | Nie | Nie |
@@ -1884,7 +1884,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/operacje | Nie | Nie |
 > | Lokalizacje/operationsstatus | Nie | Nie |
 > | operacje | Nie | Nie |
-> | WebServices | Yes | Nie |
+> | WebServices | Tak | Nie |
 > | obszary robocze | Tak | Tak |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft. MachineLearningCompute
@@ -2197,10 +2197,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | networkinterfaces | Tak | Tak |
 > | networkprofiles | Nie | Nie |
 > | networksecuritygroups | Tak | Tak |
-> | networkwatchers | Yes | Nie |
-> | networkwatchers / connectionmonitors | Yes | Nie |
-> | networkwatchers / flowlogs | Yes | Nie |
-> | networkwatchers / pingmeshes | Yes | Nie |
+> | networkwatchers | Tak | Nie |
+> | networkwatchers / connectionmonitors | Tak | Nie |
+> | networkwatchers / flowlogs | Tak | Nie |
+> | networkwatchers / pingmeshes | Tak | Nie |
 > | operacje | Nie | Nie |
 > | p2svpngateways | Nie | Nie |
 > | privatednsoperationresults | Nie | Nie |
@@ -2789,7 +2789,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Lokalizacje/jobagentoperationresults | Nie | Nie |
 > | Lokalizacje/longtermretentionbackupazureasyncoperation | Nie | Nie |
 > | Lokalizacje/longtermretentionbackupoperationresults | Nie | Nie |
-> | Lokalizacje/longtermretentionbackups | Nie | Nie |
+> | Lokalizacje/longtermretentionbackups | Tak | Tak |
 > | Lokalizacje/longtermretentionmanagedinstancebackupazureasyncoperation | Nie | Nie |
 > | Lokalizacje/longtermretentionmanagedinstancebackupoperationresults | Nie | Nie |
 > | Lokalizacje/longtermretentionmanagedinstancebackups | Nie | Nie |
@@ -2872,7 +2872,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Serwery/bazy danych/auditingsettings | Nie | Nie |
 > | Serwery/bazy danych/AuditRecords | Nie | Nie |
 > | Serwery/bazy danych/automatictuning | Nie | Nie |
-> | Serwery/bazy danych/backuplongtermretentionpolicies | Nie | Nie |
+> | Serwery/bazy danych/backuplongtermretentionpolicies | Tak | Tak |
 > | Serwery/bazy danych/backupshorttermretentionpolicies | Nie | Nie |
 > | Serwery/bazy danych/connectionpolicies | Nie | Nie |
 > | Serwery/bazy danych/datamaskingpolicies | Nie | Nie |
@@ -3186,7 +3186,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | availablestacks | Nie | Nie |
 > | billingmeters | Nie | Nie |
-> | certyfikaty | Nie | Yes |
+> | certyfikaty | Nie | Tak |
 > | checknameavailability | Nie | Nie |
 > | connectiongateways | Tak | Tak |
 > | Licznik | Tak | Tak |

@@ -1,22 +1,22 @@
 ---
 title: Szybka skalowanie i ochrona aplikacji sieci Web przy użyciu usług frontonu platformy Azure i zapory aplikacji sieci Web platformy Azure (WAF) | Microsoft Docs
-description: Ten artykuł pomaga zrozumieć, jak używać zapory aplikacji sieci Web z usługą wystąpienia front-drzwi
+description: Ten artykuł pomaga zrozumieć, jak używać zapory aplikacji sieci Web z usługą Azure front-drzwi
 services: frontdoor
 documentationcenter: ''
-author: tremansdoerfer
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020
-ms.author: rimansdo
-ms.openlocfilehash: 6f91a98372aa85a52a6013a121235ca354004a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a0252004b01e64b195b372d72682f6b777012258
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743545"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535435"
 ---
 # <a name="quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Szybka skalowanie i ochrona aplikacji sieci Web przy użyciu usług frontonu platformy Azure i zapory aplikacji sieci Web platformy Azure (WAF)
 
@@ -119,7 +119,7 @@ Początkowo niestandardowa nazwa domeny aplikacji sieci Web (używana przez klie
 
 Określone kroki aktualizowania rekordów DNS będą zależeć od dostawcy usługi DNS, ale jeśli używasz Azure DNS do hostowania nazwy DNS, możesz zapoznać się z dokumentacją dotyczącą czynności, aby [zaktualizować rekord DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) i wskazać nazwę hosta AFD. 
 
-Jednym z najważniejszych rzeczy jest to, że jeśli chcesz, aby użytkownicy mogli przechodzić do witryny sieci Web przy użyciu wierzchołka strefy, dla automatyzacji, contoso.com, musisz używać Azure DNS i [typu rekordu aliasu](https://docs.microsoft.com/azure/dns/dns-alias) , aby hostować nazwę DNS. 
+Jednym z najważniejszych rzeczy jest to, że jeśli chcesz, aby użytkownicy mogli przechodzić do witryny internetowej przy użyciu wierzchołka strefy, na przykład contoso.com, musisz użyć Azure DNS i [typu rekordu aliasu](https://docs.microsoft.com/azure/dns/dns-alias) , aby hostować nazwę DNS. 
 
 Ponadto należy również zaktualizować konfigurację AFD, aby dodać do niej [tę domenę niestandardową](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) , tak aby AFD zrozumieć to mapowanie.
 
