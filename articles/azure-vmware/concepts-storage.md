@@ -3,12 +3,12 @@ title: Pojęcia — magazyn
 description: Dowiedz się więcej o możliwościach magazynu kluczy w chmurach prywatnych w usłudze Azure VMware w wersji zapoznawczej.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8afd58c61f2f78eec2a92354be6d88178340912e
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752209"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024319"
 ---
 # <a name="azure-vmware-solution-preview-storage-concepts"></a>Pojęcia związane z magazynem w wersji zapoznawczej platformy Azure VMware
 
@@ -28,7 +28,7 @@ Magazyn lokalny w hostach klastra jest używany w sieci vSAN magazynu danych w c
 
 ## <a name="data-at-rest-encryption"></a>Szyfrowanie danych w spoczynku
 
-magazyny danych sieci vSAN korzystają domyślnie z szyfrowania Data-in-Rest. Rozwiązanie do szyfrowania jest oparte na usłudze KMS i obsługuje operacje programu vCenter do zarządzania kluczami. Klucze są przechowywane w postaci zaszyfrowanej, opakowane przez oparty na module HSM klucz główny Azure Key Vault. Gdy host zostanie usunięty z dowolnego powodu, dane na dysków SSD są od razu unieważnione.
+magazyny danych sieci vSAN korzystają domyślnie z szyfrowania Data-in-Rest. Rozwiązanie do szyfrowania jest oparte na usłudze KMS i obsługuje operacje programu vCenter do zarządzania kluczami. Klucze szyfrowania kluczy są przechowywane w Azure Key Vault i gdy host zostanie usunięty z dowolnego powodu, dane na dysków SSD są od razu unieważnione.
 
 ## <a name="scaling"></a>Skalowanie
 

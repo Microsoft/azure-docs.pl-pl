@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074712"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030705"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Funkcje żądania danych klienta dla urządzeń IoT Hub platformy Azure
 
@@ -36,13 +36,13 @@ W przypadku tworzenia dzienników diagnostycznych za pomocą funkcji integracji 
 
 Administratorzy dzierżawy mogą użyć bloku urządzenia IoT rozszerzenia IoT Hub platformy Azure w Azure Portal, aby usunąć urządzenie, co spowoduje usunięcie danych skojarzonych z tym urządzeniem.
 
-Możliwe jest również wykonywanie operacji usuwania dla urządzeń korzystających z interfejsów API REST. Aby uzyskać więcej informacji, zobacz temat [Usługa-Usuwanie urządzenia](/rest/api/iothub/service/registrymanager/deletedevice).
+Możliwe jest również wykonywanie operacji usuwania dla urządzeń korzystających z interfejsów API REST. Aby uzyskać więcej informacji, zobacz temat [Usługa-Usuwanie urządzenia](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice).
 
 ## <a name="exporting-customer-data"></a>Eksportowanie danych klienta
 
 Administratorzy dzierżawy mogą używać kopiowania i wklejania w okienku urządzenia IoT rozszerzenia IoT Hub platformy Azure w Azure Portal do eksportowania danych skojarzonych z urządzeniem.
 
-Możliwe jest również wykonywanie operacji eksportowania dla urządzeń przy użyciu interfejsów API REST. Aby uzyskać więcej informacji, zobacz [Usługa-Get Device](/rest/api/iothub/service/registrymanager/getdevice).
+Możliwe jest również wykonywanie operacji eksportowania dla urządzeń przy użyciu interfejsów API REST. Aby uzyskać więcej informacji, zobacz [Usługa-Get Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice).
 
 > [!NOTE]
 > Gdy korzystasz z usług firmy Microsoft dla przedsiębiorstw, firma Microsoft generuje pewne informacje, znane jako dzienniki generowane przez system. Niektóre dzienniki generowane przez system IoT Hub platformy Azure nie są dostępne ani eksportowane przez administratorów dzierżawy. Te dzienniki składają się na faktyczne działania wykonywane w ramach usługi i danych diagnostycznych związanych z poszczególnymi urządzeniami.

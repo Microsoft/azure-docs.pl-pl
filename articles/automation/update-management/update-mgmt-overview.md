@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660912"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024145"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -18,8 +18,8 @@ Update Management w Azure Automation służy do zarządzania aktualizacjami syst
 
 Update Management dla maszyn wirtualnych można włączyć w następujący sposób:
 
-* Z [konta Azure Automation](update-mgmt-enable-automation-account.md) na co najmniej jednej maszynie platformy Azure.
-* Ręczne dla maszyn spoza platformy Azure.
+* Z [konta usługi Azure Automation](update-mgmt-enable-automation-account.md) na co najmniej jedną maszynę w systemie Azure i poza platformą Azure.
+* Ręcznie dla maszyn spoza platformy Azure, w tym maszyn lub serwerów zarejestrowanych przy użyciu [usługi Azure ARC z obsługą serwerów](../../azure-arc/servers/overview.md) (wersja zapoznawcza).
 * Dla jednej maszyny wirtualnej platformy Azure na stronie maszyny wirtualnej w Azure Portal. Ten scenariusz jest dostępny dla maszyn wirtualnych z systemami [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) i [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) .
 * Dla [wielu maszyn wirtualnych platformy Azure](update-mgmt-enable-portal.md) , wybierając je na stronie maszyny wirtualne w Azure Portal.
 
@@ -40,21 +40,17 @@ Maszyny zarządzane przez Update Management używają następujących konfigurac
 * Hybrydowy proces roboczy elementu runbook usługi Automation
 * Microsoft Update lub Windows Server Update Services (WSUS) dla maszyn z systemem Windows
 
-Na poniższym diagramie przedstawiono sposób, w jaki Update Management ocenia i stosuje aktualizacje zabezpieczeń do wszystkich połączonych maszyn z systemami Windows Server i Linux w obszarze roboczym:
+Na poniższym diagramie przedstawiono, w jaki sposób Update Management oceniać i stosować aktualizacje zabezpieczeń dla wszystkich podłączonych serwerów z systemem Windows Server i Linux w obszarze roboczym:
 
 ![Przepływ pracy Update Management](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-Update Management może służyć do natywnego wdrażania maszyn w wielu subskrypcjach w ramach tej samej dzierżawy.
+Update Management może służyć do natywnego wdrażania na maszynach w wielu subskrypcjach w ramach tej samej dzierżawy.
 
-Po wydaniu pakietu trwa od 2 do 3 godzin, aby poprawka była wyświetlana dla maszyn z systemem Linux na potrzeby oceny. W przypadku maszyn z systemem Windows trwa od 12 do 15 godzin, aby poprawka była wyświetlana na potrzeby oceny po jej udostępnieniu.
-
-Gdy maszyna ukończy skanowanie pod kątem zgodności aktualizacji, Agent przekazuje informacje zbiorczo do Azure Monitor dzienników. Na komputerze z systemem Windows skanowanie zgodności jest domyślnie uruchamiane co 12 godzin.
+Po wydaniu pakietu trwa od 2 do 3 godzin, aby poprawka była wyświetlana dla maszyn z systemem Linux na potrzeby oceny. W przypadku maszyn z systemem Windows trwa od 12 do 15 godzin, aby poprawka była wyświetlana na potrzeby oceny po jej udostępnieniu. Gdy maszyna ukończy skanowanie pod kątem zgodności aktualizacji, Agent przekazuje informacje zbiorczo do Azure Monitor dzienników. Na komputerze z systemem Windows skanowanie zgodności jest domyślnie uruchamiane co 12 godzin. W przypadku maszyny z systemem Linux skanowanie zgodności jest wykonywane co godzinę domyślnie. Jeśli Agent Log Analytics zostanie uruchomiony ponownie, skanowanie zgodności zostanie rozpoczęte w ciągu 15 minut.
 
 Oprócz harmonogramu skanowania skanowanie pod kątem zgodności z aktualizacjami jest uruchamiane w ciągu 15 minut od ponownego uruchomienia agenta Log Analytics, przed zainstalowaniem aktualizacji i po zainstalowaniu aktualizacji.
 
-W przypadku maszyny z systemem Linux skanowanie zgodności jest wykonywane co godzinę domyślnie. Jeśli Agent Log Analytics zostanie uruchomiony ponownie, skanowanie zgodności zostanie rozpoczęte w ciągu 15 minut.
-
-Update Management raportuje, jak to jest aktualność maszyny, na podstawie źródła, z którym jest skonfigurowana synchronizacja. Jeśli komputer z systemem Windows jest skonfigurowany do raportowania do programu WSUS, w zależności od tego, kiedy program WSUS został ostatnio zsynchronizowany z Microsoft Update, wyniki mogą się różnić od tego, co Microsoft Update. Takie zachowanie jest takie samo dla maszyn z systemem Linux, które są skonfigurowane do raportowania do lokalnego repozytorium, a nie do repozytorium publicznego.
+Update Management raportuje, jak to jest aktualność maszyny, na podstawie źródła, z którym jest skonfigurowana synchronizacja. Jeśli komputer z systemem Windows jest skonfigurowany do raportowania do [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), w zależności od czasu ostatniej synchronizacji programu WSUS z Microsoft Update, wyniki mogą się różnić od tego, co Microsoft Update. Takie zachowanie jest takie samo dla maszyn z systemem Linux, które są skonfigurowane do raportowania do lokalnego repozytorium, a nie do repozytorium publicznego.
 
 > [!NOTE]
 > Aby poprawnie zgłosić usługę, Update Management wymaga włączenia określonych adresów URL i portów. Aby dowiedzieć się więcej na temat tych wymagań, zobacz [Konfiguracja sieci](../automation-hybrid-runbook-worker.md#network-planning).
@@ -176,7 +172,7 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez Update Mana
 
 Update Management skanuje zarządzane maszyny pod kątem danych przy użyciu następujących reguł. Wyświetlenie zaktualizowanych danych z zarządzanych maszyn na pulpicie nawigacyjnym może potrwać od 30 minut do 6 godzin.
 
-* Każdy komputer z systemem Windows — Update Management skanuje dwa razy dziennie dla każdej maszyny. Co 15 minut wysyła zapytanie do interfejsu API systemu Windows o czas ostatniej aktualizacji w celu ustalenia, czy stan został zmieniony. Jeśli stan został zmieniony, Update Management uruchamia skanowanie zgodności.
+* Każdy komputer z systemem Windows — Update Management skanuje dwa razy dziennie dla każdej maszyny.
 
 * Każda maszyna z systemem Linux Update Management skanuje co godzinę.
 
@@ -215,7 +211,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.
@@ -256,9 +252,10 @@ Dostępny jest [szablon Menedżer zasobów](update-mgmt-enable-template.md) plat
 
 Poniżej przedstawiono sposoby włączania Update Management i wybierania maszyn, które mają być zarządzane:
 
-* [Z maszyny wirtualnej](update-mgmt-enable-vm.md)
-* [Przeglądanie wielu maszyn](update-mgmt-enable-portal.md)
+* [Z maszyny wirtualnej platformy Azure](update-mgmt-enable-vm.md)
+* [Przeglądanie wielu maszyn wirtualnych platformy Azure](update-mgmt-enable-portal.md)
 * [Z konta Azure Automation](update-mgmt-enable-automation-account.md)
+* W przypadku serwerów z obsługą ARC (wersja zapoznawcza) lub maszyn spoza platformy Azure zainstaluj [agenta log Analytics](../../azure-monitor/platform/log-analytics-agent.md) a następnie [Włącz maszyny w obszarze roboczym](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) , aby Update Management.
 
 ## <a name="next-steps"></a>Następne kroki
 

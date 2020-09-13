@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013184"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024370"
 ---
 # <a name="z-fighting-mitigation"></a>Ograniczanie efektu Z-fighting
 
@@ -21,9 +21,9 @@ Gdy dwie powierzchnie nakładają się, nie jest jasne, które powinny być rend
 
 |Istniał                        | Wynik                               |
 |---------------------------------|:-------------------------------------|
-|Regularna walka z               |![Walka Z](./media/zfighting-0.png)|
-|Ograniczenie do walki Z włączonymi ograniczeniami    |![Walka Z](./media/zfighting-1.png)|
-|Włączono podświetlanie szachownicy|![Walka Z](./media/zfighting-2.png)|
+|Regularna walka z               |![Brak deterministycznych pierwszeństwa między czerwonymi a zielonymi czterema](./media/zfighting-0.png)|
+|Ograniczenie do walki Z włączonymi ograniczeniami    |![Ustawienie "czerwona Quad" ma pierwszeństwo](./media/zfighting-1.png)|
+|Włączono podświetlanie szachownicy|![Preferencje przełączania Red i Green w deseniu szachownicy](./media/zfighting-2.png)|
 
 Poniższy kod włącza środki zaradcze do walki z:
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > Łagodzenie Z-walk jest ustawieniem globalnym, które ma wpływ na wszystkie renderowane siatki.
 
@@ -77,7 +76,12 @@ Zapewnione środki zaradcze z zakresu walki są najlepszym rozwiązaniem. Nie ma
 * Włączenie ograniczania do walki z niewielkim obciążeniem wiąże się ze zmniejszeniem wydajności.
 * Ponadto włączenie nakładki z-walką wiąże się z nieprostym obciążeniem wydajności, ale może się to różnić w zależności od sceny.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Właściwość RemoteManager. ZFightingMitigationSettings języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [Zdalnymanager:: ZFightingMitigationSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Tryby renderowania](../../concepts/rendering-modes.md)
 * [Reprojekcja na późnym etapie](late-stage-reprojection.md)

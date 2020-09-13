@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758751"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029991"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -38,4 +38,4 @@ Obsługiwany wzorzec dla komunikatów z chmury do urządzenia z protokołem HTTP
 
 Alternatywnie możesz ulepszyć logikę po stronie urządzenia, aby szybko zakończyć, odrzucić lub zrezygnować z kolejkowanej wiadomości, skrócić czas wygaśnięcia lub rozważyć wysłanie mniejszej liczby komunikatów. Zobacz [Czas wygaśnięcia komunikatu C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Na koniec Rozważ użycie [interfejsu API przeczyszczania kolejki](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) , aby okresowo czyścić oczekujące komunikaty przed osiągnięciem limitu.
+Na koniec Rozważ użycie [interfejsu API przeczyszczania kolejki](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) , aby okresowo czyścić oczekujące komunikaty przed osiągnięciem limitu.

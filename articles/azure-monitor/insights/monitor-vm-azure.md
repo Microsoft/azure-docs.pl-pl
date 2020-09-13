@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326192"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029465"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -59,7 +59,7 @@ Aby włączyć wszystkie funkcje Azure Monitor na potrzeby monitorowania maszyny
 | [Włącz Azure Monitor dla maszyn wirtualnych](#enable-azure-monitor-for-vms) | -Log Analytics zainstalowany agent.<br>Agent zależności został zainstalowany.<br>-Dane wydajności gościa zbierane do dzienników.<br>-Szczegóły procesu i zależności zbierane do dzienników. | -Schematy wydajności i skoroszyty dla danych wydajności gościa.<br>-Rejestruje zapytania dotyczące danych wydajności gościa.<br>-Rejestrowanie alertów dotyczących danych dotyczących wydajności gościa.<br>— Mapa zależności. |
 | [Zainstaluj rozszerzenie diagnostyki i agenta telegraf](#enable-diagnostics-extension-and-telegraf-agent) | -Dane wydajności gościa zbierane do metryk. | — Eksplorator metryk dla gościa.<br>-Metryki alertów dla gościa.  |
 | [Konfigurowanie obszaru roboczego Log Analytics](#configure-log-analytics-workspace) | -Zdarzenia zbierane z gościa. | -Rejestruj zapytania dla zdarzeń gościa.<br>-Rejestrowanie alertów dotyczących zdarzeń gościa. |
-| [Utwórz ustawienie diagnostyczne dla maszyny wirtualnej](#collect-platform-metrics-and-activity-log) | — Metryki platformy zbierane do dzienników.<br>-Dziennik aktywności zebrany do dzienników. | -LOQ zapytania dotyczące metryk hosta.<br>-Rejestrowanie alertów dotyczących metryk hosta.<br>-Rejestruje zapytania dotyczące dziennika aktywności.
+| [Utwórz ustawienie diagnostyczne dla maszyny wirtualnej](#collect-platform-metrics-and-activity-log) | — Metryki platformy zbierane do dzienników.<br>-Dziennik aktywności zebrany do dzienników. | -Rejestruje zapytania dotyczące metryk hosta.<br>-Rejestrowanie alertów dotyczących metryk hosta.<br>-Rejestruje zapytania dotyczące dziennika aktywności.
 
 Każdy z tych kroków konfiguracyjnych został opisany w poniższych sekcjach.
 
@@ -70,9 +70,9 @@ Każdy z tych kroków konfiguracyjnych został opisany w poniższych sekcjach.
 - Wstępnie zdefiniowane wykresy wydajności trendów i skoroszyty umożliwiające analizowanie podstawowych metryk wydajności z systemu operacyjnego gościa maszyny wirtualnej.
 - Mapa zależności, która wyświetla procesy działające na poszczególnych maszynach wirtualnych i połączonych składnikach z innymi maszynami i źródłami zewnętrznymi.
 
-![Usługa Azure Monitor dla maszyn wirtualnych](media/monitor-vm-azure/vminsights-01.png)
+![Widok wydajności Azure Monitor dla maszyn wirtualnych](media/monitor-vm-azure/vminsights-01.png)
 
-![Usługa Azure Monitor dla maszyn wirtualnych](media/monitor-vm-azure/vminsights-02.png)
+![Widok Azure Monitor dla maszyn wirtualnych Maps](media/monitor-vm-azure/vminsights-02.png)
 
 
 Włącz Azure Monitor dla maszyn wirtualnych z poziomu usługi **Insights** w menu maszyny wirtualnej Azure Portal. Szczegóły i inne metody konfiguracji można znaleźć w temacie [włączanie Azure monitor dla maszyn wirtualnych przegląd](vminsights-enable-overview.md) .
@@ -80,7 +80,7 @@ Włącz Azure Monitor dla maszyn wirtualnych z poziomu usługi **Insights** w me
 ![Włącz Azure Monitor dla maszyn wirtualnych](media/monitor-vm-azure/enable-vminsights.png)
 
 ### <a name="configure-log-analytics-workspace"></a>Konfigurowanie obszaru roboczego Log Analytics
-Agent Log Analytics używany przez Azure Monitor dla maszyn wirtualnych wysyła dane do [obszaru roboczego log Analytics](../platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Można włączyć zbieranie dodatkowych danych dotyczących wydajności, zdarzeń i innych danych monitorowania z agenta przez skonfigurowanie obszaru roboczego Log Analytics. Należy je skonfigurować tylko raz, ponieważ każdy agent łączący się z obszarem roboczym automatycznie pobierze konfigurację i natychmiast zacznie zbierać zdefiniowane dane. 
+Agent Log Analytics używany przez Azure Monitor dla maszyn wirtualnych wysyła dane do [obszaru roboczego log Analytics](../platform/data-platform-logs.md). Można włączyć zbieranie dodatkowych danych dotyczących wydajności, zdarzeń i innych danych monitorowania z agenta przez skonfigurowanie obszaru roboczego Log Analytics. Należy je skonfigurować tylko raz, ponieważ każdy agent łączący się z obszarem roboczym automatycznie pobierze konfigurację i natychmiast zacznie zbierać zdefiniowane dane. 
 
 Możesz uzyskać dostęp do konfiguracji obszaru roboczego bezpośrednio z Azure Monitor dla maszyn wirtualnych, wybierając pozycję **Konfiguracja obszaru roboczego** z **okna Wprowadzenie**. Kliknij nazwę obszaru roboczego, aby otworzyć jego menu.
 
@@ -96,7 +96,7 @@ Wybierz pozycję **Ustawienia zaawansowane** z menu obszar roboczy, a następnie
 
 
 ### <a name="enable-diagnostics-extension-and-telegraf-agent"></a>Włącz rozszerzenie diagnostyki i agenta telegraf
-Azure Monitor dla maszyn wirtualnych jest oparta na agencie Log Analytics, który zbiera dane w Log Analytics obszarze roboczym. Obsługuje to [wiele funkcji Azure monitor](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) , takich jak [zapytania dziennika](../log-query/log-query-overview.md), [alerty dzienników](../platform/alerts-log.md)i [skoroszyty](../platform/workbooks-overview.md). [Rozszerzenie Diagnostics](../platform/diagnostics-extension-overview.md) zbiera dane dotyczące wydajności z systemu operacyjnego gościa maszyn wirtualnych z systemem Windows w usłudze Azure Storage i opcjonalnie wysyła dane dotyczące wydajności do [metryk Azure monitor](../platform/data-platform-metrics.md). W przypadku maszyn wirtualnych z systemem Linux [Agent telegraf](../platform/collect-custom-metrics-linux-telegraf.md) jest wymagany do wysyłania danych do metryk platformy Azure.  Dzięki temu inne funkcje Azure Monitor, takie jak [Eksplorator metryk](../platform/metrics-getting-started.md) i [alerty metryki](../platform/alerts-metric.md). Można również skonfigurować rozszerzenie diagnostyki do wysyłania zdarzeń i danych wydajności poza Azure Monitor przy użyciu usługi Azure Event Hubs.
+Azure Monitor dla maszyn wirtualnych jest oparta na agencie Log Analytics, który wysyła dane do obszaru roboczego Log Analytics. Obsługuje to wiele funkcji Azure Monitor, takich jak [zapytania dziennika](../log-query/log-query-overview.md), [alerty dzienników](../platform/alerts-log.md)i [skoroszyty](../platform/workbooks-overview.md). [Rozszerzenie Diagnostics](../platform/diagnostics-extension-overview.md) zbiera dane dotyczące wydajności z systemu operacyjnego gościa maszyn wirtualnych z systemem Windows w usłudze Azure Storage i opcjonalnie wysyła dane dotyczące wydajności do [metryk Azure monitor](../platform/data-platform-metrics.md). W przypadku maszyn wirtualnych z systemem Linux [Agent telegraf](../platform/collect-custom-metrics-linux-telegraf.md) jest wymagany do wysyłania danych do metryk platformy Azure.  Dzięki temu inne funkcje Azure Monitor, takie jak [Eksplorator metryk](../platform/metrics-getting-started.md) i [alerty metryki](../platform/alerts-metric.md). Można również skonfigurować rozszerzenie diagnostyki do wysyłania zdarzeń i danych wydajności poza Azure Monitor przy użyciu usługi Azure Event Hubs.
 
 Zainstaluj rozszerzenie Diagnostyka dla pojedynczej maszyny wirtualnej z systemem Windows w Azure Portal z opcji **Ustawienia diagnostyki** w menu maszyny wirtualnej. Wybierz opcję Włącz **Azure monitor** na karcie **ujścia** . Aby włączyć rozszerzenie z szablonu lub wiersza polecenia dla wielu maszyn wirtualnych, zobacz [Instalowanie i Konfigurowanie](../platform/diagnostics-extension-overview.md#installation-and-configuration). W przeciwieństwie do agenta Log Analytics dane do zebrania są zdefiniowane w konfiguracji rozszerzenia na każdej maszynie wirtualnej.
 
@@ -154,7 +154,7 @@ Istnieją trzy przestrzenie nazw używane przez maszyny wirtualne do metryk:
 | Gość (klasyczny) | Ograniczony zestaw danych dotyczących systemu operacyjnego gościa i wydajności aplikacji. Dostępne w Eksploratorze metryk, ale nie inne funkcje Azure Monitor, takie jak alerty metryki.  | [Rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) zostało zainstalowane. Dane są odczytywane z usługi Azure Storage.  |
 | Gość maszyny wirtualnej | Dane dotyczące systemu operacyjnego gościa i wydajności aplikacji są dostępne dla wszystkich funkcji Azure Monitor przy użyciu metryk. | Dla systemu Windows [zainstalowane rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) zainstalowane z włączonym Azure monitor ujścia. W przypadku systemu Linux [zainstalowano agenta telegraf](../platform/collect-custom-metrics-linux-telegraf.md). |
 
-![Metryki](media/monitor-vm-azure/metrics.png)
+![Eksplorator metryk w Azure Portal](media/monitor-vm-azure/metrics.png)
 
 ## <a name="analyzing-log-data"></a>Analizowanie danych dziennika
 Usługi Azure Virtual Machines będą zbierać następujące dane do dzienników Azure Monitor. 
@@ -212,7 +212,7 @@ Heartbeat
 | summarize max(TimeGenerated) by Computer
 ```
 
-![Alert dziennika](media/monitor-vm-azure/log-alert-01.png)
+![Alert dotyczący dziennika dla pominiętego pulsu](media/monitor-vm-azure/log-alert-01.png)
 
 Aby utworzyć alert, jeśli wystąpiła zbyt wiele nieudanych logowań na wszystkich maszynach wirtualnych z systemem Windows w ramach subskrypcji, użyj następującego zapytania, które zwraca rekord dla każdego nieudanego zdarzenia logowania w ciągu ostatniej godziny. Użyj progu ustawionego na liczbę nieudanych logowań, na które zezwolisz. 
 
@@ -222,20 +222,20 @@ Event
 | where EventID == 4625
 ```
 
-![Alert dziennika](media/monitor-vm-azure/log-alert-02.png)
+![Alert dziennika dla nieudanych logowań](media/monitor-vm-azure/log-alert-02.png)
 
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-System Center Operations Manager (SCOM) zapewnia szczegółowe monitorowanie obciążeń na maszynach wirtualnych. Zapoznaj się z [przewodnikiem monitorowania chmury](/azure/cloud-adoption-framework/manage/monitor/) , aby zapoznać się z porównaniem platform monitorowania i różnych strategii wdrażania.
+System Center Operations Manager zapewnia szczegółowe monitorowanie obciążeń na maszynach wirtualnych. Zapoznaj się z [przewodnikiem monitorowania chmury](/azure/cloud-adoption-framework/manage/monitor/) , aby zapoznać się z porównaniem platform monitorowania i różnych strategii wdrażania.
 
-Jeśli masz istniejące środowisko SCOM, które ma być używane, możesz je zintegrować z Azure Monitor, aby zapewnić dodatkową funkcjonalność. Agent Log Analytics używany przez Azure Monitor jest tym samym używany dla programu SCOM, aby monitorowane maszyny wirtualne mogły wysyłać dane do obu tych programów. Nadal musisz dodać agenta, aby Azure Monitor dla maszyn wirtualnych i skonfigurować obszar roboczy do zbierania dodatkowych danych, jak określono powyżej, ale maszyny wirtualne mogą nadal uruchamiać istniejące pakiety administracyjne w środowisku SCOM bez modyfikacji.
+Jeśli masz istniejące środowisko Operations Manager, które ma być używane, możesz je zintegrować z Azure Monitor, aby zapewnić dodatkową funkcjonalność. Agent Log Analytics używany przez Azure Monitor jest taki sam, jak używany w Operations Manager, aby monitorowane maszyny wirtualne mogły wysyłać dane do obu tych programów. Nadal musisz dodać agenta do Azure Monitor dla maszyn wirtualnych i skonfigurować obszar roboczy do zbierania dodatkowych danych, jak określono powyżej, ale maszyny wirtualne mogą nadal uruchamiać istniejące pakiety administracyjne w środowisku Operations Manager bez modyfikacji.
 
-Dostępne są następujące funkcje Azure Monitor, które rozszerzają istniejące funkcje programu SCOM:
+Funkcje Azure Monitor rozszerzające istniejące funkcje Operations Manager obejmują następujące elementy:
 
 - Użyj Log Analytics, aby interaktywnie analizować dane dziennika i wydajności.
-- Alerty dzienników umożliwiają definiowanie warunków alertów na wielu maszynach wirtualnych i korzystanie z krótkoterminowych trendów, które nie są możliwe przy użyciu alertów w programie SCOM.   
+- Alerty dzienników umożliwiają definiowanie warunków alertów na wielu maszynach wirtualnych i korzystanie z krótkoterminowych trendów, które nie są możliwe przy użyciu alertów w Operations Manager.   
 
-Zobacz [łączenie Operations Manager, aby Azure monitor](../platform/om-agents.md) szczegóły dotyczące łączenia istniejącej grupy zarządzania SCOM z obszarem roboczym log Analytics.
+Aby uzyskać szczegółowe informacje na temat łączenia istniejącej grupy zarządzania Operations Manager z obszarem roboczym Log Analytics, zobacz [Connect Azure Monitor Operations Manager](../platform/om-agents.md) .
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799047"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029549"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Zresetuj hasło służbowe przy użyciu informacji zabezpieczających
 
@@ -107,7 +107,7 @@ Po zresetowaniu hasła może zostać wykorzystana wiadomość e-mail z potwierdz
 
 ## <a name="how-to-change-your-password"></a>How to change your password (Jak zmienić hasło)
 
-Jeśli chcesz tylko zmienić hasło, możesz to zrobić za pomocą portalu pakietu Office 365, panelu dostępu platformy Azure lub strony logowania systemu Windows 10.
+Jeśli chcesz tylko zmienić hasło, możesz to zrobić za pomocą portalu pakietu Office 365, portalu Moje aplikacje lub strony logowania systemu Windows 10.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Aby zmienić hasło przy użyciu portalu pakietu Office 365
 
@@ -121,11 +121,11 @@ Użyj tej metody, jeśli zwykle uzyskujesz dostęp do aplikacji za pomocą porta
 
 4. Wpisz stare hasło, Utwórz i Potwierdź nowe hasło, a następnie wybierz pozycję **Prześlij**.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Aby zmienić hasło w panelu dostępu platformy Azure
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>Aby zmienić hasło w portalu My Apps
 
-Użyj tej metody, jeśli zwykle uzyskujesz dostęp do aplikacji z poziomu panelu dostępu platformy Azure (aplikacje):
+Użyj tej metody, jeśli zwykle uzyskujesz dostęp do aplikacji z portalu My Apps:
 
-1. Zaloguj się do [panelu dostępu platformy Azure](https://myapps.microsoft.com/)przy użyciu istniejącego hasła.
+1. Zaloguj się do [portalu My Apps](https://myapps.microsoft.com/)przy użyciu istniejącego hasła.
 
 2. Wybierz swój profil w prawym górnym rogu, a następnie wybierz pozycję **profil**.
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 07/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b469ea0d0a91cc4ca7f0602dffbcc63b31c60855
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: dc7417cafc2a9d6f1abca31da884d55bfac42b75
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588368"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90028937"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Co nowego w Azure Key Vault
 
@@ -36,6 +36,7 @@ Firma Microsoft aktualizuje usługi platformy Azure, aby używać certyfikatów 
 - Usługi Azure Active Directory (Azure AD) zaczęły to przechodzenie od 7 lipca 2020.
 - Wszystkie nowo utworzone punkty końcowe protokołu TLS/SSL usługi Azure zawierają zaktualizowane certyfikaty łańcucha do nowych głównych urzędów certyfikacji. 
 - Istniejące punkty końcowe platformy Azure będą przenoszone w sposób fazowy od 13 sierpnia 2020 i wypełniania do 26 października 2020.
+- [Usługi Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) i [DPS](/azure/iot-dps/) POzostaną w głównym urzędzie certyfikacji Baltimore CyberTrust, ale ich pośrednie urzędy certyfikacji zmienią się. [Kliknij tutaj, aby uzyskać szczegółowe informacje](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 
 > [!IMPORTANT]
 > Aby uniknąć błędów łączności podczas próby nawiązania połączenia z usługami platformy Azure, klienci mogą wymagać aktualizacji aplikacji po tej zmianie. 

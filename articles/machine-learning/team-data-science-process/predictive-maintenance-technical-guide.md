@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 9520369861623e60a0118baa20a7871437433a4b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6677f9275d3b6f0569216eb16046d096c574beab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290711"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030905"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Przewodnik techniczny dotyczący szablonu rozwiązania do konserwacji predykcyjnej w programie Aerospace
 
@@ -182,7 +182,7 @@ Poniższe kroki przeprowadzą Cię przez proces łączenia pliku pbix z SQL Data
    * W następnym oknie podręcznym zobaczysz dwie opcje w okienku po lewej stronie (**system Windows** i **baza danych**). Kliknij pozycję **"baza danych"**, wprowadź nazwę **"username"** i **"Password** " (nazwę użytkownika i hasło wprowadzone podczas pierwszego wdrożenia rozwiązania i utworzyć Azure SQL Database). W obszarze ***Wybierz poziom, do którego mają zostać zastosowane te ustawienia***Sprawdź opcję poziomu bazy danych. Następnie kliknij pozycję **"Połącz"**.
    * Kliknij drugą tabelę **PMResult** a następnie kliknij ![ ikonę nawigacji ](./media/predictive-maintenance-technical-guide/icon-navigation.png) obok pozycji **"Źródło"** w obszarze **"zastosowane kroki"** w prawym okienku **"Ustawienia zapytania"** i zaktualizuj nazwy serwera i bazy danych tak jak w powyższych krokach, a następnie kliknij przycisk OK.
    * Po powrocie do poprzedniej strony Zamknij okno. Zostanie wyświetlony komunikat — kliknij przycisk **Zastosuj**. Na koniec kliknij przycisk **Zapisz** , aby zapisać zmiany. Plik Power BI ma teraz połączenie z serwerem. Jeśli wizualizacje są puste, pamiętaj o zaznaczeniu opcji wizualizacji, aby wizualizować wszystkie dane, klikając ikonę gumki w prawym górnym rogu legend. Użyj przycisku Odśwież, aby odzwierciedlić nowe dane w wizualizacjach. Początkowo dane inicjatora są widoczne tylko dla wizualizacji, ponieważ Fabryka danych jest zaplanowana do odświeżenia co 3 godziny. Po 3 godzinach zobaczysz nowe przewidywania odzwierciedlone w wizualizacjach podczas odświeżania danych.
-3. Obowiązkowe Opublikuj pulpit nawigacyjny zimnej ścieżki, aby [Power BI online](https://www.powerbi.com/). Ten krok wymaga konta Power BI (lub konta Office 365).
+3. Obowiązkowe Opublikuj pulpit nawigacyjny zimnej ścieżki, aby [Power BI online](https://www.powerbi.com/). Ten krok wymaga konta Power BI (lub konta służbowego).
    
    * Kliknięcie przycisku **"Publikuj"** i kilku sekund spowoduje wyświetlenie okna zawierającego komunikat "publikowanie w Power BI powodzenie!" z zielonym znacznikiem wyboru. Kliknij link poniżej "Otwórz PredictiveMaintenanceAerospace. pbix w Power BI". Aby uzyskać szczegółowe instrukcje, zobacz temat [Publikowanie z Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Aby utworzyć nowy pulpit nawigacyjny: kliknij **+** znak obok sekcji **pulpity nawigacyjne** w okienku po lewej stronie. Wprowadź nazwę "Demonstracja konserwacji predykcyjnej" dla nowego pulpitu nawigacyjnego.
@@ -208,7 +208,7 @@ Poniższe kroki przedstawiają sposób wizualizacji danych wyjściowych z Stream
 1. Dodaj Power BI dane wyjściowe w Azure Stream Analytics (ASA).
    
    * Musisz postępować zgodnie z instrukcjami w [Azure Stream Analytics & Power BI: pulpit nawigacyjny analizy do wglądu w dane przesyłane strumieniowo](../../stream-analytics/stream-analytics-power-bi-dashboard.md) w czasie rzeczywistym w celu skonfigurowania danych wyjściowych zadania Azure Stream Analytics jako pulpitu nawigacyjnego Power BI.
-   * Zapytanie ASA ma trzy dane wyjściowe, które są **aircraftmonitor**, **aircraftalert**i **flightsbyhour**. Możesz wyświetlić zapytanie, klikając kartę zapytanie. odpowiadające każdej z tych tabel należy dodać dane wyjściowe do ASA. Po dodaniu pierwszego danych wyjściowych (**aircraftmonitor**) Upewnij się, że **alias danych wyjściowych**, **Nazwa zestawu danych** i **Nazwa tabeli** są takie same (**aircraftmonitor**). Powtórz kroki, aby dodać wyjściowe dla **aircraftalert**i **flightsbyhour**. Po dodaniu wszystkich trzech tabel wyjściowych i uruchomieniu zadania ASA powinien zostać wyświetlony komunikat z potwierdzeniem ("Uruchamianie Stream Analytics zadania maintenancesa02asapbi powiodło się").
+   * Zapytanie ASA ma trzy dane wyjściowe, które są **aircraftmonitor**, **aircraftalert**i **flightsbyhour**. Możesz wyświetlić zapytanie, klikając kartę zapytanie. Odpowiadające każdej z tych tabel, należy dodać dane wyjściowe do ASA. Po dodaniu pierwszego danych wyjściowych (**aircraftmonitor**) Upewnij się, że **alias danych wyjściowych**, **Nazwa zestawu danych** i **Nazwa tabeli** są takie same (**aircraftmonitor**). Powtórz kroki, aby dodać wyjściowe dla **aircraftalert**i **flightsbyhour**. Po dodaniu wszystkich trzech tabel wyjściowych i uruchomieniu zadania ASA powinien zostać wyświetlony komunikat z potwierdzeniem ("Uruchamianie Stream Analytics zadania maintenancesa02asapbi powiodło się").
 2. Logowanie do usługi [Power BI online](https://www.powerbi.com)
    
    * W sekcji zestawy danych w panelu po lewej stronie w obszarze mój obszar roboczy, powinny być wyświetlane nazwy ***DataSet*** **aircraftmonitor**, **aircraftalert**i **flightsbyhour** . Jest to dane przesyłane strumieniowo z Azure Stream Analytics w poprzednim kroku. Zestaw danych **flightsbyhour** może nie być wyświetlany w tym samym czasie co pozostałe dwa zbiory, ze względu na charakter zapytania SQL. Jednak powinien on pojawić się po godzinie.

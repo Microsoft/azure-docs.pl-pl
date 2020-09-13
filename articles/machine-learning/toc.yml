@@ -535,6 +535,9 @@
       href: reference-pipeline-yaml.md
     - name: Równoważność suwerennej chmury
       href: reference-machine-learning-cloud-parity.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Zasoby
   items:
     - name: Informacje o wersji

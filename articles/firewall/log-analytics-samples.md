@@ -1,20 +1,20 @@
 ---
-title: Przykłady analizy dzienników zapory platformy Azure
+title: Dzienniki Azure Monitor dla zapory platformy Azure
 description: Za pomocą dzienników Azure Monitor można analizować zaporę platformy Azure. Przykładowy plik jest skompilowany w projektancie widoków w Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705995"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023877"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Przykłady analizy dzienników zapory platformy Azure
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Dzienniki Azure Monitor dla zapory platformy Azure
 
 Poniższe przykłady dzienników Azure Monitor mogą służyć do analizowania dzienników zapory platformy Azure. Przykładowy plik jest wbudowany w projektanta widoków w Azure Monitor, [Projektant widoków w Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artykule zawiera więcej informacji na temat koncepcji projektowej widoku.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 Poniższe przykłady dzienników przedstawiają dane zawarte w wpisie dziennika.
 
-![wpis dziennika](media/log-analytics-samples/log1.png)
+![wpis dziennika — jeden](media/log-analytics-samples/log1.png)
 
-![wpis dziennika](media/log-analytics-samples/log2.png)
+![wpis dziennika dwa ](media/log-analytics-samples/log2.png)
 
-![wpis dziennika](media/log-analytics-samples/log3.png)
+![wpis dziennika trzy](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej na temat monitorowania i diagnostyki zapory platformy Azure, zobacz [Samouczek: monitorowanie dzienników i metryk zapory platformy Azure](tutorial-diagnostics.md).

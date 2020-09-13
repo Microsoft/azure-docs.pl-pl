@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798112"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031096"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Edytowanie lub Odwoływanie uprawnień aplikacji w portalu Moje aplikacje
 
@@ -28,9 +28,9 @@ W przypadku korzystania z aplikacji w organizacji w portalu **Moje aplikacje** c
 >[!Important]
 >Ta zawartość jest przeznaczona dla użytkowników. Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania i zarządzania aplikacjami opartymi na chmurze w [dokumentacji zarządzania aplikacjami](../manage-apps/access-panel-collections.md).
 
-## <a name="manage-app-permissions"></a>Zarządzanie uprawnieniami aplikacji
+## <a name="manage-app-accounts"></a>Zarządzanie kontami aplikacji
 
-Aby wyświetlić uprawnienia, które zostały przesłane przez Ciebie lub administratora, wybierz pozycję **...** po umieszczeniu wskaźnika myszy na aplikacji w portalu **Moje aplikacje** , a następnie wybierz pozycję **Zarządzaj swoją aplikacją**:
+Aby wyświetlić aplikacje, które zostały przez Ciebie przesłane przez Ciebie lub administratora, wybierz pozycję **...** po umieszczeniu wskaźnika myszy na aplikacji w portalu **Moje aplikacje** , a następnie wybierz pozycję **Zarządzaj swoją aplikacją**:
 
 ![Zarządzanie aplikacją w portalu My Apps](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 

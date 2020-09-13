@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d52673f1c66c8e053639b24bb31a3159a75736b9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436756"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029056"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft
 
@@ -65,7 +65,7 @@ Kod aplikacji lub zwykle Biblioteka uwierzytelniania użyta w aplikacji równie�
 
 Identyfikator URI przekierowania to lokalizacja, w której platforma tożsamości firmy Microsoft przekierowuje klienta użytkownika i wysyła tokeny zabezpieczające po uwierzytelnieniu.
 
-Na przykład w produkcyjnej aplikacji sieci Web identyfikator URI przekierowania jest często publicznym punktem końcowym, w którym działa aplikacja `https://contoso.com/auth-response` . Podczas tworzenia warto również dodać punkt końcowy, w którym uruchamiasz aplikację lokalnie, na przykład `https://127.0.0.1/auth-response` .
+Na przykład w produkcyjnej aplikacji sieci Web identyfikator URI przekierowania jest często publicznym punktem końcowym, w którym działa aplikacja `https://contoso.com/auth-response` . Podczas opracowywania warto również dodać punkt końcowy, w którym uruchamiasz aplikację lokalnie, na przykład `https://127.0.0.1/auth-response` lub `http://localhost/auth-response` .
 
 Aby dodać i zmodyfikować identyfikatory URI przekierowania dla zarejestrowanych aplikacji, należy skonfigurować [Ustawienia platformy](#configure-platform-settings).
 

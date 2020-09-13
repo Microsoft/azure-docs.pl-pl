@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c802fafa92ace2260002f7156b0df9841af8338c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132402"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029583"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Samouczek: tworzenie automatycznych przepływów pracy opartych na zatwierdzaniu przy użyciu Azure Logic Apps
 
@@ -40,7 +40,7 @@ Po ukończeniu aplikacja logiki będzie ogólnie wyglądać jak ten przepływ pr
 
 * Konto MailChimp zawierające listę o nazwie "test-Members-ML", w której aplikacja logiki może dodawać adresy e-mail dla zatwierdzonych członków. Jeśli nie masz konta, [zarejestruj się w celu uzyskania bezpłatnego konta](https://login.mailchimp.com/signup/), a następnie Dowiedz się, [jak utworzyć listę MailChimp](https://us17.admin.mailchimp.com/lists/#).
 
-* Konto e-mail w pakiecie Office 365 Outlook lub Outlook.com, które obsługuje przepływy pracy zatwierdzania. W tym artykule wykorzystano konto usługi Office 365 Outlook. Jeśli korzystasz z innego konta e-mail, ogólne kroki pozostają takie same, ale Twój interfejs użytkownika może wyglądać trochę inaczej.
+* Konto e-mail w programie Outlook dla Microsoft 365 lub Outlook.com, które obsługuje przepływy pracy zatwierdzania. W tym artykule wykorzystano konto usługi Office 365 Outlook. Jeśli korzystasz z innego konta e-mail, ogólne kroki pozostają takie same, ale Twój interfejs użytkownika może wyglądać trochę inaczej.
 
 ## <a name="create-your-logic-app"></a>Tworzenie aplikacji logiki
 
@@ -107,7 +107,7 @@ Następnie dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
 
       Aby uzyskać więcej informacji na temat właściwości tego wyzwalacza, zobacz [informacje dotyczące łącznika programu Outlook pakietu Office 365](/connectors/office365/) lub [informacje dotyczące łącznika Outlook.com](/connectors/outlook/).
 
-   1. Po wyświetleniu właściwości w wyzwalaczu wprowadź następujący tekst:`subscribe-test-members-ML`
+   1. Po wyświetleniu właściwości w wyzwalaczu wprowadź następujący tekst: `subscribe-test-members-ML`
 
       ![Wprowadź tekst dla właściwości "subject Filter"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
@@ -137,7 +137,7 @@ Teraz, gdy wyzwalacz jest gotowy, dodaj [akcję](../logic-apps/logic-apps-overvi
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | **Do** | <*adres e-mail użytkownika*> | Adres e-mail osoby zatwierdzającej. Do celów testowych możesz użyć własnego adresu e-mail. W tym przykładzie jest użyty fikcyjny sophia.owen@fabrikam.com adres e-mail "". |
+   | **Działanie** | <*adres e-mail użytkownika*> | Adres e-mail osoby zatwierdzającej. Do celów testowych możesz użyć własnego adresu e-mail. W tym przykładzie jest użyty fikcyjny sophia.owen@fabrikam.com adres e-mail "". |
    | **Temat** | `Approve member request for test-members-ML` | Opisowy temat wiadomości e-mail |
    | **Opcje użytkownika** | `Approve, Reject` | Opcje odpowiedzi, które osoba zatwierdzająca może wybrać. Domyślnie osoba zatwierdzająca może wybrać opcję "Zatwierdź" lub "Odrzuć" jako odpowiedź. |
    ||||
@@ -176,7 +176,7 @@ Następnie Dodaj warunek, aby sprawdzić, czy wybrana odpowiedź osoby zatwierdz
 
    1. W środkowym polu porównania wybierz operator **is równe** .
 
-   1. W polu **Wybierz wartość** z prawej strony warunku wprowadź następujący tekst:`Approve`
+   1. W polu **Wybierz wartość** z prawej strony warunku wprowadź następujący tekst: `Approve`
 
       Gdy wszystko będzie gotowe, warunek będzie wyglądać podobnie do tego przykładu:
 
@@ -233,7 +233,7 @@ Następnie dodaj warunek, który pozwoli sprawdzić, czy nowy element członkows
 
    1. W środkowym polu porównania wybierz operator **is równe** .
 
-   1. W polu **Wybierz wartość** z prawej strony warunku wprowadź następujący tekst:`subscribed`
+   1. W polu **Wybierz wartość** z prawej strony warunku wprowadź następujący tekst: `subscribed`
 
       Gdy wszystko będzie gotowe, warunek będzie wyglądać podobnie do tego przykładu:
 
@@ -259,9 +259,9 @@ Następnie skonfiguruj wiadomości e-mail, które mają być wysyłane, gdy doł
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Do** | Tak | <*adres e-mail użytkownika*> | Adres e-mail, na który ma być wysłana wiadomość e-mail z informacją o powodzeniu. Do celów testowych możesz użyć własnego adresu e-mail. |
+   | **Działanie** | Tak | <*adres e-mail użytkownika*> | Adres e-mail, na który ma być wysłana wiadomość e-mail z informacją o powodzeniu. Do celów testowych możesz użyć własnego adresu e-mail. |
    | **Temat** | Tak | <*podmiot — dla sukcesu — adres e-mail*> | Temat wiadomości e-mail z informacją o powodzeniu. Na potrzeby tego samouczka wprowadź ten tekst: <p>`Success! Member added to "test-members-ML": ` <p>Z listy zawartość dynamiczna w obszarze **Dodawanie elementu członkowskiego do listy**wybierz właściwość **adres e-mail** . |
-   | **Treść** | Tak | <*treść — dla sukcesu — adres e-mail*> | Treść wiadomości e-mail z informacją o powodzeniu. Na potrzeby tego samouczka wprowadź ten tekst: <p>`New member has joined "test-members-ML":` <p>Z listy zawartość dynamiczna wybierz właściwość **adres e-mail** . <p>W następnym wierszu wprowadź następujący tekst:`Member opt-in status: ` <p> Z listy zawartość dynamiczna w obszarze **Dodawanie elementu członkowskiego do listy**wybierz właściwość **stan** . |
+   | **Treść** | Tak | <*treść — dla sukcesu — adres e-mail*> | Treść wiadomości e-mail z informacją o powodzeniu. Na potrzeby tego samouczka wprowadź ten tekst: <p>`New member has joined "test-members-ML":` <p>Z listy zawartość dynamiczna wybierz właściwość **adres e-mail** . <p>W następnym wierszu wprowadź następujący tekst: `Member opt-in status: ` <p> Z listy zawartość dynamiczna w obszarze **Dodawanie elementu członkowskiego do listy**wybierz właściwość **stan** . |
    |||||
 
 1. Zapisz aplikację logiki.
@@ -284,7 +284,7 @@ Następnie skonfiguruj wiadomości e-mail, które mają być wysyłane, gdy doł
 
    | Właściwość | Wymagany | Wartość | Opis |
    |----------|----------|-------|-------------|
-   | **Do** | Tak | <*adres e-mail użytkownika*> | Adres e-mail, na który ma być wysłana wiadomość e-mail z informacją o niepowodzeniu. Do celów testowych możesz użyć własnego adresu e-mail. |
+   | **Działanie** | Tak | <*adres e-mail użytkownika*> | Adres e-mail, na który ma być wysłana wiadomość e-mail z informacją o niepowodzeniu. Do celów testowych możesz użyć własnego adresu e-mail. |
    | **Temat** | Tak | <*podmiot — dla niepowodzenia — poczta e-mail*> | Temat wiadomości e-mail z informacją o niepowodzeniu. Na potrzeby tego samouczka wprowadź ten tekst: <p>`Failed, member not added to "test-members-ML": ` <p>Z listy zawartość dynamiczna w obszarze **Dodawanie elementu członkowskiego do listy**wybierz właściwość **adres e-mail** . |
    | **Treść** | Tak | <*treść — do-niepowodzenie — poczta e-mail*> | Treść wiadomości e-mail z informacją o niepowodzeniu. Na potrzeby tego samouczka wprowadź ten tekst: <p>`Member might already exist. Check your MailChimp account.` |
    |||||
@@ -317,7 +317,7 @@ Następnie przetestuj aplikację logiki, która powinna wyglądać następująco
 
 Gratulacje. Udało Ci się utworzyć i uruchomić aplikację logiki, która integruje informacje z różnych usług platformy Azure, usług firmy Microsoft i innych aplikacji SaaS.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przykładowa aplikacja logiki nie jest już potrzebna, Usuń grupę zasobów zawierającą aplikację logiki i powiązane zasoby. 
 

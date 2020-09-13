@@ -12,19 +12,74 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510168"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024302"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
-## <a name="august-2020-guest-os"></a>System operacyjny gościa z sierpnia 2020
+## <a name="september-2020-guest-os"></a>System operacyjny gościa z września 2020
 >[!NOTE]
->System operacyjny gościa z sierpnia jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa z sierpnia uwzględniono następujące poprawki. Ta lista może ulec zmianie.
+>System operacyjny gościa jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa z września uwzględniono następujące poprawki. Ta lista może ulec zmianie.
+
+
+| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2,102, 3,89, 4,82 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4561600]  |  Aktualizacja Flash | 3,89, 4,82, 5,47, 6,23 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577015]  |  Najnowsza aktualizacja zbiorcza (LCU) | 5,47 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570333]  |  Najnowsza aktualizacja zbiorcza (LCU) | 6,23 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570673]  |  Obsługa aktualizacji stosu | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577051]  |  Zestawienie miesięczne | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4566426]  |  Obsługa aktualizacji stosu | 3,89 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577038]  |  Zestawienie miesięczne | 3,89 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 3,89 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 zabezpieczenia i zestawienie jakości | 3,89 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4566425]  |  Obsługa aktualizacji stosu | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4577066]  |  Zestawienie miesięczne | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework 3,5 — zestawienie zabezpieczeń i jakości | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4569778]  |  Zestawienie zabezpieczeń i jakości platformy .NET Framework 4.5.2 | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4578013]  |  Aktualizacja zabezpieczeń | 2,102 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4576750]  |  Obsługa aktualizacji stosu | 5,47 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4576479]  |  Zestawienie zabezpieczeń i jakości systemu .NET Framework 4,8 | 5,47 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4494175]  |  Włączenia mikrokodu | 5,47 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570332]  |  Obsługa aktualizacji stosu | 6,23 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework 3,5 i aktualizacja zbiorcza 4.7.2 | 6,23 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4576483]  |  .NET Framework 4,8 — zestawienie zabezpieczeń i jakości | 6,23 | 8 SEP, 2020 |
+|  Rel 20-09 |  [4494174]  |  Włączenia mikrokodu | 6,23 | 8 SEP, 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="august-2020-guest-os"></a>System operacyjny gościa z sierpnia 2020
 
 
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
@@ -1250,13 +1305,13 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 ## <a name="september-2017-guest-os"></a>System operacyjny gościa z września 2017
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-| Rel 17-09 | [4038782] |Aktualizacje systemu Windows 10 |5.11 |12 września 2017 |
+| Rel 17-09 | [4038782] |Aktualizacje systemu Windows 10 |5,11 |12 września 2017 |
 | Rel 17-09 | [4038779], [4038786], [4038793] |Tylko zabezpieczenia systemu Windows |2,66, 3,53, 4,46 |12 września 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Aktualizacja z września .NET |2,66, 3,53, 4,46 |12 września 2017 |
 | Rel 17-09 | [4036586] |Internet Explorer |2,66, 3,53, 4,46 |12 września 2017 |
-| CVE-2017-8704 | [4038782] |Denial of Service (odmowa usługi) |5.11 |12 września 2017 |
+| CVE-2017-8704 | [4038782] |Denial of Service (odmowa usługi) |5,11 |12 września 2017 |
 | Nie dotyczy | [4034664] |Zestawienie niezwiązane z zabezpieczeniami sierpnia  |2,66 |8 sierpnia 2017 |
-| Nie dotyczy | [4034665] |Zestawienie niezwiązane z zabezpieczeniami sierpnia |5.11 |8 sierpnia 2017 |
+| Nie dotyczy | [4034665] |Zestawienie niezwiązane z zabezpieczeniami sierpnia |5,11 |8 sierpnia 2017 |
 | Nie dotyczy | [4034681] |Zestawienie niezwiązane z zabezpieczeniami sierpnia |4,46 |8 sierpnia 2017 |
 
 ## <a name="august-2017-guest-os"></a>System operacyjny gościa z sierpnia 2017

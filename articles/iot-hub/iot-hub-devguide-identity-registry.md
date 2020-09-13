@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327756"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029838"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje o rejestrze tożsamości w centrum IoT Hub
 
@@ -84,7 +84,7 @@ Użyj operacji asynchronicznych w [punkcie końcowym dostawcy zasobów IoT Hub](
 
 Aby uzyskać więcej informacji na temat interfejsów API importowania i eksportowania, zobacz [IoT Hub interfejsów API REST dostawcy zasobów](/rest/api/iothub/iothubresource). Aby dowiedzieć się więcej o uruchamianiu zadań importowania i eksportowania, zobacz [zbiorcze Zarządzanie tożsamościami urządzeń IoT Hub](iot-hub-bulk-identity-mgmt.md).
 
-Tożsamości urządzeń można również eksportować i importować z IoT Hub za pośrednictwem interfejsu API usługi za pośrednictwem interfejsu [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) lub jednego z [zestawów SDK usługi](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)IoT Hub.
+Tożsamości urządzeń można również eksportować i importować z IoT Hub za pośrednictwem interfejsu API usługi za pośrednictwem interfejsu [API REST](/rest/api/iothub/service/jobs/createimportexportjob) lub jednego z [zestawów SDK usługi](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)IoT Hub.
 
 ## <a name="device-provisioning"></a>Inicjowanie obsługi urządzeń
 
@@ -124,7 +124,7 @@ Komunikat powiadomienia dla urządzenia:
 |operationTimestamp | ISO8601 sygnatura czasowa operacji |
 |iothub — komunikat-schemat | deviceLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Przykład:
+Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Na przykład
 
 ```json
 {
@@ -160,7 +160,7 @@ moduleId | Identyfikator modułu |
 operationTimestamp | ISO8601 sygnatura czasowa operacji |
 iothub — komunikat-schemat | moduleLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Przykład:
+Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Na przykład
 
 ```json
 {

@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 55472f16cefeca3b00bea79e71aee5d6588528d6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 516b3bac5da2e078217d5c12f1efdf527b7c83a1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323064"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029073"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Opis i wywoływanie metod bezpośrednich z usługi IoT Hub
 
@@ -38,7 +38,7 @@ Zapoznaj się z tematem [wskazówki dotyczące komunikacji między chmurą i urz
 Metody bezpośrednie są implementowane na urządzeniu i mogą wymagać zero lub więcej danych wejściowych w ładunku metody, aby można było poprawnie utworzyć wystąpienie. Metodę bezpośrednią wywołuje się za pośrednictwem identyfikatora URI opartego na usłudze ( `{iot hub}/twins/{device id}/methods/` ). Urządzenie odbiera bezpośrednie metody za pośrednictwem specyficznego dla urządzenia tematu MQTT ( `$iothub/methods/POST/{method name}/` ) lub łączy AMQP ( `IoThub-methodname` `IoThub-status` właściwości aplikacji i).
 
 > [!NOTE]
-> Po wywołaniu metody bezpośredniej na urządzeniu nazwy właściwości i wartości mogą zawierać tylko znaki alfanumeryczne drukowalne US-ASCII, z wyjątkiem któregokolwiek z następujących zestawów:``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
+> Po wywołaniu metody bezpośredniej na urządzeniu nazwy właściwości i wartości mogą zawierać tylko znaki alfanumeryczne drukowalne US-ASCII, z wyjątkiem któregokolwiek z następujących zestawów: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
 Metody bezpośrednie są synchroniczne i kończą się powodzeniem lub niepowodzeniem po upływie limitu czasu (domyślnie: 30 sekund, settable od 5 do 300 sekund). Metody bezpośrednie są przydatne w scenariuszach interaktywnych, w których urządzenie ma działać, jeśli i tylko wtedy, gdy urządzenie jest w trybie online i pobiera polecenia. Na przykład włączenie światła od telefonu. W tych scenariuszach chcesz zobaczyć natychmiastowe sukces lub niepowodzenie, aby usługa w chmurze mogła działać na skutek tak szybko, jak to możliwe. Urządzenie może zwrócić część treści komunikatu w wyniku metody, ale nie jest wymagana do wykonania metody. Nie ma gwarancji związanych z porządkowaniem ani semantyką współbieżności dla wywołań metod.
@@ -55,7 +55,7 @@ Teraz Wywołaj metodę bezpośrednią z aplikacji zaplecza.
 
 Bezpośrednie wywołania metod na urządzeniu to wywołania HTTPS, które składają się z następujących elementów:
 
-* *Identyfikator URI żądania* charakterystyczny dla urządzenia wraz z [wersją interfejsu API](/rest/api/iothub/service/devicemethod/invokedevicemethod):
+* *Identyfikator URI żądania* charakterystyczny dla urządzenia wraz z [wersją interfejsu API](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -117,7 +117,7 @@ Wykonaj zmodyfikowane polecenie, aby wywołać określoną metodę bezpośredni�
 ```bash
 https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06-30
 ```
-### <a name="response"></a>Odpowiedź
+### <a name="response"></a>Reakcja
 
 Aplikacja zaplecza odbiera odpowiedź składającą się z następujących elementów:
 
@@ -168,7 +168,7 @@ Treść odbierana przez urządzenie jest w następującym formacie:
 
 Żądania metod są QoS 0.
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 Urządzenie wysyła odpowiedzi do `$iothub/methods/res/{status}/?$rid={request id}` , gdzie:
 
@@ -194,7 +194,7 @@ Komunikat AMQP dociera do linku odbierającego, który reprezentuje żądanie me
 
 * Treść komunikatu AMQP zawierającego ładunek metody jako kod JSON.
 
-#### <a name="response"></a>Odpowiedź
+#### <a name="response"></a>Reakcja
 
 Urządzenie tworzy link do wysyłania, aby zwrócić odpowiedź metody na adres `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` .
 

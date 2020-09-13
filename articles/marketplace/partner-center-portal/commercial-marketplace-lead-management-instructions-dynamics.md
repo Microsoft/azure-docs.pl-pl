@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120383"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030756"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurowanie zarządzania liderem dla usługi Dynamics 365 Customer Engagement
 
@@ -27,7 +27,7 @@ Następujące uprawnienia użytkownika są niezbędne do wykonania kroków opisa
 
 * Uprawnienia administratora w wystąpieniu pakietu zaangażowania klienta w systemie Dynamics 365, aby można było zainstalować rozwiązanie.
 * Uprawnienia administratora dzierżawy do tworzenia nowego konta usługi dla usługi lidera używanej do wysyłania potencjalnych klientów z komercyjnych ofert portalu Marketplace.
-* Dostęp do portalu administracyjnego pakietu Office 365.
+* Dostęp do portalu administracyjnego.
 * Dostęp do Azure Portal.
 
 ## <a name="install-the-solution"></a>Instalowanie rozwiązania
@@ -62,7 +62,7 @@ Wykonaj następujące kroki, aby utworzyć konto usługi i przypisać uprawnieni
 >[!NOTE]
 >Przejdź do odpowiednich instrukcji w zależności od wybranej opcji uwierzytelniania. Zobacz [Azure Active Directory](#azure-active-directory) lub [Office 365](#office-365).
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Zalecamy korzystanie z tej opcji, ponieważ nie trzeba aktualizować nazwy użytkownika ani hasła, aby nadal otrzymywać potencjalnych klientów. Aby użyć opcji Azure Active Directory, należy podać identyfikator aplikacji, klucz aplikacji i identyfikator katalogu w aplikacji Active Directory.
 
@@ -157,7 +157,7 @@ Ostatnim krokiem jest umożliwienie użytkownikowi utworzonego w celu zapisania 
 
     ![Okienko role zabezpieczeń](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-1. W obszarze Rola zabezpieczeń wybierz kartę **rekordy podstawowe** . Wyszukaj pozycję **Ustawienia interfejsu użytkownika obiektu** . Włącz uprawnienia do tworzenia, odczytu i zapisu dla użytkownika (1/4 żółtego kółka) dla tej jednostki, klikając jeden raz w każdym z odpowiednich okręgów.
+1. W roli zabezpieczeń wybierz kartę **rekordy podstawowe** . Wyszukaj element **ustawień interfejsu użytkownika jednostki User** . Włącz uprawnienia do tworzenia, odczytu i zapisu dla użytkownika (1/4 żółtego kółka) dla tej jednostki, klikając jeden raz w każdym z odpowiednich okręgów.
 
     ![Karta rekordów podstawowych składnika zapisywania klienta Microsoft Marketplace](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
@@ -192,7 +192,7 @@ Aby skonfigurować informacje dotyczące zarządzania potencjalnymi klientami dl
     ![Pole nazwy użytkownika pakietu Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 1. W polu **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Możesz wprowadzić wiele adresów e-mail, rozdzielając je średnikami.
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 

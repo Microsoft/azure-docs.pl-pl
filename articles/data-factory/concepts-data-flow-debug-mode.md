@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 09/11/2020
+ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475604"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030604"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapowanie trybu debugowania przepływu danych
 
@@ -41,13 +41,15 @@ Po zakończeniu debugowania należy wyłączyć przełącznik debugowania, aby k
 
 ## <a name="debug-settings"></a>Ustawienia debugowania
 
-Ustawienia debugowania można edytować, klikając pozycję "ustawienia debugowania" na pasku narzędzi kanwy przepływu danych. W tym miejscu możesz wybrać limit wierszy lub źródło pliku do użycia dla każdego z przekształceń źródłowych. Limity wierszy w tym ustawieniu są tylko dla bieżącej sesji debugowania. Możesz również wybrać połączoną usługę, która ma być używana dla źródła magazynu danych SQL. 
+Po włączeniu trybu debugowania można edytować sposób, w jaki przepływ danych przegląda dane. Ustawienia debugowania można edytować, klikając pozycję "ustawienia debugowania" na pasku narzędzi kanwy przepływu danych. W tym miejscu możesz wybrać limit wierszy lub źródło pliku do użycia dla każdego z przekształceń źródłowych. Limity wierszy w tym ustawieniu są tylko dla bieżącej sesji debugowania. Możesz również wybrać połączoną usługę, która ma być używana dla źródła analizy usługi Azure Synapse. 
 
 ![Ustawienia debugowania](media/data-flow/debug-settings.png "Ustawienia debugowania")
 
 Jeśli masz parametry w przepływie danych lub w dowolnym z nich, do których istnieją odwołania, możesz określić wartości, które mają być używane podczas debugowania, wybierając kartę **Parametry** .
 
 ![Parametry ustawień debugowania](media/data-flow/debug-settings2.png "Parametry ustawień debugowania")
+
+Domyślnym ustawieniem IR używanym w trybie debugowania w przepływach danych ADF jest mały dwurdzeniowy węzeł procesu roboczego z dwurdzeniowym węzłem jednego sterownika. Jest to dobre rozwiązanie przy użyciu mniejszych próbek danych podczas testowania logiki przepływu danych. W przypadku rozszerzenia limitów wierszy w ustawieniach debugowania podczas wyświetlania podglądu danych lub ustawienia większej liczby próbkowanych wierszy w źródle podczas debugowania potoku warto rozważyć skonfigurowanie większego środowiska obliczeniowego w nowym Azure Integration Runtime. Następnie można ponownie uruchomić sesję debugowania przy użyciu większego środowiska obliczeniowego.
 
 ## <a name="data-preview"></a>Podgląd danych
 
@@ -59,6 +61,8 @@ Po zakończeniu debugowania na karcie Podgląd danych zostanie wystawiony dolny 
 > Źródła plików ograniczają tylko te wiersze, które są widoczne, a nie odczytywane wiersze. W przypadku bardzo dużych zestawów danych zaleca się wykonanie małej części tego pliku i użycie jej do testowania. Można wybrać plik tymczasowy w ustawieniach debugowania dla każdego źródła, które jest typem zestawu danych.
 
 Podczas uruchamiania w trybie debugowania w przepływie danych dane nie będą zapisywane do transformacji ujścia. Sesja debugowania jest przeznaczona do użycia jako zespół testów dla transformacji. Ujścia nie są wymagane podczas debugowania i są ignorowane w przepływie danych. Jeśli chcesz przetestować zapisywanie danych w ujściach, wykonaj przepływ danych z potoku Azure Data Factory i użyj wykonywania debugowania z potoku.
+
+Data Preview to migawka przekształconych danych przy użyciu limitów wierszy i próbkowania danych z ramek danych w pamięci platformy Spark. W związku z tym sterowniki ujścia nie są wykorzystywane ani testowane w tym scenariuszu.
 
 ### <a name="testing-join-conditions"></a>Testowanie warunków sprzężenia
 

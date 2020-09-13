@@ -3,12 +3,12 @@ title: Eksportowanie projektu Jupyter Notebook z wersji zapoznawczej Azure Noteb
 description: Szybko Eksportuj projekt Jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3153247b9d15167ab437d6c46142bbd41f8e4b23
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892103"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030450"
 ---
 # <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Szybki Start: Eksportowanie projektu Jupyter Notebook w wersji zapoznawczej Azure Notebooks
 
@@ -34,7 +34,7 @@ Istniejący projekt Azure Notebooks.
 
 Po pobraniu plików projektu można używać ich z innymi rozwiązaniami Jupyter Notebook. Niektóre opcje opisane w poniższych sekcjach obejmują: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces)
+- [Codespaces GitHub](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
@@ -58,14 +58,13 @@ Po [pobraniu](#export-an-azure-notebooks-project) plików projektu można ich u�
 
 Możesz również użyć [skryptu środowiska Azure Notebooks](#create-an-environment-for-notebooks) z Visual Studio Code, aby utworzyć środowisko zgodne z podglądem Azure Notebooks.
 
-## <a name="use-notebooks-in-visual-studio-codespaces"></a>Korzystanie z notesów w programie Visual Studio Codespaces
+## <a name="use-notebooks-in-github-codespaces"></a>Korzystanie z notesów w usłudze GitHub Codespaces
 
-Program Visual Studio Codespaces udostępnia środowiska hostowane w chmurze, w którym można edytować notesy za pomocą Visual Studio Code lub przeglądarki sieci Web. Oferuje to samo doskonałe środowisko Jupyter, co VS Code, ale bez konieczności instalowania żadnych elementów na urządzeniu. Jeśli nie chcesz konfigurować środowiska lokalnego i wolisz rozwiązania do tworzenia kopii zapasowych w chmurze, tworzenie codespace jest doskonałym rozwiązaniem. Aby rozpocząć:
-
+Usługa GitHub Codespaces udostępnia środowiska hostowane w chmurze, w których można edytować notesy za pomocą Visual Studio Code lub w przeglądarce internetowej. Oferuje to samo doskonałe środowisko Jupyter, co VS Code, ale bez konieczności instalowania żadnych elementów na urządzeniu. Jeśli nie chcesz konfigurować środowiska lokalnego i wolisz rozwiązania do tworzenia kopii zapasowych w chmurze, tworzenie codespace jest doskonałym rozwiązaniem. Aby rozpocząć:
 1. [Pobierz](#export-an-azure-notebooks-project) pliki projektu.
-1. [Utwórz repozytorium GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) do przechowywania Twoich notesów. 
+1. [Utwórz repozytorium GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) do przechowywania Twoich notesów.   
 1. [Dodaj pliki](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) do repozytorium.
-1. Skonfiguruj program Visual Studio Codespaces w [przeglądarce](https://docs.microsoft.com/visualstudio/online/how-to/browser), [visual Studio](https://docs.microsoft.com/visualstudio/online/how-to/vside)lub [Visual Studio Code](https://docs.microsoft.com/visualstudio/online/how-to/vscode).
+1. [Zażądaj dostępu do usługi GitHub Codespaces w wersji zapoznawczej](https://github.com/features/codespaces)
 
 ## <a name="use-notebooks-with-azure-machine-learning"></a>Korzystanie z notesów z Azure Machine Learning
 
@@ -93,7 +92,7 @@ Aby uzyskać dodatkowe informacje na temat platformy Azure ML i uruchamiania not
 
 ## <a name="use-github"></a>Korzystanie z usługi GitHub
 
-GitHub oferuje bezpłatne, chronione za pomocą kontroli źródła sposób przechowywania notesów (i innych plików), udostępnia Twoje notesy innym osobom oraz pracuje wspólnie. Jeśli szukasz sposobu udostępniania projektów i współpracy z innymi osobami, serwis GitHub jest doskonałym rozwiązaniem i można go połączyć z programem [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces) , aby uzyskać doskonałe środowisko programistyczne. Aby rozpocząć pracę z usługą GitHub
+GitHub oferuje bezpłatne, chronione za pomocą kontroli źródła sposób przechowywania notesów (i innych plików), udostępnia Twoje notesy innym osobom oraz pracuje wspólnie. Jeśli szukasz sposobu udostępniania projektów i współpracy z innymi osobami, serwis GitHub jest doskonałym rozwiązaniem i może być połączony z usługą [GitHub Codespaces](#use-notebooks-in-github-codespaces) , aby uzyskać doskonałe środowisko programistyczne. Aby rozpocząć pracę z usługą GitHub
 
 1. [Pobierz](#export-an-azure-notebooks-project) pliki projektu.
 1. [Utwórz repozytorium GitHub](https://help.github.com/github/getting-started-with-github/create-a-repo) do przechowywania Twoich notesów. 
@@ -103,6 +102,6 @@ GitHub oferuje bezpłatne, chronione za pomocą kontroli źródła sposób przec
 
 - [Dowiedz się więcej o języku Python w Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Dowiedz się więcej na temat notesów Azure Machine Learning i Jupyter](../machine-learning/how-to-run-jupyter-notebooks.md)
-- [Dowiedz się więcej o programie Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Więcej informacji na temat usługi GitHub Codespaces](https://github.com/features/codespaces)
 - [Dowiedz się więcej o Azure Lab Services](https://azure.microsoft.com/services/lab-services/)
 - [Dowiedz się więcej o usłudze GitHub](https://help.github.com/github/getting-started-with-github/)

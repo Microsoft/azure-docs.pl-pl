@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521267"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023792"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -138,7 +138,7 @@ Element **JourneyInsights** zawiera następujące atrybuty:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Tak | Wartość musi być `ApplicationInsights` . |
 | InstrumentationKey | Tak | Ciąg, który zawiera klucz Instrumentacji dla elementu Application Insights. |
-| Deweloper | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` Application Insights przyspiesza dane telemetryczne za pomocą potoku przetwarzania. To ustawienie jest dobre w przypadku programowania, ale jest ograniczone do dużych woluminów, szczegółowe dzienniki działań są przeznaczone tylko do pomocy w opracowywaniu zasad niestandardowych. Nie używaj trybu deweloperskiego w środowisku produkcyjnym. Dzienniki zbierają wszystkie oświadczenia wysyłane do i od dostawców tożsamości podczas opracowywania. Jeśli jest używany w środowisku produkcyjnym, programista przyjmuje odpowiedzialność za dane OSOBowe (informacje z możliwością zidentyfikowaną prywatnie) zebrane w dzienniku usługi App Insights. Te szczegółowe dzienniki są zbierane tylko wtedy, gdy ta wartość jest ustawiona na `true` .|
+| Deweloper | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` Application Insights przyspiesza dane telemetryczne za pomocą potoku przetwarzania. To ustawienie jest przydatne w przypadku programowania, ale jest ograniczone do dużych woluminów. Szczegółowe dzienniki działań są przeznaczone tylko do ułatwienia tworzenia zasad niestandardowych. Nie używaj trybu deweloperskiego w środowisku produkcyjnym. Dzienniki zbierają wszystkie oświadczenia wysyłane do i od dostawców tożsamości podczas opracowywania. Jeśli jest używany w środowisku produkcyjnym, programista przyjmuje odpowiedzialność za dane OSOBowe (informacje z możliwością zidentyfikowaną prywatnie) zebrane w dzienniku usługi App Insights. Te szczegółowe dzienniki są zbierane tylko wtedy, gdy ta wartość jest ustawiona na `true` .|
 | ClientEnabled | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` program wysyła skrypt po stronie klienta Application Insights na potrzeby śledzenia widoku strony i błędów po stronie klienta. |
 | ServerEnabled | Tak | Możliwe wartości: `true` lub `false` . Jeśli `true` , program wysyła istniejący kod JSON UserJourneyRecorder jako zdarzenie niestandardowe do Application Insights. |
 | TelemetryVersion | Tak | Wartość musi być `1.0.0` . |
@@ -198,7 +198,12 @@ Gdy protokół to `SAML` , element metadanych zawiera następujące elementy.
 
 | Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | Nie | Wskazuje, czy jest obsługiwany przepływ inicjowany przez dostawcy tożsamości. Możliwe wartości: `true` lub `false` (wartość domyślna). | 
 | XmlSignatureAlgorithm | Nie | Metoda, która Azure AD B2C używa do podpisywania odpowiedzi SAML. Możliwe wartości: `Sha256` , `Sha384` , `Sha512` lub `Sha1` . Upewnij się, że algorytm podpisu został skonfigurowany na obu stronach z tą samą wartością. Używaj tylko algorytmu obsługiwanego przez certyfikat. Aby skonfigurować potwierdzenie SAML, zobacz [metadane profilu technicznego wystawcy SAML](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | Nie | Wskazuje metodę, która Azure AD B2C używa do szyfrowania danych przy użyciu algorytmu Advanced Encryption Standard (AES). Metadane sterują wartością `<EncryptedData>` elementu w odpowiedzi SAML. Możliwe wartości: `Aes256` (wartość domyślna), `Aes192` , `Sha512` lub ` Aes128` . |
+| KeyEncryptionMethod| Nie | Wskazuje metodę, za pomocą której Azure AD B2C szyfrować kopię klucza użytego do szyfrowania danych. Metadane sterują wartością  `<EncryptedKey>` elementu w odpowiedzi SAML. Możliwe wartości: ` Rsa15` (domyślnie) — algorytm szyfrowania RSA (Public Key Cryptography standard) (PKCS) w wersji 1,5 ` RsaOaep` . |
+| UseDetachedKeys | Nie |  Możliwe wartości: `true` , lub `false` (wartość domyślna). Gdy wartość jest ustawiona na `true` , Azure AD B2C zmienia format szyfrowanych zatwierdzeń. Użycie odłączonych kluczy powoduje dodanie zaszyfrowanego potwierdzenia jako elementu podrzędnego EncrytedAssertion, w przeciwieństwie do EncryptedData. |
+| WantsSignedResponses| Nie | Wskazuje, czy Azure AD B2C podpisać `Response` sekcję odpowiedzi SAML. Możliwe wartości: `true` (ustawienie domyślne) lub `false` .  |
 
 ### <a name="outputclaims"></a>OutputClaims
 

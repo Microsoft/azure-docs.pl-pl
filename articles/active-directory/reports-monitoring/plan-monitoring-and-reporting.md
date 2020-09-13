@@ -1,6 +1,6 @@
 ---
 title: Planowanie raportów & monitorowanie wdrożenia — Azure AD
-description: Opisuje sposób planowania i wykonywania implmentation raportów oraz monitorowania.
+description: Opisuje sposób planowania i wykonywania implementacji raportowania i monitorowania.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b83291dc37c6248761214654f99d3ce214b551
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229756"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030994"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planowanie wdrożenia Azure Active Directory raportowanie i monitorowanie
 
@@ -133,7 +133,7 @@ Dowiedz się, jak [zainstalować widoki analizy dzienników dla dzienników akty
 
 Dzienniki routingu do centrum zdarzeń platformy Azure umożliwiają integrację z narzędziami SIEM innych firm. Ta integracja pozwala połączyć dane dzienników aktywności usługi Azure AD z innymi danymi zarządzanymi przez rozwiązania SIEM, co zapewnia lepszy wgląd w środowisko. 
 
-Dowiedz się, jak [wysyłać strumieniowo dzienniki do centrum zdarzeń](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Dowiedz się, jak [wysyłać strumieniowo dzienniki do centrum zdarzeń](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planowanie operacji i zabezpieczeń na potrzeby raportowania i monitorowania usługi Azure AD
 

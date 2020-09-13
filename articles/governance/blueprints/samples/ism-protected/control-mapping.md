@@ -1,14 +1,14 @@
 ---
-title: Przykład australijskiego planu ochrony instytucji rządowych
-description: Omówienie przykładowego planu ochrony instytucji rządowych w Australii australijskiej. Ten przykładowy plan ułatwia klientom ocenę określonych chronionych kontroli ISM.
-ms.date: 08/03/2020
+title: Kontrolki dotyczące przykładowej strategii CHRONIONEj przez rząd ISM
+description: Kontrolowanie mapowania australijskiego planu ochrony instytucji rządowych z instytucją ISM. Każda kontrolka jest zamapowana na co najmniej jedną definicję Azure Policy, która pomaga w ocenie.
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760434"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030110"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Sterowanie mapowaniem przykładowej strategii CHRONIONEj przez rząd ISM
 
@@ -350,6 +350,10 @@ Ten plan pomaga ograniczyć lokalizację wdrożenia wszystkich zasobów i grup z
 ## <a name="next-steps"></a>Następne kroki
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
+
+> [!div class="nextstepaction"]
+> Strategia [chroniona przez ISM — Omówienie](./index.md) 
+>  [Plan chroniony przez usługę ISM — kroki wdrażania](./deploy.md)
 
 - Uzyskaj informacje na temat [cyklu życia strategii](../../concepts/lifecycle.md).
 - Dowiedz się, jak używać [parametrów statycznych i dynamicznych](../../concepts/parameters.md).

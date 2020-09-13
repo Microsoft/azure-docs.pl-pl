@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816528"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029706"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -27,7 +27,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 Po opublikowaniu ofert w witrynie Azure Marketplace można:
 
 - Promuj swoją firmę, korzystając z pomocy marki firmy Microsoft.
-- Dotrze do ponad 100 000 000 Office 365 i Dynamics 365 użytkowników i więcej niż 200 000 organizacje.
+- Dotrze do ponad 100 000 000 Microsoft 365 i użytkowników systemu Dynamics 365 i więcej niż 200 000 organizacje.
 - Uzyskuj wysokiej jakości potencjalni klienci z tych rynków.
 - Zyskaj swoje usługi przez zespoły ds. sprzedaży i telesprzedaży firmy Microsoft.
 
@@ -162,7 +162,7 @@ Musisz podać swoim klientom warunki i postanowienia oferty. Dostępne są dwie 
 
        a. Wprowadź własne warunki zmiany w polu **niestandardowe warunki poprawki** . Można wprowadzić nieograniczoną liczbę znaków. Tylko klienci z identyfikatorów dzierżaw określonych dla tych terminów niestandardowych będą widzieć je w przepływie zakupu oferty w Azure Portal.
 
-       b. Potrzeb Podaj **identyfikatory dzierżawy**. Każda Poprawka niestandardowa może być przeznaczona do maksymalnie 20 identyfikatorów dzierżawy. W przypadku dodania niestandardowej zmiany należy podać co najmniej jeden identyfikator dzierżawy, który identyfikuje klienta na platformie Azure. Klient może go znaleźć na platformie Azure, wybierając pozycję **Azure Active Directory**  >  **Properties (właściwości**). Wartość identyfikatora katalogu to identyfikator dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również znaleźć identyfikator dzierżawy w organizacji, używając adresu sieci Web nazwy domeny w obszarze [co to jest mój Microsoft Azure i identyfikator dzierżawy pakietu Office 365?](https://www.whatismytenantid.com/).
+       b. Potrzeb Podaj **identyfikatory dzierżawy**. Każda Poprawka niestandardowa może być przeznaczona do maksymalnie 20 identyfikatorów dzierżawy. W przypadku dodania niestandardowej zmiany należy podać co najmniej jeden identyfikator dzierżawy, który identyfikuje klienta na platformie Azure. Klient może go znaleźć na platformie Azure, wybierając pozycję **Azure Active Directory**  >  **Properties (właściwości**). Wartość identyfikatora katalogu to identyfikator dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również znaleźć identyfikator dzierżawy w organizacji, używając adresu sieci Web nazwy domeny w obszarze [co to jest mój Microsoft Azure i Microsoft 365 identyfikator dzierżawy?](https://www.whatismytenantid.com/).
 
        c. Obowiązkowe Podaj przyjazny **Opis** identyfikatora dzierżawy, który pomaga zidentyfikować klienta, którego celem jest zmiana.
 
@@ -265,7 +265,7 @@ Te logo są używane w różnych miejscach na liście:
 
 Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Każdy zrzut ekranu musi mieć 1280 &times; 720 pikseli w rozmiarze i formacie PNG. Każdy zrzut ekranu musi zawierać podpis.
 
-#### <a name="videos"></a>Wideo
+#### <a name="videos"></a>Filmy wideo
 
 Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Filmy wideo powinny być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę, adres sieci Web i obraz miniatury PNG wideo o godzinie 1280 &times; 720 pikseli.
 
@@ -319,7 +319,7 @@ W polu **identyfikator planu** Utwórz unikatowy identyfikator planu dla każdeg
 
 W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę, która jasno wskazuje różnice między planami. Na przykład możesz wprowadzić **system Windows Server** z opcją *płatność zgodnie z rzeczywistym*użyciem, *BYOL*, *zaawansowanym*i planem *przedsiębiorstwa* .
 
-Wybierz przycisk **Utwórz**.
+Wybierz pozycję **Utwórz**.
 
 ### <a name="plan-setup"></a>Konfigurowanie planu
 

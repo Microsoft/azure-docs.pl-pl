@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009461"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024404"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
@@ -31,20 +31,23 @@ Stały zestaw Stanów, które mogą zostać zastąpione, to:
 * **`Hidden`**: Odpowiednie siatki w grafie sceny są ukryte lub pokazywane.
 * **`Tint color`**: Renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
   
-  ![Odcień koloru](./media/color-tint.png)
+  ![Kolor odcienia używany do przekształcania obiektu na zielony](./media/color-tint.png)
 
 * **`See-through`**: Geometria jest renderowany częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
 
-  ![Zapoznaj się z artykułem](./media/see-through.png)
+  ![Tryb wyświetlania, używany do przezroczystości wybranych obiektów](./media/see-through.png)
 
   > [!IMPORTANT]
   > Efekt uboczny działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
 * **`Selected`**: Geometria jest renderowana z [konturem zaznaczenia](outlines.md).
 
-  ![Kontur zaznaczenia](./media/selection-outline.png)
+  ![Opcja konspektu używana do wyróżnienia wybranej części](./media/selection-outline.png)
 
 * **`DisableCollision`**: Geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). **`Hidden`** Flaga nie ma wpływu na flagę stanu kolizji, dlatego te dwie flagi są często ustawiane razem.
+
+> [!TIP]
+> Alternatywnie, aby wyłączyć widoczność i przestrzenne zapytania dla pełnego wykresu podrzędnego, `enabled` stan obiektu gry można przełączać. Jeśli hierarchia jest wyłączona, ma preferencję nad dowolnym `HierarchicalStateOverrideComponent` .
 
 ## <a name="hierarchical-overrides"></a>Zastąpienia hierarchiczne
 
@@ -96,7 +99,12 @@ Wystąpienie `HierarchicalStateOverrideComponent` samego siebie nie dodaje znacz
 
 Renderowanie przezroczyste zwiększa obciążenie procesora GPU serwera niż w przypadku renderowania standardowego. Jeśli duże części wykresu sceny są przełączane do *wyświetlania, a*wiele warstw geometrii jest widocznych, może stać się wąskim gardłem wydajności. Ta sama wartość jest prawidłowa dla obiektów z [konturami wyboru](../../overview/features/outlines.md#performance).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Klasa HierarchicalStateOverrideComponent języka C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [Klasa C++ HierarchicalStateOverrideComponent](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Przedstawiono](../../overview/features/outlines.md)
 * [Tryby renderowania](../../concepts/rendering-modes.md)

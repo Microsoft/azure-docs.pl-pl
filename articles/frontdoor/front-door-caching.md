@@ -3,20 +3,20 @@ title: Buforowanie z przodu platformy Azure | Microsoft Docs
 description: Ten artykuł pomaga zrozumieć, w jaki sposób usługa Azure front-drzwi monitoruje kondycję zasobie
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056962"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024285"
 ---
 # <a name="caching-with-azure-front-door"></a>Buforowanie z usługami frontonu platformy Azure
 Poniższy dokument określa zachowanie dla drzwi z przodu z regułami routingu, które mają włączone buforowanie. Przód drzwi to nowoczesne Content Delivery Network (CDN) i tak, jak za pomocą funkcji przyspieszania witryn dynamicznych i równoważenia obciążenia, obsługuje również zachowania buforowania tak samo jak w przypadku innych sieci CDN.
@@ -88,13 +88,22 @@ Za pomocą przednich drzwi można kontrolować sposób, w jaki pliki są buforow
 - **Buforuj każdy unikatowy adres URL**: w tym trybie każde żądanie z unikatowym adresem URL, łącznie z ciągiem zapytania, jest traktowane jako unikatowy element zawartości z własną pamięcią podręczną. Na przykład odpowiedź z zaplecza dla żądania `www.example.ashx?q=test1` jest buforowana w środowisku przednim i zwracana dla kolejnych pamięci podręcznych z tym samym ciągiem zapytania. Żądanie dla `www.example.ashx?q=test2` jest zapisywane w pamięci podręcznej jako osobny zasób z własnym ustawieniem czasu wygaśnięcia.
 
 ## <a name="cache-purge"></a>Przeczyszczanie pamięci podręcznej
-Drzwi z przodu będą buforować zasoby do momentu wygaśnięcia czasu wygaśnięcia elementu zawartości. Po upływie czasu wygaśnięcia zasobu, gdy klient zażąda zasobu, środowisko z przodu będzie pobierać nową zaktualizowaną kopię zasobu do obsłużyć żądanie klienta i zapisać Odświeżanie pamięci podręcznej.
-</br>Najlepszym rozwiązaniem, aby upewnić się, że użytkownicy zawsze uzyskują najnowszą kopię zasobów, są w wersji zasobów dla każdej aktualizacji i publikują je jako nowe adresy URL. Drzwi z przodu natychmiast spowodują pobranie nowych zasobów dla kolejnych żądań klientów. Czasami możesz chcieć przeczyścić zawartość pamięci podręcznej ze wszystkich węzłów brzegowych i wymusić, aby wszystkie nowe zasoby były pobierane. Może to być spowodowane aktualizacjami aplikacji sieci Web lub szybkiej aktualizacji zasobów zawierających nieprawidłowe informacje.
 
-</br>Wybierz zasoby, które chcesz przeczyścić z węzłów krawędzi. Jeśli chcesz wyczyścić wszystkie zasoby, kliknij pole wyboru Przeczyść wszystkie. W przeciwnym razie wpisz ścieżkę do każdego zasobu, który ma zostać przeczyszczony, w polu tekstowym ścieżka. W ścieżce obsługiwane są poniższe formaty.
-1. **Przeczyszczanie pojedynczej ścieżki**: Przeczyść pojedyncze elementy zawartości, określając pełną ścieżkę zasobu (bez protokołu i domeny), z rozszerzeniem pliku, na przykład/Pictures/strasbourg.png;
-2. **Przeczyszczanie symboli wieloznacznych**: gwiazdka ( \* ) może być używana jako symbol wieloznaczny. Przeczyść wszystkie foldery, podfoldery i pliki w punkcie końcowym ze \* ścieżką lub Przeczyść wszystkie podfoldery i pliki w określonym folderze, określając folder \* , a na przykład/Pictures/ \* .
-3. **Przeczyszczanie domeny głównej**: Przeczyść element główny punktu końcowego z "/" w ścieżce.
+Zasoby w pamięci podręcznej są umieszczane do momentu wygaśnięcia czasu wygaśnięcia elementu zawartości. Po upływie czasu wygaśnięcia zasobu, gdy klient zażąda zasobu, środowisko z przodu pobiera nową zaktualizowaną kopię elementu zawartości, która będzie obsługiwała żądanie klienta i zapisuje Odświeżanie pamięci podręcznej.
+
+Najlepszym rozwiązaniem, aby upewnić się, że użytkownicy zawsze uzyskują najnowszą kopię zasobów, są w wersji zasobów dla każdej aktualizacji i publikują je jako nowe adresy URL. Drzwi z przodu natychmiast spowodują pobranie nowych zasobów dla kolejnych żądań klientów. Czasami możesz chcieć przeczyścić zawartość pamięci podręcznej ze wszystkich węzłów brzegowych i wymusić, aby wszystkie nowe zasoby były pobierane. Może to być spowodowane aktualizacjami aplikacji sieci Web lub szybkiej aktualizacji zasobów zawierających nieprawidłowe informacje.
+
+Wybierz zasoby, które chcesz przeczyścić z węzłów krawędzi. Aby wyczyścić wszystkie zasoby, wybierz pozycję **Przeczyść wszystko**. W przeciwnym razie w polu **ścieżka**wprowadź ścieżkę do każdego zasobu, który ma zostać przeczyszczony.
+
+Te formaty są obsługiwane na listach ścieżek do przeczyszczenia:
+
+- **Przeczyszczanie pojedynczej ścieżki**: Przeczyść pojedyncze zasoby, określając pełną ścieżkę elementu zawartości (bez protokołu i domeny), z rozszerzeniem pliku, na przykład/Pictures/strasbourg.png;
+- **Przeczyszczanie symboli wieloznacznych**: gwiazdka ( \* ) może być używana jako symbol wieloznaczny. Przeczyść wszystkie foldery, podfoldery i pliki w punkcie końcowym ze \* ścieżką lub Przeczyść wszystkie podfoldery i pliki w określonym folderze, określając folder \* , a na przykład/Pictures/ \* .
+- **Przeczyszczanie domeny głównej**: Przeczyść element główny punktu końcowego z "/" w ścieżce.
+
+> [!NOTE]
+> **Przeczyszczanie domen symboli wieloznacznych**: określenie zbuforowanych ścieżek do przeczyszczania, zgodnie z opisem w tej sekcji, nie dotyczy żadnych domen wieloznacznych, które są skojarzone z drzwiami przednimi. Obecnie nie obsługujemy bezpośrednio przeczyszczania domen wieloznacznych. Ścieżki z określonych poddomen można przeczyścić, określając tę poddomenę specfic i ścieżkę przeczyszczania. Na przykład, jeśli moje tylne drzwi mają `*.contoso.com` , można przeczyścić zasoby mojej poddomeny `foo.contoso.com` przez wpisanie `foo.contoso.com/path/*` . Obecnie Określanie nazw hostów w ścieżce zawartości przeczyszczania jest imited do poddomen domen symboli wieloznacznych, jeśli ma zastosowanie.
+>
 
 Przeczyszczanie pamięci podręcznej w przypadku drzwi przednich nie uwzględnia wielkości liter. Ponadto są to ciąg zapytania niezależny od, co oznacza, że przeczyszczanie adresu URL spowoduje przeczyszczenie wszystkich odmian ciągu zapytania. 
 
@@ -102,7 +111,7 @@ Przeczyszczanie pamięci podręcznej w przypadku drzwi przednich nie uwzględnia
 Następująca kolejność nagłówków jest używana w celu określenia czasu przechowywania elementu w pamięci podręcznej:</br>
 1. Cache-Control: s-maxage =\<seconds>
 2. Cache-Control: max-age =\<seconds>
-3. Wygasł\<http-date>
+3. Wygasł \<http-date>
 
 Nagłówki odpowiedzi kontroli pamięci podręcznej, wskazujące, że odpowiedź nie będzie buforowana, taka jak Cache-Control: Private, Cache-Control: Brak pamięci podręcznej i kontrola pamięci podręcznej: żaden magazyn nie jest uznawany. Jeśli jednak dla tego samego adresu URL występuje wiele żądań w punkcie obecności, mogą one udostępnić odpowiedź. Jeśli żadna kontrola pamięci podręcznej nie jest obecna, domyślnym zachowaniem jest to, że AFD będzie buforować zasób dla X czasu, gdzie X jest losowo wybierany z przedziału od 1 do 3 dni.
 

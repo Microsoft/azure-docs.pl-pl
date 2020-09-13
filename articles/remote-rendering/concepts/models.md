@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021888"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023775"
 ---
 # <a name="models"></a>Modele
 
@@ -28,7 +28,6 @@ Każda jednostka może mieć dołączone [składniki](components.md) . W najbard
 Tworzenie modeli dla środowiska uruchomieniowego jest realizowane przez [konwertowanie modeli wejściowych](../how-tos/conversion/model-conversion.md) z formatów plików, takich jak FBX i GLTF. Proces konwersji wyodrębnia wszystkie zasoby, takie jak tekstury, materiały i siatki, i konwertuje je na zoptymalizowane formaty środowiska uruchomieniowego. Wyodrębni również informacje strukturalne i przekonwertuje je na strukturę grafu jednostki/składnika modelu ARR.
 
 > [!IMPORTANT]
->
 > [Konwersja modelu](../how-tos/conversion/model-conversion.md) jest jedynym sposobem tworzenia [siatek](meshes.md). Chociaż siatki mogą być współdzielone między jednostkami w czasie wykonywania, nie istnieje żaden inny sposób na uzyskanie siatki w środowisku uruchomieniowym, innym niż ładowanie modelu.
 
 ## <a name="loading-models"></a>Ładowanie modeli
@@ -119,7 +118,14 @@ Następnie można przejść do hierarchii jednostek i zmodyfikować jednostki i 
 > [!CAUTION]
 > Wszystkie funkcje *asynchroniczne* w asynchronicznych obiektach operacji Return. Odwołanie do tych obiektów należy przechowywać do momentu ukończenia operacji. W przeciwnym razie Moduł wyrzucania elementów bezużytecznych języka C# może usunąć operację wczesną i nigdy nie zakończy się. W przykładowym kodzie powyżej użycia programu *await* gwarantuje, że zmienna lokalna "loadOp" przechowuje odwołanie do momentu zakończenia ładowania modelu. Jeśli jednak zamiast tego użyć zdarzenia *ukończone* , należy zapisać operację asynchroniczną w zmiennej składowej.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="api-documentation"></a>Dokumentacja interfejsu API
+
+* [Zdalnymanager. LoadModelAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [Zdalnymanager. LoadModelFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [Zdalnymanager:: LoadModelAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [Zdalnymanager:: LoadModelFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
+
+## <a name="next-steps"></a>Następne kroki
 
 * [Jednostki](entities.md)
 * [Siatki](meshes.md)

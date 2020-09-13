@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181888"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023860"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Skopiuj i Przekształć dane w śniegu przy użyciu Azure Data Factory
 
@@ -39,7 +39,7 @@ W przypadku działania kopiowania ten łącznik płatny śnieg obsługuje nastę
 
 W przypadku korzystania z obszaru roboczego usługi Azure Synapse Analytics jest nieobsługiwany płata śniegu.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,7 +63,11 @@ W przypadku usługi połączonej z płatnym śniegu są obsługiwane następują
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -109,7 +113,7 @@ Następujące właściwości są obsługiwane dla zestawu danych płatka śniegu
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | typ      | Właściwość Type zestawu danych musi być ustawiona na **Płatne**. | Tak                         |
 | schema | Nazwa schematu. Należy pamiętać, że w nazwie schematu jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
-| table | Nazwa tabeli/widoku. Zwróć uwagę na to, że w nazwie tabeli jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
+| table (stolik) | Nazwa tabeli/widoku. Zwróć uwagę na to, że w nazwie tabeli jest rozróżniana wielkość liter. |Nie dla źródła, tak dla ujścia  |
 
 **Przykład:**
 
@@ -409,8 +413,8 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło ś
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Tabela | Jeśli wybierzesz opcję tabela jako dane wejściowe, przepływ danych pobierze wszystkie dane z tabeli określonej w zestawie danych płatnych śniegu lub w opcjach źródła przy użyciu wbudowanego zestawu danych. | Nie | String | *(tylko w przypadku wbudowanego zestawu danych)*<br>tableName<br>schemaName |
-| Zapytanie | Jeśli wybierzesz pozycję zapytanie jako dane wejściowe, wprowadź zapytanie w celu pobrania danych z płatnej. To ustawienie przesłania każdą tabelę wybraną w zestawie danych.<br>Jeśli nazwy schematu, tabeli i kolumn zawierają małe litery, należy pomniejszyć identyfikator obiektu w kwerendzie, np. `select * from "schema"."myTable"` . | Nie | String | query |
+| Tabela | Jeśli wybierzesz opcję tabela jako dane wejściowe, przepływ danych pobierze wszystkie dane z tabeli określonej w zestawie danych płatnych śniegu lub w opcjach źródła przy użyciu wbudowanego zestawu danych. | Nie | Ciąg | *(tylko w przypadku wbudowanego zestawu danych)*<br>tableName<br>schemaName |
+| Zapytanie | Jeśli wybierzesz pozycję zapytanie jako dane wejściowe, wprowadź zapytanie w celu pobrania danych z płatnej. To ustawienie przesłania każdą tabelę wybraną w zestawie danych.<br>Jeśli nazwy schematu, tabeli i kolumn zawierają małe litery, należy pomniejszyć identyfikator obiektu w kwerendzie, np. `select * from "schema"."myTable"` . | Nie | Ciąg | query |
 
 #### <a name="snowflake-source-script-examples"></a>Przykłady skryptów źródłowych płatnych śniegów
 
