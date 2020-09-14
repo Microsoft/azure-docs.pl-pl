@@ -46,7 +46,7 @@ Należy również utworzyć **_klucz tajny klienta_** dla rejestracji aplikacji 
 
 Trafij *Certyfikaty i wpisy tajne* z menu Rejestracja i wybierz pozycję *+ nowy klucz tajny klienta*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość "certyfikaty i wpisy tajne", a na stronie znajduje się wartość "nowy wpis tajny klienta".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Widok portalu rejestracji aplikacji usługi Azure AD. W menu zasób znajduje się wyróżniona wartość certyfikaty i wpisy tajne, a na stronie znajduje się wartość nowy wpis tajny klienta.":::
 
 Wprowadź wszelkie wartości, które mają być stosowane w opisie i wygaśnie, i kliknij przycisk *Dodaj*.
 Wpis tajny zostanie dodany do listy wpisów tajnych klienta na stronie *Certyfikaty i wpisy tajne* . Zanotuj jego wartość, aby użyć jej później (można także skopiować ją do schowka za pomocą ikony kopiowania).
@@ -65,11 +65,11 @@ W tym kroku utworzysz [niestandardowy łącznik Logic Apps](../logic-apps/custom
 
 Przejdź do strony [Logic Apps łącznika niestandardowego](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) w Azure Portal (możesz użyć tego linku lub wyszukać go na pasku wyszukiwania portalu). Trafij *i Dodaj*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Strona "Logic Apps łącznika niestandardowego" w Azure Portal. Zaznacz wokół przycisku "Dodaj"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Strona Logic Apps łącznika niestandardowego w Azure Portal. Zaznacz wokół przycisku Dodaj":::
 
 Na poniższej stronie *utwórz Logic Apps łącznika niestandardowego* wybierz subskrypcję i grupę zasobów oraz nazwę i lokalizację wdrożenia dla nowego łącznika. *Przejrzyj i Utwórz*. Spowoduje to przejście do karty *Recenzja + tworzenie* , w której można utworzyć *zasób w dolnej* części.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Karta "Recenzja + tworzenie" na stronie "Tworzenie Logic Apps łącznika niestandardowego" w Azure Portal. Zaznacz wokół przycisku "Utwórz"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Karta Recenzja + tworzenie na stronie Tworzenie Logic Apps łącznika niestandardowego w Azure Portal. Zaznacz wokół przycisku Utwórz":::
 
 Nastąpi przekierowanie do strony wdrożenia łącznika. Po zakończeniu wdrażania naciśnij przycisk *Przejdź do zasobu* , aby wyświetlić szczegóły łącznika w portalu.
 
@@ -81,7 +81,7 @@ Najpierw pobierz niestandardową strukturę Swagger usługi Azure Digital bliźn
 
 Następnie przejdź do strony omówienia łącznika w [Azure Portal](https://portal.azure.com) i kliknij przycisk *Edytuj*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Strona "przegląd" dla łącznika utworzonego w poprzednim kroku. Zaznacz wokół przycisku "Edytuj"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Strona przegląd dla łącznika utworzonego w poprzednim kroku. Zaznacz wokół przycisku Edytuj":::
 
 Na stronie *edytuj Logic Apps łącznika niestandardowego* skonfiguruj następujące informacje:
 * **Łączniki niestandardowe**
@@ -96,7 +96,7 @@ Na stronie *edytuj Logic Apps łącznika niestandardowego* skonfiguruj następuj
 
 Następnie naciśnij przycisk *zabezpieczeń* w dolnej części okna, aby przejść do kolejnego kroku konfiguracji.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Zrzut ekranu przedstawiający dolną stronę "Edytuj Logic Apps łącznika niestandardowego". Zaznacz wokół przycisku, aby kontynuować zabezpieczenia":::
+:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Zrzut ekranu przedstawiający dolną stronę Edytuj Logic Apps łącznika niestandardowego. Zaznacz wokół przycisku, aby kontynuować zabezpieczenia":::
 
 W kroku zabezpieczenia naciśnij pozycję *Edytuj* i skonfiguruj następujące informacje:
 * **Typ uwierzytelniania**: OAuth 2,0
@@ -112,13 +112,13 @@ W kroku zabezpieczenia naciśnij pozycję *Edytuj* i skonfiguruj następujące i
 
 Zwróć uwagę, że w polu adres URL przekierowania zostanie *zapisany łącznik niestandardowy w celu wygenerowania adresu URL przekierowania*. Zrób to teraz przez naciśnięcie przycisku *Aktualizuj łącznik* w górnej części okienka, aby potwierdzić ustawienia łącznika.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Zrzut ekranu przedstawiający początek strony "Edytuj Logic Apps łącznika niestandardowego". Zaznacz wokół przycisku "Aktualizuj łącznik"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Zrzut ekranu przedstawiający początek strony Edytuj Logic Apps łącznika niestandardowego. Zaznacz wokół przycisku Aktualizuj łącznik":::
 
 <!-- Success message? didn't see one -->
 
 Wróć do pola adres URL przekierowania i skopiuj wygenerowaną wartość. Zostanie ona użyta w następnym kroku.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Pole adresu URL przekierowania na stronie "Edytuj Logic Apps łącznika niestandardowego" ma teraz wartość " https://logic-apis-westus2.consent.azure-apim.net/redirect ". Przycisk służący do kopiowania wartości jest wyróżniony.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Pole adresu URL przekierowania na stronie Edytuj Logic Apps łącznika niestandardowego ma teraz wartość  https://logic-apis-westus2.consent.azure-apim.net/redirect . Przycisk służący do kopiowania wartości jest wyróżniony.":::
 
 Są to wszystkie informacje wymagane do utworzenia łącznika (nie ma potrzeby dalszej ochrony przed poprzednimi zabezpieczeniami w kroku definicji). Możesz zamknąć okienko *edytowanie Logic Apps łącznika niestandardowego* .
 
@@ -133,11 +133,11 @@ Przejdź do strony [rejestracje aplikacji](https://portal.azure.com/#blade/Micro
 
 W obszarze *uwierzytelnianie* z menu Rejestracja Dodaj identyfikator URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Strona uwierzytelniania dla rejestracji aplikacji w Azure Portal. Element "Authentication" w menu jest wyróżniony, a na stronie jest wyróżniony przycisk "Dodaj identyfikator URI"."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Strona uwierzytelniania dla rejestracji aplikacji w Azure Portal. Element Authentication w menu jest wyróżniony, a na stronie jest wyróżniony przycisk Dodaj identyfikator URI."::: 
 
 Wprowadź *adres URL przekierowania* łącznika niestandardowego do nowego pola i kliknij ikonę *Zapisz* .
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Strona uwierzytelniania dla rejestracji aplikacji w Azure Portal. Nowy adres URL przekierowania zostanie wyróżniony i przycisk "Zapisz" dla strony.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Strona uwierzytelniania dla rejestracji aplikacji w Azure Portal. Nowy adres URL przekierowania zostanie wyróżniony i przycisk Zapisz dla strony.":::
 
 Teraz po skonfigurowaniu łącznika niestandardowego, który będzie mógł uzyskać dostęp do interfejsów API Digital bliźniaczych reprezentacji platformy Azure. 
 
@@ -147,7 +147,7 @@ Następnie utworzysz aplikację logiki, która będzie używać nowego łącznik
 
 Przejdź do strony [Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) w Azure Portal (możesz użyć tego linku lub poszukać go na pasku wyszukiwania portalu). Naciśnij pozycję *Utwórz aplikację logiki*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Strona "Logic Apps" w Azure Portal. Zaznacz wokół przycisku "Utwórz aplikację logiki"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Strona Logic Apps w Azure Portal. Zaznacz wokół przycisku Utwórz aplikację logiki":::
 
 Na stronie *aplikacji logiki* wybierz subskrypcję i grupę zasobów, a następnie nazwę i lokalizację wdrożenia nowej aplikacji logiki. *Przejrzyj i Utwórz*. Spowoduje to przejście do karty *Recenzja + tworzenie* , w której można utworzyć *zasób w dolnej* części.
 
@@ -157,7 +157,7 @@ Nastąpi przekierowanie do strony wdrożenia aplikacji logiki. Po zakończeniu w
 
 W *projektancie Logic Apps*w obszarze *Rozpocznij ze wspólnym wyzwalaczem*wybierz pozycję _**cykl**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Strona "Logic Apps Designer" w Azure Portal. Zaznacz wokół typowego wyzwalacza "cykl"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Strona Logic Apps Designer w Azure Portal. Zaznacz wokół typowego wyzwalacza cykl":::
 
 Na poniższej stronie *projektanta Logic Apps* Zmień częstotliwość **cyklu** na *sekundę*, aby zdarzenie było wyzwalane co 3 sekundy. Dzięki temu będzie można łatwo zobaczyć wyniki później, bez konieczności oczekiwania.
 
@@ -165,7 +165,7 @@ Naciśnij pozycję *+ nowy krok*.
 
 Spowoduje to otwarcie pola *Wybierz akcję* . Przejdź do karty *niestandardowej* . Łącznik niestandardowy powinien być widoczny wcześniej w górnej części okna.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Tworzenie przepływu w projektancie Logic Apps w Azure Portal. W polu "Wybierz akcję" wybrana jest karta "niestandardowe". Łącznik niestandardowy użytkownika z wcześniejszych zostanie wyświetlony w polu z wyróżnionym wyróżnieniem.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Tworzenie przepływu w projektancie Logic Apps w Azure Portal. W polu Wybierz akcję wybrana jest karta niestandardowe. Łącznik niestandardowy użytkownika z wcześniejszych zostanie wyświetlony w polu z wyróżnionym wyróżnieniem.":::
 
 Wybierz go, aby wyświetlić listę interfejsów API zawartych w tym łączniku. Użyj paska wyszukiwania lub przewiń listę, aby zaznaczyć **DigitalTwins_Add**. (Jest to interfejs API używany w tym artykule, ale można również wybrać dowolny inny interfejs API jako prawidłowy wybór dla połączenia Logic Apps).
 
@@ -178,7 +178,7 @@ W polu Nowy *DigitalTwinsAdd* Wypełnij pola w następujący sposób:
 
 Naciśnij klawisz *Save* w projektancie Logic Apps.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Zakończono widok aplikacji w łączniku aplikacji logiki. Pole DigitalTwinsAdd jest wypełnione wartościami opisanymi powyżej, łącznie z przykładową treścią poprawek JSON. Przycisk "Zapisz" dla okna jest wyróżniony.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Zakończono widok aplikacji w łączniku aplikacji logiki. Pole DigitalTwinsAdd jest wypełnione wartościami opisanymi powyżej, łącznie z przykładową treścią poprawek JSON. Przycisk Zapisz dla okna jest wyróżniony.":::
 
 ## <a name="query-twin-to-see-the-update"></a>Zapytanie bliźniaczye, aby zobaczyć aktualizację
 
