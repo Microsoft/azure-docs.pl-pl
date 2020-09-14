@@ -2,16 +2,19 @@
 title: Używanie galerii obrazów udostępnionych w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować konto laboratorium do korzystania z galerii obrazów udostępnionych, aby użytkownik mógł udostępnić obraz innym osobom, a inny użytkownik może użyć obrazu, aby utworzyć szablon maszyny wirtualnej w laboratorium.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 4dc001a5e4c95db608c38f0a7c00190fd1859998
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/11/2020
+ms.openlocfilehash: 04e3764b095706d091bb72baaae77f5a4016fd28
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445155"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052838"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Używanie galerii obrazów udostępnionych w Azure Lab Services
 W tym artykule pokazano, jak wykładowcy/Administratorzy laboratorium mogą zapisywać obraz maszyny wirtualnej szablonu w [galerii obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) , aby mógł być używany przez inne osoby do tworzenia laboratoriów. 
+
+> [!IMPORTANT]
+> W przypadku korzystania z galerii obrazów udostępnionych Azure Lab Services obsługuje tylko obrazy z mniej niż 128 GB miejsca na dysku systemu operacyjnego. Obrazy zawierające więcej niż 128 GB miejsca na dysku lub wiele dysków nie będą wyświetlane na liście obrazów maszyn wirtualnych podczas tworzenia laboratorium.
 
 ## <a name="scenarios"></a>Scenariusze
 Oto kilka scenariuszy obsługiwanych przez tę funkcję: 

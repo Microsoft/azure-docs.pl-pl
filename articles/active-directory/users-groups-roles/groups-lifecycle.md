@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ed286cf2b11429d5f0f56b3a85f173c2a39bc81
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799302"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054555"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Konfigurowanie zasad wygasania dla grup Microsoft 365
 
@@ -42,7 +42,7 @@ Aby uzyskać informacje na temat pobierania i instalowania poleceń cmdlet progr
 
 ## <a name="activity-based-automatic-renewal"></a>Automatyczne odnawianie oparte na działaniach
 
-W przypadku usługi Azure AD Intelligence grupy są teraz automatycznie odnawiane na podstawie tego, czy były ostatnio używane. Ta funkcja eliminuje konieczność wykonywania ręcznej akcji przez właścicieli grup, ponieważ jest ona oparta na aktywności użytkownika w grupach w ramach usług Office 365, takich jak Outlook, SharePoint lub zespoły. Na przykład, jeśli właściciel lub członek grupy wykonuje coś takiego jak przekazywanie dokumentu w programie SharePoint, odwiedź kanał zespołów lub Wyślij wiadomość e-mail do grupy w programie Outlook, Grupa zostanie automatycznie odnowiona, a właściciel nie otrzyma żadnych powiadomień o odnowieniu.
+W przypadku usługi Azure AD Intelligence grupy są teraz automatycznie odnawiane na podstawie tego, czy były ostatnio używane. Ta funkcja eliminuje konieczność wykonywania ręcznej akcji przez właścicieli grup, ponieważ jest ona oparta na aktywności użytkownika w grupach w ramach usług Microsoft 365, takich jak Outlook, SharePoint lub zespoły. Na przykład, jeśli właściciel lub członek grupy wykonuje coś takiego jak przekazywanie dokumentu w programie SharePoint, odwiedź kanał zespołów lub Wyślij wiadomość e-mail do grupy w programie Outlook, Grupa zostanie automatycznie odnowiona, a właściciel nie otrzyma żadnych powiadomień o odnowieniu.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Działania, które automatycznie odnawiają wygaśnięcie grupy
 

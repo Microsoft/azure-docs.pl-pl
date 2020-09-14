@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717442"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052685"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Jak działa funkcja stornowania samoobsługowego resetowania haseł w Azure Active Directory?
 
@@ -37,7 +37,7 @@ Funkcja zapisywania zwrotnego haseł zapewnia następujące funkcje:
 
 * **Wymuszanie lokalnych zasad haseł Active Directory Domain Services (AD DS)**: gdy użytkownik resetuje swoje hasło, jest sprawdzane pod kątem zgodności lokalnych zasad AD DS przed zatwierdzeniem go do tego katalogu. Ten przegląd obejmuje Sprawdzanie historii, złożoności, wieku, filtrów haseł i innych ograniczeń haseł zdefiniowanych w AD DS.
 * **Opinia o zerowej opóźnieniu**: zapisywanie zwrotne haseł jest operacją synchroniczną. Użytkownicy są powiadamiani natychmiast, jeśli ich hasło nie spełnia zasad lub nie można go zresetować ani zmienić z jakiegokolwiek powodu.
-* **Obsługuje zmiany haseł z poziomu panelu dostępu i pakietu Office 365**: w przypadku, gdy użytkownicy z zabezpieczeniami federacyjnymi lub skrótowymi hasła mogą zmieniać wygasłe lub niewygasłe hasła, te hasła są zapisywane z powrotem do AD DS.
+* **Program obsługuje zmiany haseł z poziomu panelu dostępu i Microsoft 365**: gdy użytkownicy z dostępem federacyjnym lub skrótem hasła mogą zmienić wygasłe lub niewygasłe hasła, te hasła są zapisywane z powrotem do AD DS.
 * **Obsługuje funkcję zapisywania zwrotnego haseł, gdy administrator resetuje je z Azure Portal**: gdy administrator resetuje hasło użytkownika w [Azure Portal](https://portal.azure.com), jeśli ten użytkownik jest zsynchronizowany z zabezpieczeniami federacyjnymi lub hasła, hasło zostanie zapisane z powrotem do lokalnego. Ta funkcja nie jest obecnie obsługiwana w portalu administracyjnym pakietu Office.
 * **Nie wymaga żadnych reguł zapory dla ruchu przychodzącego**: funkcja zapisywania zwrotnego haseł używa przekaźnika Azure Service Bus jako podstawowego kanału komunikacyjnego. Cała komunikacja jest wychodząca przez port 443.
 

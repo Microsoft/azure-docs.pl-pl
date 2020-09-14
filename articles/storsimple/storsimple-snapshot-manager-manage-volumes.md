@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager i woluminy | Microsoft Docs
 description: Opisuje sposób używania przystawki StorSimple Snapshot Manager MMC do wyświetlania woluminów i zarządzania nimi oraz do konfigurowania kopii zapasowych.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: twooley
-ms.openlocfilehash: b27cf605c978e15d81a43db3371a71b0ccc48c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508924"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054911"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Używanie Snapshot Manager StorSimple do wyświetlania woluminów i zarządzania nimi
 ## <a name="overview"></a>Omówienie
@@ -183,7 +183,7 @@ Zarządzanie dyskami to narzędzie systemowe do zarządzania dyskami twardymi or
 6. Na stronie **Przypisz literę dysku lub ścieżkę** zaakceptuj wartości domyślne, a następnie kliknij przycisk **dalej**. 
 7. Na stronie **Format woluminu** w polu **rozmiar jednostki alokacji** wybierz pozycję **64 KB**. Zaznacz pole wyboru **Wykonaj szybkie formatowanie** , a następnie kliknij przycisk **dalej**. 
 8. Na stronie **Kończenie nowego woluminu dublowanego** przejrzyj ustawienia, a następnie kliknij przycisk **Zakończ**. 
-9. Zostanie wyświetlony komunikat informujący o tym, że dysk podstawowy zostanie przekonwertowany na dysk dynamiczny. Kliknij przycisk **tak**.
+9. Zostanie wyświetlony komunikat informujący o tym, że dysk podstawowy zostanie przekonwertowany na dysk dynamiczny. Kliknij przycisk **Yes** (Tak).
    
     ![Komunikat dotyczący konwersji dysku dynamicznego](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
 10. W przystawce Zarządzanie dyskami Sprawdź, czy dysk 1 i dysk 2 są wyświetlane jako woluminy dynamiczne dublowane. (**Dynamiczny** powinien pojawić się w kolumnie Stan, a kolor paska dyspozycyjności powinien zmienić na czerwony, wskazując wolumin dublowany). 
@@ -198,7 +198,7 @@ Aby skonfigurować dynamiczny wolumin dublowany, należy wykonać czynności opi
 2. W okienku **zakres** kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie wybierz polecenie **Skanuj woluminy**ponownie. Po zakończeniu skanowania w okienku **wyników** powinna zostać wyświetlona lista woluminów. Dynamiczny wolumin dublowany jest wymieniony jako pojedynczy wolumin. 
 3. W okienku **wyników** kliknij prawym przyciskiem myszy dynamiczny wolumin dublowany, a następnie kliknij polecenie **Utwórz grupę woluminów**. 
 4. W oknie dialogowym **Utwórz grupę woluminów** wpisz nazwę grupy woluminów, przypisz dynamiczny wolumin dublowany do tej grupy, a następnie kliknij przycisk **OK**. 
-5. W okienku **zakres** rozwiń węzeł **grupy woluminów** . Nowa grupa woluminów powinna zostać wyświetlona w węźle **grupy woluminów** . 
+5. W okienku **zakres** rozwiń węzeł **grupy woluminów** . Nowa grupa woluminów powinna zostać wyświetlona w węźle  **grupy woluminów** . 
 6. Kliknij prawym przyciskiem myszy nazwę grupy woluminów. 
    
    * Aby uruchomić interaktywne zadanie tworzenia kopii zapasowej (na żądanie), kliknij przycisk **Utwórz kopię zapasową**. 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 08f3a3c17a5f6ea519eea04c4b8c5e7025adcbac
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116771"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052362"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w usłudze Azure Active Directory?
 
@@ -212,7 +212,7 @@ Pytania zabezpieczające mogą być mniej bezpieczne niż inne metody, ponieważ
 
 ### <a name="predefined-questions"></a>Wstępnie zdefiniowane pytania
 
-Poniższe wstępnie zdefiniowane pytania zabezpieczające są dostępne do użycia jako metoda weryfikacji z SSPR. Wszystkie te pytania zabezpieczające są tłumaczone i lokalizowane do pełnego zestawu języków pakietu Office 365 na podstawie ustawień regionalnych przeglądarki użytkownika:
+Poniższe wstępnie zdefiniowane pytania zabezpieczające są dostępne do użycia jako metoda weryfikacji z SSPR. Wszystkie te pytania zabezpieczające są tłumaczone i lokalizowane do pełnego zestawu języków Microsoft 365 w oparciu o ustawienia regionalne przeglądarki użytkownika:
 
 * W jakim mieście Twój pierwszy współmałżonek/partner?
 * W jakim mieście spotkali się rodzice?

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de0212739f5cd24cec9ab58bdaf4d2b272f31200
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213676"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054368"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Szybki start: zasady nazewnictwa grup w usłudze Azure Active Directory
 
@@ -68,6 +68,6 @@ To wszystko. Skonfigurowano zasady nazewnictwa i dodano niestandardowe słowa za
 
 W tym przewodniku szybki start wiesz już, jak ustawić zasady nazewnictwa dla organizacji usługi Azure AD za pomocą Azure Portal.
 
-Przejdź do następnego artykułu, aby uzyskać więcej informacji, w tym poleceń cmdlet programu PowerShell dotyczących zasad nazewnictwa, ograniczeń technicznych, dodawania listy niestandardowych zablokowanych słów i środowiska użytkownika końcowego w aplikacjach pakietu Office 365.
+Przejdź do następnego artykułu, aby uzyskać więcej informacji, w tym poleceń cmdlet programu PowerShell dotyczących zasad nazewnictwa, ograniczeń technicznych, dodawania listy niestandardowych zablokowanych słów i środowiska użytkownika końcowego w aplikacjach Microsoft 365.
 > [!div class="nextstepaction"]
 > [Zasady nazewnictwa programu PowerShell](groups-naming-policy.md)

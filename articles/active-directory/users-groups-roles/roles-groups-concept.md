@@ -1,6 +1,6 @@
 ---
 title: Używanie grup w chmurze do zarządzania przypisaniami ról w Azure Active Directory | Microsoft Docs
-description: Wyświetl podgląd niestandardowych ról usługi Azure AD na potrzeby delegowania zarządzania tożsamościami. Zarządzanie rolami platformy Azure w Azure Portal, PowerShell lub interfejs API programu Graph.
+description: Wyświetl podgląd niestandardowych ról usługi Azure AD na potrzeby delegowania zarządzania tożsamościami. Zarządzanie przypisaniami ról platformy Azure w Azure Portal, PowerShell lub interfejs API programu Graph.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798316"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053773"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Zarządzanie przypisaniami ról w programie Azure Active Directory przy użyciu grup chmurowych (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Rozważmy ten przykład: contoso zatrudniał osoby w lokalizacje geograficzneie,
 
 ## <a name="how-this-feature-works"></a>Jak działa ta funkcja
 
-Utwórz nowy pakiet Office 365 lub grupę zabezpieczeń z właściwością "isAssignableToRole" ustawioną na wartość "true". Możesz również włączyć tę właściwość podczas tworzenia grupy w Azure Portal przez włączenie **ról usługi Azure AD można przypisać do grupy**. W obu przypadkach można przypisać grupę do co najmniej jednej roli usługi Azure AD w taki sam sposób, jak w przypadku przypisywania ról do użytkowników. Maksymalnie 200 grup można tworzyć w jednej organizacji usługi Azure AD (dzierżawie).
+Utwórz nową Microsoft 365 lub grupę zabezpieczeń z właściwością "isAssignableToRole" ustawioną na wartość "true". Możesz również włączyć tę właściwość podczas tworzenia grupy w Azure Portal przez włączenie **ról usługi Azure AD można przypisać do grupy**. W obu przypadkach można przypisać grupę do co najmniej jednej roli usługi Azure AD w taki sam sposób, jak w przypadku przypisywania ról do użytkowników. Maksymalnie 200 grup można tworzyć w jednej organizacji usługi Azure AD (dzierżawie).
 
 Jeśli nie chcesz, aby członkowie grupy mieli stały dostęp do roli, możesz użyć Azure AD Privileged Identity Management. Przypisz grupę jako uprawniony członek roli usługi Azure AD. Każdy członek grupy jest następnie uprawniony do przypisywania do roli, do której przypisano grupę. Mogą oni następnie aktywować ich przypisanie roli przez ustalony czas trwania.
 

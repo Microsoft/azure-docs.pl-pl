@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4c87ee92a2bc30dc2923127241013601cf3f4419
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ea66f044664082b547d1b012d7253cd6443e8610
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519867"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052787"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą sprytne
 
@@ -40,6 +40,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
 * Aplikacja Clever obsługuje logowanie jednokrotne inicjowane przez **dostawcę usługi**
+* Po skonfigurowaniu Concur można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
@@ -56,7 +57,7 @@ Aby skonfigurować integrację aplikacji Clever z usługą Azure AD, należy dod
 1. Wybierz pozycję **sprytne** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clever"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla sprytne
+## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla sprytne
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą sprytne przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w sprytne.
 
@@ -83,10 +84,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://clever.com/in/<companyname>`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://clever.com/oauth/saml/metadata.xml`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL: `https://clever.com/oauth/saml/metadata.xml`
 
+    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://clever.com/<companyname>`
+    
     > [!NOTE]
-    > Wartość adresu URL logowania nie jest prawdziwa. Zaktualizuj wartość za pomocą rzeczywistego adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta aplikacji Clever](https://clever.com/about/contact/), aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    >  Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego adresu URL logowania i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta aplikacji Clever](https://clever.com/about/contact/), aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -135,7 +138,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. Na stronie **Instant Login (Błyskawiczne logowanie)** wykonaj następujące kroki:
  
-    ![Natychmiastowe logowanie](./media/clever-tutorial/ic798985.png "Natychmiastowe logowanie")
+    ![Konfiguracja logowania jednokrotnego na stronie logowania błyskawicznego](./media/clever-tutorial/ic798985.png "Natychmiastowe logowanie")
 
     a. Wpisz **adres URL logowania**.
 

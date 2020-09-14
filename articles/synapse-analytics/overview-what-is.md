@@ -9,24 +9,22 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 653ad7e9b41e1c8a4708f2ab951676c144316192
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b93814c69a08dd757a390232804a00b2777bc20e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005858"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90051999"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Obecnie analiza przedsiębiorstwa wymaga dużej ilości danych, zarówno w przypadku nieprzetworzonych, rafinowanych, jak i wysoce nadzorowanych. W przeszłości Tworzenie tych rodzajów rozwiązań analitycznych wymaga przedsiębiorstw do łączenia danych Big Data i magazynowania danych, takich jak Spark i SQL. Następnie musimy zintegrować je z rozbudowanymi potokami danych, które pracują z danymi w magazynach relacyjnych i jeziorach danych.  
+Analiza przedsiębiorstwa musi zapewniać ogromną skalę w przypadku dowolnego rodzaju danych, zarówno nieprzetworzony, rafinowany, jak i wysoce nadzorowany. Te przedsiębiorstwa wymagane do łączenia się z technologiami danych Big Data i magazynowania danych, takimi jak Spark i SQL, są rozbudowanymi potokami danych, które działają w przypadku danych w magazynach relacyjnych i jeziorach danych. Takie rozwiązania są trudne do kompilowania, zabezpieczania i konserwowania. Złożoność Opóźnianie dostarczania potrzeb Enteprises szczegółowych informacji.
 
-Takie rozwiązania są trudne do kompilowania, konfigurowania, zabezpieczania i konserwowania, które opóźniają szybkie wydobywanie usługi inteligentnego wglądu w szczegółowe dane.
+**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas uzyskiwania wglądu w dane między magazynami danych i systemami analizy danych Big Data. Na tej samej platformie usługa Azure Synapse udostępnia zalety technologii **SQL** , które są używane w przypadku magazynowania danych w przedsiębiorstwie, technologii **Spark** używanych w przypadku danych Big Data oraz **potoków** do integracji danych i ETL/ELT.
 
-**Azure Synapse** to zintegrowana usługa analityczna, która przyspiesza czas uzyskiwania wglądu w dane ze wszystkich danych w dowolnej skali, między magazynami danych i systemami analizy danych Big Data. Łączy ona najlepsze zalety technologii **SQL** używanych w magazynie danych w przedsiębiorstwie, technologii **Spark** używanych w analizie danych Big Data oraz **potoków** do integracji danych i ETL/ELT.
-
-Usługa Azure Synapse obejmuje środowisko użytkownika programu **Studio** natywne dla sieci Web, które zapewnia jedno środowisko i model zarządzania, monitorowania, kodowania i zabezpieczeń.
+Usługa Azure Synapse zapewnia oparte na sieci Web środowisko programu **Studio** , które oferuje jedno miejsce do zarządzania, monitorowania, kodowania i zabezpieczenia.
 
 Usługa Azure Synapse zapewnia najprostszą i najszybszą metodę zbierania szczegółowych informacji na temat wszystkich danych w dowolnym rozmiarze przy użyciu analizy, z którą są najczęściej znane. Integruje się to z **Power BI** umożliwienia inżynierom danych tworzenia rozwiązań analitycznych, które działają kompleksowo w celu zapewnienia analizy biznesowej.
 
@@ -85,8 +83,6 @@ Usługa Azure Synapse umożliwia przedsiębiorstwom zarządzanie zasobami analit
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Rozpoczynanie pracy z usługą Azure Synapse Analytics](get-started.md)
 * [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
-* [Korzystanie z programu Synapse Studio](quickstart-synapse-studio.md)
-* [Tworzenie puli SQL](quickstart-create-sql-pool-portal.md)
 * [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
-* [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool-portal.md)

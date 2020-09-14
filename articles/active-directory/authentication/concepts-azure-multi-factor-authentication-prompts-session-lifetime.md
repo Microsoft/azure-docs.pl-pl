@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179355"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052668"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optymalizowanie wierszy ponownego uwierzytelniania i zrozumienie okresu istnienia sesji dla usługi Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ Aby zapewnić użytkownikom odpowiednie saldo zabezpieczeń i łatwość używan
     * Włącz logowanie jednokrotne (SSO) w aplikacjach przy użyciu [zarządzanych urządzeń](../devices/overview.md) lub [bezproblemowego logowania jednokrotnego](../hybrid/how-to-connect-sso.md).
     * Jeśli wymagane jest ponowne uwierzytelnienie, należy użyć [zasad częstotliwości logowania](../conditional-access/howto-conditional-access-session-lifetime.md)dostępu warunkowego.
     * W przypadku użytkowników logujących się z urządzeń niezarządzanych lub scenariuszy dotyczących urządzeń przenośnych Użyj dostępu warunkowego w celu włączenia trwałych sesji przeglądarki i zasad częstotliwości logowania.
-* Jeśli masz licencje na aplikacje pakietu Office 365 lub bezpłatną warstwę usługi Azure AD:
+* Jeśli masz licencje na aplikacje Microsoft 365 lub bezpłatną warstwę usługi Azure AD:
     * Włącz logowanie jednokrotne (SSO) w aplikacjach przy użyciu [zarządzanych urządzeń](../devices/overview.md) lub [bezproblemowego logowania jednokrotnego](../hybrid/how-to-connect-sso.md).
     * Pozostaw włączoną opcję *pozostawania zalogowanego* i Poinformuj użytkowników, aby zaakceptowali ją.
 * W przypadku scenariuszy z urządzeniami przenośnymi upewnij się, że użytkownicy korzystają z aplikacji Microsoft Authenticator. Ta aplikacja jest używana jako Broker do innych aplikacji federacyjnych usługi Azure AD i zmniejsza na urządzeniu komunikaty dotyczące uwierzytelniania.
@@ -123,13 +123,13 @@ Aby skonfigurować zasady dostępu warunkowego w celu uzyskania częstotliwości
 
 Aby przejrzeć okresy istnienia tokenów, [Użyj programu Azure AD PowerShell, aby wykonać zapytanie dotyczące dowolnych zasad usługi Azure AD](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Wyłącz wszystkie zasady, które są stosowane.
 
-Jeśli w dzierżawie jest włączona więcej niż jedno ustawienie, Zalecamy zaktualizowanie ustawień na podstawie dostępnych licencji. Jeśli na przykład masz licencje usługi Azure AD Premium, należy używać tylko zasad dostępu warunkowego z *częstotliwością logowania* i *trwałą sesją przeglądarki*. Jeśli masz aplikacje pakietu Office 365 lub bezpłatnych licencji usługi Azure AD, musisz użyć konfiguracji *"nie zalogowano"?*
+Jeśli w dzierżawie jest włączona więcej niż jedno ustawienie, Zalecamy zaktualizowanie ustawień na podstawie dostępnych licencji. Jeśli na przykład masz licencje usługi Azure AD Premium, należy używać tylko zasad dostępu warunkowego z *częstotliwością logowania* i *trwałą sesją przeglądarki*. Jeśli masz Microsoft 365 aplikacje lub bezpłatne licencje usługi Azure AD, musisz użyć konfiguracji *"zalogować się"?*
 
 Jeśli zostały włączone konfigurowalne okresy istnienia tokenu, ta możliwość zostanie usunięta wkrótce. Zaplanuj migrację do zasad dostępu warunkowego.
 
 Poniższa tabela zawiera podsumowanie zaleceń w oparciu o licencje:
 
-|              | Azure AD — wersja Bezpłatna i aplikacje pakietu Office 365 | Usługa Azure AD — wersja Premium |
+|              | Aplikacje Azure AD — wersja Bezpłatna i Microsoft 365 | Usługa Azure AD — wersja Premium |
 |------------------------------|-----------------------------------|------------------|
 | **Logowanie jednokrotne**                      | [Usługa Azure AD Join](../devices/concept-azure-ad-join.md) lub [hybrydowe łączenie z usługą Azure AD](../devices/concept-azure-ad-join-hybrid.md)lub [bezproblemowe logowanie jednokrotne](../hybrid/how-to-connect-sso.md) w przypadku urządzeń niezarządzanych. | Dołączenie do usługi Azure AD<br />Dołączenie hybrydowe do usługi Azure AD |
 | **Ustawienia ponownego uwierzytelniania** | Pozostanie zalogowany                  | Korzystanie z zasad dostępu warunkowego w celu uzyskania częstotliwości logowania i trwałej sesji przeglądarki |

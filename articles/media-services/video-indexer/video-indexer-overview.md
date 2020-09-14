@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318691"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052141"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Co to jest Azure Media Services Video Indexer?
 
@@ -81,7 +81,7 @@ Na poniższej liście przedstawiono szczegółowe informacje, które można pobr
 * **Przetwarzanie dwóch kanałów**: automatycznie wykrywa odrębne transkrypcje i scala do pojedynczej osi czasu.
 * **Redukcja szumu**: czyści nagranie audio lub szumów z dźwiękiem (na podstawie filtrów Skype).
 * **Dostosowanie transkrypcji** (CRI): pociąga za siebie niestandardowe mowy do modeli tekstowych, aby utworzyć transkrypcje specyficzne dla branży. Aby uzyskać więcej informacji, zobacz [Dostosowywanie modelu języka z witryny sieci web video Indexer](customize-language-model-with-website.md) i [Dostosowywanie modelu języka za pomocą interfejsów API Video Indexer](customize-language-model-with-api.md).
-* **Wyliczenie głośników**: mapuje i rozumie, które osoby mówiące i kiedy.
+* **Wyliczenie głośników**: mapuje i rozumie, które osoby mówiące i kiedy. W pojedynczym pliku audio można wykryć szesnaste głośniki.
 * **Statystyka prelegenta**: zawiera statystykę współczynniki mowy dla głośników.
 * **Moderowanie zawartości tekstowej**: wykrywa jawny tekst w transkrypcji audio.
 * **Efekty audio**: identyfikuje efekty audio, takie jak claps, Speech i wyciszenie.

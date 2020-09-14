@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797993"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053977"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integracja połączeń konta LinkedIn w Azure Active Directory
 
@@ -29,7 +29,7 @@ Możesz zezwolić użytkownikom w organizacji na dostęp do swoich połączeń L
 >
 > Wyjątki:
 >
-> * To ustawienie nie jest dostępne dla klientów korzystających z Microsoft Cloud dla instytucji rządowych Stanów Zjednoczonych, Microsoft Cloud Niemczech lub platformy Azure i pakietu Office 365 obsługiwanego przez firmę 21Vianet w Chinach.
+> * To ustawienie nie jest dostępne dla klientów korzystających z Microsoft Cloud dla instytucji rządowych Stanów Zjednoczonych, Microsoft Cloud Niemczech ani platformy Azure i Microsoft 365 obsługiwanych przez firmę 21Vianet w Chinach.
 > * Ustawienie jest domyślnie wyłączone dla organizacji usługi Azure AD, które są obsługiwane w Niemczech. Należy pamiętać, że to ustawienie nie jest dostępne dla klientów korzystających Microsoft Cloud Niemiec.
 > * Ustawienie jest domyślnie wyłączone dla organizacji, które są obsługiwane we Francji.
 >
@@ -99,7 +99,7 @@ Aby użyć grupy z kroku dwa jako wybranej grupy w ustawieniach połączeń kont
    **Włączone** | Opcja **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w programie Office 2016 jest włączona. Użytkownicy w organizacji mogą korzystać z funkcji serwisu LinkedIn w aplikacjach pakietu Office 2016.
    **Disabled** | Ustawienie **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w pakiecie Office 2016 jest wyłączone, a użytkownicy końcowi nie mogą zmieniać tego ustawienia. Użytkownicy w organizacji nie mogą korzystać z funkcji LinkedIn w swoich aplikacjach pakietu Office 2016.
 
-Te zasady grupy mają wpływ tylko na aplikacje pakietu Office 2016 dla komputera lokalnego. Jeśli użytkownicy wyłączają serwis LinkedIn w swoich aplikacjach pakietu Office 2016, nadal będą mogli wyświetlać funkcje serwisu LinkedIn w pakiecie Office 365.
+Te zasady grupy mają wpływ tylko na aplikacje pakietu Office 2016 dla komputera lokalnego. Jeśli użytkownicy wyłączają serwis LinkedIn w swoich aplikacjach pakietu Office 2016, nadal będą mogli wyświetlać funkcje serwisu LinkedIn w Microsoft 365.
 
 ## <a name="next-steps"></a>Następne kroki
 

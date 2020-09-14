@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c510d6f1cc2aa4a7e71f64e0c296e14a9896614e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717986"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055303"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP dla Azure App Service
 
@@ -119,7 +119,7 @@ Zatwierdź wszystkie zmiany i Wdróż swój kod przy użyciu narzędzia Git lub 
 
 Jeśli chcesz, aby App Service uruchamiać popularne narzędzia automatyzacji w czasie wdrażania, takie jak grunt, Bower lub Gulp, musisz podać [niestandardowy skrypt wdrożenia](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service uruchamia ten skrypt podczas wdrażania przy użyciu usługi Git lub z włączonym [wdrożeniem zip](deploy-zip.md) z włączoną automatyzacją kompilacji. 
 
-Aby umożliwić repozytorium uruchamianie tych narzędzi, należy dodać je do zależności w *package.js.* Przykład:
+Aby umożliwić repozytorium uruchamianie tych narzędzi, należy dodać je do zależności w *package.js.* Na przykład:
 
 ```json
 "dependencies": {
@@ -262,7 +262,7 @@ Domyślny obraz PHP dla App Service korzysta z platformy Apache i nie pozwala na
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^/$
+    RewriteCond %{REQUEST_URI} ^(.*)
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
@@ -318,7 +318,7 @@ Alternatywą dla użycia pliku jest `.user.ini` użycie [ini_set ()](https://www
 
 Aby dostosować dyrektywy PHP_INI_USER, PHP_INI_PERDIR i PHP_INI_ALL (patrz [ dyrektywyphp.ini](https://www.php.net/manual/ini.list.php)), Dodaj plik *. htaccess* do katalogu głównego aplikacji.
 
-W pliku *. htaccess* Dodaj dyrektywy przy użyciu `php_value <directive-name> <value>` składni. Przykład:
+W pliku *. htaccess* Dodaj dyrektywy przy użyciu `php_value <directive-name> <value>` składni. Na przykład:
 
 ```
 php_value upload_max_filesize 1000M
@@ -469,7 +469,7 @@ Użyj narzędzia standardowego [error_log ()](https://php.net/manual/function.er
 Gdy działająca aplikacja PHP działa inaczej w App Service lub zawiera błędy, spróbuj wykonać następujące czynności:
 
 - [Dostęp do strumienia dzienników](#access-diagnostic-logs).
-- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikację w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Przykład:
+- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikację w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Na przykład:
     - W zależności od *composer.jsw systemie*można zainstalować różne pakiety dla trybu produkcyjnego ( `require` vs. `require-dev` ).
     - Niektóre platformy sieci Web mogą wdrażać pliki statyczne inaczej w trybie produkcyjnym.
     - Niektóre platformy sieci Web mogą używać niestandardowych skryptów uruchamiania podczas pracy w trybie produkcyjnym.

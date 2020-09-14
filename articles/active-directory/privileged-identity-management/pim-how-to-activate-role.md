@@ -14,18 +14,18 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1041cb5fc4aa7503f5ae9de6ffc74ba72052b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421403"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055456"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Aktywowanie ról usługi Azure AD w usłudze PIM
 
-Usługa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD oraz innych Usługi online, takich jak Office 365 czy Microsoft Intune.  
+Usługa Azure Active Directory (Azure AD) Privileged Identity Management (PIM) upraszcza zarządzanie dostępem uprzywilejowanym do zasobów w usłudze Azure AD oraz innych Usługi online takich jak Microsoft 365 i Microsoft Intune.  
 
-Jeśli masz uprawnienia kwalifikujące się do roli administracyjnej, należy aktywować przypisanie roli, gdy konieczne jest wykonanie uprzywilejowanych akcji. Na przykład w przypadku okresowego zarządzania funkcjami pakietu Office 365 Administratorzy ról uprzywilejowanych w organizacji mogą nie nakonywać stałego administratora globalnego, ponieważ rola ta ma wpływ na inne usługi. Zamiast tego uprawniają do skorzystania z ról usługi Azure AD, takich jak administrator usługi Exchange Online. Możesz zażądać aktywowania tej roli, gdy będzie potrzebne jej uprawnienia, a następnie będziesz mieć kontrolę administratora dla wstępnie wyznaczonych okresów.
+Jeśli masz uprawnienia kwalifikujące się do roli administracyjnej, należy aktywować przypisanie roli, gdy konieczne jest wykonanie uprzywilejowanych akcji. Na przykład w przypadku okresowego zarządzania funkcjami Microsoft 365 Administratorzy ról uprzywilejowanych w organizacji mogą nie nakonywać stałego administratora globalnego, ponieważ rola ta ma wpływ na inne usługi. Zamiast tego uprawniają do skorzystania z ról usługi Azure AD, takich jak administrator usługi Exchange Online. Możesz zażądać aktywowania tej roli, gdy będzie potrzebne jej uprawnienia, a następnie będziesz mieć kontrolę administratora dla wstępnie wyznaczonych okresów.
 
 Ten artykuł jest przeznaczony dla administratorów, którzy muszą aktywować swoją rolę usługi Azure AD w Privileged Identity Management.
 
@@ -118,7 +118,7 @@ Po aktywowaniu roli w Privileged Identity Management aktywacja może nie być na
 
 # <a name="previous-version"></a>[Poprzednia wersja](#tab/previous)
 
-## <a name="activate-a-role"></a>Aktywuj rolę
+## <a name="activate-a-role-previous-version"></a>Aktywuj rolę (poprzednia wersja)
 
 Gdy musisz wykonać tę rolę usługi Azure AD, możesz zażądać aktywacji przy użyciu opcji nawigacji **My role** w Privileged Identity Management.
 
@@ -168,7 +168,7 @@ Gdy musisz wykonać tę rolę usługi Azure AD, możesz zażądać aktywacji prz
 
     Jeśli [rola wymaga zatwierdzenia](./azure-ad-pim-approval-workflow.md) w celu aktywowania, w prawym górnym rogu przeglądarki zostanie wyświetlone powiadomienie z informacją, że żądanie oczekuje na zatwierdzenie.
 
-## <a name="view-the-status-of-your-requests"></a>Wyświetlanie stanu żądań
+## <a name="view-the-status-of-your-requests-previous-version"></a>Wyświetlanie stanu żądań (poprzednia wersja)
 
 Można wyświetlić stan oczekujących żądań, które należy aktywować.
 
@@ -180,7 +180,7 @@ Można wyświetlić stan oczekujących żądań, które należy aktywować.
 
     ![Role usługi Azure AD — moje żądania](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
-## <a name="deactivate-a-role"></a>Dezaktywowanie roli
+## <a name="deactivate-a-role-previous-version"></a>Dezaktywuj rolę (poprzednia wersja)
 
 Po aktywowaniu roli zostanie ona automatycznie zdezaktywowana, gdy zostanie osiągnięty limit czasu (uprawniony czas trwania).
 
@@ -196,7 +196,7 @@ W przypadku wczesnego wykonywania zadań administratora można także dezaktywow
 
 1. Znajdź rolę, której używasz, a następnie kliknij pozycję **Dezaktywuj**.
 
-## <a name="cancel-a-pending-request"></a>Anulowanie oczekującego żądania
+## <a name="cancel-a-pending-request-previous-version"></a>Anulowanie oczekującego żądania (poprzednia wersja)
 
 Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolnym momencie anulować oczekujące żądanie.
 
@@ -212,7 +212,7 @@ Jeśli nie wymagasz aktywacji roli wymagającej zatwierdzenia, możesz w dowolny
 
    ![Lista moje żądania z wyróżnionym przyciskiem Anuluj](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Rozwiązywanie problemów
+## <a name="troubleshoot-previous-version"></a>Rozwiązywanie problemów (poprzednia wersja)
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Nie udzielono uprawnień po aktywowaniu roli
 

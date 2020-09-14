@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5d90391dd5512b08ee6995a32bcd0b0f111b0f2b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542365"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053940"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>Udostępnianie i zgoda danych połączeń konta LinkedIn
 
@@ -73,7 +73,7 @@ Po nawiązaniu połączenia z kontami Microsoft i LinkedIn firma Microsoft może
 * Dane profilu — zawiera informacje, takie jak imię i nazwisko, nazwisko, zdjęcie profilu, adres e-mail, Menedżer i zarządzane przez siebie osoby.
 * Dane kalendarza — obejmuje spotkania w Twoich kalendarzach, ich godziny, lokalizacje i informacje kontaktowe uczestników. Informacje o spotkaniu, takie jak Agenda, zawartość lub tytuł spotkania, nie są uwzględniane w danych kalendarza.
 * Dane dotyczące zainteresowania — obejmuje interesy skojarzone z Twoim kontem w oparciu o korzystanie z usług firmy Microsoft, takich jak Cortana i Bing dla firm.
-* Dane subskrypcji — obejmuje subskrypcje udostępniane przez organizację do aplikacji i usług firmy Microsoft, takich jak Office 365.
+* Dane subskrypcji — obejmuje subskrypcje udostępniane przez organizację do aplikacji i usług firmy Microsoft, takich jak Microsoft 365.
 * Dane kontaktów — obejmują listy kontaktów w programie Outlook, Skypie i innych konto Microsoft usługach, w tym informacje kontaktowe dla osób, które często komunikują się lub wspólnie z nimi pracują. Kontakty będą okresowo importowane, przechowywane i używane przez serwis LinkedIn, na przykład w celu zasugerowania połączeń, ułatwienia organizowania kontaktów i wyświetlania aktualizacji dotyczących kontaktów.
 
 Dane, do których uzyskuje się dostęp z firmy Microsoft, nie są przechowywane trwale w serwisie LinkedIn, z wyjątkiem kontaktów. Kontakty firmy Microsoft są przechowywane w serwisie LinkedIn do momentu ich usunięcia przez użytkowników. Dowiedz się więcej [na temat usuwania zaimportowanych kontaktów z serwisu LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).

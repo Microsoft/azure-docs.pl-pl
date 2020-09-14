@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271009"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052390"
 ---
 # <a name="known-issues-application-provisioning"></a>Znane problemy: Inicjowanie obsługi aplikacji
 Znane problemy, które należy wziąć pod uwagę podczas pracy z obsługą aplikacji. Aby przekazać opinię na temat usługi Application Provisioning w witrynie UserVoice, zobacz temat [udostępnianie aplikacji usługi Azure AD](https://aka.ms/appprovisioningfeaturerequest)w usłudze UserVoice. Uważnie obserwujemy usługę UserVoice, abyśmy mogli ulepszyć usługi. 
@@ -66,7 +66,13 @@ Wyrażenia mapowania atrybutów mogą zawierać maksymalnie 10 000 znaków.
 - Zagnieżdżone grupy nie są obsługiwane. 
 - Inicjowanie obsługi dzierżaw B2C nie jest obsługiwane ze względu na rozmiar dzierżawców. 
 
-**Interwał aprowizacji został rozwiązany** [Czas](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) między cyklami aprowizacji nie jest obecnie konfigurowalny. 
+**Automatyczna obsługa administracyjna nie jest dostępna w aplikacji opartej na OIDC**
+
+Jeśli utworzysz rejestrację aplikacji, odpowiadająca jej jednostka usługi w aplikacjach dla przedsiębiorstw nie zostanie włączona w celu automatycznego aprowizacji użytkowników. Konieczne będzie zażądanie, aby aplikacja została dodana do galerii, jeśli ma być używana przez wiele organizacji, lub utworzyć drugą aplikację bez galerii do aprowizacji. 
+
+**Interwał aprowizacji został rozwiązany**
+
+[Czas](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) między cyklami aprowizacji nie jest obecnie konfigurowalny. 
 
 **Zmiany, które nie zostały przeniesione z aplikacji docelowej do usługi Azure AD**
 

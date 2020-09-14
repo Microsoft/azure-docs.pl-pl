@@ -12,18 +12,18 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b1f23d52b96e708a16adbbf6098de4b7ab0423e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069473"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052107"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Co to jest logowanie jednokrotne?
 
 Logowanie jednokrotne oznacza, że użytkownik nie musi logować się do każdej używanej aplikacji. Użytkownik loguje się raz, a poświadczenia są również używane dla innych aplikacji.
 
-Jeśli jesteś użytkownikiem końcowym, możesz nie zadbać o szczegóły dotyczące rejestracji jednokrotnej. Warto tylko korzystać z aplikacji, które zwiększają produktywność, bez konieczności pisania hasła. Aplikacje można znaleźć pod adresem: https://myapps.microsoft.com .
+Jeśli jesteś użytkownikiem końcowym, możesz nie zadbać o szczegóły dotyczące rejestracji jednokrotnej. Warto tylko korzystać z aplikacji, które zwiększają produktywność, bez konieczności pisania hasła. Aplikacje można znaleźć pod adresem: https://myapplications.microsoft.com .
  
 Jeśli jesteś administratorem lub informatykiem, przeczytaj artykuł, aby dowiedzieć się więcej o rejestracji jednokrotnej i sposobie jej implementacji na platformie Azure.
 

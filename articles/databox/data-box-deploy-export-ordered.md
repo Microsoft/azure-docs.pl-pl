@@ -2,18 +2,18 @@
 title: Samouczek dotyczący eksportowania danych z Azure Data Box | Microsoft Docs
 description: Informacje o wymaganiach wstępnych dotyczących wdrażania i sposobach eksportowania danych z Azure Data Box
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783624"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053058"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Samouczek: Tworzenie kolejności eksportu dla Azure Data Box (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    ![Tworzenie zasobu](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
    ![Utwórz Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
@@ -115,9 +115,20 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
    Aby zobaczyć przykład danych wejściowych XML, zobacz [przykładowe dane wejściowe XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. W **obszarze Wybór danych**przejrzyj ustawienia, a następnie wybierz pozycję **Dalej: szczegóły kontaktu>**.
+9. W **obszarze Wybór danych**przejrzyj ustawienia, a następnie wybierz pozycję **dalej: zabezpieczenia>**.
 
    ![Dane kontaktowe](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. W obszarze **zabezpieczenia**, jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**. 
+
+   Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
+
+   > [!NOTE]
+   > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
+
+   ![Ekran zabezpieczenia dla importu pola danych, podwójne szyfrowanie](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
 
 10. W obszarze **szczegóły kontaktu**wybierz pozycję **+ Dodaj adres wysyłkowy** , aby wprowadzić informacje o wysyłce.
 
@@ -157,7 +168,7 @@ W przypadku wybrania opcji **Użyj pliku XML**można określić określone konte
 
    ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
    ![Plik XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 

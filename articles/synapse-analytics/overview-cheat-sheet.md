@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3141f8044a4a257de8022ff789b12d5d3e6e7a90
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 0e4b96092107e3411f33411f1044fd7cc839f132
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807030"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052000"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
 
@@ -22,13 +22,16 @@ ms.locfileid: "85807030"
 
 Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podstawowe pojęcia związane z usługą i ważnymi poleceniami. Ten artykuł jest pomocny w przypadku nowych osób, które chcą uzyskać najważniejsze tematy dotyczące usługi Azure Synapse.
 
-## <a name="architecture"></a>Architektura
+## <a name="basics"></a>Podstawy
 
-> [!div class="mx-imgBorder"]
->![Architektura Synapse](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
+**Obszar roboczy Synapse** to zabezpieczana granica współpracy służąca do przeprowadzania analiz przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLS Gen2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów.
 
+Obszar roboczy umożliwia wykonywanie analiz przy użyciu programów SQL i Apache Spark. Zasoby dostępne dla usługi SQL i platformy Spark Analytics są zorganizowane w **Pule**. Istnieją trzy rodzaje pul.
+* **Pule SQL**. Zapewniają one **dedykowaną** pojemność analityczną SQL.
+* **Pula na żądanie SQL**. Każdy obszar roboczy ma dokładnie jedną pulę na żądanie SQL. Zapewnia to **bezserwerową** wydajność analizy SQL dla poszczególnych zapytań.
+* **Pule platformy Spark**. Zapewniają one wydajność analizy platformy Spark.
 ## <a name="terminology"></a>Terminologia
-| Termin                         | Definicja      |
+| Okres                         | Definicja      |
 |:---                                 |:---                 |
 | **Obszar roboczy Synapse** | Jest to zabezpieczana granica współpracy na potrzeby przeprowadzania analiz przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLS Gen2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów. |
 | **Synapse SQL**   | Uruchom analizę z pulami lub z możliwościami na żądanie.  |
@@ -45,11 +48,11 @@ Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podst
 |**Definicja zadania platformy Spark**|Interfejs do przesyłania zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.|
 |**Przepływ danych**|  Zapewnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy. |
 |**Skrypt SQL**| Zestaw poleceń SQL zapisanych w pliku. Skrypt SQL może zawierać jedną lub więcej instrukcji SQL. Może służyć do uruchamiania żądań SQL za poorednictwem puli SQL lub SQL na żądanie.|
-|**Proces**| Logiczne grupowanie działań, które wspólnie wykonują zadanie.|
+|**Potok**| Logiczne grupowanie działań, które wspólnie wykonują zadanie.|
 |**Działanie**| Definiuje akcje do wykonania na danych, takich jak kopiowanie danych, uruchamianie notesu lub skryptu SQL.|
 |**Wyzwalacz**| Wykonuje potok. Może być uruchamiany ręcznie lub automatycznie (harmonogram, wirowania okno lub zdarzenia).|
 |**Połączona usługa**| Parametry połączenia, które definiują informacje o połączeniu, które są konieczne do nawiązania połączenia z zasobami zewnętrznymi.|
-|**Dataset**|  Nazwany widok danych, który po prostu wskazuje lub odwołuje się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.|
+|**Zestaw danych**|  Nazwany widok danych, który po prostu wskazuje lub odwołuje się do danych, które mają być używane w działaniu jako dane wejściowe i wyjściowe. Należy do połączonej usługi.|
 
 ## <a name="next-steps"></a>Następne kroki
 

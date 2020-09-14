@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200136"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053457"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Rozwiązywanie problemów związanych z Azure Data Box i Azure Data Box Heavy
 
@@ -33,7 +33,7 @@ Błędy w urządzenie Data Box i Data Box Heavy zostały podsumowane w następuj
 | Typ danych lub plików | Format danych lub typ pliku nie są obsługiwane. |Pobierz listy błędów. <br> W przypadku stronicowych obiektów blob lub dysków zarządzanych upewnij się, że dane są 512-bajtowe wyrównane i skopiowane do wstępnie utworzonych folderów. [Dowiedz się więcej](#data-or-file-type-errors). |
 | Niekrytyczne obiekty blob lub błędy plików  | Nazwy obiektów blob lub plików nie są zgodne z regułami nazewnictwa platformy Azure lub typ pliku nie jest obsługiwany. | Te obiekty blob lub pliki nie mogą być kopiowane lub można zmienić nazwy. [Dowiedz się, jak naprawić te błędy](#non-critical-blob-or-file-errors). |
 
-\*Pierwsze cztery kategorie błędów są błędami krytycznymi i muszą zostać naprawione przed rozpoczęciem przygotowywania do wysłania.
+\* Pierwsze cztery kategorie błędów są błędami krytycznymi i muszą zostać naprawione przed rozpoczęciem przygotowywania do wysłania.
 
 
 ## <a name="container-or-share-name-errors"></a>Błędy nazwy kontenera lub udziału
@@ -53,8 +53,8 @@ Są to błędy związane z nazwami kontenerów i udziałów.
     - Nazwy mogą zawierać tylko litery, cyfry i łączniki.
     - Nazwy nie mogą rozpoczynać się ani kończyć znakiem łączników.
     - Nazwy nie mogą mieć kolejnych łączników.
-    - Przykłady prawidłowych nazw: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` ,`myfolder!`
+    - Przykłady prawidłowych nazw: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` , `myfolder!`
 
     Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [nazw kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) i [nazw udziałów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -72,8 +72,8 @@ Są to błędy związane z nazwami kontenerów i udziałów.
     - Nazwy mogą zawierać tylko litery, cyfry i łączniki.
     - Nazwy nie mogą rozpoczynać się ani kończyć znakiem łączników.
     - Nazwy nie mogą mieć kolejnych łączników.
-    - Przykłady prawidłowych nazw: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` ,`myfolder!`
+    - Przykłady prawidłowych nazw: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` , `myfolder!`
 
     Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [nazw kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) i [nazw udziałów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -90,8 +90,8 @@ Są to błędy związane z nazwami kontenerów i udziałów.
     - Nazwy mogą zawierać tylko litery, cyfry i łączniki.
     - Nazwy nie mogą rozpoczynać się ani kończyć znakiem łączników.
     - Nazwy nie mogą mieć kolejnych łączników.
-    - Przykłady prawidłowych nazw: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` ,`myfolder!`
+    - Przykłady prawidłowych nazw: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Przykłady nieprawidłowych nazw: `my-folder_1` , `my` ,, `--myfolder` `myfolder--` , `myfolder!`
 
     Aby uzyskać więcej informacji, zobacz Konwencje nazewnictwa platformy Azure dla [nazw kontenerów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) i [nazw udziałów](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
@@ -112,13 +112,17 @@ Są to błędy związane z danymi przekraczającymi rozmiar danych dozwolonych w
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Opis błędu:** Udział plików platformy Azure ogranicza udział do 5 TB danych. Ten limit został przekroczony dla niektórych udziałów.
+**Opis błędu:** Udział plików platformy Azure ogranicza udział do 5 TiB danych, a na koncie magazynu nie są włączone duże udziały plików. Ten limit został przekroczony dla niektórych udziałów.
 
 **Sugerowane rozwiązanie:** Na stronie **łączenie i kopiowanie** w lokalnym interfejsie użytkownika sieci Web Pobierz i Przejrzyj pliki błędów.
 
-Zidentyfikuj foldery, których ten problem dotyczy, z dzienników błędów i upewnij się, że pliki w tym folderze znajdują się pod 5 TB.
-
-
+- Zidentyfikuj foldery, które mają ten problem z dzienników błędów i upewnij się, że pliki w tym folderze znajdują się poniżej 5 TiB.
+- Limit 5 TiB nie ma zastosowania do konta magazynu, które zezwala na duże udziały plików. Jednak podczas umieszczania zamówienia trzeba mieć skonfigurowane duże udziały plików. 
+  - Skontaktuj się z firmą [Pomoc techniczna firmy Microsoft](data-box-disk-contact-microsoft-support.md) i zażądaj nowej etykiety wysyłkowej.
+  - [Włącz duże udziały plików na koncie magazynu.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Rozwiń udziały plików na koncie magazynu](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) i ustaw limit przydziału na 100 TIB.
+  
+  
 ## <a name="object-or-file-size-limit-errors"></a>Błędy limitu rozmiaru obiektu lub pliku
 
 Są to błędy związane z danymi przekraczającymi maksymalny rozmiar obiektu lub plik, który jest dozwolony na platformie Azure. 

@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager grupy woluminów | Microsoft Docs
 description: Opisuje sposób używania przystawki StorSimple Snapshot Manager MMC do tworzenia grup woluminów i zarządzania nimi.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506263"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054776"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Tworzenie grup woluminów i zarządzanie nimi za pomocą StorSimple Snapshot Manager
 ## <a name="overview"></a>Omówienie
@@ -52,7 +52,7 @@ Po kliknięciu węzła **grupy woluminów** w okienku **wyników** zostaną wyś
 |:--- |:--- |
 | Nazwa |Kolumna **name** zawiera nazwę grupy woluminów. |
 | Aplikacja |W kolumnie **aplikacje** jest wyświetlana liczba modułów ZAPISUJĄCYCH usługi VSS aktualnie zainstalowanych i uruchomionych na hoście z systemem Windows. |
-| Wybrano |W **zaznaczonej** kolumnie jest wyświetlana liczba woluminów znajdujących się w grupie woluminów. Zero (0) oznacza, że żadna aplikacja nie jest skojarzona z woluminami w grupie woluminów. |
+| Wybrane |W **zaznaczonej** kolumnie jest wyświetlana liczba woluminów znajdujących się w grupie woluminów. Zero (0) oznacza, że żadna aplikacja nie jest skojarzona z woluminami w grupie woluminów. |
 | Importu |**Zaimportowana** kolumna pokazuje liczbę zaimportowanych woluminów. Po ustawieniu na **wartość true**ta kolumna wskazuje, że grupa woluminów została zaimportowana z Azure Portal i nie została utworzona w Snapshot Manager StorSimple. |
 
 > [!NOTE]
@@ -72,7 +72,7 @@ Aby utworzyć grupę woluminów, należy wykonać poniższą procedurę.
     Zostanie wyświetlone okno dialogowe **Tworzenie grupy woluminów** .
    
     ![Okno dialogowe Tworzenie grupy woluminów](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
-3. Wprowadź następujące informacje.
+3. Wprowadź następujące informacje:
    
    1. W polu **Nazwa** wpisz unikatową nazwę nowej grupy woluminów.
    2. W polu **aplikacje** wybierz pozycję Aplikacje skojarzone z woluminami, które zostaną dodane do grupy woluminów.

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213731"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054402"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Szybki Start: Ustawianie Microsoft 365ych grup do wygaśnięcia w Azure Active Directory
 
@@ -33,7 +33,7 @@ Zasady wygasania są proste:
 - Usunięta Grupa Microsoft 365 może zostać przywrócona w ciągu 30 dni przez właściciela grupy lub przez administratora usługi Azure AD
 
 > [!NOTE]
-> Grupy teraz używają usługi Azure AD Intelligence do automatycznego odnawiania w zależności od tego, czy zostały one ostatnio użyte. Ta decyzja o odnowieniu jest oparta na aktywności użytkownika w grupach w ramach usług Office 365, takich jak Outlook, SharePoint, Teams, Yammer i inne.
+> Grupy teraz używają usługi Azure AD Intelligence do automatycznego odnawiania w zależności od tego, czy zostały one ostatnio użyte. Ta decyzja o odnowieniu jest oparta na aktywności użytkownika w grupach w ramach usług Microsoft 365, takich jak Outlook, SharePoint, Teams, Yammer i inne.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 

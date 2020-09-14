@@ -3,7 +3,7 @@ title: Zarządzanie urządzeniami za pomocą StorSimple Snapshot Manager | Micro
 description: Opisuje sposób używania przystawki StorSimple Snapshot Manager MMC do łączenia urządzeń StorSimple i zarządzania nimi.
 services: storsimple
 documentationcenter: ''
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: ab9f34995cea0dee39fa002f0472298a31b9a48e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513982"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054854"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Używanie Snapshot Manager StorSimple do nawiązywania połączeń z urządzeniami StorSimple i zarządzania nimi
 ## <a name="overview"></a>Omówienie
@@ -83,7 +83,7 @@ Aby dodać lub zastąpić urządzenie StorSimple, należy wykonać poniższą pr
    
     ![Konfigurowanie urządzenia StorSimple](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 3. W polu listy rozwijanej **urządzenie** wybierz adres IP urządzenia lub urządzenia wirtualnego. 
-4. W polu tekstowym **hasło** wpisz hasło StorSimple Snapshot Manager utworzone dla urządzenia w klasycznym portalu Azure. Kliknij przycisk **OK**. StorSimple Snapshot Manager wyszukuje zidentyfikowane urządzenie. 
+4. W polu tekstowym **hasło** wpisz hasło StorSimple Snapshot Manager utworzone dla urządzenia w klasycznym portalu Azure. Kliknij pozycję **OK**. StorSimple Snapshot Manager wyszukuje zidentyfikowane urządzenie. 
    
    * Jeśli urządzenie jest dostępne, StorSimple Snapshot Manager dodaje połączenie.
    * Jeśli urządzenie jest niedostępne z jakiegokolwiek powodu, StorSimple Snapshot Manager zwraca komunikat o błędzie. Kliknij przycisk **OK** , aby zamknąć komunikat o błędzie, a następnie kliknij przycisk **Anuluj** , aby zamknąć okno dialogowe **Konfigurowanie urządzenia** .
@@ -101,7 +101,7 @@ Aby połączyć urządzenie z systemem StorSimple i sprawdzić, czy są importow
 3. Kliknij prawym przyciskiem myszy górny węzeł w okienku **zakres** , a następnie kliknij pozycję **Przełącz Importy**.
    
     ![Wybierz pozycję Przełącz Importy](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
-4. Wyświetlane jest okno dialogowe **Przełącz Importy** , pokazujące stan zaimportowanych grup woluminów i kopii zapasowych. Kliknij przycisk **OK**.
+4. Wyświetlane jest okno dialogowe **Przełącz Importy** , pokazujące stan zaimportowanych grup woluminów i kopii zapasowych. Kliknij pozycję **OK**.
 
 Po pomyślnym zaimportowaniu grup woluminów i kopii zapasowych możesz zarządzać nimi za pomocą StorSimple Snapshot Manager, tak jak w przypadku zarządzania grupami woluminów i kopiami zapasowymi utworzonymi i skonfigurowanymi przy użyciu StorSimple Snapshot Manager. 
 
@@ -206,7 +206,7 @@ Jeśli urządzenie StorSimple ulegnie awarii i zostanie zastąpione przez urząd
 4. Uruchom StorSimple Snapshot Manager.
 5. Aby skonfigurować nowe urządzenie StorSimple, wykonaj kroki opisane w sekcji Krok 2. Łączenie urządzenia StorSimple w programie [Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Kliknij prawym przyciskiem myszy węzeł najwyższego poziomu w okienku **zakres** (StorSimple Snapshot Manager w przykładzie), a następnie kliknij pozycję **Przełącz Importy**. 
-7. Komunikat pojawia się, gdy zaimportowane grupy woluminów i kopie zapasowe są widoczne w StorSimple Snapshot Manager. Kliknij przycisk **OK**.
+7. Komunikat pojawia się, gdy zaimportowane grupy woluminów i kopie zapasowe są widoczne w StorSimple Snapshot Manager. Kliknij pozycję **OK**.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [używać Snapshot Manager StorSimple do administrowania rozwiązaniem StorSimple](storsimple-snapshot-manager-admin.md).

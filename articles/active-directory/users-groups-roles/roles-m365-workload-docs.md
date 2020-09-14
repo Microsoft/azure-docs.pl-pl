@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14d5b458aeccd2587f24b30548c4b5e76912bce1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6060bc286024183661024abd56567eeefed76430
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798282"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053552"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Role administratorów dla usług Microsoft 365 Services
 
@@ -29,10 +29,10 @@ Wszystkie produkty w Microsoft 365 mogą być zarządzane przy użyciu ról admi
 
 Usługa Microsoft 365 | Zawartość roli | Zawartość interfejsu API
 ---------------------- | ------------------ | -----------------
-Role administratora w pakietach Office 365 i Microsoft 365 planach biznesowych | [Role administratora usługi Office 365](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Niedostępne
+Role administratora w pakietach Office 365 i Microsoft 365 planach biznesowych | [Microsoft 365 ról administratorów](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Niedostępne
 Azure Active Directory (Azure AD) i Azure AD Identity Protection| [Role administratora usługi Azure AD](directory-assign-admin-roles.md) | [Interfejs API programu Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Exchange Online| [Kontrola dostępu oparta na rolach programu Exchange](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [Program PowerShell dla programu Exchange](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Pobieranie przypisań ról](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
-SharePoint Online | [Role administratora usługi Azure AD](directory-assign-admin-roles.md)<br>Także [rola administratora programu SharePoint w pakiecie Office 365](/sharepoint/sharepoint-admin-role) | [Interfejs API programu Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](/graph/api/directoryrole-list?view=graph-rest-1.0)
+SharePoint Online | [Role administratora usługi Azure AD](directory-assign-admin-roles.md)<br>Ponadto [rola administratora programu SharePoint w Microsoft 365](/sharepoint/sharepoint-admin-role) | [Interfejs API programu Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Zespoły/Skype dla firm | [Role administratora usługi Azure AD](directory-assign-admin-roles.md) | [Interfejs API programu Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Security & — Centrum zgodności (Office 365 Advanced Threat Protection, Exchange Online Protection, Information Protection) | [Role administratora usługi Office 365](/office365/SecurityCompliance/permissions-in-the-security-and-compliance-center) | [Program Exchange PowerShell](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Pobieranie przypisań ról](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
 Wynik zabezpieczony | [Role administratora usługi Azure AD](directory-assign-admin-roles.md) | [Interfejs API programu Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Pobieranie przypisań ról](/graph/api/directoryrole-list?view=graph-rest-1.0)

@@ -3,7 +3,7 @@ title: Wdróż StorSimple Snapshot Manager | Microsoft Docs
 description: Dowiedz się, jak pobrać i zainstalować Snapshot Manager StorSimple, przystawkę programu MMC do zarządzania funkcjami ochrony danych StorSimple i tworzenia kopii zapasowych.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75933379"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055082"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Wdróż przystawkę StorSimple Snapshot Manager MMC
 
@@ -117,7 +117,7 @@ Aby nawiązać połączenie z usługą StorSimple Snapshot Manager z urządzenie
 2. W okienku **zakres** kliknij prawym przyciskiem myszy węzeł **urządzenia** , a następnie kliknij polecenie **Konfiguruj urządzenie**. Zostanie wyświetlone okno dialogowe **Konfigurowanie urządzenia** .
    
     ![Konfigurowanie urządzenia](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
-3. W polu Lista **urządzeń** wybierz adres IP urządzenia Microsoft Azure StorSimple lub urządzenia wirtualnego. W polu tekstowym **hasło** wpisz StorSimple Snapshot Manager hasło, które zostało utworzone dla urządzenia w Azure Portal. Kliknij przycisk **OK**.
+3. W polu Lista **urządzeń** wybierz adres IP urządzenia Microsoft Azure StorSimple lub urządzenia wirtualnego. W polu tekstowym **hasło** wpisz StorSimple Snapshot Manager hasło, które zostało utworzone dla urządzenia w Azure Portal. Kliknij pozycję **OK**.
 4. StorSimple Snapshot Manager wyszukuje zidentyfikowane urządzenie. Jeśli urządzenie jest dostępne, StorSimple Snapshot Manager dodaje połączenie. Możesz [sprawdzić połączenie z urządzeniem](#to-verify-the-connection) , aby upewnić się, że połączenie zostało pomyślnie dodane.
    
     Jeśli urządzenie jest niedostępne z jakiegokolwiek powodu, StorSimple Snapshot Manager zwraca komunikat o błędzie. Kliknij przycisk **OK** , aby zamknąć komunikat o błędzie, a następnie kliknij przycisk **Anuluj** , aby zamknąć okno dialogowe **Konfigurowanie urządzenia** .

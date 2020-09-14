@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 1ba383b99b8265e01cf757bfb1589a86a934e0e3
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503792"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053875"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -104,20 +104,22 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Utwórz grupę zasobów.**
+2. **Utwórz grupę zasobów.**
 
-    Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
+Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi. Podczas tworzenia grupy zasobów użytkownik jest proszony o określenie lokalizacji. Ta lokalizacja wskazuje, gdzie są przechowywane metadane grupy zasobów, a także czy zasoby są uruchamiane na platformie Azure, jeśli nie określisz innego regionu podczas tworzenia zasobów. Utwórz grupę zasobów przy użyciu polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
     
-> [!NOTE]
+> [!NOTE] 
 > Usługa Azure Red Hat OpenShift nie jest dostępna we wszystkich regionach, w których można utworzyć grupę zasobów platformy Azure. Zobacz [dostępne regiony](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) , aby uzyskać informacje na temat tego, gdzie jest obsługiwana usługa Azure Red Hat OpenShift.
 
-    ```azurecli-interactive
-    az group create --name $RESOURCEGROUP --location $LOCATION
-    ```
+```azurecli-interactive
+az group create \
+  --name $RESOURCEGROUP \
+  --location $LOCATION
+```
 
-    The following example output shows the resource group created successfully:
+Następujące przykładowe dane wyjściowe przedstawiają pomyślnie utworzoną grupę zasobów:
 
-    ```json
+```json
     {
     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
     "location": "eastus",
@@ -128,24 +130,24 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
     },
     "tags": null
     }
-    ```
+```
 
-2. **Utwórz sieć wirtualną.**
+3. **Utwórz sieć wirtualną.**
 
-    Klastry usługi Azure Red Hat OpenShift z systemem OpenShift 4 wymagają sieci wirtualnej z dwiema pustymi podsieciami dla węzłów głównych i procesów roboczych.
+Klastry usługi Azure Red Hat OpenShift z systemem OpenShift 4 wymagają sieci wirtualnej z dwiema pustymi podsieciami dla węzłów głównych i procesów roboczych.
 
-    Utwórz nową sieć wirtualną w tej samej grupie zasobów, która została utworzona wcześniej:
+Utwórz nową sieć wirtualną w tej samej grupie zasobów, która została utworzona wcześniej:
 
-    ```azurecli-interactive
-    az network vnet create \
-    --resource-group $RESOURCEGROUP \
-    --name aro-vnet \
-    --address-prefixes 10.0.0.0/22
-    ```
+```azurecli-interactive
+az network vnet create \
+   --resource-group $RESOURCEGROUP \
+   --name aro-vnet \
+   --address-prefixes 10.0.0.0/22
+```
 
-    Następujące przykładowe dane wyjściowe pokazują, że sieć wirtualna została utworzona pomyślnie:
+Następujące przykładowe dane wyjściowe pokazują, że sieć wirtualna została utworzona pomyślnie:
 
-    ```json
+```json
     {
     "newVNet": {
         "addressSpace": {
@@ -161,9 +163,9 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
         "type": "Microsoft.Network/virtualNetworks"
     }
     }
-    ```
+```
 
-3. **Dodaj pustą podsieć dla węzłów głównych.**
+4. **Dodaj pustą podsieć dla węzłów głównych.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -174,7 +176,7 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Dodaj pustą podsieć dla węzłów procesu roboczego.**
+5. **Dodaj pustą podsieć dla węzłów procesu roboczego.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -185,7 +187,7 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Wyłącz zasady prywatnego punktu końcowego podsieci](../private-link/disable-private-link-service-network-policy.md) w podsieci głównej.** Jest to wymagane, aby mieć możliwość nawiązywania połączenia z klastrem i zarządzania nim.
+6. **[Wyłącz zasady prywatnego punktu końcowego podsieci](../private-link/disable-private-link-service-network-policy.md) w podsieci głównej.** Jest to wymagane, aby mieć możliwość nawiązywania połączenia z klastrem i zarządzania nim.
 
     ```azurecli-interactive
     az network vnet subnet update \

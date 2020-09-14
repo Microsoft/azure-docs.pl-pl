@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e294aa2580dd9f0cceb539a2696e7ebbf08c4afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051017"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052753"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Funkcje i licencje dla usługi Azure Multi-Factor Authentication
 
@@ -41,7 +41,7 @@ Usługi Azure Multi-Factor Authentication mogą być używane i licencjonowane n
 
 Poniższa tabela zawiera listę funkcji, które są dostępne w różnych wersjach systemu Azure Multi-Factor Authentication. Zaplanuj potrzeby zabezpieczania uwierzytelniania użytkowników, a następnie ustal, które podejście spełnia te wymagania. Na przykład, chociaż Azure AD — wersja Bezpłatna zapewnia domyślne ustawienia zabezpieczeń, które udostępniają usługę Azure Multi-Factor Authentication, do monitu uwierzytelniania można używać tylko aplikacji do zarządzania urządzeniami przenośnymi, a nie połączeń telefonicznych ani wiadomości SMS. Takie podejście może być ograniczeniem, jeśli nie można zagwarantować, że aplikacja do uwierzytelniania mobilnego jest zainstalowana na urządzeniu osobistym użytkownika.
 
-| Cechy | Azure AD — wersja Bezpłatna — domyślne ustawienia zabezpieczeń | Azure AD — wersja Bezpłatna — Administratorzy globalni usługi Azure AD | Aplikacje pakietu Office 365 | Azure AD — wersja Premium P1 lub P2 |
+| Cechy | Azure AD — wersja Bezpłatna — domyślne ustawienia zabezpieczeń | Azure AD — wersja Bezpłatna — Administratorzy globalni usługi Azure AD | Aplikacje Microsoft 365 | Azure AD — wersja Premium P1 lub P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Ochrona kont administratorów dzierżawy usługi Azure AD za pomocą uwierzytelniania wieloskładnikowego | ● | ● (Tylko konta*administratora globalnego usługi Azure AD* ) | ● | ● |
 | Aplikacja mobilna jako drugi składnik | ● | ● | ● | ● |
@@ -58,7 +58,7 @@ Poniższa tabela zawiera listę funkcji, które są dostępne w różnych wersja
 
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Kupowanie i Włączanie usługi Azure Multi-Factor Authentication
 
-Aby korzystać z usługi Azure Multi-Factor Authentication, zarejestruj się lub Kup kwalifikującą się warstwę usługi Azure AD. Usługa Azure AD jest dostępna w czterech wersjach — bezpłatnych, aplikacjach pakietu Office 365, Premium P1 i Premium P2.
+Aby korzystać z usługi Azure Multi-Factor Authentication, zarejestruj się lub Kup kwalifikującą się warstwę usługi Azure AD. Usługa Azure AD jest dostępna w czterech wersjach — bezpłatnych, Microsoft 365 aplikacjach, Premium P1 i Premium P2.
 
 Wersja bezpłatna jest oferowana w ramach subskrypcji platformy Azure. Zapoznaj się z [sekcją poniżej](#azure-ad-free-tier) , aby uzyskać informacje na temat korzystania z domyślnych ustawień zabezpieczeń lub ochrony kont przy użyciu roli *administratora globalnego usługi Azure AD* .
 

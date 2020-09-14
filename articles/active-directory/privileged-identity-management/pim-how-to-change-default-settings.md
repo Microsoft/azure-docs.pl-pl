@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a42cdfbf251e24ed2b59adca1a73b4dfe427a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420009"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055490"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurowanie ustawień roli usługi Azure AD w Privileged Identity Management
 
@@ -123,7 +123,7 @@ W przypadku ustawienia wielu osób zatwierdzających zatwierdzenie zostanie zako
 
 # <a name="previous-version"></a>[Poprzednia wersja](#tab/previous)
 
-## <a name="open-role-settings"></a>Otwórz ustawienia roli
+## <a name="open-role-settings-previous-version"></a>Otwórz ustawienia roli (poprzednia wersja)
 
 Wykonaj następujące kroki, aby otworzyć ustawienia roli usługi Azure AD.
 
@@ -168,7 +168,7 @@ Użyj przełącznika **bilet zdarzeń/żądania** , aby wymagać od uprawnionych
 Użyj przełącznika **Multi-Factor Authentication** , aby określić, czy użytkownicy muszą weryfikować swoją tożsamość za pomocą usługi MFA, zanim będą mogli aktywować swoje role. Muszą oni tylko weryfikować swoją tożsamość tylko raz na sesję, a nie za każdym razem, gdy aktywują rolę. Po włączeniu usługi MFA należy wziąć pod uwagę dwie wskazówki:
 
 - Użytkownicy, którzy mają konta Microsoft dla swoich adresów e-mail (zazwyczaj @outlook.com ale nie zawsze), nie mogą zarejestrować się w usłudze Azure Multi-Factor Authentication. Jeśli chcesz przypisać role do użytkowników z kontami Microsoft, należy udostępnić im trwałych administratorów lub wyłączyć uwierzytelnianie wieloskładnikowe dla tej roli.
-- Nie można wyłączyć usługi Azure Multi-Factor Authentication dla ról o wysokim poziomie uprawnień dla usług Azure AD i Office 365. Ta funkcja zabezpieczeń pomaga chronić następujące role:  
+- Nie można wyłączyć usługi Azure Multi-Factor Authentication dla ról o wysokim poziomie uprawnień dla usługi Azure AD i Microsoft 365. Ta funkcja zabezpieczeń pomaga chronić następujące role:  
   
   - Azure Information Protection administrator
   - Administrator rozliczeń

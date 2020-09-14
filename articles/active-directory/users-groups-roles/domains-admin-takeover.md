@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015888"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054708"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejmowanie katalogu niezarządzanego jako administrator w usłudze Azure Active Directory
 
@@ -34,7 +34,7 @@ Podczas procesu przejęcia przez administratora możesz udowodnić własność w
 
 ## <a name="internal-admin-takeover"></a>Przejęcie przez administratora wewnętrznego
 
-Niektóre produkty, które obejmują programy SharePoint i OneDrive, takie jak Office 365, nie obsługują przejęcia zewnętrznego. Jeśli jesteś Twoim scenariuszem lub jesteś administratorem i chcesz przejąć organizację usługi Azure AD niezarządzaną lub "w tle" dla użytkowników korzystających z rejestracji samoobsługowej, możesz to zrobić przy użyciu wewnętrznego przejęcia administratora.
+Niektóre produkty, które obejmują programy SharePoint i OneDrive, takie jak Microsoft 365, nie obsługują przejęcia zewnętrznego. Jeśli jesteś Twoim scenariuszem lub jesteś administratorem i chcesz przejąć organizację usługi Azure AD niezarządzaną lub "w tle" dla użytkowników korzystających z rejestracji samoobsługowej, możesz to zrobić przy użyciu wewnętrznego przejęcia administratora.
 
 1. Utwórz kontekst użytkownika w organizacji niezarządzanej za pomocą rejestracji w usłudze Power BI. W przypadku wygody przykładu te kroki zakładają tę ścieżkę.
 
@@ -52,7 +52,7 @@ Niektóre produkty, które obejmują programy SharePoint i OneDrive, takie jak O
 
 Gdy rekordy TXT DNS są weryfikowane na rejestratorze nazw domen, można zarządzać organizacją usługi Azure AD.
 
-Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwartej organizacji kawowej w pakiecie Office 365. Aby zintegrować nazwę domeny z innymi usługami platformy Azure, możesz usunąć ją z pakietu Office 365 i dodać ją do innej organizacji zarządzanej na platformie Azure.
+Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwartej organizacji kawowej w Microsoft 365. Aby zintegrować nazwę domeny z innymi usługami platformy Azure, możesz usunąć ją z Microsoft 365 i dodać do innej organizacji zarządzanej na platformie Azure.
 
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Dodawanie nazwy domeny do zarządzanej organizacji w usłudze Azure AD
 
@@ -61,9 +61,9 @@ Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwar
 3. Upewnij się, że nowe konto użytkownika ma uprawnienia administratora globalnego dla organizacji usługi Azure AD.
 4. Otwórz kartę **domeny** w centrum administracyjnym Microsoft 365, wybierz nazwę domeny i wybierz pozycję **Usuń**. 
   
-   ![Usuń nazwę domeny z pakietu Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Usuń nazwę domeny z Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Jeśli w pakiecie Office 365 istnieją wszyscy użytkownicy lub grupy, które odwołują się do usuniętej nazwy domeny, należy zmienić ich nazwy na domenę. onmicrosoft.com. Jeśli wymusisz usunięcie nazwy domeny, wszyscy użytkownicy będą automatycznie zmieniać nazwy, w tym przykładzie *do \@ fourthcoffeexyz.onmicrosoft.com użytkownika*.
+5. Jeśli w Microsoft 365 znajdują się wszyscy użytkownicy lub grupy, które odwołują się do usuniętej nazwy domeny, należy zmienić ich nazwy na domenę. onmicrosoft.com. Jeśli wymusisz usunięcie nazwy domeny, wszyscy użytkownicy będą automatycznie zmieniać nazwy, w tym przykładzie *do \@ fourthcoffeexyz.onmicrosoft.com użytkownika*.
   
 6. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym dla organizacji usługi Azure AD.
   
@@ -72,11 +72,11 @@ Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwar
    ![domena została zweryfikowana jako dodana do usługi Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Wszyscy użytkownicy Power BI lub usługi Azure Rights Management, którzy mają licencje przypisane w organizacji pakietu Office 365, muszą zapisać swoje pulpity nawigacyjne, jeśli nazwa domeny zostanie usunięta. Muszą oni zalogować się przy użyciu nazwy użytkownika, takiej jak *user \@ fourthcoffeexyz.onmicrosoft.com* zamiast *User \@ fourthcoffee. xyz*.
+> Wszyscy użytkownicy Power BI lub usługi Azure Rights Management, którzy mają przypisane licencje w organizacji Microsoft 365, muszą zapisać swoje pulpity nawigacyjne, jeśli nazwa domeny zostanie usunięta. Muszą oni zalogować się przy użyciu nazwy użytkownika, takiej jak *user \@ fourthcoffeexyz.onmicrosoft.com* zamiast *User \@ fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Przejęcie przez administratora zewnętrznego
 
-Jeśli zarządzasz już organizacją przy użyciu usług platformy Azure lub pakietu Office 365, nie możesz dodać niestandardowej nazwy domeny, jeśli została ona już zweryfikowana w innej organizacji usługi Azure AD. Jednak z organizacji zarządzanej w usłudze Azure AD można przejąć niezarządzaną organizację jako przejęcie zewnętrzną przez administratora. Ogólna procedura jest następująca: [Dodawanie domeny niestandardowej do usługi Azure AD](../fundamentals/add-custom-domain.md).
+Jeśli zarządzasz już organizacją przy użyciu usług platformy Azure lub Microsoft 365, nie możesz dodać niestandardowej nazwy domeny, jeśli została ona już zweryfikowana w innej organizacji usługi Azure AD. Jednak z organizacji zarządzanej w usłudze Azure AD można przejąć niezarządzaną organizację jako przejęcie zewnętrzną przez administratora. Ogólna procedura jest następująca: [Dodawanie domeny niestandardowej do usługi Azure AD](../fundamentals/add-custom-domain.md).
 
 Po sprawdzeniu własności nazwy domeny usługa Azure AD usuwa nazwę domeny z niezarządzanej organizacji i przenosi ją do istniejącej organizacji. Przejęcie zewnętrzną przez administratora niezarządzanego katalogu wymaga tego samego procesu weryfikacji nazw DNS w ramach przejęcia przez administratora wewnętrznego. Różnica polega na tym, że następujące są również przenoszone za pomocą nazwy domeny:
 
@@ -120,7 +120,7 @@ cmdlet | Użycie
 `new-msoldomain –name <domainname>` | Dodaje nazwę domeny do organizacji jako niezweryfikowaną (nie przeprowadzono jeszcze weryfikacji usługi DNS).
 `get-msoldomain` | Nazwa domeny jest teraz uwzględniona na liście nazw domen skojarzonych z zarządzaną organizacją, ale jest wymieniona jako **niezweryfikowana**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Zawiera informacje, które mają zostać umieszczone w nowym rekordzie TXT systemu DNS dla domeny (MS = XXXXX). Weryfikacja może nie nastąpić natychmiast, ponieważ trwa pewien czas na propagację rekordu TXT, więc poczekaj kilka minut przed rozważeniem opcji **-ForceTakeover** . 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Jeśli nazwa domeny nie jest jeszcze zweryfikowana, możesz kontynuować z opcją **-ForceTakeover** . Sprawdza, czy rekord TXT został utworzony i rozpoczyna proces przejęcia.<li>Opcja **-ForceTakeover** należy dodać do polecenia cmdlet tylko w przypadku wymuszenia przejęcia zewnętrznego administratora, na przykład gdy niezarządzana organizacja ma usługi Office 365, które blokują przejęcie.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Jeśli nazwa domeny nie jest jeszcze zweryfikowana, możesz kontynuować z opcją **-ForceTakeover** . Sprawdza, czy rekord TXT został utworzony i rozpoczyna proces przejęcia.<li>Opcja **-ForceTakeover** należy dodać do polecenia cmdlet tylko w przypadku wymuszenia przejęcia zewnętrznego administratora, na przykład gdy niezarządzana organizacja ma Microsoft 365 usług, które blokują przejęcie.
 `get-msoldomain` | Na liście domen jest teraz wyświetlana nazwa domeny, która została **zweryfikowana**.
 
 > [!NOTE]

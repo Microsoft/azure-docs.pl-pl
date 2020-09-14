@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/28/2020
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: fdea1f3b2d4cff0203951b6ec5ef6b86b62cdf9c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a631ab7190891ae3716a28615bcdbfe4d219ea27
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527558"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053467"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO, Single Sign-on) z zapasem czasu
 
@@ -50,6 +50,9 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Usługa Slack obsługuje [**zautomatyzowaną** aprowizację użytkowników](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 * Po skonfigurowaniu zapasowego czasu można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
+> [!NOTE]
+> Identyfikator tej aplikacji to stała wartość ciągu, dlatego można skonfigurować tylko jedno wystąpienie w jednej dzierżawie.
+
 ## <a name="adding-slack-from-the-gallery"></a>Dodawanie usługi Slack z galerii
 
 Aby skonfigurować integrację usługi Slack z usługą Azure AD, należy dodać usługę Slack z galerii do listy zarządzanych aplikacji SaaS.
@@ -61,7 +64,7 @@ Aby skonfigurować integrację usługi Slack z usługą Azure AD, należy dodać
 1. W sekcji **Dodaj z galerii** wpisz **Zapasy czasu** w polu wyszukiwania.
 1. Wybierz pozycję **zapasowy** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-slack"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla zapasu czasu
+## <a name="configure-and-test-azure-ad-sso-for-slack"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla zapasu czasu
 
 Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD za pomocą zapasowego użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w ramach zapasu czasu.
 
@@ -86,13 +89,20 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://< DOMAIN NAME>.slack.com/sso/saml/start`
+    a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<DOMAIN NAME>.slack.com/sso/saml/start`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL: `https://slack.com`
+    
+    c. W polu **adres URL odpowiedzi**wprowadź jeden z następujących wzorców URL:
+    
+    | Adres URL odpowiedzi|
+    |----------|
+    | `https://<DOMAIN NAME>.slack.com/sso/saml` |
+    | `https://<DOMAIN NAME>.enterprise.slack.com/sso/saml` |
 
     > [!NOTE]
-    > Wartość adresu URL logowania nie jest prawdziwa. Zaktualizuj wartość za pomocą rzeczywistego adresu URL logowania. W celu uzyskania tej wartości skontaktuj się z [zespołem pomocy technicznej klienta usługi Slack](https://slack.com/help/contact). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
-    
+    > To nie są rzeczywiste wartości. Należy zaktualizować te wartości przy użyciu rzeczywistego adresu URL logowania i adresu URL odpowiedzi. W celu uzyskania tej wartości skontaktuj się z [zespołem pomocy technicznej klienta usługi Slack](https://slack.com/help/contact). Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+
     > [!NOTE]
     > Wartość **identyfikatora (identyfikator jednostki)** może być zmienną, jeśli masz więcej niż jedno wystąpienie zapasowe, które należy zintegrować z dzierżawcą. Użyj wzorca `https://<DOMAIN NAME>.slack.com` . W tym scenariuszu należy również sparować z innym ustawieniem w zapasach czasu, używając tej samej wartości.
 
@@ -106,7 +116,6 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     | -----|---------|
     | emailaddress | user.userprincipalname |
     | poczta e-mail | user.userprincipalname |
-    | | |
 
    > [!NOTE]
    > Aby skonfigurować dostawcę usług (SP), należy kliknąć przycisk **Rozszerz** obok **opcji Opcje zaawansowane** na stronie Konfiguracja protokołu SAML. W polu **wystawca dostawcy usług** wprowadź adres URL obszaru roboczego. Wartość domyślna to slack.com. 
@@ -155,15 +164,15 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 2. Przejdź do sekcji **Microsoft Azure AD**, a następnie przejdź do sekcji **Team Settings** (Ustawienia zespołu).
 
-     ![Skonfiguruj Logowanie jednokrotne na stronie aplikacji](./media/slack-tutorial/tutorial-slack-team-settings.png)
+     ![Skonfiguruj Logowanie jednokrotne na Microsoft Azure AD](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. W sekcji **Team Settings** (Ustawienia zespołu) kliknij kartę **Authentication** (Uwierzytelnianie), a następnie kliknij przycisk **Change Settings** (Zmień ustawienia).
 
-    ![Skonfiguruj Logowanie jednokrotne na stronie aplikacji](./media/slack-tutorial/tutorial-slack-authentication.png)
+    ![Konfiguruj logowanie jednokrotne w ustawieniach zespołu](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. W oknie dialogowym **SAML Authentication Settings** (Ustawienia uwierzytelniania SAML) wykonaj następujące czynności:
 
-    ![Skonfiguruj Logowanie jednokrotne na stronie aplikacji](./media/slack-tutorial/tutorial-slack-save-authentication.png)
+    ![Skonfiguruj Logowanie jednokrotne w ustawieniach uwierzytelniania SAML](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  W polu tekstowym **SAML 2.0 Endpoint (HTTP)** (Punkt końcowy SAML 2.0 — HTTP) wklej wartość pola **Adres URL logowania** skopiowaną z witryny Azure Portal.
 

@@ -3,7 +3,7 @@ title: Instalowanie adaptera StorSimple dla programu SharePoint | Microsoft Docs
 description: Opisuje sposób instalowania i konfigurowania lub usuwania adaptera StorSimple dla programu SharePoint w farmie serwerów programu SharePoint.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
-ms.author: twooley
-ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75930223"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053280"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalowanie i Konfigurowanie adaptera StorSimple dla programu SharePoint
 ## <a name="overview"></a>Omówienie
@@ -140,7 +140,7 @@ Upewnij się, że farma serwerów programu SharePoint została prawidłowo skonf
   3. W lewym okienku kliknij pozycję **serwer lokalny**.
   4. W prawym okienku obok pozycji **Konfiguracja zwiększonych zabezpieczeń programu Internet Explorer**kliknij pozycję **włączone**.
   5. W obszarze **administratorzy**kliknij pozycję **wyłączone**.
-  6. Kliknij przycisk **OK**.
+  6. Kliknij pozycję **OK**.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>Wymagania wstępne dotyczące zdalnego magazynu obiektów BLOB (SPZ)
 Upewnij się, że używasz obsługiwanej wersji programu SQL Server. Tylko następujące wersje są obsługiwane i mogą korzystać z SPZ:

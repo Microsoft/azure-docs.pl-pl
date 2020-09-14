@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799438"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055235"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Czym jest aplikacja Microsoft Authenticator?
 
@@ -37,12 +37,12 @@ Aplikacji Microsoft Authenticator można używać na wiele sposobów, na przykł
 
 ## <a name="terminology"></a>Terminologia
 
-| Termin|Opis|
+| Okres|Opis|
 | ----|-----------|
 | Weryfikacja dwuskładnikowa | Proces weryfikacji, który wymaga specjalnego użycia tylko dwóch rodzajów informacji o weryfikacji, takich jak hasło i numer PIN. Aplikacja Microsoft Authenticator obsługuje zarówno standardową weryfikację dwuskładnikową, jak i logowanie bez hasła. |
 | Multi-Factor Authentication (MFA) | Wszystkie weryfikacje dwuskładnikowe są odmianami uwierzytelniania wieloskładnikowego, które wymaga użycia *co najmniej* dwóch rodzajów informacji o weryfikacji, w zależności od wymagań organizacji. |
-| Konto Microsoft (nazywane też kontem MSA) | Tworzone własnoręcznie konta osobiste zapewniają dostęp do produktów i usług w chmurze firmy Microsoft przeznaczonych dla konsumentów, takich jak Outlook, OneDrive, Xbox LIVE i Office 365. Konto Microsoft jest tworzone i przechowywane w systemie kont tożsamości konsumentów firmy Microsoft. |
-| Konto służbowe | Twoja organizacja tworzy konto służbowe (takie jak alain@contoso.com), aby umożliwić Ci dostęp do wewnętrznych i potencjalnie ograniczonych zasobów, takich jak platforma Microsoft Azure, usługa Windows Intune i Office 365. |
+| Konto Microsoft (nazywane też kontem MSA) | Tworzysz własne konta osobiste, aby uzyskać dostęp do firmowych produktów firmy Microsoft i usług w chmurze, takich jak Outlook, OneDrive, Xbox LIVE lub Microsoft 365. Konto Microsoft jest tworzone i przechowywane w systemie kont tożsamości konsumentów firmy Microsoft. |
+| Konto służbowe | Twoja organizacja tworzy konto służbowe (np alain@contoso.com .), aby umożliwić dostęp do wewnętrznych i potencjalnie ograniczonych zasobów, takich jak Microsoft Azure, Windows Intune i Microsoft 365. |
 | Kod weryfikacyjny | Sześciocyfrowy kod, który jest wyświetlany w aplikacji wystawcy uwierzytelnienia, w obszarze każdego dodanego konta. Kod weryfikacyjny zmienia się co 30 sekund, uniemożliwiając wielokrotne użycie kodu. Jest to również nazywany jednorazowym kodem dostępu (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>W jaki sposób weryfikacja dwuskładnikowa współdziała z aplikacją

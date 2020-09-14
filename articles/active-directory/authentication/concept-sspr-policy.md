@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005024"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052719"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Zasady haseł i ograniczenia kont w Azure Active Directory
 
@@ -108,7 +108,7 @@ Zasady pojedynczej bramy wymagają jednej części danych uwierzytelniania, taki
 
 Można również użyć poleceń cmdlet programu PowerShell, aby usunąć konfigurację nigdy nie wygasa lub zobaczyć, które hasła użytkowników są ustawione na nigdy nie wygasają.
 
-Te wskazówki odnoszą się do innych dostawców, takich jak usługa Intune i pakiet Office 365, które również polegają na usłudze Azure AD na potrzeby tożsamości i usług katalogowych. Wygaśnięcie hasła jest jedyną częścią zasad, które można zmienić.
+Te wskazówki dotyczą innych dostawców, takich jak usługa Intune i Microsoft 365, które również polegają na usłudze Azure AD na potrzeby tożsamości i usług katalogowych. Wygaśnięcie hasła jest jedyną częścią zasad, które można zmienić.
 
 > [!NOTE]
 > Tylko hasła kont użytkowników, które nie są zsynchronizowane za poorednictwem Azure AD Connect, można skonfigurować tak, aby nie wygasać. Aby uzyskać więcej informacji na temat synchronizacji katalogów, zobacz [łączenie usługi AD z usługą Azure AD](../hybrid/whatis-hybrid-identity.md).

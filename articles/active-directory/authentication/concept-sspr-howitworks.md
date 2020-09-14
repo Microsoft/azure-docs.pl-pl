@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377203"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052778"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Jak to działa: Samoobsługowe resetowania hasła usługi Azure AD
 
@@ -39,7 +39,7 @@ Użytkownik może zresetować lub zmienić swoje hasło przy użyciu [portalu SS
 
 Gdy użytkownik wybierze link **nie można uzyskać dostępu do konta** z aplikacji lub strony lub przechodzi bezpośrednio do programu [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) , język używany w portalu SSPR jest oparty na następujących opcjach:
 
-* Domyślnie ustawienia regionalne przeglądarki są używane do wyświetlania SSPR w odpowiednim języku. Środowisko resetowania hasła jest zlokalizowane w tych samych językach, które [obsługuje pakiet Office 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
+* Domyślnie ustawienia regionalne przeglądarki są używane do wyświetlania SSPR w odpowiednim języku. Środowisko resetowania hasła jest zlokalizowane w tych samych językach, które [Microsoft 365 obsługiwane](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec)przez program.
 * Jeśli chcesz połączyć się z SSPR w określonym zlokalizowanym języku, Dołącz `?mkt=` na końcu adresu URL resetowania hasła wraz z wymaganymi ustawieniami regionalnymi.
     * Na przykład aby określić hiszpańskie ustawienia regionalne *-US* , użyj `?mkt=es-us`  -  [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 
@@ -77,7 +77,7 @@ Aby użytkownicy mogli resetować lub zmieniać swoje hasła przy użyciu usług
 
 Możesz włączyć opcję, aby wymagać od użytkownika przeprowadzenia rejestracji SSPR, jeśli zalogują się do aplikacji przy użyciu usługi Azure AD. Ten przepływ pracy obejmuje następujące aplikacje:
 
-* Office 365
+* Microsoft 365
 * Azure Portal
 * Panel dostępu
 * Aplikacje federacyjne
@@ -226,7 +226,7 @@ SSPR wykonuje odpowiednik resetowania hasła zainicjowane przez administratora w
 
 Resetowanie i zmiana hasła są w pełni obsługiwane we wszystkich konfiguracjach między firmami (B2B). Resetowanie hasła użytkownika B2B jest obsługiwane w następujących trzech przypadkach:
 
-* **Użytkownicy z organizacji partnerskiej z istniejącą dzierżawą usługi Azure AD**: Jeśli organizacja, której jesteś partnerem, ma istniejącą dzierżawę usługi Azure AD, wszystkie zasady resetowania hasła są włączone dla tej dzierżawy. Aby Resetowanie hasła działało, organizacja partnerska musi upewnić się, że usługa Azure AD SSPR jest włączona. Klienci korzystający z pakietu Office 365 nie mogą uzyskać dodatkowej opłaty.
+* **Użytkownicy z organizacji partnerskiej z istniejącą dzierżawą usługi Azure AD**: Jeśli organizacja, której jesteś partnerem, ma istniejącą dzierżawę usługi Azure AD, wszystkie zasady resetowania hasła są włączone dla tej dzierżawy. Aby Resetowanie hasła działało, organizacja partnerska musi upewnić się, że usługa Azure AD SSPR jest włączona. Nie ma dodatkowych opłat za Microsoft 365 klientów.
 * **Użytkownicy, którzy zarejestrują** się w ramach rejestracji samoobsługowej: Jeśli organizacja, której jesteś partnerem, użyła funkcji [rejestracji samoobsługowej](../users-groups-roles/directory-self-service-signup.md) w celu uzyskania dzierżawy, zezwolimy im na zresetowanie hasła przy użyciu zarejestrowanej wiadomości e-mail.
 * **Użytkownicy B2B**: Wszyscy nowi użytkownicy B2B utworzeni przy użyciu nowych [możliwości B2B usługi Azure AD](../external-identities/what-is-b2b.md) mogą również resetować swoje hasła przy użyciu wiadomości e-mail zarejestrowanych podczas procesu zapraszania.
 

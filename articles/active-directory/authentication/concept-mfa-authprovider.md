@@ -11,19 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7e4772ba2b3d8adf163d6f2932461e1e939ed84
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81309900"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052447"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Kiedy używać dostawcy usługi Azure Multi-Factor Authentication
 
 > [!IMPORTANT]
 > Obowiązujące 1 września, 2018 nowych dostawców uwierzytelniania nie można już tworzyć. Istniejący dostawcy uwierzytelniania mogą nadal być używane i aktualizowane, ale migracja nie jest już możliwa. Uwierzytelnianie wieloskładnikowe będzie nadal dostępne jako funkcja w Azure AD — wersja Premium licencji.
 
-Weryfikacja dwuetapowa jest domyślnie dostępna dla administratorów globalnych, którzy zarządzają użytkownikami usług Azure Active Directory i Office 365. Jeśli jednak chcesz korzystać z [funkcji zaawansowanych](howto-mfa-mfasettings.md), musisz kupić pełną wersję usługi Azure Multi-Factor Authentication (MFA).
+Weryfikacja dwuetapowa jest domyślnie dostępna dla administratorów globalnych, którzy mają Azure Active Directory i Microsoft 365 użytkowników. Jeśli jednak chcesz korzystać z [funkcji zaawansowanych](howto-mfa-mfasettings.md), musisz kupić pełną wersję usługi Azure Multi-Factor Authentication (MFA).
 
 Dostawca usługi Azure MFA jest używany do korzystania z funkcji udostępnionych przez usługę Azure Multi-Factor Authentication dla użytkowników, którzy **nie mają licencji**.
 

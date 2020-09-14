@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb637ae3da9c6a0a3ea066ad741845bad36d5d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489633"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055167"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Udostępnianie kont za pomocą usługi Azure AD
 
@@ -29,7 +29,7 @@ ms.locfileid: "89489633"
 Czasami organizacje muszą używać pojedynczej nazwy użytkownika i hasła dla wielu osób, co zwykle odbywa się w dwóch przypadkach:
 
 * Podczas uzyskiwania dostępu do aplikacji, które wymagają unikatowego logowania i hasła dla każdego użytkownika, zarówno lokalnych aplikacji, jak i usług w chmurze konsumentów (na przykład firmowych kont mediów społecznościowych).
-* Podczas tworzenia środowisk wielu użytkowników. Może istnieć jedno konto lokalne, które ma podwyższone uprawnienia i służy do wykonywania podstawowych działań związanych z instalacją, administracją i odzyskiwaniem. Na przykład lokalne konto administratora globalnego dla pakietu Office 365 lub konta głównego w usłudze Salesforce.
+* Podczas tworzenia środowisk wielu użytkowników. Może istnieć jedno konto lokalne, które ma podwyższone uprawnienia i służy do wykonywania podstawowych działań związanych z instalacją, administracją i odzyskiwaniem. Na przykład lokalne konto administratora globalnego dla Microsoft 365 lub konta głównego w usłudze Salesforce.
 
 Tradycyjnie te konta są udostępniane przez dystrybuowanie poświadczeń (username i Password) do odpowiednich osób lub przechowywanie ich w udostępnionej lokalizacji, w której wielu zaufanych agentów może uzyskiwać do nich dostęp.
 
