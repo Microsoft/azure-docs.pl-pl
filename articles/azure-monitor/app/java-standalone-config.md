@@ -4,12 +4,12 @@ description: Monitorowanie wydajności aplikacji bezkodowej dla aplikacji Java d
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374290"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056102"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
 
@@ -38,8 +38,8 @@ Domyślnie program Application Insights Java 3,0 Preview oczekuje, że plik konf
 
 Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`Zmienna środowiskowa lub
-* `applicationinsights.configurationFile`Właściwość systemu Java
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE` Zmienna środowiskowa lub
+* `applicationinsights.configurationFile` Właściwość systemu Java
 
 W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0-PREVIEW.5.jar` znajduje się lokalizacja.
 
@@ -113,18 +113,18 @@ Jeśli chcesz zmienić ten próg:
 
 Są to prawidłowe `threshold` wartości, które można określić w `ApplicationInsights.json` pliku i jak są one odnoszące się do poziomów rejestrowania w różnych strukturach rejestrowania:
 
-| `threshold`  | Log4J  | Logback | LIP     |
-|--------------|--------|---------|---------|
-| WYŁ.          | WYŁ.    | WYŁ.     | WYŁ.     |
-| KRYTYCZN        | KRYTYCZN  | BŁĄD   | WAŻNY  |
-| BŁĄD/POWAŻNY | BŁĄD  | BŁĄD   | WAŻNY  |
-| OSTRZEGAJ/OSTRZEGAJ | WYOWIETLON   | WYOWIETLON    | OSTRZEŻENIE |
-| INFORMACJE         | INFORMACJE   | INFORMACJE    | INFORMACJE    |
-| SYGNATUR       | DEBUGUJ  | DEBUGUJ   | SYGNATUR  |
-| DEBUGOWANIE/DOPASOWANIE   | DEBUGUJ  | DEBUGUJ   | ZAKTUALIZOWA    |
-| DOKŁADNIEJSZ        | DEBUGUJ  | DEBUGUJ   | DOKŁADNIEJSZ   |
-| TRACE/FINEST | TRACE  | TRACE   | FINEST  |
-| ALL          | ALL    | ALL     | ALL     |
+| wartość progowa   | Log4J  | Logback | LIP     |
+|-------------------|--------|---------|---------|
+| WYŁ.               | WYŁ.    | WYŁ.     | WYŁ.     |
+| KRYTYCZN             | KRYTYCZN  | BŁĄD   | WAŻNY  |
+| BŁĄD (lub poważny) | BŁĄD  | BŁĄD   | WAŻNY  |
+| WARN (lub ostrzeżenie) | WYOWIETLON   | WYOWIETLON    | OSTRZEŻENIE |
+| INFORMACJE              | INFORMACJE   | INFORMACJE    | INFORMACJE    |
+| SYGNATUR            | DEBUGUJ  | DEBUGUJ   | SYGNATUR  |
+| Debugowanie (lub szczegółowe)   | DEBUGUJ  | DEBUGUJ   | ZAKTUALIZOWA    |
+| DOKŁADNIEJSZ             | DEBUGUJ  | DEBUGUJ   | DOKŁADNIEJSZ   |
+| TRACE (lub FINEST) | TRACE  | TRACE   | FINEST  |
+| ALL               | ALL    | ALL     | ALL     |
 
 ## <a name="jmx-metrics"></a>Metryki JMX
 
@@ -134,7 +134,7 @@ Jeśli masz pewne JMX metryki, które chcesz przechwytywać:
 {
   "instrumentationSettings": {
     "preview": {
-        "jmxMetrics": [
+      "jmxMetrics": [
         {
           "objectName": "java.lang:type=ClassLoading",
           "attribute": "LoadedClassCount",
@@ -181,9 +181,9 @@ Domyślnie program Application Insights Java 3,0 Preview wysyła metrykę pulsu 
 {
   "instrumentationSettings": {
     "preview": {
-        "heartbeat": {
-            "intervalSeconds": 60
-        }
+      "heartbeat": {
+        "intervalSeconds": 60
+      }
     }
   }
 }
@@ -205,13 +205,13 @@ Oto przykład sposobu ustawiania próbkowania do **10% wszystkich transakcji** �
 {
   "instrumentationSettings": {
     "preview": {
-        "sampling": {
-            "fixedRate": {
-                "percentage": 10
-            }
-          }
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10
         }
+      }
     }
+  }
 }
 ```
 
@@ -244,10 +244,10 @@ Domyślnie program loguje się do konsoli o poziomie `warn` odpowiadającym tej 
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "console",
-            "level": "WARN"
-        }
+      "selfDiagnostics": {
+        "destination": "console",
+        "level": "WARN"
+      }
     }
   }
 }
@@ -261,12 +261,12 @@ Jeśli chcesz zalogować się do pliku zamiast rejestrowania w konsoli programu:
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "file",
-            "directory": "/var/log/applicationinsights",
-            "level": "WARN",
-            "maxSizeMB": 10
-        }    
+      "selfDiagnostics": {
+        "destination": "file",
+        "directory": "/var/log/applicationinsights",
+        "level": "WARN",
+        "maxSizeMB": 10
+      }
     }
   }
 }

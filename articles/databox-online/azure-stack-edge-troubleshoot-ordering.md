@@ -2,24 +2,24 @@
 title: Użyj Azure Portal, aby rozwiązać problemy związane z Azure Stack porządkowaniem krawędzi | Microsoft Docs
 description: Opisuje sposób rozwiązywania problemów związanych z porządkowaniem Azure Stack krawędzi.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
-ms.author: twooley
-ms.openlocfilehash: 226274c52610e24c305400d77dc7737d32c2b722
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783998"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055949"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Rozwiązywanie problemów z porządkowaniem Azure Stack krawędzi
 
 W tym artykule opisano sposób rozwiązywania problemów związanych z porządkowaniem Azure Stack krawędzi.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

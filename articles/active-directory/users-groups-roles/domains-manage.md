@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12193b469b6e1f014e6c948da7b2adb370e78d4b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795333"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056255"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Zarządzanie niestandardowymi nazwami domen w Azure Active Directory
 
@@ -55,7 +55,7 @@ Jeśli dodano już domenę contoso.com do dzierżawy usługi Azure AD, można r�
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Co zrobić, jeśli zmienisz Rejestrator DNS dla niestandardowej nazwy domeny
 
-W przypadku zmiany rejestratorów DNS nie ma dodatkowych zadań konfiguracyjnych w usłudze Azure AD. Możesz nadal używać nazwy domeny z usługą Azure AD bez przeszkód. Jeśli używasz niestandardowej nazwy domeny z pakietem Office 365, Intune lub innymi usługami opartymi na niestandardowych nazwach domen w usłudze Azure AD, zapoznaj się z dokumentacją tych usług.
+W przypadku zmiany rejestratorów DNS nie ma dodatkowych zadań konfiguracyjnych w usłudze Azure AD. Możesz nadal używać nazwy domeny z usługą Azure AD bez przeszkód. Jeśli używasz niestandardowej nazwy domeny z Microsoft 365, Intune lub innymi usługami, które korzystają z niestandardowych nazw domen w usłudze Azure AD, zapoznaj się z dokumentacją tych usług.
 
 ## <a name="delete-a-custom-domain-name"></a>Usuń niestandardową nazwę domeny
 
@@ -75,7 +75,7 @@ Można **ForceDelete** nazwę domeny w [centrum administracyjnym usługi Azure A
 
 Aby wywołać **ForceDelete** w Azure Portal, należy się upewnić, że istnieje mniej niż 1000 odwołań do nazwy domeny i wszystkie odwołania, w których program Exchange jest usługą aprowizacji, należy zaktualizować lub usunąć w [centrum administracyjnym programu Exchange](https://outlook.office365.com/ecp/). Obejmuje to grupy zabezpieczeń z włączoną obsługą poczty programu Exchange i listy rozproszone; Aby uzyskać więcej informacji, zobacz [usuwanie grup zabezpieczeń z włączoną obsługą poczty](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). Ponadto operacja **ForceDelete** nie powiedzie się, jeśli jest spełniony jeden z następujących warunków:
 
-* Użytkownik kupił domenę za pośrednictwem usług subskrypcji domeny pakietu Office 365
+* Użytkownik kupił domenę za pośrednictwem usług subskrypcji domeny Microsoft 365
 * Jesteś partnerem administrowania w imieniu innej organizacji klienta
 
 Następujące akcje są wykonywane w ramach operacji **ForceDelete** :

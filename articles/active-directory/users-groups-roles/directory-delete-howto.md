@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795426"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056306"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Usuwanie dzierżawy w Azure Active Directory
 
@@ -27,12 +27,12 @@ Po usunięciu organizacji usługi Azure AD (dzierżawa) wszystkie zasoby zawarte
 
 ## <a name="prepare-the-organization"></a>Przygotuj organizację
 
-Nie można usunąć organizacji w usłudze Azure AD, dopóki nie przejdzie kilka sprawdzeń. Te sprawdzenia zmniejszają ryzyko, że usunięcie organizacji usługi Azure AD wpływa negatywnie na dostęp użytkownika, na przykład możliwość zalogowania się do pakietu Office 365 lub uzyskania dostępu do zasobów na platformie Azure. Jeśli na przykład organizacja skojarzona z subskrypcją zostanie przypadkowo usunięta, użytkownicy nie będą mogli uzyskać dostępu do zasobów platformy Azure dla tej subskrypcji. Są sprawdzane następujące warunki:
+Nie można usunąć organizacji w usłudze Azure AD, dopóki nie przejdzie kilka sprawdzeń. Te sprawdzenia zmniejszają ryzyko, że usunięcie organizacji usługi Azure AD ma negatywny wpływ na dostęp użytkownika, na przykład możliwość zalogowania się do Microsoft 365 lub uzyskania dostępu do zasobów na platformie Azure. Jeśli na przykład organizacja skojarzona z subskrypcją zostanie przypadkowo usunięta, użytkownicy nie będą mogli uzyskać dostępu do zasobów platformy Azure dla tej subskrypcji. Są sprawdzane następujące warunki:
 
 * W organizacji usługi Azure AD (dzierżawy) nie mogą istnieć użytkownicy, z wyjątkiem jednego administratora globalnego, który ma zostać usunięty. Aby można było usunąć organizację, należy usunąć wszystkich innych użytkowników. Jeśli użytkownicy są synchronizowani ze środowiska lokalnego, najpierw należy wyłączyć synchronizację, a użytkownicy muszą zostać usunięci z organizacji w chmurze przy użyciu poleceń cmdlet Azure Portal lub Azure PowerShell.
 * W organizacji nie mogą istnieć żadne aplikacje. Aby można było usunąć organizację, należy usunąć wszystkie aplikacje.
 * Z organizacją nie mogą być połączeni dostawcy usługi uwierzytelniania wieloskładnikowego.
-* Nie mogą istnieć żadne subskrypcje usług Microsoft Online Services, takich jak Microsoft Azure, Office 365 lub Azure AD — wersja Premium skojarzonych z organizacją. Jeśli na przykład została utworzona domyślna organizacja usługi Azure AD na platformie Azure, nie można usunąć tej organizacji, jeśli subskrypcja platformy Azure nadal korzysta z tej organizacji na potrzeby uwierzytelniania. Podobnie nie można usunąć organizacji, jeśli inny użytkownik skojarzył z nim subskrypcję.
+* Nie mogą istnieć żadne subskrypcje usług Microsoft Online Services, takich jak Microsoft Azure, Microsoft 365 lub Azure AD — wersja Premium skojarzone z organizacją. Jeśli na przykład została utworzona domyślna organizacja usługi Azure AD na platformie Azure, nie można usunąć tej organizacji, jeśli subskrypcja platformy Azure nadal korzysta z tej organizacji na potrzeby uwierzytelniania. Podobnie nie można usunąć organizacji, jeśli inny użytkownik skojarzył z nim subskrypcję.
 
 ## <a name="delete-the-organization"></a>Usuń organizację
 
@@ -52,16 +52,16 @@ Nie można usunąć organizacji w usłudze Azure AD, dopóki nie przejdzie kilka
 
 ## <a name="if-you-cant-delete-the-organization"></a>Jeśli nie możesz usunąć organizacji
 
-Po skonfigurowaniu organizacji usługi Azure AD można także aktywować subskrypcje oparte na licencjach dla swojej organizacji, takie jak Azure AD — wersja Premium P2, Office 365 Business Premium lub Enterprise Mobility + Security E5. Aby uniknąć przypadkowej utraty danych, nie można usunąć organizacji, dopóki subskrypcje nie zostaną całkowicie usunięte. Aby można było usunąć **organizację, subskrypcje** muszą być w stanie niedostępnym. **Wygasła** lub **anulowana** subskrypcja przechodzi do stanu **wyłączone** , a końcowym etapem jest stan **anulowania** aprowizacji.
+Po skonfigurowaniu organizacji usługi Azure AD można także aktywować subskrypcje oparte na licencjach dla swojej organizacji, takie jak Azure AD — wersja Premium P2, Microsoft 365 Business Standard lub Enterprise Mobility + Security E5. Aby uniknąć przypadkowej utraty danych, nie można usunąć organizacji, dopóki subskrypcje nie zostaną całkowicie usunięte. Aby można było usunąć **organizację, subskrypcje** muszą być w stanie niedostępnym. **Wygasła** lub **anulowana** subskrypcja przechodzi do stanu **wyłączone** , a końcowym etapem jest stan **anulowania** aprowizacji.
 
-Informacje o tym, czego można oczekiwać po wygaśnięciu wersji próbnej subskrypcji pakietu Office 365 (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego), zobacz poniższą tabelę. Aby uzyskać więcej informacji na temat przechowywania danych i cyklu życia subskrypcji pakietu Office 365, zobacz [co się stanie z danymi i dostępem po zakończeniu subskrypcji pakietu Office 365 dla firm?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Stan subskrypcji | Dane | Dostęp do danych
 ----- | ----- | -----
-Aktywne (30 dni dla wersji próbnej) | Dostęp do danych dla wszystkich | Użytkownicy mają normalny dostęp do plików pakietu Office 365 lub aplikacji<br>Administratorzy mają normalny dostęp do centrum administracyjnego Microsoft 365 i zasobów 
-Wygasłe (30 dni) | Dostęp do danych dla wszystkich| Użytkownicy mają normalny dostęp do plików pakietu Office 365 lub aplikacji<br>Administratorzy mają normalny dostęp do centrum administracyjnego Microsoft 365 i zasobów
-Wyłączone (30 dni) | Dane dostępne tylko dla administratora | Użytkownicy nie mogą uzyskać dostępu do plików lub aplikacji pakietu Office 365<br>Administratorzy mogą uzyskać dostęp do centrum administracyjnego Microsoft 365, ale nie mogą przypisywać licencji ani aktualizować użytkowników
-Anulowanie aprowizacji (po upływie 30 dni od wyłączenia) | Usunięte dane (automatycznie usunięte, jeśli nie są używane żadne inne usługi) | Użytkownicy nie mogą uzyskać dostępu do plików lub aplikacji pakietu Office 365<br>Administratorzy mogą uzyskać dostęp do centrum administracyjnego Microsoft 365, aby kupić inne subskrypcje i zarządzać nimi
+Aktywne (30 dni dla wersji próbnej) | Dostęp do danych dla wszystkich | Użytkownicy mają normalny dostęp do plików Microsoft 365 lub aplikacji<br>Administratorzy mają normalny dostęp do centrum administracyjnego Microsoft 365 i zasobów 
+Wygasłe (30 dni) | Dostęp do danych dla wszystkich| Użytkownicy mają normalny dostęp do plików Microsoft 365 lub aplikacji<br>Administratorzy mają normalny dostęp do centrum administracyjnego Microsoft 365 i zasobów
+Wyłączone (30 dni) | Dane dostępne tylko dla administratora | Użytkownicy nie mogą uzyskać dostępu do Microsoft 365 plików ani aplikacji<br>Administratorzy mogą uzyskać dostęp do centrum administracyjnego Microsoft 365, ale nie mogą przypisywać licencji ani aktualizować użytkowników
+Anulowanie aprowizacji (po upływie 30 dni od wyłączenia) | Usunięte dane (automatycznie usunięte, jeśli nie są używane żadne inne usługi) | Użytkownicy nie mogą uzyskać dostępu do Microsoft 365 plików ani aplikacji<br>Administratorzy mogą uzyskać dostęp do centrum administracyjnego Microsoft 365, aby kupić inne subskrypcje i zarządzać nimi
 
 ## <a name="delete-a-subscription"></a>Usuwanie subskrypcji
 
@@ -97,7 +97,7 @@ Aby można było usunąć subskrypcję w stanie **anulowania** aprowizacji w ci�
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Mam subskrypcję wersji próbnej, która blokuje usuwanie
 
-Istnieją produkty do samodzielnej [rejestracji](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) , takie jak Microsoft Power BI, Rights Management Services, Microsoft PowerShell Apps lub Dynamics 365, indywidualni użytkownicy mogą zarejestrować się za pośrednictwem pakietu Office 365, co spowoduje również utworzenie użytkownika-gościa na potrzeby uwierzytelniania w organizacji usługi Azure AD. Te produkty samoobsługi blokują operacje usuwania katalogów, dopóki produkty nie zostaną całkowicie usunięte z organizacji, aby uniknąć utraty danych. Mogą zostać usunięte tylko przez administratora usługi Azure AD, niezależnie od tego, czy użytkownik zarejestrował się indywidualnie, czy też został przypisany do produktu.
+Istnieją produkty do samodzielnej [rejestracji](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) , takie jak Microsoft Power BI, Rights Management Services, Microsoft PowerShell Apps lub Dynamics 365, indywidualni użytkownicy mogą rejestrować się za pośrednictwem Microsoft 365, co powoduje także utworzenie użytkownika-gościa na potrzeby uwierzytelniania w organizacji usługi Azure AD. Te produkty samoobsługi blokują operacje usuwania katalogów, dopóki produkty nie zostaną całkowicie usunięte z organizacji, aby uniknąć utraty danych. Mogą zostać usunięte tylko przez administratora usługi Azure AD, niezależnie od tego, czy użytkownik zarejestrował się indywidualnie, czy też został przypisany do produktu.
 
 W sposobie ich przypisywania istnieją dwa typy produktów do samodzielnej rejestracji: 
 
@@ -108,7 +108,7 @@ Po rozpoczęciu usuwania produktu samoobsługowego rejestracji, akcja spowoduje 
 
 Aby uzyskać więcej informacji na temat aktualnie dostępnych produktów i usług do samoobsługowego rejestrowania, zobacz [dostępne programy](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)samoobsługowe.
 
-Informacje o tym, czego można oczekiwać po wygaśnięciu wersji próbnej subskrypcji pakietu Office 365 (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego), zobacz poniższą tabelę. Aby uzyskać więcej informacji na temat przechowywania danych i cyklu życia subskrypcji pakietu Office 365, zobacz [co się stanie z danymi i dostępem po zakończeniu subskrypcji pakietu Office 365 dla firm?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+W poniższej tabeli znajdują się informacje o tym, czego można oczekiwać, gdy subskrypcja wersji próbnej Microsoft 365 wygaśnie (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego). Aby uzyskać więcej informacji na temat Microsoft 365 przechowywania danych i cyklu życia subskrypcji, zobacz [co się stanie z moimi danymi i dostępem po zakończeniu subskrypcji Microsoft 365 dla firm?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Stan produktu | Dane | Dostęp do danych
 ------------- | ---- | --------------

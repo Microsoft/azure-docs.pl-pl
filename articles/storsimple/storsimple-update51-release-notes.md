@@ -1,18 +1,18 @@
 ---
 title: StorSimple 8000 Series Update 5,1 — informacje o wersji
 description: W tym artykule opisano nowe funkcje, problemy i Obejścia dotyczące aktualizacji z serii StorSimple 8000 5,1.
-author: twooley
+author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.author: twooley
-ms.openlocfilehash: b706d702ad496d0526d02c4158123cc883505ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: a6a359888e782751892f2a034a8d92a014fd3a81
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782349"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055847"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>StorSimple 8000 Series Update 5,1 — informacje o wersji
 

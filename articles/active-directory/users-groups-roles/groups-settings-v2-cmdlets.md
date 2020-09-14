@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794561"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056221"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Polecenia cmdlet Azure Active Directory w wersji 2 dla zarządzania grupami
 
@@ -328,13 +328,13 @@ Po utworzeniu grupy niektóre punkty końcowe umożliwiają użytkownikowi końc
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Grupowanie zapisu zwrotnego w środowisku lokalnym (wersja zapoznawcza)
 
-Obecnie wiele grup jest nadal zarządzanych w Active Directory lokalnych. Aby odpowiedzieć na żądania synchronizacji grup w chmurze z powrotem z lokalnymi, funkcja zapisywania zwrotnego grup pakietu Office 365 dla usługi Azure AD jest teraz dostępna w wersji zapoznawczej.
+Obecnie wiele grup jest nadal zarządzanych w Active Directory lokalnych. Aby odpowiedzieć na żądania synchronizacji grup w chmurze z powrotem z lokalnymi, funkcja zapisywania zwrotnego grup Microsoft 365 w usłudze Azure AD jest teraz dostępna w wersji zapoznawczej.
 
-Grupy pakietu Office 365 są tworzone i zarządzane w chmurze. Funkcja zapisywania zwrotnego umożliwia zapisywanie grup dystrybucyjnych pakietu Office 365 jako grup dystrybucji w lesie Active Directory z zainstalowanym programem Exchange. Użytkownicy z lokalnymi skrzynkami pocztowymi programu Exchange mogą następnie wysyłać i odbierać wiadomości e-mail z tych grup. Funkcja zapisywania zwrotnego grup nie obsługuje grup zabezpieczeń ani grup dystrybucyjnych usługi Azure AD.
+Grupy Microsoft 365 są tworzone i zarządzane w chmurze. Funkcja zapisywania zwrotnego umożliwia zapisanie grup Microsoft 365 jako grup dystrybucyjnych w lesie Active Directory z zainstalowanym programem Exchange. Użytkownicy z lokalnymi skrzynkami pocztowymi programu Exchange mogą następnie wysyłać i odbierać wiadomości e-mail z tych grup. Funkcja zapisywania zwrotnego grup nie obsługuje grup zabezpieczeń ani grup dystrybucyjnych usługi Azure AD.
 
 Aby uzyskać więcej informacji, zapoznaj się z dokumentacją [usługi synchronizacji Azure AD Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-Funkcja zapisywania zwrotnego grup pakietu Office 365 jest publiczną funkcją w wersji zapoznawczej Azure Active Directory (Azure AD) i jest dostępna z dowolnym płatnym planem licencjonowania usługi Azure AD. Aby uzyskać pewne informacje prawne dotyczące wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+Funkcja zapisywania zwrotnego grup Microsoft 365 jest publiczną funkcją w wersji zapoznawczej Azure Active Directory (Azure AD) i jest dostępna z dowolnym płatnym planem licencjonowania usługi Azure AD. Aby uzyskać pewne informacje prawne dotyczące wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

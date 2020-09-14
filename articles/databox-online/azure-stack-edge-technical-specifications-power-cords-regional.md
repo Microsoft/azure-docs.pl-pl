@@ -2,18 +2,18 @@
 title: Microsoft Azure Stack Edge — specyfikacje techniczne na podstawie lokalizacji | Microsoft Docs
 description: Dowiedz się więcej na temat specyfikacji technicznych dla Azure Stack brzegowej.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: twooley
-ms.openlocfilehash: 8248f0a8e003351449186638fd4914c6b6fe4bed
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 34f5b578581c5a11b3dbfba76f68819c2ed706d0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783981"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055932"
 ---
 # <a name="azure-stack-edge-power-cord-specifications"></a>Azure Stack brzegowe wymagania dotyczące przewodu zasilającego
 
@@ -23,7 +23,7 @@ Urządzenie z Azure Stack Edge będzie potrzebować przewodu zasilającego, któ
 
 W poniższej tabeli można znaleźć prawidłowe specyfikacje dotyczące przewodu dla danego regionu:
 
-| Kraj    | Napięcie znamionowe (V)| Bieżące znamionowe (A)| Standard przewodu |Łącznik wejściowy|Łącznik wyjściowy| Długość mm |  
+| Country (Kraj)    | Napięcie znamionowe (V)| Bieżące znamionowe (A)| Standard przewodu |Łącznik wejściowy|Łącznik wyjściowy| Długość mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
 |Albania|250|10|H05Z1Z1 3.|CEE 7|C13|1830|
 |Algieria|250|10|H05Z1Z1 3.|CEE 7|C13|1830|

@@ -3,17 +3,16 @@ title: Resource Health Cloud Services (klasyczny)
 description: W tym artykule omówiono obsługę Resource Health Check (systemie RHC występuje) dla Microsoft Azure Cloud Services (klasyczny)
 services: cloud-services
 author: tanmaygore
-manager: vashan
 ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: 969390b0988c59940cb210c14821cbee42edfa7a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665126"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056062"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Obsługa Resource Health Check (systemie RHC występuje) dla platformy Azure Cloud Services (wersja klasyczna)
 W tym artykule omówiono obsługę Resource Health Check (systemie RHC występuje) dla [Microsoft Azure Cloud Services (klasyczny)](https://azure.microsoft.com/services/cloud-services)
@@ -22,6 +21,7 @@ W tym artykule omówiono obsługę Resource Health Check (systemie RHC występuj
 
 Raporty o stanie platformy Azure dotyczące problemów, które mają wpływ na szeroki zestaw klientów platformy Azure. Resource Health zapewnia spersonalizowany pulpit nawigacyjny kondycji zasobów. Resource Health przedstawia wszystkie czasy braku dostępu do zasobów z powodu problemów z usługą platformy Azure. Te dane ułatwiają sprawdzenie, czy umowa SLA została naruszona.
 
+:::image type="content" source="media/cloud-services-allocation-failure/rhc-blade-cloud-services.png" alt-text="Obraz przedstawia blok Sprawdzanie kondycji zasobów w Azure Portal.":::
 
 ## <a name="how-health-is-checked-and-reported"></a>W jaki sposób kondycja jest sprawdzana i raportowana?
 Kondycja zasobów jest raportowana na poziomie wdrożenia lub roli. Sprawdzanie kondycji odbywa się na poziomie wystąpienia roli, agreguje stan i raportuje go na poziomie roli. Na przykład Jeśli wszystkie wystąpienia roli są dostępne, stan roli jest dostępny. Analogicznie agreguje stan kondycji wszystkich ról i raportuje je na poziomie wdrożenia. Na przykład Jeśli wszystkie role są dostępne, stan wdrożenia stanie się dostępny. 

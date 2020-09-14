@@ -3,7 +3,7 @@ title: Rozwiązywanie problemów ze wdrożonym urządzeniem StorSimple | Microso
 description: Opisuje, jak diagnozować i naprawiać błędy występujące na urządzeniu StorSimple, które jest obecnie wdrożone i działa.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
-ms.author: twooley
-ms.openlocfilehash: e2e68c7016a37824f1bf307a676c39281d4d41d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: eaf6b1825a258b11a2e345c771909822de73dfcf
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507824"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056493"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Rozwiązywanie problemów z działającym urządzeniem StorSimple
 > [!NOTE]

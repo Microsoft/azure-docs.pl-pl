@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd02f2dbb7666ba9f2134ffba4cf683e1e9ac67b
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039141"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058704"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Podstawa zabezpieczeń Azure dla publicznego adresu IP platformy Azure
 
-Ta linia bazowa zabezpieczeń ma zastosowanie do wskazówek dotyczących [usługi Azure Security test w wersji 1,0](../security/benchmarks/overview.md) do publicznego adresu IP platformy Azure. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez program Azure Security test i powiązane wskazówki dotyczące publicznego adresu IP platformy Azure. **Formanty** nie mają zastosowania do publicznego adresu IP platformy Azure zostały wykluczone.
+Ta linia bazowa zabezpieczeń ma zastosowanie do wskazówek dotyczących [usługi Azure Security test w wersji 1,0](../security/benchmarks/overview.md) do publicznego adresu IP platformy Azure. Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia dotyczące sposobu zabezpieczania rozwiązań w chmurze na platformie Azure. Zawartość jest pogrupowana według **kontroli zabezpieczeń** zdefiniowanych przez program Azure Security test i powiązane wskazówki dotyczące publicznego adresu IP platformy Azure. **Formanty** nie mają zastosowania do publicznego adresu IP platformy Azure zostały wykluczone.  Uwaga publiczne adresy IP platformy Azure nie przechowują danych klienta.
 
 Aby dowiedzieć się, jak publiczny adres IP platformy Azure całkowicie jest mapowany na test porównawczy zabezpieczeń platformy Azure, zobacz [pełny plik mapowania zabezpieczeń publicznego adresu IP platformy Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -46,7 +46,7 @@ Azure PowerShell lub interfejs wiersza polecenia platformy Azure może służyć
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Skonfiguruj centralne zarządzanie dziennikami zabezpieczeń
 
-**Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian w publicznych WYSTĄPIENIACH adresów IP. Poza płaszczyzną kontroli (na przykład Azure Portal), publiczny adres IP nie generuje dzienników związanych z ruchem sieciowym. 
+**Wskazówki**: Użyj dziennika aktywności platformy Azure do monitorowania konfiguracji i wykrywania zmian w publicznych WYSTĄPIENIACH adresów IP. Poza płaszczyzną kontroli (na przykład Azure Portal), publiczny adres IP nie generuje dzienników związanych z ruchem sieciowym.
 
 Publiczny adres IP zawiera narzędzia do monitorowania, diagnozowania, wyświetlania metryk i włączania lub wyłączania dzienników dla zasobów w sieci wirtualnej platformy Azure.
 

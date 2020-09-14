@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5116b3dfd53c5272ef7bb11d1719b7ee62416c4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762321"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055796"
 ---
 # <a name="about-virtual-hub-routing"></a>Informacje na temat routingu na koncentratorze wirtualnym
 
@@ -30,7 +30,7 @@ W poniższych sekcjach opisano kluczowe założenia routingu koncentratora wirtu
 
 Tabela tras koncentratora wirtualnego może zawierać jedną lub więcej tras. Trasa obejmuje jego nazwę, etykietę, typ docelowy, listę prefiksów docelowych oraz informacje o następnym przeskoku dla pakietu, który ma być kierowany. **Połączenie** zazwyczaj będzie miało konfigurację routingu skojarzoną lub propagowaną do tabeli tras
 
-### <a name="connection"></a><a name="connection"></a>Połączenia
+### <a name="connection"></a><a name="connection"></a>Połączenie
 
 Połączenia są Menedżer zasobów zasobach z konfiguracją routingu. Istnieją cztery typy połączeń:
 
@@ -87,6 +87,7 @@ Podczas konfigurowania routingu wirtualnej sieci WAN należy wziąć pod uwagę 
 * W przypadku korzystania z zapory platformy Azure w wielu regionach wszystkie sieci wirtualne szprych muszą być skojarzone z tą samą tabelą tras. Na przykład posiadanie podzestawu sieci wirtualnych przez zaporę platformy Azure, podczas gdy inne sieci wirtualnych pomijanie zapory platformy Azure w tym samym koncentratorze wirtualnym nie jest możliwe.
 * Pojedynczy adres IP następnego przeskoku można skonfigurować dla każdego połączenia z siecią wirtualną.
 * Koncentrator wirtualny nie obsługuje trasy statycznej dla 0.0.0.0/0 i następnego skoku Virtual Network połączenie (lub adres IP urządzenia w połączeniu z siecią wirtualną)
+* Wszystkie informacje dotyczące trasy 0.0.0.0/0 są ograniczone do tabeli tras centrum lokalnego. Ta trasa nie jest propagowana między centrami.
 
 ## <a name="next-steps"></a>Następne kroki
 

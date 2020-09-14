@@ -13,12 +13,12 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8c6a9304927f5d4bcad895b725955c522b60207a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266240"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056085"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Zarządzanie hasłami aplikacji w celu weryfikacji dwuetapowej
 
@@ -44,7 +44,7 @@ Hasła aplikacji można tworzyć i usuwać w zależności od sposobu korzystania
 
 - **Twoja organizacja używa weryfikacji dwuskładnikowej i dodatkowej strony weryfikacji zabezpieczeń.** Jeśli używasz konta służbowego (np alain@contoso.com .) w ramach weryfikacji dwuskładnikowej w organizacji, możesz zarządzać hasłami aplikacji na [stronie dodatkowej weryfikacji zabezpieczeń](https://account.activedirectory.windowsazure.com/Proofup.aspx). Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie i usuwanie haseł aplikacji przy użyciu strony dodatkowej weryfikacji zabezpieczeń](#create-and-delete-app-passwords-from-the-additional-security-verification-page) w tym artykule.
 
-- **Twoja organizacja używa weryfikacji dwuskładnikowej i portalu Office 365.** Jeśli używasz konta służbowego (takiego jak, alain@contoso.com ), weryfikacji dwuskładnikowej i aplikacji pakietu office 365 w organizacji, możesz zarządzać hasłami aplikacji ze [strony portalu pakietu Office 365](https://www.office.com). Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie i usuwanie haseł aplikacji przy użyciu portalu Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) w tym artykule.
+- **Twoja organizacja używa weryfikacji dwuskładnikowej i portalu Office 365.** Jeśli używasz konta służbowego (takiego jak, alain@contoso.com ), weryfikacji dwuskładnikowej i Microsoft 365 aplikacji w organizacji, możesz zarządzać hasłami aplikacji ze [strony portalu pakietu Office 365](https://www.office.com). Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie i usuwanie haseł aplikacji przy użyciu portalu Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) w tym artykule.
 
 - **Korzystasz z weryfikacji dwuetapowej z konto Microsoft osobistym.** Jeśli używasz osobistego konto Microsoft (na przykład, alain@outlook.com ) z weryfikacją dwuskładnikową, możesz zarządzać hasłami aplikacji ze [strony podstawy zabezpieczeń](https://account.microsoft.com/security/). Aby uzyskać szczegółowe instrukcje, zobacz [Używanie haseł aplikacji z aplikacjami, które nie obsługują weryfikacji dwuetapowej](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
@@ -82,11 +82,11 @@ Hasła aplikacji można tworzyć i usuwać ze strony **dodatkowej weryfikacji za
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Tworzenie i usuwanie haseł aplikacji przy użyciu portalu pakietu Office 365
 
-Jeśli korzystasz z weryfikacji dwuetapowej przy użyciu konta służbowego i aplikacji pakietu Office 365, możesz tworzyć i usuwać hasła aplikacji przy użyciu portalu pakietu Office 365.
+Jeśli korzystasz z weryfikacji dwuetapowej przy użyciu konta służbowego i aplikacji Microsoft 365, możesz tworzyć i usuwać hasła aplikacji przy użyciu portalu pakietu Office 365.
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Aby utworzyć hasła aplikacji przy użyciu portalu pakietu Office 365
 
-1. Zaloguj się do pakietu Office 365, a następnie przejdź do [strony Moje konto](https://portal.office.com), wybierz pozycję **Security & privacy**, a następnie rozwiń węzeł **dodatkowa Weryfikacja zabezpieczeń**.
+1. Zaloguj się do swojego konta służbowego, przejdź do [strony Moje konto](https://portal.office.com), wybierz pozycję **zabezpieczenia & prywatność**, a następnie rozwiń węzeł **dodatkowa Weryfikacja zabezpieczeń**.
 
     ![Portal pakietu Office przedstawiający rozwinięty obszar dodatkowej weryfikacji zabezpieczeń](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 

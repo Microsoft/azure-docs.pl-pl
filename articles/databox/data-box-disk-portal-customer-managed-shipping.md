@@ -2,18 +2,18 @@
 title: Microsoft Azure Data Box Disk samozarządzanej wysyłki | Microsoft Docs danych
 description: Opisuje przepływ pracy do samozarządzanej wysyłki dla urządzeń Azure Data Box Disk
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.author: twooley
-ms.openlocfilehash: f3292e2088397e332323bec71f9a5965eddd0fe0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783233"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055579"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Użyj samozarządzanej wysyłki dla Azure Data Box Disk w Azure Portal
 

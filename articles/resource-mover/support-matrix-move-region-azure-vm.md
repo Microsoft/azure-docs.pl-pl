@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 4462ea0277193f0f8a4112cad5991d1e12c5f600
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653006"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058737"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Obsługa przemieszczania maszyn wirtualnych platformy Azure między regionami platformy Azure
 
@@ -80,7 +80,7 @@ Debian 8 |  3.16.0-4-amd64 do 3.16.0-10-amd64, 4.9.0 -0. BPO. 4-amd64 do 4.9.0 -
 
 **Wersja** | **Wersja jądra** 
 --- |  --- 
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Obsługiwane są wszystkie [Zapasy SUSE 12 SP1, SP2, SP3 i SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) .</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.34 — Azure  
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Obsługiwane są wszystkie [Zapasy SUSE 12 SP1, SP2, SP3 i SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.34 — Azure  
 
 
 ### <a name="supported-suse-linux-enterprise-server-15-kernel-versions"></a>Obsługiwane SUSE Linux Enterprise Server 15 wersji jądra
@@ -100,7 +100,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 |  Obsługiwane są wszystkie jądra sy
 
 **Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
-Rozmiar | Rozmiar maszyny wirtualnej platformy Azure z co najmniej dwoma rdzeniami procesora i 1 GB pamięci RAM | Sprawdź [rozmiary maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/sizes-general).
+Rozmiar | Rozmiar maszyny wirtualnej platformy Azure z co najmniej dwoma rdzeniami procesora i 1 GB pamięci RAM | Sprawdź [rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/sizes-general.md).
 Zestawy dostępności | Nie jest obecnie obsługiwana. | Jeśli dodasz maszynę wirtualną platformy Azure z ustawionym zestawem dostępności do kolekcji Move z opcjami domyślnymi, proces przygotowywania zakończy się niepowodzeniem. Można przenieść maszynę wirtualną do strefy dostępności lub przenieść ją jako maszynę wirtualną z pojedynczym wystąpieniem. Te ustawienia można modyfikować na stronie Edytowanie właściwości docelowych.
 Strefy dostępności | Obsługiwane | Obsługiwane, w zależności od obsługi regionu docelowego.
 Obrazy galerii platformy Azure (opublikowane przez firmę Microsoft) | Obsługiwane | Obsługiwane, jeśli maszyna wirtualna jest uruchamiana w obsługiwanym systemie operacyjnym.
@@ -113,15 +113,15 @@ Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są kopiowane do maszyny wirtu
 
 ## <a name="supported-vm-storage-settings"></a>Obsługiwane ustawienia magazynu maszyny wirtualnej
 
-Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dysku danych i dysku tymczasowego. Ważne jest, aby obserwować limity dysku maszyny wirtualnej i elementy docelowe dla maszyn wirtualnych z systemami [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-scalability-targets) i [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets) , aby uniknąć problemów z wydajnością.
+Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dysku danych i dysku tymczasowego. Ważne jest, aby obserwować limity dysku maszyny wirtualnej i elementy docelowe dla maszyn wirtualnych z systemami [Linux](../virtual-machines/linux/disk-scalability-targets.md) i [Windows](../virtual-machines/windows/disk-scalability-targets.md) , aby uniknąć problemów z wydajnością.
 
 **Składnik** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
-Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) o dyskach maszyn wirtualnych.
-Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z procesu przygotowywania.<br/><br/> Nie przechowuj żadnych trwałych danych na dysku tymczasowym. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk).
+Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md) o dyskach maszyn wirtualnych.
+Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z procesu przygotowywania.<br/><br/> Nie przechowuj żadnych trwałych danych na dysku tymczasowym. [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
 Maksymalny rozmiar dysku danych | 8192 GB dla dysków zarządzanych
 Minimalny rozmiar dysku danych |  2 GB dla dysków zarządzanych |
-Maksymalna liczba dysków danych | Do 64, zgodnie z obsługą określonego rozmiaru maszyny wirtualnej platformy Azure | [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/sizesd) o rozmiarach maszyn wirtualnych.
+Maksymalna liczba dysków danych | Do 64, zgodnie z obsługą określonego rozmiaru maszyny wirtualnej platformy Azure | [Dowiedz się więcej](../virtual-machines/windows/sizes.md) o rozmiarach maszyn wirtualnych.
 Szybkość zmian dysku danych | Maksymalnie 10 MB/s na dysk dla usługi Premium Storage. Maksymalnie 2 MB/s na dysk w przypadku magazynu w warstwie Standardowa. | Jeśli średnia szybkość zmian danych na dysku jest ciągle wyższa niż wartość maksymalna, przygotowanie nie zostanie przełożone.<br/><br/>  Jeśli jednak maksimum zostanie przekroczone sporadycznie, przygotowanie może przechwycić, ale mogą być widoczne nieco opóźnione punkty odzyskiwania.
 Dysk danych (konto magazynu w warstwie Standardowa) | Nieobsługiwane. | Zmień typ magazynu na dysk zarządzany, a następnie spróbuj przenieść maszynę wirtualną.
 Dysk danych (konto magazynu Premium Storage) | Nieobsługiwane | Zmień typ magazynu na dysk zarządzany, a następnie spróbuj przenieść maszynę wirtualną.

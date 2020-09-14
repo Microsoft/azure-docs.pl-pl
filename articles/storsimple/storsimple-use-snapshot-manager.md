@@ -3,7 +3,7 @@ title: Interfejs użytkownika StorSimple Snapshot Manager | Microsoft Docs
 description: Opisuje interfejs użytkownika programu StorSimple Snapshot Manager i wyjaśnia, jak go używać do zarządzania zadaniami tworzenia kopii zapasowych i wykazem kopii zapasowych.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
+ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513745"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055915"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Korzystanie z StorSimple Snapshot Manager interfejsu użytkownika do zarządzania zadaniami tworzenia kopii zapasowych i wykazem kopii zapasowych
 
@@ -69,8 +69,8 @@ W poniższej tabeli opisano elementy, które pojawiają się w menu **plik** .
 
 | Element menu | Opis |
 |:--- |:--- |
-| Nowa |Kliknij pozycję **Nowy** , aby utworzyć nową konsolę opartą na StorSimple Snapshot Manager. |
-| Otwarcie |Kliknij przycisk **Otwórz** , aby otworzyć istniejącą konsolę. |
+| Nowy |Kliknij pozycję **Nowy** , aby utworzyć nową konsolę opartą na StorSimple Snapshot Manager. |
+| Otwórz |Kliknij przycisk **Otwórz** , aby otworzyć istniejącą konsolę. |
 | Zapisz |Kliknij przycisk **Zapisz** , aby zapisać bieżącą konsolę. |
 | Zapisz jako |Kliknij pozycję **Zapisz jako** , aby utworzyć nowe, nazwane wystąpienie bieżącej konsoli. Użyj opcji **Zapisz jako** , aby dostosować widok i zapisać go do późniejszego pobrania. Można na przykład utworzyć przystawki Snapshot Manager StorSimple wskazujące określone serwery. |
 | Dodaj/Usuń przystawkę |Kliknij przycisk **Dodaj/Usuń przystawkę** , aby dodać lub usunąć przystawki i zorganizować węzły w okienku **zakres** . Aby uzyskać więcej informacji, przejdź do pozycji [Dodawanie, usuwanie i organizowanie przystawek i rozszerzeń w programie MMC 3,0](https://technet.microsoft.com/library/cc722035.aspx). |
@@ -114,7 +114,7 @@ Poniższa tabela zawiera alfabetyczną listę akcji StorSimple Snapshot Manager.
 | Konfigurowanie urządzenia |Kliknij prawym przyciskiem myszy węzeł **urządzenia** . |Kliknij pozycję **Konfiguruj urządzenie** , aby skonfigurować jedno urządzenie lub wiele urządzeń w celu nawiązania połączenia z hostem systemu Windows. |
 | Tworzenie zasad kopii zapasowych |Wykonaj jedną z następujących czynności:<ul><li>Kliknij prawym przyciskiem myszy pozycję **zasady tworzenia kopii zapasowych**.</li><li>Kliknij lub rozwiń pozycję **grupy woluminów**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li><li>Kliknij lub rozwiń pozycję **wykaz kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy grupę woluminów.</li></ul> |Kliknij pozycję **Utwórz zasady tworzenia kopii zapasowych** , aby skonfigurować zaplanowaną kopię zapasową dla grupy woluminów. |
 | Utwórz grupę woluminów |Wykonaj jedną z następujących czynności:<ul><li>Kliknij węzeł **woluminy** , a następnie kliknij prawym przyciskiem myszy wolumin w okienku **wyników** .</li><li>Kliknij prawym przyciskiem myszy węzeł **grupy woluminów** .</li></ul> |Kliknij pozycję **Utwórz grupę woluminów** , aby przypisać woluminy do grupy woluminów. |
-| Usuń |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
+| Usuń |Kliknij węzeł lub wynik (ten element jest wyświetlany w wielu menu **akcji** i w okienkach  **Akcje** ). |Kliknij przycisk **Usuń** , aby usunąć wybrany węzeł lub wynik. Gdy pojawi się okno dialogowe potwierdzenia, Potwierdź lub Anuluj usunięcie. |
 | Szczegóły |Kliknij węzeł **urządzenia** , a następnie kliknij prawym przyciskiem myszy urządzenie w okienku **wyników** . |Kliknij przycisk **szczegóły** , aby wyświetlić szczegóły konfiguracji urządzenia. |
 | Edytuj |Kliknij pozycję **zasady tworzenia kopii zapasowych**, a następnie kliknij prawym przyciskiem myszy zasady w okienku **wyników** . |Kliknij przycisk **Edytuj** , aby zmienić harmonogram tworzenia kopii zapasowych dla grupy woluminów. |
 | Eksportuj listę |Kliknij dowolny węzeł lub wynik (ten element pojawia się we wszystkich menu **akcji** i w okienkach **Akcje** ). |Kliknij przycisk **Eksportuj listę** , aby zapisać listę w pliku z wartościami rozdzielanymi przecinkami (CSV). Następnie można zaimportować ten plik do aplikacji arkusza kalkulacyjnego do analizy. |

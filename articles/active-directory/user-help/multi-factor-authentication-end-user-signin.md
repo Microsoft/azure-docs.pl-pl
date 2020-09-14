@@ -13,12 +13,12 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: daa2cfae4ed8371e245d12a9f805fe07f31a6d76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742958"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056032"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Logowanie się do konta służbowego przy użyciu metody weryfikacji dwuskładnikowej
 
@@ -39,14 +39,14 @@ ms.locfileid: "83742958"
 ## <a name="signing-in-with-a-phone-call"></a>Logowanie za pomocą połączenia telefonicznego
 Poniższe informacje opisują proces weryfikacji dwuetapowej z wywołaniem telefonu komórkowego lub biurowego.
 
-1. Zaloguj się do aplikacji lub usługi, takiej jak Office 365 przy użyciu nazwy użytkownika i hasła.  
+1. Zaloguj się do aplikacji lub usługi, takiej jak Microsoft 365 przy użyciu nazwy użytkownika i hasła.  
 2. Firma Microsoft dzwoni do Ciebie.  
 3. Odpowiedz na telefon i naciśnij klawisz #.  
 
 ## <a name="signing-in-with-a-text-message"></a>Logowanie za pomocą wiadomości SMS
 Poniższe informacje opisują proces weryfikacji dwuetapowej przy użyciu wiadomości tekstowej na telefonie komórkowym:
 
-1. Zaloguj się do aplikacji lub usługi, takiej jak Office 365 przy użyciu nazwy użytkownika i hasła.
+1. Zaloguj się do aplikacji lub usługi, takiej jak Microsoft 365 przy użyciu nazwy użytkownika i hasła.
 2. Firma Microsoft wysyła do Ciebie wiadomość tekstową zawierającą kod liczbowy.
 3. Wprowadź kod w polu udostępnionym na stronie logowania.
 
@@ -54,7 +54,7 @@ Poniższe informacje opisują proces weryfikacji dwuetapowej przy użyciu wiadom
 Poniższe informacje opisują środowisko korzystania z aplikacji Microsoft Authenticator na potrzeby weryfikacji dwuetapowej. Istnieją dwa różne sposoby używania aplikacji. Można odbierać powiadomienia wypychane na urządzeniu lub można otworzyć aplikację w celu uzyskania kodu weryfikacyjnego.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Aby zalogować się przy użyciu powiadomienia z aplikacji Microsoft Authenticator
-1. Zaloguj się do aplikacji lub usługi, takiej jak Office 365 przy użyciu nazwy użytkownika i hasła.
+1. Zaloguj się do aplikacji lub usługi, takiej jak Microsoft 365 przy użyciu nazwy użytkownika i hasła.
 2. Firma Microsoft wysyła powiadomienie do aplikacji Microsoft Authenticator na urządzeniu.
 
    ![Firma Microsoft wysyła powiadomienie](./media/multi-factor-authentication-end-user-signin/notify.png)
@@ -66,7 +66,7 @@ Poniższe informacje opisują środowisko korzystania z aplikacji Microsoft Auth
 
 Jeśli używasz aplikacji Microsoft Authenticator do uzyskiwania kodów weryfikacyjnych, po otwarciu aplikacji zobaczysz numer w polu Nazwa konta. Ta liczba zmienia się co 30 sekund, aby nie używała tego samego numeru dwa razy. Gdy zostanie wyświetlony monit o podanie kodu weryfikacyjnego, Otwórz aplikację i użyj dowolnego numeru, który jest aktualnie wyświetlany.
 
-1. Zaloguj się do aplikacji lub usługi, takiej jak Office 365 przy użyciu nazwy użytkownika i hasła.
+1. Zaloguj się do aplikacji lub usługi, takiej jak Microsoft 365 przy użyciu nazwy użytkownika i hasła.
 2. Firma Microsoft pyta o kod weryfikacyjny.
 
    ![Wprowadź kod weryfikacyjny](./media/multi-factor-authentication-end-user-signin/verify3.png)
@@ -76,7 +76,7 @@ Jeśli używasz aplikacji Microsoft Authenticator do uzyskiwania kodów weryfika
 ## <a name="signing-in-with-an-alternate-method"></a>Logowanie za pomocą alternatywnej metody
 Czasami nie masz telefonu ani urządzenia skonfigurowanego jako preferowana metoda weryfikacji. Dlatego zalecamy skonfigurowanie metod tworzenia kopii zapasowych dla Twojego konta. W poniższej sekcji pokazano, jak zalogować się przy użyciu alternatywnej metody, jeśli podstawowa metoda może być niedostępna.
 
-1. Zaloguj się do aplikacji lub usługi, takiej jak Office 365 przy użyciu nazwy użytkownika i hasła.
+1. Zaloguj się do aplikacji lub usługi, takiej jak Microsoft 365 przy użyciu nazwy użytkownika i hasła.
 2. Wybierz opcję **Użyj innej opcji weryfikacji**. Zobaczysz różne opcje weryfikacji w zależności od tego, ile masz konfiguracji.
 3. Wybierz alternatywną metodę i zaloguj się.
 

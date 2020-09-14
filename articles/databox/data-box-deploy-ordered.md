@@ -2,18 +2,18 @@
 title: Samouczek przedstawiający kolejność Azure Data Box | Microsoft Docs
 description: W tym samouczku dowiesz się, jak Azure Data Box, rozwiązanie hybrydowe, które umożliwia importowanie danych lokalnych na platformę Azure oraz kolejność Azure Data Box.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.author: twooley
-ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/09/2020
+ms.author: alkohli
+ms.openlocfilehash: 2ab74b87b287296c4ff975d5af75714c89001004
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783573"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055720"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -217,7 +217,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
    ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 
    ![Wybierz Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
@@ -237,7 +237,7 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     ![Wybieranie opcji 1 urządzenia Data Box](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. Przejdź do karty **podstawy** . Wprowadź lub wybierz poniższe **informacje, a**następnie wybierz pozycję **dalej: miejsce docelowe danych>**.
+6. Przejdź **do karty** **podstawowe informacje** . Wprowadź lub wybierz poniższe informacje, a następnie wybierz pozycję **Dalej:>miejsca docelowego danych **.
 
     |Ustawienie  |Wartość  |
     |---------|---------|
@@ -269,7 +269,18 @@ Aby zamówić urządzenie, wykonaj następujące czynności w Azure Portal.
 
     Konto magazynu określone dla dysków zarządzanych jest używane jako przejściowe konto magazynu. Usługa Data Box przekazuje wirtualne dyski twarde jako stronicowe obiekty blob do przejściowego konta magazynu przed przekonwertowaniem ich na dyski zarządzane i przeniesieniem do grup zasobów. Aby uzyskać więcej informacji, zobacz [Weryfikowanie przekazania danych na platformę Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-    Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
+    Wybierz pozycję **Dalej: zabezpieczenia** , aby kontynuować.
+
+1. W obszarze **zabezpieczenia**, jeśli chcesz włączyć podwójne szyfrowanie oparte na oprogramowaniu, wybierz pozycję **Włącz podwójne szyfrowanie dla zamówienia**. 
+
+   Szyfrowanie oparte na oprogramowaniu jest wykonywane poza szyfrowaniem AES-256 bitowym danych na urządzenie Data Box.
+
+   > [!NOTE]
+   > Włączenie tej opcji może spowodować wydłużenie przetwarzania zamówień i kopiowania danych. Po utworzeniu zamówienia nie można zmienić tej opcji.
+
+   ![Ekran zabezpieczenia dla importu pola danych, podwójne szyfrowanie](media/data-box-deploy-ordered/select-data-box-import-07c.png)
+
+   Wybierz pozycję **Dalej: szczegóły kontaktu** , aby kontynuować.
 
 8. W obszarze **szczegóły kontaktu**wybierz pozycję **+ Dodaj adres wysyłkowy**.
 

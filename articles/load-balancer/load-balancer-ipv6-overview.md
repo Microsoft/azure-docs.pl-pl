@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981855"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058754"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Omówienie protokołu IPv6 dla Azure Load Balancer
 
@@ -49,7 +49,7 @@ Natywna obsługa protokołu IPv6 dla maszyn wirtualnych wdrożonych za pośredni
 3. Przychodzące i wychodzące połączenia natywne protokołu IPv6
 4. Obsługiwane protokoły, takie jak TCP, UDP i HTTP (S), zapewniają pełny zakres architektur usługi
 
-## <a name="benefits"></a>Zalety
+## <a name="benefits"></a>Korzyści
 
 Ta funkcja zapewnia następujące korzyści:
 
@@ -79,7 +79,7 @@ Ograniczenia
 * Punkt końcowy protokołu IPv6 na maszynie wirtualnej nie jest narażony bezpośrednio z Internetem. Znajduje się za modułem równoważenia obciążenia. Tylko porty określone w regułach modułu równoważenia obciążenia są dostępne za pośrednictwem protokołu IPv6.
 * Zmiana parametru IdleTimeout dla protokołu IPv6 **nie jest obecnie obsługiwana**. Wartość domyślna to cztery minuty.
 * Zmiana parametru loadDistributionMethod protokołu IPv6 nie jest **obecnie obsługiwana**.
-* Zastrzeżone adresy IP IPv6 (gdzie IPAllocationMethod = static) **nie są obecnie obsługiwane**.
+* Protokół IPv6 dla podstawowego Load Balancer jest zablokowany do **dynamicznej** jednostki SKU.  Protokół IPv6 dla usługa Load Balancer w warstwie Standardowa jest zablokowany do **statycznej** jednostki SKU.
 * Usługa NAT64 (tłumaczenie adresów IPv6 na IPv4) nie jest obsługiwana.
 * Dołączanie pomocniczej karty sieciowej odwołującej się do podsieci IPv6 do puli zaplecza **nie jest obecnie obsługiwane**.
 

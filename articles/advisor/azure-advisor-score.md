@@ -3,14 +3,14 @@ title: Optymalizowanie obciążeń platformy Azure przy użyciu oceny klasyfikat
 description: Użyj oceny doradcy, aby maksymalnie wykorzystać platformę Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: c9e6a13b39ac3436a71b6cecee4c91c609589378
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 720a2b358e35d776a7233452eee2bd69b521654f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039101"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056238"
 ---
-# <a name="advisor-score-to-get-the-most-out-of-azure"></a>Ocena usługi Advisor, aby maksymalnie wykorzystać platformę Azure
+# <a name="optimize-azure-workloads-using-advisor-score"></a>Optymalizowanie obciążeń platformy Azure przy użyciu oceny klasyfikatora
 
 ## <a name="introduction-to-advisor-score"></a>Wprowadzenie do oceny klasyfikatora
 

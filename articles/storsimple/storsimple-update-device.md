@@ -3,7 +3,7 @@ title: Aktualizowanie urządzenia StorSimple | Microsoft Docs
 description: Wyjaśnia, jak używać funkcji aktualizacji StorSimple do instalowania aktualizacji i poprawek w trybie regularnym.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
-ms.author: twooley
-ms.openlocfilehash: e591a6c1fbf91bb034ec57673f79c549bbec4672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: dec354767875d91c6062cdfbb0009e857dbe2636
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170090"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056555"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Aktualizowanie urządzenia z serii StorSimple 8000
 > [!NOTE]
@@ -84,22 +84,22 @@ Jeśli musisz zastosować aktualizacje trybu konserwacji, otrzymasz alert w klas
 > 
 > 
 
-### <a name="step-1-connect-to-the-serial-console"></a>Krok 1. Nawiązywanie połączenia z konsolą szeregową<a name="step1"></a>
+### <a name="step-1-connect-to-the-serial-console"></a>Krok 1. Nawiązywanie połączenia z konsolą szeregową <a name="step1"></a>
 Najpierw użyj aplikacji, takiej jak "polecenie", aby uzyskać dostęp do konsoli szeregowej. Poniższa procedura wyjaśnia, jak używać metody instrukcje do nawiązywania połączenia z konsolą szeregową.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode"></a>Krok 2. wprowadzanie trybu konserwacji<a name="step2"></a>
+### <a name="step-2-enter-maintenance-mode"></a>Krok 2. wprowadzanie trybu konserwacji <a name="step2"></a>
 Po nawiązaniu połączenia z konsolą programu Ustal, czy są dostępne aktualizacje do zainstalowania, a następnie przejdź do trybu konserwacji, aby je zainstalować.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### <a name="step-3-install-your-updates"></a>Krok 3. Instalacja aktualizacji<a name="step3"></a>
+### <a name="step-3-install-your-updates"></a>Krok 3. Instalacja aktualizacji <a name="step3"></a>
 Następnie zainstaluj aktualizacje.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode"></a>Krok 4. wyjście z trybu konserwacji<a name="step4"></a>
+### <a name="step-4-exit-maintenance-mode"></a>Krok 4. wyjście z trybu konserwacji <a name="step4"></a>
 Na koniec Wyjdź z trybu konserwacji.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/12/2020
 ms.author: aahi
-ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932971"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056595"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
@@ -34,11 +34,11 @@ ms.locfileid: "88932971"
 | Angielski               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Fiński               |     `fi`      |     ✓      |            |                            |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| niemiecki                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Grecki                 |     `el`      |     ✓      |            |                            |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| koreański                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
 | Polski                |     `pl`      |     ✓      |            |                            |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` również zaakceptowane |
@@ -71,12 +71,12 @@ ms.locfileid: "88932971"
 | Angielski                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
 | Fiński               |     `fi`      |     ✓      |            |                                 |                    |
 | Francuski                 |     `fr`      |     ✓      |            |                                 |                    |
-| Niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
+| niemiecki                 |     `de`      |     ✓      |            |                                 |                    |
 | Hebrajski                |     `he`      |     ✓      |            |                                 |                    |
 | Węgierski             |     `hu`      |     ✓      |            |                                 |                    |
 | Włoski               |     `it`      |     ✓      |            |                                 |                    |
 | japoński              |     `ja`      |     ✓      |            |                                 |                    |
-| Koreański                |     `ko`      |     ✓      |            |                                 |                    |
+| koreański                |     `ko`      |     ✓      |            |                                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |            |                                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |            |                                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt` również zaakceptowane |
@@ -88,16 +88,19 @@ ms.locfileid: "88932971"
 
 #### <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/key-phrase-extraction)
 
+> [!NOTE]
+> Wersje modeli wyodrębnianie kluczowych fraz wcześniejszych niż 2020-07-01 mają limit znaków równy 64. Ten limit nie występuje w nowszych wersjach modeli.
+
 | Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Dostępne począwszy od wersji modelu v3: |       Uwagi        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Niderlandzki                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Angielski               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Fiński               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Francuski                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| niemiecki                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Włoski               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | japoński              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| koreański                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norweski (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` również zaakceptowane |
 | Polski                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` również zaakceptowane |
@@ -123,6 +126,6 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 
 ---
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Czym jest interfejs API analizy tekstu?](overview.md)   

@@ -2,14 +2,14 @@
 title: Przenoszenie zasobów do nowej subskrypcji lub grupy zasobów
 description: Użyj Azure Resource Manager, aby przenieść zasoby do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 09/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5b3e27110d5bd7941aad0209681d13f45fa66fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498875"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056671"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji
 
@@ -19,8 +19,6 @@ Zarówno Grupa źródłowa, jak i Grupa docelowa są zablokowane podczas operacj
 
 Przeniesienie zasobu powoduje jedynie przeniesienie go do nowej grupy zasobów lub subskrypcji. Operacja nie może zmienić lokalizacji zasobu.
 
-W przypadku korzystania z centrum Azure Stack nie można przenosić zasobów między grupami.
-
 ## <a name="checklist-before-moving-resources"></a>Sporządzenie listy kontrolnej przed przeniesieniem zasobów
 
 Przed przeniesieniem zasobu należy wykonać kilka ważnych czynności. Dzięki sprawdzeniu tych warunków można uniknąć błędów.
@@ -29,6 +27,7 @@ Przed przeniesieniem zasobu należy wykonać kilka ważnych czynności. Dzięki 
 
 1. Niektóre usługi mają określone ograniczenia lub wymagania dotyczące przemieszczania zasobów. Jeśli przenosisz dowolne z następujących usług, przed przeniesieniem Sprawdź, czy zostały podane wskazówki.
 
+   * Jeśli używasz centrum Azure Stack, nie możesz przenosić zasobów między grupami.
    * [App Services wskazówki dotyczące przenoszenia](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services wskazówki dotyczące przenoszenia](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Klasyczny model wdrażania — wskazówki dotyczące przenoszenia](./move-limitations/classic-model-move-limitations.md) klasycznego, klasycznego magazynu, klasycznych sieci wirtualnych i Cloud Services
@@ -96,7 +95,7 @@ Przed przeniesieniem zasobu należy wykonać kilka ważnych czynności. Dzięki 
 
 1. **W przypadku przechodzenia między subskrypcjami zasób i jego zasoby zależne muszą znajdować się w tej samej grupie zasobów i muszą zostać przeniesione ze sobą.** Na przykład maszyna wirtualna z dyskami zarządzanymi będzie wymagała przeniesienia maszyny wirtualnej i zarządzanych dysków wraz z innymi zasobami zależnymi.
 
-   Jeśli przenosisz zasób do nowej subskrypcji, sprawdź, czy zasób zawiera zasoby zależne i czy znajdują się one w tej samej grupie zasobów. Jeśli zasoby nie znajdują się w tej samej grupie zasobów, sprawdź, czy zasoby mogą być konsolidowane do tej samej grupy zasobów. W takim przypadku należy przenieść wszystkie te zasoby do tej samej grupy zasobów przy użyciu operacji przenoszenia między grupami zasobów.
+   Jeśli przenosisz zasób do nowej subskrypcji, sprawdź, czy zasób zawiera zasoby zależne i czy znajdują się one w tej samej grupie zasobów. Jeśli zasoby nie znajdują się w tej samej grupie zasobów, sprawdź, czy zasoby mogą być połączone z tą samą grupą zasobów. W takim przypadku należy przenieść wszystkie te zasoby do tej samej grupy zasobów przy użyciu operacji przenoszenia między grupami zasobów.
 
    Aby uzyskać więcej informacji, zobacz [scenariusz przenoszenia między subskrypcjami](#scenario-for-move-across-subscriptions).
 
@@ -167,23 +166,37 @@ Gdy operacja jest nadal uruchomiona, nadal otrzymujesz kod stanu 202. Przed pono
 
 ## <a name="use-the-portal"></a>Używanie portalu
 
-Aby przenieść zasoby, wybierz grupę zasobów z tymi zasobami, a następnie wybierz przycisk **Przenieś** .
+Aby przenieść zasoby, wybierz grupę zasobów zawierającą te zasoby.
 
-![Przenoszenie zasobów](./media/move-resource-group-and-subscription/select-move.png)
+Podczas wyświetlania grupy zasobów opcja Move jest wyłączona.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="Opcja przenoszenia wyłączona":::
+
+Aby włączyć opcję Przenieś, wybierz zasoby, które chcesz przenieść. Aby zaznaczyć wszystkie zasoby, zaznacz pole wyboru znajdujące się u góry listy. Lub zaznacz opcję zasoby pojedynczo.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Wybieranie zasobów":::
+
+Wybierz przycisk **Przenieś** .
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="Opcje przenoszenia":::
+
+Ten przycisk udostępnia trzy opcje:
+
+* Przenieś do nowej grupy zasobów.
+* Przejdź do nowej subskrypcji.
+* Przejdź do nowego regionu. Aby zmienić regiony, zobacz [przenoszenie zasobów między regionami (z grupy zasobów)](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json).
 
 Wybierz, czy przenosisz zasoby do nowej grupy zasobów, czy do nowej subskrypcji.
 
-Wybierz zasoby do przeniesienia i docelową grupę zasobów. Potwierdź, że musisz zaktualizować skrypty dla tych zasobów, a następnie wybierz **przycisk OK**. Jeśli w poprzednim kroku została wybrana ikona Edytuj subskrypcję, należy również wybrać subskrypcję docelową.
+Wybierz docelową grupę zasobów. Potwierdź, że musisz zaktualizować skrypty dla tych zasobów, a następnie wybierz **przycisk OK**. W przypadku wybrania opcji przejścia do nowej subskrypcji należy również wybrać subskrypcję docelową.
 
-![Wybierz lokalizację docelową](./media/move-resource-group-and-subscription/select-destination.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Wybierz lokalizację docelową":::
 
-W obszarze **powiadomienia**zobaczysz, że operacja przenoszenia jest uruchomiona.
+Po zweryfikowaniu, że zasoby można przenieść, zobaczysz powiadomienie, że operacja przenoszenia jest uruchomiona.
 
-![Pokaż stan przenoszenia](./media/move-resource-group-and-subscription/show-status.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="zawiadomienie":::
 
 Po zakończeniu otrzymasz powiadomienie o wyniku.
-
-![Pokaż wynik przenoszenia](./media/move-resource-group-and-subscription/show-result.png)
 
 Jeśli wystąpi błąd, zobacz [Rozwiązywanie problemów z przeniesieniem zasobów platformy Azure do nowej grupy zasobów lub subskrypcji](troubleshoot-move.md).
 
@@ -203,7 +216,7 @@ Jeśli wystąpi błąd, zobacz [Rozwiązywanie problemów z przeniesieniem zasob
 
 ## <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby przenieść istniejące zasoby do innej grupy zasobów lub subskrypcji, użyj polecenia [AZ Resource Move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) . Podaj identyfikatory zasobów, które mają zostać przeniesione. Poniższy przykład pokazuje, jak przenieść kilka zasobów do nowej grupy zasobów. W `--ids` parametrze Podaj rozdzieloną spacjami listę identyfikatorów zasobów do przeniesienia.
+Aby przenieść istniejące zasoby do innej grupy zasobów lub subskrypcji, użyj polecenia [AZ Resource Move](/cli/azure/resource#az-resource-move) . Podaj identyfikatory zasobów, które mają zostać przeniesione. Poniższy przykład pokazuje, jak przenieść kilka zasobów do nowej grupy zasobów. W `--ids` parametrze Podaj rozdzieloną spacjami listę identyfikatorów zasobów do przeniesienia.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -238,15 +251,15 @@ Jeśli wystąpi błąd, zobacz [Rozwiązywanie problemów z przeniesieniem zasob
 
 **Pytanie: Operacja przenoszenia zasobu, która zazwyczaj trwa kilka minut, była uruchomiona przez prawie godzinę. Czy wystąpił problem?**
 
-Przeniesienie zasobu jest skomplikowaną operacją, która ma różne etapy. Może dotyczyć tylko dostawcy zasobów zasobu, który próbujesz przenieść. Ze względu na zależności między dostawcami zasobów, Azure Resource Manager umożliwia ukończenie operacji przez 4 godziny. Ten okres zapewnia dostawcom zasobów możliwość odzyskania sprawności od problemów przejściowych. Jeśli Twoje żądanie przeniesienia jest w okresie 4-godzinnym, operacja kontynuuje próbę wykonania i może nadal się powieść. Źródłowe i docelowe grupy zasobów są zablokowane w tym czasie, aby uniknąć problemów ze spójnością.
+Przeniesienie zasobu jest skomplikowaną operacją, która ma różne etapy. Może dotyczyć tylko dostawcy zasobów zasobu, który próbujesz przenieść. Ze względu na zależności między dostawcami zasobów, Azure Resource Manager umożliwia ukończenie operacji przez 4 godziny. Ten okres zapewnia dostawcom zasobów możliwość odzyskania sprawności od problemów przejściowych. Jeśli Twoje żądanie przeniesienia jest w okresie czterech godzin, operacja kontynuuje próbę wykonania i może nadal się powieść. Źródłowe i docelowe grupy zasobów są zablokowane w tym czasie, aby uniknąć problemów ze spójnością.
 
-**Pytanie: Dlaczego moja grupa zasobów została zablokowana przez 4 godziny podczas przenoszenia zasobów?**
+**Pytanie: Dlaczego moja grupa zasobów została zablokowana przez cztery godziny podczas przenoszenia zasobów?**
 
-Okno 4-godzinne to maksymalny dozwolony czas przenoszenia zasobów. Aby zapobiec modyfikacji zasobów, zarówno źródłowa, jak i docelowa Grupa zasobów są zablokowane na czas trwania przenoszenia zasobów.
+Żądanie przeniesienia jest dozwolone maksymalnie cztery godziny. Aby zapobiec modyfikacji zasobów, zarówno źródłowa, jak i docelowa Grupa zasobów są zablokowane na czas trwania przenoszenia zasobów.
 
-W żądaniu przeniesienia istnieją dwie fazy. W pierwszej fazie zasób jest przenoszony. W drugiej fazie powiadomienia są wysyłane do innych dostawców zasobów, które są zależne od przenoszonego zasobu. Grupę zasobów można zablokować dla całego okna 4-godzinnego, gdy dostawca zasobów nie może wykonać jednej fazy. W dozwolonym czasie Menedżer zasobów ponawianie próby zakończonego niepowodzeniem.
+W żądaniu przeniesienia istnieją dwie fazy. W pierwszej fazie zasób jest przenoszony. W drugiej fazie powiadomienia są wysyłane do innych dostawców zasobów, które są zależne od przenoszonego zasobu. Grupę zasobów można zablokować przez całe cztery godziny, gdy dostawca zasobów zakończy się niepowodzeniem. W dozwolonym czasie Menedżer zasobów ponawianie próby zakończonego niepowodzeniem.
 
-Jeśli zasobu nie można przenieść w oknie 4-godzinnym, Menedżer zasobów odblokowuje obie grupy zasobów. Zasoby, które zostały przeniesione pomyślnie, znajdują się w docelowej grupie zasobów. Zasoby, które nie zostały przeniesione, są pozostawione źródłową grupą zasobów.
+Jeśli zasób nie może zostać przeniesiony w ciągu czterech godzin, Menedżer zasobów odblokowuje obie grupy zasobów. Zasoby, które zostały przeniesione pomyślnie, znajdują się w docelowej grupie zasobów. Zasoby, które nie zostały przeniesione, są pozostawione źródłową grupą zasobów.
 
 **Pytanie: Jakie są konsekwencje źródłowej i docelowej grupy zasobów, które są blokowane podczas przenoszenia zasobów?**
 

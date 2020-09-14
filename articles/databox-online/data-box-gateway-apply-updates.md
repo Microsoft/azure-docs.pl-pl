@@ -2,17 +2,17 @@
 title: Instalowanie aktualizacji na urządzeniu z serii Azure Data Box Gateway | Microsoft Docs
 description: Opisuje sposób stosowania aktualizacji przy użyciu Azure Portal i lokalnego interfejsu użytkownika sieci Web dla urządzeń z serii Azure Data Box Gateway
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: twooley
-ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783879"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055967"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Aktualizowanie Azure Data Box Gateway
 
@@ -22,7 +22,7 @@ W tym artykule opisano kroki wymagane do zainstalowania aktualizacji na Azure Da
 >
 > - Aktualizacja **1911** jest zgodna z wersją oprogramowania **1.6.1049.786** na urządzeniu. Aby uzyskać informacje na temat tej aktualizacji, przejdź do informacji o [wersji](data-box-gateway-1911-release-notes.md).
 >
-> - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ponieważ Data Box Gateway jest urządzeniem z jednym węzłem, wszystkie trwające operacji we/wy są zakłócone, a urządzenie będzie miało przestoje do 30 minut w przypadku aktualizacji oprogramowania.
+> - Należy pamiętać, że zainstalowanie aktualizacji lub poprawki powoduje ponowne uruchomienie urządzenia. Ponieważ Data Box Gateway jest urządzeniem z jednym węzłem, wszystkie trwające operacji we/wy zostają zakłócone, a urządzenie odnotuje trwający do 30 minut przestój związany z aktualizacją oprogramowania.
 
 Wszystkie wymienione kroki zostały opisane poniżej.
 
@@ -39,7 +39,7 @@ Zalecamy zainstalowanie aktualizacji za pomocą Azure Portal. Urządzenie automa
 
 2. W bloku **aktualizacje urządzeń** Sprawdź, czy zostały sprawdzone postanowienia licencyjne związane z nowymi funkcjami w informacjach o wersji.
 
-    Możesz **pobrać i zainstalować** aktualizacje lub po prostu **pobrać** aktualizacje. Następnie można później zainstalować te aktualizacje.
+    Możesz **pobrać i zainstalować** aktualizacje lub po prostu **pobrać** aktualizacje. Następnie możesz zainstalować te aktualizacje później.
 
     ![Wersja oprogramowania po aktualizacji](./media/data-box-gateway-apply-updates/portal-apply-update-02.png)
 
@@ -139,7 +139,7 @@ Wykonanie tej procedury zajmuje około 20 minut. Wykonaj następujące kroki, ab
 
    ![aktualizowanie urządzenia](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
 
-3. Wybierz pozycję **Zastosuj**.
+3. Wybierz przycisk **Zastosuj**.
 
    ![aktualizowanie urządzenia](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 

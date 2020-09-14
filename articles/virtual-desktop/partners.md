@@ -3,15 +3,15 @@ title: Integracja z partnerem pulpitu wirtualnego systemu Windows — Azure
 description: Dowiedz się więcej na temat partnerów i dostępu do dokumentacji pulpitu wirtualnego systemu Windows na temat sposobu integrowania z nimi.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94da428862e1af66ee58e739b3ad3b5b95be3310
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612371"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056459"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -46,7 +46,8 @@ Technologia 10ZiG przy użyciu sprzętu i oprogramowania z możliwością obniż
 
 10ZiG's na świecie liderów w wąskich i zerowych urządzeniach punktu końcowego klienta oraz oprogramowaniu do zarządzania dla pulpitów wirtualnych to exemplified, jak działają dla swoich klientów. Jego sprzęt zubożony jest dostarczany z Thoughtfully skonstruowanych funkcji i opcji korzyści, dzięki którym klienci otrzymują odpowiednie urządzenia klienckie w zależności od potrzeb. 10ZiG dostosowuje swoje urządzenia do środowiska klienta z klientami opartymi na systemie Windows i Linux, które zapewniają najlepszą możliwą wydajność na pulpitach wirtualnych, zarówno wewnątrz, jak i poza chmurą.
 
-- [Przejdź do witryny sieci Web partnera](https://www.10zig.com/about/microsoft-wvd).
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeR).
+- [Przejdź do witryny sieci Web partnera](https://www.10zig.com/about/microsoft-windows-virtual-desktop).
 
 ## <a name="automai"></a>Automai
 
@@ -101,7 +102,7 @@ Gdy jest używany z pulpitem wirtualnym systemu Windows, ControlUp zapewnia doda
 
 Zubożoni klienci firmy Dell są zoptymalizowane pod kątem dostępu do Microsoft Azure i usług pulpitu wirtualnego systemu Windows. W celu zaspokojenia potrzeb od pracowników z pracownikami z dziedziny współpracy w przypadku użytkowników zaawansowanych intensywnie korzystających z grafiki Wyse zubożoni klienci mogą w pełni korzystać z rosnącej liczby aplikacji i zawartości. Idealne rozwiązanie dla środowisk z ograniczeniami, Wyse zubożonych klientów dostosowuje się do sposobu, w jaki ludzie pracują z uniwersalnymi aspektami formularzy oraz szeroką gamę opcji instalacji.
 
-Wyse zubożonych klientów są zaprojektowana z myślą o bezpieczeństwie z ograniczoną powierzchnią ataków, obsługą standardów zgodności zabezpieczeń oraz zaawansowanymi rozwiązaniami do uwierzytelniania wieloskładnikowego. Wdróż wysoce zabezpieczony zubożonych klientów z Wyseą ThinOS firmy Dell lub zapoznaj się z bezpiecznym dostępem do aplikacji w chmurze i wirtualnych obszarów roboczych z zaostrzonych Wyse ThinLinux z komercyjnym sprawdzonym projektem i systemem Windows 10 IoT Enterprise z funkcjami zabezpieczeń dodanych przez firmę Microsoft. Dzięki bezpiecznej, opartej na protokole HTTPS komunikacji i uwierzytelnianiu usługi Active Directory dla administracji opartej na rolach Wyse Management Suite utrzymuje, że Wyse punkty końcowe są zawsze aktualne, a aplikacja mobilna dla usługi WMS Pro umożliwia działowi IT wyświetlanie alertów krytycznych i wysyłanie poleceń w czasie rzeczywistym za pomocą jednego naciśnięcia w dowolnym momencie.
+Wyse zubożonych klientów są zaprojektowana z myślą o bezpieczeństwie z ograniczonymi obszarami ataków, obsługą standardów zgodności zabezpieczeń oraz zaawansowanymi rozwiązaniami do uwierzytelniania wieloskładnikowego. Wdróż wysoce zabezpieczony zubożonych klientów z systemem Windows 10 IoT Enterprise i funkcjami zabezpieczeń dodanych przez firmę Dell. W przypadku bezpiecznej, opartej na protokole HTTPS komunikacji i uwierzytelniania usługi Active Directory dla administracji opartej na rolach Wyse Management Suite utrzymuje, że Wyse punkty końcowe są zawsze aktualne, a aplikacja mobilna dla usługi WMS Pro umożliwia działowi IT wyświetlanie alertów krytycznych i wysyłanie poleceń w czasie rzeczywistym za pomocą jednego naciśnięcia w dowolnym momencie.
 
 - [Przejdź do witryny sieci Web partnera](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
 
@@ -190,6 +191,15 @@ Rozwiązanie do monitorowania rozwiązań cyfrowych Lakeside oprogramowania, Sys
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
 - [Przejdź do witryny sieci Web partnera](https://www.lakesidesoftware.com/assessments/wvd).
 
+## <a name="lenovo"></a>Lenovo
+
+![Logo Lenovo](./media/partners/lenovo.png)
+
+Klienci z systemem Lenovo i elastyczni zapewniają sieci elastyczność komputera klienckiego z serwerem, ale z natywną możliwością komputera i mocą. Zubożoni klienci z systemem Lenovo umożliwiają wdrażanie pulpitów wirtualnych systemu Windows niezwykle wydajność i intuicyjną możliwość zarządzania, co pozwala podnieść poziom niezawodności sieci firmowej. Każdy klient zubożony jest wyposażony w licencję Menedżera terminalu w systemie Lenovo bez dodatkowych kosztów, co zapewnia organizacjom bezproblemowe i ekonomiczne zarządzanie sprzętem oraz opcje wdrażania. Są one również małe i uniwersalne, dzięki czemu można łatwo dodawać do istniejących wdrożeń z usługą Lenovo.
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FnaB).
+- [Przejdź do witryny sieci Web partnera](https://www.lenovo.com/us/en/desktops-and-all-in-ones/thinkcentre/m-series-thin-clients/c/M-Series-Thin-Clients).
+
 ## <a name="liquidware"></a>Cieczer
 
 ![Logo oprogramowania Liquid](./media/partners/liquidware.png)
@@ -220,6 +230,17 @@ VSI logowania to dostawca usług dodanego pulpitu wirtualnego systemu Windows i 
 
 - [Przejdź do witryny sieci Web partnera](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
+## <a name="nasuni"></a>Nasuni
+
+![Logo nasuni](./media/partners/nasuni.png)
+
+Nasuni Corp., wiodący dostawca usług plików w chmurze oraz najpopularniejszy Globalny Partner niezależnych dostawców oprogramowania platformy Azure oferuje platformę nasuni oprogramowanie jako usługa jako nowoczesne rozwiązanie do magazynowania plików dla nowoczesnych pulpitów wirtualnych. Nasuni, w połączeniu z usługą Azure Blob Storage, konsoliduje podstawowy magazyn plików (NAS), kopie zapasowe plików, odzyskiwanie po awarii i synchronizację plików między regionami w jednym, ujednoliconym rozwiązaniu. Dzięki nasuni przedsiębiorstwa mogą wdrażać pulpity wirtualne systemu Windows w celu uzyskania większej ilości przypadków użycia i w większej liczbie regionów świadczenia usługi Azure, uprościć administrację i zapewnić ciągłość działania. 
+
+To nowoczesne rozwiązanie VDI w chmurze, pulpit wirtualny systemu Windows wymaga nowoczesnego magazynu plików w chmurze. Tradycyjnie magazyn plików VDI opierał się na urządzeniach magazynu sieciowego (NAS) i serwera plików, które znajdują się lokalnie, oraz z załączoną technologią wymaganą do udostępniania kopii zapasowych plików, przywracania i odzyskiwania po awarii. Te tradycyjne podejścia są kosztowne, skomplikowane do utrzymania i administrowania oraz nie mogą być łatwe do skalowania. Wprowadzają także opóźnienia, jeśli są używane z nowoczesnego rozwiązania VDI w chmurze, takiego jak pulpit wirtualny systemu Windows z powodu fizycznej odległości i wolniejszych połączeń sieci WAN między pulpitami opartymi na platformie Azure i magazynem plików opartym na środowisku lokalnym. Nasuni, platforma usług plików oparta specjalnie na platformie Azure, oferuje nieograniczoną pojemność magazynu plików i dostęp do plików o wysokiej wydajności. Nasuni może być umieszczony na jednym z pulpitów wirtualnych systemu Windows w tych samych regionach platformy Azure, aby zapewnić ekonomiczny, wysoki poziom dostępu do pliku do pojedynczej globalnej przestrzeni nazw. Nasuni oferuje magazyn plików pulpitu wirtualnego systemu Windows w części kosztów tradycyjnych serwerów plików NAS i Windows, a także oferuje wbudowane kopie zapasowe i odzyskiwanie po awarii w celu dodatkowego obniżenia kosztów i zwolnienia zasobów IT.
+
+- [Przejdź do witryny sieci Web partnera](https://www.nasuni.com/partner/microsoft/#wvd).
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Logo Nerdio](./media/partners/nerdio.png)
@@ -230,6 +251,17 @@ Nerdio rozszerza wartość pulpitu wirtualnego systemu Windows, co ułatwia Inic
 
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Przejdź do witryny sieci Web partnera](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="nexthink"></a>Nexthink
+
+![Logo Nexthink](./media/partners/nexthink.png)
+
+Nexthink to dostawca usług pulpitu wirtualnego systemu Windows, który pomaga organizacjom w niekorzystnym mierzeniu, zarządzaniu i ulepszaniu możliwości cyfrowych i produktywności pracowników. Dzięki stałemu odczytaniu pulsu pracowników cyfrowych może stale ulepszać możliwości technologii w zakresie zaangażowania, upoważnienia i niejasnego korzystania z nich, niezależnie od miejsca, w którym pracują. 
+
+Udostępniając rozwiązania z widocznymi zasobami w miejscu pracy, Nexthink zapewnia kontekst i wgląd w bazę użytkownika. Nexthink Wydajna platforma zarządzania pomaga zespołom IT zapewnić, że migracje do pulpitu wirtualnego systemu Windows są planowane i wprowadzane do działania w odpowiednim czasie i w sposób skuteczny.
+
+- [Przejdź do witryny sieci Web partnera](https://www.nexthink.com/initiative/desktop-virtualization/).
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeT).
 
 ## <a name="numecent"></a>Numecent
 
@@ -287,12 +319,16 @@ Rozwiązania dowódców Pulpit zdalny RDPSoft ulepszają administrację pulpitó
 
 ![Logo Rimo3](./media/partners/rimo3.png)
 
-Rimo3 rozszerza środowisko pulpitu wirtualnego systemu Windows, przyspieszając wdrażanie i ulepszając bieżące zarządzanie zmianami. Rimo3 wspiera zespoły IT z wiedzą, której potrzebują, aby obsłużyć teczkę aplikacji na potrzeby gotowości aplikacji do migracji na platformę Azure. Użytkownicy mogą dołączać aplikacje i testować je w celu szybkiego i bezproblemowe rozpoczęcieego obszaru roboczego pulpitów wirtualnych systemu Windows. Użytkownicy mogą również aktywnie zrozumieć wpływ wszelkich zmian w miarę, w jaki organizacja przedstawia nowe aplikacje i aktualizacje. Na koniec Administratorzy IT mogą wykorzystać możliwości testowania inteligentnego dymu Rimo3's i zautomatyzować testowanie funkcji bez przerywania sesji użytkowników.
+Rimo3 ulepsza środowisko pulpitu wirtualnego systemu Windows dzięki łatwej w użyciu, skalowalnej i opartej na chmurze platformie modernizacji aplikacji.
 
-Rimo3 oferuje łatwą w użyciu, skalowalną, zautomatyzowaną platformę testowania aplikacji. Ta platforma obejmuje możliwości wszystkich trzech podstawowych testów aplikacji: zgodność, funkcjonalność i wydajność. Dzięki temu organizacje, Liderzy i zespoły mogą poprawiać ciągłość działania, wdrażać zmiany i optymalizować środowisko użytkownika.
+W przypadku zespołów IT Rimo3 ułatwiają odnajdywanie i modernizację obciążeń aplikacji oraz zarządzanie nimi w przypadku przenoszenia do pulpitu wirtualnego systemu Windows. Użytkownicy mogą automatycznie skanować teczkę aplikacji, aby odnaleźć kandydatów odpowiednich do dołączania do pulpitu wirtualnego systemu Windows lub modernizacji do MSIX.  
+
+Użytkownicy mogą zautomatyzować wstępne testowanie swoich aplikacji, konwertować aplikacje na MSIX i test po konwersji podczas stosowania automatycznego korygowania, jeśli aplikacje nie są prawidłowo konwertowane. Wynikiem jest nowoczesny, gotowy do wdrożenia pakiet MSIX. W przypadku każdej wersji i aktualizacji funkcji pulpitu wirtualnego systemu Windows użytkownicy mogą w pełni przetestować aplikacje automatycznie przed wdrożeniem, co zapewnia pełną pewność i bieżące zarządzanie.
+
+W przypadku dostawców usług zarządzanych usługa Rimo3 pomaga w rozłożeniu możliwości usług zarządzanych, aby zwiększyć marginesy, i pomóc im w wykorzystaniu przychodów opartych na projektach, a następnie dodać wartość do klientów, którzy muszą przeprowadzić modernizację i przejść do pulpitu wirtualnego systemu Windows i zarządzać regularnymi aktualizacjami w swoich obszarach roboczych komputerów.
 
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
-- [Przejdź do witryny sieci Web partnera](https://rimo3.com/outcomes/).
+- [Przejdź do witryny sieci Web partnera](https://rimo3.com/windows-virtual-desktop/).
 
 ## <a name="sepago"></a>sepago
 
@@ -304,6 +340,17 @@ sepago innowacje i rozwój laboratoryjne kompilują inteligentne rozwiązania pr
 
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
 - [Przejdź do witryny sieci Web partnera](https://www.sepago.de/en/).
+
+## <a name="ssh2"></a>SSH2
+
+![Logo SSH2](./media/partners/ssh2.png)
+
+SSH2 to dostawca usług dodanego pulpitu wirtualnego systemu Windows, który służy do wyposażania zespołów IT z oprogramowaniem w celu przyspieszenia dostarczania aplikacji z bieżącej platformy do pulpitu wirtualnego systemu Windows na platformie Azure. SSH2 umożliwia przyspieszenie przechwytywania aplikacji w celu usprawnienia procesu migracji. SSH2's appCURE przechwytuje uruchomione aplikacje w punkcie końcowym, umożliwia aktualizowanie i korygowanie w celu utworzenia kompleksowej zmiany w szybkości, w której można wykonywać środowiska użytkownika końcowego. 
+
+appCURE przechwytuje szczegóły aplikacji z uruchomionych aplikacji, aby upewnić się, że wszystkie punkty, które mogą mieć wpływ na aplikacje użytkownika końcowego, są zrozumiałe. appCURE następnie aktualizuje i dostarcza je do nowego pulpitu wirtualnego systemu Windows. Przechwytując wszystkie punkty integracji aplikacji w bieżącym środowisku, appCURE zapewnia szybkość optymalizowania zasobów IT i planowanie dla migracji lepszych i szybszych niż kiedykolwiek, dzięki czemu organizacje mogą szybciej korzystać z produkcji.
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
+- [Przejdź do strony partnerskiej](https://www.ssh2.xyz/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -334,6 +381,7 @@ ogromne limity, firma uberAgent, zapewnia widoczność dla wdrożeń pulpitów w
 
 uberAgent to produkt monitorujący i analityczny przeznaczony do obliczeń dla użytkowników końcowych, który nie zbiera danych tylko — zapewnia klientom informacje, które mają znaczenie. uberAgent ma swoje własne metryki, które obejmują kluczowe aspekty środowiska użytkownika, wydajności aplikacji i zabezpieczeń punktów końcowych, informując wszystko, co musisz wiedzieć o maszynach wirtualnych z systemem Windows, bez wpływu na gęstość użytkownika w systemie. uberAgent upraszcza Rozwiązywanie problemów, pomaga w ustalaniu wielkości i oferuje bogate informacje niezbędne do zapewnienia bezpieczeństwa informacji.
 
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs39).
 - [Przejdź do witryny sieci Web partnera](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
 
 ## <a name="workspace-365"></a>Obszar roboczy 365

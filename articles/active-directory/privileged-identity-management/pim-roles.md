@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 0403fe3cf0bf8cfaf9c722edadbecd2fee61cb46
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782485"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056289"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Role, którymi nie można zarządzać w Privileged Identity Management
 
@@ -35,9 +35,9 @@ W Privileged Identity Management nie można zarządzać następującymi rolami k
 
 Aby uzyskać więcej informacji na temat ról administratora klasycznej subskrypcji, zobacz Role [administratora subskrypcji klasycznej, role platformy Azure i role administratorów usługi Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="what-about-office-365-admin-roles"></a>Jakie są role administratorów pakietu Office 365?
+## <a name="what-about-microsoft-365-admin-roles"></a>Co Microsoft 365 role administratorów?
 
-Obsługiwane są wszystkie role usługi Office 365 w witrynie Azure AD role i portalu administratorów, takie jak administrator programu Exchange i administrator programu SharePoint, ale nie są obsługiwane określone role w ramach usług Exchange RBAC lub RBAC programu SharePoint. Aby uzyskać więcej informacji na temat tych usług Office 365, zobacz [role administratora pakietu office 365](/office365/admin/add-users/about-admin-roles).
+Obsługiwane są wszystkie role Microsoft 365 w interfejsie role usługi Azure AD i portalu administratorów, takie jak administrator programu Exchange i administrator programu SharePoint, ale nie są obsługiwane określone role w ramach usług Exchange RBAC lub RBAC programu SharePoint. Aby uzyskać więcej informacji na temat tych Microsoft 365 usług, zobacz [Microsoft 365 role administratorów](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Uprawnieni użytkownicy dla roli administratora programu SharePoint, roli administratora urządzenia i wszystkich ról próbujących uzyskać dostęp do centrum zabezpieczeń i zgodności firmy Microsoft mogą napotkać opóźnienia nawet kilka godzin po aktywowaniu ich roli. Pracujemy nad tymi zespołami, aby rozwiązać te problemy.
