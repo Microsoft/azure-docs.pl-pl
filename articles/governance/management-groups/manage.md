@@ -37,7 +37,7 @@ Nazwę grupy zarządzania można zmienić przy użyciu portalu, programu PowerSh
 
 1. Wybierz opcję **Zmień nazwę grupy** w górnej części strony.
 
-   :::image type="content" source="./media/detail_action_small.png" alt-text="Zrzut ekranu przedstawiający pasek akcji i przycisk "Zmień grupę" na stronie grupy zarządzania." border="false":::
+   :::image type="content" source="./media/detail_action_small.png" alt-text="Zrzut ekranu przedstawiający pasek akcji i przycisk Zmień grupę na stronie grupy zarządzania." border="false":::
 
 1. Po otwarciu menu Wprowadź nową nazwę, którą chcesz wyświetlić.
 
@@ -82,7 +82,7 @@ Aby można było usunąć grupę zarządzania, muszą zostać spełnione następ
 
 1. Wybierz pozycję **Usuń**
 
-   :::image type="content" source="./media/delete.png" alt-text="Zrzut ekranu strony grupy zarządzania z wyróżnionym przyciskiem "Usuń"." border="false":::
+   :::image type="content" source="./media/delete.png" alt-text="Zrzut ekranu strony grupy zarządzania z wyróżnionym przyciskiem Usuń." border="false":::
 
    > [!TIP]
    > Jeśli ikona jest wyłączona, umieszczenie selektora myszy na ikonie pokazuje przyczynę.
@@ -229,7 +229,7 @@ Aby sprawdzić, jakie uprawnienia znajdują się w Azure Portal, wybierz grupę 
 
 1. Wybierz subskrypcję z listy z poprawnym IDENTYFIKATORem.
 
-   :::image type="content" source="./media/add_context_sub.png" alt-text="Zrzut ekranu przedstawiający opcje "Dodaj subskrypcję" służące do wybierania istniejącej subskrypcji, która ma zostać dodana do grupy zarządzania." border="false":::
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Zrzut ekranu przedstawiający opcje Dodaj subskrypcję służące do wybierania istniejącej subskrypcji, która ma zostać dodana do grupy zarządzania." border="false":::
 
 1. Wybierz pozycję "Zapisz".
 
@@ -243,13 +243,13 @@ Aby sprawdzić, jakie uprawnienia znajdują się w Azure Portal, wybierz grupę 
 
 1. Wybierz wielokropek na końcu wiersza dla subskrypcji na liście, która ma zostać przeniesiona.
 
-   :::image type="content" source="./media/move_small.png" alt-text="Zrzut ekranu przedstawiający menu alternatywne dla subskrypcji, aby wybrać opcję "Przenieś"." border="false":::
+   :::image type="content" source="./media/move_small.png" alt-text="Zrzut ekranu przedstawiający menu alternatywne dla subskrypcji, aby wybrać opcję Przenieś." border="false":::
 
 1. Wybierz pozycję **Przenieś**.
 
 1. W wyświetlonym menu wybierz **nadrzędną grupę zarządzania**.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="Zrzut ekranu przedstawiający okno "Przenieś" i opcje przenoszenia subskrypcji do innej grupy zarządzania." border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="Zrzut ekranu przedstawiający okno Przenieś i opcje przenoszenia subskrypcji do innej grupy zarządzania." border="false":::
 
 1. Wybierz pozycję **Zapisz**.
 
@@ -298,7 +298,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - Wybranie opcji Nowy spowoduje utworzenie nowej grupy zarządzania.
    - Wybranie istniejącej opcji spowoduje wyświetlenie listy rozwijanej wszystkich grup zarządzania, które można przenieść do tej grupy zarządzania.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="Zrzut ekranu przedstawiający opcje "Dodaj grupę zarządzania" służącą do tworzenia nowej grupy zarządzania." border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Zrzut ekranu przedstawiający opcje Dodaj grupę zarządzania służącą do tworzenia nowej grupy zarządzania." border="false":::
 
 1. Wybierz pozycję **Zapisz**.
 
