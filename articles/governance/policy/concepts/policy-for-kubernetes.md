@@ -63,7 +63,7 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 
      1. Wybierz pozycję **Dołącz podgląd** w lewej części strony Azure Policy.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Zrzut ekranu przedstawiający węzeł "Join Preview" na stronie zasad." border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Zrzut ekranu przedstawiający węzeł Join Preview na stronie zasad." border="false":::
 
      1. Wybierz wiersz subskrypcji, która ma zostać dodana do wersji zapoznawczej.
 
@@ -126,11 +126,11 @@ Po zakończeniu powyższych kroków wymagań wstępnych Zainstaluj dodatek Azure
 
   1. Wybierz pozycję **zasady (wersja zapoznawcza)** po lewej stronie usługi Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł "zasady (wersja zapoznawcza)" na stronie usługi Kubernetes." border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł zasady (wersja zapoznawcza) na stronie usługi Kubernetes." border="false":::
 
   1. Na stronie głównej wybierz przycisk **Włącz dodatek** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk "Włącz dodatek" na stronie "Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S)".":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk Włącz dodatek na stronie Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S).":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -466,11 +466,11 @@ Aby usunąć dodatek Azure Policy z klastra AKS, użyj Azure Portal lub interfej
 
   1. Wybierz pozycję **zasady (wersja zapoznawcza)** po lewej stronie usługi Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł "zasady (wersja zapoznawcza)" na stronie usługi Kubernetes." border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Zrzut ekranu przedstawiający węzeł zasady (wersja zapoznawcza) na stronie usługi Kubernetes." border="false":::
 
   1. Na stronie głównej wybierz przycisk **Wyłącz dodatek** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk "Wyłącz dodatek" na stronie "Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S)"." border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Zrzut ekranu przedstawiający przycisk Wyłącz dodatek na stronie Dołączanie do Azure Policy dla usług Azure Kubernetes Services (A K S)." border="false":::
 
 - Interfejs wiersza polecenia platformy Azure
 
