@@ -40,7 +40,7 @@ Symulator urządzeń jest oparty na **Node.js**, w wersji 10.0. x lub nowszej. [
 
 Na poniższym obrazie przedstawiono architekturę tego rozwiązania przy użyciu narzędzia Azure Digital bliźniaczych reprezentacji z usługą Device Provisioning. Pokazuje zarówno proces aprowizacji, jak i wycofywania urządzenia.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie "Allocation". Dane z ręcznej akcji "Usuń urządzenie" są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Widok urządzenia i kilku usług platformy Azure w kompleksowym scenariuszu. Dane są przepływane między urządzeniem termostatu a działem DPS i z powrotem. Dane są również przepływane z usługi DPS do IoT Hub i do Digital bliźniaczych reprezentacji na platformie Azure za pośrednictwem funkcji platformy Azure o nazwie Allocation. Dane z ręcznej akcji Usuń urządzenie są przepływem przez IoT Hub > Event Hubs > Azure Functions > Azure Digital bliźniaczych reprezentacji.":::
 
 Ten artykuł jest podzielony na dwie sekcje:
 * [*Inicjowanie obsługi administracyjnej urządzenia przy użyciu usługi Device Provisioning*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ Aby uzyskać dokładniejsze wyjaśnienia poszczególnych kroków architektury, z
 
 W tej sekcji zostanie dołączana usługa Device Provisioning do usługi Azure Digital bliźniaczych reprezentacji w celu samodzielnego udostępnienia urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Zainicjuj obsługę przepływu — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Dane są przepływane między urządzeniem termostatu a działem DPS (1 w przypadku urządzenia > DPS i 5 dla usługi DPS > urządzeniu). Dane są również przepływane z usługi DPS do IoT Hub (4) oraz do programu Azure Digital bliźniaczych reprezentacji (3) za pośrednictwem funkcji platformy Azure o nazwie "Allocation" (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Zainicjuj obsługę przepływu — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Dane są przepływane między urządzeniem termostatu a działem DPS (1 w przypadku urządzenia > DPS i 5 dla usługi DPS > urządzeniu). Dane są również przepływane z usługi DPS do IoT Hub (4) oraz do programu Azure Digital bliźniaczych reprezentacji (3) za pośrednictwem funkcji platformy Azure o nazwie Allocation (2).":::
 
 Oto opis przepływu procesu:
 1. Urządzenie kontaktuje się z punktem końcowym DPS, przekazując informacje identyfikacyjne w celu potwierdzenia tożsamości.
@@ -304,7 +304,7 @@ Powinny być widoczne sznurki urządzenia znajdujące się w wystąpieniu usług
 
 W tej sekcji nastąpi dołączenie IoT Hub zdarzeń cyklu życia do usługi Azure Digital bliźniaczych reprezentacji w celu wycofania urządzeń za pomocą poniższej ścieżki. Jest to fragment ze wszystkich pokazanych [wcześniej](#solution-architecture)architektury.
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Wycofywanie przepływu urządzenia — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Urządzenie termostatu jest wyświetlane bez połączeń z usługami platformy Azure na diagramie. Dane z ręcznej akcji "Usuń urządzenie" są przesyłane za pośrednictwem IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital bliźniaczych reprezentacji (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Wycofywanie przepływu urządzenia — fragment diagramu architektury rozwiązania z numerami etykiet sekcji przepływu. Urządzenie termostatu jest wyświetlane bez połączeń z usługami platformy Azure na diagramie. Dane z ręcznej akcji Usuń urządzenie są przesyłane za pośrednictwem IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digital bliźniaczych reprezentacji (3).":::
 
 Oto opis przepływu procesu:
 1. Proces zewnętrzny lub ręczny wyzwala Usuwanie urządzenia w IoT Hub.
