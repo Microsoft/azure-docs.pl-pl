@@ -151,7 +151,7 @@ W poniższych krokach opisano, jak dodać przypisanie roli do kont magazynu, poj
 
 1. Po włączeniu **kontroli dostępu (IAM)** w polu "Dodaj przypisanie roli" Wybierz pozycję **Dodaj**.
 
-   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Pokazuje stronę kontroli dostępu (IAM) na koncie magazynu i przycisk "Dodaj przypisanie roli" w Azure Portal.":::
+   :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Pokazuje stronę kontroli dostępu (IAM) na koncie magazynu i przycisk Dodaj przypisanie roli w Azure Portal.":::
 
 1. Na stronie "Dodawanie przypisania roli" Wybierz rolę z powyższej listy na liście rozwijanej **rola** . Wprowadź **nazwę** magazynu i wybierz pozycję **Zapisz**.
 
@@ -173,7 +173,7 @@ Utwórz jedną prywatną strefę DNS, aby zezwolić agentowi mobilności na rozp
 
    1. Wyszukaj ciąg "Prywatna strefa DNS Zone" na pasku wyszukiwania **wszystkie usługi** i wybierz pozycję "strefy prywatna strefa DNS" z listy rozwijanej.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Pokazuje wyszukiwanie "prywatne strefy DNS" na nowych zasobach w Azure Portal.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Pokazuje wyszukiwanie prywatne strefy DNS na nowych zasobach w Azure Portal.":::
 
    1. Na stronie "Prywatna strefa DNS Zones" Wybierz przycisk ** \+ Dodaj** , aby rozpocząć tworzenie nowej strefy.
 
