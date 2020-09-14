@@ -61,7 +61,7 @@ Wartość parametru zdefiniowana w definicji strategii jest nazywana **parametre
 
 1. Artefakty dodawane do planu, który ma opcje parametrów, są wyświetlane **parametry X z Y wypełnione** w kolumnie **Parameters** . Wybierz wiersz artefaktu, aby edytować parametry artefaktu.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Zrzut ekranu przedstawiający definicję planu oraz wyróżnione "X of Y Parameters"." border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Zrzut ekranu przedstawiający definicję planu oraz wyróżnione X of Y Parameters." border="false":::
 
 1. Na stronie **Edytowanie artefaktu** są wyświetlane opcje wartości odpowiednie dla wybranego artefaktu. Każdy parametr artefaktu ma tytuł, pole wartości i pole wyboru. Ustaw pole tak, aby nie było sprawdzane jako **parametr statyczny**. W poniższym przykładzie tylko _Lokalizacja_ jest **parametrem statycznym** , ponieważ nie jest zaznaczone i sprawdzana jest _Nazwa grupy zasobów_ .
 
