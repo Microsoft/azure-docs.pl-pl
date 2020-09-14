@@ -88,7 +88,7 @@ Teraz aplikacja Przykładowa ADT Explorer jest uruchamiana w przeglądarce na ko
 
 Aby zweryfikować połączenie, możesz nacisnąć przycisk *Uruchom zapytanie* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje w grafie w oknie *Eksplorator grafów* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu "uruchom zapytanie" w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zostanie wyróżniony przycisk odczytu uruchom zapytanie w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
 
 Możesz pozostawić uruchomiony program ADT Explorer, ponieważ będzie on używany ponownie w dalszej części tego artykułu, aby ponownie przekazać te elementy do nowego wystąpienia w regionie docelowym.
 
@@ -168,7 +168,7 @@ Program ADT Explorer przekaże teraz modele i Graf (w tym bliźniaczych reprezen
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik "Import" został pomyślnie odczytany. zaimportowano 2 modele. 4 bliźniaczych reprezentacji zaimportowano. zaimportowano 2 relacje "." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Okno dialogowe informujące o powodzeniu importowania grafu. Plik Import został pomyślnie odczytany. zaimportowano 2 modele. 4 bliźniaczych reprezentacji zaimportowano. zaimportowano 2 relacje ." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -178,11 +178,11 @@ Program ADT Explorer przekaże teraz modele i Graf (w tym bliźniaczych reprezen
 
 Aby sprawdzić, czy wszystko zostało przekazane pomyślnie, kliknij przycisk *Uruchom zapytanie* w oknie *Eksplorator grafu* , aby uruchomić domyślne zapytanie, które wyświetla wszystkie bliźniaczych reprezentacji i relacje na grafie. Spowoduje to również odświeżenie listy modeli w *widoku model*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zaznacz dookoła tego samego przycisku "uruchom zapytanie" od wcześniej w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Zaznacz dookoła tego samego przycisku uruchom zapytanie od wcześniej w górnej części okna" lightbox="media/how-to-move-regions/run-query.png":::
 
 Powinien zostać wyświetlony wykres ze wszystkimi bliźniaczych reprezentacji i relacjami wyświetlanymi w oknie *Eksplorator grafów* . W polu *Widok modelu* powinny również być widoczne modele.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Widok Eksploratora ADT przedstawiający 2 modele wyróżnione w polu "model widoku" i wykres wyróżniony w polu "Eksplorator grafu"" lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Widok Eksploratora ADT przedstawiający 2 modele wyróżnione w polu model widoku i wykres wyróżniony w polu Eksplorator grafu" lightbox="media/how-to-move-regions/post-upload.png":::
 
 To potwierdza, że modele, bliźniaczych reprezentacji i Graf zostały ponownie przekazane do nowego wystąpienia w regionie docelowym.
 
