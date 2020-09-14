@@ -36,7 +36,7 @@ Aby wyświetlić szczegóły zgodności, wykonaj następujące kroki:
 
 1. Na karcie **zgodność zasobów** na stronie **zgodność z zasadami** kliknij prawym przyciskiem myszy lub wybierz wielokropek zasobu w **stanie zgodności** , który jest _niezgodny_. Następnie wybierz pozycję **Wyświetl szczegóły zgodności**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link "Wyświetl szczegóły zgodności" na karcie Zgodność zasobów." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Zrzut ekranu przedstawiający link Wyświetl szczegóły zgodności na karcie Zgodność zasobów." border="false":::
 
 1. W okienku **szczegóły zgodności** są wyświetlane informacje z najnowszej wersji ewaluacyjnej zasobu do bieżącego przypisania zasad. W tym przykładzie można znaleźć wartość pola **Microsoft. SQL/Server/version** na _12,0_ , gdy oczekiwano definicji zasad _14,0_. Jeśli zasób nie jest zgodny z wieloma przyczynami, każda z nich jest wymieniona w tym okienku.
 
