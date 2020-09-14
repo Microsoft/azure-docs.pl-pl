@@ -26,7 +26,7 @@ Po przypisaniu planu można zaktualizować przypisanie. Istnieje kilka powodów,
 
 1. Na liście planów wybierz pozycję przypisanie strategii. Następnie użyj przycisku **Aktualizuj przypisanie** lub kliknij prawym przyciskiem myszy przypisanie planu i wybierz pozycję **Aktualizuj przypisanie**.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Zrzut ekranu strony przypisania strategii z wyróżnionym przyciskiem "Aktualizuj przydział"." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Zrzut ekranu strony przypisania strategii z wyróżnionym przyciskiem Aktualizuj przydział." border="false":::
 
 1. Strona **Przypisz plan** ładuje wstępnie wypełnione wszystkie wartości z oryginalnego przypisania. Można zmienić **wersję definicji**planu, stan **przypisania blokady** i wszystkie parametry dynamiczne, które istnieją w definicji strategii. Wybierz pozycję **Przypisz** po wprowadzeniu zmian.
 
