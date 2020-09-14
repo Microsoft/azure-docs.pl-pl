@@ -53,7 +53,7 @@ Szczegóły dotyczące błędu logowania są następujące i wyróżnione w przy
 * **Kod błędu logowania**: 50140
 * **Przyczyna niepowodzenia**: ten błąd wystąpił z powodu przerwania "nie wylogowuj mnie" podczas logowania użytkownika.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Przykład wpisu dziennika logowania z przerwaniem "nie wylogowuj mnie"":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Przykład wpisu dziennika logowania z przerwaniem nie wylogowuj mnie":::
 
 Aby uniemożliwić użytkownikom wyświetlanie przerwania, należy ustawić **opcję Pokaż na** wartość **nie** w ustawieniach zaawansowanych znakowania. Spowoduje to wyłączenie monitu KMSI dla wszystkich użytkowników w katalogu usługi Azure AD.
 
