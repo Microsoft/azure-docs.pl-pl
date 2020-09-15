@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024145"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089857"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -108,7 +108,7 @@ Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwer
 
 Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](update-mgmt-mecmintegration.md). [Agent log Analytics dla systemu Windows](../../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager. 
 
-Domyślnie maszyny wirtualne z systemem Windows wdrożone z portalu Azure Marketplace są ustawione tak, aby otrzymywać aktualizacje automatyczne z usługi Windows Update. Takie zachowanie nie zmienia się po dodaniu maszyn wirtualnych z systemem Windows do obszaru roboczego. Jeśli aktualizacje nie są aktywnie zarządzane przy użyciu Update Management, mają zastosowanie domyślne zachowanie (aby automatycznie zastosować aktualizacje).
+Domyślnie maszyny wirtualne z systemem Windows wdrożone w witrynie Azure Marketplace są ustawione tak, aby otrzymywać aktualizacje automatyczne z usługi Windows Update. Takie zachowanie nie zmienia się po dodaniu maszyn wirtualnych z systemem Windows do obszaru roboczego. Jeśli aktualizacje nie są aktywnie zarządzane przy użyciu Update Management, mają zastosowanie domyślne zachowanie (aby automatycznie zastosować aktualizacje).
 
 > [!NOTE]
 > Zasady grupy można modyfikować, aby można było wykonać ponowny rozruch maszyny tylko przez użytkownika, a nie przez system. Maszyny zarządzane mogą zostać zablokowane, jeśli Update Management nie ma uprawnień do ponownego uruchomienia maszyny bez ręcznej interakcji z użytkownikiem. Aby uzyskać więcej informacji, zobacz [Configure zasady grupy Settings for Automatic Updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
@@ -136,7 +136,7 @@ Update Management używa zasobów opisanych w tej sekcji. Te zasoby są automaty
 
 Po włączeniu Update Management każda maszyna z systemem Windows, która jest bezpośrednio połączona z obszarem roboczym Log Analytics, zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook w celu obsługi elementów Runbook, które obsługują Update Management.
 
-Każda maszyna z systemem Windows zarządzana przez Update Management jest wymieniona w okienku grupy hybrydowych procesów roboczych jako Grupa hybrydowych procesów roboczych systemu dla konta usługi Automation. Grupy używają `Hostname FQDN_GUID` konwencji nazewnictwa. Nie można kierować tymi grupami do elementów Runbook na Twoim koncie. Jeśli spróbujesz, próba zakończy się niepowodzeniem. Te grupy są przeznaczone do obsługi tylko Update Management.
+Każda maszyna z systemem Windows zarządzana przez Update Management jest wymieniona w okienku grupy hybrydowych procesów roboczych jako Grupa hybrydowych procesów roboczych systemu dla konta usługi Automation. Grupy używają `Hostname FQDN_GUID` konwencji nazewnictwa. Nie można kierować tymi grupami do elementów Runbook na Twoim koncie. Jeśli spróbujesz, próba zakończy się niepowodzeniem. Te grupy są przeznaczone do obsługi tylko Update Management. Aby dowiedzieć się więcej na temat wyświetlania listy maszyn systemu Windows skonfigurowanych jako hybrydowy proces roboczy elementu Runbook, zobacz temat [Wyświetlanie hybrydowych procesów roboczych elementów Runbook](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
 
 Możesz dodać maszynę z systemem Windows do grupy hybrydowych procesów roboczych elementu Runbook na koncie usługi Automation w celu obsługi elementów Runbook usługi Automation, jeśli używasz tego samego konta dla Update Management i członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcja została dodana w wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
@@ -164,9 +164,9 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez Update Mana
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Agenci dla systemu Windows |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
-| Agenci dla systemu Linux |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
+| Agenci dla systemu Windows |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
+| Grupa zarządzania programu Operations Manager |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
 
@@ -211,7 +211,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

@@ -4,24 +4,24 @@ description: Dostosuj bot rozmowy .NET do języka C# przy użyciu pętli persona
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935657"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089891"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Samouczek: Używanie funkcji personalizacji w programie .NET Chat bot
 
 Aby zapewnić użytkownikowi poprawną zawartość, należy użyć języka C# .NET Chat bot z pętlą Personalizujer. Ten bot rozmowy sugeruje konkretną kawę lub herbata do użytkownika. Użytkownik może zaakceptować lub odrzucić tę sugestię. Zapewnia to informacje dotyczące personalizowania, aby lepiej dostosować następną sugestię.
 
-**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
+**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Konfigurowanie zasobów platformy Azure
 > * Konfigurowanie i uruchamianie bot
-> * Posługiwanie się bot za pomocą emulatora bot
+> * Korzystanie z bot przy użyciu emulatora platformy bot Framework
 > * Dowiedz się, gdzie i jak bot używa personalizacji
 
 
@@ -174,7 +174,7 @@ Utrzymuj działającą witrynę sieci Web, ponieważ samouczek wyjaśnia, co rob
 
 ## <a name="set-up-the-bot-emulator"></a>Konfigurowanie emulatora bot
 
-1. Otwórz emulator bot i wybierz pozycję **Otwórz bot**.
+1. Otwórz emulator bot Framework i wybierz pozycję **Otwórz bot**.
 
     :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Zrzut ekranu przedstawiający ekran uruchamiania emulatora bot.":::
 

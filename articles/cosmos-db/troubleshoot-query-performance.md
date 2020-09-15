@@ -1,23 +1,23 @@
 ---
-title: Rozwiązywanie problemów z kwerendą podczas korzystania z Azure Cosmos DB
+title: Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 description: Dowiedz się, jak identyfikować, diagnozować i rozwiązywać problemy z Azure Cosmos DB zapytań SQL.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117917"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089993"
 ---
-# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z kwerendą podczas korzystania z Azure Cosmos DB
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z zapytaniami podczas korzystania z usługi Azure Cosmos DB
 
-W tym artykule przedstawiono ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w Azure Cosmos DB. Chociaż nie należy traktować kroków opisanych w tym artykule, pełna ochrona przed potencjalnymi problemami związanymi z zapytaniami zawiera najpopularniejsze porady dotyczące wydajności. Należy używać tego artykułu jako lokalizacji początkowej do rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w interfejsie API Azure Cosmos DB Core (SQL). [Dzienników diagnostycznych](cosmosdb-monitor-resource-logs.md) można także użyć do identyfikowania zapytań, które są powolne lub zużywają znaczną przepływność.
+W tym artykule przedstawiono ogólne zalecane podejście do rozwiązywania problemów z zapytaniami w Azure Cosmos DB. Chociaż nie należy traktować kroków opisanych w tym artykule, pełna ochrona przed potencjalnymi problemami związanymi z zapytaniami zawiera najpopularniejsze porady dotyczące wydajności. Ten artykuł powinien być używany jako punkt wyjścia do rozwiązywania problemów z powolnymi lub kosztownymi zapytaniami w podstawowym interfejsie API usługi Azure Cosmos DB (SQL). Można również używać [dzienników diagnostycznych](cosmosdb-monitor-resource-logs.md) do identyfikowania zapytań, które są powolne lub zużywają znaczną ilość przepływności.
 
 Optymalizacje zapytań można w szerokim zakresie klasyfikować w Azure Cosmos DB:
 
@@ -26,22 +26,21 @@ Optymalizacje zapytań można w szerokim zakresie klasyfikować w Azure Cosmos D
 
 W przypadku zredukowania opłaty za usługę RU do programu dla kwerendy niemal znacznie zmniejszasz opóźnienia.
 
-W tym artykule przedstawiono przykłady, które można utworzyć ponownie przy użyciu zestawu danych [odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) .
+W tym artykule przedstawiono przykłady, które można utworzyć ponownie przy użyciu [zestawu danych odżywiania](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## <a name="common-sdk-issues"></a>Typowe problemy z zestawem SDK
 
 Przed przeczytaniem tego przewodnika warto rozważyć typowe problemy z zestawem SDK, które nie są związane z aparatem zapytań.
 
-- Aby uzyskać najlepszą wydajność, postępuj zgodnie z tymi [wskazówkami dotyczącymi wydajności](performance-tips.md).
-    > [!NOTE]
-    > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta Windows 64-bitowego. Zestaw SDK SQL zawiera natywną ServiceInterop.dll do analizy i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, w których ServiceInterop.dll nie jest dostępna, do bramy zostanie nawiązane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania.
+- Postępuj zgodnie z tymi [wskazówkami dotyczącymi wydajności zestawu SDK](performance-tips.md).
+    - [Przewodnik rozwiązywania problemów z zestawem SDK platformy .NET](troubleshoot-dot-net-sdk.md)
+    - [Przewodnik rozwiązywania problemów z zestawem SDK języka Java](troubleshoot-java-sdk-v4-sql.md)
 - Zestaw SDK umożliwia ustawienie `MaxItemCount` dla zapytań, ale nie można określić minimalnej liczby elementów.
     - Kod powinien obsługiwać dowolny rozmiar strony od zera do `MaxItemCount` .
-    - Liczba elementów na stronie będzie zawsze mniejsza lub równa podanej liczbie `MaxItemCount` . Jednak `MaxItemCount` jest ściśle maksimum i może być mniej wyników niż ta kwota.
 - Czasami zapytania mogą mieć puste strony nawet wtedy, gdy wyniki są na przyszłość. Przyczyny tego mogą być następujące:
     - Zestaw SDK może wykonywać wiele wywołań sieciowych.
     - Pobieranie dokumentów może potrwać dłuższy czas.
-- Wszystkie zapytania mają token kontynuacji, który umożliwi kontynuowanie zapytania. Pamiętaj, aby całkowicie opróżnić zapytanie. Zapoznaj się z przykładami zestawu SDK i Użyj `while` pętli on, `FeedIterator.HasMoreResults` Aby opróżnić całe zapytanie.
+- Wszystkie zapytania mają token kontynuacji, który umożliwi kontynuowanie zapytania. Pamiętaj, aby całkowicie opróżnić zapytanie. Dowiedz się więcej [na temat obsługi wielu stron wyników](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>Pobierz metryki zapytania
 

@@ -1,17 +1,17 @@
 ---
 title: Rozwiązywanie problemów z połączeniem usługi Windows Virtual Desktop — Azure
-description: Jak rozwiązywać problemy podczas konfigurowania połączeń klienta w środowisku dzierżawy pulpitu wirtualnego systemu Windows.
+description: Jak rozwiązywać problemy podczas konfigurowania połączeń usług w środowisku dzierżawy usług pulpitu wirtualnego systemu Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009379"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089908"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Połączenia usługi pulpitu wirtualnego systemu Windows
 
@@ -39,6 +39,12 @@ Użytkownik może uruchomić Pulpit zdalny klientów i może się uwierzytelnić
 3. Jeśli klient sieci Web jest używany, upewnij się, że nie występują problemy z buforowanymi poświadczeniami.
 
 4. Jeśli użytkownik jest częścią grupy użytkowników programu Azure Active Directory (AD), upewnij się, że grupa użytkowników jest grupą zabezpieczeń, a nie z grupą dystrybucyjną. Pulpit wirtualny systemu Windows nie obsługuje grup dystrybucyjnych usługi Azure AD.
+
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>Użytkownik utraci istniejące źródło danych i nie jest wyświetlany żaden zasób zdalny (brak kanału informacyjnego)
+
+Ten błąd jest zwykle wyświetlany po przeniesieniu przez użytkownika subskrypcji z jednej dzierżawy usługi Azure AD do innej. W związku z tym usługa utraci śledzenie swoich przypisań użytkowników, ponieważ są one nadal powiązane z poprzednią dzierżawą usługi Azure AD.
+
+Aby rozwiązać ten problem, wystarczy zmienić przypisanie użytkowników do grup aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

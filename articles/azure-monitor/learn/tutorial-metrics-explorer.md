@@ -6,17 +6,17 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 72f90918afa275e56528016539ecb2eec93d5db0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79082816"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090095"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Samouczek: Tworzenie wykresu metryk w Azure Monitor
 Eksplorator metryk jest funkcją Azure Monitor w Azure Portal, która umożliwia tworzenie wykresów z wartości metryk, wizualnie skorelowanych trendów oraz badanie skoków i wartości w metrykach. Użyj Eksploratora metryk, aby zbadać kondycję i wykorzystanie zasobów platformy Azure lub wykresy z metryk niestandardowych. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Wybierz metrykę, dla której chcesz wykreślić wykres
@@ -52,7 +52,7 @@ Eksploratora metryk można otworzyć z menu Azure Monitor lub z menu zasobów w 
 
 4. Opcjonalnie można zmienić **agregację**metryki. Definiuje, jak wartości metryk będą agregowane w czasie dla wykresu. Na przykład jeśli stopień szczegółowości czasu jest ustawiony na 15 minut, a agregacja jest ustawiona na suma, wówczas każdy punkt na wykresie będzie sumą wszystkich zebranych wartości w każdym segmencie 15 minut.
 
-    ![Wykres](media/tutorial-metrics-explorer/chart.png)
+    ![Zrzut ekranu przedstawia wykres z tytułem suma ruchu przychodzącego dla contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
 5. Użyj przycisku **Dodaj metrykę** i powtórz te kroki, jeśli chcesz zobaczyć wiele metryk wykreślonych na tym samym wykresie. W przypadku wielu wykresów w jednym widoku wybierz przycisk **Nowy wykres** .
 

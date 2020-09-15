@@ -4,25 +4,23 @@ description: Dowiedz się, jak wysyłać powiadomienia do określonych użytkown
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc, devx-track-csharp
-ms.date: 03/22/2019
+ms.custom: mvc
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 865aaf748fd8fad5f10350cb5b57d31b3eadf7a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018046"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090061"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień do konkretnych użytkowników przy użyciu usługi Azure Notification Hubs
 
@@ -30,7 +28,7 @@ ms.locfileid: "89018046"
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku pokazano, jak wysyłać powiadomienia push do użytkownika konkretnej aplikacji na konkretnym urządzeniu za pomocą usługi Azure Notification Hubs. Zaplecze ASP.NET interfejsu WebAPI jest używane do uwierzytelniania klientów. Kiedy zaplecze uwierzytelnia użytkownika aplikacji klienckiej, automatycznie dodaje tag do rejestracji powiadomienia. Zaplecze używa tego tagu do wysyłania powiadomień do określonego użytkownika.
+W tym samouczku opisano, jak za pomocą usługi Azure Notification Hubs wysyłać powiadomienia wypychane do określonego użytkownika aplikacji na określonym urządzeniu. Zaplecze ASP.NET interfejsu WebAPI jest używane do uwierzytelniania klientów. Kiedy zaplecze uwierzytelnia użytkownika aplikacji klienckiej, automatycznie dodaje tag do rejestracji powiadomienia. Zaplecze używa tego tagu do wysyłania powiadomień do określonego użytkownika.
 
 > [!NOTE]
 > Ukończony kod dla tego samouczka można znaleźć w witrynie [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
@@ -66,7 +64,7 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
 5. Na liście wyników kliknij pozycję **System.Net.Http**, a następnie kliknij opcję **Zainstaluj**. Ukończ instalację.
 6. W polu **Wyszukaj** w menedżerze pakietów NuGet wpisz ciąg **Json.net**. Zainstaluj pakiet **Newtonsoft.json**, a następnie zamknij okno menedżera pakietów NuGet.
 7. W Eksploratorze rozwiązań kliknij projekt **WindowsApp** i kliknij dwukrotnie plik **MainPage.xaml**, aby otworzyć go w edytorze programu Visual Studio.
-8. W `MainPage.xaml` kodzie XML Zastąp `<Grid>` sekcję następującym kodem: ten kod dodaje pole tekstowe username i Password, z którym użytkownik jest uwierzytelniany. Ponadto kod dodaje pola tekstowe dla komunikatu powiadomienia oraz tagu nazwy użytkownika, który ma otrzymać powiadomienie:
+8. W `MainPage.xaml` pliku Zastąp `<Grid>` sekcję następującym kodem: ten kod dodaje pole tekstowe username i Password, z którym użytkownik jest uwierzytelniany. Ponadto kod dodaje pola tekstowe dla komunikatu powiadomienia oraz tagu nazwy użytkownika, który ma otrzymać powiadomienie:
 
     ```xml
     <Grid>
@@ -118,6 +116,7 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
         </StackPanel>
     </Grid>
     ```
+
 9. W Eksploratorze rozwiązań otwórz plik `MainPage.xaml.cs` dla projektów **(Windows 8.1)** i **(Windows Phone 8.1)**. Dodaj następujące instrukcje `using` na początku obu plików:
 
     ```csharp
@@ -128,11 +127,13 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
+
 10. W pliku `MainPage.xaml.cs` dla projektu **WindowsApp** dodaj następujący element członkowski do klasy `MainPage`. Pamiętaj, aby zastąpić ciąg `<Enter Your Backend Endpoint>` wcześniej pozyskanym, faktycznym punktem końcowym zaplecza. Na przykład `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
+
 11. Dodaj poniższy kod do klasy MainPage w pliku `MainPage.xaml.cs` dla projektów **(Windows 8.1)** i **(Windows Phone 8.1)**.
 
     Metoda `PushClick` to procedura obsługi kliknięcia dla przycisku **Send Push** (Wyślij powiadomienie push). Metoda wywołuje zaplecze, aby wyzwolić powiadomienie do wszystkich urządzeń z tagiem nazwy użytkownika, który pasuje do parametru `to_tag`. Komunikat powiadomienia jest wysyłany jako zawartość JSON w treści żądania.
@@ -215,13 +216,15 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-12. Otwórz plik `App.xaml.cs` i znajdź wywołanie metody `InitNotificationsAsync()` w programie obsługi zdarzeń `OnLaunched()`. Oznacz wywołanie metody `InitNotificationsAsync()` jako komentarz lub usuń je. Procedura obsługi przycisku inicjuje rejestracje powiadomień.
+
+12. Otwórz plik `App.xaml.cs` i znajdź wywołanie metody `InitNotificationsAsync()` w programie obsługi zdarzeń `OnLaunched()`. Oznacz wywołanie metody `InitNotificationsAsync()` jako komentarz lub usuń je. Procedura obsługi przycisków inicjuje rejestracje powiadomień:
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
+
 13. Kliknij prawym przyciskiem myszy projekt **WindowsApp**, kliknij polecenie **Dodaj**, a następnie kliknij polecenie **Klasa**. Nadaj klasie nazwę `RegisterClient.cs`, a następnie kliknij przycisk **OK**, aby wygenerować klasę.
 
     Ta klasa opakowuje wywołania REST wymagane do kontaktowania się z zapleczem aplikacji, aby przeprowadzać rejestrację na potrzeby powiadomień push. Ponadto zapisuje lokalnie identyfikatory *registrationId* utworzone przez centrum powiadomień zgodnie z opisem w sekcji [Rejestrowanie z poziomu zaplecza aplikacji](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Klasa używa tokenu autoryzacji przechowywanego w magazynie lokalnym po kliknięciu przycisku **Login and register** (Zaloguj i zarejestruj się).
@@ -236,7 +239,8 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
     using System.Threading.Tasks;
     using System.Linq;
     ```
-15. Dodaj następujący kod wewnątrz definicji klasy `RegisterClient`.
+
+15. Dodaj następujący kod w `RegisterClient` definicji klasy:
 
     ```csharp
     private string POST_URL;
@@ -323,6 +327,7 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
 
     }
     ```
+
 16. Zapisz wszystkie zmiany.
 
 ## <a name="test-the-application"></a>Testowanie aplikacji
@@ -332,12 +337,12 @@ W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Sam
 3. Kliknij przycisk **Log in and register** (Zaloguj i zarejestruj się) i upewnij się, że okno dialogowe wyświetla potwierdzenie zalogowania. Ponadto ten kod włącza przycisk **Send Push** (Wyślij powiadomienie push).
 
     ![Zrzut ekranu przedstawiający aplikację Notification Hubs, w której wypełniono pole Nazwa użytkownika i hasło.][14]
-5. Następnie w polu **Recipient Username Tag** (Tag nazwy użytkownika odbiorcy) wprowadź zarejestrowaną nazwę użytkownika. Wprowadź komunikat powiadomienia i kliknij opcję **Send Push** (Wyślij powiadomienie push).
-6. Komunikat powiadomienia otrzymają tylko te urządzenia, które zarejestrowały się przy użyciu pasującego tagu nazwy użytkownika.
+4. Następnie w polu **Recipient Username Tag** (Tag nazwy użytkownika odbiorcy) wprowadź zarejestrowaną nazwę użytkownika. Wprowadź komunikat powiadomienia i kliknij opcję **Send Push** (Wyślij powiadomienie push).
+5. Komunikat powiadomienia otrzymają tylko te urządzenia, które zarejestrowały się przy użyciu pasującego tagu nazwy użytkownika.
 
     ![Zrzut ekranu aplikacji Notification Hubs wyświetlającej komunikat, który został wypchnięte.][15]
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono sposób wysyłania powiadomień push do konkretnych użytkowników, którzy mają tagi skojarzone ze swoimi rejestracjami. Aby dowiedzieć się, jak wypychać powiadomienia oparte na lokalizacji, przejdź do następującego samouczka:
 

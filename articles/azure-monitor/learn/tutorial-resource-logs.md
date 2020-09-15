@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505843"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090078"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Samouczek: zbieranie i analizowanie dzienników zasobów z zasobów platformy Azure
 
@@ -84,7 +84,7 @@ Dane są pobierane z obszaru roboczego Log Analytics przy użyciu zapytania dzie
     > [!NOTE]
     > W przypadku otwarcia dzienników z menu Azure Monitor zakres zostanie ustawiony na obszar roboczy Log Analytics. W takim przypadku wszystkie zapytania będą zawierać wszystkie rekordy w obszarze roboczym.
    
-    ![Dzienniki](media/tutorial-resource-logs/logs.png)
+    ![Zrzut ekranu przedstawia Dzienniki aplikacji logiki zawierającej nowe zapytanie z wyróżnioną nazwą aplikacji logiki.](media/tutorial-resource-logs/logs.png)
 
 4. Usługa pokazana w przykładzie zapisuje dzienniki zasobów w tabeli **AzureDiagnostics** , ale inne usługi mogą zapisywać w innych tabelach. Zapoznaj się z [obsługiwanymi usługami, schematami i kategoriami dzienników zasobów platformy Azure](../platform/resource-logs-schema.md) dla tabel używanych przez różne usługi platformy Azure.
 

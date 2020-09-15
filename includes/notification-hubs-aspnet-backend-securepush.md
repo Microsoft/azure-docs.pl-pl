@@ -1,21 +1,21 @@
 ---
 author: sethmanheim
-ms.service: service-bus
+ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/14/2020
 ms.author: sethm
-ms.openlocfilehash: 7fd161c90234d45a6751f173ba3685ee8c392c87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb3c95b74128f1da7b29a290e17fefe21987dd76
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74260828"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089953"
 ---
 ## <a name="webapi-project"></a>Projekt WebAPI
 
 1. W programie Visual Studio Otwórz projekt **AppBackend** , który został utworzony w samouczku **Powiadamianie użytkowników** .
 2. W Notifications.cs Zastąp całą klasę **powiadomień** następującym kodem. Pamiętaj, aby zastąpić symbole zastępcze parametrami połączenia (z pełnymi dostępem) dla centrum powiadomień i nazwą centrum. Te wartości można uzyskać z [Azure Portal](https://portal.azure.com). Ten moduł reprezentuje teraz inne bezpieczne powiadomienia, które będą wysyłane. W przypadku pełnej implementacji powiadomienia będą przechowywane w bazie danych programu. dla uproszczenia w tym przypadku przechowujemy je w pamięci.
-   
+
    ```csharp
     public class Notification
     {
@@ -56,8 +56,8 @@ ms.locfileid: "74260828"
     }
     ```
 
-1. W NotificationsController.cs Zastąp kod wewnątrz definicji klasy **NotificationsController** następującym kodem. Ten składnik implementuje sposób, w jaki urządzenie może bezpiecznie pobrać powiadomienie, a także zapewnia metodę (na potrzeby tego samouczka), aby wyzwolić bezpieczną wypychanie do urządzeń. Należy pamiętać, że podczas wysyłania powiadomienia do centrum powiadomień wysyłamy tylko nieprzetworzone powiadomienie z IDENTYFIKATORem powiadomienia (i nie jest to rzeczywisty komunikat):
-   
+3. W NotificationsController.cs Zastąp kod wewnątrz definicji klasy **NotificationsController** następującym kodem. Ten składnik implementuje sposób, w jaki urządzenie może bezpiecznie pobrać powiadomienie, a także zapewnia metodę (na potrzeby tego samouczka), aby wyzwolić bezpieczną wypychanie do urządzeń. Należy pamiętać, że podczas wysyłania powiadomienia do centrum powiadomień wysyłamy tylko nieprzetworzone powiadomienie z IDENTYFIKATORem powiadomienia (i nie jest to rzeczywisty komunikat):
+
    ```csharp
     public NotificationsController()
     {

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005795"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089755"
 ---
 # <a name="publisher-verification"></a>Weryfikacja wydawcy
 
@@ -33,7 +33,7 @@ Weryfikacja wydawcy zapewnia następujące korzyści:
 
 - **Ulepszona znakowanie**— wskaźnik "zweryfikowany" pojawia się na stronie [monitu o zgodę](application-consent-experience.md)usługi Azure AD, witrynie aplikacje dla przedsiębiorstw i dodatkowych powierzchniach środowiska użytkownika używanych przez użytkowników końcowych i administratorów. 
 
-- **Bezproblemowe wdrażanie w przedsiębiorstwie**— Administratorzy mogą konfigurować nowe zasady zgody użytkowników, a stan weryfikacji wydawcy będzie jednym z podstawowych kryteriów zasad. 
+- **Bezproblemowe wdrażanie w przedsiębiorstwie**— Administratorzy mogą konfigurować [zasady zgody użytkowników](../manage-apps/configure-user-consent.md), używając stanu weryfikacji wydawcy jako jednego z podstawowych kryteriów zasad. 
 
 - **Ulepszona Ocena ryzyka**— wykrycia firmy Microsoft dla "ryzykownych" żądań zgody będą obejmować weryfikację wydawcy jako sygnał. 
 
@@ -52,6 +52,8 @@ Istnieje kilka wymagań wstępnych dotyczących weryfikacji wydawcy, z których 
 
     -  W centrum partnerskim ten użytkownik musi mieć następujące [role](/partner-center/permissions-overview): Administrator MPN, administrator kont lub Administrator globalny (jest to rola udostępniona w usłudze Azure AD).
     
+-  Użytkownik wykonujący weryfikację musi zalogować się przy użyciu [uwierzytelniania wieloskładnikowego](../authentication/howto-mfa-getstarted.md).
+
 -  Wydawca wyrazi zgodę na [platformę tożsamości firmy Microsoft dla deweloperów warunki użytkowania](/legal/microsoft-identity-platform/terms-of-use).
 
 Deweloperzy, którzy już spełnili te wymagania wstępne, mogą mieć możliwość zweryfikowania w ciągu kilku minut. Jeśli wymagania nie zostały spełnione, pobieranie konfiguracji jest bezpłatne. 

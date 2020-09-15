@@ -5,53 +5,55 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 018275b6db4c2d2d1059f35077f74a6f45ec3ba9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 330c1b74a46b0f18af1068797d080e903f516ea6
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422082"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089874"
 ---
-# <a name="use-the-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenerów Azure Files (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
-Sterownik Azure Files CSI jest zgodny ze [specyfikacją CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) sterownik używany przez AKS do zarządzania cyklem życia Azure Files udziałów. 
+# <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Korzystanie ze sterowników interfejsu magazynu kontenera Azure Files (CSI) w usłudze Azure Kubernetes Service (AKS) (wersja zapoznawcza)
 
-Interfejs magazynu kontenerów (CSI) jest standardem do udostępniania dowolnych systemów blokowych i magazynów plików do obciążeń zwirtualizowanych w systemie Kubernetes. Przyjmując i korzystając z CSI, usługa Azure Kubernetes Service (AKS) może teraz zapisywać, wdrażać i iterować wtyczki udostępniające nowe lub ulepszające istniejące systemy magazynowania w Kubernetes bez konieczności dotykania podstawowego kodu Kubernetes i oczekiwania na jego cykle wydania.
+Sterownik Azure Files (CSI) jest sterownikiem zgodnym ze [specyfikacją CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)używanym przez usługę Azure Kubernetes Service (AKS) do zarządzania cyklem życia udziałów Azure Files.
+
+CSI jest standardem do udostępniania dowolnych systemów blokowych i magazynów plików do obciążeń zwirtualizowanych w Kubernetes. Przyjmując i korzystając z CSI, AKS teraz może pisać, wdrażać i iterować wtyczki, aby ujawniać nowe lub ulepszać istniejące systemy magazynowania w Kubernetes bez konieczności dotykania podstawowego kodu Kubernetes i oczekiwania na jego cykle wydania.
 
 Aby utworzyć klaster AKS z obsługą sterownika CSI, zobacz [Włączanie sterowników CSI dla dysków platformy Azure i Azure Files na AKS](csi-storage-drivers.md).
 
 >[!NOTE]
-> *"Sterowniki w drzewie"* oznaczają bieżące sterowniki magazynu, które są częścią podstawowego kodu Kubernetes a nowe sterowniki CSI, które są wtyczkami.
+> *Sterowniki w drzewie* odnoszą się do bieżących sterowników magazynu, które są częścią podstawowego kodu Kubernetes, a nowe sterowniki CSI, które są wtyczkami.
 
-## <a name="use-a-persistent-volume-pv-with-azure-files"></a>Użyj woluminu trwałego (PV) z Azure Files
+## <a name="use-a-persistent-volume-with-azure-files"></a>Użyj woluminu trwałego z Azure Files
 
-[Wolumin trwały](concepts-storage.md#persistent-volumes) reprezentuje część magazynu, która jest obsługiwana do użycia z Kubernetesą. Wolumin trwały może być używany przez jeden lub wiele zasobników i może być dynamicznie lub statycznie inicjowany. Jeśli wiele z nich potrzebuje współbieżnego dostępu do tego samego woluminu magazynu, można użyć Azure Files, aby nawiązać połączenie przy użyciu [protokołu SMB (Server Message Block)][smb-overview]. W tym artykule pokazano, jak dynamicznie utworzyć udział Azure Files do użytku przez wiele zasobników w klastrze usługi Azure Kubernetes Service (AKS). Aby uzyskać obsługę statyczną, zobacz [Ręczne tworzenie i używanie woluminu z udziałem Azure Files](azure-files-volume.md).
+[Wolumin trwały (PV)](concepts-storage.md#persistent-volumes) reprezentuje część magazynu, która jest obsługiwana do użycia z Kubernetesem. Funkcja PV może być używana przez jeden lub wiele zasobników i może być dynamicznie lub statycznie obsługiwana. W przypadku konieczności jednoczesnego dostępu do tego samego woluminu magazynu przez wiele zasobów, można użyć Azure Files, aby nawiązać połączenie przy użyciu [protokołu SMB (Server Message Block)][smb-overview]. W tym artykule pokazano, jak dynamicznie utworzyć udział Azure Files do użytku przez wiele zasobników w klastrze AKS. Aby uzyskać obsługę statyczną, zobacz [Ręczne tworzenie i używanie woluminu z udziałem Azure Files](azure-files-volume.md).
 
 Aby uzyskać więcej informacji na temat woluminów Kubernetes, zobacz [Opcje magazynu dla aplikacji w AKS][concepts-storage].
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="dynamically-create-azure-files-pvs-using-the-built-in-storage-classes"></a>Dynamicznie Twórz Azure Files PVs przy użyciu wbudowanych klas magazynu
-Klasa magazynu służy do definiowania sposobu tworzenia udziału plików platformy Azure. Konto magazynu jest tworzone automatycznie w [grupie zasobów węzła][node-resource-group] do użytku z klasą magazynu w celu przechowywania udziałów plików platformy Azure. Wybierz następującą [nadmiarowość usługi Azure Storage][storage-skus] dla *skuName*:
+## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Dynamicznie Twórz Azure Files PVs przy użyciu wbudowanych klas magazynu
 
-* Magazyn lokalnie nadmiarowy *Standard_LRS*
-* Magazyn Geograficznie nadmiarowy *Standard_GRS*
-* Magazyn strefowo nadmiarowy *Standard_ZRS* strefy standardowej
-* *Standard_RAGRS* — standardowy magazyn Geograficznie nadmiarowy do odczytu
-* Magazyn lokalnie nadmiarowy *Premium_LRS* -Premium
+Klasa magazynu służy do definiowania sposobu tworzenia udziału Azure Files. Konto magazynu jest tworzone automatycznie w [grupie zasobów węzła][node-resource-group] do użytku z klasą magazynu w celu przechowywania udziałów Azure Files. Wybierz jedną z następujących [jednostek SKU nadmiarowości usługi Azure Storage][storage-skus] dla *skuName*:
+
+* **Standard_LRS**: standardowy magazyn lokalnie nadmiarowy
+* **Standard_GRS**: standardowy magazyn Geograficznie nadmiarowy
+* **Standard_ZRS**: Strefa standardowa — magazyn nadmiarowy
+* **Standard_RAGRS**: standardowy magazyn Geograficznie nadmiarowy do odczytu
+* **Premium_LRS**: Magazyn lokalnie nadmiarowy w warstwie Premium
 
 > [!NOTE]
-> Azure Files obsługuje magazyn Premium Storage, minimalny udział plików w warstwie Premium to 100 GB.
+> Azure Files obsługuje platformę Azure Premium Storage. Minimalny udział plików w warstwie Premium to 100 GB.
 
-W przypadku korzystania z sterowników CSI magazynu na platformie AKS dostępne są 2 dodatkowe wbudowane `StorageClasses` , które wykorzystują **sterowniki magazynu Azure Files CSI**. Dodatkowe klasy magazynów CSI są tworzone razem z klastrem obok domyślnych klas magazynów w drzewie.
+W przypadku korzystania z sterowników CSI magazynu w systemie AKS dostępne są dwa dodatkowe wbudowane, w `StorageClasses` których są używane sterowniki magazynu Azure Files CSI. Dodatkowe klasy magazynów CSI są tworzone razem z klastrem obok domyślnych klas magazynów w drzewie.
 
-- `azurefile-csi` — Używa usługi Azure Standard Storage, aby utworzyć udział plików platformy Azure. 
-- `azurefile-csi-premium` — Używa usługi Azure Premium Storage do utworzenia udziału plików platformy Azure. 
+- `azurefile-csi`: Program korzysta z usługi Azure Standard Storage w celu utworzenia udziału Azure Files.
+- `azurefile-csi-premium`: Program korzysta z usługi Azure Premium Storage do tworzenia udziału Azure Files.
 
-Zasady odzyskiwania dla obu klas magazynu zapewniają, że podstawowy udział plików platformy Azure zostanie usunięty po usunięciu odpowiedniego woluminu trwałego. Klasy magazynu umożliwiają również konfigurację udziałów plików, które mają być rozwijane. wystarczy zmienić wartość w polu trwały udział woluminu o nowym rozmiarze.
+Zasady odzyskiwania dla obu klas magazynu zapewniają, że podstawowy udział Azure Files zostanie usunięty po usunięciu odpowiednich danych PV. Klasy magazynu umożliwiają również konfigurację udziałów plików, które mają być rozwijane. wystarczy zmienić wartość trwałego żądania woluminu (PVC) o nowy rozmiar.
 
-Aby korzystać z tych klas magazynu, należy utworzyć [trwałego żądania zbiorczego (PVC)](concepts-storage.md#persistent-volume-claims) i odpowiednich, w odniesieniu do nich. W celu automatycznego aprowizacji magazynu na podstawie klasy magazynu jest używana wartość trwałego żądania woluminu. Obwód PVC może użyć jednej ze wstępnie utworzonych klas magazynu lub klasy magazynu zdefiniowanej przez użytkownika, aby utworzyć Azure Files udział dla żądanej jednostki SKU i rozmiaru. W przypadku tworzenia definicji na podstawie trwałego żądania woluminu jest określona w celu zażądanie żądanego magazynu.
+Aby użyć tych klas magazynu, należy utworzyć [obwód PVC](concepts-storage.md#persistent-volume-claims) i odpowiednie, pod tym względem, i korzystać z nich. Obwód PVC służy do automatycznej aprowizacji magazynu na podstawie klasy magazynu. Obwód PVC może użyć jednej ze wstępnie utworzonych klas magazynu lub klasy magazynu zdefiniowanej przez użytkownika, aby utworzyć Azure Files udział dla żądanej jednostki SKU i rozmiaru. Podczas tworzenia definicji pod, obwód PVC jest określany w celu zażądania odpowiedniej pamięci masowej.
 
-Utwórz [przykładowe wystąpienie trwałego woluminu i na stronie, które drukuje bieżącą datę `outfile` do](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) , przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] :
+Utwórz [przykładowy obwód PVC i pod, który drukuje bieżącą datę do `outfile` ](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/pvc-azurefile-csi.yaml
@@ -61,7 +63,7 @@ persistentvolumeclaim/pvc-azurefile created
 pod/nginx-azurefile created
 ```
 
-Gdy pod stanem działania jest uruchomiona, można sprawdzić, czy udział plików jest prawidłowo zainstalowany, uruchamiając poniższe polecenie i sprawdzając, czy dane wyjściowe zawierają `outfile` : 
+Gdy pod stanem działania jest uruchomiona, można sprawdzić, czy udział plików jest prawidłowo zainstalowany, uruchamiając następujące polecenie i sprawdzając, czy dane wyjściowe zawierają `outfile` :
 
 ```console
 $ kubectl exec nginx-azurefile -- ls -l /mnt/azurefile
@@ -72,11 +74,11 @@ total 29
 
 ## <a name="create-a-custom-storage-class"></a>Tworzenie niestandardowej klasy magazynu
 
-Domyślne klasy magazynów odpowiadają najpopularniejszym scenariuszom, ale nie wszystkim. W niektórych przypadkach można chcieć mieć własną klasę magazynu dostosowaną z własnymi parametrami. Na przykład użyj poniższego manifestu, aby skonfigurować `mountOptions` udział plików.
+Domyślne klasy magazynu odpowiadają najpopularniejszym scenariuszom, ale nie wszystkim. W niektórych przypadkach można chcieć mieć własną klasę magazynu dostosowaną z własnymi parametrami. Na przykład użyj poniższego manifestu, aby skonfigurować `mountOptions` udział plików.
 
 Domyślna wartość *parametru FileMode* i *dirMode* to *0777* dla Kubernetes zainstalowanych udziałów plików. Można określić różne opcje instalacji w obiekcie klasy magazynu.
 
-Utwórz plik o nazwie `azure-file-sc.yaml` i wklej następujący przykładowy manifest: 
+Utwórz plik o nazwie `azure-file-sc.yaml` i wklej następujący przykładowy manifest:
 
 ```yaml
 kind: StorageClass
@@ -107,7 +109,7 @@ kubectl apply -f azure-file-sc.yaml
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
-Sterownik CSI usługi Azure Files obsługuje tworzenie [migawek woluminów trwałych](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) i źródłowych udziałów plików. 
+Sterownik Azure Files CSI obsługuje tworzenie [migawek woluminów trwałych](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) i źródłowych udziałów plików.
 
 Utwórz [klasę migawek woluminów](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] :
 
@@ -117,7 +119,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-c
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azurefile-vsc created
 ```
 
-Utwórz [migawkę woluminu](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) ze obwodu PVC, który został [dynamicznie utworzony na początku tego samouczka](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes) `pvc-azurefile` .
+Utwórz [migawkę woluminu](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) ze obwodu PVC, który został [dynamicznie utworzony na początku tego samouczka](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes) `pvc-azurefile` .
 
 
 ```bash
@@ -156,14 +158,14 @@ Status:
 Events:                                <none>
 ```
 
-## <a name="resize-a-persistent-volume-pv"></a>Zmień rozmiar woluminu trwałego (PV)
+## <a name="resize-a-persistent-volume"></a>Zmień rozmiar woluminu trwałego
 
-Możesz zażądać większego woluminu dla obwodu PVC. Edytuj obiekt PVC i określ większy rozmiar. Ta zmiana wyzwala Rozszerzanie woluminu bazowego, który wykonuje kopie zapasowe PersistentVolume. 
+Możesz zażądać większego woluminu dla obwodu PVC. Edytuj obiekt PVC i określ większy rozmiar. Ta zmiana wyzwala rozwinięcie woluminu bazowego, który wykonuje kopię zapasową.
 
-> [!NOTE] 
-> Nowy PersistentVolume nigdy nie jest tworzony w celu spełnienia tego żądania. Zamiast tego zmieniany jest rozmiar istniejącego woluminu.
+> [!NOTE]
+> Nowe WB nigdy nie jest tworzone w celu spełnienia tego żądania. Zamiast tego zmieniany jest rozmiar istniejącego woluminu.
 
-W programie AKS wbudowana `azurefile-csi` Klasa magazynu obsługuje już rozszerzanie, dlatego korzystając z tego samego połączenia [PVC utworzonego wcześniej z tą klasą magazynu](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes). Obwód PVC zażądał udziału plików 100Gi, możemy potwierdzić, że uruchamiając polecenie:
+W AKS, wbudowana `azurefile-csi` Klasa magazynu obsługuje już rozszerzanie, dlatego użyj [obwodu PVC utworzonego wcześniej z tą klasą magazynu](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes). Obwód PVC zażądał udziału plików 100Gi. Możemy potwierdzić, że działa:
 
 ```console 
 $ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
@@ -180,7 +182,7 @@ $ kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {
 persistentvolumeclaim/pvc-azurefile patched
 ```
 
-Sprawdź, czy zarówno obwód PVC, jak i system plików w tym obszarze pokazują nowy rozmiar:
+Upewnij się, że zarówno obwód PVC, jak i system plików w tym obszarze pokazują nowy rozmiar:
 
 ```console
 $ kubectl get pvc pvc-azurefile
@@ -194,9 +196,9 @@ Filesystem                                                                      
 
 ## <a name="windows-containers"></a>Kontenery systemu Windows
 
-Sterownik usługi Azure Files CSI obsługuje również węzły i kontenery systemu Windows. Jeśli chcesz użyć kontenerów systemu Windows, Skorzystaj z [samouczka kontenery](windows-container-cli.md) systemu Windows, aby dodać pulę węzłów systemu Windows.
+Sterownik Azure Files CSI obsługuje również węzły i kontenery systemu Windows. Jeśli chcesz użyć kontenerów systemu Windows, postępuj zgodnie z [samouczkiem kontenery systemu](windows-container-cli.md) Windows, aby dodać pulę węzłów systemu Windows.
 
-Gdy masz pulę węzłów systemu Windows, Skorzystaj z wbudowanych klas magazynu, takich jak `azurefile-csi` lub Utwórz niestandardowe. Można wdrożyć przykładowy [zestaw Stanów opartych na systemie Windows](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) , który zapisuje sygnatury czasowe do pliku `data.txt` , wdrażając poniższe polecenie przy użyciu polecenia [polecenia kubectl Apply][kubectl-apply] :
+Po utworzeniu puli węzłów systemu Windows należy użyć wbudowanych klas magazynu, takich jak `azurefile-csi` lub utworzyć niestandardowe. Można wdrożyć przykładowy [zestaw stanowy oparty na systemie Windows](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) , który zapisuje sygnatury czasowe do pliku `data.txt` , wdrażając następujące polecenie za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] :
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
@@ -218,8 +220,8 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak używać sterownika CSI dla dysków platformy Azure, zobacz [Korzystanie z dysków platformy Azure z sterownikami CSI](azure-disk-csi.md).
-- Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service (AKS).][operator-best-practices-storage]
+- Aby dowiedzieć się, jak używać sterowników CSI dla dysków platformy Azure, zobacz [Korzystanie z dysków platformy Azure z sterownikami CSI](azure-disk-csi.md).
+- Aby uzyskać więcej informacji o najlepszych rozwiązaniach dotyczących magazynu, zobacz [najlepsze rozwiązania dotyczące magazynu i kopii zapasowych w usłudze Azure Kubernetes Service][operator-best-practices-storage].
 
 
 <!-- LINKS - external -->

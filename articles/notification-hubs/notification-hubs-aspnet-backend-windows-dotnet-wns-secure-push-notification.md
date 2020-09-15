@@ -1,30 +1,28 @@
 ---
 title: Azure Notification Hubs bezpieczne wypychanie dla systemu Windows
 description: Dowiedz się, jak wysyłać bezpieczne powiadomienia wypychane na platformie Azure. Przykłady kodu napisane w języku C# z użyciem interfejsu API programu .NET.
-documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
+editor: thsomasu
 services: notification-hubs
-ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c75af054a342e74606696f09c227822f385e096
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017995"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089954"
 ---
-# <a name="securely-push-notifications-from-azure-notification-hubs"></a>Bezpieczne wypychanie powiadomień z usługi Azure Notification Hubs
+# <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Wysyłanie zabezpieczonych powiadomień wypychanych z usługi Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Aplikacje uniwersalne systemu Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -48,10 +46,10 @@ Na wysokim poziomie przepływ jest następujący:
 
 Należy pamiętać, że w poprzednim przepływie (i w tym samouczku) przyjęto założenie, że urządzenie przechowuje token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Gwarantuje to całkowite bezproblemowe działanie, ponieważ urządzenie może pobrać bezpieczny ładunek powiadomienia przy użyciu tego tokenu. Jeśli aplikacja nie przechowuje tokenów uwierzytelniania na urządzeniu lub jeśli te tokeny mogą wygasnąć, aplikacja urządzenia po odebraniu powiadomienia powinna wyświetlić ogólne powiadomienie z monitem użytkownika o uruchomienie aplikacji. Następnie aplikacja uwierzytelnia użytkownika i wyświetla ładunek powiadomienia.
 
-Ten samouczek bezpiecznego wypychania pokazuje, jak bezpiecznie wysyłać powiadomienia wypychane. Samouczek jest oparty na samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , dlatego należy najpierw wykonać kroki opisane w tym samouczku.
+W tym samouczku pokazano, jak bezpiecznie wysyłać powiadomienia wypychane. Samouczek jest oparty na samouczku [Powiadamianie użytkowników](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , dlatego należy najpierw wykonać kroki opisane w tym samouczku.
 
 > [!NOTE]
-> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w [wprowadzenie z Notification Hubs (Sklep Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+> W tym samouczku przyjęto założenie, że utworzono i skonfigurowano centrum powiadomień zgodnie z opisem w temacie [wysyłanie powiadomień do aplikacji platforma uniwersalna systemu Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 > Należy również pamiętać, że Windows Phone 8,1 wymaga poświadczeń systemu Windows (nie Windows Phone), a zadania w tle nie działają na Windows Phone 8,0 lub Silverlight 8,1. W przypadku aplikacji ze sklepu Windows można otrzymywać powiadomienia za pośrednictwem zadania w tle tylko wtedy, gdy aplikacja jest włączona na ekranie blokady (kliknij pole wyboru w Appmanifest).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
@@ -63,6 +61,7 @@ Ten samouczek bezpiecznego wypychania pokazuje, jak bezpiecznie wysyłać powiad
     ```csharp
     RegisterBackgroundTask();
     ```
+
 2. Nadal w App.xaml.cs, Dodaj następujący kod bezpośrednio po `OnLaunched()` metodzie:
 
     ```csharp
@@ -80,12 +79,14 @@ Ten samouczek bezpiecznego wypychania pokazuje, jak bezpiecznie wysyłać powiad
         }
     }
     ```
+
 3. Dodaj następujące `using` instrukcje w górnej części pliku App.XAML.cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
+
 4. W menu **Plik** programu Visual Studio kliknij polecenie **Zapisz wszystko**.
 
 ## <a name="create-the-push-background-component"></a>Tworzenie składnika tła wypychania
@@ -143,6 +144,7 @@ Następnym krokiem jest utworzenie składnika w tle.
             }
         }
     ```
+
 5. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt **PushBackgroundComponent (Windows Phone 8,1)** , a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
 6. Po lewej stronie kliknij opcję **Online**.
 7. W polu **Wyszukaj** wpisz ciąg **Klient HTTP**.
@@ -160,6 +162,7 @@ Następnym krokiem jest utworzenie składnika w tle.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
+
 11. W Eksplorator rozwiązań w projekcie **NotifyUserWindowsPhone (Windows Phone 8,1)** kliknij prawym przyciskiem myszy pozycję **odwołania**, a następnie kliknij pozycję **Dodaj odwołanie...**. W oknie dialogowym Menedżer odwołań zaznacz pole wyboru obok pozycji **PushBackgroundComponent**, a następnie kliknij przycisk **OK**.
 12. W Eksplorator rozwiązań kliknij dwukrotnie pozycję **Package. appxmanifest** w projekcie **NotifyUserWindowsPhone (Windows Phone 8,1)** . W obszarze **powiadomienia**ustaw opcję **wyskakujący z możliwością** **tak**.
 
@@ -171,7 +174,7 @@ Następnym krokiem jest utworzenie składnika w tle.
     ![Zrzut ekranu okna Eksplorator rozwiązań skoncentrowany na pakiecie. appxmanifest z dostępnymi deklaracjami, obsługiwanymi deklaracjami, powiadomieniami wypychanymi i opcjami punktu wejścia pokreślonymi na czerwono.][13]
 16. W menu **Plik** kliknij polecenie **Zapisz wszystko**.
 
-## <a name="run-the-application"></a>Uruchom aplikację
+## <a name="run-the-application"></a>Uruchamianie aplikacji
 
 Aby uruchomić aplikację, wykonaj następujące czynności:
 
