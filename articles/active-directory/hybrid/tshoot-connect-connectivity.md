@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7bc39e409d0ac10e41fae58c5e5216f386427e30
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541740"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088310"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD
 W tym artykule wyjaśniono, jak działa połączenie między Azure AD Connect i usługą Azure AD oraz jak rozwiązywać problemy z łącznością. Te problemy najprawdopodobniej będą widoczne w środowisku z serwerem proxy.
@@ -33,7 +33,7 @@ Azure AD Connect korzysta z nowoczesnego uwierzytelniania (przy użyciu bibliote
 W tym artykule pokazano, jak firma Fabrikam nawiązuje połączenie z usługą Azure AD za pomocą serwera proxy. Serwer proxy ma nazwę fabrikamproxy i używa portu 8080.
 
 Najpierw należy upewnić się, że [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) jest prawidłowo skonfigurowany, a **usługa synchronizacji Microsoft Azure AD** została uruchomiona ponownie po aktualizacji pliku machine.config.
-![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
+![Zrzut ekranu przedstawia część pliku konfiguracji Machine dot.](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > W niektórych blogach innych niż firmy Microsoft jest udokumentowane, że zamiast tego należy wprowadzić zmiany w miiserver.exe.config. Jednak ten plik jest zastępowany przy każdym uaktualnieniu, więc nawet jeśli działa podczas instalacji początkowej, system przestanie działać po pierwszym uaktualnieniu. Z tego powodu zaleca się aktualizację machine.config zamiast tego.
@@ -60,7 +60,7 @@ Poniżej znajdują się najczęstsze błędy występujące w Kreatorze instalacj
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Kreator instalacji nie został poprawnie skonfigurowany
 Ten błąd pojawia się, gdy Kreator nie może nawiązać połączenia z serwerem proxy.
-![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
+![Zrzut ekranu przedstawia błąd: nie można zweryfikować poświadczeń.](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Jeśli widzisz ten błąd, sprawdź, czy [machine.config](how-to-connect-install-prerequisites.md#connectivity) został prawidłowo skonfigurowany.
 * Jeśli jest to poprawne, wykonaj kroki opisane w sekcji [Weryfikowanie łączności z serwerem proxy](#verify-proxy-connectivity) , aby sprawdzić, czy problem jest obecny poza kreatorem.
@@ -83,7 +83,7 @@ Jeśli Kreator instalacji pomyślnie nawiązuje połączenie z usługą Azure AD
 ### <a name="verify-proxy-connectivity"></a>Sprawdź łączność z serwerem proxy
 Aby sprawdzić, czy serwer Azure AD Connect ma rzeczywistą łączność z serwerem proxy i Internetem, użyj polecenia programu PowerShell, aby sprawdzić, czy serwer proxy zezwala na żądania sieci Web. W wierszu polecenia programu PowerShell uruchom polecenie `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc` . (Technicznie to pierwsze wywołanie `https://login.microsoftonline.com` i ten identyfikator URI działa również, ale inny identyfikator URI jest szybszy, aby odpowiedzieć).
 
-Program PowerShell używa konfiguracji w machine.config, aby skontaktować się z serwerem proxy. Ustawienia w usłudze WinHTTP/netsh nie powinny mieć wpływu na te polecenia cmdlet.
+Program PowerShell używa konfiguracji w pliku machine.config do kontaktowania się z serwerem proxy. Ustawienia w usłudze winhttp/netsh nie powinny mieć wpływu na te polecenia cmdlet.
 
 Jeśli serwer proxy jest prawidłowo skonfigurowany, powinien zostać wyświetlony stan sukces: ![ proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
@@ -113,7 +113,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Łączenie z usługą Azure AD**
 
-| Czas | Adres URL |
+| Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Ustaw opcję**
 
-| Czas | Adres URL |
+| Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800 — zakotwiczenie*. microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Synchronizacja początkowa**
 
-| Czas | Adres URL |
+| Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
@@ -225,14 +225,14 @@ Wyświetlany jako nieoczekiwany błąd w Kreatorze instalacji. Może się zdarzy
 W przypadku wersji zaczynających się od numeru kompilacji 1.1.105.0 (wydanie z lutego 2016) Asystent logowania został wycofany. Ta sekcja i konfiguracja nie powinna już być wymagana, ale jest przechowywana jako odwołanie.
 
 Aby Asystent logowania jednokrotnego działał, należy skonfigurować usługę WinHTTP. Tę konfigurację można wykonać przy użyciu [**polecenia netsh**](how-to-connect-install-prerequisites.md#connectivity).
-![kontekstu](./media/tshoot-connect-connectivity/netsh.png)
+![Zrzut ekranu przedstawia okno wiersza polecenia z uruchomionym narzędziem netsh w celu ustawienia serwera proxy.](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Asystent logowania nie został poprawnie skonfigurowany
 Ten błąd pojawia się, gdy Asystent logowania nie może nawiązać połączenia z serwerem proxy lub serwer proxy nie zezwala na żądanie.
-![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
+![Zrzut ekranu przedstawia błąd: nie można zweryfikować poświadczeń, sprawdź połączenie sieciowe i ustawienia zapory lub serwera proxy.](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * Jeśli widzisz ten błąd, poszukaj konfiguracji serwera proxy w narzędziu [netsh](how-to-connect-install-prerequisites.md#connectivity) i sprawdź, czy jest ona poprawna.
-  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
+  ![Zrzut ekranu przedstawia okno wiersza polecenia z uruchomionym narzędziem netsh w celu wyświetlenia konfiguracji serwera proxy.](./media/tshoot-connect-connectivity/netshshow.png)
 * Jeśli jest to poprawne, wykonaj kroki opisane w sekcji [Weryfikowanie łączności z serwerem proxy](#verify-proxy-connectivity) , aby sprawdzić, czy problem jest obecny poza kreatorem.
 
 ## <a name="next-steps"></a>Następne kroki

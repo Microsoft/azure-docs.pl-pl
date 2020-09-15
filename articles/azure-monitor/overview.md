@@ -6,16 +6,16 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 005068c8e81adb9a79a4e6dc7e86a9bfb39902a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505826"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088633"
 ---
 # <a name="azure-monitor-overview"></a>Omówienie usługi Azure Monitor
 
-Azure Monitor maksymalizuje dostępność i wydajność aplikacji i usług, udostępniając kompleksowe rozwiązanie do zbierania, analizowania i działania na telemetrii z chmur i środowisk lokalnych. Pomaga interpretować działanie aplikacji i proaktywnie identyfikuje problemy dotyczące aplikacji i zasobów, od których zależą.
+Azure Monitor maksymalizuje dostępność i wydajność aplikacji i usług, udostępniając kompleksowe rozwiązanie do zbierania, analizowania i działania na telemetrii z chmur i środowisk lokalnych. Usługa ta pomaga interpretować działanie aplikacji i proaktywnie identyfikuje problemy dotyczące aplikacji i zasobów, od których zależą.
 
 Poniżej przedstawiono kilka przykładów tego, co można zrobić z Azure Monitor:
 
@@ -42,13 +42,13 @@ Wszystkie dane zbierane przez Azure Monitor pasują do jednego z dwóch podstawo
 
 W przypadku wielu zasobów platformy Azure zobaczysz dane zebrane przez Azure Monitor bezpośrednio na stronie Przegląd w Azure Portal. Zapoznaj się z dowolną maszyną wirtualną na przykład, gdy zobaczysz kilka wykresów, które wyświetlają metryki wydajności. Kliknij dowolny wykres, aby otworzyć dane w [Eksploratorze metryk](platform/metrics-charts.md) w Azure Portal, co pozwala na wykres wartości wielu metryk w czasie.  Możesz wyświetlić wykresy interaktywnie lub przypiąć je do pulpitu nawigacyjnego, aby wyświetlić inne wizualizacje.
 
-![Metryki](media/overview/metrics.png)
+![Diagram przedstawia dane metryk przepływające do Eksplorator metryk, które mają być używane w wizualizacjach.](media/overview/metrics.png)
 
 Dane dziennika zbierane przez Azure Monitor mogą być analizowane za pomocą [zapytań](log-query/log-query-overview.md) , aby szybko pobierać, konsolidować i analizować zebrane dane.  Można tworzyć i testować zapytania przy użyciu [log Analytics](./log-query/log-query-overview.md) w Azure Portal, a następnie bezpośrednio analizować dane przy użyciu różnych narzędzi lub zapisywać zapytania do użycia z [wizualizacjami](visualizations.md) lub [regułami alertów](platform/alerts-overview.md).
 
 Azure Monitor używa wersji [języka zapytań Kusto](/azure/kusto/query/) używanej przez platformę Azure Eksplorator danych, która jest odpowiednia dla prostych zapytań dzienników, ale również zawiera zaawansowane funkcje, takie jak agregacje, sprzężenia i Inteligentna analiza. Możesz szybko poznać język zapytań przy użyciu [wielu lekcji](log-query/get-started-queries.md).  Specjalne instrukcje udostępniono dla użytkowników, którzy znają już [SQL](log-query/sql-cheatsheet.md) i [Splunk](log-query/splunk-cheatsheet.md).
 
-![Dzienniki](media/overview/logs.png)
+![Diagram przedstawia dane dzienników przepływające do Log Analytics na potrzeby analizy.](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Jakie dane zbiera usługa Azure Monitor?
 
@@ -103,12 +103,12 @@ Oprócz umożliwienia interaktywnego analizowania danych monitorowania, efektywn
 
 Reguły alertów w Azure Monitor używają [grup akcji](platform/action-groups.md), które zawierają unikatowe zestawy odbiorców i akcje, które mogą być współużytkowane przez wiele reguł. W zależności od wymagań grupy akcji mogą wykonywać takie działania jak używanie elementów webhook do uruchamiania alertów zewnętrznych lub do integracji z narzędziami narzędzia ITSM.
 
-![Alerty](media/overview/alerts.png)
+![Zrzut ekranu przedstawia alerty w Azure Monitor z ważnością, łącznymi alertami i innymi informacjami.](media/overview/alerts.png)
 
 ### <a name="autoscale"></a>Automatyczne skalowanie
 Funkcja automatycznego skalowania umożliwia korzystanie z odpowiedniej ilości zasobów, aby obsłużyć obciążenie aplikacji. Umożliwia tworzenie reguł, które używają metryk zbieranych przez Azure Monitor, aby określić, kiedy automatycznie dodawać zasoby do obsłużyć wzrost obciążenia, a także zaoszczędzić pieniądze przez usunięcie zasobów, które są w stanie bezczynnym. Należy określić minimalną i maksymalną liczbę wystąpień oraz logikę, dla której należy zwiększyć lub zmniejszyć zasoby.
 
-![Automatyczne skalowanie](media/overview/autoscale.png)
+![Diagram przedstawia automatyczne skalowanie, z kilkoma serwerami w wierszu o etykiecie czas procesora > 80% i dwa serwery oznaczone jako minimum, trzy serwery jako bieżąca pojemność i pięć jako maksymalne.](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>Wizualizacja danych monitorowania
 [Wizualizacje](visualizations.md) , takie jak wykresy i tabele, to efektywne narzędzia służące do podsumowywania danych monitorowania i przedstawiania ich w różnych odbiorcach. Azure Monitor ma własne funkcje wizualizacji danych monitorowania i wykorzystuje inne usługi platformy Azure do publikowania ich na różnych odbiorcach.
@@ -116,12 +116,12 @@ Funkcja automatycznego skalowania umożliwia korzystanie z odpowiedniej ilości 
 ### <a name="dashboards"></a>Pulpity nawigacyjne
 [Pulpity nawigacyjne platformy Azure](../azure-portal/azure-portal-dashboards.md) umożliwiają łączenie różnych rodzajów danych, w tym metryk i dzienników, w jednym okienku w [Azure Portal](https://portal.azure.com). Opcjonalnie możesz udostępnić pulpit nawigacyjny innym użytkownikom platformy Azure. Elementy w Azure Monitor można dodać do pulpitu nawigacyjnego platformy Azure oprócz danych wyjściowych zapytania dziennika lub wykresu metryk. Można na przykład utworzyć pulpit nawigacyjny, który łączy kafelki przedstawiające wykres metryk, tabelę dzienników aktywności, wykres użycia Application Insights i dane wyjściowe zapytania dziennika.
 
-![Pulpit nawigacyjny](media/overview/dashboard.png)
+![Zrzut ekranu przedstawia pulpit nawigacyjny platformy Azure, który obejmuje kafelki aplikacji i zabezpieczeń oraz inne dostosowywalne informacje.](media/overview/dashboard.png)
 
 ### <a name="views"></a>Widoki
 [Wyświetla](./platform/view-designer.md) wizualne wizualizacje danych dzienników w Azure monitor.  Każdy widok zawiera pojedynczy kafelek, który przechodzi w dół do kombinacji wizualizacji, takich jak wykresy słupkowe i liniowe, oprócz list podsumowujących krytyczne dane.  Rozwiązania do monitorowania obejmują widoki, które podsumowują dane dla konkretnej aplikacji, i można tworzyć własne widoki do prezentowania danych z dowolnego zapytania dziennika. Podobnie jak w przypadku innych elementów w Azure Monitor, widoki mogą być dodawane do pulpitów nawigacyjnych platformy Azure.
 
-![Widok](media/overview/view.png)
+![Zrzut ekranu przedstawia kafelek rozwiązania do monitorowania kontenerów i widok szczegółowy, który zostanie otwarty w przypadku wybrania kafelka.](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) to usługa analizy biznesowej, która zapewnia interaktywne wizualizacje w różnych źródłach danych i jest skutecznym sposobem udostępniania danych innym osobom w organizacji i poza nią. Power BI można skonfigurować do [automatycznego importowania danych dziennika z Azure monitor](./platform/powerbi.md) , aby skorzystać z tych dodatkowych wizualizacji.
@@ -145,7 +145,7 @@ Często wymaga się, aby zintegrować Azure Monitor z innymi systemami i tworzy�
 Wiele interfejsów API jest dostępnych do odczytu i zapisu metryk i dzienników do i z Azure Monitor oprócz uzyskiwania dostępu do wygenerowanych alertów. Możesz również skonfigurować i pobrać alerty. Zapewnia to bardzo nieograniczone możliwości tworzenia niestandardowych rozwiązań, które integrują się z Azure Monitor.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 
 * [Metryki i dzienniki](platform/data-platform.md) dla danych zbieranych przez Azure monitor.
 * [Źródła danych](platform/data-sources.md) , dla których różne składniki aplikacji wysyłają dane telemetryczne.

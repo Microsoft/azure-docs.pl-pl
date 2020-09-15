@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378019"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086919"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatyzowanie obrotu wpisu tajnego dla zasobów, które używają jednego zestawu poświadczeń uwierzytelniania
 
@@ -24,7 +24,7 @@ Najlepszym sposobem na uwierzytelnianie w usługach platformy Azure jest użycie
 
 W tym samouczku pokazano, jak zautomatyzować okresowe rotacje wpisów tajnych dla baz danych i usług korzystających z jednego zestawu poświadczeń uwierzytelniania. W tym samouczku zaprojektowano SQL Server haseł przechowywanych w Azure Key Vault przy użyciu funkcji wyzwalanej przez powiadomienie Azure Event Grid:
 
-![Diagram rozwiązania rotacji](../media/rotate1.png)
+![Diagram rozwiązania rotacji](../media/rotate-1.png)
 
 1. 30 dni przed datą wygaśnięcia wpisu tajnego Key Vault opublikuje zdarzenie "niedługo wygasnąć", aby Event Grid.
 1. Event Grid sprawdza subskrypcje zdarzeń i używa POST protokołu HTTP w celu wywołania punktu końcowego aplikacji funkcji subskrybowanego dla zdarzenia.
@@ -46,10 +46,10 @@ Jeśli nie masz istniejących Key Vault i SQL Server, możesz użyć poniższego
 
 1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**. Nadaj grupie nazwę **akvrotation**.
 1. W obszarze **Logowanie administratora SQL**wpisz nazwę logowania administratora SQL. 
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Wybierz pozycję **Utwórz**
 
-    ![Tworzenie grupy zasobów](../media/rotate2.png)
+    ![Tworzenie grupy zasobów](../media/rotate-2.png)
 
 Teraz masz Key Vault i wystąpienie SQL Server. Tę konfigurację można sprawdzić w interfejsie wiersza polecenia platformy Azure, uruchamiając następujące polecenie:
 
@@ -88,10 +88,10 @@ Aplikacja funkcji wymaga następujących składników:
 1. W polu **nazwa aplikacja funkcji**wpisz nazwę aplikacji funkcji
 1. W polu **Nazwa wpisu tajnego**wpisz nazwę wpisu tajnego, w którym będzie przechowywane hasło
 1. W **adresie URL repozytorium**wpisz kod funkcji Lokalizacja usługi GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git** )
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Wybierz pozycję **Utwórz**.
 
-   ![Wybieranie opcji Recenzja + tworzenie](../media/rotate3.png)
+   ![Wybieranie opcji Recenzja + tworzenie](../media/rotate-3.png)
 
 Po wykonaniu powyższych kroków będziesz mieć konto magazynu, farmę serwerów i aplikację funkcji. Tę konfigurację można sprawdzić w interfejsie wiersza polecenia platformy Azure, uruchamiając następujące polecenie:
 
@@ -207,11 +207,11 @@ Utworzenie klucza tajnego z krótką datą wygaśnięcia spowoduje opublikowanie
 
 Aby sprawdzić, czy klucz tajny został obrócony, przejdź do **Key Vault**wpisów  >  **tajnych**:
 
-![Przejdź do wpisów tajnych](../media/rotate8.png)
+![Przejdź do wpisów tajnych](../media/rotate-8.png)
 
 Otwórz wpis tajny **SQLPassword** i wyświetl wersje oryginalne i obrócone:
 
-![Otwórz klucz tajny sqluser](../media/rotate9.png)
+![Otwórz klucz tajny sqluser](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>tworzenie aplikacji internetowej
 
@@ -230,7 +230,7 @@ Aplikacja sieci Web wymaga następujących składników:
 1. W polu **nazwa Key Vault**wpisz nazwę magazynu kluczy
 1. W polu **Nazwa wpisu tajnego**wpisz nazwę wpisu tajnego, w którym jest przechowywane hasło
 1. W **adresie URL repozytorium**wpisz w polu kod aplikacji sieci Web lokalizację usługi GitHub ( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** ).
-1. Wybierz pozycję **Przejrzyj i utwórz**.
+1. Wybierz pozycję **Przeglądanie + tworzenie**.
 1. Wybierz pozycję **Utwórz**.
 
 
@@ -242,9 +242,9 @@ https://akvrotation-app.azurewebsites.net/
 
 Gdy aplikacja zostanie otwarta w przeglądarce, zostanie wyświetlona **wartość wygenerowanego klucza tajnego** i **połączona wartość bazy danych** *true*.
 
-## <a name="learn-more"></a>Więcej informacji
+## <a name="learn-more"></a>Więcej tutaj
 
 - Samouczek: [rotacja zasobów przy użyciu dwóch zestawów poświadczeń](tutorial-rotation-dual.md)
-- Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](../general/event-grid-overview.md)
+- Przegląd: [monitorowanie Key Vault z Azure Event Grid](../general/event-grid-overview.md)
 - Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](../general/event-grid-logicapps.md)
-- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault (wersja zapoznawcza)](../../event-grid/event-schema-key-vault.md)
+- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)

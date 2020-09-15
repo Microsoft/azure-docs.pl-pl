@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356665"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088974"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atrybuty cienia usługi synchronizacji Azure AD Connect
 Większość atrybutów jest reprezentowana w ten sam sposób w usłudze Azure AD, ponieważ znajdują się one w Active Directory lokalnej. Ale niektóre atrybuty mają specjalne traktowanie i wartość atrybutu w usłudze Azure AD może różnić się od tego, co Azure AD Connect synchronizacja.
@@ -32,7 +32,7 @@ Niektóre atrybuty mają dwie reprezentacje w usłudze Azure AD. Są przechowywa
 Nie można wyświetlić atrybutów cienia przy użyciu Azure Portal lub programu PowerShell. Jednak zrozumienie koncepcji pomaga w rozwiązywaniu problemów z niektórymi scenariuszami, w których atrybut ma różne wartości w środowisku lokalnym i w chmurze.
 
 Aby lepiej zrozumieć zachowanie, zapoznaj się z tym przykładem firmy Fabrikam:  
-![Domains](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Zrzut ekranu przedstawia Active Directory sufiks nazwy UPN dla kilku przykładów z odpowiadającą jej wartością domeny usługi Azure AD dodaną, niezweryfikowaną i zweryfikowaną.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 Mają one wiele sufiksów nazw UPN w Active Directory lokalnych, ale tylko je zweryfikowano.
 
 ### <a name="userprincipalname"></a>userPrincipalName

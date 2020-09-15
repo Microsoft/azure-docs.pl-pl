@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799806"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088293"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu Azure Policy
 W tym artykule wyjaśniono, jak włączyć Azure Monitor dla maszyn wirtualnych dla maszyn wirtualnych platformy Azure lub hybrydowej maszyny wirtualnej połączonej z usługą Azure ARC (wersja zapoznawcza) przy użyciu Azure Policy. Azure Policy umożliwia przypisanie definicji zasad instalujących wymaganych agentów dla Azure Monitor dla maszyn wirtualnych w środowisku platformy Azure i automatyczne włączenie monitorowania maszyn wirtualnych podczas tworzenia każdej maszyny wirtualnej. Azure Monitor dla maszyn wirtualnych udostępnia funkcję, która umożliwia odnajdywanie i korygowanie niezgodnych maszyn wirtualnych w środowisku. Użyj tej funkcji zamiast bezpośrednio pracować z Azure Policy.
@@ -46,7 +46,7 @@ Jest to ta sama strona, która umożliwia przypisanie inicjatywy w Azure Policy 
 Na stronie **Parametry** wybierz **obszar roboczy log Analytics** , który ma być używany przez wszystkie maszyny wirtualne w przypisaniu. Aby określić różne obszary robocze dla różnych maszyn wirtualnych, należy utworzyć wiele przypisań, z których każdy ma własny zakres. 
 
    > [!NOTE]
-   > Jeśli obszar roboczy przekracza zakres przypisania, udziel *log Analytics uprawnienia współautora* do identyfikatora podmiotu zabezpieczeń przypisania zasad. Jeśli tego nie zrobisz, może zostać wyświetlony błąd wdrażania, jak`The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+   > Jeśli obszar roboczy przekracza zakres przypisania, udziel *log Analytics uprawnienia współautora* do identyfikatora podmiotu zabezpieczeń przypisania zasad. Jeśli tego nie zrobisz, może zostać wyświetlony błąd wdrażania, jak `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
 [![Workspace](media/vminsights-enable-at-scale-policy/assignment-workspace.png)](media/vminsights-enable-at-scale-policy/assignment-workspace.png#lightbox)
 
@@ -102,7 +102,7 @@ Aby utworzyć zadanie korygowania w celu ograniczenia problemów ze zgodnością
 
 Kliknij przycisk **Koryguj** , aby utworzyć zadanie korygowania, a następnie **skoryguj** je, aby je uruchomić. Najprawdopodobniej trzeba będzie utworzyć wiele zadań korygowania, po jednym dla każdej definicji zasad. Nie można utworzyć zadania korygowania dla inicjatywy.
 
-[![Korekty](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Zrzut ekranu przedstawia okienko korygowanie zasad dla monitora | Virtual Machines.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 Po ukończeniu zadań korygowania maszyny wirtualne powinny być zgodne z agentami zainstalowanymi i włączonymi dla Azure Monitor dla maszyn wirtualnych. 

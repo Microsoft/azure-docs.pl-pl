@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007557"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088327"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Rozwiązywanie problemów z weryfikacją wydawcy
 Jeśli nie można zakończyć procesu lub występują nieoczekiwane zachowanie podczas [weryfikacji wydawcy](publisher-verification-overview.md), należy zacząć od następującej procedury, Jeśli otrzymujesz błędy lub widzisz nieoczekiwane zachowanie: 
@@ -39,10 +39,10 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
     1. Jeśli konto MPN już istnieje, zostanie ono rozpoznane i zostanie dodane do konta 
     1. Przejdź do [strony profilu partnera](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) , w której zostanie wyświetlony identyfikator MPN i kontakt z kontem głównym
 
-- **Nie wiem, kto jest moim administratorem globalnym usługi Azure AD (znanym także jako administrator firmy lub Administrator dzierżawy), jak je znaleźć? Co z administratorem aplikacji lub z inną rolą administratora?**
+- **Nie wiem, kto jest moim administratorem globalnym usługi Azure AD (znanym także jako administrator firmy lub Administrator dzierżawy), jak je znaleźć? Co z administratorem aplikacji lub administratorem aplikacji w chmurze?**
     1. Zaloguj się do [portalu usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta użytkownika w podstawowej dzierżawie Twojej organizacji
     1. Przejdź do [zarządzania rolami](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-    1. Kliknij pozycję "Administrator globalny" lub żądaną rolę administratora
+    1. Kliknij żądaną rolę administratora.
     1. Zostanie wyświetlona lista użytkowników, którym przypisano tę rolę
 
 - **Nie wiem, komu Administratorzy dla mojego konta usługi MPN** Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/pcv/users) i przefiltruj listę użytkowników, aby zobaczyć, którzy użytkownicy znajdują się w różnych rolach administratora.
@@ -51,22 +51,25 @@ Poniżej przedstawiono niektóre typowe problemy, które mogą wystąpić w trak
     1. Przejdź do [profilu partnera](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) i sprawdź, czy: 
         - IDENTYFIKATOR MPN jest poprawny. 
         - Nie ma żadnych błędów lub "oczekujących akcji", a stan weryfikacji w obszarze informacje o profilu biznesowym i partnerze są "autoryzowane" lub "powodzenie".
-    1. Przejdź do [strony zarządzania dzierżawcą MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) i upewnij się, że dzierżawa, w której zarejestrowano aplikację, i podpisywanie przy użyciu konta użytkownika znajduje się na liście skojarzonych dzierżawców.
-    1. Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/pcv/users) i Potwierdź, że zalogowany użytkownik jest administratorem globalnym, administratorem MPN lub administratorem kont.
+    1. Przejdź do [strony zarządzania dzierżawcą MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) i upewnij się, że dzierżawa, w której zarejestrowano aplikację, i podpisywanie przy użyciu konta użytkownika znajduje się na liście skojarzonych dzierżawców. Jeśli musisz dodać dodatkową dzierżawę, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/partner-center/multi-tenant-account). Należy pamiętać, że wszyscy administratorzy globalni dowolnie dodanej dzierżawy otrzymają uprawnienia administratora globalnego na Twoim koncie Centrum partnerskiego.
+    1. Przejdź do [strony zarządzania użytkownikami MPN](https://partner.microsoft.com/pcv/users) i Potwierdź, że zalogowany użytkownik jest administratorem globalnym, administratorem MPN lub administratorem kont. Jeśli musisz dodać użytkownika do roli w centrum partnerskim, postępuj zgodnie z instrukcjami znajdującymi się [tutaj](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
 
 - **Po zalogowaniu się do portalu usługi Azure AD nie są wyświetlane żadne aplikacje zarejestrowane. Zalet?** 
-    Rejestracje aplikacji mogły zostać utworzone przy użyciu innego konta użytkownika lub w innej dzierżawie. Upewnij się, że zalogowano się przy użyciu odpowiedniego konta w dzierżawie, w którym zostały utworzone rejestracje aplikacji.
+    Rejestracje aplikacji mogły zostać utworzone przy użyciu innego konta użytkownika w tej dzierżawie, konta osobistego/konsumenta lub w innej dzierżawie. Upewnij się, że zalogowano się przy użyciu odpowiedniego konta w dzierżawie, w którym zostały utworzone rejestracje aplikacji.
 
-- **Jak mogę wiedzieć, kto jest właścicielem rejestracji aplikacji w usłudze Azure AD?** 
-    Po zalogowaniu się do dzierżawy, w której zarejestrowano aplikację, przejdź do bloku rejestracje aplikacji, kliknij aplikację, a następnie kliknij pozycję właściciele.
+- **Otrzymuję błąd związany z uwierzytelnianiem wieloskładnikowym. Co mam zrobić?** 
+    Upewnij się, że [uwierzytelnianie wieloskładnikowe](../fundamentals/concept-fundamentals-mfa-get-started.md) jest włączone i wymagane dla użytkownika, za pomocą którego logujesz się w tym scenariuszu. Na przykład uwierzytelnianie wieloskładnikowe może być następujące:
+    - Zawsze wymagane dla użytkownika, za pomocą którego logujesz się
+    - [Wymagane do zarządzania platformą Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
+    - [Wymagane dla typu administratora](../conditional-access/howto-conditional-access-policy-admin-mfa.md) , za pomocą którego się logujesz.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Wykonywanie wywołań interfejsu API Microsoft Graph 
 
 Jeśli występuje problem, ale nie można zrozumieć, dlaczego jest on oparty na tym, co widzisz w interfejsie użytkownika, może być przydatne dalsze Rozwiązywanie problemów przy użyciu Microsoft Graph wywołań, aby wykonać te same operacje, które można wykonać w portalu rejestracji aplikacji.
 
-Najprostszym sposobem, aby te żądania były przy użyciu [Eksploratora grafów](https://developer.microsoft.com/graph/graph-explorer). Możesz również rozważyć inne opcje, takie jak użycie programu [Poster](https://www.postman.com/)lub [wywołanie żądania sieci Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7)za pomocą środowiska PowerShell.  
+Najprostszym sposobem, aby te żądania były przy użyciu [Eksploratora grafów](https://developer.microsoft.com/graph/graph-explorer). Możesz również rozważyć inne opcje, takie jak użycie programu [Poster](https://www.postman.com/)lub [wywołanie żądania sieci Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest)za pomocą środowiska PowerShell.  
 
-Możesz użyć Microsoft Graph do ustawiania i cofania zweryfikowanego wydawcy aplikacji i sprawdzenia wyniku po wykonaniu jednej z tych operacji. Wynik może być widoczny zarówno dla obiektu [aplikacji](/graph/api/resources/application?view=graph-rest-beta) odpowiadającego rejestracji aplikacji, jak i dla wszystkich [podmiotów usługi](/graph/api/resources/serviceprincipal?view=graph-rest-beta) , które zostały utworzone na podstawie tej aplikacji. Aby uzyskać więcej informacji na temat relacji między tymi obiektami, zobacz: [obiekty główne aplikacji i usługi w Azure Active Directory](app-objects-and-service-principals.md).  
+Możesz użyć Microsoft Graph do ustawiania i cofania zweryfikowanego wydawcy aplikacji i sprawdzenia wyniku po wykonaniu jednej z tych operacji. Wynik może być widoczny zarówno dla obiektu [aplikacji](/graph/api/resources/application) odpowiadającego rejestracji aplikacji, jak i dla wszystkich [podmiotów usługi](/graph/api/resources/serviceprincipal) , które zostały utworzone na podstawie tej aplikacji. Aby uzyskać więcej informacji na temat relacji między tymi obiektami, zobacz: [obiekty główne aplikacji i usługi w Azure Active Directory](app-objects-and-service-principals.md).  
 
 Oto przykłady pewnych przydatnych żądań:  
 
@@ -105,7 +108,7 @@ Reakcja
 ### <a name="get-verified-publisher-info-from-application"></a>Uzyskaj informacje o zweryfikowanym wydawcy z aplikacji 
  
 ```
-GET https://graph.microsoft.com/beta/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
+GET https://graph.microsoft.com/v1.0/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
 
 HTTP/1.1 200 OK 
 
@@ -124,7 +127,7 @@ HTTP/1.1 200 OK
 
 ### <a name="get-verified-publisher-info-from-service-principal"></a>Uzyskaj informacje o zweryfikowanym wydawcy z jednostki usługi 
 ```
-GET https://graph.microsoft.com/beta/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
+GET https://graph.microsoft.com/v1.0/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
 
 HTTP/1.1 200 OK 
 
@@ -183,11 +186,7 @@ Ta funkcja nie jest obsługiwana w przypadku zweryfikowanej dzierżawy poczty e-
 
 ### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
 
-Aplikacja docelowa ( <AppId> ) musi mieć ustawioną domenę wydawcy. Ustaw domenę wydawcy i spróbuj ponownie. 
-
-### <a name="publisherdomainisnotdnsverified"></a>PublisherDomainIsNotDNSVerified  
-
-Domena wydawcy aplikacji docelowej ( <publisherDomain> ) nie jest zweryfikowaną domeną w tej dzierżawie. Sprawdź domenę dzierżawy przy użyciu weryfikacji DNS i spróbuj ponownie. 
+Aplikacja docelowa ( \<AppId\> ) musi mieć ustawioną domenę wydawcy. Ustaw domenę wydawcy i spróbuj ponownie.
 
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 

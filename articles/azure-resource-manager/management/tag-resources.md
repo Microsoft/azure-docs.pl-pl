@@ -4,12 +4,12 @@ description: Pokazuje, jak zastosować Tagi do organizowania zasobów platformy 
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1eaf9b735e65811b242fa7198b3545c9c68a4d46
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425997"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086763"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Używanie tagów do organizowania zasobów platformy Azure i hierarchii zarządzania
 
@@ -307,7 +307,27 @@ az group list --tag Dept=IT
 
 ### <a name="handling-spaces"></a>Obsługa spacji
 
-Jeśli nazwy tagów lub wartości zawierają spacje, należy wykonać kilka dodatkowych kroków. Poniższy przykład stosuje wszystkie Tagi z grupy zasobów do jej zasobów, gdy Tagi mogą zawierać spacje.
+Jeśli nazwy tagów lub wartości zawierają spacje, należy wykonać kilka dodatkowych kroków. 
+
+`--tags`Parametry w interfejsie wiersza polecenia platformy Azure mogą akceptować ciąg, który składa się z tablicy ciągów. Poniższy przykład zastępuje znaczniki w grupie zasobów, w której Tagi zawierają spacje i łącznik: 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+Możesz użyć tej samej składni podczas tworzenia lub aktualizowania grupy zasobów lub zasobów przy użyciu `--tags` parametru.
+
+Aby zaktualizować Tagi przy użyciu `--set` parametru, należy przekazać klucz i wartość jako ciąg. Poniższy przykład dołącza jeden tag do grupy zasobów:
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+W tym przypadku wartość tagu jest oznaczona pojedynczymi cudzysłowami, ponieważ wartość ma łącznik.
+
+Może być również konieczne zastosowanie tagów do wielu zasobów. Poniższy przykład stosuje wszystkie Tagi z grupy zasobów do jej zasobów, gdy Tagi mogą zawierać spacje:
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)

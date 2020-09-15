@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279588"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087013"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Czynniki wpływające na wydajność programu Azure AD Connect
 
@@ -29,7 +29,7 @@ Azure AD Connect synchronizuje Active Directory z usługą Azure AD. Ten serwer 
 | Topologia| Dystrybucja punktów końcowych i składników Azure AD Connect musi zarządzać w sieci. |
 | Skalowanie| Liczba obiektów, takich jak użytkownicy, grupy i jednostki organizacyjne, które mają być zarządzane przez Azure AD Connect. |
 | Sprzęt| Sprzęt (fizyczny lub wirtualny) dla Azure AD Connect i zależna pojemność wydajności każdego składnika sprzętowego, w tym Konfiguracja procesora CPU, pamięci, sieci i dysku twardego. |
-| Konfigurowanie| Jak Azure AD Connect przetwarza katalogi i informacje. |
+| Konfiguracja| Jak Azure AD Connect przetwarza katalogi i informacje. |
 | Ładowanie| Częstotliwość zmian obiektów. Obciążenia mogą się różnić w ciągu godziny, dnia lub tygodnia. W zależności od składnika może być konieczne zaprojektowanie obciążenia szczytowego lub średniego obciążenia. |
 
 Celem tego dokumentu jest opisywanie czynników wpływających na wydajność aparatu aprowizacji Azure AD Connect. Duże lub złożone organizacje (obsługa administracyjna więcej niż 100 000 obiektów) może korzystać z zaleceń w celu optymalizacji ich implementacji Azure AD Connect, jeśli występują jakiekolwiek problemy z wydajnością opisane tutaj. Inne składniki Azure AD Connect, takie jak [Azure AD Connect kondycja](how-to-connect-health-agent-install.md) i agenci, nie zostały omówione w tym miejscu.
@@ -41,7 +41,7 @@ Celem tego dokumentu jest opisywanie czynników wpływających na wydajność ap
 
 Na poniższym diagramie przedstawiono architekturę wysokiego poziomu dla aparatu aprowizacji łączącego się z pojedynczym lasem, chociaż obsługiwane są wiele lasów. Ta architektura pokazuje, jak różne składniki współdziałają ze sobą.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![Na diagramie przedstawiono sposób działania podłączonych katalogów i Azure AD Connect aparatu aprowizacji, w tym przestrzeń łącznika i składniki Metaverse w SQL Database. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 Aparat aprowizacji nawiązuje połączenie z każdym lasem Active Directory i usługą Azure AD. Proces odczytywania informacji z każdego katalogu nazywa się importem. Eksport dotyczy aktualizacji katalogów z aparatu aprowizacji. Synchronizacja szacuje reguły przepływu obiektów w aparacie aprowizacji. Aby uzyskać bardziej szczegółowy szczegółowe, możesz odnieść się do [Azure AD Connect Sync: zrozumienie architektury](./concept-azure-ad-connect-sync-architecture.md).
 

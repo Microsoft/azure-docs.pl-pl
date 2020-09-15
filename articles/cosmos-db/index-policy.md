@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607521"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089517"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
-W Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają sposób indeksowania elementów kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów indeksuje każdą właściwość każdego elementu i wymuszają indeksy zakresu dla dowolnego ciągu lub liczby. Dzięki temu można uzyskać wysoką wydajność zapytań bez konieczności zawieszania indeksowania i zarządzania indeksem z góry.
+W usłudze Azure Cosmos DB każdy kontener ma zasady indeksowania, które określają sposób indeksowania elementów tego kontenera. Domyślne zasady indeksowania dla nowo utworzonych kontenerów indeksują każdą właściwość i każdy element oraz wymuszają indeksy zakresu dla wszelkich ciągów i liczb. Dzięki temu można uzyskać wysoką wydajność zapytań bez konieczności wcześniejszego myślenia o indeksowaniu i zarządzania indeksami.
 
 W niektórych sytuacjach może być potrzebne zastąpienie tego automatycznego zachowania zachowaniem lepiej dostosowanym do wymagań. Można dostosować zasady indeksowania kontenera, ustawiając jego *tryb indeksowania*i dołączając lub wykluczając *ścieżki właściwości*.
 
@@ -30,7 +30,7 @@ Azure Cosmos DB obsługuje dwa tryby indeksowania:
 - **Brak**: indeksowanie jest wyłączone w kontenerze. Jest to często używane, gdy kontener jest używany jako czysty magazyn klucz-wartość bez konieczności stosowania indeksów pomocniczych. Może również służyć do poprawy wydajności operacji zbiorczych. Po zakończeniu operacji zbiorczych tryb indeksu może być ustawiony na spójny, a następnie monitorowany przy użyciu [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) do momentu ukończenia.
 
 > [!NOTE]
-> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem wykonuje aktualizacje dla indeksu na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to spowodować **niespójne lub niekompletne** wyniki zapytania. Jeśli planujesz zapytania do kontenera Cosmos, nie należy wybierać indeksowania z opóźnieniem. W czerwcu 2020 Wprowadziliśmy zmianę, która nie zezwala już na ustawienie nowych kontenerów na tryb indeksowania z opóźnieniem. Jeśli konto Azure Cosmos DB zawiera już co najmniej jeden kontener z indeksem z opóźnieniem, to konto zostanie automatycznie zwolnione ze zmiany. Możesz również zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
+> Azure Cosmos DB obsługuje również tryb indeksowania z opóźnieniem. Indeksowanie z opóźnieniem aktualizuje indeks na znacznie niższym poziomie priorytetu, gdy aparat nie wykonuje żadnej innej pracy. Może to doprowadzić do **niespójnych lub niekompletnych** wyników zapytań. Jeśli planujesz wysyłać zapytania względem kontenera Cosmos, nie wybieraj indeksowania z opóźnieniem. W czerwcu 2020 Wprowadziliśmy zmianę, która nie zezwala już na ustawienie nowych kontenerów na tryb indeksowania z opóźnieniem. Jeśli konto Azure Cosmos DB zawiera już co najmniej jeden kontener z indeksem z opóźnieniem, to konto zostanie automatycznie zwolnione ze zmiany. Możesz również zażądać wykluczenia, kontaktując się z [pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (chyba że używasz konta usługi Azure Cosmos w trybie bez [serwera](serverless.md) , który nie obsługuje indeksowania z opóźnieniem).
 
 Domyślnie zasady indeksowania są ustawione na `automatic` . Jest to osiągane przez ustawienie `automatic` właściwości w zasadach indeksowania na `true` . Ustawienie tej właściwości `true` umożliwia usłudze Azure CosmosDB Automatyczne indeksowanie dokumentów w miarę ich pisania.
 
@@ -81,7 +81,7 @@ Każda zasada indeksowania musi zawierać ścieżkę katalogu głównego `/*` ja
 
 W przypadku dołączania i wykluczania ścieżek mogą wystąpić następujące atrybuty:
 
-- `kind` może być albo `range` `hash` . Funkcja indeksu zakresu zapewnia wszystkie funkcje indeksu wartości skrótu, dlatego zalecamy użycie indeksu zakresu.
+- `kind` może być albo `range` `hash` . Obsługa indeksu wartości skrótu jest ograniczona do filtrów równości. Funkcja indeksu zakresu oferuje wszystkie funkcje indeksów skrótu, a także wydajne sortowanie, filtry zakresu i funkcje systemowe. Zawsze zalecamy użycie indeksu zakresu.
 
 - `precision` jest liczbą zdefiniowaną na poziomie indeksu dla dołączonych ścieżek. Wartość `-1` wskazuje maksymalną precyzję. Zalecamy zawsze ustawienie tej wartości na `-1` .
 

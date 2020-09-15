@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9c9f286b9d81c89844582698ac98833f10bcaade
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923708"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086661"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Samouczek: kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
 
@@ -322,12 +322,13 @@ Należy zauważyć, że żaden błąd nie jest zgłaszany, gdy bliźniaczych rep
 
 Następnie można utworzyć **relacje** między utworzonym bliźniaczych reprezentacji, aby połączyć je z **wykresem bliźniaczym**. [Wykresy bliźniaczy](concepts-twins-graph.md) są używane do reprezentowania całego środowiska.
 
-Aby można było utworzyć relacje, Dodaj `using` instrukcję dla typu podstawowego relacji w zestawie SDK: Pomiń ten element, jeśli został już dodany.
+Aby można było tworzyć relacje, będzie potrzebna `Azure.DigitalTwins.Core.Serialization` przestrzeń nazw. Został dodany do projektu wcześniej z tą `using` instrukcją:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-Następnie Dodaj nową metodę statyczną do `Program` klasy, poniżej `Main` metody:
+Dodaj nową metodę statyczną do `Program` klasy poniżej `Main` metody:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {

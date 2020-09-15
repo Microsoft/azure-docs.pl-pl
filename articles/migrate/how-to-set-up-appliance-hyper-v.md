@@ -3,12 +3,12 @@ title: Konfigurowanie urządzenia Azure Migrate dla funkcji Hyper-V
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceniania i migrowania maszyn wirtualnych funkcji Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 21d88c4a2b2095fe677fe479bd7320f7a494db9e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929945"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087154"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurowanie urządzenia dla maszyn wirtualnych funkcji Hyper-V
 
@@ -59,7 +59,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 2. Uruchom następujące polecenie, aby wygenerować skrót dla wirtualnego dysku twardego
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład użycia: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  W przypadku 2.19.11.12 w wersji urządzenia wygenerowany skrót powinien być zgodny z tymi [ustawieniami](./tutorial-assess-hyper-v.md#verify-security).
+
 
 
 

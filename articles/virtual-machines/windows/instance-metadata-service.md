@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: adeba1964ab802a903e82b3ea71bc3248b86cea9
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705065"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086712"
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure
 
@@ -517,10 +517,11 @@ pamięć | Wymagania dotyczące buforowania
 Opcja | Informacje na temat sposobu tworzenia maszyny wirtualnej
 diffDiskSettings | Ustawienia dysku tymczasowych
 diskSizeGB | Rozmiar dysku w GB
+encryptionSettings | Ustawienia szyfrowania dysku
 image (obraz)   | Wirtualny dysk twardy obrazu użytkownika źródłowego
-tworzona     | Numer jednostki logicznej dysku
 managedDisk | Parametry dysku zarządzanego
 name    | Nazwa dysku
+osType  | Typ systemu operacyjnego znajdującego się na dysku
 VHD     | Wirtualny dysk twardy
 writeAcceleratorEnabled | Czy writeAccelerator jest włączona na dysku
 
@@ -532,11 +533,10 @@ pamięć | Wymagania dotyczące buforowania
 Opcja | Informacje na temat sposobu tworzenia maszyny wirtualnej
 diffDiskSettings | Ustawienia dysku tymczasowych
 diskSizeGB | Rozmiar dysku w GB
-encryptionSettings | Ustawienia szyfrowania dysku
 image (obraz)   | Wirtualny dysk twardy obrazu użytkownika źródłowego
+tworzona     | Numer jednostki logicznej dysku
 managedDisk | Parametry dysku zarządzanego
 name    | Nazwa dysku
-osType  | Typ systemu operacyjnego znajdującego się na dysku
 VHD     | Wirtualny dysk twardy
 writeAcceleratorEnabled | Czy writeAccelerator jest włączona na dysku
 
@@ -828,7 +828,7 @@ C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 Przejdź            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Języku          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Puppet        | https://github.com/keirans/azuremetadata
 Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
@@ -928,6 +928,6 @@ Użyj typu problemu `Management` i wybierz `Instance Metadata Service` jako kate
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej:
+Dowiedz się więcej na następujące tematy:
 1.  [Uzyskaj token dostępu dla maszyny wirtualnej](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 2.  [Scheduled Events](scheduled-events.md)

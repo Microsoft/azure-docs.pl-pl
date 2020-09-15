@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986852"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088412"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie funkcji zabezpieczeń wystąpienia zarządzanego w Azure SQL Database i SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,7 +89,7 @@ SQL Database i inspekcja wystąpienia zarządzanego SQL śledzi działania bazy 
 
 ### <a name="advanced-threat-protection"></a>Zaawansowana ochrona przed zagrożeniami
 
-Zaawansowana ochrona przed zagrożeniami analizuje dzienniki, aby wykrywać nietypowe zachowanie i potencjalnie szkodliwe próby dostępu do baz danych lub korzystania z nich. Alerty są tworzone dla podejrzanych działań, takich jak iniekcja kodu SQL, potencjalne filtrowanie danych i ataki typu "wymuszanie" i "anomalie" w wzorcach dostępu do przechwytywania eskalacji uprawnień i użycia poświadczeń naruszeń. Alerty są wyświetlane w [Azure Security Center](https://azure.microsoft.com/services/security-center/), w którym znajdują się szczegółowe informacje o podejrzanych działaniach, a także zalecenia dotyczące dalszych badań oraz działań związanych z ograniczeniami zagrożenia. Zaawansowaną ochronę przed zagrożeniami można włączyć dla każdego serwera w celu uzyskania dodatkowej opłaty. Aby uzyskać więcej informacji, zobacz [wprowadzenie do SQL Database zaawansowanej ochrony przed zagrożeniami](threat-detection-configure.md).
+Zaawansowana ochrona przed zagrożeniami analizuje dzienniki, aby wykrywać nietypowe zachowanie i potencjalnie szkodliwe próby dostępu do baz danych lub korzystania z nich. Alerty są tworzone dla podejrzanych działań, takich jak iniekcja kodu SQL, potencjalne filtrowanie danych i ataki typu "wymuszanie" i "anomalie" w wzorcach dostępu do przechwytywania eskalacji uprawnień i użycia poświadczeń naruszeń. Alerty są wyświetlane w  [Azure Security Center](https://azure.microsoft.com/services/security-center/), w którym znajdują się szczegółowe informacje o podejrzanych działaniach, a także zalecenia dotyczące dalszych badań oraz działań związanych z ograniczeniami zagrożenia. Zaawansowaną ochronę przed zagrożeniami można włączyć dla każdego serwera w celu uzyskania dodatkowej opłaty. Aby uzyskać więcej informacji, zobacz [wprowadzenie do SQL Database zaawansowanej ochrony przed zagrożeniami](threat-detection-configure.md).
 
 ![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
@@ -103,7 +103,7 @@ SQL Database i wystąpienie zarządzane SQL wymusza szyfrowanie (SSL/TLS) przez 
 
 Najlepszym rozwiązaniem jest zalecanie, aby w parametrach połączenia używanych przez aplikację określić połączenie szyfrowane i _**nie**_ ufać certyfikatowi serwera. Oznacza to, że aplikacja weryfikuje certyfikat serwera i w związku z tym uniemożliwia aplikacji atak na ataki typu średniego.
 
-Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za pośrednictwem **szyfrowania = true** i **TrustServerCertificate = false**. W przypadku uzyskania parametrów połączenia z Azure Portal będzie on miał poprawne ustawienia.
+Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za pośrednictwem  **szyfrowania = true** i **TrustServerCertificate = false**. W przypadku uzyskania parametrów połączenia z Azure Portal będzie on miał poprawne ustawienia.
 
 > [!IMPORTANT]
 > Należy pamiętać, że niektóre sterowniki inne niż firmy Microsoft mogą nie używać protokołu TLS domyślnie lub korzystają ze starszej wersji protokołu TLS (<1,2), aby móc działać. W takim przypadku serwer nadal umożliwia nawiązanie połączenia z bazą danych. Zaleca się jednak, aby oszacować zagrożenia bezpieczeństwa, które umożliwiają łączenie takich sterowników i aplikacji z SQL Database, szczególnie w przypadku przechowywania poufnych danych.
@@ -150,7 +150,7 @@ Aby uzyskać więcej informacji, zobacz [wprowadzenie do odnajdywania i klasyfik
 
 ### <a name="compliance"></a>Zgodność
 
-Oprócz powyższych funkcji i funkcji, które mogą pomóc aplikacji spełnić różne wymagania dotyczące zabezpieczeń, Azure SQL Database również uczestniczą w regularnych inspekcjach i mają certyfikat z wieloma standardami zgodności. Aby uzyskać więcej informacji, zobacz [Centrum zaufania Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , w którym można znaleźć najbardziej aktualną listę SQL Database certyfikatów zgodności.
+Oprócz powyższych funkcji i funkcji, które mogą pomóc aplikacji spełnić różne wymagania dotyczące zabezpieczeń, Azure SQL Database również uczestniczą w regularnych inspekcjach i mają certyfikat z wieloma standardami zgodności. Aby uzyskać więcej informacji, zobacz [Centrum zaufania Microsoft Azure](https://www.microsoft.com/trust-center/compliance/compliance-overview) , w którym można znaleźć najbardziej aktualną listę SQL Database certyfikatów zgodności.
 
 ## <a name="next-steps"></a>Następne kroki
 

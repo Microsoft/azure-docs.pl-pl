@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c0121c42c5d498aa79109c874981b9de0f8f4b7c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588878"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087987"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Użyj Logic Apps do otrzymywania wiadomości e-mail o zmianach stanu wpisów tajnych magazynu kluczy
 
 W tym przewodniku dowiesz się, jak odpowiedzieć na zdarzenia Azure Key Vault, które są odbierane za pośrednictwem [Azure Event Grid](../../event-grid/index.yml) przy użyciu [Azure Logic Apps](../../logic-apps/index.yml). Na koniec masz skonfigurowaną aplikację logiki Azure do wysyłania wiadomości e-mail z powiadomieniem za każdym razem, gdy wpis tajny zostanie utworzony w Azure Key Vault.
 
-Omówienie integracji Azure Key Vault/Azure Event Grid można znaleźć w temacie [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](event-grid-overview.md).
+Omówienie integracji Azure Key Vault/Azure Event Grid można znaleźć w temacie [monitorowanie Key Vault z Azure Event Grid](event-grid-overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,7 +56,7 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
 1. Wyszukaj nazwę **E-mail**. W oparciu o Twojego dostawcę poczty e-mail znajdź i wybierz zgodny łącznik. W tym samouczku jest stosowany **pakiet Office 365 Outlook**. Kroki dla innych dostawców poczty e-mail są podobne.
 1. Wybierz akcję **Wyślij wiadomość e-mail (wersja 2)** .
 
-   ![Projektant aplikacji logiki — Dodawanie poczty e-mail](../media/eventgrid-logicappdesigner3.png)
+   ![Projektant aplikacji logiki — Wyślij wiadomość e-mail](../media/eventgrid-logicappdesigner3.png)
 
 1. Kompiluj szablon wiadomości e-mail:
     - **Do:** Wprowadź adres e-mail, aby otrzymywać wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, do którego masz dostęp, w celach testowych.
@@ -64,18 +64,18 @@ Aby utworzyć subskrypcję Azure Event Grid, wykonaj następujące kroki:
 
     Twój szablon wiadomości e-mail może wyglądać podobnie do tego przykładu.
 
-    ![Projektant aplikacji logiki — Dodawanie poczty e-mail](../media/eventgrid-logicappdesigner4.png)
+    ![Projektant aplikacji logiki — treść wiadomości e-mail](../media/eventgrid-logicappdesigner4.png)
 
 8. Kliknij przycisk **Zapisz jako**.
 9. Wprowadź **nazwę** nowej aplikacji logiki, a następnie kliknij przycisk **Utwórz**.
     
-    ![Projektant aplikacji logiki — Dodawanie poczty e-mail](../media/eventgrid-logicappdesigner5.png)
+    ![Projektant aplikacji logiki — tworzenie](../media/eventgrid-logicappdesigner5.png)
 
 ## <a name="test-and-verify"></a>Testowanie i weryfikowanie
 
 1.  Przejdź do magazynu kluczy na Azure Portal i wybierz pozycję **zdarzenia > subskrypcje zdarzeń**.  Sprawdź, czy utworzono nową subskrypcję
     
-    ![Projektant aplikacji logiki — Dodawanie poczty e-mail](../media/eventgrid-logicapps-kvnewsubs.png)
+    ![Projektant aplikacji logiki — testowanie i weryfikowanie](../media/eventgrid-logicapps-kvnewsubs.png)
 
 1.  Przejdź do magazynu kluczy, wybierz pozycję wpisy **tajne**, a następnie wybierz pozycję **+ Generuj/Importuj**. Utwórz nowy wpis tajny dla celów testowych Nazwij klucz i Zachowaj pozostałe parametry w ustawieniach domyślnych.
 
@@ -87,8 +87,8 @@ Po utworzeniu wpisu tajnego zostanie odebrana wiadomość e-mail ze skonfigurowa
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](event-grid-overview.md)
+- Przegląd: [monitorowanie Key Vault z Azure Event Grid](event-grid-overview.md)
 - Instrukcje: [kierowanie powiadomień magazynu kluczy do Azure Automation](event-grid-tutorial.md).
-- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault (wersja zapoznawcza)](../../event-grid/event-schema-key-vault.md)
+- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - Dowiedz się więcej na temat usługi [Azure Event Grid](../../event-grid/index.yml).
 - Dowiedz się więcej o [funkcji Logic Apps usługi Azure App Service](../../logic-apps/index.yml).

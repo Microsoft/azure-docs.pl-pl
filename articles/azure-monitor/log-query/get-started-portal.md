@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: b337065f125d12e309dd1f7fcc56c2af72b1c28c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874235"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088361"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Samouczek: Rozpoczynanie pracy z zapytaniami Log Analytics
 
@@ -42,7 +42,7 @@ Możesz również użyć własnego środowiska, jeśli używasz Azure Monitor do
 
 Tabele schematów są wyświetlane na karcie **tabele** w obszarze roboczym log Analytics. Tabele zawierają kolumny, z których każdy ma typ danych wyświetlany przez ikonę obok nazwy kolumny. Na przykład tabela **zdarzeń** zawiera kolumny tekstowe, takie jak **komputer** i kolumny liczbowe, takie jak **EventCategory**.
 
-![Schemat](media/get-started-portal/schema.png)
+![Zrzut ekranu przedstawia stronę dzienników Azure Portal z nowym zapytaniem, podświetl okienko tabele z wyróżnionym komputerem i EventCategory.](media/get-started-portal/schema.png)
 
 ## <a name="write-and-run-basic-queries"></a>Zapisz i uruchom podstawowe zapytania
 
@@ -120,7 +120,7 @@ Aby filtrować `Event` wyniki zapytania do zdarzeń **błędów** przez filtrowa
    
 1. Wybierz pozycję **Filtr**.
    
-   ![Filtr](media/get-started-portal/filter.png)
+   ![Zrzut ekranu przedstawia tabelę wyników z menu kontekstowym do filtrowania wyników według EventLevelName.](media/get-started-portal/filter.png)
 
 ## <a name="sort-group-and-select-columns"></a>Sortuj, Grupuj i zaznaczaj kolumny
 Aby posortować wyniki zapytania według określonej kolumny, takiej jak **TimeGenerated [UTC]**, wybierz nagłówek kolumny. Ponownie wybierz nagłówek, aby przełączać się między rosnącą a malejącą kolejnością.
@@ -129,7 +129,7 @@ Aby posortować wyniki zapytania według określonej kolumny, takiej jak **TimeG
 
 Inny sposób organizowania wyników odbywa się według grup. Aby pogrupować wyniki według określonej kolumny, przeciągnij nagłówek kolumny na pasek powyżej tabeli wyników z etykietą **przeciągnij nagłówek kolumny i upuść go tutaj, aby grupować według tej kolumny**. Aby utworzyć podgrupy, przeciągnij inne kolumny na górny pasek. Można zmienić kolejność hierarchii i sortowanie grup i podgrup na pasku.
 
-![Grupy](media/get-started-portal/groups.png)
+![Zrzut ekranu przedstawia wyniki zapytania z podgrupami dla EventLevelName i komputera.](media/get-started-portal/groups.png)
 
 Aby ukryć lub pokazać kolumny w wynikach, zaznacz **kolumny** powyżej tabeli, a następnie zaznacz lub usuń zaznaczenie żądanych kolumn z listy rozwijanej.
 

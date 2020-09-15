@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526643"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088565"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Jak używać że program perfinsights na platformie Azure
 
@@ -103,27 +103,27 @@ Zbierane są informacje o konfiguracji maszyn wirtualnych systemu Windows, dysk�
 
 | Zbierane dane | Analiza szybkiej wydajności | Testów porównawczych | Analiza wydajności | Analiza Azure Files | Zaawansowana analiza wydajności |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
-| Informacje z dzienników zdarzeń       | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Informacje o systemie                | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Mapa woluminów                        | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Mapa dysku                          | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Uruchomione zadania                     | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Liczniki niezawodności magazynu      | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Informacje o magazynie               | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Fsutil Output                     | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Informacje o sterowniku filtru                | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Dane wyjściowe polecenia netstat                    | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Konfiguracja sieci             | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Konfiguracja zapory            | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Konfiguracja programu SQL Server          | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Ślady diagnostyki wydajności *  | Tak                        | Tak                                | Tak                      | Tak                  | Tak                  |
-| Śledzenie licznika wydajności * *      |                            |                                    | Tak                      |                      | Tak                  |
-| Śledzenie licznika SMB * *              |                            |                                    |                          | Tak                  |                      |
-| Śledzenie licznika SQL Server * *       |                            |                                    | Tak                      |                      | Tak                  |
-| Śledzenie Xperf                       |                            |                                    |                          |                      | Tak                  |
-| Ślad StorPort                    |                            |                                    |                          |                      | Tak                  |
-| Śledzenie sieci                     |                            |                                    |                          | Tak                  | Tak                  |
-| Śledzenie testu porównawczego narzędzia diskspd * * *       |                            | Tak                                |                          |                      |                      |
+| Informacje z dzienników zdarzeń       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informacje o systemie                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Mapa woluminów                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Mapa dysku                          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Uruchomione zadania                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Liczniki niezawodności magazynu      | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informacje o magazynie               | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Fsutil Output                     | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Informacje o sterowniku filtru                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Dane wyjściowe polecenia netstat                    | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Konfiguracja sieci             | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Konfiguracja zapory            | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Konfiguracja programu SQL Server          | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Ślady diagnostyki wydajności *  | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
+| Śledzenie licznika wydajności * *      |                            |                                    | Yes                      |                      | Yes                  |
+| Śledzenie licznika SMB * *              |                            |                                    |                          | Yes                  |                      |
+| Śledzenie licznika SQL Server * *       |                            |                                    | Yes                      |                      | Yes                  |
+| Śledzenie Xperf                       |                            |                                    |                          |                      | Yes                  |
+| Ślad StorPort                    |                            |                                    |                          |                      | Yes                  |
+| Śledzenie sieci                     |                            |                                    |                          | Yes                  | Yes                  |
+| Śledzenie testu porównawczego narzędzia diskspd * * *       |                            | Yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Śledzenie diagnostyki wydajności (*)
@@ -165,7 +165,15 @@ Narzędzia diskspd testów obciążenia wejścia/wyjścia (dysk systemu operacyj
 
 -  To narzędzie musi być uruchomione na maszynie wirtualnej, na której występuje problem z wydajnością. 
 
--  Obsługiwane są następujące systemy operacyjne: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 i Windows Server 2016; Windows 8.1 i Windows 10.
+-  Obsługiwane są następujące systemy operacyjne:
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 z dodatkiem R2
+   * Windows Server 2012
+   * Windows Server 2008 z dodatkiem R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Możliwe problemy podczas uruchamiania narzędzia na maszynach wirtualnych produkcji
 

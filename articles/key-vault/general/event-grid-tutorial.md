@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 283c66eb3b49b60b87283c5d94cc4f110adceffe
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 034bdce96d88deb31a071682a3c02200a64699dd
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588751"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087576"
 ---
-# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Odbieraj powiadomienia dotyczące magazynu kluczy i odpowiadaj na nie Azure Event Grid (wersja zapoznawcza)
+# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Odbieraj powiadomienia magazynu kluczy i odpowiadaj na nie za pomocą Azure Event Grid
 
-Integracja Azure Key Vault z Azure Event Grid (obecnie w wersji zapoznawczej) umożliwia użytkownikowi powiadamianie o zmianie stanu wpisu tajnego przechowywanego w magazynie kluczy. Aby zapoznać się z omówieniem tej funkcji, zobacz [monitorowanie Key Vault z Event Grid](event-grid-overview.md).
+Integracja Azure Key Vault z Azure Event Grid umożliwia użytkownikowi powiadomienia o zmianie stanu wpisu tajnego przechowywanego w magazynie kluczy. Aby zapoznać się z omówieniem tej funkcji, zobacz [monitorowanie Key Vault z Event Grid](event-grid-overview.md).
 
 W tym przewodniku opisano, jak odbierać powiadomienia Key Vault przy użyciu Event Grid i jak reagować na zmiany stanu przy użyciu Azure Automation.
 
@@ -32,7 +32,7 @@ W tym przewodniku opisano, jak odbierać powiadomienia Key Vault przy użyciu Ev
 
 Event Grid to usługa obsługi zdarzeń dla chmury. Wykonując kroki opisane w tym przewodniku, zasubskrybujesz zdarzenia dotyczące Key Vault i kierowania zdarzeń do automatyzacji. Gdy jeden z wpisów tajnych w magazynie kluczy wkrótce wygaśnie, Event Grid zostanie powiadomiona o zmianie stanu i spowoduje WYSŁANie żądania HTTP do punktu końcowego. Element webhook wyzwala wykonywanie skryptu programu PowerShell w usłudze Automation.
 
-![Schemat blokowy HTTP POST](../media/image1.png)
+![Schemat blokowy HTTP POST](../media/event-grid-tutorial-1.png)
 
 ## <a name="create-an-automation-account"></a>Tworzenie konta usługi Automation
 
@@ -46,7 +46,7 @@ Utwórz konto usługi Automation za pomocą [Azure Portal](https://portal.azure.
 
 1.  Wybierz pozycję **Dodaj**.
 
-    ![Okienko kont usługi Automation](../media/image2.png)
+    ![Okienko kont usługi Automation](../media/event-grid-tutorial-2.png)
 
 1.  Wprowadź wymagane informacje w okienku **Dodawanie konta usługi Automation** , a następnie wybierz pozycję **Utwórz**.
 
@@ -54,7 +54,7 @@ Utwórz konto usługi Automation za pomocą [Azure Portal](https://portal.azure.
 
 Po przygotowaniu konta usługi Automation Utwórz element Runbook.
 
-![Tworzenie interfejsu użytkownika elementu Runbook](../media/image3.png)
+![Tworzenie interfejsu użytkownika elementu Runbook](../media/event-grid-tutorial-3.png)
 
 1.  Wybierz właśnie utworzone konto usługi Automation.
 
@@ -92,7 +92,7 @@ write-Error "No input data found."
 }
 ```
 
-![Publikowanie interfejsu użytkownika elementu Runbook](../media/image4.png)
+![Publikowanie interfejsu użytkownika elementu Runbook](../media/event-grid-tutorial-4.png)
 
 ## <a name="create-a-webhook"></a>Tworzenie elementu webhook
 
@@ -102,7 +102,7 @@ Utwórz element webhook, aby wyzwolić nowo utworzony element Runbook.
 
 1.  Wybierz pozycję **Dodaj element webhook**.
 
-    ![Dodaj przycisk elementu webhook](../media/image5.png)
+    ![Dodaj przycisk elementu webhook](../media/event-grid-tutorial-5.png)
 
 1.  Wybierz pozycję **Utwórz nowy element webhook**.
 
@@ -115,15 +115,15 @@ Utwórz element webhook, aby wyzwolić nowo utworzony element Runbook.
 
 1. Wybierz przycisk **OK** , a następnie wybierz pozycję **Utwórz**.
 
-    ![Utwórz nowy interfejs użytkownika elementu webhook](../media/image6.png)
+    ![Utwórz nowy interfejs użytkownika elementu webhook](../media/event-grid-tutorial-6.png)
 
 ## <a name="create-an-event-grid-subscription"></a>Tworzenie subskrypcji usługi Event Grid
 
 Utwórz subskrypcję Event Grid przy użyciu [Azure Portal](https://portal.azure.com).
 
-1.  Przejdź do magazynu kluczy i wybierz kartę **zdarzenia** . Jeśli go nie widzisz, upewnij się, że używasz [wersji zapoznawczej portalu](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
+1.  Przejdź do magazynu kluczy i wybierz kartę **zdarzenia** .
 
-    ![Karta zdarzenia w Azure Portal](../media/image7.png)
+    ![Karta zdarzenia w Azure Portal](../media/event-grid-tutorial-7.png)
 
 1.  Wybierz przycisk **subskrypcja zdarzeń** .
 
@@ -141,17 +141,17 @@ Utwórz subskrypcję Event Grid przy użyciu [Azure Portal](https://portal.azure
 
 1.  W okienku kontekstowym wybierz pozycję **Potwierdź wybór** .
 
-1.  Wybierz pozycję **Utwórz**.
+1.  Wybierz przycisk **Utwórz**.
 
-    ![Utwórz subskrypcję zdarzeń](../media/image8.png)
+    ![Utwórz subskrypcję zdarzeń](../media/event-grid-tutorial-8.png)
 
 ## <a name="test-and-verify"></a>Testowanie i weryfikowanie
 
 Sprawdź, czy subskrypcja Event Grid została prawidłowo skonfigurowana. W tym teście przyjęto założenie, że zasubskrybowano powiadomienie "wpis tajny nowej wersji utworzone" w [subskrypcji tworzenia Event Grid](#create-an-event-grid-subscription)i że masz uprawnienia niezbędne do utworzenia nowej wersji wpisu tajnego w magazynie kluczy.
 
-![Konfiguracja testu subskrypcji Event Grid](../media/image9.png)
+![Konfiguracja testu subskrypcji Event Grid](../media/event-grid-tutorial-9.png)
 
-![Okienko Utwórz-a-Secret](../media/image10.png)
+![Okienko Utwórz-a-Secret](../media/event-grid-tutorial-10.png)
 
 1.  Przejdź do magazynu kluczy na Azure Portal.
 
@@ -161,7 +161,7 @@ Sprawdź, czy subskrypcja Event Grid została prawidłowo skonfigurowana. W tym 
 
 1.  W obszarze **metryki**Sprawdź, czy zdarzenie zostało przechwycone. Oczekiwane są dwa zdarzenia: SecretNewVersion i SecretNearExpiry. Te zdarzenia sprawdzają, czy Event Grid pomyślnie przechwycić zmianę stanu wpisu tajnego w magazynie kluczy.
 
-    ![Okienko metryk: sprawdzanie przechwytywanych zdarzeń](../media/image11.png)
+    ![Okienko metryk: sprawdzanie przechwytywanych zdarzeń](../media/event-grid-tutorial-11.png)
 
 1.  Przejdź do konta usługi Automation.
 
@@ -169,13 +169,13 @@ Sprawdź, czy subskrypcja Event Grid została prawidłowo skonfigurowana. W tym 
 
 1.  Wybierz kartę elementy **webhook** i upewnij się, że sygnatura czasowa "Ostatnia wyzwolona" mieści się w przedziale od 60 sekund od momentu utworzenia nowego klucza tajnego. Ten wynik pozwala potwierdzić, że Event Grid wprowadził wpis do elementu webhook ze szczegółowymi informacjami o stanie zmiany stanu w magazynie kluczy i wyzwoleniem elementu webhook.
 
-    ![Karta elementy webhook, Ostatnia wyzwolona sygnatura czasowa](../media/image12.png)
+    ![Karta elementy webhook, Ostatnia wyzwolona sygnatura czasowa](../media/event-grid-tutorial-12.png)
 
 1. Wróć do elementu Runbook i wybierz kartę **Przegląd** .
 
 1. Zapoznaj się z listą **ostatnich zadań** . Powinno się zobaczyć, że zadanie zostało utworzone i że stan jest zakończony. Pozwala to upewnić się, że element webhook wyzwolił elementu Runbook, aby rozpocząć wykonywanie jego skryptu.
 
-    ![Lista ostatnich zadań elementu webhook](../media/image13.png)
+    ![Lista ostatnich zadań elementu webhook](../media/event-grid-tutorial-13.png)
 
 1. Wybierz ostatnie zadanie i sprawdź żądanie POST wysłane z Event Grid do elementu webhook. Sprawdź kod JSON i upewnij się, że parametry magazynu kluczy i typu zdarzenia są poprawne. Jeśli parametr "typ zdarzenia" w obiekcie JSON pasuje do zdarzenia, które wystąpiło w magazynie kluczy (w tym przykładzie Microsoft. Key. SecretNearExpiry), test zakończył się pomyślnie.
 
@@ -194,9 +194,9 @@ Jeśli używasz systemu opartego na sondowaniu do wyszukiwania zmian stanu wpis�
 Więcej informacji:
 
 
-- Przegląd: [monitorowanie Key Vault z Azure Event Grid (wersja zapoznawcza)](event-grid-overview.md)
+- Przegląd: [monitorowanie Key Vault z Azure Event Grid](event-grid-overview.md)
 - Instrukcje: [otrzymywanie wiadomości e-mail po zmianie wpisu tajnego magazynu kluczy](event-grid-logicapps.md)
-- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault (wersja zapoznawcza)](../../event-grid/event-schema-key-vault.md)
+- [Schemat zdarzeń Azure Event Grid dla Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Przegląd Azure Key Vault](overview.md))
 - [Omówienie usługi Azure Event Grid](../../event-grid/overview.md)
 - [Przegląd Azure Automation](../../automation/index.yml)

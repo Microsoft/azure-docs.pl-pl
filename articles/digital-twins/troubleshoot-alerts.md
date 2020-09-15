@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854852"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087216"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Rozwiązywanie problemów z usługą Azure Digital bliźniaczych reprezentacji: alerty
 
@@ -31,16 +31,16 @@ Poniżej przedstawiono sposób włączania alertów dla wystąpienia usługi Azu
 3. Na stronie *Tworzenie reguły alertu* , która znajduje się poniżej, można postępować zgodnie z monitami, aby zdefiniować warunki, akcje, które mają być wyzwalane, oraz szczegóły alertu.     
     * Szczegóły **zakresu** powinny być wypełniane automatycznie przy użyciu szczegółów dla danego wystąpienia
     * Zdefiniuj **warunek** i szczegóły **grupy akcji** , aby dostosować wyzwalacze i odpowiedzi alertów.
-    * W sekcji **szczegóły reguły alertu** wprowadź _nazwę reguły alertu_, _Opis (opcjonalnie)_. Możesz zaznaczyć pole wyboru _Włącz regułę alertu przy tworzeniu_ , jeśli chcesz, aby alert stał się aktywny zaraz po jego utworzeniu.
-    * W oparciu o niektóre warunki i akcje, które można dodać, należy wybrać pozycję _Zapisz regułę alertu w grupie zasobów_ i _ważności_ z odpowiednich list rozwijanych.
+    * W sekcji **szczegóły reguły alertu** wprowadź nazwę i opcjonalny opis reguły. Możesz zaznaczyć pole wyboru _Włącz regułę alertu przy tworzeniu_ , jeśli chcesz, aby alert stał się aktywny zaraz po jego utworzeniu.
+        - W tym miejscu można również wybrać _grupę zasobów_ i poziom _ważności_ .
 
 4. Wybierz przycisk _Utwórz regułę alertu_ , aby utworzyć regułę alertu.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku i grupy akcji" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
-
-:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Zrzut ekranu przedstawiający sekcję szczegółów reguły alertu dotyczącego tworzenia reguły alertu" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Zrzut ekranu przedstawiający stronę Tworzenie reguły alertów z sekcjami dotyczącymi zakresu, warunku, grupy akcji i szczegółów reguły alertu" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 Aby zapoznać się z przewodnikiem dotyczącym wypełniania tych pól, zobacz [*Omówienie alertów w Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Poniżej przedstawiono kilka przykładów, które będą wyglądały tak, jak w przypadku usługi Azure Digital bliźniaczych reprezentacji.
+
+### <a name="select-conditions"></a>Wybierz warunki
 
 Poniżej znajduje się fragment z procesu *SELECT Condition* pokazujący typy sygnałów alertów, które są dostępne dla usługi Azure Digital bliźniaczych reprezentacji. Na tej stronie można filtrować typ sygnału i wybrać żądany sygnał z listy.
 
@@ -48,12 +48,13 @@ Poniżej znajduje się fragment z procesu *SELECT Condition* pokazujący typy sy
 
 Po wybraniu sygnału zostanie wyświetlony monit o skonfigurowanie logiki alertu. Można filtrować według wymiaru, ustawiać wartość progową dla alertu i ustawić częstotliwość sprawdzania dla warunku. Poniżej znajduje się przykład konfigurowania alertu w przypadku, gdy Metryka dotycząca średniego współczynnika błędów routingu spadnie powyżej 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Zrzut ekranu przedstawiający stronę drugiej konfiguracji logiki sygnałów. Na stronie zostanie wyświetlona historia metryk, która ma obszar do filtrowania według wymiaru, takiego jak Event Grid operacje, a sekcja definiowania logiki alertu, taka jak średnia jest większa niż 5":::
- 
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Zrzut ekranu przedstawiający stronę drugiej konfiguracji logiki sygnałów. Na stronie zostanie wyświetlona historia metryk, która ma obszar do filtrowania według wymiaru, takiego jak Event Grid operacje, a sekcja definiowania logiki alertu, taka jak "średnia jest większa niż 5"":::
+
+### <a name="verify-success"></a>Weryfikowanie sukcesu
+
 Po skonfigurowaniu alertów zostaną one wyświetlone na stronie *alerty* dla danego wystąpienia.
  
 :::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Zrzut ekranu przedstawiający stronę alerty i przycisk do dodania. Skonfigurowano jeden alert" lightbox="media/troubleshoot-alerts/alerts-post.png":::
-
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752012"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088497"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Jakie typy dysków są dostępne na platformie Azure?
 
@@ -71,7 +71,7 @@ Jeśli chcesz zacząć korzystać z usługi Ultra disks, zapoznaj się z artyku�
 
 Usługa Azure Premium dysków SSD zapewnia obsługę dysków o wysokiej wydajności i małych opóźnieniach dla maszyn wirtualnych z intensywnymi obciążeniami we/wy (IO). Aby skorzystać z szybkości i wydajności dysków magazynu w warstwie Premium, można migrować istniejące dyski maszyn wirtualnych do dysków SSD Premium. Dysków SSD Premium są odpowiednie dla aplikacji produkcyjnych o kluczowym znaczeniu. Dysków SSD Premium można używać tylko z seriami maszyn wirtualnych, które są zgodne z magazynem w warstwie Premium.
 
-Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Windows lub Linux, w tym o rozmiarach, które są zgodne z magazynem w warstwie Premium, zobacz [rozmiary maszyn wirtualnych na platformie Azure](sizes.md). Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Linux, w tym o rozmiarach, które są zgodne z magazynem w warstwie Premium, zobacz [rozmiary maszyn wirtualnych na platformie Azure](sizes.md). Z dowolnego z tych artykułów należy sprawdzić każdy artykuł o rozmiarze poszczególnych maszyn wirtualnych, aby określić, czy jest on zgodny z magazynem w warstwie Premium.
+Aby dowiedzieć się więcej o poszczególnych typach maszyn wirtualnych i rozmiarach na platformie Azure dla systemu Windows lub Linux, w tym o rozmiarach, które są zgodne z magazynem w warstwie Premium, zobacz [rozmiary maszyn wirtualnych na platformie Azure](sizes.md). W tym artykule należy sprawdzić każdy artykuł o rozmiarze poszczególnych maszyn wirtualnych, aby określić, czy jest on zgodny z magazynem w warstwie Premium.
 
 ### <a name="disk-size"></a>Rozmiar dysku
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]

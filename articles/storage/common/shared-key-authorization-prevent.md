@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f65bf2bbe174ff90d5a0b962768833b8668f6400
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019720"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088803"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Zapobiegaj autoryzacji klucza współużytkowanego dla konta usługi Azure Storage (wersja zapoznawcza)
 
@@ -214,9 +214,9 @@ Niektóre narzędzia platformy Azure oferują możliwość korzystania z autoryz
 | Narzędzie platformy Azure | Autoryzacja usługi Azure AD do usługi Azure Storage |
 |-|-|
 | Azure Portal | Obsługiwane. Aby uzyskać informacje na temat autoryzacji konta usługi Azure AD z poziomu Azure Portal, zobacz [Wybieranie metody autoryzacji dostępu do danych obiektów BLOB w Azure Portal](../blobs/authorize-blob-access-portal.md). |
-| Narzędzie AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
+| AzCopy | Obsługiwane w przypadku usługi BLOB Storage. Aby uzyskać informacje na temat autoryzacji operacji AzCopy, zobacz [Wybieranie sposobu dostarczania poświadczeń autoryzacji](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) w dokumentacji AzCopy. |
 | Eksplorator usługi Azure Storage | Obsługiwane tylko w przypadku usługi BLOB Storage i tylko Azure Data Lake Storage Gen2. Dostęp do usługi queue storage w usłudze Azure AD nie jest obsługiwany. Upewnij się, że wybrano prawidłową dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z Eksplorator usługi Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń programu PowerShell w usłudze Azure AD w celu uzyskiwania dostępu do danych obiektów blob i kolejek, zobacz [Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub kolejek](authorize-active-directory-powershell.md). |
+| Azure PowerShell | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń programu PowerShell dla operacji obiektu BLOB lub kolejki w usłudze Azure AD, zobacz [Uruchamianie poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów BLOB](../blobs/authorize-active-directory-powershell.md) lub [uruchamiania poleceń programu PowerShell przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych kolejki](../queues/authorize-active-directory-powershell.md). |
 | Interfejs wiersza polecenia platformy Azure | Obsługiwane. Aby uzyskać informacje na temat sposobu autoryzacji poleceń interfejsu wiersza polecenia platformy Azure z usługą Azure AD w celu uzyskania dostępu do danych obiektów blob i kolejek, zobacz [Uruchamianie poleceń interfejsu wiersza polecenia platformy Azure przy użyciu poświadczeń usługi Azure AD w celu uzyskania dostępu do danych obiektów blob lub](authorize-data-operations-cli.md) |
 | Azure IoT Hub | Obsługiwane. Aby uzyskać więcej informacji, zobacz [IoT Hub obsługa sieci wirtualnych](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell jest zintegrowaną powłoką w Azure Portal. Azure Cloud Shell hostuje pliki trwałości w udziale plików platformy Azure na koncie magazynu. Te pliki staną się niedostępne, jeśli autoryzacja klucza współdzielonego jest niedozwolona dla tego konta magazynu. Aby uzyskać więcej informacji, zobacz [łączenie magazynu Microsoft Azure plików](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Aby uruchomić polecenia w Azure Cloud Shell, aby zarządzać kontami magazynu, dla których dostęp do klucza wspólnego jest niedozwolony, najpierw upewnij się, że masz przyznane odpowiednie uprawnienia do tych kont za pośrednictwem kontroli dostępu opartej na rolach (RBAC). Aby uzyskać więcej informacji, zobacz [co to jest kontrola dostępu oparta na rolach (Azure RBAC)?](../../role-based-access-control/overview.md) |

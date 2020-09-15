@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e1cce536a9ec498304cbbc591fc56a0ee1b21b13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036446"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087273"
 ---
 # <a name="interact-with-the-map"></a>Korzystanie z mapy
 
@@ -26,7 +26,7 @@ Odtwórz przy użyciu mapy poniżej i zobacz odpowiednie zdarzenia myszy wyróż
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Korzystanie z mapy — zdarzenia myszy' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>z zdarzeń dotyczących mapy — wskaźnik myszy</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Korzystanie z mapy — zdarzenia myszy' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>z zdarzeń dotyczących mapy — wskaźnik myszy</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Korzystanie z warstw mapy
@@ -35,7 +35,7 @@ Poniższy kod wyróżnia wywoływane zdarzenie podczas korzystania z warstwy sym
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Korzystanie z zdarzeń mapy — zdarzenia warstwy' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>z zdarzeń mapy — zdarzenia warstwy</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Korzystanie z zdarzeń mapy — zdarzenia warstwy' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>z zdarzeń mapy — zdarzenia warstwy</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Korzystanie z znacznika HTML
@@ -44,12 +44,12 @@ Poniższy kod dodaje zdarzenia mapy JavaScript do znacznika HTML. Wyróżnia tak
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Korzystanie z zdarzeń mapy — znaczniki HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz, jak <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>korzystać z pióra z zdarzeniami znacznika mapy kodu HTML</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Korzystanie z zdarzeń mapy — znaczniki HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz, jak <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>korzystać z pióra z zdarzeniami znacznika mapy kodu HTML</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia klas mapy.
 
-| Zdarzenie               | Opis |
+| Wydarzenie               | Opis |
 |---------------------|-------------|
 | `boxzoomend`        | Uruchamiany po zakończeniu interakcji "pole Powiększ".|
 | `boxzoomstart`      | Uruchamiany po rozpoczęciu interakcji "Box zoom".|
@@ -98,11 +98,11 @@ W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia klas mapy.
 | `sourceremoved`     | Uruchamiany po `DataSource` `VectorTileSource` usunięciu lub z mapy.|
 | `styledata`         | Uruchamiany, gdy styl mapy zostanie załadowany lub zmieniony.|
 | `styleimagemissing` | Uruchamiany, gdy warstwa próbuje załadować obraz z Sprite obrazu, który nie istnieje |
-| `tokenacquired`     | Uruchamiany, gdy zostanie uzyskany token dostępu usługi AAD.|
-| `touchcancel`       | Uruchamiany, gdy w mapie wystąpi zdarzenie touchcancel.|
-| `touchend`          | Uruchamiany, gdy w mapie wystąpi zdarzenie touchend.|
-| `touchmove`         | Uruchamiany, gdy w mapie wystąpi zdarzenie TouchMove.|
-| `touchstart`        | Uruchamiany, gdy w mapie wystąpi zdarzenie touchstart.|
+| `tokenacquired`     | Uruchamiany, gdy zostanie uzyskany token dostępu Azure Active Directory.|
+| `touchcancel`       | Uruchamiany, gdy `touchcancel` w mapie wystąpi zdarzenie.|
+| `touchend`          | Uruchamiany, gdy `touchend` w mapie wystąpi zdarzenie.|
+| `touchmove`         | Uruchamiany, gdy `touchmove` w mapie wystąpi zdarzenie.|
+| `touchstart`        | Uruchamiany, gdy `touchstart` w mapie wystąpi zdarzenie.|
 | `wheel`             | Uruchamiany, gdy na mapie wystąpi zdarzenie kółka myszy.|
 | `zoom`              | Uruchamiany wielokrotnie podczas animowanego przejścia z jednego poziomu powiększenia na inny w wyniku interakcji z użytkownikiem lub metod.|
 | `zoomend`           | Uruchamiany tuż po zakończeniu przez mapę przejścia z jednego poziomu powiększenia na inny w wyniku interakcji z użytkownikiem lub metod.|

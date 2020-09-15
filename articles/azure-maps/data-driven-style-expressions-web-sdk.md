@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009141"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089449"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Wyrażenia stylów oparte na danych (zestaw SDK sieci Web)
 
@@ -72,7 +72,12 @@ We wszystkich przykładach w tym dokumencie użyto następującej funkcji, aby p
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-        "zoneColor": "red"
+        "zoneColor": "red",
+        "abcArray": ['a', 'b', 'c'],
+        "array2d": [['a', 'b'], ['x', 'y']],
+        "_style": {
+            "fillColor": 'red'
+        }
     }
 }
 ```
@@ -85,11 +90,11 @@ Wyrażenia danych zapewniają dostęp do danych właściwości w funkcji.
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Pobiera element z tablicy. |
 | `['geometry-type']` | ciąg | Pobiera typ geometrii funkcji: punkt, MultiPoint, LineString, MultiLineString, Wielokąt, MultiPolygon. |
-| `['get', string]` | value | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
-| `['get', string, object]` | value | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string]` | Wartość | Pobiera wartość właściwości z właściwości bieżącej funkcji. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
+| `['get', string, object]` | Wartość | Pobiera wartość właściwości z właściwości podanego obiektu. Zwraca wartość null, jeśli brakuje żądanej właściwości. |
 | `['has', string]` | boolean | Określa, czy właściwości funkcji mają określoną właściwość. |
 | `['has', string, object]` | boolean | Określa, czy właściwości obiektu mają określoną właściwość. |
-| `['id']` | value | Pobiera identyfikator funkcji, jeśli ma. |
+| `['id']` | Wartość | Pobiera identyfikator funkcji, jeśli ma. |
 | `['length', string | array]` | liczba | Pobiera długość ciągu lub tablicy. |
 | `['in', boolean | string | number, array]` | boolean | Określa, czy element istnieje w tablicy |
 | `['in', substring, string]` | boolean | Określa, czy podciąg istnieje w ciągu |
@@ -137,6 +142,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Podobnie konspekt wielokątów będzie renderowany w warstwach liniowych. Aby wyłączyć to zachowanie w warstwie liniowej, Dodaj filtr, który umożliwia tylko `LineString` `MultiLineString` funkcje i.  
 
+Oto kilka dodatkowych przykładów użycia wyrażeń danych:
+
+```javascript
+//Get item [2] from an array "properties.abcArray[1]" = "c"
+['at', 2, ['get', 'abcArray']]
+
+//Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
+['at', 1, ['at', 0, ['get', 'array2d']]]
+
+//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+['in', 'a', ['get', 'abcArray']]
+
+//Get the length of an array "properties.abcArray.length" = 3
+['length', ['get', 'abcArray']]
+
+//Get the value of a subproperty "properties._style.fillColor" = "red"
+['get', 'fillColor', ['get', '_style']]
+
+//Check that "fillColor" exists as a subproperty of "_style".
+['has', 'fillColor', ['get', '_style']]
+```
+
 ## <a name="math-expressions"></a>Wyrażenia matematyczne
 
 Wyrażenia matematyczne zapewniają operatory matematyczne do wykonywania obliczeń opartych na danych w ramach struktury wyrażeń.
@@ -181,14 +208,14 @@ Wyrażenie agregujące przyjmuje trzy wartości: wartość operatora i wartość
 ```
 
 - operator: funkcja wyrażenia, która następnie jest stosowana do wszystkich wartości obliczonych przez `mapExpression` dla każdego punktu w klastrze. Obsługiwane operatory: 
-    - Dla liczb: `+` , `*` , `max` ,`min`
-    - W przypadku wartości logicznych: `all` ,`any`
+    - Dla liczb: `+` , `*` , `max` , `min`
+    - W przypadku wartości logicznych: `all` , `any`
 - initialValue: wartość początkowa, w której agregowana jest pierwsza wartość obliczeniowa.
 - mapExpression: wyrażenie, które jest stosowane do każdego punktu w zestawie danych.
 
 **Przykłady**
 
-Jeśli wszystkie funkcje w zestawie danych mają `revenue` Właściwość, która jest liczbą. Następnie można obliczyć łączny przychód wszystkich punktów w klastrze, które są tworzone na podstawie zestawu danych. To obliczenie jest wykonywane przy użyciu następującego wyrażenia agregującego:`['+', 0, ['get', 'revenue']]`
+Jeśli wszystkie funkcje w zestawie danych mają `revenue` Właściwość, która jest liczbą. Następnie można obliczyć łączny przychód wszystkich punktów w klastrze, które są tworzone na podstawie zestawu danych. To obliczenie jest wykonywane przy użyciu następującego wyrażenia agregującego: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Wyrażenia logiczne
 
@@ -410,7 +437,7 @@ Wyrażenia typu dostarczają narzędzia do testowania i konwertowania różnych 
 | `['typeof', value]` | ciąg | Zwraca ciąg opisujący typ danej wartości. |
 
 > [!TIP]
-> Jeśli komunikat o błędzie podobny do `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` pojawi się w konsoli przeglądarki, oznacza to, że w kodzie znajduje się wyrażenie, które zawiera tablicę, która nie ma ciągu dla swojej pierwszej wartości. Jeśli chcesz, aby wyrażenie zwracało tablicę, zawiń tablicę przy użyciu `literal` wyrażenia. W poniższym przykładzie ustawiono opcję ikony `offset` warstwy symboli, która musi być tablicą zawierającą dwie liczby, przy użyciu `match` wyrażenia, aby wybrać między dwoma wartościami przesunięcia na podstawie wartości `entityType` właściwości funkcji Point.
+> Jeśli komunikat o błędzie podobny do `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` pojawi się w konsoli przeglądarki, oznacza to, że w kodzie znajduje się wyrażenie, które zawiera tablicę, która nie ma ciągu dla swojej pierwszej wartości. Jeśli chcesz, aby wyrażenie zwracało tablicę, zawiń tablicę przy użyciu `literal` wyrażenia. W poniższym przykładzie ustawiono opcję ikony `offset` warstwy symboli, która musi być tablicą zawierającą dwie liczby, przy użyciu `match` wyrażenia, aby wybrać między dwoma wartościami przesunięcia na podstawie wartości  `entityType` właściwości funkcji Point.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -490,7 +517,7 @@ Powyższe wyrażenie renderuje kod PIN na mapie z tekstem "64 °F" na początku,
 
 <center>
 
-![Przykład ](media/how-to-expressions/string-operator-expression.png) wyrażenia operatora ciągu</center>
+![Przykład ](media/how-to-expressions/string-operator-expression.png) wyrażenia operatora ciągu </center>
 
 ## <a name="interpolate-and-step-expressions"></a>Wyrażenia interpolowane i krokowe
 
@@ -502,9 +529,9 @@ Wyrażenia interpolacji i kroku mogą służyć do obliczania wartości w interp
 
 Istnieją trzy typy metod interpolacji, których można użyć w `interpolate` wyrażeniu:
  
-* `['linear']`— Interpoluje liniowo między parą przerwań.
-* `['exponential', base]`— Interpolowane wykładniczo między zatrzymania. `base`Wartość określa szybkość, z jaką wzrasta dane wyjściowe. Wyższe wartości sprawiają, że dane wyjściowe zwiększają się w kierunku górnego końca zakresu. `base`Wartość bliska 1 powoduje utworzenie danych wyjściowych, które zwiększają się bardziej liniowo.
-* `['cubic-bezier', x1, y1, x2, y2]`— Interpoluje przy użyciu [zakrzywionej krzywej Beziera](https://developer.mozilla.org/docs/Web/CSS/timing-function) zdefiniowanej przez podaną punkty kontrolne.
+* `['linear']` — Interpoluje liniowo między parą przerwań.
+* `['exponential', base]` — Interpolowane wykładniczo między zatrzymania. `base`Wartość określa szybkość, z jaką wzrasta dane wyjściowe. Wyższe wartości sprawiają, że dane wyjściowe zwiększają się w kierunku górnego końca zakresu. `base`Wartość bliska 1 powoduje utworzenie danych wyjściowych, które zwiększają się bardziej liniowo.
+* `['cubic-bezier', x1, y1, x2, y2]` — Interpoluje przy użyciu [zakrzywionej krzywej Beziera](https://developer.mozilla.org/docs/Web/CSS/timing-function) zdefiniowanej przez podaną punkty kontrolne.
 
 Oto przykład sposobu, w jaki wyglądają te różne typy interpolacji. 
 
@@ -553,7 +580,7 @@ Na poniższej ilustracji przedstawiono, jak kolory są wybierane dla powyższego
  
 <center>
 
-![Przykład ](media/how-to-expressions/interpolate-expression-example.png) wyrażenia interpolacji</center>
+![Przykład ](media/how-to-expressions/interpolate-expression-example.png) wyrażenia interpolacji </center>
 
 ### <a name="step-expression"></a>Wyrażenie kroku
 
@@ -609,7 +636,7 @@ Specjalne wyrażenia mające zastosowanie tylko do określonych warstw.
 
 ### <a name="heat-map-density-expression"></a>Wyrażenie gęstości mapy cieplnej
 
-Wyrażenie gęstości mapy cieplnej Pobiera wartość gęstości mapy cieplnej dla każdego piksela w warstwie mapy cieplnej i jest definiowana jako `['heatmap-density']` . Ta wartość jest liczbą z zakresu od `0` do `1` . Jest on używany w połączeniu z `interpolation` `step` wyrażeniem or, aby zdefiniować gradient koloru używany do kolorowania mapy cieplnej. Tego wyrażenia można używać tylko w [opcji Color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) warstwy mapy cieplnej.
+Wyrażenie gęstości mapy cieplnej Pobiera wartość gęstości mapy cieplnej dla każdego piksela w warstwie mapy cieplnej i jest definiowana jako `['heatmap-density']` . Ta wartość jest liczbą z zakresu od `0` do `1` . Jest on używany w połączeniu z `interpolation` `step` wyrażeniem or, aby zdefiniować gradient koloru używany do kolorowania mapy cieplnej. Tego wyrażenia można używać tylko w [opcji Color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) warstwy mapy cieplnej.
 
 > [!TIP]
 > Kolor pod indeksem 0, w wyrażeniu interpolacji lub domyślnym kolorem kroku, definiuje kolor obszaru, w którym nie ma żadnych danych. Kolor pod indeksem 0 może służyć do definiowania koloru tła. Wiele woli ustawić tę wartość na przezroczystą lub częściowo przezroczystą czerń.
@@ -653,7 +680,7 @@ Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [dodawania do 
 
 ### <a name="line-progress-expression"></a>Wyrażenie postępu wiersza
 
-Wyrażenie postępu wiersza pobiera postęp wzdłuż linii gradientu w warstwie liniowej i jest zdefiniowane jako `['line-progress']` . Ta wartość jest liczbą z zakresu od 0 do 1. Jest on używany w połączeniu z `interpolation` `step` wyrażeniem or. Tego wyrażenia można używać tylko z [opcją strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) warstwy liniowej. 
+Wyrażenie postępu wiersza pobiera postęp wzdłuż linii gradientu w warstwie liniowej i jest zdefiniowane jako `['line-progress']` . Ta wartość jest liczbą z zakresu od 0 do 1. Jest on używany w połączeniu z `interpolation` `step` wyrażeniem or. Tego wyrażenia można używać tylko z [opcją strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) warstwy liniowej. 
 
 > [!NOTE]
 > `strokeGradient`Opcja warstwy liniowej wymaga, `lineMetrics` Aby opcja źródła danych była ustawiona na wartość `true` .
@@ -684,9 +711,9 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 Wyrażenie formatu pola tekstowego może być używane z `textField` opcją właściwości warstwy symboli, `textOptions` Aby zapewnić formatowanie tekstu mieszanego. To wyrażenie umożliwia określenie zestawu ciągów wejściowych i opcji formatowania. Dla każdego ciągu wejściowego w tym wyrażeniu można określić następujące opcje.
 
- * `'font-scale'`-Określa współczynnik skalowania dla rozmiaru czcionki. Jeśli ta wartość jest określona, spowoduje to zastąpienie `size` właściwości `textOptions` dla pojedynczego ciągu.
- * `'text-font'`-Określa co najmniej jedną rodzinę czcionek, która ma być używana dla tego ciągu. Jeśli ta wartość jest określona, spowoduje to zastąpienie `font` właściwości `textOptions` dla pojedynczego ciągu.
- * `'text-color'`-Określa kolor, który ma zostać zastosowany do tekstu podczas renderowania. 
+ * `'font-scale'` -Określa współczynnik skalowania dla rozmiaru czcionki. Jeśli ta wartość jest określona, spowoduje to zastąpienie `size` właściwości `textOptions` dla pojedynczego ciągu.
+ * `'text-font'` -Określa co najmniej jedną rodzinę czcionek, która ma być używana dla tego ciągu. Jeśli ta wartość jest określona, spowoduje to zastąpienie `font` właściwości `textOptions` dla pojedynczego ciągu.
+ * `'text-color'` -Określa kolor, który ma zostać zastosowany do tekstu podczas renderowania. 
 
 Poniższy pseudokodzie definiuje strukturę wyrażenia formatu pola tekstowego. 
 
@@ -743,16 +770,16 @@ Ta warstwa będzie renderować funkcję Point, jak pokazano na poniższej ilustr
  
 <center>
 
-![Obraz funkcji punktu z sformatowanym polem ](media/how-to-expressions/text-field-format-expression.png) tekstowym</center>
+![Obraz funkcji punktu z sformatowanym polem ](media/how-to-expressions/text-field-format-expression.png) tekstowym </center>
 
 ### <a name="number-format-expression"></a>Wyrażenie formatu liczbowego
 
 `number-format`Wyrażenia można używać tylko z `textField` opcją warstwy symboli. To wyrażenie konwertuje podaną liczbę na sformatowany ciąg. To wyrażenie otacza funkcję [Number. ToLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) języka JavaScript i obsługuje następujący zestaw opcji.
 
- * `locale`-Należy określić tę opcję, aby przekonwertować liczby na ciągi w sposób, który jest wyrównany do określonego języka. Przekaż [tag języka BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) do tej opcji.
- * `currency`— Aby przekonwertować liczbę na ciąg reprezentujący walutę. Możliwe wartości to [ISO 4217 kody walutowe](https://en.wikipedia.org/wiki/ISO_4217), takie jak "USD" dla DOLARa USA, "EUR" dla euro lub "CNY" dla CHIŃSKIego RMBu.
- * `'min-fraction-digits'`-Określa minimalną liczbę miejsc dziesiętnych do uwzględnienia w wersji ciągu liczby.
- * `'max-fraction-digits'`-Określa maksymalną liczbę miejsc dziesiętnych do uwzględnienia w wersji ciągu liczby.
+ * `locale` -Należy określić tę opcję, aby przekonwertować liczby na ciągi w sposób, który jest wyrównany do określonego języka. Przekaż [tag języka BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) do tej opcji.
+ * `currency` — Aby przekonwertować liczbę na ciąg reprezentujący walutę. Możliwe wartości to [ISO 4217 kody walutowe](https://en.wikipedia.org/wiki/ISO_4217), takie jak "USD" dla DOLARa USA, "EUR" dla euro lub "CNY" dla CHIŃSKIego RMBu.
+ * `'min-fraction-digits'` -Określa minimalną liczbę miejsc dziesiętnych do uwzględnienia w wersji ciągu liczby.
+ * `'max-fraction-digits'` -Określa maksymalną liczbę miejsc dziesiętnych do uwzględnienia w wersji ciągu liczby.
 
 Poniższy pseudokodzie definiuje strukturę wyrażenia formatu pola tekstowego. 
 
@@ -791,7 +818,7 @@ Ta warstwa będzie renderować funkcję Point, jak pokazano na poniższej ilustr
 
 <center>
 
-![Przykład ](media/how-to-expressions/number-format-expression.png) wyrażenia formatu liczbowego</center>
+![Przykład ](media/how-to-expressions/number-format-expression.png) wyrażenia formatu liczbowego </center>
 
 ### <a name="image-expression"></a>Wyrażenie obrazu
 
@@ -829,7 +856,7 @@ Ta warstwa będzie renderować pole tekstowe w warstwie symboli, jak pokazano na
 
 <center>
 
-![Przykład ](media/how-to-expressions/image-expression.png) wyrażenia obrazu</center>
+![Przykład ](media/how-to-expressions/image-expression.png) wyrażenia obrazu </center>
 
 ## <a name="zoom-expression"></a>Wyrażenie powiększenia
 
@@ -916,16 +943,16 @@ Zobacz następujące artykuły, aby uzyskać więcej przykładów kodu, które i
 Dowiedz się więcej o opcjach warstwy, które obsługują wyrażenia:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)

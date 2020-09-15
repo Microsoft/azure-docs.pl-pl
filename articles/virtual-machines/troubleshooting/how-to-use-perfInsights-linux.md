@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121395"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088548"
 ---
 # <a name="how-to-use-perfinsights"></a>Korzystanie z narzędzia PerfInsights
 
@@ -78,7 +78,7 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
   - Profilowanie przechwytywania użycia procesora CPU i procesów w 5-sekundowych interwałach
   - Profilowanie przechwytywania procesów użycia pamięci w przedziale czasu 5 sekund
 
-- Networking  
+- Sieć  
   - Lista kart sieciowych z statystykami kart
   - Tabela routingu sieciowego
   - Otwarte porty i stan
@@ -130,10 +130,10 @@ Zbierane są informacje o maszynie wirtualnej z systemem Linux, systemie operacy
 
     | Dystrybucja               | Wersja                                         |
     |----------------------------|-------------------------------------------------|
-    | Serwer Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-Database-Ee 13,8 — obraz portalu Marketplace)|
+    | Serwer Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 |
     | CentOS                     | 6,5 [ `*` ], 7,6                                    |
     | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
-    | Ubuntu                     | 14.04, 16.04, 18.04                               |
+    | Ubuntu                     | 14,04, 16,04, 18,04, 20,04                               |
     | Debian                     | 8, 9, 10 [ `*` ]                                    |
     | SLES                       | 12 SP4 [ `*` ]                                      |
     |                            |                                                   |

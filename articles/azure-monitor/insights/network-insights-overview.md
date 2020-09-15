@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 5a85efc5de0d99904da568c97672adf40ce8a414
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646565"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088922"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor dla sieci (wersja zapoznawcza)
 Azure Monitor dla sieci zapewnia kompleksowy wgląd w kondycję i metryki dla wszystkich wdrożonych zasobów sieciowych bez żadnej konfiguracji. Funkcja wyszukiwania zaawansowanego pomaga identyfikować zależności zasobów, które umożliwiają scenariuszom, takim jak identyfikowanie zasobów, które obsługują witrynę sieci Web, wyszukując nazwę hostowanej witryny sieci Web.
@@ -30,7 +30,7 @@ Widok Kondycja zasobów i alerty można dostosować za pomocą filtrów, takich 
 
 Pole wyszukiwania może służyć do wyszukiwania zasobów i skojarzonych zasobów. Na przykład publiczny adres IP jest skojarzony z Application Gateway. Wyszukiwanie publicznych adresów IP nazwa DNS będzie identyfikować zarówno publiczny, jak i skojarzony Application Gateway.
 
-![Wyszukiwanie](media/network-insights-overview/search.png)
+![Zrzut ekranu przedstawia wyniki wyszukiwania nazwy DNS.](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health i metryka

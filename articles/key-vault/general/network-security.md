@@ -7,15 +7,15 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c8d1af9bcea6b5e0e43a8928cbcdd907f2fb534
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069037"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087400"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
@@ -27,7 +27,6 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące konfigurowania zapór A
 > [!NOTE]
 > Należy pamiętać o następujących ograniczeniach konfiguracji:
 > * Dozwolone są maksymalnie 127 reguły sieci wirtualnej i 127. 
-> * Małe zakresy adresów używające rozmiaru prefiksu "/31" nie są obsługiwane. Zamiast tego należy skonfigurować te zakresy przy użyciu poszczególnych reguł adresów IP.
 > * Reguły sieci IP są dozwolone tylko dla publicznych adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w dokumencie RFC 1918) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od **10.**, **172.16-31**i **192,168.** 
 > * W tej chwili są obsługiwane tylko adresy IPv4.
 

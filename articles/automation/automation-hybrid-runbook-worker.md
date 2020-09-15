@@ -3,14 +3,14 @@ title: Azure Automation przegląd hybrydowego procesu roboczego elementu Runbook
 description: Ten artykuł zawiera omówienie hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub dostawcy chmury.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448083"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087896"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -51,9 +51,9 @@ Aby hybrydowy proces roboczy elementu Runbook mógł nawiązać połączenie i z
 Następujący port i adresy URL są wymagane dla hybrydowego procesu roboczego elementu Runbook:
 
 * Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
-* Globalny adres URL:`*.azure-automation.net`
-* Globalny adres URL US Gov Wirginia:`*.azure-automation.us`
-* Usługa agenta:`https://<workspaceId>.agentsvc.azure-automation.net`
+* Globalny adres URL: `*.azure-automation.net`
+* Globalny adres URL US Gov Wirginia: `*.azure-automation.us`
+* Usługa agenta: `https://<workspaceId>.agentsvc.azure-automation.net`
 
 Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację hybrydowego procesu roboczego elementu Runbook do tego regionalnego centrum danych. Przejrzyj [rekordy DNS używane przez Azure Automation](how-to/automation-region-dns-records.md) dla wymaganych rekordów DNS.
 
@@ -63,11 +63,11 @@ Jeśli serwer proxy jest używany do komunikacji między Azure Automation i komp
 
 ### <a name="firewall-use"></a>Użycie zapory
 
-W przypadku używania zapory w celu ograniczenia dostępu do Internetu należy skonfigurować zaporę tak, aby zezwalała na dostęp. Jeśli jest używana brama Log Analytics jako serwer proxy, upewnij się, że jest ona skonfigurowana dla hybrydowych procesów roboczych elementów Runbook. Zobacz [Konfigurowanie bramy log Analytics dla hybrydowych procesów roboczych usługi Automation](../azure-monitor/platform/gateway.md).
+W przypadku używania zapory w celu ograniczenia dostępu do Internetu należy skonfigurować zaporę tak, aby zezwalała na dostęp. Jeśli jest używana brama Log Analytics jako serwer proxy, upewnij się, że jest ona skonfigurowana dla hybrydowych procesów roboczych elementów Runbook. Zobacz [Konfigurowanie bramy log Analytics dla hybrydowych procesów roboczych elementów Runbook usługi Automation](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Tagi usługi
 
-Azure Automation obsługuje Tagi usługi sieci wirtualnej platformy Azure, rozpoczynając od [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)znacznika usługi. Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules) lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń można używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi **GuestAndHybridManagement** w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla usługi Automation lub go odrzucić. Ten tag usługi nie obsługuje bardziej szczegółowej kontroli przez ograniczenie zakresów adresów IP do określonego regionu.
+Azure Automation obsługuje Tagi usługi sieci wirtualnej platformy Azure, rozpoczynając od [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)znacznika usługi. Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules) lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń można używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi **GuestAndHybridManagement**  w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla usługi Automation lub go odrzucić. Ten tag usługi nie obsługuje bardziej szczegółowej kontroli przez ograniczenie zakresów adresów IP do określonego regionu.
 
 Tag usługi dla usługi Azure Automation zawiera tylko adresy IP używane w następujących scenariuszach:
 
@@ -115,6 +115,20 @@ Jeśli maszyna hosta hybrydowego procesu roboczego elementu Runbook zostanie pon
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Uprawnienia elementu Runbook dla hybrydowego procesu roboczego elementu Runbook
 
 Ponieważ uzyskują dostęp do zasobów nienależących do platformy Azure, elementy Runbook działające w hybrydowym procesie roboczym elementu Runbook nie mogą korzystać z mechanizmu uwierzytelniania zwykle używanego przez elementy Runbook uwierzytelniane w zasobach platformy Azure. Element Runbook udostępnia własne uwierzytelnianie do zasobów lokalnych lub konfiguruje uwierzytelnianie przy użyciu [zarządzanych tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Możesz również określić konto Uruchom jako, aby zapewnić kontekst użytkownika dla wszystkich elementów Runbook.
+
+## <a name="view-hybrid-runbook-workers"></a>Wyświetlanie hybrydowych procesów roboczych elementów Runbook
+
+Po włączeniu funkcji Update Management na serwerach lub maszynach wirtualnych z systemem Windows można sporządzić spis listy grup hybrydowych procesów roboczych elementów Runbook w Azure Portal. Możesz wyświetlić do 2 000 procesów roboczych w portalu, wybierając **grupę hybrydowych procesów roboczych grupy** z opcji **Grupa hybrydowych procesów roboczych** z okienka po lewej stronie dla wybranego konta usługi Automation.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Strona grup hybrydowych procesów roboczych systemu konta usługi Automation" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+Jeśli masz więcej niż 2 000 hybrydowych procesów roboczych, aby wyświetlić listę wszystkich z nich, możesz uruchomić następujący skrypt programu PowerShell:
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

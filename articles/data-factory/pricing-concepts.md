@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949964"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087188"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Informacje o cenach usługi Data Factory w ramach przykładów
 
@@ -130,9 +130,13 @@ Aby zrealizować ten scenariusz, należy utworzyć potok z następującymi eleme
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Używanie debugowania przepływu danych mapowania dla normalnego dnia roboczego
 
-Jako inżynier danych jest odpowiedzialny za projektowanie, kompilowanie i testowanie danych mapowania w każdym dniu. Zaloguj się do interfejsu użytkownika usługi ADF w rano i Włącz tryb debugowania dla przepływów danych. Domyślny czas wygaśnięcia sesji debugowania to 60 minut. Pracujesz w ciągu dnia przez 8 godzin, więc sesja debugowania nigdy nie wygasa. W związku z tym opłata za dzień będzie:
+Jako inżynier danych sam jest odpowiedzialny za projektowanie, kompilowanie i testowanie danych mapowania w każdym dniu. Sam loguje się do interfejsu użytkownika funkcji ADF z rano i włącza tryb debugowania dla przepływów danych. Domyślny czas wygaśnięcia sesji debugowania to 60 minut. Działanie sam działa w ciągu dnia przez 8 godzin, dlatego sesja debugowania nigdy nie wygasa. W związku z tym opłaty za ten dzień będą następujące:
 
 **8 (godz.) x 8 (rdzenie zoptymalizowane pod kątem obliczeń) x $0,193 = $12,35**
+
+W tym samym czasie Krzysztof, inny inżynier danych, również loguje się do interfejsu użytkownika przeglądarki ADF w celu profilowania danych i pracy w projekcie ETL. Krzysztof nie działa w ramach programu ADF cały dzień, takich jak sam. Krzysztof musi używać debugera przepływu danych przez 1 godzinę w tym samym okresie i w tym samym dniu co powyżej. Są to opłaty naliczane za użycie debugowania:
+
+**1 (godzina) x 8 (ogólne rdzenie przeznaczenie) x $0,274 = $2,19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Przekształcanie danych w magazynie obiektów BLOB przy użyciu mapowania przepływów danych
 
@@ -207,7 +211,7 @@ P: Jeśli chcę uruchomić więcej niż 50 działań potoku, czy te działania m
 
 Odp.: dozwolone są maksymalnie 50 współbieżnych działań potokowych.  Działanie potoku 51th będzie umieszczane w kolejce do momentu otwarcia okna "wolne miejsce". Ta sama dla działania zewnętrznego. Dozwolone są maksymalnie 800 współbieżne działania zewnętrzne.
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 
 Teraz, gdy rozumiesz Cennik Azure Data Factory, możesz rozpocząć pracę.
 

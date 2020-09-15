@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: b5cbd5311c6070f59f8a5953d8b99789ab758c9c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6abe0ed88adbdf8263aa27d340fb2fff156d98e6
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524611"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089347"
 ---
 # <a name="drawing-tool-events"></a>Zdarzenia narzędzia do rysowania
 
 W przypadku korzystania z narzędzi do rysowania na mapie warto reagować na niektóre zdarzenia, gdy użytkownik rysuje na mapie. W tej tabeli wymieniono wszystkie zdarzenia obsługiwane przez `DrawingManager` klasę.
 
-| Zdarzenie | Opis |
+| Wydarzenie | Opis |
 |-------|-------------|
 | `drawingchanged` | Uruchamiany, gdy dodaliśmy lub zmieniono dowolna Współrzędna kształtu. | 
 | `drawingchanging` | Uruchamiany, gdy zostanie wyświetlona Współrzędna podglądu dla kształtu. Na przykład to zdarzenie zostanie wyzwolone wiele razy, gdy Współrzędna zostanie przeciągnięta. | 
@@ -31,7 +31,7 @@ Poniższy kod przedstawia sposób działania zdarzeń w module narzędzi do ryso
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Zdarzenia narzędzi do rysowania" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Zdarzenia narzędzi do rysowania" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Zobacz <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>zdarzenia narzędzi do rysowania</a> piórem według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w witrynie <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -47,7 +47,7 @@ Ten kod demonstruje sposób monitorowania zdarzenia kształtów rysowania przez 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Wybierz dane w wyrysowanym obszarze wielokątów" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Wybierz dane w wyrysowanym obszarze wielokątów" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Zapoznaj się z piórem <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Wybierz dane w wyrysowanym obszarze wielokąta</a> przez Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -59,7 +59,7 @@ Ten kod wyszukuje punkty zainteresowań w obszarze kształtu po zakończeniu rys
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Rysowanie i wyszukiwanie w obszarze wielokąta" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Rysowanie i wyszukiwanie w obszarze wielokąta" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Zobacz <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>rysowanie i wyszukiwanie piórem w obszarze wielokąta</a> , Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -67,11 +67,11 @@ Zobacz <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>rysowanie i wyszukiwan
 
 ### <a name="create-a-measuring-tool"></a>Tworzenie narzędzia pomiarowego
 
-Poniższy kod pokazuje, jak można użyć zdarzeń rysowania do utworzenia narzędzia pomiarowego. Służy `drawingchanging` do monitorowania kształtu w miarę jego rysowania. Gdy użytkownik przesuwa mysz, są obliczane wymiary kształtu. To `drawingcomplete` zdarzenie służy do wykonywania ostatecznego obliczenia na kształcie po jego narysowaniu. To `drawingmodechanged` zdarzenie służy do określenia, kiedy użytkownik przechodzi do trybu rysowania. Ponadto `drawingmodechanged` zdarzenie czyści kanwę rysowania i czyści stare informacje o pomiarach.
+Poniższy kod pokazuje, jak można użyć zdarzeń rysowania do utworzenia narzędzia pomiarowego. Służy `drawingchanging` do monitorowania kształtu w miarę jego rysowania. Gdy użytkownik przesuwa mysz, są obliczane wymiary kształtu. To `drawingcomplete` zdarzenie służy do wykonywania ostatecznego obliczenia na kształcie po jego narysowaniu. To `drawingmodechanged` zdarzenie służy do określenia, kiedy użytkownik przechodzi do trybu rysowania. Ponadto  `drawingmodechanged` zdarzenie czyści kanwę rysowania i czyści stare informacje o pomiarach.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Narzędzie pomiarowe" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Narzędzie pomiarowe" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Zobacz <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Narzędzie pomiar</a> piórem Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

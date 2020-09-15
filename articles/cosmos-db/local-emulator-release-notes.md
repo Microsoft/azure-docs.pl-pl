@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: f8df1a62ace8a1f094a708b752e175f3299d0ee0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 268470f846f31e3577b12c217ddcb3c128136101
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053178"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086644"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos emulator — informacje o wersji i pobrania
 
@@ -28,9 +28,10 @@ W tym artykule przedstawiono informacje o wersji emulatora usługi Azure Cosmos 
 
 ### <a name="2115-08232020"></a>2.11.5 (08/23/2020)
 
-- W tej wersji dodano dwie nowe opcje uruchamiania emulatora Cosmos: 
-* "/EnablePreview" — umożliwia korzystanie z funkcji w wersji zapoznawczej emulatora Cosmos; są to funkcje, które są nadal opracowywane i dostępne za pośrednictwem CI i przykład pisania.
-* "/EnableAadAuthentication" — umożliwia emulator Cosmos akceptujący niestandardowe tokeny usługi AAD jako alternatywę dla kluczy głównych Cosmos. Ta funkcja jest nadal w trakcie opracowywania. określone przypisania ról i inne ustawienia powiązane z uprawnieniami nie są teraz obsługiwane.
+W tej wersji dodano dwie nowe opcje uruchamiania emulatora Cosmos: 
+
+* "/EnablePreview" — umożliwia korzystanie z funkcji w wersji zapoznawczej dla emulatora. Funkcje w wersji zapoznawczej, które są nadal w fazie tworzenia i są dostępne za pośrednictwem CI i przykład pisania.
+* "/EnableAadAuthentication" — umożliwia emulatorowi akceptowanie niestandardowych tokenów usługi AAD jako alternatywę dla kluczy głównych Azure Cosmos. Ta funkcja jest nadal w fazie opracowywania. określone przypisania ról i inne ustawienia powiązane z uprawnieniami nie są obecnie obsługiwane.
 
 ### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
 

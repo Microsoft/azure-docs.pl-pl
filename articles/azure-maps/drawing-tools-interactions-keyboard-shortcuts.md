@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77198296"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089313"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Typy interakcji i skróty klawiaturowe w module narzędzi do rysowania
 
@@ -21,9 +21,9 @@ W tym artykule opisano różne sposoby rysowania i edytowania kształtów przy u
 
 Menedżer rysowania obsługuje trzy różne sposoby współpracy z mapą, aby rysować kształty.
 
-* `click`-Współrzędne są dodawane po kliknięciu myszy lub dotknięcia.
-* `freehand `-Współrzędne są dodawane, gdy mysz lub dotknięcie zostanie przeciągnięte na mapie.
-* `hybrid`-Współrzędne są dodawane, gdy mysz lub dotknięcie zostanie kliknięte lub przeciągnięte.
+* `click` -Współrzędne są dodawane po kliknięciu myszy lub dotknięcia.
+* `freehand ` -Współrzędne są dodawane, gdy mysz lub dotknięcie zostanie przeciągnięte na mapie.
+* `hybrid` -Współrzędne są dodawane, gdy mysz lub dotknięcie zostanie kliknięte lub przeciągnięte.
 
 ## <a name="how-to-draw-shapes"></a>Jak rysować kształty
 
@@ -146,7 +146,7 @@ Narzędzia do rysowania obsługują skróty klawiaturowe. Te skróty klawiaturow
 Dowiedz się więcej na temat klas w module narzędzi do rysowania:
 
 > [!div class="nextstepaction"]
-> [Menedżer rysowania](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Menedżer rysowania](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Rysowanie paska narzędzi](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Rysowanie paska narzędzi](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

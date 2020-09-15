@@ -3,18 +3,18 @@ title: Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .
 description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB podczas korzystania z zestawu .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 06/16/2020
+ms.date: 09/12/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc5af781b86ef559abaf33b0cb027ef14adb4262
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021905"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086991"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 
@@ -28,6 +28,7 @@ W tym artykule opisano typowe problemy, obejścia, kroki diagnostyczne i narzęd
 Zestaw .NET SDK zapewnia logiczną reprezentację po stronie klienta, aby uzyskać dostęp do Azure Cosmos DB interfejsu API SQL. W tym artykule opisano narzędzia i podejścia pomocne w przypadku napotkania jakichkolwiek problemów.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Lista kontrolna dotycząca rozwiązywania problemów
+
 Przed przeniesieniem aplikacji do środowiska produkcyjnego należy wziąć pod uwagę poniższą listę kontrolną. Korzystanie z listy kontrolnej uniemożliwi kilka typowych problemów, które mogą zostać wyświetlone. Można również szybko zdiagnozować w przypadku wystąpienia problemu:
 
 *    Użyj najnowszego [zestawu SDK](sql-api-sdk-dotnet-standard.md). Zestawów SDK wersji zapoznawczych nie należy używać w środowisku produkcyjnym. Uniemożliwi to wyróżnianie znanych problemów, które zostały już naprawione.
@@ -99,12 +100,17 @@ To opóźnienie może mieć wiele przyczyn:
     * Włącz [przyspieszone sieci na istniejącej maszynie wirtualnej](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Rozważ użycie [wyższej końcowej maszyny wirtualnej](../virtual-machines/windows/sizes.md).
 
-### <a name="slow-query-performance"></a>Niska wydajność zapytań
-[Metryki zapytań](sql-api-query-metrics.md) pomogą określić, gdzie zapytanie jest spędzane większością czasu. Z metryk zapytania można sprawdzić, jaka część jest używana na zapleczu programu vs a kliencie.
-* Jeśli zapytanie zaplecza wraca szybko i spędza na tym dużą godzinę, sprawdź obciążenie maszyny. Prawdopodobnie nie ma wystarczającej ilości zasobów i zestaw SDK oczekuje na dostępność zasobów do obsługi odpowiedzi.
-* Jeśli zapytanie zaplecza próbuje [zoptymalizować zapytanie](optimize-cost-queries.md) i przeszukać bieżące [zasady indeksowania](index-overview.md) 
+### <a name="common-query-issues"></a>Typowe problemy z zapytaniami
 
-## <a name="next-steps"></a>Kolejne kroki
+[Metryki zapytań](sql-api-query-metrics.md) pomogą określić, gdzie zapytanie jest spędzane większością czasu. Z metryk zapytania można sprawdzić, jaka część jest używana na zapleczu programu vs a kliencie. Dowiedz się więcej o [rozwiązywaniu problemów z wydajnością zapytań](troubleshoot-query-performance.md).
+
+* Jeśli zapytanie zaplecza wraca szybko i spędza na tym dużą godzinę, sprawdź obciążenie maszyny. Prawdopodobnie nie ma wystarczającej ilości zasobów i zestaw SDK oczekuje na dostępność zasobów do obsługi odpowiedzi.
+* Jeśli zapytanie zaplecza jest powolne, spróbuj [zoptymalizować zapytanie](troubleshoot-query-performance.md) i przejrzeć bieżące [zasady indeksowania](index-overview.md)
+
+    > [!NOTE]
+    > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta Windows 64-bitowego. Zestaw SDK SQL zawiera natywną ServiceInterop.dll do analizy i optymalizowania zapytań lokalnie. ServiceInterop.dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, w których ServiceInterop.dll nie jest dostępna, do bramy zostanie nawiązane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania.
+
+## <a name="next-steps"></a>Następne kroki
 
 * Informacje o wskazówkach dotyczących wydajności dla [platform .NET v3](performance-tips-dotnet-sdk-v3-sql.md) i [.NET V2](performance-tips.md)
 * Dowiedz się więcej na temat [zestawów SDK Java opartych na](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) replikach
